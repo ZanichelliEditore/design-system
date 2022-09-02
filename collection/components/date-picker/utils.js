@@ -1,4 +1,13 @@
 import { ZDatePickerMode, ZDatePickerModeValues, ZDatePickerPosition, } from "../../beans";
+export function validateDate(dateStr, hasTime = false) {
+  const regex = hasTime
+    ? /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4} - \d{2}:\d{2}$/
+    : /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}$/;
+  if (dateStr.match(regex) === null) {
+    return false;
+  }
+  return true;
+}
 export function setFlatpickrPosition(element, mode) {
   const toggleHeight = element.children[0].clientHeight;
   element.style.setProperty("--z-range-picker--toggle-height", `${toggleHeight}px`);
@@ -25,6 +34,11 @@ export function setAriaOptions(element, mode) {
     let nextMonthArrow = element.getElementsByClassName("flatpickr-next-month")[0];
     let tabindexElements = element.querySelectorAll('[tabindex = "-1"]');
     tabindexElements.forEach((element) => element.setAttribute("tabindex", "0"));
+    Array.from(element.getElementsByClassName("flatpickr-day")).forEach((date) => {
+      if (date.classList.contains("flatpickr-disabled")) {
+        date.setAttribute("tabindex", "-1");
+      }
+    });
     prevMonthArrow.setAttribute("tabindex", "0");
     nextMonthArrow.setAttribute("tabindex", "0");
     prevMonthArrow.setAttribute("role", "button");
@@ -39,7 +53,7 @@ export function setAriaOptions(element, mode) {
       setDateTimeAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
     if (mode === ZDatePickerMode.months) {
-      setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow);
+      setMonthsAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
   });
 }

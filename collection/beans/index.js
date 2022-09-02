@@ -310,6 +310,11 @@ export var ZDatePickerPosition;
   ZDatePickerPosition["top"] = "top";
   ZDatePickerPosition["bottom"] = "bottom";
 })(ZDatePickerPosition || (ZDatePickerPosition = {}));
+export var ZRangePickerMode;
+(function (ZRangePickerMode) {
+  ZRangePickerMode["date"] = "date";
+  ZRangePickerMode["dateTime"] = "date-time";
+})(ZRangePickerMode || (ZRangePickerMode = {}));
 export var StatusTagStatus;
 (function (StatusTagStatus) {
   StatusTagStatus["warning"] = "warning";

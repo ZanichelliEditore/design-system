@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-69339d64.js');
+const index$1 = require('./index-a8bdcb9c.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const icons = require('./icons-9fc3ff30.js');
-const utils = require('./utils-98ed20af.js');
-const utils$1 = require('./utils-bfd07a33.js');
+const utils = require('./utils-eca6932d.js');
+const utils$1 = require('./utils-21d41d92.js');
 require('./_commonjsHelpers-537d719a.js');
 
 const stylesCss$8 = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
@@ -428,127 +428,159 @@ const ZLogo = class {
 };
 ZLogo.style = stylesCss$1;
 
-const stylesCss = ".flatpickr-calendar{background:transparent;opacity:0;display:none;text-align:center;visibility:hidden;padding:0;-webkit-animation:none;animation:none;direction:ltr;border:0;font-size:14px;line-height:24px;border-radius:5px;position:absolute;width:307.875px;-webkit-box-sizing:border-box;box-sizing:border-box;-ms-touch-action:manipulation;touch-action:manipulation;background:#fff;-webkit-box-shadow:1px 0 0 #e6e6e6,-1px 0 0 #e6e6e6,0 1px 0 #e6e6e6,0 -1px 0 #e6e6e6,0 3px 13px rgba(0,0,0,0.08);box-shadow:1px 0 0 #e6e6e6,-1px 0 0 #e6e6e6,0 1px 0 #e6e6e6,0 -1px 0 #e6e6e6,0 3px 13px rgba(0,0,0,0.08)}.flatpickr-calendar.open,.flatpickr-calendar.inline{opacity:1;max-height:640px;visibility:visible}.flatpickr-calendar.open{display:inline-block;z-index:99999}.flatpickr-calendar.animate.open{-webkit-animation:fpFadeInDown 300ms cubic-bezier(.23,1,.32,1);animation:fpFadeInDown 300ms cubic-bezier(.23,1,.32,1)}.flatpickr-calendar.inline{display:block;position:relative;top:2px}.flatpickr-calendar.static{position:absolute;top:calc(100% + 2px)}.flatpickr-calendar.static.open{z-index:999;display:block}.flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+1) .flatpickr-day.inRange:nth-child(7n+7){-webkit-box-shadow:none !important;box-shadow:none !important}.flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+2) .flatpickr-day.inRange:nth-child(7n+1){-webkit-box-shadow:-2px 0 0 #e6e6e6,5px 0 0 #e6e6e6;box-shadow:-2px 0 0 #e6e6e6,5px 0 0 #e6e6e6}.flatpickr-calendar .hasWeeks .dayContainer,.flatpickr-calendar .hasTime .dayContainer{border-bottom:0;border-bottom-right-radius:0;border-bottom-left-radius:0}.flatpickr-calendar .hasWeeks .dayContainer{border-left:0}.flatpickr-calendar.hasTime .flatpickr-time{height:40px;border-top:1px solid #e6e6e6}.flatpickr-calendar.noCalendar.hasTime .flatpickr-time{height:auto}.flatpickr-calendar:before,.flatpickr-calendar:after{position:absolute;display:block;pointer-events:none;border:solid transparent;content:'';height:0;width:0;left:22px}.flatpickr-calendar.rightMost:before,.flatpickr-calendar.arrowRight:before,.flatpickr-calendar.rightMost:after,.flatpickr-calendar.arrowRight:after{left:auto;right:22px}.flatpickr-calendar.arrowCenter:before,.flatpickr-calendar.arrowCenter:after{left:50%;right:50%}.flatpickr-calendar:before{border-width:5px;margin:0 -5px}.flatpickr-calendar:after{border-width:4px;margin:0 -4px}.flatpickr-calendar.arrowTop:before,.flatpickr-calendar.arrowTop:after{bottom:100%}.flatpickr-calendar.arrowTop:before{border-bottom-color:#e6e6e6}.flatpickr-calendar.arrowTop:after{border-bottom-color:#fff}.flatpickr-calendar.arrowBottom:before,.flatpickr-calendar.arrowBottom:after{top:100%}.flatpickr-calendar.arrowBottom:before{border-top-color:#e6e6e6}.flatpickr-calendar.arrowBottom:after{border-top-color:#fff}.flatpickr-calendar:focus{outline:0}.flatpickr-wrapper{position:relative;display:inline-block}.flatpickr-months{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.flatpickr-months .flatpickr-month{background:transparent;color:rgba(0,0,0,0.9);fill:rgba(0,0,0,0.9);height:34px;line-height:1;text-align:center;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:hidden;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}.flatpickr-months .flatpickr-prev-month,.flatpickr-months .flatpickr-next-month{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;cursor:pointer;position:absolute;top:0;height:34px;padding:10px;z-index:3;color:rgba(0,0,0,0.9);fill:rgba(0,0,0,0.9)}.flatpickr-months .flatpickr-prev-month.flatpickr-disabled,.flatpickr-months .flatpickr-next-month.flatpickr-disabled{display:none}.flatpickr-months .flatpickr-prev-month i,.flatpickr-months .flatpickr-next-month i{position:relative}.flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,.flatpickr-months .flatpickr-next-month.flatpickr-prev-month{left:0}.flatpickr-months .flatpickr-prev-month.flatpickr-next-month,.flatpickr-months .flatpickr-next-month.flatpickr-next-month{right:0}.flatpickr-months .flatpickr-prev-month:hover,.flatpickr-months .flatpickr-next-month:hover{color:#959ea9}.flatpickr-months .flatpickr-prev-month:hover svg,.flatpickr-months .flatpickr-next-month:hover svg{fill:#f64747}.flatpickr-months .flatpickr-prev-month svg,.flatpickr-months .flatpickr-next-month svg{width:14px;height:14px}.flatpickr-months .flatpickr-prev-month svg path,.flatpickr-months .flatpickr-next-month svg path{-webkit-transition:fill .1s;transition:fill .1s;fill:inherit}.numInputWrapper{position:relative;height:auto}.numInputWrapper input,.numInputWrapper span{display:inline-block}.numInputWrapper input{width:100%}.numInputWrapper input::-ms-clear{display:none}.numInputWrapper input::-webkit-outer-spin-button,.numInputWrapper input::-webkit-inner-spin-button{margin:0;-webkit-appearance:none}.numInputWrapper span{position:absolute;right:0;width:14px;padding:0 4px 0 2px;height:50%;line-height:50%;opacity:0;cursor:pointer;border:1px solid rgba(57,57,57,0.15);-webkit-box-sizing:border-box;box-sizing:border-box}.numInputWrapper span:hover{background:rgba(0,0,0,0.1)}.numInputWrapper span:active{background:rgba(0,0,0,0.2)}.numInputWrapper span:after{display:block;content:\"\";position:absolute}.numInputWrapper span.arrowUp{top:0;border-bottom:0}.numInputWrapper span.arrowUp:after{border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:4px solid rgba(57,57,57,0.6);top:26%}.numInputWrapper span.arrowDown{top:50%}.numInputWrapper span.arrowDown:after{border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid rgba(57,57,57,0.6);top:40%}.numInputWrapper span svg{width:inherit;height:auto}.numInputWrapper span svg path{fill:rgba(0,0,0,0.5)}.numInputWrapper:hover{background:rgba(0,0,0,0.05)}.numInputWrapper:hover span{opacity:1}.flatpickr-current-month{font-size:135%;line-height:inherit;font-weight:300;color:inherit;position:absolute;width:75%;left:12.5%;padding:7.48px 0 0 0;line-height:1;height:34px;display:inline-block;text-align:center;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.flatpickr-current-month span.cur-month{font-family:inherit;font-weight:700;color:inherit;display:inline-block;margin-left:.5ch;padding:0}.flatpickr-current-month span.cur-month:hover{background:rgba(0,0,0,0.05)}.flatpickr-current-month .numInputWrapper{width:6ch;width:7ch\\0;display:inline-block}.flatpickr-current-month .numInputWrapper span.arrowUp:after{border-bottom-color:rgba(0,0,0,0.9)}.flatpickr-current-month .numInputWrapper span.arrowDown:after{border-top-color:rgba(0,0,0,0.9)}.flatpickr-current-month input.cur-year{background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;cursor:text;padding:0 0 0 .5ch;margin:0;display:inline-block;font-size:inherit;font-family:inherit;font-weight:300;line-height:inherit;height:auto;border:0;border-radius:0;vertical-align:initial;-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield}.flatpickr-current-month input.cur-year:focus{outline:0}.flatpickr-current-month input.cur-year[disabled],.flatpickr-current-month input.cur-year[disabled]:hover{font-size:100%;color:rgba(0,0,0,0.5);background:transparent;pointer-events:none}.flatpickr-current-month .flatpickr-monthDropdown-months{appearance:menulist;background:transparent;border:none;border-radius:0;box-sizing:border-box;color:inherit;cursor:pointer;font-size:inherit;font-family:inherit;font-weight:300;height:auto;line-height:inherit;margin:-1px 0 0 0;outline:none;padding:0 0 0 .5ch;position:relative;vertical-align:initial;-webkit-box-sizing:border-box;-webkit-appearance:menulist;-moz-appearance:menulist;width:auto}.flatpickr-current-month .flatpickr-monthDropdown-months:focus,.flatpickr-current-month .flatpickr-monthDropdown-months:active{outline:none}.flatpickr-current-month .flatpickr-monthDropdown-months:hover{background:rgba(0,0,0,0.05)}.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{background-color:transparent;outline:none;padding:0}.flatpickr-weekdays{background:transparent;text-align:center;overflow:hidden;width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;height:28px}.flatpickr-weekdays .flatpickr-weekdaycontainer{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}span.flatpickr-weekday{cursor:default;font-size:90%;background:transparent;color:rgba(0,0,0,0.54);line-height:1;margin:0;text-align:center;display:block;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;font-weight:bolder}.dayContainer,.flatpickr-weeks{padding:1px 0 0 0}.flatpickr-days{position:relative;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;width:307.875px}.flatpickr-days:focus{outline:0}.dayContainer{padding:0;outline:0;text-align:left;width:307.875px;min-width:307.875px;max-width:307.875px;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;display:-ms-flexbox;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-wrap:wrap;-ms-flex-pack:justify;-webkit-justify-content:space-around;justify-content:space-around;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1}.dayContainer+.dayContainer{-webkit-box-shadow:-1px 0 0 #e6e6e6;box-shadow:-1px 0 0 #e6e6e6}.flatpickr-day{background:none;border:1px solid transparent;border-radius:150px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#393939;cursor:pointer;font-weight:400;width:14.2857143%;-webkit-flex-basis:14.2857143%;-ms-flex-preferred-size:14.2857143%;flex-basis:14.2857143%;max-width:39px;height:39px;line-height:39px;margin:0;display:inline-block;position:relative;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;text-align:center}.flatpickr-day.inRange,.flatpickr-day.prevMonthDay.inRange,.flatpickr-day.nextMonthDay.inRange,.flatpickr-day.today.inRange,.flatpickr-day.prevMonthDay.today.inRange,.flatpickr-day.nextMonthDay.today.inRange,.flatpickr-day:hover,.flatpickr-day.prevMonthDay:hover,.flatpickr-day.nextMonthDay:hover,.flatpickr-day:focus,.flatpickr-day.prevMonthDay:focus,.flatpickr-day.nextMonthDay:focus{cursor:pointer;outline:0;background:#e6e6e6;border-color:#e6e6e6}.flatpickr-day.today{border-color:#959ea9}.flatpickr-day.today:hover,.flatpickr-day.today:focus{border-color:#959ea9;background:#959ea9;color:#fff}.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange,.flatpickr-day.selected.inRange,.flatpickr-day.startRange.inRange,.flatpickr-day.endRange.inRange,.flatpickr-day.selected:focus,.flatpickr-day.startRange:focus,.flatpickr-day.endRange:focus,.flatpickr-day.selected:hover,.flatpickr-day.startRange:hover,.flatpickr-day.endRange:hover,.flatpickr-day.selected.prevMonthDay,.flatpickr-day.startRange.prevMonthDay,.flatpickr-day.endRange.prevMonthDay,.flatpickr-day.selected.nextMonthDay,.flatpickr-day.startRange.nextMonthDay,.flatpickr-day.endRange.nextMonthDay{background:#569ff7;-webkit-box-shadow:none;box-shadow:none;color:#fff;border-color:#569ff7}.flatpickr-day.selected.startRange,.flatpickr-day.startRange.startRange,.flatpickr-day.endRange.startRange{border-radius:50px 0 0 50px}.flatpickr-day.selected.endRange,.flatpickr-day.startRange.endRange,.flatpickr-day.endRange.endRange{border-radius:0 50px 50px 0}.flatpickr-day.selected.startRange+.endRange:not(:nth-child(7n+1)),.flatpickr-day.startRange.startRange+.endRange:not(:nth-child(7n+1)),.flatpickr-day.endRange.startRange+.endRange:not(:nth-child(7n+1)){-webkit-box-shadow:-10px 0 0 #569ff7;box-shadow:-10px 0 0 #569ff7}.flatpickr-day.selected.startRange.endRange,.flatpickr-day.startRange.startRange.endRange,.flatpickr-day.endRange.startRange.endRange{border-radius:50px}.flatpickr-day.inRange{border-radius:0;-webkit-box-shadow:-5px 0 0 #e6e6e6,5px 0 0 #e6e6e6;box-shadow:-5px 0 0 #e6e6e6,5px 0 0 #e6e6e6}.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover,.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay,.flatpickr-day.notAllowed,.flatpickr-day.notAllowed.prevMonthDay,.flatpickr-day.notAllowed.nextMonthDay{color:rgba(57,57,57,0.3);background:transparent;border-color:transparent;cursor:default}.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover{cursor:not-allowed;color:rgba(57,57,57,0.1)}.flatpickr-day.week.selected{border-radius:0;-webkit-box-shadow:-5px 0 0 #569ff7,5px 0 0 #569ff7;box-shadow:-5px 0 0 #569ff7,5px 0 0 #569ff7}.flatpickr-day.hidden{visibility:hidden}.rangeMode .flatpickr-day{margin-top:1px}.flatpickr-weekwrapper{float:left}.flatpickr-weekwrapper .flatpickr-weeks{padding:0 12px;-webkit-box-shadow:1px 0 0 #e6e6e6;box-shadow:1px 0 0 #e6e6e6}.flatpickr-weekwrapper .flatpickr-weekday{float:none;width:100%;line-height:28px}.flatpickr-weekwrapper span.flatpickr-day,.flatpickr-weekwrapper span.flatpickr-day:hover{display:block;width:100%;max-width:none;color:rgba(57,57,57,0.3);background:transparent;cursor:default;border:none}.flatpickr-innerContainer{display:block;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.flatpickr-rContainer{display:inline-block;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box}.flatpickr-time{text-align:center;outline:0;display:block;height:0;line-height:40px;max-height:40px;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.flatpickr-time:after{content:\"\";display:table;clear:both}.flatpickr-time .numInputWrapper{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:40%;height:40px;float:left}.flatpickr-time .numInputWrapper span.arrowUp:after{border-bottom-color:#393939}.flatpickr-time .numInputWrapper span.arrowDown:after{border-top-color:#393939}.flatpickr-time.hasSeconds .numInputWrapper{width:26%}.flatpickr-time.time24hr .numInputWrapper{width:49%}.flatpickr-time input{background:transparent;-webkit-box-shadow:none;box-shadow:none;border:0;border-radius:0;text-align:center;margin:0;padding:0;height:inherit;line-height:inherit;color:#393939;font-size:14px;position:relative;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield}.flatpickr-time input.flatpickr-hour{font-weight:bold}.flatpickr-time input.flatpickr-minute,.flatpickr-time input.flatpickr-second{font-weight:400}.flatpickr-time input:focus{outline:0;border:0}.flatpickr-time .flatpickr-time-separator,.flatpickr-time .flatpickr-am-pm{height:inherit;float:left;line-height:inherit;color:#393939;font-weight:bold;width:2%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center}.flatpickr-time .flatpickr-am-pm{outline:0;width:18%;cursor:pointer;text-align:center;font-weight:400}.flatpickr-time input:hover,.flatpickr-time .flatpickr-am-pm:hover,.flatpickr-time input:focus,.flatpickr-time .flatpickr-am-pm:focus{background:#eee}.flatpickr-input[readonly]{cursor:pointer}@-webkit-keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}.flatpickr-monthSelect-months{margin:10px 1px 3px 1px;flex-wrap:wrap}.flatpickr-monthSelect-month{background:none;border:1px solid transparent;border-radius:4px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#393939;cursor:pointer;display:inline-block;font-weight:400;margin:0.5px;justify-content:center;padding:10px;position:relative;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;text-align:center;width:33%}.flatpickr-monthSelect-month.flatpickr-disabled{color:#eee}.flatpickr-monthSelect-month.flatpickr-disabled:hover,.flatpickr-monthSelect-month.flatpickr-disabled:focus{cursor:not-allowed;background:none !important}.flatpickr-monthSelect-theme-dark{background:#3f4458}.flatpickr-monthSelect-theme-dark .flatpickr-current-month input.cur-year{color:#fff}.flatpickr-monthSelect-theme-dark .flatpickr-months .flatpickr-prev-month,.flatpickr-monthSelect-theme-dark .flatpickr-months .flatpickr-next-month{color:#fff;fill:#fff}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month{color:rgba(255, 255, 255, 0.95)}.flatpickr-monthSelect-month.today{border-color:#959ea9}.flatpickr-monthSelect-month.inRange,.flatpickr-monthSelect-month.inRange.today,.flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-month:focus{background:#e6e6e6;cursor:pointer;outline:0;border-color:#e6e6e6}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.inRange,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month:focus{background:#646c8c;border-color:#646c8c}.flatpickr-monthSelect-month.today:hover,.flatpickr-monthSelect-month.today:focus{background:#959ea9;border-color:#959ea9;color:#fff}.flatpickr-monthSelect-month.selected,.flatpickr-monthSelect-month.startRange,.flatpickr-monthSelect-month.endRange{background-color:#569ff7;box-shadow:none;color:#fff;border-color:#569ff7}.flatpickr-monthSelect-month.startRange{border-radius:50px 0 0 50px}.flatpickr-monthSelect-month.endRange{border-radius:0 50px 50px 0}.flatpickr-monthSelect-month.startRange.endRange{border-radius:50px}.flatpickr-monthSelect-month.inRange{border-radius:0;box-shadow:-5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.selected,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.startRange,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.endRange{background:#80cbc4;-webkit-box-shadow:none;box-shadow:none;color:#fff;border-color:#80cbc4}:host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--z-range-picker--toggle-height:0}z-date-picker{position:relative}z-date-picker>div>*{cursor:pointer !important}z-range-picker{position:relative}.flatpickr-toggle-container{width:fit-content}.range-picker-container>div{cursor:pointer !important;position:relative}.hidden-input{visibility:hidden !important;position:absolute;width:0;height:0;bottom:0}.flatpickr-calendar::before,.flatpickr-calendar::after{display:none}.flatpickr-calendar{font-family:var(--font-family-sans) !important;position:absolute !important;border-radius:2px;box-shadow:var(--shadow-2);padding-top:calc(var(--space-unit) * 2);left:0 !important;top:var(--z-range-picker--toggle-height) !important}.months.top>.flatpickr-calendar{top:-288px !important}.date.top>.flatpickr-calendar,.date.top>div>.flatpickr-calendar{top:-401px !important}.date-time.top>.flatpickr-calendar,.date-time.top>div>.flatpickr-calendar{top:-523px !important}.flatpickr-calendar,.flatpickr-innerContainer,.flatpickr-days,.dayContainer,.flatpickr-rContainer,.flatpickr-monthSelect-months{width:calc(var(--space-unit) * 42) !important;max-width:calc(var(--space-unit) * 42) !important}.flatpickr-monthSelect-months{box-sizing:border-box;padding:0 !important;margin:calc(var(--space-unit) * 2) 0 !important}.flatpickr-months{position:relative;align-items:center;margin-bottom:var(--space-unit) 0 !important;height:calc(var(--space-unit) * 6) !important}.flatpickr-month{overflow:visible !important;height:calc(var(--space-unit) * 6) !important}.flatpickr-current-month{display:flex !important;justify-content:space-evenly;align-items:baseline;width:-webkit-fill-available;height:calc(var(--space-unit) * 6);left:0 !important;padding-top:0}.flatpickr-next-month,.flatpickr-prev-month{display:flex;align-items:center;justify-content:center;position:static !important;height:calc(var(--space-unit) * 4) !important;width:calc(var(--space-unit) * 4) !important;padding:0 !important}.flatpickr-prev-month{margin-left:var(--space-unit)}.flatpickr-next-month{margin-right:var(--space-unit)}.flatpickr-next-month>svg,.flatpickr-prev-month>svg{fill:var(--color-primary01);height:calc(var(--space-unit) * 2) !important;width:calc(var(--space-unit) * 2) !important}.flatpickr-next-month:hover,.flatpickr-prev-month:hover,.flatpickr-next-month:focus,.flatpickr-prev-month:focus{border-radius:var(--border-radius);background-color:var(--color-primary03) !important;border-color:var(--color-primary03) !important;color:var(--color-hover-primary) !important;border:none !important;outline:none !important}.flatpickr-next-month:hover svg,.flatpickr-prev-month:hover svg{fill:var(--color-hover-primary) !important}.flatpickr-next-month:active,.flatpickr-prev-month:active{border-radius:var(--border-radius);background-color:var(--color-surface01) !important;border-color:var(--color-surface01) !important;color:var(--color-primary01) !important;box-shadow:var(--shadow-2) !important}.flatpickr-next-month:focus svg,.flatpickr-prev-month:focus svg{fill:var(--color-primary01) !important}.flatpickr-monthDropdown-months{background:var(--color-surface01) !important;font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;color:var(--color-text02) !important;outline:1px solid black !important;width:108px !important;height:calc(var(--space-unit) * 5.5) !important;padding-left:var(--space-unit) !important}.flatpickr-monthDropdown-months:hover,.flatpickr-monthDropdown-months:focus{outline:1px solid var(--color-primary01) !important}.flatpickr-current-month>.numInputWrapper{display:flex;background:var(--color-surface01) !important;color:var(--color-text02);outline:1px solid black !important;height:calc(var(--space-unit) * 5.5) !important;width:calc(var(--space-unit) * 10)}.flatpickr-current-month>.numInputWrapper:hover,.flatpickr-current-month>.numInputWrapper:focus-within{outline:1px solid var(--color-primary01) !important}.flatpickr-current-month>.numInputWrapper>input{font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;text-align:center;padding:0 calc(var(--space-unit) * 3) 0 var(--space-unit)}.flatpickr-weekdays{height:calc(var(--space-unit) * 6);border-bottom:1px solid var(--color-surface03)}.flatpickr-weekday{font-weight:var(--font-rg) !important;font-size:var(--font-size-3) !important}.flatpickr-day,.flatpickr-monthSelect-month{height:calc(var(--space-unit) * 6) !important;width:calc(var(--space-unit) * 6) !important;max-width:100% !important;font-size:var(--font-size-3) !important;line-height:calc(var(--space-unit) * 6) !important;margin:0 !important;border:none;border-radius:0 !important;box-shadow:none !important}.flatpickr-day{width:calc(var(--space-unit) * 6) !important;line-height:calc(var(--space-unit) * 6) !important;border:none}.flatpickr-monthSelect-month{width:calc(var(--space-unit) * 14) !important;padding:0 !important;line-height:calc(var(--space-unit) * 5) !important;border:2px solid var(--color-surface01) !important}.flatpickr-day:hover,.flatpickr-day.prevMonthDay:hover,.flatpickr-day.selected:hover,.flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-month:focus{background-color:var(--color-hover-primary) !important;border-color:var(--color-hover-primary) !important;color:var(--color-text04) !important}.flatpickr-day.today,.flatpickr-monthSelect-month.today{border:2px solid var(--color-hover-primary) !important}.flatpickr-day.selected,.flatpickr-monthSelect-month.selected{background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-weekday:nth-child(6),.flatpickr-weekday:nth-child(7),.flatpickr-day:nth-child(7n+6),.flatpickr-day:nth-child(7n+7){font-weight:var(--font-sb) !important}.flatpickr-time{display:block;text-align:left;height:90px !important;max-height:90px !important}.flatpickr-time::before{display:block;content:\"Orario\";font-size:var(--font-size-1);font-weight:var(--font-sb);text-transform:uppercase;color:var(--color-text02) !important;width:100%;padding-left:var(--space-unit)}.flatpickr-time.time24hr{margin:calc(var(--space-unit) * 2) !important}.flatpickr-time.time24hr>.numInputWrapper>input:hover,.flatpickr-time.time24hr>.numInputWrapper>input:focus,.flatpickr-time.time24hr>.numInputWrapper:hover{background-color:var(--color-surface01) !important}.flatpickr-time.time24hr>div{height:calc(var(--space-unit) * 5.5) !important;width:calc(var(--space-unit) * 10) !important;margin-left:var(--space-unit) !important;margin-right:var(--space-unit) !important}.flatpickr-time-separator{display:flex;align-items:center;justify-content:center;height:calc(var(--space-unit) * 5.5) !important;font-weight:unset !important}.flatpickr-minute,.flatpickr-hour{font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;outline:1px solid black !important}.numInputWrapper:hover .flatpickr-minute,.numInputWrapper:hover .flatpickr-hour,.flatpickr-minute:focus,.flatpickr-hour:focus{outline:1px solid var(--color-primary01) !important}.arrowUp,.arrowDown{opacity:1 !important;border:none !important;height:calc(var(--space-unit) * 2) !important;width:calc(var(--space-unit) * 2) !important;padding:0 !important}.arrowUp{margin-top:calc(var(--space-unit) / 2) !important;margin-right:calc(var(--space-unit) / 2) !important}.arrowDown{top:auto !important;margin-top:calc(var(--space-unit) * 3) !important;margin-right:calc(var(--space-unit) / 2) !important}.arrowUp:hover,.arrowDown:hover{border-radius:var(--border-radius);background-color:var(--color-primary03) !important;border-color:var(--color-primary03) !important;color:var(--color-hover-primary) !important}.arrowUp:active,.arrowDown:active{border-radius:var(--border-radius);background-color:var(--color-surface01) !important;border-color:var(--color-surface01) !important;color:var(--color-primary01) !important;box-shadow:var(--shadow-2) !important}.arrowUp::after,.arrowDown::after{border:solid var(--color-primary01) !important;border-width:0 1px 1px 0 !important;padding:2.5px !important}.arrowUp::after{transform:rotate(-135deg);top:0 !important;margin-left:5.5px !important;margin-top:6px !important}.arrowDown::after{transform:rotate(45deg);top:0 !important;left:5.5px !important;margin-top:4px !important}.flatpickr-day.inRange,.flatpickr-day.today.inRange,.flatpickr-day.prevMonthDay.inRange,.flatpickr-monthSelect-month.inRange{background-color:var(--color-primary03) !important;border-color:var(--color-primary03) !important}.flatpickr-day.inRange:hover,.flatpickr-day.today.inRange:hover,.flatpickr-day.prevMonthDay.inRange:hover,.flatpickr-monthSelect-month.inRange:hover{background-color:var(--color-hover-primary) !important;border-color:var(--color-hover-primary) !important}.flatpickr-day.startRange,.flatpickr-day.endRange,.flatpickr-monthSelect-month.startRange,.flatpickr-monthSelect-month.endRange{background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-day.prevMonthDay.selected.startRange,.flatpickr-day.prevMonthDay.selected.endRange{background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-range.second-input{cursor:pointer}.range-picker-container{display:flex;gap:16px}";
+const stylesCss = ".flatpickr-calendar{background:transparent;opacity:0;display:none;text-align:center;visibility:hidden;padding:0;-webkit-animation:none;animation:none;direction:ltr;border:0;font-size:14px;line-height:24px;border-radius:5px;position:absolute;width:307.875px;-webkit-box-sizing:border-box;box-sizing:border-box;-ms-touch-action:manipulation;touch-action:manipulation;background:#fff;-webkit-box-shadow:1px 0 0 #e6e6e6,-1px 0 0 #e6e6e6,0 1px 0 #e6e6e6,0 -1px 0 #e6e6e6,0 3px 13px rgba(0,0,0,0.08);box-shadow:1px 0 0 #e6e6e6,-1px 0 0 #e6e6e6,0 1px 0 #e6e6e6,0 -1px 0 #e6e6e6,0 3px 13px rgba(0,0,0,0.08)}.flatpickr-calendar.open,.flatpickr-calendar.inline{opacity:1;max-height:640px;visibility:visible}.flatpickr-calendar.open{display:inline-block;z-index:99999}.flatpickr-calendar.animate.open{-webkit-animation:fpFadeInDown 300ms cubic-bezier(.23,1,.32,1);animation:fpFadeInDown 300ms cubic-bezier(.23,1,.32,1)}.flatpickr-calendar.inline{display:block;position:relative;top:2px}.flatpickr-calendar.static{position:absolute;top:calc(100% + 2px)}.flatpickr-calendar.static.open{z-index:999;display:block}.flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+1) .flatpickr-day.inRange:nth-child(7n+7){-webkit-box-shadow:none !important;box-shadow:none !important}.flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+2) .flatpickr-day.inRange:nth-child(7n+1){-webkit-box-shadow:-2px 0 0 #e6e6e6,5px 0 0 #e6e6e6;box-shadow:-2px 0 0 #e6e6e6,5px 0 0 #e6e6e6}.flatpickr-calendar .hasWeeks .dayContainer,.flatpickr-calendar .hasTime .dayContainer{border-bottom:0;border-bottom-right-radius:0;border-bottom-left-radius:0}.flatpickr-calendar .hasWeeks .dayContainer{border-left:0}.flatpickr-calendar.hasTime .flatpickr-time{height:40px;border-top:1px solid #e6e6e6}.flatpickr-calendar.noCalendar.hasTime .flatpickr-time{height:auto}.flatpickr-calendar:before,.flatpickr-calendar:after{position:absolute;display:block;pointer-events:none;border:solid transparent;content:'';height:0;width:0;left:22px}.flatpickr-calendar.rightMost:before,.flatpickr-calendar.arrowRight:before,.flatpickr-calendar.rightMost:after,.flatpickr-calendar.arrowRight:after{left:auto;right:22px}.flatpickr-calendar.arrowCenter:before,.flatpickr-calendar.arrowCenter:after{left:50%;right:50%}.flatpickr-calendar:before{border-width:5px;margin:0 -5px}.flatpickr-calendar:after{border-width:4px;margin:0 -4px}.flatpickr-calendar.arrowTop:before,.flatpickr-calendar.arrowTop:after{bottom:100%}.flatpickr-calendar.arrowTop:before{border-bottom-color:#e6e6e6}.flatpickr-calendar.arrowTop:after{border-bottom-color:#fff}.flatpickr-calendar.arrowBottom:before,.flatpickr-calendar.arrowBottom:after{top:100%}.flatpickr-calendar.arrowBottom:before{border-top-color:#e6e6e6}.flatpickr-calendar.arrowBottom:after{border-top-color:#fff}.flatpickr-calendar:focus{outline:0}.flatpickr-wrapper{position:relative;display:inline-block}.flatpickr-months{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.flatpickr-months .flatpickr-month{background:transparent;color:rgba(0,0,0,0.9);fill:rgba(0,0,0,0.9);height:34px;line-height:1;text-align:center;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:hidden;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}.flatpickr-months .flatpickr-prev-month,.flatpickr-months .flatpickr-next-month{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;cursor:pointer;position:absolute;top:0;height:34px;padding:10px;z-index:3;color:rgba(0,0,0,0.9);fill:rgba(0,0,0,0.9)}.flatpickr-months .flatpickr-prev-month.flatpickr-disabled,.flatpickr-months .flatpickr-next-month.flatpickr-disabled{display:none}.flatpickr-months .flatpickr-prev-month i,.flatpickr-months .flatpickr-next-month i{position:relative}.flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,.flatpickr-months .flatpickr-next-month.flatpickr-prev-month{left:0}.flatpickr-months .flatpickr-prev-month.flatpickr-next-month,.flatpickr-months .flatpickr-next-month.flatpickr-next-month{right:0}.flatpickr-months .flatpickr-prev-month:hover,.flatpickr-months .flatpickr-next-month:hover{color:#959ea9}.flatpickr-months .flatpickr-prev-month:hover svg,.flatpickr-months .flatpickr-next-month:hover svg{fill:#f64747}.flatpickr-months .flatpickr-prev-month svg,.flatpickr-months .flatpickr-next-month svg{width:14px;height:14px}.flatpickr-months .flatpickr-prev-month svg path,.flatpickr-months .flatpickr-next-month svg path{-webkit-transition:fill .1s;transition:fill .1s;fill:inherit}.numInputWrapper{position:relative;height:auto}.numInputWrapper input,.numInputWrapper span{display:inline-block}.numInputWrapper input{width:100%}.numInputWrapper input::-ms-clear{display:none}.numInputWrapper input::-webkit-outer-spin-button,.numInputWrapper input::-webkit-inner-spin-button{margin:0;-webkit-appearance:none}.numInputWrapper span{position:absolute;right:0;width:14px;padding:0 4px 0 2px;height:50%;line-height:50%;opacity:0;cursor:pointer;border:1px solid rgba(57,57,57,0.15);-webkit-box-sizing:border-box;box-sizing:border-box}.numInputWrapper span:hover{background:rgba(0,0,0,0.1)}.numInputWrapper span:active{background:rgba(0,0,0,0.2)}.numInputWrapper span:after{display:block;content:\"\";position:absolute}.numInputWrapper span.arrowUp{top:0;border-bottom:0}.numInputWrapper span.arrowUp:after{border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:4px solid rgba(57,57,57,0.6);top:26%}.numInputWrapper span.arrowDown{top:50%}.numInputWrapper span.arrowDown:after{border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid rgba(57,57,57,0.6);top:40%}.numInputWrapper span svg{width:inherit;height:auto}.numInputWrapper span svg path{fill:rgba(0,0,0,0.5)}.numInputWrapper:hover{background:rgba(0,0,0,0.05)}.numInputWrapper:hover span{opacity:1}.flatpickr-current-month{font-size:135%;line-height:inherit;font-weight:300;color:inherit;position:absolute;width:75%;left:12.5%;padding:7.48px 0 0 0;line-height:1;height:34px;display:inline-block;text-align:center;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.flatpickr-current-month span.cur-month{font-family:inherit;font-weight:700;color:inherit;display:inline-block;margin-left:.5ch;padding:0}.flatpickr-current-month span.cur-month:hover{background:rgba(0,0,0,0.05)}.flatpickr-current-month .numInputWrapper{width:6ch;width:7ch\\0;display:inline-block}.flatpickr-current-month .numInputWrapper span.arrowUp:after{border-bottom-color:rgba(0,0,0,0.9)}.flatpickr-current-month .numInputWrapper span.arrowDown:after{border-top-color:rgba(0,0,0,0.9)}.flatpickr-current-month input.cur-year{background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;cursor:text;padding:0 0 0 .5ch;margin:0;display:inline-block;font-size:inherit;font-family:inherit;font-weight:300;line-height:inherit;height:auto;border:0;border-radius:0;vertical-align:initial;-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield}.flatpickr-current-month input.cur-year:focus{outline:0}.flatpickr-current-month input.cur-year[disabled],.flatpickr-current-month input.cur-year[disabled]:hover{font-size:100%;color:rgba(0,0,0,0.5);background:transparent;pointer-events:none}.flatpickr-current-month .flatpickr-monthDropdown-months{appearance:menulist;background:transparent;border:none;border-radius:0;box-sizing:border-box;color:inherit;cursor:pointer;font-size:inherit;font-family:inherit;font-weight:300;height:auto;line-height:inherit;margin:-1px 0 0 0;outline:none;padding:0 0 0 .5ch;position:relative;vertical-align:initial;-webkit-box-sizing:border-box;-webkit-appearance:menulist;-moz-appearance:menulist;width:auto}.flatpickr-current-month .flatpickr-monthDropdown-months:focus,.flatpickr-current-month .flatpickr-monthDropdown-months:active{outline:none}.flatpickr-current-month .flatpickr-monthDropdown-months:hover{background:rgba(0,0,0,0.05)}.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{background-color:transparent;outline:none;padding:0}.flatpickr-weekdays{background:transparent;text-align:center;overflow:hidden;width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;height:28px}.flatpickr-weekdays .flatpickr-weekdaycontainer{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}span.flatpickr-weekday{cursor:default;font-size:90%;background:transparent;color:rgba(0,0,0,0.54);line-height:1;margin:0;text-align:center;display:block;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;font-weight:bolder}.dayContainer,.flatpickr-weeks{padding:1px 0 0 0}.flatpickr-days{position:relative;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;width:307.875px}.flatpickr-days:focus{outline:0}.dayContainer{padding:0;outline:0;text-align:left;width:307.875px;min-width:307.875px;max-width:307.875px;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;display:-ms-flexbox;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-wrap:wrap;-ms-flex-pack:justify;-webkit-justify-content:space-around;justify-content:space-around;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1}.dayContainer+.dayContainer{-webkit-box-shadow:-1px 0 0 #e6e6e6;box-shadow:-1px 0 0 #e6e6e6}.flatpickr-day{background:none;border:1px solid transparent;border-radius:150px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#393939;cursor:pointer;font-weight:400;width:14.2857143%;-webkit-flex-basis:14.2857143%;-ms-flex-preferred-size:14.2857143%;flex-basis:14.2857143%;max-width:39px;height:39px;line-height:39px;margin:0;display:inline-block;position:relative;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;text-align:center}.flatpickr-day.inRange,.flatpickr-day.prevMonthDay.inRange,.flatpickr-day.nextMonthDay.inRange,.flatpickr-day.today.inRange,.flatpickr-day.prevMonthDay.today.inRange,.flatpickr-day.nextMonthDay.today.inRange,.flatpickr-day:hover,.flatpickr-day.prevMonthDay:hover,.flatpickr-day.nextMonthDay:hover,.flatpickr-day:focus,.flatpickr-day.prevMonthDay:focus,.flatpickr-day.nextMonthDay:focus{cursor:pointer;outline:0;background:#e6e6e6;border-color:#e6e6e6}.flatpickr-day.today{border-color:#959ea9}.flatpickr-day.today:hover,.flatpickr-day.today:focus{border-color:#959ea9;background:#959ea9;color:#fff}.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange,.flatpickr-day.selected.inRange,.flatpickr-day.startRange.inRange,.flatpickr-day.endRange.inRange,.flatpickr-day.selected:focus,.flatpickr-day.startRange:focus,.flatpickr-day.endRange:focus,.flatpickr-day.selected:hover,.flatpickr-day.startRange:hover,.flatpickr-day.endRange:hover,.flatpickr-day.selected.prevMonthDay,.flatpickr-day.startRange.prevMonthDay,.flatpickr-day.endRange.prevMonthDay,.flatpickr-day.selected.nextMonthDay,.flatpickr-day.startRange.nextMonthDay,.flatpickr-day.endRange.nextMonthDay{background:#569ff7;-webkit-box-shadow:none;box-shadow:none;color:#fff;border-color:#569ff7}.flatpickr-day.selected.startRange,.flatpickr-day.startRange.startRange,.flatpickr-day.endRange.startRange{border-radius:50px 0 0 50px}.flatpickr-day.selected.endRange,.flatpickr-day.startRange.endRange,.flatpickr-day.endRange.endRange{border-radius:0 50px 50px 0}.flatpickr-day.selected.startRange+.endRange:not(:nth-child(7n+1)),.flatpickr-day.startRange.startRange+.endRange:not(:nth-child(7n+1)),.flatpickr-day.endRange.startRange+.endRange:not(:nth-child(7n+1)){-webkit-box-shadow:-10px 0 0 #569ff7;box-shadow:-10px 0 0 #569ff7}.flatpickr-day.selected.startRange.endRange,.flatpickr-day.startRange.startRange.endRange,.flatpickr-day.endRange.startRange.endRange{border-radius:50px}.flatpickr-day.inRange{border-radius:0;-webkit-box-shadow:-5px 0 0 #e6e6e6,5px 0 0 #e6e6e6;box-shadow:-5px 0 0 #e6e6e6,5px 0 0 #e6e6e6}.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover,.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay,.flatpickr-day.notAllowed,.flatpickr-day.notAllowed.prevMonthDay,.flatpickr-day.notAllowed.nextMonthDay{color:rgba(57,57,57,0.3);background:transparent;border-color:transparent;cursor:default}.flatpickr-day.flatpickr-disabled,.flatpickr-day.flatpickr-disabled:hover{cursor:not-allowed;color:rgba(57,57,57,0.1)}.flatpickr-day.week.selected{border-radius:0;-webkit-box-shadow:-5px 0 0 #569ff7,5px 0 0 #569ff7;box-shadow:-5px 0 0 #569ff7,5px 0 0 #569ff7}.flatpickr-day.hidden{visibility:hidden}.rangeMode .flatpickr-day{margin-top:1px}.flatpickr-weekwrapper{float:left}.flatpickr-weekwrapper .flatpickr-weeks{padding:0 12px;-webkit-box-shadow:1px 0 0 #e6e6e6;box-shadow:1px 0 0 #e6e6e6}.flatpickr-weekwrapper .flatpickr-weekday{float:none;width:100%;line-height:28px}.flatpickr-weekwrapper span.flatpickr-day,.flatpickr-weekwrapper span.flatpickr-day:hover{display:block;width:100%;max-width:none;color:rgba(57,57,57,0.3);background:transparent;cursor:default;border:none}.flatpickr-innerContainer{display:block;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.flatpickr-rContainer{display:inline-block;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box}.flatpickr-time{text-align:center;outline:0;display:block;height:0;line-height:40px;max-height:40px;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.flatpickr-time:after{content:\"\";display:table;clear:both}.flatpickr-time .numInputWrapper{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:40%;height:40px;float:left}.flatpickr-time .numInputWrapper span.arrowUp:after{border-bottom-color:#393939}.flatpickr-time .numInputWrapper span.arrowDown:after{border-top-color:#393939}.flatpickr-time.hasSeconds .numInputWrapper{width:26%}.flatpickr-time.time24hr .numInputWrapper{width:49%}.flatpickr-time input{background:transparent;-webkit-box-shadow:none;box-shadow:none;border:0;border-radius:0;text-align:center;margin:0;padding:0;height:inherit;line-height:inherit;color:#393939;font-size:14px;position:relative;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield}.flatpickr-time input.flatpickr-hour{font-weight:bold}.flatpickr-time input.flatpickr-minute,.flatpickr-time input.flatpickr-second{font-weight:400}.flatpickr-time input:focus{outline:0;border:0}.flatpickr-time .flatpickr-time-separator,.flatpickr-time .flatpickr-am-pm{height:inherit;float:left;line-height:inherit;color:#393939;font-weight:bold;width:2%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center}.flatpickr-time .flatpickr-am-pm{outline:0;width:18%;cursor:pointer;text-align:center;font-weight:400}.flatpickr-time input:hover,.flatpickr-time .flatpickr-am-pm:hover,.flatpickr-time input:focus,.flatpickr-time .flatpickr-am-pm:focus{background:#eee}.flatpickr-input[readonly]{cursor:pointer}@-webkit-keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}@keyframes fpFadeInDown{from{opacity:0;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:1;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}.flatpickr-monthSelect-months{margin:10px 1px 3px 1px;flex-wrap:wrap}.flatpickr-monthSelect-month{background:none;border:1px solid transparent;border-radius:4px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#393939;cursor:pointer;display:inline-block;font-weight:400;margin:0.5px;justify-content:center;padding:10px;position:relative;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;text-align:center;width:33%}.flatpickr-monthSelect-month.flatpickr-disabled{color:#eee}.flatpickr-monthSelect-month.flatpickr-disabled:hover,.flatpickr-monthSelect-month.flatpickr-disabled:focus{cursor:not-allowed;background:none !important}.flatpickr-monthSelect-theme-dark{background:#3f4458}.flatpickr-monthSelect-theme-dark .flatpickr-current-month input.cur-year{color:#fff}.flatpickr-monthSelect-theme-dark .flatpickr-months .flatpickr-prev-month,.flatpickr-monthSelect-theme-dark .flatpickr-months .flatpickr-next-month{color:#fff;fill:#fff}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month{color:rgba(255, 255, 255, 0.95)}.flatpickr-monthSelect-month.today{border-color:#959ea9}.flatpickr-monthSelect-month.inRange,.flatpickr-monthSelect-month.inRange.today,.flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-month:focus{background:#e6e6e6;cursor:pointer;outline:0;border-color:#e6e6e6}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.inRange,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month:focus{background:#646c8c;border-color:#646c8c}.flatpickr-monthSelect-month.today:hover,.flatpickr-monthSelect-month.today:focus{background:#959ea9;border-color:#959ea9;color:#fff}.flatpickr-monthSelect-month.selected,.flatpickr-monthSelect-month.startRange,.flatpickr-monthSelect-month.endRange{background-color:#569ff7;box-shadow:none;color:#fff;border-color:#569ff7}.flatpickr-monthSelect-month.startRange{border-radius:50px 0 0 50px}.flatpickr-monthSelect-month.endRange{border-radius:0 50px 50px 0}.flatpickr-monthSelect-month.startRange.endRange{border-radius:50px}.flatpickr-monthSelect-month.inRange{border-radius:0;box-shadow:-5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6}.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.selected,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.startRange,.flatpickr-monthSelect-theme-dark .flatpickr-monthSelect-month.endRange{background:#80cbc4;-webkit-box-shadow:none;box-shadow:none;color:#fff;border-color:#80cbc4}:host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--z-range-picker--toggle-height:0}z-date-picker{position:relative}z-date-picker>div>*{cursor:pointer !important}z-range-picker{position:relative}.flatpickr-toggle-container{width:fit-content}.range-pickers-container>div{position:relative}.hidden-input{visibility:hidden !important;position:absolute;width:0;height:0;bottom:0}.flatpickr-calendar::before,.flatpickr-calendar::after{display:none}.flatpickr-calendar{font-family:var(--font-family-sans) !important;position:absolute !important;border-radius:2px;box-shadow:var(--shadow-2);padding-top:calc(var(--space-unit) * 2);left:0 !important;top:var(--z-range-picker--toggle-height) !important}.months.top>.flatpickr-calendar{top:-288px !important}.date.top>.flatpickr-calendar,.date.top>div>.flatpickr-calendar{top:-401px !important}.date-time.top>.flatpickr-calendar,.date-time.top>div>.flatpickr-calendar{top:-523px !important}.flatpickr-calendar,.flatpickr-innerContainer,.flatpickr-days,.dayContainer,.flatpickr-rContainer,.flatpickr-monthSelect-months{width:calc(var(--space-unit) * 42) !important;max-width:calc(var(--space-unit) * 42) !important}.flatpickr-monthSelect-months{box-sizing:border-box;padding:0 !important;margin:calc(var(--space-unit) * 2) 0 !important}.flatpickr-months{position:relative;align-items:center;margin-bottom:var(--space-unit) 0 !important;height:calc(var(--space-unit) * 6) !important}.flatpickr-month{overflow:visible !important;height:calc(var(--space-unit) * 6) !important}.flatpickr-current-month{display:flex !important;justify-content:space-evenly;align-items:baseline;width:-webkit-fill-available;height:calc(var(--space-unit) * 6);left:0 !important;padding-top:0}.flatpickr-next-month,.flatpickr-prev-month{display:flex;align-items:center;justify-content:center;position:static !important;height:calc(var(--space-unit) * 4) !important;width:calc(var(--space-unit) * 4) !important;padding:0 !important}.flatpickr-prev-month{margin-left:var(--space-unit)}.flatpickr-next-month{margin-right:var(--space-unit)}.flatpickr-next-month>svg,.flatpickr-prev-month>svg{fill:var(--color-primary01);height:calc(var(--space-unit) * 2) !important;width:calc(var(--space-unit) * 2) !important}.flatpickr-next-month:hover,.flatpickr-prev-month:hover,.flatpickr-next-month:focus,.flatpickr-prev-month:focus{border-radius:var(--border-radius);background-color:var(--color-primary03) !important;border-color:var(--color-primary03) !important;color:var(--color-hover-primary) !important;border:none !important;outline:none !important}.flatpickr-next-month:hover svg,.flatpickr-prev-month:hover svg{fill:var(--color-hover-primary) !important}.flatpickr-next-month:active,.flatpickr-prev-month:active{border-radius:var(--border-radius);background-color:var(--color-surface01) !important;border-color:var(--color-surface01) !important;color:var(--color-primary01) !important;box-shadow:var(--shadow-2) !important}.flatpickr-next-month:focus svg,.flatpickr-prev-month:focus svg{fill:var(--color-primary01) !important}.flatpickr-monthDropdown-months{background:var(--color-surface01) !important;font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;color:var(--color-text02) !important;outline:1px solid black !important;width:108px !important;height:calc(var(--space-unit) * 5.5) !important;padding-left:var(--space-unit) !important}.flatpickr-monthDropdown-months:hover,.flatpickr-monthDropdown-months:focus{outline:1px solid var(--color-primary01) !important}.flatpickr-current-month>.numInputWrapper{display:flex;background:var(--color-surface01) !important;color:var(--color-text02);outline:1px solid black !important;height:calc(var(--space-unit) * 5.5) !important;width:calc(var(--space-unit) * 10)}.flatpickr-current-month>.numInputWrapper:hover,.flatpickr-current-month>.numInputWrapper:focus-within{outline:1px solid var(--color-primary01) !important}.flatpickr-current-month>.numInputWrapper>input{font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;text-align:center;padding:0 calc(var(--space-unit) * 3) 0 var(--space-unit)}.flatpickr-weekdays{height:calc(var(--space-unit) * 6);border-bottom:1px solid var(--color-surface03)}.flatpickr-weekday{font-weight:var(--font-rg) !important;font-size:var(--font-size-3) !important}.flatpickr-day,.flatpickr-monthSelect-month{height:calc(var(--space-unit) * 6) !important;width:calc(var(--space-unit) * 6) !important;max-width:100% !important;font-size:var(--font-size-3) !important;line-height:calc(var(--space-unit) * 6) !important;margin:0 !important;border:none;border-radius:0 !important;box-shadow:none !important}.flatpickr-day{width:calc(var(--space-unit) * 6) !important;line-height:calc(var(--space-unit) * 6) !important;border:none}.flatpickr-monthSelect-month{width:calc(var(--space-unit) * 14) !important;padding:0 !important;line-height:calc(var(--space-unit) * 5) !important;border:2px solid var(--color-surface01) !important}.flatpickr-day:not(.flatpickr-disabled):hover,.flatpickr-day:not(.flatpickr-disabled):active,.flatpickr-day:not(.flatpickr-disabled):focus,.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:hover,.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:active,.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:focus,.flatpickr-day:not(.flatpickr-disabled).selected:hover,.flatpickr-day:not(.flatpickr-disabled).selected:active,.flatpickr-day:not(.flatpickr-disabled).selected:focus,.flatpickr-monthSelect-month:hover,.flatpickr-monthSelect-month:active,.flatpickr-monthSelect-month:focus{background-color:var(--color-hover-primary) !important;border-color:var(--color-hover-primary) !important;color:var(--color-text04) !important}.flatpickr-day.today,.flatpickr-monthSelect-month.today{border:2px solid var(--color-hover-primary) !important}.flatpickr-day.selected:not(.flatpickr-disabled),.flatpickr-monthSelect-month.selected:not(.flatpickr-disabled){background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-weekday:nth-child(6),.flatpickr-weekday:nth-child(7),.flatpickr-day:nth-child(7n+6),.flatpickr-day:nth-child(7n+7){font-weight:var(--font-sb) !important}.flatpickr-time{display:block;text-align:left;height:90px !important;max-height:90px !important}.flatpickr-time::before{display:block;content:\"Orario\";font-size:var(--font-size-1);font-weight:var(--font-sb);text-transform:uppercase;color:var(--color-text02) !important;width:100%;padding-left:var(--space-unit)}.flatpickr-time.time24hr{margin:calc(var(--space-unit) * 2) !important}.flatpickr-time.time24hr>.numInputWrapper>input:hover,.flatpickr-time.time24hr>.numInputWrapper>input:focus,.flatpickr-time.time24hr>.numInputWrapper:hover{background-color:var(--color-surface01) !important}.flatpickr-time.time24hr>div{height:calc(var(--space-unit) * 5.5) !important;width:calc(var(--space-unit) * 10) !important;margin-left:var(--space-unit) !important;margin-right:var(--space-unit) !important}.flatpickr-time-separator{display:flex;align-items:center;justify-content:center;height:calc(var(--space-unit) * 5.5) !important;font-weight:unset !important}.flatpickr-minute,.flatpickr-hour{font-size:var(--font-size-3) !important;font-weight:var(--font-rg) !important;outline:1px solid black !important}.numInputWrapper:hover .flatpickr-minute,.numInputWrapper:hover .flatpickr-hour,.flatpickr-minute:focus,.flatpickr-hour:focus{outline:1px solid var(--color-primary01) !important}.arrowUp,.arrowDown{opacity:1 !important;border:none !important;height:calc(var(--space-unit) * 2) !important;width:calc(var(--space-unit) * 2) !important;padding:0 !important}.arrowUp{margin-top:calc(var(--space-unit) / 2) !important;margin-right:calc(var(--space-unit) / 2) !important}.arrowDown{top:auto !important;margin-top:calc(var(--space-unit) * 3) !important;margin-right:calc(var(--space-unit) / 2) !important}.arrowUp:hover,.arrowDown:hover{border-radius:var(--border-radius);background-color:var(--color-primary03) !important;border-color:var(--color-primary03) !important;color:var(--color-hover-primary) !important}.arrowUp:active,.arrowDown:active{border-radius:var(--border-radius);background-color:var(--color-surface01) !important;border-color:var(--color-surface01) !important;color:var(--color-primary01) !important;box-shadow:var(--shadow-2) !important}.arrowUp::after,.arrowDown::after{border:solid var(--color-primary01) !important;border-width:0 1px 1px 0 !important;padding:2.5px !important}.arrowUp::after{transform:rotate(-135deg);top:0 !important;margin-left:5.5px !important;margin-top:6px !important}.arrowDown::after{transform:rotate(45deg);top:0 !important;left:5.5px !important;margin-top:4px !important}.flatpickr-day:not(.flatpickr-disabled).inRange:hover,.flatpickr-day:not(.flatpickr-disabled).today.inRange:hover,.flatpickr-day.prevMonthDay:not(.flatpickr-disabled).inRange:hover,.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange:hover{background-color:var(--color-hover-primary) !important;border-color:var(--color-hover-primary) !important}.flatpickr-day:not(.flatpickr-disabled).inRange,.flatpickr-day:not(.flatpickr-disabled).today.inRange,.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.inRange,.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange{background-color:var(--color-primary03);border-color:var(--color-primary03)}.flatpickr-day:not(.flatpickr-disabled).startRange,.flatpickr-day:not(.flatpickr-disabled).endRange,.flatpickr-monthSelect-month:not(.flatpickr-disabled).startRange,.flatpickr-monthSelect-month:not(.flatpickr-disabled).endRange{background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.startRange,.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.endRange{background-color:var(--color-primary01) !important;border-color:var(--color-primary01) !important}.flatpickr-range.second-input{cursor:pointer}.range-pickers-container{display:flex;gap:16px}";
 
 const ZRangePicker = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.dateSelect = index.createEvent(this, "dateSelect", 7);
-    /** [Optional] datepicker mode: date, datetime, only months */
-    this.mode = index$1.ZDatePickerMode.date;
+    /** [Optional] datepicker mode: date or datetime */
+    this.mode = index$1.ZRangePickerMode.date;
     this.flatpickrPosition = index$1.ZDatePickerPosition.bottom;
     this.activeInput = "start-input";
-    this.flatpickrInstance = null;
-    this.flatpickrInstance2 = null;
+    this.firstInputError = false;
+    this.lastInputError = false;
+  }
+  watchMode() {
+    this.setupPickers();
   }
   handleClick() {
     this.getFocusedInput();
   }
   handleKeyDown(ev) {
-    let currentInputState = this.activeInput === "start-input"
-      ? { picker: this.flatpickrInstance, index: 0 }
-      : { picker: this.flatpickrInstance2, index: 1 };
-    let isCalendarOpened = document.activeElement.closest(".flatpickr-calendar");
+    var _a, _b, _c, _d, _e, _f;
+    let currentPicker = this.activeInput === "start-input" ? this.firstPicker : this.lastPicker;
     this.getFocusedInput();
+    if (ev.key === "Escape") {
+      document.activeElement.classList.contains(`${this.rangePickerId}-1`) &&
+        ((_a = this.firstPicker) === null || _a === void 0 ? void 0 : _a.close());
+      document.activeElement.classList.contains(`${this.rangePickerId}-2`) &&
+        ((_b = this.lastPicker) === null || _b === void 0 ? void 0 : _b.close());
+    }
     if (ev.key === "Enter" || ev.key === " ") {
-      if (document.activeElement.classList.contains(`${this.rangePickerId}`) ||
+      if (document.activeElement.classList.contains(`${this.rangePickerId}-1`) ||
         document.activeElement.classList.contains(`${this.rangePickerId}-2`)) {
-        !isCalendarOpened && currentInputState.picker.open();
+        currentPicker === null || currentPicker === void 0 ? void 0 : currentPicker.open();
+      }
+      let isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      if (isCrossIconEntered) {
+        if (this.activeInput === "start-input") {
+          this.firstInputError = false;
+          (_c = this.firstPicker) === null || _c === void 0 ? void 0 : _c.clear();
+          this.printDate(null, ((_d = this.lastPicker) === null || _d === void 0 ? void 0 : _d.selectedDates[0]) || null);
+        }
+        if (this.activeInput === "end-input") {
+          this.lastInputError = false;
+          (_e = this.firstPicker) === null || _e === void 0 ? void 0 : _e.clear();
+          this.printDate(((_f = this.firstPicker) === null || _f === void 0 ? void 0 : _f.selectedDates[0]) || null, null);
+        }
       }
       let isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
       let isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
       let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
       arrowPressed && ev.key === " " && ev.preventDefault();
-      isPrevArrowEntered && currentInputState.picker.changeMonth(-1);
-      isNextArrowEntered && currentInputState.picker.changeMonth(1);
+      isPrevArrowEntered && (currentPicker === null || currentPicker === void 0 ? void 0 : currentPicker.changeMonth(-1));
+      isNextArrowEntered && (currentPicker === null || currentPicker === void 0 ? void 0 : currentPicker.changeMonth(1));
     }
   }
-  /** Set background color before or after first selected date, before selecting the second one */
-  onMouseOver(e) {
-    let currentInputState = this.activeInput === "start-input"
-      ? { picker: this.flatpickrInstance, index: 0 }
-      : { picker: this.flatpickrInstance2, index: 1 };
-    this.setRangeHoverStyle(e, currentInputState.picker, this.element.getElementsByClassName("flatpickr-calendar")[currentInputState.index]);
-  }
   componentDidLoad() {
+    this.setupPickers();
+  }
+  setupPickers() {
     let config = {
-      enableTime: this.mode === index$1.ZDatePickerMode.dateTime,
+      enableTime: this.mode === index$1.ZRangePickerMode.dateTime,
       locale: utils$1.it.Italian,
       allowInput: true,
-      dateFormat: this.mode === index$1.ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
+      wrap: true,
+      dateFormat: this.mode === index$1.ZRangePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onChange: (selectedDates, _dateStr, instance) => {
-        this.onDateSelect(selectedDates, instance);
+      onValueUpdate: (_selectedDates, _dateStr, _instance) => {
+        let firstInputActive = this.activeInput === "start-input";
+        let firstDate = this.firstPicker.selectedDates[0];
+        let lastDate = this.lastPicker.selectedDates[0];
+        if (+firstDate > +lastDate) {
+          if (firstInputActive) {
+            this.firstInputError = true;
+            this.printDate(null, lastDate || null);
+          }
+          else {
+            this.lastInputError = true;
+            this.printDate(firstDate || null, null);
+          }
+        }
+        else {
+          this.lastInputError = false;
+          this.firstInputError = false;
+          this.printDate(firstDate || null, lastDate || null);
+        }
+        this.setRangeStyle(0);
+        this.setRangeStyle(1);
       },
-      onOpen: () => {
+      onChange: (_selectedDates, _dateStr, instance) => {
+        this.onDateSelect();
+        this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
+      },
+      onOpen: (_selectedDates, _dateStr, instance) => {
         utils$1.setAriaOptions(this.element, this.mode);
         this.flatpickrPosition = utils$1.setFlatpickrPosition(this.element, this.mode);
-        this.setRangeStyle();
+        this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
         this.getFocusedInput();
-        this.getCurrentMonth();
       },
-      onYearChange: () => {
-        this.setRangeStyle();
+      onYearChange: (_selectedDates, _dateStr, instance) => {
+        this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onMonthChange: () => {
-        this.setRangeStyle();
+      onMonthChange: (_selectedDates, _dateStr, instance) => {
+        this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
       onKeyDown: () => {
         utils$1.setAriaOptions(this.element, this.mode);
       },
-      wrap: true,
     };
-    this.flatpickrInstance = utils$1.flatpickr(`.${this.rangePickerId}-container`, Object.assign(Object.assign({}, config), { mode: "multiple", appendTo: this.element.querySelector(`.${this.rangePickerId}-container`) }));
-    this.flatpickrInstance2 = utils$1.flatpickr(`.${this.rangePickerId}-container-2`, Object.assign(Object.assign({}, config), { mode: "multiple", appendTo: this.element.querySelector(`.${this.rangePickerId}-container-2`) }));
+    this.firstPicker = utils$1.flatpickr(`.${this.rangePickerId}-1-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`) }));
+    this.lastPicker = utils$1.flatpickr(`.${this.rangePickerId}-2-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`) }));
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
   }
-  onDateSelect(selectedDates, instance) {
-    const firstInputElement = this.element.querySelectorAll("z-input")[0];
-    const secondInputElement = this.element.querySelectorAll("z-input")[1];
+  onDateSelect() {
     let firstInputActive = this.activeInput === "start-input";
-    /** If range is already set, clicking another date it will update it */
-    if (selectedDates.length === 3) {
-      instance.setDate([selectedDates[0], selectedDates[2]]);
-    }
-    /** Order the selected dates ASC and update the two flatpickers */
-    if (instance.selectedDates.length > 1) {
+    let firstDate = this.firstPicker.selectedDates[0];
+    let lastDate = this.lastPicker.selectedDates[0];
+    if (+firstDate > +lastDate) {
       if (firstInputActive) {
-        /** First Flatpickr selection */
-        let orderedDates = instance.selectedDates.sort((a, b) => b - a);
-        instance.setDate([...orderedDates]);
-        this.flatpickrInstance2.setDate([
-          instance.selectedDates[1],
-          instance.selectedDates[0],
-        ]);
+        this.firstInputError = true;
+        this.printDate(null, lastDate || null);
       }
       else {
-        /** Second Flatpickr selection */
-        let orderedDates = instance.selectedDates.sort((a, b) => a - b);
-        instance.setDate([...orderedDates]);
-        this.flatpickrInstance.setDate([
-          instance.selectedDates[1],
-          instance.selectedDates[0],
-        ]);
-        this.flatpickrInstance.setDate(this.flatpickrInstance.selectedDates.sort((a, b) => b - a));
+        this.lastInputError = true;
+        this.printDate(firstDate || null, null);
       }
-      this.printDate(instance.selectedDates[0], instance.selectedDates[1]);
     }
-    let index = instance.selectedDates.length - 1;
-    /** If exists, set second date value into first input */
-    if (instance.selectedDates[0]) {
-      firstInputElement.value = this.getDate(instance.selectedDates[firstInputActive ? index : 0]);
-    }
-    /** If exists, set second date value into second input */
-    if (instance.selectedDates[1]) {
-      secondInputElement.value = this.getDate(instance.selectedDates[firstInputActive ? 0 : index]);
+    else {
+      this.lastInputError = false;
+      this.firstInputError = false;
+      this.printDate(firstDate || null, lastDate || null);
     }
   }
-  getDate(date) {
-    if (this.mode === index$1.ZDatePickerMode.date) {
+  disableDates(date, index) {
+    let calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element) => {
+      let calendarDate = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
+      let breakpoint = this.getDateWithoutTime(date);
+      let inRange = index === 0 ? calendarDate > breakpoint : calendarDate < breakpoint;
+      if (inRange) {
+        element.classList.toggle("flatpickr-disabled", true);
+      }
+      else {
+        element.classList.toggle("flatpickr-disabled", false);
+      }
+    });
+    utils$1.setAriaOptions(this.element, this.mode);
+  }
+  formatDate(date) {
+    if (this.mode === index$1.ZRangePickerMode.date) {
       return `${utils$1.flatpickr.formatDate(date, "d-m-Y")}`;
     }
     else {
@@ -556,14 +588,21 @@ const ZRangePicker = class {
     }
   }
   printDate(firstDate, lastDate) {
-    let orderedDates = [firstDate, lastDate].sort((a, b) => a - b);
-    this.dateSelect.emit([
-      this.getDate(orderedDates[0]),
-      this.getDate(orderedDates[1]),
-    ]);
+    let firstDateString = firstDate ? this.formatDate(firstDate) : null;
+    let lastDateString = lastDate ? this.formatDate(lastDate) : null;
+    this.dateSelect.emit([firstDateString, lastDateString]);
+  }
+  getTime() {
+    let hour = this.element.getElementsByClassName("flatpickr-hour")[0].value;
+    let minutes = this.element.getElementsByClassName("flatpickr-minute")[0].value;
+    return `${hour}:${minutes}`;
+  }
+  getDateWithoutTime(date) {
+    let newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
+    return newDate;
   }
   /** Replace month word to month number */
-  parseDate(date) {
+  replaceMonths(date, time) {
     const month = date.split(" ")[1];
     const months = {
       Gennaio: "01",
@@ -580,7 +619,7 @@ const ZRangePicker = class {
       Dicembre: "12",
     };
     const pieces = date.replace(month, months[month]).split(" ");
-    return new Date(parseInt(pieces[2]), parseInt(pieces[1]) - 1, parseInt(pieces[0]));
+    return new Date(parseInt(pieces[2]), parseInt(pieces[1]) - 1, parseInt(pieces[0]), time ? parseInt(time.split(":")[0]) : 0, time ? parseInt(time.split(":")[1]) : 0);
   }
   /** Get the current focused input, first or last */
   getFocusedInput() {
@@ -595,139 +634,118 @@ const ZRangePicker = class {
       this.activeInput = "end-input";
     }
   }
-  /** Set current month after flatpickr opened */
-  getCurrentMonth() {
-    let currentInputState = this.activeInput === "start-input"
-      ? { picker: this.flatpickrInstance, index: 0 }
-      : { picker: this.flatpickrInstance2, index: 1 };
-    let length = currentInputState.picker.selectedDates.length;
-    if (length > 0) {
-      let dateMonth = currentInputState.picker.selectedDates[length - 1].getMonth();
-      let dateYear = currentInputState.picker.selectedDates[length - 1].getFullYear();
-      currentInputState.picker.changeMonth(dateMonth, false);
-      currentInputState.picker.changeYear(dateYear, false);
-    }
-  }
   /** Set style of the days between the two selected dates */
-  setRangeStyle() {
-    let currentInputState = this.activeInput === "start-input"
-      ? { picker: this.flatpickrInstance, index: 0 }
-      : { picker: this.flatpickrInstance2, index: 1 };
-    let calendar = this.element.getElementsByClassName("flatpickr-calendar")[currentInputState.index];
-    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element) => {
-      let selectedDatesCount = this.flatpickrInstance.selectedDates.length;
-      if (selectedDatesCount === 2) {
-        let date = this.parseDate(element.ariaLabel);
-        let firstDate = this.flatpickrInstance.selectedDates[1];
-        let secondDate = this.flatpickrInstance.selectedDates[0];
-        let selected = element.className.includes("selected");
-        if (date > firstDate && date < secondDate && !selected) {
-          element.classList.toggle("inRange", true);
+  setRangeStyle(index) {
+    Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element) => {
+      Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element) => {
+        let hasFirstDate = this.firstPicker.selectedDates.length === 1;
+        let hasLastDate = this.lastPicker.selectedDates.length === 1;
+        let firstDate;
+        let lastDate;
+        let date = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
+        if (hasFirstDate) {
+          firstDate = this.getDateWithoutTime(this.firstPicker.selectedDates[0]);
+          if (+date === +firstDate) {
+            element.classList.toggle("startRange", true);
+          }
+          else {
+            element.classList.toggle("startRange", false);
+          }
         }
-      }
+        if (hasLastDate) {
+          lastDate = this.getDateWithoutTime(this.lastPicker.selectedDates[0]);
+          if (+date === +lastDate) {
+            element.classList.toggle("endRange", true);
+          }
+          else {
+            element.classList.toggle("endRange", false);
+          }
+        }
+        if (hasFirstDate && hasLastDate) {
+          if (date > firstDate && date < lastDate) {
+            element.classList.toggle("inRange", true);
+          }
+          else {
+            element.classList.toggle("inRange", false);
+          }
+        }
+        if (index === 0 && hasLastDate) {
+          this.disableDates(this.lastPicker.selectedDates[0], index);
+        }
+        if (index === 1 && hasFirstDate) {
+          this.disableDates(this.firstPicker.selectedDates[0], index);
+        }
+      });
     });
   }
-  /** Set style of the days between first selected date and hovered date */
-  setRangeHoverStyle(e, flatpickr, calendar) {
-    const isDay = e.target.classList.contains("flatpickr-day");
-    if (isDay) {
-      let calendarDate = e.target.ariaLabel;
-      let hoveredDate = this.parseDate(calendarDate);
-      Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element) => {
-        let date = this.parseDate(element.ariaLabel);
-        let selectedDatesCount = flatpickr.selectedDates.length;
-        let firstDate = selectedDatesCount === 1 ? flatpickr.selectedDates[0] : null;
-        let before = firstDate && hoveredDate < firstDate;
-        let after = firstDate && hoveredDate > firstDate;
-        let selected = element.className.includes("selected");
-        if (firstDate &&
-          ((before && date > hoveredDate && date < firstDate && !selected) ||
-            (after && date < hoveredDate && date > firstDate && !selected))) {
-          element.classList.toggle("inRange", true);
-        }
-        else {
-          element.classList.remove("inRange");
-        }
-        this.setRangeStyle();
-      });
-    }
-  }
   onStopTyping(value) {
-    let text = value.detail.value;
+    let text = value.detail.value.replace("/", "-");
     let englishData = text.split("-");
-    let time = this.mode === index$1.ZDatePickerMode.dateTime ? `${englishData[3]}:00` : "";
-    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}T${time}`
+    let time = this.mode === index$1.ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`
       .split(" ")
       .join("");
-    let isDate = Date.parse(englishParsedData);
+    let isValidDate = utils$1.validateDate(text, this.mode === index$1.ZRangePickerMode.dateTime);
+    let date = Date.parse(englishParsedData).toString();
     if (this.activeInput === "start-input") {
-      /** Remove second value from either the flatpickers if input is cleared */
       if (text === "") {
-        if (this.flatpickrInstance.selectedDates.length === 1) {
-          this.flatpickrInstance.setDate([]);
-          this.flatpickrInstance2.setDate([]);
+        this.firstInputError = false;
+        this.firstPicker.setDate([]);
+        this.printDate(null, this.lastPicker.selectedDates[0] || null);
+      }
+      else if (!isValidDate) {
+        this.firstInputError = true;
+        this.printDate(null, this.lastPicker.selectedDates[0] || null);
+      }
+      else if (isValidDate) {
+        if (this.lastPicker.selectedDates.length === 1) {
+          if (+date <= +this.lastPicker.selectedDates[0]) {
+            this.firstInputError = false;
+            this.firstPicker.setDate([text]);
+            this.printDate(new Date(englishParsedData), this.lastPicker.selectedDates[0]);
+          }
+          else {
+            this.firstInputError = true;
+            this.printDate(null, this.lastPicker.selectedDates[0]);
+          }
         }
         else {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[0],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[1],
-          ]);
-        }
-      }
-      else {
-        /** If the value inserted is a correct date, update the first input value */
-        if (!Number.isNaN(isDate)) {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[0],
-            text,
-          ]);
-          this.flatpickrInstance2.setDate([
-            text,
-            this.flatpickrInstance2.selectedDates[1],
-          ]);
-          if (this.flatpickrInstance.selectedDates.length > 1) {
-            this.printDate(new Date(englishParsedData), this.flatpickrInstance.selectedDates[0]);
-          }
-          this.setRangeStyle();
+          this.firstInputError = false;
+          this.firstPicker.setDate([text]);
+          this.printDate(new Date(englishParsedData), null);
         }
       }
     }
     else {
-      /** Remove second value from either the flatpickers if input is cleared */
       if (text === "") {
-        if (this.flatpickrInstance2.selectedDates.length === 1) {
-          this.flatpickrInstance.setDate([]);
-          this.flatpickrInstance2.setDate([]);
+        this.lastInputError = false;
+        this.lastPicker.setDate([]);
+        this.printDate(this.firstPicker.selectedDates[0] || null, null);
+      }
+      else if (!isValidDate) {
+        this.lastInputError = true;
+        this.printDate(this.firstPicker.selectedDates[0] || null, null);
+      }
+      else if (isValidDate) {
+        if (this.firstPicker.selectedDates.length === 1) {
+          if (+date >= +this.firstPicker.selectedDates[0]) {
+            this.lastInputError = false;
+            this.lastPicker.setDate([text]);
+            this.printDate(this.firstPicker.selectedDates[0], new Date(englishParsedData));
+          }
+          else {
+            this.lastInputError = true;
+            this.printDate(this.firstPicker.selectedDates[0], null);
+          }
         }
         else {
-          this.flatpickrInstance.setDate([
-            this.flatpickrInstance.selectedDates[1],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[0],
-          ]);
-        }
-      }
-      else {
-        /** If the value inserted is a correct date, update the second input value */
-        if (!Number.isNaN(isDate)) {
-          this.flatpickrInstance.setDate([
-            text,
-            this.flatpickrInstance.selectedDates[1],
-          ]);
-          this.flatpickrInstance2.setDate([
-            this.flatpickrInstance2.selectedDates[0],
-            text,
-          ]);
-          if (this.flatpickrInstance2.selectedDates.length > 1) {
-            this.printDate(new Date(englishParsedData), this.flatpickrInstance2.selectedDates[0]);
-          }
-          this.setRangeStyle();
+          this.lastInputError = false;
+          this.lastPicker.setDate([text]);
+          this.printDate(null, new Date(englishParsedData));
         }
       }
     }
+    this.setRangeStyle(this.activeInput === "start-input" ? 0 : 1);
   }
   render() {
     const zInputProps = {
@@ -738,15 +756,23 @@ const ZRangePicker = class {
       onStopTyping: (value) => {
         this.onStopTyping(value);
       },
+      value: "",
     };
     return (index.h("div", { class: {
-        ["range-picker-container"]: true,
+        ["range-pickers-container"]: true,
         [this.mode]: true,
         [this.activeInput]: true,
         [this.flatpickrPosition]: true,
-      } }, index.h("div", { class: `${this.rangePickerId}-container` }, index.h("input", { class: "hidden-input", "data-input": true }), index.h("z-input", Object.assign({}, zInputProps, { class: `start-input ${this.rangePickerId}`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, "data-toggle": true }))), index.h("div", { class: `${this.rangePickerId}-container-2` }, index.h("input", { class: "hidden-input", "data-input": true }), index.h("z-input", Object.assign({}, zInputProps, { class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, "data-toggle": true })))));
+      } }, index.h("div", { class: `${this.rangePickerId}-1-wrapper` }, index.h("div", { class: `${this.rangePickerId}-1-container` }, index.h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && index$1.InputStatusEnum.error, onStartTyping: () => {
+        this.firstInputError = false;
+      } })))), index.h("div", { class: `${this.rangePickerId}-2-wrapper` }, index.h("div", { class: `${this.rangePickerId}-2-container` }, index.h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && index$1.InputStatusEnum.error, onStartTyping: () => {
+        this.lastInputError = false;
+      } }))))));
   }
   get element() { return index.getElement(this); }
+  static get watchers() { return {
+    "mode": ["watchMode"]
+  }; }
 };
 ZRangePicker.style = stylesCss;
 

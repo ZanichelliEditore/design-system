@@ -11,14 +11,19 @@ export declare class ZDatePicker {
   /** [Optional] datepicker mode: date, datetime, only months */
   mode: ZDatePickerMode;
   flatpickrPosition: ZDatePickerPosition;
-  private flatpickrInstance;
+  inputError: boolean;
+  private picker;
   private hasChildren;
+  watchMode(): void;
   /** emitted when date changes, returns selected date */
   dateSelect: EventEmitter;
   emitDateSelect(date: any): void;
   handleKeyDown(ev: KeyboardEvent): void;
   componentWillLoad(): void;
   componentDidLoad(): void;
+  setupPickers(): void;
+  formatDate(date: any): string;
+  onStopTyping(value: any): void;
   renderSlottedContent(): any;
   renderZInput(): any;
   render(): any;
