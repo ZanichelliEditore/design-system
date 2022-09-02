@@ -165,16 +165,12 @@ export class ZRangePicker {
     this.firstPicker = flatpickr(`.${this.rangePickerId}-1-container`, {
       ...config,
       mode: "single",
-      appendTo: this.element.querySelector(
-        `.${this.rangePickerId}-1-container`
-      ),
+      appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`),
     });
     this.lastPicker = flatpickr(`.${this.rangePickerId}-2-container`, {
       ...config,
       mode: "single",
-      appendTo: this.element.querySelector(
-        `.${this.rangePickerId}-2-container`
-      ),
+      appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`),
     });
 
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
@@ -464,31 +460,36 @@ export class ZRangePicker {
           [this.flatpickrPosition]: true,
         }}
       >
-        <div class={`${this.rangePickerId}-1-container`}>
-          <z-input
-            {...zInputProps}
-            data-input="data-input"
-            class={`start-input ${this.rangePickerId}-1`}
-            ariaLabel={this.firstAriaLabel}
-            label={this.firstLabel}
-            status={this.firstInputError && InputStatusEnum.error}
-            onStartTyping={() => {
-              this.firstInputError = false;
-            }}
-          />
+        <div class={`${this.rangePickerId}-1-wrapper`}>
+          <div class={`${this.rangePickerId}-1-container`}>
+            <z-input
+              {...zInputProps}
+              htmlid="AAAAAA"
+              data-input="data-input"
+              class={`start-input ${this.rangePickerId}-1`}
+              ariaLabel={this.firstAriaLabel}
+              label={this.firstLabel}
+              status={this.firstInputError && InputStatusEnum.error}
+              onStartTyping={() => {
+                this.firstInputError = false;
+              }}
+            />
+          </div>
         </div>
-        <div class={`${this.rangePickerId}-2-container`}>
-          <z-input
-            {...zInputProps}
-            data-input="data-input"
-            class={`end-input ${this.rangePickerId}-2`}
-            ariaLabel={this.secondAriaLabel}
-            label={this.secondLabel}
-            status={this.lastInputError && InputStatusEnum.error}
-            onStartTyping={() => {
-              this.lastInputError = false;
-            }}
-          />
+        <div class={`${this.rangePickerId}-2-wrapper`}>
+          <div class={`${this.rangePickerId}-2-container`}>
+            <z-input
+              {...zInputProps}
+              data-input="data-input"
+              class={`end-input ${this.rangePickerId}-2`}
+              ariaLabel={this.secondAriaLabel}
+              label={this.secondLabel}
+              status={this.lastInputError && InputStatusEnum.error}
+              onStartTyping={() => {
+                this.lastInputError = false;
+              }}
+            />
+          </div>
         </div>
       </div>
     );
