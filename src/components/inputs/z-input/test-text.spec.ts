@@ -260,7 +260,7 @@ describe("Suite test ZInput - text", () => {
       <z-input htmlid="test" max="10" message="false" min="1" step="2" type="number">
         <div class="textWrapper">
           <div>
-            <input class="hasClearIcon input_default" id="test" max="10" min="1" step="2" type="number">
+            <input class="input_default" id="test" max="10" min="1" step="2" type="number">
             <span class="iconsWrapper"></span>
           </div>
         </div>
