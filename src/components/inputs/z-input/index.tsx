@@ -219,7 +219,7 @@ export class ZInput {
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = { ...attr.class, hasIcon: true };
     }
-    if (this.hasclearicon) {
+    if (this.hasclearicon && type != InputTypeEnum.number) {
       attr.class = { ...attr.class, hasClearIcon: true };
     }
 
@@ -282,7 +282,13 @@ export class ZInput {
   }
 
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (
+      !this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == InputTypeEnum.number
+    )
       return;
 
     return (
