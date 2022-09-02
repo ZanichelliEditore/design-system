@@ -1,18 +1,18 @@
 import { html } from "lit-html";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
-import { ZDatePickerMode } from "../../../beans";
+import { ZRangePickerMode } from "../../../beans";
 
 import "./index";
 import "../styles.css";
-import "./index.stories.css";
+import "../index.stories.css";
 
 <Meta
   title="DatePicker/ZRangePicker"
   component="z-range-picker"
   argTypes={{
     mode: {
-      options: Object.values(ZDatePickerMode),
+      options: Object.values(ZRangePickerMode),
       control: { type: "radio" },
     },
     rangePickerId: {
@@ -21,11 +21,11 @@ import "./index.stories.css";
   }}
 />
 
-# ZDatePicker with date
+# ZRangePicker with date
 
 <Canvas>
   <Story
-    name="ZDatePicker with date"
+    name="ZRangePicker with date"
     args={{
       mode: "date",
       rangePickerId: "picker-01",
@@ -38,14 +38,15 @@ import "./index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker1 = document.getElementById("${args.rangePickerId}");
-        picker1.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail[0] + "], [" + e.detail[1] + "]";
-        });
+        document
+          .getElementById("${args.rangePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+          });
       </script>
       <div class="story-container">
-        <div class="story-range-picker-container">
+        <div class="story-picker-container">
           <z-range-picker
             mode=${args.mode}
             range-picker-id=${args.rangePickerId}
@@ -66,11 +67,11 @@ import "./index.stories.css";
   </Story>
 </Canvas>
 
-# ZDatePicker with date and time
+# ZRangePicker with date and time
 
 <Canvas>
   <Story
-    name="ZDatePicker with date and time"
+    name="ZRangePicker with date and time"
     args={{
       mode: "date-time",
       rangePickerId: "picker-02",
@@ -82,14 +83,15 @@ import "./index.stories.css";
   >
     {(args) => html`
       <script>
-        const picker2 = document.getElementById("${args.rangePickerId}");
-        picker2.addEventListener("dateSelect", (e) => {
-          const input = document.getElementById("output");
-          input.innerHTML = "[" + e.detail[0] + "], [" + e.detail[1] + "]";
-        });
+        document
+          .getElementById("${args.rangePickerId}")
+          .addEventListener("dateSelect", (e) => {
+            const input = document.getElementById("output");
+            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+          });
       </script>
       <div class="story-container">
-        <div class="story-range-picker-container">
+        <div class="story-picker-container">
           <z-range-picker
             mode=${args.mode}
             range-picker-id=${args.rangePickerId}

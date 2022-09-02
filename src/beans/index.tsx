@@ -463,6 +463,11 @@ export enum ZDatePickerPosition {
   bottom = "bottom",
 }
 
+export enum ZRangePickerMode {
+  date = "date",
+  dateTime = "date-time",
+}
+
 export declare type SkipToContentLink = {
   label: string;
   href: string;

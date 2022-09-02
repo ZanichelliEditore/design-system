@@ -10,14 +10,12 @@ describe("Suite test ZRangePicker", () => {
     });
 
     expect(page.root).toEqualHtml(`<z-range-picker range-picker-id="picker-01">
-      <div class="bottom date range-picker-container start-input">
-        <div class="picker-01-container">
-          <input class="hidden-input" data-input>
-          <z-input class="start-input picker-01" data-toggle icon="event" tabindex="0" type="text"></z-input>
+      <div class="bottom date range-pickers-container start-input">
+        <div class="picker-01-1-container">
+          <z-input class="picker-01-1 start-input" data-input="data-input" icon="event" tabindex="0" type="text" value=""></z-input>
         </div>
-        <div class="picker-01-container-2">
-          <input class="hidden-input" data-input>
-          <z-input class="end-input picker-01-2" data-toggle icon="event" tabindex="0" type="text"></z-input>
+        <div class="picker-01-2-container">
+          <z-input class="end-input picker-01-2" data-input="data-input" icon="event" tabindex="0" type="text" value=""></z-input>
         </div>
       </div>
     </z-range-picker>`);
