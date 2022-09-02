@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-bc9a5c2b.js');
+const index$1 = require('./index-69339d64.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const icons = require('./icons-9fc3ff30.js');
-const utils = require('./utils-2fa62b67.js');
-const utils$1 = require('./utils-40bb75b1.js');
+const utils = require('./utils-98ed20af.js');
+const utils$1 = require('./utils-bfd07a33.js');
 require('./_commonjsHelpers-537d719a.js');
 
 const stylesCss$8 = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
@@ -215,12 +215,33 @@ const ZInput = class {
       onInput: (e) => this.emitInputChange(e.target.value),
     };
   }
+  getNumberAttributes(type) {
+    if (type != index$1.InputTypeEnum.number)
+      return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+  getPatternAttribute(type) {
+    if (type != index$1.InputTypeEnum.password &&
+      type != index$1.InputTypeEnum.text &&
+      type != index$1.InputTypeEnum.tel &&
+      type != index$1.InputTypeEnum.search &&
+      type != index$1.InputTypeEnum.url &&
+      type != index$1.InputTypeEnum.email)
+      return;
+    return {
+      pattern: this.pattern,
+    };
+  }
   renderInputText(type = index$1.InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
     if (this.icon || type === index$1.InputTypeEnum.password) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasIcon: true });
     }
-    if (this.hasclearicon) {
+    if (this.hasclearicon && type != index$1.InputTypeEnum.number) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasClearIcon: true });
     }
     return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
@@ -244,7 +265,11 @@ const ZInput = class {
     return (index.h("button", { type: "button", class: "iconButton inputIcon", tabIndex: -1 }, index.h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (!this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == index$1.InputTypeEnum.number)
       return;
     return (index.h("button", { type: "button", class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, index.h("z-icon", { name: "multiply" })));
   }

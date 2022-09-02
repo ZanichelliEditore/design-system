@@ -50,6 +50,9 @@ export var InputTypeEnum;
   InputTypeEnum["textarea"] = "textarea";
   InputTypeEnum["checkbox"] = "checkbox";
   InputTypeEnum["radio"] = "radio";
+  InputTypeEnum["tel"] = "tel";
+  InputTypeEnum["url"] = "url";
+  InputTypeEnum["search"] = "search";
 })(InputTypeEnum || (InputTypeEnum = {}));
 export var InputStatusEnum;
 (function (InputStatusEnum) {

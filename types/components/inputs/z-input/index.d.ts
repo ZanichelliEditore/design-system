@@ -38,6 +38,14 @@ export declare class ZInput {
   hasclearicon?: boolean;
   /** render icon (optional): available for text */
   icon?: string;
+  /** min number value (optional): available for number */
+  min?: number;
+  /** max number value (optional): available for number */
+  max?: number;
+  /** step number value (optional): available for number */
+  step?: number;
+  /** pattern value (optional): available for tel, text, search, url, email, password*/
+  pattern?: string;
   isTyping: boolean;
   passwordHidden: boolean;
   private timer;
@@ -73,6 +81,14 @@ export declare class ZInput {
     };
     autocomplete: string;
     onInput: (e: any) => void;
+  };
+  getNumberAttributes(type: InputTypeBean): {
+    min: number;
+    max: number;
+    step: number;
+  };
+  getPatternAttribute(type: InputTypeBean): {
+    pattern: string;
   };
   renderInputText(type?: InputTypeBean): any;
   renderLabel(): any;

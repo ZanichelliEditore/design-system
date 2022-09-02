@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
-import { T as ThemeVariant, a as DividerOrientation, b as DividerSize, L as LabelPositions, I as InputTypeEnum, Z as ZDatePickerMode, c as ZDatePickerPosition } from './index-e3640537.js';
+import { T as ThemeVariant, a as DividerOrientation, b as DividerSize, L as LabelPositions, I as InputTypeEnum, Z as ZDatePickerMode, c as ZDatePickerPosition } from './index-0944317b.js';
 import { m as mobileBreakpoint } from './breakpoints-c386984e.js';
 import { i as icons } from './icons-92a7dcde.js';
-import { r as randomId, b as boolean } from './utils-f3d44cb3.js';
-import { f as flatpickr, i as it, s as setAriaOptions, a as setFlatpickrPosition } from './utils-c1f651ae.js';
+import { r as randomId, b as boolean } from './utils-0d95f520.js';
+import { f as flatpickr, i as it, s as setAriaOptions, a as setFlatpickrPosition } from './utils-20383a26.js';
 import './_commonjsHelpers-9943807e.js';
 
 const stylesCss$8 = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;justify-content:center;align-content:center;background-color:transparent;border:none;padding:0}button>z-icon{color:var(--bg-white);fill:currentColor}button>z-icon.light{color:var(--bg-grey-900);fill:currentColor}";
@@ -211,12 +211,33 @@ const ZInput = class {
       onInput: (e) => this.emitInputChange(e.target.value),
     };
   }
+  getNumberAttributes(type) {
+    if (type != InputTypeEnum.number)
+      return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+  getPatternAttribute(type) {
+    if (type != InputTypeEnum.password &&
+      type != InputTypeEnum.text &&
+      type != InputTypeEnum.tel &&
+      type != InputTypeEnum.search &&
+      type != InputTypeEnum.url &&
+      type != InputTypeEnum.email)
+      return;
+    return {
+      pattern: this.pattern,
+    };
+  }
   renderInputText(type = InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasIcon: true });
     }
-    if (this.hasclearicon) {
+    if (this.hasclearicon && type != InputTypeEnum.number) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasClearIcon: true });
     }
     return (h("div", { class: "textWrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputTypeEnum.password && !this.passwordHidden
@@ -240,7 +261,11 @@ const ZInput = class {
     return (h("button", { type: "button", class: "iconButton inputIcon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (!this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == InputTypeEnum.number)
       return;
     return (h("button", { type: "button", class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
   }

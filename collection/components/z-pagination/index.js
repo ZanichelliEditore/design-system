@@ -155,7 +155,8 @@ export class ZPagination {
         this.renderPage(this.totalPages),
       ];
     }
-    if (this.currentPage > this.split * 2 + 2 && this.currentPage < this.totalPages - this.split * 2 - 1) {
+    if (this.currentPage > this.split * 2 + 2 &&
+      this.currentPage < this.totalPages - this.split * 2 - 1) {
       // Render first page, ellipsis, current page surrounded by (split) pages both before and after, another ellipsis, then last page.
       return [
         this.renderPage(1),
@@ -192,7 +193,9 @@ export class ZPagination {
             ev.preventDefault();
             this.selectPage(this.goToPageValue);
           } },
-          h("z-input", { class: "go-to-page-input", type: "number", message: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, placeholder: this.currentPage.toString(), hasclearicon: false }),
+          h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, onInput: (ev) => {
+              this.goToPageValue = ev.target.value;
+            }, placeholder: this.currentPage.toString(), hasclearicon: false }),
           h("span", null, `/${this.totalPages}`))),
         this.renderForwardButton()),
     ];
@@ -219,9 +222,7 @@ export class ZPagination {
           "-",
           this.skip)),
         this.navArrows && this.renderBackButton(),
-        h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, this.split ?
-          this.renderSplitPages() :
-          this.renderPages()),
+        h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, this.split ? this.renderSplitPages() : this.renderPages()),
         this.navArrows && this.renderForwardButton(),
         this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage + this.skip}`, disabled: this.currentPage > this.totalPages - this.skip, onClick: () => this.selectPage(this.currentPage + this.skip) },
           "+",
@@ -232,7 +233,9 @@ export class ZPagination {
       this.goToPage && (h("div", { class: "go-to-page" },
         h("span", { class: "label body-5-sb" }, "Vai a pagina:"),
         h("div", { class: "inputs" },
-          h("z-input", { class: "go-to-page-input", type: "number", message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => { this.goToPageValue = ev.target.value; }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }),
+          h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => {
+              this.goToPageValue = ev.target.value;
+            }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }),
           h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
     ];
   }

@@ -301,7 +301,7 @@ export class ZInputDeprecated {
       "mutable": false,
       "complexType": {
         "original": "InputTypeBean",
-        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"text\" | \"textarea\"",
+        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"search\" | \"tel\" | \"text\" | \"textarea\" | \"url\"",
         "references": {
           "InputTypeBean": {
             "location": "import",

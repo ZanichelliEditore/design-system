@@ -108,12 +108,33 @@ export class ZInput {
       onInput: (e) => this.emitInputChange(e.target.value),
     };
   }
+  getNumberAttributes(type) {
+    if (type != InputTypeEnum.number)
+      return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+  getPatternAttribute(type) {
+    if (type != InputTypeEnum.password &&
+      type != InputTypeEnum.text &&
+      type != InputTypeEnum.tel &&
+      type != InputTypeEnum.search &&
+      type != InputTypeEnum.url &&
+      type != InputTypeEnum.email)
+      return;
+    return {
+      pattern: this.pattern,
+    };
+  }
   renderInputText(type = InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
     if (this.icon || type === InputTypeEnum.password) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasIcon: true });
     }
-    if (this.hasclearicon) {
+    if (this.hasclearicon && type != InputTypeEnum.number) {
       attr.class = Object.assign(Object.assign({}, attr.class), { hasClearIcon: true });
     }
     return (h("div", { class: "textWrapper" },
@@ -145,7 +166,11 @@ export class ZInput {
       h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (!this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == InputTypeEnum.number)
       return;
     return (h("button", { type: "button", class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") },
       h("z-icon", { name: "multiply" })));
@@ -244,7 +269,7 @@ export class ZInput {
       "mutable": false,
       "complexType": {
         "original": "InputTypeBean",
-        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"text\" | \"textarea\"",
+        "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"search\" | \"tel\" | \"text\" | \"textarea\" | \"url\"",
         "references": {
           "InputTypeBean": {
             "location": "import",
@@ -548,6 +573,74 @@ export class ZInput {
         "text": "render icon (optional): available for text"
       },
       "attribute": "icon",
+      "reflect": false
+    },
+    "min": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "min number value (optional): available for number"
+      },
+      "attribute": "min",
+      "reflect": false
+    },
+    "max": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "max number value (optional): available for number"
+      },
+      "attribute": "max",
+      "reflect": false
+    },
+    "step": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "step number value (optional): available for number"
+      },
+      "attribute": "step",
+      "reflect": false
+    },
+    "pattern": {
+      "type": "string",
+      "mutable": false,
+      "complexType": {
+        "original": "string",
+        "resolved": "string",
+        "references": {}
+      },
+      "required": false,
+      "optional": true,
+      "docs": {
+        "tags": [],
+        "text": "pattern value (optional): available for tel, text, search, url, email, password"
+      },
+      "attribute": "pattern",
       "reflect": false
     }
   }; }

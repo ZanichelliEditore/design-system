@@ -130,7 +130,10 @@ export declare enum InputTypeEnum {
   email = "email",
   textarea = "textarea",
   checkbox = "checkbox",
-  radio = "radio"
+  radio = "radio",
+  tel = "tel",
+  url = "url",
+  search = "search"
 }
 export declare type InputStatusBean = keyof typeof InputStatusEnum;
 export declare enum InputStatusEnum {
