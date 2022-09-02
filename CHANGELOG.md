@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/ZanichelliEditore/design-system/compare/v5.2.0...v5.3.0) (2022-09-02)
+
+
+### Features
+
+* **z-range-picker-accessibility:** add wrap to picker ([d906970](https://github.com/ZanichelliEditore/design-system/commit/d9069700fab7676572a7d76eec7f6886b5af2ad9))
+* **z-range-picker-accessibility:** fix ([0a3491c](https://github.com/ZanichelliEditore/design-system/commit/0a3491ca877c9e41d3878c030d600b0053deb8dc))
+* **z-range-picker-accessibility:** fix ([3b535e4](https://github.com/ZanichelliEditore/design-system/commit/3b535e4e166b59a04248a294ef5749dbac3cd8a9))
+* **z-range-picker-accessibility:** fix ([a63e0cc](https://github.com/ZanichelliEditore/design-system/commit/a63e0cc9b3a739d354e8321748966f35b51b1133))
+* **z-range-picker-accessibility:** fix css ([293b117](https://github.com/ZanichelliEditore/design-system/commit/293b117ab512b5b4a2fad70032105dacd4361b48))
+* **z-range-picker-accessibility:** fix for pr ([4dfa802](https://github.com/ZanichelliEditore/design-system/commit/4dfa802a22080450c700e995cc0b3f562f0be35a))
+* **z-range-picker-accessibility:** fix for pr ([e0a284a](https://github.com/ZanichelliEditore/design-system/commit/e0a284a7a307fd719d95bfc3f2678d8141fc0bc9))
+* **z-range-picker-accessibility:** fix style ([fb5d6e6](https://github.com/ZanichelliEditore/design-system/commit/fb5d6e6dd0da7d6e722f3d0cc52d0d89add5d622))
+* **z-range-picker-accessibility:** fix wrong time after selection ([2cc82a0](https://github.com/ZanichelliEditore/design-system/commit/2cc82a0f5451cef80c3cddce6fd951e577caa1e9))
+* **z-range-picker-accessibility:** refactor and fix error ([c8e8f06](https://github.com/ZanichelliEditore/design-system/commit/c8e8f06e9c3d5c0133113435133a6426fbe00c48))
+* **ZRangePicker:** minor fix ([212f777](https://github.com/ZanichelliEditore/design-system/commit/212f777c139be3c9d997d0e1a57f3f7892725865))
+* **zte-4693:** fix docs ([ff697c3](https://github.com/ZanichelliEditore/design-system/commit/ff697c388dbe6d76fabfda0767e31491d323fa69))
+
 ## [5.2.0](https://github.com/ZanichelliEditore/design-system/compare/v5.1.0...v5.2.0) (2022-09-02)
 
 
