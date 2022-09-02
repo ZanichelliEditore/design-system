@@ -464,7 +464,6 @@ export class ZRangePicker {
           <div class={`${this.rangePickerId}-1-container`}>
             <z-input
               {...zInputProps}
-              htmlid="AAAAAA"
               data-input="data-input"
               class={`start-input ${this.rangePickerId}-1`}
               ariaLabel={this.firstAriaLabel}
