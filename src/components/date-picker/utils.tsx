@@ -4,6 +4,25 @@ import {
   ZDatePickerPosition,
 } from "../../beans";
 
+export function validateDate(dateStr, hasTime = false) {
+  const regex = hasTime
+    ? /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00$/
+    : /^\d{4}-\d{2}-\d{2}$/;
+
+  if (dateStr.match(regex) === null) {
+    return false;
+  }
+
+  const date = new Date(dateStr);
+  const timestamp = date.getTime();
+
+  if (typeof timestamp !== "number" || Number.isNaN(timestamp)) {
+    return false;
+  }
+
+  return true;
+}
+
 export function setFlatpickrPosition(element: HTMLElement, mode) {
   const toggleHeight = element.children[0].clientHeight;
   element.style.setProperty(

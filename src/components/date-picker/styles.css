@@ -24,7 +24,7 @@ z-range-picker {
   width: fit-content;
 }
 
-.range-picker-container > div {
+.range-pickers-container > div {
   cursor: pointer !important;
   position: relative;
 }
@@ -449,7 +449,7 @@ z-range-picker {
   cursor: pointer;
 }
 
-.range-picker-container {
+.range-pickers-container {
   display: flex;
   gap: 16px;
 }

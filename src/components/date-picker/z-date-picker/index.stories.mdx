@@ -5,6 +5,7 @@ import { ZDatePickerMode } from "../../../beans";
 
 import "./index";
 import "../styles.css";
+import "../index.stories.css";
 
 <Meta
   title="DatePicker/ZDatePicker"
@@ -40,19 +41,29 @@ import "../styles.css";
     height="180px"
   >
     {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          date-picker-id=${args.datePickerId}
-          id=${args.datePickerId}
-          ariaLabel=${args.ariaLabel}
-          label=${args.label}
-        ></z-date-picker>
-      </div>
       <script>
         const picker1 = document.getElementById("${args.datePickerId}");
-        picker1.addEventListener("dateSelect", (e) => alert(e.detail));
+        picker1.addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
+      <div class="story-container">
+        <div class="story-picker-container">
+          <z-date-picker
+            mode=${args.mode}
+            date-picker-id=${args.datePickerId}
+            id=${args.datePickerId}
+            ariaLabel=${args.ariaLabel}
+            label=${args.label}
+          ></z-date-picker>
+        </div>
+        <div class="story-output-container">
+          <span>OUTPUT:</span>
+          <br />
+          <span id="output" />
+        </div>
+      </div>
     `}
   </Story>
 </Canvas>
@@ -70,19 +81,29 @@ import "../styles.css";
     }}
   >
     {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          date-picker-id=${args.datePickerId}
-          id=${args.datePickerId}
-          ariaLabel=${args.ariaLabel}
-          label=${args.label}
-        ></z-date-picker>
-      </div>
       <script>
-        const picker2 = document.getElementById("${args.datePickerId}");
-        picker2.addEventListener("dateSelect", (e) => alert(e.detail));
+        const picker1 = document.getElementById("${args.datePickerId}");
+        picker1.addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
+      <div class="story-container">
+        <div class="story-picker-container">
+          <z-date-picker
+            mode=${args.mode}
+            date-picker-id=${args.datePickerId}
+            id=${args.datePickerId}
+            ariaLabel=${args.ariaLabel}
+            label=${args.label}
+          ></z-date-picker>
+        </div>
+        <div class="story-output-container">
+          <span>OUTPUT:</span>
+          <br />
+          <span id="output" />
+        </div>
+      </div>
     `}
   </Story>
 </Canvas>
@@ -100,19 +121,29 @@ import "../styles.css";
     }}
   >
     {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          date-picker-id=${args.datePickerId}
-          id=${args.datePickerId}
-          ariaLabel=${args.ariaLabel}
-          label=${args.label}
-        ></z-date-picker>
-      </div>
       <script>
-        const picker3 = document.getElementById("${args.datePickerId}");
-        picker3.addEventListener("dateSelect", (e) => alert(e.detail));
+        const picker1 = document.getElementById("${args.datePickerId}");
+        picker1.addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
+      <div class="story-container">
+        <div class="story-picker-container">
+          <z-date-picker
+            mode=${args.mode}
+            date-picker-id=${args.datePickerId}
+            id=${args.datePickerId}
+            ariaLabel=${args.ariaLabel}
+            label=${args.label}
+          ></z-date-picker>
+        </div>
+        <div class="story-output-container">
+          <span>OUTPUT:</span>
+          <br />
+          <span id="output" />
+        </div>
+      </div>
     `}
   </Story>
 </Canvas>
@@ -130,20 +161,30 @@ import "../styles.css";
     }}
   >
     {(args) => html`
-      <div style="height:300px; padding-top:40px">
-        <z-date-picker
-          mode=${args.mode}
-          date-picker-id=${args.datePickerId}
-          id=${args.datePickerId}
-          ariaLabel=${args.ariaLabel}
-          label=${args.label}
-          ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
-        >
-      </div>
       <script>
-        const picker4 = document.getElementById("${args.datePickerId}");
-        picker4.addEventListener("dateSelect", (e) => alert(e.detail));
+        const picker1 = document.getElementById("${args.datePickerId}");
+        picker1.addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
+      <div class="story-container">
+        <div class="story-picker-container">
+          <z-date-picker
+            mode=${args.mode}
+            date-picker-id=${args.datePickerId}
+            id=${args.datePickerId}
+            ariaLabel=${args.ariaLabel}
+            label=${args.label}
+            ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
+          >
+        </div>
+        <div class="story-output-container">
+          <span>OUTPUT:</span>
+          <br />
+          <span id="output" />
+        </div>
+      </div>
     `}
   </Story>
 </Canvas>
@@ -155,3 +196,5 @@ import "../styles.css";
 In order to avoid conflits between datepickers, pass a unique id as `datePickerId` prop.
 
 This component emits an event called `dateSelect` with the value of the selected date.
+
+When you manually type a date, make sure to use the correct format: `DD-MM-YYY` for `date` mode and `DD-MM-YYY - HH:MM` for `date-time` mode.
