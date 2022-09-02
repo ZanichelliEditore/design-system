@@ -7,13 +7,11 @@ import {
 } from "../../beans";
 
 export function validateDate(dateStr, hasTime = false) {
-  console.log("dateStr", dateStr);
   const regex = hasTime
     ? /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4} - \d{2}:\d{2}$/
     : /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}$/;
 
   if (dateStr.match(regex) === null) {
-    console.log("regex");
     return false;
   }
 
