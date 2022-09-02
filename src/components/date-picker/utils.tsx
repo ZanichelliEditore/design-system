@@ -1,5 +1,3 @@
-import flatpickr from "flatpickr";
-
 import {
   ZDatePickerMode,
   ZDatePickerModeValues,
@@ -13,14 +11,6 @@ export function validateDate(dateStr, hasTime = false) {
 
   if (dateStr.match(regex) === null) {
     return false;
-  }
-
-  let date;
-
-  if (hasTime) {
-    date = flatpickr.parseDate(dateStr, "d-m-Y");
-  } else {
-    date = flatpickr.parseDate(dateStr, "d-m-Y - H:i");
   }
 
   return true;
