@@ -16,8 +16,7 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "@stencil/eslint-plugin",
-    "jsx-a11y"
+    "@stencil/eslint-plugin"
   ],
   "rules": {
     "no-duplicate-imports": "error",
