@@ -65,6 +65,40 @@ yarn test.e2e
 
 ----
 
+## Linting and autofixing of the code style
+There are some tools installed to help keeping uniformity of code style:
+- [Eslint](https://eslint.org/)
+- [Stylelint](https://stylelint.io/)
+- [Prettier](https://prettier.io/)
+
+> Install the related official extensions in your IDE to get live errors and warning while coding.
+
+### Run lint checks and auto-fix
+to auto format code in all project, run
+```sh
+yarn prettify
+```
+
+TypeScript lint check
+```sh
+yarn lint.eslint
+```
+
+CSS lint check
+```sh
+yarn lint.stylelint
+```
+
+TypeScript auto-fix
+```sh
+yarn lint-fix.eslint
+```
+
+CSS auto-fix
+```sh
+yarn lint-fix.stylelint
+```
+
 ## Release
 
 In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [standard-version](https://github.com/conventional-changelog/standard-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
@@ -206,10 +240,10 @@ ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById('root'));
 
 Each component is structured as follows:
 
-| File name       | Description                    |
+| File name       | Description |
 | --------------- | ------------------------------ |
-| `index.tsx`      | Component markup and UI logics |
-| `styles.css`    | Component styles               |
-| `index.spec.ts` | Component tests                |
-| `index.stories.mdx` | Component storybook file                |
-| `README.md`     | Component documentation          |
+| `index.tsx` | Component markup and UI logics |
+| `styles.css` | Component styles |
+| `index.spec.ts` | Component tests |
+| `index.stories.mdx` | Component storybook file |
+| `README.md` | Component documentation |
