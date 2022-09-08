@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZDivider } from "./index";
+import {ZDivider} from "./index";
 
 describe("Suite test ZDivider", () => {
   it("Test render ZDivider default properties", async () => {

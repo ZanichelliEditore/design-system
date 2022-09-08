@@ -1,4 +1,4 @@
-import { withKnobs } from "@storybook/addon-knobs";
+import {withKnobs} from "@storybook/addon-knobs";
 import "../src/global.css";
 import dedent from "ts-dedent";
 
@@ -45,6 +45,4 @@ export const parameters = {
   },
 };
 
-export const decorators = [
-  withKnobs,
-];
+export const decorators = [withKnobs];

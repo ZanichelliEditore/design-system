@@ -1,20 +1,11 @@
-import { Component, Element, Prop, h, Host } from "@stencil/core";
+import {Component, Element, Prop, h, Host} from "@stencil/core";
 
-export type ZTypographyLevels =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "b1"
-  | "b2"
-  | "b3"
-  | "b4"
-  | "b5";
+export type ZTypographyLevels = "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
 
 @Component({
   tag: "z-typography",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZTypography {
   @Prop() component: string;
@@ -33,7 +24,7 @@ export class ZTypography {
           [this.level]: Boolean(this.level),
           regular: this.variant === "regular",
           semibold: this.variant === "semibold",
-          light: this.variant === "light"
+          light: this.variant === "light",
         }}
       />
     );

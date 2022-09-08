@@ -1,30 +1,30 @@
-import { Component, Prop, h, Listen, Element, State, Watch, Host } from '@stencil/core';
+import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
 import {
   NavigationTabsSize,
   NavigationTabsSizes,
   NavigationTabsOrientation,
-  NavigationTabsOrientations
-} from '../../../../beans';
+  NavigationTabsOrientations,
+} from "../../../../beans";
 
 /**
  * Navigation tabs component.
  * @slot - Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children.
  */
 @Component({
-  tag: 'z-navigation-tabs',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-navigation-tabs",
+  styleUrl: "styles.css",
+  shadow: true,
 })
 export class ZNavigationTabs {
   /**
    * Navigation tabs orientation.
    */
-  @Prop({ reflect: true }) orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  @Prop({reflect: true}) orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Navigation tabs size.
    */
-  @Prop({ reflect: true }) size?: NavigationTabsSize = NavigationTabsSizes.big;
+  @Prop({reflect: true}) size?: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Whether to show navigation buttons.
@@ -49,42 +49,42 @@ export class ZNavigationTabs {
    * Getter for the direction to check based on current orientation.
    */
   get direction() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Left' : 'Top';
+    return this.orientation == NavigationTabsOrientations.horizontal ? "Left" : "Top";
   }
 
   /**
    * Getter for the dimension to check based on current orientation.
    */
   get dimension() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Width' : 'Height';
+    return this.orientation == NavigationTabsOrientations.horizontal ? "Width" : "Height";
   }
 
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
    */
-  @Watch('size')
+  @Watch("size")
   setChildrenSize() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('size', this.size);
+      child.setAttribute("size", this.size);
     });
   }
 
   /**
    * Set the `orientation` prop to all `z-navigation-tab` children.
    */
-  @Watch('orientation')
+  @Watch("orientation")
   setChildrenOrientation() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('orientation', this.orientation);
+      child.setAttribute("orientation", this.orientation);
     });
   }
 
   /**
    * Check if the navigation buttons are needed on window resize.
    */
-  @Listen('resize', { target: 'window', passive: true })
+  @Listen("resize", {target: "window", passive: true})
   checkScrollVisible() {
     if (!this.tabsNav) {
       return;
@@ -96,13 +96,14 @@ export class ZNavigationTabs {
   /**
    * Check if navigation buttons can be enabled for each direction.
    */
-  @Watch('canNavigate')
+  @Watch("canNavigate")
   checkScrollEnabled() {
     if (!this.tabsNav) {
       return;
     }
 
-    this.canNavigateNext = (this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`]) <
+    this.canNavigateNext =
+      this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] <
       this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
@@ -113,13 +114,13 @@ export class ZNavigationTabs {
    * then scroll to the new selected tab and center it.
    * @param {CustomEvent} event `selected` event triggered by a child tab
    */
-  @Listen('selected')
+  @Listen("selected")
   onTabSelected(event: CustomEvent) {
     const tab = event.target;
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       if (child !== tab) {
-        child.removeAttribute('selected');
+        child.removeAttribute("selected");
       }
     });
   }
@@ -129,8 +130,8 @@ export class ZNavigationTabs {
    */
   navigateBackwards() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 - (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
 
@@ -139,9 +140,9 @@ export class ZNavigationTabs {
    */
   navigateForward() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] +
-        (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]:
+        this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
 
@@ -152,45 +153,52 @@ export class ZNavigationTabs {
   }
 
   render() {
-    return <Host
-      class={{
-        'interactive-2': this.size === NavigationTabsSizes.small,
-        'interactive-1': this.size !== NavigationTabsSizes.small
-      }}
-      scrollable={this.canNavigate}
-    >
-      {this.canNavigate && <button
-        class="navigation-button"
-        onClick={this.navigateBackwards.bind(this)}
-        tabindex="-1"
-        disabled={!this.canNavigatePrev}
+    return (
+      <Host
+        class={{
+          "interactive-2": this.size === NavigationTabsSizes.small,
+          "interactive-1": this.size !== NavigationTabsSizes.small,
+        }}
+        scrollable={this.canNavigate}
       >
-        <z-icon
-          name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up'}
-          width={16}
-          height={16}
-        />
-      </button>}
+        {this.canNavigate && (
+          <button
+            class="navigation-button"
+            onClick={this.navigateBackwards.bind(this)}
+            tabindex="-1"
+            disabled={!this.canNavigatePrev}
+          >
+            <z-icon
+              name={this.orientation == NavigationTabsOrientations.horizontal ? "chevron-left" : "chevron-up"}
+              width={16}
+              height={16}
+            />
+          </button>
+        )}
 
-      <nav
-        role="tablist"
-        ref={(el) => this.tabsNav = el ?? this.tabsNav }
-        onScroll={this.checkScrollEnabled.bind(this)}
-      >
-        <slot></slot>
-      </nav>
+        <nav
+          role="tablist"
+          ref={(el) => (this.tabsNav = el ?? this.tabsNav)}
+          onScroll={this.checkScrollEnabled.bind(this)}
+        >
+          <slot></slot>
+        </nav>
 
-      {this.canNavigate && <button
-        class="navigation-button"
-        onClick={this.navigateForward.bind(this)}
-        tabindex="-1"
-        disabled={!this.canNavigateNext}
-      >
-        <z-icon name={this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down'}
-          width={16}
-          height={16}
-        />
-      </button>}
-    </Host>;
+        {this.canNavigate && (
+          <button
+            class="navigation-button"
+            onClick={this.navigateForward.bind(this)}
+            tabindex="-1"
+            disabled={!this.canNavigateNext}
+          >
+            <z-icon
+              name={this.orientation == NavigationTabsOrientations.horizontal ? "chevron-right" : "chevron-down"}
+              width={16}
+              height={16}
+            />
+          </button>
+        )}
+      </Host>
+    );
   }
 }

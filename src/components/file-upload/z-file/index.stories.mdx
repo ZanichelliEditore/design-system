@@ -1,7 +1,7 @@
-import { html } from "lit-html";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 
-import './index';
+import "./index";
 
 <Meta
   title="Buttons/ZFile"
@@ -11,13 +11,7 @@ import './index';
 # ZFile
 
 <Canvas>
-  <Story
-    name="ZFile"
-  >
-    {(args) => html`<z-file file-number="1">File abcdefghsdasdakjsdkj.jpg</z-file>`}
-  </Story>
+  <Story name="ZFile">{(args) => html`<z-file file-number="1">File abcdefghsdasdakjsdkj.jpg</z-file>`}</Story>
 </Canvas>
 
 <ArgsTable of="z-file" />
-
-

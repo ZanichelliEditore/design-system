@@ -1,8 +1,5 @@
-import { Component, Prop, h, Element, Host, Watch } from "@stencil/core";
-import {
-  ToastNotificationPositionsEnum,
-  ToastNotificationPositionsTypes,
-} from "../../../beans";
+import {Component, Prop, h, Element, Host, Watch} from "@stencil/core";
+import {ToastNotificationPositionsEnum, ToastNotificationPositionsTypes} from "../../../beans";
 
 @Component({
   tag: "z-toast-notification-list",
@@ -21,9 +18,9 @@ export class ZToastNotificationList {
   @Watch("newestontop")
   watchPropNewestontop(newValue: boolean) {
     this.hostElement.append(...this.notificationArray.reverse());
-    if(newValue){
+    if (newValue) {
       this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
-    }else{
+    } else {
       this.hostElement.shadowRoot.removeEventListener("slotchange", this.slotChangeHandler);
     }
   }
@@ -40,9 +37,7 @@ export class ZToastNotificationList {
   }
 
   slotChangeHandler = () => {
-    const difference = Array.from(this.hostElement.children).filter(
-      (elem) => !this.notificationArray.includes(elem)
-    );
+    const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
     if (difference) {
       difference.forEach((elem) => {
         this.notificationArray.push(elem);
@@ -51,17 +46,11 @@ export class ZToastNotificationList {
         this.hostElement.prepend(newElem);
       });
     }
-  }
+  };
 
   render() {
     return (
-      <Host
-        class={
-          this.position
-            ? this.position
-            : ToastNotificationPositionsEnum.topRight
-        }
-      >
+      <Host class={this.position ? this.position : ToastNotificationPositionsEnum.topRight}>
         <slot name="toasts"></slot>
       </Host>
     );

@@ -1,5 +1,5 @@
-import { Component, Prop, h, Host } from "@stencil/core";
-import { DividerSize, DividerOrientation } from "../../beans";
+import {Component, Prop, h, Host} from "@stencil/core";
+import {DividerSize, DividerOrientation} from "../../beans";
 @Component({
   tag: "z-divider",
   styleUrl: "styles.css",
@@ -18,7 +18,7 @@ export class ZDivider {
     return (
       <Host
         class={`divider-${this.size} divider-${this.orientation}`}
-        style={{ backgroundColor: `var(--${this.color})` }}
+        style={{backgroundColor: `var(--${this.color})`}}
       />
     );
   }

@@ -1,21 +1,6 @@
-import {
-  Component,
-  Prop,
-  State,
-  h,
-  Method,
-  Event,
-  EventEmitter,
-  Element,
-  Listen,
-} from "@stencil/core";
-import {
-  InputTypeBean,
-  InputTypeEnum,
-  InputStatusBean,
-  SelectItemBean,
-} from "../../beans";
-import { randomId } from "../../utils/utils";
+import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
+import {InputTypeBean, InputTypeEnum, InputStatusBean, SelectItemBean} from "../../beans";
+import {randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-input-deprecated",
@@ -37,7 +22,7 @@ export class ZInputDeprecated {
   /** the input aria-label */
   @Prop() ariaLabel?: string;
   /** the input value */
-  @Prop({ mutable: true }) value?: string;
+  @Prop({mutable: true}) value?: string;
   /** the input is disabled */
   @Prop() disabled?: boolean = false;
   /** the input is readonly */
@@ -45,7 +30,7 @@ export class ZInputDeprecated {
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
   @Prop() required?: boolean = false;
   /** checked: available for checkbox, radio */
-  @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop({mutable: true}) checked?: boolean = false;
   /** the input placeholder (optional) */
   @Prop() placeholder?: string;
   /** the input html title (optional) */
@@ -79,16 +64,12 @@ export class ZInputDeprecated {
   private timer;
   private selectElem: HTMLZSelectElement;
 
-  @Listen("inputCheck", { target: "document" })
+  @Listen("inputCheck", {target: "document"})
   inputCheckListener(e: CustomEvent) {
     const data = e.detail;
     switch (this.type) {
       case InputTypeEnum.radio:
-        if (
-          data.type === InputTypeEnum.radio &&
-          data.name === this.name &&
-          data.id !== this.htmlid
-        ) {
+        if (data.type === InputTypeEnum.radio && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
       default:
@@ -147,7 +128,7 @@ export class ZInputDeprecated {
       validity = this.getValidity("input");
     }
     this.value = value;
-    this.inputChange.emit({ value, keycode, validity });
+    this.inputChange.emit({value, keycode, validity});
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
@@ -235,11 +216,7 @@ export class ZInputDeprecated {
         {this.renderLabel()}
         <div>
           <input
-            type={
-              type === InputTypeEnum.password && !this.passwordHidden
-                ? InputTypeEnum.text
-                : type
-            }
+            type={type === InputTypeEnum.password && !this.passwordHidden ? InputTypeEnum.text : type}
             {...attr}
             aria-label={this.ariaLabel || this.label}
           />
@@ -285,12 +262,16 @@ export class ZInputDeprecated {
 
     if (!this.icon) return;
 
-    return <z-icon class="inputIcon" name={this.icon} />;
+    return (
+      <z-icon
+        class="inputIcon"
+        name={this.icon}
+      />
+    );
   }
 
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
-      return;
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
 
     return (
       <z-icon
@@ -314,7 +295,12 @@ export class ZInputDeprecated {
   renderMessage() {
     if (!this.hasmessage) return;
 
-    return <z-input-message message={this.message} status={this.status} />;
+    return (
+      <z-input-message
+        message={this.message}
+        status={this.status}
+      />
+    );
   }
 
   /* END text/password/email/number */

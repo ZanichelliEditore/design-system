@@ -1,7 +1,7 @@
-import { colorFromId } from "./utils/utils";
+import {colorFromId} from "./utils/utils";
 
 export * from "./components";
 
 export const Utils = {
-    colorFromId
-}
+  colorFromId,
+};

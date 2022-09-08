@@ -1,6 +1,6 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean, select } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean, select} from "@storybook/addon-knobs";
 import "./index";
 
 <Meta
@@ -30,11 +30,7 @@ import "./index";
           closebutton="${boolean("closebutton", true)}"
           autoclose="${text("autoclose", "")}"
           pauseonfocusloss="${boolean("pauseonfocusloss", false)}"
-          type="${select(
-            "type",
-            ["dark", "light", "accent", "error", "success", "warning"],
-            "dark"
-          )}"
+          type="${select("type", ["dark", "light", "accent", "error", "success", "warning"], "dark")}"
           isdraggable="${boolean("isdraggable", true)}"
           draggablepercentage="${text("draggablepercentage", "80")}"
           transition="${select(
@@ -64,11 +60,7 @@ import "./index";
           closebutton="${boolean("closebutton", true)}"
           autoclose="${text("autoclose", "")}"
           pauseonfocusloss="${boolean("pauseonfocusloss", false)}"
-          type="${select(
-            "type",
-            ["dark", "light", "accent", "error", "success", "warning"],
-            "dark"
-          )}"
+          type="${select("type", ["dark", "light", "accent", "error", "success", "warning"], "dark")}"
           isdraggable="${boolean("isdraggable", true)}"
           draggablepercentage="${text("draggablepercentage", "80")}"
           transition="${select(
@@ -98,11 +90,7 @@ import "./index";
           closebutton="${boolean("closebutton", true)}"
           autoclose="${text("autoclose", "")}"
           pauseonfocusloss="${boolean("pauseonfocusloss", false)}"
-          type="${select(
-            "type",
-            ["dark", "light", "accent", "error", "success", "warning"],
-            "dark"
-          )}"
+          type="${select("type", ["dark", "light", "accent", "error", "success", "warning"], "dark")}"
           isdraggable="${boolean("isdraggable", true)}"
           draggablepercentage="${text("draggablepercentage", "80")}"
           transition="${select(
@@ -132,11 +120,7 @@ import "./index";
           closebutton="${boolean("closebutton", true)}"
           autoclose="${text("autoclose", "")}"
           pauseonfocusloss="${boolean("pauseonfocusloss", false)}"
-          type="${select(
-            "type",
-            ["dark", "light", "accent", "error", "success", "warning"],
-            "dark"
-          )}"
+          type="${select("type", ["dark", "light", "accent", "error", "success", "warning"], "dark")}"
           isdraggable="${boolean("isdraggable", true)}"
           draggablepercentage="${text("draggablepercentage", "80")}"
           transition="${select(
@@ -170,11 +154,7 @@ import "./index";
           closebutton="${boolean("closebutton", true)}"
           autoclose="${text("autoclose", "")}"
           pauseonfocusloss="${boolean("pauseonfocusloss", false)}"
-          type="${select(
-            "type",
-            ["dark", "light", "accent", "error", "success", "warning"],
-            "dark"
-          )}"
+          type="${select("type", ["dark", "light", "accent", "error", "success", "warning"], "dark")}"
           isdraggable="${boolean("isdraggable", true)}"
           draggablepercentage="${text("draggablepercentage", "80")}"
           transition="${select(
@@ -183,7 +163,11 @@ import "./index";
             "slide-in-down"
           )}"
         >
-          <z-button slot="button" size="small">button</z-button>
+          <z-button
+            slot="button"
+            size="small"
+            >button</z-button
+          >
         </z-toast-notification>
       </div>`}
   </Story>

@@ -1,22 +1,6 @@
-import {
-  Component,
-  Prop,
-  State,
-  h,
-  Method,
-  Event,
-  EventEmitter,
-  Element,
-  Listen,
-} from "@stencil/core";
-import {
-  InputTypeBean,
-  InputTypeEnum,
-  InputStatusBean,
-  LabelPosition,
-  LabelPositions,
-} from "../../../beans";
-import { boolean, randomId } from "../../../utils/utils";
+import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
+import {InputTypeBean, InputTypeEnum, InputStatusBean, LabelPosition, LabelPositions} from "../../../beans";
+import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -38,15 +22,15 @@ export class ZInput {
   /** the input aria-label */
   @Prop() ariaLabel?: string;
   /** the input value */
-  @Prop({ mutable: true }) value?: string;
+  @Prop({mutable: true}) value?: string;
   /** the input is disabled */
-  @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({reflect: true}) disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
   @Prop() required?: boolean = false;
   /** checked: available for checkbox, radio */
-  @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop({mutable: true}) checked?: boolean = false;
   /** the input placeholder (optional) */
   @Prop() placeholder?: string;
   /** the input html title (optional) */
@@ -78,16 +62,12 @@ export class ZInput {
   private timer;
   private typingtimeout: number = 300;
 
-  @Listen("inputCheck", { target: "document" })
+  @Listen("inputCheck", {target: "document"})
   inputCheckListener(e: CustomEvent) {
     const data = e.detail;
     switch (this.type) {
       case InputTypeEnum.radio:
-        if (
-          data.type === InputTypeEnum.radio &&
-          data.name === this.name &&
-          data.id !== this.htmlid
-        ) {
+        if (data.type === InputTypeEnum.radio && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
       default:
@@ -103,9 +83,7 @@ export class ZInput {
       case InputTypeEnum.radio:
         return this.checked;
       default:
-        console.warn(
-          "`isChecked` method is only available for type `checkbox` and `radio`"
-        );
+        console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
         return false;
     }
   }
@@ -122,7 +100,7 @@ export class ZInput {
       validity = this.getValidity("input");
     }
     this.value = value;
-    this.inputChange.emit({ value, validity });
+    this.inputChange.emit({value, validity});
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
@@ -217,10 +195,10 @@ export class ZInput {
       ...this.getPatternAttribute(type),
     };
     if (this.icon || type === InputTypeEnum.password) {
-      attr.class = { ...attr.class, hasIcon: true };
+      attr.class = {...attr.class, hasIcon: true};
     }
     if (this.hasclearicon && type != InputTypeEnum.number) {
-      attr.class = { ...attr.class, hasClearIcon: true };
+      attr.class = {...attr.class, hasClearIcon: true};
     }
 
     return (
@@ -228,11 +206,7 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input
-            type={
-              type === InputTypeEnum.password && !this.passwordHidden
-                ? InputTypeEnum.text
-                : type
-            }
+            type={type === InputTypeEnum.password && !this.passwordHidden ? InputTypeEnum.text : type}
             {...attr}
             aria-label={this.ariaLabel || this.label}
           />
@@ -275,20 +249,18 @@ export class ZInput {
     if (!this.icon) return;
 
     return (
-      <button type="button" class="iconButton inputIcon" tabIndex={-1}>
+      <button
+        type="button"
+        class="iconButton inputIcon"
+        tabIndex={-1}
+      >
         <z-icon name={this.icon} />
       </button>
     );
   }
 
   renderResetIcon() {
-    if (
-      !this.hasclearicon ||
-      !this.value ||
-      this.disabled ||
-      this.readonly ||
-      this.type == InputTypeEnum.number
-    )
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.number)
       return;
 
     return (
@@ -309,14 +281,10 @@ export class ZInput {
         type="button"
         class="iconButton showHidePasswordIcon"
         disabled={this.disabled}
-        aria-label={
-          this.passwordHidden ? "mostra password" : "nascondi password"
-        }
+        aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
-        <z-icon
-          name={this.passwordHidden ? "view-filled" : "view-off-filled"}
-        />
+        <z-icon name={this.passwordHidden ? "view-filled" : "view-off-filled"} />
       </button>
     );
   }
@@ -326,9 +294,7 @@ export class ZInput {
 
     return (
       <z-input-message
-        message={
-          boolean(this.message) === true ? undefined : (this.message as string)
-        }
+        message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
       />
     );

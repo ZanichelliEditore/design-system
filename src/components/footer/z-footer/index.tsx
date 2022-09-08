@@ -1,5 +1,5 @@
-import { Component, h, Prop, Event, EventEmitter, Listen } from "@stencil/core";
-import { ButtonSizeEnum } from "../../../beans";
+import {Component, h, Prop, Event, EventEmitter, Listen} from "@stencil/core";
+import {ButtonSizeEnum} from "../../../beans";
 
 /**
  * @slot - main navigation
@@ -32,15 +32,12 @@ export class ZFooter {
   creditsLinkId = "creditsLinkId";
 
   constructor() {
-    this.emitReportAProblemButtonClick =
-      this.emitReportAProblemButtonClick.bind(this);
+    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
   }
 
   componentWillLoad() {
     if (this.data) {
-      console.warn(
-        "z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead."
-      );
+      console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
     }
   }
@@ -109,8 +106,7 @@ export class ZFooter {
   renderCertification(): HTMLParagraphElement {
     return (
       <p>
-        Zanichelli editore S.p.A. opera con sistema qualità certificato
-        CertiCarGraf n. 477
+        Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477
         <br />
         secondo la norma UNI EN ISO 9001:2015
       </p>
@@ -130,10 +126,8 @@ export class ZFooter {
     return (
       <section id="bottom">
         <div
-          class={{ "limited-width": !!this.contentMaxWidth }}
-          style={
-            this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}
-          }
+          class={{"limited-width": !!this.contentMaxWidth}}
+          style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}
         >
           <div class="item logo">
             {this.renderZLogo()}
@@ -154,10 +148,8 @@ export class ZFooter {
     return (
       <section id="top">
         <div
-          class={{ "limited-width": !!this.contentMaxWidth }}
-          style={
-            this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}
-          }
+          class={{"limited-width": !!this.contentMaxWidth}}
+          style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}
         >
           <slot />
           {this.renderFooterTopJsonData()}
@@ -167,15 +159,8 @@ export class ZFooter {
   }
 
   renderFooterProductInfo(): HTMLElement {
-    if (
-      this.productName ||
-      this.productVersion ||
-      this.productCreditsLink != null ||
-      this.showReportAProblemButton
-    ) {
-      const versionString = `${this.productName ? " versione" : "Versione"} ${
-        this.productVersion
-      }`;
+    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
+      const versionString = `${this.productName ? " versione" : "Versione"} ${this.productVersion}`;
 
       const creditsObject = (
         <z-body level={5}>
@@ -194,22 +179,19 @@ export class ZFooter {
       return (
         <div id="extension">
           <div
-            class={{ "limited-width": !!this.contentMaxWidth }}
-            style={
-              this.contentMaxWidth
-                ? { "--mw": `${this.contentMaxWidth}px` }
-                : {}
-            }
+            class={{"limited-width": !!this.contentMaxWidth}}
+            style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}
           >
             <span>
               {this.productName && (
-                <z-body level={5} variant="semibold">
+                <z-body
+                  level={5}
+                  variant="semibold"
+                >
                   {this.productName}
                 </z-body>
               )}
-              {this.productVersion && (
-                <z-body level={5}>{versionString}</z-body>
-              )}
+              {this.productVersion && <z-body level={5}>{versionString}</z-body>}
               {this.productCreditsLink != null && creditsObject}
             </span>
             {this.showReportAProblemButton && (
@@ -259,11 +241,7 @@ export class ZFooter {
     if (!this.jsonData || !this.jsonData.bottomLinks) return null;
 
     const bottomLinks = this.jsonData.bottomLinks;
-    return bottomLinks.map(
-      (item): HTMLElement => (
-        <z-footer-link href={item.link}>{item.label}</z-footer-link>
-      )
-    );
+    return bottomLinks.map((item): HTMLElement => <z-footer-link href={item.link}>{item.label}</z-footer-link>);
   }
 
   // INFO: backward compatibility

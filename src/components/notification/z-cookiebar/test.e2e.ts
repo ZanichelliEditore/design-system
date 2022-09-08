@@ -1,11 +1,11 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 it("Test OK button should emit okButtonClick event", async () => {
   const page = await newE2EPage();
 
   let clicked = false;
   // Expose a handler to the page
-  await page.exposeFunction("onAccept", ({ type, detail }) => {
+  await page.exposeFunction("onAccept", ({type, detail}) => {
     clicked = true;
   });
 
@@ -13,7 +13,7 @@ it("Test OK button should emit okButtonClick event", async () => {
   const type = "accept";
   await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      window.onAccept({ type, detail: e.detail });
+      window.onAccept({type, detail: e.detail});
     });
   }, type);
 

@@ -1,21 +1,7 @@
-import {
-  Component,
-  Prop,
-  h,
-  State,
-  Listen,
-  Watch,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
-import {
-  ComboItemBean,
-  InputTypeBean,
-  InputTypeEnum,
-  KeyboardKeyCodeEnum,
-} from "../../../beans";
-import { ZInput } from "../z-input";
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
+import {ComboItemBean, InputTypeBean, InputTypeEnum, KeyboardKeyCodeEnum} from "../../../beans";
+import {ZInput} from "../z-input";
+import {handleKeyboardSubmit} from "../../../utils/utils";
 
 @Component({
   tag: "z-combobox",
@@ -40,7 +26,7 @@ export class ZCombobox {
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
   /** toggle combo list opening flag */
-  @Prop({ mutable: true }) isopen: boolean = false;
+  @Prop({mutable: true}) isopen: boolean = false;
   /** fixed style flag */
   @Prop() isfixed: boolean = false;
   /** close combobox list text */
@@ -63,8 +49,7 @@ export class ZCombobox {
 
   @Watch("items")
   watchItems() {
-    this.itemsList =
-      typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
@@ -77,11 +62,7 @@ export class ZCombobox {
   inputCheckListener(e: CustomEvent) {
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
 
-    if (
-      id === "check-all" &&
-      (!this.maxcheckableitems ||
-        this.maxcheckableitems >= this.itemsList.length)
-    ) {
+    if (id === "check-all" && (!this.maxcheckableitems || this.maxcheckableitems >= this.itemsList.length)) {
       return this.checkAll(e.detail.checked);
     }
 
@@ -96,7 +77,7 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event() comboboxChange: EventEmitter;
   emitComboboxChange() {
-    this.comboboxChange.emit({ id: this.inputid, items: this.itemsList });
+    this.comboboxChange.emit({id: this.inputid, items: this.itemsList});
   }
 
   constructor() {
@@ -118,7 +99,7 @@ export class ZCombobox {
   resetRenderItemsList(): void {
     const renderItemsList = [];
     this.itemsList.forEach((item: any) => {
-      renderItemsList.push({ ...item });
+      renderItemsList.push({...item});
     });
     this.renderItemsList = renderItemsList;
   }
@@ -168,19 +149,22 @@ export class ZCombobox {
         onKeyDown={(ev: KeyboardEvent) => {
           if (ev.keyCode === KeyboardKeyCodeEnum.SPACE) ev.preventDefault();
         }}
-        onKeyUp={(ev: KeyboardEvent) =>
-          handleKeyboardSubmit(ev, this.toggleComboBox)
-        }
+        onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
         tabindex={0}
       >
-        <z-body level={3} component="p">
+        <z-body
+          level={3}
+          component="p"
+        >
           {this.label}
-          <span>
-            {this.selectedCounter > 0 && ` (${this.selectedCounter})`}
-          </span>
+          <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </z-body>
-        <z-icon name="caret-down" width={18} height={18} />
+        <z-icon
+          name="caret-down"
+          width={18}
+          height={18}
+        />
       </div>
     );
   }
@@ -201,7 +185,10 @@ export class ZCombobox {
     if (!this.isopen) return;
 
     return (
-      <div class={this.searchValue && "search"} tabindex={-1}>
+      <div
+        class={this.searchValue && "search"}
+        tabindex={-1}
+      >
         {this.renderList(this.renderItemsList)}
         {this.searchValue && this.renderCloseButton()}
       </div>
@@ -227,11 +214,7 @@ export class ZCombobox {
                 checked={item.checked}
                 htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
                 label={item.name}
-                disabled={
-                  !item.checked &&
-                  this.maxcheckableitems &&
-                  this.maxcheckableitems === this.selectedCounter
-                }
+                disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
               />
             </z-myz-list-item>
           );
@@ -258,9 +241,7 @@ export class ZCombobox {
       <div>
         <a
           onClick={() => this.closeFilterItems()}
-          onKeyUp={(e: KeyboardEvent) =>
-            handleKeyboardSubmit(e, this.closeFilterItems)
-          }
+          onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, this.closeFilterItems)}
           role="button"
           tabindex={0}
         >
@@ -301,10 +282,7 @@ export class ZCombobox {
           checked={allChecked}
           htmlid={`combo-checkbox-${this.inputid}-check-all`}
           label={allChecked ? this.uncheckalltext : this.checkalltext}
-          disabled={
-            this.maxcheckableitems &&
-            this.maxcheckableitems < this.itemsList.length
-          }
+          disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
         />
       </div>
     );
@@ -314,7 +292,7 @@ export class ZCombobox {
     return (
       <div
         data-action={`combo-${this.inputid}`}
-        class={{ open: this.isopen, fixed: this.isfixed }}
+        class={{open: this.isopen, fixed: this.isfixed}}
         id={this.inputid}
       >
         {this.renderHeader()}

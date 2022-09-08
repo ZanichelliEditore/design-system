@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZChip } from "./index";
+import {ZChip} from "./index";
 
 describe("Suite test ZChip", () => {
   it("Test render ZChip empty", async () => {

@@ -4,13 +4,13 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-	flex-wrap: nowrap;
+  flex-wrap: nowrap;
   z-index: 10000;
   margin-bottom: calc(var(--space-unit) * 2);
   margin-top: calc(var(--space-unit) * 2);
 }
 
-::slotted(z-toast-notification){
+::slotted(z-toast-notification) {
   width: 100vw;
 }
 
@@ -34,17 +34,15 @@
   top: 0;
 }
 
-
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-
   :host {
     margin: calc(var(--space-unit) * 3);
   }
 
   :host(.top-centre) {
     justify-content: flex-start;
-	  align-items: center;
+    align-items: center;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -52,21 +50,21 @@
 
   :host(.top-left) {
     justify-content: flex-start;
-	  align-items: flex-start;
+    align-items: flex-start;
     top: 0;
     left: 0;
   }
 
   :host(.top-right) {
     justify-content: flex-start;
-	  align-items: flex-end;
+    align-items: flex-end;
     top: 0;
     right: 0;
   }
 
   :host(.bottom-centre) {
     justify-content: flex-end;
-	  align-items: center;
+    align-items: center;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -74,34 +72,34 @@
 
   :host(.bottom-right) {
     justify-content: flex-end;
-	  align-items: flex-end;
+    align-items: flex-end;
     bottom: 0;
     right: 0;
   }
 
   :host(.bottom-left) {
     justify-content: flex-end;
-	  align-items: flex-start;
+    align-items: flex-start;
     bottom: 0;
     left: 0;
   }
 
-  ::slotted(z-toast-notification){
+  ::slotted(z-toast-notification) {
     width: 50vw;
   }
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {}
+@media only screen and (min-width: 1152px) {
+}
 
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
-
   :host {
     margin: calc(var(--space-unit) * 4);
   }
 
-  ::slotted(z-toast-notification){
+  ::slotted(z-toast-notification) {
     width: 33vw;
   }
 }

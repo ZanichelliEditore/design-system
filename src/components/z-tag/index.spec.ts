@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTag } from "./index";
+import {ZTag} from "./index";
 
 describe("Suite test ZTag", () => {
   it("Test render z-tag empty", async () => {
@@ -9,9 +9,7 @@ describe("Suite test ZTag", () => {
       html: `<z-tag class="body-5-sb"></z-tag>`,
     });
 
-    expect(page.root).toEqualHtml(
-      `<z-tag class="body-5-sb"><div></div></z-tag>`
-    );
+    expect(page.root).toEqualHtml(`<z-tag class="body-5-sb"><div></div></z-tag>`);
   });
 
   it("Test render z-tag with icon", async () => {

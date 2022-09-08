@@ -1,15 +1,26 @@
 # z-navigation-tab
 
 <!-- readme-group="pagination" -->
+
 ```html
-<z-navigation-tab pageId='10' value='10'></z-navigation-tab>
-<z-navigation-tab pageId='10' value='10' isdisabled></z-navigation-tab>
-<z-navigation-tab pageId='10' value='10' isselected isvisited></z-navigation-tab>
+<z-navigation-tab
+  pageId="10"
+  value="10"
+></z-navigation-tab>
+<z-navigation-tab
+  pageId="10"
+  value="10"
+  isdisabled
+></z-navigation-tab>
+<z-navigation-tab
+  pageId="10"
+  value="10"
+  isselected
+  isvisited
+></z-navigation-tab>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -25,13 +36,11 @@
 | `size`        | `size`        | Tab size. Do not set this manually: `z-navigation-tabs` will handle this.                                       | `"big" \| "small"`           | `NavigationTabsSizes.big`               |
 | `target`      | `target`      | Html `target` attribute for the anchor element.                                                                 | `string`                     | `undefined`                             |
 
-
 ## Events
 
 | Event      | Description | Type               |
 | ---------- | ----------- | ------------------ |
 | `selected` |             | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -40,12 +49,13 @@
 - [z-icon](../../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-navigation-tab-link --> z-icon
   style z-navigation-tab-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

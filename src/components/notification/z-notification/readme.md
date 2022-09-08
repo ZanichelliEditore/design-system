@@ -1,9 +1,6 @@
 # z-notification
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -16,7 +13,6 @@
 | `sticky`          | `sticky`          | Enable sticky notification bar.                                                                                                                | `boolean`                                                                        | `false`     |
 | `type`            | `type`            | Alert variant type                                                                                                                             | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
 
-
 ## Events
 
 | Event                | Description            | Type               |
@@ -24,13 +20,11 @@
 | `notificationAction` | Call to action clicked | `CustomEvent<any>` |
 | `notificationClose`  | Close button clicked   | `CustomEvent<any>` |
 
-
 ## Slots
 
 | Slot | Description                   |
 | ---- | ----------------------------- |
 |      | The text of the notification. |
-
 
 ## Dependencies
 
@@ -39,12 +33,13 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-notification --> z-icon
   style z-notification fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

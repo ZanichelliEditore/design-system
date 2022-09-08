@@ -1,5 +1,5 @@
-import { newSpecPage } from "@stencil/core/testing";
-import { ZToastNotification } from "./index";
+import {newSpecPage} from "@stencil/core/testing";
+import {ZToastNotification} from "./index";
 
 describe("Suite test ZToastNotification", () => {
   it("Test render ZToastNotification vuoto", async () => {

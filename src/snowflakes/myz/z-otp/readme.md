@@ -1,9 +1,6 @@
 # z-otp
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,13 +10,11 @@
 | `message`  | `message`   |             | `string`                            | `undefined` |
 | `status`   | `status`    |             | `"error" \| "success" \| "warning"` | `undefined` |
 
-
 ## Events
 
 | Event       | Description | Type               |
 | ----------- | ----------- | ------------------ |
 | `otpChange` |             | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -28,6 +23,7 @@
 - [z-input-message](../../../components/inputs/z-input-message)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-otp --> z-input-message
@@ -35,6 +31,6 @@ graph TD;
   style z-otp fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

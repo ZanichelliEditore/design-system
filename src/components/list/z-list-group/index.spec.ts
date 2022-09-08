@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZListGroup } from "./index";
+import {ZListGroup} from "./index";
 
 describe("Suite test ZListGroup", () => {
   it("Test render ZListGroup", async () => {

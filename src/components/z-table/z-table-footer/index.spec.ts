@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTableFooter } from "./index";
+import {ZTableFooter} from "./index";
 
 describe("Suite test ZTableFooter", () => {
   it("Test render ZTableFooter con slot", async () => {

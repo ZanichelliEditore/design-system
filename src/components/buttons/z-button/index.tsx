@@ -1,10 +1,5 @@
-import { Component, Prop, h, Element } from "@stencil/core";
-import {
-  ButtonVariantBean,
-  ButtonVariantEnum,
-  ButtonTypeEnum,
-  ButtonSizeEnum,
-} from "../../../beans";
+import {Component, Prop, h, Element} from "@stencil/core";
+import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../../beans";
 
 /**
  * @slot - button label
@@ -18,7 +13,7 @@ import {
 export class ZButton {
   @Element() hostElement: HTMLElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   ariaLabel?: string;
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()
@@ -33,29 +28,29 @@ export class ZButton {
   @Prop()
   name?: string;
   /** HTML button disabled attribute. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   disabled?: boolean = false;
   /** HTML button type attribute. */
   @Prop()
   type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
   /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   variant?: ButtonVariantBean = ButtonVariantEnum.primary;
   /** `z-icon` name to use (optional). */
   @Prop()
   icon?: string;
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
 
   getAttributes() {
     return {
-      id: this.htmlid,
+      "id": this.htmlid,
       "aria-label": this.ariaLabel,
-      class: {
+      "class": {
         "z-button--container": true,
-        "z-button--has-text": !!this.hostElement.textContent.trim()
-      }
+        "z-button--has-text": !!this.hostElement.textContent.trim(),
+      },
     };
   }
 
@@ -67,7 +62,13 @@ export class ZButton {
           href={this.href}
           target={this.target}
         >
-          {this.icon && <z-icon name={this.icon} width={16} height={16} />}
+          {this.icon && (
+            <z-icon
+              name={this.icon}
+              width={16}
+              height={16}
+            />
+          )}
           <slot />
         </a>
       );
@@ -80,7 +81,13 @@ export class ZButton {
         type={this.type}
         disabled={this.disabled}
       >
-        {this.icon && <z-icon name={this.icon} width={16} height={16} />}
+        {this.icon && (
+          <z-icon
+            name={this.icon}
+            width={16}
+            height={16}
+          />
+        )}
         <slot />
       </button>
     );

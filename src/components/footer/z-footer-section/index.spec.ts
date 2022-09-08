@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZFooterSection } from "./index";
+import {ZFooterSection} from "./index";
 
 describe("Suite test ZFooterSection", () => {
   it("Test render ZFooterSection - empty", async () => {

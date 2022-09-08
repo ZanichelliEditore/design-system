@@ -1,8 +1,8 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzList } from "../list/z-myz-list";
+import {ZMyzList} from "../list/z-myz-list";
 
-import { ZMyzTopbar } from "./index";
+import {ZMyzTopbar} from "./index";
 
 describe("Suite test ZMyzTopbar", () => {
   /*
@@ -546,15 +546,15 @@ function initMyzTopbar(
   activeintlinkid: string,
   hideloginbutton: boolean
 ) {
-  const userNotLogged = { islogged: false, usergroup: 4 };
+  const userNotLogged = {islogged: false, usergroup: 4};
   const user = {
     islogged: true,
     id: 123456,
     name: "Dario Docente e Professore",
     usergroup: 15,
     userlinks: [
-      { label: "Profilo", link: "http://www.zanichelli.it" },
-      { label: "Esci", link: "#home" },
+      {label: "Profilo", link: "http://www.zanichelli.it"},
+      {label: "Esci", link: "#home"},
     ],
   };
   const emptyArray = "[]";

@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardBody } from "./index";
+import {ZMyzCardBody} from "./index";
 
 describe("Suite test ZMyzCardBody", () => {
   it("Test render ZMyzCardBody vuoto", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardBody],
-      html: `<z-myz-card-body></z-myz-card-body>`
+      html: `<z-myz-card-body></z-myz-card-body>`,
     });
 
     expect(page.root).toEqualHtml(`

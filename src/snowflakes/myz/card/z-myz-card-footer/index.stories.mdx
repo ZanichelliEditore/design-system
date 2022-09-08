@@ -1,26 +1,30 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Myz/MyzCard/ZMyzCardFooter" component="z-myz-card-footer" />
+<Meta
+  title="Myz/MyzCard/ZMyzCardFooter"
+  component="z-myz-card-footer"
+/>
 
-  # ZMyzCardFooter
+# ZMyzCardFooter
 
 <Preview>
   <Story name="z-myz-card-footer">
-    {html`
-      <z-myz-card-footer
-        autori="${text('autori', 'Authors')}"
-        cardtype="${text('cardtype', 'reale')}"
-        faded="${boolean('faded', false)}"
-        isbn="${text('isbn', '97-88-80-8620-710')}"
-        titolo="${text('titolo', 'title')}"
-        opened="${boolean('opened', false)}"/>`}
+    {html` <z-myz-card-footer
+      autori="${text("autori", "Authors")}"
+      cardtype="${text("cardtype", "reale")}"
+      faded="${boolean("faded", false)}"
+      isbn="${text("isbn", "97-88-80-8620-710")}"
+      titolo="${text("titolo", "title")}"
+      opened="${boolean("opened", false)}"
+    />`}
   </Story>
 </Preview>
 
-  <Props of="z-myz-card-footer" />
+{" "}
 
+<Props of="z-myz-card-footer" />

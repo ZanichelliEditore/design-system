@@ -3,13 +3,32 @@
 <!-- readme-group="card" -->
 
 ```html
-<z-myz-card-footer titolo="titolo" autori="autori" anno="2019" isbn="9788808620713">{list slot}{toggle slot}</z-myz-card-footer>
-<z-myz-card-footer titolo="titolo" autori="autori autori autori" anno="2019" isbn="97-88-80-8620-710" faded=true>{list slot}{toggle slot}</z-myz-card-footer>
-<z-myz-card-footer cardtype="reale" titolo="titolo" autori="autoriautori autori" anno="2019" isbn="97-88-80-8620-710">{list slot}{toggle slot}</z-myz-card-footer>
+<z-myz-card-footer
+  titolo="titolo"
+  autori="autori"
+  anno="2019"
+  isbn="9788808620713"
+  >{list slot}{toggle slot}</z-myz-card-footer
+>
+<z-myz-card-footer
+  titolo="titolo"
+  autori="autori autori autori"
+  anno="2019"
+  isbn="97-88-80-8620-710"
+  faded="true"
+  >{list slot}{toggle slot}</z-myz-card-footer
+>
+<z-myz-card-footer
+  cardtype="reale"
+  titolo="titolo"
+  autori="autoriautori autori"
+  anno="2019"
+  isbn="97-88-80-8620-710"
+  >{list slot}{toggle slot}</z-myz-card-footer
+>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -23,7 +42,6 @@
 | `opened`        | `opened`         | footer opened by default (optional)   | `boolean`                                                                                          | `false`     |
 | `titolo`        | `titolo`         | volume title                          | `string`                                                                                           | `undefined` |
 
-
 ## Slots
 
 | Slot       | Description              |
@@ -31,7 +49,6 @@
 | `"list"`   | card resources list slot |
 | `"toggle"` | toggle button slot       |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

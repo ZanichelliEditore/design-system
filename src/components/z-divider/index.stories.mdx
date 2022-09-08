@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, select } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="ZDivider" component="z-divider" />
+<Meta
+  title="ZDivider"
+  component="z-divider"
+/>
 
 # ZDivider
 
@@ -13,11 +16,7 @@ import "./index";
       <z-divider
         size="${select("size", ["small", "medium", "large"], "small")}"
         color="${text("color token", "gray200")}"
-        orientation="${select(
-          "orientation",
-          ["horizontal", "vertical"],
-          "horizontal"
-        )}"
+        orientation="${select("orientation", ["horizontal", "vertical"], "horizontal")}"
       ></z-divider>
     </div>`}
   </Story>

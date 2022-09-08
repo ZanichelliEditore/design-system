@@ -1,8 +1,8 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZIcon } from "../../components/icons/z-icon";
+import {ZIcon} from "../../components/icons/z-icon";
 
-import { ZInputDeprecated } from "./index";
+import {ZInputDeprecated} from "./index";
 
 describe("Suite test ZInputDeprecated - text", () => {
   jest.useFakeTimers();

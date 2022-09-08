@@ -1,18 +1,19 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { select } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Myz/ZAlert" component="z-alert" />
+<Meta
+  title="Myz/ZAlert"
+  component="z-alert"
+/>
 
 # ZAlert
 
 <Preview>
-  <Story name="ZAlert-sample">{html`<z-alert
-    type="${select("type", ["success", "warning", "error"], "success")}"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+  <Story name="ZAlert-sample">{html`<z-alert type="${select("type", ["success", "warning", "error"], "success")}">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.
   </z-alert>`}</Story>
 </Preview>
 

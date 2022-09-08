@@ -1,13 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAppSwitcher } from "./index";
+import {ZAppSwitcher} from "./index";
 
 describe("Suite test ZAppSwitcher", () => {
   it("Test render ZAppSwitcher default", async () => {
-
     const page = await newSpecPage({
       components: [ZAppSwitcher],
-      html: `<z-app-switcher></z-app-switcher>`
+      html: `<z-app-switcher></z-app-switcher>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -18,14 +17,13 @@ describe("Suite test ZAppSwitcher", () => {
           </button>
         </mock:shadow-root>
       </z-app-switcher>
-    `)
+    `);
   });
 
   it("Test render ZAppSwitcher dark", async () => {
-
     const page = await newSpecPage({
       components: [ZAppSwitcher],
-      html: `<z-app-switcher variant="dark"></z-app-switcher>`
+      html: `<z-app-switcher variant="dark"></z-app-switcher>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -36,13 +34,12 @@ describe("Suite test ZAppSwitcher", () => {
           </button>
         </mock:shadow-root>
       </z-app-switcher>
-    `)
+    `);
   });
   it("Test render ZAppSwitcher light", async () => {
-
     const page = await newSpecPage({
       components: [ZAppSwitcher],
-      html: `<z-app-switcher theme="light"></z-app-switcher>`
+      html: `<z-app-switcher theme="light"></z-app-switcher>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -53,7 +50,6 @@ describe("Suite test ZAppSwitcher", () => {
           </button>
         </mock:shadow-root>
       </z-app-switcher>
-    `)
+    `);
   });
 });
-

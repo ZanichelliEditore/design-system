@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTableHeader } from "./index";
+import {ZTableHeader} from "./index";
 
 describe("Suite test ZTableHeader", () => {
   it("Test render ZTableHeader con slot", async () => {

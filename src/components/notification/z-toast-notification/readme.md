@@ -1,9 +1,6 @@
 # z-toast-notification
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,15 +14,13 @@
 | `message`             | `message`             | toast notification's message                                                                 | `string`                                                                                                                                                                                                                                                                                                                                                                                         | `undefined` |
 | `pauseonfocusloss`    | `pauseonfocusloss`    | toast notification autoclose can be paused                                                   | `boolean`                                                                                                                                                                                                                                                                                                                                                                                        | `true`      |
 | `transition`          | `transition`          | toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up | `ToastNotificationTransitionsEnum.slideInDown \| ToastNotificationTransitionsEnum.slideInLeft \| ToastNotificationTransitionsEnum.slideInRight \| ToastNotificationTransitionsEnum.slideInUp \| ToastNotificationTransitionsEnum.slideOutDown \| ToastNotificationTransitionsEnum.slideOutLeft \| ToastNotificationTransitionsEnum.slideOutRight \| ToastNotificationTransitionsEnum.slideOutUp` | `undefined` |
-| `type`                | `type`                | toast notification type:  dark, light, accent, error, success, warning                       | `ToastNotificationEnum.accent \| ToastNotificationEnum.dark \| ToastNotificationEnum.error \| ToastNotificationEnum.light \| ToastNotificationEnum.success \| ToastNotificationEnum.warning`                                                                                                                                                                                                     | `undefined` |
-
+| `type`                | `type`                | toast notification type: dark, light, accent, error, success, warning                        | `ToastNotificationEnum.accent \| ToastNotificationEnum.dark \| ToastNotificationEnum.error \| ToastNotificationEnum.light \| ToastNotificationEnum.success \| ToastNotificationEnum.warning`                                                                                                                                                                                                     | `undefined` |
 
 ## Events
 
 | Event        | Description              | Type               |
 | ------------ | ------------------------ | ------------------ |
 | `toastClose` | notification close event | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -34,12 +29,13 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-toast-notification --> z-icon
   style z-toast-notification fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

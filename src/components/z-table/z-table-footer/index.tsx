@@ -1,4 +1,4 @@
-import { Component, Element, h } from "@stencil/core";
+import {Component, Element, h} from "@stencil/core";
 
 @Component({
   tag: "z-table-footer",

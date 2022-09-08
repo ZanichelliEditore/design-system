@@ -1,28 +1,27 @@
-import { Component, Prop, h, Element, State, Listen, Event, EventEmitter } from '@stencil/core';
-import { CardVariants } from '../../beans';
+import {Component, Prop, h, Element, State, Listen, Event, EventEmitter} from "@stencil/core";
+import {CardVariants} from "../../beans";
 
 @Component({
-  tag: 'z-card',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-card",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZCard {
   /**
    * Card variant.
    * Can be one of "text", "border", "shadow", "overlay".
    * Leave it undefined for the default card.
    */
-  @Prop({ reflect: true }) variant: CardVariants;
+  @Prop({reflect: true}) variant: CardVariants;
 
   /** Name of the icon to place over the image cover */
   @Prop() coverIcon: string;
 
   /** Enable click interactions on the card. Default: false */
-  @Prop({ reflect: true }) clickable = false;
+  @Prop({reflect: true}) clickable = false;
 
   /** Enable shadow. Default: false. */
-  @Prop({ reflect: true }) showshadow = false;
+  @Prop({reflect: true}) showshadow = false;
 
   @Element() host: HTMLElement;
 
@@ -34,10 +33,10 @@ export class ZCard {
    */
   @Event() cardClicked: EventEmitter;
 
-  @Listen('click')
+  @Listen("click")
   onClick(ev: MouseEvent) {
     // Do nothing for clicks on actions.
-    if ((ev.target as HTMLElement).getAttribute('slot') === 'action') {
+    if ((ev.target as HTMLElement).getAttribute("slot") === "action") {
       return;
     }
 
@@ -73,11 +72,11 @@ export class ZCard {
         <div class="actions">
           <slot name="action"></slot>
         </div>
-      </div>
+      </div>,
     ];
   }
 
-   /**
+  /**
    * Template for the content div.
    */
   private renderContentDiv() {
@@ -90,13 +89,12 @@ export class ZCard {
           <slot name="action"></slot>
         </div>
       </div>
-    )
+    );
   }
 
   render() {
-
     if (this.variant === CardVariants.text) {
-      return this.renderContentDiv()
+      return this.renderContentDiv();
     }
 
     if (this.variant === CardVariants.overlay || this.hasCoverImage) {
@@ -104,11 +102,11 @@ export class ZCard {
         <div class="cover-container">
           {this.hasCoverImage && [
             <slot name="cover"></slot>,
-            (this.variant !== CardVariants.overlay) && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>
+            this.variant !== CardVariants.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
           ]}
           {!this.hasCoverImage && <div class="color-cover"></div>}
         </div>,
-        this.renderContentDiv()
+        this.renderContentDiv(),
       ];
     }
 

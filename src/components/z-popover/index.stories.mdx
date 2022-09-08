@@ -1,8 +1,8 @@
-import { html } from "lit-html";
-import { styleMap } from 'lit-html/directives/style-map.js';
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { PopoverPositions } from "../../beans";
-import { getColorTokens } from "../../utils/storybook-utils";
+import {html} from "lit-html";
+import {styleMap} from "lit-html/directives/style-map.js";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {PopoverPositions} from "../../beans";
+import {getColorTokens} from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
@@ -14,9 +14,9 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   title="ZPopover"
   component="z-popover"
   argTypes={{
-    position: {
+    "position": {
       options: Object.values(PopoverPositions),
-      control: { type: "select" },
+      control: {type: "select"},
     },
     "--z-popover-theme--surface": {
       options: getColorTokens(),
@@ -39,7 +39,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="contextual-menu-like"
     args={{
-      position: PopoverPositions.right_bottom,
+      "position": PopoverPositions.right_bottom,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}
@@ -51,16 +51,22 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
           bind-to="#icon"
           style=${styleMap({
             "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
-            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`
+            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
           })}
         >
           <div class="container">
-            <z-button slot="trigger" icon="gear">
+            <z-button
+              slot="trigger"
+              icon="gear"
+            >
               Impostazioni
             </z-button>
           </div>
         </z-popover>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
+        <z-icon
+          id="icon"
+          name="plus-square-filled"
+        ></z-icon>
       </div>
       <script>
         var iconTrigger = document.querySelector("#icon");
@@ -79,35 +85,41 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
 
 <Canvas>
   <Story
-      name="tooltip-like"
-      args={{
-        position: PopoverPositions.right,
-        "--z-popover-theme--surface": "var(--color-surface01)",
-        "--z-popover-theme--text": "var(--color-text01)",
-      }}
-    >
-      {(args) => html`
-        <div class="popover-container popover-container-tooltip">
-          <z-popover
-            .position=${args.position}
-            center
-            show-arrow
-            bind-to="#icon"
-            style=${styleMap({
-              "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
-              "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
-            })}
-          >
-            <div class="container">
-              <z-button slot="trigger" icon="gear">
-                Impostazioni
-              </z-button>
-            </div>
-          </z-popover>
-          <z-icon id="icon" name="plus-square-filled"></z-icon>
-        </div>
-        <script>
-          document.querySelector("#icon").addEventListener("click", () => {
+    name="tooltip-like"
+    args={{
+      "position": PopoverPositions.right,
+      "--z-popover-theme--surface": "var(--color-surface01)",
+      "--z-popover-theme--text": "var(--color-text01)",
+    }}
+  >
+    {(args) => html`
+      <div class="popover-container popover-container-tooltip">
+        <z-popover
+          .position=${args.position}
+          center
+          show-arrow
+          bind-to="#icon"
+          style=${styleMap({
+            "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
+            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
+          })}
+        >
+          <div class="container">
+            <z-button
+              slot="trigger"
+              icon="gear"
+            >
+              Impostazioni
+            </z-button>
+          </div>
+        </z-popover>
+        <z-icon
+          id="icon"
+          name="plus-square-filled"
+        ></z-icon>
+      </div>
+      <script>
+        document.querySelector("#icon").addEventListener("click", () => {
           if (document.querySelector("z-popover").open) {
             document.querySelector("z-popover").open = false;
           } else {
@@ -115,7 +127,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
           }
         });
       </script>
-      `}
+    `}
   </Story>
 </Canvas>
 

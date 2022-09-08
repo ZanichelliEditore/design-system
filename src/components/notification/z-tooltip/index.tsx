@@ -1,10 +1,5 @@
-import {
-  Component,
-  Prop,
-  h,
-  Listen,
-} from "@stencil/core";
-import { PopoverPositions } from "../../../beans";
+import {Component, Prop, h, Listen} from "@stencil/core";
+import {PopoverPositions} from "../../../beans";
 
 /**
  * Tooltip component.
@@ -16,22 +11,22 @@ import { PopoverPositions } from "../../../beans";
  */
 @Component({
   tag: "z-tooltip",
-  styleUrl: 'styles.css',
+  styleUrl: "styles.css",
   shadow: true,
 })
 export class ZTooltip {
   /** Tooltip position. */
-  @Prop({ reflect: true, mutable: true })
+  @Prop({reflect: true, mutable: true})
   position: PopoverPositions = PopoverPositions.auto;
 
   /** Enable tooltip dark mode. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   dark = false;
 
   /**
    * The open state of the tooltip.
    */
-  @Prop({ reflect: true, mutable: true })
+  @Prop({reflect: true, mutable: true})
   open: boolean = false;
 
   /**
@@ -42,21 +37,23 @@ export class ZTooltip {
 
   popover: HTMLZPopoverElement;
 
-  @Listen('openChange')
+  @Listen("openChange")
   onPopoverOpenChange() {
     this.open = this.popover.open;
   }
 
   render() {
-    return <z-popover
-      ref={(el) => (this.popover = el as HTMLZPopoverElement)}
-      bindTo={this.bindTo}
-      open={this.open}
-      position={this.position}
-      center
-      showArrow
-    >
-      <slot></slot>
-    </z-popover>
+    return (
+      <z-popover
+        ref={(el) => (this.popover = el as HTMLZPopoverElement)}
+        bindTo={this.bindTo}
+        open={this.open}
+        position={this.position}
+        center
+        showArrow
+      >
+        <slot></slot>
+      </z-popover>
+    );
   }
 }

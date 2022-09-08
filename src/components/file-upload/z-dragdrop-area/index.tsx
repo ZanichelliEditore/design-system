@@ -1,4 +1,4 @@
-import { Component, h, Event, EventEmitter } from "@stencil/core";
+import {Component, h, Event, EventEmitter} from "@stencil/core";
 
 @Component({
   tag: "z-dragdrop-area",
@@ -19,7 +19,10 @@ export class ZDragdropArea {
     return (
       <div class="dragover-container">
         <div class="dragover-message">
-          <z-body variant="semibold" level={2}>
+          <z-body
+            variant="semibold"
+            level={2}
+          >
             Rilascia i file in questa area per allegarli.
           </z-body>
         </div>

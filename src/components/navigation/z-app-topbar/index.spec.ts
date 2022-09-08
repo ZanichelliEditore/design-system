@@ -1,9 +1,8 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAppTopbar } from "./index";
+import {ZAppTopbar} from "./index";
 
 describe("Suite test ZAppTopbar", () => {
-
   it("Test render ZAppTopbar without props", async () => {
     const page = await newSpecPage({
       components: [ZAppTopbar],
@@ -130,5 +129,4 @@ describe("Suite test ZAppTopbar", () => {
       </z-app-topbar>
     `);
   });
-
 });

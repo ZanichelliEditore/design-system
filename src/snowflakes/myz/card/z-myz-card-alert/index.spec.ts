@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardAlert } from "./index";
+import {ZMyzCardAlert} from "./index";
 
 describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert add", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -33,7 +33,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert (type add)", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>`
+      html: `<z-myz-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add"></z-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -61,7 +61,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert add no undo", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro aggiunto ai miei libri" type="add"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -86,7 +86,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert remove", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai miei libri" actiontext="Annulla" type="remove"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -114,7 +114,7 @@ describe("Suite test ZMyzCardAlert", () => {
   it("Test render ZMyzCardAlert remove no undo", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardAlert],
-      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai miei libri" type="remove"></z-myz-card-alert>`
+      html: `<z-myz-card-alert slot="alert" iconName="circle-check" contenttext="Libro rimosso dai miei libri" type="remove"></z-myz-card-alert>`,
     });
 
     expect(page.root).toEqualHtml(`

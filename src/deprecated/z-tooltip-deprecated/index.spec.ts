@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTooltipDeprecated } from "./index";
+import {ZTooltipDeprecated} from "./index";
 
 describe("Suite test ZTooltipDeprecated", () => {
   it("Test render legacy ZTooltipDeprecated left", async () => {
     const page = await newSpecPage({
       components: [ZTooltipDeprecated],
-      html: `<z-tooltip-deprecated content="Ciao" type="left"></z-tooltip-deprecated>`
+      html: `<z-tooltip-deprecated content="Ciao" type="left"></z-tooltip-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -21,7 +21,7 @@ describe("Suite test ZTooltipDeprecated", () => {
   it("Test render legacy ZTooltipDeprecated right", async () => {
     const page = await newSpecPage({
       components: [ZTooltipDeprecated],
-      html: `<z-tooltip-deprecated content="Ciao" type="right"></z-tooltip-deprecated>`
+      html: `<z-tooltip-deprecated content="Ciao" type="right"></z-tooltip-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -36,7 +36,7 @@ describe("Suite test ZTooltipDeprecated", () => {
   it("Test render legacy ZTooltipDeprecated top", async () => {
     const page = await newSpecPage({
       components: [ZTooltipDeprecated],
-      html: `<z-tooltip-deprecated content="Ciao" type="top"></z-tooltip-deprecated>`
+      html: `<z-tooltip-deprecated content="Ciao" type="top"></z-tooltip-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -51,7 +51,7 @@ describe("Suite test ZTooltipDeprecated", () => {
   it("Test render legacy ZTooltipDeprecated bottom", async () => {
     const page = await newSpecPage({
       components: [ZTooltipDeprecated],
-      html: `<z-tooltip-deprecated content="Ciao" type="bottom"></z-tooltip-deprecated>`
+      html: `<z-tooltip-deprecated content="Ciao" type="bottom"></z-tooltip-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -68,7 +68,7 @@ describe("Suite test ZTooltipDeprecated", () => {
       components: [ZTooltipDeprecated],
       html: `<z-tooltip-deprecated type="bottom" open>
         <button>Button text</button>
-      </z-tooltip-deprecated>`
+      </z-tooltip-deprecated>`,
     });
 
     expect(page.root).toHaveAttribute("type");
@@ -81,7 +81,7 @@ describe("Suite test ZTooltipDeprecated", () => {
   it("Test render ZTooltipDeprecated closed", async () => {
     const page = await newSpecPage({
       components: [ZTooltipDeprecated],
-      html: `<z-tooltip-deprecated type="bottom"></z-tooltip-deprecated>`
+      html: `<z-tooltip-deprecated type="bottom"></z-tooltip-deprecated>`,
     });
 
     expect(page.root).toEqualLightHtml(`<z-tooltip-deprecated type="bottom"></z-tooltip-deprecated>`);

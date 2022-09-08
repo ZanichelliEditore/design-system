@@ -1,10 +1,10 @@
-import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
-import { InputStatusBean, InputStatusEnum } from "../../../beans";
+import {Component, h, Event, EventEmitter, Prop} from "@stencil/core";
+import {InputStatusBean, InputStatusEnum} from "../../../beans";
 
 @Component({
   tag: "z-otp",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZOtp {
   @Prop() inputNum?: number = 6;
@@ -16,7 +16,7 @@ export class ZOtp {
 
   @Event() otpChange: EventEmitter;
   emitInputChange(value: string) {
-    this.otpChange.emit({ value });
+    this.otpChange.emit({value});
   }
 
   componentWillLoad() {
@@ -48,7 +48,7 @@ export class ZOtp {
                 minlength="1"
                 maxlength="1"
                 autoComplete="off"
-                ref={input => (this.otpRef[i] = input)}
+                ref={(input) => (this.otpRef[i] = input)}
               />
             );
           })}

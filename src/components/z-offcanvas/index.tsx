@@ -1,5 +1,5 @@
-import { Component, Element, Event, EventEmitter, h, Prop, Watch } from "@stencil/core";
-import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans"
+import {Component, Element, Event, EventEmitter, h, Prop, Watch} from "@stencil/core";
+import {OffCanvasVariantsEnum, TransitionDirectionEnum} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
  */
@@ -9,34 +9,32 @@ import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans"
   shadow: false,
   scoped: true,
 })
-
-export class ZOffcanvas
-{
+export class ZOffcanvas {
   @Element() hostElement: HTMLElement;
 
-   /**
+  /**
    * Offcanvas variant.
    * Can be one of "overlay", "pushcontent"
    * Default variant: pushcontent
    */
-  @Prop({ reflect: true }) variant?: OffCanvasVariantsEnum = OffCanvasVariantsEnum.pushcontent;
+  @Prop({reflect: true}) variant?: OffCanvasVariantsEnum = OffCanvasVariantsEnum.pushcontent;
 
   /** open component. Default: false */
-  @Prop({ reflect: true, mutable: true }) open = false;
+  @Prop({reflect: true, mutable: true}) open = false;
 
   /** open content transitioning in a specified direction left | right. Default: left */
-  @Prop({ reflect: true }) transitiondirection?: TransitionDirectionEnum = TransitionDirectionEnum.left;
+  @Prop({reflect: true}) transitiondirection?: TransitionDirectionEnum = TransitionDirectionEnum.left;
 
   /** emitted when open prop changes */
   @Event() canvasOpenStatusChanged: EventEmitter;
 
   componentWillLoad() {
-    this.handleOpenStatus()
+    this.handleOpenStatus();
   }
 
-  @Watch('open')
+  @Watch("open")
   onOpenChanged() {
-    this.handleOpenStatus()
+    this.handleOpenStatus();
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
@@ -60,17 +58,22 @@ export class ZOffcanvas
 
   render() {
     return [
-      <div class="canvas-container" onAnimationEnd={() => this.handleAnimationEnd()}>
-        <div class="canvas-content" tabindex="0">
+      <div
+        class="canvas-container"
+        onAnimationEnd={() => this.handleAnimationEnd()}
+      >
+        <div
+          class="canvas-content"
+          tabindex="0"
+        >
           <slot name="canvasContent"></slot>
         </div>
       </div>,
       <div
         class="canvas-background"
         data-action="canvasBackground"
-        onClick={() => this.open = false}
-      ></div>
+        onClick={() => (this.open = false)}
+      ></div>,
     ];
   }
 }
-

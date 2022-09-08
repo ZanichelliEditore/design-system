@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZSelect } from "./index";
+import {ZSelect} from "./index";
 
 describe("Suite test ZSelect", () => {
   it("Test render ZSelect chiusa con elementi", async () => {

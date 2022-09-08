@@ -1,6 +1,6 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
-import { ThemeVariant, linkItem } from "../../beans";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {ThemeVariant, linkItem} from "../../beans";
 
 import "./index";
 
@@ -10,7 +10,7 @@ import "./index";
   argTypes={{
     variant: {
       options: ["default", "dark", "light"],
-      control: { type: "radio" },
+      control: {type: "radio"},
     },
     links: {
       control: "object",
@@ -27,17 +27,17 @@ import "./index";
       variant: "default",
       links: [
         {
-          ariaLabel: 'prova',
-          label: 'vai al link1',
-          href: '#link1',
+          ariaLabel: "prova",
+          label: "vai al link1",
+          href: "#link1",
         },
         {
-          label: 'vai al link2',
-          href: '#link2',
+          label: "vai al link2",
+          href: "#link2",
         },
         {
-          label: 'vai al link3',
-          href: '#link3',
+          label: "vai al link3",
+          href: "#link3",
         },
       ],
     }}

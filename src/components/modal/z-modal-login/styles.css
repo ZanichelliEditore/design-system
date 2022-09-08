@@ -5,8 +5,8 @@
 
 :host div.wrapper {
   color: var(--text-grey-800);
-  padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2)
-    calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2) calc(var(--space-unit) * 3)
+    calc(var(--space-unit) * 2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

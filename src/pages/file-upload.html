@@ -1,47 +1,89 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-
-<head>
+<html
+  dir="ltr"
+  lang="en"
+>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <title>Stencil Component Starter</title>
-    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
-    <script type="module" src="/build/web-components-library.esm.js"></script>
-    <script nomodule src="/build/web-components-library.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script
+      type="module"
+      src="/build/web-components-library.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="/build/web-components-library.js"
+    ></script>
     <style>
-        .main-container {
-            height: 500px;
-            background: white;
-        }
+      .main-container {
+        height: 500px;
+        background: white;
+      }
     </style>
-</head>
+  </head>
 
-<body style="width: 100%;margin: 0; background-color: #f9f9f9;">
+  <body style="width: 100%; margin: 0; background-color: #f9f9f9">
     <z-app-topbar hashtag="via crucis">
-        <z-logo slot="logo" width="138" height="36" imagealt="zanichelli-logo" link="https://www.zanichelli.it"
-            targetblank>
-        </z-logo>
-        <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html">Notification
-        </z-link>
-        <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
-        <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
-        <z-app-switcher slot="app-switcher"></z-app-switcher>
+      <z-logo
+        slot="logo"
+        width="138"
+        height="36"
+        imagealt="zanichelli-logo"
+        link="https://www.zanichelli.it"
+        targetblank
+      >
+      </z-logo>
+      <z-link
+        textcolor="white"
+        big
+        icon="support-filled"
+        slot="actions"
+        href="./pages/notification.html"
+        >Notification
+      </z-link>
+      <z-link
+        textcolor="white"
+        big
+        icon="shopping-cart-filled"
+        slot="actions"
+        href="#"
+        >Carrello</z-link
+      >
+      <z-user-dropdown
+        userfullname="docente di calabresi per italiani"
+        logged="false"
+        slot="login"
+      ></z-user-dropdown>
+      <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
     <div class="main-container">
-        <div style="margin: 10px">
-            <!-- <form action="https://api-catalogo.zanichelli.local/v3/file-upload" enctype="multipart/form-data" method="POST"> -->
-                <z-file-upload type="default"
-                               button-variant="primary"
-                               main-title="Allega un file"
-                               description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
-                               accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
-                               file-max-size="50">
-                </z-file-upload>
-                <!-- <input type="submit" value="INVIA"> -->
-           <!--  </form> -->
-        </div>
+      <div style="margin: 10px">
+        <!-- <form action="https://api-catalogo.zanichelli.local/v3/file-upload" enctype="multipart/form-data" method="POST"> -->
+        <z-file-upload
+          type="default"
+          button-variant="primary"
+          main-title="Allega un file"
+          description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
+          accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg"
+          file-max-size="50"
+        >
+        </z-file-upload>
+        <!-- <input type="submit" value="INVIA"> -->
+        <!--  </form> -->
+      </div>
     </div>
-    <z-footer copyrightuser='Zanichelli' data='{
+    <z-footer
+      copyrightuser="Zanichelli"
+      data='{
     "zanichelliLinks": [{
         "title": "Zanichelli.it",
         "items": [{
@@ -206,31 +248,30 @@
         "label": "Privacy",
         "link": "https://my.zanichelli.it/privacy"
     }]
-}'></z-footer>
-<script>
-
-     async function postData(item){
+}'
+    ></z-footer>
+    <script>
+      async function postData(item) {
         const form = new FormData();
         form.append("attachments[]", item, item.name);
-        await fetch('https://api-catalogo.zanichelli.local/v3/file-upload', {
-            method: 'POST',
-            body: form
-        })
-    }
+        await fetch("https://api-catalogo.zanichelli.local/v3/file-upload", {
+          method: "POST",
+          body: form,
+        });
+      }
 
-    let fileNumber = 0;
-        const uploader = document.querySelector("z-file-upload");
-        document.addEventListener("fileInput", (e) => {
-            /* const items = postData(e.detail); */
-            fileNumber++;
-            const item = e.detail
-                const chip = document.createElement('Z-FILE')
-                chip.setAttribute('slot', 'files')
-                chip.setAttribute('file-number', fileNumber)
-                chip.innerText = item.name
-                uploader.appendChild(chip);
-        })
-</script>
-</body>
-
+      let fileNumber = 0;
+      const uploader = document.querySelector("z-file-upload");
+      document.addEventListener("fileInput", (e) => {
+        /* const items = postData(e.detail); */
+        fileNumber++;
+        const item = e.detail;
+        const chip = document.createElement("Z-FILE");
+        chip.setAttribute("slot", "files");
+        chip.setAttribute("file-number", fileNumber);
+        chip.innerText = item.name;
+        uploader.appendChild(chip);
+      });
+    </script>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-import { Component, Element, h } from "@stencil/core";
+import {Component, Element, h} from "@stencil/core";
 
 @Component({
   tag: "z-table-body",
@@ -12,9 +12,7 @@ export class ZTableBody {
   componentWillRender() {
     this.host.setAttribute("role", "rowgroup");
 
-    Array.from(this.host.children).forEach((child, index) =>
-      child.setAttribute("aria-rowindex", `${index}`)
-    );
+    Array.from(this.host.children).forEach((child, index) => child.setAttribute("aria-rowindex", `${index}`));
   }
 
   render() {

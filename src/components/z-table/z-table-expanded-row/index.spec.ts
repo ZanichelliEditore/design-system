@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTableExpandedRow } from "./index";
+import {ZTableExpandedRow} from "./index";
 
 describe("Suite test ZTableExpandedRow", () => {
   it("Test render ZTableExpandedRow vuoto", async () => {

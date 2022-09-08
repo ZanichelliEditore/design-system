@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTableEmptyBox } from "./index";
+import {ZTableEmptyBox} from "./index";
 
 describe("ZTableEmptyBox", () => {
   it("renders default `ZTableEmptyBox`", async () => {

@@ -1,10 +1,10 @@
-import { Component, Prop, h } from "@stencil/core";
-import { ActionBean } from "../../../../beans";
+import {Component, Prop, h} from "@stencil/core";
+import {ActionBean} from "../../../../beans";
 
 @Component({
   tag: "z-myz-card-list",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardList {
   /** list data stringified array */
@@ -22,7 +22,7 @@ export class ZMyzCardList {
   }
 
   formatListContent(data: ActionBean): HTMLAnchorElement {
-    const { value, isLink, url } = data;
+    const {value, isLink, url} = data;
     if (!isLink) return <span>{value}</span>;
     return (
       <a

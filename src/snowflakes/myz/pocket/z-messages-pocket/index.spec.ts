@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMessagesPocket } from "./index";
+import {ZMessagesPocket} from "./index";
 
 describe("Suite test ZMessagesPocket", () => {
   it("Test render ZMessagesPocket", async () => {
     const page = await newSpecPage({
       components: [ZMessagesPocket],
-      html: `<z-messages-pocket></z-messages-pocket>`
+      html: `<z-messages-pocket></z-messages-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -34,7 +34,7 @@ describe("Suite test ZMessagesPocket", () => {
   it("Test render ZMessagesPocket - open", async () => {
     const page = await newSpecPage({
       components: [ZMessagesPocket],
-      html: `<z-messages-pocket status="open"></z-messages-pocket>`
+      html: `<z-messages-pocket status="open"></z-messages-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -60,7 +60,7 @@ describe("Suite test ZMessagesPocket", () => {
   it("Test render ZMessagesPocket - closed", async () => {
     const page = await newSpecPage({
       components: [ZMessagesPocket],
-      html: `<z-messages-pocket status="closed"></z-messages-pocket>`
+      html: `<z-messages-pocket status="closed"></z-messages-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -88,7 +88,7 @@ describe("Suite test ZMessagesPocket", () => {
   it("Test render ZMessagesPocket - with props", async () => {
     const page = await newSpecPage({
       components: [ZMessagesPocket],
-      html: `<z-messages-pocket status="closed" messages="2" pocketid="pocket"></z-messages-pocket>`
+      html: `<z-messages-pocket status="closed" messages="2" pocketid="pocket"></z-messages-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -118,7 +118,7 @@ describe("Suite test ZMessagesPocket", () => {
       components: [ZMessagesPocket],
       html: `<z-messages-pocket status="open">
         <z-pocket-message>message</z-pocket-message>
-      </z-messages-pocket>`
+      </z-messages-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`

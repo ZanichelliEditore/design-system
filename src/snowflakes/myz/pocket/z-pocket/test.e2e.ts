@@ -1,19 +1,19 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 it("Test ZPocket should emit pocketToggle event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
   let status = null;
-  await page.exposeFunction("onPocketToggle", e => {
+  await page.exposeFunction("onPocketToggle", (e) => {
     status = e.detail.status;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "pocketToggle";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
-      window.onPocketToggle({ type, detail: e.detail });
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
+      window.onPocketToggle({type, detail: e.detail});
     });
   }, type);
 
@@ -52,14 +52,14 @@ it("Test ZPocket should receive pocketHeaderClick event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let headerClickCounter = 0;
-  await page.exposeFunction("onPocketHeaderClick", e => {
+  await page.exposeFunction("onPocketHeaderClick", (e) => {
     headerClickCounter++;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const headerClickEvent = "pocketHeaderClick";
-  page.evaluateOnNewDocument(headerClickEvent => {
-    document.addEventListener(headerClickEvent, e => {
+  page.evaluateOnNewDocument((headerClickEvent) => {
+    document.addEventListener(headerClickEvent, (e) => {
       window.onPocketHeaderClick();
     });
   }, headerClickEvent);
@@ -86,16 +86,16 @@ it("Test ZPocket should not emit pocketToggle event with wrong/missing id", asyn
   // Define a window.onCustomEvent function on the page.
   let status = null;
   let toggleCounter = 0;
-  await page.exposeFunction("onPocketToggle", e => {
+  await page.exposeFunction("onPocketToggle", (e) => {
     status = e.detail.status;
     toggleCounter++;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "pocketToggle";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
-      window.onPocketToggle({ type, detail: e.detail });
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
+      window.onPocketToggle({type, detail: e.detail});
     });
   }, type);
 

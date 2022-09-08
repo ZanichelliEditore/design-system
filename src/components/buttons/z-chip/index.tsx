@@ -1,13 +1,6 @@
-import {
-  Component,
-  Prop,
-  h,
-  Element,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
-import { DeviceEnum, ZChipType } from "../../../beans";
-import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
+import {Component, Prop, h, Element, Event, EventEmitter} from "@stencil/core";
+import {DeviceEnum, ZChipType} from "../../../beans";
+import {getDevice, handleKeyboardSubmit} from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
@@ -20,11 +13,11 @@ export class ZChip {
   /** Non interactive icon */
   @Prop() icon?: string;
   /** z-chip size type, can be default, medium or small */
-  @Prop({ reflect: true }) type?: ZChipType = ZChipType.default;
+  @Prop({reflect: true}) type?: ZChipType = ZChipType.default;
   /** z-chip interactive icon */
-  @Prop({ reflect: true }) interactiveIcon?: string;
+  @Prop({reflect: true}) interactiveIcon?: string;
   /** set z-chip as disabled  */
-  @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({reflect: true}) disabled?: boolean = false;
   /** click on interactive icon */
   @Event() interactiveIconClick: EventEmitter;
   emitinteractiveIconClick() {
@@ -38,7 +31,11 @@ export class ZChip {
   render() {
     if (this.interactiveIcon) {
       return (
-        <button class={this.type} disabled={this.disabled} tabindex="0">
+        <button
+          class={this.type}
+          disabled={this.disabled}
+          tabindex="0"
+        >
           {this.icon && (
             <z-icon
               class={"iconSx"}
@@ -61,7 +58,10 @@ export class ZChip {
     }
 
     return (
-      <div class={`${this.type}`} tabindex="0">
+      <div
+        class={`${this.type}`}
+        tabindex="0"
+      >
         {this.icon && (
           <z-icon
             name={this.icon}

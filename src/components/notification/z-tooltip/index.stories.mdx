@@ -1,7 +1,7 @@
-import { html } from "lit-html";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import { PopoverPositions } from "../../../beans";
-import { getColorTokens } from "../../../utils/storybook-utils";
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {PopoverPositions} from "../../../beans";
+import {getColorTokens} from "../../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
@@ -15,7 +15,7 @@ On the following Story, the "position" prop can be set only for the original pos
   title="Notification/ZTooltip"
   component="z-tooltip"
   argTypes={{
-    position: {
+    "position": {
       options: [
         PopoverPositions.auto,
         PopoverPositions.top,
@@ -25,34 +25,41 @@ On the following Story, the "position" prop can be set only for the original pos
         PopoverPositions.top_left,
         PopoverPositions.top_right,
         PopoverPositions.bottom_left,
-        PopoverPositions.bottom_right
+        PopoverPositions.bottom_right,
       ],
-      control: { type: "select" },
+      control: {type: "select"},
     },
-    dark: {
-      control: { type: "boolean" },
+    "dark": {
+      control: {type: "boolean"},
     },
     "--z-tooltip-theme--surface": {
       options: getColorTokens(),
-      control: { type: "select" },
+      control: {type: "select"},
     },
   }}
 />
 
 <Canvas>
-  <Story name="z-tooltip" args={{
-    position: PopoverPositions.left,
-    dark: false,
-    "--z-tooltip-theme--surface": "var(--color-surface01)"
-  }}>
+  <Story
+    name="z-tooltip"
+    args={{
+      "position": PopoverPositions.left,
+      "dark": false,
+      "--z-tooltip-theme--surface": "var(--color-surface01)",
+    }}
+  >
     {(args) => html`
       <div class="tooltip-container">
-        <z-button id="trigger" size="small" icon="plus-filled"></z-button>
+        <z-button
+          id="trigger"
+          size="small"
+          icon="plus-filled"
+        ></z-button>
         <z-tooltip
           .position=${args.position}
           .dark=${args.dark}
           bind-to="#trigger"
-          style="--z-tooltip-theme--surface: var(${args['--z-tooltip-theme--surface']})"
+          style="--z-tooltip-theme--surface: var(${args["--z-tooltip-theme--surface"]})"
         >
           <div class="container">
             <z-button>Open</z-button>

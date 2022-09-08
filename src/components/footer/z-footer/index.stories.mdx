@@ -1,43 +1,34 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean, number } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean, number} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Footer/ZFooter" component="z-footer" />
+<Meta
+  title="Footer/ZFooter"
+  component="z-footer"
+/>
 
 # ZFooter
 
 <Preview>
   <Story name="z-footer">{html` <z-footer
-      product-name="${text("Product name", "Nome Prodotto")}"
-      product-version="${text("Product version", "6.6.6")}"
-      product-credits-link="${text("Product credits link", "https://www.google.com")}"
-      show-report-a-problem-button="${boolean("Show \"SEGNALA UN PROBLEMA\" button", true)}"
-      content-max-width=${number('Content max width', null)}
-    >
+    product-name="${text("Product name", "Nome Prodotto")}"
+    product-version="${text("Product version", "6.6.6")}"
+    product-credits-link="${text("Product credits link", "https://www.google.com")}"
+    show-report-a-problem-button="${boolean('Show "SEGNALA UN PROBLEMA" button', true)}"
+    content-max-width=${number("Content max width", null)}
+  >
     <z-footer-section name="Section 1">
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
     </z-footer-section>
     <z-footer-section name="Section 2">
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
-      <z-footer-link href="https://www.zanichelli.it"
-        >Footer link</z-footer-link
-      >
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
+      <z-footer-link href="https://www.zanichelli.it">Footer link</z-footer-link>
     </z-footer-section>
     <z-footer-social
       slot="social"
@@ -94,10 +85,14 @@ import "./index";
       href="https://www.zanichelli.it/contatti/filiali-e-agenzie"
       >Filiali e agenzie</z-footer-link
     >
-    <z-footer-link slot="links" href="https://my.zanichelli.it/privacy"
+    <z-footer-link
+      slot="links"
+      href="https://my.zanichelli.it/privacy"
       >Privacy</z-footer-link
     >
-    <z-footer-link slot="links" href="https://my.zanichelli.it/condizioni-uso"
+    <z-footer-link
+      slot="links"
+      href="https://my.zanichelli.it/condizioni-uso"
       >Condizioni d’uso</z-footer-link
     >
     <z-footer-link

@@ -1,21 +1,22 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Notification/ZCookiebar" component="z-cookiebar" />
+<Meta
+  title="Notification/ZCookiebar"
+  component="z-cookiebar"
+/>
 
 # ZCookiebar
 
 <Preview>
   <Story name="ZCookiebar">
     {html`<z-cookiebar
-      cookiepolicyurl="${text('cookiepolicyurl', 'https://my.zanichelli.it/privacy#Cookie')}"
-      hide="${boolean('hide', false)}"
+      cookiepolicyurl="${text("cookiepolicyurl", "https://my.zanichelli.it/privacy#Cookie")}"
+      hide="${boolean("hide", false)}"
     ></z-cookiebar>`}
   </Story>
 </Preview>
 
 <Props of="z-cookiebar" />
-
-

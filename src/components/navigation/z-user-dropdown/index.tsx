@@ -1,6 +1,6 @@
-import { Component, Prop, State, Event, Listen, h, EventEmitter, Host } from "@stencil/core";
-import { MenuItem } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import {Component, Prop, State, Event, Listen, h, EventEmitter, Host} from "@stencil/core";
+import {MenuItem} from "../../../beans";
+import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 @Component({
   tag: "z-user-dropdown",
@@ -52,7 +52,7 @@ export class ZUserDropdown {
       if (this.logged && !this.isMobile && this.isMenuOpen) {
         this.divToResize.style.width = `${this.userButton?.offsetWidth}px`;
       } else {
-        this.divToResize.removeAttribute('style');
+        this.divToResize.removeAttribute("style");
       }
     }
   }
@@ -67,20 +67,20 @@ export class ZUserDropdown {
   @Event() dropdownMenuLinkClick: EventEmitter;
   emitDropdownMenuLinkClick(e: CustomEvent) {
     this.isMenuOpen = false;
-    this.dropdownMenuLinkClick.emit({ e, linkId: e.detail.linkId });
+    this.dropdownMenuLinkClick.emit({e, linkId: e.detail.linkId});
   }
 
-  @Listen("resize", { target: "window" })
+  @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("orientationchange", { target: "window" })
+  @Listen("orientationchange", {target: "window"})
   handleOrientationChange(): void {
     this.isMobile = screen.width <= mobileBreakpoint;
   }
 
-  @Listen("click", { target: "window" })
+  @Listen("click", {target: "window"})
   handleClickOutside(e: MouseEvent) {
     if ((e.target as HTMLElement).nodeName !== "Z-USER-DROPDOWN") {
       this.isMenuOpen = false;
@@ -117,11 +117,21 @@ export class ZUserDropdown {
       >
         <div>
           <div class="firstline">
-            <z-icon class={colorClass} name="user-avatar-filled" height={16} width={16} />
-            {!this.isMobile && <div class={`userfullname ${colorClass}`}>{this.userFullName}</div> }
-            <z-icon class={colorClass} name={`caret-${direction}-filled`} height={16} width={16} />
+            <z-icon
+              class={colorClass}
+              name="user-avatar-filled"
+              height={16}
+              width={16}
+            />
+            {!this.isMobile && <div class={`userfullname ${colorClass}`}>{this.userFullName}</div>}
+            <z-icon
+              class={colorClass}
+              name={`caret-${direction}-filled`}
+              height={16}
+              width={16}
+            />
           </div>
-          {!this.isMobile && this.isMenuOpen && <div class={`useremail ${colorClass}`}>{this.userEmail}</div> }
+          {!this.isMobile && this.isMenuOpen && <div class={`useremail ${colorClass}`}>{this.userEmail}</div>}
         </div>
       </button>
     );
@@ -141,31 +151,30 @@ export class ZUserDropdown {
     return (
       this.isMenuOpen && (
         <ul class={colorClass}>
-          {this.isMobile &&
-            <li
-              class={colorClass}
-            >
+          {this.isMobile && (
+            <li class={colorClass}>
               <div class={`userfullname ${colorClass}`}>{this.userFullName}</div>
               <div class={`useremail ${colorClass}`}>{this.userEmail}</div>
             </li>
-          }
-          {this.linkArray && this.linkArray.map((link) =>
-            <li
-              id={link.id}
-              class={colorClass}
-            >
-              <z-link
-                textcolor={this.getZLinkTextcolor()}
-                href={link.link}
-                htmlid={link.id}
-                target={link.target}
-                icon={link.icon}
-                onZLinkClick={this.emitDropdownMenuLinkClick}
-              >
-                {link.label}
-              </z-link>
-            </li>
           )}
+          {this.linkArray &&
+            this.linkArray.map((link) => (
+              <li
+                id={link.id}
+                class={colorClass}
+              >
+                <z-link
+                  textcolor={this.getZLinkTextcolor()}
+                  href={link.link}
+                  htmlid={link.id}
+                  target={link.target}
+                  icon={link.icon}
+                  onZLinkClick={this.emitDropdownMenuLinkClick}
+                >
+                  {link.label}
+                </z-link>
+              </li>
+            ))}
         </ul>
       )
     );

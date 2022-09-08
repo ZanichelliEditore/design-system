@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZDatePicker } from "./index";
+import {ZDatePicker} from "./index";
 
 describe("Suite test ZDatePicker", () => {
   it("Test render ZDatePicker", async () => {

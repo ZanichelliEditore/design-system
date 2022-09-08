@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter, Element } from "@stencil/core";
-import { Host, HostElement, State } from "@stencil/core/internal";
+import {Component, Prop, h, Event, EventEmitter, Element} from "@stencil/core";
+import {Host, HostElement, State} from "@stencil/core/internal";
 
 /**
  * @slot - link content
@@ -25,7 +25,7 @@ export class ZLink {
   /** white variant flag (optional) */
   @Prop() iswhite?: boolean = false;
   /** link text variant (optional) */
-  @Prop() textcolor?: "primary"| "inverse" | "white" | "black" = "primary";
+  @Prop() textcolor?: "primary" | "inverse" | "white" | "black" = "primary";
   /** link icon name (optional) */
   @Prop() icon?: string;
   /** big link version */
@@ -33,7 +33,7 @@ export class ZLink {
   /** link icon position (optional) */
   @Prop() iconposition?: "left" | "right" = "left";
   /** draw underline on text (optional) */
-  @Prop() underline?: boolean = false;  
+  @Prop() underline?: boolean = false;
 
   /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
@@ -65,28 +65,27 @@ export class ZLink {
   }
 
   emitZLinkInteraction(e: Event, linkId: string) {
-    this.zLinkClick.emit({ e, linkId });
+    this.zLinkClick.emit({e, linkId});
   }
 
   componentDidRender() {
-    if(this.icon){
-      const height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue('font-size'));
+    if (this.icon) {
+      const height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue("font-size"));
       const currentSize = this.big ? 18 : Math.round(height * 1.125);
-      if(!Number.isNaN(currentSize) && this.iconSize !== currentSize){
+      if (!Number.isNaN(currentSize) && this.iconSize !== currentSize) {
         this.iconSize = currentSize;
       }
     }
   }
 
   render() {
-
-    const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
+    const style = this.big ? {"--font-size-link": "16px", "--font-weight-link": "600"} : {};
 
     return (
       <Host style={style}>
         <a
           id={this.htmlid}
-          href={this.href ? this.href : null }
+          href={this.href ? this.href : null}
           class={`${this.isdisabled ? "disabled" : ""}
             ${this.isactive ? "active" : ""}
             ${this.textcolor}
@@ -98,13 +97,14 @@ export class ZLink {
           onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
         >
           {this.iconposition === "right" && <slot />}
-          {this.icon &&
-          <z-icon
-            style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
-            name={this.icon}
-            height={this.iconSize}
-            width={this.iconSize}
-          />}
+          {this.icon && (
+            <z-icon
+              style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
+              name={this.icon}
+              height={this.iconSize}
+              width={this.iconSize}
+            />
+          )}
           {this.iconposition === "left" && <slot />}
         </a>
       </Host>

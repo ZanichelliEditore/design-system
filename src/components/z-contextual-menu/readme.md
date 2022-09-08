@@ -1,9 +1,6 @@
 # contextual-menu
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,13 +10,11 @@
 | `elements`        | `elements`         | Elements of ZContextualMenu                             | `string`                                                                                                                                                                                                                                                                                                                                                                              | `undefined`                     |
 | `popoverPosition` | `popover-position` | [optional] Sets the position of the popover             | `PopoverPositions.auto \| PopoverPositions.bottom \| PopoverPositions.bottom_left \| PopoverPositions.bottom_right \| PopoverPositions.left \| PopoverPositions.left_bottom \| PopoverPositions.left_top \| PopoverPositions.right \| PopoverPositions.right_bottom \| PopoverPositions.right_top \| PopoverPositions.top \| PopoverPositions.top_left \| PopoverPositions.top_right` | `PopoverPositions.bottom_right` |
 
-
 ## Events
 
 | Event                 | Description                                 | Type               |
 | --------------------- | ------------------------------------------- | ------------------ |
 | `clickContextualMenu` | remove filter click event, returns filterid | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -32,6 +27,7 @@
 - [z-list-element](../list/z-list-element)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-contextual-menu --> z-icon
@@ -45,6 +41,6 @@ graph TD;
   style z-contextual-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

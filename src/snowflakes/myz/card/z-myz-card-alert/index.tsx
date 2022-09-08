@@ -1,10 +1,10 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { AlertTypesEnum } from "../../../../beans";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {AlertTypesEnum} from "../../../../beans";
 
 @Component({
   tag: "z-myz-card-alert",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardAlert {
   /** icon name */
@@ -19,7 +19,7 @@ export class ZMyzCardAlert {
   /** undo action click/keyboard event, returns actionType */
   @Event() undoAction: EventEmitter;
   emitUndoAction() {
-    this.undoAction.emit({ actionType: this.type });
+    this.undoAction.emit({actionType: this.type});
   }
 
   handleSpaceKeyPress(e: KeyboardEvent): void {

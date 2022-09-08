@@ -1,4 +1,4 @@
-import { ZInput } from "./index";
+import {ZInput} from "./index";
 
 it("isChecked() should return checked state", async () => {
   const input = new ZInput();

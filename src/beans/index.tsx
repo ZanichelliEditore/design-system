@@ -443,8 +443,7 @@ export enum ZSectionTitleDividerPositions {
   after = "after",
 }
 
-export type ZSectionTitleDividerPosition =
-  keyof typeof ZSectionTitleDividerPositions;
+export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
 
 export enum ZDatePickerMode {
   date = "date",

@@ -1,15 +1,14 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZOffcanvas } from "./index";
+import {ZOffcanvas} from "./index";
 
 describe("Suite test ZOffcanvas", () => {
   it("Test render ZOffcanvas", async () => {
-
     const page = await newSpecPage({
       components: [ZOffcanvas],
       html: `<z-offcanvas open>
               <div slot="canvasContent"></div>
-            </z-offcanvas>`
+            </z-offcanvas>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -22,8 +21,6 @@ describe("Suite test ZOffcanvas", () => {
 					</div>
 				<div class="canvas-background" data-action="canvasBackground"></div>
       </z-offcanvas>
-    `)
+    `);
   });
-
 });
-

@@ -1,13 +1,13 @@
-import { Component, Prop, h, State, Event, EventEmitter } from "@stencil/core";
+import {Component, Prop, h, State, Event, EventEmitter} from "@stencil/core";
 
 import Hammer from "hammerjs";
 
-import { handleKeyboardSubmit } from "../../../utils/utils";
+import {handleKeyboardSubmit} from "../../../utils/utils";
 
 @Component({
   tag: "z-pagination-bar",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPaginationBar {
   /** pages number */
@@ -15,13 +15,13 @@ export class ZPaginationBar {
   /** number of visible pages*/
   @Prop() visiblepages: number;
   /** current displayed page (mutable) */
-  @Prop({ mutable: true }) currentpage: number = 1;
+  @Prop({mutable: true}) currentpage: number = 1;
   /** initial page (mutable) */
-  @Prop({ mutable: true }) startpage: number = 1;
+  @Prop({mutable: true}) startpage: number = 1;
   /** json stringified history of visited pages (optional) */
   @Prop() historyraw?: string;
   /** array of history of visited pages (mutable, optional) */
-  @Prop({ mutable: true }) listhistoryrow?: number[] = [];
+  @Prop({mutable: true}) listhistoryrow?: number[] = [];
 
   @State() currentPages: number[] = [];
 
@@ -63,8 +63,7 @@ export class ZPaginationBar {
   }
 
   scrollPage(ev: HammerInput): void {
-    let vel =
-      Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
+    let vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
       case "swiperight":
@@ -76,8 +75,7 @@ export class ZPaginationBar {
       case "swipeleft":
         if (!this.canNavigateRight()) break;
         const newstartPage2 = this.startpage + deltaPage;
-        if (newstartPage2 < this.pages - this.visiblepages + 1)
-          this.emitChangeStartPage(newstartPage2);
+        if (newstartPage2 < this.pages - this.visiblepages + 1) this.emitChangeStartPage(newstartPage2);
         else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
         break;
       default:
@@ -89,22 +87,22 @@ export class ZPaginationBar {
   @Event() goToPage: EventEmitter;
   emitGoToPage(page) {
     this.currentpage = page;
-    this.goToPage.emit({ page: page });
-    this.addPageToHistory.emit({ page: page });
+    this.goToPage.emit({page: page});
+    this.addPageToHistory.emit({page: page});
   }
 
   /** emitted on start page change, returns startpage*/
   @Event() changeStartPage: EventEmitter;
   emitChangeStartPage(startpage) {
     this.startpage = startpage;
-    this.changeStartPage.emit({ startpage: startpage });
+    this.changeStartPage.emit({startpage: startpage});
   }
 
   /** emitted on adding page to isvisited array, returns page*/
   @Event() addPageToHistory: EventEmitter;
   emitAddPageToHistory(page) {
     this.listhistoryrow.push(page);
-    this.changeStartPage.emit({ page: page });
+    this.changeStartPage.emit({page: page});
   }
 
   loadPages() {
@@ -146,24 +144,20 @@ export class ZPaginationBar {
 
   render() {
     return (
-      <div ref={el => (this.bar = el as HTMLElement)}>
+      <div ref={(el) => (this.bar = el as HTMLElement)}>
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}
           onClick={() => this.navigateLeft()}
-          onKeyPress={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, this.navigateLeft)
-          }
+          onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.navigateLeft)}
           tabindex={this.canNavigateLeft() ? 0 : -1}
         />
-        {this.currentPages.map(page => (
+        {this.currentPages.map((page) => (
           <z-pagination-page
             value={page}
             isselected={page === this.currentpage}
             onClick={() => this.emitGoToPage(page)}
-            onKeyDown={(ev: KeyboardEvent) =>
-              handleKeyboardSubmit(ev, this.emitGoToPage, page)
-            }
+            onKeyDown={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.emitGoToPage, page)}
             isvisited={this.listhistoryrow.includes(page)}
           />
         ))}
@@ -171,9 +165,7 @@ export class ZPaginationBar {
           name="chevron-right"
           class={!this.canNavigateRight() && "disabled"}
           onClick={() => this.navigateRight()}
-          onKeyPress={(ev: KeyboardEvent) =>
-            handleKeyboardSubmit(ev, this.navigateRight)
-          }
+          onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.navigateRight)}
           tabindex={this.canNavigateRight() ? 0 : -1}
         />
       </div>

@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZInput } from "./index";
+import {ZInput} from "./index";
 
 describe("Suite test ZInput - checkbox", () => {
   it("Test render ZInput vuoto", async () => {

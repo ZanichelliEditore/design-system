@@ -1,11 +1,7 @@
-import { Component, Prop, h, State } from "@stencil/core";
-import { MenuItem, KeyboardKeyCodeEnum } from "../../../beans/index";
+import {Component, Prop, h, State} from "@stencil/core";
+import {MenuItem, KeyboardKeyCodeEnum} from "../../../beans/index";
 
-import {
-  handleKeyboardSubmit,
-  getClickedElement,
-  getElementTree,
-} from "../../../utils/utils";
+import {handleKeyboardSubmit, getClickedElement, getElementTree} from "../../../utils/utils";
 
 @Component({
   tag: "z-menu-dropdown",
@@ -30,10 +26,7 @@ export class ZMenuDropdown {
   }
 
   componentWillRender() {
-    this.linkarray =
-      typeof this.menucontent === "string"
-        ? JSON.parse(this.menucontent)
-        : this.menucontent;
+    this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
   }
 
   renderMenuOpen() {
@@ -42,7 +35,11 @@ export class ZMenuDropdown {
         <ul>
           {this.linkarray.map((bean) => (
             <li>
-              <z-link htmlid={bean.id} href={bean.link} icon={bean.icon}>
+              <z-link
+                htmlid={bean.id}
+                href={bean.link}
+                icon={bean.icon}
+              >
                 {bean.label}
               </z-link>
             </li>
@@ -55,7 +52,11 @@ export class ZMenuDropdown {
   renderButtonMenu() {
     return (
       <span class="arrow">
-        <z-icon name="caret-down" width={14} height={14} />
+        <z-icon
+          name="caret-down"
+          width={14}
+          height={14}
+        />
       </span>
     );
   }
@@ -69,13 +70,10 @@ export class ZMenuDropdown {
   }
 
   handleFocus(e: MouseEvent | KeyboardEvent) {
-    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB)
-      return;
+    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) return;
 
     const tree = getElementTree(getClickedElement());
-    const menuParent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown"
-    );
+    const menuParent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown");
 
     if (!menuParent) {
       document.removeEventListener("click", this.handleFocus);
@@ -94,13 +92,18 @@ export class ZMenuDropdown {
           document.addEventListener("click", this.handleFocus);
           document.addEventListener("keyup", this.handleFocus);
         }}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, this.handleToggle)
-        }
+        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, this.handleToggle)}
       >
-        <div class="container" onClick={() => this.handleToggle()}>
+        <div
+          class="container"
+          onClick={() => this.handleToggle()}
+        >
           <span class="user-wrapper">
-            <z-icon name="user-avatar" width={14} height={14} />
+            <z-icon
+              name="user-avatar"
+              width={14}
+              height={14}
+            />
             <span class="user">{this.nomeutente}</span>
           </span>
           {this.renderButtonMenu()}

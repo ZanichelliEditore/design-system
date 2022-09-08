@@ -1,7 +1,7 @@
-import { Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter } from '@stencil/core';
-import { ZMenu } from '../z-menu';
+import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
+import {ZMenu} from "../z-menu";
 
-const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
+const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
 /**
  * @slot title
@@ -9,9 +9,9 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined
  * @slot stucked-title - Title for the stucked header. By default it uses the text from the `title` slot.
  */
 @Component({
-  tag: 'z-app-header',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-app-header",
+  styleUrl: "styles.css",
+  shadow: true,
 })
 export class ZAppHeader {
   @Element() hostElement: HTMLElement;
@@ -21,7 +21,7 @@ export class ZAppHeader {
    * You can programmatically set it using an IntersectionObserver.
    * **Optional**
    */
-  @Prop({ reflect: true }) stuck: boolean = false;
+  @Prop({reflect: true}) stuck: boolean = false;
 
   /**
    * Set the hero image source for the header.
@@ -35,7 +35,7 @@ export class ZAppHeader {
    * Useful for legibility purpose.
    * **Optional**
    */
-  @Prop({ reflect: true }) overlay: boolean = false;
+  @Prop({reflect: true}) overlay: boolean = false;
 
   /**
    * Control menu bar position in the header.
@@ -45,12 +45,12 @@ export class ZAppHeader {
    *
    * **Optional**
    */
-  @Prop({ reflect: true }) flow: 'auto'|'stack'|'offcanvas' = 'auto';
+  @Prop({reflect: true}) flow: "auto" | "stack" | "offcanvas" = "auto";
 
   /**
    * The opening state of the drawer.
    */
-  @Prop({ reflect: true }) drawerOpen: boolean = false;
+  @Prop({reflect: true}) drawerOpen: boolean = false;
 
   /**
    * The stucked state of the bar.
@@ -73,11 +73,16 @@ export class ZAppHeader {
   private container?: HTMLDivElement;
   private menuElements?: NodeListOf<HTMLElement>;
 
-  private observer?: IntersectionObserver = SUPPORT_INTERSECTION_OBSERVER && new IntersectionObserver(([entry]) => {
-    this.stucked = !entry.isIntersecting;
-  }, {
-    threshold: 0.5
-  });
+  private observer?: IntersectionObserver =
+    SUPPORT_INTERSECTION_OBSERVER &&
+    new IntersectionObserver(
+      ([entry]) => {
+        this.stucked = !entry.isIntersecting;
+      },
+      {
+        threshold: 0.5,
+      }
+    );
 
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
@@ -92,7 +97,7 @@ export class ZAppHeader {
   private get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (!titleElement) {
-      return '';
+      return "";
     }
 
     return titleElement.textContent.trim();
@@ -107,12 +112,12 @@ export class ZAppHeader {
   }
 
   private collectMenuElements() {
-    const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
+    const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
   }
 
-  @Watch('stuck')
+  @Watch("stuck")
   onStuckMode() {
     if (this.stuck) {
       this.enableStuckObserver();
@@ -134,7 +139,7 @@ export class ZAppHeader {
     }
   }
 
-  @Watch('stucked')
+  @Watch("stucked")
   onStucked() {
     const scrollParent = this.scrollParent;
     if (!scrollParent) {
@@ -143,7 +148,7 @@ export class ZAppHeader {
     this.emitStickingEvent();
   }
 
-  @Watch('drawerOpen')
+  @Watch("drawerOpen")
   setMenuFloatingMode() {
     if (!this.menuElements) {
       return;
@@ -157,50 +162,89 @@ export class ZAppHeader {
   }
 
   render() {
-    return <Host menu-length={this.menuLength}>
-      <div class="heading-panel" ref={(el) => this.container = el}>
-        <div class="hero-container">
-          <slot name="hero">
-            {this.hero && <img alt="" src={this.hero} />}
-          </slot>
-        </div>
-        <div class="heading-container">
-          <div class="heading-title">
-            {this.menuLength > 0 && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
-              <z-icon name="burger-menu"></z-icon>
-            </button>}
-            <slot name="title"></slot>
+    return (
+      <Host menu-length={this.menuLength}>
+        <div
+          class="heading-panel"
+          ref={(el) => (this.container = el)}
+        >
+          <div class="hero-container">
+            <slot name="hero">
+              {this.hero && (
+                <img
+                  alt=""
+                  src={this.hero}
+                />
+              )}
+            </slot>
           </div>
-          <div class="heading-subtitle">
-            <slot name="subtitle"></slot>
+          <div class="heading-container">
+            <div class="heading-title">
+              {this.menuLength > 0 && (
+                <button
+                  class="drawer-trigger"
+                  aria-label="Apri menu"
+                  onClick={this.openDrawer}
+                >
+                  <z-icon name="burger-menu"></z-icon>
+                </button>
+              )}
+              <slot name="title"></slot>
+            </div>
+            <div class="heading-subtitle">
+              <slot name="subtitle"></slot>
+            </div>
+          </div>
+          <div class="menu-container">
+            {!this.drawerOpen && this.flow !== "offcanvas" && (
+              <slot
+                name="menu"
+                onSlotchange={() => this.collectMenuElements()}
+              ></slot>
+            )}
           </div>
         </div>
-        <div class="menu-container">
-          {!this.drawerOpen && this.flow !== 'offcanvas' && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
-        </div>
-      </div>
-      <div class="drawer-container">
-        <div class="drawer-overlay" onClick={this.closeDrawer}></div>
-        <div class="drawer-panel">
-          <button class="drawer-close" aria-label="Chiudi menu" onClick={this.closeDrawer}>
-            <z-icon name="close"></z-icon>
-          </button>
-          <div class="drawer-content">
-            {this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
+        <div class="drawer-container">
+          <div
+            class="drawer-overlay"
+            onClick={this.closeDrawer}
+          ></div>
+          <div class="drawer-panel">
+            <button
+              class="drawer-close"
+              aria-label="Chiudi menu"
+              onClick={this.closeDrawer}
+            >
+              <z-icon name="close"></z-icon>
+            </button>
+            <div class="drawer-content">
+              {this.drawerOpen && (
+                <slot
+                  name="menu"
+                  onSlotchange={() => this.collectMenuElements()}
+                ></slot>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      {this.stucked && <div class="heading-stucked">
-        {this.menuLength > 0 && <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
-          <z-icon name="burger-menu"></z-icon>
-        </button>}
-        <div class="heading-title">
-          <slot name="stucked-title">
-            {this.title}
-          </slot>
-        </div>
-      </div>}
-    </Host>;
+        {this.stucked && (
+          <div class="heading-stucked">
+            {this.menuLength > 0 && (
+              <button
+                class="drawer-trigger"
+                aria-label="Apri menu"
+                onClick={this.openDrawer}
+              >
+                <z-icon name="burger-menu"></z-icon>
+              </button>
+            )}
+            <div class="heading-title">
+              <slot name="stucked-title">{this.title}</slot>
+            </div>
+          </div>
+        )}
+      </Host>
+    );
   }
 
   openDrawer() {

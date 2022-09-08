@@ -1,5 +1,5 @@
-import { Component, Prop, State, h, Event, EventEmitter } from "@stencil/core";
-import { tabletBreakpoint } from "../../../constants/breakpoints";
+import {Component, Prop, State, h, Event, EventEmitter} from "@stencil/core";
+import {tabletBreakpoint} from "../../../constants/breakpoints";
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",
@@ -19,9 +19,9 @@ export class ZButtonSort {
   /** sort label content (descending) (optional) */
   @Prop() sortlabeldesc?: string = "Z-A";
   /** selected flag (optional) */
-  @Prop({ mutable: true }) isselected?: boolean = false;
+  @Prop({mutable: true}) isselected?: boolean = false;
   /** sortable flag (optional) */
-  @Prop({ mutable: true }) sortasc?: boolean = true;
+  @Prop({mutable: true}) sortasc?: boolean = true;
 
   @State() allowTooltip: boolean = false;
 
@@ -43,14 +43,11 @@ export class ZButtonSort {
   }
 
   componentDidLoad() {
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
-      this.allowTooltip = true;
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) this.allowTooltip = true;
   }
 
   setButtonTitle(): string {
-    return this.allowTooltip
-      ? `${this.sortasc ? this.label : this.desclabel}`
-      : "";
+    return this.allowTooltip ? `${this.sortasc ? this.label : this.desclabel}` : "";
   }
 
   elementHasEllipsis(): boolean {
@@ -73,10 +70,12 @@ export class ZButtonSort {
             {!this.sortasc && this.desclabel ? this.desclabel : this.label}
           </span>
           <span class="counter">{this.counter && ` (${this.counter})`}</span>
-          <span class="sort">
-            {this.sortasc ? this.sortlabelasc : this.sortlabeldesc}
-          </span>
-          <z-icon name="caret-up-down" width={16} height={16} />
+          <span class="sort">{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
+          <z-icon
+            name="caret-up-down"
+            width={16}
+            height={16}
+          />
         </label>
       </button>
     );

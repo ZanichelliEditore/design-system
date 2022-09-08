@@ -1,14 +1,4 @@
-import {
-  Component,
-  Prop,
-  h,
-  Element,
-  Event,
-  EventEmitter,
-  Watch,
-  State,
-  Listen,
-} from "@stencil/core";
+import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen} from "@stencil/core";
 
 /**
  * Pagination bar component.
@@ -50,7 +40,7 @@ export class ZPagination {
   visiblePages?: number;
 
   /** Current page. */
-  @Prop({ mutable: true })
+  @Prop({mutable: true})
   currentPage = 1;
 
   /** Whether to show "go to page" feature. */
@@ -84,18 +74,13 @@ export class ZPagination {
   @Watch("_visiblePages")
   setPagesContainerWidth() {
     if (!this._visiblePages || this.split) {
-      this.host.style.setProperty(
-        "--z-pagination--pages-container-max-width",
-        "100%"
-      );
+      this.host.style.setProperty("--z-pagination--pages-container-max-width", "100%");
 
       return;
     }
 
     const pagesContainerStyle = window.getComputedStyle(this.host);
-    const pageButtonWidth = pagesContainerStyle.getPropertyValue(
-      "--z-pagination--page-button-width"
-    );
+    const pageButtonWidth = pagesContainerStyle.getPropertyValue("--z-pagination--page-button-width");
     this.host.style.setProperty(
       "--z-pagination--pages-container-max-width",
       `calc(${pageButtonWidth} * ${this._visiblePages})`
@@ -109,10 +94,7 @@ export class ZPagination {
    */
   @Watch("visiblePages")
   setVisiblePages() {
-    this._visiblePages = Math.min(
-      this.visiblePages || this.totalPages,
-      this.totalPages
-    );
+    this._visiblePages = Math.min(this.visiblePages || this.totalPages, this.totalPages);
   }
 
   /**
@@ -139,7 +121,7 @@ export class ZPagination {
   /**
    * Hide stuff on mobile.
    */
-  @Listen("resize", { target: "window", passive: true })
+  @Listen("resize", {target: "window", passive: true})
   onResize() {
     this.setMobile();
   }
@@ -158,17 +140,12 @@ export class ZPagination {
    */
   getPagesChunks() {
     // array of numbers from 1 to `totalPages`
-    const pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+    const pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
 
     let chunks = [];
     const chunksCount = Math.ceil(pages.length / this._visiblePages);
     for (let index = 0; index < chunksCount; index++) {
-      chunks.push(
-        pages.slice(
-          index * this._visiblePages,
-          (index + 1) * this._visiblePages
-        )
-      );
+      chunks.push(pages.slice(index * this._visiblePages, (index + 1) * this._visiblePages));
     }
 
     return chunks;
@@ -178,9 +155,7 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   scrollToPage() {
-    const pageBtn = this.host.querySelector(
-      `[data-page="${this.currentPage}"]`
-    ) as HTMLElement;
+    const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
 
     if (!pageBtn) {
       return;
@@ -251,11 +226,7 @@ export class ZPagination {
       return;
     }
 
-    return pagesChunks.map((chunk) => (
-      <div class="pages-chunk">
-        {chunk.map((page) => this.renderPage(page))}
-      </div>
-    ));
+    return pagesChunks.map((chunk) => <div class="pages-chunk">{chunk.map((page) => this.renderPage(page))}</div>);
   }
 
   /**
@@ -266,33 +237,24 @@ export class ZPagination {
     // left and right split pages, current page, first and last page, left and right ellipsis button
     if (this.totalPages <= this.split * 2 + 5) {
       // Too few pages: ellipsis will never be rendered, so let's just render all pages and that's it.
-      return Array.from({ length: this.totalPages }, (_, i) =>
-        this.renderPage(i + 1)
-      );
+      return Array.from({length: this.totalPages}, (_, i) => this.renderPage(i + 1));
     }
 
     if (this.currentPage <= this.split * 2 + 2) {
       // Render first (2 * split + 3) pages, ellipsis, then last page.
       return [
-        ...Array.from({ length: this.split * 2 + 3 }, (_, i) =>
-          this.renderPage(i + 1)
-        ),
+        ...Array.from({length: this.split * 2 + 3}, (_, i) => this.renderPage(i + 1)),
         this.renderEllipsisButton(this.split * 2 + 4),
         this.renderPage(this.totalPages),
       ];
     }
 
-    if (
-      this.currentPage > this.split * 2 + 2 &&
-      this.currentPage < this.totalPages - this.split * 2 - 1
-    ) {
+    if (this.currentPage > this.split * 2 + 2 && this.currentPage < this.totalPages - this.split * 2 - 1) {
       // Render first page, ellipsis, current page surrounded by (split) pages both before and after, another ellipsis, then last page.
       return [
         this.renderPage(1),
         this.renderEllipsisButton(this.currentPage - this.split - 1),
-        ...Array.from({ length: this.split * 2 + 1 }, (_, i) =>
-          this.renderPage(this.currentPage - this.split + i)
-        ),
+        ...Array.from({length: this.split * 2 + 1}, (_, i) => this.renderPage(this.currentPage - this.split + i)),
         this.renderEllipsisButton(this.currentPage + this.split + 1),
         this.renderPage(this.totalPages),
       ];
@@ -302,9 +264,7 @@ export class ZPagination {
     return [
       this.renderPage(1),
       this.renderEllipsisButton(this.totalPages - this.split * 2 - 3),
-      ...Array.from({ length: this.split * 2 + 3 }, (_, i) =>
-        this.renderPage(this.totalPages - this.split * 2 - 2 + i)
-      ),
+      ...Array.from({length: this.split * 2 + 3}, (_, i) => this.renderPage(this.totalPages - this.split * 2 - 2 + i)),
     ];
   }
 
@@ -346,13 +306,13 @@ export class ZPagination {
         {this.renderBackButton()}
 
         {!this.goToPage && (
-          <div class="pages-container" role="navigation" tabIndex={-1}>
+          <div
+            class="pages-container"
+            role="navigation"
+            tabIndex={-1}
+          >
             {pagesChunks.length > 0 &&
-              pagesChunks.map((chunk) => (
-                <div class="pages-chunk">
-                  {chunk.map((page) => this.renderPage(page))}
-                </div>
-              ))}
+              pagesChunks.map((chunk) => <div class="pages-chunk">{chunk.map((page) => this.renderPage(page))}</div>)}
           </div>
         )}
 
@@ -433,7 +393,11 @@ export class ZPagination {
 
         {this.navArrows && this.renderBackButton()}
 
-        <div class="pages-container" role="navigation" tabIndex={-1}>
+        <div
+          class="pages-container"
+          role="navigation"
+          tabIndex={-1}
+        >
           {this.split ? this.renderSplitPages() : this.renderPages()}
         </div>
 
@@ -479,9 +443,7 @@ export class ZPagination {
               onInput={(ev) => {
                 this.goToPageValue = (ev.target as HTMLZInputElement).value;
               }}
-              onKeyDown={(ev) =>
-                ev.key === "Enter" && this.selectPage(this.goToPageValue)
-              }
+              onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}
             ></z-input>
             <z-button
               disabled={!this.goToPageValue}

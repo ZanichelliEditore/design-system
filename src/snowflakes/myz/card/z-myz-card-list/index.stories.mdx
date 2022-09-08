@@ -1,21 +1,24 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import "./index";
 
 ## Stories
 
-<Meta title="Myz/MyzCard/ZMyzCardList" component="z-myz-card-list" />
+<Meta
+  title="Myz/MyzCard/ZMyzCardList"
+  component="z-myz-card-list"
+/>
 
-  # ZMyzCardList
+# ZMyzCardList
 
 <Preview>
   <Story name="z-myz-card-list">
-    {html`
-      <z-myz-card-list
-        listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
-      />`}
+    {html` <z-myz-card-list
+      listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
+    />`}
   </Story>
 </Preview>
 
-  <Props of="z-myz-card-list" />
+{" "}
 
+<Props of="z-myz-card-list" />

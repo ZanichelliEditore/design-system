@@ -1,20 +1,10 @@
-import {
-  Component,
-  Prop,
-  h,
-  Event,
-  EventEmitter,
-  Element,
-  Host,
-  State,
-  Watch,
-} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Element, Host, State, Watch} from "@stencil/core";
 import {
   ToastNotificationTransitionsEnum,
   ToastNotificationTransitionTypes,
   ToastNotificationTypes,
 } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
 
@@ -61,10 +51,10 @@ export class ZToastNotification {
 
   @Watch("isdraggable")
   watchPropIsdraggable(newValue: boolean) {
-    if(newValue){
-      this.sliderManager.get('pan').set({ enable: true });
-    }else{
-      this.sliderManager.get('pan').set({ enable: false });
+    if (newValue) {
+      this.sliderManager.get("pan").set({enable: true});
+    } else {
+      this.sliderManager.get("pan").set({enable: false});
     }
   }
 
@@ -76,10 +66,10 @@ export class ZToastNotification {
 
   @Watch("pauseonfocusloss")
   watchPropPauseonfocusloss(newValue: boolean) {
-    if(this.autoclose){
-      if(newValue){
+    if (this.autoclose) {
+      if (newValue) {
         document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
-      }else{
+      } else {
         document.removeEventListener("visibilitychange", this.visibilityChangeEventHandler);
       }
     }
@@ -117,13 +107,11 @@ export class ZToastNotification {
     } else {
       this.elapsedTime && this.onFocus();
     }
-  }
+  };
 
   validateAutoclose() {
     if (!this.autoclose && !this.closebutton)
-      console.error(
-        "At least one between autoclose and closebutton must be present"
-      );
+      console.error("At least one between autoclose and closebutton must be present");
   }
 
   mapSlideOutClass() {
@@ -161,21 +149,11 @@ export class ZToastNotification {
       };
 
       this.hostElement.style.opacity = `${100 - Math.abs(this.percentage)}%`;
-      if (
-        e.eventType === Hammer.DIRECTION_LEFT ||
-        e.eventType === Hammer.DIRECTION_RIGHT
-      ) {
+      if (e.eventType === Hammer.DIRECTION_LEFT || e.eventType === Hammer.DIRECTION_RIGHT) {
         this.hostElement.style.transform = translateObj.translate;
-        if (
-          Math.abs(this.percentage) > this.draggablepercentage &&
-          !this.isCloseEventCalled
-        ) {
+        if (Math.abs(this.percentage) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
-          this.emitToastClose(
-            e.direction === Hammer.DIRECTION_LEFT
-              ? "slide-out-left"
-              : "slide-out-right"
-          );
+          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right");
         }
       }
 
@@ -205,10 +183,7 @@ export class ZToastNotification {
   }
 
   startClosingTimeout(time: number) {
-    this.timeoutHandle = setTimeout(
-      () => this.emitToastClose(this.mapSlideOutClass()),
-      time
-    );
+    this.timeoutHandle = setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
   }
 
   detectWrap() {
@@ -225,7 +200,10 @@ export class ZToastNotification {
 
   renderText() {
     return (
-      <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
+      <div
+        id="text"
+        ref={(el) => (this.toastText = el as HTMLElement)}
+      >
         <span class="title">{this.heading}</span>
         <span class="message">{this.message}</span>
       </div>
@@ -308,11 +286,7 @@ export class ZToastNotification {
         style={{
           ["--percentuale" as string]: `${this.percentage}%` as string,
         }}
-        class={
-          this.transition
-            ? this.transition
-            : ToastNotificationTransitionsEnum.slideInDown
-        }
+        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.slideInDown}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);

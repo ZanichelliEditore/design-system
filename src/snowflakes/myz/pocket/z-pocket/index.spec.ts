@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZPocket } from "./index";
+import {ZPocket} from "./index";
 
 describe("Suite test ZPocket", () => {
   it("Test render ZPocket", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket></z-pocket>`
+      html: `<z-pocket></z-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -26,7 +26,7 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - closed", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket status="closed"></z-pocket>`
+      html: `<z-pocket status="closed"></z-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -46,7 +46,7 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - open", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket status="open"></z-pocket>`
+      html: `<z-pocket status="open"></z-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -66,7 +66,7 @@ describe("Suite test ZPocket", () => {
   it("Test render ZPocket - with props", async () => {
     const page = await newSpecPage({
       components: [ZPocket],
-      html: `<z-pocket pocketid="pocket" status="preview"></z-pocket>`
+      html: `<z-pocket pocketid="pocket" status="preview"></z-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -88,7 +88,7 @@ describe("Suite test ZPocket", () => {
       components: [ZPocket],
       html: `<z-pocket status="open">
         <div>z-pocket main content</div>
-      </z-pocket>`
+      </z-pocket>`,
     });
 
     expect(page.root).toEqualHtml(`

@@ -1,16 +1,6 @@
-import {
-  Component,
-  h,
-  EventEmitter,
-  Event,
-  Element,
-  Host,
-  State,
-  Listen,
-  Prop,
-} from "@stencil/core";
-import { PopoverPositions, ZChipType } from "../../../beans";
-import { tabletBreakpoint } from "../../../constants/breakpoints";
+import {Component, h, EventEmitter, Event, Element, Host, State, Listen, Prop} from "@stencil/core";
+import {PopoverPositions, ZChipType} from "../../../beans";
+import {tabletBreakpoint} from "../../../constants/breakpoints";
 
 @Component({
   tag: "z-file",
@@ -76,9 +66,7 @@ export class ZFile {
             position={PopoverPositions.auto}
             bindTo={this.chip}
           >
-            <span class="body-5 tooltip-content">
-              {this.ellipsis.innerText}
-            </span>
+            <span class="body-5 tooltip-content">{this.ellipsis.innerText}</span>
           </z-popover>
         )}
         <z-chip
@@ -87,12 +75,12 @@ export class ZFile {
           interactiveIcon="multiply-circled"
           type={ZChipType.default}
         >
-            <span
-              ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
-              tabIndex={-1}
-            >
-              <slot />
-            </span>
+          <span
+            ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
+            tabIndex={-1}
+          >
+            <slot />
+          </span>
         </z-chip>
       </Host>
     );

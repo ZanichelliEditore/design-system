@@ -1,9 +1,9 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-pagination-page",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPaginationPage {
   /** html id */
@@ -24,7 +24,7 @@ export class ZPaginationPage {
       <button
         id={this.pageid}
         aria-label={this.ariaLabel ? this.ariaLabel : `Go to page ${this.value}`}
-        class={{ selected: this.isselected, visited: this.isvisited }}
+        class={{selected: this.isselected, visited: this.isvisited}}
         disabled={this.isdisabled}
         type="button"
       >

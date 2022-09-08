@@ -1,6 +1,6 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story,  ArgsTable} from "@storybook/addon-docs";
-import { ZChipType } from "../../../beans";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {ZChipType} from "../../../beans";
 import "./index";
 
 <Meta
@@ -9,7 +9,7 @@ import "./index";
   argTypes={{
     type: {
       options: Object.values(ZChipType),
-      control: { type: "radio"  }
+      control: {type: "radio"},
     },
   }}
 />
@@ -25,7 +25,13 @@ import "./index";
     }}
   >
     {(args) =>
-      html` <z-chip type=${args.type} icon=${args.icon}>my custom element</z-chip> `
+      html`
+        <z-chip
+          type=${args.type}
+          icon=${args.icon}
+          >my custom element</z-chip
+        >
+      `
     }
   </Story>
 </Canvas>
@@ -41,10 +47,15 @@ import "./index";
     }}
   >
     {(args) =>
-      html` <z-chip type=${args.type} icon=${args.icon}>
-        <strong>my</strong>
-        <span style="margin-left: 4px"> custom element</span>
-        </z-chip> `
+      html`
+        <z-chip
+          type=${args.type}
+          icon=${args.icon}
+        >
+          <strong>my</strong>
+          <span style="margin-left: 4px"> custom element</span>
+        </z-chip>
+      `
     }
   </Story>
 </Canvas>
@@ -58,13 +69,18 @@ import "./index";
       type: ZChipType.default,
       icon: "pdf",
       interactiveIcon: "multiply-circled",
-      disabled: false
+      disabled: false,
     }}
   >
     {(args) =>
-      html` <z-chip type=${args.type} icon=${args.icon} disabled=${args.disabled} interactive-icon=${args.interactiveIcon}>
+      html` <z-chip
+        type=${args.type}
+        icon=${args.icon}
+        disabled=${args.disabled}
+        interactive-icon=${args.interactiveIcon}
+      >
         my custom element
-        </z-chip>`
+      </z-chip>`
     }
   </Story>
 </Canvas>

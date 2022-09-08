@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTable } from "./index";
+import {ZTable} from "./index";
 
 describe("Suite test ZTable", () => {
   it("Test render ZTable with err content", async () => {
@@ -113,8 +113,7 @@ describe("Suite test ZTable", () => {
       </z-table-header-row>
     </z-table-head></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table empty="true" role="table" slot="table-header">
+    expect(page.root).toEqualHtml(`<z-table empty="true" role="table" slot="table-header">
     <z-table-head hidden="">
       <z-table-header-row>
         <z-table-header>
@@ -149,8 +148,7 @@ describe("Suite test ZTable", () => {
       components: [ZTable],
       html: `<z-table empty="true" call-to-action-label="Call To Action"></z-table>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-table call-to-action-label="Call To Action" empty="true" role="table">
+    expect(page.root).toEqualHtml(`<z-table call-to-action-label="Call To Action" empty="true" role="table">
     <div class="table table-empty"></div>
     <z-table-empty-box message="Siamo spiacenti, al momento non sono presenti dati da visualizzare" subtitle="">
       <z-button size="big" slot="cta1" variant="tertiary">

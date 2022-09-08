@@ -1,32 +1,29 @@
-import { html } from "lit-html";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import {
-  PopoverPosition,
-  PopoverShadow,
-  PopoverBorderRadius,
-} from "../../beans";
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {PopoverPosition, PopoverShadow, PopoverBorderRadius} from "../../beans";
 
 import "./index";
 
 # ZPopover Deprecated
+
 ## This component is deprecated and will be removed from the library starting 15 October 2022.
 
 <Meta
   title="Deprecated/ZPopoverDeprecated"
   component="z-popover-deprecated"
   argTypes={{
-    position: {
-      control: { type: "select" },
+    "position": {
+      control: {type: "select"},
       options: Object.values(PopoverPosition),
     },
-    "show-arrow": { control: { type: "boolean" } },
-    "background-color": { control: { type: "text" } },
+    "show-arrow": {control: {type: "boolean"}},
+    "background-color": {control: {type: "text"}},
     "box-shadow": {
-      control: { type: "select" },
+      control: {type: "select"},
       options: Object.values(PopoverShadow),
     },
     "border-radius": {
-      control: { type: "inline-radio" },
+      control: {type: "inline-radio"},
       options: Object.values(PopoverBorderRadius),
     },
   }}
@@ -38,16 +35,14 @@ import "./index";
   <Story
     name="ZPopoverDeprecated-sample"
     args={{
-      position: "after-down",
+      "position": "after-down",
       "show-arrow": false,
       "background-color": "color-white",
       "box-shadow": "shadow-1",
       "border-radius": "small",
     }}
   >
-    {(args) => html`<div
-      style="height: 200px; display: flex; align-items: center; justify-content: center"
-    >
+    {(args) => html`<div style="height: 200px; display: flex; align-items: center; justify-content: center">
       <z-popover-deprecated
         position=${args.position}
         show-arrow=${args["show-arrow"]}
@@ -55,7 +50,11 @@ import "./index";
         box-shadow=${args["box-shadow"]}
         border-radius=${args["border-radius"]}
       >
-        <z-button slot="trigger" icon="gear">Impostazioni</z-button>
+        <z-button
+          slot="trigger"
+          icon="gear"
+          >Impostazioni</z-button
+        >
         <div slot="popover">Contenuto Popover</div>
       </z-popover-deprecated>
     </div>`}

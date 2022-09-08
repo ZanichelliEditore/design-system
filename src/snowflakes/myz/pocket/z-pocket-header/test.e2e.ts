@@ -1,18 +1,18 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 it("Test ZPocketHeader should emit pocketHeaderClick event", async () => {
   const page = await newE2EPage();
 
   // Define a window.onCustomEvent function on the page.
   let clickCounter = 0;
-  await page.exposeFunction("onPocketHeaderClick", e => {
+  await page.exposeFunction("onPocketHeaderClick", (e) => {
     clickCounter++;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "pocketHeaderClick";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
       window.onPocketHeaderClick();
     });
   }, type);

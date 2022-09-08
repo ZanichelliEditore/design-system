@@ -4,7 +4,7 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: var(--space-unit);
-  --rgb-white: 240, 240, 240
+  --rgb-white: 240, 240, 240;
 }
 
 button:disabled,

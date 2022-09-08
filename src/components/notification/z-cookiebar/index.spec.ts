@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZCookiebar } from "./index";
+import {ZCookiebar} from "./index";
 
 describe("Suite test ZCookiebar", () => {
   it("Test render ZCookiebar base", async () => {

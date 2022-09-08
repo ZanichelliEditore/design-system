@@ -1,19 +1,11 @@
-import {
-  Component,
-  Prop,
-  h,
-  Listen,
-  Event,
-  EventEmitter,
-  Watch,
-} from "@stencil/core";
+import {Component, Prop, h, Listen, Event, EventEmitter, Watch} from "@stencil/core";
 import {
   NavigationTabsOrientations,
   NavigationTabsOrientation,
   NavigationTabsSizes,
   NavigationTabsSize,
 } from "../../../../beans";
-import { icons } from "../../../icons/icons";
+import {icons} from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
@@ -26,23 +18,22 @@ export class ZNavigationTabLink {
   /**
    * Whether the tab is selected.
    */
-  @Prop({ mutable: true, reflect: true }) selected?: boolean = false;
+  @Prop({mutable: true, reflect: true}) selected?: boolean = false;
 
   /**
    * Whether the tab is disabled.
    */
-  @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({reflect: true}) disabled?: boolean = false;
 
   /**
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
-  @Prop({ reflect: true }) orientation: NavigationTabsOrientation =
-    NavigationTabsOrientations.horizontal;
+  @Prop({reflect: true}) orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
-  @Prop({ reflect: true }) size: NavigationTabsSize = NavigationTabsSizes.big;
+  @Prop({reflect: true}) size: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Html title attribute for the anchor element.
@@ -70,16 +61,17 @@ export class ZNavigationTabLink {
    */
   @Prop() label: string;
 
-  @Event({ eventName: "selected" })
+  @Event({eventName: "selected"})
   private selectedEvent: EventEmitter;
 
   /**
    * Scroll into view to center the tab.
    */
-  scrollToTab({ target: button }) {
-    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
-      { block: "nearest", inline: "center" } as ScrollIntoViewOptions :
-      { block: "center", inline: "nearest" } as ScrollIntoViewOptions;
+  scrollToTab({target: button}) {
+    const scrollOptions =
+      this.orientation === NavigationTabsOrientations.horizontal
+        ? ({block: "nearest", inline: "center"} as ScrollIntoViewOptions)
+        : ({block: "center", inline: "nearest"} as ScrollIntoViewOptions);
 
     button.scrollIntoView({
       behavior: "smooth",
@@ -106,7 +98,7 @@ export class ZNavigationTabLink {
    */
   renderIcon() {
     let icon = this.icon;
-    const iconFilled = `${icon.replace(/-filled$/, '')}-filled`;
+    const iconFilled = `${icon.replace(/-filled$/, "")}-filled`;
 
     if (this.selected && Object.keys(icons).includes(iconFilled)) {
       icon = iconFilled;

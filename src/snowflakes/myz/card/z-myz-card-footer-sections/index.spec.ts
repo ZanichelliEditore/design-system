@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardFooterSections } from "./index";
+import {ZMyzCardFooterSections} from "./index";
 
 describe("Suite test ZMyzCardFooterSections", () => {
   it("Test render ZMyzCardFooterSections - empty", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardFooterSections],
-      html: `<z-myz-card-footer-sections></z-myz-card-footer-sections>`
+      html: `<z-myz-card-footer-sections></z-myz-card-footer-sections>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -33,7 +33,7 @@ describe("Suite test ZMyzCardFooterSections", () => {
       html: `<z-myz-card-footer-sections>
         <p slot="top">top footer content</p>
         <p slot="bottom">bottom footer content</p>
-      </z-myz-card-footer-sections>`
+      </z-myz-card-footer-sections>`,
     });
 
     expect(page.root).toEqualHtml(`

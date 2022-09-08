@@ -1,5 +1,5 @@
-import { Component, Prop, h, Listen /* , State */ } from "@stencil/core";
-import { PocketStatus, PocketStatusEnum } from "../../../../beans";
+import {Component, Prop, h, Listen /* , State */} from "@stencil/core";
+import {PocketStatus, PocketStatusEnum} from "../../../../beans";
 
 /**
  * @slot  - pocket body content
@@ -7,7 +7,7 @@ import { PocketStatus, PocketStatusEnum } from "../../../../beans";
 @Component({
   tag: "z-messages-pocket",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMessagesPocket {
   /** pocket id */
@@ -15,9 +15,9 @@ export class ZMessagesPocket {
   /** number of messages */
   @Prop() messages: number;
   /** pocket status */
-  @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
+  @Prop({mutable: true}) status: PocketStatus = PocketStatusEnum.preview;
 
-  @Listen("pocketToggle", { target: "body" })
+  @Listen("pocketToggle", {target: "body"})
   handlePocketToggle(e: CustomEvent): void {
     if (e.detail.id === this.pocketid) {
       this.status = e.detail.status;
@@ -46,7 +46,11 @@ export class ZMessagesPocket {
     return (
       <z-pocket-header pocketid={this.pocketid}>
         {message}
-        <z-icon name={icon} width={14} height={14} />
+        <z-icon
+          name={icon}
+          width={14}
+          height={14}
+        />
       </z-pocket-header>
     );
   }

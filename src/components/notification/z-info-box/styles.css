@@ -3,7 +3,7 @@
   font-weight: var(--font-rg);
 }
 
-:host>div {
+:host > div {
   background: var(--accent-lighter);
   padding: calc(var(--space-unit) * 2);
   border-radius: var(--border-radius);
@@ -11,12 +11,12 @@
   width: inherit;
 }
 
-:host>div>slot {
+:host > div > slot {
   color: var(--text-grey-800);
   font-size: 14px;
 }
 
-:host>div>z-icon {
+:host > div > z-icon {
   fill: var(--myz-blue);
   cursor: pointer;
   margin-left: calc(var(--space-unit) * 2);

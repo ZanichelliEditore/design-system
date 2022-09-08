@@ -1,4 +1,4 @@
-import { ZPagination } from "./index";
+import {ZPagination} from "./index";
 
 describe("ZPagination test suite", () => {
   it("should set minimum page when a number out of range is passed", () => {
@@ -8,7 +8,7 @@ describe("ZPagination test suite", () => {
     zPagination.selectPage(-5);
     expect(zPagination.currentPage).toBe(1);
 
-    zPagination.selectPage(15)
+    zPagination.selectPage(15);
     expect(zPagination.currentPage).toBe(10);
   });
 

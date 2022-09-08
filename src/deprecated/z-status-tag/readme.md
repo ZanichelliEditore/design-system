@@ -4,7 +4,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property     | Attribute    | Description                                   | Type                                                                                                                                | Default                   |
@@ -15,7 +14,6 @@
 | `text`       | `text`       | [optional] Status tag text                    | `string`                                                                                                                            | `undefined`               |
 | `variant`    | `variant`    | [optional] Status tag style                   | `ThemeVariant.dark \| ThemeVariant.light`                                                                                           | `undefined`               |
 
-
 ## Dependencies
 
 ### Depends on
@@ -23,12 +21,13 @@
 - [z-icon](../../components/icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-status-tag --> z-icon
   style z-status-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

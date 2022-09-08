@@ -1,16 +1,18 @@
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
-import { styleMap } from 'lit-html/directives/style-map.js';
-import { InfoRevealPosition } from "../../beans";
-import { html } from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {styleMap} from "lit-html/directives/style-map.js";
+import {InfoRevealPosition} from "../../beans";
+import {html} from "lit-html";
 import "./index";
 
-<Meta title="ZInfoReveal" component="z-info-reveal"
+<Meta
+  title="ZInfoReveal"
+  component="z-info-reveal"
   argTypes={{
-    icon: { control: { type: "text" } },
-    label: { control: { type: "text" } },
+    icon: {control: {type: "text"}},
+    label: {control: {type: "text"}},
     position: {
       options: Object.values(InfoRevealPosition),
-      control: { type: "inline-radio" }
+      control: {type: "inline-radio"},
     },
   }}
 />
@@ -21,8 +23,8 @@ import "./index";
   <Story
     name="ZInfoReveal"
     args={{
-      label: '',
-      icon: 'informationsource',
+      label: "",
+      icon: "informationsource",
       position: InfoRevealPosition.top_right,
     }}
   >
@@ -44,10 +46,15 @@ import "./index";
           })}
         >
           <span style="font-style: italic;">Prima frase.</span>
-          <span style="font-style: italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?</span>
+          <span style="font-style: italic;"
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
+            Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?</span
+          >
           <span>
-            <a style="color: inherit;"
-              href="https://google.com" target="_blank"
+            <a
+              style="color: inherit;"
+              href="https://google.com"
+              target="_blank"
             >
               terza frase che è un link
             </a>

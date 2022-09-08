@@ -1,25 +1,27 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Footer/ZFooterSocial" component="z-footer-social" />
+<Meta
+  title="Footer/ZFooterSocial"
+  component="z-footer-social"
+/>
 
 # ZFooterSocial
 
 <Preview>
   <Story name="ZFooterSocial">
-    {html`
-    <div style="background: #ccc;">
+    {html` <div style="background: #ccc;">
       <z-footer-social
         href="${text("href", "https://www.zanichelli.it")}"
         icon="${text("icon", "https://staticmy.zanichelli.it/footer/images/png/facebook.png")}"
-        description="${text("description", "Facebook")}">
+        description="${text("description", "Facebook")}"
+      >
       </z-footer-social>
-    </div>`
-      }
+    </div>`}
   </Story>
 </Preview>
 

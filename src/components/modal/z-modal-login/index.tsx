@@ -1,17 +1,6 @@
-import {
-  Component,
-  h,
-  Element,
-  Event,
-  EventEmitter,
-  Prop,
-} from "@stencil/core";
-import { HostElement, State } from "@stencil/core/internal";
-import {
-  ButtonVariantEnum,
-  InputStatusBean,
-  InputStatusEnum,
-} from "../../../beans";
+import {Component, h, Element, Event, EventEmitter, Prop} from "@stencil/core";
+import {HostElement, State} from "@stencil/core/internal";
+import {ButtonVariantEnum, InputStatusBean, InputStatusEnum} from "../../../beans";
 
 /**
  * @slot username - username input
@@ -34,28 +23,23 @@ export class zModalLogin {
   /** Login modal title */
   @Prop() heading?: string = "Entra in MyZanichelli";
   /** Username/password input status */
-  @Prop({ mutable: true }) status?: InputStatusBean;
+  @Prop({mutable: true}) status?: InputStatusBean;
   /** Username helper message */
-  @Prop({ mutable: true }) message?: string;
+  @Prop({mutable: true}) message?: string;
   /** Password helper message */
-  @Prop({ mutable: true }) pwdmessage?: string;
+  @Prop({mutable: true}) pwdmessage?: string;
 
   @State() externalProviderCheck: boolean = false;
 
   componentDidLoad() {
-    this.externalProviderCheck =
-      !!this.hostElement.querySelectorAll('[slot="provider"]').length;
+    this.externalProviderCheck = !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
 
   /** Emitted on login submit */
   @Event() loginSubmit: EventEmitter;
   emitLoginSubmit() {
-    const usernameInput = this.hostElement.querySelector(
-      "z-input#username"
-    ) as HTMLZInputElement;
-    const passwordInput = this.hostElement.querySelector(
-      "z-input#password"
-    ) as HTMLZInputElement;
+    const usernameInput = this.hostElement.querySelector("z-input#username") as HTMLZInputElement;
+    const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
 
     // INFO: slotted inputs
     if (!usernameInput || !passwordInput) return;
@@ -108,8 +92,7 @@ export class zModalLogin {
   cleanUsername(username: string): string {
     username = username.trim().toLowerCase();
 
-    const mobileRegex =
-      /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
+    const mobileRegex = /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
     if (mobileRegex.test(username)) {
       username = username.replace(/[- .)(]/g, "");
       if (/^[\d ]*$/.test(username)) username = "+39" + username;
@@ -126,8 +109,17 @@ export class zModalLogin {
         class="zainoDigitale"
       >
         <div class="zd">
-          <svg width="18px" height="24px" viewBox="0 0 18 24">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <svg
+            width="18px"
+            height="24px"
+            viewBox="0 0 18 24"
+          >
+            <g
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
               <g
                 transform="translate(-313.000000, -329.000000)"
                 fill="#E2001A"
@@ -156,7 +148,10 @@ export class zModalLogin {
   render() {
     return (
       <z-modal modaltitle={this.heading}>
-        <div class="wrapper" slot="modalContent">
+        <div
+          class="wrapper"
+          slot="modalContent"
+        >
           <form method="post">
             <div class="username">
               <slot name="username">
@@ -191,7 +186,10 @@ export class zModalLogin {
               </slot>
             </div>
 
-            <z-link class="forget" href={this.forgotPasswordUrl}>
+            <z-link
+              class="forget"
+              href={this.forgotPasswordUrl}
+            >
               Password dimenticata?
             </z-link>
 
@@ -209,7 +207,11 @@ export class zModalLogin {
 
           <hr />
 
-          <z-body class="signup" level={4} variant="semibold">
+          <z-body
+            class="signup"
+            level={4}
+            variant="semibold"
+          >
             Non hai ancora un account?
           </z-body>
 
@@ -226,7 +228,11 @@ export class zModalLogin {
 
           {!this.externalProviderCheck && (
             <div class="providers">
-              <z-body class="provider" level={5} variant="regular">
+              <z-body
+                class="provider"
+                level={5}
+                variant="regular"
+              >
                 OPPURE ACCEDI CON:
               </z-body>
               <slot name="provider">

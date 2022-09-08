@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from "@stencil/core";
+import {Component, Prop, h, State} from "@stencil/core";
 
 /**
  * @slot - section content
@@ -16,7 +16,10 @@ export class ZFooterSection {
 
   renderToggleButton(): HTMLButtonElement {
     return (
-      <button class="toggleButton" onClick={() => (this.isOpen = !this.isOpen)}>
+      <button
+        class="toggleButton"
+        onClick={() => (this.isOpen = !this.isOpen)}
+      >
         <z-icon
           name={this.isOpen ? "chevron-up" : "chevron-down"}
           width={16}

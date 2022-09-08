@@ -1,12 +1,10 @@
 # z-stepper-item
 
 ```html
-<z-stepper-item index="1"></z-stepper-item>
-<z-stepper-item index="1">First step</z-stepper-item>
+<z-stepper-item index="1"></z-stepper-item> <z-stepper-item index="1">First step</z-stepper-item>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -17,7 +15,6 @@
 | `index`    | `index`    | The number of the step item.    | `number`  | `undefined` |
 | `pressed`  | `pressed`  | The pressed state of the item.  | `boolean` | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

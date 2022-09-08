@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZOtp } from "./index";
+import {ZOtp} from "./index";
 
 describe("Suite test ZOtp", () => {
   it("Test render ZOtp senza prop", async () => {
     const page = await newSpecPage({
       components: [ZOtp],
-      html: `<z-otp></z-otp>`
+      html: `<z-otp></z-otp>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -31,7 +31,7 @@ describe("Suite test ZOtp", () => {
   it("Test render ZOtp con prop inputNum", async () => {
     const page = await newSpecPage({
       components: [ZOtp],
-      html: `<z-otp inputNum='3'></z-otp>`
+      html: `<z-otp inputNum='3'></z-otp>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -56,7 +56,7 @@ describe("Suite test ZOtp", () => {
   it("Test render ZOtp con messaggio errore", async () => {
     const page = await newSpecPage({
       components: [ZOtp],
-      html: `<z-otp status='error' message='Otp non valido'></z-otp>`
+      html: `<z-otp status='error' message='Otp non valido'></z-otp>`,
     });
 
     expect(page.root).toEqualHtml(`

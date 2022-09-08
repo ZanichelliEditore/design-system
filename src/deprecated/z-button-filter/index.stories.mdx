@@ -1,11 +1,14 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Deprecated/Buttons/ZButtonFilter" component="z-button-filter" />
+<Meta
+  title="Deprecated/Buttons/ZButtonFilter"
+  component="z-button-filter"
+/>
 
 ## This component is deprecated and will be removed from the library starting 09 August 2022, please use z-chip component instead.
 
@@ -15,13 +18,14 @@ import "./index";
   <Story name="z-button-filter">
     {html`
       <z-button-filter
-        filtername="${text('filtername', 'filter 2')}"
-        hasicon="${boolean('hasicon', true)}"
-        isfixed="${boolean('isfixed', true)}"
+        filtername="${text("filtername", "filter 2")}"
+        hasicon="${boolean("hasicon", true)}"
+        isfixed="${boolean("isfixed", true)}"
       ></z-button-filter>
     `}
   </Story>
 </Preview>
 
-  <Props of="z-button-filter" />
+{" "}
 
+<Props of="z-button-filter" />

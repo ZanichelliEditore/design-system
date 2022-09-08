@@ -1,10 +1,8 @@
-import { KeyboardCodeEnum, DeviceEnum } from "../beans/index";
-import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
+import {KeyboardCodeEnum, DeviceEnum} from "../beans/index";
+import {mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
-  return (
-    (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "")
-  );
+  return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");
 }
 
 /**
@@ -40,15 +38,8 @@ export function randomId(): string {
   return Math.random().toString(36).replace("0.", "");
 }
 
-export function handleKeyboardSubmit(
-  ev: KeyboardEvent,
-  callback: Function,
-  ...args: any[]
-) {
-  if (
-    ev.code === KeyboardCodeEnum.ENTER ||
-    ev.code === KeyboardCodeEnum.SPACE
-  ) {
+export function handleKeyboardSubmit(ev: KeyboardEvent, callback: Function, ...args: any[]) {
+  if (ev.code === KeyboardCodeEnum.ENTER || ev.code === KeyboardCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
@@ -65,10 +56,7 @@ export function getClickedElement(elem: null | Element = null): null | Element {
   return elem;
 }
 
-export function getElementTree(
-  elem: Element,
-  tree: Element[] = []
-): null | Element[] {
+export function getElementTree(elem: Element, tree: Element[] = []): null | Element[] {
   tree.push(elem);
 
   if (elem.parentElement) {

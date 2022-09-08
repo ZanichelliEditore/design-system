@@ -13,70 +13,34 @@ z-table > div.table {
   border-collapse: separate;
 }
 
-z-table
-  > div.table-bordered
-  > z-table-body
-  > z-table-row
-  > z-table-cell:not(:last-child),
-z-table
-  > div.table-bordered
-  > z-table-head
-  > z-table-header-row
-  > z-table-header:not(:last-child) {
+z-table > div.table-bordered > z-table-body > z-table-row > z-table-cell:not(:last-child),
+z-table > div.table-bordered > z-table-head > z-table-header-row > z-table-header:not(:last-child) {
   border-right: var(--border-size-small) solid var(--bg-grey-200);
 }
 
 /** Remove border right to first cell if row is expandable */
-z-table
-  > div
-  > z-table-body
-  > z-table-row[expandable]
-  > z-table-cell:first-child,
-z-table
-  > div
-  > z-table-head
-  > z-table-header-row[expandable]
-  > z-table-header:first-child {
+z-table > div > z-table-body > z-table-row[expandable] > z-table-cell:first-child,
+z-table > div > z-table-head > z-table-header-row[expandable] > z-table-header:first-child {
   border-right: none;
 }
 
-z-table
-  > div
-  > z-table-body
-  > z-table-row[expanded]
-  > z-table-cell {
+z-table > div > z-table-body > z-table-row[expanded] > z-table-cell {
   background-color: var(--gray50);
 }
 
-z-table
-  > div
-  > z-table-body
-  > z-table-row[expanded]
-  + z-table-expanded-row {
+z-table > div > z-table-body > z-table-row[expanded] + z-table-expanded-row {
   border-bottom: 1px solid var(--gray200);
 }
 
-z-table
-  > div.table-column-sticky
-  > z-table-body
-  > z-table-row
-  > z-table-cell:first-child,
-z-table
-  > div.table-column-sticky
-  > z-table-head
-  > z-table-header-row
-  > z-table-header:first-child {
+z-table > div.table-column-sticky > z-table-body > z-table-row > z-table-cell:first-child,
+z-table > div.table-column-sticky > z-table-head > z-table-header-row > z-table-header:first-child {
   position: sticky;
   left: 0;
   box-shadow: 1px 0 4px -1px rgba(66, 69, 72, 0.4);
   z-index: 1;
 }
 
-z-table
-  > div.table-header-sticky
-  > z-table-head
-  > z-table-header-row
-  > z-table-header {
+z-table > div.table-header-sticky > z-table-head > z-table-header-row > z-table-header {
   position: sticky;
   top: 0;
   box-shadow: 0 2px 3px -3px rgba(66, 69, 72, 0.4);
@@ -85,27 +49,15 @@ z-table
 /**
  * L'ombra delle celle sticky non va sopra all'header fisso.
  */
-z-table
-  > div.table-header-sticky
-  > z-table-head
-  > z-table-header-row
-  > z-table-header {
+z-table > div.table-header-sticky > z-table-head > z-table-header-row > z-table-header {
   z-index: 2;
 }
 
 /**
  * La cella in alto a sinistra rimane sempre sopra alle cell durante lo scroll.
  */
-z-table
-  > div.table-header-sticky
-  > z-table-head
-  > z-table-header-row
-  > z-table-header:first-child,
-z-table
-  > div.table-column-sticky
-  > z-table-head
-  > z-table-header-row
-  > z-table-header:first-child {
+z-table > div.table-header-sticky > z-table-head > z-table-header-row > z-table-header:first-child,
+z-table > div.table-column-sticky > z-table-head > z-table-header-row > z-table-header:first-child {
   z-index: 5;
 }
 

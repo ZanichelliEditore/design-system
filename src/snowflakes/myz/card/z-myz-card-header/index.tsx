@@ -1,5 +1,5 @@
-import { Component, Prop, State, h } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import {Component, Prop, State, h} from "@stencil/core";
+import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
  * @slot icon - card header icon slot

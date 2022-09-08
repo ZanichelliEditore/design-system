@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZSkipToContent } from "./index";
+import {ZSkipToContent} from "./index";
 
 describe("Suite test ZSkipToContent", () => {
   it("Test render ZSkipToContent empty", async () => {

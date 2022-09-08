@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAlert } from "./index";
+import {ZAlert} from "./index";
 
 describe("Suite test ZAlert", () => {
   it("Test render ZAlert vuoto", async () => {
     const page = await newSpecPage({
       components: [ZAlert],
-      html: `<z-alert></z-alert>`
+      html: `<z-alert></z-alert>`,
     });
 
     expect(page.root).toEqualHtml(`

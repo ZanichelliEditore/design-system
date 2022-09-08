@@ -1,25 +1,29 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { boolean } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Notification/ZInfoBox" component="z-info-box" />
+<Meta
+  title="Notification/ZInfoBox"
+  component="z-info-box"
+/>
 
-  # ZInfoBox
+# ZInfoBox
 
 <Preview>
   <Story name="z-info-box">
-    {html`
-      <z-info-box isclosable="${boolean('isclosable', true)}">
-        <span slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu
-          faucibus velit dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi
-          at imperdiet.
-          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
-      </z-info-box>`}
+    {html` <z-info-box isclosable="${boolean("isclosable", true)}">
+      <span slot="content"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span
+      >
+    </z-info-box>`}
   </Story>
 </Preview>
 
-  <Props of="z-info-box" />
+{" "}
 
+<Props of="z-info-box" />

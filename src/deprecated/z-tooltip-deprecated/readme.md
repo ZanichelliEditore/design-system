@@ -11,15 +11,22 @@ Maybe you want to know where the tooltip goes when the `type` is set to `auto`, 
 To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
 
 <!-- readme-group="tootlip" -->
+
 ### Usage
+
 ```html
-<z-tooltip-deprecated type="top" bind-to="#tooltip-btn" open>
+<z-tooltip-deprecated
+  type="top"
+  bind-to="#tooltip-btn"
+  open
+>
   <span>Tooltip text</span>
 </z-tooltip-deprecated>
 <button id="tooltip-btn">Button</button>
 ```
 
 ### Legacy version
+
 ```html
 <z-tooltip-deprecated content="Aggiungi libro" type="top"></z-tooltip-deprecated>
 <z-tooltip-deprecated content="Aggiungi libro" type="bottom"></z-tooltip-deprecated>
@@ -27,9 +34,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 <z-tooltip-deprecated content="Rimuovi libro" type="right"></z-tooltip>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -40,14 +45,12 @@ To be sure the algorithm finds the right container, when calculating the positio
 | `open`    | `open`    | The open state of the tooltip.                                          | `boolean`                                                                                                                                                                                                                                                                                                                                                                             | `false`                 |
 | `type`    | `type`    | Tooltip position.                                                       | `PopoverPositions.auto \| PopoverPositions.bottom \| PopoverPositions.bottom_left \| PopoverPositions.bottom_right \| PopoverPositions.left \| PopoverPositions.left_bottom \| PopoverPositions.left_top \| PopoverPositions.right \| PopoverPositions.right_bottom \| PopoverPositions.right_top \| PopoverPositions.top \| PopoverPositions.top_left \| PopoverPositions.top_right` | `PopoverPositions.auto` |
 
-
 ## Events
 
 | Event            | Description            | Type               |
 | ---------------- | ---------------------- | ------------------ |
 | `positionChange` | Position change event. | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

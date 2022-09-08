@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 type CustomWindow = Window &
   typeof globalThis & {
@@ -19,7 +19,7 @@ it("Test signup z-button should emit signupClick event", async () => {
   const type = "signupClick";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onSignupClick({ type, detail: e.detail });
+      (window as CustomWindow).onSignupClick({type, detail: e.detail});
     });
   }, type);
 
@@ -48,14 +48,12 @@ it("Test zaino digitale z-button should emit zainoDigitaleClick event", async ()
   const type = "zainoDigitaleClick";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onZainoDigitaleClick({ type, detail: e.detail });
+      (window as CustomWindow).onZainoDigitaleClick({type, detail: e.detail});
     });
   }, type);
 
   await page.setContent(`<z-modal-login></z-modal-login>`);
-  const button = await page.find(
-    "z-modal-login div.providers z-button.zainoDigitale"
-  );
+  const button = await page.find("z-modal-login div.providers z-button.zainoDigitale");
 
   expect(counter).toEqual(0);
   await button.click();
@@ -79,7 +77,7 @@ it("Test login form should emit loginSubmit event", async () => {
   const type = "loginSubmit";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onLoginSubmit({ type, detail: e.detail });
+      (window as CustomWindow).onLoginSubmit({type, detail: e.detail});
     });
   }, type);
 

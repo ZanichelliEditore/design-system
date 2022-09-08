@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZContextualMenu } from "./index";
+import {ZContextualMenu} from "./index";
 
 describe("Suite test ZContextualMenu", () => {
   it("Test render ZContextualMenu vuoto", async () => {

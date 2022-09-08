@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 it("Test ZOtp should emit inputChange event", async () => {
   const page = await newE2EPage();
@@ -13,7 +13,7 @@ it("Test ZOtp should emit inputChange event", async () => {
   const type = "otpChange";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      window.onOtpChange({ type, detail: e.detail });
+      window.onOtpChange({type, detail: e.detail});
     });
   }, type);
 
@@ -26,4 +26,3 @@ it("Test ZOtp should emit inputChange event", async () => {
   await page.waitForChanges();
   expect(inputValue).toEqual("6");
 });
-

@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 it("Test ZPocketBody should receive pocketToggle event", async () => {
   const page = await newE2EPage();

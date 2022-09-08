@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 describe("z-contextual-menu test end2end", () => {
   it("Test that component exists", async () => {

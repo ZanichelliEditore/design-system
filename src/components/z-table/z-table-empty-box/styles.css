@@ -1,7 +1,6 @@
 :host {
   display: block;
-  padding: calc(var(--space-unit)) calc(var(--space-unit) * 3)
-    calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);
+  padding: calc(var(--space-unit)) calc(var(--space-unit) * 3) calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);
   background-color: var(--bg-white);
 }
 
@@ -21,8 +20,8 @@
 
 @media only screen and (min-width: 768px) {
   :host {
-    padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)
-      calc(var(--space-unit) * 3) calc(var(--space-unit) * 7);
+    padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 7) calc(var(--space-unit) * 3)
+      calc(var(--space-unit) * 7);
   }
 
   ::slotted(*) {

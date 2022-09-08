@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZDragdropArea } from "./index";
+import {ZDragdropArea} from "./index";
 
 describe("Suite test ZDragdropArea", () => {
   it("Test render ZDragdropArea senza contenuto slottato", async () => {

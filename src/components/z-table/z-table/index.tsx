@@ -1,16 +1,6 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Listen,
-  Prop,
-  State,
-  h,
-} from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {ButtonSizeEnum, ButtonVariantEnum} from "../../../beans";
+import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 /**
  * @slot - table elements
@@ -26,11 +16,10 @@ export class ZTable {
   @Element() host: HTMLElement;
 
   /** Number of lines of element */
-  @Prop({ reflect: true }) lines?: number;
+  @Prop({reflect: true}) lines?: number;
 
   /** Error message */
-  @Prop() errorMessage?: string =
-    "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
+  @Prop() errorMessage?: string = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
 
   /** Sets table with border */
   @Prop() bordered?: boolean = false;
@@ -57,8 +46,7 @@ export class ZTable {
   @Prop() headerSticky?: boolean = false;
 
   /** Set message */
-  @Prop() message?: string =
-    "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
+  @Prop() message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
 
   /** Set subtitle */
   @Prop() subtitle?: string = "";
@@ -88,12 +76,12 @@ export class ZTable {
   })
   callToActionTwo: EventEmitter;
 
-  @Listen("resize", { target: "window" })
+  @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("orientationchange", { target: "window" })
+  @Listen("orientationchange", {target: "window"})
   handleOrientationChange(): void {
     this.isMobile = screen.width <= mobileBreakpoint;
   }
@@ -121,10 +109,17 @@ export class ZTable {
           <slot name="table-header" />
         </div>
         <z-table-error>
-          <div class="error-content" style={{ minHeight }}>
+          <div
+            class="error-content"
+            style={{minHeight}}
+          >
             <slot name="error-image" />
             <div class="text">
-              <z-body class="error-message" level={3} variant="semibold">
+              <z-body
+                class="error-message"
+                level={3}
+                variant="semibold"
+              >
                 {this.errorMessage}
               </z-body>
               <slot name="error-action" />
@@ -136,9 +131,7 @@ export class ZTable {
   }
 
   renderEmpty(tableClass) {
-    const buttonSize = this.isMobile
-      ? ButtonSizeEnum.small
-      : ButtonSizeEnum.big;
+    const buttonSize = this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {
       return (
@@ -215,9 +208,7 @@ export class ZTable {
   }
 
   render() {
-    const tableClass = `table ${this.empty ? "table-empty" : ""} ${
-      this.bordered ? "table-bordered" : ""
-    }
+    const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;
 

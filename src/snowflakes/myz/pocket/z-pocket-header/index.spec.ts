@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZPocketHeader } from "./index";
+import {ZPocketHeader} from "./index";
 
 describe("Suite test ZPocketHeader", () => {
   it("Test render ZPocketHeader", async () => {
     const page = await newSpecPage({
       components: [ZPocketHeader],
-      html: `<z-pocket-header></z-pocket-header>`
+      html: `<z-pocket-header></z-pocket-header>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -23,7 +23,7 @@ describe("Suite test ZPocketHeader", () => {
   it("Test render ZPocketHeader - with props", async () => {
     const page = await newSpecPage({
       components: [ZPocketHeader],
-      html: `<z-pocket-header pocketid="pocket"></z-pocket-header>`
+      html: `<z-pocket-header pocketid="pocket"></z-pocket-header>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -40,7 +40,7 @@ describe("Suite test ZPocketHeader", () => {
   it("Test render ZPocketHeader - with content", async () => {
     const page = await newSpecPage({
       components: [ZPocketHeader],
-      html: `<z-pocket-header>pocket header content</z-pocket-header>`
+      html: `<z-pocket-header>pocket header content</z-pocket-header>`,
     });
 
     expect(page.root).toEqualHtml(`

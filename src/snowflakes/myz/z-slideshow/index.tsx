@@ -1,11 +1,7 @@
-import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
+import {Component, Prop, h, State, Element, Watch} from "@stencil/core";
 
-import { DeviceEnum, DeviceType } from "../../../beans";
-import {
-  getDevice,
-  handleKeyboardSubmit,
-  convertJson
-} from "../../../utils/utils";
+import {DeviceEnum, DeviceType} from "../../../beans";
+import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils";
 
 /**
  * @slot footer-right - right content slot in footer
@@ -14,7 +10,7 @@ import {
 @Component({
   tag: "z-slideshow",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZSlideshow {
   @Element() el: HTMLElement;
@@ -60,9 +56,7 @@ export class ZSlideshow {
   }
 
   setStyle() {
-    const refSlides = this.el.shadowRoot.querySelector(
-      "#slides"
-    ) as HTMLElement;
+    const refSlides = this.el.shadowRoot.querySelector("#slides") as HTMLElement;
     if (!refSlides) return;
 
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
@@ -159,9 +153,7 @@ export class ZSlideshow {
       <a
         class={`bullet ${this.currentSlide === i && "selected"}`}
         onClick={() => this.setCurrentSlide(i)}
-        onKeyUp={(e: KeyboardEvent) =>
-          handleKeyboardSubmit(e, () => this.setCurrentSlide(i))
-        }
+        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.setCurrentSlide(i))}
         tabindex={0}
         role="button"
       ></a>
@@ -175,9 +167,7 @@ export class ZSlideshow {
           <slot name="footer-left" />
         </div>
         <div class="footerCenter">
-          <div class="bulletContainer">
-            {Object.keys(this.links).map(i => this.renderBullet(parseInt(i)))}
-          </div>
+          <div class="bulletContainer">{Object.keys(this.links).map((i) => this.renderBullet(parseInt(i)))}</div>
         </div>
         <div class="footerRight">
           <slot name="footer-right" />

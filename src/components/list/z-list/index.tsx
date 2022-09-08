@@ -1,6 +1,6 @@
-import { Component, Element, h, Prop, Host } from "@stencil/core";
+import {Component, Element, h, Prop, Host} from "@stencil/core";
 
-import { ListSize } from "../../../beans";
+import {ListSize} from "../../../beans";
 
 @Component({
   tag: "z-list",
@@ -13,7 +13,7 @@ export class ZList {
   /**
    * [optional] Sets size of inside elements.
    */
-  @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+  @Prop({reflect: true}) size?: ListSize = ListSize.medium;
 
   setChildrenSizeType() {
     const children = this.host.children;

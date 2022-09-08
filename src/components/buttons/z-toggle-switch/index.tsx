@@ -1,6 +1,6 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { randomId } from "../../../utils/utils";
-import { LabelPositions, LabelPosition } from "../../../beans";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {randomId} from "../../../utils/utils";
+import {LabelPositions, LabelPosition} from "../../../beans";
 
 @Component({
   tag: "z-toggle-switch",
@@ -9,9 +9,9 @@ import { LabelPositions, LabelPosition } from "../../../beans";
   scoped: true,
 })
 export class ZToggleSwitch {
-  @Prop({ reflect: true }) disabled?: boolean = false;
-  @Prop({ reflect: true }) labelPosition?: LabelPosition = LabelPositions.left;
-  @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop({reflect: true}) disabled?: boolean = false;
+  @Prop({reflect: true}) labelPosition?: LabelPosition = LabelPositions.left;
+  @Prop({mutable: true}) checked?: boolean = false;
   @Prop() htmlid: string = `toggle-switch-id-${randomId()}`;
 
   @Event() toggleClick: EventEmitter;
@@ -57,7 +57,11 @@ export class ZToggleSwitch {
         >
           <span class="circle">
             {this.checked && (
-              <z-icon width={12} height={12} name="checkmark"></z-icon>
+              <z-icon
+                width={12}
+                height={12}
+                name="checkmark"
+              ></z-icon>
             )}
           </span>
         </span>

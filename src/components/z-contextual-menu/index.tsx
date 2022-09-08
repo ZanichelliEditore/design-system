@@ -1,11 +1,5 @@
-import {
-  Component,
-  Event,
-  EventEmitter,
-  Prop,
-  h,
-} from "@stencil/core";
-import { PopoverPositions } from "../../beans";
+import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {PopoverPositions} from "../../beans";
 
 @Component({
   tag: "z-contextual-menu",
@@ -26,7 +20,7 @@ export class ZContextualMenu {
   /**
    * [optional] Sets the position of the popover
    */
-  @Prop({ reflect: true }) popoverPosition?: PopoverPositions = PopoverPositions.bottom_right;
+  @Prop({reflect: true}) popoverPosition?: PopoverPositions = PopoverPositions.bottom_right;
 
   private triggerButton?: HTMLButtonElement;
 
@@ -70,7 +64,10 @@ export class ZContextualMenu {
         aria-label={this.popover?.open ? "chiudi menu contestuale" : "apri menu contestuale"}
         onClick={() => this.togglePopover()}
       >
-        <z-icon name="contextual-menu" fill={this.color} />
+        <z-icon
+          name="contextual-menu"
+          fill={this.color}
+        />
       </button>,
       <z-popover
         ref={(el) => (this.popover = el as HTMLZPopoverElement)}
@@ -88,20 +85,16 @@ export class ZContextualMenu {
                   color={element.disabled ? `color-disabled03` : this.color}
                   isContextualMenu
                   listElementId={index}
-                  onClickItem={(event) =>
-                    this.clickContextualMenu.emit(event.detail)
-                  }
+                  onClickItem={(event) => this.clickContextualMenu.emit(event.detail)}
                 >
-                  <div
-                    class={
-                      element.disabled
-                        ? "disabled-element-container"
-                        : "element-container"
-                    }
-                  >
+                  <div class={element.disabled ? "disabled-element-container" : "element-container"}>
                     {this.showIcon() && (
                       <div class="element-icon">
-                        <z-icon name={element.icon} width={16} height={16} />
+                        <z-icon
+                          name={element.icon}
+                          width={16}
+                          height={16}
+                        />
                       </div>
                     )}
                     <div class="element-text">
@@ -113,7 +106,7 @@ export class ZContextualMenu {
             </z-list-group>
           </z-list>
         </div>
-      </z-popover>
+      </z-popover>,
     ];
   }
 }

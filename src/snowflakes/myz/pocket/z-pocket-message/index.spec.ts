@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZPocketMessage } from "./index";
+import {ZPocketMessage} from "./index";
 
 describe("Suite test ZMessage", () => {
   it("Test render ZMessage", async () => {

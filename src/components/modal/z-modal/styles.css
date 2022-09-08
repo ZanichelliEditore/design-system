@@ -104,12 +104,7 @@
 }
 
 .modal-container .modal-content::-webkit-scrollbar {
-  background: linear-gradient(
-    to right,
-    transparent 0 3px,
-    var(--gray200) 3px 7px,
-    transparent 7px 10px
-  );
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   width: 10px;
   border-radius: var(--border-radius);
 }

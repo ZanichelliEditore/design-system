@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZRangePicker } from "./index";
+import {ZRangePicker} from "./index";
 
 describe("Suite test ZRangePicker", () => {
   it("Test render ZRangePicker", async () => {

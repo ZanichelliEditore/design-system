@@ -1,5 +1,5 @@
-import { Component, Prop, h } from "@stencil/core";
-import { AlertTypes } from "../../../beans/index";
+import {Component, Prop, h} from "@stencil/core";
+import {AlertTypes} from "../../../beans/index";
 
 /**
  * @slot - alert content
@@ -8,7 +8,7 @@ import { AlertTypes } from "../../../beans/index";
 @Component({
   tag: "z-alert",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZAlert {
   /** alert variant type */

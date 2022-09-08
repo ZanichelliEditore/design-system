@@ -1,6 +1,6 @@
-import { html } from "lit-html";
-import { Meta, Story, ArgsTable, Canvas } from "@storybook/addon-docs";
-import { ButtonVariantEnum } from "../../../beans";
+import {html} from "lit-html";
+import {Meta, Story, ArgsTable, Canvas} from "@storybook/addon-docs";
+import {ButtonVariantEnum} from "../../../beans";
 
 import "./index";
 
@@ -9,20 +9,20 @@ import "./index";
   component="z-file-upload"
   argTypes={{
     buttonVariant: {
-      options: ['primary', 'secondary'],
-      control: { type: "radio" },
+      options: ["primary", "secondary"],
+      control: {type: "radio"},
     },
     fileMaxSize: {
-      control: { type: "text" },
+      control: {type: "text"},
     },
     acceptedFormat: {
-      control: { type: "text" },
+      control: {type: "text"},
     },
     mainTitle: {
-      control: { type: "text" },
+      control: {type: "text"},
     },
     description: {
-      control: { type: "text" },
+      control: {type: "text"},
     },
   }}
 />
@@ -37,13 +37,12 @@ import "./index";
       fileMaxSize: "50",
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
-      description:
-        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+      description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
     }}
   >
     {(args) => html`<z-heading level="4"
-        >This story embeds a piece of js script to allow the component to work
-        properly. Please refresh the page before using it!</z-heading
+        >This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
+        using it!</z-heading
       ><br />
       <z-file-upload
         type="default"
@@ -77,8 +76,7 @@ import "./index";
       fileMaxSize: "50",
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
-      description:
-        "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+      description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
     }}
   >
     {(args) => html`

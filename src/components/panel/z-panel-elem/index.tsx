@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 /**
  * @slot `descr_slot_name` - description content
@@ -6,7 +6,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "z-panel-elem",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPanelElem {
   /** html element id (optional) */
@@ -30,11 +30,23 @@ export class ZPanelElem {
 
   renderIcon() {
     if (this.isdisabled) {
-      return <img src={this.imgurl} alt={this.imgalt} />;
+      return (
+        <img
+          src={this.imgurl}
+          alt={this.imgalt}
+        />
+      );
     }
     return (
-      <a class="elem-icon" href={this.url} target={this.target}>
-        <img src={this.imgurl} alt={this.imgalt} />
+      <a
+        class="elem-icon"
+        href={this.url}
+        target={this.target}
+      >
+        <img
+          src={this.imgurl}
+          alt={this.imgalt}
+        />
       </a>
     );
   }
@@ -43,9 +55,7 @@ export class ZPanelElem {
     const elemId = this.elemid ? this.elemid : "";
     return (
       <div class="panel-elem-container">
-        {(this.imgurl || this.imgalt) && (
-          <div class="panel-elem-icon">{this.renderIcon()}</div>
-        )}
+        {(this.imgurl || this.imgalt) && <div class="panel-elem-icon">{this.renderIcon()}</div>}
         <div class="panel-elem-link">
           <z-link
             href={this.url}

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
 
 @Component({
   tag: "z-toggle-button",

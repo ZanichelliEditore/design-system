@@ -1,15 +1,5 @@
-import {
-  Component,
-  Prop,
-  h,
-  Method,
-  Event,
-  EventEmitter,
-  Listen,
-  Element,
-  Watch
-} from "@stencil/core";
-import { PocketStatus, PocketStatusEnum } from "../../../../beans";
+import {Component, Prop, h, Method, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
+import {PocketStatus, PocketStatusEnum} from "../../../../beans";
 
 /**
  * @slot  - pocket content
@@ -17,7 +7,7 @@ import { PocketStatus, PocketStatusEnum } from "../../../../beans";
 @Component({
   tag: "z-pocket",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPocket {
   @Element() hostElement: HTMLElement;
@@ -25,7 +15,7 @@ export class ZPocket {
   /** pocket id */
   @Prop() pocketid: string;
   /** pocket status */
-  @Prop({ mutable: true }) status: PocketStatus = PocketStatusEnum.preview;
+  @Prop({mutable: true}) status: PocketStatus = PocketStatusEnum.preview;
 
   /** open z-pocket */
   @Method()
@@ -42,7 +32,7 @@ export class ZPocket {
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event() pocketToggle: EventEmitter;
   emitPocketToggle(id: string, status: PocketStatus) {
-    this.pocketToggle.emit({ id, status });
+    this.pocketToggle.emit({id, status});
   }
 
   @Listen("pocketHeaderClick")
@@ -95,7 +85,10 @@ export class ZPocket {
           class={`background ${this.status}`}
           onClick={(e: any) => this.handleBackgroundClick(e)}
         />
-        <div id={this.pocketid} class="contentWrapper">
+        <div
+          id={this.pocketid}
+          class="contentWrapper"
+        >
           <div>
             <slot />
           </div>

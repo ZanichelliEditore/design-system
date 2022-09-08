@@ -3,15 +3,50 @@
 <!-- readme-group="buttons" -->
 
 ```html
-<z-button label="button" type="primary"></z-button>
-<z-button label="button" type="primary" icon="download"></z-button>
-<z-button label="button" type="primary" isdisabled icon="download"></z-button>
-<z-button label="button" type="secondary"></z-button>
-<z-button label="button" type="secondary" isdisabled></z-button>
-<z-button label="button" type="tertiary"></z-button>
-<z-button label="button" type="tertiary" isdisabled></z-button>
-<z-button label="button" type="primary" issmall></z-button>
-<z-button label="button" type="primary" issmall icon="download"></z-button>
+<z-button
+  label="button"
+  type="primary"
+></z-button>
+<z-button
+  label="button"
+  type="primary"
+  icon="download"
+></z-button>
+<z-button
+  label="button"
+  type="primary"
+  isdisabled
+  icon="download"
+></z-button>
+<z-button
+  label="button"
+  type="secondary"
+></z-button>
+<z-button
+  label="button"
+  type="secondary"
+  isdisabled
+></z-button>
+<z-button
+  label="button"
+  type="tertiary"
+></z-button>
+<z-button
+  label="button"
+  type="tertiary"
+  isdisabled
+></z-button>
+<z-button
+  label="button"
+  type="primary"
+  issmall
+></z-button>
+<z-button
+  label="button"
+  type="primary"
+  issmall
+  icon="download"
+></z-button>
 <z-button
   label="button"
   type="primary"
@@ -19,14 +54,31 @@
   isdisabled
   icon="download"
 ></z-button>
-<z-button label="button" type="secondary" issmall></z-button>
-<z-button label="button" type="secondary" issmall isdisabled></z-button>
-<z-button label="button" type="tertiary" issmall></z-button>
-<z-button label="button" type="tertiary" issmall isdisabled></z-button>
+<z-button
+  label="button"
+  type="secondary"
+  issmall
+></z-button>
+<z-button
+  label="button"
+  type="secondary"
+  issmall
+  isdisabled
+></z-button>
+<z-button
+  label="button"
+  type="tertiary"
+  issmall
+></z-button>
+<z-button
+  label="button"
+  type="tertiary"
+  issmall
+  isdisabled
+></z-button>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -43,34 +95,33 @@
 | `type`      | `type`       | HTML button type attribute.                                                        | `string`                                                                                                                        | `ButtonTypeEnum.button`     |
 | `variant`   | `variant`    | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.      | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `ButtonVariantEnum.primary` |
 
-
 ## Slots
 
 | Slot | Description  |
 | ---- | ------------ |
 |      | button label |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-cookiebar](../../notification/z-cookiebar)
- - [z-file-upload](../../file-upload/z-file-upload)
- - [z-footer](../../footer/z-footer)
- - [z-modal-login](../../modal/z-modal-login)
- - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
- - [z-pagination](../../z-pagination)
- - [z-table](../../z-table/z-table)
- - [z-table-cell](../../z-table/z-table-cell)
- - [z-table-header](../../z-table/z-table-header)
+- [z-cookiebar](../../notification/z-cookiebar)
+- [z-file-upload](../../file-upload/z-file-upload)
+- [z-footer](../../footer/z-footer)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
+- [z-myz-topbar](../../../snowflakes/myz/topbar)
+- [z-pagination](../../z-pagination)
+- [z-table](../../z-table/z-table)
+- [z-table-cell](../../z-table/z-table-cell)
+- [z-table-header](../../z-table/z-table-header)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-button --> z-icon
@@ -87,6 +138,6 @@ graph TD;
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

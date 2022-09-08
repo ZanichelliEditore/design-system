@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZInputDeprecated } from "./index";
+import {ZInputDeprecated} from "./index";
 
 describe("Suite test ZInputDeprecated - select", () => {
   it("Test render ZInputDeprecated - select chiusa con elementi", async () => {

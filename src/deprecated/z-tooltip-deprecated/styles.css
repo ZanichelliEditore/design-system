@@ -45,7 +45,7 @@
   --arrow-center-x-offset: calc(50% - calc(var(--arrow-size) / 2));
   --arrow-center-y-offset: calc(100% - calc(var(--arrow-size) / 2));
 
-  content: '';
+  content: "";
   position: absolute;
   width: var(--arrow-size);
   height: var(--arrow-size);
@@ -53,72 +53,72 @@
   transform: rotate(45deg);
 }
 
-:host([open][style*='top:']),
-:host([open][style*='inset:']) {
+:host([open][style*="top:"]),
+:host([open][style*="inset:"]) {
   display: inline-flex;
 }
 
-:host([position^='top']) {
+:host([position^="top"]) {
   margin-bottom: var(--space-unit);
 }
 
-:host([position='right']) {
+:host([position="right"]) {
   margin-left: var(--space-unit);
 }
 
-:host([position='top_right']),
-:host([position='bottom_right']) {
+:host([position="top_right"]),
+:host([position="bottom_right"]) {
   margin-left: var(--edge-offset);
 }
 
-:host([position^='bottom']) {
+:host([position^="bottom"]) {
   margin-top: var(--space-unit);
 }
 
-:host([position='left']) {
+:host([position="left"]) {
   margin-right: var(--space-unit);
 }
 
-:host([position='top_left']),
-:host([position='bottom_left']) {
+:host([position="top_left"]),
+:host([position="bottom_left"]) {
   margin-right: var(--edge-offset);
 }
 
 /* Arrow style */
 
-:host([position^='top'])::before {
+:host([position^="top"])::before {
   top: var(--arrow-center-y-offset);
 }
 
-:host([position^='bottom'])::before {
+:host([position^="bottom"])::before {
   bottom: var(--arrow-center-y-offset);
 }
 
-:host([position='top'])::before,
-:host([position='bottom'])::before {
+:host([position="top"])::before,
+:host([position="bottom"])::before {
   left: var(--arrow-center-x-offset);
 }
 
-:host([position='right'])::before,
-:host([position='left'])::before {
+:host([position="right"])::before,
+:host([position="left"])::before {
   top: var(--arrow-center-x-offset);
 }
 
-:host([position='right'])::before {
+:host([position="right"])::before {
   right: var(--arrow-center-y-offset);
 }
 
-:host([position='top_right'])::before,
-:host([position='bottom_right'])::before {
+:host([position="top_right"])::before,
+:host([position="bottom_right"])::before {
   right: var(--arrow-edge-offset);
 }
 
-:host([position='left'])::before {
+:host([position="left"])::before {
   left: var(--arrow-center-y-offset);
 }
 
-:host([position='top_left'])::before,
-:host([position='bottom_left'])::before {
+:host([position="top_left"])::before,
+:host([position="bottom_left"])::before {
   left: var(--arrow-edge-offset);
 }
 

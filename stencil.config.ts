@@ -1,5 +1,5 @@
-import { Config } from "@stencil/core";
-import { reactOutputTarget } from "@stencil/react-output-target";
+import {Config} from "@stencil/core";
+import {reactOutputTarget} from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
@@ -23,9 +23,7 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null, // disable service workers
-      copy: [
-        { src: 'pages' },
-      ],
+      copy: [{src: "pages"}],
     },
   ],
 };

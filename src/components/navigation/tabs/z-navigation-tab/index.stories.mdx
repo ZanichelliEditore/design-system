@@ -1,10 +1,7 @@
-import { html } from "lit-html";
-import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
-import {
-  NavigationTabsSizes,
-  NavigationTabsOrientations,
-} from "../../../../beans/index";
-import { icons } from "../../../icons/icons";
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {NavigationTabsSizes, NavigationTabsOrientations} from "../../../../beans/index";
+import {icons} from "../../../icons/icons";
 import "./index";
 
 # ZNavigationTab
@@ -20,23 +17,23 @@ import "./index";
       control: "boolean",
     },
     size: {
-      control: { type: "inline-radio" },
+      control: {type: "inline-radio"},
       options: Object.values(NavigationTabsSizes),
     },
     orientation: {
-      control: { type: "inline-radio" },
+      control: {type: "inline-radio"},
       options: Object.values(NavigationTabsOrientations),
     },
     htmlTitle: {
-      control: { type: "text" },
+      control: {type: "text"},
     },
     icon: {
-      control: { type: "select" },
+      control: {type: "select"},
       options: Object.keys(icons).sort(),
     },
     label: {
-      control: { type: "text" },
-    }
+      control: {type: "text"},
+    },
   }}
 />
 

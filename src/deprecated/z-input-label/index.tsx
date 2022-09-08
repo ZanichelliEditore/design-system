@@ -1,9 +1,9 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-input-label",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZInputLabel {
   /** the label value */
@@ -14,6 +14,13 @@ export class ZInputLabel {
   @Prop() htmlfor?: string;
 
   render() {
-    return <label htmlFor={this.htmlfor} class={{ disabled: this.disabled }}>{this.value}</label>;
+    return (
+      <label
+        htmlFor={this.htmlfor}
+        class={{disabled: this.disabled}}
+      >
+        {this.value}
+      </label>
+    );
   }
 }

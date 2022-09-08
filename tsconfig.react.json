@@ -21,18 +21,11 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@zanichelli/albe-web-components": [
-        "./"
-      ]
+      "@zanichelli/albe-web-components": ["./"]
     }
   },
-  "include": [
-    "src-react/**/*.ts",
-    "src-react/**/*.tsx"
-  ],
-  "exclude": [
-    "**/__tests__/**"
-  ],
+  "include": ["src-react/**/*.ts", "src-react/**/*.tsx"],
+  "exclude": ["**/__tests__/**"],
   "compileOnSave": false,
   "buildOnSave": false
 }

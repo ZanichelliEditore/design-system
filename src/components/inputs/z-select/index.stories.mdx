@@ -1,13 +1,6 @@
-import { html } from "lit-html";
-import {
-  Meta,
-  Canvas,
-  Story,
-  Preview,
-  Props,
-  ArgsTable,
-} from "@storybook/addon-docs";
-import { InputStatusEnum } from "../../../beans";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {InputStatusEnum} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -17,7 +10,7 @@ import "./index";
   component="z-select"
   argTypes={{
     items: {
-      control: { type: "object" },
+      control: {type: "object"},
       defaultValue: [
         {
           id: "item_1",
@@ -43,52 +36,52 @@ import "./index";
       ],
     },
     label: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "this is the label",
     },
     ariaLabel: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "",
     },
     placeholder: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "select placeholder",
     },
     name: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "",
     },
     status: {
-      control: { type: "select" },
+      control: {type: "select"},
       options: ["-", ...Object.values(InputStatusEnum)],
       defaultValue: "-",
     },
     message: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "helper text",
     },
     disabled: {
-      control: { type: "boolean" },
+      control: {type: "boolean"},
       defaultValue: false,
     },
     readonly: {
-      control: { type: "boolean" },
+      control: {type: "boolean"},
       defaultValue: false,
     },
     htmlid: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "",
     },
     htmltitle: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "",
     },
     autocomplete: {
-      control: { type: "boolean" },
+      control: {type: "boolean"},
       defaultValue: false,
     },
     noresultslabel: {
-      control: { type: "text" },
+      control: {type: "text"},
       defaultValue: "Nessun risultato",
     },
   }}

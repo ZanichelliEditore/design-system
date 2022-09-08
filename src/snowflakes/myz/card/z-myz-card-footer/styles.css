@@ -33,8 +33,7 @@ footer > p {
   line-height: 22px;
   height: 40px;
   margin: 0px;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2)
-    var(--space-unit) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
   background-color: var(--color-surface01);
   transition: all 200ms linear;

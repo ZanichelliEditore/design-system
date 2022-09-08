@@ -68,7 +68,7 @@
   padding-bottom: calc(var(--space-unit) * 2);
 }
 
-.items > ::slotted([slot='item']) {
+.items > ::slotted([slot="item"]) {
   display: inline-flex;
   margin: 0;
   padding: calc(var(--space-unit) * 0.5);
@@ -77,15 +77,15 @@
   outline: none;
 }
 
-.items > ::slotted([slot='item']:last-child) {
+.items > ::slotted([slot="item"]:last-child) {
   padding-bottom: 0;
 }
 
-.items > ::slotted([slot='item']:focus:focus-visible) {
+.items > ::slotted([slot="item"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
   color: var(--color-secondary01);
 }
 
-.items > ::slotted([slot='item']:hover) {
+.items > ::slotted([slot="item"]:hover) {
   color: var(--color-secondary01);
 }

@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
-import { NotificationType } from '../../../beans';
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {NotificationType} from "../../../beans";
 
 /**
  * Notification bar component.
@@ -7,8 +7,8 @@ import { NotificationType } from '../../../beans';
  * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
  */
 @Component({
-  tag: 'z-notification',
-  styleUrl: 'styles.css',
+  tag: "z-notification",
+  styleUrl: "styles.css",
   shadow: true,
 })
 export class ZNotification {
@@ -21,7 +21,7 @@ export class ZNotification {
   actiontext?: string;
 
   /** Alert variant type */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   type: NotificationType;
 
   /** Enable close icon */
@@ -32,11 +32,11 @@ export class ZNotification {
    * Enable shadow.
    * @deprecated shadow is available only for the `sticky` version of the notification.
    */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   showshadow?: boolean = false;
 
   /** Enable sticky notification bar. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   sticky?: boolean = false;
 
   /** Call to action clicked */
@@ -62,19 +62,21 @@ export class ZNotification {
 
   render() {
     return [
-      this.contenticonname && <z-icon
-        class="status-icon"
-        name={this.contenticonname}
-        width={16}
-        height={16}
-      />,
+      this.contenticonname && (
+        <z-icon
+          class="status-icon"
+          name={this.contenticonname}
+          width={16}
+          height={16}
+        />
+      ),
 
       <div class="content-container">
         <div class="content-text">
           <slot></slot>
         </div>
 
-        {!!this.actiontext?.trim() &&
+        {!!this.actiontext?.trim() && (
           <button
             class="action-button"
             type="button"
@@ -82,20 +84,22 @@ export class ZNotification {
           >
             {this.actiontext}
           </button>
-        }
+        )}
       </div>,
 
-      this.showclose && <button
-        class="close-button"
-        type="button"
-        onClick={this.handleCloseButtonClick}
-      >
-        <z-icon
-          name="multiply-circle"
-          width={16}
-          height={16}
-        />
-      </button>
+      this.showclose && (
+        <button
+          class="close-button"
+          type="button"
+          onClick={this.handleCloseButtonClick}
+        >
+          <z-icon
+            name="multiply-circle"
+            width={16}
+            height={16}
+          />
+        </button>
+      ),
     ];
   }
 }

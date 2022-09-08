@@ -1,25 +1,28 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Myz/MyzCard/ZMyzCardAlert" component="z-myz-card-alert" />
+<Meta
+  title="Myz/MyzCard/ZMyzCardAlert"
+  component="z-myz-card-alert"
+/>
 
-  # ZMyzCardAlert
+# ZMyzCardAlert
 
 <Preview>
   <Story name="z-myz-card-alert">
-    {html`
-      <z-myz-card-alert
-        actiontext="${text('actiontext', 'Annulla')}"
-        contenttext="${text('contenttext', 'Libro aggiunto ai miei libri preferiti')}"
-        iconName="${text('iconName', 'checkmark-circle')}"
-        type="${text('type', 'add')}"
-      ></z-myz-card-alert>`}
+    {html` <z-myz-card-alert
+      actiontext="${text("actiontext", "Annulla")}"
+      contenttext="${text("contenttext", "Libro aggiunto ai miei libri preferiti")}"
+      iconName="${text("iconName", "checkmark-circle")}"
+      type="${text("type", "add")}"
+    ></z-myz-card-alert>`}
   </Story>
 </Preview>
 
-  <Props of="z-myz-card-alert" />
+{" "}
 
+<Props of="z-myz-card-alert" />

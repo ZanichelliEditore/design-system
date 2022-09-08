@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAvatar } from "./index";
+import {ZAvatar} from "./index";
 
 describe("Suite test ZAvatar", () => {
   it("Test render ZAvatar default", async () => {

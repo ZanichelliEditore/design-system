@@ -188,7 +188,7 @@ ul > li:last-child {
   :host > div > div.open {
     position: absolute;
     right: calc(var(--space-unit) * -1);
-    box-shadow: 0px 2px calc(var(--space-unit) * .5) 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px calc(var(--space-unit) * 0.5) 0px rgba(0, 0, 0, 0.5);
     background-color: var(--color-white);
     margin-top: calc(var(--space-unit) / 2);
     padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
@@ -211,8 +211,8 @@ ul > li:last-child {
   button.open {
     background-color: var(--color-white);
     border-top: var(--border-size-small) solid var(--color-white);
-    border-top-left-radius: calc(var(--space-unit) * .5);
-    border-top-right-radius: calc(var(--space-unit) * .5);
+    border-top-left-radius: calc(var(--space-unit) * 0.5);
+    border-top-right-radius: calc(var(--space-unit) * 0.5);
     max-width: initial;
     margin-left: var(--space-unit);
     padding-right: var(--space-unit);

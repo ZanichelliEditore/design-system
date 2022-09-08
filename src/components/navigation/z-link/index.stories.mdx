@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, number, boolean, select } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, number, boolean, select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Navigation/ZLink" component="z-link" />
+<Meta
+  title="Navigation/ZLink"
+  component="z-link"
+/>
 
 ## How to use
 
@@ -11,60 +14,67 @@ Icon dimension is calculated using the link font size multiplied by 1.125. To ch
 
 Current available text color is : primary, inverse, black and white. Primary and Inverse use the theming values from design-tokens; Black and White has fixed colors.
 
-
 # ZLink primary
+
 <Preview>
   <Story name="z-link primary">
-    {html`
-      <z-link
-        href="${text('href', 'http://www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
-        icon="${text('icon', 'download')}"
-        iconposition="${select("iconposition", ["left", "right"], "left")}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-        underline="${boolean('underline', false)}"
-      >z-link</z-link>`}
+    {html` <z-link
+      href="${text("href", "http://www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
+      icon="${text("icon", "download")}"
+      iconposition="${select("iconposition", ["left", "right"], "left")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      underline="${boolean("underline", false)}"
+      >z-link</z-link
+    >`}
   </Story>
 </Preview>
 
 # Zlink inverse
+
 <Preview>
   <Story name="z-link inverse">
-    {html`
-      <z-link
-        style="background-color:black"
-        href="${text('href', 'http://www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
-        textcolor="inverse"
-        icon="${text('icon', 'download')}"
-        iconposition="${select("iconposition", ["left", "right"], "left")}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
-        underline="${boolean('underline', false)}"
-      >z-link</z-link>`}
+    {html` <z-link
+      style="background-color:black"
+      href="${text("href", "http://www.zanichelli.it")}"
+      target="${text("target", "_blank")}"
+      textcolor="inverse"
+      icon="${text("icon", "download")}"
+      iconposition="${select("iconposition", ["left", "right"], "left")}"
+      htmlid="${number("htmlid", 1)}"
+      htmltabindex="${number("htmltabindex", 1)}"
+      isdisabled="${boolean("isdisabled", false)}"
+      isactive="${boolean("isactive", false)}"
+      underline="${boolean("underline", false)}"
+      >z-link</z-link
+    >`}
   </Story>
 </Preview>
 
 # Zlink inline without icon
+
 <Preview>
-   <Story name="z-link inline">
-    {html`
-      <z-body level="1" variant="regular">Clicca sul <z-link
-        href="${text('href', 'http://www.zanichelli.it')}"
-        target="${text('target', '_blank')}"
+  <Story name="z-link inline">
+    {html` <z-body
+      level="1"
+      variant="regular"
+      >Clicca sul
+      <z-link
+        href="${text("href", "http://www.zanichelli.it")}"
+        target="${text("target", "_blank")}"
         textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
-        htmlid="${number('htmlid', 1)}"
-        htmltabindex="${number('htmltabindex', 1)}"
-        isdisabled="${boolean('isdisabled', false)}"
-        isactive="${boolean('isactive', false)}"
+        htmlid="${number("htmlid", 1)}"
+        htmltabindex="${number("htmltabindex", 1)}"
+        isdisabled="${boolean("isdisabled", false)}"
+        isactive="${boolean("isactive", false)}"
         underline="true"
-      >z-link</z-link>.</z-body>`}
+        >z-link</z-link
+      >.</z-body
+    >`}
   </Story>
 </Preview>
 

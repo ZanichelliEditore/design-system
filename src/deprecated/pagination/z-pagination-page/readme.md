@@ -3,15 +3,26 @@
 # This component is deprecated and will be removed from the library starting 01 October 2022.
 
 <!-- readme-group="pagination" -->
+
 ```html
-<z-pagination-page pageId='10' value='10'></z-pagination-page>
-<z-pagination-page pageId='10' value='10' isdisabled></z-pagination-page>
-<z-pagination-page pageId='10' value='10' isselected isvisited></z-pagination-page>
+<z-pagination-page
+  pageId="10"
+  value="10"
+></z-pagination-page>
+<z-pagination-page
+  pageId="10"
+  value="10"
+  isdisabled
+></z-pagination-page>
+<z-pagination-page
+  pageId="10"
+  value="10"
+  isselected
+  isvisited
+></z-pagination-page>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -24,20 +35,20 @@
 | `pageid`     | `pageid`     | html id                       | `string`  | `undefined` |
 | `value`      | `value`      | numeric page value (optional) | `number`  | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-pagination-bar](../z-pagination-bar)
+- [z-pagination-bar](../z-pagination-bar)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-pagination-bar --> z-pagination-page
   style z-pagination-page fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

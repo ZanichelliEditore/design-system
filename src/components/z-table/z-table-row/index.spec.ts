@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZTableRow } from "./index";
+import {ZTableRow} from "./index";
 
 describe("Suite test ZTableRow", () => {
   it("Test render ZTableRow vuoto", async () => {

@@ -1,20 +1,16 @@
-import { Component, h } from '@stencil/core';
+import {Component, h} from "@stencil/core";
 
 /**
  * @slot - table sticky footer content
  */
 @Component({
-  tag: 'z-table-sticky-footer',
-  styleUrl: 'styles.css',
+  tag: "z-table-sticky-footer",
+  styleUrl: "styles.css",
   shadow: false,
-  scoped: true
+  scoped: true,
 })
-
 export class ZTableStickyFooter {
-
   render() {
-    return (
-      <slot />
-    );
+    return <slot />;
   }
 }

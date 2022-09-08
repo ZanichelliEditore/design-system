@@ -1,9 +1,5 @@
-import { Component, Element, h, Prop } from "@stencil/core";
-import {
-  DividerSize,
-  ZSectionTitleDividerPosition,
-  ZSectionTitleDividerPositions,
-} from "../../beans";
+import {Component, Element, h, Prop} from "@stencil/core";
+import {DividerSize, ZSectionTitleDividerPosition, ZSectionTitleDividerPositions} from "../../beans";
 
 /**
  * Section title component.
@@ -17,20 +13,19 @@ import {
 @Component({
   tag: "z-section-title",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZSectionTitle {
   /**
    * Divider position for the primary title.
    * This prop only works if the secondary title is not set.
    */
-  @Prop() dividerPosition: ZSectionTitleDividerPosition =
-    ZSectionTitleDividerPositions.before;
+  @Prop() dividerPosition: ZSectionTitleDividerPosition = ZSectionTitleDividerPositions.before;
 
   /**
    * Whether the primary title text is uppercase.
    */
-  @Prop({ reflect: true }) uppercase: boolean = true;
+  @Prop({reflect: true}) uppercase: boolean = true;
 
   @Element() host: HTMLElement;
 
@@ -44,15 +39,21 @@ export class ZSectionTitle {
     return [
       <slot name="secondary-title" />,
 
-      !this.hasSecondaryTitle &&
-      this.dividerPosition == ZSectionTitleDividerPositions.before &&
-      <z-divider size={DividerSize.large} color="z-section-title--divider-color" />,
+      !this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.before && (
+        <z-divider
+          size={DividerSize.large}
+          color="z-section-title--divider-color"
+        />
+      ),
 
       <slot name="primary-title" />,
 
-      !this.hasSecondaryTitle &&
-      this.dividerPosition == ZSectionTitleDividerPositions.after &&
-        <z-divider size={DividerSize.large} color="z-section-title--divider-color" />,
+      !this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.after && (
+        <z-divider
+          size={DividerSize.large}
+          color="z-section-title--divider-color"
+        />
+      ),
     ];
   }
 }

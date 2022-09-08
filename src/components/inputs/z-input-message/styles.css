@@ -10,15 +10,15 @@
   letter-spacing: 0.16px;
 }
 
-:host([status='success']) {
+:host([status="success"]) {
   color: var(--color-text-success);
 }
 
-:host([status='error']) {
+:host([status="error"]) {
   color: var(--color-text-error);
 }
 
-:host([status='warning']) {
+:host([status="warning"]) {
   color: var(--color-warning02);
 }
 
@@ -29,5 +29,5 @@
 :host > z-icon {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
-  margin: calc(var(--space-unit) / 3) var(--space-unit) 0 0
+  margin: calc(var(--space-unit) / 3) var(--space-unit) 0 0;
 }

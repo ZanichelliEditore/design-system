@@ -1,13 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Prop,
-} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
 import classNames from "classnames";
 import {
   ButtonSizeEnum,
@@ -17,7 +8,7 @@ import {
   SortDirection,
   SortDirectionEnum,
 } from "../../../beans";
-import { getElementTree } from "../../../utils/utils";
+import {getElementTree} from "../../../utils/utils";
 @Component({
   tag: "z-table-header",
   styleUrl: "styles.css",
@@ -30,7 +21,7 @@ export class ZTableHeader {
   @Prop() columnId: string;
 
   /** Set padding size of cell, if special 0px padding will be set */
-  @Prop({ reflect: true }) padding: Size = Size.medium;
+  @Prop({reflect: true}) padding: Size = Size.medium;
 
   /** [Optional] Make the header sortable */
   @Prop() sortable?: boolean;
@@ -41,8 +32,7 @@ export class ZTableHeader {
   /** [Optional] Default sort order */
   @Prop() defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
 
-  @Prop({ mutable: true }) sortDirection: SortDirection =
-    SortDirectionEnum.none;
+  @Prop({mutable: true}) sortDirection: SortDirection = SortDirectionEnum.none;
 
   private popover?: HTMLZPopoverElement;
 
@@ -86,24 +76,20 @@ export class ZTableHeader {
     this.popover.open = !this.popover.open;
   }
 
-  @Listen("click", { target: "body", capture: true })
+  @Listen("click", {target: "body", capture: true})
   handleOutsideClick(e: any) {
     const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-popover"
-    );
+    const parent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-popover");
 
     if (!parent && this.popover) {
       this.popover.open = false;
     }
   }
 
-  @Listen("click", { target: "body", capture: true })
+  @Listen("click", {target: "body", capture: true})
   handleClickHeaders(e: any) {
-    const { target } = e;
-    const parent = getElementTree(target).find(
-      (elem: any) => elem.nodeName.toLowerCase() === "z-table-header"
-    );
+    const {target} = e;
+    const parent = getElementTree(target).find((elem: any) => elem.nodeName.toLowerCase() === "z-table-header");
 
     if (!this.sortable || !parent) {
       return;
@@ -129,25 +115,20 @@ export class ZTableHeader {
         })}
         onClick={() => this.handleSort()}
       >
-        <div class='container'>
+        <div class="container">
           <slot />
           {this.sortable && this.sortDirection !== SortDirectionEnum.none && (
             <z-icon
-              name={
-                this.sortDirection === SortDirectionEnum.asc
-                  ? "arrow-up"
-                  : "arrow-down"
-              }
+              name={this.sortDirection === SortDirectionEnum.asc ? "arrow-up" : "arrow-down"}
               class="arrow"
             />
           )}
         </div>
 
         {this.showButton && (
-          <div class='popover-container'
-          >
+          <div class="popover-container">
             <z-button
-              ref={(el) => (this.triggerButton = el as HTMLZPopoverElement) }
+              ref={(el) => (this.triggerButton = el as HTMLZPopoverElement)}
               class="contextual-popover-button"
               icon="contextual-menu"
               variant={ButtonVariantEnum["tertiary"]}
@@ -156,7 +137,7 @@ export class ZTableHeader {
             ></z-button>
 
             <z-popover
-              ref={(el) => (this.popover = el as HTMLZPopoverElement) }
+              ref={(el) => (this.popover = el as HTMLZPopoverElement)}
               position={PopoverPositions.bottom}
               center={true}
               bindTo={this.triggerButton}

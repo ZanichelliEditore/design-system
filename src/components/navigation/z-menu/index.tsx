@@ -1,14 +1,4 @@
-import {
-  Component,
-  h,
-  Prop,
-  State,
-  Event,
-  EventEmitter,
-  Listen,
-  Element,
-  Watch
-} from '@stencil/core';
+import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
 
 /**
  * @slot - Menu label
@@ -17,26 +7,25 @@ import {
  */
 
 @Component({
-  tag: 'z-menu',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-menu",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZMenu {
   /** Flag to set the active status of the menu. */
-  @Prop({ reflect: true }) active?: boolean;
+  @Prop({reflect: true}) active?: boolean;
   /**
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
    * stacked beneath it otherwise.
    * @default false
    */
-  @Prop({ reflect: true }) floating?= false;
+  @Prop({reflect: true}) floating? = false;
   /**
    * The opening state of the menu.
    * @default false
    */
-  @Prop({ mutable: true, reflect: true }) open: boolean = false;
+  @Prop({mutable: true, reflect: true}) open: boolean = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
   @Element() hostElement: HTMLElement;
@@ -57,14 +46,10 @@ export class ZMenu {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  @Listen('click', { target: 'document' })
+  @Listen("click", {target: "document"})
   /** Close the floating list when a click is performed outside of this Element. */
   handleClick(ev) {
-    if (
-      !this.floating ||
-      !this.open ||
-      this.hostElement.contains(ev.target)
-    ) {
+    if (!this.floating || !this.open || this.hostElement.contains(ev.target)) {
       return;
     }
 
@@ -73,7 +58,7 @@ export class ZMenu {
     this.closed.emit();
   }
 
-  @Watch('open')
+  @Watch("open")
   onOpenChanged() {
     if (this.open) {
       this.reflow(true);
@@ -98,10 +83,10 @@ export class ZMenu {
    */
   reflow(live: boolean = false) {
     if (this.content) {
-      const { style } = this.content;
-      const { left } = this.hostElement.getBoundingClientRect();
+      const {style} = this.content;
+      const {left} = this.hostElement.getBoundingClientRect();
       const widthPx = getComputedStyle(this.content).width;
-      const width = widthPx ? parseFloat(widthPx.replace('px', '')) : 375;
+      const width = widthPx ? parseFloat(widthPx.replace("px", "")) : 375;
       const safeScrollbarSpace = 30;
       style.left = `${Math.min(window.innerWidth - left - width - safeScrollbarSpace, 0)}px`;
     }
@@ -124,42 +109,63 @@ export class ZMenu {
   private onItemsChange() {
     this.checkContent();
     const items = this.hostElement.querySelectorAll('[slot="item"]');
-    items?.forEach((item) => item.setAttribute('role', 'menuitem'));
+    items?.forEach((item) => item.setAttribute("role", "menuitem"));
   }
 
   private renderMenuLabel() {
     if (this.hasContent) {
-      return <button
-        class="menu-label"
-        aria-expanded={this.open ? 'true' : 'false'}
-        aria-label={this.open ? 'Chiudi menù' : 'Apri menù'}
-        onClick={this.toggle}
-      >
-        <div class="menu-label-content">
-          <slot></slot>
-          <z-icon name={this.open ? 'chevron-up' : 'chevron-down'} />
-        </div>
-      </button>;
+      return (
+        <button
+          class="menu-label"
+          aria-expanded={this.open ? "true" : "false"}
+          aria-label={this.open ? "Chiudi menù" : "Apri menù"}
+          onClick={this.toggle}
+        >
+          <div class="menu-label-content">
+            <slot></slot>
+            <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+          </div>
+        </button>
+      );
     }
 
-    return <div class="menu-label">
-      <div class="menu-label-content">
-        <slot></slot>
+    return (
+      <div class="menu-label">
+        <div class="menu-label-content">
+          <slot></slot>
+        </div>
       </div>
-    </div>;
+    );
   }
 
   render() {
     return [
       this.renderMenuLabel(),
-      <div class="content" ref={(el) => { this.content = el; }} hidden={!this.open}>
-        {this.hasHeader && <header class="header">
-          <slot name="header" onSlotchange={this.checkContent}></slot>
-        </header>}
-        <div class="items" role="menu">
-          <slot name="item" onSlotchange={this.onItemsChange}></slot>
+      <div
+        class="content"
+        ref={(el) => {
+          this.content = el;
+        }}
+        hidden={!this.open}
+      >
+        {this.hasHeader && (
+          <header class="header">
+            <slot
+              name="header"
+              onSlotchange={this.checkContent}
+            ></slot>
+          </header>
+        )}
+        <div
+          class="items"
+          role="menu"
+        >
+          <slot
+            name="item"
+            onSlotchange={this.onItemsChange}
+          ></slot>
         </div>
-      </div>
+      </div>,
     ];
   }
 }

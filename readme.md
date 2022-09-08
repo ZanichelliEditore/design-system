@@ -11,6 +11,7 @@ yarn add @zanichelli/albe-web-components
 ```
 
 ## Start Library Development Server
+
 ```
 yarn start
 ```
@@ -25,7 +26,7 @@ yarn generate component my-component
 
 > NB: component name must have a dash (`-`)
 
-----
+---
 
 ## Symlink Local Development
 
@@ -41,7 +42,7 @@ yarn link
 yarn link @zanichelli/albe-web-components
 ```
 
-----
+---
 
 ## Tests
 
@@ -63,10 +64,12 @@ yarn test --spec {componentPath}
 yarn test.e2e
 ```
 
-----
+---
 
 ## Linting and autofixing of the code style
+
 There are some tools installed to help keeping uniformity of code style:
+
 - [Eslint](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)
 - [Prettier](https://prettier.io/)
@@ -74,27 +77,33 @@ There are some tools installed to help keeping uniformity of code style:
 > Install the related official extensions in your IDE to get live errors and warning while coding.
 
 ### Run lint checks and auto-fix
+
 to auto format code in all project, run
+
 ```sh
 yarn prettify
 ```
 
 TypeScript lint check
+
 ```sh
 yarn lint.eslint
 ```
 
 CSS lint check
+
 ```sh
 yarn lint.stylelint
 ```
 
 TypeScript auto-fix
+
 ```sh
 yarn lint-fix.eslint
 ```
 
 CSS auto-fix
+
 ```sh
 yarn lint-fix.stylelint
 ```
@@ -107,9 +116,9 @@ Standard-version automatically detects the type of the update (patch, minor or m
 
 **Publish a new version on NPM registry**
 
-* Make sure you are logged in NPM
-* Make sure you built the components with `yarn build`
-* Run standard-version:
+- Make sure you are logged in NPM
+- Make sure you built the components with `yarn build`
+- Run standard-version:
 
 ```
 yarn release
@@ -130,15 +139,15 @@ In general, you can pass any flag supported by standard-version, please refer to
 
 You need to [manually create the GitHub release](https://github.com/ZanichelliEditore/design-system/releases/new) in order to update the Storybook documentation.
 
-----
+---
 
 #### Plugins
 
-* [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
-* [@storybook/addon-a11y](https://www.npmjs.com/package/@storybook/addon-a11y)
-* [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
-* [@storybook/addon-knobs](https://www.npmjs.com/package/@storybook/addon-knobs)
-* [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
+- [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
+- [@storybook/addon-a11y](https://www.npmjs.com/package/@storybook/addon-a11y)
+- [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
+- [@storybook/addon-knobs](https://www.npmjs.com/package/@storybook/addon-knobs)
+- [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
 
 ### Start Storybook:
 
@@ -158,9 +167,10 @@ yarn build
 yarn build-storybook
 ```
 
-----
+---
 
 ## Build Library package
+
 ```
 yarn build
 ```
@@ -171,8 +181,8 @@ yarn build
 - Chromium Edge and Safari 10 with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br> Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| > 16.16                                                                                                                                                                                                     | > 48                                                                                                                                                                                                            | > 69                                                                                                                                                                                                        | > 10.0                                                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| > 16.16                                                                                                                                                                                                    | > 48                                                                                                                                                                                                             | > 69                                                                                                                                                                                                         | > 10.0                                                                                                                                                                                                       |
 
 ## Usage
 
@@ -181,21 +191,25 @@ yarn build
 The library provides a global css variables export. You can import the styles by ES6 import:
 
 ```javascript
-import '@zanichelli/albe-web-components/www/build/web-components-library.css';
+import "@zanichelli/albe-web-components/www/build/web-components-library.css";
 ```
+
 or via link tag:
 
 ```html
-<link type="text/css" rel="stylesheet" href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css"
+/>
 ```
-
 
 ### Custom Elements
 
 You can use the library by importing the custom elements from npm package:
 
 ```javascript
-import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
+import {defineCustomElements, applyPolyfills} from "@zanichelli/albe-web-components/loader";
 
 applyPolyfills().then(() => {
   defineCustomElements(window);
@@ -223,27 +237,27 @@ Albe's Web Components come with automatically generated React bindings. This mea
 You still need to import and run polyfills, then you can import Component references from the React submodule:
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '@zanichelli/albe-web-components/www/build/web-components-library.css';
-import { defineCustomElements, applyPolyfills } from '@zanichelli/albe-web-components/loader';
-import { ZButton } from '@zanichelli/albe-web-components/react';
+import React from "react";
+import ReactDOM from "react-dom";
+import "@zanichelli/albe-web-components/www/build/web-components-library.css";
+import {defineCustomElements, applyPolyfills} from "@zanichelli/albe-web-components/loader";
+import {ZButton} from "@zanichelli/albe-web-components/react";
 
 applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 
-ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById('root'));
+ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 ```
 
 ## Component definition
 
 Each component is structured as follows:
 
-| File name       | Description |
-| --------------- | ------------------------------ |
-| `index.tsx` | Component markup and UI logics |
-| `styles.css` | Component styles |
-| `index.spec.ts` | Component tests |
-| `index.stories.mdx` | Component storybook file |
-| `README.md` | Component documentation |
+| File name           | Description                    |
+| ------------------- | ------------------------------ |
+| `index.tsx`         | Component markup and UI logics |
+| `styles.css`        | Component styles               |
+| `index.spec.ts`     | Component tests                |
+| `index.stories.mdx` | Component storybook file       |
+| `README.md`         | Component documentation        |

@@ -1,8 +1,11 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import "./index";
 
-<Meta title="utilities/ZVisuallyHidden" component="z-visually-hidden" />
+<Meta
+  title="utilities/ZVisuallyHidden"
+  component="z-visually-hidden"
+/>
 
 # ZVisuallyHidden
 
@@ -10,22 +13,19 @@ import "./index";
   <Story name="ZVisuallyHidden-sample">
     {html`<z-heading level="2">ZVisuallyHidden</z-heading
       ><z-body>
-        This component visually hide an element while still allowing it to be
-        exposed to assistive technologies (such as screen readers). </z-body
+        This component visually hide an element while still allowing it to be exposed to assistive technologies (such as
+        screen readers). </z-body
       ><z-body>
-        There are real world situations where visually hiding content may be
-        appropriate:
+        There are real world situations where visually hiding content may be appropriate:
         <ul>
           <li>Hide visually the text of <code> ZAriaAlert </code></li>
           <li>
-            Take advantage of the behavior and semantics of a native element
-            like a checkbox or radio button, but replace it with a custom styled
-            element visually.
+            Take advantage of the behavior and semantics of a native element like a checkbox or radio button, but
+            replace it with a custom styled element visually.
           </li>
           <li>
-            Hide visually an <code> h1 </code> because could be redundant for a
-            sighted user but could be usefull for navigation through
-            ScreenReader rotor
+            Hide visually an <code> h1 </code> because could be redundant for a sighted user but could be usefull for
+            navigation through ScreenReader rotor
           </li>
         </ul> </z-body
       ><z-visually-hidden><div>Hello</div></z-visually-hidden>`}

@@ -1,9 +1,6 @@
 # z-list-element
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -22,7 +19,6 @@
 | `listElementId`    | `list-element-id`    |                                                           | `number`                                                                            | `undefined`                      |
 | `size`             | `size`               | [optional] Sets size of inside elements.                  | `ListSize.large \| ListSize.medium \| ListSize.small \| typeof ListSize["x-large"]` | `ListSize.medium`                |
 
-
 ## Events
 
 | Event             | Description                                 | Type                  |
@@ -30,13 +26,12 @@
 | `accessibleFocus` | remove filter click event, returns filterid | `CustomEvent<number>` |
 | `clickItem`       | remove filter click event, returns filterid | `CustomEvent<any>`    |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-contextual-menu](../../z-contextual-menu)
- - [z-select](../../inputs/z-select)
+- [z-contextual-menu](../../z-contextual-menu)
+- [z-select](../../inputs/z-select)
 
 ### Depends on
 
@@ -44,6 +39,7 @@
 - [z-divider](../../z-divider)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-list-element --> z-icon
@@ -53,6 +49,6 @@ graph TD;
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

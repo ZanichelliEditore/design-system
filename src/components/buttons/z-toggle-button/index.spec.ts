@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZToggleButton } from "./index";
+import {ZToggleButton} from "./index";
 
 describe("Suite test ZToggleButton", () => {
   it("Test render ZToggleButton vuoto", async () => {

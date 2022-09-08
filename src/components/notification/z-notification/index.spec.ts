@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZNotification } from "./index";
+import {ZNotification} from "./index";
 
 describe("Suite test ZNotification", () => {
   it("Test render ZNotification with icon, action and close button", async () => {
@@ -11,7 +11,7 @@ describe("Suite test ZNotification", () => {
         actiontext="Annulla"
         type="success"
         showclose="true"
-      >Testo della notifica</z-notification>`
+      >Testo della notifica</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -43,7 +43,7 @@ describe("Suite test ZNotification", () => {
   it("Test render ZNotification without icon, action and close button", async () => {
     const page = await newSpecPage({
       components: [ZNotification],
-      html: `<z-notification type="success">Testo della notifica</z-notification>`
+      html: `<z-notification type="success">Testo della notifica</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -66,7 +66,7 @@ describe("Suite test ZNotification", () => {
         actiontext="Annulla"
         type="success"
         showclose="false"
-      >Testo della notifica</z-notification>`
+      >Testo della notifica</z-notification>`,
     });
 
     expect(page.root).toEqualHtml(`

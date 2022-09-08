@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZUserDropdown } from "./index";
+import {ZUserDropdown} from "./index";
 
 describe("Suite test ZUserDropdown", () => {
   it("Test render ZUserDropdown default", async () => {

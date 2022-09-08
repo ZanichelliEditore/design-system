@@ -1,6 +1,6 @@
-import { Component, Prop, h, State, Listen, Host } from "@stencil/core";
-import { DividerOrientation, MenuItem, ThemeVariant } from "../../../beans";
-import { mobileBreakpoint } from "../../../constants/breakpoints";
+import {Component, Prop, h, State, Listen, Host} from "@stencil/core";
+import {DividerOrientation, MenuItem, ThemeVariant} from "../../../beans";
+import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 @Component({
   tag: "z-app-topbar",
@@ -23,7 +23,7 @@ export class ZAppTopbar {
 
   private topbarLinks: MenuItem[] = [];
 
-  @Listen("resize", { target: "window" })
+  @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
@@ -39,35 +39,56 @@ export class ZAppTopbar {
   }
 
   renderTopbarLinks() {
-    return this.topbarLinks.map((link) =>
+    return this.topbarLinks.map((link) => (
       <z-link
         htmlid={link.id}
-        textcolor={this.theme === ThemeVariant.light ? "black" : "white" }
+        textcolor={this.theme === ThemeVariant.light ? "black" : "white"}
         href={link.link}
         target={link.target}
         icon={this.isMobile ? link.icon : undefined}
       >
         {!this.isMobile && link.label}
       </z-link>
-    )
+    ));
   }
 
   render() {
     return (
-      <Host class={{
-        [this.theme]: true,
-        "limited-width": !!this.contentMaxWidth
-      }}>
-        <div id="content-container" style={this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {}}>
-          <div id="left-panel" class="content-panel">
-            <z-logo mobileLogo={this.isMobile} width={this.isMobile ? 32 : 128} height={this.isMobile ? 40 : 32} imageAlt="zanichelli-logo" link={this.logoLink} targetBlank />
+      <Host
+        class={{
+          [this.theme]: true,
+          "limited-width": !!this.contentMaxWidth,
+        }}
+      >
+        <div
+          id="content-container"
+          style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}
+        >
+          <div
+            id="left-panel"
+            class="content-panel"
+          >
+            <z-logo
+              mobileLogo={this.isMobile}
+              width={this.isMobile ? 32 : 128}
+              height={this.isMobile ? 40 : 32}
+              imageAlt="zanichelli-logo"
+              link={this.logoLink}
+              targetBlank
+            />
             {this.isMobile && this.renderTopbarLinks()}
           </div>
-          <div id="right-panel" class="content-panel">
+          <div
+            id="right-panel"
+            class="content-panel"
+          >
             {!this.isMobile && this.renderTopbarLinks()}
             {this.showAppSwitcher && <z-app-switcher theme={this.theme} />}
             <div id="divider-container">
-              <z-divider orientation={DividerOrientation.vertical} color={this.theme === ThemeVariant.light ? "gray800" : "color-white"} />
+              <z-divider
+                orientation={DividerOrientation.vertical}
+                color={this.theme === ThemeVariant.light ? "gray800" : "color-white"}
+              />
             </div>
             <slot name="login"></slot>
           </div>

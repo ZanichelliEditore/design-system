@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardIcon } from "./index";
+import {ZMyzCardIcon} from "./index";
 
 describe("Suite test ZMyzCardIcon", () => {
   it("Test render ZMyzCardIcon vuoto", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardIcon],
-      html: `<z-myz-card-icon icon="icon"></z-myz-card-icon>`
+      html: `<z-myz-card-icon icon="icon"></z-myz-card-icon>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -24,7 +24,7 @@ describe("Suite test ZMyzCardIcon", () => {
   it("Test render ZMyzCardIcon with aria-label", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardIcon],
-      html: `<z-myz-card-icon icon="icon" aria-label="test label"></z-myz-card-icon>`
+      html: `<z-myz-card-icon icon="icon" aria-label="test label"></z-myz-card-icon>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -42,7 +42,7 @@ describe("Suite test ZMyzCardIcon", () => {
   it("Test render ZMyzCardIcon disabled", async () => {
     const page = await newSpecPage({
       components: [ZMyzCardIcon],
-      html: `<z-myz-card-icon icon="icon" isdisabled></z-myz-card-icon>`
+      html: `<z-myz-card-icon icon="icon" isdisabled></z-myz-card-icon>`,
     });
 
     expect(page.root).toEqualHtml(`

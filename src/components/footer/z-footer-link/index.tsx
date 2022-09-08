@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 /**
  * @slot - link label
@@ -14,7 +14,10 @@ export class ZFooterLink {
 
   render(): HTMLAnchorElement {
     return (
-      <a href={this.href} target="_blank">
+      <a
+        href={this.href}
+        target="_blank"
+      >
         <slot />
       </a>
     );

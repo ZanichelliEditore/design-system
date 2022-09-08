@@ -1,5 +1,5 @@
-import { Component, Prop, h, State, Listen } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import {Component, Prop, h, State, Listen} from "@stencil/core";
+import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
  * @slot toggle - toggle button slot
@@ -71,20 +71,16 @@ export class ZMyzCardFooter {
 
   render() {
     return (
-      <div class={{ ...this.retrieveClass(), wrapper: true }}>
+      <div class={{...this.retrieveClass(), wrapper: true}}>
         <footer
           class={this.retrieveClass()}
-          onTransitionEnd={(e: TransitionEvent) =>
-            this.footerTransitionHandler(e)
-          }
+          onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}
         >
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          {this.titolo && (
-            <p class={{ customContent: this.customContent }}>{this.titolo}</p>
-          )}
-          <div class={{ content: true, customContent: this.customContent }}>
+          {this.titolo && <p class={{customContent: this.customContent}}>{this.titolo}</p>}
+          <div class={{content: true, customContent: this.customContent}}>
             <div>
               <p
                 class="authors"

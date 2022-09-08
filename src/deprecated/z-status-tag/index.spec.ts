@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZStatusTag } from "./index";
+import {ZStatusTag} from "./index";
 
 describe("Suite test ZStatusTag", () => {
   it("Test render z-status-tag default", async () => {

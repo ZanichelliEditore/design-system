@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZInputMessage } from "./index";
+import {ZInputMessage} from "./index";
 
 describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - empty", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" aria-label=""></z-input-message>`
+      html: `<z-input-message role="alert" aria-label=""></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -21,7 +21,7 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message"></z-input-message>`
+      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -36,7 +36,7 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with status/message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message" status="success"></z-input-message>`
+      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message" status="success"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`

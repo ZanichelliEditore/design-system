@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import {Component, h} from "@stencil/core";
 
 /**
  * @slot content - fill the content of the candybar (full width, full height)
@@ -6,7 +6,7 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "z-candybar",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZCandybar {
   render() {

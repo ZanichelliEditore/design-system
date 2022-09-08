@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import {Component, h, Prop} from "@stencil/core";
 
 /**
  * ZCarousel component.
@@ -19,9 +19,9 @@ export class ZCarousel {
   render() {
     if (this.isLoading) {
       return (
-        <div style={{ height: `${this.ghostLoadingHeight}px` }}>
+        <div style={{height: `${this.ghostLoadingHeight}px`}}>
           <z-ghost-loading></z-ghost-loading>
-          <div style={{ display: "none" }}>
+          <div style={{display: "none"}}>
             <slot />
           </div>
         </div>

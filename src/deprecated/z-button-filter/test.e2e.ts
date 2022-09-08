@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 type CustomWindow = Window &
   typeof globalThis & {
@@ -10,22 +10,20 @@ it("Test ZButtonFilter should emit removefilter event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", e => {
+  await page.exposeFunction("onRemoveFilter", (e) => {
     removefilterCounter = 1;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "removefilter";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
-      (window as CustomWindow).onRemoveFilter({ type, detail: e.detail });
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
+      (window as CustomWindow).onRemoveFilter({type, detail: e.detail});
     });
   }, type);
 
   await page.setContent(`<z-button-filter filtername=""></z-button-filter>`);
-  const removeFilterBtn = await page.find(
-    "z-button-filter >>> .close-icon-container"
-  );
+  const removeFilterBtn = await page.find("z-button-filter >>> .close-icon-container");
 
   expect(removefilterCounter).toEqual(0);
 
@@ -40,24 +38,20 @@ it("Test ZButtonFilter fixed button should not emit removefilter event", async (
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", e => {
+  await page.exposeFunction("onRemoveFilter", (e) => {
     removefilterCounter = 1;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "removefilter";
-  page.evaluateOnNewDocument(type => {
-    document.addEventListener(type, e => {
-      (window as CustomWindow).onRemoveFilter({ type, detail: e.detail });
+  page.evaluateOnNewDocument((type) => {
+    document.addEventListener(type, (e) => {
+      (window as CustomWindow).onRemoveFilter({type, detail: e.detail});
     });
   }, type);
 
-  await page.setContent(
-    `<z-button-filter filtername="" isfixed></z-button-filter>`
-  );
-  const removeFilterBtn = await page.find(
-    "z-button-filter >>> .close-icon-container"
-  );
+  await page.setContent(`<z-button-filter filtername="" isfixed></z-button-filter>`);
+  const removeFilterBtn = await page.find("z-button-filter >>> .close-icon-container");
 
   expect(removefilterCounter).toEqual(0);
 

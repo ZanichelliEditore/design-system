@@ -1,6 +1,6 @@
-import { Component, Prop, h, Event, EventEmitter, State } from "@stencil/core";
-import { DictionaryData, PopoverPositions } from "../../../../beans";
-import { handleKeyboardSubmit } from "../../../../utils/utils";
+import {Component, Prop, h, Event, EventEmitter, State} from "@stencil/core";
+import {DictionaryData, PopoverPositions} from "../../../../beans";
+import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
  * @slot  - content
@@ -49,8 +49,7 @@ export class ZMyzCardInfo {
   }
 
   handleContentHeight() {
-    if (!this.contentWrapper && !this.infoWrapper)
-      return (this.hiddenContent = false);
+    if (!this.contentWrapper && !this.infoWrapper) return (this.hiddenContent = false);
 
     if (
       this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight ||
@@ -139,7 +138,7 @@ export class ZMyzCardInfo {
     if (!this.tooltip) return;
 
     if (!this.cardData) return;
-    const { title, year, author, description } = this.cardData!;
+    const {title, year, author, description} = this.cardData!;
 
     return (
       <z-popover
@@ -193,8 +192,7 @@ export class ZMyzCardInfo {
         </span>
         Scadenza il <b>{this.cardData.offlineLicense.expiration}</b>
         <br />
-        Installazioni disponibili:{" "}
-        <b>{this.cardData.offlineLicense.installations}</b>
+        Installazioni disponibili: <b>{this.cardData.offlineLicense.installations}</b>
       </section>
     );
   }
@@ -203,7 +201,10 @@ export class ZMyzCardInfo {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div class="content-wrapper" ref={(el) => (this.contentWrapper = el)}>
+        <div
+          class="content-wrapper"
+          ref={(el) => (this.contentWrapper = el)}
+        >
           {this.renderGeneralSection()}
           {this.renderTooltip()}
           {this.renderOnlineLicenseSection()}

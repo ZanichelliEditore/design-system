@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import {Component, h} from "@stencil/core";
 
 /**
  * @slot top - footer top content
@@ -7,7 +7,7 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "z-myz-card-footer-sections",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardFooterSections {
   render() {

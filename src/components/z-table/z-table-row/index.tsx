@@ -1,14 +1,6 @@
-import {
-  Component,
-  Prop,
-  State,
-  Host,
-  h,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
+import {Component, Prop, State, Host, h, Event, EventEmitter} from "@stencil/core";
 
-import { ZTableRowExpandedType } from "../../../beans";
+import {ZTableRowExpandedType} from "../../../beans";
 @Component({
   tag: "z-table-row",
   styleUrl: "styles.css",
@@ -16,14 +8,13 @@ import { ZTableRowExpandedType } from "../../../beans";
   scoped: false,
 })
 export class ZTableRow {
-  @Prop({ reflect: true }) expandedType: ZTableRowExpandedType =
-    ZTableRowExpandedType.none;
+  @Prop({reflect: true}) expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
 
   @State() expanded: boolean = false;
 
   @Event() expand: EventEmitter;
   emitOnExpand() {
-    this.expand.emit({ expanded: this.expanded });
+    this.expand.emit({expanded: this.expanded});
   }
 
   handleExpand() {
@@ -35,13 +26,13 @@ export class ZTableRow {
   renderExpandButton() {
     if (this.expandedType == ZTableRowExpandedType.expandable) {
       return (
-        <z-table-cell style={{ borderRight: "none" }}>
+        <z-table-cell style={{borderRight: "none"}}>
           <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
         </z-table-cell>
       );
     }
     return (
-      <z-table-cell style={{ borderRight: "none" }}>
+      <z-table-cell style={{borderRight: "none"}}>
         <div class="z-icon-placeholder" />
       </z-table-cell>
     );
@@ -53,7 +44,7 @@ export class ZTableRow {
         role="row"
         expanded={this.expanded}
         onClick={(event) => {
-          const contextualMenuClick = event.target.nodeName === 'Z-CONTEXTUAL-MENU';
+          const contextualMenuClick = event.target.nodeName === "Z-CONTEXTUAL-MENU";
           const isExpandable = this.expandedType === ZTableRowExpandedType.expandable;
 
           if (isExpandable && !contextualMenuClick) {
@@ -61,8 +52,7 @@ export class ZTableRow {
           }
         }}
       >
-        {this.expandedType !== ZTableRowExpandedType.none &&
-          this.renderExpandButton()}
+        {this.expandedType !== ZTableRowExpandedType.none && this.renderExpandButton()}
         <slot />
       </Host>
     );

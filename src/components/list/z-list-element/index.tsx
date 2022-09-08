@@ -1,14 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Prop,
-  State,
-} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -44,12 +34,10 @@ export class ZListElement {
   })
   clickItem: EventEmitter;
 
-  @Listen("accessibleFocus", { target: "document" })
+  @Listen("accessibleFocus", {target: "document"})
   accessibleFocusHandler(e: CustomEvent) {
     if (this.listElementId === e.detail) {
-      const toFocus = this.host.shadowRoot.getElementById(
-        `z-list-element-id-${e.detail}`
-      );
+      const toFocus = this.host.shadowRoot.getElementById(`z-list-element-id-${e.detail}`);
       toFocus.focus();
     }
   }
@@ -57,13 +45,12 @@ export class ZListElement {
   /**
    * [optional] Align expandable button left or right.
    */
-  @Prop({ reflect: true }) alignButton?: ExpandableListButtonAlign =
-    ExpandableListButtonAlign.left;
+  @Prop({reflect: true}) alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
 
   /**
    * [optional] Sets element clickable.
    */
-  @Prop({ reflect: true }) clickable?: boolean = false;
+  @Prop({reflect: true}) clickable?: boolean = false;
 
   /**
    * [optional] Sets the divider color.
@@ -83,34 +70,34 @@ export class ZListElement {
   /**
    * [optional] Sets element as expandable.
    */
-  @Prop({ reflect: true }) expandable?: boolean = false;
+  @Prop({reflect: true}) expandable?: boolean = false;
 
   /**
    * [optional] Sets expandable style to element.
    */
   @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
-  @Prop({ reflect: true }) listElementId?: number;
+  @Prop({reflect: true}) listElementId?: number;
 
   /**
    * [optional] Sets size of inside elements.
    */
-  @Prop({ reflect: true }) size?: ListSize = ListSize.medium;
+  @Prop({reflect: true}) size?: ListSize = ListSize.medium;
 
   /**
    * [optional] Sets text color of the element.
    */
-  @Prop({ reflect: true }) color?: string = "none";
+  @Prop({reflect: true}) color?: string = "none";
 
   /**
    * [optional] Sets disabled style of the element.
    */
-  @Prop({ reflect: true }) disabled?: boolean = false;
+  @Prop({reflect: true}) disabled?: boolean = false;
 
   /**
    * [optional] If is used in ZContextualMenu component
    */
-  @Prop({ reflect: true }) isContextualMenu?: boolean = false;
+  @Prop({reflect: true}) isContextualMenu?: boolean = false;
 
   @State() showInnerContent = false;
 
@@ -211,7 +198,7 @@ export class ZListElement {
       <div
         class={{
           "z-list-element-inner-container": true,
-          expanded: this.showInnerContent,
+          "expanded": this.showInnerContent,
         }}
       >
         <slot name="inner-content" />
@@ -231,7 +218,7 @@ export class ZListElement {
       >
         <div
           class={`${this.calculateClass()}`}
-          style={{ color: `var(--${this.color})` }}
+          style={{color: `var(--${this.color})`}}
           tabindex={this.isContextualMenu ? "0" : "-1"}
           id={`z-list-element-id-${this.listElementId}`}
         >
@@ -242,7 +229,10 @@ export class ZListElement {
           {this.renderExpandedContent()}
         </div>
         {this.dividerType === ListDividerType.element && (
-          <z-divider color={this.dividerColor} size={this.dividerSize} />
+          <z-divider
+            color={this.dividerColor}
+            size={this.dividerSize}
+          />
         )}
       </Host>
     );

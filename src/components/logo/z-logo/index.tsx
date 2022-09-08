@@ -1,9 +1,9 @@
-import { Component, Prop, Host, h } from "@stencil/core";
+import {Component, Prop, Host, h} from "@stencil/core";
 
 @Component({
   tag: "z-logo",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZLogo {
   /** image width */
@@ -33,18 +33,18 @@ export class ZLogo {
     return (
       <Host
         style={style}
-        class={{ "mobile": !!this.mobileLogo }}
+        class={{mobile: !!this.mobileLogo}}
       >
-        {
-          this.link ?
-            <a
-              href={this.link}
-              target={this.targetBlank ? "_blank" : "_self"}
-            >
-              <img alt={this.imageAlt} />
-            </a> :
+        {this.link ? (
+          <a
+            href={this.link}
+            target={this.targetBlank ? "_blank" : "_self"}
+          >
             <img alt={this.imageAlt} />
-        }
+          </a>
+        ) : (
+          <img alt={this.imageAlt} />
+        )}
       </Host>
     );
   }

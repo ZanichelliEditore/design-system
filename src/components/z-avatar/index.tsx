@@ -1,5 +1,5 @@
-import { Component, Prop, h, Host } from "@stencil/core";
-import { AvatarSize } from "../../beans";
+import {Component, Prop, h, Host} from "@stencil/core";
+import {AvatarSize} from "../../beans";
 
 @Component({
   tag: "z-avatar",
@@ -16,13 +16,11 @@ export class ZAvatar {
   /** [optional] Avatar background color */
   @Prop() backgroundColor?: string = "bg-grey-700";
   /** [optional] Avatar image */
-  @Prop({ mutable: true }) image?: string;
+  @Prop({mutable: true}) image?: string;
 
   constructor() {
     if (!this.text && !this.image) {
-      console.warn(
-        "z-avatar must contain at least one prop between text and image"
-      );
+      console.warn("z-avatar must contain at least one prop between text and image");
     }
   }
 
@@ -39,7 +37,7 @@ export class ZAvatar {
   render() {
     return (
       <Host
-        class={{ [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }}
+        class={{[this.size]: true, [`body-${this.getTextSize()}-sb`]: true}}
         style={{
           color: `var(--${this.textColor})`,
           backgroundColor: `var(--${this.backgroundColor})`,
@@ -47,7 +45,10 @@ export class ZAvatar {
       >
         {this.text && !this.image && <span>{this.text.substring(0, 2)}</span>}
         {this.image && (
-          <img src={this.image} onError={() => (this.image = "")} />
+          <img
+            src={this.image}
+            onError={() => (this.image = "")}
+          />
         )}
       </Host>
     );

@@ -85,12 +85,7 @@
 }
 
 ::-webkit-scrollbar {
-  background: linear-gradient(
-    90deg,
-    var(--bg-white) 2px,
-    var(--bg-grey-200) 4px,
-    var(--bg-white) 8px
-  );
+  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
   border-radius: var(--border-radius);
   width: 10px;
 }
@@ -143,6 +138,6 @@
 }
 
 :host > div.open > div.openComboData > div.checkAllWrapper {
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * .5);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
   text-align: left;
 }

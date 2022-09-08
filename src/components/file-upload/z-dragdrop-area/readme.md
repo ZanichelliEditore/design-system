@@ -1,9 +1,6 @@
 # z-dragdrop-area
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Events
 
@@ -11,18 +8,18 @@
 | ------------- | ---------------------------------------- | ------------------ |
 | `fileDropped` | Emitted when user drop one or more files | `CustomEvent<any>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-file-upload](../z-file-upload)
+- [z-file-upload](../z-file-upload)
 
 ### Depends on
 
 - [z-body](../../typography/z-body)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-dragdrop-area --> z-body
@@ -31,6 +28,6 @@ graph TD;
   style z-dragdrop-area fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

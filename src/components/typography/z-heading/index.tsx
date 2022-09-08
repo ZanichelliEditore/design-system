@@ -1,9 +1,9 @@
-import { Component, Prop, h } from "@stencil/core";
-import { ZTypographyLevels } from "../z-typography";
+import {Component, Prop, h} from "@stencil/core";
+import {ZTypographyLevels} from "../z-typography";
 
 @Component({
   tag: "z-heading",
-  shadow: true
+  shadow: true,
 })
 export class ZHeading {
   @Prop() level: 1 | 2 | 3 | 4;

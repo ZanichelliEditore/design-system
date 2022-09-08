@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import {Component, Prop, h, Host} from "@stencil/core";
 
 /**
  * Ztag  component.
@@ -21,10 +21,10 @@ export class ZTag {
   render() {
     return (
       <Host
-      class={{
-        "body-5-sb": true,
-        expandable: this.expandable && !!this.icon,
-      }}
+        class={{
+          "body-5-sb": true,
+          "expandable": this.expandable && !!this.icon,
+        }}
       >
         {this.icon && <z-icon name={this.icon} />}
         <div>

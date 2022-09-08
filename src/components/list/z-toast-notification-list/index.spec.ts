@@ -1,13 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZToastNotificationList } from "./index";
+import {ZToastNotificationList} from "./index";
 
 describe("Suite test ZToastNotificationList", () => {
   it("Test render ZToastNotificationList vuoto senza props", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotificationList],
-      html: `<z-toast-notification-list></z-toast-notification-list>`
+      html: `<z-toast-notification-list></z-toast-notification-list>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -16,15 +15,13 @@ describe("Suite test ZToastNotificationList", () => {
             <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
-    `)
+    `);
   });
 
-
   it("Test render ZToastNotificationList vuoto con props", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotificationList],
-      html: `<z-toast-notification-list newestontop="false" position="top-centre"></z-toast-notification-list>`
+      html: `<z-toast-notification-list newestontop="false" position="top-centre"></z-toast-notification-list>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -33,11 +30,10 @@ describe("Suite test ZToastNotificationList", () => {
             <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
-    `)
+    `);
   });
 
   it("Test render ZToastNotificationList con elementi slottati e props", async () => {
-
     const page = await newSpecPage({
       components: [ZToastNotificationList],
       html: `<z-toast-notification-list position="top-centre">
@@ -47,7 +43,7 @@ describe("Suite test ZToastNotificationList", () => {
         <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
             transition="slide-in-up" draggablepercentage="50" closebutton>
         </z-toast-notification>
-      </z-toast-notification-list>`
+      </z-toast-notification-list>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -62,7 +58,6 @@ describe("Suite test ZToastNotificationList", () => {
           transition="slide-in-up" draggablepercentage="50" closebutton>
         </z-toast-notification>
       </z-toast-notification-list>
-    `)
+    `);
   });
 });
-

@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import {Component, h} from "@stencil/core";
 
 /**
  * @slot alert - card alert slot
@@ -7,7 +7,7 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "z-myz-card-body",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardBody {
   render() {

@@ -1,15 +1,5 @@
-import {
-  Component,
-  Prop,
-  h,
-  Host,
-  Watch,
-  Element,
-  State,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
-import { PopoverPositions } from "../../beans/index";
+import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} from "@stencil/core";
+import {PopoverPositions} from "../../beans/index";
 
 const documentElement = document.documentElement;
 
@@ -21,16 +11,15 @@ const documentElement = document.documentElement;
 function findScrollableParent(element: Element) {
   let parent = element.parentNode as Element;
   while (parent && parent !== documentElement) {
-    const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
-    if (overflow === 'hidden' ||
-      overflowY === 'hidden' ||
-      overflowX === 'hidden'
-    ) {
+    const {overflow, overflowX, overflowY} = window.getComputedStyle(parent);
+    if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
       return parent;
     }
 
-    if ((parent.scrollHeight > parent.clientHeight && overflow !== 'visible' && overflowY !== 'visible') ||
-      (parent.scrollWidth > parent.clientWidth && overflow !== 'visible' && overflowX !== 'visible')) {
+    if (
+      (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible")
+    ) {
       return parent;
     }
 
@@ -98,7 +87,7 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
   const right = parentWidth - left - rect.width;
   const bottom = parentHeight - top - rect.height;
 
-  return { top, right, bottom, left, width, height };
+  return {top, right, bottom, left, width, height};
 }
 
 @Component({
@@ -113,12 +102,12 @@ export class ZTooltipDeprecated {
   @Prop() content: string;
 
   /** Tooltip position. */
-  @Prop({ mutable: true }) type: PopoverPositions = PopoverPositions.auto;
+  @Prop({mutable: true}) type: PopoverPositions = PopoverPositions.auto;
 
   /**
    * The open state of the tooltip.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = false;
+  @Prop({reflect: true, mutable: true}) open: boolean = false;
 
   /**
    * The selector or the element bound with the tooltip.
@@ -141,19 +130,14 @@ export class ZTooltipDeprecated {
 
   @Watch("type")
   validateType(newValue) {
-    if (
-      newValue &&
-      Object
-        .values(PopoverPositions)
-        .every((position) => newValue !== position)
-    ) {
+    if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
       this.type = PopoverPositions.auto;
     }
   }
 
   @Watch("position")
   onPositionChange() {
-    this.positionChange.emit({ position: this.position });
+    this.positionChange.emit({position: this.position});
   }
 
   disconnectedCallback() {
@@ -208,7 +192,9 @@ export class ZTooltipDeprecated {
     const scrollContainer = findScrollableParent(element) as HTMLElement;
     const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
     const offsetContainer = this.host.offsetParent as HTMLElement;
-    const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
+    const relativeBoundingRect = offsetContainer
+      ? computeOffset(offsetContainer, scrollContainer)
+      : {top: 0, right: 0, bottom: 0, left: 0};
     const boundingRect = computeOffset(element, scrollContainer);
 
     const top = boundingRect.top - scrollContainer.scrollTop;
@@ -279,39 +265,19 @@ export class ZTooltipDeprecated {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
-    if (
-      position === PopoverPositions.top ||
-      position === PopoverPositions.bottom
-    ) {
-      style.left = `${
-        offsetLeft +
-        (boundingRect.width / 2) -
-        (this.host.clientWidth / 2)
-      }px`;
+    if (position === PopoverPositions.top || position === PopoverPositions.bottom) {
+      style.left = `${offsetLeft + boundingRect.width / 2 - this.host.clientWidth / 2}px`;
     }
-    if (
-      position === PopoverPositions.top_right ||
-      position === PopoverPositions.bottom_right
-    ) {
+    if (position === PopoverPositions.top_right || position === PopoverPositions.bottom_right) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (
-      position === PopoverPositions.top_left ||
-      position === PopoverPositions.bottom_left
-    ) {
+    if (position === PopoverPositions.top_left || position === PopoverPositions.bottom_left) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }
-    if (
-      position === PopoverPositions.right ||
-      position === PopoverPositions.left
-    ) {
-      style.top = `${
-        offsetTop +
-        (boundingRect.height / 2) -
-        (this.host.clientHeight / 2)
-      }px`;
+    if (position === PopoverPositions.right || position === PopoverPositions.left) {
+      style.top = `${offsetTop + boundingRect.height / 2 - this.host.clientHeight / 2}px`;
       style.bottom = "auto";
     }
     if (position === PopoverPositions.right) {
@@ -339,7 +305,10 @@ export class ZTooltipDeprecated {
   render() {
     if (this.content) {
       return (
-        <Host class="legacy" position={this.type}>
+        <Host
+          class="legacy"
+          position={this.type}
+        >
           {this.content}
         </Host>
       );

@@ -1,27 +1,6 @@
-import {
-  Component,
-  Prop,
-  State,
-  h,
-  Event,
-  EventEmitter,
-  Watch,
-  Element,
-  Method,
-} from "@stencil/core";
-import {
-  InputStatusBean,
-  SelectItemBean,
-  ListDividerType,
-  KeyboardCodeEnum,
-} from "../../../beans";
-import {
-  randomId,
-  handleKeyboardSubmit,
-  getClickedElement,
-  getElementTree,
-  boolean,
-} from "../../../utils/utils";
+import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
+import {InputStatusBean, SelectItemBean, ListDividerType, KeyboardCodeEnum} from "../../../beans";
+import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -74,9 +53,7 @@ export class ZSelect {
   @Watch("items")
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItem = this.itemsList.find(
-      (item: SelectItemBean) => item.selected
-    );
+    this.selectedItem = this.itemsList.find((item: SelectItemBean) => item.selected);
   }
 
   /** get the input selected options */
@@ -101,9 +78,7 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItem = this.itemsList.find((item: SelectItemBean) =>
-      values.includes(item.id)
-    );
+    this.selectedItem = this.itemsList.find((item: SelectItemBean) => values.includes(item.id));
   }
 
   /** Emitted on select option selection, returns select id, selected item id */
@@ -149,9 +124,7 @@ export class ZSelect {
           return item.name.toUpperCase().includes(searchString.toUpperCase());
         })
         .map((item: SelectItemBean) => {
-          const start = item.name
-            .toUpperCase()
-            .indexOf(searchString.toUpperCase());
+          const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
           const end = start + searchString.length;
           const newName =
             item.name.substring(0, start) +
@@ -182,9 +155,7 @@ export class ZSelect {
       return i;
     });
 
-    this.selectedItem = this.itemsList.find(
-      (item: SelectItemBean) => item.selected
-    );
+    this.selectedItem = this.itemsList.find((item: SelectItemBean) => item.selected);
 
     this.emitOptionSelect();
 
@@ -211,9 +182,7 @@ export class ZSelect {
   }
 
   focusSelectItem(index: number) {
-    const focusElem: HTMLLIElement = this.element.querySelector(
-      `#${this.htmlid}_${index}`
-    );
+    const focusElem: HTMLLIElement = this.element.querySelector(`#${this.htmlid}_${index}`);
     if (focusElem) focusElem.focus();
   }
 
@@ -227,11 +196,7 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (
-          this.element.querySelector(
-            `#${this.htmlid}_input`
-          ) as HTMLInputElement
-        ).focus();
+        (this.element.querySelector(`#${this.htmlid}_input`) as HTMLInputElement).focus();
       }
     }
 
@@ -240,9 +205,7 @@ export class ZSelect {
 
   handleInputClick(e: MouseEvent | KeyboardEvent) {
     const cp = e.composedPath();
-    const clearIcon = cp.find(
-      (item: any) => item.classList && item.classList.contains("resetIcon")
-    );
+    const clearIcon = cp.find((item: any) => item.classList && item.classList.contains("resetIcon"));
     if (clearIcon) {
       e.stopPropagation();
       return;
@@ -257,20 +220,13 @@ export class ZSelect {
       return this.toggleSelectUl(true);
     }
 
-    if (
-      e instanceof KeyboardEvent &&
-      e.key !== KeyboardCodeEnum.TAB &&
-      e.key !== KeyboardCodeEnum.ENTER
-    ) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCodeEnum.TAB && e.key !== KeyboardCodeEnum.ENTER) {
       return;
     }
 
     const tree = getElementTree(getClickedElement());
     const parent = tree.find((elem: any) => {
-      return (
-        elem.nodeName.toLowerCase() === "z-input" &&
-        elem.id === `${this.htmlid}_input`
-      );
+      return elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`;
     });
 
     if (!parent) {
@@ -279,9 +235,7 @@ export class ZSelect {
   }
 
   scrollToLetter(letter: string) {
-    const foundItem = this.itemsList.find(
-      (item: SelectItemBean) => item.name.charAt(0) === letter
-    );
+    const foundItem = this.itemsList.find((item: SelectItemBean) => item.name.charAt(0) === letter);
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
@@ -291,11 +245,7 @@ export class ZSelect {
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
-        value={
-          !this.isOpen && this.selectedItem
-            ? this.selectedItem.name.replace(/<[^>]+>/g, "")
-            : null
-        }
+        value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
@@ -312,10 +262,7 @@ export class ZSelect {
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
         onKeyDown={(e: KeyboardEvent) => {
-          return this.arrowsSelectNav(
-            e,
-            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1
-          );
+          return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1);
         }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
@@ -332,8 +279,14 @@ export class ZSelect {
 
   renderSelectUl() {
     return (
-      <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
-        <div class="ulScrollWrapper" tabindex="-1">
+      <div
+        class={this.isOpen ? "open" : "closed"}
+        tabindex="-1"
+      >
+        <div
+          class="ulScrollWrapper"
+          tabindex="-1"
+        >
           <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
@@ -371,7 +324,10 @@ export class ZSelect {
           onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
         >
-          <span class={{ selected: !!item.selected }} innerHTML={item.name} />
+          <span
+            class={{selected: !!item.selected}}
+            innerHTML={item.name}
+          />
         </z-list-element>
       );
     });
@@ -379,8 +335,14 @@ export class ZSelect {
 
   renderNoSearchResults() {
     return (
-      <z-list-element color="blue500" class="noResults">
-        <z-icon name="multiply-circle" fill="blue500" />
+      <z-list-element
+        color="blue500"
+        class="noResults"
+      >
+        <z-icon
+          name="multiply-circle"
+          fill="blue500"
+        />
         {this.noresultslabel}
       </z-list-element>
     );
@@ -391,9 +353,7 @@ export class ZSelect {
 
     return (
       <z-input-message
-        message={
-          boolean(this.message) === true ? undefined : (this.message as string)
-        }
+        message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
       />
     );

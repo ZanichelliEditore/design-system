@@ -1,5 +1,5 @@
-import { Component, Prop, h, Listen, Event, EventEmitter } from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum } from "../../../../beans";
+import {Component, Prop, h, Listen, Event, EventEmitter} from "@stencil/core";
+import {ButtonSizeEnum, ButtonVariantEnum} from "../../../../beans";
 
 /**
  * @slot  - generic card slot
@@ -18,7 +18,7 @@ export class ZMyzCardDictionary {
   /** card is disabled */
   @Prop() disabled: boolean = false;
   /** card is flipped */
-  @Prop({ mutable: true }) flipped: boolean = false;
+  @Prop({mutable: true}) flipped: boolean = false;
   /** flip button label */
   @Prop() flipbuttonlabel: string = "INFO";
   /** hide info button */

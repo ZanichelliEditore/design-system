@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZButtonDeprecated } from "./index";
+import {ZButtonDeprecated} from "./index";
 
 describe("Suite test ZButtonDeprecated", () => {
   it("Test render ZButton", async () => {

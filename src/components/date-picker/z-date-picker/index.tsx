@@ -1,26 +1,12 @@
-import {
-  Component,
-  Prop,
-  Element,
-  h,
-  EventEmitter,
-  Event,
-  Listen,
-  State,
-  Watch,
-} from "@stencil/core";
+import {Component, Prop, Element, h, EventEmitter, Event, Listen, State, Watch} from "@stencil/core";
 
 import flatpickr from "flatpickr";
-import { Italian } from "flatpickr/dist/l10n/it.js";
+import {Italian} from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 import classNames from "classnames";
 
-import {
-  InputTypeEnum,
-  ZDatePickerMode,
-  ZDatePickerPosition,
-} from "../../../beans";
-import { setAriaOptions, setFlatpickrPosition, validateDate } from "../utils";
+import {InputTypeEnum, ZDatePickerMode, ZDatePickerPosition} from "../../../beans";
+import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
 
 @Component({
   tag: "z-date-picker",
@@ -57,7 +43,7 @@ export class ZDatePicker {
     this.dateSelect.emit(date);
   }
 
-  @Listen("keydown", { target: "body", capture: true })
+  @Listen("keydown", {target: "body", capture: true})
   handleKeyDown(ev: KeyboardEvent) {
     if (ev.key === "Escape") {
       this.picker?.close();
@@ -66,8 +52,7 @@ export class ZDatePicker {
     if (ev.key === "Enter" || ev.key === " ") {
       !this.hasChildren && this.picker?.open();
 
-      let isCrossIconEntered =
-        document.activeElement.classList.contains("resetIcon");
+      let isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
 
       if (isCrossIconEntered) {
         this.inputError = false;
@@ -75,39 +60,26 @@ export class ZDatePicker {
         this.dateSelect.emit(null);
       }
 
-      let flatpickrDayPressed =
-        document.activeElement.classList.contains("flatpickr-day");
+      let flatpickrDayPressed = document.activeElement.classList.contains("flatpickr-day");
       if (flatpickrDayPressed) {
         //Sistemare il toggle
       }
-      let isPrevArrowEntered = document.activeElement.classList.contains(
-        "flatpickr-prev-month"
-      );
-      let isNextArrowEntered = document.activeElement.classList.contains(
-        "flatpickr-next-month"
-      );
+      let isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
+      let isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
       let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
       if (this.mode === ZDatePickerMode.months) {
-        isPrevArrowEntered &&
-          this.picker?.changeYear(this.picker.currentYear - 1);
+        isPrevArrowEntered && this.picker?.changeYear(this.picker.currentYear - 1);
 
-        isNextArrowEntered &&
-          this.picker?.changeYear(this.picker.currentYear + 1);
+        isNextArrowEntered && this.picker?.changeYear(this.picker.currentYear + 1);
 
         if (arrowPressed) {
-          let calendar =
-            this.element.getElementsByClassName("flatpickr-calendar")[0];
-          let months = calendar?.querySelectorAll(
-            ".flatpickr-monthSelect-month"
-          );
+          let calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
+          let months = calendar?.querySelectorAll(".flatpickr-monthSelect-month");
           months?.forEach((element) => {
-            element.setAttribute(
-              "aria-label",
-              `${element.innerHTML} ${this.picker?.currentYear}`
-            );
+            element.setAttribute("aria-label", `${element.innerHTML} ${this.picker?.currentYear}`);
           });
 
           //Force check of the current day
@@ -118,10 +90,7 @@ export class ZDatePicker {
 
               if (index === curMonth) {
                 if (this.picker?.currentYear === curYear) {
-                  element.setAttribute(
-                    "class",
-                    "flatpickr-monthSelect-month today"
-                  );
+                  element.setAttribute("class", "flatpickr-monthSelect-month today");
                 } else {
                   element.setAttribute("class", "flatpickr-monthSelect-month");
                 }
@@ -146,17 +115,14 @@ export class ZDatePicker {
   }
 
   setupPickers() {
-    const classToAppend = this.hasChildren
-      ? `${this.datePickerId}-hidden`
-      : `${this.datePickerId}-container`;
+    const classToAppend = this.hasChildren ? `${this.datePickerId}-hidden` : `${this.datePickerId}-container`;
 
     this.picker = flatpickr(`.${classToAppend}`, {
       appendTo: this.element.children[0] as HTMLElement,
       enableTime: this.mode === ZDatePickerMode.dateTime,
       locale: Italian,
       allowInput: true,
-      dateFormat:
-        this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
+      dateFormat: this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
@@ -202,17 +168,10 @@ export class ZDatePicker {
     }
 
     let englishData = text.split("-");
-    let time =
-      this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
-    let englishParsedData =
-      `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`
-        .split(" ")
-        .join("");
+    let time = this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
 
-    let isValidDate = validateDate(
-      englishParsedData,
-      this.mode === ZDatePickerMode.dateTime
-    );
+    let isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.dateTime);
 
     if (text === "") {
       this.inputError = false;
@@ -231,7 +190,10 @@ export class ZDatePicker {
   renderSlottedContent() {
     return (
       <div class={`${this.datePickerId}-hidden`}>
-        <input class="hidden-input" data-input></input>
+        <input
+          class="hidden-input"
+          data-input
+        ></input>
         <slot name="toggle"></slot>
       </div>
     );
@@ -263,13 +225,7 @@ export class ZDatePicker {
 
   render() {
     return (
-      <div
-        class={classNames(
-          "flatpickr-toggle-container",
-          this.flatpickrPosition,
-          this.mode
-        )}
-      >
+      <div class={classNames("flatpickr-toggle-container", this.flatpickrPosition, this.mode)}>
         {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
       </div>
     );

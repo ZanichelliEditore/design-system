@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZPopoverDeprecated } from "./index";
+import {ZPopoverDeprecated} from "./index";
 
 describe("Suite test ZPopoverDeprecated", () => {
   it("Test render ZPopoverDeprecated default", async () => {

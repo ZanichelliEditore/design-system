@@ -1,27 +1,27 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import { getColorTokens } from "../../utils/storybook-utils";
-import { icons } from "../../components/icons/icons.tsx";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {getColorTokens} from "../../utils/storybook-utils";
+import {icons} from "../../components/icons/icons.tsx";
 import "./index";
 
 <Meta
   title="ZTag"
   component="z-tag"
   argTypes={{
-    icon: { control: { type: "select" }, options: Object.keys(icons).sort(), },
-    text: { control: { type: "text" } },
-    expandable: { control: { type: "boolean" } },
+    "icon": {control: {type: "select"}, options: Object.keys(icons).sort()},
+    "text": {control: {type: "text"}},
+    "expandable": {control: {type: "boolean"}},
     "--z-tag-text-color": {
       options: getColorTokens(),
       control: {
         type: "select",
-      }
+      },
     },
     "--z-tag-bg": {
       options: getColorTokens(),
       control: {
         type: "select",
-      }
+      },
     },
   }}
 />
@@ -36,7 +36,9 @@ import "./index";
       expandable: false,
     }}
   >
-    {(args) => html`<z-tag icon="gear" expandable=${args.expandable}
+    {(args) => html`<z-tag
+      icon="gear"
+      expandable=${args.expandable}
       >${args.text}
     </z-tag>`}
   </Story>
@@ -48,9 +50,9 @@ import "./index";
   <Story
     name="ZTag-token"
     args={{
-      icon: "gear",
-      text: "In progress",
-      expandable: false,
+      "icon": "gear",
+      "text": "In progress",
+      "expandable": false,
       "--z-tag-text-color": "",
       "--z-tag-bg": "",
     }}
@@ -70,15 +72,17 @@ import "./index";
   <Story
     name="ZTag-with-long-text"
     args={{
-      icon: "gear",
-      text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
-      expandable: false,
+      "icon": "gear",
+      "text": "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+      "expandable": false,
       "--z-tag-text-color": "",
       "--z-tag-bg": "",
     }}
   >
     {(args) => html`<z-tag
-      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]}); max-width: 500px;"
+      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args[
+        "--z-tag-bg"
+      ]}); max-width: 500px;"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}

@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { zModalLogin } from "./index";
+import {zModalLogin} from "./index";
 
 describe("Suite test zModalLogin", () => {
   beforeEach(() => {

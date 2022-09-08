@@ -1,7 +1,7 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 
-import { ZDatePickerMode } from "../../../beans";
+import {ZDatePickerMode} from "../../../beans";
 
 import "./index";
 import "../styles.css";
@@ -13,7 +13,7 @@ import "../index.stories.css";
   argTypes={{
     mode: {
       options: Object.values(ZDatePickerMode),
-      control: { type: "radio" },
+      control: {type: "radio"},
     },
     datePickerId: {
       control: "text",
@@ -42,12 +42,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.datePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail + "]";
-          });
+        document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -83,12 +81,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.datePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail + "]";
-          });
+        document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -124,12 +120,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.datePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail + "]";
-          });
+        document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -165,12 +159,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.datePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail + "]";
-          });
+        document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">

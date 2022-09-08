@@ -1,6 +1,6 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
-import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum } from "../../beans";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../beans";
 import "./index";
 
 <Meta
@@ -9,11 +9,11 @@ import "./index";
   argTypes={{
     variant: {
       options: Object.values(ButtonVariantEnum),
-      control: { type: "radio" },
+      control: {type: "radio"},
     },
     size: {
       options: Object.values(ButtonSizeEnum),
-      control: { type: "radio" },
+      control: {type: "radio"},
     },
   }}
 />
@@ -167,7 +167,11 @@ For further customization and DOM handling is possible to pass the content of a 
         size="${args.size}"
         disabled="${args.disabled}"
       >
-        <a slot="element" href="https://wikipedia.com" target="_blank">
+        <a
+          slot="element"
+          href="https://wikipedia.com"
+          target="_blank"
+        >
           <z-icon name="${args.icon}"></z-icon>
           Go to Wikipedia
         </a>

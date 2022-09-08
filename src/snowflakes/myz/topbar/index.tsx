@@ -1,23 +1,6 @@
-import {
-  Component,
-  Prop,
-  h,
-  State,
-  Element,
-  Listen,
-  Watch,
-} from "@stencil/core";
-import {
-  MenuItem,
-  HeaderUserData,
-  ListItemBean,
-  ButtonVariantEnum,
-  ButtonSizeEnum,
-} from "../../../beans";
-import {
-  mobileBreakpoint,
-  tabletBreakpoint,
-} from "../../../constants/breakpoints";
+import {Component, Prop, h, State, Element, Listen, Watch} from "@stencil/core";
+import {MenuItem, HeaderUserData, ListItemBean, ButtonVariantEnum, ButtonSizeEnum} from "../../../beans";
+import {mobileBreakpoint, tabletBreakpoint} from "../../../constants/breakpoints";
 
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
@@ -60,47 +43,36 @@ export class ZMyzTopbar {
 
   @Watch("activeintlinkid")
   activeIntLinkChange(newValue: string) {
-    this.activeMenuItem = this.currentMenuItem = this.intMenuData.find(
-      (item: MenuItem) => item.id === newValue
-    );
+    this.activeMenuItem = this.currentMenuItem = this.intMenuData.find((item: MenuItem) => item.id === newValue);
   }
 
-  @Listen("resize", { target: "window" })
+  @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("zListItemLinkClick", { capture: true })
+  @Listen("zListItemLinkClick", {capture: true})
   handleZListItemLinkClick(): void {
     this.isMenuMobileOpen = false;
   }
-  @Listen("zListItemClick", { capture: true })
+  @Listen("zListItemClick", {capture: true})
   handleZListItemClick(): void {
     this.isMenuMobileOpen = false;
   }
 
   componentWillLoad() {
     if (this.intlinkdata) {
-      this.intMenuData =
-        typeof this.intlinkdata === "string"
-          ? JSON.parse(this.intlinkdata)
-          : this.intlinkdata;
+      this.intMenuData = typeof this.intlinkdata === "string" ? JSON.parse(this.intlinkdata) : this.intlinkdata;
     }
     this.activeMenuItem = this.currentMenuItem = this.intMenuData.find(
       (item: MenuItem) => item.id === this.activeintlinkid
     );
 
     if (this.extlinkdata) {
-      this.extMenuData =
-        typeof this.extlinkdata === "string"
-          ? JSON.parse(this.extlinkdata)
-          : this.extlinkdata;
+      this.extMenuData = typeof this.extlinkdata === "string" ? JSON.parse(this.extlinkdata) : this.extlinkdata;
     }
     if (this.userdata) {
-      this.userData =
-        typeof this.userdata === "string"
-          ? JSON.parse(this.userdata)
-          : this.userdata;
+      this.userData = typeof this.userdata === "string" ? JSON.parse(this.userdata) : this.userdata;
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -124,14 +96,17 @@ export class ZMyzTopbar {
     if (!this.isLogged || !this.ismyz) return;
 
     return (
-      <div id="link-int" class="link-int">
+      <div
+        id="link-int"
+        class="link-int"
+      >
         {menuItems.map((item) => this.renderIntMenuItem(item))}
       </div>
     );
   }
 
   renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement {
-    const { id, label, link } = menuItem;
+    const {id, label, link} = menuItem;
     return (
       <span>
         <a
@@ -162,7 +137,10 @@ export class ZMyzTopbar {
             hidden: !this.activeMenuItem || this.activeMenuItem.id !== id,
           }}
         >
-          <polygon points="8,0 16,8 0,8" class="arrow" />
+          <polygon
+            points="8,0 16,8 0,8"
+            class="arrow"
+          />
         </svg>
         {this.isMobile && this.renderMenuItemsData(menuItem)}
       </span>
@@ -176,12 +154,8 @@ export class ZMyzTopbar {
   handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
 
-    this.element.shadowRoot
-      .querySelector(`#${elementId}`)
-      .classList.toggle("isopen");
-    this.element.shadowRoot
-      .querySelector("#mobile-dropdown-" + elementId)
-      .classList.toggle("visible");
+    this.element.shadowRoot.querySelector(`#${elementId}`).classList.toggle("isopen");
+    this.element.shadowRoot.querySelector("#mobile-dropdown-" + elementId).classList.toggle("visible");
   }
 
   renderMenuItemsData(menuItem): HTMLSpanElement | null {
@@ -200,7 +174,10 @@ export class ZMyzTopbar {
 
   renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
     return (
-      <span class="mobile-dropdown" id={id ? `mobile-dropdown-${id}` : ""}>
+      <span
+        class="mobile-dropdown"
+        id={id ? `mobile-dropdown-${id}` : ""}
+      >
         <z-myz-list list={menuItems} />
       </span>
     );
@@ -209,11 +186,19 @@ export class ZMyzTopbar {
   renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
     if (!this.ismyz || !this.isLogged) return;
     if (!menuItem || !menuItem["subMenu"]) {
-      return <div id="dropdown-menu" class={`dropdown-menu hidden`} />;
+      return (
+        <div
+          id="dropdown-menu"
+          class={`dropdown-menu hidden`}
+        />
+      );
     }
 
     return (
-      <div id="dropdown-menu" class={`dropdown-menu`}>
+      <div
+        id="dropdown-menu"
+        class={`dropdown-menu`}
+      >
         <ul class="dropdown-links">
           {menuItem.subMenu.map(
             (item: MenuItem): HTMLAnchorElement => (
@@ -238,16 +223,19 @@ export class ZMyzTopbar {
   renderExtLinksIcons(icon) {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
-    return !hideIcons && { icon };
+    return !hideIcons && {icon};
   }
 
   renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged) return <div />;
 
     return (
-      <div id="link-ext" class="link-ext">
+      <div
+        id="link-ext"
+        class="link-ext"
+      >
         {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
-          const { id, label, link, icon } = menuItem;
+          const {id, label, link, icon} = menuItem;
           return (
             <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
               <z-link
@@ -291,9 +279,7 @@ export class ZMyzTopbar {
     return (
       <z-button
         htmlid="login-button"
-        variant={
-          this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
-        }
+        variant={this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary}
         icon="login"
         size={ButtonSizeEnum.small}
       >
@@ -304,7 +290,10 @@ export class ZMyzTopbar {
 
   renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
-      <div id="mobile-login" class="mobile-login">
+      <div
+        id="mobile-login"
+        class="mobile-login"
+      >
         <span>
           <a
             class="menu-item"
@@ -313,7 +302,11 @@ export class ZMyzTopbar {
             role="button"
           >
             <span>
-              <z-icon name="user-avatar" height={16} width={16} />
+              <z-icon
+                name="user-avatar"
+                height={16}
+                width={16}
+              />
               {userData.name}
             </span>
             <i></i>
@@ -327,16 +320,14 @@ export class ZMyzTopbar {
   renderUserData(userData: HeaderUserData) {
     if (this.isMobile && !userData) return null;
 
-    const listItems: ListItemBean[] = userData.userlinks.map(
-      (item: MenuItem) => {
-        return {
-          text: item.label,
-          link: item.link,
-          icon: item.icon,
-          listitemid: item.id,
-        };
-      }
-    );
+    const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
+      return {
+        text: item.label,
+        link: item.link,
+        icon: item.icon,
+        listitemid: item.id,
+      };
+    });
     return this.renderMobileSubMenu(listItems, "user-data");
   }
 
@@ -417,7 +408,7 @@ export class ZMyzTopbar {
         id="mobile-content"
         class={{
           "mobile-content": true,
-          open: this.isMenuMobileOpen,
+          "open": this.isMenuMobileOpen,
           "myz-out": !this.ismyz,
         }}
       >
@@ -431,8 +422,6 @@ export class ZMyzTopbar {
   }
 
   render() {
-    return this.isMobile
-      ? this.renderMobileHeader()
-      : this.renderDesktopHeader();
+    return this.isMobile ? this.renderMobileHeader() : this.renderDesktopHeader();
   }
 }

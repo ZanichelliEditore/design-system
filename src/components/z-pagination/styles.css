@@ -46,11 +46,8 @@ z-pagination .pagination-bar button {
   justify-content: center;
   margin: 0;
   background-color: var(--color-surface03);
-  transition: background-color .150s ease-out,
-    color .150s ease-out,
-    border-bottom-color .150s ease-out,
-    font-size .150s ease-in-out,
-    font-weight .150s ease-in-out;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out, border-bottom-color 0.15s ease-out,
+    font-size 0.15s ease-in-out, font-weight 0.15s ease-in-out;
   color: var(--color-primary01);
   border: none;
   font-family: inherit;

@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAppHeader } from "./index";
+import {ZAppHeader} from "./index";
 
 describe("Suite test ZAppHeader", () => {
   it("Test render empty ZAppHeader", async () => {

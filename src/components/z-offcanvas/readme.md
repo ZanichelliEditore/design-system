@@ -9,7 +9,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property              | Attribute             | Description                                                                            | Type                                                                 | Default                             |
@@ -18,13 +17,11 @@
 | `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left       | `TransitionDirectionEnum.left \| TransitionDirectionEnum.right`      | `TransitionDirectionEnum.left`      |
 | `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent | `OffCanvasVariantsEnum.overlay \| OffCanvasVariantsEnum.pushcontent` | `OffCanvasVariantsEnum.pushcontent` |
 
-
 ## Events
 
 | Event                     | Description                    | Type               |
 | ------------------------- | ------------------------------ | ------------------ |
 | `canvasOpenStatusChanged` | emitted when open prop changes | `CustomEvent<any>` |
-
 
 ## Slots
 
@@ -32,7 +29,6 @@
 | ----------------- | ----------------------------- |
 | `"canvasContent"` | set the content of the canvas |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

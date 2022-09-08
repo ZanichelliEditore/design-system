@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../../utils/utils";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 @Component({
   tag: "z-myz-list-item",
@@ -25,13 +25,13 @@ export class ZMyzListItem {
   /** emitted on list item link click, returns linkId */
   @Event() zListItemLinkClick: EventEmitter;
   emitZListItemLinkClick(e: MouseEvent, linkId) {
-    this.zListItemLinkClick.emit({ e, linkId });
+    this.zListItemLinkClick.emit({e, linkId});
   }
 
   /** emitted on list item click, returns listitemid */
   @Event() zListItemClick: EventEmitter;
   emitZListItemClick(e: MouseEvent, listitemid) {
-    this.zListItemClick.emit({ e, listitemid });
+    this.zListItemClick.emit({e, listitemid});
   }
 
   constructor() {
@@ -48,9 +48,7 @@ export class ZMyzListItem {
         id={this.listitemid}
         data-action={this.action}
         onClick={(e: MouseEvent) => this.emitZListItemClick(e, this.listitemid)}
-        onKeyPress={(ev: KeyboardEvent) =>
-          handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid)
-        }
+        onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid)}
       >
         <span class={this.underlined && "border"}>
           {this.icon && <z-icon name={this.icon} />}
@@ -59,12 +57,8 @@ export class ZMyzListItem {
               href={this.link ? this.link : null}
               target={this.linktarget}
               id={linkId}
-              onClick={(e: MouseEvent) =>
-                this.emitZListItemLinkClick(e, linkId)
-              }
-              onKeyPress={(ev: KeyboardEvent) =>
-                handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId)
-              }
+              onClick={(e: MouseEvent) => this.emitZListItemLinkClick(e, linkId)}
+              onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId)}
               role={this.link ? "link" : "button"}
               tabindex="0"
             >

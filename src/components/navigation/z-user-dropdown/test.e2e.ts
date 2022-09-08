@@ -1,9 +1,9 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 type CustomWindow = Window &
   typeof globalThis & {
     onUserButtonClick: (a) => unknown;
-    onDropdownMenuLinkClick : (a) => unknown
+    onDropdownMenuLinkClick: (a) => unknown;
   };
 
 it("Test dropdown button should open list", async () => {
@@ -45,7 +45,7 @@ it("Test enter and user button click should emit userButtonClick event", async (
   const type = "userButtonClick";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onUserButtonClick({ type, detail: e.detail });
+      (window as CustomWindow).onUserButtonClick({type, detail: e.detail});
     });
   }, type);
 
@@ -84,7 +84,6 @@ it("Test enter and user button click should emit userButtonClick event", async (
 
   await page.waitForChanges();
   expect(ismenuopen).toEqual(false);
-
 });
 
 it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", async () => {
@@ -98,7 +97,7 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
   const type = "dropdownMenuLinkClick";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onDropdownMenuLinkClick({ type, detail: e.detail });
+      (window as CustomWindow).onDropdownMenuLinkClick({type, detail: e.detail});
     });
   }, type);
 
@@ -115,11 +114,10 @@ it("Test dropdown menu zLink click should emit dropdownMenuLinkClick event", asy
   toggleButton.click();
 
   await page.waitForChanges();
-  const logoutLink = await page.find("z-user-dropdown >>> div > .open > ul > #logout > z-link")
+  const logoutLink = await page.find("z-user-dropdown >>> div > .open > ul > #logout > z-link");
 
   logoutLink.click();
 
   await page.waitForChanges();
-  expect(linkId).toEqual({"e": {"isTrusted": false}, "linkId": "logout"});
-
+  expect(linkId).toEqual({e: {isTrusted: false}, linkId: "logout"});
 });

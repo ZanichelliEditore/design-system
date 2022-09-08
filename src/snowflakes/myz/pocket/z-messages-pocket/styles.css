@@ -22,7 +22,7 @@
   background: var(--color-secondary02);
   color: var(--color-surface01);
   border-radius: 50%;
-  padding: 0 calc(var(--space-unit)* 0.5);
+  padding: 0 calc(var(--space-unit) * 0.5);
   display: inline-block;
   margin-left: var(--space-unit);
 }

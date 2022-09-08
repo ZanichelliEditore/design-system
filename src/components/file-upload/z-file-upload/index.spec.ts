@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZFileUpload } from "./index";
+import {ZFileUpload} from "./index";
 
 describe("Suite test ZFileUpload", () => {
   it("Test render ZFileUpload default", async () => {

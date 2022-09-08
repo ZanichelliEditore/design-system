@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-footer-social",
@@ -15,8 +15,14 @@ export class ZFooterSocial {
 
   render() {
     return (
-      <a href={this.href} target="_blank">
-        <img src={this.icon} alt={this.description} />
+      <a
+        href={this.href}
+        target="_blank"
+      >
+        <img
+          src={this.icon}
+          alt={this.description}
+        />
       </a>
     );
   }

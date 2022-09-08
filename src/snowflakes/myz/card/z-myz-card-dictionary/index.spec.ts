@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardDictionary } from "./index";
+import {ZMyzCardDictionary} from "./index";
 
 describe("Suite test ZMyzCardDictionary", () => {
   it("Test render ZMyzCardDictionary - empty", async () => {

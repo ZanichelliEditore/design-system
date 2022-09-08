@@ -1,21 +1,7 @@
-import {
-  Component,
-  Prop,
-  h,
-  Host,
-  State,
-  Listen,
-  Event,
-  EventEmitter,
-} from "@stencil/core";
+import {Component, Prop, h, Host, State, Listen, Event, EventEmitter} from "@stencil/core";
 import classNames from "classnames";
-import {
-  PopoverPosition,
-  PopoverBorderRadius,
-  PopoverShadow,
-  KeyboardKeys,
-} from "../../beans";
-import { getElementTree } from "../../utils/utils";
+import {PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys} from "../../beans";
+import {getElementTree} from "../../utils/utils";
 
 @Component({
   tag: "z-popover-deprecated",
@@ -90,10 +76,7 @@ export class ZPopoverDeprecated {
 
     // If right is outside viewport
     if (r > width) {
-      if (
-        this.position.startsWith("above") ||
-        this.position.startsWith("below")
-      ) {
+      if (this.position.startsWith("above") || this.position.startsWith("below")) {
         secondSide = "left";
       } else {
         firstSide = "before";
@@ -102,10 +85,7 @@ export class ZPopoverDeprecated {
 
     // If left is outside viewport
     if (l < 0) {
-      if (
-        this.position.startsWith("above") ||
-        this.position.startsWith("below")
-      ) {
+      if (this.position.startsWith("above") || this.position.startsWith("below")) {
         secondSide = "right";
       } else {
         firstSide = "after";
@@ -122,7 +102,7 @@ export class ZPopoverDeprecated {
     this.isVisible = false;
   }
 
-  @Listen("keyup", { target: "window" })
+  @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: any) {
     if (e.key === KeyboardKeys.ESC) {
       this.closePopover();
@@ -141,12 +121,10 @@ export class ZPopoverDeprecated {
     }
   }
 
-  @Listen("click", { target: "body", capture: true })
+  @Listen("click", {target: "body", capture: true})
   handleOutsideClick(e: any) {
     const tree = getElementTree(e.target);
-    const parent = tree.find(
-      (elem: Element) => elem.nodeName.toLowerCase() === "z-popover-deprecated"
-    );
+    const parent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-popover-deprecated");
 
     if (!parent) {
       this.closePopover();
@@ -174,8 +152,8 @@ export class ZPopoverDeprecated {
             this.popoverPosition,
             `border-radius-${this.borderRadius}`,
             this.boxShadow,
-            { "show-arrow": this.showArrow },
-            { visible: this.isVisible }
+            {"show-arrow": this.showArrow},
+            {visible: this.isVisible}
           )}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,

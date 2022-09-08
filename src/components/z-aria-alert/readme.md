@@ -1,9 +1,6 @@
 # z-aria-alert
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,7 +8,6 @@
 | -------- | --------- | ----------- | -------- | ----------------------- |
 | `mode`   | `mode`    |             | `string` | `ZAriaAlertMode.polite` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

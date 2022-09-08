@@ -1,6 +1,6 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
-import { icons } from "../../icons/icons";
+import {icons} from "../../icons/icons";
 
 type CustomWindow = Window &
   typeof globalThis & {
@@ -21,7 +21,7 @@ it("Test ZInput should emit inputChange event", async () => {
   const type = "inputChange";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onInputChange({ type, detail: e.detail });
+      (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
   }, type);
 
@@ -52,7 +52,7 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   const type = "inputChange";
   page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
-      (window as CustomWindow).onInputChange({ type, detail: e.detail });
+      (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
   }, type);
 

@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../beans";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {ButtonVariantEnum} from "../../../beans";
 
 @Component({
   tag: "z-cookiebar",
@@ -17,7 +17,7 @@ export class ZCookiebar {
   /** emitted on ACCETTA button click, returns event */
   @Event() accept: EventEmitter;
   emitAccept(ev: MouseEvent | KeyboardEvent) {
-    this.accept.emit({ ev });
+    this.accept.emit({ev});
   }
 
   handleOkButtonClick(ev: MouseEvent) {
@@ -30,10 +30,7 @@ export class ZCookiebar {
   handleOkButtonKeyUp(ev: KeyboardEvent) {
     this.emitAccept(ev);
     if (ev.code === "Enter") {
-      if (
-        typeof this.callback !== "undefined" &&
-        typeof this.callback === "function"
-      ) {
+      if (typeof this.callback !== "undefined" && typeof this.callback === "function") {
         this.callback();
       }
     }
@@ -41,14 +38,20 @@ export class ZCookiebar {
 
   renderContentSlot() {
     return (
-      <div class="content" slot="content">
+      <div
+        class="content"
+        slot="content"
+      >
         <div>
           <h2>Su questo sito usiamo i cookie.</h2>
           <div>
             <p>
-              Se continui a navigare ci permetti di farlo secondo le regole
-              spiegate nella nostra informativa sulla privacy relativa ai &nbsp;
-              <a href={this.cookiepolicyurl} target="_blank">
+              Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla
+              privacy relativa ai &nbsp;
+              <a
+                href={this.cookiepolicyurl}
+                target="_blank"
+              >
                 cookie
               </a>
               .
@@ -66,10 +69,6 @@ export class ZCookiebar {
     );
   }
   render() {
-    return (
-      <z-candybar class={`${this.hide ? "hidden" : ""}`}>
-        {this.renderContentSlot()}
-      </z-candybar>
-    );
+    return <z-candybar class={`${this.hide ? "hidden" : ""}`}>{this.renderContentSlot()}</z-candybar>;
   }
 }

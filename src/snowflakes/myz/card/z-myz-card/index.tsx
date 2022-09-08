@@ -1,5 +1,5 @@
-import { Component, h, Prop } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import {Component, h, Prop} from "@stencil/core";
+import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
  * @slot  - generic card slot
@@ -39,7 +39,10 @@ export class ZMyzCardComponent {
 
   render() {
     return (
-      <div class={this.retrieveClass()} tabindex="0">
+      <div
+        class={this.retrieveClass()}
+        tabindex="0"
+      >
         <slot />
       </div>
     );

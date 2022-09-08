@@ -1,5 +1,5 @@
-import { Component, Prop, h, Host } from "@stencil/core";
-import { ZAriaAlertMode } from "../../beans";
+import {Component, Prop, h, Host} from "@stencil/core";
+import {ZAriaAlertMode} from "../../beans";
 
 @Component({
   tag: "z-aria-alert",
@@ -10,7 +10,11 @@ export class ZAriaAlert {
 
   render() {
     return (
-      <Host aria-live={this.mode} aria-atomic="true" aria-relevant="additions">
+      <Host
+        aria-live={this.mode}
+        aria-atomic="true"
+        aria-relevant="additions"
+      >
         <slot></slot>
       </Host>
     );

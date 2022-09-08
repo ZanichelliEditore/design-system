@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import {Component, h} from "@stencil/core";
 
 /**
  * @slot  - message body
@@ -7,7 +7,7 @@ import { Component, h } from "@stencil/core";
 @Component({
   tag: "z-pocket-message",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZPocketMessage {
   render() {

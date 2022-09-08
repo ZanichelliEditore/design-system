@@ -1,4 +1,4 @@
-import { ZInputDeprecated } from "./index";
+import {ZInputDeprecated} from "./index";
 
 it("getValue() should return input value", async () => {
   const input = new ZInputDeprecated();

@@ -1,9 +1,8 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZNavigationTabs } from "./index";
+import {ZNavigationTabs} from "./index";
 
 describe("Suite test ZNavigationTabs", () => {
-
   it("Test render ZNavigationTab Horizontal", async () => {
     const page = await newSpecPage({
       components: [ZNavigationTabs],
@@ -14,7 +13,7 @@ describe("Suite test ZNavigationTabs", () => {
             Home
           </z-navigation-tab>
         </z-navigation-tabs>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`
@@ -42,7 +41,7 @@ describe("Suite test ZNavigationTabs", () => {
             Home
           </z-navigation-tab>
         </z-navigation-tabs>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`
@@ -70,7 +69,7 @@ describe("Suite test ZNavigationTabs", () => {
             Home
           </z-navigation-tab>
         </z-navigation-tabs>
-      `
+      `,
     });
 
     expect(page.root).toEqualHtml(`

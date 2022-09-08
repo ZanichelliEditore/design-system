@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import {newE2EPage} from "@stencil/core/testing";
 
 describe("z-file-upload test end2end", () => {
   it("Test z-file-upload -> add z-file by click", async () => {
@@ -21,11 +21,7 @@ describe("z-file-upload test end2end", () => {
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() =>
-        (
-          document.querySelector("z-file-upload div z-button") as HTMLElement
-        ).click()
-      ),
+      page.evaluate(() => (document.querySelector("z-file-upload div z-button") as HTMLElement).click()),
     ]);
 
     const fileInputEvent = await zfu.spyOnEvent("fileInput");
@@ -53,11 +49,7 @@ describe("z-file-upload test end2end", () => {
     // simulate upload of file
     const [fileChooser] = await Promise.all([
       page.waitForFileChooser(),
-      page.evaluate(() =>
-        (
-          document.querySelector("z-file-upload div z-button") as HTMLElement
-        ).click()
-      ),
+      page.evaluate(() => (document.querySelector("z-file-upload div z-button") as HTMLElement).click()),
     ]);
 
     const fileInputEvent = await zfu.spyOnEvent("fileInput");
@@ -89,13 +81,7 @@ describe("z-file-upload test end2end", () => {
 
     expect(zf).not.toBeNull();
 
-    page.evaluate(() =>
-      (
-        document.querySelector(
-          "z-file-upload z-file z-chip z-icon"
-        ) as HTMLElement
-      ).click()
-    );
+    page.evaluate(() => (document.querySelector("z-file-upload z-file z-chip z-icon") as HTMLElement).click());
     await page.waitForChanges();
     const zfCheck = await page.find("z-file-upload z-file");
 

@@ -4,7 +4,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property                   | Attribute                      | Description                                                                                                                                                               | Type      | Default     |
@@ -16,14 +15,12 @@
 | `productVersion`           | `product-version`              | The product version to be displayed on the top panel of the footer                                                                                                        | `string`  | `undefined` |
 | `showReportAProblemButton` | `show-report-a-problem-button` | True if the product must display a "Report a problem" button on the top panel of the footer                                                                               | `boolean` | `undefined` |
 
-
 ## Events
 
 | Event                       | Description                              | Type               |
 | --------------------------- | ---------------------------------------- | ------------------ |
 | `creditsLinkClick`          | Emitted on credits link click            | `CustomEvent<any>` |
 | `reportAProblemButtonClick` | Emitted on report a problem button click | `CustomEvent<any>` |
-
 
 ## Slots
 
@@ -32,7 +29,6 @@
 |            | main navigation   |
 | `"links"`  | bottom navigation |
 | `"social"` | social links      |
-
 
 ## Dependencies
 
@@ -48,6 +44,7 @@
 - [z-footer-social](../z-footer-social)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-footer --> z-logo
@@ -65,6 +62,6 @@ graph TD;
   style z-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

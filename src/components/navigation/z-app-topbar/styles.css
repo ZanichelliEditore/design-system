@@ -27,7 +27,7 @@
 
 .content-panel {
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .content-panel > :not(:last-child) {

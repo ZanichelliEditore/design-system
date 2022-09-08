@@ -1,5 +1,5 @@
-import { Component, Event, EventEmitter, h, Prop, State } from "@stencil/core";
-import { ThemeVariant, ThemeVariantBean } from "../../../beans";
+import {Component, Event, EventEmitter, h, Prop, State} from "@stencil/core";
+import {ThemeVariant, ThemeVariantBean} from "../../../beans";
 
 @Component({
   tag: "z-app-switcher",
@@ -19,13 +19,19 @@ export class ZAppSwitcher {
   @Event() appButtonClick: EventEmitter;
   emitAppButtonClick() {
     this.isopen = !this.isopen;
-    this.appButtonClick.emit({ isopen: this.isopen });
+    this.appButtonClick.emit({isopen: this.isopen});
   }
 
   render() {
     return (
-      <button title="app-switcher" onClick={() => this.emitAppButtonClick()}>
-        <z-icon name="app-switcher" class={this.theme} />
+      <button
+        title="app-switcher"
+        onClick={() => this.emitAppButtonClick()}
+      >
+        <z-icon
+          name="app-switcher"
+          class={this.theme}
+        />
       </button>
     );
   }

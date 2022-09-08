@@ -1,9 +1,9 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-myz-card-icon",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardIcon {
   /** icon name */
@@ -15,9 +15,16 @@ export class ZMyzCardIcon {
 
   render() {
     return (
-      <button disabled={this.isdisabled} aria-label={this.ariaLabel}>
+      <button
+        disabled={this.isdisabled}
+        aria-label={this.ariaLabel}
+      >
         <span>
-          <z-icon name={this.icon} width={16} height={16} />
+          <z-icon
+            name={this.icon}
+            width={16}
+            height={16}
+          />
         </span>
       </button>
     );

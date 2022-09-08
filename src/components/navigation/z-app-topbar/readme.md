@@ -1,9 +1,6 @@
 # z-topbar
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `theme`           | `theme`             | theme variant, default 'dark'                        | `ThemeVariant.dark \| ThemeVariant.light` | `ThemeVariant.dark` |
 | `topbarContent`   | `topbar-content`    | JSON string or MenuItem array to define topbar links | `MenuItem[] \| string`                    | `undefined`         |
 
-
 ## Dependencies
 
 ### Depends on
@@ -26,6 +22,7 @@
 - [z-divider](../../z-divider)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-app-topbar --> z-link
@@ -37,6 +34,6 @@ graph TD;
   style z-app-topbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

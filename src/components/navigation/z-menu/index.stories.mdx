@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { boolean } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {boolean} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Navigation/ZMenu" component="z-menu" />
+<Meta
+  title="Navigation/ZMenu"
+  component="z-menu"
+/>
 
 # ZMenu
 
@@ -15,19 +18,47 @@ import "./index";
         .floating=${boolean("floating", true)}
       >
         <h3>Menu label</h3>
-        <a href="" slot="item">Item 1</a>
-        <a href="" slot="item">Item 2</a>
+        <a
+          href=""
+          slot="item"
+          >Item 1</a
+        >
+        <a
+          href=""
+          slot="item"
+          >Item 2</a
+        >
         <z-menu-section slot="item">
           <h3>Item 3</h3>
-          <a href="" slot="item">Item 3.1</a>
-          <a href="" slot="item">Item 3.2</a>
+          <a
+            href=""
+            slot="item"
+            >Item 3.1</a
+          >
+          <a
+            href=""
+            slot="item"
+            >Item 3.2</a
+          >
         </z-menu-section>
         <z-menu-section slot="item">
           <h3>Item 4</h3>
-          <a href="" slot="item">Item 4.1</a>
-          <a href="" slot="item">Item 4.2</a>
+          <a
+            href=""
+            slot="item"
+            >Item 4.1</a
+          >
+          <a
+            href=""
+            slot="item"
+            >Item 4.2</a
+          >
         </z-menu-section>
-        <a href="" slot="item">Item 5</a>
+        <a
+          href=""
+          slot="item"
+          >Item 5</a
+        >
       </z-menu>
     `}
   </Story>
@@ -43,21 +74,45 @@ import "./index";
         />
         <h4 slot="header">Menu header</h4>
         <h3>Menu label</h3>
-        <a href="" slot="item">Item 1</a>
-        <a href="" slot="item">Item 2</a>
+        <a
+          href=""
+          slot="item"
+          >Item 1</a
+        >
+        <a
+          href=""
+          slot="item"
+          >Item 2</a
+        >
         <z-menu-section slot="item">
           <h3>Item 3</h3>
-          <a href="" slot="item">Item 3.1</a>
-          <a href="" slot="item">Item 3.2</a>
+          <a
+            href=""
+            slot="item"
+            >Item 3.1</a
+          >
+          <a
+            href=""
+            slot="item"
+            >Item 3.2</a
+          >
         </z-menu-section>
-        <a href="" slot="item">Item 4</a>
+        <a
+          href=""
+          slot="item"
+          >Item 4</a
+        >
       </z-menu>
     `}
   </Story>
   <Story name="ZMenu active without items">
     {html`
       <z-menu .active=${boolean("active", true)}>
-        <a href="https://cataas.com/cat/gif" target="_blank">Click me</a>
+        <a
+          href="https://cataas.com/cat/gif"
+          target="_blank"
+          >Click me</a
+        >
       </z-menu>
     `}
   </Story>

@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZInput } from "./index";
+import {ZInput} from "./index";
 
 describe("Suite test ZInput - textarea", () => {
   it("Test render ZInput textarea", async () => {

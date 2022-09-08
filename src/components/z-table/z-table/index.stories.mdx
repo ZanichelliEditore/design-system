@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { boolean, select, text } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {boolean, select, text} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Table/ZTable" component="z-table" />
+<Meta
+  title="Table/ZTable"
+  component="z-table"
+/>
 
 # ZTable
 
@@ -32,40 +35,24 @@ import "./index";
           </z=table-head>
           <z-table-row>
             <z-table-cell
-              padding="${select(
-                "padding",
-                ["x-small", "small", "medium", "large", "special"],
-                "medium"
-              )}"
+              padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
             >
               <span>1-1</span>
             </z-table-cell>
             <z-table-cell
-              padding="${select(
-                "padding",
-                ["x-small", "small", "medium", "large", "special"],
-                "medium"
-              )}"
+              padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
             >
               <span>1-2</span>
             </z-table-cell>
           </z-table-row>
           <z-table-row>
             <z-table-cell
-              padding="${select(
-                "padding",
-                ["x-small", "small", "medium", "large", "special"],
-                "medium"
-              )}"
+              padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
             >
               <span>2-1</span>
             </z-table-cell>
             <z-table-cell
-              padding="${select(
-                "padding",
-                ["x-small", "small", "medium", "large", "special"],
-                "medium"
-              )}"
+              padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
             >
               <span>2-2</span>
             </z-table-cell>
@@ -226,7 +213,12 @@ import "./index";
         />
         <div slot="error-action">
           <z-body level="{4}">
-            <a href="#" target="_blank">Clicca qui</a> per ricaricare la pagina
+            <a
+              href="#"
+              target="_blank"
+              >Clicca qui</a
+            >
+            per ricaricare la pagina
           </z-body>
         </div>
       </z-table>
@@ -238,10 +230,7 @@ import "./index";
       call-to-action-label="${text("call-to-action-label", "Action 1")}"
       call-to-action-two-label="${text("call-to-action-two-label", "Action 2")}"
       empty="true"
-      message="${text(
-        "message",
-        "Siamo spiacenti, al momento non sono presenti dati da visualizzare"
-      )}"
+      message="${text("message", "Siamo spiacenti, al momento non sono presenti dati da visualizzare")}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
     </z-table>`}
@@ -250,15 +239,9 @@ import "./index";
     {html`<z-table
       bordered="${boolean("bordered", true)}"
       call-to-action-label="${text("call-to-action-label", "Call to action")}"
-      call-to-action-two-label="${text(
-        "call-to-action-two-label",
-        "Call to action"
-      )}"
+      call-to-action-two-label="${text("call-to-action-two-label", "Call to action")}"
       empty="true"
-      message="${text(
-        "message",
-        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
-      )}"
+      message="${text("message", "Siamo spiacenti, al momento non sono presenti dati da visualizzare!")}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
       <z-table-head slot="table-header">
@@ -285,15 +268,9 @@ import "./index";
       <z-table
       bordered="${boolean("bordered", true)}"
       call-to-action-label="${text("call-to-action-label", "Call to action")}"
-      call-to-action-two-label="${text(
-        "call-to-action-two-label",
-        "Call to action"
-      )}"
+      call-to-action-two-label="${text("call-to-action-two-label", "Call to action")}"
       empty="true"
-      message="${text(
-        "message",
-        "Siamo spiacenti, al momento non sono presenti dati da visualizzare!"
-      )}"
+      message="${text("message", "Siamo spiacenti, al momento non sono presenti dati da visualizzare!")}"
       subtitle="${text("subtitle", "Eventuale testo")}"
     >
       <z-table-head slot="table-header">

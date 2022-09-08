@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Notification/ZCandybar" component="z-candybar" />
+<Meta
+  title="Notification/ZCandybar"
+  component="z-candybar"
+/>
 
 # ZCandybar
 
@@ -12,15 +15,21 @@ import "./index";
   <Story name="z-candybar-full">
     {html`
       <z-candybar>
-        <div class="content" slot="content">
+        <div
+          class="content"
+          slot="content"
+        >
           <div>
             <h2>Titolo</h2>
             <div>
               <p>
-                Se continui a navigare ci permetti di farlo secondo le regole
-                spiegate nella nostra informativa sulla privacy relativa ai
-                &nbsp;
-                <a href="#" target="_blank">cookie</a>.
+                Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla
+                privacy relativa ai &nbsp;
+                <a
+                  href="#"
+                  target="_blank"
+                  >cookie</a
+                >.
               </p>
             </div>
           </div>

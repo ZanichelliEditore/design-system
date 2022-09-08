@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZMyzCardFooter } from "./index";
+import {ZMyzCardFooter} from "./index";
 
 describe("Suite test ZMyzCardFooter", () => {
   it("Test render ZMyzCardFooter con props", async () => {

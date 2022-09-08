@@ -1,15 +1,19 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, radios, boolean } from "@storybook/addon-knobs";
-import { PopoverPositions } from "../../beans/index";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, radios, boolean} from "@storybook/addon-knobs";
+import {PopoverPositions} from "../../beans/index";
 import "./index.stories.css";
 import "./index";
 
 ## Stories
 
-<Meta title="Deprecated/ZTooltipDeprecated" component="z-tooltip-deprecated" />
+<Meta
+  title="Deprecated/ZTooltipDeprecated"
+  component="z-tooltip-deprecated"
+/>
 
 # ZTooltip Deprecated
+
 ## This component is deprecated and will be removed from the library starting 15 October 2022.
 
 <Preview>
@@ -27,7 +31,10 @@ import "./index";
             <z-button-deprecated>Share</z-button-deprecated>
           </div>
         </z-tooltip-deprecated>
-        <z-icon id="icon" name="plus-square-filled"></z-icon>
+        <z-icon
+          id="icon"
+          name="plus-square-filled"
+        ></z-icon>
       </div>
     `}
   </Story>
@@ -45,7 +52,10 @@ import "./index";
         >
           <span>Open</span>
         </z-tooltip-deprecated>
-        <z-icon id="icon" name="informationsource"></z-icon>
+        <z-icon
+          id="icon"
+          name="informationsource"
+        ></z-icon>
       </div>
     `}
   </Story>

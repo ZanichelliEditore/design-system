@@ -1,17 +1,11 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-idiomatic-order",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-idiomatic-order", "stylelint-config-prettier"],
   "rules": {
     "declaration-block-single-line-max-declarations": 0,
     "no-descending-specificity": [
       true,
       {
-        "ignore": [
-          "selectors-within-list"
-        ]
+        "ignore": ["selectors-within-list"]
       }
     ],
     "csstools/value-no-unknown-custom-properties": [
@@ -24,7 +18,5 @@
       }
     ]
   },
-  "plugins": [
-    "stylelint-value-no-unknown-custom-properties"
-  ]
+  "plugins": ["stylelint-value-no-unknown-custom-properties"]
 }

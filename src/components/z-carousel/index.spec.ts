@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZCarousel } from "./index";
+import {ZCarousel} from "./index";
 
 describe("Suite test ZCarousel", () => {
   it("Test render empty ZCarousel", async () => {
@@ -36,8 +36,7 @@ describe("Suite test ZCarousel", () => {
       components: [ZCarousel],
       html: `<z-carousel is-loading='true' ghost-loading-height=200></z-carousel>`,
     });
-    expect(page.root)
-      .toEqualHtml(`<z-carousel is-loading="true" ghost-loading-height=200>
+    expect(page.root).toEqualHtml(`<z-carousel is-loading="true" ghost-loading-height=200>
       <div style="height: 200px;">
         <z-ghost-loading></z-ghost-loading>
         <div style="display: none;"></div>

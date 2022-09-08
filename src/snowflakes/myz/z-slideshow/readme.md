@@ -1,9 +1,6 @@
 # z-slideshow
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -12,14 +9,12 @@
 | `data`        | `data`        | array or JSON stringified images urls | `string \| string[]` | `undefined` |
 | `slideshowid` | `slideshowid` | slideshow id                          | `string`             | `undefined` |
 
-
 ## Slots
 
 | Slot             | Description                  |
 | ---------------- | ---------------------------- |
 | `"footer-left"`  | left content slot in footer  |
 | `"footer-right"` | right content slot in footer |
-
 
 ## Dependencies
 
@@ -28,12 +23,13 @@
 - [z-icon](../../../components/icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-slideshow --> z-icon
   style z-slideshow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

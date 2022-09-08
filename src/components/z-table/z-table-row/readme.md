@@ -1,9 +1,6 @@
 # z-table-row
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,13 +8,11 @@
 | -------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `expandedType` | `expanded-type` |             | `ZTableRowExpandedType.expandable \| ZTableRowExpandedType.none \| ZTableRowExpandedType.padding` | `ZTableRowExpandedType.none` |
 
-
 ## Events
 
 | Event    | Description | Type               |
 | -------- | ----------- | ------------------ |
 | `expand` |             | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -27,6 +22,7 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-table-row --> z-table-cell
@@ -36,6 +32,6 @@ graph TD;
   style z-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

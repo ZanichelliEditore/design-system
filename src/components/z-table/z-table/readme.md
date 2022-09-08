@@ -1,9 +1,6 @@
 # z-table
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -22,7 +19,6 @@
 | `message`              | `message`                  | Set message                | `string`  | `"Siamo spiacenti, al momento non sono presenti dati da visualizzare"`    |
 | `subtitle`             | `subtitle`                 | Set subtitle               | `string`  | `""`                                                                      |
 
-
 ## Events
 
 | Event             | Description                 | Type               |
@@ -30,14 +26,12 @@
 | `callToAction`    | remove call to action event | `CustomEvent<any>` |
 | `callToActionTwo` | remove call to action event | `CustomEvent<any>` |
 
-
 ## Slots
 
 | Slot              | Description                          |
 | ----------------- | ------------------------------------ |
 |                   | table elements                       |
 | `"sticky-footer"` | set the content of the sticky footer |
-
 
 ## Dependencies
 
@@ -48,6 +42,7 @@
 - [z-button](../../buttons/z-button)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-table --> z-body
@@ -59,6 +54,6 @@ graph TD;
   style z-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

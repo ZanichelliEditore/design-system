@@ -63,12 +63,7 @@
 }
 
 :host > div > div.content-wrapper > section.info-wrapper.hidden:after {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 0, 0, 0),
-    rgba(255, 0, 0, 0) 60%,
-    white
-  );
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0) 60%, white);
   content: "";
   position: absolute;
   pointer-events: none;
@@ -83,23 +78,13 @@
   justify-content: space-between;
 }
 
-:host
-  > div
-  > div.content-wrapper
-  > section
-  > span.license-heading
-  > span.expired {
+:host > div > div.content-wrapper > section > span.license-heading > span.expired {
   color: var(--color-secondary02);
   font-size: 12px;
   font-weight: 600;
 }
 
-:host
-  > div
-  > div.content-wrapper
-  > section
-  > span.license-heading
-  > span.expiring {
+:host > div > div.content-wrapper > section > span.license-heading > span.expiring {
   color: var(--color-warning01);
   font-size: 12px;
   font-weight: 600;

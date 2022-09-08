@@ -12,7 +12,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property       | Attribute      | Description                        | Type                                           | Default     |
@@ -30,13 +29,11 @@
 | `textcolor`    | `textcolor`    | link text variant (optional)       | `"black" \| "inverse" \| "primary" \| "white"` | `"primary"` |
 | `underline`    | `underline`    | draw underline on text (optional)  | `boolean`                                      | `false`     |
 
-
 ## Events
 
 | Event        | Description                           | Type               |
 | ------------ | ------------------------------------- | ------------------ |
 | `zLinkClick` | emitted on link click, returns linkId | `CustomEvent<any>` |
-
 
 ## Slots
 
@@ -44,25 +41,25 @@
 | ---- | ------------ |
 |      | link content |
 
-
 ## Dependencies
 
 ### Used by
 
- - [z-app-topbar](../z-app-topbar)
- - [z-footer](../../footer/z-footer)
- - [z-menu-dropdown](../z-menu-dropdown)
- - [z-modal-login](../../modal/z-modal-login)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
- - [z-panel-elem](../../panel/z-panel-elem)
- - [z-skip-to-content](../../z-skip-to-content)
- - [z-user-dropdown](../z-user-dropdown)
+- [z-app-topbar](../z-app-topbar)
+- [z-footer](../../footer/z-footer)
+- [z-menu-dropdown](../z-menu-dropdown)
+- [z-modal-login](../../modal/z-modal-login)
+- [z-myz-topbar](../../../snowflakes/myz/topbar)
+- [z-panel-elem](../../panel/z-panel-elem)
+- [z-skip-to-content](../../z-skip-to-content)
+- [z-user-dropdown](../z-user-dropdown)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   z-link --> z-icon
@@ -77,6 +74,6 @@ graph TD;
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

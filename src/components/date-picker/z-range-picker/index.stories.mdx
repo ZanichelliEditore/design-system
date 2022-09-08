@@ -1,7 +1,7 @@
-import { html } from "lit-html";
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 
-import { ZRangePickerMode } from "../../../beans";
+import {ZRangePickerMode} from "../../../beans";
 
 import "./index";
 import "../styles.css";
@@ -13,7 +13,7 @@ import "../index.stories.css";
   argTypes={{
     mode: {
       options: Object.values(ZRangePickerMode),
-      control: { type: "radio" },
+      control: {type: "radio"},
     },
     rangePickerId: {
       control: "text",
@@ -38,12 +38,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.rangePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
-          });
+        document.getElementById("${args.rangePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">
@@ -83,12 +81,10 @@ import "../index.stories.css";
   >
     {(args) => html`
       <script>
-        document
-          .getElementById("${args.rangePickerId}")
-          .addEventListener("dateSelect", (e) => {
-            const input = document.getElementById("output");
-            input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
-          });
+        document.getElementById("${args.rangePickerId}").addEventListener("dateSelect", (e) => {
+          const input = document.getElementById("output");
+          input.innerHTML = "[" + e.detail[0] + ", " + e.detail[1] + "]";
+        });
       </script>
       <div class="story-container">
         <div class="story-picker-container">

@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import {Component, Element, h, Host, Prop} from "@stencil/core";
 import classNames from "classnames";
 
 @Component({
@@ -11,8 +11,7 @@ export class ZTableEmptyBox {
   @Element() hostElement: HTMLElement;
 
   /** Sets main title message*/
-  @Prop() message?: string =
-    "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
+  @Prop() message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
 
   /** Sets message */
   @Prop() subtitle?: string = "";
@@ -29,19 +28,27 @@ export class ZTableEmptyBox {
   render() {
     return (
       <Host>
-        <z-body level={3} variant={"semibold"}>
+        <z-body
+          level={3}
+          variant={"semibold"}
+        >
           {this.message}
         </z-body>
         <br />
         {!!this.subtitle && (
-          <z-body level={4} variant={"regular"}>
+          <z-body
+            level={4}
+            variant={"regular"}
+          >
             {this.subtitle}
           </z-body>
         )}
         {(!!this.hasCta1Slot || !!this.hasCta2Slot) && (
-          <div class={classNames("cta", {
-            has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot
-          })}>
+          <div
+            class={classNames("cta", {
+              has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot,
+            })}
+          >
             <slot name="cta1"></slot>
             <slot name="cta2"></slot>
           </div>

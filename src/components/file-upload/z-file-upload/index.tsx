@@ -1,20 +1,6 @@
-import {
-  Component,
-  Prop,
-  h,
-  EventEmitter,
-  Event,
-  State,
-  Listen,
-  Element,
-} from "@stencil/core";
-import {
-  ButtonVariantEnum,
-  DeviceEnum,
-  DividerSize,
-  ZFileUploadTypeEnum,
-} from "../../../beans";
-import { getDevice } from "../../../utils/utils";
+import {Component, Prop, h, EventEmitter, Event, State, Listen, Element} from "@stencil/core";
+import {ButtonVariantEnum, DeviceEnum, DividerSize, ZFileUploadTypeEnum} from "../../../beans";
+import {getDevice} from "../../../utils/utils";
 
 @Component({
   tag: "z-file-upload",
@@ -24,8 +10,7 @@ import { getDevice } from "../../../utils/utils";
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
-  @Prop({ mutable: true, reflect: true }) type: ZFileUploadTypeEnum =
-    ZFileUploadTypeEnum.default;
+  @Prop({mutable: true, reflect: true}) type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
   @Prop() buttonVariant?: ButtonVariantEnum;
@@ -84,10 +69,7 @@ export class ZFileUpload {
 
   componentWillLoad() {
     this.invalidFiles = new Map<string, Array<string>>();
-    if (
-      this.type === ZFileUploadTypeEnum.dragdrop &&
-      getDevice() !== DeviceEnum.desktop
-    )
+    if (this.type === ZFileUploadTypeEnum.dragdrop && getDevice() !== DeviceEnum.desktop)
       this.type = ZFileUploadTypeEnum.default;
   }
 
@@ -101,9 +83,7 @@ export class ZFileUpload {
 
   handleAccessibility() {
     if (this.filesNumber > 0) {
-      (
-        this.el.querySelector("z-file:last-child z-chip button") as HTMLElement
-      ).focus();
+      (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
     } else {
       this.type === ZFileUploadTypeEnum.default
         ? this.button.shadowRoot.querySelector("button").focus()
@@ -141,7 +121,11 @@ export class ZFileUpload {
 
   renderTitle() {
     return (
-      <z-heading id="title" variant="semibold" level={2}>
+      <z-heading
+        id="title"
+        variant="semibold"
+        level={2}
+      >
         {this.mainTitle}
       </z-heading>
     );
@@ -149,7 +133,10 @@ export class ZFileUpload {
 
   renderDescription(variant, level) {
     return (
-      <z-body variant={variant} level={level}>
+      <z-body
+        variant={variant}
+        level={level}
+      >
         {this.description}
       </z-body>
     );
@@ -173,18 +160,17 @@ export class ZFileUpload {
 
     const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
 
-    return (
-      <z-body level={3}>
-        {fileFormatString || fileWeightString ? finalString : null}
-      </z-body>
-    );
+    return <z-body level={3}>{fileFormatString || fileWeightString ? finalString : null}</z-body>;
   }
 
   renderFileSection() {
     return (
       this.filesNumber > 0 && (
         <section class="files-container">
-          <z-heading variant="semibold" level={4}>
+          <z-heading
+            variant="semibold"
+            level={4}
+          >
             File appena caricati
           </z-heading>
           <div class="files">
@@ -231,7 +217,11 @@ export class ZFileUpload {
   renderUploadLink() {
     return [
       this.renderInput(),
-      <z-body class="upload-link-text" variant="regular" level={1}>
+      <z-body
+        class="upload-link-text"
+        variant="regular"
+        level={1}
+      >
         Trascinalo qui o{" "}
         <z-body
           tabIndex={0}
@@ -278,9 +268,7 @@ export class ZFileUpload {
 
   formatErrorString(key, value) {
     const bothErrors = value[0] && value[1] ? ", " : "";
-    return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${
-      value[1] ?? ""
-    } e non può quindi essere caricato.`;
+    return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${value[1] ?? ""} e non può quindi essere caricato.`;
   }
 
   handleErrorModalContent() {
@@ -290,7 +278,10 @@ export class ZFileUpload {
           <div class="files">
             {Array.from(this.invalidFiles).map(([key, value]) => {
               return (
-                <z-body variant="regular" level={3}>
+                <z-body
+                  variant="regular"
+                  level={3}
+                >
                   {this.formatErrorString(key, value)}
                 </z-body>
               );
@@ -303,23 +294,20 @@ export class ZFileUpload {
 
   render() {
     return [
-      <div tabIndex={0} class={`container ${this.type}`}>
+      <div
+        tabIndex={0}
+        class={`container ${this.type}`}
+      >
         {this.renderTitle()}
-        {this.type == ZFileUploadTypeEnum.default
-          ? this.renderDefaultMode()
-          : this.renderDragDropMode()}
+        {this.type == ZFileUploadTypeEnum.default ? this.renderDefaultMode() : this.renderDragDropMode()}
       </div>,
       !!this.invalidFiles.size && (
         <z-modal
           tabIndex={0}
           ref={(val) => (this.errorModal = val)}
           modaltitle="Attenzione"
-          onModalClose={() =>
-            (this.invalidFiles = new Map<string, Array<string>>())
-          }
-          onModalBackgroundClick={() =>
-            (this.invalidFiles = new Map<string, Array<string>>())
-          }
+          onModalClose={() => (this.invalidFiles = new Map<string, Array<string>>())}
+          onModalBackgroundClick={() => (this.invalidFiles = new Map<string, Array<string>>())}
         >
           {this.handleErrorModalContent()}
         </z-modal>

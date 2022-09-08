@@ -1,4 +1,4 @@
-:host>div {
+:host > div {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -6,11 +6,11 @@
   font-size: 12px;
 }
 
-:host>div>div {
+:host > div > div {
   width: 300px;
   margin: 5px;
 }
 
-:host>div>div>label {
+:host > div > div > label {
   margin: 0 10px;
 }

@@ -1,20 +1,23 @@
-import { html } from "lit-html";
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import { getThemesColorTokens } from "../utils/storybook-utils";
+import {html} from "lit-html";
+import {Meta, Story, Canvas} from "@storybook/addon-docs";
+import {getThemesColorTokens} from "../utils/storybook-utils";
 import "./index.stories.css";
 
 <Meta
   title="Themes/Colors"
   argTypes={{
     theme: {
-      control: { type: "inline-radio" },
+      control: {type: "inline-radio"},
       options: ["default", "theme-black-yellow"],
     },
   }}
 />
 
 <Canvas>
-  <Story name="Colors" args={{ theme: "default" }}>
+  <Story
+    name="Colors"
+    args={{theme: "default"}}
+  >
     {(args) => html`
       <div class=${args.theme}>
         <p>
@@ -35,8 +38,8 @@ import "./index.stories.css";
           theme.
         </p>
         <p>
-          On this page you can see which are the color tokens of both themes and
-          select them from the dropdown menu below.
+          On this page you can see which are the color tokens of both themes and select them from the dropdown menu
+          below.
         </p>
         <h3>Color Tokens</h3>
         <ul class="theme-list">

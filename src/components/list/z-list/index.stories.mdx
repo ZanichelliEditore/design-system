@@ -1,8 +1,11 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import "./index";
 
-<Meta title="List/ZList" component="z-list" />
+<Meta
+  title="List/ZList"
+  component="z-list"
+/>
 
 # ZList
 
@@ -88,18 +91,19 @@ import "./index";
           expandable
           align-button="left"
           expandable-style="accordion"
-          ><span>Elemento 1</span
-          ><span slot="inner-content"
-            >INNER CONTENT 1 BUTTON LEFT</span
-          ></z-list-element
+          ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1 BUTTON LEFT</span></z-list-element
         >
-        <z-list-element expandable align-button="right" expandable-style="menu"
-          ><span>Elemento 2</span
-          ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+        <z-list-element
+          expandable
+          align-button="right"
+          expandable-style="menu"
+          ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
         >
-        <z-list-element expandable align-button="right" expandable-style="menu"
-          ><span>Elemento 3</span
-          ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+        <z-list-element
+          expandable
+          align-button="right"
+          expandable-style="menu"
+          ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
         >
       </z-list-group>
     </z-list>`}
@@ -112,17 +116,23 @@ import "./index";
   <Story name="ZList-with-expandable-content-menu-style">
     {html`<z-list size="large">
       <z-list-group divider-type="element">
-        <z-list-element expandable expandable-style="menu" align-button="right"
-          ><span>Elemento 1</span
-          ><span slot="inner-content">INNER CONTENT 1</span></z-list-element
+        <z-list-element
+          expandable
+          expandable-style="menu"
+          align-button="right"
+          ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1</span></z-list-element
         >
-        <z-list-element expandable expandable-style="menu" align-button="right"
-          ><span>Elemento 2</span
-          ><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+        <z-list-element
+          expandable
+          expandable-style="menu"
+          align-button="right"
+          ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
         >
-        <z-list-element expandable expandable-style="menu" align-button="right"
-          ><span>Elemento 3</span
-          ><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+        <z-list-element
+          expandable
+          expandable-style="menu"
+          align-button="right"
+          ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
         >
       </z-list-group>
     </z-list>`}

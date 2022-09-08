@@ -1,9 +1,9 @@
-import { Component, Prop, h } from "@stencil/core";
+import {Component, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-myz-card-cover",
   styleUrl: "styles.css",
-  shadow: true
+  shadow: true,
 })
 export class ZMyzCardCover {
   /** image source */

@@ -1,18 +1,10 @@
-import {
-  Component,
-  h,
-  Prop,
-  State,
-  Watch,
-  Element,
-  Host,
-} from '@stencil/core';
-import { InfoRevealPosition, InfoRevealPositionBean } from "../../beans";
+import {Component, h, Prop, State, Watch, Element, Host} from "@stencil/core";
+import {InfoRevealPosition, InfoRevealPositionBean} from "../../beans";
 
 @Component({
-  tag: 'z-info-reveal',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-info-reveal",
+  styleUrl: "styles.css",
+  shadow: true,
 })
 
 /**
@@ -29,9 +21,9 @@ export class ZInfoReveal {
   @Element() el: HTMLElement;
 
   /** Name of the icon for the open button */
-  @Prop() icon?= 'informationsource';
+  @Prop() icon? = "informationsource";
 
-  @Prop({ reflect: true }) position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
+  @Prop({reflect: true}) position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
 
   /** Text that appears on closed panel next to the open button. */
   @Prop() label?: string;
@@ -48,9 +40,9 @@ export class ZInfoReveal {
   watchItems() {
     Array.from(this.el.children).forEach((child, index) => {
       if (this.currentIndex === index) {
-        child.setAttribute('data-current', '');
+        child.setAttribute("data-current", "");
       } else {
-        child.removeAttribute('data-current');
+        child.removeAttribute("data-current");
       }
     });
   }
@@ -82,21 +74,31 @@ export class ZInfoReveal {
   }
 
   render() {
-    return <Host open={this.open}>
-      <button class="z-info-reveal-trigger" onClick={this.openInfoBox.bind(this)}>
-        {this.label && <span class="z-info-reveal-label">{this.label}</span>}
-        <z-icon name={this.icon}></z-icon>
-      </button>
-      {this.open && <div
-        class="info-box"
-        onClick={this.next.bind(this)}
-        tabIndex={0}
-      >
-        <slot></slot>
-        <button class="z-info-reveal-close" onClick={this.closeInfoBox.bind(this)}>
-          <z-icon name="close"></z-icon>
+    return (
+      <Host open={this.open}>
+        <button
+          class="z-info-reveal-trigger"
+          onClick={this.openInfoBox.bind(this)}
+        >
+          {this.label && <span class="z-info-reveal-label">{this.label}</span>}
+          <z-icon name={this.icon}></z-icon>
         </button>
-      </div>}
-    </Host>;
+        {this.open && (
+          <div
+            class="info-box"
+            onClick={this.next.bind(this)}
+            tabIndex={0}
+          >
+            <slot></slot>
+            <button
+              class="z-info-reveal-close"
+              onClick={this.closeInfoBox.bind(this)}
+            >
+              <z-icon name="close"></z-icon>
+            </button>
+          </div>
+        )}
+      </Host>
+    );
   }
 }

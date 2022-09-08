@@ -1,27 +1,30 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Myz/MyzCard/ZMyzCard" component="z-myz-card" />
+<Meta
+  title="Myz/MyzCard/ZMyzCard"
+  component="z-myz-card"
+/>
 
-  # ZMyzCard
+# ZMyzCard
 
 <Preview>
   <Story name="z-myz-card">
     {html`
       <z-myz-card
-        cardtype="${text('cardtype', 'virtuale')}"
-        faded="${boolean('faded', false)}"
-        ishighlighted="${boolean('ishighlighted', false)}"
-        ispressed="${boolean('ispressed', true)}"
+        cardtype="${text("cardtype", "virtuale")}"
+        faded="${boolean("faded", false)}"
+        ishighlighted="${boolean("ishighlighted", false)}"
+        ispressed="${boolean("ispressed", true)}"
         >
         <z-myz-card-header
-          cardtype="${text('cardtype', 'reale')}"
-          faded="${boolean('faded', false)}"
-          titolo="${text('titolo', 'Card Header')}" />
+          cardtype="${text("cardtype", "reale")}"
+          faded="${boolean("faded", false)}"
+          titolo="${text("titolo", "Card Header")}" />
           <z-myz-card-icon icon="book-minus" slot="icon" />
         </z-myz-card-header>
         <z-myz-card-body>
@@ -46,5 +49,6 @@ import "./index";
   </Story>
 </Preview>
 
-  <Props of="z-myz-card" />
+{" "}
 
+<Props of="z-myz-card" />

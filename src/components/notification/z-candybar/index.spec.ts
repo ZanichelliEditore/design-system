@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZCandybar } from "./index";
+import {ZCandybar} from "./index";
 
 describe("Suite test ZCandybar", () => {
   it("Test render empty ZCandybar", async () => {

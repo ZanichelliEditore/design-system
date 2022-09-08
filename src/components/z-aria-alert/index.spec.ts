@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZAriaAlert } from "./index";
+import {ZAriaAlert} from "./index";
 
 describe("Suite test ZAriaAlert", () => {
   it("Test render ZAriaAlert", async () => {

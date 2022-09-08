@@ -1,9 +1,12 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, select } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta title="Myz/Pocket/ZMessagesPocket" component="z-messages-pocket" />
+<Meta
+  title="Myz/Pocket/ZMessagesPocket"
+  component="z-messages-pocket"
+/>
 
 # ZMessagesPocket
 
@@ -12,29 +15,19 @@ import "./index";
     {html`<z-messages-pocket
       pocketid="${text("pocketid", "my-pocket")}"
       messages="${text("messages", "3")}"
-      status="${select(
-        "status",
-        { preview: "preview", open: "open", closed: "closed" },
-        "preview"
-      )}"
+      status="${select("status", {preview: "preview", open: "open", closed: "closed"}, "preview")}"
     >
       <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus
-        accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at
-        imperdiet.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
       </z-pocket-message>
       <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus
-        accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at
-        imperdiet.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
       </z-pocket-message>
       <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        fermentum convallis ex, eu faucibus velit dignissim in. Quisque at risus
-        accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at
-        imperdiet.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
       </z-pocket-message>
     </z-messages-pocket>`}
   </Story>

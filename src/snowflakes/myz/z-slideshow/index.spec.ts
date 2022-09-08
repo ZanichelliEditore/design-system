@@ -1,12 +1,12 @@
-import { newSpecPage } from "@stencil/core/testing";
+import {newSpecPage} from "@stencil/core/testing";
 
-import { ZSlideshow } from "./index";
+import {ZSlideshow} from "./index";
 
 describe("Suite test ZSlideshow", () => {
   it("Test render ZSlideshow with data empty", async () => {
     const page = await newSpecPage({
       components: [ZSlideshow],
-      html: `<z-slideshow></z-slideshow>`
+      html: `<z-slideshow></z-slideshow>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -19,7 +19,7 @@ describe("Suite test ZSlideshow", () => {
   it("Test render ZSlideshow with data set", async () => {
     const page = await newSpecPage({
       components: [ZSlideshow],
-      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`
+      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -63,7 +63,7 @@ describe("Suite test ZSlideshow", () => {
   it("Test render ZSlideshow with data set and click on the last bullet", async () => {
     const page = await newSpecPage({
       components: [ZSlideshow],
-      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`
+      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`,
     });
 
     page.rootInstance.currentSlide = 2;
@@ -110,15 +110,11 @@ describe("Suite test ZSlideshow", () => {
   it("Test render ZSlideshow with data set and click on scroll right and left", async () => {
     const page = await newSpecPage({
       components: [ZSlideshow],
-      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`
+      html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`,
     });
 
-    const scrollRight = page.root.shadowRoot.querySelector(
-      "z-icon.right"
-    ) as HTMLElement;
-    const scrollLeft = page.root.shadowRoot.querySelector(
-      "z-icon.left"
-    ) as HTMLElement;
+    const scrollRight = page.root.shadowRoot.querySelector("z-icon.right") as HTMLElement;
+    const scrollLeft = page.root.shadowRoot.querySelector("z-icon.left") as HTMLElement;
     let lengthSlide = 3;
 
     while (lengthSlide > 0) {
@@ -131,19 +127,13 @@ describe("Suite test ZSlideshow", () => {
                  lengthSlide === 3 ? "disabled" : "false"
                } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
-                 <div class="${
-                   lengthSlide === 3 ? "false" : "hide"
-                 } slide" id="slide0">
+                 <div class="${lengthSlide === 3 ? "false" : "hide"} slide" id="slide0">
                    <img src="https://link1.png" style="width: undefinedpx;">
                  </div>
-                 <div class="${
-                   lengthSlide === 2 ? "false" : "hide"
-                 } slide" id="slide1">
+                 <div class="${lengthSlide === 2 ? "false" : "hide"} slide" id="slide1">
                    <img src="https://link2.png" style="width: undefinedpx;">
                  </div>
-                 <div class="${
-                   lengthSlide === 1 ? "false" : "hide"
-                 } slide" id="slide2">
+                 <div class="${lengthSlide === 1 ? "false" : "hide"} slide" id="slide2">
                    <img src="https://link3.png" style="width: undefinedpx;">
                  </div>
                </div>
@@ -157,15 +147,9 @@ describe("Suite test ZSlideshow", () => {
                </div>
                <div class="footerCenter">
                  <div class="bulletContainer">
-                   <a class="bullet ${
-                     lengthSlide === 3 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
-                   <a class="bullet ${
-                     lengthSlide === 2 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
-                   <a class="bullet ${
-                     lengthSlide === 1 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 3 ? "selected" : "false"}" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 2 ? "selected" : "false"}" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 1 ? "selected" : "false"}" role="button" tabindex="0"></a>
                  </div>
                </div>
                <div class="footerRight">
@@ -191,19 +175,13 @@ describe("Suite test ZSlideshow", () => {
                  lengthSlide === 3 ? "disabled" : "false"
                } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
-                 <div class="${
-                   lengthSlide === 3 ? "false" : "hide"
-                 } slide" id="slide0">
+                 <div class="${lengthSlide === 3 ? "false" : "hide"} slide" id="slide0">
                    <img src="https://link1.png" style="width: undefinedpx;">
                  </div>
-                 <div class="${
-                   lengthSlide === 2 ? "false" : "hide"
-                 } slide" id="slide1">
+                 <div class="${lengthSlide === 2 ? "false" : "hide"} slide" id="slide1">
                    <img src="https://link2.png" style="width: undefinedpx;">
                  </div>
-                 <div class="${
-                   lengthSlide === 1 ? "false" : "hide"
-                 } slide" id="slide2">
+                 <div class="${lengthSlide === 1 ? "false" : "hide"} slide" id="slide2">
                    <img src="https://link3.png" style="width: undefinedpx;">
                  </div>
                </div>
@@ -217,15 +195,9 @@ describe("Suite test ZSlideshow", () => {
                </div>
                <div class="footerCenter">
                  <div class="bulletContainer">
-                   <a class="bullet ${
-                     lengthSlide === 3 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
-                   <a class="bullet ${
-                     lengthSlide === 2 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
-                   <a class="bullet ${
-                     lengthSlide === 1 ? "selected" : "false"
-                   }" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 3 ? "selected" : "false"}" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 2 ? "selected" : "false"}" role="button" tabindex="0"></a>
+                   <a class="bullet ${lengthSlide === 1 ? "selected" : "false"}" role="button" tabindex="0"></a>
                  </div>
                </div>
                <div class="footerRight">

@@ -1,39 +1,43 @@
-import { html } from 'lit-html';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
-import { boolean, object, text } from '@storybook/addon-knobs';
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {boolean, object, text} from "@storybook/addon-knobs";
 
 export const menuContent = [
   {
-    id: 'profile',
-    label: 'Profilo',
+    id: "profile",
+    label: "Profilo",
     link: `https://my.zanichelli.it/i-tuoi-dati`,
-    target: '_blank'
+    target: "_blank",
   },
   {
-    id: 'activate-resource',
-    label: 'Attiva opera',
+    id: "activate-resource",
+    label: "Attiva opera",
     link: `https://my.zanichelli.it`,
-    target: '_blank'
+    target: "_blank",
   },
   {
-    id: 'orders',
-    label: 'I tuoi ordini',
+    id: "orders",
+    label: "I tuoi ordini",
     link: `https://my.zanichelli.it/ordini-in-corso`,
-    target: '_blank'
+    target: "_blank",
   },
   {
-    id: 'logout',
-    label: 'Esci',
+    id: "logout",
+    label: "Esci",
   },
 ];
 
-export const darkBackground = 'rgb(41, 41, 41)';
-export const lightBackground = 'rgb(255, 255, 255)';
+export const darkBackground = "rgb(41, 41, 41)";
+export const lightBackground = "rgb(255, 255, 255)";
 export let useInverseColors = false;
-export const setUseInverseColors = () => useInverseColors = boolean('Use inverse color combination (useful for light themes)', false);
+export const setUseInverseColors = () =>
+  (useInverseColors = boolean("Use inverse color combination (useful for light themes)", false));
 import "./index";
 
-<Meta title="Navigation/ZUserDropdown" component="z-user-dropdown" />
+<Meta
+  title="Navigation/ZUserDropdown"
+  component="z-user-dropdown"
+/>
 
 # ZUserDropdown
 
@@ -44,21 +48,30 @@ The component is suitable for both dark and light themes, allowing to modify the
 
 <Preview>
   <Story name="ZUserDropdown, user not logged">
-    {html`
-      <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding: 16px; height: 40px; width: fit-content; border-radius: 8px;">
-        <z-user-dropdown logged=${false} use-inverse-colors=${setUseInverseColors()} />
-      </div>`
-    }
+    {html` <div
+      style="background-color: ${setUseInverseColors()
+        ? lightBackground
+        : darkBackground}; padding: 16px; height: 40px; width: fit-content; border-radius: 8px;"
+    >
+      <z-user-dropdown
+        logged=${false}
+        use-inverse-colors=${setUseInverseColors()}
+      />
+    </div>`}
   </Story>
   <Story name="ZUserDropdown, user logged">
     {html`
-      <div style="background-color: ${setUseInverseColors() ? lightBackground : darkBackground}; padding:16px; height: 40px; width: 400px; border-radius: 8px;">
+      <div
+        style="background-color: ${setUseInverseColors()
+          ? lightBackground
+          : darkBackground}; padding:16px; height: 40px; width: 400px; border-radius: 8px;"
+      >
         <z-user-dropdown
           logged=${true}
           use-inverse-colors=${setUseInverseColors()}
-          user-full-name=${text('User full name', 'Nome Cognome')}
-          user-email=${text('User email', 'mail@example.com')}
-          menu-content=${JSON.stringify(object('User menu items', menuContent))}
+          user-full-name=${text("User full name", "Nome Cognome")}
+          user-email=${text("User email", "mail@example.com")}
+          menu-content=${JSON.stringify(object("User menu items", menuContent))}
         />
       </div>
     `}

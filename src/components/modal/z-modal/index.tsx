@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
 
 /**
  * @slot modalContent - set the content of the modal
@@ -22,24 +22,28 @@ export class ZModal {
   /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
   emitModalClose() {
-    this.modalClose.emit({ modalid: this.modalid });
+    this.modalClose.emit({modalid: this.modalid});
   }
 
   /** emitted on modal header click, returns modalid */
   @Event() modalHeaderActive: EventEmitter;
   emitModalHeaderActive() {
-    this.modalHeaderActive.emit({ modalid: this.modalid });
+    this.modalHeaderActive.emit({modalid: this.modalid});
   }
 
   /** emitted on background click, returns modalid */
   @Event() modalBackgroundClick: EventEmitter;
   emitBackgroundClick() {
-    this.modalBackgroundClick.emit({ modalid: this.modalid });
+    this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 
   render() {
     return [
-      <div class="modal-container" id={this.modalid} role="dialog">
+      <div
+        class="modal-container"
+        id={this.modalid}
+        role="dialog"
+      >
         <header onClick={this.emitModalHeaderActive.bind(this)}>
           <div>
             {this.modaltitle && <h1>{this.modaltitle}</h1>}
@@ -63,7 +67,7 @@ export class ZModal {
         data-action="modalBackground"
         data-modal={this.modalid}
         onClick={this.emitBackgroundClick.bind(this)}
-      ></div>
+      ></div>,
     ];
   }
 }

@@ -1,11 +1,14 @@
-import { html } from "lit-html";
-import { Meta, Story, Preview, Props } from "@storybook/addon-docs";
-import { text, boolean } from "@storybook/addon-knobs";
+import {html} from "lit-html";
+import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {text, boolean} from "@storybook/addon-knobs";
 import "./index";
 
 ## Stories
 
-<Meta title="Footer/ZFooterLink" component="z-footer-link" />
+<Meta
+  title="Footer/ZFooterLink"
+  component="z-footer-link"
+/>
 
 # ZFooterLink
 
@@ -14,7 +17,8 @@ import "./index";
     {html`
       <div style="background: #ccc;">
         <z-footer-link href="${text("href", "https://www.zanichelli.it")}"
-          >${text("label", "zanichelli")}</z-footer-link>
+          >${text("label", "zanichelli")}</z-footer-link
+        >
       </div>
     `}
   </Story>

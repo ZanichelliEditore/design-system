@@ -22,7 +22,7 @@ ul > li > a {
   color: var(--color-primary01);
   letter-spacing: 0.16px;
   line-height: calc(var(--space-unit) * 2.5);
-  padding-top: calc(var(--space-unit) * .5);
+  padding-top: calc(var(--space-unit) * 0.5);
 }
 
 ul > li > a:before {
