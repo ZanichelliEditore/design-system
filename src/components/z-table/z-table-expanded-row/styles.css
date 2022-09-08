@@ -1,9 +1,9 @@
 :host {
-  background-color: var(--gray50);
   display: none;
+  background-color: var(--gray50);
 }
 
 :host > td > div.content-container {
-  box-shadow: var(--shadow-2);
   margin-bottom: calc(var(--space-unit) / 2);
+  box-shadow: var(--shadow-2);
 }

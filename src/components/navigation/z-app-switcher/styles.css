@@ -5,21 +5,21 @@
 
 button {
   display: flex;
-  justify-content: center;
   align-content: center;
-  background-color: transparent;
-  border: none;
+  justify-content: center;
   padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 button > z-icon {
   color: var(--bg-white);
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 button > z-icon.light {
   color: var(--bg-grey-900);
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 /* Tablet breakpoint */

@@ -7,14 +7,14 @@
 }
 
 button {
-  cursor: pointer;
   display: flex;
-  flex-direction: column;
   width: 100%;
+  flex-direction: column;
+  padding: 0;
+  border: none;
   margin: 0;
   background-color: var(--gray900);
-  border: none;
-  padding: 0;
+  cursor: pointer;
   letter-spacing: 0.16px;
   white-space: nowrap;
 }
@@ -25,9 +25,9 @@ button.inverse {
 
 button div.firstline {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   max-width: 200px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 button.open div.firstline {
@@ -44,18 +44,18 @@ z-icon.inverse {
 }
 
 ul {
-  box-sizing: border-box;
   position: absolute;
   left: 0;
-  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   width: 100%;
+  box-sizing: border-box;
+  padding: calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0 calc(var(--space-unit) * 2);
   margin: calc(var(--space-unit) * 1.5) 0 0 0;
   background-color: var(--gray900);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-sb);
   font-size: 14px;
-  line-height: 20px;
+  font-weight: var(--font-sb);
   letter-spacing: 0.3px;
+  line-height: 20px;
 }
 
 ul.inverse {
@@ -65,10 +65,10 @@ ul.inverse {
 ul > li {
   display: flex;
   justify-content: flex-end;
-  white-space: nowrap;
   padding: calc(var(--space-unit) * 1.5 - 1px) 0;
-  margin: 0;
   border-bottom: var(--border-base) solid var(--gray700);
+  margin: 0;
+  white-space: nowrap;
 }
 
 ul > li.inverse {
@@ -76,11 +76,11 @@ ul > li.inverse {
 }
 
 ul > li:first-child {
-  border-top: none;
-  padding-top: 0;
-  padding-bottom: calc(var(--space-unit) + 6px);
   flex-direction: column;
   align-items: end;
+  padding-top: 0;
+  padding-bottom: calc(var(--space-unit) + 6px);
+  border-top: none;
 }
 
 ul > li:last-child {
@@ -89,53 +89,53 @@ ul > li:last-child {
 }
 
 #guestbutton {
-  box-sizing: border-box;
   display: inline-flex;
+  width: 100%;
+  min-width: 32px;
+  height: 32px;
+  box-sizing: border-box;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-sb);
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.3px;
+  padding: 0 calc(var(--space-unit) * 2);
   border-width: var(--border-size-medium);
   border-style: solid;
-  border-radius: var(--border-radius);
-  vertical-align: middle;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-  fill: currentColor;
-  height: 32px;
-  min-width: 32px;
-  padding: 0 calc(var(--space-unit) * 2);
-  background-color: var(--color-white);
   border-color: var(--color-white);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
   color: var(--gray800);
+  cursor: pointer;
+  fill: currentcolor;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: var(--font-sb);
+  letter-spacing: 0.3px;
+  line-height: 1;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
 #guestbutton.inverse {
-  background-color: var(--gray800);
   border-color: var(--gray800);
+  background-color: var(--gray800);
   color: var(--color-white);
 }
 
 .userfullname {
-  padding: 0;
   overflow: hidden;
-  max-width: 250px;
-  text-overflow: ellipsis;
   width: 100%;
+  max-width: 250px;
+  padding: 0;
   color: var(--color-white);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-sb);
   font-size: 16px;
-  line-height: 24px;
+  font-weight: var(--font-sb);
   letter-spacing: 0;
+  line-height: 24px;
   text-align: right;
+  text-overflow: ellipsis;
 }
 
 .userfullname.inverse {
@@ -143,16 +143,16 @@ ul > li:last-child {
 }
 
 .useremail {
+  overflow: hidden;
+  width: 100%;
   color: var(--color-white);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   font-size: 12px;
-  line-height: 16px;
+  font-weight: var(--font-rg);
   letter-spacing: 0.32px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
+  line-height: 16px;
   text-align: right;
+  text-overflow: ellipsis;
 }
 
 .useremail.inverse {
@@ -188,10 +188,10 @@ ul > li:last-child {
   :host > div > div.open {
     position: absolute;
     right: calc(var(--space-unit) * -1);
-    box-shadow: 0px 2px calc(var(--space-unit) * 0.5) 0px rgba(0, 0, 0, 0.5);
-    background-color: var(--color-white);
-    margin-top: calc(var(--space-unit) / 2);
     padding: calc(var(--space-unit) / 2 + 1px) var(--space-unit) 0 var(--space-unit);
+    margin-top: calc(var(--space-unit) / 2);
+    background-color: var(--color-white);
+    box-shadow: 0 2px calc(var(--space-unit) * 0.5) 0 rgb(0 0 0 / 50%);
     transform: translate(0, -4px);
   }
 
@@ -203,19 +203,19 @@ ul > li:last-child {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: end;
     align-content: center;
+    align-items: end;
+    justify-content: flex-end;
   }
 
   button.open {
-    background-color: var(--color-white);
+    max-width: initial;
+    padding-right: var(--space-unit);
     border-top: var(--border-size-small) solid var(--color-white);
+    margin-left: var(--space-unit);
+    background-color: var(--color-white);
     border-top-left-radius: calc(var(--space-unit) * 0.5);
     border-top-right-radius: calc(var(--space-unit) * 0.5);
-    max-width: initial;
-    margin-left: var(--space-unit);
-    padding-right: var(--space-unit);
   }
 
   button.open.inverse {
@@ -240,13 +240,13 @@ ul > li:last-child {
   }
 
   .userfullname {
-    font-family: var(--font-family-sans);
-    font-weight: var(--font-sb);
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.16px;
-    padding: 0 calc(var(--space-unit) - 6px) 0 calc(var(--space-unit) - 2px);
     width: auto;
+    padding: 0 calc(var(--space-unit) - 6px) 0 calc(var(--space-unit) - 2px);
+    font-family: var(--font-family-sans);
+    font-size: 14px;
+    font-weight: var(--font-sb);
+    letter-spacing: 0.16px;
+    line-height: 20px;
   }
 
   .userfullname.inverse {
@@ -254,8 +254,8 @@ ul > li:last-child {
   }
 
   button.open div.userfullname {
-    color: var(--gray800);
     max-width: none;
+    color: var(--gray800);
     text-overflow: clip;
   }
 
@@ -264,8 +264,8 @@ ul > li:last-child {
   }
 
   .useremail {
-    padding-right: calc(var(--space-unit) * 3 - 2px);
     box-sizing: border-box;
+    padding-right: calc(var(--space-unit) * 3 - 2px);
   }
 
   button.open div.useremail {
@@ -279,8 +279,8 @@ ul > li:last-child {
   ul {
     position: initial;
     left: initial;
-    padding: 0;
     width: 100%;
+    padding: 0;
     background-color: var(--color-white);
   }
 
@@ -290,9 +290,9 @@ ul > li:last-child {
   }
 
   ul > li {
-    color: var(--gray800);
     border-bottom: var(--border-base) solid var(--gray400);
     margin: 0 var(--space-unit);
+    color: var(--gray800);
   }
 
   ul > li.inverse {
@@ -300,9 +300,9 @@ ul > li:last-child {
   }
 
   ul > li:first-child {
-    border-top: var(--border-base) solid var(--gray400);
     padding-top: calc(var(--space-unit) + 3px);
     padding-bottom: calc(var(--space-unit) + 5px);
+    border-top: var(--border-base) solid var(--gray400);
   }
 }
 

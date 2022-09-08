@@ -1,7 +1,7 @@
 :host {
+  color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  color: var(--color-text01);
 }
 
 :host > .container {
@@ -11,14 +11,14 @@
 
 :host .modalWrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 :host .modalWrapper > .files {
-  margin: calc(var(--space-unit) * 4);
   display: flex;
   flex-direction: column;
+  margin: calc(var(--space-unit) * 4);
   gap: var(--space-unit);
 }
 
@@ -63,9 +63,10 @@ input#fileElem {
 :host > .container > .files-container > .files {
   display: flex;
   flex-wrap: wrap;
-  row-gap: calc(var(--space-unit) * 2);
   column-gap: calc(var(--space-unit) * 2);
+  row-gap: calc(var(--space-unit) * 2);
 }
+
 :host > .container > .files-container > z-divider {
   margin-top: calc(var(--space-unit) * 3);
   margin-bottom: 0;

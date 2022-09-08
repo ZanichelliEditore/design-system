@@ -1,28 +1,28 @@
 :host {
+  width: 100%;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  width: 100%;
 }
 
 :host > div {
-  background: var(--color-surface01);
+  position: relative;
   width: calc(100% + calc(var(--space-unit) * 2));
-  margin-left: calc(-1 * var(--space-unit));
   height: 402px;
-  border: var(--border-size-small) solid var(--color-primary01);
-  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.35);
-  border-radius: 0px;
   box-sizing: border-box;
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
-  position: relative;
+  border: var(--border-size-small) solid var(--color-primary01);
+  margin-left: calc(-1 * var(--space-unit));
+  background: var(--color-surface01);
+  border-radius: 0;
+  box-shadow: 0 2px 4px 0 rgb(66 69 72 / 35%);
 }
 
 :host > div > z-icon {
-  fill: var(--color-primary01);
-  cursor: pointer;
   position: absolute;
   top: var(--space-unit);
   right: var(--space-unit);
+  cursor: pointer;
+  fill: var(--color-primary01);
 }
 
 :host > div {
@@ -30,26 +30,26 @@
 }
 
 :host > div > div.cta-wrapper {
-  align-self: end;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-self: end;
   justify-content: space-between;
 }
 
 :host > div > div.content-wrapper {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   align-self: stretch;
 }
 
 :host > div > div.content-wrapper > section {
+  box-sizing: border-box;
+  padding: var(--space-unit) 0;
   border-bottom: var(--border-size-small) solid var(--color-surface04);
   color: var(--color-surface05);
-  padding: var(--space-unit) 0;
   font-size: 14px;
   line-height: 20px;
-  box-sizing: border-box;
 }
 
 :host > div > div.content-wrapper > section:last-child {
@@ -62,15 +62,15 @@
   box-sizing: border-box;
 }
 
-:host > div > div.content-wrapper > section.info-wrapper.hidden:after {
-  background: linear-gradient(180deg, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0) 60%, white);
-  content: "";
+:host > div > div.content-wrapper > section.info-wrapper.hidden::after {
   position: absolute;
-  pointer-events: none;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgb(255 0 0 / 0%), rgb(255 0 0 / 0%) 60%, white);
+  content: "";
+  pointer-events: none;
 }
 
 :host > div > div.content-wrapper > section > span.license-heading {
@@ -92,7 +92,7 @@
 
 :host > div > div.content-wrapper > z-popover {
   position: absolute;
-  top: 0px;
+  top: 0;
   left: calc(var(--space-unit) * 4);
 }
 

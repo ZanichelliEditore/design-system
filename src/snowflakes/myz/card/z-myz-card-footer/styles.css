@@ -1,18 +1,18 @@
 footer {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-  color: var(--color-surface05);
-  background-color: var(--color-surface01);
-  margin: 0px;
-  padding: 0px;
   position: relative;
   z-index: 5;
-  height: calc(var(--space-unit) * 6);
+  top: 0;
   width: auto;
-  top: 0px;
-  transition: height 500ms ease-in-out, top 500ms ease-in-out;
-  border-radius: 0px 0px var(--border-radius) var(--border-radius);
+  height: calc(var(--space-unit) * 6);
+  padding: 0;
   border-top: var(--border-size-medium) solid var(--color-surface03);
+  margin: 0;
+  background-color: var(--color-surface01);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  color: var(--color-surface05);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+  transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
 footer.real,
@@ -27,24 +27,24 @@ footer .bold {
 }
 
 footer > p {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-  font-size: 16px;
-  line-height: 22px;
-  height: 40px;
-  margin: 0px;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--space-unit) calc(var(--space-unit) * 2);
   overflow: hidden;
+  height: 40px;
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) var(--space-unit) calc(var(--space-unit) * 2);
+  margin: 0;
   background-color: var(--color-surface01);
+  font-family: var(--font-family-sans);
+  font-size: 16px;
+  font-weight: var(--font-rg);
+  line-height: 22px;
   transition: all 200ms linear;
 }
 
 footer.isopen > p {
+  /* TODO: non esiste l'equivalente nei token nuovi: implementare */
+  background-color: var(--bg-neutral-200);
   font-size: 14px;
   font-weight: var(--font-sb);
   transition: all 200ms linear;
-  /* TODO: non esiste l'equivalente nei token nuovi: implementare */
-  background-color: var(--bg-neutral-200);
 }
 
 footer.isopen.real > p,
@@ -62,8 +62,8 @@ footer .hidden {
 }
 
 footer > div.content {
-  height: 60px;
   overflow: hidden;
+  height: 60px;
 }
 
 footer > div.content > div:not(.slot-handler) {
@@ -71,26 +71,26 @@ footer > div.content > div:not(.slot-handler) {
 }
 
 footer > div.content > div > p {
-  font-size: 14px;
-  height: 20px;
-  line-height: 20px;
-  margin: 0px;
-  padding: 0px;
-  white-space: nowrap;
   overflow: hidden;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 footer > div.content > div > p.year_isbn {
-  padding-top: var(--space-unit);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-top: var(--space-unit);
 }
 
 footer > div.content > div > p.year_isbn > span.isbn {
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 footer.isopen > div.content > div:not(.slot-handler) {
@@ -99,26 +99,27 @@ footer.isopen > div.content > div:not(.slot-handler) {
 
 footer.isopen > div.content > div > p.authors {
   height: 40px;
-  white-space: initial;
   text-overflow: initial;
+  white-space: initial;
 }
 
 footer.isopen > div.content > div > p.year_isbn {
-  flex-direction: column;
   height: 50px;
-  padding-left: 0px;
+  flex-direction: column;
+  padding-left: 0;
 }
 
 footer.isopen > div.content > div > p.year_isbn > span.isbn {
   display: inline-grid;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 footer.isopen {
-  height: 295px;
   top: -212px;
+  height: 295px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
+
 footer.isopen.customContent {
   top: -292px;
 }
@@ -127,15 +128,16 @@ footer.isopen > div.content {
   height: 280px;
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
+
 footer.isopen.customContent > div.content {
   height: 230px;
 }
 
 .toggle {
   position: absolute;
+  z-index: 10;
   top: -24px;
   left: 16px;
-  z-index: 10;
 }
 
 .faded {
@@ -159,21 +161,22 @@ div.wrapper {
 }
 
 div.wrapper ::slotted([slot="content"]) {
-  display: block;
-  height: 112px;
-  width: 100%;
-  padding: 0 calc(var(--space-unit) * 2);
-  box-sizing: border-box;
-  border-top: var(--border-size-medium) solid transparent;
   position: absolute;
-  top: calc(var(--space-unit) * 2);
   z-index: 10;
+  top: calc(var(--space-unit) * 2);
+  display: block;
+  width: 100%;
+  height: 112px;
+  box-sizing: border-box;
+  padding: 0 calc(var(--space-unit) * 2);
+  border-top: var(--border-size-medium) solid transparent;
   background: var(--color-white);
 }
+
 div.wrapper.isopen ::slotted([slot="content"]) {
+  top: 0;
+  bottom: 0;
   height: 128px;
   padding: calc(var(--space-unit) * 2);
   border-color: var(--accent);
-  top: 0;
-  bottom: 0;
 }

@@ -5,9 +5,9 @@
 }
 
 :host {
+  position: relative;
   display: inline-flex;
   flex-direction: column;
-  position: relative;
 }
 
 ::slotted(a) {
@@ -21,12 +21,12 @@
 }
 
 .menu-label {
-  margin: 0;
   padding: 0;
-  color: inherit;
-  background: transparent;
   border: 0;
+  margin: 0;
+  background: transparent;
   border-radius: 0;
+  color: inherit;
   outline: none;
   text-align: left;
 }
@@ -37,11 +37,11 @@ button.menu-label {
 
 .menu-label:focus-within {
   z-index: 1;
-  box-shadow: var(--shadow-focus-primary);
-  margin-right: calc(var(--space-unit) * -0.5);
-  margin-left: calc(var(--space-unit) * -0.5);
   padding-right: calc(var(--space-unit) * 0.5);
   padding-left: calc(var(--space-unit) * 0.5);
+  margin-right: calc(var(--space-unit) * -0.5);
+  margin-left: calc(var(--space-unit) * -0.5);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .menu-label .menu-label-content {
@@ -69,7 +69,7 @@ button.menu-label {
 
 .menu-label z-icon {
   margin-left: calc(var(--space-unit) * 4);
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .content {
@@ -94,8 +94,8 @@ button.menu-label {
   position: absolute;
   top: 100%;
   left: 0;
-  box-shadow: var(--shadow-2);
   min-width: 100%;
+  box-shadow: var(--shadow-2);
 }
 
 .header {
@@ -106,15 +106,15 @@ button.menu-label {
 
 .header ::slotted(img[slot="header"]) {
   width: calc(var(--space-unit) * 11.25);
-  object-fit: contain;
   height: auto;
+  object-fit: contain;
 }
 
 .header ::slotted([slot="header"]:not(:first-child)) {
   margin: auto 0;
   margin-left: calc(var(--space-unit) * 2.5);
-  font-weight: var(--font-sb);
   font-size: var(--font-size-3);
+  font-weight: var(--font-sb);
   line-height: 1.5;
 }
 

@@ -7,13 +7,13 @@
 
 .z-carousel-items-container {
   display: flex;
-  overflow-x: scroll;
-  padding-inline-start: 0;
   margin: 0;
   list-style: none;
 
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  overflow-x: scroll;
+  padding-inline-start: 0;
   scrollbar-width: none; /* Firefox */
 }
 

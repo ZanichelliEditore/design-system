@@ -5,17 +5,17 @@ z-body {
 
 .theme-list {
   display: flex;
-  flex-direction: column;
   width: 400px;
+  flex-direction: column;
   padding: 0;
 }
 
 .theme-list > li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--gray200);
+  justify-content: space-between;
   padding: var(--space-unit) 0;
+  border-bottom: 1px solid var(--gray200);
 }
 
 .theme-list > li > code {
@@ -23,9 +23,9 @@ z-body {
 }
 
 .theme-list > li > span {
+  display: inline-block;
   width: 100px;
   height: 20px;
-  display: inline-block;
   border: 1px solid var(--gray400);
   border-radius: 4px;
 }

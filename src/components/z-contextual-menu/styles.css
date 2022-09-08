@@ -1,8 +1,8 @@
 :host {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -10,10 +10,10 @@
 button {
   width: 100%;
   height: 100%;
+  padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 0;
 }
 
 z-popover {
@@ -24,9 +24,9 @@ z-popover {
   position: relative;
   min-width: 112px;
   max-width: 280px;
-  white-space: nowrap;
   background-color: var(--color-surface02);
   box-shadow: var(--shadow-2);
+  white-space: nowrap;
 }
 
 .element-container:hover {
@@ -36,19 +36,19 @@ z-popover {
 
 .element-text {
   overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 14px;
+  text-overflow: ellipsis;
 }
 
 .element-container,
 .disabled-element-container {
   display: flex;
-  align-items: center;
-  gap: var(--space-unit);
-  fill: var(--color-disabled03);
-  padding: calc(var(--space-unit) / 2) var(--space-unit);
   min-height: calc(var(--space-unit) * 4);
   box-sizing: border-box;
+  align-items: center;
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  fill: var(--color-disabled03);
+  gap: var(--space-unit);
 }
 
 .element-container {

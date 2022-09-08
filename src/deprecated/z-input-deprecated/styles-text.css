@@ -5,9 +5,9 @@
 .textWrapper > div > input {
   width: 100%;
   height: calc(var(--space-unit) * 5.5);
-  margin: 0;
-  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
+  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
+  margin: 0;
 }
 
 .textWrapper > div > input.hasIcon,
@@ -26,10 +26,10 @@
 
 .textWrapper .iconsWrapper {
   position: absolute;
-  bottom: calc(var(--space-unit) * 1.5);
-  right: calc(var(--space-unit) * 1.5);
-  display: flex;
   z-index: 2;
+  right: calc(var(--space-unit) * 1.5);
+  bottom: calc(var(--space-unit) * 1.5);
+  display: flex;
 }
 
 .textWrapper .iconsWrapper > z-icon {
@@ -50,5 +50,5 @@
 .textWrapper > div > input:-webkit-autofill:hover,
 .textWrapper > div > input:-webkit-autofill:focus,
 .textWrapper > div > input:-webkit-autofill:active {
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
 }

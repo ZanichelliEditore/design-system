@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
-  background-color: var(--bg-white);
   border: var(--border-size-small) solid var(--gray400);
+  background-color: var(--bg-white);
   border-radius: 14px;
   color: var(--color-primary01);
   fill: var(--text-grey-800);
@@ -68,17 +68,17 @@
 
 :host > div {
   display: inline-flex;
-  align-items: center;
   min-height: 28px;
-  line-height: 28px;
+  align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
-  background-color: var(--bg-white);
   border: var(--border-size-small) solid var(--bg-grey-200);
+  background-color: var(--bg-white);
   border-radius: 14px;
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
   font-family: var(--dashboard-font);
   font-size: 14px;
+  line-height: 28px;
 }
 
 :host > div > z-icon {
@@ -89,22 +89,22 @@
 :host > button.default,
 :host > div.default {
   min-height: 44px;
-  line-height: 44px;
   border-radius: 22px;
+  line-height: 44px;
 }
 
 :host > button.medium,
 :host > div.medium {
   min-height: 40px;
-  line-height: 40px;
   border-radius: 22px;
+  line-height: 40px;
 }
 
 :host > button.small,
 :host > div.small {
   min-height: 36px;
-  line-height: 36px;
   border-radius: 22px;
+  line-height: 36px;
 }
 
 /* Desktop breakpoint */
@@ -121,21 +121,21 @@
   :host > button.default,
   :host > div.default {
     min-height: 32px;
-    line-height: 32px;
     border-radius: 16px;
+    line-height: 32px;
   }
 
   :host > button.medium,
   :host > div.medium {
     min-height: 28px;
-    line-height: 28px;
     border-radius: 16px;
+    line-height: 28px;
   }
 
   :host > button.small,
   :host > div.small {
     min-height: 24px;
-    line-height: 24px;
     border-radius: 16px;
+    line-height: 24px;
   }
 }

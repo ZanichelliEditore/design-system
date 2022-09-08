@@ -1,13 +1,13 @@
 :host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   position: fixed;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  z-index: 10000;
-  margin-bottom: calc(var(--space-unit) * 2);
   margin-top: calc(var(--space-unit) * 2);
+  margin-bottom: calc(var(--space-unit) * 2);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 ::slotted(z-toast-notification) {
@@ -21,17 +21,17 @@
 :host(.bottom-centre),
 :host(.bottom-right),
 :host(.bottom-left) {
-  justify-content: flex-end;
-  align-items: flex-end;
   bottom: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 :host(.top-left),
 :host(.top-right),
 :host(.top-centre) {
-  justify-content: flex-start;
-  align-items: flex-start;
   top: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 /* Tablet breakpoint */
@@ -41,47 +41,47 @@
   }
 
   :host(.top-centre) {
-    justify-content: flex-start;
-    align-items: center;
     top: 0;
     left: 50%;
+    align-items: center;
+    justify-content: flex-start;
     transform: translateX(-50%);
   }
 
   :host(.top-left) {
-    justify-content: flex-start;
-    align-items: flex-start;
     top: 0;
     left: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   :host(.top-right) {
-    justify-content: flex-start;
-    align-items: flex-end;
     top: 0;
     right: 0;
+    align-items: flex-end;
+    justify-content: flex-start;
   }
 
   :host(.bottom-centre) {
-    justify-content: flex-end;
-    align-items: center;
     bottom: 0;
     left: 50%;
+    align-items: center;
+    justify-content: flex-end;
     transform: translateX(-50%);
   }
 
   :host(.bottom-right) {
-    justify-content: flex-end;
-    align-items: flex-end;
-    bottom: 0;
     right: 0;
+    bottom: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 
   :host(.bottom-left) {
-    justify-content: flex-end;
-    align-items: flex-start;
     bottom: 0;
     left: 0;
+    align-items: flex-start;
+    justify-content: flex-end;
   }
 
   ::slotted(z-toast-notification) {

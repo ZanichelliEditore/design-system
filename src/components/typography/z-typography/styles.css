@@ -1,6 +1,6 @@
 :host > * {
-  font-family: var(--dashboard-font);
   margin: 0;
+  font-family: var(--dashboard-font);
 }
 
 :host(.regular) > * {

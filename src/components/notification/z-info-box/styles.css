@@ -4,11 +4,11 @@
 }
 
 :host > div {
-  background: var(--accent-lighter);
-  padding: calc(var(--space-unit) * 2);
-  border-radius: var(--border-radius);
   display: flex;
   width: inherit;
+  padding: calc(var(--space-unit) * 2);
+  background: var(--accent-lighter);
+  border-radius: var(--border-radius);
 }
 
 :host > div > slot {
@@ -17,7 +17,7 @@
 }
 
 :host > div > z-icon {
-  fill: var(--myz-blue);
-  cursor: pointer;
   margin-left: calc(var(--space-unit) * 2);
+  cursor: pointer;
+  fill: var(--myz-blue);
 }

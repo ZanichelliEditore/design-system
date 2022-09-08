@@ -5,20 +5,20 @@
 }
 
 :host li {
-  list-style-type: none;
   line-height: 14px;
+  list-style-type: none;
 }
 
 :host li > span {
-  line-height: 14px;
-  padding: calc(var(--space-unit) * 2) 0;
   display: flex;
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-rg);
-  font-size: 16px;
-  letter-spacing: 0.23px;
+  padding: calc(var(--space-unit) * 2) 0;
   color: var(--text-grey-800);
   fill: var(--text-grey-800);
+  font-family: var(--dashboard-font);
+  font-size: 16px;
+  font-weight: var(--font-rg);
+  letter-spacing: 0.23px;
+  line-height: 14px;
 }
 
 :host li > span.border {
@@ -40,11 +40,11 @@ a:active {
 }
 
 :host li span z-icon {
+  width: calc(var(--space-unit) * 2);
+  height: calc(var(--space-unit) * 2);
+  padding: 0 calc(var(--space-unit) * 1.5) 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
   color: var(--myz-blue);
   fill: var(--myz-blue);
-  height: calc(var(--space-unit) * 2);
-  width: calc(var(--space-unit) * 2);
-  padding: 0 calc(var(--space-unit) * 1.5) 0 0;
-  background-size: contain;
-  background-repeat: no-repeat;
 }

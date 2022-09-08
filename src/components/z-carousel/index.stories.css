@@ -1,8 +1,8 @@
 z-carousel li .carousel-box {
   width: 200px;
   height: 200px;
-  border-radius: var(--border-radius-small);
   background: red;
+  border-radius: var(--border-radius-small);
 }
 
 z-carousel li:nth-child(2) .carousel-box {

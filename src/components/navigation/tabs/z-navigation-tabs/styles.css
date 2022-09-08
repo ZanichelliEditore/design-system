@@ -1,11 +1,11 @@
 :host {
   position: relative;
-  display: flex;
-  flex-direction: row;
   z-index: 0;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  overflow: hidden;
 }
 
 :host,
@@ -20,24 +20,24 @@
 
 .navigation-button {
   position: absolute;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
   padding: 0;
-  background: var(--color-white);
   border: none;
-  outline: none;
-  fill: var(--color-primary01);
+  margin: 0;
+  background: var(--color-white);
   border-radius: var(--border-no-radius);
+  box-shadow: 0 0 4px 1px rgb(66 69 72 / 40%);
   cursor: pointer;
-  z-index: 1;
-  box-shadow: 0px 0px 4px 1px rgb(66, 69, 72, 0.4);
+  fill: var(--color-primary01);
+  outline: none;
 }
 
 .navigation-button:focus:focus-visible {
-  fill: var(--color-primary01);
   box-shadow: inset var(--shadow-focus-primary);
+  fill: var(--color-primary01);
 }
 
 .navigation-button:disabled {
@@ -46,9 +46,9 @@
 
 nav {
   display: flex;
+  overflow: auto;
   align-items: center;
   justify-content: flex-start;
-  overflow: auto;
   scroll-behavior: smooth;
 
   /* hide scrollbar in Firefox */
@@ -61,8 +61,8 @@ nav {
 
 :host([orientation="horizontal"]) .navigation-button {
   top: 0;
-  height: 100%;
   width: calc(var(--space-unit) * 4);
+  height: 100%;
 }
 
 :host([orientation="horizontal"]) .navigation-button:first-child {
@@ -75,14 +75,14 @@ nav {
 
 /* Orientation vertical */
 :host([orientation="vertical"]) {
-  flex-direction: column;
   width: fit-content;
+  flex-direction: column;
 }
 
 :host([orientation="vertical"]) nav {
+  height: 100%;
   flex-direction: column;
   align-items: stretch;
-  height: 100%;
 }
 
 :host([orientation="vertical"]) .navigation-button {

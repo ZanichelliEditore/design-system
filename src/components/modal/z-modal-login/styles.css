@@ -4,15 +4,15 @@
 }
 
 :host div.wrapper {
-  color: var(--text-grey-800);
-  padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2) calc(var(--space-unit) * 3)
-    calc(var(--space-unit) * 2);
-  box-sizing: border-box;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
   align-items: stretch;
+  justify-content: flex-start;
+  padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2) calc(var(--space-unit) * 3)
+    calc(var(--space-unit) * 2);
+  color: var(--text-grey-800);
 }
 
 z-button,
@@ -32,8 +32,8 @@ z-link,
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
   align-items: stretch;
+  justify-content: flex-start;
 }
 
 div.wrapper > form > div.username::slotted(z-input),
@@ -44,21 +44,21 @@ div.wrapper > form > div.password::slotted(z-input),
 }
 
 :host div.wrapper > form > z-link.forget {
-  font-size: 12px;
   align-self: flex-end;
+  font-size: 12px;
 }
 
 div.wrapper > form > div.login::slotted(z-button),
 :host div.wrapper > form > div.login z-button {
-  margin: calc(var(--space-unit) * 3) 0;
   align-self: flex-start;
+  margin: calc(var(--space-unit) * 3) 0;
 }
 
 :host div.wrapper > hr {
   width: 100%;
-  margin-bottom: calc(var(--space-unit) * 3);
   border: none;
   border-top: var(--border-size-medium) solid var(--bg-grey-200);
+  margin-bottom: calc(var(--space-unit) * 3);
   margin-block-start: unset;
 }
 
@@ -70,16 +70,16 @@ div.wrapper > div.signup::slotted(z-button),
 
 :host div.providers {
   display: grid;
-  grid-template-columns: 1fr;
+  gap: calc(var(--space-unit) * 2) 0;
   grid-auto-rows: auto;
-  gap: calc(var(--space-unit) * 2) 0px;
+  grid-template-columns: 1fr;
 }
 
 slot-fb[name="provider"] {
   display: grid;
-  grid-template-columns: 1fr;
+  gap: calc(var(--space-unit) * 2) 0;
   grid-auto-rows: auto;
-  gap: calc(var(--space-unit) * 2) 0px;
+  grid-template-columns: 1fr;
 }
 
 :host div.providers > z-body {
@@ -90,9 +90,9 @@ slot-fb[name="provider"] {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
   align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 :host div.wrapper > div.providers .zd > svg {
@@ -113,17 +113,17 @@ slot-fb[name="provider"] {
 
   :host div.providers {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: auto;
-    gap: var(--space-unit);
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: var(--space-unit);
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
   }
 
   :host div.providers > z-body {
-    grid-column-start: 1;
-    grid-column-end: 3;
     padding-bottom: var(--space-unit);
+    grid-column-end: 3;
+    grid-column-start: 1;
   }
 
   ::slotted([slot="provider"]) {
@@ -131,14 +131,14 @@ slot-fb[name="provider"] {
   }
 
   slot-fb[name="provider"] {
-    grid-column-start: 1;
-    grid-column-end: 3;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: auto;
-    gap: var(--space-unit);
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: var(--space-unit);
+    grid-auto-rows: auto;
+    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-template-columns: 1fr 1fr;
   }
 
   slot-fb[name="provider"] > * {

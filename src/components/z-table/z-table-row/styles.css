@@ -13,19 +13,17 @@ z-table-row[expanded-type="padding"] > z-table-cell:first-child {
   --z-icon-height: 16px;
 
   width: 24px;
-  padding-left: 16px;
-  padding-right: 0px;
   box-sizing: border-box;
-  text-align: center;
-
+  padding-right: 0;
+  padding-left: 16px;
   fill: var(--gray800);
-
+  text-align: center;
   user-select: none;
 }
 
 .z-icon-placeholder {
   width: 24px;
-  padding-right: 0px;
+  padding-right: 0;
 }
 
 z-table-row[expanded-type="expandable"] > z-table-cell:nth-child(2),

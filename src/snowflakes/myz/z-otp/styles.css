@@ -9,23 +9,23 @@
 }
 
 input {
-  height: 72px;
   width: calc(var(--space-unit) * 5);
-  font-size: 32px;
-  font-weight: 300;
-  font-family: var(--font-family-sans);
-  text-align: center;
-  caret-color: transparent;
+  height: 72px;
   box-sizing: border-box;
   padding: 0;
+  caret-color: transparent;
   color: var(--color-surface05);
+  font-family: var(--font-family-sans);
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
 }
 
 input.error {
   border: 1px solid;
-  border-radius: 4px;
   border-color: var(--color-error01);
   background-color: var(--color-error-inverse);
+  border-radius: 4px;
 }
 
 input:not(:last-of-type) {

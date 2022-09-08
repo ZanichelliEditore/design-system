@@ -1,11 +1,11 @@
 :host {
-  display: block;
   position: sticky;
   left: 0;
+  display: block;
   padding: var(--basex2);
-  background-color: var(--bg-white);
+  border-width: var(--border-size-small) 0 var(--border-base);
   border-style: solid;
   border-color: var(--gray200);
-  border-width: var(--border-size-small) 0 var(--border-base);
+  background-color: var(--bg-white);
   font-weight: var(--font-rg);
 }

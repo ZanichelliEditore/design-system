@@ -2,13 +2,13 @@
   --z-notification--top-offset: 0;
 
   display: flex;
-  align-items: flex-start;
   width: 100%;
-  padding: calc(var(--space-unit) * 2);
-  font-family: var(--font-family-sans);
-  border-bottom: var(--border-size-medium) solid var(--color-surface03);
-  outline: none;
   box-sizing: border-box;
+  align-items: flex-start;
+  padding: calc(var(--space-unit) * 2);
+  border-bottom: var(--border-size-medium) solid var(--color-surface03);
+  font-family: var(--font-family-sans);
+  outline: none;
 }
 
 :host[sticky] {
@@ -38,8 +38,8 @@
   /* simulate the line-height of the text
   to make the icon look correctly aligned with it. */
   display: flex;
-  align-items: center;
   height: 20px;
+  align-items: center;
 }
 
 :host([type="success"]) .status-icon {
@@ -56,12 +56,12 @@
 
 :host > button,
 .content-container > button {
-  margin: 0;
   padding: 0;
-  background: transparent;
   border: none;
-  font-family: inherit;
+  margin: 0;
+  background: transparent;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .status-icon + .content-container {
@@ -70,11 +70,11 @@
 
 .content-container {
   display: flex;
+  flex: 1 auto;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   row-gap: calc(var(--space-unit) * 2);
-  flex-wrap: wrap;
-  flex: 1 auto;
 }
 
 .content-text {
@@ -82,16 +82,16 @@
   color: var(--color-text01);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
-  line-height: 20px;
   letter-spacing: 0.16px;
+  line-height: 20px;
 }
 
 .action-button {
   color: var(--color-primary01);
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
-  line-height: 16px;
   letter-spacing: 0.32px;
+  line-height: 16px;
 }
 
 .content-container + .close-button {

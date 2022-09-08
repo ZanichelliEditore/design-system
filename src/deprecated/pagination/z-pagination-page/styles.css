@@ -1,34 +1,34 @@
 :host {
+  display: inline-block;
   font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
-  display: inline-block;
 }
 
 :host > button {
-  cursor: pointer;
-  outline: none;
   display: inline-block;
-  box-sizing: border-box;
-  margin: 0;
+  min-width: 56px;
   height: 48px;
-  line-height: 48px;
-  text-align: center;
+  box-sizing: border-box;
   border: none;
   border-bottom: var(--border-size-large) solid transparent;
-  color: var(--color-primary01);
-  font-size: var(--font-size-2);
-  font-family: var(--font-family-sans);
-  font-weight: inherit;
+  margin: 0;
   background: transparent;
+  color: var(--color-primary01);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2);
+  font-weight: inherit;
+  line-height: 48px;
+  outline: none;
+  text-align: center;
   text-decoration: none;
   transition: border-bottom 0.2s ease, font-size 0.2s ease;
-  min-width: 56px;
 }
 
 :host > button[disabled] {
-  pointer-events: none;
-  cursor: default;
   color: var(--color-disabled02);
+  cursor: default;
+  pointer-events: none;
 }
 
 :host > button:hover {
@@ -40,8 +40,8 @@
 
 :host > button:focus {
   border-bottom: var(--border-size-large) solid var(--color-hover-light);
-  box-shadow: var(--shadow-focus-primary);
   background-color: var(--color-background);
+  box-shadow: var(--shadow-focus-primary);
   text-decoration: none;
 }
 

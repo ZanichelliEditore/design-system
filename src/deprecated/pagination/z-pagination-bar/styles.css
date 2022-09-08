@@ -1,23 +1,23 @@
 :host > div {
-  height: 48px;
   display: flex;
+  height: 48px;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
   align-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 :host > div > z-icon {
-  cursor: pointer;
   margin: calc(var(--space-unit) * 2) 0;
   color: var(--color-primary01);
+  cursor: pointer;
   fill: var(--color-primary01);
 }
 
 :host > div > z-icon.disabled {
-  cursor: default;
-  pointer-events: none;
   color: var(--color-disabled01);
+  cursor: default;
   fill: var(--color-disabled01);
+  pointer-events: none;
 }

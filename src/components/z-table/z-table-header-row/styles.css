@@ -4,8 +4,8 @@ z-table-header-row {
 
 z-table-header-row[expandable] > z-table-header:first-child {
   width: 40px;
-  user-select: none;
   box-sizing: border-box;
+  user-select: none;
 }
 
 z-table-header-row[expandable] > z-table-header:nth-child(2) {

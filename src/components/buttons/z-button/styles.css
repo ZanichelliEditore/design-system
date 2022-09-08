@@ -1,5 +1,6 @@
 :host {
   display: inline-block;
+
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: 0;
@@ -10,26 +11,26 @@
 }
 
 :host .z-button--container {
-  box-sizing: border-box;
   display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  width: 100%;
   padding: 0;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-sb);
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.3px;
   border-width: var(--border-size-medium);
   border-style: solid;
   border-radius: var(--border-radius);
-  text-transform: uppercase;
-  text-decoration: none;
   cursor: pointer;
-  white-space: nowrap;
+  fill: currentcolor;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: var(--font-sb);
+  letter-spacing: 0.3px;
+  line-height: 1;
   outline: none;
-  fill: currentColor;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 :host .z-button--container:focus:focus-visible {
@@ -46,103 +47,103 @@
 }
 
 :host([size="big"]) .z-button--container {
-  height: 44px;
   min-width: 44px;
+  height: 44px;
 }
 
 :host([size="small"]) .z-button--container {
-  height: 36px;
   min-width: 36px;
+  height: 36px;
 }
 
 :host([size="x-small"]) .z-button--container {
-  height: 32px;
   min-width: 32px;
+  height: 32px;
 }
 
 :host([variant="primary"]) .z-button--container {
-  background-color: var(--color-primary01);
   border-color: var(--color-primary01);
+  background-color: var(--color-primary01);
   color: var(--color-text-inverse);
 }
 
 @media (hover: hover) {
   :host([variant="primary"]) .z-button--container:hover {
-    background-color: var(--color-hover-primary);
     border-color: var(--color-hover-primary);
+    background-color: var(--color-hover-primary);
     color: var(--color-text-inverse);
   }
 }
 
 :host([variant="primary"]) .z-button--container:active {
-  background-color: var(--color-pressed-primary);
   border-color: var(--color-pressed-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-pressed-primary);
   box-shadow: var(--shadow-2);
+  color: var(--color-text-inverse);
 }
 
 :host([variant="primary"][disabled]:not([disabled="false"])) .z-button--container {
-  background-color: var(--color-disabled01);
   border-color: var(--color-disabled01);
+  background-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
 
 :host([variant="secondary"]) .z-button--container {
-  background-color: var(--color-surface01);
   border-color: var(--color-primary01);
+  background-color: var(--color-surface01);
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
   :host([variant="secondary"]) .z-button--container:hover {
-    background-color: var(--color-surface01);
     border-color: var(--color-hover-primary);
+    background-color: var(--color-surface01);
     color: var(--color-hover-primary);
   }
 }
 
 :host([variant="secondary"]) .z-button--container:active {
-  background-color: var(--color-surface01);
   border-color: var(--color-pressed-primary);
-  color: var(--color-pressed-primary);
+  background-color: var(--color-surface01);
   box-shadow: var(--shadow-2);
+  color: var(--color-pressed-primary);
 }
 
 :host([variant="secondary"][disabled]:not([disabled="false"])) .z-button--container {
-  background-color: var(--color-surface01);
   border-color: var(--color-disabled01);
+  background-color: var(--color-surface01);
   color: var(--color-disabled02);
 }
 
 :host([variant="tertiary"]) .z-button--container {
-  background-color: transparent;
   border-color: transparent;
+  background-color: transparent;
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
   :host([variant="tertiary"]) .z-button--container:hover {
-    background-color: var(--color-primary03);
     border-color: var(--color-primary03);
+    background-color: var(--color-primary03);
     color: var(--color-hover-primary);
   }
 }
 
 :host([variant="tertiary"]) .z-button--container:focus:focus-visible {
-  background-color: var(--color-surface01);
   border-color: var(--color-surface01);
+  background-color: var(--color-surface01);
   color: var(--color-primary01);
 }
 
 :host([variant="tertiary"]) .z-button--container:active {
-  background-color: var(--color-surface01);
   border-color: var(--color-surface01);
-  color: var(--color-primary01);
+  background-color: var(--color-surface01);
   box-shadow: var(--shadow-2);
+  color: var(--color-primary01);
 }
 
 :host([variant="tertiary"][disabled]:not([disabled="false"])) .z-button--container {
-  background-color: transparent;
   border-color: transparent;
+  background-color: transparent;
   color: var(--color-disabled02);
 }

@@ -1,10 +1,10 @@
 :host {
   display: inline-block;
   width: inherit;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-  font-size: var(--font-size-3);
   color: var(--color-text02);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
 }
 
 .selectWrapper > z-input {
@@ -16,18 +16,18 @@
 }
 
 .selectWrapper > div.closed {
-  height: 0;
   overflow: hidden;
+  height: 0;
 }
 
 .selectWrapper .ulScrollWrapper {
-  background: var(--color-surface01);
   position: absolute;
+  width: 100%;
+  box-sizing: border-box;
   padding: calc(var(--space-unit) * 0.5) var(--space-unit);
   border: var(--border-size-small) solid var(--gray200);
   border-top: none;
-  width: 100%;
-  box-sizing: border-box;
+  background: var(--color-surface01);
   outline: none;
 }
 
@@ -41,9 +41,9 @@
 
 .selectWrapper .ulScrollWrapper > z-list {
   position: relative;
-  padding: calc(var(--space-unit) * 0.5);
-  max-height: 240px;
   overflow: auto;
+  max-height: 240px;
+  padding: calc(var(--space-unit) * 0.5);
   outline: none;
 
   /* Firefox scrollbar */
@@ -51,8 +51,8 @@
 }
 
 .selectWrapper .ulScrollWrapper > z-list::-webkit-scrollbar {
-  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 

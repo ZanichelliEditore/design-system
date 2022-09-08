@@ -1,12 +1,12 @@
 :host {
-  box-sizing: border-box;
   position: relative;
   display: flex;
-  flex-direction: row;
   width: 100%;
   max-width: 100%;
-  margin: 0;
+  box-sizing: border-box;
+  flex-direction: row;
   padding: 0;
+  margin: 0;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
   list-style: none;

@@ -1,22 +1,21 @@
 button {
-  width: 42px;
-  height: calc(var(--space-unit) * 5);
   display: flex;
+  width: 42px;
+  width: calc(var(--space-unit) * 6);
+  height: calc(var(--space-unit) * 5);
+  height: calc(var(--space-unit) * 6);
   align-items: center;
   justify-content: center;
-  color: var(--color-primary01);
-  fill: var(--color-primary01);
-  cursor: pointer;
-  outline: none;
-
-  background: none;
+  padding: 0;
   border: none;
   border-left: var(--border-size-medium) solid var(--color-surface03);
-  border-radius: 0px var(--border-radius) 0px 0px;
   margin: 0;
-  padding: 0px;
-  width: calc(var(--space-unit) * 6);
-  height: calc(var(--space-unit) * 6);
+  background: none;
+  border-radius: 0 var(--border-radius) 0 0;
+  color: var(--color-primary01);
+  cursor: pointer;
+  fill: var(--color-primary01);
+  outline: none;
 }
 
 button:active,
@@ -27,12 +26,12 @@ button:focus {
 
 button > span {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 28px;
   height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
   border-radius: var(--border-radius);
-  border: 0px;
 }
 
 button:hover > span {
@@ -42,7 +41,7 @@ button:hover > span {
 button:focus > span {
   background: var(--color-surface01);
   border-radius: var(--border-radius);
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
 button:active > span {

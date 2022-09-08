@@ -17,15 +17,15 @@ input::-ms-reveal {
 input,
 textarea,
 .textareaWrapper {
+  box-sizing: border-box;
+  border: var(--border-size-small) solid var(--color-surface04);
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
-  border: var(--border-size-small) solid var(--color-surface04);
-  box-sizing: border-box;
   color: var(--color-text02);
   fill: var(--color-icon02);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
   outline: none;
 }
 
@@ -47,20 +47,20 @@ textarea:focus:focus-visible {
 
 /* STATUSES (success, warning, error) */
 .input_success {
-  background: var(--color-success-inverse);
   border-color: var(--color-success01);
+  background: var(--color-success-inverse);
   fill: var(--color-success01);
 }
 
 .input_error {
-  background: var(--color-error-inverse);
   border-color: var(--color-error01);
+  background: var(--color-error-inverse);
   fill: var(--color-error01);
 }
 
 .input_warning {
-  background: var(--color-warning-inverse);
   border-color: var(--color-warning01);
+  background: var(--color-warning-inverse);
   fill: var(--color-warning01);
 }
 
@@ -83,10 +83,10 @@ input[readonly],
 :host([disabled]:not([disabled="false"])) .textareaWrapper,
 :host([disabled]:not([disabled="false"])) z-icon {
   border-color: var(--color-disabled01);
+  box-shadow: none;
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
-  box-shadow: none;
 }
 
 :host([disabled]:not([disabled="false"])) input:hover {
@@ -99,21 +99,21 @@ textarea::placeholder {
   color: var(--color-text05);
 }
 
-::-webkit-input-placeholder,
+::input-placeholder,
 ::-webkit-textarea-placeholder {
   color: var(--color-text05);
 }
 
-:-ms-input-placeholder,
+:input-placeholder,
 :-ms-textarea-placeholder {
   color: var(--color-text05);
 }
 
-::-moz-placeholder {
+::placeholder {
   color: var(--color-text05);
 }
 
-:-moz-placeholder {
+:placeholder {
   color: var(--color-text05);
 }
 
@@ -125,8 +125,8 @@ label.inputLabel {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
-  text-transform: uppercase;
   text-align: left;
+  text-transform: uppercase;
 }
 
 :host([disabled]:not([disabled="false"])) label.inputLabel {

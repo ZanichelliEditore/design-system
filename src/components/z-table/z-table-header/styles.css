@@ -1,8 +1,8 @@
 :host {
   position: relative;
   display: table-cell;
-  background-color: var(--gray50);
   border-bottom: var(--border-size-medium) solid var(--gray200);
+  background-color: var(--gray50);
   font-family: var(--dashboard-font);
   font-weight: var(--font-sb);
   text-align: start;
@@ -20,6 +20,7 @@
 :host([padding="x-small"]) {
   padding: calc(var(--space-unit) * 0.5);
 }
+
 :host([padding="small"]) {
   padding: calc(var(--space-unit));
 }
@@ -40,8 +41,8 @@
 Sorting arrow
 */
 .arrow {
-  opacity: 1;
   padding-left: var(--space-unit);
+  opacity: 1;
 }
 
 /*
@@ -56,6 +57,7 @@ Contextual menu
 
 .popover-container z-popover {
   --z-popover-theme--surface: var(--gray200);
+
   position: relative;
   z-index: 1;
 }

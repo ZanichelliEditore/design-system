@@ -1,11 +1,11 @@
 :host {
   position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  z-index: 2;
 }
 
 :host > z-alert {
@@ -15,11 +15,11 @@
 .relativeContainer {
   position: relative;
   display: grid;
-  grid-template-columns: 18px auto 46px;
-  grid-template-rows: 1fr;
-  grid-column-gap: var(--space-unit);
   align-items: center;
   padding: 0;
+  grid-column-gap: var(--space-unit);
+  grid-template-columns: 18px auto 46px;
+  grid-template-rows: 1fr;
   outline: none;
 }
 
@@ -48,13 +48,13 @@
 }
 
 :host div > .contentAction {
+  height: 20px;
   color: var(--color-primary01);
+  cursor: pointer;
   font-size: 12px;
   font-weight: var(--font-sb);
-  height: 20px;
   letter-spacing: 0.32px;
   line-height: 20px;
-  cursor: pointer;
 }
 
 :host div > z-icon {

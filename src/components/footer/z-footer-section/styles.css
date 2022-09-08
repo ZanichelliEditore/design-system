@@ -4,32 +4,32 @@
 }
 
 :host > nav {
-  background-color: var(--gray900);
   display: flex;
-  flex-direction: column;
-  justify-items: flex-start;
   overflow: hidden;
-  margin: calc(var(--space-unit) / 2) 0;
+  flex-direction: column;
   padding: 0;
+  margin: calc(var(--space-unit) / 2) 0;
+  background-color: var(--gray900);
+  justify-items: flex-start;
 }
 
 :host > nav > .header {
   position: relative;
   display: flex;
+  height: calc(var(--space-unit) * 4);
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
   align-content: flex-start;
-  height: calc(var(--space-unit) * 4);
+  align-items: stretch;
+  justify-content: flex-start;
   border-bottom: 1px solid var(--gray50);
   line-height: 1;
 }
 
 :host > nav > .header > h2 {
+  margin: var(--space-unit) 0;
   color: var(--color-white);
   font-size: 16px;
-  margin: var(--space-unit) 0;
 }
 
 :host > nav > .header {
@@ -40,11 +40,11 @@
   position: absolute;
   top: var(--space-unit);
   right: 0;
-  margin: 0;
   padding: 0;
-  background: transparent;
   border: 0;
+  margin: 0;
   appearance: none;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -53,11 +53,11 @@
 }
 
 :host > nav > .content {
-  background-color: var(--gray800);
   display: none;
   height: 0;
-  transition: 0.3s ease;
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+  background-color: var(--gray800);
+  transition: 0.3s ease;
 }
 
 :host > nav > .content.show {
@@ -70,13 +70,13 @@
 @media only screen and (min-width: 768px) {
   :host > nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: var(--grid-tablet-margin);
     padding: calc(var(--space-unit) * 2) 0;
     border-bottom: 1px solid var(--color-white);
     margin: 0;
     background-color: var(--gray800);
+    grid-column-gap: var(--grid-tablet-margin);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
   }
 
   :host > nav > .header > button.toggleButton {
@@ -84,8 +84,8 @@
   }
 
   :host > nav > .header {
-    border-bottom: none;
     padding: 0;
+    border-bottom: none;
     margin: 0;
   }
 
@@ -95,19 +95,18 @@
 
   :host > nav > .content,
   :host > nav > .content.show {
-    grid-column: span 3;
+    display: grid;
     width: 100%;
+    height: auto;
+    align-content: stretch;
+    align-items: stretch;
     padding: 0;
     margin: 0;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    grid-column: span 3;
     grid-column-gap: var(--grid-tablet-margin);
     grid-row-gap: var(--space-unit);
-    height: auto;
-    align-items: stretch;
-    align-content: stretch;
-    margin: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -115,10 +114,10 @@
 @media only screen and (min-width: 1152px) {
   :host > nav {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 40px 4fr;
     padding: 0;
     border-bottom: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 4fr;
   }
 
   :host > nav > .header {
@@ -129,32 +128,31 @@
 
   :host > nav > .header > h2 {
     width: auto;
-    font-size: 16px;
-    line-height: 1;
-    font-weight: 600;
-    color: var(--gray50);
     padding: 0 0 var(--space-unit);
     margin: 0;
+    color: var(--gray50);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
   }
 
   :host > nav > .header::after {
-    content: "";
-    display: block;
     position: absolute;
     top: 100%;
     left: 0;
+    display: block;
     width: 120px;
     border-bottom: 1px solid var(--gray50);
+    content: "";
   }
 
   :host > nav > .content,
   :host > nav > .content.show {
-    grid-column: auto;
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
+    grid-column: auto;
   }
 }
 

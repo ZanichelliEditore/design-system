@@ -66,9 +66,9 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 .color-cover .cover-content {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
   padding: var(--space-unit);
 }
 
@@ -76,9 +76,9 @@ Unfortunately the `aspect-ratio` property is still experimental */
 ::slotted([slot="metadata"]),
 ::slotted([slot="title"]),
 ::slotted([slot="text"]) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
+  display: box;
   overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 ::slotted([slot="title"]:not(:last-child)),
@@ -132,8 +132,8 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 :host([variant="text"]) {
-  background-color: var(--z-card--text-background);
   border: var(--z-card--text-border);
+  background-color: var(--z-card--text-background);
   border-radius: var(--z-card--text-border-radius);
 }
 
@@ -200,7 +200,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   left: 0;
   justify-content: flex-end;
   padding: var(--space-unit);
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
 }
