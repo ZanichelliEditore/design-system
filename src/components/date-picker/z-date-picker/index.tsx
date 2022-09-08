@@ -52,7 +52,7 @@ export class ZDatePicker {
     if (ev.key === "Enter" || ev.key === " ") {
       !this.hasChildren && this.picker?.open();
 
-      let isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      const isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
 
       if (isCrossIconEntered) {
         this.inputError = false;
@@ -60,13 +60,13 @@ export class ZDatePicker {
         this.dateSelect.emit(null);
       }
 
-      let flatpickrDayPressed = document.activeElement.classList.contains("flatpickr-day");
+      const flatpickrDayPressed = document.activeElement.classList.contains("flatpickr-day");
       if (flatpickrDayPressed) {
         //Sistemare il toggle
       }
-      let isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
-      let isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
-      let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
+      const isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
+      const isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
+      const arrowPressed = isPrevArrowEntered || isNextArrowEntered;
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
@@ -76,8 +76,8 @@ export class ZDatePicker {
         isNextArrowEntered && this.picker?.changeYear(this.picker.currentYear + 1);
 
         if (arrowPressed) {
-          let calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
-          let months = calendar?.querySelectorAll(".flatpickr-monthSelect-month");
+          const calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
+          const months = calendar?.querySelectorAll(".flatpickr-monthSelect-month");
           months?.forEach((element) => {
             element.setAttribute("aria-label", `${element.innerHTML} ${this.picker?.currentYear}`);
           });
@@ -85,8 +85,8 @@ export class ZDatePicker {
           //Force check of the current day
           months &&
             Array.from(months).forEach((element, index) => {
-              let curMonth = new Date().getMonth();
-              let curYear = new Date().getFullYear();
+              const curMonth = new Date().getMonth();
+              const curYear = new Date().getFullYear();
 
               if (index === curMonth) {
                 if (this.picker?.currentYear === curYear) {
@@ -105,7 +105,7 @@ export class ZDatePicker {
   }
 
   componentWillLoad() {
-    let customToggle = this.element.querySelector("[slot=toggle]");
+    const customToggle = this.element.querySelector("[slot=toggle]");
     this.hasChildren = !!customToggle;
     this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
   }
@@ -167,11 +167,11 @@ export class ZDatePicker {
       text = "01-".concat(value.detail.value);
     }
 
-    let englishData = text.split("-");
-    let time = this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
-    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
+    const englishData = text.split("-");
+    const time = this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    const englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
 
-    let isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.dateTime);
+    const isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.dateTime);
 
     if (text === "") {
       this.inputError = false;

@@ -16,7 +16,7 @@ export class ZTableCell {
   /** Set padding size of cell, if special 0px padding will be set */
   @Prop({reflect: true}) padding: Size = Size.medium;
 
-  @State() isMenuOpened: boolean = false;
+  @State() isMenuOpened = false;
 
   handleMenu() {
     this.isMenuOpened = !this.isMenuOpened;

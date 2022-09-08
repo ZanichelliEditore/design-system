@@ -20,7 +20,7 @@ export class ZMyzListItem {
   /** data-action attribute (optional) */
   @Prop() action?: string;
   /** underlined style flag */
-  @Prop() underlined: boolean = true;
+  @Prop() underlined = true;
 
   /** emitted on list item link click, returns linkId */
   @Event() zListItemLinkClick: EventEmitter;

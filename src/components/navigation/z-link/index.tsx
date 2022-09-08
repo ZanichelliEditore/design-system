@@ -40,7 +40,7 @@ export class ZLink {
 
   @Element() hostElement: HostElement;
 
-  @State() iconSize: number = 18;
+  @State() iconSize = 18;
 
   constructor() {
     this.emitZLinkClick = this.emitZLinkClick.bind(this);

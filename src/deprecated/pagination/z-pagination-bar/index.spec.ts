@@ -104,7 +104,7 @@ describe("Suite test ZPaginationBar", () => {
       </z-pagination-bar>
     `);
 
-    let chevrons = page.root.shadowRoot.querySelector("div").querySelectorAll("z-icon");
+    const chevrons = page.root.shadowRoot.querySelector("div").querySelectorAll("z-icon");
 
     chevrons[1].click();
     await page.waitForChanges();
@@ -157,7 +157,7 @@ describe("Suite test ZPaginationBar", () => {
       </z-pagination-bar>
     `);
 
-    let chevrons = page.root.shadowRoot.querySelector("div").querySelectorAll("z-icon");
+    const chevrons = page.root.shadowRoot.querySelector("div").querySelectorAll("z-icon");
 
     //Mi sposto avanti di una pagina
     chevrons[1].click();

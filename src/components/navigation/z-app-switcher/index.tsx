@@ -9,7 +9,7 @@ import {ThemeVariant, ThemeVariantBean} from "../../../beans";
 export class ZAppSwitcher {
   /** theme variant, default 'dark' */
   @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
-  @State() isopen: boolean = false;
+  @State() isopen = false;
 
   constructor() {
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);

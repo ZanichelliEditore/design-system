@@ -27,7 +27,7 @@ export class ZTooltip {
    * The open state of the tooltip.
    */
   @Prop({reflect: true, mutable: true})
-  open: boolean = false;
+  open = false;
 
   /**
    * The selector or the element bound with the tooltip.

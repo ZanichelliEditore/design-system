@@ -47,7 +47,7 @@ export class ZToastNotification {
   private timeoutHandle: any;
   private startTime: number;
   private isMobile: boolean;
-  private isCloseEventCalled: boolean = false;
+  private isCloseEventCalled = false;
 
   @Watch("isdraggable")
   watchPropIsdraggable(newValue: boolean) {

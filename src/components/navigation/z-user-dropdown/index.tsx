@@ -19,7 +19,7 @@ export class ZUserDropdown {
   /** if inner components colors are inverted, or not, default false */
   @Prop() useInverseColors?: boolean = false;
 
-  @State() isMenuOpen: boolean = false;
+  @State() isMenuOpen = false;
   @State() isMobile: boolean;
 
   private linkArray: MenuItem[];

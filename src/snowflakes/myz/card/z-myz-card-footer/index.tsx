@@ -24,11 +24,11 @@ export class ZMyzCardFooter {
   /** footer opened by default (optional) */
   @Prop() opened?: boolean = false;
   /** display footer custom slotted content */
-  @Prop() customContent: boolean = false;
+  @Prop() customContent = false;
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
 
-  @State() allowTooltipAuthors: boolean = false;
+  @State() allowTooltipAuthors = false;
 
   private ellipsisAuthors?: HTMLElement;
 

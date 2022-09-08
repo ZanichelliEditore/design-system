@@ -21,7 +21,7 @@ export class ZAppHeader {
    * You can programmatically set it using an IntersectionObserver.
    * **Optional**
    */
-  @Prop({reflect: true}) stuck: boolean = false;
+  @Prop({reflect: true}) stuck = false;
 
   /**
    * Set the hero image source for the header.
@@ -35,7 +35,7 @@ export class ZAppHeader {
    * Useful for legibility purpose.
    * **Optional**
    */
-  @Prop({reflect: true}) overlay: boolean = false;
+  @Prop({reflect: true}) overlay = false;
 
   /**
    * Control menu bar position in the header.
@@ -50,17 +50,17 @@ export class ZAppHeader {
   /**
    * The opening state of the drawer.
    */
-  @Prop({reflect: true}) drawerOpen: boolean = false;
+  @Prop({reflect: true}) drawerOpen = false;
 
   /**
    * The stucked state of the bar.
    */
-  @State() stucked: boolean = false;
+  @State() stucked = false;
 
   /**
    * Current count of menu items.
    */
-  @State() menuLength: Number;
+  @State() menuLength: number;
 
   /**
    * Emitted when the `stucked` state of the header changes

@@ -30,7 +30,7 @@ export class ZInfoReveal {
 
   /** Whether the info panel is open. */
   @State()
-  open: boolean = false;
+  open = false;
 
   /** Current index for the info queue. */
   @State()

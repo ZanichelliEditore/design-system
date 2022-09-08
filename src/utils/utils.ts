@@ -73,7 +73,7 @@ export function getElementTree(elem: Element, tree: Element[] = []): null | Elem
 }
 
 export function getSiblings(elem: HTMLElement) {
-  let siblings = [];
+  const siblings = [];
   if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
     return siblings;
   }

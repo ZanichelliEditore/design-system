@@ -142,7 +142,7 @@ export class ZPagination {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
 
-    let chunks = [];
+    const chunks = [];
     const chunksCount = Math.ceil(pages.length / this._visiblePages);
     for (let index = 0; index < chunksCount; index++) {
       chunks.push(pages.slice(index * this._visiblePages, (index + 1) * this._visiblePages));

@@ -51,7 +51,7 @@ export class ZRangePicker {
 
   @Listen("keyup", {target: "body", capture: true})
   handleKeyDown(ev: KeyboardEvent) {
-    let currentPicker = this.activeInput === "start-input" ? this.firstPicker : this.lastPicker;
+    const currentPicker = this.activeInput === "start-input" ? this.firstPicker : this.lastPicker;
 
     this.getFocusedInput();
 
@@ -69,7 +69,7 @@ export class ZRangePicker {
         currentPicker?.open();
       }
 
-      let isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      const isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
 
       if (isCrossIconEntered) {
         if (this.activeInput === "start-input") {
@@ -84,9 +84,9 @@ export class ZRangePicker {
         }
       }
 
-      let isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
-      let isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
-      let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
+      const isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
+      const isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
+      const arrowPressed = isPrevArrowEntered || isNextArrowEntered;
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
@@ -100,7 +100,7 @@ export class ZRangePicker {
   }
 
   setupPickers() {
-    let config = {
+    const config = {
       enableTime: this.mode === ZRangePickerMode.dateTime,
       locale: Italian,
       allowInput: true,
@@ -110,9 +110,9 @@ export class ZRangePicker {
       minuteIncrement: 1,
       time_24hr: true,
       onValueUpdate: (_selectedDates, _dateStr, _instance) => {
-        let firstInputActive = this.activeInput === "start-input";
-        let firstDate = this.firstPicker.selectedDates[0];
-        let lastDate = this.lastPicker.selectedDates[0];
+        const firstInputActive = this.activeInput === "start-input";
+        const firstDate = this.firstPicker.selectedDates[0];
+        const lastDate = this.lastPicker.selectedDates[0];
 
         if (+firstDate > +lastDate) {
           if (firstInputActive) {
@@ -168,9 +168,9 @@ export class ZRangePicker {
   }
 
   onDateSelect() {
-    let firstInputActive = this.activeInput === "start-input";
-    let firstDate = this.firstPicker.selectedDates[0];
-    let lastDate = this.lastPicker.selectedDates[0];
+    const firstInputActive = this.activeInput === "start-input";
+    const firstDate = this.firstPicker.selectedDates[0];
+    const lastDate = this.lastPicker.selectedDates[0];
 
     if (+firstDate > +lastDate) {
       if (firstInputActive) {
@@ -188,13 +188,13 @@ export class ZRangePicker {
   }
 
   disableDates(date, index) {
-    let calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
+    const calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
 
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
-      let calendarDate = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
+      const calendarDate = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
 
-      let breakpoint = this.getDateWithoutTime(date);
-      let inRange = index === 0 ? calendarDate > breakpoint : calendarDate < breakpoint;
+      const breakpoint = this.getDateWithoutTime(date);
+      const inRange = index === 0 ? calendarDate > breakpoint : calendarDate < breakpoint;
 
       if (inRange) {
         element.classList.toggle("flatpickr-disabled", true);
@@ -214,22 +214,22 @@ export class ZRangePicker {
   }
 
   printDate(firstDate, lastDate) {
-    let firstDateString = firstDate ? this.formatDate(firstDate) : null;
-    let lastDateString = lastDate ? this.formatDate(lastDate) : null;
+    const firstDateString = firstDate ? this.formatDate(firstDate) : null;
+    const lastDateString = lastDate ? this.formatDate(lastDate) : null;
 
     this.dateSelect.emit([firstDateString, lastDateString]);
   }
 
   getTime() {
-    let hour = (this.element.getElementsByClassName("flatpickr-hour")[0] as HTMLInputElement).value;
+    const hour = (this.element.getElementsByClassName("flatpickr-hour")[0] as HTMLInputElement).value;
 
-    let minutes = (this.element.getElementsByClassName("flatpickr-minute")[0] as HTMLInputElement).value;
+    const minutes = (this.element.getElementsByClassName("flatpickr-minute")[0] as HTMLInputElement).value;
 
     return `${hour}:${minutes}`;
   }
 
   getDateWithoutTime(date) {
-    let newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
+    const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
     return newDate;
   }
 
@@ -280,11 +280,11 @@ export class ZRangePicker {
   setRangeStyle(index) {
     Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element: HTMLElement) => {
       Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
-        let hasFirstDate = this.firstPicker.selectedDates.length === 1;
-        let hasLastDate = this.lastPicker.selectedDates.length === 1;
+        const hasFirstDate = this.firstPicker.selectedDates.length === 1;
+        const hasLastDate = this.lastPicker.selectedDates.length === 1;
         let firstDate;
         let lastDate;
-        let date = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
+        const date = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
 
         if (hasFirstDate) {
           firstDate = this.getDateWithoutTime(this.firstPicker.selectedDates[0]);
@@ -323,14 +323,14 @@ export class ZRangePicker {
   }
 
   onStopTyping(value) {
-    let text = value.detail.value.replace("/", "-");
-    let englishData = text.split("-");
-    let time = this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
-    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
+    const text = value.detail.value.replace("/", "-");
+    const englishData = text.split("-");
+    const time = this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    const englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
 
-    let isValidDate = validateDate(text, this.mode === ZRangePickerMode.dateTime);
+    const isValidDate = validateDate(text, this.mode === ZRangePickerMode.dateTime);
 
-    let date = Date.parse(englishParsedData).toString();
+    const date = Date.parse(englishParsedData).toString();
 
     if (this.activeInput === "start-input") {
       if (text === "") {

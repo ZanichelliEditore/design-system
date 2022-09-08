@@ -12,7 +12,7 @@ export class ZSelect {
   @Element() element: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = `id-${randomId()}`;
+  @Prop() htmlid = `id-${randomId()}`;
   /** the input select options */
   @Prop() items: SelectItemBean[] | string;
   /** the input name */
@@ -38,7 +38,7 @@ export class ZSelect {
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
 
-  @State() isOpen: boolean = false;
+  @State() isOpen = false;
   @State() selectedItem: null | SelectItemBean = null;
   @State() searchString: null | string;
 
@@ -186,7 +186,7 @@ export class ZSelect {
     if (focusElem) focusElem.focus();
   }
 
-  toggleSelectUl(selfFocusOnClose: boolean = false) {
+  toggleSelectUl(selfFocusOnClose = false) {
     if (this.disabled || this.readonly) return;
 
     if (!this.isOpen) {

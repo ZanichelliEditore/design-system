@@ -28,10 +28,10 @@ export class ZFileUpload {
   @Prop() description?: string;
 
   /** Number of files added by the user */
-  @State() filesNumber: number = 0;
+  @State() filesNumber = 0;
 
   /** List of files not allowed to be uploaded */
-  @State() invalidFiles: Map<string, Array<string>>;
+  @State() invalidFiles: Map<string, string[]>;
 
   @Element() el: HTMLElement;
 
@@ -68,7 +68,7 @@ export class ZFileUpload {
   }
 
   componentWillLoad() {
-    this.invalidFiles = new Map<string, Array<string>>();
+    this.invalidFiles = new Map<string, string[]>();
     if (this.type === ZFileUploadTypeEnum.dragdrop && getDevice() !== DeviceEnum.desktop)
       this.type = ZFileUploadTypeEnum.default;
   }
@@ -91,8 +91,8 @@ export class ZFileUpload {
     }
   }
 
-  checkFiles(files: Array<File>): Map<string, Array<string>> {
-    let errors = new Map<string, Array<string>>();
+  checkFiles(files: File[]): Map<string, string[]> {
+    const errors = new Map<string, string[]>();
     const sizeErrorString = `supera i ${this.fileMaxSize}MB`;
     const formatErrorString = " ha un'estensione non prevista";
     files.forEach((file: File) => {
@@ -306,8 +306,8 @@ export class ZFileUpload {
           tabIndex={0}
           ref={(val) => (this.errorModal = val)}
           modaltitle="Attenzione"
-          onModalClose={() => (this.invalidFiles = new Map<string, Array<string>>())}
-          onModalBackgroundClick={() => (this.invalidFiles = new Map<string, Array<string>>())}
+          onModalClose={() => (this.invalidFiles = new Map<string, string[]>())}
+          onModalBackgroundClick={() => (this.invalidFiles = new Map<string, string[]>())}
         >
           {this.handleErrorModalContent()}
         </z-modal>

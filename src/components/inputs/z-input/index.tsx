@@ -12,7 +12,7 @@ export class ZInput {
   @Element() hostElement: HTMLElement;
 
   /** the id of the input element */
-  @Prop() htmlid: string = `id-${randomId()}`;
+  @Prop() htmlid = `id-${randomId()}`;
   /** input types */
   @Prop() type: InputTypeBean;
   /** the input name */
@@ -56,11 +56,11 @@ export class ZInput {
   /** pattern value (optional): available for tel, text, search, url, email, password*/
   @Prop() pattern?: string;
 
-  @State() isTyping: boolean = false;
-  @State() passwordHidden: boolean = true;
+  @State() isTyping = false;
+  @State() passwordHidden = true;
 
   private timer;
-  private typingtimeout: number = 300;
+  private typingtimeout = 300;
 
   @Listen("inputCheck", {target: "document"})
   inputCheckListener(e: CustomEvent) {

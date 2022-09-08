@@ -23,7 +23,7 @@ export class ZPopoverDeprecated {
   /** [optional] Sets padding for Popover container */
   @Prop() padding?: string = "8px";
 
-  @State() isVisible: boolean = false;
+  @State() isVisible = false;
   @State() popoverPosition: PopoverPosition = this.position;
 
   /** Emitted on popover click, returns isVisible state */

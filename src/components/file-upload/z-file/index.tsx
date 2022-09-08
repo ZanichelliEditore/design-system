@@ -17,9 +17,9 @@ export class ZFile {
 
   @Prop() fileNumber: number;
 
-  @State() allowPopover: boolean = false;
+  @State() allowPopover = false;
 
-  @State() popoverVisible: boolean = false;
+  @State() popoverVisible = false;
 
   @Element() el: HTMLElement;
 

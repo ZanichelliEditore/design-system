@@ -63,7 +63,7 @@ describe("Suite test ZMenuDropdown", () => {
   </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
-    let image = page.root.shadowRoot.querySelector("a").querySelector("div").querySelector("span.arrow");
+    const image = page.root.shadowRoot.querySelector("a").querySelector("div").querySelector("span.arrow");
     image.click();
     await page.waitForChanges();
 

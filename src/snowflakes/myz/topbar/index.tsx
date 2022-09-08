@@ -32,12 +32,12 @@ export class ZMyzTopbar {
 
   @State() activeMenuItem: MenuItem;
   @State() currentMenuItem: MenuItem;
-  @State() isMobile: boolean = true;
-  @State() isMenuMobileOpen: boolean = false;
+  @State() isMobile = true;
+  @State() isMenuMobileOpen = false;
   private intMenuData: MenuItem[] = [];
   private extMenuData: MenuItem[] = [];
   private userData: HeaderUserData;
-  private isLogged: boolean = false;
+  private isLogged = false;
 
   @Element() private element: HTMLElement;
 

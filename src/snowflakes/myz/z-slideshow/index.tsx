@@ -21,7 +21,7 @@ export class ZSlideshow {
   @Prop() data: string[] | string;
 
   @State() device: DeviceType;
-  @State() currentSlide: number = 0;
+  @State() currentSlide = 0;
 
   private links: string[];
 

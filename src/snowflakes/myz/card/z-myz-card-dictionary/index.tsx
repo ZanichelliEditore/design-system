@@ -16,13 +16,13 @@ export class ZMyzCardDictionary {
   /** card cover */
   @Prop() cover: string;
   /** card is disabled */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled = false;
   /** card is flipped */
-  @Prop({mutable: true}) flipped: boolean = false;
+  @Prop({mutable: true}) flipped = false;
   /** flip button label */
-  @Prop() flipbuttonlabel: string = "INFO";
+  @Prop() flipbuttonlabel = "INFO";
   /** hide info button */
-  @Prop() hideinfobtn: boolean = false;
+  @Prop() hideinfobtn = false;
 
   @Listen("flipCard")
   handleFlipCard(e: CustomEvent) {
@@ -31,7 +31,7 @@ export class ZMyzCardDictionary {
 
   /** when card is flipped */
   @Event() cardFlipped: EventEmitter;
-  flipCard(showBack: boolean = true): void {
+  flipCard(showBack = true): void {
     this.flipped = showBack;
     this.cardFlipped.emit(showBack);
   }

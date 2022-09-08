@@ -23,7 +23,7 @@ export class ZButtonSort {
   /** sortable flag (optional) */
   @Prop({mutable: true}) sortasc?: boolean = true;
 
-  @State() allowTooltip: boolean = false;
+  @State() allowTooltip = false;
 
   private ellipsis?: HTMLSpanElement;
 

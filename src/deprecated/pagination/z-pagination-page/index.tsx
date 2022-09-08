@@ -11,11 +11,11 @@ export class ZPaginationPage {
   /** numeric page value (optional) */
   @Prop() value?: number;
   /** selected status flag */
-  @Prop() isselected: boolean = false;
+  @Prop() isselected = false;
   /** disabled status flag */
-  @Prop() isdisabled: boolean = false;
+  @Prop() isdisabled = false;
   /** visited status flag */
-  @Prop() isvisited: boolean = false;
+  @Prop() isvisited = false;
   /** aria-label string */
   @Prop() ariaLabel?: string;
 

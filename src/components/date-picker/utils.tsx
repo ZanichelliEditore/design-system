@@ -33,14 +33,14 @@ export function setFlatpickrPosition(element: HTMLElement, mode) {
 }
 
 export function setAriaOptions(element: HTMLElement, mode) {
-  let calendar = element.getElementsByClassName("flatpickr-calendar");
+  const calendar = element.getElementsByClassName("flatpickr-calendar");
 
   Array.from(calendar).forEach((element) => {
     element.setAttribute("tabindex", "0");
-    let prevMonthArrow = element.getElementsByClassName("flatpickr-prev-month")[0];
-    let nextMonthArrow = element.getElementsByClassName("flatpickr-next-month")[0];
+    const prevMonthArrow = element.getElementsByClassName("flatpickr-prev-month")[0];
+    const nextMonthArrow = element.getElementsByClassName("flatpickr-next-month")[0];
 
-    let tabindexElements = element.querySelectorAll('[tabindex = "-1"]');
+    const tabindexElements = element.querySelectorAll('[tabindex = "-1"]');
     tabindexElements.forEach((element) => element.setAttribute("tabindex", "0"));
 
     Array.from(element.getElementsByClassName("flatpickr-day")).forEach((date: HTMLElement) => {

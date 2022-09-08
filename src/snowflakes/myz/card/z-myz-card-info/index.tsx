@@ -16,8 +16,8 @@ export class ZMyzCardInfo {
   /** tabindex link attribute (optional) */
   @Prop() htmltabindex?: number = 0;
 
-  @State() hiddenContent: boolean = false;
-  @State() tooltip: boolean = false;
+  @State() hiddenContent = false;
+  @State() tooltip = false;
 
   private cardData: DictionaryData;
 
@@ -28,7 +28,7 @@ export class ZMyzCardInfo {
 
   /** flip card to front */
   @Event() flipCard: EventEmitter;
-  emitFlipCard(showBack: boolean = false) {
+  emitFlipCard(showBack = false) {
     this.flipCard.emit(showBack);
   }
 

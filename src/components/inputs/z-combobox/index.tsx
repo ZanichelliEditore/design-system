@@ -26,9 +26,9 @@ export class ZCombobox {
   /** no result text message */
   @Prop() noresultslabel?: string = "Nessun risultato";
   /** toggle combo list opening flag */
-  @Prop({mutable: true}) isopen: boolean = false;
+  @Prop({mutable: true}) isopen = false;
   /** fixed style flag */
-  @Prop() isfixed: boolean = false;
+  @Prop() isfixed = false;
   /** close combobox list text */
   @Prop() closesearchtext?: string = "Chiudi";
   /** show "check all" checkbox (optional) */
@@ -38,7 +38,7 @@ export class ZCombobox {
   /** uncheck all label (optional) */
   @Prop() uncheckalltext?: string = "Deseleziona tutti";
   /** max number of checkable items (0 = unlimited) */
-  @Prop() maxcheckableitems: number = 0;
+  @Prop() maxcheckableitems = 0;
 
   @State() searchValue: string;
   @State() selectedCounter: number;

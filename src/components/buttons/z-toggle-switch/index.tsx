@@ -12,7 +12,7 @@ export class ZToggleSwitch {
   @Prop({reflect: true}) disabled?: boolean = false;
   @Prop({reflect: true}) labelPosition?: LabelPosition = LabelPositions.left;
   @Prop({mutable: true}) checked?: boolean = false;
-  @Prop() htmlid: string = `toggle-switch-id-${randomId()}`;
+  @Prop() htmlid = `toggle-switch-id-${randomId()}`;
 
   @Event() toggleClick: EventEmitter;
   emitToggleClick() {

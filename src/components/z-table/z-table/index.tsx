@@ -132,7 +132,7 @@ export class ZTable {
 
   renderEmpty(tableClass) {
     const buttonSize = this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big;
-    const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
+    const tableContentClass = `${this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {
       return (
         <Host>

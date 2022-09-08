@@ -107,7 +107,7 @@ export class ZTooltipDeprecated {
   /**
    * The open state of the tooltip.
    */
-  @Prop({reflect: true, mutable: true}) open: boolean = false;
+  @Prop({reflect: true, mutable: true}) open = false;
 
   /**
    * The selector or the element bound with the tooltip.

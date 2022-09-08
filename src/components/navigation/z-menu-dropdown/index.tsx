@@ -16,7 +16,7 @@ export class ZMenuDropdown {
   /** unique button id */
   @Prop() buttonid: string;
 
-  @State() ismenuopen: boolean = false;
+  @State() ismenuopen = false;
 
   linkarray: MenuItem[];
 
