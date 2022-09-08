@@ -4,4 +4,6 @@ react
 storybook
 www
 loader
-internals 
+internals
+components.d.ts
+CHANGELOG.md
