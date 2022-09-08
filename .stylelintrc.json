@@ -1,6 +1,7 @@
 {
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-idiomatic-order",
     "stylelint-config-prettier"
   ],
   "rules": {
@@ -17,13 +18,13 @@
       true,
       {
         "importFrom": [
-          "./node_modules/@zanichelli/albe-design-tokens/dist/tokens.css"
+          "./node_modules/@zanichelli/albe-design-tokens/dist/tokens.css",
+          "./node_modules/@zanichelli/albe-design-tokens/dist/themes/default.css"
         ]
       }
     ]
   },
   "plugins": [
-    "stylelint-order",
     "stylelint-value-no-unknown-custom-properties"
   ]
 }

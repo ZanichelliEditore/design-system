@@ -28,7 +28,11 @@
     "test.e2e": "stencil test --e2e",
     "release": "standard-version",
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
-    "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook"
+    "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook",
+    "lint.eslint": "eslint ./src",
+    "lint.stylelint": "stylelint 'src/**/*.css'",
+    "lint-fix.eslint": "yarn lint.eslint --fix",
+    "lint-fix.stylelint": "yarn lint.stylelint --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -67,9 +71,9 @@
     "standard-version": "^9.1.1",
     "storybook-addon-stencil": "^0.1.8",
     "stylelint": "^14.9.1",
+    "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^26.0.0",
-    "stylelint-order": "^5.0.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
     "typescript": "~4.3.5",
     "webpack": "5"
