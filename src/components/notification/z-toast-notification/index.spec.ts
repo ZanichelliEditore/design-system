@@ -76,7 +76,7 @@ describe("Suite test ZToastNotification", () => {
         transition="slide-in-down"
         draggablepercentage="10"
       >
-        <z-button-deprecated variant="dark-bg" issmall slot="button">button</z-button-deprecated>
+        <z-button slot="button">button</z-button>
       </z-toast-notification>`,
     });
 
@@ -100,9 +100,9 @@ describe("Suite test ZToastNotification", () => {
           </div>
         </div>
       </mock:shadow-root>
-      <z-button-deprecated issmall="" slot="button" variant="dark-bg">
+      <z-button slot="button">
         button
-      </z-button-deprecated>
+      </z-button>
     </z-toast-notification>
     `);
   });

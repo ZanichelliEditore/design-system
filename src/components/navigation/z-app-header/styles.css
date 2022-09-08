@@ -43,7 +43,7 @@
   /**
    * Variable to set stucked header and drawer's top offset. Useful when something is absolutely positioned above the header.
    */
-  --app-header-top-offset: var(var(--app-header-top-offset), 0);
+  --app-header-top-offset: 48px;
 
   --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 

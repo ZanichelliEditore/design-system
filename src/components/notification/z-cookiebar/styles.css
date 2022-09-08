@@ -58,7 +58,7 @@ z-candybar.hidden {
   z-index: 1000;
 }
 
-.content > z-button-deprecated {
+.content > z-button {
   margin: 0;
   width: 100%;
 }
@@ -87,7 +87,7 @@ z-candybar.hidden {
     padding: 0;
   }
 
-  .content > z-button-deprecated {
+  .content > z-button {
     margin: 0;
     width: initial;
   }

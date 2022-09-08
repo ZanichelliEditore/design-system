@@ -13,9 +13,10 @@ import {
   InputTypeBean,
   InputTypeEnum,
   InputStatusBean,
-  SelectItemBean,
+  LabelPosition,
+  LabelPositions,
 } from "../../../beans";
-import { randomId } from "../../../utils/utils";
+import { boolean, randomId } from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -39,7 +40,7 @@ export class ZInput {
   /** the input value */
   @Prop({ mutable: true }) value?: string;
   /** the input is disabled */
-  @Prop() disabled?: boolean = false;
+  @Prop({ reflect: true }) disabled?: boolean = false;
   /** the input is readonly */
   @Prop() readonly?: boolean = false;
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
@@ -50,34 +51,32 @@ export class ZInput {
   @Prop() placeholder?: string;
   /** the input html title (optional) */
   @Prop() htmltitle?: string;
-  /** the input status (optional): available for text, password, number, email, textarea, select */
+  /** the input status (optional): available for text, password, number, email, textarea */
   @Prop() status?: InputStatusBean;
-  /** show input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() hasmessage?: boolean = true;
-  /** input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() message?: string;
+  /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
+  @Prop() message?: string | boolean = true;
   /** the input label position: available for checkbox, radio */
-  @Prop() labelafter?: boolean = true;
-  /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
-  @Prop() typingtimeout?: number = 300;
-  /** items (optional): available for select */
-  @Prop() items?: SelectItemBean[] | string;
-  /** the input has autocomplete option (optional): available for select, input */
-  @Prop() autocomplete?: boolean | string;
-  /** multiple options can be selected (optional): available for select */
-  @Prop() multiple?: boolean = false;
+  @Prop() labelPosition?: LabelPosition = LabelPositions.right;
+  /** the input has autocomplete option (optional): available for text, password, number, email */
+  @Prop() autocomplete?: string;
   /** render clear icon when typing (optional): available for text */
   @Prop() hasclearicon?: boolean = true;
-  /** render icon (optional): available for text, select */
+  /** render icon (optional): available for text */
   @Prop() icon?: string;
+  /** min number value (optional): available for number */
+  @Prop() min?: number;
+  /** max number value (optional): available for number */
+  @Prop() max?: number;
+  /** step number value (optional): available for number */
+  @Prop() step?: number;
+  /** pattern value (optional): available for tel, text, search, url, email, password*/
+  @Prop() pattern?: string;
 
   @State() isTyping: boolean = false;
-  @State() textareaWrapperHover: string = "";
-  @State() textareaWrapperFocus: string = "";
   @State() passwordHidden: boolean = true;
 
   private timer;
-  private selectElem: HTMLZSelectElement;
+  private typingtimeout: number = 300;
 
   @Listen("inputCheck", { target: "document" })
   inputCheckListener(e: CustomEvent) {
@@ -96,30 +95,6 @@ export class ZInput {
     }
   }
 
-  /** get the input value */
-  @Method()
-  async getValue(): Promise<string | string[]> {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        return this.selectElem.getValue();
-      default:
-        return this.value;
-    }
-  }
-
-  /** set the input value */
-  @Method()
-  async setValue(value: string | string[]): Promise<void> {
-    switch (this.type) {
-      case InputTypeEnum.select:
-        this.selectElem.setValue(value);
-        break;
-      default:
-        if (typeof value === "string") this.value = value;
-        break;
-    }
-  }
-
   /** get checked status */
   @Method()
   async isChecked(): Promise<boolean> {
@@ -128,16 +103,18 @@ export class ZInput {
       case InputTypeEnum.radio:
         return this.checked;
       default:
+        console.warn(
+          "`isChecked` method is only available for type `checkbox` and `radio`"
+        );
         return false;
     }
   }
 
-  /** Emitted on input value change, returns value, keycode, validity */
+  /** Emitted on input value change, returns value, validity */
   @Event() inputChange: EventEmitter;
-  emitInputChange(value: string, keycode: number) {
-    if (!this.isTyping) {
-      this.emitStartTyping();
-    }
+  emitInputChange(value: string) {
+    if (!this.isTyping) this.emitStartTyping();
+
     let validity = {};
     if (this.type === InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
@@ -145,7 +122,7 @@ export class ZInput {
       validity = this.getValidity("input");
     }
     this.value = value;
-    this.inputChange.emit({ value, keycode, validity });
+    this.inputChange.emit({ value, validity });
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
@@ -183,9 +160,6 @@ export class ZInput {
     });
   }
 
-  /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
-  @Event() optionSelect: EventEmitter;
-
   getValidity(type: string) {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
     return input.validity;
@@ -194,7 +168,7 @@ export class ZInput {
   /* START text/password/email/number */
 
   getTextAttributes() {
-    const attr = {
+    return {
       id: this.htmlid,
       name: this.name,
       placeholder: this.placeholder,
@@ -203,29 +177,50 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [
-        `input_${this.status || "default"}`,
-        this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled",
-      ]
-        .filter(Boolean)
-        .join(" "),
-      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
+      class: {
+        [`input_${this.status || "default"}`]: true,
+        filled: !!this.value,
+      },
+      autocomplete: this.autocomplete,
+      onInput: (e: any) => this.emitInputChange(e.target.value),
     };
-    if (this.autocomplete) {
-      attr["autocomplete"] = this.autocomplete;
-    }
+  }
 
-    return attr;
+  getNumberAttributes(type: InputTypeBean) {
+    if (type != InputTypeEnum.number) return;
+    return {
+      min: this.min,
+      max: this.max,
+      step: this.step,
+    };
+  }
+
+  getPatternAttribute(type: InputTypeBean) {
+    if (
+      type != InputTypeEnum.password &&
+      type != InputTypeEnum.text &&
+      type != InputTypeEnum.tel &&
+      type != InputTypeEnum.search &&
+      type != InputTypeEnum.url &&
+      type != InputTypeEnum.email
+    )
+      return;
+    return {
+      pattern: this.pattern,
+    };
   }
 
   renderInputText(type: InputTypeBean = InputTypeEnum.text) {
-    const attr = this.getTextAttributes();
+    const attr = {
+      ...this.getTextAttributes(),
+      ...this.getNumberAttributes(type),
+      ...this.getPatternAttribute(type),
+    };
     if (this.icon || type === InputTypeEnum.password) {
-      attr.class += " hasIcon";
+      attr.class = { ...attr.class, hasIcon: true };
     }
-    if (this.hasclearicon) {
-      attr.class += " hasClearIcon";
+    if (this.hasclearicon && type != InputTypeEnum.number) {
+      attr.class = { ...attr.class, hasClearIcon: true };
     }
 
     return (
@@ -252,24 +247,20 @@ export class ZInput {
     if (!this.label) return;
 
     return (
-      <z-input-label
-        htmlfor={this.htmlid}
-        value={this.label}
-        disabled={this.disabled}
-        aria-label={this.label}
+      <label
+        class="inputLabel body-5-sb"
         id={`${this.htmlid}_label`}
-      />
+        htmlFor={this.htmlid}
+        aria-label={this.label}
+      >
+        {this.label}
+      </label>
     );
   }
 
   renderIcons() {
     return (
-      <span
-        class={{
-          iconsWrapper: true,
-          disabled: this.disabled,
-        }}
-      >
+      <span class="iconsWrapper">
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
@@ -283,36 +274,64 @@ export class ZInput {
 
     if (!this.icon) return;
 
-    return <z-icon class="inputIcon" name={this.icon} />;
+    return (
+      <button type="button" class="iconButton inputIcon" tabIndex={-1}>
+        <z-icon name={this.icon} />
+      </button>
+    );
   }
 
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (
+      !this.hasclearicon ||
+      !this.value ||
+      this.disabled ||
+      this.readonly ||
+      this.type == InputTypeEnum.number
+    )
       return;
 
     return (
-      <z-icon
-        class="resetIcon"
-        name="multiply"
-        onClick={(e: any) => this.emitInputChange("", e.keyCode)}
-      />
+      <button
+        type="button"
+        class="iconButton resetIcon"
+        aria-label="cancella il contenuto dell'input"
+        onClick={() => this.emitInputChange("")}
+      >
+        <z-icon name="multiply" />
+      </button>
     );
   }
 
   renderShowHidePassword() {
     return (
-      <z-icon
-        class="showHidePasswordIcon"
-        name={this.passwordHidden ? "view-filled" : "view-off-filled"}
+      <button
+        type="button"
+        class="iconButton showHidePasswordIcon"
+        disabled={this.disabled}
+        aria-label={
+          this.passwordHidden ? "mostra password" : "nascondi password"
+        }
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
-      />
+      >
+        <z-icon
+          name={this.passwordHidden ? "view-filled" : "view-off-filled"}
+        />
+      </button>
     );
   }
 
   renderMessage() {
-    if (!this.hasmessage) return;
+    if (boolean(this.message) === false) return;
 
-    return <z-input-message message={this.message} status={this.status} />;
+    return (
+      <z-input-message
+        message={
+          boolean(this.message) === true ? undefined : (this.message as string)
+        }
+        status={this.status}
+      />
+    );
   }
 
   /* END text/password/email/number */
@@ -326,24 +345,14 @@ export class ZInput {
       <div class="textWrapper">
         {this.renderLabel()}
         <div
-          class={[
-            "textareaWrapper",
-            attributes.class,
-            attributes.disabled && "disabled",
-            attributes.readonly && "readonly",
-            this.isTyping && "istyping",
-            this.textareaWrapperFocus,
-            this.textareaWrapperHover,
-          ]
-            .filter(Boolean)
-            .join(" ")}
+          class={{
+            ...attributes.class,
+            textareaWrapper: true,
+            readonly: attributes.readonly,
+          }}
         >
           <textarea
             {...attributes}
-            onFocus={() => (this.textareaWrapperFocus = "focus")}
-            onBlur={() => (this.textareaWrapperFocus = "")}
-            onMouseOver={() => (this.textareaWrapperHover = "hover")}
-            onMouseOut={() => (this.textareaWrapperHover = "")}
             aria-label={this.ariaLabel || this.label}
           ></textarea>
         </div>
@@ -379,8 +388,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             checkboxLabel: true,
-            after: this.labelafter,
-            before: !this.labelafter,
+            after: this.labelPosition === LabelPositions.right,
+            before: this.labelPosition === LabelPositions.left,
           }}
         >
           <z-icon
@@ -414,8 +423,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             radioLabel: true,
-            after: this.labelafter,
-            before: !this.labelafter,
+            after: this.labelPosition === LabelPositions.right,
+            before: this.labelPosition === LabelPositions.left,
           }}
         >
           <z-icon
@@ -429,49 +438,16 @@ export class ZInput {
   }
   /* END radio */
 
-  /* START select */
-
-  renderSelect() {
-    return (
-      <z-select
-        htmlid={this.htmlid}
-        items={this.items}
-        name={this.name}
-        label={this.label}
-        aria-label={this.ariaLabel}
-        disabled={this.disabled}
-        readonly={this.readonly}
-        placeholder={this.placeholder}
-        htmltitle={this.htmltitle}
-        status={this.status}
-        hasmessage={this.hasmessage}
-        message={this.message}
-        autocomplete={this.autocomplete}
-        multiple={this.multiple}
-        ref={(el) => (this.selectElem = el as HTMLZSelectElement)}
-      />
-    );
-  }
-
-  /* END select */
-
   render() {
     switch (this.type) {
-      case InputTypeEnum.text:
-      case InputTypeEnum.password:
-      case InputTypeEnum.number:
-      case InputTypeEnum.email:
-        return this.renderInputText(this.type);
       case InputTypeEnum.textarea:
         return this.renderTextarea();
       case InputTypeEnum.checkbox:
         return this.renderCheckbox();
       case InputTypeEnum.radio:
         return this.renderRadio();
-      case InputTypeEnum.select:
-        return this.renderSelect();
       default:
-        return this.renderInputText();
+        return this.renderInputText(this.type);
     }
   }
 }

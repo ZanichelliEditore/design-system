@@ -5,7 +5,7 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
-  --toggle-height: 0;
+  --z-range-picker--toggle-height: 0;
 }
 
 z-date-picker {
@@ -16,8 +16,16 @@ z-date-picker > div > * {
   cursor: pointer !important;
 }
 
+z-range-picker {
+  position: relative;
+}
+
 .flatpickr-toggle-container {
   width: fit-content;
+}
+
+.range-pickers-container > div {
+  position: relative;
 }
 
 .hidden-input {
@@ -40,23 +48,25 @@ z-date-picker > div > * {
   position: absolute !important;
 
   border-radius: 2px;
-  box-shadow: 0px 2px 4px 0px rgba(66, 69, 72, 0.4);
+  box-shadow: var(--shadow-2);
 
   padding-top: calc(var(--space-unit) * 2);
 
   left: 0 !important;
-  top: var(--toggle-height) !important;
+  top: var(--z-range-picker--toggle-height) !important;
 }
 
 .months.top > .flatpickr-calendar {
   top: -288px !important;
 }
 
-.date.top > .flatpickr-calendar {
+.date.top > .flatpickr-calendar,
+.date.top > div > .flatpickr-calendar {
   top: -401px !important;
 }
 
-.date-time.top > .flatpickr-calendar {
+.date-time.top > .flatpickr-calendar,
+.date-time.top > div > .flatpickr-calendar {
   top: -523px !important;
 }
 
@@ -160,10 +170,10 @@ z-date-picker > div > * {
 
 /* Months dropdown selectors */
 .flatpickr-monthDropdown-months {
-  background: white !important;
+  background: var(--color-surface01) !important;
   font-size: var(--font-size-3) !important;
   font-weight: var(--font-rg) !important;
-  color: var(--text-grey-800) !important;
+  color: var(--color-text02) !important;
   outline: 1px solid black !important;
 
   width: 108px !important;
@@ -179,8 +189,8 @@ z-date-picker > div > * {
 /* Year toggle selectors */
 .flatpickr-current-month > .numInputWrapper {
   display: flex;
-  background: white !important;
-  color: var(--text-grey-800);
+  background: var(--color-surface01) !important;
+  color: var(--color-text02);
   outline: 1px solid black !important;
 
   height: calc(var(--space-unit) * 5.5) !important;
@@ -203,7 +213,7 @@ z-date-picker > div > * {
 /* Weekdays selectors */
 .flatpickr-weekdays {
   height: calc(var(--space-unit) * 6);
-  border-bottom: 1px solid var(--gray200);
+  border-bottom: 1px solid var(--color-surface03);
 }
 
 .flatpickr-weekday {
@@ -239,26 +249,33 @@ z-date-picker > div > * {
   padding: 0 !important;
 
   line-height: calc(var(--space-unit) * 5) !important;
-  border: 2px solid white !important;
+  border: 2px solid var(--color-surface01) !important;
 }
 
-.flatpickr-day:hover,
-.flatpickr-day.prevMonthDay:hover,
-.flatpickr-day.selected:hover,
+.flatpickr-day:not(.flatpickr-disabled):hover,
+.flatpickr-day:not(.flatpickr-disabled):active,
+.flatpickr-day:not(.flatpickr-disabled):focus,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:hover,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:active,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay:focus,
+.flatpickr-day:not(.flatpickr-disabled).selected:hover,
+.flatpickr-day:not(.flatpickr-disabled).selected:active,
+.flatpickr-day:not(.flatpickr-disabled).selected:focus,
 .flatpickr-monthSelect-month:hover,
+.flatpickr-monthSelect-month:active,
 .flatpickr-monthSelect-month:focus {
-  background-color: var(--myz-blue-dark) !important;
-  border-color: var(--myz-blue-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--color-hover-primary) !important;
+  border-color: var(--color-hover-primary) !important;
+  color: var(--color-text04) !important;
 }
 
 .flatpickr-day.today,
 .flatpickr-monthSelect-month.today {
-  border: 2px solid var(--myz-blue-dark) !important;
+  border: 2px solid var(--color-hover-primary) !important;
 }
 
-.flatpickr-day.selected,
-.flatpickr-monthSelect-month.selected {
+.flatpickr-day.selected:not(.flatpickr-disabled),
+.flatpickr-monthSelect-month.selected:not(.flatpickr-disabled) {
   background-color: var(--color-primary01) !important;
   border-color: var(--color-primary01) !important;
 }
@@ -285,7 +302,7 @@ z-date-picker > div > * {
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   text-transform: uppercase;
-  color: var(--text-grey-800) !important;
+  color: var(--color-text02) !important;
 
   width: 100%;
   padding-left: var(--space-unit);
@@ -298,7 +315,7 @@ z-date-picker > div > * {
 .flatpickr-time.time24hr > .numInputWrapper > input:hover,
 .flatpickr-time.time24hr > .numInputWrapper > input:focus,
 .flatpickr-time.time24hr > .numInputWrapper:hover {
-  background-color: white !important;
+  background-color: var(--color-surface01) !important;
 }
 
 .flatpickr-time.time24hr > div {
@@ -393,4 +410,45 @@ z-date-picker > div > * {
   top: 0 !important;
   left: 5.5px !important;
   margin-top: 4px !important;
+}
+
+/* range-date-picker selectors */
+
+.flatpickr-day:not(.flatpickr-disabled).inRange:hover,
+.flatpickr-day:not(.flatpickr-disabled).today.inRange:hover,
+.flatpickr-day.prevMonthDay:not(.flatpickr-disabled).inRange:hover,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange:hover {
+  background-color: var(--color-hover-primary) !important;
+  border-color: var(--color-hover-primary) !important;
+}
+
+.flatpickr-day:not(.flatpickr-disabled).inRange,
+.flatpickr-day:not(.flatpickr-disabled).today.inRange,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.inRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).inRange {
+  background-color: var(--color-primary03);
+  border-color: var(--color-primary03);
+}
+
+.flatpickr-day:not(.flatpickr-disabled).startRange,
+.flatpickr-day:not(.flatpickr-disabled).endRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).startRange,
+.flatpickr-monthSelect-month:not(.flatpickr-disabled).endRange {
+  background-color: var(--color-primary01) !important;
+  border-color: var(--color-primary01) !important;
+}
+
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.startRange,
+.flatpickr-day:not(.flatpickr-disabled).prevMonthDay.selected.endRange {
+  background-color: var(--color-primary01) !important;
+  border-color: var(--color-primary01) !important;
+}
+
+.flatpickr-range.second-input {
+  cursor: pointer;
+}
+
+.range-pickers-container {
+  display: flex;
+  gap: 16px;
 }

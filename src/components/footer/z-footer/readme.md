@@ -41,7 +41,7 @@
 - [z-logo](../../logo/z-logo)
 - [z-body](../../typography/z-body)
 - [z-link](../../navigation/z-link)
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
+- [z-button](../../buttons/z-button)
 - [z-divider](../../z-divider)
 - [z-footer-section](../z-footer-section)
 - [z-footer-link](../z-footer-link)
@@ -53,14 +53,14 @@ graph TD;
   z-footer --> z-logo
   z-footer --> z-body
   z-footer --> z-link
-  z-footer --> z-button-deprecated
+  z-footer --> z-button
   z-footer --> z-divider
   z-footer --> z-footer-section
   z-footer --> z-footer-link
   z-footer --> z-footer-social
   z-body --> z-typography
   z-link --> z-icon
-  z-button-deprecated --> z-icon
+  z-button --> z-icon
   z-footer-section --> z-icon
   style z-footer fill:#f9f,stroke:#333,stroke-width:4px
 ```

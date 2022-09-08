@@ -39,7 +39,9 @@
  - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
+ - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
+ - [z-input-deprecated](../../../deprecated/z-input-deprecated)
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-element](../../list/z-list-element)
@@ -87,7 +89,9 @@ graph TD;
   z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
+  z-info-reveal --> z-icon
   z-input --> z-icon
+  z-input-deprecated --> z-icon
   z-input-message --> z-icon
   z-link --> z-icon
   z-list-element --> z-icon

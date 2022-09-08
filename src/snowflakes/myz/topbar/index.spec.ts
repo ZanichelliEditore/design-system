@@ -26,7 +26,7 @@ describe("Suite test ZMyzTopbar", () => {
             <div class="logo">
               <z-logo image-alt="logo zanichelli" height="36" width="144" link="https://www.zanichelli.it" target-blank=""></z-logo>
             </div>
-            <z-button-deprecated htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button-deprecated>
+            <z-button htmlid="login-button" variant="secondary" icon="login" size="small">entra</z-button>
           </div>
         </header>
       </mock:shadow-root>
@@ -56,7 +56,7 @@ describe("Suite test ZMyzTopbar", () => {
             link="https://www.zanichelli.it"
             target-blank=""></z-logo>
           </div>
-          <z-button-deprecated htmlid="login-button" variant="tertiary" icon="login" issmall="">entra</z-button-deprecated>
+          <z-button htmlid="login-button" variant="tertiary" icon="login"  size="small">entra</z-button>
         </div>
       </header>
     </mock:shadow-root>
@@ -263,7 +263,7 @@ describe("Suite test ZMyzTopbar", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button-deprecated htmlid="login-button" variant="secondary" icon="login" issmall="">entra</z-button-deprecated>
+              <z-button htmlid="login-button" variant="secondary" icon="login" size="small">entra</z-button>
             </div>
           </div>
         </header>
@@ -372,9 +372,9 @@ describe("Suite test ZMyzTopbar", () => {
             </div>
             <div></div>
             <div class="login">
-              <z-button-deprecated htmlid="login-button" icon="login" issmall="" variant="secondary">
+              <z-button htmlid="login-button" icon="login" size="small" variant="secondary">
                 entra
-              </z-button-deprecated>
+              </z-button>
             </div>
           </div>
         </header>

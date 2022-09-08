@@ -154,7 +154,9 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
-  select = "select",
+  tel = "tel",
+  url = "url",
+  search = "search",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -163,65 +165,24 @@ export enum InputStatusEnum {
   success = "success",
   error = "error",
   warning = "warning",
-  selecting = "selecting",
 }
 
-export type TooltipPositionBean = keyof typeof TooltipPosition;
+export type PopoverPositionBean = keyof typeof PopoverPositions;
 
-export enum TooltipPosition {
-  AUTO = "auto",
-  TOP = "top",
-  RIGHT = "right",
-  BOTTOM = "bottom",
-  LEFT = "left",
-  TOP_RIGHT = "top_right",
-  TOP_LEFT = "top_left",
-  BOTTOM_RIGHT = "bottom_right",
-  BOTTOM_LEFT = "bottom_left",
-}
-
-export enum keybordKeyCodeEnum {
-  TAB = 9,
-  SPACE = 32,
-  ESC = 27,
-  ENTER = 13,
-  ARROW_UP = 38,
-  ARROW_DOWN = 40,
-  BACKSPACE = 8,
-  DELETE = 46,
-}
-
-export enum keybordCodeEnum {
-  TAB = "Tab",
-  SPACE = "Space",
-  ESC = "Escape",
-  ENTER = "Enter",
-  ARROW_UP = "ArrowUp",
-  ARROW_DOWN = "ArrowDown",
-  BACKSPACE = "Backspace",
-  DELETE = "Delete",
-}
-
-export enum KeyboardKeys {
-  ARROW_DOWN = "ArrowDown",
-  ARROW_UP = "ArrowUp",
-  ENTER = "Enter",
-  ESC = "Escape",
-  SPACE = "Space",
-}
-
-export type SelectItemBean = {
-  id: string;
-  name: string;
-  selected: boolean;
-  disabled?: boolean;
-};
-
-export type ThemeVariantBean = keyof typeof ThemeVariant;
-
-export enum ThemeVariant {
-  dark = "dark",
-  light = "light",
+export enum PopoverPositions {
+  auto = "auto",
+  top = "top",
+  right = "right",
+  bottom = "bottom",
+  left = "left",
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
+  right_top = "right_top",
+  right_bottom = "right_bottom",
+  left_top = "left_top",
+  left_bottom = "left_bottom",
 }
 
 export enum PopoverPosition {
@@ -258,6 +219,50 @@ export enum PopoverShadow {
   "shadow-12" = "shadow-12",
   "shadow-16" = "shadow-16",
   "shadow-24" = "shadow-24",
+}
+
+export enum KeyboardKeyCodeEnum {
+  TAB = 9,
+  SPACE = 32,
+  ESC = 27,
+  ENTER = 13,
+  ARROW_UP = 38,
+  ARROW_DOWN = 40,
+  BACKSPACE = 8,
+  DELETE = 46,
+}
+
+export enum KeyboardCodeEnum {
+  TAB = "Tab",
+  SPACE = "Space",
+  ESC = "Escape",
+  ENTER = "Enter",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+  BACKSPACE = "Backspace",
+  DELETE = "Delete",
+}
+
+export enum KeyboardKeys {
+  ARROW_DOWN = "ArrowDown",
+  ARROW_UP = "ArrowUp",
+  ENTER = "Enter",
+  ESC = "Escape",
+  SPACE = "Space",
+}
+
+export type SelectItemBean = {
+  id: string;
+  name: string;
+  selected: boolean;
+  disabled?: boolean;
+};
+
+export type ThemeVariantBean = keyof typeof ThemeVariant;
+
+export enum ThemeVariant {
+  dark = "dark",
+  light = "light",
 }
 
 export enum DividerSize {
@@ -310,10 +315,12 @@ export enum ExpandableListButtonAlign {
   left = "left",
 }
 
-export enum ZtoggleSwitchPositionEnum {
+export enum LabelPositions {
   right = "right",
   left = "left",
 }
+export type LabelPosition = keyof typeof LabelPositions;
+
 export enum ListDividerType {
   none = "none",
   header = "header",
@@ -456,6 +463,11 @@ export enum ZDatePickerPosition {
   bottom = "bottom",
 }
 
+export enum ZRangePickerMode {
+  date = "date",
+  dateTime = "date-time",
+}
+
 export declare type SkipToContentLink = {
   label: string;
   href: string;
@@ -468,4 +480,13 @@ export enum StatusTagStatus {
   success = "success",
   neutral = "neutral",
   default = "default",
+}
+
+export type InfoRevealPositionBean = keyof typeof InfoRevealPosition;
+
+export enum InfoRevealPosition {
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
 }

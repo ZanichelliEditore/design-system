@@ -120,7 +120,7 @@ export class zModalLogin {
 
   renderZainoDigitaleButton() {
     return (
-      <z-button-deprecated
+      <z-button
         variant={ButtonVariantEnum.secondary}
         onClick={() => this.emitZainoDigitaleClick()}
         class="zainoDigitale"
@@ -149,7 +149,7 @@ export class zModalLogin {
           </svg>
           <span>ZAINO DIGITALE</span>
         </div>
-      </z-button-deprecated>
+      </z-button>
     );
   }
 
@@ -197,12 +197,12 @@ export class zModalLogin {
 
             <div class="login">
               <slot name="login">
-                <z-button-deprecated
+                <z-button
                   variant={ButtonVariantEnum.primary}
                   onClick={() => this.emitLoginSubmit()}
                 >
                   Accedi
-                </z-button-deprecated>
+                </z-button>
               </slot>
             </div>
           </form>
@@ -215,12 +215,12 @@ export class zModalLogin {
 
           <div class="signup">
             <slot name="signup">
-              <z-button-deprecated
+              <z-button
                 variant={ButtonVariantEnum.secondary}
                 onClick={() => this.emitSignupClick()}
               >
                 Registrati
-              </z-button-deprecated>
+              </z-button>
             </slot>
           </div>
 

@@ -110,7 +110,7 @@ z-logo {
   background-color: var(--bg-white);
 }
 
-.mobile-header > z-button-deprecated {
+.mobile-header > z-button {
   margin: 0 calc(var(--space-unit) * 2);
 }
 
@@ -236,12 +236,12 @@ hr {
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-.login > z-button-deprecated {
+.login > z-button {
   color: var(--bg-white);
   fill: var(--bg-white);
 }
 
-.booktab-button > z-button-deprecated {
+.booktab-button > z-button {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

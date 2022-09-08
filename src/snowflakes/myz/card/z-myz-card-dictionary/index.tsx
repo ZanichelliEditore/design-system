@@ -1,5 +1,5 @@
 import { Component, Prop, h, Listen, Event, EventEmitter } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../../beans";
+import { ButtonSizeEnum, ButtonVariantEnum } from "../../../../beans";
 
 /**
  * @slot  - generic card slot
@@ -51,16 +51,16 @@ export class ZMyzCardDictionary {
                   faded={this.disabled}
                 />
               </z-myz-card-body>
-              <z-button-deprecated
+              <z-button
                 class={this.hideinfobtn ? "hideInfo" : ""}
                 variant={ButtonVariantEnum.secondary}
                 icon="informationsource"
-                issmall={true}
+                size={ButtonSizeEnum["x-small"]}
                 onClick={() => this.flipCard(true)}
                 disabled={this.flipped}
               >
                 {this.flipbuttonlabel}
-              </z-button-deprecated>
+              </z-button>
             </div>
             <div class="back">
               <slot name="info" />

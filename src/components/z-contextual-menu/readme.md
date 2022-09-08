@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Default                         |
-| ----------------- | ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `color`           | `color`            | [optional] Sets text color of ZContextualMenu's content | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `"color-primary01"`             |
-| `elements`        | `elements`         | elements of ZContextualMenu                             | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `undefined`                     |
-| `popoverPosition` | `popover-position` | [optional] Sets the position of the popover             | `typeof PopoverPosition["above-center"] \| typeof PopoverPosition["above-left"] \| typeof PopoverPosition["above-right"] \| typeof PopoverPosition["after-center"] \| typeof PopoverPosition["after-down"] \| typeof PopoverPosition["after-up"] \| typeof PopoverPosition["before-center"] \| typeof PopoverPosition["before-down"] \| typeof PopoverPosition["before-up"] \| typeof PopoverPosition["below-center"] \| typeof PopoverPosition["below-left"] \| typeof PopoverPosition["below-right"]` | `PopoverPosition["after-down"]` |
+| Property          | Attribute          | Description                                             | Type                                                                                                                                                                                                                                                                                                                                                                                  | Default                         |
+| ----------------- | ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `color`           | `color`            | [optional] Sets text color of ZContextualMenu's content | `string`                                                                                                                                                                                                                                                                                                                                                                              | `"color-primary01"`             |
+| `elements`        | `elements`         | Elements of ZContextualMenu                             | `string`                                                                                                                                                                                                                                                                                                                                                                              | `undefined`                     |
+| `popoverPosition` | `popover-position` | [optional] Sets the position of the popover             | `PopoverPositions.auto \| PopoverPositions.bottom \| PopoverPositions.bottom_left \| PopoverPositions.bottom_right \| PopoverPositions.left \| PopoverPositions.left_bottom \| PopoverPositions.left_top \| PopoverPositions.right \| PopoverPositions.right_bottom \| PopoverPositions.right_top \| PopoverPositions.top \| PopoverPositions.top_left \| PopoverPositions.top_right` | `PopoverPositions.bottom_right` |
 
 
 ## Events
@@ -25,8 +25,8 @@
 
 ### Depends on
 
-- [z-popover](../z-popover)
 - [z-icon](../icons/z-icon)
+- [z-popover](../z-popover)
 - [z-list](../list/z-list)
 - [z-list-group](../list/z-list-group)
 - [z-list-element](../list/z-list-element)
@@ -34,8 +34,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-contextual-menu --> z-popover
   z-contextual-menu --> z-icon
+  z-contextual-menu --> z-popover
   z-contextual-menu --> z-list
   z-contextual-menu --> z-list-group
   z-contextual-menu --> z-list-element

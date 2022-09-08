@@ -31,8 +31,8 @@
 graph TD;
   z-table-row --> z-table-cell
   z-table-row --> z-icon
-  z-table-cell --> z-button-deprecated
-  z-button-deprecated --> z-icon
+  z-table-cell --> z-button
+  z-button --> z-icon
   style z-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
