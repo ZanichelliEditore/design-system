@@ -67,7 +67,7 @@ export class ZNavigationTabLink {
   /**
    * Scroll into view to center the tab.
    */
-  scrollToTab({target: button}) {
+  scrollToTab({target: button}): void {
     const scrollOptions =
       this.orientation === NavigationTabsOrientations.horizontal
         ? ({block: "nearest", inline: "center"} as ScrollIntoViewOptions)
@@ -80,12 +80,12 @@ export class ZNavigationTabLink {
   }
 
   @Listen("click")
-  onClick() {
+  onClick(): void {
     this.selected = true;
   }
 
   @Watch("selected")
-  onSelected() {
+  onSelected(): void {
     if (this.selected) {
       this.selectedEvent.emit();
     }
@@ -96,7 +96,7 @@ export class ZNavigationTabLink {
    * Use the `filled` version when the tab is `selected`.
    * @returns {HTMLElement}
    */
-  renderIcon() {
+  renderIcon(): HTMLZIconElement {
     let icon = this.icon;
     const iconFilled = `${icon.replace(/-filled$/, "")}-filled`;
 

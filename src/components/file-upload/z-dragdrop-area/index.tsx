@@ -9,13 +9,13 @@ import {Component, h, Event, EventEmitter} from "@stencil/core";
 export class ZDragdropArea {
   /** Emitted when user drop one or more files */
   @Event() fileDropped: EventEmitter;
-  fileDroppedHandler(files: FileList) {
+  fileDroppedHandler(files: FileList): void {
     this.fileDropped.emit(files);
   }
 
   private dragDropContainer: HTMLDivElement;
 
-  renderOnDragOverMessage() {
+  renderOnDragOverMessage(): HTMLDivElement {
     return (
       <div class="dragover-container">
         <div class="dragover-message">
@@ -34,7 +34,7 @@ export class ZDragdropArea {
     return (
       <div
         tabIndex={0}
-        ref={(val) => (this.dragDropContainer = val)}
+        ref={(val): HTMLDivElement => (this.dragDropContainer = val)}
         class="dragdrop"
         onDragOver={(e) => {
           e.preventDefault();

@@ -28,7 +28,7 @@ export class ZMyzCardInfo {
 
   /** flip card to front */
   @Event() flipCard: EventEmitter;
-  emitFlipCard(showBack = false) {
+  emitFlipCard(showBack = false): void {
     this.flipCard.emit(showBack);
   }
 
@@ -48,7 +48,7 @@ export class ZMyzCardInfo {
     this.handleContentHeight();
   }
 
-  handleContentHeight() {
+  handleContentHeight(): void {
     if (!this.contentWrapper && !this.infoWrapper) return (this.hiddenContent = false);
 
     if (
@@ -66,7 +66,7 @@ export class ZMyzCardInfo {
     return (this.hiddenContent = false);
   }
 
-  setStringOrArray() {
+  setStringOrArray(): void {
     if (typeof this.data === "string") {
       this.cardData = JSON.parse(this.data);
     } else {
@@ -74,7 +74,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  renderCloseIcon() {
+  renderCloseIcon(): HTMLZIconElement {
     return (
       <z-icon
         name="multiply-circled-filled"
@@ -89,7 +89,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderGeneralSection() {
+  renderGeneralSection(): HTMLElement {
     const title = this?.cardData?.title;
     const description = this?.cardData?.description;
 
@@ -110,7 +110,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderAuthor() {
+  renderAuthor(): HTMLSpanElement {
     const author = this?.cardData?.author;
     if (!author) return null;
 
@@ -122,7 +122,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderYear() {
+  renderYear(): HTMLSpanElement {
     const year = this?.cardData?.year;
     if (!year) return null;
 
@@ -134,7 +134,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderTooltip() {
+  renderTooltip(): void|HTMLZPopoverElement {
     if (!this.tooltip) return;
 
     if (!this.cardData) return;
@@ -150,7 +150,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  setExpirationLicenseMessage(type: string) {
+  setExpirationLicenseMessage(type: string): HTMLSpanElement {
     if (
       (type === "online" && this.cardData.onlineLicense.expired) ||
       (type === "offline" && this.cardData.offlineLicense.expired)
@@ -166,7 +166,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  renderOnlineLicenseSection() {
+  renderOnlineLicenseSection(): void|HTMLElement {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
@@ -181,7 +181,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderOfflineLicenseSection() {
+  renderOfflineLicenseSection(): void|HTMLElement {
     if (!this?.cardData?.offlineLicense) return;
 
     return (
@@ -203,7 +203,7 @@ export class ZMyzCardInfo {
         {this.renderCloseIcon()}
         <div
           class="content-wrapper"
-          ref={(el) => (this.contentWrapper = el)}
+          ref={(el): HTMLElement => (this.contentWrapper = el)}
         >
           {this.renderGeneralSection()}
           {this.renderTooltip()}

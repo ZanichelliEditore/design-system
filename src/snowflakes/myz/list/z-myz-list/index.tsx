@@ -18,12 +18,12 @@ export class ZMyzList {
     }
   }
 
-  parseinputrawdata(inputrawdata: string) {
+  parseinputrawdata(inputrawdata: string): void {
     this.list = [...JSON.parse(inputrawdata)];
   }
 
   @Watch("inputrawdata") //this will run everytime values are changed
-  oninputrawdataChange(newValue: string) {
+  oninputrawdataChange(newValue: string): void {
     this.parseinputrawdata(newValue);
   }
 

@@ -16,7 +16,7 @@ export class ZToastNotificationList {
   private notificationArray: Element[];
 
   @Watch("newestontop")
-  watchPropNewestontop(newValue: boolean) {
+  watchPropNewestontop(newValue: boolean): void {
     this.hostElement.append(...this.notificationArray.reverse());
     if (newValue) {
       this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
@@ -29,7 +29,7 @@ export class ZToastNotificationList {
     this.newestontop && this.handleNewestOnTop();
   }
 
-  handleNewestOnTop() {
+  handleNewestOnTop(): void {
     this.notificationArray = Array.from(this.hostElement.children);
     this.hostElement.append(...this.notificationArray.reverse());
 

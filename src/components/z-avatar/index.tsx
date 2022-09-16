@@ -19,12 +19,12 @@ export class ZAvatar {
   @Prop({mutable: true}) image?: string;
 
   constructor() {
-    if (!this.text && !this.image) {
+    if (this.text.length === 0 && this.image.length === 0) {
       console.warn("z-avatar must contain at least one prop between text and image");
     }
   }
 
-  getTextSize() {
+  getTextSize(): string {
     if (this.size === AvatarSize.small) {
       return "5";
     } else if (this.size === AvatarSize.medium) {

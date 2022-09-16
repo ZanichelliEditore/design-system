@@ -16,18 +16,18 @@ export class ZCookiebar {
 
   /** emitted on ACCETTA button click, returns event */
   @Event() accept: EventEmitter;
-  emitAccept(ev: MouseEvent | KeyboardEvent) {
+  emitAccept(ev: MouseEvent | KeyboardEvent): void {
     this.accept.emit({ev});
   }
 
-  handleOkButtonClick(ev: MouseEvent) {
+  handleOkButtonClick(ev: MouseEvent): void {
     this.emitAccept(ev);
     if (typeof this.callback === "function") {
       this.callback();
     }
   }
 
-  handleOkButtonKeyUp(ev: KeyboardEvent) {
+  handleOkButtonKeyUp(ev: KeyboardEvent): void {
     this.emitAccept(ev);
     if (ev.code === "Enter") {
       if (typeof this.callback !== "undefined" && typeof this.callback === "function") {
@@ -36,7 +36,7 @@ export class ZCookiebar {
     }
   }
 
-  renderContentSlot() {
+  renderContentSlot(): HTMLDivElement {
     return (
       <div
         class="content"

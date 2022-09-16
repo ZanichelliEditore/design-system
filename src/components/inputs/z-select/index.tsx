@@ -51,7 +51,7 @@ export class ZSelect {
   }
 
   @Watch("items")
-  watchItems() {
+  watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItemBean) => item.selected);
   }
@@ -83,7 +83,7 @@ export class ZSelect {
 
   /** Emitted on select option selection, returns select id, selected item id */
   @Event() optionSelect: EventEmitter;
-  emitOptionSelect() {
+  emitOptionSelect(): void {
     this.optionSelect.emit({
       id: this.htmlid,
       selected: this.getSelectedValue(),
@@ -98,11 +98,11 @@ export class ZSelect {
     this.filterItems(this.searchString);
   }
 
-  getInitialItemsArray() {
+  getInitialItemsArray(): SelectItemBean[] {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  mapSelectedItemToItemsArray() {
+  mapSelectedItemToItemsArray(): SelectItemBean[] {
     const initialItemsList = this.getInitialItemsArray();
     return initialItemsList.map((item: SelectItemBean) => {
       item.selected = item.id === this.selectedItem?.id;
@@ -110,11 +110,11 @@ export class ZSelect {
     });
   }
 
-  getSelectedValue() {
+  getSelectedValue(): string {
     return this.selectedItem?.id;
   }
 
-  filterItems(searchString: string) {
+  filterItems(searchString: string): void {
     const prevList = this.mapSelectedItemToItemsArray();
     if (!searchString?.length) {
       this.itemsList = prevList;
@@ -136,16 +136,16 @@ export class ZSelect {
     }
   }
 
-  hasAutocomplete() {
+  hasAutocomplete(): boolean {
     return boolean(this.autocomplete) === true;
   }
 
-  handleInputChange(e: CustomEvent) {
+  handleInputChange(e: CustomEvent): void {
     this.searchString = e.detail.value;
     if (!this.isOpen) this.toggleSelectUl();
   }
 
-  selectItem(item: null | SelectItemBean, selected: boolean) {
+  selectItem(item: null | SelectItemBean, selected: boolean): void {
     if (item && item.disabled) return;
 
     this.itemsList = this.mapSelectedItemToItemsArray();
@@ -162,7 +162,7 @@ export class ZSelect {
     if (this.searchString) this.searchString = null;
   }
 
-  arrowsSelectNav(e: KeyboardEvent, key: number) {
+  arrowsSelectNav(e: KeyboardEvent, key: number): void {
     const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCodeEnum)) return;
 
@@ -181,12 +181,12 @@ export class ZSelect {
     this.focusSelectItem(index);
   }
 
-  focusSelectItem(index: number) {
+  focusSelectItem(index: number): void {
     const focusElem: HTMLLIElement = this.element.querySelector(`#${this.htmlid}_${index}`);
     if (focusElem) focusElem.focus();
   }
 
-  toggleSelectUl(selfFocusOnClose = false) {
+  toggleSelectUl(selfFocusOnClose = false): void {
     if (this.disabled || this.readonly) return;
 
     if (!this.isOpen) {
@@ -203,7 +203,7 @@ export class ZSelect {
     this.isOpen = !this.isOpen;
   }
 
-  handleInputClick(e: MouseEvent | KeyboardEvent) {
+  handleInputClick(e: MouseEvent | KeyboardEvent): void {
     const cp = e.composedPath();
     const clearIcon = cp.find((item: any) => item.classList && item.classList.contains("resetIcon"));
     if (clearIcon) {
@@ -214,7 +214,7 @@ export class ZSelect {
     this.toggleSelectUl();
   }
 
-  handleSelectFocus(e: MouseEvent | KeyboardEvent) {
+  handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
     if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
@@ -234,12 +234,12 @@ export class ZSelect {
     }
   }
 
-  scrollToLetter(letter: string) {
+  scrollToLetter(letter: string): void {
     const foundItem = this.itemsList.find((item: SelectItemBean) => item.name.charAt(0) === letter);
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
-  renderInput() {
+  renderInput(): HTMLZInputElement {
     return (
       <z-input
         id={`${this.htmlid}_input`}
@@ -277,7 +277,7 @@ export class ZSelect {
     );
   }
 
-  renderSelectUl() {
+  renderSelectUl(): HTMLDivElement {
     return (
       <div
         class={this.isOpen ? "open" : "closed"}
@@ -308,7 +308,7 @@ export class ZSelect {
     );
   }
 
-  renderSelectUlItems() {
+  renderSelectUlItems(): HTMLZListElementElement|HTMLZListElementElement[] {
     if (!this.itemsList.length) return this.renderNoSearchResults();
 
     return this.itemsList.map((item: SelectItemBean, key) => {
@@ -333,7 +333,7 @@ export class ZSelect {
     });
   }
 
-  renderNoSearchResults() {
+  renderNoSearchResults(): HTMLZListElementElement {
     return (
       <z-list-element
         color="blue500"
@@ -348,7 +348,7 @@ export class ZSelect {
     );
   }
 
-  renderMessage() {
+  renderMessage(): void|HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (

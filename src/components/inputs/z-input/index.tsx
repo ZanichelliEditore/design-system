@@ -63,15 +63,14 @@ export class ZInput {
   private typingtimeout = 300;
 
   @Listen("inputCheck", {target: "document"})
-  inputCheckListener(e: CustomEvent) {
+  inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
       case InputTypeEnum.radio:
         if (data.type === InputTypeEnum.radio && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
-      default:
-        return;
+        break;
     }
   }
 
@@ -90,7 +89,7 @@ export class ZInput {
 
   /** Emitted on input value change, returns value, validity */
   @Event() inputChange: EventEmitter;
-  emitInputChange(value: string) {
+  emitInputChange(value: string): void {
     if (!this.isTyping) this.emitStartTyping();
 
     let validity = {};
@@ -110,14 +109,14 @@ export class ZInput {
 
   /** Emitted when user starts typing */
   @Event() startTyping: EventEmitter;
-  emitStartTyping() {
+  emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
   }
 
   /** Emitted when user stops typing, returns value, validity */
   @Event() stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any) {
+  emitStopTyping(value: string, validity: any): void {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
@@ -127,7 +126,7 @@ export class ZInput {
 
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event() inputCheck: EventEmitter;
-  emitInputCheck(checked: boolean) {
+  emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,
       checked: checked,
@@ -138,14 +137,14 @@ export class ZInput {
     });
   }
 
-  getValidity(type: string) {
+  getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
     return input.validity;
   }
 
   /* START text/password/email/number */
 
-  getTextAttributes() {
+  getTextAttributes(): object {
     return {
       id: this.htmlid,
       name: this.name,
@@ -164,7 +163,7 @@ export class ZInput {
     };
   }
 
-  getNumberAttributes(type: InputTypeBean) {
+  getNumberAttributes(type: InputTypeBean): void|object {
     if (type != InputTypeEnum.number) return;
     return {
       min: this.min,
@@ -173,7 +172,7 @@ export class ZInput {
     };
   }
 
-  getPatternAttribute(type: InputTypeBean) {
+  getPatternAttribute(type: InputTypeBean): void|object {
     if (
       type != InputTypeEnum.password &&
       type != InputTypeEnum.text &&
@@ -188,7 +187,7 @@ export class ZInput {
     };
   }
 
-  renderInputText(type: InputTypeBean = InputTypeEnum.text) {
+  renderInputText(type: InputTypeBean = InputTypeEnum.text): HTMLDivElement {
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
@@ -217,7 +216,7 @@ export class ZInput {
     );
   }
 
-  renderLabel() {
+  renderLabel(): void|HTMLLabelElement {
     if (!this.label) return;
 
     return (
@@ -232,7 +231,7 @@ export class ZInput {
     );
   }
 
-  renderIcons() {
+  renderIcons(): HTMLSpanElement {
     return (
       <span class="iconsWrapper">
         {this.renderResetIcon()}
@@ -241,7 +240,7 @@ export class ZInput {
     );
   }
 
-  renderIcon() {
+  renderIcon(): void|HTMLButtonElement {
     if (this.type === InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
@@ -259,7 +258,7 @@ export class ZInput {
     );
   }
 
-  renderResetIcon() {
+  renderResetIcon(): void|HTMLButtonElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.number)
       return;
 
@@ -275,7 +274,7 @@ export class ZInput {
     );
   }
 
-  renderShowHidePassword() {
+  renderShowHidePassword(): HTMLButtonElement {
     return (
       <button
         type="button"
@@ -289,7 +288,7 @@ export class ZInput {
     );
   }
 
-  renderMessage() {
+  renderMessage(): void|HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (
@@ -304,7 +303,7 @@ export class ZInput {
 
   /* START textarea */
 
-  renderTextarea() {
+  renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
 
     return (
@@ -329,13 +328,13 @@ export class ZInput {
 
   /* END textarea */
 
-  handleCheck(ev) {
+  handleCheck(ev): void {
     this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
 
   /* START checkbox */
-  renderCheckbox() {
+  renderCheckbox(): HTMLDivElement {
     return (
       <div class="checkboxWrapper">
         <input
@@ -371,7 +370,7 @@ export class ZInput {
   /* END checkbox */
 
   /* START radio */
-  renderRadio() {
+  renderRadio(): HTMLDivElement {
     return (
       <div class="radioWrapper">
         <input

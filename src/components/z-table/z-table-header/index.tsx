@@ -44,14 +44,14 @@ export class ZTableHeader {
 
   /** [Optional] callback for sorting */
   @Event() sort: EventEmitter;
-  emitOnSort() {
+  emitOnSort(): void {
     this.sort.emit({
       columnId: this.columnId,
       sortDirection: this.sortDirection,
     });
   }
 
-  handleSort() {
+  handleSort(): void {
     if (!this.sortable) {
       return;
     }
@@ -72,12 +72,12 @@ export class ZTableHeader {
     this.emitOnSort();
   }
 
-  handleMenuClick() {
+  handleMenuClick(): void {
     this.popover.open = !this.popover.open;
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleOutsideClick(e: any) {
+  handleOutsideClick(e: any): void {
     const tree = getElementTree(e.target);
     const parent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-popover");
 
@@ -87,7 +87,7 @@ export class ZTableHeader {
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleClickHeaders(e: any) {
+  handleClickHeaders(e: any): void {
     const {target} = e;
     const parent = getElementTree(target).find((elem: any) => elem.nodeName.toLowerCase() === "z-table-header");
 

@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {ButtonSizeEnum, ButtonVariantEnum} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -101,7 +102,7 @@ export class ZTable {
     this.host.setAttribute("role", "table");
   }
 
-  renderError(tableClass) {
+  renderError(tableClass): HostElement {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
     return (
       <Host>
@@ -130,7 +131,7 @@ export class ZTable {
     );
   }
 
-  renderEmpty(tableClass) {
+  renderEmpty(tableClass): HostElement {
     const buttonSize = this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big;
     const tableContentClass = `${this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {

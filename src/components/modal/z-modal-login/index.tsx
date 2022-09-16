@@ -37,7 +37,7 @@ export class zModalLogin {
 
   /** Emitted on login submit */
   @Event() loginSubmit: EventEmitter;
-  emitLoginSubmit() {
+  emitLoginSubmit(): void {
     const usernameInput = this.hostElement.querySelector("z-input#username") as HTMLZInputElement;
     const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
 
@@ -63,28 +63,28 @@ export class zModalLogin {
 
   /** Emitted on status update */
   @Event() statusUpdate: EventEmitter;
-  emitStatusUpdate(status: InputStatusBean) {
+  emitStatusUpdate(status: InputStatusBean): void {
     this.statusUpdate.emit(status);
   }
 
   /** Emitted on signup button click */
   @Event() signupClick: EventEmitter;
-  emitSignupClick() {
+  emitSignupClick(): void {
     this.signupClick.emit();
   }
 
   /** Emitted on zaino digitale button click */
   @Event() zainoDigitaleClick: EventEmitter;
-  emitZainoDigitaleClick() {
+  emitZainoDigitaleClick(): void {
     this.zainoDigitaleClick.emit();
   }
 
-  handleInputKeyUp(e: KeyboardEvent) {
+  handleInputKeyUp(e: KeyboardEvent): void {
     if (e.code !== "Enter") return;
     this.emitLoginSubmit();
   }
 
-  handleInputChange() {
+  handleInputChange(): void {
     this.status = null;
     this.emitStatusUpdate(this.status);
   }
@@ -101,7 +101,7 @@ export class zModalLogin {
     return username;
   }
 
-  renderZainoDigitaleButton() {
+  renderZainoDigitaleButton(): HTMLZButtonElement {
     return (
       <z-button
         variant={ButtonVariantEnum.secondary}

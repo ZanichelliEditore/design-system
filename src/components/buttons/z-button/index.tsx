@@ -43,7 +43,7 @@ export class ZButton {
   @Prop({reflect: true})
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
 
-  getAttributes() {
+  getAttributes(): object {
     return {
       "id": this.htmlid,
       "aria-label": this.ariaLabel,

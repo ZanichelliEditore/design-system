@@ -30,7 +30,7 @@ export class ZButtonSort {
   /** sorting direction click event, returns buttonid and sortAsc */
   @Event() buttonSortClick: EventEmitter;
 
-  emitButtonSortClick() {
+  emitButtonSortClick(): void {
     if (!this.isselected) {
       this.isselected = true;
     } else {

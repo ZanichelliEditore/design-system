@@ -48,7 +48,7 @@ export class ZCombobox {
   private inputType: InputTypeBean = InputTypeEnum.text;
 
   @Watch("items")
-  watchItems() {
+  watchItems(): void {
     this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
@@ -59,7 +59,7 @@ export class ZCombobox {
   }
 
   @Listen("inputCheck")
-  inputCheckListener(e: CustomEvent) {
+  inputCheckListener(e: CustomEvent): void {
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
 
     if (id === "check-all" && (!this.maxcheckableitems || this.maxcheckableitems >= this.itemsList.length)) {
@@ -76,7 +76,7 @@ export class ZCombobox {
 
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event() comboboxChange: EventEmitter;
-  emitComboboxChange() {
+  emitComboboxChange(): void {
     this.comboboxChange.emit({id: this.inputid, items: this.itemsList});
   }
 
@@ -271,7 +271,7 @@ export class ZCombobox {
     );
   }
 
-  renderCheckAll() {
+  renderCheckAll(): void|HTMLDivElement {
     if (this.searchValue) return;
 
     const allChecked = this.selectedCounter === this.itemsList.length;
@@ -288,7 +288,7 @@ export class ZCombobox {
     );
   }
 
-  render(): HTMLDivElement {
+  render() {
     return (
       <div
         data-action={`combo-${this.inputid}`}

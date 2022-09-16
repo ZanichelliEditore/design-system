@@ -37,7 +37,7 @@ export class ZInfoReveal {
   currentIndex: number = null;
 
   @Watch("currentIndex")
-  watchItems() {
+  watchItems(): void {
     Array.from(this.el.children).forEach((child, index) => {
       if (this.currentIndex === index) {
         child.setAttribute("data-current", "");
@@ -50,7 +50,7 @@ export class ZInfoReveal {
   /**
    * Open the info box.
    */
-  openInfoBox() {
+  openInfoBox(): void {
     this.currentIndex = 0;
     this.open = true;
   }
@@ -58,7 +58,7 @@ export class ZInfoReveal {
   /**
    * Close the info box.
    */
-  closeInfoBox() {
+  closeInfoBox(): void {
     this.open = false;
   }
 
@@ -66,7 +66,7 @@ export class ZInfoReveal {
    * Navigate slotted info.
    * It closes the info box after the last info has been navigated.
    */
-  next() {
+  next(): void {
     this.currentIndex = this.currentIndex + 1;
     if (this.currentIndex === this.el.children.length) {
       this.closeInfoBox();

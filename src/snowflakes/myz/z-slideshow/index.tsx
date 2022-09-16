@@ -26,7 +26,7 @@ export class ZSlideshow {
   private links: string[];
 
   @Watch("data")
-  watchData() {
+  watchData(): void {
     this.parseLinks();
   }
 
@@ -41,12 +41,12 @@ export class ZSlideshow {
     this.setStyle();
   }
 
-  handleResize() {
+  handleResize(): void {
     this.setDevice();
     this.setStyle();
   }
 
-  parseLinks() {
+  parseLinks(): void {
     switch (typeof this.data) {
       case "string":
         return (this.links = convertJson(this.data) ?? []);
@@ -55,7 +55,7 @@ export class ZSlideshow {
     }
   }
 
-  setStyle() {
+  setStyle(): void {
     const refSlides = this.el.shadowRoot.querySelector("#slides") as HTMLElement;
     if (!refSlides) return;
 
@@ -71,11 +71,11 @@ export class ZSlideshow {
     });
   }
 
-  setDevice() {
+  setDevice(): void {
     this.device = getDevice();
   }
 
-  setCurrentSlide(index: number) {
+  setCurrentSlide(index: number): void {
     this.currentSlide = index;
   }
 

@@ -1,4 +1,5 @@
 import {Component, Prop, h, State, Listen} from "@stencil/core";
+import { JSXBase } from '@stencil/core/internal';
 import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
@@ -53,7 +54,7 @@ export class ZMyzCardFooter {
     return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
   }
 
-  retrieveClass() {
+  retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
@@ -63,7 +64,7 @@ export class ZMyzCardFooter {
     };
   }
 
-  footerTransitionHandler(e: TransitionEvent) {
+  footerTransitionHandler(e: TransitionEvent): void {
     if (["visibility", "height"].includes(e.propertyName)) {
       this.elementsEllipsis();
     }
@@ -71,10 +72,10 @@ export class ZMyzCardFooter {
 
   render() {
     return (
-      <div class={{...this.retrieveClass(), wrapper: true}}>
+      <div class={{...this.retrieveClass() as object, wrapper: true}}>
         <footer
           class={this.retrieveClass()}
-          onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}
+          onTransitionEnd={(e: TransitionEvent): void => this.footerTransitionHandler(e)}
         >
           <span class="toggle">
             <slot name="toggle" />
@@ -84,7 +85,7 @@ export class ZMyzCardFooter {
             <div>
               <p
                 class="authors"
-                ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}
+                ref={(el): HTMLElement => (this.ellipsisAuthors = el as HTMLElement)}
               >
                 <span title={this.getTitleAuthors()}>
                   <span class="bold">{this.autori}</span>

@@ -24,7 +24,7 @@ export class ZMessagesPocket {
     }
   }
 
-  renderHeader() {
+  renderHeader(): HTMLZPocketHeaderElement {
     let message: HTMLElement;
     let icon: string;
     switch (this.status) {
@@ -55,7 +55,7 @@ export class ZMessagesPocket {
     );
   }
 
-  renderBody() {
+  renderBody(): HTMLZPocketBodyElement {
     return (
       <z-pocket-body pocketid={this.pocketid}>
         <div class="body">

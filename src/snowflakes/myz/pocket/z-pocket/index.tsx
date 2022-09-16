@@ -19,19 +19,19 @@ export class ZPocket {
 
   /** open z-pocket */
   @Method()
-  async open() {
+  async open(): void {
     this.status = PocketStatusEnum.open;
   }
 
   /** close z-pocket */
   @Method()
-  async close() {
+  async close(): void {
     this.status = PocketStatusEnum.closed;
   }
 
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event() pocketToggle: EventEmitter;
-  emitPocketToggle(id: string, status: PocketStatus) {
+  emitPocketToggle(id: string, status: PocketStatus): void {
     this.pocketToggle.emit({id, status});
   }
 
@@ -62,7 +62,7 @@ export class ZPocket {
   }
 
   @Watch("status")
-  watchStatusHandler(newVal: PocketStatus) {
+  watchStatusHandler(newVal: PocketStatus): void {
     this.emitPocketToggle(this.pocketid, newVal);
   }
 
@@ -70,7 +70,7 @@ export class ZPocket {
     this.emitPocketToggle(this.pocketid, this.status);
   }
 
-  handleBackgroundClick(e: any) {
+  handleBackgroundClick(e: any): void {
     if (e.target.dataset.action == "pocketBackground") {
       this.close();
     }

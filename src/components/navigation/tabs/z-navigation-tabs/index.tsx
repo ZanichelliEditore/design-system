@@ -48,14 +48,14 @@ export class ZNavigationTabs {
   /**
    * Getter for the direction to check based on current orientation.
    */
-  get direction() {
+  get direction(): string {
     return this.orientation == NavigationTabsOrientations.horizontal ? "Left" : "Top";
   }
 
   /**
    * Getter for the dimension to check based on current orientation.
    */
-  get dimension() {
+  get dimension(): string {
     return this.orientation == NavigationTabsOrientations.horizontal ? "Width" : "Height";
   }
 
@@ -63,7 +63,7 @@ export class ZNavigationTabs {
    * Set the `size` prop to all `z-navigation-tab` children.
    */
   @Watch("size")
-  setChildrenSize() {
+  setChildrenSize(): void {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       child.setAttribute("size", this.size);
@@ -74,7 +74,7 @@ export class ZNavigationTabs {
    * Set the `orientation` prop to all `z-navigation-tab` children.
    */
   @Watch("orientation")
-  setChildrenOrientation() {
+  setChildrenOrientation(): void {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       child.setAttribute("orientation", this.orientation);
@@ -85,7 +85,7 @@ export class ZNavigationTabs {
    * Check if the navigation buttons are needed on window resize.
    */
   @Listen("resize", {target: "window", passive: true})
-  checkScrollVisible() {
+  checkScrollVisible(): void {
     if (!this.tabsNav) {
       return;
     }
@@ -97,7 +97,7 @@ export class ZNavigationTabs {
    * Check if navigation buttons can be enabled for each direction.
    */
   @Watch("canNavigate")
-  checkScrollEnabled() {
+  checkScrollEnabled(): void {
     if (!this.tabsNav) {
       return;
     }
@@ -115,7 +115,7 @@ export class ZNavigationTabs {
    * @param {CustomEvent} event `selected` event triggered by a child tab
    */
   @Listen("selected")
-  onTabSelected(event: CustomEvent) {
+  onTabSelected(event: CustomEvent): void {
     const tab = event.target;
     const children = Array.from(this.host.children);
     children.forEach((child) => {
@@ -128,7 +128,7 @@ export class ZNavigationTabs {
   /**
    * Scroll the navigation bar half of its size backward.
    */
-  navigateBackwards() {
+  navigateBackwards(): void {
     this.tabsNav.scrollBy({
       [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
       behavior: "smooth",
@@ -138,7 +138,7 @@ export class ZNavigationTabs {
   /**
    * Scroll the navigation bar half of its size forward.
    */
-  navigateForward() {
+  navigateForward(): void {
     this.tabsNav.scrollBy({
       [this.direction.toLowerCase()]:
         this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,

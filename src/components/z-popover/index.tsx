@@ -3,7 +3,7 @@ import {PopoverPositions, PopoverPositionBean, KeyboardKeys} from "../../beans";
 
 const documentElement = document.documentElement;
 
-function getParentElement(element: Element) {
+function getParentElement(element: Element): void {
   if ((element.parentNode as ShadowRoot).host) {
     return (element.parentNode as ShadowRoot).host;
   }
@@ -15,7 +15,7 @@ function getParentElement(element: Element) {
  *
  * @param {Element} element The node
  */
-function findScrollableParent(element: Element) {
+function findScrollableParent(element: Element): void {
   let parent = getParentElement(element);
 
   while (parent && parent !== documentElement) {
@@ -44,7 +44,7 @@ function findScrollableParent(element: Element) {
  * @param targetParentOffset The relative offset parent.
  * @return A client rect object.
  */
-function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
+function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): void {
   const rect = element.getBoundingClientRect();
   const width = rect.width;
   const height = rect.height;
@@ -169,14 +169,14 @@ export class ZPopover {
   private animationFrameRequestId?: number;
 
   @Listen("keyup", {target: "window"})
-  closePopoverWithKeyboard(e: KeyboardEvent) {
+  closePopoverWithKeyboard(e: KeyboardEvent): void {
     if (this.closable && e.key === KeyboardKeys.ESC) {
       this.open = false;
     }
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleOutsideClick(e: any) {
+  handleOutsideClick(e: any): void {
     if (!this.closable) {
       return;
     }
@@ -190,7 +190,7 @@ export class ZPopover {
   }
 
   @Watch("position")
-  validatePosition(newValue) {
+  validatePosition(newValue): void {
     if (newValue && !Object.values(PopoverPositions).includes(newValue)) {
       this.position = PopoverPositions.auto;
     }
@@ -203,7 +203,7 @@ export class ZPopover {
    * Setup popover behaviors on opening.
    */
   @Watch("open")
-  onOpen() {
+  onOpen(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
     if (this.open) {
       const setPosition = () => {
@@ -229,7 +229,7 @@ export class ZPopover {
   /**
    * Set the position of the popover.
    */
-  private setPosition() {
+  private setPosition(): void {
     let element: HTMLElement;
     if (typeof this.bindTo === "string") {
       element = this.host.ownerDocument.querySelector(this.bindTo) as HTMLElement;

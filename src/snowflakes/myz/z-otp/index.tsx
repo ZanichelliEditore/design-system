@@ -15,43 +15,41 @@ export class ZOtp {
   private otpRef: HTMLInputElement[];
 
   @Event() otpChange: EventEmitter;
-  emitInputChange(value: string) {
+  emitInputChange(value: string): void {
     this.otpChange.emit({value});
   }
 
   componentWillLoad() {
-    this.otp = Array.apply(null, Array(this.inputNum));
-    this.otpRef = Array.apply(null, Array(this.inputNum));
+    this.otp = [...Array(this.inputNum)];
+    this.otpRef = [...Array(this.inputNum)];
   }
 
   render() {
     return (
       <div class="otp-container">
         <div class="digits-container">
-          {this.otp.map((_elem, i) => {
-            return (
-              <input
-                class={this.status == InputStatusEnum.error ? "error" : null}
-                onKeyDown={(e: any) => {
-                  if (e.keyCode > 47) this.otpRef[i].value = "";
-                }}
-                onKeyUp={(e: any) => {
-                  if (e.keyCode > 47) {
-                    i < this.inputNum - 1 && this.otpRef[i + 1].focus();
-                  }
-                }}
-                onInput={(e: any) => {
-                  this.otp[i] = e.target.value;
-                  this.emitInputChange(this.otp.join(""));
-                }}
-                type="text"
-                minlength="1"
-                maxlength="1"
-                autoComplete="off"
-                ref={(input) => (this.otpRef[i] = input)}
-              />
-            );
-          })}
+          {this.otp.map((val, i) => (
+            <input
+              class={this.status == InputStatusEnum.error ? "error" : null}
+              onKeyDown={(e: any) => {
+                if (e.keyCode > 47) this.otpRef[i].value = "";
+              }}
+              onKeyUp={(e: any) => {
+                if (e.keyCode > 47) {
+                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
+                }
+              }}
+              onInput={(e: any) => {
+                this.otp[i] = e.target.value;
+                this.emitInputChange(this.otp.join(""));
+              }}
+              type="text"
+              minlength="1"
+              maxlength="1"
+              autoComplete="off"
+              ref={(el): HTMLInputElement => (this.otpRef[i] = el)}
+            />
+          ))}
         </div>
         <z-input-message
           message={this.message}

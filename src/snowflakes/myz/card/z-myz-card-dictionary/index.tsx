@@ -25,7 +25,7 @@ export class ZMyzCardDictionary {
   @Prop() hideinfobtn = false;
 
   @Listen("flipCard")
-  handleFlipCard(e: CustomEvent) {
+  handleFlipCard(e: CustomEvent): void {
     this.flipCard(e.detail);
   }
 

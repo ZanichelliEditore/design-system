@@ -15,7 +15,7 @@ export class ZMyzCardCover {
   /** default error image source */
   @Prop() defaultimg: string;
 
-  hadleOnImageError() {
+  hadleOnImageError(): void {
     this.img = this.defaultimg;
   }
 

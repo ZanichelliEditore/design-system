@@ -45,7 +45,7 @@ export class ZUserDropdown {
     }
   }
 
-  setMobileAndDivToResizeWidth() {
+  setMobileAndDivToResizeWidth(): void {
     if (this.divToResize) {
       this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
 
@@ -59,13 +59,13 @@ export class ZUserDropdown {
 
   /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   @Event() userButtonClick: EventEmitter;
-  emitUserButtonClick() {
+  emitUserButtonClick(): void {
     this.userButtonClick.emit(this.isMenuOpen);
   }
 
   /** Emitted on dropdown menu zlink click, returns event */
   @Event() dropdownMenuLinkClick: EventEmitter;
-  emitDropdownMenuLinkClick(e: CustomEvent) {
+  emitDropdownMenuLinkClick(e: CustomEvent): void {
     this.isMenuOpen = false;
     this.dropdownMenuLinkClick.emit({e, linkId: e.detail.linkId});
   }
@@ -81,18 +81,18 @@ export class ZUserDropdown {
   }
 
   @Listen("click", {target: "window"})
-  handleClickOutside(e: MouseEvent) {
+  handleClickOutside(e: MouseEvent): void {
     if ((e.target as HTMLElement).nodeName !== "Z-USER-DROPDOWN") {
       this.isMenuOpen = false;
     }
   }
 
-  handleLoggedButtonClick() {
+  handleLoggedButtonClick(): void {
     this.isMenuOpen = !this.isMenuOpen;
     this.emitUserButtonClick();
   }
 
-  renderGuestButton() {
+  renderGuestButton(): HTMLButtonElement {
     return (
       <button
         id="guestbutton"
@@ -104,7 +104,7 @@ export class ZUserDropdown {
     );
   }
 
-  renderLoggedButton() {
+  renderLoggedButton(): HTMLButtonElement {
     const direction = this.isMenuOpen ? "up" : "down";
     const colorClass = this.useInverseColors ? "inverse" : "";
 
@@ -145,7 +145,7 @@ export class ZUserDropdown {
     }
   }
 
-  renderDropdownMenu() {
+  renderDropdownMenu(): void|HTMLUListElement {
     const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (
@@ -187,7 +187,7 @@ export class ZUserDropdown {
     return (
       <Host class={colorClass}>
         <div
-          ref={(el) => (this.divToResize = el as HTMLDivElement)}
+          ref={(el): HTMLDivElement => (this.divToResize = el as HTMLDivElement)}
           class={openClass}
         >
           <div class={`${colorClass} ${openClass}`}>

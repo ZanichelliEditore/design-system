@@ -15,7 +15,7 @@ export class ZList {
    */
   @Prop({reflect: true}) size?: ListSize = ListSize.medium;
 
-  setChildrenSizeType() {
+  setChildrenSizeType(): void {
     const children = this.host.children;
     for (let i = 0; i < children.length - 1; i++) {
       children[i].setAttribute("size", this.size);

@@ -60,11 +60,11 @@ export class ZLink {
     }
   }
 
-  emitZLinkClick(e: MouseEvent, linkId) {
+  emitZLinkClick(e: MouseEvent, linkId): void {
     this.emitZLinkInteraction(e, linkId);
   }
 
-  emitZLinkInteraction(e: Event, linkId: string) {
+  emitZLinkInteraction(e: Event, linkId: string): void {
     this.zLinkClick.emit({e, linkId});
   }
 

@@ -8,14 +8,14 @@ import {Component, Prop, Host, h} from "@stencil/core";
 export class ZTableHeaderRow {
   @Prop({reflect: true}) expandable?: boolean;
 
-  _renderExpandHeader() {
+  private renderExpandHeader(): HTMLZTableHeaderElement {
     return <z-table-header></z-table-header>;
   }
 
   render() {
     return (
       <Host role="row">
-        {this.expandable && this._renderExpandHeader()}
+        {this.expandable && this.renderExpandHeader()}
         <slot />
       </Host>
     );

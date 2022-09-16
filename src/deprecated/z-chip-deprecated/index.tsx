@@ -9,7 +9,7 @@ export class ZChipDeprecated {
   @Prop() regulartext?: string;
   @Prop() boldtext?: number;
 
-  private renderLegacyChip() {
+  private renderLegacyChip(): HTMLDivElement {
     return (
       <div>
         <span class="boldtext">{this.boldtext}</span> {this.regulartext}

@@ -18,7 +18,7 @@ export class ZTableCell {
 
   @State() isMenuOpened = false;
 
-  handleMenu() {
+  handleMenu(): void {
     this.isMenuOpened = !this.isMenuOpened;
   }
 

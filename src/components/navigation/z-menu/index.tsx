@@ -37,7 +37,7 @@ export class ZMenu {
   @Event() opened: EventEmitter;
   /** The menu has been closed. */
   @Event() closed: EventEmitter;
-  toggle() {
+  toggle(): void {
     if (!this.hasContent) {
       return;
     }
@@ -48,7 +48,7 @@ export class ZMenu {
 
   @Listen("click", {target: "document"})
   /** Close the floating list when a click is performed outside of this Element. */
-  handleClick(ev) {
+  handleClick(ev): void {
     if (!this.floating || !this.open || this.hostElement.contains(ev.target)) {
       return;
     }
@@ -59,7 +59,7 @@ export class ZMenu {
   }
 
   @Watch("open")
-  onOpenChanged() {
+  onOpenChanged(): void {
     if (this.open) {
       this.reflow(true);
     } else {
@@ -81,7 +81,7 @@ export class ZMenu {
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
-  reflow(live = false) {
+  reflow(live = false): void {
     if (this.content) {
       const {style} = this.content;
       const {left} = this.hostElement.getBoundingClientRect();
@@ -98,7 +98,7 @@ export class ZMenu {
   /**
    * Check if some content slot is set.
    */
-  private checkContent() {
+  private checkContent(): void {
     this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
   }
@@ -106,13 +106,13 @@ export class ZMenu {
   /**
    * Set `menuitem` role to all menu items.
    */
-  private onItemsChange() {
+  private onItemsChange(): void {
     this.checkContent();
     const items = this.hostElement.querySelectorAll('[slot="item"]');
     items?.forEach((item) => item.setAttribute("role", "menuitem"));
   }
 
-  private renderMenuLabel() {
+  private renderMenuLabel(): HTMLButtonElement|HTMLDivElement {
     if (this.hasContent) {
       return (
         <button

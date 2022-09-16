@@ -39,18 +39,13 @@ export class ZRangePicker {
   /** emitted when date changes, returns an array with the two selected dates */
   @Event() dateSelect: EventEmitter;
 
-  @Watch("mode")
-  watchMode() {
-    this.setupPickers();
-  }
-
   @Listen("click", {target: "body", capture: true})
-  handleClick() {
+  handleClick(): void {
     this.getFocusedInput();
   }
 
   @Listen("keyup", {target: "body", capture: true})
-  handleKeyDown(ev: KeyboardEvent) {
+  handleKeyDown(ev: KeyboardEvent): void {
     const currentPicker = this.activeInput === "start-input" ? this.firstPicker : this.lastPicker;
 
     this.getFocusedInput();
@@ -99,7 +94,8 @@ export class ZRangePicker {
     this.setupPickers();
   }
 
-  setupPickers() {
+  @Watch("mode")
+  setupPickers(): void {
     const config = {
       enableTime: this.mode === ZRangePickerMode.dateTime,
       locale: Italian,
@@ -109,7 +105,7 @@ export class ZRangePicker {
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onValueUpdate: (_selectedDates, _dateStr, _instance) => {
+      onValueUpdate: (_selectedDates, _dateStr, _instance): void => {
         const firstInputActive = this.activeInput === "start-input";
         const firstDate = this.firstPicker.selectedDates[0];
         const lastDate = this.lastPicker.selectedDates[0];
@@ -130,23 +126,23 @@ export class ZRangePicker {
         this.setRangeStyle(0);
         this.setRangeStyle(1);
       },
-      onChange: (_selectedDates, _dateStr, instance) => {
+      onChange: (_selectedDates, _dateStr, instance): void => {
         this.onDateSelect();
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onOpen: (_selectedDates, _dateStr, instance) => {
+      onOpen: (_selectedDates, _dateStr, instance): void => {
         setAriaOptions(this.element, this.mode);
         this.flatpickrPosition = setFlatpickrPosition(this.element, this.mode);
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
         this.getFocusedInput();
       },
-      onYearChange: (_selectedDates, _dateStr, instance) => {
+      onYearChange: (_selectedDates, _dateStr, instance): void => {
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onMonthChange: (_selectedDates, _dateStr, instance) => {
+      onMonthChange: (_selectedDates, _dateStr, instance): void => {
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onKeyDown: () => {
+      onKeyDown: (): void => {
         setAriaOptions(this.element, this.mode);
       },
     };
@@ -167,7 +163,7 @@ export class ZRangePicker {
     });
   }
 
-  onDateSelect() {
+  onDateSelect(): void {
     const firstInputActive = this.activeInput === "start-input";
     const firstDate = this.firstPicker.selectedDates[0];
     const lastDate = this.lastPicker.selectedDates[0];
@@ -187,7 +183,7 @@ export class ZRangePicker {
     }
   }
 
-  disableDates(date, index) {
+  disableDates(date, index): void {
     const calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
 
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
@@ -205,7 +201,7 @@ export class ZRangePicker {
     setAriaOptions(this.element, this.mode);
   }
 
-  formatDate(date) {
+  formatDate(date): string {
     if (this.mode === ZRangePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else {
@@ -213,14 +209,14 @@ export class ZRangePicker {
     }
   }
 
-  printDate(firstDate, lastDate) {
+  printDate(firstDate, lastDate): void {
     const firstDateString = firstDate ? this.formatDate(firstDate) : null;
     const lastDateString = lastDate ? this.formatDate(lastDate) : null;
 
     this.dateSelect.emit([firstDateString, lastDateString]);
   }
 
-  getTime() {
+  getTime(): string {
     const hour = (this.element.getElementsByClassName("flatpickr-hour")[0] as HTMLInputElement).value;
 
     const minutes = (this.element.getElementsByClassName("flatpickr-minute")[0] as HTMLInputElement).value;
@@ -228,13 +224,13 @@ export class ZRangePicker {
     return `${hour}:${minutes}`;
   }
 
-  getDateWithoutTime(date) {
+  getDateWithoutTime(date): Date {
     const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
     return newDate;
   }
 
   /** Replace month word to month number */
-  replaceMonths(date, time) {
+  replaceMonths(date, time): Date {
     const month = date.split(" ")[1];
     const months = {
       Gennaio: "01",
@@ -263,7 +259,7 @@ export class ZRangePicker {
   }
 
   /** Get the current focused input, first or last */
-  getFocusedInput() {
+  getFocusedInput(): void | string {
     const focusedZInput = document.activeElement.closest("z-input");
     if (!focusedZInput) {
       return;
@@ -277,7 +273,7 @@ export class ZRangePicker {
   }
 
   /** Set style of the days between the two selected dates */
-  setRangeStyle(index) {
+  setRangeStyle(index): void {
     Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element: HTMLElement) => {
       Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
         const hasFirstDate = this.firstPicker.selectedDates.length === 1;
@@ -322,7 +318,7 @@ export class ZRangePicker {
     });
   }
 
-  onStopTyping(value) {
+  onStopTyping(value): void {
     const text = value.detail.value.replace("/", "-");
     const englishData = text.split("-");
     const time = this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
@@ -391,9 +387,7 @@ export class ZRangePicker {
       icon: "event",
       tabindex: "0",
       message: false,
-      onStopTyping: (value) => {
-        this.onStopTyping(value);
-      },
+      onStopTyping: this.onStopTyping.bind(this),
       value: "",
     };
 
@@ -415,7 +409,7 @@ export class ZRangePicker {
               ariaLabel={this.firstAriaLabel}
               label={this.firstLabel}
               status={this.firstInputError && InputStatusEnum.error}
-              onStartTyping={() => {
+              onStartTyping={(): void => {
                 this.firstInputError = false;
               }}
             />
@@ -430,7 +424,7 @@ export class ZRangePicker {
               ariaLabel={this.secondAriaLabel}
               label={this.secondLabel}
               status={this.lastInputError && InputStatusEnum.error}
-              onStartTyping={() => {
+              onStartTyping={(): void => {
                 this.lastInputError = false;
               }}
             />

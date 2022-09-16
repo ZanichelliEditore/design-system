@@ -18,7 +18,7 @@ export class ZMyzCardAlert {
 
   /** undo action click/keyboard event, returns actionType */
   @Event() undoAction: EventEmitter;
-  emitUndoAction() {
+  emitUndoAction(): void {
     this.undoAction.emit({actionType: this.type});
   }
 
@@ -50,7 +50,7 @@ export class ZMyzCardAlert {
     return className;
   }
 
-  getAlertType() {
+  getAlertType(): string {
     switch (this.type) {
       case "add":
         return AlertTypesEnum.success;

@@ -1,3 +1,4 @@
+import { ChildNode } from '@stencil/core';
 import {KeyboardCodeEnum, DeviceEnum} from "../beans/index";
 import {mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
@@ -9,7 +10,7 @@ export function format(first: string, middle: string, last: string): string {
  * Return boolean value for passed value if a boolean corresponding value is found
  * Return passed value otherwise
  */
-export function boolean(value: any): boolean | string {
+export function boolean(value: string|number|boolean): boolean|string|number {
   switch (value) {
     case true:
     case "true":
@@ -38,7 +39,7 @@ export function randomId(): string {
   return Math.random().toString(36).replace("0.", "");
 }
 
-export function handleKeyboardSubmit(ev: KeyboardEvent, callback: Function, ...args: any[]) {
+export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
   if (ev.code === KeyboardCodeEnum.ENTER || ev.code === KeyboardCodeEnum.SPACE) {
     ev.preventDefault();
     callback(...args);
@@ -62,17 +63,15 @@ export function getElementTree(elem: Element, tree: Element[] = []): null | Elem
   if (elem.parentElement) {
     elem = elem.parentElement;
     return getElementTree(elem, tree);
-    // @ts-ignore
-  } else if (elem.parentNode && elem.parentNode.host) {
-    // @ts-ignore
-    elem = elem.parentNode.host;
+  } else if (elem.parentNode && (elem.parentNode as ShadowRoot).host) {
+    elem = (elem.parentNode as ShadowRoot).host;
     return getElementTree(elem, tree);
   }
 
   return tree;
 }
 
-export function getSiblings(elem: HTMLElement) {
+export function getSiblings(elem: HTMLElement): ChildNode[] {
   const siblings = [];
   if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
     return siblings;
@@ -106,10 +105,9 @@ export function convertJson(data: string): any {
   }
 }
 
-const prefix = "avatar-C"; // prefix for color vars name
-const colorsCount = 19; // available colors
-
-export function colorFromId(id) {
+export function colorFromId(id): string {
+  const prefix = "avatar-C"; // prefix for color vars name
+  const colorsCount = 19; // available colors
   const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);
   let color = Math.ceil(colorsCount * (seed % 1));
 

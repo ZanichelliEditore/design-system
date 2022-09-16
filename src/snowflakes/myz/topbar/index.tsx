@@ -42,7 +42,7 @@ export class ZMyzTopbar {
   @Element() private element: HTMLElement;
 
   @Watch("activeintlinkid")
-  activeIntLinkChange(newValue: string) {
+  activeIntLinkChange(newValue: string): void {
     this.activeMenuItem = this.currentMenuItem = this.intMenuData.find((item: MenuItem) => item.id === newValue);
   }
 
@@ -147,7 +147,7 @@ export class ZMyzTopbar {
     );
   }
 
-  getIntMenuItemTabindex(item: MenuItem) {
+  getIntMenuItemTabindex(item: MenuItem): number {
     return this.intMenuData.indexOf(item) + 1;
   }
 
@@ -220,7 +220,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderExtLinksIcons(icon) {
+  renderExtLinksIcons(icon): void|object {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
     return !hideIcons && {icon};
@@ -271,7 +271,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderLoginButton() {
+  renderLoginButton(): void|HTMLZButtonElement {
     if (this.hideloginbutton) {
       return;
     }
@@ -317,7 +317,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderUserData(userData: HeaderUserData) {
+  renderUserData(userData: HeaderUserData): null|HTMLSpanElement {
     if (this.isMobile && !userData) return null;
 
     const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
@@ -378,7 +378,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuToggle() {
+  renderMobileMenuToggle(): HTMLZButtonElement|HTMLDivElement {
     if (!this.isLogged) return this.renderLoginButton();
 
     return (

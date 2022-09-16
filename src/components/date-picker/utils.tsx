@@ -1,6 +1,6 @@
 import {ZDatePickerMode, ZDatePickerModeValues, ZDatePickerPosition} from "../../beans";
 
-export function validateDate(dateStr, hasTime = false) {
+export function validateDate(dateStr, hasTime = false): boolean {
   const regex = hasTime ? /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4} - \d{2}:\d{2}$/ : /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}$/;
 
   if (dateStr.match(regex) === null) {
@@ -10,7 +10,7 @@ export function validateDate(dateStr, hasTime = false) {
   return true;
 }
 
-export function setFlatpickrPosition(element: HTMLElement, mode) {
+export function setFlatpickrPosition(element: HTMLElement, mode): ZDatePickerPosition {
   const toggleHeight = element.children[0].clientHeight;
   element.style.setProperty("--z-range-picker--toggle-height", `${toggleHeight}px`);
 
@@ -32,7 +32,7 @@ export function setFlatpickrPosition(element: HTMLElement, mode) {
   }
 }
 
-export function setAriaOptions(element: HTMLElement, mode) {
+export function setAriaOptions(element: HTMLElement, mode): void {
   const calendar = element.getElementsByClassName("flatpickr-calendar");
 
   Array.from(calendar).forEach((element) => {
@@ -69,7 +69,7 @@ export function setAriaOptions(element: HTMLElement, mode) {
   });
 }
 
-function setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+function setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow): void {
   Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach((element: HTMLElement) =>
     element.setAttribute("tabindex", "-1")
   );
@@ -84,7 +84,7 @@ function setDateAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
   nextMonthArrow.setAttribute("aria-label", "Mese successivo");
 }
 
-function setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+function setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow): void {
   Array.from(calendar.getElementsByClassName("flatpickr-days")).forEach((element: HTMLElement) =>
     element.setAttribute("tabindex", "-1")
   );
@@ -106,7 +106,7 @@ function setDateTimeAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
   calendar.getElementsByClassName("flatpickr-minute")[0].setAttribute("aria-label", "Minuti");
 }
 
-function setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow) {
+function setMonthsAriaOptions(calendar, prevMonthArrow, nextMonthArrow): void {
   Array.from(calendar.getElementsByClassName("flatpickr-monthSelect-months")).forEach((element: HTMLElement) =>
     element.setAttribute("tabindex", "-1")
   );

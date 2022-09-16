@@ -20,7 +20,7 @@ export class ZMenuSection {
   @Event() opened: EventEmitter;
   /** The section has been closed. */
   @Event() closed: EventEmitter;
-  toggle() {
+  toggle(): void {
     if (!this.hasContent) {
       return;
     }
@@ -31,7 +31,7 @@ export class ZMenuSection {
 
   @Listen("click", {target: "document"})
   /** Close the list when a click is performed outside of this Element. */
-  handleClick(ev) {
+  handleClick(ev): void {
     if (!this.open || this.hostElement.contains(ev.target)) {
       return;
     }
@@ -43,7 +43,7 @@ export class ZMenuSection {
   /**
    * Check if some content slot is set.
    */
-  checkContent() {
+  checkContent(): void {
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
   }
 

@@ -36,7 +36,7 @@ export class ZButtonFilter {
     });
   }
 
-  renderFixedPillow(filtername) {
+  renderFixedPillow(filtername): HTMLButtonElement {
     return (
       <button class={`container ${this.issmall ? "small" : ""}`}>
         {this.renderIcon()}
@@ -45,7 +45,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderDynamicPillow(filtername) {
+  renderDynamicPillow(filtername): HTMLButtonElement {
     return (
       <button
         class={`container isactive ${this.issmall ? "small" : ""}`}
@@ -57,7 +57,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderIcon() {
+  renderIcon(): HTMLZIconElement {
     if (!this.hasicon) return null;
     return (
       <z-icon
@@ -69,7 +69,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderContent(filtername) {
+  renderContent(filtername): HTMLSpanElement {
     return <span class="text-container">{filtername}</span>;
   }
 

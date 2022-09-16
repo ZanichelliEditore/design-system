@@ -25,23 +25,23 @@ export class ZFile {
 
   /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter;
-  removeFileHandler() {
+  removeFileHandler(): void {
     this.removeFile.emit();
     this.el.remove();
   }
 
   @Listen("mouseover")
-  onMouseOver() {
+  onMouseOver(): void {
     this.popoverVisible = true;
   }
 
   @Listen("mouseleave")
-  onMouseLeave() {
+  onMouseLeave(): void {
     this.popoverVisible = false;
   }
 
   @Listen("interactiveIconClick")
-  onInteractiveIconClick() {
+  onInteractiveIconClick(): void {
     this.removeFileHandler();
   }
 

@@ -66,7 +66,7 @@ export class ZAppHeader {
    * Emitted when the `stucked` state of the header changes
    */
   @Event() sticking: EventEmitter;
-  emitStickingEvent() {
+  emitStickingEvent(): void {
     this.sticking.emit(this.stucked);
   }
 
@@ -87,6 +87,7 @@ export class ZAppHeader {
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
+    this.collectMenuElements.bind(this);
   }
 
   componentDidLoad() {
@@ -94,16 +95,16 @@ export class ZAppHeader {
     this.onStuckMode();
   }
 
-  private get title() {
+  private get title(): string {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
-    if (!titleElement) {
+    if (titleElement === null) {
       return "";
     }
 
     return titleElement.textContent.trim();
   }
 
-  private get scrollParent() {
+  private get scrollParent(): Window|Element {
     const parent = this.hostElement.offsetParent;
     if (parent === document.body || parent === document.documentElement) {
       return window;
@@ -111,14 +112,14 @@ export class ZAppHeader {
     return parent;
   }
 
-  private collectMenuElements() {
+  private collectMenuElements(): void {
     const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
   }
 
   @Watch("stuck")
-  onStuckMode() {
+  onStuckMode(): void {
     if (this.stuck) {
       this.enableStuckObserver();
     } else {
@@ -126,13 +127,13 @@ export class ZAppHeader {
     }
   }
 
-  enableStuckObserver() {
+  enableStuckObserver(): void {
     if (this.observer) {
       this.observer.observe(this.container);
     }
   }
 
-  disableStuckMode() {
+  disableStuckMode(): void {
     this.stucked = false;
     if (this.observer) {
       this.observer.unobserve(this.container);
@@ -140,7 +141,7 @@ export class ZAppHeader {
   }
 
   @Watch("stucked")
-  onStucked() {
+  onStucked(): void {
     const scrollParent = this.scrollParent;
     if (!scrollParent) {
       return;
@@ -149,8 +150,8 @@ export class ZAppHeader {
   }
 
   @Watch("drawerOpen")
-  setMenuFloatingMode() {
-    if (!this.menuElements) {
+  setMenuFloatingMode(): void {
+    if (this.menuElements.length === 0) {
       return;
     }
 
@@ -166,7 +167,7 @@ export class ZAppHeader {
       <Host menu-length={this.menuLength}>
         <div
           class="heading-panel"
-          ref={(el) => (this.container = el)}
+          ref={(el): HTMLDivElement => (this.container = el)}
         >
           <div class="hero-container">
             <slot name="hero">
@@ -199,7 +200,7 @@ export class ZAppHeader {
             {!this.drawerOpen && this.flow !== "offcanvas" && (
               <slot
                 name="menu"
-                onSlotchange={() => this.collectMenuElements()}
+                onSlotchange={this.collectMenuElements}
               ></slot>
             )}
           </div>
@@ -221,7 +222,7 @@ export class ZAppHeader {
               {this.drawerOpen && (
                 <slot
                   name="menu"
-                  onSlotchange={() => this.collectMenuElements()}
+                  onSlotchange={this.collectMenuElements}
                 ></slot>
               )}
             </div>
@@ -247,11 +248,11 @@ export class ZAppHeader {
     );
   }
 
-  openDrawer() {
+  openDrawer(): void {
     this.drawerOpen = true;
   }
 
-  closeDrawer() {
+  closeDrawer(): void {
     this.drawerOpen = false;
   }
 }

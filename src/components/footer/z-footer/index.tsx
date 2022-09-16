@@ -43,7 +43,7 @@ export class ZFooter {
   }
 
   @Listen("zLinkClick")
-  zLinkClickListener(e: CustomEvent) {
+  zLinkClickListener(e: CustomEvent): void {
     if (e.detail.linkId === this.creditsLinkId) {
       this.emitCreditsLinkClick();
     }
@@ -51,13 +51,13 @@ export class ZFooter {
 
   /** Emitted on credits link click */
   @Event() creditsLinkClick: EventEmitter;
-  emitCreditsLinkClick() {
+  emitCreditsLinkClick(): void {
     this.creditsLinkClick.emit();
   }
 
   /** Emitted on report a problem button click */
   @Event() reportAProblemButtonClick: EventEmitter;
-  emitReportAProblemButtonClick() {
+  emitReportAProblemButtonClick(): void {
     this.reportAProblemButtonClick.emit();
   }
 

@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen} from "@stencil/core";
+import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
 
 /**
  * Pagination bar component.
@@ -72,7 +72,7 @@ export class ZPagination {
    * Set the max width of the pages container.
    */
   @Watch("_visiblePages")
-  setPagesContainerWidth() {
+  setPagesContainerWidth(): void {
     if (!this._visiblePages || this.split) {
       this.host.style.setProperty("--z-pagination--pages-container-max-width", "100%");
 
@@ -93,7 +93,7 @@ export class ZPagination {
    * If `visiblePages` isn't set, fallback to the total pages.
    */
   @Watch("visiblePages")
-  setVisiblePages() {
+  setVisiblePages(): void {
     this._visiblePages = Math.min(this.visiblePages || this.totalPages, this.totalPages);
   }
 
@@ -102,7 +102,7 @@ export class ZPagination {
    * @emits pageChanged
    */
   @Watch("currentPage")
-  onPageChanged() {
+  onPageChanged(): void {
     this.pageChanged.emit(this.currentPage);
     this.scrollToPage();
   }
@@ -112,7 +112,7 @@ export class ZPagination {
    * Empty `edges` value. The split feature wins over the pages chunks and edges.
    */
   @Watch("split")
-  onSplitChanged() {
+  onSplitChanged(): void {
     if (this.split) {
       this.edges = false;
     }
@@ -122,14 +122,14 @@ export class ZPagination {
    * Hide stuff on mobile.
    */
   @Listen("resize", {target: "window", passive: true})
-  onResize() {
+  onResize(): void {
     this.setMobile();
   }
 
   /**
    * Set functionalities according to screen size.
    */
-  private setMobile() {
+  private setMobile(): void {
     const mobileMediaQuery = "screen and (max-width: 767px)";
     this.isMobile = window.matchMedia(mobileMediaQuery).matches;
   }
@@ -138,7 +138,7 @@ export class ZPagination {
    * Get a list of pages chunks, each of `visiblePages` length.
    * @returns {number[][]}
    */
-  getPagesChunks() {
+  getPagesChunks(): number[][] {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
 
@@ -154,7 +154,7 @@ export class ZPagination {
   /**
    * Scroll to the left the chunk of pages containing the current page.
    */
-  scrollToPage() {
+  scrollToPage(): void {
     const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
 
     if (!pageBtn) {
@@ -173,7 +173,7 @@ export class ZPagination {
    * Do validations on the passed value before assigning it to `currentPage`.
    * @param {number} page Page number to set
    */
-  selectPage(page) {
+  selectPage(page): void {
     this.currentPage = Math.min(Math.max(page, 1), this.totalPages);
   }
 
@@ -182,7 +182,7 @@ export class ZPagination {
    * @param {number} page Page number to render
    * @returns {HTMLButtonElement}
    */
-  renderPage(page) {
+  renderPage(page): HTMLButtonElement {
     return (
       <button
         class="page-button"
@@ -203,7 +203,7 @@ export class ZPagination {
    * @param {number} page Page to select on click.
    * @returns {HTMLButtonElement}
    */
-  renderEllipsisButton(page) {
+  renderEllipsisButton(page): HTMLButtonElement {
     return (
       <button
         class="ellipsis-button"
@@ -218,9 +218,9 @@ export class ZPagination {
 
   /**
    * Render chunked page buttons.
-   * @returns {HTMLDivElement}
+   * @returns {HTMLDivElement[]}
    */
-  renderPages() {
+  renderPages(): void | HTMLDivElement[] {
     const pagesChunks = this.getPagesChunks();
     if (pagesChunks.length <= 0) {
       return;
@@ -233,7 +233,7 @@ export class ZPagination {
    * Render page buttons when split feature is enabled.
    * @returns {HTMLButtonElement[]}
    */
-  renderSplitPages() {
+  renderSplitPages(): HTMLButtonElement[] {
     // left and right split pages, current page, first and last page, left and right ellipsis button
     if (this.totalPages <= this.split * 2 + 5) {
       // Too few pages: ellipsis will never be rendered, so let's just render all pages and that's it.
@@ -268,7 +268,7 @@ export class ZPagination {
     ];
   }
 
-  renderBackButton() {
+  renderBackButton(): HTMLButtonElement {
     return (
       <button
         class="navigation-button"
@@ -282,7 +282,7 @@ export class ZPagination {
     );
   }
 
-  renderForwardButton() {
+  renderForwardButton(): HTMLButtonElement {
     return (
       <button
         class="navigation-button"
@@ -296,7 +296,7 @@ export class ZPagination {
     );
   }
 
-  renderMobile() {
+  renderMobile(): HTMLElement[] {
     const pagesChunks = this.getPagesChunks();
 
     return [
@@ -350,7 +350,7 @@ export class ZPagination {
   }
 
   componentDidRender() {
-    if (this.split) {
+    if (this.split !== 0) {
       this.edges = false;
     }
 
@@ -360,75 +360,75 @@ export class ZPagination {
 
   render() {
     if (this.isMobile) {
-      return this.renderMobile();
+      return <Host>{this.renderMobile()}</Host>;
     }
 
-    return [
-      <div class="pagination-bar">
-        {this.label && <span class="page-label body-1-sb">{this.label}</span>}
+    return (
+      <Host>
+        <div class="pagination-bar">
+          {this.label && <span class="page-label body-1-sb">{this.label}</span>}
 
-        {this.edges && (
-          <button
-            class="pagination-button"
-            type="button"
-            title="Vai alla pagina 1"
-            disabled={this.currentPage === 1}
-            onClick={() => this.selectPage(1)}
+          {this.edges && (
+            <button
+              class="pagination-button"
+              type="button"
+              title="Vai alla pagina 1"
+              disabled={this.currentPage === 1}
+              onClick={() => this.selectPage(1)}
+            >
+              Pagina 1
+            </button>
+          )}
+
+          {this.skip < this.totalPages && this.skip > 1 && (
+            <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.currentPage - this.skip}`}
+              disabled={this.currentPage <= this.skip}
+              onClick={() => this.selectPage(this.currentPage - this.skip)}
+            >
+              -{this.skip}
+            </button>
+          )}
+
+          {this.navArrows && this.renderBackButton()}
+
+          <div
+            class="pages-container"
+            role="navigation"
+            tabIndex={-1}
           >
-            Pagina 1
-          </button>
-        )}
+            {this.split ? this.renderSplitPages() : this.renderPages()}
+          </div>
 
-        {this.skip < this.totalPages && this.skip > 1 && (
-          <button
-            class="pagination-button"
-            type="button"
-            title={`Vai alla pagina ${this.currentPage - this.skip}`}
-            disabled={this.currentPage <= this.skip}
-            onClick={() => this.selectPage(this.currentPage - this.skip)}
-          >
-            -{this.skip}
-          </button>
-        )}
+          {this.navArrows && this.renderForwardButton()}
 
-        {this.navArrows && this.renderBackButton()}
+          {this.skip < this.totalPages && this.skip > 1 && (
+            <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.currentPage + this.skip}`}
+              disabled={this.currentPage > this.totalPages - this.skip}
+              onClick={() => this.selectPage(this.currentPage + this.skip)}
+            >
+              +{this.skip}
+            </button>
+          )}
 
-        <div
-          class="pages-container"
-          role="navigation"
-          tabIndex={-1}
-        >
-          {this.split ? this.renderSplitPages() : this.renderPages()}
+          {this.edges && (
+            <button
+              class="pagination-button"
+              type="button"
+              title={`Vai alla pagina ${this.totalPages}`}
+              disabled={this.currentPage === this.totalPages}
+              onClick={() => this.selectPage(this.totalPages)}
+            >
+              Pagina {this.totalPages}
+            </button>
+          )}
         </div>
-
-        {this.navArrows && this.renderForwardButton()}
-
-        {this.skip < this.totalPages && this.skip > 1 && (
-          <button
-            class="pagination-button"
-            type="button"
-            title={`Vai alla pagina ${this.currentPage + this.skip}`}
-            disabled={this.currentPage > this.totalPages - this.skip}
-            onClick={() => this.selectPage(this.currentPage + this.skip)}
-          >
-            +{this.skip}
-          </button>
-        )}
-
-        {this.edges && (
-          <button
-            class="pagination-button"
-            type="button"
-            title={`Vai alla pagina ${this.totalPages}`}
-            disabled={this.currentPage === this.totalPages}
-            onClick={() => this.selectPage(this.totalPages)}
-          >
-            Pagina {this.totalPages}
-          </button>
-        )}
-      </div>,
-
-      this.goToPage && (
+        this.goToPage && (
         <div class="go-to-page">
           <span class="label body-5-sb">Vai a pagina:</span>
           <div class="inputs">
@@ -454,7 +454,8 @@ export class ZPagination {
             </z-button>
           </div>
         </div>
-      ),
-    ];
+        )
+      </Host>
+    );
   }
 }

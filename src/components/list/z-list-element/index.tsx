@@ -35,7 +35,7 @@ export class ZListElement {
   clickItem: EventEmitter;
 
   @Listen("accessibleFocus", {target: "document"})
-  accessibleFocusHandler(e: CustomEvent) {
+  accessibleFocusHandler(e: CustomEvent): void {
     if (this.listElementId === e.detail) {
       const toFocus = this.host.shadowRoot.getElementById(`z-list-element-id-${e.detail}`);
       toFocus.focus();
@@ -124,7 +124,7 @@ export class ZListElement {
    * Handler for click on element. If element is expandable, change state.
    * @returns void
    */
-  handleClick() {
+  handleClick(): void {
     this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
@@ -132,7 +132,7 @@ export class ZListElement {
     this.showInnerContent = !this.showInnerContent;
   }
 
-  calculateClass() {
+  calculateClass(): string {
     if (this.isContextualMenu) {
       return "container-contextual-menu";
     }
@@ -140,7 +140,7 @@ export class ZListElement {
     return "container";
   }
 
-  handleKeyDown(event) {
+  handleKeyDown(event): void {
     const expandByKey = event.code === KeyboardKeys.ENTER;
     switch (event.code) {
       case KeyboardKeys.ARROW_DOWN:
@@ -169,7 +169,7 @@ export class ZListElement {
    * Renders button to expand element.
    * @returns expadable button
    */
-  renderExpandableButton() {
+  renderExpandableButton(): void|HTMLZIconElement {
     if (!this.expandable) {
       return null;
     }
@@ -189,7 +189,7 @@ export class ZListElement {
    * Renders expanded content if element is expandable.
    * @returns expanded content
    */
-  renderExpandedContent() {
+  renderExpandedContent(): HTMLDivElement {
     if (!this.expandable) {
       return null;
     }

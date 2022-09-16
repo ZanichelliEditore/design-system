@@ -19,7 +19,7 @@ export class ZMyzCardComponent {
   /** highlighted status */
   @Prop() ishighlighted = false;
 
-  retrieveClass() {
+  retrieveClass(): string {
     let elemClasses = "";
 
     if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";

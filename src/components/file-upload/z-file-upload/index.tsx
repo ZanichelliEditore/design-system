@@ -51,13 +51,13 @@ export class ZFileUpload {
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener() {
+  removeFileListener(): void {
     this.filesNumber--;
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
   @Listen("fileDropped")
-  fileDroppedListener(e: CustomEvent) {
+  fileDroppedListener(e: CustomEvent): void {
     this.input.files = e.detail;
     this.fileInputHandler();
   }
@@ -75,13 +75,13 @@ export class ZFileUpload {
 
   /** Emitted when user select one or more files */
   @Event() fileInput: EventEmitter;
-  fileInputHandler() {
+  fileInputHandler(): void {
     if (this.input.files.length) {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));
     }
   }
 
-  handleAccessibility() {
+  handleAccessibility(): void {
     if (this.filesNumber > 0) {
       (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
     } else {
@@ -119,7 +119,7 @@ export class ZFileUpload {
     return errors;
   }
 
-  renderTitle() {
+  renderTitle(): HTMLZHeadingElement {
     return (
       <z-heading
         id="title"
@@ -131,7 +131,7 @@ export class ZFileUpload {
     );
   }
 
-  renderDescription(variant, level) {
+  renderDescription(variant, level): HTMLZBodyElement {
     return (
       <z-body
         variant={variant}
@@ -142,7 +142,7 @@ export class ZFileUpload {
     );
   }
 
-  renderAllowedFileExtensions() {
+  renderAllowedFileExtensions():HTMLZBodyElement {
     let fileFormatString = "";
     let fileWeightString = "";
 
@@ -163,7 +163,7 @@ export class ZFileUpload {
     return <z-body level={3}>{fileFormatString || fileWeightString ? finalString : null}</z-body>;
   }
 
-  renderFileSection() {
+  renderFileSection(): boolean|HTMLElement {
     return (
       this.filesNumber > 0 && (
         <section class="files-container">
@@ -182,7 +182,7 @@ export class ZFileUpload {
     );
   }
 
-  renderInput() {
+  renderInput(): HTMLInputElement {
     return (
       <input
         {...this.inputAttributes}
@@ -193,7 +193,7 @@ export class ZFileUpload {
     );
   }
 
-  renderUploadButton() {
+  renderUploadButton(): HTMLElement[] {
     return [
       this.renderInput(),
       <z-button
@@ -214,7 +214,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderUploadLink() {
+  renderUploadLink(): HTMLElement[] {
     return [
       this.renderInput(),
       <z-body
@@ -244,7 +244,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderDefaultMode() {
+  renderDefaultMode(): HTMLElement[] {
     return [
       this.renderDescription("semibold", 3),
       this.renderAllowedFileExtensions(),
@@ -253,7 +253,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderDragDropMode() {
+  renderDragDropMode(): HTMLElement[] {
     return [
       this.renderFileSection(),
       <z-dragdrop-area>
@@ -266,12 +266,12 @@ export class ZFileUpload {
     ];
   }
 
-  formatErrorString(key, value) {
-    const bothErrors = value[0] && value[1] ? ", " : "";
+  formatErrorString(key, value): string {
+    const bothErrors = (value[0] && value[1]) ? ", " : "";
     return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${value[1] ?? ""} e non può quindi essere caricato.`;
   }
 
-  handleErrorModalContent() {
+  handleErrorModalContent(): HTMLDivElement {
     return (
       <div slot="modalContent">
         <div class="modalWrapper">

@@ -29,7 +29,7 @@ export class ZMenuDropdown {
     this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
   }
 
-  renderMenuOpen() {
+  renderMenuOpen(): void|HTMLUListElement {
     if (this.ismenuopen) {
       return (
         <ul>
@@ -49,7 +49,7 @@ export class ZMenuDropdown {
     }
   }
 
-  renderButtonMenu() {
+  renderButtonMenu(): HTMLSpanElement {
     return (
       <span class="arrow">
         <z-icon
@@ -61,15 +61,15 @@ export class ZMenuDropdown {
     );
   }
 
-  retriveMenuClass() {
+  retriveMenuClass(): string {
     if (this.ismenuopen) return "menu-opened";
   }
 
-  handleToggle() {
+  handleToggle(): void {
     this.ismenuopen = !this.ismenuopen;
   }
 
-  handleFocus(e: MouseEvent | KeyboardEvent) {
+  handleFocus(e: MouseEvent | KeyboardEvent): void {
     if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) return;
 
     const tree = getElementTree(getClickedElement());

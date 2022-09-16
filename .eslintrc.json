@@ -83,6 +83,7 @@
         "listen": "multiline"
       }
     ],
-    "@stencil/required-prefix": ["error", ["z"]]
+    "@stencil/required-prefix": ["error", ["z"]],
+    "@stencil/strict-boolean-conditions": "off"
   }
 }

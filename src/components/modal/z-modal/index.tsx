@@ -21,19 +21,19 @@ export class ZModal {
 
   /** emitted on close button click, returns modalid */
   @Event() modalClose: EventEmitter;
-  emitModalClose() {
+  emitModalClose(): void {
     this.modalClose.emit({modalid: this.modalid});
   }
 
   /** emitted on modal header click, returns modalid */
   @Event() modalHeaderActive: EventEmitter;
-  emitModalHeaderActive() {
+  emitModalHeaderActive(): void {
     this.modalHeaderActive.emit({modalid: this.modalid});
   }
 
   /** emitted on background click, returns modalid */
   @Event() modalBackgroundClick: EventEmitter;
-  emitBackgroundClick() {
+  emitBackgroundClick(): void {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 

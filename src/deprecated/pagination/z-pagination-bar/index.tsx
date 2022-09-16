@@ -51,14 +51,14 @@ export class ZPaginationBar {
     this.initPagination();
   }
 
-  initPagination() {
+  initPagination(): void {
     this.loadPages();
     if (this.historyraw) {
       this.parsehistoryraw(this.historyraw);
     }
   }
 
-  parsehistoryraw(historyraw: string) {
+  parsehistoryraw(historyraw: string): void {
     this.listhistoryrow = [...JSON.parse(historyraw)];
   }
 
@@ -85,7 +85,7 @@ export class ZPaginationBar {
 
   /** emitted on page number click, returns page*/
   @Event() goToPage: EventEmitter;
-  emitGoToPage(page) {
+  emitGoToPage(page): void {
     this.currentpage = page;
     this.goToPage.emit({page: page});
     this.addPageToHistory.emit({page: page});
@@ -93,19 +93,19 @@ export class ZPaginationBar {
 
   /** emitted on start page change, returns startpage*/
   @Event() changeStartPage: EventEmitter;
-  emitChangeStartPage(startpage) {
+  emitChangeStartPage(startpage): void {
     this.startpage = startpage;
     this.changeStartPage.emit({startpage: startpage});
   }
 
   /** emitted on adding page to isvisited array, returns page*/
   @Event() addPageToHistory: EventEmitter;
-  emitAddPageToHistory(page) {
+  emitAddPageToHistory(page): void {
     this.listhistoryrow.push(page);
     this.changeStartPage.emit({page: page});
   }
 
-  loadPages() {
+  loadPages(): void {
     this.currentPages.splice(0);
     const lastPage = this.pageWindow();
 
@@ -115,18 +115,18 @@ export class ZPaginationBar {
     }
   }
 
-  pageWindow() {
+  pageWindow(): number {
     return Math.min(this.pages, this.visiblepages); //How many pages are there to show?
   }
 
-  canNavigateLeft() {
+  canNavigateLeft(): boolean {
     return this.startpage > 1;
   }
-  canNavigateRight() {
+  canNavigateRight(): boolean {
     return this.startpage + this.visiblepages - 1 < this.pages;
   }
 
-  navigateLeft() {
+  navigateLeft(): void {
     if (this.canNavigateLeft()) {
       this.startpage--;
       this.emitChangeStartPage(this.startpage);
@@ -134,7 +134,7 @@ export class ZPaginationBar {
     }
   }
 
-  navigateRight() {
+  navigateRight(): void {
     if (this.canNavigateRight()) {
       this.startpage++;
       this.emitChangeStartPage(this.startpage);
@@ -144,7 +144,7 @@ export class ZPaginationBar {
 
   render() {
     return (
-      <div ref={(el) => (this.bar = el as HTMLElement)}>
+      <div ref={(el): HTMLElement => (this.bar = el as HTMLElement)}>
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}

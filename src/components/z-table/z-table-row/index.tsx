@@ -13,17 +13,17 @@ export class ZTableRow {
   @State() expanded = false;
 
   @Event() expand: EventEmitter;
-  emitOnExpand() {
+  emitOnExpand(): void {
     this.expand.emit({expanded: this.expanded});
   }
 
-  handleExpand() {
+  handleExpand(): void {
     this.expanded = !this.expanded;
 
     this.emitOnExpand();
   }
 
-  renderExpandButton() {
+  renderExpandButton(): HTMLZTableCellElement {
     if (this.expandedType == ZTableRowExpandedType.expandable) {
       return (
         <z-table-cell style={{borderRight: "none"}}>

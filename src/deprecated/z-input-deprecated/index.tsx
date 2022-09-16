@@ -65,7 +65,7 @@ export class ZInputDeprecated {
   private selectElem: HTMLZSelectElement;
 
   @Listen("inputCheck", {target: "document"})
-  inputCheckListener(e: CustomEvent) {
+  inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
       case InputTypeEnum.radio:
@@ -117,7 +117,7 @@ export class ZInputDeprecated {
 
   /** Emitted on input value change, returns value, keycode, validity */
   @Event() inputChange: EventEmitter;
-  emitInputChange(value: string, keycode: number) {
+  emitInputChange(value: string, keycode: number): void {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
@@ -138,14 +138,14 @@ export class ZInputDeprecated {
 
   /** Emitted when user starts typing */
   @Event() startTyping: EventEmitter;
-  emitStartTyping() {
+  emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
   }
 
   /** Emitted when user stops typing, returns value, validity */
   @Event() stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any) {
+  emitStopTyping(value: string, validity: any): void {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
@@ -155,7 +155,7 @@ export class ZInputDeprecated {
 
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event() inputCheck: EventEmitter;
-  emitInputCheck(checked: boolean) {
+  emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,
       checked: checked,
@@ -169,14 +169,14 @@ export class ZInputDeprecated {
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   @Event() optionSelect: EventEmitter;
 
-  getValidity(type: string) {
+  getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
     return input.validity;
   }
 
   /* START text/password/email/number */
 
-  getTextAttributes() {
+  getTextAttributes(): object {
     const attr = {
       id: this.htmlid,
       name: this.name,
@@ -202,7 +202,7 @@ export class ZInputDeprecated {
     return attr;
   }
 
-  renderInputText(type: InputTypeBean = InputTypeEnum.text) {
+  renderInputText(type: InputTypeBean = InputTypeEnum.text): HTMLDivElement {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password) {
       attr.class += " hasIcon";
@@ -227,7 +227,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderLabel() {
+  renderLabel(): void|HTMLZInputLabelElement {
     if (!this.label) return;
 
     return (
@@ -241,7 +241,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderIcons() {
+  renderIcons(): HTMLSpanElement {
     return (
       <span
         class={{
@@ -255,7 +255,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderIcon() {
+  renderIcon(): HTMLZIconElement {
     if (this.type === InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
@@ -270,7 +270,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderResetIcon() {
+  renderResetIcon(): void|HTMLZIconElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
 
     return (
@@ -282,7 +282,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderShowHidePassword() {
+  renderShowHidePassword(): HTMLZIconElement {
     return (
       <z-icon
         class="showHidePasswordIcon"
@@ -292,7 +292,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderMessage() {
+  renderMessage(): void|HTMLZInputMessageElement {
     if (!this.hasmessage) return;
 
     return (
@@ -307,7 +307,7 @@ export class ZInputDeprecated {
 
   /* START textarea */
 
-  renderTextarea() {
+  renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
 
     return (
@@ -342,13 +342,13 @@ export class ZInputDeprecated {
 
   /* END textarea */
 
-  handleCheck(ev) {
+  handleCheck(ev): void {
     this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
 
   /* START checkbox */
-  renderCheckbox() {
+  renderCheckbox(): HTMLDivElement {
     return (
       <div class="checkboxWrapper">
         <input
@@ -384,7 +384,7 @@ export class ZInputDeprecated {
   /* END checkbox */
 
   /* START radio */
-  renderRadio() {
+  renderRadio(): HTMLDivElement {
     return (
       <div class="radioWrapper">
         <input
@@ -419,7 +419,7 @@ export class ZInputDeprecated {
 
   /* START select */
 
-  renderSelect() {
+  renderSelect(): HTMLZSelectElement {
     return (
       <z-select
         htmlid={this.htmlid}

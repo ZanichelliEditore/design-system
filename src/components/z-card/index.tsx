@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, State, Listen, Event, EventEmitter} from "@stencil/core";
+import {Component, Prop, h, Element, State, Listen, Event, EventEmitter, Host} from "@stencil/core";
 import {CardVariants} from "../../beans";
 
 @Component({
@@ -34,7 +34,7 @@ export class ZCard {
   @Event() cardClicked: EventEmitter;
 
   @Listen("click")
-  onClick(ev: MouseEvent) {
+  onClick(ev: MouseEvent): void {
     // Do nothing for clicks on actions.
     if ((ev.target as HTMLElement).getAttribute("slot") === "action") {
       return;
@@ -50,14 +50,14 @@ export class ZCard {
   }
 
   componentWillLoad() {
-    this.hasCoverImage = !!this.host.querySelector('[slot="cover"]');
+    this.hasCoverImage = this.host.querySelector('[slot="cover"]') !== null;
   }
 
   /**
    * Template for a card without image cover.
    * A colored background replaces the image and some data is moved over it.
    */
-  private renderColorCoverCard() {
+  private renderColorCoverCard(): HTMLDivElement[] {
     return [
       <div class="cover-container">
         <div class="color-cover">
@@ -79,7 +79,7 @@ export class ZCard {
   /**
    * Template for the content div.
    */
-  private renderContentDiv() {
+  private renderContentDiv(): HTMLDivElement {
     return (
       <div class="content">
         <slot name="metadata"></slot>
@@ -94,22 +94,24 @@ export class ZCard {
 
   render() {
     if (this.variant === CardVariants.text) {
-      return this.renderContentDiv();
+      return <Host>{this.renderContentDiv()}</Host>;
     }
 
     if (this.variant === CardVariants.overlay || this.hasCoverImage) {
-      return [
-        <div class="cover-container">
-          {this.hasCoverImage && [
-            <slot name="cover"></slot>,
-            this.variant !== CardVariants.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
-          ]}
-          {!this.hasCoverImage && <div class="color-cover"></div>}
-        </div>,
-        this.renderContentDiv(),
-      ];
+      return (
+        <Host>
+          <div class="cover-container">
+            {this.hasCoverImage && [
+              <slot name="cover"></slot>,
+              this.variant !== CardVariants.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
+            ]}
+            {!this.hasCoverImage && <div class="color-cover"></div>}
+          </div>
+          {this.renderContentDiv()}
+        </Host>
+      );
     }
 
-    return this.renderColorCoverCard();
+    return <Host>{this.renderColorCoverCard()}</Host>;
   }
 }

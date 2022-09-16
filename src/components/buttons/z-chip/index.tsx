@@ -20,11 +20,11 @@ export class ZChip {
   @Prop({reflect: true}) disabled?: boolean = false;
   /** click on interactive icon */
   @Event() interactiveIconClick: EventEmitter;
-  emitinteractiveIconClick() {
+  emitinteractiveIconClick(): void {
     this.interactiveIconClick.emit();
   }
 
-  getIconSize() {
+  getIconSize(): number {
     return getDevice() !== DeviceEnum.desktop ? 22 : 14;
   }
 

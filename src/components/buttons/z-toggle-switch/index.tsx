@@ -15,14 +15,14 @@ export class ZToggleSwitch {
   @Prop() htmlid = `toggle-switch-id-${randomId()}`;
 
   @Event() toggleClick: EventEmitter;
-  emitToggleClick() {
+  emitToggleClick(): void {
     this.toggleClick.emit({
       id: this.htmlid,
       checked: this.checked,
     });
   }
 
-  handleClick(ev) {
+  handleClick(ev): void {
     if (this.disabled) return;
 
     this.checked = ev.target.checked;

@@ -1,4 +1,5 @@
 import {Component, Prop, State, h} from "@stencil/core";
+import { JSXBase } from '@stencil/core/internal';
 import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
@@ -33,7 +34,7 @@ export class ZMyzCardHeader {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  retrieveClass() {
+  retrieveClass(): JSXBase.HTMLAttributes['class'] {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
@@ -46,7 +47,7 @@ export class ZMyzCardHeader {
     return (
       <header class={this.retrieveClass()}>
         <h2
-          ref={(el) => (this.ellipsis = el as HTMLElement)}
+          ref={(el): HTMLElement => (this.ellipsis = el as HTMLElement)}
           title={this.getTitle()}
         >
           {this.titolo}

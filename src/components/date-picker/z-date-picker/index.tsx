@@ -32,19 +32,14 @@ export class ZDatePicker {
   private picker;
   private hasChildren: boolean;
 
-  @Watch("mode")
-  watchMode() {
-    this.setupPickers();
-  }
-
   /** emitted when date changes, returns selected date */
   @Event() dateSelect: EventEmitter;
-  emitDateSelect(date) {
+  emitDateSelect(date): void {
     this.dateSelect.emit(date);
   }
 
   @Listen("keydown", {target: "body", capture: true})
-  handleKeyDown(ev: KeyboardEvent) {
+  handleKeyDown(ev: KeyboardEvent): void {
     if (ev.key === "Escape") {
       this.picker?.close();
     }
@@ -114,7 +109,8 @@ export class ZDatePicker {
     this.setupPickers();
   }
 
-  setupPickers() {
+  @Watch("mode")
+  setupPickers(): void {
     const classToAppend = this.hasChildren ? `${this.datePickerId}-hidden` : `${this.datePickerId}-container`;
 
     this.picker = flatpickr(`.${classToAppend}`, {
@@ -150,7 +146,7 @@ export class ZDatePicker {
     });
   }
 
-  formatDate(date) {
+  formatDate(date): string {
     if (this.mode === ZDatePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else if (this.mode === ZDatePickerMode.months) {
@@ -160,7 +156,7 @@ export class ZDatePicker {
     }
   }
 
-  onStopTyping(value) {
+  onStopTyping(value): void {
     let text = value.detail.value;
 
     if (this.mode === ZDatePickerMode.months) {
@@ -187,7 +183,7 @@ export class ZDatePicker {
     }
   }
 
-  renderSlottedContent() {
+  renderSlottedContent(): HTMLDivElement {
     return (
       <div class={`${this.datePickerId}-hidden`}>
         <input
@@ -199,7 +195,7 @@ export class ZDatePicker {
     );
   }
 
-  renderZInput() {
+  renderZInput(): HTMLDivElement {
     return (
       <div class={`${this.datePickerId}-container`}>
         <z-input

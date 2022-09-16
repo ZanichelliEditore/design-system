@@ -28,7 +28,7 @@ export class ZPanelElem {
   /** name of slot container (optional) */
   @Prop() descr_slot_name?: string;
 
-  renderIcon() {
+  renderIcon(): HTMLZIconElement {
     if (this.isdisabled) {
       return (
         <img

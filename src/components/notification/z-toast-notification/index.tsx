@@ -50,7 +50,7 @@ export class ZToastNotification {
   private isCloseEventCalled = false;
 
   @Watch("isdraggable")
-  watchPropIsdraggable(newValue: boolean) {
+  watchPropIsdraggable(newValue: boolean): void {
     if (newValue) {
       this.sliderManager.get("pan").set({enable: true});
     } else {
@@ -59,13 +59,13 @@ export class ZToastNotification {
   }
 
   @Watch("autoclose")
-  watchPropAutoclose(newValue: number) {
+  watchPropAutoclose(newValue: number): void {
     clearTimeout(this.timeoutHandle);
     this.startClosingTimeout(newValue);
   }
 
   @Watch("pauseonfocusloss")
-  watchPropPauseonfocusloss(newValue: boolean) {
+  watchPropPauseonfocusloss(newValue: boolean): void {
     if (this.autoclose) {
       if (newValue) {
         document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
@@ -77,7 +77,7 @@ export class ZToastNotification {
 
   /** notification close event */
   @Event() toastClose: EventEmitter;
-  emitToastClose(cssClass: string) {
+  emitToastClose(cssClass: string): void {
     this.timeoutHandle = null;
     this.elapsedTime = null;
     this.hostElement.classList.add(cssClass);
@@ -101,7 +101,7 @@ export class ZToastNotification {
     this.percentage = 0;
   }
 
-  visibilityChangeEventHandler = () => {
+  visibilityChangeEventHandler(): void {
     if (document.visibilityState === "hidden") {
       this.timeoutHandle && this.onBlur();
     } else {
@@ -109,12 +109,12 @@ export class ZToastNotification {
     }
   };
 
-  validateAutoclose() {
+  validateAutoclose(): void {
     if (!this.autoclose && !this.closebutton)
       console.error("At least one between autoclose and closebutton must be present");
   }
 
-  mapSlideOutClass() {
+  mapSlideOutClass(): ToastNotificationTransitionsEnum {
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInDown:
         return ToastNotificationTransitionsEnum.slideOutUp;
@@ -127,13 +127,13 @@ export class ZToastNotification {
     }
   }
 
-  calculateDraggedPercentage(e) {
+  calculateDraggedPercentage(e): number {
     const bounding = this.hostElement.getBoundingClientRect();
 
     return Math.round((100 * e.deltaX) / bounding.width);
   }
 
-  handleSlideOutDragAnimation() {
+  handleSlideOutDragAnimation(): void {
     this.sliderManager = new Hammer(this.hostElement);
     this.sliderManager.get("pan").set({
       direction: Hammer.DIRECTION_HORIZONTAL,
@@ -166,7 +166,7 @@ export class ZToastNotification {
     });
   }
 
-  onFocus() {
+  onFocus(): void {
     let time;
     time = this.autoclose;
     if (this.elapsedTime) {
@@ -177,16 +177,16 @@ export class ZToastNotification {
     }
   }
 
-  onBlur() {
+  onBlur(): void {
     this.elapsedTime = Date.now() - this.startTime;
     clearTimeout(this.timeoutHandle);
   }
 
-  startClosingTimeout(time: number) {
+  startClosingTimeout(time: number): void {
     this.timeoutHandle = setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
   }
 
-  detectWrap() {
+  detectWrap(): void {
     const parentWidth = this.container.offsetWidth;
     const children = this.container.children;
     let totalWidth = 0;
@@ -198,7 +198,7 @@ export class ZToastNotification {
     return totalWidth > parentWidth;
   }
 
-  renderText() {
+  renderText(): HTMLDivElement {
     return (
       <div
         id="text"
@@ -210,7 +210,7 @@ export class ZToastNotification {
     );
   }
 
-  renderButton() {
+  renderButton(): HTMLDivElement {
     return (
       <div id="button">
         <slot name="button" />
@@ -218,7 +218,7 @@ export class ZToastNotification {
     );
   }
 
-  renderCloseIcon() {
+  renderCloseIcon(): void|HTMLDivElement {
     return (
       this.closebutton && (
         <div id="icon">
@@ -240,7 +240,7 @@ export class ZToastNotification {
     );
   }
 
-  renderContainer() {
+  renderContainer(): HTMLDivElement {
     return (
       <div
         tabIndex={0}
@@ -258,7 +258,7 @@ export class ZToastNotification {
     );
   }
 
-  renderMobileContainer() {
+  renderMobileContainer(): HTMLDivElement {
     return (
       <div
         id="external-container"

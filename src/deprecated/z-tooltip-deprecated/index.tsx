@@ -8,7 +8,7 @@ const documentElement = document.documentElement;
  *
  * @param {Element} element The node
  */
-function findScrollableParent(element: Element) {
+function findScrollableParent(element: Element): Element {
   let parent = element.parentNode as Element;
   while (parent && parent !== documentElement) {
     const {overflow, overflowX, overflowY} = window.getComputedStyle(parent);
@@ -36,7 +36,7 @@ function findScrollableParent(element: Element) {
  * @param targetParentOffset The relative offset parent.
  * @return A client rect object.
  */
-function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
+function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): object {
   const rect = element.getBoundingClientRect();
   const width = rect.width;
   const height = rect.height;
@@ -87,6 +87,7 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement) {
   const right = parentWidth - left - rect.width;
   const bottom = parentHeight - top - rect.height;
 
+
   return {top, right, bottom, left, width, height};
 }
 
@@ -129,14 +130,14 @@ export class ZTooltipDeprecated {
   private animationFrameRequestId?: number;
 
   @Watch("type")
-  validateType(newValue) {
+  validateType(newValue): void {
     if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
       this.type = PopoverPositions.auto;
     }
   }
 
   @Watch("position")
-  onPositionChange() {
+  onPositionChange(): void {
     this.positionChange.emit({position: this.position});
   }
 
@@ -148,14 +149,14 @@ export class ZTooltipDeprecated {
    * Setup tooltip behaviors on opening.
    */
   @Watch("open")
-  onOpen() {
+  onOpen(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
     if (this.content) {
       return;
     }
 
     if (this.open) {
-      const setPosition = () => {
+      const setPosition = (): void => {
         if (this.open) {
           this.setPosition();
           this.animationFrameRequestId = requestAnimationFrame(setPosition);
@@ -175,7 +176,7 @@ export class ZTooltipDeprecated {
   /**
    * Set the position of the tooltip.
    */
-  private setPosition() {
+  private setPosition(): void {
     let element: HTMLElement;
     if (typeof this.bindTo === "string") {
       element = this.host.ownerDocument.querySelector(this.bindTo) as HTMLElement;
