@@ -1,0 +1,21 @@
+@import "~flatpickr/dist/flatpickr.min.css";
+@import "~flatpickr/dist/plugins/monthSelect/style.css";
+
+.story-container {
+  display: flex;
+}
+
+.story-output-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  border: 1px solid black;
+  width: 400px;
+  margin-top: 40px;
+  height: 80px;
+}
+
+.story-picker-container {
+  height: 300px;
+  padding-top: 40px;
+}

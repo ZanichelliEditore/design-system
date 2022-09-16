@@ -250,4 +250,21 @@ describe("Suite test ZInput - text", () => {
       </z-input>
     `);
   });
+
+  it("Test render ZInput type=number", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input message="false" type='number' min='1' max='10' step='2' htmlid='test'></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input htmlid="test" max="10" message="false" min="1" step="2" type="number">
+        <div class="textWrapper">
+          <div>
+            <input class="input_default" id="test" max="10" min="1" step="2" type="number">
+            <span class="iconsWrapper"></span>
+          </div>
+        </div>
+      </z-input>
+    `);
+  });
 });

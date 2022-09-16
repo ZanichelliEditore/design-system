@@ -154,6 +154,9 @@ export enum InputTypeEnum {
   textarea = "textarea",
   checkbox = "checkbox",
   radio = "radio",
+  tel = "tel",
+  url = "url",
+  search = "search",
 }
 
 export type InputStatusBean = keyof typeof InputStatusEnum;
@@ -164,18 +167,58 @@ export enum InputStatusEnum {
   warning = "warning",
 }
 
-export type TooltipPositionBean = keyof typeof TooltipPosition;
+export type PopoverPositionBean = keyof typeof PopoverPositions;
 
-export enum TooltipPosition {
-  AUTO = "auto",
-  TOP = "top",
-  RIGHT = "right",
-  BOTTOM = "bottom",
-  LEFT = "left",
-  TOP_RIGHT = "top_right",
-  TOP_LEFT = "top_left",
-  BOTTOM_RIGHT = "bottom_right",
-  BOTTOM_LEFT = "bottom_left",
+export enum PopoverPositions {
+  auto = "auto",
+  top = "top",
+  right = "right",
+  bottom = "bottom",
+  left = "left",
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
+  right_top = "right_top",
+  right_bottom = "right_bottom",
+  left_top = "left_top",
+  left_bottom = "left_bottom",
+}
+
+export enum PopoverPosition {
+  "after-down" = "after-down",
+  "after-center" = "after-center",
+  "after-up" = "after-up",
+
+  "below-right" = "below-right",
+  "below-center" = "below-center",
+  "below-left" = "below-left",
+
+  "before-down" = "before-down",
+  "before-center" = "before-center",
+  "before-up" = "before-up",
+
+  "above-right" = "above-right",
+  "above-center" = "above-center",
+  "above-left" = "above-left",
+}
+
+export enum PopoverBorderRadius {
+  "none" = "none",
+  small = "small",
+  medium = "medium",
+}
+
+export enum PopoverShadow {
+  "shadow-1" = "shadow-1",
+  "shadow-2" = "shadow-2",
+  "shadow-3" = "shadow-3",
+  "shadow-4" = "shadow-4",
+  "shadow-6" = "shadow-6",
+  "shadow-8" = "shadow-8",
+  "shadow-12" = "shadow-12",
+  "shadow-16" = "shadow-16",
+  "shadow-24" = "shadow-24",
 }
 
 export enum KeyboardKeyCodeEnum {
@@ -220,42 +263,6 @@ export type ThemeVariantBean = keyof typeof ThemeVariant;
 export enum ThemeVariant {
   dark = "dark",
   light = "light",
-}
-
-export enum PopoverPosition {
-  "after-down" = "after-down",
-  "after-center" = "after-center",
-  "after-up" = "after-up",
-
-  "below-right" = "below-right",
-  "below-center" = "below-center",
-  "below-left" = "below-left",
-
-  "before-down" = "before-down",
-  "before-center" = "before-center",
-  "before-up" = "before-up",
-
-  "above-right" = "above-right",
-  "above-center" = "above-center",
-  "above-left" = "above-left",
-}
-
-export enum PopoverBorderRadius {
-  "none" = "none",
-  small = "small",
-  medium = "medium",
-}
-
-export enum PopoverShadow {
-  "shadow-1" = "shadow-1",
-  "shadow-2" = "shadow-2",
-  "shadow-3" = "shadow-3",
-  "shadow-4" = "shadow-4",
-  "shadow-6" = "shadow-6",
-  "shadow-8" = "shadow-8",
-  "shadow-12" = "shadow-12",
-  "shadow-16" = "shadow-16",
-  "shadow-24" = "shadow-24",
 }
 
 export enum DividerSize {
@@ -456,6 +463,11 @@ export enum ZDatePickerPosition {
   bottom = "bottom",
 }
 
+export enum ZRangePickerMode {
+  date = "date",
+  dateTime = "date-time",
+}
+
 export declare type SkipToContentLink = {
   label: string;
   href: string;
@@ -468,4 +480,13 @@ export enum StatusTagStatus {
   success = "success",
   neutral = "neutral",
   default = "default",
+}
+
+export type InfoRevealPositionBean = keyof typeof InfoRevealPosition;
+
+export enum InfoRevealPosition {
+  top_right = "top_right",
+  top_left = "top_left",
+  bottom_right = "bottom_right",
+  bottom_left = "bottom_left",
 }

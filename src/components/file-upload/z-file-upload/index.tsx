@@ -227,7 +227,7 @@ export class ZFileUpload {
   renderUploadButton() {
     return [
       this.renderInput(),
-      <z-button-deprecated
+      <z-button
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
           if (e.code == "Space" || e.code == "Enter") {
@@ -241,7 +241,7 @@ export class ZFileUpload {
         ref={(val) => (this.button = val)}
       >
         Allega
-      </z-button-deprecated>,
+      </z-button>,
     ];
   }
 

@@ -24,13 +24,13 @@
 
 ### Depends on
 
-- [z-tooltip](../../notification/z-tooltip)
+- [z-popover](../../z-popover)
 - [z-chip](../../buttons/z-chip)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-file --> z-tooltip
+  z-file --> z-popover
   z-file --> z-chip
   z-chip --> z-icon
   style z-file fill:#f9f,stroke:#333,stroke-width:4px

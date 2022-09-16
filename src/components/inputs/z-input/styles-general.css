@@ -123,6 +123,8 @@ label.inputLabel {
   margin-bottom: var(--space-unit);
   color: var(--color-text02);
   font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
   text-transform: uppercase;
   text-align: left;
 }

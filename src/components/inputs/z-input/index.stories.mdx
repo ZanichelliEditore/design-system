@@ -1,5 +1,12 @@
 import { html } from "lit-html";
-import { Meta, Canvas, Story, Preview, Props } from "@storybook/addon-docs";
+import {
+  Meta,
+  Canvas,
+  Story,
+  Preview,
+  Props,
+  ArgsTable,
+} from "@storybook/addon-docs";
 import { InputTypeEnum, InputStatusEnum, LabelPositions } from "../../../beans";
 import "./index";
 
@@ -84,6 +91,22 @@ import "./index";
       control: { type: "text" },
       defaultValue: "",
     },
+    min: {
+      control: { type: "number" },
+      defaultValue: 1,
+    },
+    max: {
+      control: { type: "number" },
+      defaultValue: 10,
+    },
+    step: {
+      control: { type: "number" },
+      defaultValue: 1,
+    },
+    pattern: {
+      control: { type: "text" },
+      defaultValue: "",
+    },
   }}
 />
 
@@ -112,6 +135,10 @@ import "./index";
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
           autocomplete=${args.autocomplete}
+          min=${args.min}
+          max=${args.max}
+          step=${args.step}
+          pattern=${args.pattern}
         ></z-input>
       `
     }
@@ -303,6 +330,48 @@ import "./index";
           checked=${args.checked}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+        ></z-input>
+      `
+    }
+  </Story>
+  <Story
+    name="z-input number"
+    parameters={{
+      controls: {
+        include: ["type", "min", "max", "step", "value", "hasclearicon"],
+      },
+    }}
+    argTypes={{
+      type: {
+        options: ["number"],
+        defaultValue: "number",
+      },
+      min: {
+        defaultValue: 1,
+      },
+      max: {
+        defaultValue: 10,
+      },
+      step: {
+        defaultValue: 1,
+      },
+      value: {
+        defaultValue: "1",
+      },
+      hasclearicon: {
+        defaultValue: false,
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-input
+          type=${args.type}
+          value=${args.value}
+          min=${args.min}
+          max=${args.max}
+          step=${args.step}
+          hasclearicon=${args.hasclearicon}
         ></z-input>
       `
     }

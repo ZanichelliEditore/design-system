@@ -1,22 +1,37 @@
 :host {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
-:host(:focus-within) > z-popover {
-  box-shadow: var(--shadow-focus-primary);
+button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+z-popover {
+  overflow: hidden;
 }
 
 .popover-content-container {
+  position: relative;
   min-width: 112px;
   max-width: 280px;
   white-space: nowrap;
-  padding: calc(var(--space-unit) / 2) 0;
+  background-color: var(--color-surface02);
+  box-shadow: var(--shadow-2);
 }
 
 .element-container:hover {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
 }
 
 .element-text {

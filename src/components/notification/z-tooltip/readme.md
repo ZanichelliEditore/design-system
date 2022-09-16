@@ -3,11 +3,11 @@ Use the `bindTo` property (`bind-to` in HTML) to bind the tooltip to an element,
 
 You can use the `open` prop to show/hide the tooltip.
 
-Maybe you want to know where the tooltip goes when the `type` is set to `auto`, so the `positionChange` event is fired when it changes its position.
+Maybe you want to know where the tooltip goes when the `position` is set to `auto`, so the `positionChange` event is fired when it changes its position.
 
 To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
 
-<!-- readme-group="tootlip" -->
+<!-- readme-group="toltip" -->
 ### Usage
 ```html
 <z-tooltip type="top" bind-to="#tooltip-btn" open>
@@ -16,47 +16,29 @@ To be sure the algorithm finds the right container, when calculating the positio
 <button id="tooltip-btn">Button</button>
 ```
 
-### Legacy version
-```html
-<z-tooltip content="Aggiungi libro" type="top"></z-tooltip>
-<z-tooltip content="Aggiungi libro" type="bottom"></z-tooltip>
-<z-tooltip content="Rimuovi libro" type="left"></z-tooltip>
-<z-tooltip content="Rimuovi libro" type="right"></z-tooltip>
-```
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property  | Attribute | Description                                                             | Type                                                                                                                                                                                                                                             | Default                |
-| --------- | --------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
-| `bindTo`  | `bind-to` | The selector or the element bound with the tooltip.                     | `HTMLElement \| string`                                                                                                                                                                                                                          | `undefined`            |
-| `content` | `content` | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>Content text. | `string`                                                                                                                                                                                                                                         | `undefined`            |
-| `open`    | `open`    | The open state of the tooltip.                                          | `boolean`                                                                                                                                                                                                                                        | `false`                |
-| `type`    | `type`    | Tooltip position.                                                       | `TooltipPosition.AUTO \| TooltipPosition.BOTTOM \| TooltipPosition.BOTTOM_LEFT \| TooltipPosition.BOTTOM_RIGHT \| TooltipPosition.LEFT \| TooltipPosition.RIGHT \| TooltipPosition.TOP \| TooltipPosition.TOP_LEFT \| TooltipPosition.TOP_RIGHT` | `TooltipPosition.AUTO` |
-
-
-## Events
-
-| Event            | Description            | Type               |
-| ---------------- | ---------------------- | ------------------ |
-| `positionChange` | Position change event. | `CustomEvent<any>` |
+| Property   | Attribute  | Description                                         | Type                                                                                                                                                                                                                                                                                                                                                                                  | Default                 |
+| ---------- | ---------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `bindTo`   | `bind-to`  | The selector or the element bound with the tooltip. | `HTMLElement \| string`                                                                                                                                                                                                                                                                                                                                                               | `undefined`             |
+| `dark`     | `dark`     | Enable tooltip dark mode.                           | `boolean`                                                                                                                                                                                                                                                                                                                                                                             | `false`                 |
+| `open`     | `open`     | The open state of the tooltip.                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                             | `false`                 |
+| `position` | `position` | Tooltip position.                                   | `PopoverPositions.auto \| PopoverPositions.bottom \| PopoverPositions.bottom_left \| PopoverPositions.bottom_right \| PopoverPositions.left \| PopoverPositions.left_bottom \| PopoverPositions.left_top \| PopoverPositions.right \| PopoverPositions.right_bottom \| PopoverPositions.right_top \| PopoverPositions.top \| PopoverPositions.top_left \| PopoverPositions.top_right` | `PopoverPositions.auto` |
 
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [z-file](../../file-upload/z-file)
- - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
+- [z-popover](../../z-popover)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-file --> z-tooltip
-  z-myz-card-info --> z-tooltip
+  z-tooltip --> z-popover
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -12,6 +12,7 @@ import {
   HeaderUserData,
   ListItemBean,
   ButtonVariantEnum,
+  ButtonSizeEnum,
 } from "../../../beans";
 import {
   mobileBreakpoint,
@@ -288,16 +289,16 @@ export class ZMyzTopbar {
     }
 
     return (
-      <z-button-deprecated
+      <z-button
         htmlid="login-button"
         variant={
           this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary
         }
         icon="login"
-        issmall={true}
+        size={ButtonSizeEnum.small}
       >
         entra
-      </z-button-deprecated>
+      </z-button>
     );
   }
 

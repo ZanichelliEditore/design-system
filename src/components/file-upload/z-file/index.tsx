@@ -9,7 +9,7 @@ import {
   Listen,
   Prop,
 } from "@stencil/core";
-import { TooltipPosition, ZChipType } from "../../../beans";
+import { PopoverPositions, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 
 @Component({
@@ -23,14 +23,16 @@ export class ZFile {
 
   private ellipsis?: HTMLSpanElement;
 
+  private chip?: HTMLZChipElement;
+
   @Prop() fileNumber: number;
 
   /** File name */
   @Prop() fileName: any;
 
-  @State() allowTooltip: boolean = false;
+  @State() allowPopover: boolean = false;
 
-  @State() tooltipVisible: boolean = false;
+  @State() popoverVisible: boolean = false;
 
   @Element() el: HTMLElement;
 
@@ -43,12 +45,12 @@ export class ZFile {
 
   @Listen("mouseover")
   onMouseOver() {
-    this.tooltipVisible = true;
+    this.popoverVisible = true;
   }
 
   @Listen("mouseleave")
   onMouseLeave() {
-    this.tooltipVisible = false;
+    this.popoverVisible = false;
   }
 
   @Listen("interactiveIconClick")
@@ -57,8 +59,9 @@ export class ZFile {
   }
 
   componentDidLoad() {
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
-      this.allowTooltip = true;
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+      this.allowPopover = true;
+    }
 
     this.icon?.focus?.();
   }
@@ -70,16 +73,19 @@ export class ZFile {
   render() {
     return (
       <Host>
-        {this.allowTooltip && (
-          <z-tooltip
-            open={this.tooltipVisible}
-            type={TooltipPosition.AUTO}
-            bind-to={`#chip-${this.fileNumber}`}
+        {this.allowPopover && (
+          <z-popover
+            open={this.popoverVisible}
+            position={PopoverPositions.auto}
+            bindTo={this.chip}
           >
-            <span class="body-5 tootip-content">{this.ellipsis.innerText}</span>
-          </z-tooltip>
+            <span class="body-5 tooltip-content">
+              {this.ellipsis.innerText}
+            </span>
+          </z-popover>
         )}
         <z-chip
+          ref={(el) => (this.chip = el as HTMLZChipElement)}
           id={`chip-${this.fileNumber}`}
           interactiveIcon="multiply-circled"
           type={ZChipType.default}

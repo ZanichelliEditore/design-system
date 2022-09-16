@@ -176,28 +176,4 @@ To do this you need to set `href` prop.
   </Story>
 </Canvas>
 
-Without `href` prop (it will be a button).
-
-<Canvas>
-  <Story
-    name="Without href prop (it will be a button)"
-    args={{
-      variant: ButtonVariantEnum.primary,
-      size: ButtonSizeEnum.big,
-      disabled: false,
-      icon: "link",
-    }}
-  >
-    {(args) => html`
-      <z-button
-        icon="${args.icon}"
-        variant="${args.variant}"
-        size="${args.size}"
-        disabled="${args.disabled}"
-      >
-      </z-button>
-    `}
-  </Story>
-</Canvas>
-
 <ArgsTable of="z-button" />

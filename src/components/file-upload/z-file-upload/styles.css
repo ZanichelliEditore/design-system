@@ -50,7 +50,7 @@ input#fileElem {
   margin-bottom: var(--space-unit);
 }
 
-:host > .container > z-button-deprecated {
+:host > .container > z-button {
   display: inline-block;
   margin-top: calc(var(--space-unit) * 3);
 }
@@ -73,7 +73,7 @@ input#fileElem {
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host > .container > z-button-deprecated {
+  :host > .container > z-button {
     align-self: flex-start;
   }
 }

@@ -122,26 +122,30 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                                           | Type                                                                                 | Default                |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------- |
-| `ariaLabel`     | `aria-label`     | the input aria-label                                                                                                                  | `string`                                                                             | `undefined`            |
-| `autocomplete`  | `autocomplete`   | the input has autocomplete option (optional): available for text, password, number, email                                             | `string`                                                                             | `undefined`            |
-| `checked`       | `checked`        | checked: available for checkbox, radio                                                                                                | `boolean`                                                                            | `false`                |
-| `disabled`      | `disabled`       | the input is disabled                                                                                                                 | `boolean`                                                                            | `false`                |
-| `hasclearicon`  | `hasclearicon`   | render clear icon when typing (optional): available for text                                                                          | `boolean`                                                                            | `true`                 |
-| `htmlid`        | `htmlid`         | the id of the input element                                                                                                           | `string`                                                                             | ``id-${randomId()}``   |
-| `htmltitle`     | `htmltitle`      | the input html title (optional)                                                                                                       | `string`                                                                             | `undefined`            |
-| `icon`          | `icon`           | render icon (optional): available for text                                                                                            | `string`                                                                             | `undefined`            |
-| `label`         | `label`          | the input label                                                                                                                       | `string`                                                                             | `undefined`            |
-| `labelPosition` | `label-position` | the input label position: available for checkbox, radio                                                                               | `"left" \| "right"`                                                                  | `LabelPositions.right` |
-| `message`       | `message`        | input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed | `boolean \| string`                                                                  | `true`                 |
-| `name`          | `name`           | the input name                                                                                                                        | `string`                                                                             | `undefined`            |
-| `placeholder`   | `placeholder`    | the input placeholder (optional)                                                                                                      | `string`                                                                             | `undefined`            |
-| `readonly`      | `readonly`       | the input is readonly                                                                                                                 | `boolean`                                                                            | `false`                |
-| `required`      | `required`       | the input is required (optional): available for text, password, number, email, textarea, checkbox                                     | `boolean`                                                                            | `false`                |
-| `status`        | `status`         | the input status (optional): available for text, password, number, email, textarea                                                    | `"error" \| "success" \| "warning"`                                                  | `undefined`            |
-| `type`          | `type`           | input types                                                                                                                           | `"checkbox" \| "email" \| "number" \| "password" \| "radio" \| "text" \| "textarea"` | `undefined`            |
-| `value`         | `value`          | the input value                                                                                                                       | `string`                                                                             | `undefined`            |
+| Property        | Attribute        | Description                                                                                                                           | Type                                                                                                               | Default                |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| `ariaLabel`     | `aria-label`     | the input aria-label                                                                                                                  | `string`                                                                                                           | `undefined`            |
+| `autocomplete`  | `autocomplete`   | the input has autocomplete option (optional): available for text, password, number, email                                             | `string`                                                                                                           | `undefined`            |
+| `checked`       | `checked`        | checked: available for checkbox, radio                                                                                                | `boolean`                                                                                                          | `false`                |
+| `disabled`      | `disabled`       | the input is disabled                                                                                                                 | `boolean`                                                                                                          | `false`                |
+| `hasclearicon`  | `hasclearicon`   | render clear icon when typing (optional): available for text                                                                          | `boolean`                                                                                                          | `true`                 |
+| `htmlid`        | `htmlid`         | the id of the input element                                                                                                           | `string`                                                                                                           | ``id-${randomId()}``   |
+| `htmltitle`     | `htmltitle`      | the input html title (optional)                                                                                                       | `string`                                                                                                           | `undefined`            |
+| `icon`          | `icon`           | render icon (optional): available for text                                                                                            | `string`                                                                                                           | `undefined`            |
+| `label`         | `label`          | the input label                                                                                                                       | `string`                                                                                                           | `undefined`            |
+| `labelPosition` | `label-position` | the input label position: available for checkbox, radio                                                                               | `"left" \| "right"`                                                                                                | `LabelPositions.right` |
+| `max`           | `max`            | max number value (optional): available for number                                                                                     | `number`                                                                                                           | `undefined`            |
+| `message`       | `message`        | input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed | `boolean \| string`                                                                                                | `true`                 |
+| `min`           | `min`            | min number value (optional): available for number                                                                                     | `number`                                                                                                           | `undefined`            |
+| `name`          | `name`           | the input name                                                                                                                        | `string`                                                                                                           | `undefined`            |
+| `pattern`       | `pattern`        | pattern value (optional): available for tel, text, search, url, email, password                                                       | `string`                                                                                                           | `undefined`            |
+| `placeholder`   | `placeholder`    | the input placeholder (optional)                                                                                                      | `string`                                                                                                           | `undefined`            |
+| `readonly`      | `readonly`       | the input is readonly                                                                                                                 | `boolean`                                                                                                          | `false`                |
+| `required`      | `required`       | the input is required (optional): available for text, password, number, email, textarea, checkbox                                     | `boolean`                                                                                                          | `false`                |
+| `status`        | `status`         | the input status (optional): available for text, password, number, email, textarea                                                    | `"error" \| "success" \| "warning"`                                                                                | `undefined`            |
+| `step`          | `step`           | step number value (optional): available for number                                                                                    | `number`                                                                                                           | `undefined`            |
+| `type`          | `type`           | input types                                                                                                                           | `"checkbox" \| "email" \| "number" \| "password" \| "radio" \| "search" \| "tel" \| "text" \| "textarea" \| "url"` | `undefined`            |
+| `value`         | `value`          | the input value                                                                                                                       | `string`                                                                                                           | `undefined`            |
 
 
 ## Events
@@ -172,9 +176,10 @@ Type: `Promise<boolean>`
 ### Used by
 
  - [z-combobox](../z-combobox)
- - [z-date-picker](../../z-date-picker)
+ - [z-date-picker](../../date-picker/z-date-picker)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-pagination](../../z-pagination)
+ - [z-range-picker](../../date-picker/z-range-picker)
  - [z-select](../z-select)
 
 ### Depends on
@@ -192,6 +197,7 @@ graph TD;
   z-date-picker --> z-input
   z-modal-login --> z-input
   z-pagination --> z-input
+  z-range-picker --> z-input
   z-select --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
