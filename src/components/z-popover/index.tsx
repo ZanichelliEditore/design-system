@@ -3,7 +3,7 @@ import {PopoverPositions, PopoverPositionBean, KeyboardKeys} from "../../beans";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
-function getParentElement(element: Element): ShadowRoot['host'] {
+function getParentElement(element: Element): ShadowRoot["host"] {
   if ((element.parentNode as ShadowRoot).host) {
     return (element.parentNode as ShadowRoot).host;
   }

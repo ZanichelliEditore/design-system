@@ -1,5 +1,5 @@
 import {Component, Prop, h, Element} from "@stencil/core";
-import { JSXBase } from '@stencil/core/internal';
+import {JSXBase} from "@stencil/core/internal";
 import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../../beans";
 
 /**
@@ -44,7 +44,7 @@ export class ZButton {
   @Prop({reflect: true})
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
 
-  private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement|HTMLButtonElement> {
+  private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {
       id: this.htmlid,
       class: {

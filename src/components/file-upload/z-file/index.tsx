@@ -34,7 +34,7 @@ export class ZFile {
   @Event()
   removeFile: EventEmitter;
   removeFileHandler(): void {
-    this.removeFile.emit({ fileName: this.fileName });
+    this.removeFile.emit({fileName: this.fileName});
     this.el.remove();
   }
 
