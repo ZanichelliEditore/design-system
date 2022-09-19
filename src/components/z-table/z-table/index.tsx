@@ -18,7 +18,7 @@ export class ZTable {
 
   /** Number of lines of element */
   @Prop({reflect: true})
-	lines?: number;
+  lines?: number;
 
   /** Error message */
   @Prop()

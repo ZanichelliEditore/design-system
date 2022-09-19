@@ -21,13 +21,13 @@ export class ZButtonDeprecated {
   name?: string;
   /** HTML button disabled attribute. */
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
   /** HTML button type attribute. */
   @Prop()
   type?: HTMLButtonElement["type"] = ButtonTypeEnum.button;
   /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
   @Prop({reflect: true})
-	variant?: ButtonVariantBean = ButtonVariantEnum.primary;
+  variant?: ButtonVariantBean = ButtonVariantEnum.primary;
   /** `z-icon` name to use (optional). */
   @Prop()
   icon?: string;
@@ -38,7 +38,7 @@ export class ZButtonDeprecated {
    * @deprecated Use `size` prop.
    */
   @Prop({reflect: true})
-	issmall?: boolean = false;
+  issmall?: boolean = false;
   /** Spy to render square button. */
   @Prop({reflect: true})
   square?: boolean = false;

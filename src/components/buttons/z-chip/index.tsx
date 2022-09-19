@@ -15,13 +15,13 @@ export class ZChip {
   icon?: string;
   /** z-chip size type, can be default, medium or small */
   @Prop({reflect: true})
-	type?: ZChipType = ZChipType.default;
+  type?: ZChipType = ZChipType.default;
   /** z-chip interactive icon */
   @Prop({reflect: true})
-	interactiveIcon?: string;
+  interactiveIcon?: string;
   /** set z-chip as disabled  */
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
   /** click on interactive icon */
   @Event()
   interactiveIconClick: EventEmitter;

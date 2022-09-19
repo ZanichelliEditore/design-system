@@ -17,7 +17,7 @@ export class ZPocket {
   pocketid: string;
   /** pocket status */
   @Prop({mutable: true})
-	status: PocketStatus = PocketStatusEnum.preview;
+  status: PocketStatus = PocketStatusEnum.preview;
 
   /** open z-pocket */
   @Method()

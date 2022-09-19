@@ -18,16 +18,16 @@ export class ZPaginationBar {
   visiblepages: number;
   /** current displayed page (mutable) */
   @Prop({mutable: true})
-	currentpage = 1;
+  currentpage = 1;
   /** initial page (mutable) */
   @Prop({mutable: true})
-	startpage = 1;
+  startpage = 1;
   /** json stringified history of visited pages (optional) */
   @Prop()
   historyraw?: string;
   /** array of history of visited pages (mutable, optional) */
   @Prop({mutable: true})
-	listhistoryrow?: number[] = [];
+  listhistoryrow?: number[] = [];
 
   @State()
   currentPages: number[] = [];

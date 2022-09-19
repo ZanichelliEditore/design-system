@@ -21,13 +21,13 @@ export class ZNavigationTabs {
    * Navigation tabs orientation.
    */
   @Prop({reflect: true})
-	orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Navigation tabs size.
    */
   @Prop({reflect: true})
-	size?: NavigationTabsSize = NavigationTabsSizes.big;
+  size?: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Whether to show navigation buttons.

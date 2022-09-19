@@ -15,7 +15,7 @@ export class ZPocketBody {
   pocketid: string;
   /** pocket status */
   @Prop({mutable: true})
-	status: PocketStatus = PocketStatusEnum.preview;
+  status: PocketStatus = PocketStatusEnum.preview;
 
   @Listen("pocketToggle", {target: "body"})
   handlePocketToggle(e: CustomEvent): void {

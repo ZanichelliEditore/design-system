@@ -24,7 +24,7 @@ export class ZTableHeader {
 
   /** Set padding size of cell, if special 0px padding will be set */
   @Prop({reflect: true})
-	padding: Size = Size.medium;
+  padding: Size = Size.medium;
 
   /** [Optional] Make the header sortable */
   @Prop()
@@ -39,7 +39,7 @@ export class ZTableHeader {
   defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
 
   @Prop({mutable: true})
-	sortDirection: SortDirection = SortDirectionEnum.none;
+  sortDirection: SortDirection = SortDirectionEnum.none;
 
   private popover?: HTMLZPopoverElement;
 

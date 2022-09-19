@@ -19,25 +19,25 @@ export class ZNavigationTabLink {
    * Whether the tab is selected.
    */
   @Prop({mutable: true, reflect: true})
-	selected?: boolean = false;
+  selected?: boolean = false;
 
   /**
    * Whether the tab is disabled.
    */
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
 
   /**
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-	orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-	size: NavigationTabsSize = NavigationTabsSizes.big;
+  size: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Html title attribute for the anchor element.

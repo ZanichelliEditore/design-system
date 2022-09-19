@@ -14,25 +14,25 @@ export class ZListGroup {
    * [optional] Sets size of inside elements.
    */
   @Prop({reflect: true})
-	size?: ListSize = ListSize.medium;
+  size?: ListSize = ListSize.medium;
 
   /**
    * [optional] Sets the position where to insert the divider.
    */
   @Prop({reflect: true})
-	dividerType?: ListDividerType = ListDividerType.none;
+  dividerType?: ListDividerType = ListDividerType.none;
 
   /**
    * [optional] Sets the divider size.
    */
   @Prop({reflect: true})
-	dividerSize?: DividerSize = DividerSize.small;
+  dividerSize?: DividerSize = DividerSize.small;
 
   /**
    * [optional] Sets the divider color.
    */
   @Prop({reflect: true})
-	dividerColor?: string = "gray200";
+  dividerColor?: string = "gray200";
 
   hasHeader: boolean;
 

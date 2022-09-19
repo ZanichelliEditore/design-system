@@ -19,15 +19,15 @@ export class ZOffcanvas {
    * Default variant: pushcontent
    */
   @Prop({reflect: true})
-	variant?: OffCanvasVariantsEnum = OffCanvasVariantsEnum.pushcontent;
+  variant?: OffCanvasVariantsEnum = OffCanvasVariantsEnum.pushcontent;
 
   /** open component. Default: false */
   @Prop({reflect: true, mutable: true})
-	open = false;
+  open = false;
 
   /** open content transitioning in a specified direction left | right. Default: left */
   @Prop({reflect: true})
-	transitiondirection?: TransitionDirectionEnum = TransitionDirectionEnum.left;
+  transitiondirection?: TransitionDirectionEnum = TransitionDirectionEnum.left;
 
   /** emitted when open prop changes */
   @Event()

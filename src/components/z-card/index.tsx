@@ -14,7 +14,7 @@ export class ZCard {
    * Leave it undefined for the default card.
    */
   @Prop({reflect: true})
-	variant: CardVariants;
+  variant: CardVariants;
 
   /** Name of the icon to place over the image cover */
   @Prop()
@@ -22,11 +22,11 @@ export class ZCard {
 
   /** Enable click interactions on the card. Default: false */
   @Prop({reflect: true})
-	clickable = false;
+  clickable = false;
 
   /** Enable shadow. Default: false. */
   @Prop({reflect: true})
-	showshadow = false;
+  showshadow = false;
 
   @Element() host: HTMLZCardElement;
 

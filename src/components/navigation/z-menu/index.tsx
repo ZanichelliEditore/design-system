@@ -15,7 +15,7 @@ import {HostElement} from "@stencil/core/internal";
 export class ZMenu {
   /** Flag to set the active status of the menu. */
   @Prop({reflect: true})
-	active?: boolean;
+  active?: boolean;
   /**
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
@@ -23,13 +23,13 @@ export class ZMenu {
    * @default false
    */
   @Prop({reflect: true})
-	floating? = false;
+  floating? = false;
   /**
    * The opening state of the menu.
    * @default false
    */
   @Prop({mutable: true, reflect: true})
-	open = false;
+  open = false;
   @State()
   hasHeader: boolean;
   @State()

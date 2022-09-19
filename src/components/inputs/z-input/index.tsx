@@ -1,4 +1,5 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
+import {JSXBase} from "@stencil/core/internal";
 import {InputTypeBean, InputTypeEnum, InputStatusBean, LabelPosition, LabelPositions} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
@@ -28,10 +29,10 @@ export class ZInput {
   ariaLabel?: string;
   /** the input value */
   @Prop({mutable: true})
-	value?: string;
+  value?: string;
   /** the input is disabled */
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
   /** the input is readonly */
   @Prop()
   readonly?: boolean = false;
@@ -40,7 +41,7 @@ export class ZInput {
   required?: boolean = false;
   /** checked: available for checkbox, radio */
   @Prop({mutable: true})
-	checked?: boolean = false;
+  checked?: boolean = false;
   /** the input placeholder (optional) */
   @Prop()
   placeholder?: string;
@@ -117,7 +118,7 @@ export class ZInput {
   emitInputChange(value: string): void {
     if (!this.isTyping) this.emitStartTyping();
 
-    let validity = {};
+    let validity = new ValidityState();
     if (this.type === InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
     } else {
@@ -143,7 +144,7 @@ export class ZInput {
   /** Emitted when user stops typing, returns value, validity */
   @Event()
   stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any): void {
+  emitStopTyping(value: string, validity: ValidityState): void {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
@@ -172,7 +173,7 @@ export class ZInput {
 
   /* START text/password/email/number */
 
-  getTextAttributes(): object {
+  getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return {
       id: this.htmlid,
       name: this.name,
@@ -187,11 +188,11 @@ export class ZInput {
         filled: !!this.value,
       },
       autocomplete: this.autocomplete,
-      onInput: (e: any) => this.emitInputChange(e.target.value),
+      onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
     };
   }
 
-  getNumberAttributes(type: InputTypeBean): void | object {
+  getNumberAttributes(type: InputTypeBean): void | JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (type != InputTypeEnum.number) return;
     return {
       min: this.min,
@@ -200,7 +201,7 @@ export class ZInput {
     };
   }
 
-  getPatternAttribute(type: InputTypeBean): void | object {
+  getPatternAttribute(type: InputTypeBean): void | JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (
       type != InputTypeEnum.password &&
       type != InputTypeEnum.text &&
@@ -222,10 +223,10 @@ export class ZInput {
       ...this.getPatternAttribute(type),
     };
     if (this.icon || type === InputTypeEnum.password) {
-      attr.class = {...attr.class, hasIcon: true};
+      Object.assign(attr.class, {hasIcon: true});
     }
     if (this.hasclearicon && type != InputTypeEnum.number) {
-      attr.class = {...attr.class, hasClearIcon: true};
+      Object.assign(attr.class, {hasClearIcon: true});
     }
 
     return (
@@ -339,9 +340,9 @@ export class ZInput {
         {this.renderLabel()}
         <div
           class={{
-            ...attributes.class,
+            ...(attributes.class as Record<string, boolean>),
             textareaWrapper: true,
-            readonly: attributes.readonly,
+            readonly: attributes.readonly as boolean,
           }}
         >
           <textarea
@@ -356,8 +357,8 @@ export class ZInput {
 
   /* END textarea */
 
-  handleCheck(ev): void {
-    this.checked = ev.target.checked;
+  handleCheck(ev: Event): void {
+    this.checked = (ev.target as HTMLInputElement).checked;
     this.emitInputCheck(this.checked);
   }
 

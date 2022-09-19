@@ -13,7 +13,7 @@ import {HostElement} from "@stencil/core/internal";
 })
 export class ZMenuSection {
   @Prop({reflect: true})
-	active?: boolean;
+  active?: boolean;
   @State()
   open: boolean;
   @State()

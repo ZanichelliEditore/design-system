@@ -26,7 +26,7 @@ export class ZInfoReveal {
   icon? = "informationsource";
 
   @Prop({reflect: true})
-	position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
+  position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
 
   /** Text that appears on closed panel next to the open button. */
   @Prop()

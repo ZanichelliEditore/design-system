@@ -11,11 +11,11 @@ import {HostElement} from "@stencil/core/internal";
 })
 export class ZToggleSwitch {
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
   @Prop({reflect: true})
-	labelPosition?: LabelPosition = LabelPositions.left;
+  labelPosition?: LabelPosition = LabelPositions.left;
   @Prop({mutable: true})
-	checked?: boolean = false;
+  checked?: boolean = false;
   @Prop()
   htmlid = `toggle-switch-id-${randomId()}`;
 

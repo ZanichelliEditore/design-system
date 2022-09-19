@@ -23,7 +23,7 @@ export class ZAppHeader {
    * **Optional**
    */
   @Prop({reflect: true})
-	stuck = false;
+  stuck = false;
 
   /**
    * Set the hero image source for the header.
@@ -39,7 +39,7 @@ export class ZAppHeader {
    * **Optional**
    */
   @Prop({reflect: true})
-	overlay = false;
+  overlay = false;
 
   /**
    * Control menu bar position in the header.
@@ -50,13 +50,13 @@ export class ZAppHeader {
    * **Optional**
    */
   @Prop({reflect: true})
-	flow: "auto" | "stack" | "offcanvas" = "auto";
+  flow: "auto" | "stack" | "offcanvas" = "auto";
 
   /**
    * The opening state of the drawer.
    */
   @Prop({reflect: true})
-	drawerOpen = false;
+  drawerOpen = false;
 
   /**
    * The stucked state of the bar.

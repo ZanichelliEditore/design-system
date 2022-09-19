@@ -13,7 +13,7 @@ export class ZInputMessage {
   message: string;
   /** input status (optional) */
   @Prop({reflect: true})
-	status?: InputStatusBean;
+  status?: InputStatusBean;
 
   private statusIcons = {
     success: "checkmark-circle",

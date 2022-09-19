@@ -22,7 +22,7 @@ export class ZAvatar {
   backgroundColor?: string = "bg-grey-700";
   /** [optional] Avatar image */
   @Prop({mutable: true})
-	image?: string;
+  image?: string;
 
   constructor() {
     if (this.text.length === 0 && this.image.length === 0) {

@@ -9,10 +9,10 @@ import {ListItemBean} from "../../../../beans/index.js";
 export class ZMyzList {
   /** json stringified list data (mutable, optional) */
   @Prop()
-	inputrawdata?: string;
+  inputrawdata?: string;
   /** list item data (mutable, optional)*/
   @Prop({mutable: true})
-	list?: ListItemBean[];
+  list?: ListItemBean[];
 
   componentWillLoad(): void {
     if (this.inputrawdata) {

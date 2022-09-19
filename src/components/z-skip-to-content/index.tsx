@@ -15,10 +15,10 @@ import {HostElement} from "@stencil/core/internal";
 export class ZSkipToContent {
   /** Graphical variant: `dark`, `light`. */
   @Prop({reflect: true})
-	variant?: ThemeVariant;
+  variant?: ThemeVariant;
   /** Array to fill link into skip-content */
   @Prop({mutable: true})
-	links: string | SkipToContentLink[] = [];
+  links: string | SkipToContentLink[] = [];
 
   @State()
   visible = false;

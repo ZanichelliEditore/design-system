@@ -17,7 +17,7 @@ export class ZToggleButton {
   avoidclick: boolean;
   /** open by default (optional) */
   @Prop({mutable: true})
-	opened?: boolean = false;
+  opened?: boolean = false;
 
   /** emitted on toggle button click, returns isOpen */
   @Event()

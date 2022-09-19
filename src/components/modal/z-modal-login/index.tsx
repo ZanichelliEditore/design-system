@@ -1,5 +1,5 @@
 import {Component, h, Element, Event, EventEmitter, Prop} from "@stencil/core";
-import {HostElement, State} from "@stencil/core/internal";
+import {State} from "@stencil/core/internal";
 import {ButtonVariantEnum, InputStatusBean, InputStatusEnum} from "../../../beans";
 
 /**
@@ -26,13 +26,13 @@ export class ZModalLogin {
   heading?: string = "Entra in MyZanichelli";
   /** Username/password input status */
   @Prop({mutable: true})
-	status?: InputStatusBean;
+  status?: InputStatusBean;
   /** Username helper message */
   @Prop()
-	message?: string;
+  message?: string;
   /** Password helper message */
   @Prop()
-	pwdmessage?: string;
+  pwdmessage?: string;
 
   @State()
   externalProviderCheck = false;

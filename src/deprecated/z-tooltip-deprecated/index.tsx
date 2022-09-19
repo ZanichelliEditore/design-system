@@ -105,13 +105,13 @@ export class ZTooltipDeprecated {
 
   /** Tooltip position. */
   @Prop({mutable: true})
-	type: PopoverPositions = PopoverPositions.auto;
+  type: PopoverPositions = PopoverPositions.auto;
 
   /**
    * The open state of the tooltip.
    */
   @Prop({reflect: true, mutable: true})
-	open = false;
+  open = false;
 
   /**
    * The selector or the element bound with the tooltip.

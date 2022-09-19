@@ -22,7 +22,7 @@ export class ZMyzCardDictionary {
   disabled = false;
   /** card is flipped */
   @Prop({mutable: true})
-	flipped = false;
+  flipped = false;
   /** flip button label */
   @Prop()
   flipbuttonlabel = "INFO";

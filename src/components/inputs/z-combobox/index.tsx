@@ -35,7 +35,7 @@ export class ZCombobox {
   noresultslabel?: string = "Nessun risultato";
   /** toggle combo list opening flag */
   @Prop({mutable: true})
-	isopen = false;
+  isopen = false;
   /** fixed style flag */
   @Prop()
   isfixed = false;

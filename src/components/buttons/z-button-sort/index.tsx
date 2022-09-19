@@ -26,10 +26,10 @@ export class ZButtonSort {
   sortlabeldesc?: string = "Z-A";
   /** selected flag (optional) */
   @Prop({mutable: true})
-	isselected?: boolean = false;
+  isselected?: boolean = false;
   /** sortable flag (optional) */
   @Prop({mutable: true})
-	sortasc?: boolean = true;
+  sortasc?: boolean = true;
 
   @State()
   allowTooltip = false;

@@ -20,7 +20,7 @@ export class ZStatusTag {
   expandable?: boolean;
   /** [optional] Status tag color */
   @Prop({reflect: true})
-	status?: StatusTagStatus = StatusTagStatus.default;
+  status?: StatusTagStatus = StatusTagStatus.default;
   /** [optional] Status tag style */
   @Prop()
   variant?: ThemeVariant;

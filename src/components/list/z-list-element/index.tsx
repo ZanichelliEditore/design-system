@@ -47,13 +47,13 @@ export class ZListElement {
    * [optional] Align expandable button left or right.
    */
   @Prop({reflect: true})
-	alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
+  alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
 
   /**
    * [optional] Sets element clickable.
    */
   @Prop({reflect: true})
-	clickable?: boolean = false;
+  clickable?: boolean = false;
 
   /**
    * [optional] Sets the divider color.
@@ -77,7 +77,7 @@ export class ZListElement {
    * [optional] Sets element as expandable.
    */
   @Prop({reflect: true})
-	expandable?: boolean = false;
+  expandable?: boolean = false;
 
   /**
    * [optional] Sets expandable style to element.
@@ -86,31 +86,31 @@ export class ZListElement {
   expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
   @Prop({reflect: true})
-	listElementId?: number;
+  listElementId?: number;
 
   /**
    * [optional] Sets size of inside elements.
    */
   @Prop({reflect: true})
-	size?: ListSize = ListSize.medium;
+  size?: ListSize = ListSize.medium;
 
   /**
    * [optional] Sets text color of the element.
    */
   @Prop({reflect: true})
-	color?: string = "none";
+  color?: string = "none";
 
   /**
    * [optional] Sets disabled style of the element.
    */
   @Prop({reflect: true})
-	disabled?: boolean = false;
+  disabled?: boolean = false;
 
   /**
    * [optional] If is used in ZContextualMenu component
    */
   @Prop({reflect: true})
-	isContextualMenu?: boolean = false;
+  isContextualMenu?: boolean = false;
 
   @State()
   showInnerContent = false;

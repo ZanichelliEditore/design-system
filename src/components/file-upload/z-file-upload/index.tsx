@@ -12,7 +12,7 @@ import {getDevice} from "../../../utils/utils";
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
   @Prop({mutable: true, reflect: true})
-	type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
+  type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
   @Prop()

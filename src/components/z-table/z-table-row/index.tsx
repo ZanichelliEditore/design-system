@@ -10,7 +10,7 @@ import {ZTableRowExpandedType} from "../../../beans";
 })
 export class ZTableRow {
   @Prop({reflect: true})
-	expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
+  expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
 
   @State()
   expanded = false;
