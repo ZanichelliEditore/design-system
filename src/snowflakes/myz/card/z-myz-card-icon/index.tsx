@@ -13,7 +13,7 @@ export class ZMyzCardIcon {
   /** description of the icon*/
   @Prop() ariaLabel?: string;
 
-  render() {
+  render(): HTMLButtonElement {
     return (
       <button
         disabled={this.isdisabled}

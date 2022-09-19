@@ -10,7 +10,7 @@ import {Component, h} from "@stencil/core";
   shadow: true,
 })
 export class ZMyzCardFooterSections {
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         <footer>

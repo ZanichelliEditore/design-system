@@ -51,7 +51,7 @@ export class ZPanelElem {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     const elemId = this.elemid ? this.elemid : "";
     return (
       <div class="panel-elem-container">

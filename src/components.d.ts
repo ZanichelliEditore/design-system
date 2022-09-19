@@ -24,7 +24,7 @@ export namespace Components {
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow": 'auto'|'stack'|'offcanvas';
+        "flow": "auto" | "stack" | "offcanvas";
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -806,7 +806,7 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        "textcolor"?: "primary" | "inverse" | "white" | "black";
         /**
           * draw underline on text (optional)
          */
@@ -2773,7 +2773,7 @@ declare namespace LocalJSX {
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow"?: 'auto'|'stack'|'offcanvas';
+        "flow"?: "auto" | "stack" | "offcanvas";
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -3643,7 +3643,7 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        "textcolor"?: "primary" | "inverse" | "white" | "black";
         /**
           * draw underline on text (optional)
          */

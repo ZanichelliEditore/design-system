@@ -10,7 +10,7 @@ import {Component, h} from "@stencil/core";
   shadow: true,
 })
 export class ZMyzCardBody {
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         <slot name="alert"></slot>

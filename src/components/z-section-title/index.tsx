@@ -1,4 +1,5 @@
-import {Component, Element, h, Prop} from "@stencil/core";
+import {Component, Element, h, Host, Prop} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {DividerSize, ZSectionTitleDividerPosition, ZSectionTitleDividerPositions} from "../../beans";
 
 /**
@@ -27,33 +28,32 @@ export class ZSectionTitle {
    */
   @Prop({reflect: true}) uppercase = true;
 
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZSectionTitleElement;
 
   private hasSecondaryTitle: boolean;
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
   }
 
-  render() {
-    return [
-      <slot name="secondary-title" />,
-
-      !this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.before && (
-        <z-divider
-          size={DividerSize.large}
-          color="z-section-title--divider-color"
-        />
-      ),
-
-      <slot name="primary-title" />,
-
-      !this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.after && (
-        <z-divider
-          size={DividerSize.large}
-          color="z-section-title--divider-color"
-        />
-      ),
-    ];
+  render(): HostElement {
+    return (
+      <Host>
+        <slot name="secondary-title" />
+        {!this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.before && (
+          <z-divider
+            size={DividerSize.large}
+            color="z-section-title--divider-color"
+          />
+        )}
+        <slot name="primary-title" />
+        {!this.hasSecondaryTitle && this.dividerPosition == ZSectionTitleDividerPositions.after && (
+          <z-divider
+            size={DividerSize.large}
+            color="z-section-title--divider-color"
+          />
+        )}
+      </Host>
+    );
   }
 }

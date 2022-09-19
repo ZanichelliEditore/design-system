@@ -1,4 +1,5 @@
 import {Component, Element, h, Prop, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 
 import {ListSize} from "../../../beans";
 
@@ -8,7 +9,7 @@ import {ListSize} from "../../../beans";
   shadow: true,
 })
 export class ZList {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZListElement;
 
   /**
    * [optional] Sets size of inside elements.
@@ -22,11 +23,11 @@ export class ZList {
     }
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setChildrenSizeType();
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host role="list">
         <slot />

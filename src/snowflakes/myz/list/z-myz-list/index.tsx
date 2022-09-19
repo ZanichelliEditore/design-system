@@ -12,7 +12,7 @@ export class ZMyzList {
   /** list item data (mutable, optional)*/
   @Prop({mutable: true}) list?: ListItemBean[];
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     if (this.inputrawdata) {
       this.parseinputrawdata(this.inputrawdata);
     }
@@ -27,7 +27,7 @@ export class ZMyzList {
     this.parseinputrawdata(newValue);
   }
 
-  render() {
+  render(): HTMLUListElement {
     const lastElem = this.list ? this.list.length - 1 : -1;
     return (
       <ul>

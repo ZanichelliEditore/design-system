@@ -1,4 +1,5 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 
 /**
  * @slot modalContent - set the content of the modal
@@ -37,37 +38,39 @@ export class ZModal {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 
-  render() {
-    return [
-      <div
-        class="modal-container"
-        id={this.modalid}
-        role="dialog"
-      >
-        <header onClick={this.emitModalHeaderActive.bind(this)}>
-          <div>
-            {this.modaltitle && <h1>{this.modaltitle}</h1>}
-            {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+  render(): HostElement {
+    return (
+      <Host>
+        <div
+          class="modal-container"
+          id={this.modalid}
+          role="dialog"
+        >
+          <header onClick={this.emitModalHeaderActive.bind(this)}>
+            <div>
+              {this.modaltitle && <h1>{this.modaltitle}</h1>}
+              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+            </div>
+            <slot name="modalCloseButton">
+              <button
+                aria-label={this.closeButtonLabel}
+                onClick={this.emitModalClose.bind(this)}
+              >
+                <z-icon name="multiply-circle-filled"></z-icon>
+              </button>
+            </slot>
+          </header>
+          <div class="modal-content">
+            <slot name="modalContent"></slot>
           </div>
-          <slot name="modalCloseButton">
-            <button
-              aria-label={this.closeButtonLabel}
-              onClick={this.emitModalClose.bind(this)}
-            >
-              <z-icon name="multiply-circle-filled"></z-icon>
-            </button>
-          </slot>
-        </header>
-        <div class="modal-content">
-          <slot name="modalContent"></slot>
         </div>
-      </div>,
-      <div
-        class="modal-background"
-        data-action="modalBackground"
-        data-modal={this.modalid}
-        onClick={this.emitBackgroundClick.bind(this)}
-      ></div>,
-    ];
+        <div
+          class="modal-background"
+          data-action="modalBackground"
+          data-modal={this.modalid}
+          onClick={this.emitBackgroundClick.bind(this)}
+        ></div>
+      </Host>
+    );
   }
 }

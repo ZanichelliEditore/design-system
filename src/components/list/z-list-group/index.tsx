@@ -1,4 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {DividerSize, ListSize, ListDividerType} from "../../../beans";
 
 @Component({
@@ -7,7 +8,7 @@ import {DividerSize, ListSize, ListDividerType} from "../../../beans";
   shadow: true,
 })
 export class ZListGroup {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZListGroupElement;
 
   /**
    * [optional] Sets size of inside elements.
@@ -31,7 +32,7 @@ export class ZListGroup {
 
   hasHeader: boolean;
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     const children = this.host.children;
     for (let i = 0; i < children.length; i++) {
       if (children.length - 1 > i) {
@@ -43,11 +44,11 @@ export class ZListGroup {
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host role="group">
         <div

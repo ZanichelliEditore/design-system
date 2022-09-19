@@ -66,7 +66,7 @@ export class ZMessagesPocket {
     );
   }
 
-  render() {
+  render(): HTMLZPocketElement {
     return (
       <z-pocket
         pocketid={this.pocketid}

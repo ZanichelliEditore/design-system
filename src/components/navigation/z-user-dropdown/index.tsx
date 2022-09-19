@@ -1,4 +1,5 @@
 import {Component, Prop, State, Event, Listen, h, EventEmitter, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {MenuItem} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -31,15 +32,15 @@ export class ZUserDropdown {
     this.emitDropdownMenuLinkClick = this.emitDropdownMenuLinkClick.bind(this);
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setMobileAndDivToResizeWidth();
   }
 
-  componentWillUpdate() {
+  componentWillUpdate(): void {
     this.setMobileAndDivToResizeWidth();
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     if (this.menuContent) {
       this.linkArray = typeof this.menuContent === "string" ? JSON.parse(this.menuContent) : this.menuContent;
     }
@@ -145,7 +146,7 @@ export class ZUserDropdown {
     }
   }
 
-  renderDropdownMenu(): void|HTMLUListElement {
+  renderDropdownMenu(): void | HTMLUListElement {
     const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (
@@ -180,7 +181,7 @@ export class ZUserDropdown {
     );
   }
 
-  render() {
+  render(): HostElement {
     const openClass = `${this.logged && this.isMenuOpen ? "open" : ""}`;
     const colorClass = this.useInverseColors ? "inverse" : "";
 

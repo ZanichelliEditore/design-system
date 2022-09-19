@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import classNames from "classnames";
 import {
   ButtonSizeEnum,
@@ -15,7 +16,7 @@ import {getElementTree} from "../../../utils/utils";
   shadow: true,
 })
 export class ZTableHeader {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTableHeaderElement;
 
   /** Column ID */
   @Prop() columnId: string;
@@ -103,11 +104,11 @@ export class ZTableHeader {
     }
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.host.setAttribute("role", "columnheader");
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={classNames({

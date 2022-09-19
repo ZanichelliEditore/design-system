@@ -9,7 +9,7 @@ import {randomId} from "../../utils/utils";
   scoped: true,
 })
 export class ZInputDeprecated {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZInputDeprecatedElement;
 
   /** the id of the input element */
   @Prop() htmlid = `id-${randomId()}`;
@@ -227,7 +227,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderLabel(): void|HTMLZInputLabelElement {
+  renderLabel(): void | HTMLZInputLabelElement {
     if (!this.label) return;
 
     return (
@@ -270,7 +270,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderResetIcon(): void|HTMLZIconElement {
+  renderResetIcon(): void | HTMLZIconElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
 
     return (
@@ -292,7 +292,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderMessage(): void|HTMLZInputMessageElement {
+  renderMessage(): void | HTMLZInputMessageElement {
     if (!this.hasmessage) return;
 
     return (
@@ -441,7 +441,7 @@ export class ZInputDeprecated {
 
   /* END select */
 
-  render() {
+  render(): HTMLDivElement|HTMLZSelectElement {
     switch (this.type) {
       case InputTypeEnum.text:
       case InputTypeEnum.password:

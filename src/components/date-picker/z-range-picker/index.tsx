@@ -12,7 +12,7 @@ import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
   shadow: false,
 })
 export class ZRangePicker {
-  @Element() element: HTMLElement;
+  @Element() element: HTMLZRangePickerElement;
 
   /** unique id */
   @Prop() rangePickerId: string;
@@ -90,7 +90,7 @@ export class ZRangePicker {
     }
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setupPickers();
   }
 
@@ -381,7 +381,7 @@ export class ZRangePicker {
     this.setRangeStyle(this.activeInput === "start-input" ? 0 : 1);
   }
 
-  render() {
+  render(): HTMLDivElement {
     const zInputProps = {
       type: InputTypeEnum.text,
       icon: "event",

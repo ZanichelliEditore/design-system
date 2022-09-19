@@ -36,15 +36,15 @@ export class ZMyzCardInfo {
     this.emitFlipCard = this.emitFlipCard.bind(this);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.setStringOrArray();
   }
 
-  componentWillUpdate() {
+  componentWillUpdate(): void {
     this.setStringOrArray();
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     this.handleContentHeight();
   }
 
@@ -134,7 +134,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderTooltip(): void|HTMLZPopoverElement {
+  renderTooltip(): void | HTMLZPopoverElement {
     if (!this.tooltip) return;
 
     if (!this.cardData) return;
@@ -166,7 +166,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  renderOnlineLicenseSection(): void|HTMLElement {
+  renderOnlineLicenseSection(): void | HTMLElement {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
@@ -181,7 +181,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderOfflineLicenseSection(): void|HTMLElement {
+  renderOfflineLicenseSection(): void | HTMLElement {
     if (!this?.cardData?.offlineLicense) return;
 
     return (
@@ -197,7 +197,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         {this.renderCloseIcon()}

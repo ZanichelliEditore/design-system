@@ -10,7 +10,7 @@ import {Component, h} from "@stencil/core";
   scoped: true,
 })
 export class ZTableStickyFooter {
-  render() {
+  render(): HTMLSlotElement {
     return <slot />;
   }
 }

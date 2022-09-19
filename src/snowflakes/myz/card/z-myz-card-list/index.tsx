@@ -42,7 +42,7 @@ export class ZMyzCardList {
     });
   }
 
-  render() {
+  render(): HTMLUListElement {
     return <ul>{this.renderList(JSON.parse(this.listdata))}</ul>;
   }
 }

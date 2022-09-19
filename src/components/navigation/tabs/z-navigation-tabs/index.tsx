@@ -1,4 +1,5 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {
   NavigationTabsSize,
   NavigationTabsSizes,
@@ -41,7 +42,7 @@ export class ZNavigationTabs {
    */
   @State() canNavigateNext: boolean;
 
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZNavigationTabsElement;
 
   private tabsNav: HTMLElement;
 
@@ -146,13 +147,13 @@ export class ZNavigationTabs {
     });
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={{

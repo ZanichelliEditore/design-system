@@ -26,7 +26,7 @@ export class ZIcon {
     }
   }
 
-  render() {
+  render(): SVGElement {
     return (
       <svg
         viewBox="0 0 1000 1000"

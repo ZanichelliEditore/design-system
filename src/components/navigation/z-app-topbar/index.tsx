@@ -1,4 +1,5 @@
 import {Component, Prop, h, State, Listen, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {DividerOrientation, MenuItem, ThemeVariant} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -28,11 +29,11 @@ export class ZAppTopbar {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     if (this.topbarContent) {
       this.topbarLinks = typeof this.topbarContent === "string" ? JSON.parse(this.topbarContent) : this.topbarContent;
     }
@@ -52,7 +53,7 @@ export class ZAppTopbar {
     ));
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={{

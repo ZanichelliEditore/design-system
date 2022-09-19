@@ -7,6 +7,7 @@ import {
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
+import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-toast-notification",
@@ -14,7 +15,7 @@ import Hammer from "hammerjs";
   shadow: true,
 })
 export class ZToastNotification {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZToastNotificationElement;
 
   /** toast notification's title */
   @Prop() heading?: string;
@@ -84,12 +85,12 @@ export class ZToastNotification {
     this.toastClose.emit();
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
     this.validateAutoclose();
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
     this.startTime = Date.now();
     if (this.autoclose && this.pauseonfocusloss) {
@@ -107,7 +108,7 @@ export class ZToastNotification {
     } else {
       this.elapsedTime && this.onFocus();
     }
-  };
+  }
 
   validateAutoclose(): void {
     if (!this.autoclose && !this.closebutton)
@@ -218,7 +219,7 @@ export class ZToastNotification {
     );
   }
 
-  renderCloseIcon(): void|HTMLDivElement {
+  renderCloseIcon(): void | HTMLDivElement {
     return (
       this.closebutton && (
         <div id="icon">
@@ -280,7 +281,7 @@ export class ZToastNotification {
     );
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         style={{

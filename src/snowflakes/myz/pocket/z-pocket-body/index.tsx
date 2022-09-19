@@ -22,7 +22,7 @@ export class ZPocketBody {
     }
   }
 
-  render() {
+  render(): HTMLElement {
     return (
       <main class={this.status}>
         <slot />

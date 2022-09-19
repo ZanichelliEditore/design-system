@@ -42,7 +42,7 @@ export class ZButtonSort {
     });
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) this.allowTooltip = true;
   }
 
@@ -54,7 +54,7 @@ export class ZButtonSort {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  render() {
+  render(): HTMLButtonElement {
     return (
       <button
         title={this.setButtonTitle()}

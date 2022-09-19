@@ -16,7 +16,7 @@ export class ZCarousel {
   @Prop() isLoading: boolean;
   /** sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
   @Prop() ghostLoadingHeight = 100;
-  render() {
+  render(): HTMLDivElement|HTMLUListElement {
     if (this.isLoading) {
       return (
         <div style={{height: `${this.ghostLoadingHeight}px`}}>

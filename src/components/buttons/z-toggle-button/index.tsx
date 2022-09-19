@@ -30,7 +30,7 @@ export class ZToggleButton {
     return className;
   }
 
-  render() {
+  render(): HTMLButtonElement {
     return (
       <button
         tabindex={this.avoidclick ? "-1" : "0"}

@@ -9,7 +9,7 @@ export class ZTableExpandedRow {
   /** Number table column plus 1 for the expand button */
   @Prop() colSpan: number;
 
-  render() {
+  render(): HTMLTableCellElement {
     return (
       <td colSpan={this.colSpan}>
         <div class="content-container">

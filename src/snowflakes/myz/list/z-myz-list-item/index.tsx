@@ -39,7 +39,7 @@ export class ZMyzListItem {
     this.emitZListItemClick = this.emitZListItemClick.bind(this);
   }
 
-  render() {
+  render(): HTMLLIElement {
     const linkId = this.listitemid ? `link_${this.listitemid}` : "";
 
     return (

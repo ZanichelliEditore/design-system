@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -14,7 +15,7 @@ import {
   shadow: true,
 })
 export class ZListElement {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZListElementElement;
 
   /** remove filter click event, returns filterid */
   @Event({
@@ -169,7 +170,7 @@ export class ZListElement {
    * Renders button to expand element.
    * @returns expadable button
    */
-  renderExpandableButton(): void|HTMLZIconElement {
+  renderExpandableButton(): void | HTMLZIconElement {
     if (!this.expandable) {
       return null;
     }
@@ -206,7 +207,7 @@ export class ZListElement {
     );
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         role="listitem"

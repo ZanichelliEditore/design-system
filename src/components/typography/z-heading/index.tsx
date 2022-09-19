@@ -10,7 +10,7 @@ export class ZHeading {
   @Prop() variant: "regular" | "semibold" | "light" = "regular";
   @Prop() component: string;
 
-  render() {
+  render(): HTMLZTypographyElement {
     return (
       <z-typography
         tabIndex={0}

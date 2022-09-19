@@ -61,7 +61,7 @@ export class ZMyzCardAlert {
     }
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div class={"alert-external-wrapper " + this.retrieveClass()}>
         <z-alert type={this.getAlertType()}>

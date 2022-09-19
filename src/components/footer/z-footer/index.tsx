@@ -35,7 +35,7 @@ export class ZFooter {
     this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     if (this.data) {
       console.warn("z-footer: `data` prop is deprecated and will be removed in a future version. Use slots instead.");
       this.jsonData = JSON.parse(this.data);
@@ -225,15 +225,13 @@ export class ZFooter {
       });
     }
 
-    return zanichelliLinks.map(
-      (item) => (
-        <z-footer-section name={item.title}>
-          {item.items.map((item) => (
-            <z-footer-link href={item.link}>{item.label}</z-footer-link>
-          ))}
-        </z-footer-section>
-      )
-    );
+    return zanichelliLinks.map((item) => (
+      <z-footer-section name={item.title}>
+        {item.items.map((item) => (
+          <z-footer-link href={item.link}>{item.label}</z-footer-link>
+        ))}
+      </z-footer-section>
+    ));
   }
 
   // INFO: backward compatibility
@@ -249,15 +247,13 @@ export class ZFooter {
     if (!this.jsonData || !this.jsonData.social) return null;
 
     const social = this.jsonData.social;
-    return social.map(
-      (item) => (
-        <z-footer-social
-          href={item.link}
-          icon={item.icon}
-          description={item.description}
-        />
-      )
-    );
+    return social.map((item) => (
+      <z-footer-social
+        href={item.link}
+        icon={item.icon}
+        description={item.description}
+      />
+    ));
   }
 
   render(): HTMLElement {

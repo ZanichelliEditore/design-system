@@ -14,7 +14,7 @@ export class ZAlert {
   /** alert variant type */
   @Prop() type: AlertTypes;
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div class={this.type}>
         <slot />

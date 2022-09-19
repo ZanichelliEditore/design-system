@@ -7,15 +7,15 @@ import {Component, Element, h} from "@stencil/core";
   scoped: true,
 })
 export class ZTableBody {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTableBodyElement;
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.host.setAttribute("role", "rowgroup");
 
     Array.from(this.host.children).forEach((child, index) => child.setAttribute("aria-rowindex", `${index}`));
   }
 
-  render() {
+  render(): HTMLSlotElement {
     return <slot />;
   }
 }

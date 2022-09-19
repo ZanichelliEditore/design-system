@@ -1,4 +1,5 @@
 import {Component, h, Prop, State, Event, EventEmitter, Element, Listen, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * @slot - Menu section label
@@ -14,7 +15,7 @@ export class ZMenuSection {
   @Prop({reflect: true}) active?: boolean;
   @State() open: boolean;
   @State() hasContent: boolean;
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZMenuSectionElement;
 
   /** The section has been opened. */
   @Event() opened: EventEmitter;
@@ -47,11 +48,11 @@ export class ZMenuSection {
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.checkContent();
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         role="menu"

@@ -8,7 +8,7 @@ import {getDevice, handleKeyboardSubmit} from "../../../utils/utils";
   scoped: true,
 })
 export class ZChip {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLZChipElement;
 
   /** Non interactive icon */
   @Prop() icon?: string;
@@ -28,7 +28,7 @@ export class ZChip {
     return getDevice() !== DeviceEnum.desktop ? 22 : 14;
   }
 
-  render() {
+  render(): HTMLButtonElement | HTMLDivElement {
     if (this.interactiveIcon) {
       return (
         <button

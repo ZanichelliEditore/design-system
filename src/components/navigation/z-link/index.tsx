@@ -38,7 +38,7 @@ export class ZLink {
   /** emitted on link click, returns linkId */
   @Event() zLinkClick: EventEmitter;
 
-  @Element() hostElement: HostElement;
+  @Element() hostElement: HTMLZLinkElement;
 
   @State() iconSize = 18;
 
@@ -47,7 +47,7 @@ export class ZLink {
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     if (this.iswhite) {
       console.warn(
         "z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead"
@@ -68,7 +68,7 @@ export class ZLink {
     this.zLinkClick.emit({e, linkId});
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     if (this.icon) {
       const height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue("font-size"));
       const currentSize = this.big ? 18 : Math.round(height * 1.125);
@@ -78,7 +78,7 @@ export class ZLink {
     }
   }
 
-  render() {
+  render(): HostElement {
     const style = this.big ? {"--font-size-link": "16px", "--font-weight-link": "600"} : {};
 
     return (

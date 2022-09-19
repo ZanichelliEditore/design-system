@@ -42,7 +42,7 @@ export class ZTooltip {
     this.open = this.popover.open;
   }
 
-  render() {
+  render(): HTMLZPopoverElement {
     return (
       <z-popover
         ref={(el) => (this.popover = el as HTMLZPopoverElement)}

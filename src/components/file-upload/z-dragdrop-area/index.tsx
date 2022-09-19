@@ -30,7 +30,7 @@ export class ZDragdropArea {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div
         tabIndex={0}

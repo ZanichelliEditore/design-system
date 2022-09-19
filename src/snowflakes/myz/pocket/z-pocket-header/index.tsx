@@ -14,7 +14,7 @@ export class ZPocketHeader {
   /** pocket id */
   @Prop() pocketid: string;
 
-  private swipeWrap: HTMLHeadingElement;
+  private swipeWrap: HTMLElement;
 
   /** Emitted on pocket header click */
   @Event() pocketHeaderClick: EventEmitter;
@@ -32,7 +32,7 @@ export class ZPocketHeader {
     this.emitPocketHeaderClick = this.emitPocketHeaderClick.bind(this);
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     // INFO: swipe handling
     const mc = new Hammer(this.swipeWrap);
     mc.get("pan").set({direction: Hammer.DIRECTION_VERTICAL});
@@ -40,14 +40,14 @@ export class ZPocketHeader {
     mc.on("pandown", () => this.emitPocketHeaderPan("down"));
   }
 
-  render() {
+  render(): HTMLElement {
     return (
       <header
         role="button"
         tabindex={0}
         onClick={() => this.emitPocketHeaderClick()}
         onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick)}
-        ref={(el) => (this.swipeWrap = el as HTMLHeadingElement)}
+        ref={(el) => (this.swipeWrap = el as HTMLElement)}
       >
         <slot />
       </header>

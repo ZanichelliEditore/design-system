@@ -17,7 +17,7 @@ export class ZChipDeprecated {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return this.boldtext != null || this.regulartext != null ? (
       this.renderLegacyChip()
     ) : (

@@ -1,4 +1,5 @@
 import {Component, Prop, h, Host, State, Listen, Event, EventEmitter} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import classNames from "classnames";
 import {PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys} from "../../beans";
 import {getElementTree} from "../../utils/utils";
@@ -131,7 +132,7 @@ export class ZPopoverDeprecated {
     }
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host onKeyDown={this.handleKeyDown}>
         <div

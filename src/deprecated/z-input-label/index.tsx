@@ -13,7 +13,7 @@ export class ZInputLabel {
   /** the label is attached to */
   @Prop() htmlfor?: string;
 
-  render() {
+  render(): HTMLLabelElement {
     return (
       <label
         htmlFor={this.htmlfor}

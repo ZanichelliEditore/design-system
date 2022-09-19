@@ -10,7 +10,7 @@ export class ZBody {
   @Prop() variant: "regular" | "semibold" = "regular";
   @Prop() component: string;
 
-  render() {
+  render(): HTMLZTypographyElement {
     return (
       <z-typography
         tabIndex={0}

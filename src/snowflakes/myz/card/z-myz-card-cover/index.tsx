@@ -19,7 +19,7 @@ export class ZMyzCardCover {
     this.img = this.defaultimg;
   }
 
-  render() {
+  render(): HTMLImageElement {
     return (
       <img
         class={this.faded && "faded"}

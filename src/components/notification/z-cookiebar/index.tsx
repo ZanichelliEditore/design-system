@@ -68,7 +68,7 @@ export class ZCookiebar {
       </div>
     );
   }
-  render() {
+  render(): HTMLZCandybarElement {
     return <z-candybar class={`${this.hide ? "hidden" : ""}`}>{this.renderContentSlot()}</z-candybar>;
   }
 }

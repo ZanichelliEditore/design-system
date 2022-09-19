@@ -107,7 +107,7 @@ export class ZNavigationTabLink {
     return <z-icon name={icon}></z-icon>;
   }
 
-  render() {
+  render(): HTMLAnchorElement {
     return (
       <a
         role="tab"

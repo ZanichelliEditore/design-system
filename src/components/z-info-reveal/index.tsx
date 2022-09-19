@@ -1,4 +1,5 @@
 import {Component, h, Prop, State, Watch, Element, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {InfoRevealPosition, InfoRevealPositionBean} from "../../beans";
 
 @Component({
@@ -18,7 +19,7 @@ import {InfoRevealPosition, InfoRevealPositionBean} from "../../beans";
  * @cssprop --z-info-reveal-max-width - max width of the info reveal panel.
  */
 export class ZInfoReveal {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLZInfoRevealElement;
 
   /** Name of the icon for the open button */
   @Prop() icon? = "informationsource";
@@ -73,7 +74,7 @@ export class ZInfoReveal {
     }
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host open={this.open}>
         <button

@@ -1,4 +1,5 @@
 import {Component, Prop, h, Element, State, Listen, Event, EventEmitter, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {CardVariants} from "../../beans";
 
 @Component({
@@ -23,7 +24,7 @@ export class ZCard {
   /** Enable shadow. Default: false. */
   @Prop({reflect: true}) showshadow = false;
 
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZCardElement;
 
   @State() hasCoverImage: boolean;
 
@@ -49,7 +50,7 @@ export class ZCard {
     this.cardClicked.emit();
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.hasCoverImage = this.host.querySelector('[slot="cover"]') !== null;
   }
 
@@ -92,7 +93,7 @@ export class ZCard {
     );
   }
 
-  render() {
+  render(): HostElement {
     if (this.variant === CardVariants.text) {
       return <Host>{this.renderContentDiv()}</Host>;
     }

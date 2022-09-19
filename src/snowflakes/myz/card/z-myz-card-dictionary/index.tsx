@@ -36,7 +36,7 @@ export class ZMyzCardDictionary {
     this.cardFlipped.emit(showBack);
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         <z-myz-card>

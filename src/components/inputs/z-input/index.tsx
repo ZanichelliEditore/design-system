@@ -9,7 +9,7 @@ import {boolean, randomId} from "../../../utils/utils";
   scoped: true,
 })
 export class ZInput {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZInputElement;
 
   /** the id of the input element */
   @Prop() htmlid = `id-${randomId()}`;
@@ -163,7 +163,7 @@ export class ZInput {
     };
   }
 
-  getNumberAttributes(type: InputTypeBean): void|object {
+  getNumberAttributes(type: InputTypeBean): void | object {
     if (type != InputTypeEnum.number) return;
     return {
       min: this.min,
@@ -172,7 +172,7 @@ export class ZInput {
     };
   }
 
-  getPatternAttribute(type: InputTypeBean): void|object {
+  getPatternAttribute(type: InputTypeBean): void | object {
     if (
       type != InputTypeEnum.password &&
       type != InputTypeEnum.text &&
@@ -216,7 +216,7 @@ export class ZInput {
     );
   }
 
-  renderLabel(): void|HTMLLabelElement {
+  renderLabel(): void | HTMLLabelElement {
     if (!this.label) return;
 
     return (
@@ -240,7 +240,7 @@ export class ZInput {
     );
   }
 
-  renderIcon(): void|HTMLButtonElement {
+  renderIcon(): void | HTMLButtonElement {
     if (this.type === InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
@@ -258,7 +258,7 @@ export class ZInput {
     );
   }
 
-  renderResetIcon(): void|HTMLButtonElement {
+  renderResetIcon(): void | HTMLButtonElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.number)
       return;
 
@@ -288,7 +288,7 @@ export class ZInput {
     );
   }
 
-  renderMessage(): void|HTMLZInputMessageElement {
+  renderMessage(): void | HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (
@@ -403,7 +403,7 @@ export class ZInput {
   }
   /* END radio */
 
-  render() {
+  render(): HTMLInputElement | HTMLDivElement {
     switch (this.type) {
       case InputTypeEnum.textarea:
         return this.renderTextarea();

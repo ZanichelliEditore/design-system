@@ -15,8 +15,8 @@ import {ButtonVariantEnum, InputStatusBean, InputStatusEnum} from "../../../bean
   shadow: false,
   scoped: true,
 })
-export class zModalLogin {
-  @Element() hostElement: HostElement;
+export class ZModalLogin {
+  @Element() hostElement: HTMLZModalLoginElement;
 
   /** Forgot Password Url */
   @Prop() forgotPasswordUrl: string;
@@ -31,7 +31,7 @@ export class zModalLogin {
 
   @State() externalProviderCheck = false;
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.externalProviderCheck = !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
 
@@ -145,7 +145,7 @@ export class zModalLogin {
     );
   }
 
-  render() {
+  render(): HTMLZModalElement {
     return (
       <z-modal modaltitle={this.heading}>
         <div

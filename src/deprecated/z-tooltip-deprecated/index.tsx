@@ -1,4 +1,5 @@
 import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {PopoverPositions} from "../../beans/index";
 
 const documentElement = document.documentElement;
@@ -87,7 +88,6 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): 
   const right = parentWidth - left - rect.width;
   const bottom = parentHeight - top - rect.height;
 
-
   return {top, right, bottom, left, width, height};
 }
 
@@ -125,7 +125,7 @@ export class ZTooltipDeprecated {
    */
   @Event() positionChange: EventEmitter;
 
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTooltipDeprecatedElement;
 
   private animationFrameRequestId?: number;
 
@@ -141,7 +141,7 @@ export class ZTooltipDeprecated {
     this.positionChange.emit({position: this.position});
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
   }
 
@@ -293,7 +293,7 @@ export class ZTooltipDeprecated {
     this.position = position;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     // Keep backward compatibility
     if (this.content) {
       this.open = true;
@@ -303,7 +303,7 @@ export class ZTooltipDeprecated {
     this.onOpen();
   }
 
-  render() {
+  render(): HostElement {
     if (this.content) {
       return (
         <Host

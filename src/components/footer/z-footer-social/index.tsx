@@ -13,7 +13,7 @@ export class ZFooterSocial {
   /** social description */
   @Prop() description?: string;
 
-  render() {
+  render(): HTMLAnchorElement {
     return (
       <a
         href={this.href}

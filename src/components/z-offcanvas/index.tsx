@@ -1,4 +1,5 @@
-import {Component, Element, Event, EventEmitter, h, Prop, Watch} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {OffCanvasVariantsEnum, TransitionDirectionEnum} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
@@ -10,7 +11,7 @@ import {OffCanvasVariantsEnum, TransitionDirectionEnum} from "../../beans";
   scoped: true,
 })
 export class ZOffcanvas {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZOffcanvasElement;
 
   /**
    * Offcanvas variant.
@@ -28,7 +29,7 @@ export class ZOffcanvas {
   /** emitted when open prop changes */
   @Event() canvasOpenStatusChanged: EventEmitter;
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.handleOpenStatus();
   }
 
@@ -56,24 +57,27 @@ export class ZOffcanvas {
     }
   }
 
-  render() {
-    return [
-      <div
-        class="canvas-container"
-        onAnimationEnd={() => this.handleAnimationEnd()}
-      >
+  render(): HostElement {
+    return (
+      <Host>
         <div
-          class="canvas-content"
-          tabindex="0"
+          class="canvas-container"
+          onAnimationEnd={() => this.handleAnimationEnd()}
         >
-          <slot name="canvasContent"></slot>
+          <div
+            class="canvas-content"
+            tabindex="0"
+          >
+            <slot name="canvasContent"></slot>
+          </div>
         </div>
-      </div>,
-      <div
-        class="canvas-background"
-        data-action="canvasBackground"
-        onClick={() => (this.open = false)}
-      ></div>,
-    ];
+        ,
+        <div
+          class="canvas-background"
+          data-action="canvasBackground"
+          onClick={() => (this.open = false)}
+        ></div>
+      </Host>
+    );
   }
 }

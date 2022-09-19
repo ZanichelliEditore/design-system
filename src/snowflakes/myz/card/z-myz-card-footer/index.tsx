@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen} from "@stencil/core";
-import { JSXBase } from '@stencil/core/internal';
+import {JSXBase} from "@stencil/core/internal";
 import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
@@ -42,7 +42,7 @@ export class ZMyzCardFooter {
     return this.allowTooltipAuthors ? this.autori : "";
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     if (this.opened) this.isOpen = true;
   }
 
@@ -70,9 +70,9 @@ export class ZMyzCardFooter {
     }
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
-      <div class={{...this.retrieveClass() as object, wrapper: true}}>
+      <div class={{...(this.retrieveClass() as object), wrapper: true}}>
         <footer
           class={this.retrieveClass()}
           onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}

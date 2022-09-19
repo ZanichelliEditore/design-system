@@ -25,11 +25,11 @@ export class ZMenuDropdown {
     this.handleFocus = this.handleFocus.bind(this);
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
   }
 
-  renderMenuOpen(): void|HTMLUListElement {
+  renderMenuOpen(): void | HTMLUListElement {
     if (this.ismenuopen) {
       return (
         <ul>
@@ -82,7 +82,7 @@ export class ZMenuDropdown {
     }
   }
 
-  render() {
+  render(): HTMLAnchorElement {
     return (
       <a
         class={this.retriveMenuClass()}

@@ -11,7 +11,7 @@ import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} fr
   shadow: true,
 })
 export class ZButtonDeprecated {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZButtonDeprecatedElement;
 
   /** Identifier, should be unique. */
   @Prop() htmlid?: string;
@@ -36,7 +36,7 @@ export class ZButtonDeprecated {
   @Prop({reflect: true})
   square?: boolean = false;
 
-  render() {
+  render(): HTMLSlotElement {
     this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
 
     return (

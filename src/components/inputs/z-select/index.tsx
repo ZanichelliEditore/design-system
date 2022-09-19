@@ -9,7 +9,7 @@ import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boole
   scoped: true,
 })
 export class ZSelect {
-  @Element() element: HTMLElement;
+  @Element() element: HTMLZSelectElement;
 
   /** the id of the input element */
   @Prop() htmlid = `id-${randomId()}`;
@@ -90,11 +90,11 @@ export class ZSelect {
     });
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.watchItems();
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.filterItems(this.searchString);
   }
 
@@ -308,7 +308,7 @@ export class ZSelect {
     );
   }
 
-  renderSelectUlItems(): HTMLZListElementElement|HTMLZListElementElement[] {
+  renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
     if (!this.itemsList.length) return this.renderNoSearchResults();
 
     return this.itemsList.map((item: SelectItemBean, key) => {
@@ -348,7 +348,7 @@ export class ZSelect {
     );
   }
 
-  renderMessage(): void|HTMLZInputMessageElement {
+  renderMessage(): void | HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (
@@ -359,7 +359,7 @@ export class ZSelect {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div class="selectWrapper">
         {this.renderInput()}

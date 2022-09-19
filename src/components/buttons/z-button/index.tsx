@@ -11,7 +11,7 @@ import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} fr
   scoped: true,
 })
 export class ZButton {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZButtonElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
   @Prop({reflect: true})
   ariaLabel?: string;
@@ -54,7 +54,7 @@ export class ZButton {
     };
   }
 
-  render() {
+  render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
       return (
         <a

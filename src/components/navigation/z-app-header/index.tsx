@@ -1,4 +1,5 @@
 import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {ZMenu} from "../z-menu";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
@@ -14,7 +15,7 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
   shadow: true,
 })
 export class ZAppHeader {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZAppHeaderElement;
 
   /**
    * Stuck mode for the header.
@@ -90,7 +91,7 @@ export class ZAppHeader {
     this.collectMenuElements.bind(this);
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.collectMenuElements();
     this.onStuckMode();
   }
@@ -104,7 +105,7 @@ export class ZAppHeader {
     return titleElement.textContent.trim();
   }
 
-  private get scrollParent(): Window|Element {
+  private get scrollParent(): Window | Element {
     const parent = this.hostElement.offsetParent;
     if (parent === document.body || parent === document.documentElement) {
       return window;
@@ -162,7 +163,7 @@ export class ZAppHeader {
     }
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host menu-length={this.menuLength}>
         <div

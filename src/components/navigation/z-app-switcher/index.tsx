@@ -22,7 +22,7 @@ export class ZAppSwitcher {
     this.appButtonClick.emit({isopen: this.isopen});
   }
 
-  render() {
+  render(): HTMLButtonElement {
     return (
       <button
         title="app-switcher"

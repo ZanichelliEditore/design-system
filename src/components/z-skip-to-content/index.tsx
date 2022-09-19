@@ -1,6 +1,7 @@
 import {Component, h, Host, Element, Listen, Prop, State} from "@stencil/core";
 import {getElementTree, handleKeyboardSubmit} from "../../utils/utils";
 import {ThemeVariant, SkipToContentLink} from "../../beans";
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * Component short description.
@@ -20,7 +21,7 @@ export class ZSkipToContent {
   @State() visible = false;
   @State() visibleLink = "";
 
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZSkipToContentElement;
 
   @Listen("focusout", {target: "document"})
   handleFocusOutSkipToContent(e): void {
@@ -32,11 +33,11 @@ export class ZSkipToContent {
     if (this.isInSkipToContent(e.target)) this.visible = true;
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.showFirstChild();
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     if (this.links) {
       this.links = typeof this.links === "string" ? JSON.parse(this.links) : this.links;
     }
@@ -49,7 +50,7 @@ export class ZSkipToContent {
     return false;
   }
 
-  getFirstChild(): Element|boolean {
+  getFirstChild(): Element | boolean {
     const children = this.hostElement.children;
     if (children.length) return children[0];
     return false;
@@ -64,7 +65,7 @@ export class ZSkipToContent {
     this.visible = false;
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host class={`${this.variant} ${this.visible && "skip-to-content-visible"} `}>
         {(this.links as SkipToContentLink[]).map((link, i) => {

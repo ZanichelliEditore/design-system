@@ -23,7 +23,7 @@ export class ZStepperItem {
    */
   @Prop({attribute: "disabled"}) disabled: boolean;
 
-  render() {
+  render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
       return (
         <a

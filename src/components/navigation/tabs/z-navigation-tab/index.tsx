@@ -99,7 +99,7 @@ export class ZNavigationTab {
     return <z-icon name={icon}></z-icon>;
   }
 
-  render() {
+  render(): HTMLButtonElement {
     return (
       <button
         role="tab"

@@ -1,4 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import classNames from "classnames";
 
 @Component({
@@ -8,7 +9,7 @@ import classNames from "classnames";
   scoped: true,
 })
 export class ZTableEmptyBox {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZTableEmptyBoxElement;
 
   /** Sets main title message*/
   @Prop() message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
@@ -20,12 +21,12 @@ export class ZTableEmptyBox {
   hasCta1Slot: boolean;
   hasCta2Slot: boolean;
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.hasCta1Slot = !!this.hostElement.querySelector('[slot="cta1"]');
     this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host>
         <z-body

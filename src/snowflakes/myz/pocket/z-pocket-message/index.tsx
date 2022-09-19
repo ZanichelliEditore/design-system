@@ -10,7 +10,7 @@ import {Component, h} from "@stencil/core";
   shadow: true,
 })
 export class ZPocketMessage {
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         <z-icon name="exclamation-circle" />

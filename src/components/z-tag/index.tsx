@@ -1,4 +1,5 @@
 import {Component, Prop, h, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * Ztag  component.
@@ -18,7 +19,7 @@ export class ZTag {
   /** [optional] Hide the text and show it on hover*/
   @Prop() expandable?: boolean;
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={{

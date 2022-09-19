@@ -1,4 +1,5 @@
-import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
+import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 
 /**
  * @slot - Menu label
@@ -28,7 +29,7 @@ export class ZMenu {
   @Prop({mutable: true, reflect: true}) open = false;
   @State() hasHeader: boolean;
   @State() hasContent: boolean;
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZMenuElement;
 
   private content: HTMLElement;
   private raf: number;
@@ -73,7 +74,7 @@ export class ZMenu {
     this.onItemsChange = this.onItemsChange.bind(this);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.checkContent();
   }
 
@@ -112,7 +113,7 @@ export class ZMenu {
     items?.forEach((item) => item.setAttribute("role", "menuitem"));
   }
 
-  private renderMenuLabel(): HTMLButtonElement|HTMLDivElement {
+  private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
         <button
@@ -138,34 +139,36 @@ export class ZMenu {
     );
   }
 
-  render() {
-    return [
-      this.renderMenuLabel(),
-      <div
-        class="content"
-        ref={(el) => {
-          this.content = el;
-        }}
-        hidden={!this.open}
-      >
-        {this.hasHeader && (
-          <header class="header">
-            <slot
-              name="header"
-              onSlotchange={this.checkContent}
-            ></slot>
-          </header>
-        )}
+  render(): HostElement {
+    return (
+      <Host>
+        {this.renderMenuLabel()}
         <div
-          class="items"
-          role="menu"
+          class="content"
+          ref={(el) => {
+            this.content = el;
+          }}
+          hidden={!this.open}
         >
-          <slot
-            name="item"
-            onSlotchange={this.onItemsChange}
-          ></slot>
+          {this.hasHeader && (
+            <header class="header">
+              <slot
+                name="header"
+                onSlotchange={this.checkContent}
+              ></slot>
+            </header>
+          )}
+          <div
+            class="items"
+            role="menu"
+          >
+            <slot
+              name="item"
+              onSlotchange={this.onItemsChange}
+            ></slot>
+          </div>
         </div>
-      </div>,
-    ];
+      </Host>
+    );
   }
 }

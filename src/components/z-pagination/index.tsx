@@ -1,4 +1,5 @@
 import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 
 /**
  * Pagination bar component.
@@ -9,7 +10,7 @@ import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, 
 })
 export class ZPagination {
   @Element()
-  host: HTMLElement;
+  host: HTMLZPaginationElement;
 
   /** Pagination label placed before the bar. */
   @Prop()
@@ -345,11 +346,11 @@ export class ZPagination {
     ];
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setVisiblePages();
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     if (this.split !== 0) {
       this.edges = false;
     }
@@ -358,7 +359,7 @@ export class ZPagination {
     this.setMobile();
   }
 
-  render() {
+  render(): HostElement {
     if (this.isMobile) {
       return <Host>{this.renderMobile()}</Host>;
     }

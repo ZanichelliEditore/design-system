@@ -73,7 +73,7 @@ export class ZButtonFilter {
     return <span class="text-container">{filtername}</span>;
   }
 
-  render() {
+  render(): HTMLButtonElement {
     if (this.isfixed) {
       return this.renderFixedPillow(this.filtername);
     }

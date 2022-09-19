@@ -1,4 +1,5 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 import {NotificationType} from "../../../beans";
 
 /**
@@ -60,46 +61,45 @@ export class ZNotification {
     this.handleCloseButtonClick = this.handleCloseButtonClick.bind(this);
   }
 
-  render() {
-    return [
-      this.contenticonname && (
-        <z-icon
-          class="status-icon"
-          name={this.contenticonname}
-          width={16}
-          height={16}
-        />
-      ),
-
-      <div class="content-container">
-        <div class="content-text">
-          <slot></slot>
-        </div>
-
-        {!!this.actiontext?.trim() && (
-          <button
-            class="action-button"
-            type="button"
-            onClick={this.handleActionButtonClick}
-          >
-            {this.actiontext}
-          </button>
-        )}
-      </div>,
-
-      this.showclose && (
-        <button
-          class="close-button"
-          type="button"
-          onClick={this.handleCloseButtonClick}
-        >
+  render(): HostElement {
+    return (
+      <Host>
+        {this.contenticonname && (
           <z-icon
-            name="multiply-circle"
+            class="status-icon"
+            name={this.contenticonname}
             width={16}
             height={16}
           />
-        </button>
-      ),
-    ];
+        )}
+        <div class="content-container">
+          <div class="content-text">
+            <slot></slot>
+          </div>
+          {!!this.actiontext?.trim() && (
+            <button
+              class="action-button"
+              type="button"
+              onClick={this.handleActionButtonClick}
+            >
+              {this.actiontext}
+            </button>
+          )}
+        </div>
+        {this.showclose && (
+          <button
+            class="close-button"
+            type="button"
+            onClick={this.handleCloseButtonClick}
+          >
+            <z-icon
+              name="multiply-circle"
+              width={16}
+              height={16}
+            />
+          </button>
+        )}
+      </Host>
+    );
   }
 }

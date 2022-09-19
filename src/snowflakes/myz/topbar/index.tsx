@@ -39,7 +39,7 @@ export class ZMyzTopbar {
   private userData: HeaderUserData;
   private isLogged = false;
 
-  @Element() private element: HTMLElement;
+  @Element() private element: HTMLZMyzTopbarElement;
 
   @Watch("activeintlinkid")
   activeIntLinkChange(newValue: string): void {
@@ -60,7 +60,7 @@ export class ZMyzTopbar {
     this.isMenuMobileOpen = false;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     if (this.intlinkdata) {
       this.intMenuData = typeof this.intlinkdata === "string" ? JSON.parse(this.intlinkdata) : this.intlinkdata;
     }
@@ -200,27 +200,25 @@ export class ZMyzTopbar {
         class={`dropdown-menu`}
       >
         <ul class="dropdown-links">
-          {menuItem.subMenu.map(
-            (item: MenuItem) => (
-              <li>
-                <a
-                  id={item.id}
-                  class={item.id === this.activesublinkid ? "active" : ""}
-                  href={item.link ? item.link : null}
-                  role={item.link ? "link" : "button"}
-                  tabindex={this.getIntMenuItemTabindex(menuItem)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            )
-          )}
+          {menuItem.subMenu.map((item: MenuItem) => (
+            <li>
+              <a
+                id={item.id}
+                class={item.id === this.activesublinkid ? "active" : ""}
+                href={item.link ? item.link : null}
+                role={item.link ? "link" : "button"}
+                tabindex={this.getIntMenuItemTabindex(menuItem)}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     );
   }
 
-  renderExtLinksIcons(icon): void|object {
+  renderExtLinksIcons(icon): void | object {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
     return !hideIcons && {icon};
@@ -271,7 +269,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderLoginButton(): void|HTMLZButtonElement {
+  renderLoginButton(): void | HTMLZButtonElement {
     if (this.hideloginbutton) {
       return;
     }
@@ -317,7 +315,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderUserData(userData: HeaderUserData): null|HTMLSpanElement {
+  renderUserData(userData: HeaderUserData): null | HTMLSpanElement {
     if (this.isMobile && !userData) return null;
 
     const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
@@ -331,7 +329,7 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, "user-data");
   }
 
-  renderDesktopHeader(): HTMLHeadingElement {
+  renderDesktopHeader(): HTMLElement {
     return (
       <header class={!this.ismyz ? "myz-out" : ""}>
         {this.renderMainHeader()}
@@ -357,7 +355,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileHeader(): HTMLHeadingElement {
+  renderMobileHeader(): HTMLElement {
     return (
       <header>
         {this.renderMobileMenu()}
@@ -378,7 +376,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuToggle(): HTMLZButtonElement|HTMLDivElement {
+  renderMobileMenuToggle(): HTMLZButtonElement | HTMLDivElement {
     if (!this.isLogged) return this.renderLoginButton();
 
     return (
@@ -400,7 +398,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuContent(): HTMLDivElement | null {
+  renderMobileMenuContent(): HTMLDivElement|null {
     if (!this.isLogged) return null;
 
     return (
@@ -421,7 +419,7 @@ export class ZMyzTopbar {
     );
   }
 
-  render() {
+  render(): HTMLElement {
     return this.isMobile ? this.renderMobileHeader() : this.renderDesktopHeader();
   }
 }

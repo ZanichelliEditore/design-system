@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 import {ButtonSizeEnum, ButtonVariantEnum} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -14,7 +14,7 @@ import {mobileBreakpoint} from "../../../constants/breakpoints";
   tag: "z-table",
 })
 export class ZTable {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTableElement;
 
   /** Number of lines of element */
   @Prop({reflect: true}) lines?: number;
@@ -87,7 +87,7 @@ export class ZTable {
     this.isMobile = screen.width <= mobileBreakpoint;
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
 
     const tableBody = this.host.querySelector('[slot="table-body"]');
@@ -98,7 +98,7 @@ export class ZTable {
     }
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.host.setAttribute("role", "table");
   }
 
@@ -208,7 +208,7 @@ export class ZTable {
     );
   }
 
-  render() {
+  render(): HostElement {
     const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
     ${this.columnSticky ? "table-column-sticky" : ""}
     ${this.headerSticky ? "table-header-sticky" : ""}`;

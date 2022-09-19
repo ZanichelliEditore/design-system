@@ -20,7 +20,7 @@ export class ZInfoBox {
     this.infoBoxClose.emit({boxid: this.boxid});
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div id={this.boxid}>
         <slot name="content" />

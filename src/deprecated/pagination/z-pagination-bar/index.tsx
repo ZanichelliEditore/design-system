@@ -35,7 +35,7 @@ export class ZPaginationBar {
     this.emitGoToPage = this.emitGoToPage.bind(this);
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.scrollPage = this.scrollPage.bind(this);
     const mc = new Hammer(this.bar);
     // listen to events...
@@ -43,11 +43,11 @@ export class ZPaginationBar {
     mc.on("swipeleft", this.scrollPage);
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.initPagination();
   }
 
-  componentWillUpdate() {
+  componentWillUpdate(): void {
     this.initPagination();
   }
 
@@ -142,7 +142,7 @@ export class ZPaginationBar {
     }
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div ref={(el) => (this.bar = el as HTMLElement)}>
         <z-icon

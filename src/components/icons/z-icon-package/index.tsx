@@ -7,11 +7,10 @@ import {icons} from "../icons";
   shadow: true,
 })
 export class ZIconPackage {
-  render() {
-    const iconsNames = Object.keys(icons);
+  render(): HTMLDivElement {
     return (
       <div>
-        {iconsNames.map((icon) => {
+        {Object.keys(icons).map((icon) => {
           return (
             <div>
               <z-icon name={icon} />

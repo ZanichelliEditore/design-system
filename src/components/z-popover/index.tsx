@@ -163,8 +163,7 @@ export class ZPopover {
   @Event()
   openChange: EventEmitter;
 
-  @Element()
-  host: HTMLElement;
+  @Element() host: HTMLZPopoverElement;
 
   private animationFrameRequestId?: number;
 
@@ -222,7 +221,7 @@ export class ZPopover {
     this.openChange.emit({open: this.open});
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
   }
 
@@ -371,12 +370,12 @@ export class ZPopover {
     this.host.setAttribute("current-position", this.currentPosition);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.validatePosition(this.position);
     this.onOpen();
   }
 
-  render() {
+  render(): HTMLSlotElement {
     return <slot></slot>;
   }
 }

@@ -9,7 +9,7 @@ import {Component, h} from "@stencil/core";
   shadow: true,
 })
 export class ZCandybar {
-  render() {
+  render(): HTMLDivElement {
     return (
       <div>
         <slot name="content"></slot>

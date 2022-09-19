@@ -1,4 +1,4 @@
-import { ChildNode } from '@stencil/core';
+import {ChildNode} from "@stencil/core";
 import {KeyboardCodeEnum, DeviceEnum} from "../beans/index";
 import {mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
@@ -10,7 +10,7 @@ export function format(first: string, middle: string, last: string): string {
  * Return boolean value for passed value if a boolean corresponding value is found
  * Return passed value otherwise
  */
-export function boolean(value: string|number|boolean): boolean|string|number {
+export function boolean(value: string | number | boolean): boolean | string | number {
   switch (value) {
     case true:
     case "true":

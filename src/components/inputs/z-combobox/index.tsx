@@ -85,11 +85,11 @@ export class ZCombobox {
     this.closeFilterItems = this.closeFilterItems.bind(this);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.watchItems();
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     if (this.searchValue) {
       this.filterItems(this.searchValue);
@@ -271,7 +271,7 @@ export class ZCombobox {
     );
   }
 
-  renderCheckAll(): void|HTMLDivElement {
+  renderCheckAll(): void | HTMLDivElement {
     if (this.searchValue) return;
 
     const allChecked = this.selectedCounter === this.itemsList.length;
@@ -288,7 +288,7 @@ export class ZCombobox {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div
         data-action={`combo-${this.inputid}`}

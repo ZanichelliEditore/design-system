@@ -6,7 +6,7 @@ import {Component, h} from "@stencil/core";
   shadow: true,
 })
 export class ZVisuallyHidden {
-  render() {
+  render(): HTMLSlotElement {
     return <slot />;
   }
 }

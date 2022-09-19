@@ -1,6 +1,7 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
 import {LabelPositions, LabelPosition} from "../../../beans";
+import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-toggle-switch",
@@ -29,43 +30,45 @@ export class ZToggleSwitch {
     this.emitToggleClick();
   }
 
-  render() {
-    return [
-      <input
-        id={this.htmlid}
-        type="checkbox"
-        checked={this.checked}
-        disabled={this.disabled}
-        onChange={this.handleClick.bind(this)}
-      />,
-      <label
-        htmlFor={this.htmlid}
-        class={{
-          [this.labelPosition]: true,
-          disabled: this.disabled,
-        }}
-      >
-        <span>
-          <slot />
-        </span>
-        <span
+  render(): HostElement {
+    return (
+      <Host>
+        <input
+          id={this.htmlid}
+          type="checkbox"
+          checked={this.checked}
+          disabled={this.disabled}
+          onChange={this.handleClick.bind(this)}
+        />
+        <label
+          htmlFor={this.htmlid}
           class={{
-            container: true,
+            [this.labelPosition]: true,
             disabled: this.disabled,
-            checked: this.checked,
           }}
         >
-          <span class="circle">
-            {this.checked && (
-              <z-icon
-                width={12}
-                height={12}
-                name="checkmark"
-              ></z-icon>
-            )}
+          <span>
+            <slot />
           </span>
-        </span>
-      </label>,
-    ];
+          <span
+            class={{
+              container: true,
+              disabled: this.disabled,
+              checked: this.checked,
+            }}
+          >
+            <span class="circle">
+              {this.checked && (
+                <z-icon
+                  width={12}
+                  height={12}
+                  name="checkmark"
+                ></z-icon>
+              )}
+            </span>
+          </span>
+        </label>
+      </Host>
+    );
   }
 }

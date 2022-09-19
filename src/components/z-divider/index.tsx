@@ -1,4 +1,5 @@
 import {Component, Prop, h, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {DividerSize, DividerOrientation} from "../../beans";
 @Component({
   tag: "z-divider",
@@ -14,7 +15,7 @@ export class ZDivider {
   /** [optional] Divider orintation */
   @Prop() orientation?: DividerOrientation = DividerOrientation.horizontal;
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={`divider-${this.size} divider-${this.orientation}`}

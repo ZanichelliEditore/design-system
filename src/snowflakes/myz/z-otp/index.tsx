@@ -19,12 +19,12 @@ export class ZOtp {
     this.otpChange.emit({value});
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.otp = [...Array(this.inputNum)];
     this.otpRef = [...Array(this.inputNum)];
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div class="otp-container">
         <div class="digits-container">

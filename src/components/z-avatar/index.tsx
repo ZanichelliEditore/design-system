@@ -1,4 +1,5 @@
 import {Component, Prop, h, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {AvatarSize} from "../../beans";
 
 @Component({
@@ -34,7 +35,7 @@ export class ZAvatar {
     }
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host
         class={{[this.size]: true, [`body-${this.getTextSize()}-sb`]: true}}

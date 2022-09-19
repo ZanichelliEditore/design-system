@@ -27,18 +27,6 @@
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
-        "allowedNames": [
-          "connectedCallback",
-          "disconnectedCallback",
-          "componentWillLoad",
-          "componentDidLoad",
-          "componentShouldUpdate",
-          "componentWillRender",
-          "componentDidRender",
-          "componentWillUpdate",
-          "componentDidUpdate",
-          "render"
-        ],
         "allowExpressions": true
       }
     ],

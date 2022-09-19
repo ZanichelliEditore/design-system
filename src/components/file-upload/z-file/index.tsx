@@ -1,4 +1,5 @@
 import {Component, h, EventEmitter, Event, Element, Host, State, Listen, Prop} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions, ZChipType} from "../../../beans";
 import {tabletBreakpoint} from "../../../constants/breakpoints";
 
@@ -21,7 +22,7 @@ export class ZFile {
 
   @State() popoverVisible = false;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLZFileElement;
 
   /** Emitted when a z-file component is removed from the DOM */
   @Event() removeFile: EventEmitter;
@@ -45,7 +46,7 @@ export class ZFile {
     this.removeFileHandler();
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
       this.allowPopover = true;
     }
@@ -57,7 +58,7 @@ export class ZFile {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host>
         {this.allowPopover && (

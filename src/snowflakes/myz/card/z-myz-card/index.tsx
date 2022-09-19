@@ -37,7 +37,7 @@ export class ZMyzCardComponent {
     return elemClasses;
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div
         class={this.retrieveClass()}

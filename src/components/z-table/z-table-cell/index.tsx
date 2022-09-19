@@ -8,7 +8,7 @@ import classNames from "classnames";
   shadow: true,
 })
 export class ZTableCell {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTableCellElement;
 
   /** [Optional] Show contextual menu button */
   @Prop() showButton?: boolean;
@@ -22,11 +22,11 @@ export class ZTableCell {
     this.isMenuOpened = !this.isMenuOpened;
   }
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.host.setAttribute("role", "cell");
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host>
         {this.showButton && (

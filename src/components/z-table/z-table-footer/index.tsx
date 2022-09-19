@@ -7,13 +7,13 @@ import {Component, Element, h} from "@stencil/core";
   scoped: true,
 })
 export class ZTableFooter {
-  @Element() host: HTMLElement;
+  @Element() host: HTMLZTableFooterElement;
 
-  componentWillRender() {
+  componentWillRender(): void {
     this.host.setAttribute("role", "rowgroup");
   }
 
-  render() {
+  render(): HTMLSlotElement {
     return <slot />;
   }
 }

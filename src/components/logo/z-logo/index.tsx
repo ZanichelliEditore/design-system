@@ -1,4 +1,5 @@
 import {Component, Prop, Host, h} from "@stencil/core";
+import { HostElement } from '@stencil/core/internal';
 
 @Component({
   tag: "z-logo",
@@ -19,7 +20,7 @@ export class ZLogo {
   /** if true, the mobile logo is displayed, otherwise the desktop one */
   @Prop() mobileLogo?: boolean;
 
-  render() {
+  render(): HostElement {
     const style = {};
 
     if (this.width) {

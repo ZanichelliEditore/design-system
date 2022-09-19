@@ -14,7 +14,7 @@ import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
   shadow: false,
 })
 export class ZDatePicker {
-  @Element() element: HTMLElement;
+  @Element() element: HTMLZDatePickerElement;
 
   /** unique id */
   @Prop() datePickerId: string;
@@ -99,13 +99,13 @@ export class ZDatePicker {
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     const customToggle = this.element.querySelector("[slot=toggle]");
     this.hasChildren = !!customToggle;
     this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setupPickers();
   }
 
@@ -219,7 +219,7 @@ export class ZDatePicker {
     );
   }
 
-  render() {
+  render(): HTMLDivElement {
     return (
       <div class={classNames("flatpickr-toggle-container", this.flatpickrPosition, this.mode)}>
         {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}

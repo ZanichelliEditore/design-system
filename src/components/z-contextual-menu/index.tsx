@@ -1,4 +1,5 @@
 import {Component, Event, EventEmitter, Prop, h, Host} from "@stencil/core";
+import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions} from "../../beans";
 
 @Component({
@@ -37,13 +38,13 @@ export class ZContextualMenu {
 
   private jsonElements;
 
-  componentWillRender() {
+  componentWillRender(): void {
     if (this.elements) {
       this.jsonElements = JSON.parse(this.elements.replace(/&quot;/g, '"'));
     }
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.popover.bindTo = this.triggerButton;
   }
 
@@ -57,7 +58,7 @@ export class ZContextualMenu {
     }
   }
 
-  render() {
+  render(): HostElement {
     return (
       <Host>
         <button

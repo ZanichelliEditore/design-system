@@ -13,7 +13,7 @@ import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils
   shadow: true,
 })
 export class ZSlideshow {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLZSlideshowElement;
 
   /** slideshow id */
   @Prop() slideshowid: string;
@@ -30,14 +30,14 @@ export class ZSlideshow {
     this.parseLinks();
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.parseLinks();
 
     this.setDevice();
     window.addEventListener("resize", this.handleResize.bind(this));
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     this.setStyle();
   }
 

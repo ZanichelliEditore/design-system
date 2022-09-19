@@ -1,5 +1,5 @@
 import {Component, Prop, State, h} from "@stencil/core";
-import { JSXBase } from '@stencil/core/internal';
+import {JSXBase} from "@stencil/core/internal";
 import {LicenseTypeEnum} from "../../../../beans/index";
 
 /**
@@ -26,7 +26,7 @@ export class ZMyzCardHeader {
     return this.allowTooltip ? this.titolo : "";
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     if (this.elementHasEllipsis()) this.allowTooltip = true;
   }
 
@@ -34,7 +34,7 @@ export class ZMyzCardHeader {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  retrieveClass(): JSXBase.HTMLAttributes['class'] {
+  retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,
@@ -43,7 +43,7 @@ export class ZMyzCardHeader {
     };
   }
 
-  render() {
+  render(): HTMLElement {
     return (
       <header class={this.retrieveClass()}>
         <h2
