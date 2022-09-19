@@ -4,6 +4,8 @@ export declare class ZFile {
   private ellipsis?;
   private chip?;
   fileNumber: number;
+  /** File name */
+  fileName: any;
   allowPopover: boolean;
   popoverVisible: boolean;
   el: HTMLElement;

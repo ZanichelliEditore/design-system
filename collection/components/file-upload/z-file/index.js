@@ -7,7 +7,7 @@ export class ZFile {
     this.popoverVisible = false;
   }
   removeFileHandler() {
-    this.removeFile.emit();
+    this.removeFile.emit({ fileName: this.fileName });
     this.el.remove();
   }
   onMouseOver() {
@@ -34,8 +34,7 @@ export class ZFile {
       this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.auto, bindTo: this.chip },
         h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))),
       h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default },
-        h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 },
-          h("slot", null)))));
+        h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
   }
   static get is() { return "z-file"; }
   static get encapsulation() { return "scoped"; }
@@ -61,6 +60,23 @@ export class ZFile {
         "text": ""
       },
       "attribute": "file-number",
+      "reflect": false
+    },
+    "fileName": {
+      "type": "any",
+      "mutable": false,
+      "complexType": {
+        "original": "any",
+        "resolved": "any",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": "File name"
+      },
+      "attribute": "file-name",
       "reflect": false
     }
   }; }

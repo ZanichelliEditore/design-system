@@ -410,6 +410,10 @@ export namespace Components {
     interface ZDragdropArea {
     }
     interface ZFile {
+        /**
+          * File name
+         */
+        "fileName": any;
         "fileNumber": number;
     }
     interface ZFileUpload {
@@ -429,6 +433,10 @@ export namespace Components {
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
+        /**
+          * get array of uploaded files
+         */
+        "getFiles": () => Promise<File[]>;
         /**
           * Title
          */
@@ -3203,6 +3211,10 @@ declare namespace LocalJSX {
         "onFileDropped"?: (event: CustomEvent<any>) => void;
     }
     interface ZFile {
+        /**
+          * File name
+         */
+        "fileName"?: any;
         "fileNumber"?: number;
         /**
           * Emitted when a z-file component is removed from the DOM

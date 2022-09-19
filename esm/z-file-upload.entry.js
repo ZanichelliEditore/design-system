@@ -11,8 +11,8 @@ const ZFileUpload = class {
     this.fileInput = createEvent(this, "fileInput", 7);
     /** Prop indicating the file upload type - can be default or dragdrop */
     this.type = ZFileUploadTypeEnum.default;
-    /** Number of files added by the user */
-    this.filesNumber = 0;
+    /** Files added by the user */
+    this.files = [];
     this.inputAttributes = {
       type: "file",
       id: "fileElem",
@@ -20,8 +20,16 @@ const ZFileUpload = class {
     };
   }
   /** Listen removeFile event sent from z-file component */
-  removeFileListener() {
-    this.filesNumber--;
+  removeFileListener(e) {
+    const files = this.files;
+    const file = files.find((file) => file.name === e.detail.fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
   }
   /** Listen fileDropped event sent from z-dragdrop-area component */
   fileDroppedListener(e) {
@@ -43,8 +51,12 @@ const ZFileUpload = class {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));
     }
   }
+  /** get array of uploaded files */
+  async getFiles() {
+    return this.files;
+  }
   handleAccessibility() {
-    if (this.filesNumber > 0) {
+    if (this.files.length > 0) {
       this.el.querySelector("z-file:last-child z-chip button").focus();
     }
     else {
@@ -64,9 +76,11 @@ const ZFileUpload = class {
         .some((ext) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
       if (fileSizeOk && fileFormatOk) {
-        this.fileInput.emit(file);
-        this.filesNumber++;
-        this.input.value = "";
+        if (!this.files.find((f) => f.name === file.name)) {
+          this.files.push(file);
+          this.fileInput.emit(file);
+          this.input.value = "";
+        }
         return;
       }
       errors.set(file.name, []);
@@ -102,7 +116,7 @@ const ZFileUpload = class {
     return (h("z-body", { level: 3 }, fileFormatString || fileWeightString ? finalString : null));
   }
   renderFileSection() {
-    return (this.filesNumber > 0 && (h("section", { class: "files-container" }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.medium }))));
+    return (this.files.length > 0 && (h("section", { class: "files-container" }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.medium }))));
   }
   renderInput() {
     return (h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));

@@ -1,12 +1,12 @@
-import { Component, Prop, h, Event, State, Listen, Element, } from "@stencil/core";
+import { Component, Prop, h, Event, State, Listen, Element, Method, } from "@stencil/core";
 import { DeviceEnum, DividerSize, ZFileUploadTypeEnum, } from "../../../beans";
 import { getDevice } from "../../../utils/utils";
 export class ZFileUpload {
   constructor() {
     /** Prop indicating the file upload type - can be default or dragdrop */
     this.type = ZFileUploadTypeEnum.default;
-    /** Number of files added by the user */
-    this.filesNumber = 0;
+    /** Files added by the user */
+    this.files = [];
     this.inputAttributes = {
       type: "file",
       id: "fileElem",
@@ -14,8 +14,16 @@ export class ZFileUpload {
     };
   }
   /** Listen removeFile event sent from z-file component */
-  removeFileListener() {
-    this.filesNumber--;
+  removeFileListener(e) {
+    const files = this.files;
+    const file = files.find((file) => file.name === e.detail.fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
   }
   /** Listen fileDropped event sent from z-dragdrop-area component */
   fileDroppedListener(e) {
@@ -37,8 +45,12 @@ export class ZFileUpload {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));
     }
   }
+  /** get array of uploaded files */
+  async getFiles() {
+    return this.files;
+  }
   handleAccessibility() {
-    if (this.filesNumber > 0) {
+    if (this.files.length > 0) {
       this.el.querySelector("z-file:last-child z-chip button").focus();
     }
     else {
@@ -58,9 +70,11 @@ export class ZFileUpload {
         .some((ext) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
       if (fileSizeOk && fileFormatOk) {
-        this.fileInput.emit(file);
-        this.filesNumber++;
-        this.input.value = "";
+        if (!this.files.find((f) => f.name === file.name)) {
+          this.files.push(file);
+          this.fileInput.emit(file);
+          this.input.value = "";
+        }
         return;
       }
       errors.set(file.name, []);
@@ -96,7 +110,7 @@ export class ZFileUpload {
     return (h("z-body", { level: 3 }, fileFormatString || fileWeightString ? finalString : null));
   }
   renderFileSection() {
-    return (this.filesNumber > 0 && (h("section", { class: "files-container" },
+    return (this.files.length > 0 && (h("section", { class: "files-container" },
       h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"),
       h("div", { class: "files" },
         h("slot", { name: "files" })),
@@ -296,7 +310,7 @@ export class ZFileUpload {
     }
   }; }
   static get states() { return {
-    "filesNumber": {},
+    "files": {},
     "invalidFiles": {}
   }; }
   static get events() { return [{
@@ -315,6 +329,27 @@ export class ZFileUpload {
         "references": {}
       }
     }]; }
+  static get methods() { return {
+    "getFiles": {
+      "complexType": {
+        "signature": "() => Promise<File[]>",
+        "parameters": [],
+        "references": {
+          "Promise": {
+            "location": "global"
+          },
+          "File": {
+            "location": "global"
+          }
+        },
+        "return": "Promise<File[]>"
+      },
+      "docs": {
+        "text": "get array of uploaded files",
+        "tags": []
+      }
+    }
+  }; }
   static get elementRef() { return "el"; }
   static get listeners() { return [{
       "name": "removeFile",

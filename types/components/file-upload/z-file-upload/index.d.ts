@@ -13,8 +13,8 @@ export declare class ZFileUpload {
   mainTitle?: string;
   /** Description */
   description?: string;
-  /** Number of files added by the user */
-  filesNumber: number;
+  /** Files added by the user */
+  files: File[];
   /** List of files not allowed to be uploaded */
   invalidFiles: Map<string, Array<string>>;
   el: HTMLElement;
@@ -24,7 +24,7 @@ export declare class ZFileUpload {
   private uploadLink;
   private inputAttributes;
   /** Listen removeFile event sent from z-file component */
-  removeFileListener(): void;
+  removeFileListener(e: CustomEvent): void;
   /** Listen fileDropped event sent from z-dragdrop-area component */
   fileDroppedListener(e: CustomEvent): void;
   componentDidUpdate(): void;
@@ -32,6 +32,8 @@ export declare class ZFileUpload {
   /** Emitted when user select one or more files */
   fileInput: EventEmitter;
   fileInputHandler(): void;
+  /** get array of uploaded files */
+  getFiles(): Promise<File[]>;
   handleAccessibility(): void;
   checkFiles(files: Array<File>): Map<string, Array<string>>;
   renderTitle(): any;

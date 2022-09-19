@@ -12,7 +12,7 @@ const ZFile = class {
     this.popoverVisible = false;
   }
   removeFileHandler() {
-    this.removeFile.emit();
+    this.removeFile.emit({ fileName: this.fileName });
     this.el.remove();
   }
   onMouseOver() {
@@ -35,7 +35,7 @@ const ZFile = class {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
-    return (h(Host, null, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.auto, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default }, h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, h("slot", null)))));
+    return (h(Host, null, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.auto, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.default }, h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
   }
   get el() { return getElement(this); }
 };

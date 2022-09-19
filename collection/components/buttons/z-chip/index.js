@@ -16,7 +16,7 @@ export class ZChip {
   }
   render() {
     if (this.interactiveIcon) {
-      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0" },
+      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0", type: "button" },
         this.icon && (h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })),
         h("slot", null),
         h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
