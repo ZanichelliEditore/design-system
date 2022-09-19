@@ -128,16 +128,17 @@ export class ZDatePicker {
       dateFormat: this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
       minuteIncrement: 1,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
       onChange: (_selectedDates, dateStr) => {
         this.emitDateSelect(dateStr);
       },
       onOpen: () => {
-        setAriaOptions(this.element, this.mode);
-        this.flatpickrPosition = setFlatpickrPosition(this.element, this.mode);
+        setAriaOptions(this.element as HTMLElement, this.mode);
+        this.flatpickrPosition = setFlatpickrPosition(this.element as HTMLElement, this.mode);
       },
       onKeyDown: () => {
-        setAriaOptions(this.element, this.mode);
+        setAriaOptions(this.element as HTMLElement, this.mode);
       },
       wrap: true,
       plugins: this.mode === ZDatePickerMode.months && [

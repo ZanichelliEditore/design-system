@@ -1,15 +1,15 @@
 import {newSpecPage} from "@stencil/core/testing";
 
-import {zModalLogin} from "./index";
+import {ZModalLogin} from "./index";
 
-describe("Suite test zModalLogin", () => {
+describe("Suite test ZModalLogin", () => {
   beforeEach(() => {
     jest.spyOn(console, "warn").mockImplementation(() => {});
   });
 
-  it("Test render zModalLogin - default", async () => {
+  it("Test render ZModalLogin - default", async () => {
     const page = await newSpecPage({
-      components: [zModalLogin],
+      components: [ZModalLogin],
       html: `<z-modal-login forgot-password-url="https://my.zanichelli.it"></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
@@ -43,9 +43,9 @@ describe("Suite test zModalLogin", () => {
     `);
   });
 
-  it("Test render zModalLogin - with props", async () => {
+  it("Test render ZModalLogin - with props", async () => {
     const page = await newSpecPage({
-      components: [zModalLogin],
+      components: [ZModalLogin],
       html: `<z-modal-login heading="test heading" status="error" message="error message" forgot-password-url="https://my.zanichelli.it"></z-modal-login>`,
     });
     expect(page.root).toEqualHtml(`
@@ -79,9 +79,9 @@ describe("Suite test zModalLogin", () => {
     `);
   });
 
-  it("Test render zModalLogin - with slots", async () => {
+  it("Test render ZModalLogin - with slots", async () => {
     const page = await newSpecPage({
-      components: [zModalLogin],
+      components: [ZModalLogin],
       html: `<z-modal-login forgot-password-url="https://my.zanichelli.it">
         <z-input type="text" slot="username">slotted username input</z-input>
         <z-input type="password" slot="password">slotted password input</z-input>

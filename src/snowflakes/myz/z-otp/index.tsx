@@ -32,7 +32,7 @@ export class ZOtp {
     return (
       <div class="otp-container">
         <div class="digits-container">
-          {this.otp.map((val, i) => (
+          {this.otp.map((_val, i) => (
             <input
               class={this.status == InputStatusEnum.error ? "error" : null}
               onKeyDown={(e: any) => {

@@ -1,4 +1,5 @@
 import {Component, Prop, h, Element} from "@stencil/core";
+import { JSXBase } from '@stencil/core/internal';
 import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../../beans";
 
 /**
@@ -43,11 +44,10 @@ export class ZButton {
   @Prop({reflect: true})
   size?: ButtonSizeEnum = ButtonSizeEnum.big;
 
-  getAttributes(): object {
+  private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement|HTMLButtonElement> {
     return {
-      "id": this.htmlid,
-      "aria-label": this.ariaLabel,
-      "class": {
+      id: this.htmlid,
+      class: {
         "z-button--container": true,
         "z-button--has-text": !!this.hostElement.textContent.trim(),
       },
@@ -59,6 +59,7 @@ export class ZButton {
       return (
         <a
           {...this.getAttributes()}
+          aria-label={this.ariaLabel}
           href={this.href}
           target={this.target}
         >
@@ -77,6 +78,7 @@ export class ZButton {
     return (
       <button
         {...this.getAttributes()}
+        aria-label={this.ariaLabel}
         name={this.name}
         type={this.type}
         disabled={this.disabled}

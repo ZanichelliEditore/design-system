@@ -1,9 +1,9 @@
 import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
 import {PopoverPositions, PopoverPositionBean, KeyboardKeys} from "../../beans";
 
-const documentElement = document.documentElement;
+const DOCUMENT_ELEMENT = document.documentElement;
 
-function getParentElement(element: Element): void {
+function getParentElement(element: Element): ShadowRoot['host'] {
   if ((element.parentNode as ShadowRoot).host) {
     return (element.parentNode as ShadowRoot).host;
   }
@@ -15,10 +15,10 @@ function getParentElement(element: Element): void {
  *
  * @param {Element} element The node
  */
-function findScrollableParent(element: Element): void {
+function findScrollableParent(element: Element): Element {
   let parent = getParentElement(element);
 
-  while (parent && parent !== documentElement) {
+  while (parent && parent !== DOCUMENT_ELEMENT) {
     const {overflow, overflowX, overflowY} = window.getComputedStyle(parent);
     if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
       return parent;
@@ -34,7 +34,7 @@ function findScrollableParent(element: Element): void {
     parent = getParentElement(parent);
   }
 
-  return documentElement;
+  return DOCUMENT_ELEMENT;
 }
 
 /**
@@ -44,7 +44,7 @@ function findScrollableParent(element: Element): void {
  * @param targetParentOffset The relative offset parent.
  * @return A client rect object.
  */
-function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): void {
+function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): Record<string, number> {
   const rect = element.getBoundingClientRect();
   const width = rect.width;
   const height = rect.height;
@@ -190,8 +190,8 @@ export class ZPopover {
   }
 
   @Watch("position")
-  validatePosition(newValue): void {
-    if (newValue && !Object.values(PopoverPositions).includes(newValue)) {
+  validatePosition(newValue: PopoverPositionBean): void {
+    if (newValue && !Object.values(PopoverPositions).includes(newValue as PopoverPositions)) {
       this.position = PopoverPositions.auto;
     }
 

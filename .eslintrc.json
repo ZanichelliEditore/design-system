@@ -45,9 +45,21 @@
         "format": ["camelCase"]
       },
       {
+        "selector": "parameter",
+        "modifiers": ["unused"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "require"
+      },
+      {
         "selector": "variable",
         "modifiers": ["const", "global"],
         "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": "classProperty",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
       },
       {
         "selector": "typeLike",
@@ -73,6 +85,7 @@
       }
     ],
     "@stencil/required-prefix": ["error", ["z"]],
-    "@stencil/strict-boolean-conditions": "off"
+    "@stencil/strict-boolean-conditions": "off",
+    "@stencil/prefer-vdom-listener": "off"
   }
 }

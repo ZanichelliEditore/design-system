@@ -2,7 +2,7 @@ import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} fr
 import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions} from "../../beans/index";
 
-const documentElement = document.documentElement;
+const DOCUMENT_ELEMENT = document.documentElement;
 
 /**
  * Find the closest scrollable parent of a node.
@@ -11,7 +11,7 @@ const documentElement = document.documentElement;
  */
 function findScrollableParent(element: Element): Element {
   let parent = element.parentNode as Element;
-  while (parent && parent !== documentElement) {
+  while (parent && parent !== DOCUMENT_ELEMENT) {
     const {overflow, overflowX, overflowY} = window.getComputedStyle(parent);
     if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
       return parent;
@@ -27,7 +27,7 @@ function findScrollableParent(element: Element): Element {
     parent = parent.parentNode as Element;
   }
 
-  return documentElement;
+  return DOCUMENT_ELEMENT;
 }
 
 /**

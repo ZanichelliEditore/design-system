@@ -1,7 +1,7 @@
-import {ZDatePickerMode, ZDatePickerModeValues, ZDatePickerPosition} from "../../beans";
+import {ZDatePickerMode, ZDatePickerModeValues, ZDatePickerPosition, ZRangePickerMode} from "../../beans";
 
-export function validateDate(dateStr, hasTime = false): boolean {
-  const regex = hasTime ? /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4} - \d{2}:\d{2}$/ : /^\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}$/;
+export function validateDate(dateStr: string, hasTime = false): boolean {
+  const regex = hasTime ? /^\d{1,2}[/-]\d{1,2}[/-]\d{2,4} - \d{2}:\d{2}$/ : /^\d{1,2}[/-]\d{1,2}[/-]\d{2,4}$/;
 
   if (dateStr.match(regex) === null) {
     return false;
@@ -10,7 +10,7 @@ export function validateDate(dateStr, hasTime = false): boolean {
   return true;
 }
 
-export function setFlatpickrPosition(element: HTMLElement, mode): ZDatePickerPosition {
+export function setFlatpickrPosition(element: HTMLElement, mode: ZDatePickerMode|ZRangePickerMode): ZDatePickerPosition {
   const toggleHeight = element.children[0].clientHeight;
   element.style.setProperty("--z-range-picker--toggle-height", `${toggleHeight}px`);
 
@@ -32,7 +32,7 @@ export function setFlatpickrPosition(element: HTMLElement, mode): ZDatePickerPos
   }
 }
 
-export function setAriaOptions(element: HTMLElement, mode): void {
+export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode|ZRangePickerMode): void {
   const calendar = element.getElementsByClassName("flatpickr-calendar");
 
   Array.from(calendar).forEach((element) => {

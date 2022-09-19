@@ -115,8 +115,9 @@ export class ZRangePicker {
       dateFormat: this.mode === ZRangePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
-      onValueUpdate: (_selectedDates, _dateStr, _instance) => {
+      onValueUpdate: () => {
         const firstInputActive = this.activeInput === "start-input";
         const firstDate = this.firstPicker.selectedDates[0];
         const lastDate = this.lastPicker.selectedDates[0];
@@ -244,6 +245,7 @@ export class ZRangePicker {
   replaceMonths(date, time): Date {
     const month = date.split(" ")[1];
     const months = {
+      /* eslint-disable @typescript-eslint/naming-convention */
       Gennaio: "01",
       Febbraio: "02",
       Marzo: "03",
@@ -256,6 +258,7 @@ export class ZRangePicker {
       Ottobre: "10",
       Novembre: "11",
       Dicembre: "12",
+      /* eslint-enable @typescript-eslint/naming-convention */
     };
 
     const pieces = date.replace(month, months[month]).split(" ");
