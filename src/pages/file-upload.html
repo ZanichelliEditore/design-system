@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-  dir="ltr"
-  lang="en"
->
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -15,14 +12,8 @@
       type="text/css"
       href="/build/web-components-library.css"
     />
-    <script
-      type="module"
-      src="/build/web-components-library.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="/build/web-components-library.js"
-    ></script>
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
     <style>
       .main-container {
         height: 500px;
@@ -77,6 +68,10 @@
           file-max-size="50"
         >
         </z-file-upload>
+        <br />
+        <z-button id="getFilesBtn" variant="secondary" size="small"
+          >get files</z-button
+        >
         <!-- <input type="submit" value="INVIA"> -->
         <!--  </form> -->
       </div>
@@ -269,8 +264,15 @@
         const chip = document.createElement("Z-FILE");
         chip.setAttribute("slot", "files");
         chip.setAttribute("file-number", fileNumber);
-        chip.innerText = item.name;
+        chip.setAttribute("file-name", item.name);
         uploader.appendChild(chip);
+      });
+
+      const getFilesBtn = document.querySelector("#getFilesBtn");
+      getFilesBtn.addEventListener("click", () => {
+        uploader.getFiles().then((files) => {
+          console.log(files);
+        });
       });
     </script>
   </body>

@@ -62,7 +62,7 @@ import "./index";
           const chip = document.createElement("Z-FILE");
           chip.setAttribute("slot", "files");
           chip.setAttribute("file-number", fileNumber);
-          chip.innerText = item.name;
+          chip.setAttribute("file-name", item.name);
           uploader.appendChild(chip);
         });
       </script>`}
@@ -81,10 +81,10 @@ import "./index";
   >
     {(args) => html`
     <z-heading level="4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</z-heading><br>
-    <z-file-upload type="dragdrop" 
+    <z-file-upload type="dragdrop"
                          file-max-size="${args.fileMaxSize}"
                          description="${args.description}"
-                         accepted-format="${args.acceptedFormat}"}" 
+                         accepted-format="${args.acceptedFormat}"}"
                          main-title="${args.mainTitle}">
       </z-file-upload>
       <script>
@@ -94,7 +94,7 @@ import "./index";
                   const chip = document.createElement('Z-FILE')
                   chip.setAttribute('slot', 'files')
                   chip.setAttribute('filetype', item.type)
-                  chip.innerText = item.name
+                  chip.setAttribute("file-name", item.name);
                   uploader.appendChild(chip);
           })
         </script>`}

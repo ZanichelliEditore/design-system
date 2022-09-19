@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.5.0](https://github.com/ZanichelliEditore/design-system/compare/v5.4.0...v5.5.0) (2022-09-19)
+
+
+### Features
+
+* added getFiles() method ([5ffd58d](https://github.com/ZanichelliEditore/design-system/commit/5ffd58df98d38709a64bf00cfaa9ebb9b316f12f))
+
+## [5.4.0](https://github.com/ZanichelliEditore/design-system/compare/v5.3.0...v5.4.0) (2022-09-15)
+
+
+### Features
+
+* **CLAV-318:** fix ZChip interactive style ([c17bf83](https://github.com/ZanichelliEditore/design-system/commit/c17bf8319ee71cf8d18c6f304159c84df83bb232))
+
 ## [5.3.0](https://github.com/ZanichelliEditore/design-system/compare/v5.2.0...v5.3.0) (2022-09-02)
 
 

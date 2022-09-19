@@ -40,6 +40,7 @@ export class ZChip {
           class={this.type}
           disabled={this.disabled}
           tabindex="0"
+          type="button"
         >
           {this.icon && (
             <z-icon

@@ -1,4 +1,4 @@
-import {Component, Prop, h, EventEmitter, Event, State, Listen, Element, Host} from "@stencil/core";
+import {Component, Prop, h, EventEmitter, Event, State, Listen, Element, Host, Method} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
 import {ButtonVariantEnum, DeviceEnum, DividerSize, ZFileUploadTypeEnum} from "../../../beans";
 import {getDevice} from "../../../utils/utils";
@@ -34,9 +34,9 @@ export class ZFileUpload {
   @Prop()
   description?: string;
 
-  /** Number of files added by the user */
+  /** Files added by the user */
   @State()
-  filesNumber = 0;
+  files: File[] = [];
 
   /** List of files not allowed to be uploaded */
   @State()
@@ -60,8 +60,16 @@ export class ZFileUpload {
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener(): void {
-    this.filesNumber--;
+  removeFileListener(e: CustomEvent): void {
+    const files = this.files;
+    const file = files.find((file) => file.name === e.detail.fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -91,9 +99,17 @@ export class ZFileUpload {
     }
   }
 
+  /** get array of uploaded files */
+  @Method()
+  async getFiles(): Promise<File[]> {
+    return this.files;
+  }
+
   handleAccessibility(): void {
-    if (this.filesNumber > 0) {
-      (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
+    if (this.files.length > 0) {
+      (
+        this.el.querySelector("z-file:last-child z-chip button") as HTMLElement
+      ).focus();
     } else {
       this.type === ZFileUploadTypeEnum.default
         ? this.button.shadowRoot.querySelector("button").focus()
@@ -112,9 +128,11 @@ export class ZFileUpload {
         .some((ext: string) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
       if (fileSizeOk && fileFormatOk) {
-        this.fileInput.emit(file);
-        this.filesNumber++;
-        this.input.value = "";
+        if (!this.files.find((f) => f.name === file.name)) {
+          this.files.push(file);
+          this.fileInput.emit(file);
+          this.input.value = "";
+        }
         return;
       }
       errors.set(file.name, []);
@@ -175,7 +193,7 @@ export class ZFileUpload {
 
   renderFileSection(): boolean | HTMLElement {
     return (
-      this.filesNumber > 0 && (
+      this.files.length > 0 && (
         <section class="files-container">
           <z-heading
             variant="semibold"

@@ -3,15 +3,25 @@ import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 
 import "./index";
 
-<Meta
-  title="Buttons/ZFile"
-  component="z-file"
-/>
+<Meta title="Buttons/ZFile" component="z-file" />
 
 # ZFile
 
 <Canvas>
-  <Story name="ZFile">{(args) => html`<z-file file-number="1">File abcdefghsdasdakjsdkj.jpg</z-file>`}</Story>
+  <Story
+    name="ZFile"
+    args={{
+      fileNumber: 1,
+      fileName: "abcdefghilmnopqrst.jpg",
+    }}
+  >
+    {(args) =>
+      html`<z-file
+        file-number="${args.fileNumber}"
+        file-name="${args.fileName}"
+      ></z-file>`
+    }
+  </Story>
 </Canvas>
 
 <ArgsTable of="z-file" />

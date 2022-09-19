@@ -19,6 +19,20 @@
 | ----------- | ------------------------------------------ | ------------------ |
 | `fileInput` | Emitted when user select one or more files | `CustomEvent<any>` |
 
+
+## Methods
+
+### `getFiles() => Promise<File[]>`
+
+get array of uploaded files
+
+#### Returns
+
+Type: `Promise<File[]>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

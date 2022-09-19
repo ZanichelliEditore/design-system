@@ -19,6 +19,9 @@ export class ZFile {
   @Prop()
   fileNumber: number;
 
+  /** File name */
+  @Prop() fileName: any;
+
   @State()
   allowPopover = false;
 
@@ -31,7 +34,7 @@ export class ZFile {
   @Event()
   removeFile: EventEmitter;
   removeFileHandler(): void {
-    this.removeFile.emit();
+    this.removeFile.emit({ fileName: this.fileName });
     this.el.remove();
   }
 
@@ -84,7 +87,7 @@ export class ZFile {
             ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
             tabIndex={-1}
           >
-            <slot />
+            {this.fileName}
           </span>
         </z-chip>
       </Host>

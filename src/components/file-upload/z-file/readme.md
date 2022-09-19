@@ -6,6 +6,7 @@
 
 | Property     | Attribute     | Description | Type     | Default     |
 | ------------ | ------------- | ----------- | -------- | ----------- |
+| `fileName`   | `file-name`   | File name   | `any`    | `undefined` |
 | `fileNumber` | `file-number` |             | `number` | `undefined` |
 
 ## Events
