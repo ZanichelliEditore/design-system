@@ -71,7 +71,7 @@ export class ZContextualMenu {
           />
         </button>
         <z-popover
-          ref={(el): HTMLZPopoverElement => (this.popover = el as HTMLZPopoverElement)}
+          ref={(el) => (this.popover = el as HTMLZPopoverElement)}
           position={this.popoverPosition}
         >
           <div class="popover-content-container">

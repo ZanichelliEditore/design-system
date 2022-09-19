@@ -226,7 +226,7 @@ export class ZFooter {
     }
 
     return zanichelliLinks.map(
-      (item): HTMLElement => (
+      (item) => (
         <z-footer-section name={item.title}>
           {item.items.map((item) => (
             <z-footer-link href={item.link}>{item.label}</z-footer-link>
@@ -241,7 +241,7 @@ export class ZFooter {
     if (!this.jsonData || !this.jsonData.bottomLinks) return null;
 
     const bottomLinks = this.jsonData.bottomLinks;
-    return bottomLinks.map((item): HTMLElement => <z-footer-link href={item.link}>{item.label}</z-footer-link>);
+    return bottomLinks.map((item) => <z-footer-link href={item.link}>{item.label}</z-footer-link>);
   }
 
   // INFO: backward compatibility
@@ -250,7 +250,7 @@ export class ZFooter {
 
     const social = this.jsonData.social;
     return social.map(
-      (item): HTMLElement => (
+      (item) => (
         <z-footer-social
           href={item.link}
           icon={item.icon}

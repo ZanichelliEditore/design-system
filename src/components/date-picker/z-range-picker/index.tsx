@@ -105,7 +105,7 @@ export class ZRangePicker {
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       time_24hr: true,
-      onValueUpdate: (_selectedDates, _dateStr, _instance): void => {
+      onValueUpdate: (_selectedDates, _dateStr, _instance) => {
         const firstInputActive = this.activeInput === "start-input";
         const firstDate = this.firstPicker.selectedDates[0];
         const lastDate = this.lastPicker.selectedDates[0];
@@ -126,23 +126,23 @@ export class ZRangePicker {
         this.setRangeStyle(0);
         this.setRangeStyle(1);
       },
-      onChange: (_selectedDates, _dateStr, instance): void => {
+      onChange: (_selectedDates, _dateStr, instance) => {
         this.onDateSelect();
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onOpen: (_selectedDates, _dateStr, instance): void => {
+      onOpen: (_selectedDates, _dateStr, instance) => {
         setAriaOptions(this.element, this.mode);
         this.flatpickrPosition = setFlatpickrPosition(this.element, this.mode);
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
         this.getFocusedInput();
       },
-      onYearChange: (_selectedDates, _dateStr, instance): void => {
+      onYearChange: (_selectedDates, _dateStr, instance) => {
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onMonthChange: (_selectedDates, _dateStr, instance): void => {
+      onMonthChange: (_selectedDates, _dateStr, instance) => {
         this.setRangeStyle(instance.input.classList.contains("start-input") ? 0 : 1);
       },
-      onKeyDown: (): void => {
+      onKeyDown: () => {
         setAriaOptions(this.element, this.mode);
       },
     };
@@ -409,7 +409,7 @@ export class ZRangePicker {
               ariaLabel={this.firstAriaLabel}
               label={this.firstLabel}
               status={this.firstInputError && InputStatusEnum.error}
-              onStartTyping={(): void => {
+              onStartTyping={() => {
                 this.firstInputError = false;
               }}
             />
@@ -424,7 +424,7 @@ export class ZRangePicker {
               ariaLabel={this.secondAriaLabel}
               label={this.secondLabel}
               status={this.lastInputError && InputStatusEnum.error}
-              onStartTyping={(): void => {
+              onStartTyping={() => {
                 this.lastInputError = false;
               }}
             />

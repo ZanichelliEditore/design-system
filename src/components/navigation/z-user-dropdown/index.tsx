@@ -187,7 +187,7 @@ export class ZUserDropdown {
     return (
       <Host class={colorClass}>
         <div
-          ref={(el): HTMLDivElement => (this.divToResize = el as HTMLDivElement)}
+          ref={(el) => (this.divToResize = el as HTMLDivElement)}
           class={openClass}
         >
           <div class={`${colorClass} ${openClass}`}>

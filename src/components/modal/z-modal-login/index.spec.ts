@@ -124,7 +124,7 @@ describe("Suite test zModalLogin", () => {
 
 const modalTitle = "Entra in MyZanichelli";
 
-const renderUsername = (hidden = false, status?, message?) =>
+const renderUsername = (hidden = false, status?, message?): string =>
   `<slot-fb name="username" ${hidden ? `hidden` : ``}>
     <z-input
       id="username"
@@ -137,7 +137,7 @@ const renderUsername = (hidden = false, status?, message?) =>
     ></z-input>
   </slot-fb>`;
 
-const renderPassword = (hidden = false, status?) =>
+const renderPassword = (hidden = false, status?): string =>
   `<slot-fb name="password" ${hidden ? `hidden` : ``}>
     <z-input
       id="password"
@@ -150,38 +150,38 @@ const renderPassword = (hidden = false, status?) =>
     ></z-input>
   </slot-fb>`;
 
-const renderForgottenPwd = () =>
+const renderForgottenPwd = (): string =>
   `<z-link class="forget" href="https://my.zanichelli.it">
     Password dimenticata?
   </z-link>`;
 
-const renderLogin = (hidden = false) =>
+const renderLogin = (hidden = false): string =>
   `<slot-fb name="login" ${hidden ? `hidden` : ``}>
     <z-button variant="primary">Accedi</z-button>
   </slot-fb>`;
 
-const renderSignupBody = () =>
+const renderSignupBody = (): string =>
   `<z-body class="signup" level="4" variant="semibold">
     Non hai ancora un account?
   </z-body>`;
 
-const renderSignup = (hidden = false) =>
+const renderSignup = (hidden = false): string =>
   `<slot-fb name="signup" ${hidden ? `hidden` : ``}>
     <z-button variant="secondary">Registrati</z-button>
   </slot-fb>`;
 
-const renderProvidersHeading = () =>
+const renderProvidersHeading = (): string =>
   `<z-body class="provider" level="5" variant="regular">
     OPPURE ACCEDI CON:
   </z-body>`;
 
-const renderProviders = (hidden = false) =>
+const renderProviders = (hidden = false): string =>
   `<slot-fb name="provider" ${hidden ? `hidden` : ``}>
     ${renderZainoDigitale()}
     ${renderZainoDigitaleLink()}
   </slot-fb>`;
 
-const renderZainoDigitale = () =>
+const renderZainoDigitale = (): string =>
   `<z-button variant="secondary" class="zainoDigitale">
     <div class="zd">
       <svg width="18px" height="24px" viewBox="0 0 18 24">
@@ -205,7 +205,7 @@ const renderZainoDigitale = () =>
     </div>
   </z-button>`;
 
-const renderZainoDigitaleLink = () =>
+const renderZainoDigitaleLink = (): string =>
   `<z-link icon="informationsource" href="https://www.zainodigitale.it/#/landing">
     Cos'è Zaino Digitale?
   </z-link>`;

@@ -167,7 +167,7 @@ export class ZAppHeader {
       <Host menu-length={this.menuLength}>
         <div
           class="heading-panel"
-          ref={(el): HTMLDivElement => (this.container = el)}
+          ref={(el) => (this.container = el)}
         >
           <div class="hero-container">
             <slot name="hero">

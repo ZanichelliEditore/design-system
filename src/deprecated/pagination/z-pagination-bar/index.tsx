@@ -144,7 +144,7 @@ export class ZPaginationBar {
 
   render() {
     return (
-      <div ref={(el): HTMLElement => (this.bar = el as HTMLElement)}>
+      <div ref={(el) => (this.bar = el as HTMLElement)}>
         <z-icon
           name="chevron-left"
           class={!this.canNavigateLeft() && "disabled"}

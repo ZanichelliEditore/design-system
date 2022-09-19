@@ -36,7 +36,7 @@ export class ZToastNotificationList {
     this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
   }
 
-  slotChangeHandler = () => {
+  slotChangeHandler(): void {
     const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
     if (difference) {
       difference.forEach((elem) => {

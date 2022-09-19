@@ -47,7 +47,7 @@ export class ZMyzCardHeader {
     return (
       <header class={this.retrieveClass()}>
         <h2
-          ref={(el): HTMLElement => (this.ellipsis = el as HTMLElement)}
+          ref={(el) => (this.ellipsis = el as HTMLElement)}
           title={this.getTitle()}
         >
           {this.titolo}

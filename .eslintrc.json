@@ -38,7 +38,8 @@
           "componentWillUpdate",
           "componentDidUpdate",
           "render"
-        ]
+        ],
+        "allowExpressions": true
       }
     ],
     "@typescript-eslint/no-unused-vars": [

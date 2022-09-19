@@ -185,7 +185,7 @@ it("Test username cleaning before emitting loginSubmit event", async () => {
   expect(loginSubmitUsername).toEqual(usernameValue);
 });
 
-async function resetUsernameValue(page) {
+async function resetUsernameValue(page): Promise<void> {
   await page.evaluate((selector) => {
     document.querySelector(selector).value = "";
   }, "z-modal-login div.username z-input input");

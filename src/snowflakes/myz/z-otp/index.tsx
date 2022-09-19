@@ -47,7 +47,7 @@ export class ZOtp {
               minlength="1"
               maxlength="1"
               autoComplete="off"
-              ref={(el): HTMLInputElement => (this.otpRef[i] = el)}
+              ref={(el) => (this.otpRef[i] = el)}
             />
           ))}
         </div>

@@ -545,7 +545,7 @@ function initMyzTopbar(
   extlinkdataBool: boolean,
   activeintlinkid: string,
   hideloginbutton: boolean
-) {
+): string {
   const userNotLogged = {islogged: false, usergroup: 4};
   const user = {
     islogged: true,

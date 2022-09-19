@@ -201,7 +201,7 @@ export class ZMyzTopbar {
       >
         <ul class="dropdown-links">
           {menuItem.subMenu.map(
-            (item: MenuItem): HTMLAnchorElement => (
+            (item: MenuItem) => (
               <li>
                 <a
                   id={item.id}
@@ -234,7 +234,7 @@ export class ZMyzTopbar {
         id="link-ext"
         class="link-ext"
       >
-        {menuItems.map((menuItem: MenuItem): HTMLSpanElement => {
+        {menuItems.map((menuItem: MenuItem) => {
           const {id, label, link, icon} = menuItem;
           return (
             <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>

@@ -75,7 +75,7 @@ export class ZMyzCardFooter {
       <div class={{...this.retrieveClass() as object, wrapper: true}}>
         <footer
           class={this.retrieveClass()}
-          onTransitionEnd={(e: TransitionEvent): void => this.footerTransitionHandler(e)}
+          onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}
         >
           <span class="toggle">
             <slot name="toggle" />
@@ -85,7 +85,7 @@ export class ZMyzCardFooter {
             <div>
               <p
                 class="authors"
-                ref={(el): HTMLElement => (this.ellipsisAuthors = el as HTMLElement)}
+                ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}
               >
                 <span title={this.getTitleAuthors()}>
                   <span class="bold">{this.autori}</span>

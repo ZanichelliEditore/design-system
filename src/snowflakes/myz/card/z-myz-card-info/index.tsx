@@ -203,7 +203,7 @@ export class ZMyzCardInfo {
         {this.renderCloseIcon()}
         <div
           class="content-wrapper"
-          ref={(el): HTMLElement => (this.contentWrapper = el)}
+          ref={(el) => (this.contentWrapper = el)}
         >
           {this.renderGeneralSection()}
           {this.renderTooltip()}

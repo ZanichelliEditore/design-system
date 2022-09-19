@@ -206,7 +206,7 @@ export class ZPopover {
   onOpen(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
     if (this.open) {
-      const setPosition = () => {
+      const setPosition = (): void => {
         if (this.open) {
           this.setPosition();
           this.animationFrameRequestId = requestAnimationFrame(setPosition);

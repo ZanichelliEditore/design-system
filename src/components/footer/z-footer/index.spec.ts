@@ -629,7 +629,7 @@ describe("Suite test ZFooter", () => {
                   <span>
                     <z-body level="5" variant="semibold">Prodotto bello</z-body>
                     <z-body level="5"> versione 666</z-body>
-                    <z-body level="5"> - 
+                    <z-body level="5"> -
                       <z-link htmlid="creditsLinkId" href="https://www.google.com" target="_blank" textcolor="white">Credits</z-link>
                     </z-body>
                   </span>
@@ -671,22 +671,22 @@ describe("Suite test ZFooter", () => {
   });
 });
 
-const expectedLogo = () => `
+const expectedLogo = (): string => `
   <z-logo link="https://www.zanichelli.it" imageAlt="Home Zanichelli" targetBlank height="38" width="144"></z-logo>
 `;
 
-const expectedCopyright = () => `
+const expectedCopyright = (): string => `
   Copyright – 2018-${new Date().getFullYear()} Zanichelli
   <span>All rights reserved </span>
 `;
 
-const expectedCertifications = () => `
+const expectedCertifications = (): string => `
   Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477
   <br />
   secondo la norma UNI EN ISO 9001:2015
 `;
 
-const expectedAddress = () => `
+const expectedAddress = (): string => `
   Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna
   <br />
   Fax 051 - 249.782 / 293.224 | Tel. 051 - 293.111 / 245.024
