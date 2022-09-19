@@ -6,8 +6,10 @@ import {Component, Prop, h} from "@stencil/core";
   shadow: true,
 })
 export class ZChipDeprecated {
-  @Prop() regulartext?: string;
-  @Prop() boldtext?: number;
+  @Prop()
+  regulartext?: string;
+  @Prop()
+  boldtext?: number;
 
   private renderLegacyChip(): HTMLDivElement {
     return (

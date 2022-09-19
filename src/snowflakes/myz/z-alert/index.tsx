@@ -12,7 +12,8 @@ import {AlertTypes} from "../../../beans/index";
 })
 export class ZAlert {
   /** alert variant type */
-  @Prop() type: AlertTypes;
+  @Prop()
+  type: AlertTypes;
 
   render(): HTMLDivElement {
     return (

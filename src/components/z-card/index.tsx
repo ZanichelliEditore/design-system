@@ -1,5 +1,5 @@
 import {Component, Prop, h, Element, State, Listen, Event, EventEmitter, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 import {CardVariants} from "../../beans";
 
 @Component({
@@ -13,26 +13,32 @@ export class ZCard {
    * Can be one of "text", "border", "shadow", "overlay".
    * Leave it undefined for the default card.
    */
-  @Prop({reflect: true}) variant: CardVariants;
+  @Prop({reflect: true})
+	variant: CardVariants;
 
   /** Name of the icon to place over the image cover */
-  @Prop() coverIcon: string;
+  @Prop()
+  coverIcon: string;
 
   /** Enable click interactions on the card. Default: false */
-  @Prop({reflect: true}) clickable = false;
+  @Prop({reflect: true})
+	clickable = false;
 
   /** Enable shadow. Default: false. */
-  @Prop({reflect: true}) showshadow = false;
+  @Prop({reflect: true})
+	showshadow = false;
 
   @Element() host: HTMLZCardElement;
 
-  @State() hasCoverImage: boolean;
+  @State()
+  hasCoverImage: boolean;
 
   /**
    * Card click event.
    * Fired only if `clickable` is true.
    */
-  @Event() cardClicked: EventEmitter;
+  @Event()
+  cardClicked: EventEmitter;
 
   @Listen("click")
   onClick(ev: MouseEvent): void {

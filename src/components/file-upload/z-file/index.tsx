@@ -16,16 +16,20 @@ export class ZFile {
 
   private chip?: HTMLZChipElement;
 
-  @Prop() fileNumber: number;
+  @Prop()
+  fileNumber: number;
 
-  @State() allowPopover = false;
+  @State()
+  allowPopover = false;
 
-  @State() popoverVisible = false;
+  @State()
+  popoverVisible = false;
 
   @Element() el: HTMLZFileElement;
 
   /** Emitted when a z-file component is removed from the DOM */
-  @Event() removeFile: EventEmitter;
+  @Event()
+  removeFile: EventEmitter;
   removeFileHandler(): void {
     this.removeFile.emit();
     this.el.remove();

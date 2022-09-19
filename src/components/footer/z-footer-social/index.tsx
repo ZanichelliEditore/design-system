@@ -7,11 +7,14 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZFooterSocial {
   /** icon url */
-  @Prop() icon: string;
+  @Prop()
+  icon: string;
   /** social link */
-  @Prop() href: string;
+  @Prop()
+  href: string;
   /** social description */
-  @Prop() description?: string;
+  @Prop()
+  description?: string;
 
   render(): HTMLAnchorElement {
     return (

@@ -7,17 +7,23 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZPaginationPage {
   /** html id */
-  @Prop() pageid: string;
+  @Prop()
+  pageid: string;
   /** numeric page value (optional) */
-  @Prop() value?: number;
+  @Prop()
+  value?: number;
   /** selected status flag */
-  @Prop() isselected = false;
+  @Prop()
+  isselected = false;
   /** disabled status flag */
-  @Prop() isdisabled = false;
+  @Prop()
+  isdisabled = false;
   /** visited status flag */
-  @Prop() isvisited = false;
+  @Prop()
+  isvisited = false;
   /** aria-label string */
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
 
   render(): HTMLButtonElement {
     return (

@@ -17,23 +17,30 @@ export class ZDatePicker {
   @Element() element: HTMLZDatePickerElement;
 
   /** unique id */
-  @Prop() datePickerId: string;
+  @Prop()
+  datePickerId: string;
 
   /** z-input aria label */
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
   /** z-input label */
-  @Prop() label?: string;
+  @Prop()
+  label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
-  @Prop() mode: ZDatePickerMode = ZDatePickerMode.date;
+  @Prop()
+  mode: ZDatePickerMode = ZDatePickerMode.date;
 
-  @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
-  @State() inputError = false;
+  @State()
+  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
+  @State()
+  inputError = false;
 
   private picker;
   private hasChildren: boolean;
 
   /** emitted when date changes, returns selected date */
-  @Event() dateSelect: EventEmitter;
+  @Event()
+  dateSelect: EventEmitter;
   emitDateSelect(date): void {
     this.dateSelect.emit(date);
   }

@@ -10,9 +10,11 @@ import {ToastNotificationPositionsEnum, ToastNotificationPositionsTypes} from ".
 export class ZToastNotificationList {
   @Element() hostElement: HTMLZToastNotificationListElement;
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
-  @Prop() position: ToastNotificationPositionsTypes;
+  @Prop()
+  position: ToastNotificationPositionsTypes;
   /**Set the entry position of new notification in the list */
-  @Prop() newestontop?: boolean = true;
+  @Prop()
+  newestontop?: boolean = true;
 
   private notificationArray: Element[];
 

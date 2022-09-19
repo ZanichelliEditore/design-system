@@ -10,13 +10,17 @@ import {handleKeyboardSubmit, getClickedElement, getElementTree} from "../../../
 })
 export class ZMenuDropdown {
   /** user name text */
-  @Prop() nomeutente: string;
+  @Prop()
+  nomeutente: string;
   /** Json stringified or array to fill menu dropdown */
-  @Prop() menucontent: string | MenuItem[];
+  @Prop()
+  menucontent: string | MenuItem[];
   /** unique button id */
-  @Prop() buttonid: string;
+  @Prop()
+  buttonid: string;
 
-  @State() ismenuopen = false;
+  @State()
+  ismenuopen = false;
 
   linkarray: MenuItem[];
 

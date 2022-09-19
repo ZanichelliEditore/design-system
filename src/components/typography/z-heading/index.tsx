@@ -6,9 +6,12 @@ import {ZTypographyLevels} from "../z-typography";
   shadow: true,
 })
 export class ZHeading {
-  @Prop() level: 1 | 2 | 3 | 4;
-  @Prop() variant: "regular" | "semibold" | "light" = "regular";
-  @Prop() component: string;
+  @Prop()
+  level: 1 | 2 | 3 | 4;
+  @Prop()
+  variant: "regular" | "semibold" | "light" = "regular";
+  @Prop()
+  component: string;
 
   render(): HTMLZTypographyElement {
     return (

@@ -8,14 +8,18 @@ import {ButtonVariantEnum} from "../../../beans";
 })
 export class ZCookiebar {
   /** cookie policy link url  */
-  @Prop() cookiepolicyurl: string;
+  @Prop()
+  cookiepolicyurl: string;
   /** hide cookie bar (optional)  */
-  @Prop() hide?: boolean;
+  @Prop()
+  hide?: boolean;
   /** callback to handle ok button action (optional) */
-  @Prop() callback?: () => any;
+  @Prop()
+  callback?: () => any;
 
   /** emitted on ACCETTA button click, returns event */
-  @Event() accept: EventEmitter;
+  @Event()
+  accept: EventEmitter;
   emitAccept(ev: MouseEvent | KeyboardEvent): void {
     this.accept.emit({ev});
   }

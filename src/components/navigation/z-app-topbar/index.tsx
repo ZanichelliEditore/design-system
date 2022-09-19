@@ -10,17 +10,23 @@ import {mobileBreakpoint} from "../../../constants/breakpoints";
 })
 export class ZAppTopbar {
   /** theme variant, default 'dark' */
-  @Prop() theme?: ThemeVariant = ThemeVariant.dark;
+  @Prop()
+  theme?: ThemeVariant = ThemeVariant.dark;
   /** maximum width of topbar content */
-  @Prop() contentMaxWidth?: number;
+  @Prop()
+  contentMaxWidth?: number;
   /** JSON string or MenuItem array to define topbar links */
-  @Prop() topbarContent?: string | MenuItem[];
+  @Prop()
+  topbarContent?: string | MenuItem[];
   /** link URL used by z-logo */
-  @Prop() logoLink?: string;
+  @Prop()
+  logoLink?: string;
   /** add app-switcher */
-  @Prop() showAppSwitcher: boolean;
+  @Prop()
+  showAppSwitcher: boolean;
 
-  @State() isMobile: boolean;
+  @State()
+  isMobile: boolean;
 
   private topbarLinks: MenuItem[] = [];
 

@@ -8,7 +8,8 @@ import {Component, h, Event, EventEmitter} from "@stencil/core";
 })
 export class ZDragdropArea {
   /** Emitted when user drop one or more files */
-  @Event() fileDropped: EventEmitter;
+  @Event()
+  fileDropped: EventEmitter;
   fileDroppedHandler(files: FileList): void {
     this.fileDropped.emit(files);
   }
@@ -43,7 +44,6 @@ export class ZDragdropArea {
         onDragLeave={() => {
           this.dragDropContainer.classList.remove("dragover");
         }}
-        onDragEnd={() => {}}
         onDrop={(e) => {
           e.preventDefault();
           if (e.dataTransfer.files.length) {

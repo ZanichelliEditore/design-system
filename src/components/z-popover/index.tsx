@@ -113,7 +113,8 @@ function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): 
 })
 export class ZPopover {
   /** Popover position. */
-  @Prop({reflect: true}) position: PopoverPositionBean = PopoverPositions.auto;
+  @Prop({reflect: true})
+	position: PopoverPositionBean = PopoverPositions.auto;
 
   /**
    * The open state of the popover.

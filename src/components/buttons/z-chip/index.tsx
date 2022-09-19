@@ -11,15 +11,20 @@ export class ZChip {
   @Element() el: HTMLZChipElement;
 
   /** Non interactive icon */
-  @Prop() icon?: string;
+  @Prop()
+  icon?: string;
   /** z-chip size type, can be default, medium or small */
-  @Prop({reflect: true}) type?: ZChipType = ZChipType.default;
+  @Prop({reflect: true})
+	type?: ZChipType = ZChipType.default;
   /** z-chip interactive icon */
-  @Prop({reflect: true}) interactiveIcon?: string;
+  @Prop({reflect: true})
+	interactiveIcon?: string;
   /** set z-chip as disabled  */
-  @Prop({reflect: true}) disabled?: boolean = false;
+  @Prop({reflect: true})
+	disabled?: boolean = false;
   /** click on interactive icon */
-  @Event() interactiveIconClick: EventEmitter;
+  @Event()
+  interactiveIconClick: EventEmitter;
   emitinteractiveIconClick(): void {
     this.interactiveIconClick.emit();
   }

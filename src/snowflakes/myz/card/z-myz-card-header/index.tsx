@@ -12,13 +12,17 @@ import {LicenseTypeEnum} from "../../../../beans/index";
 })
 export class ZMyzCardHeader {
   /** volume title */
-  @Prop() titolo: string;
+  @Prop()
+  titolo: string;
   /** faded status */
-  @Prop() faded: boolean;
+  @Prop()
+  faded: boolean;
   /** card graphic variant (optional) */
-  @Prop() cardtype?: LicenseTypeEnum;
+  @Prop()
+  cardtype?: LicenseTypeEnum;
 
-  @State() allowTooltip = false;
+  @State()
+  allowTooltip = false;
 
   private ellipsis?: HTMLElement;
 

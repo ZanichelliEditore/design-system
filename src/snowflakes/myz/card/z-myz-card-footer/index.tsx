@@ -13,23 +13,32 @@ import {LicenseTypeEnum} from "../../../../beans/index";
 })
 export class ZMyzCardFooter {
   /** volume title */
-  @Prop() titolo: string;
+  @Prop()
+  titolo: string;
   /** authors name text */
-  @Prop() autori: string;
+  @Prop()
+  autori: string;
   /** volume isbn */
-  @Prop() isbn: string;
+  @Prop()
+  isbn: string;
   /** faded status */
-  @Prop() faded: boolean;
+  @Prop()
+  faded: boolean;
   /** card graphic variant (optional) */
-  @Prop() cardtype?: LicenseTypeEnum;
+  @Prop()
+  cardtype?: LicenseTypeEnum;
   /** footer opened by default (optional) */
-  @Prop() opened?: boolean = false;
+  @Prop()
+  opened?: boolean = false;
   /** display footer custom slotted content */
-  @Prop() customContent = false;
+  @Prop()
+  customContent = false;
 
-  @State() isOpen = false;
+  @State()
+  isOpen = false;
 
-  @State() allowTooltipAuthors = false;
+  @State()
+  allowTooltipAuthors = false;
 
   private ellipsisAuthors?: HTMLElement;
 
@@ -72,7 +81,7 @@ export class ZMyzCardFooter {
 
   render(): HTMLDivElement {
     return (
-      <div class={{...(this.retrieveClass() as object), wrapper: true}}>
+      <div class={{...(this.retrieveClass() as Record<string, boolean>), wrapper: true}}>
         <footer
           class={this.retrieveClass()}
           onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}

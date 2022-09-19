@@ -11,13 +11,17 @@ import {LicenseTypeEnum} from "../../../../beans/index";
 })
 export class ZMyzCardComponent {
   /** faded status */
-  @Prop() faded: boolean;
+  @Prop()
+  faded: boolean;
   /** graphic variant (optional) */
-  @Prop() cardtype?: LicenseTypeEnum;
+  @Prop()
+  cardtype?: LicenseTypeEnum;
   /** pressed status */
-  @Prop() ispressed = false;
+  @Prop()
+  ispressed = false;
   /** highlighted status */
-  @Prop() ishighlighted = false;
+  @Prop()
+  ishighlighted = false;
 
   retrieveClass(): string {
     let elemClasses = "";

@@ -6,9 +6,12 @@ import {ZTypographyLevels} from "../z-typography";
   shadow: true,
 })
 export class ZBody {
-  @Prop() level: 1 | 2 | 3 | 4 | 5;
-  @Prop() variant: "regular" | "semibold" = "regular";
-  @Prop() component: string;
+  @Prop()
+  level: 1 | 2 | 3 | 4 | 5;
+  @Prop()
+  variant: "regular" | "semibold" = "regular";
+  @Prop()
+  component: string;
 
   render(): HTMLZTypographyElement {
     return (

@@ -8,9 +8,11 @@ import {ListItemBean} from "../../../../beans/index.js";
 })
 export class ZMyzList {
   /** json stringified list data (mutable, optional) */
-  @Prop({mutable: true}) inputrawdata?: string;
+  @Prop()
+	inputrawdata?: string;
   /** list item data (mutable, optional)*/
-  @Prop({mutable: true}) list?: ListItemBean[];
+  @Prop({mutable: true})
+	list?: ListItemBean[];
 
   componentWillLoad(): void {
     if (this.inputrawdata) {
@@ -22,7 +24,7 @@ export class ZMyzList {
     this.list = [...JSON.parse(inputrawdata)];
   }
 
-  @Watch("inputrawdata") //this will run everytime values are changed
+  @Watch("inputrawdata")
   oninputrawdataChange(newValue: string): void {
     this.parseinputrawdata(newValue);
   }

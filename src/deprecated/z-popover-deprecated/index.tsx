@@ -12,23 +12,32 @@ import {getElementTree} from "../../utils/utils";
 })
 export class ZPopoverDeprecated {
   /** [optional] Popover position */
-  @Prop() position?: PopoverPosition = PopoverPosition["after-up"];
+  @Prop()
+  position?: PopoverPosition = PopoverPosition["after-up"];
   /** [optional] Background color token for popover */
-  @Prop() backgroundColor?: string = "color-white";
+  @Prop()
+  backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
-  @Prop() borderRadius?: PopoverBorderRadius = PopoverBorderRadius.small;
+  @Prop()
+  borderRadius?: PopoverBorderRadius = PopoverBorderRadius.small;
   /** [optional] Box shadow token for popover */
-  @Prop() boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
+  @Prop()
+  boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
   /** [optional] Show or hide arrow */
-  @Prop() showArrow?: boolean = false;
+  @Prop()
+  showArrow?: boolean = false;
   /** [optional] Sets padding for Popover container */
-  @Prop() padding?: string = "8px";
+  @Prop()
+  padding?: string = "8px";
 
-  @State() isVisible = false;
-  @State() popoverPosition: PopoverPosition = this.position;
+  @State()
+  isVisible = false;
+  @State()
+  popoverPosition: PopoverPosition = this.position;
 
   /** Emitted on popover click, returns isVisible state */
-  @Event() triggerClick: EventEmitter;
+  @Event()
+  triggerClick: EventEmitter;
   emitTriggerClick(): void {
     this.triggerClick.emit({
       isVisible: this.isVisible,

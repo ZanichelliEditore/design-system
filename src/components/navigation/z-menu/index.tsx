@@ -1,5 +1,5 @@
 import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * @slot - Menu label
@@ -14,30 +14,37 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class ZMenu {
   /** Flag to set the active status of the menu. */
-  @Prop({reflect: true}) active?: boolean;
+  @Prop({reflect: true})
+	active?: boolean;
   /**
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
    * stacked beneath it otherwise.
    * @default false
    */
-  @Prop({reflect: true}) floating? = false;
+  @Prop({reflect: true})
+	floating? = false;
   /**
    * The opening state of the menu.
    * @default false
    */
-  @Prop({mutable: true, reflect: true}) open = false;
-  @State() hasHeader: boolean;
-  @State() hasContent: boolean;
+  @Prop({mutable: true, reflect: true})
+	open = false;
+  @State()
+  hasHeader: boolean;
+  @State()
+  hasContent: boolean;
   @Element() hostElement: HTMLZMenuElement;
 
   private content: HTMLElement;
   private raf: number;
 
   /** The menu has been opened. */
-  @Event() opened: EventEmitter;
+  @Event()
+  opened: EventEmitter;
   /** The menu has been closed. */
-  @Event() closed: EventEmitter;
+  @Event()
+  closed: EventEmitter;
   toggle(): void {
     if (!this.hasContent) {
       return;

@@ -13,19 +13,25 @@ import {ButtonSizeEnum} from "../../../beans";
 })
 export class ZFooter {
   /** deprecated - JSON stringified data to fill the footer */
-  @Prop() data?: string;
+  @Prop()
+  data?: string;
   /** The product name to be displayed on the top panel of the footer */
-  @Prop() productName?: string;
+  @Prop()
+  productName?: string;
   /** The product version to be displayed on the top panel of the footer */
-  @Prop() productVersion?: string;
+  @Prop()
+  productVersion?: string;
   /** 'undefined' or 'null' means 'don't show Credits',
    * empty string means 'emit creditsLinkClick event',
    * not empty string means 'open the url and emit creditsLinkClick event' */
-  @Prop() productCreditsLink?: string;
+  @Prop()
+  productCreditsLink?: string;
   /** True if the product must display a "Report a problem" button on the top panel of the footer */
-  @Prop() showReportAProblemButton?: boolean;
+  @Prop()
+  showReportAProblemButton?: boolean;
   /** Maximum width of footer content */
-  @Prop() contentMaxWidth?: number;
+  @Prop()
+  contentMaxWidth?: number;
 
   private jsonData;
 
@@ -50,13 +56,15 @@ export class ZFooter {
   }
 
   /** Emitted on credits link click */
-  @Event() creditsLinkClick: EventEmitter;
+  @Event()
+  creditsLinkClick: EventEmitter;
   emitCreditsLinkClick(): void {
     this.creditsLinkClick.emit();
   }
 
   /** Emitted on report a problem button click */
-  @Event() reportAProblemButtonClick: EventEmitter;
+  @Event()
+  reportAProblemButtonClick: EventEmitter;
   emitReportAProblemButtonClick(): void {
     this.reportAProblemButtonClick.emit();
   }

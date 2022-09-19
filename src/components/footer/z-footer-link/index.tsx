@@ -10,7 +10,8 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZFooterLink {
   /** link */
-  @Prop() href: string;
+  @Prop()
+  href: string;
 
   render(): HTMLAnchorElement {
     return (

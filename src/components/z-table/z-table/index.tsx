@@ -17,46 +17,60 @@ export class ZTable {
   @Element() host: HTMLZTableElement;
 
   /** Number of lines of element */
-  @Prop({reflect: true}) lines?: number;
+  @Prop({reflect: true})
+	lines?: number;
 
   /** Error message */
-  @Prop() errorMessage?: string = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
+  @Prop()
+  errorMessage?: string = "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto";
 
   /** Sets table with border */
-  @Prop() bordered?: boolean = false;
+  @Prop()
+  bordered?: boolean = false;
 
   /** Sets call to action label */
-  @Prop() callToActionLabel?: string;
+  @Prop()
+  callToActionLabel?: string;
 
   /** Sets call to action label */
-  @Prop() callToActionTwoLabel?: string;
+  @Prop()
+  callToActionTwoLabel?: string;
 
   /** Sets first column sticky */
-  @Prop() columnSticky?: boolean = false;
+  @Prop()
+  columnSticky?: boolean = false;
 
   /** Sets empty table */
-  @Prop() empty?: boolean = false;
+  @Prop()
+  empty?: boolean = false;
 
   /** Set error status */
-  @Prop() error?: boolean = false;
+  @Prop()
+  error?: boolean = false;
 
   /** Set error status */
-  @Prop() errorLink?: string;
+  @Prop()
+  errorLink?: string;
 
   /** Sets header sticky */
-  @Prop() headerSticky?: boolean = false;
+  @Prop()
+  headerSticky?: boolean = false;
 
   /** Set message */
-  @Prop() message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
+  @Prop()
+  message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare";
 
   /** Set subtitle */
-  @Prop() subtitle?: string = "";
+  @Prop()
+  subtitle?: string = "";
 
   /** Set if has table content, useful when empty conte to who first column */
-  @State() hasTableBody: boolean;
+  @State()
+  hasTableBody: boolean;
 
   /** Handle mobile */
-  @State() isMobile: boolean;
+  @State()
+  isMobile: boolean;
   /** remove call to action event */
 
   /** remove call to action event */

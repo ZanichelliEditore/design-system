@@ -14,7 +14,8 @@ export class ZList {
   /**
    * [optional] Sets size of inside elements.
    */
-  @Prop({reflect: true}) size?: ListSize = ListSize.medium;
+  @Prop({reflect: true})
+	size?: ListSize = ListSize.medium;
 
   setChildrenSizeType(): void {
     const children = this.host.children;

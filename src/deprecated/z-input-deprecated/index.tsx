@@ -1,4 +1,5 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
+import {HTMLAttributes} from "react";
 import {InputTypeBean, InputTypeEnum, InputStatusBean, SelectItemBean} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -12,54 +13,80 @@ export class ZInputDeprecated {
   @Element() hostElement: HTMLZInputDeprecatedElement;
 
   /** the id of the input element */
-  @Prop() htmlid = `id-${randomId()}`;
+  @Prop()
+  htmlid = `id-${randomId()}`;
   /** input types */
-  @Prop() type: InputTypeBean;
+  @Prop()
+  type: InputTypeBean;
   /** the input name */
-  @Prop() name?: string;
+  @Prop()
+  name?: string;
   /** the input label */
-  @Prop() label?: string;
+  @Prop()
+  label?: string;
   /** the input aria-label */
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
   /** the input value */
-  @Prop({mutable: true}) value?: string;
+  @Prop({mutable: true})
+  value?: string;
   /** the input is disabled */
-  @Prop() disabled?: boolean = false;
+  @Prop()
+  disabled?: boolean = false;
   /** the input is readonly */
-  @Prop() readonly?: boolean = false;
+  @Prop()
+  readonly?: boolean = false;
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
-  @Prop() required?: boolean = false;
+  @Prop()
+  required?: boolean = false;
   /** checked: available for checkbox, radio */
-  @Prop({mutable: true}) checked?: boolean = false;
+  @Prop({mutable: true})
+  checked?: boolean = false;
   /** the input placeholder (optional) */
-  @Prop() placeholder?: string;
+  @Prop()
+  placeholder?: string;
   /** the input html title (optional) */
-  @Prop() htmltitle?: string;
+  @Prop()
+  htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea, select */
-  @Prop() status?: InputStatusBean;
+  @Prop()
+  status?: InputStatusBean;
   /** show input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() hasmessage?: boolean = true;
+  @Prop()
+  hasmessage?: boolean = true;
   /** input helper message (optional): available for text, password, number, email, textarea, select */
-  @Prop() message?: string;
+  @Prop()
+  message?: string;
   /** the input label position: available for checkbox, radio */
-  @Prop() labelafter?: boolean = true;
+  @Prop()
+  labelafter?: boolean = true;
   /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
-  @Prop() typingtimeout?: number = 300;
+  @Prop()
+  typingtimeout?: number = 300;
   /** items (optional): available for select */
-  @Prop() items?: SelectItemBean[] | string;
+  @Prop()
+  items?: SelectItemBean[] | string;
   /** the input has autocomplete option (optional): available for select, input */
-  @Prop() autocomplete?: boolean | string;
+  @Prop()
+  autocomplete?: boolean | string;
   /** multiple options can be selected (optional): available for select */
-  @Prop() multiple?: boolean = false;
+  @Prop()
+  multiple?: boolean = false;
   /** render clear icon when typing (optional): available for text */
-  @Prop() hasclearicon?: boolean = true;
+  @Prop()
+  hasclearicon?: boolean = true;
   /** render icon (optional): available for text, select */
-  @Prop() icon?: string;
+  @Prop()
+  icon?: string;
 
-  @State() isTyping = false;
-  @State() textareaWrapperHover = "";
-  @State() textareaWrapperFocus = "";
-  @State() passwordHidden = true;
+  @State()
+  isTyping = false;
+  @State()
+  textareaWrapperHover = "";
+  @State()
+  textareaWrapperFocus = "";
+  @State()
+  passwordHidden = true;
 
   private timer;
   private selectElem: HTMLZSelectElement;
@@ -72,8 +99,7 @@ export class ZInputDeprecated {
         if (data.type === InputTypeEnum.radio && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
-      default:
-        return;
+        break;
     }
   }
 
@@ -116,7 +142,8 @@ export class ZInputDeprecated {
   }
 
   /** Emitted on input value change, returns value, keycode, validity */
-  @Event() inputChange: EventEmitter;
+  @Event()
+  inputChange: EventEmitter;
   emitInputChange(value: string, keycode: number): void {
     if (!this.isTyping) {
       this.emitStartTyping();
@@ -137,14 +164,16 @@ export class ZInputDeprecated {
   }
 
   /** Emitted when user starts typing */
-  @Event() startTyping: EventEmitter;
+  @Event()
+  startTyping: EventEmitter;
   emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
   }
 
   /** Emitted when user stops typing, returns value, validity */
-  @Event() stopTyping: EventEmitter;
+  @Event()
+  stopTyping: EventEmitter;
   emitStopTyping(value: string, validity: any): void {
     this.isTyping = false;
     this.stopTyping.emit({
@@ -154,7 +183,8 @@ export class ZInputDeprecated {
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
-  @Event() inputCheck: EventEmitter;
+  @Event()
+  inputCheck: EventEmitter;
   emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,
@@ -167,7 +197,8 @@ export class ZInputDeprecated {
   }
 
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
-  @Event() optionSelect: EventEmitter;
+  @Event()
+  optionSelect: EventEmitter;
 
   getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
@@ -176,7 +207,7 @@ export class ZInputDeprecated {
 
   /* START text/password/email/number */
 
-  getTextAttributes(): object {
+  getTextAttributes(): HTMLAttributes<HTMLInputElement> {
     const attr = {
       id: this.htmlid,
       name: this.name,
@@ -441,7 +472,7 @@ export class ZInputDeprecated {
 
   /* END select */
 
-  render(): HTMLDivElement|HTMLZSelectElement {
+  render(): HTMLDivElement | HTMLZSelectElement {
     switch (this.type) {
       case InputTypeEnum.text:
       case InputTypeEnum.password:

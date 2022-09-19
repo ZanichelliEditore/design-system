@@ -1,5 +1,5 @@
 import {Component, Prop, Host, h} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-logo",
@@ -8,17 +8,23 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class ZLogo {
   /** image width */
-  @Prop() width?: number;
+  @Prop()
+  width?: number;
   /** image height */
-  @Prop() height?: number;
+  @Prop()
+  height?: number;
   /** alternative image text */
-  @Prop() imageAlt?: string;
+  @Prop()
+  imageAlt?: string;
   /** link url (optional) */
-  @Prop() link?: string;
+  @Prop()
+  link?: string;
   /** link target: true means _blank, false means _self */
-  @Prop() targetBlank?: boolean;
+  @Prop()
+  targetBlank?: boolean;
   /** if true, the mobile logo is displayed, otherwise the desktop one */
-  @Prop() mobileLogo?: boolean;
+  @Prop()
+  mobileLogo?: boolean;
 
   render(): HostElement {
     const style = {};

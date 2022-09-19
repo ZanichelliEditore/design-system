@@ -11,19 +11,26 @@ import {handleKeyboardSubmit} from "../../../utils/utils";
 })
 export class ZPaginationBar {
   /** pages number */
-  @Prop() pages: number;
+  @Prop()
+  pages: number;
   /** number of visible pages*/
-  @Prop() visiblepages: number;
+  @Prop()
+  visiblepages: number;
   /** current displayed page (mutable) */
-  @Prop({mutable: true}) currentpage = 1;
+  @Prop({mutable: true})
+	currentpage = 1;
   /** initial page (mutable) */
-  @Prop({mutable: true}) startpage = 1;
+  @Prop({mutable: true})
+	startpage = 1;
   /** json stringified history of visited pages (optional) */
-  @Prop() historyraw?: string;
+  @Prop()
+  historyraw?: string;
   /** array of history of visited pages (mutable, optional) */
-  @Prop({mutable: true}) listhistoryrow?: number[] = [];
+  @Prop({mutable: true})
+	listhistoryrow?: number[] = [];
 
-  @State() currentPages: number[] = [];
+  @State()
+  currentPages: number[] = [];
 
   velocityConstantMultiplier = 2;
 
@@ -67,24 +74,21 @@ export class ZPaginationBar {
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
       case "swiperight":
-        if (!this.canNavigateLeft()) break;
-        const newstartPage1 = this.startpage - deltaPage;
-        if (newstartPage1 > 1) this.emitChangeStartPage(newstartPage1);
-        else this.emitChangeStartPage(1);
+        if (this.canNavigateLeft()) {
+          this.emitChangeStartPage(Math.max(1, this.startpage - deltaPage));
+        }
         break;
       case "swipeleft":
-        if (!this.canNavigateRight()) break;
-        const newstartPage2 = this.startpage + deltaPage;
-        if (newstartPage2 < this.pages - this.visiblepages + 1) this.emitChangeStartPage(newstartPage2);
-        else this.emitChangeStartPage(this.pages - this.visiblepages + 1);
-        break;
-      default:
+        if (this.canNavigateRight()) {
+          this.emitChangeStartPage(Math.min(this.startpage + deltaPage, this.pages - this.visiblepages + 1));
+        }
         break;
     }
   }
 
   /** emitted on page number click, returns page*/
-  @Event() goToPage: EventEmitter;
+  @Event()
+  goToPage: EventEmitter;
   emitGoToPage(page): void {
     this.currentpage = page;
     this.goToPage.emit({page: page});
@@ -92,14 +96,16 @@ export class ZPaginationBar {
   }
 
   /** emitted on start page change, returns startpage*/
-  @Event() changeStartPage: EventEmitter;
+  @Event()
+  changeStartPage: EventEmitter;
   emitChangeStartPage(startpage): void {
     this.startpage = startpage;
     this.changeStartPage.emit({startpage: startpage});
   }
 
   /** emitted on adding page to isvisited array, returns page*/
-  @Event() addPageToHistory: EventEmitter;
+  @Event()
+  addPageToHistory: EventEmitter;
   emitAddPageToHistory(page): void {
     this.listhistoryrow.push(page);
     this.changeStartPage.emit({page: page});

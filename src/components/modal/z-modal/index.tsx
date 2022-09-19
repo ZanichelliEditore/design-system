@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * @slot modalContent - set the content of the modal
@@ -12,28 +12,35 @@ import { HostElement } from '@stencil/core/internal';
 })
 export class ZModal {
   /** unique id */
-  @Prop() modalid: string;
+  @Prop()
+  modalid: string;
   /** title text (optional) */
-  @Prop() modaltitle?: string;
+  @Prop()
+  modaltitle?: string;
   /** subtitle (optional) */
-  @Prop() modalsubtitle?: string;
+  @Prop()
+  modalsubtitle?: string;
   /** aria-label for close button (optional) */
-  @Prop() closeButtonLabel?: string = "close modal";
+  @Prop()
+  closeButtonLabel?: string = "close modal";
 
   /** emitted on close button click, returns modalid */
-  @Event() modalClose: EventEmitter;
+  @Event()
+  modalClose: EventEmitter;
   emitModalClose(): void {
     this.modalClose.emit({modalid: this.modalid});
   }
 
   /** emitted on modal header click, returns modalid */
-  @Event() modalHeaderActive: EventEmitter;
+  @Event()
+  modalHeaderActive: EventEmitter;
   emitModalHeaderActive(): void {
     this.modalHeaderActive.emit({modalid: this.modalid});
   }
 
   /** emitted on background click, returns modalid */
-  @Event() modalBackgroundClick: EventEmitter;
+  @Event()
+  modalBackgroundClick: EventEmitter;
   emitBackgroundClick(): void {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }

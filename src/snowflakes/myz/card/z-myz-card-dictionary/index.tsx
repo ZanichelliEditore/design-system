@@ -12,17 +12,23 @@ import {ButtonSizeEnum, ButtonVariantEnum} from "../../../../beans";
 })
 export class ZMyzCardDictionary {
   /** card title */
-  @Prop() name: string;
+  @Prop()
+  name: string;
   /** card cover */
-  @Prop() cover: string;
+  @Prop()
+  cover: string;
   /** card is disabled */
-  @Prop() disabled = false;
+  @Prop()
+  disabled = false;
   /** card is flipped */
-  @Prop({mutable: true}) flipped = false;
+  @Prop({mutable: true})
+	flipped = false;
   /** flip button label */
-  @Prop() flipbuttonlabel = "INFO";
+  @Prop()
+  flipbuttonlabel = "INFO";
   /** hide info button */
-  @Prop() hideinfobtn = false;
+  @Prop()
+  hideinfobtn = false;
 
   @Listen("flipCard")
   handleFlipCard(e: CustomEvent): void {
@@ -30,7 +36,8 @@ export class ZMyzCardDictionary {
   }
 
   /** when card is flipped */
-  @Event() cardFlipped: EventEmitter;
+  @Event()
+  cardFlipped: EventEmitter;
   flipCard(showBack = true): void {
     this.flipped = showBack;
     this.cardFlipped.emit(showBack);

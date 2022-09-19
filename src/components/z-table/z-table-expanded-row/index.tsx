@@ -7,7 +7,8 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZTableExpandedRow {
   /** Number table column plus 1 for the expand button */
-  @Prop() colSpan: number;
+  @Prop()
+  colSpan: number;
 
   render(): HTMLTableCellElement {
     return (

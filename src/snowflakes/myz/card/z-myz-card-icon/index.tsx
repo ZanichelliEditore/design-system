@@ -7,11 +7,14 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZMyzCardIcon {
   /** icon name */
-  @Prop() icon: string;
+  @Prop()
+  icon: string;
   /** disabled status flag */
-  @Prop() isdisabled = false;
+  @Prop()
+  isdisabled = false;
   /** description of the icon*/
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
 
   render(): HTMLButtonElement {
     return (

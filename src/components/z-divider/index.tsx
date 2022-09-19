@@ -9,11 +9,14 @@ import {DividerSize, DividerOrientation} from "../../beans";
 })
 export class ZDivider {
   /** [optional] Divider size */
-  @Prop() size?: DividerSize = DividerSize.small;
+  @Prop()
+  size?: DividerSize = DividerSize.small;
   /** [optional] Divider color */
-  @Prop() color?: string = "gray200";
+  @Prop()
+  color?: string = "gray200";
   /** [optional] Divider orintation */
-  @Prop() orientation?: DividerOrientation = DividerOrientation.horizontal;
+  @Prop()
+  orientation?: DividerOrientation = DividerOrientation.horizontal;
 
   render(): HostElement {
     return (

@@ -9,11 +9,14 @@ import {ZTableRowExpandedType} from "../../../beans";
   scoped: false,
 })
 export class ZTableRow {
-  @Prop({reflect: true}) expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
+  @Prop({reflect: true})
+	expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
 
-  @State() expanded = false;
+  @State()
+  expanded = false;
 
-  @Event() expand: EventEmitter;
+  @Event()
+  expand: EventEmitter;
   emitOnExpand(): void {
     this.expand.emit({expanded: this.expanded});
   }

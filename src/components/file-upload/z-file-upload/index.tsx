@@ -11,28 +11,36 @@ import {getDevice} from "../../../utils/utils";
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
-  @Prop({mutable: true, reflect: true}) type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
+  @Prop({mutable: true, reflect: true})
+	type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
 
   /** Prop indicating the button variant*/
-  @Prop() buttonVariant?: ButtonVariantEnum;
+  @Prop()
+  buttonVariant?: ButtonVariantEnum;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
-  @Prop() acceptedFormat?: string;
+  @Prop()
+  acceptedFormat?: string;
 
   /** Max file dimension in Megabyte */
-  @Prop() fileMaxSize?: number;
+  @Prop()
+  fileMaxSize?: number;
 
   /** Title */
-  @Prop() mainTitle?: string;
+  @Prop()
+  mainTitle?: string;
 
   /** Description */
-  @Prop() description?: string;
+  @Prop()
+  description?: string;
 
   /** Number of files added by the user */
-  @State() filesNumber = 0;
+  @State()
+  filesNumber = 0;
 
   /** List of files not allowed to be uploaded */
-  @State() invalidFiles: Map<string, string[]>;
+  @State()
+  invalidFiles: Map<string, string[]>;
 
   @Element() el: HTMLZFileUploadElement;
 
@@ -75,7 +83,8 @@ export class ZFileUpload {
   }
 
   /** Emitted when user select one or more files */
-  @Event() fileInput: EventEmitter;
+  @Event()
+  fileInput: EventEmitter;
   fileInputHandler(): void {
     if (this.input.files.length) {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));

@@ -12,12 +12,16 @@ import {handleKeyboardSubmit} from "../../../../utils/utils";
 })
 export class ZMyzCardInfo {
   /** dictionary info */
-  @Prop() data: string | DictionaryData;
+  @Prop()
+  data: string | DictionaryData;
   /** tabindex link attribute (optional) */
-  @Prop() htmltabindex?: number = 0;
+  @Prop()
+  htmltabindex?: number = 0;
 
-  @State() hiddenContent = false;
-  @State() tooltip = false;
+  @State()
+  hiddenContent = false;
+  @State()
+  tooltip = false;
 
   private cardData: DictionaryData;
 
@@ -27,7 +31,8 @@ export class ZMyzCardInfo {
   private offlineLicenseWrapper: HTMLElement;
 
   /** flip card to front */
-  @Event() flipCard: EventEmitter;
+  @Event()
+  flipCard: EventEmitter;
   emitFlipCard(showBack = false): void {
     this.flipCard.emit(showBack);
   }

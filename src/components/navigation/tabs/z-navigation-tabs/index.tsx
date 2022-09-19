@@ -20,27 +20,32 @@ export class ZNavigationTabs {
   /**
    * Navigation tabs orientation.
    */
-  @Prop({reflect: true}) orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  @Prop({reflect: true})
+	orientation?: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Navigation tabs size.
    */
-  @Prop({reflect: true}) size?: NavigationTabsSize = NavigationTabsSizes.big;
+  @Prop({reflect: true})
+	size?: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Whether to show navigation buttons.
    */
-  @State() canNavigate: boolean;
+  @State()
+  canNavigate: boolean;
 
   /**
    * Whether backwards navigation is enabled.
    */
-  @State() canNavigatePrev: boolean;
+  @State()
+  canNavigatePrev: boolean;
 
   /**
    * Whether forward navigation is enabled.
    */
-  @State() canNavigateNext: boolean;
+  @State()
+  canNavigateNext: boolean;
 
   @Element() host: HTMLZNavigationTabsElement;
 

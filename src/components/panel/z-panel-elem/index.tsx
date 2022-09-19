@@ -10,23 +10,32 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZPanelElem {
   /** html element id (optional) */
-  @Prop() elemid?: string;
+  @Prop()
+  elemid?: string;
   /** image url source (optional) */
-  @Prop() imgurl?: string;
+  @Prop()
+  imgurl?: string;
   /** alternative image text (optional) */
-  @Prop() imgalt?: string;
+  @Prop()
+  imgalt?: string;
   /** icon link name (optional) */
-  @Prop() linkicon?: string;
+  @Prop()
+  linkicon?: string;
   /** link label text*/
-  @Prop() linklabel: string;
+  @Prop()
+  linklabel: string;
   /** link url */
-  @Prop() url: string;
+  @Prop()
+  url: string;
   /** link target (optional) */
-  @Prop() target?: string = "_blank";
+  @Prop()
+  target?: string = "_blank";
   /** disabled status flag (optional) */
-  @Prop() isdisabled?: boolean = false;
+  @Prop()
+  isdisabled?: boolean = false;
   /** name of slot container (optional) */
-  @Prop() descr_slot_name?: string;
+  @Prop()
+  descr_slot_name?: string;
 
   renderIcon(): HTMLZIconElement {
     if (this.isdisabled) {

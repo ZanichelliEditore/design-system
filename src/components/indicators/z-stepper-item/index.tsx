@@ -9,19 +9,23 @@ export class ZStepperItem {
   /**
    * The number of the step item.
    */
-  @Prop({attribute: "index"}) index: number;
+  @Prop({attribute: "index"})
+	index: number;
   /**
    * The href to navigate on click.
    */
-  @Prop({attribute: "href"}) href: string;
+  @Prop({attribute: "href"})
+	href: string;
   /**
    * The pressed state of the item.
    */
-  @Prop({attribute: "pressed"}) pressed: boolean;
+  @Prop({attribute: "pressed"})
+	pressed: boolean;
   /**
    * The disabled state of the item.
    */
-  @Prop({attribute: "disabled"}) disabled: boolean;
+  @Prop({attribute: "disabled"})
+	disabled: boolean;
 
   render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {

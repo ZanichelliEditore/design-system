@@ -11,17 +11,20 @@ export class ZContextualMenu {
   /**
    * Elements of ZContextualMenu
    */
-  @Prop() elements?: string;
+  @Prop()
+  elements?: string;
 
   /**
    * [optional] Sets text color of ZContextualMenu's content
    */
-  @Prop() color?: string = "color-primary01";
+  @Prop()
+  color?: string = "color-primary01";
 
   /**
    * [optional] Sets the position of the popover
    */
-  @Prop({reflect: true}) popoverPosition?: PopoverPositions = PopoverPositions.bottom_right;
+  @Prop({reflect: true})
+	popoverPosition?: PopoverPositions = PopoverPositions.bottom_right;
 
   private triggerButton?: HTMLButtonElement;
 

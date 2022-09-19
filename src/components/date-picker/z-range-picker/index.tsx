@@ -15,29 +15,40 @@ export class ZRangePicker {
   @Element() element: HTMLZRangePickerElement;
 
   /** unique id */
-  @Prop() rangePickerId: string;
+  @Prop()
+  rangePickerId: string;
   /** first z-input aria label */
-  @Prop() firstAriaLabel?: string;
+  @Prop()
+  firstAriaLabel?: string;
   /** first z-input label */
-  @Prop() firstLabel?: string;
+  @Prop()
+  firstLabel?: string;
   /** second z-input aria label */
-  @Prop() secondAriaLabel?: string;
+  @Prop()
+  secondAriaLabel?: string;
   /** second z-input label */
-  @Prop() secondLabel?: string;
+  @Prop()
+  secondLabel?: string;
   /** [Optional] datepicker mode: date or datetime */
-  @Prop() mode: ZRangePickerMode = ZRangePickerMode.date;
+  @Prop()
+  mode: ZRangePickerMode = ZRangePickerMode.date;
 
-  @State() flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
-  @State() activeInput = "start-input";
+  @State()
+  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
+  @State()
+  activeInput = "start-input";
 
-  @State() firstInputError = false;
-  @State() lastInputError = false;
+  @State()
+  firstInputError = false;
+  @State()
+  lastInputError = false;
 
   private firstPicker;
   private lastPicker;
 
   /** emitted when date changes, returns an array with the two selected dates */
-  @Event() dateSelect: EventEmitter;
+  @Event()
+  dateSelect: EventEmitter;
 
   @Listen("click", {target: "body", capture: true})
   handleClick(): void {

@@ -1,5 +1,5 @@
 import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 
 /**
  * Pagination bar component.
@@ -9,8 +9,7 @@ import { HostElement } from '@stencil/core/internal';
   styleUrl: "styles.css",
 })
 export class ZPagination {
-  @Element()
-  host: HTMLZPaginationElement;
+  @Element() host: HTMLZPaginationElement;
 
   /** Pagination label placed before the bar. */
   @Prop()

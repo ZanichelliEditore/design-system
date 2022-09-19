@@ -18,38 +18,45 @@ export class ZNavigationTab {
   /**
    * Whether the tab is selected.
    */
-  @Prop({mutable: true, reflect: true}) selected?: boolean = false;
+  @Prop({mutable: true, reflect: true})
+	selected?: boolean = false;
 
   /**
    * Whether the tab is disabled.
    */
-  @Prop({reflect: true}) disabled?: boolean = false;
+  @Prop({reflect: true})
+	disabled?: boolean = false;
 
   /**
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
-  @Prop({reflect: true}) orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  @Prop({reflect: true})
+	orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
-  @Prop({reflect: true}) size: NavigationTabsSize = NavigationTabsSizes.big;
+  @Prop({reflect: true})
+	size: NavigationTabsSize = NavigationTabsSizes.big;
 
   /**
    * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
-  @Prop() icon: string;
+  @Prop()
+  icon: string;
 
   /**
    * Label to show in the tab.
    */
-  @Prop() label: string;
+  @Prop()
+  label: string;
 
   /**
    * Html `title` attribute for the button.
    */
-  @Prop() htmlTitle: string;
+  @Prop()
+  htmlTitle: string;
 
   @Event({eventName: "selected"})
   private selectedEvent: EventEmitter;

@@ -7,15 +7,20 @@ import {Component, Prop, Event, EventEmitter, h} from "@stencil/core";
 })
 export class ZButtonFilter {
   /** filter text content */
-  @Prop() filtername: string;
+  @Prop()
+  filtername: string;
   /** disable action on button */
-  @Prop() isfixed = false;
+  @Prop()
+  isfixed = false;
   /** add icon to button */
-  @Prop() hasicon = true;
+  @Prop()
+  hasicon = true;
   /** filter id */
-  @Prop() filterid: string;
+  @Prop()
+  filterid: string;
   /** reduce button size (optional) */
-  @Prop() issmall?: boolean = false;
+  @Prop()
+  issmall?: boolean = false;
 
   /** remove filter click event, returns filterid */
   @Event({

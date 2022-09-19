@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 import {DividerSize, ZSectionTitleDividerPosition, ZSectionTitleDividerPositions} from "../../beans";
 
 /**
@@ -21,12 +21,14 @@ export class ZSectionTitle {
    * Divider position for the primary title.
    * This prop only works if the secondary title is not set.
    */
-  @Prop() dividerPosition: ZSectionTitleDividerPosition = ZSectionTitleDividerPositions.before;
+  @Prop()
+  dividerPosition: ZSectionTitleDividerPosition = ZSectionTitleDividerPositions.before;
 
   /**
    * Whether the primary title text is uppercase.
    */
-  @Prop({reflect: true}) uppercase = true;
+  @Prop({reflect: true})
+	uppercase = true;
 
   @Element() host: HTMLZSectionTitleElement;
 

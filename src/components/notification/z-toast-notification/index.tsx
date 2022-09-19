@@ -18,26 +18,37 @@ export class ZToastNotification {
   @Element() hostElement: HTMLZToastNotificationElement;
 
   /** toast notification's title */
-  @Prop() heading?: string;
+  @Prop()
+  heading?: string;
   /** toast notification's message */
-  @Prop() message: string;
+  @Prop()
+  message: string;
   /** toggles closing button rendering */
-  @Prop() closebutton: boolean;
+  @Prop()
+  closebutton: boolean;
   /** toast notification closing timeout (ms) */
-  @Prop() autoclose?: number;
+  @Prop()
+  autoclose?: number;
   /** toast notification autoclose can be paused */
-  @Prop() pauseonfocusloss?: boolean = true;
+  @Prop()
+  pauseonfocusloss?: boolean = true;
   /** toast notification type:  dark, light, accent, error, success, warning*/
-  @Prop() type?: ToastNotificationTypes;
+  @Prop()
+  type?: ToastNotificationTypes;
   /** toast notification can be draggable*/
-  @Prop() isdraggable?: boolean = true;
+  @Prop()
+  isdraggable?: boolean = true;
   /** toast notification draggable percentage*/
-  @Prop() draggablepercentage?: number = 80;
+  @Prop()
+  draggablepercentage?: number = 80;
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
-  @Prop() transition?: ToastNotificationTransitionTypes;
+  @Prop()
+  transition?: ToastNotificationTransitionTypes;
 
-  @State() percentage: number;
-  @State() isTextLong: boolean;
+  @State()
+  percentage: number;
+  @State()
+  isTextLong: boolean;
 
   private container!: HTMLElement;
   private toastText!: HTMLElement;
@@ -77,7 +88,8 @@ export class ZToastNotification {
   }
 
   /** notification close event */
-  @Event() toastClose: EventEmitter;
+  @Event()
+  toastClose: EventEmitter;
   emitToastClose(cssClass: string): void {
     this.timeoutHandle = null;
     this.elapsedTime = null;

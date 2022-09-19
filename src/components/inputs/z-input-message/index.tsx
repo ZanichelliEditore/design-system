@@ -9,9 +9,11 @@ import {InputStatusBean} from "../../../beans";
 })
 export class ZInputMessage {
   /** input helper message */
-  @Prop() message: string;
+  @Prop()
+  message: string;
   /** input status (optional) */
-  @Prop({reflect: true}) status?: InputStatusBean;
+  @Prop({reflect: true})
+	status?: InputStatusBean;
 
   private statusIcons = {
     success: "checkmark-circle",

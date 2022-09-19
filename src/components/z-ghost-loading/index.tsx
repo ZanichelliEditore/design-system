@@ -1,5 +1,5 @@
 import {Component, h, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 @Component({
   tag: "z-ghost-loading",
   styleUrl: "styles.css",

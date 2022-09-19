@@ -12,18 +12,21 @@ import Hammer from "hammerjs";
 })
 export class ZPocketHeader {
   /** pocket id */
-  @Prop() pocketid: string;
+  @Prop()
+  pocketid: string;
 
   private swipeWrap: HTMLElement;
 
   /** Emitted on pocket header click */
-  @Event() pocketHeaderClick: EventEmitter;
+  @Event()
+  pocketHeaderClick: EventEmitter;
   emitPocketHeaderClick(): void {
     this.pocketHeaderClick.emit({id: this.pocketid});
   }
 
   /** Emitted on pocket header pan */
-  @Event() pocketHeaderPan: EventEmitter;
+  @Event()
+  pocketHeaderPan: EventEmitter;
   emitPocketHeaderPan(direction: string): void {
     this.pocketHeaderPan.emit({id: this.pocketid, direction});
   }

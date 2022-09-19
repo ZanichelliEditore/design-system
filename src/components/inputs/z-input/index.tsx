@@ -12,52 +12,76 @@ export class ZInput {
   @Element() hostElement: HTMLZInputElement;
 
   /** the id of the input element */
-  @Prop() htmlid = `id-${randomId()}`;
+  @Prop()
+  htmlid = `id-${randomId()}`;
   /** input types */
-  @Prop() type: InputTypeBean;
+  @Prop()
+  type: InputTypeBean;
   /** the input name */
-  @Prop() name?: string;
+  @Prop()
+  name?: string;
   /** the input label */
-  @Prop() label?: string;
+  @Prop()
+  label?: string;
   /** the input aria-label */
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
   /** the input value */
-  @Prop({mutable: true}) value?: string;
+  @Prop({mutable: true})
+	value?: string;
   /** the input is disabled */
-  @Prop({reflect: true}) disabled?: boolean = false;
+  @Prop({reflect: true})
+	disabled?: boolean = false;
   /** the input is readonly */
-  @Prop() readonly?: boolean = false;
+  @Prop()
+  readonly?: boolean = false;
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
-  @Prop() required?: boolean = false;
+  @Prop()
+  required?: boolean = false;
   /** checked: available for checkbox, radio */
-  @Prop({mutable: true}) checked?: boolean = false;
+  @Prop({mutable: true})
+	checked?: boolean = false;
   /** the input placeholder (optional) */
-  @Prop() placeholder?: string;
+  @Prop()
+  placeholder?: string;
   /** the input html title (optional) */
-  @Prop() htmltitle?: string;
+  @Prop()
+  htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea */
-  @Prop() status?: InputStatusBean;
+  @Prop()
+  status?: InputStatusBean;
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
-  @Prop() message?: string | boolean = true;
+  @Prop()
+  message?: string | boolean = true;
   /** the input label position: available for checkbox, radio */
-  @Prop() labelPosition?: LabelPosition = LabelPositions.right;
+  @Prop()
+  labelPosition?: LabelPosition = LabelPositions.right;
   /** the input has autocomplete option (optional): available for text, password, number, email */
-  @Prop() autocomplete?: string;
+  @Prop()
+  autocomplete?: string;
   /** render clear icon when typing (optional): available for text */
-  @Prop() hasclearicon?: boolean = true;
+  @Prop()
+  hasclearicon?: boolean = true;
   /** render icon (optional): available for text */
-  @Prop() icon?: string;
+  @Prop()
+  icon?: string;
   /** min number value (optional): available for number */
-  @Prop() min?: number;
+  @Prop()
+  min?: number;
   /** max number value (optional): available for number */
-  @Prop() max?: number;
+  @Prop()
+  max?: number;
   /** step number value (optional): available for number */
-  @Prop() step?: number;
+  @Prop()
+  step?: number;
   /** pattern value (optional): available for tel, text, search, url, email, password*/
-  @Prop() pattern?: string;
+  @Prop()
+  pattern?: string;
 
-  @State() isTyping = false;
-  @State() passwordHidden = true;
+  @State()
+  isTyping = false;
+  @State()
+  passwordHidden = true;
 
   private timer;
   private typingtimeout = 300;
@@ -88,7 +112,8 @@ export class ZInput {
   }
 
   /** Emitted on input value change, returns value, validity */
-  @Event() inputChange: EventEmitter;
+  @Event()
+  inputChange: EventEmitter;
   emitInputChange(value: string): void {
     if (!this.isTyping) this.emitStartTyping();
 
@@ -108,14 +133,16 @@ export class ZInput {
   }
 
   /** Emitted when user starts typing */
-  @Event() startTyping: EventEmitter;
+  @Event()
+  startTyping: EventEmitter;
   emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
   }
 
   /** Emitted when user stops typing, returns value, validity */
-  @Event() stopTyping: EventEmitter;
+  @Event()
+  stopTyping: EventEmitter;
   emitStopTyping(value: string, validity: any): void {
     this.isTyping = false;
     this.stopTyping.emit({
@@ -125,7 +152,8 @@ export class ZInput {
   }
 
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
-  @Event() inputCheck: EventEmitter;
+  @Event()
+  inputCheck: EventEmitter;
   emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,

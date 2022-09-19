@@ -7,14 +7,18 @@ import {InputStatusBean, InputStatusEnum} from "../../../beans";
   shadow: true,
 })
 export class ZOtp {
-  @Prop() inputNum?: number = 6;
-  @Prop() status?: InputStatusBean;
-  @Prop() message?: string;
+  @Prop()
+  inputNum?: number = 6;
+  @Prop()
+  status?: InputStatusBean;
+  @Prop()
+  message?: string;
 
   private otp: string[];
   private otpRef: HTMLInputElement[];
 
-  @Event() otpChange: EventEmitter;
+  @Event()
+  otpChange: EventEmitter;
   emitInputChange(value: string): void {
     this.otpChange.emit({value});
   }

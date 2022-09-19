@@ -8,28 +8,37 @@ import {handleKeyboardSubmit} from "../../../../utils/utils";
 })
 export class ZMyzListItem {
   /** content text */
-  @Prop() text: string;
+  @Prop()
+  text: string;
   /** link url (optional) */
-  @Prop() link?: string;
+  @Prop()
+  link?: string;
   /** link target (optional) */
-  @Prop() linktarget?: string = "_self";
+  @Prop()
+  linktarget?: string = "_self";
   /** icon name (optional) */
-  @Prop() icon?: string;
+  @Prop()
+  icon?: string;
   /** id (optional) */
-  @Prop() listitemid?: string;
+  @Prop()
+  listitemid?: string;
   /** data-action attribute (optional) */
-  @Prop() action?: string;
+  @Prop()
+  action?: string;
   /** underlined style flag */
-  @Prop() underlined = true;
+  @Prop()
+  underlined = true;
 
   /** emitted on list item link click, returns linkId */
-  @Event() zListItemLinkClick: EventEmitter;
+  @Event()
+  zListItemLinkClick: EventEmitter;
   emitZListItemLinkClick(e: MouseEvent, linkId): void {
     this.zListItemLinkClick.emit({e, linkId});
   }
 
   /** emitted on list item click, returns listitemid */
-  @Event() zListItemClick: EventEmitter;
+  @Event()
+  zListItemClick: EventEmitter;
   emitZListItemClick(e: MouseEvent, listitemid): void {
     this.zListItemClick.emit({e, listitemid});
   }

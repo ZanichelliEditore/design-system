@@ -11,9 +11,11 @@ import {PocketStatus, PocketStatusEnum} from "../../../../beans";
 })
 export class ZPocketBody {
   /** pocket id */
-  @Prop() pocketid: string;
+  @Prop()
+  pocketid: string;
   /** pocket status */
-  @Prop({mutable: true}) status: PocketStatus = PocketStatusEnum.preview;
+  @Prop({mutable: true})
+	status: PocketStatus = PocketStatusEnum.preview;
 
   @Listen("pocketToggle", {target: "body"})
   handlePocketToggle(e: CustomEvent): void {

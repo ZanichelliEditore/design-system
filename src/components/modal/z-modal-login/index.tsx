@@ -19,24 +19,31 @@ export class ZModalLogin {
   @Element() hostElement: HTMLZModalLoginElement;
 
   /** Forgot Password Url */
-  @Prop() forgotPasswordUrl: string;
+  @Prop()
+  forgotPasswordUrl: string;
   /** Login modal title */
-  @Prop() heading?: string = "Entra in MyZanichelli";
+  @Prop()
+  heading?: string = "Entra in MyZanichelli";
   /** Username/password input status */
-  @Prop({mutable: true}) status?: InputStatusBean;
+  @Prop({mutable: true})
+	status?: InputStatusBean;
   /** Username helper message */
-  @Prop({mutable: true}) message?: string;
+  @Prop()
+	message?: string;
   /** Password helper message */
-  @Prop({mutable: true}) pwdmessage?: string;
+  @Prop()
+	pwdmessage?: string;
 
-  @State() externalProviderCheck = false;
+  @State()
+  externalProviderCheck = false;
 
   componentDidLoad(): void {
     this.externalProviderCheck = !!this.hostElement.querySelectorAll('[slot="provider"]').length;
   }
 
   /** Emitted on login submit */
-  @Event() loginSubmit: EventEmitter;
+  @Event()
+  loginSubmit: EventEmitter;
   emitLoginSubmit(): void {
     const usernameInput = this.hostElement.querySelector("z-input#username") as HTMLZInputElement;
     const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
@@ -62,19 +69,22 @@ export class ZModalLogin {
   }
 
   /** Emitted on status update */
-  @Event() statusUpdate: EventEmitter;
+  @Event()
+  statusUpdate: EventEmitter;
   emitStatusUpdate(status: InputStatusBean): void {
     this.statusUpdate.emit(status);
   }
 
   /** Emitted on signup button click */
-  @Event() signupClick: EventEmitter;
+  @Event()
+  signupClick: EventEmitter;
   emitSignupClick(): void {
     this.signupClick.emit();
   }
 
   /** Emitted on zaino digitale button click */
-  @Event() zainoDigitaleClick: EventEmitter;
+  @Event()
+  zainoDigitaleClick: EventEmitter;
   emitZainoDigitaleClick(): void {
     this.zainoDigitaleClick.emit();
   }

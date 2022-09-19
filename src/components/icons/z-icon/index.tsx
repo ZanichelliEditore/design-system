@@ -8,15 +8,20 @@ import {icons} from "../icons";
 })
 export class ZIcon {
   /** icon name (choice between available icons) */
-  @Prop() name: string;
+  @Prop()
+  name: string;
   /** icon height (optional) */
-  @Prop() height?: number;
+  @Prop()
+  height?: number;
   /** icon width (optional) */
-  @Prop() width?: number;
+  @Prop()
+  width?: number;
   /** icon id (optional) */
-  @Prop() iconid?: string;
+  @Prop()
+  iconid?: string;
   /** icon fill (optional) */
-  @Prop() fill?: string;
+  @Prop()
+  fill?: string;
 
   selectPathOrPolygon(iconName: string): HTMLElement {
     if (iconName && iconName.startsWith("M")) {

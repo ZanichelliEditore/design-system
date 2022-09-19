@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 import {NotificationType} from "../../../beans";
 
 /**
@@ -41,7 +41,8 @@ export class ZNotification {
   sticky?: boolean = false;
 
   /** Call to action clicked */
-  @Event() notificationAction: EventEmitter;
+  @Event()
+  notificationAction: EventEmitter;
 
   handleActionButtonClick(e: MouseEvent): void {
     e.preventDefault();
@@ -49,7 +50,8 @@ export class ZNotification {
   }
 
   /** Close button clicked */
-  @Event() notificationClose: EventEmitter;
+  @Event()
+  notificationClose: EventEmitter;
 
   handleCloseButtonClick(e: MouseEvent): void {
     e.preventDefault();

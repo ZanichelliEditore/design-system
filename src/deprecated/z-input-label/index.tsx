@@ -7,11 +7,14 @@ import {Component, Prop, h} from "@stencil/core";
 })
 export class ZInputLabel {
   /** the label value */
-  @Prop() value: string;
+  @Prop()
+  value: string;
   /** the label is disabled */
-  @Prop() disabled?: boolean = false;
+  @Prop()
+  disabled?: boolean = false;
   /** the label is attached to */
-  @Prop() htmlfor?: string;
+  @Prop()
+  htmlfor?: string;
 
   render(): HTMLLabelElement {
     return (

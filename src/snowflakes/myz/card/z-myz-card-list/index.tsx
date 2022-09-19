@@ -8,7 +8,8 @@ import {ActionBean} from "../../../../beans";
 })
 export class ZMyzCardList {
   /** list data stringified array */
-  @Prop() listdata: string;
+  @Prop()
+  listdata: string;
 
   constructor() {
     this.renderList = this.renderList.bind(this);

@@ -11,12 +11,15 @@ export class ZTableCell {
   @Element() host: HTMLZTableCellElement;
 
   /** [Optional] Show contextual menu button */
-  @Prop() showButton?: boolean;
+  @Prop()
+  showButton?: boolean;
 
   /** Set padding size of cell, if special 0px padding will be set */
-  @Prop({reflect: true}) padding: Size = Size.medium;
+  @Prop({reflect: true})
+	padding: Size = Size.medium;
 
-  @State() isMenuOpened = false;
+  @State()
+  isMenuOpened = false;
 
   handleMenu(): void {
     this.isMenuOpened = !this.isMenuOpened;

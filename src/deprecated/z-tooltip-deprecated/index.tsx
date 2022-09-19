@@ -1,5 +1,5 @@
 import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions} from "../../beans/index";
 
 const documentElement = document.documentElement;
@@ -37,7 +37,7 @@ function findScrollableParent(element: Element): Element {
  * @param targetParentOffset The relative offset parent.
  * @return A client rect object.
  */
-function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): object {
+function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): Record<string, number> {
   const rect = element.getBoundingClientRect();
   const width = rect.width;
   const height = rect.height;
@@ -100,30 +100,36 @@ export class ZTooltipDeprecated {
   /** Content text.
    * @deprecated
    */
-  @Prop() content: string;
+  @Prop()
+  content: string;
 
   /** Tooltip position. */
-  @Prop({mutable: true}) type: PopoverPositions = PopoverPositions.auto;
+  @Prop({mutable: true})
+	type: PopoverPositions = PopoverPositions.auto;
 
   /**
    * The open state of the tooltip.
    */
-  @Prop({reflect: true, mutable: true}) open = false;
+  @Prop({reflect: true, mutable: true})
+	open = false;
 
   /**
    * The selector or the element bound with the tooltip.
    */
-  @Prop() bindTo?: string | HTMLElement;
+  @Prop()
+  bindTo?: string | HTMLElement;
 
   /**
    * The current position of the tooltip.
    */
-  @State() position?: PopoverPositions;
+  @State()
+  position?: PopoverPositions;
 
   /**
    * Position change event.
    */
-  @Event() positionChange: EventEmitter;
+  @Event()
+  positionChange: EventEmitter;
 
   @Element() host: HTMLZTooltipDeprecatedElement;
 

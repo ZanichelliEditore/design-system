@@ -16,12 +16,16 @@ export class ZSlideshow {
   @Element() el: HTMLZSlideshowElement;
 
   /** slideshow id */
-  @Prop() slideshowid: string;
+  @Prop()
+  slideshowid: string;
   /** array or JSON stringified images urls */
-  @Prop() data: string[] | string;
+  @Prop()
+  data: string[] | string;
 
-  @State() device: DeviceType;
-  @State() currentSlide = 0;
+  @State()
+  device: DeviceType;
+  @State()
+  currentSlide = 0;
 
   private links: string[];
 
@@ -49,9 +53,11 @@ export class ZSlideshow {
   parseLinks(): void {
     switch (typeof this.data) {
       case "string":
-        return (this.links = convertJson(this.data) ?? []);
+        this.links = convertJson(this.data) ?? [];
+        break;
       default:
-        return (this.links = this.data);
+        this.links = this.data;
+        break;
     }
   }
 

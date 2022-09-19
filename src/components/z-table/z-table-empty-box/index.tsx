@@ -12,10 +12,12 @@ export class ZTableEmptyBox {
   @Element() hostElement: HTMLZTableEmptyBoxElement;
 
   /** Sets main title message*/
-  @Prop() message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
+  @Prop()
+  message?: string = "Siamo spiacenti, al momento non sono presenti dati da visualizzare.";
 
   /** Sets message */
-  @Prop() subtitle?: string = "";
+  @Prop()
+  subtitle?: string = "";
 
   /** Checks if cta1 or cta2 slots exist */
   hasCta1Slot: boolean;

@@ -19,21 +19,27 @@ export class ZTableHeader {
   @Element() host: HTMLZTableHeaderElement;
 
   /** Column ID */
-  @Prop() columnId: string;
+  @Prop()
+  columnId: string;
 
   /** Set padding size of cell, if special 0px padding will be set */
-  @Prop({reflect: true}) padding: Size = Size.medium;
+  @Prop({reflect: true})
+	padding: Size = Size.medium;
 
   /** [Optional] Make the header sortable */
-  @Prop() sortable?: boolean;
+  @Prop()
+  sortable?: boolean;
 
   /** [Optional] Show contextual menu button */
-  @Prop() showButton?: boolean;
+  @Prop()
+  showButton?: boolean;
 
   /** [Optional] Default sort order */
-  @Prop() defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
+  @Prop()
+  defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
 
-  @Prop({mutable: true}) sortDirection: SortDirection = SortDirectionEnum.none;
+  @Prop({mutable: true})
+	sortDirection: SortDirection = SortDirectionEnum.none;
 
   private popover?: HTMLZPopoverElement;
 
@@ -44,7 +50,8 @@ export class ZTableHeader {
   }
 
   /** [Optional] callback for sorting */
-  @Event() sort: EventEmitter;
+  @Event()
+  sort: EventEmitter;
   emitOnSort(): void {
     this.sort.emit({
       columnId: this.columnId,

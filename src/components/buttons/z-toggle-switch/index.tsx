@@ -10,12 +10,17 @@ import {HostElement} from "@stencil/core/internal";
   scoped: true,
 })
 export class ZToggleSwitch {
-  @Prop({reflect: true}) disabled?: boolean = false;
-  @Prop({reflect: true}) labelPosition?: LabelPosition = LabelPositions.left;
-  @Prop({mutable: true}) checked?: boolean = false;
-  @Prop() htmlid = `toggle-switch-id-${randomId()}`;
+  @Prop({reflect: true})
+	disabled?: boolean = false;
+  @Prop({reflect: true})
+	labelPosition?: LabelPosition = LabelPositions.left;
+  @Prop({mutable: true})
+	checked?: boolean = false;
+  @Prop()
+  htmlid = `toggle-switch-id-${randomId()}`;
 
-  @Event() toggleClick: EventEmitter;
+  @Event()
+  toggleClick: EventEmitter;
   emitToggleClick(): void {
     this.toggleClick.emit({
       id: this.htmlid,

@@ -12,15 +12,20 @@ import {HostElement} from "@stencil/core/internal";
   shadow: true,
 })
 export class ZMenuSection {
-  @Prop({reflect: true}) active?: boolean;
-  @State() open: boolean;
-  @State() hasContent: boolean;
+  @Prop({reflect: true})
+	active?: boolean;
+  @State()
+  open: boolean;
+  @State()
+  hasContent: boolean;
   @Element() hostElement: HTMLZMenuSectionElement;
 
   /** The section has been opened. */
-  @Event() opened: EventEmitter;
+  @Event()
+  opened: EventEmitter;
   /** The section has been closed. */
-  @Event() closed: EventEmitter;
+  @Event()
+  closed: EventEmitter;
   toggle(): void {
     if (!this.hasContent) {
       return;

@@ -10,12 +10,15 @@ import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
 })
 export class ZInfoBox {
   /** info box unique id */
-  @Prop() boxid: string;
+  @Prop()
+  boxid: string;
   /** render close icon flag */
-  @Prop() isclosable = true;
+  @Prop()
+  isclosable = true;
 
   /** emitted on close icon click */
-  @Event() infoBoxClose: EventEmitter;
+  @Event()
+  infoBoxClose: EventEmitter;
   emitInfoBoxClose(): void {
     this.infoBoxClose.emit({boxid: this.boxid});
   }

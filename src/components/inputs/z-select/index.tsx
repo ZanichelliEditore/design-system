@@ -12,35 +12,51 @@ export class ZSelect {
   @Element() element: HTMLZSelectElement;
 
   /** the id of the input element */
-  @Prop() htmlid = `id-${randomId()}`;
+  @Prop()
+  htmlid = `id-${randomId()}`;
   /** the input select options */
-  @Prop() items: SelectItemBean[] | string;
+  @Prop()
+  items: SelectItemBean[] | string;
   /** the input name */
-  @Prop() name?: string;
+  @Prop()
+  name?: string;
   /** the input label */
-  @Prop() label?: string;
+  @Prop()
+  label?: string;
   /** the input aria-label */
-  @Prop() ariaLabel?: string;
+  @Prop()
+  ariaLabel?: string;
   /** the input is disabled */
-  @Prop() disabled?: boolean = false;
+  @Prop()
+  disabled?: boolean = false;
   /** the input is readonly */
-  @Prop() readonly?: boolean = false;
+  @Prop()
+  readonly?: boolean = false;
   /** the input placeholder (optional) */
-  @Prop() placeholder?: string;
+  @Prop()
+  placeholder?: string;
   /** the input html title (optional) */
-  @Prop() htmltitle?: string;
+  @Prop()
+  htmltitle?: string;
   /** the input status (optional) */
-  @Prop() status?: InputStatusBean;
+  @Prop()
+  status?: InputStatusBean;
   /** input helper message (optional) - if set to `false` message won't be displayed */
-  @Prop() message?: string | boolean = true;
+  @Prop()
+  message?: string | boolean = true;
   /** the input has autocomplete option */
-  @Prop() autocomplete?: boolean = false;
+  @Prop()
+  autocomplete?: boolean = false;
   /** no result text message */
-  @Prop() noresultslabel?: string = "Nessun risultato";
+  @Prop()
+  noresultslabel?: string = "Nessun risultato";
 
-  @State() isOpen = false;
-  @State() selectedItem: null | SelectItemBean = null;
-  @State() searchString: null | string;
+  @State()
+  isOpen = false;
+  @State()
+  selectedItem: null | SelectItemBean = null;
+  @State()
+  searchString: null | string;
 
   private itemsList: SelectItemBean[] = [];
 
@@ -82,7 +98,8 @@ export class ZSelect {
   }
 
   /** Emitted on select option selection, returns select id, selected item id */
-  @Event() optionSelect: EventEmitter;
+  @Event()
+  optionSelect: EventEmitter;
   emitOptionSelect(): void {
     this.optionSelect.emit({
       id: this.htmlid,

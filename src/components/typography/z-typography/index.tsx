@@ -1,5 +1,5 @@
 import {Component, Element, Prop, h, Host} from "@stencil/core";
-import { HostElement } from '@stencil/core/internal';
+import {HostElement} from "@stencil/core/internal";
 
 export type ZTypographyLevels = "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" | "b4" | "b5";
 
@@ -9,10 +9,13 @@ export type ZTypographyLevels = "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" |
   shadow: true,
 })
 export class ZTypography {
-  @Prop() component: string;
+  @Prop()
+  component: string;
   @Element() hostElement: HTMLZTypographyElement;
-  @Prop() variant: "regular" | "semibold" | "light" = "regular";
-  @Prop() level: ZTypographyLevels;
+  @Prop()
+  variant: "regular" | "semibold" | "light" = "regular";
+  @Prop()
+  level: ZTypographyLevels;
 
   render(): HostElement {
     const el = document.createElement(this.component || "span");

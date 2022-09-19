@@ -12,28 +12,41 @@ import {mobileBreakpoint, tabletBreakpoint} from "../../../constants/breakpoints
 })
 export class ZMyzTopbar {
   /** data to fill internal navigation links */
-  @Prop() intlinkdata?: string | MenuItem[];
+  @Prop()
+  intlinkdata?: string | MenuItem[];
   /** data to fill external navigation links */
-  @Prop() extlinkdata?: string | MenuItem[];
+  @Prop()
+  extlinkdata?: string | MenuItem[];
   /** data to fill user dropdown menu (optional) */
-  @Prop() userdata?: string | HeaderUserData;
+  @Prop()
+  userdata?: string | HeaderUserData;
   /** graphic flag to set myzanichelli style */
-  @Prop() ismyz: boolean;
+  @Prop()
+  ismyz: boolean;
   /** url to attach to logo (optional) */
-  @Prop() logolink?: string;
+  @Prop()
+  logolink?: string;
   /** alternative logo title text (optional) */
-  @Prop() imagealt?: string;
+  @Prop()
+  imagealt?: string;
   /** set current active menu link (optional) */
-  @Prop() activeintlinkid?: string;
+  @Prop()
+  activeintlinkid?: string;
   /** set current active sub menu link (optional) */
-  @Prop() activesublinkid?: string;
+  @Prop()
+  activesublinkid?: string;
   /** hide login button if true (optional) */
-  @Prop() hideloginbutton?: boolean;
+  @Prop()
+  hideloginbutton?: boolean;
 
-  @State() activeMenuItem: MenuItem;
-  @State() currentMenuItem: MenuItem;
-  @State() isMobile = true;
-  @State() isMenuMobileOpen = false;
+  @State()
+  activeMenuItem: MenuItem;
+  @State()
+  currentMenuItem: MenuItem;
+  @State()
+  isMobile = true;
+  @State()
+  isMenuMobileOpen = false;
   private intMenuData: MenuItem[] = [];
   private extMenuData: MenuItem[] = [];
   private userData: HeaderUserData;
@@ -218,7 +231,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderExtLinksIcons(icon): void | object {
+  renderExtLinksIcons(icon): boolean | Record<string, string> {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
     return !hideIcons && {icon};
@@ -398,7 +411,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuContent(): HTMLDivElement|null {
+  renderMobileMenuContent(): HTMLDivElement | null {
     if (!this.isLogged) return null;
 
     return (

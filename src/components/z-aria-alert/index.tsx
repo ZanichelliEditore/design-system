@@ -7,7 +7,8 @@ import {ZAriaAlertMode} from "../../beans";
   shadow: false,
 })
 export class ZAriaAlert {
-  @Prop() mode: string = ZAriaAlertMode.polite;
+  @Prop()
+  mode: string = ZAriaAlertMode.polite;
 
   render(): HostElement {
     return (

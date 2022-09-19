@@ -9,15 +9,20 @@ import {AvatarSize} from "../../beans";
 })
 export class ZAvatar {
   /** [optional] Avatar size */
-  @Prop() size?: AvatarSize = AvatarSize.medium;
+  @Prop()
+  size?: AvatarSize = AvatarSize.medium;
   /** [optional] Avatar text */
-  @Prop() text?: string;
+  @Prop()
+  text?: string;
   /** [optional] Avatar text color */
-  @Prop() textColor?: string = "text-white";
+  @Prop()
+  textColor?: string = "text-white";
   /** [optional] Avatar background color */
-  @Prop() backgroundColor?: string = "bg-grey-700";
+  @Prop()
+  backgroundColor?: string = "bg-grey-700";
   /** [optional] Avatar image */
-  @Prop({mutable: true}) image?: string;
+  @Prop({mutable: true})
+	image?: string;
 
   constructor() {
     if (this.text.length === 0 && this.image.length === 0) {

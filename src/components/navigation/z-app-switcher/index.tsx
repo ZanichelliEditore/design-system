@@ -8,15 +8,18 @@ import {ThemeVariant, ThemeVariantBean} from "../../../beans";
 })
 export class ZAppSwitcher {
   /** theme variant, default 'dark' */
-  @Prop() theme?: ThemeVariantBean = ThemeVariant.dark;
-  @State() isopen = false;
+  @Prop()
+  theme?: ThemeVariantBean = ThemeVariant.dark;
+  @State()
+  isopen = false;
 
   constructor() {
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);
   }
 
   /** emitted on app button icon click, returns open/closed state */
-  @Event() appButtonClick: EventEmitter;
+  @Event()
+  appButtonClick: EventEmitter;
   emitAppButtonClick(): void {
     this.isopen = !this.isopen;
     this.appButtonClick.emit({isopen: this.isopen});

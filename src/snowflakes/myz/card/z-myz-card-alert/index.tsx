@@ -8,16 +8,21 @@ import {AlertTypesEnum} from "../../../../beans";
 })
 export class ZMyzCardAlert {
   /** icon name */
-  @Prop() iconname: string;
+  @Prop()
+  iconname: string;
   /** content text */
-  @Prop() contenttext: string;
+  @Prop()
+  contenttext: string;
   /** action button text */
-  @Prop() actiontext?: string;
+  @Prop()
+  actiontext?: string;
   /** alert variant type */
-  @Prop() type: string;
+  @Prop()
+  type: string;
 
   /** undo action click/keyboard event, returns actionType */
-  @Event() undoAction: EventEmitter;
+  @Event()
+  undoAction: EventEmitter;
   emitUndoAction(): void {
     this.undoAction.emit({actionType: this.type});
   }

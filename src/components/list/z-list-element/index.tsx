@@ -46,61 +46,74 @@ export class ZListElement {
   /**
    * [optional] Align expandable button left or right.
    */
-  @Prop({reflect: true}) alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
+  @Prop({reflect: true})
+	alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
 
   /**
    * [optional] Sets element clickable.
    */
-  @Prop({reflect: true}) clickable?: boolean = false;
+  @Prop({reflect: true})
+	clickable?: boolean = false;
 
   /**
    * [optional] Sets the divider color.
    */
-  @Prop() dividerColor?: string = "color-surface03";
+  @Prop()
+  dividerColor?: string = "color-surface03";
 
   /**
    * [optional] Sets the position where to insert the divider.
    */
-  @Prop() dividerType?: ListDividerType = ListDividerType.none;
+  @Prop()
+  dividerType?: ListDividerType = ListDividerType.none;
 
   /**
    * [optional] Sets the divider size.
    */
-  @Prop() dividerSize?: DividerSize = DividerSize.small;
+  @Prop()
+  dividerSize?: DividerSize = DividerSize.small;
 
   /**
    * [optional] Sets element as expandable.
    */
-  @Prop({reflect: true}) expandable?: boolean = false;
+  @Prop({reflect: true})
+	expandable?: boolean = false;
 
   /**
    * [optional] Sets expandable style to element.
    */
-  @Prop() expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
+  @Prop()
+  expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
-  @Prop({reflect: true}) listElementId?: number;
+  @Prop({reflect: true})
+	listElementId?: number;
 
   /**
    * [optional] Sets size of inside elements.
    */
-  @Prop({reflect: true}) size?: ListSize = ListSize.medium;
+  @Prop({reflect: true})
+	size?: ListSize = ListSize.medium;
 
   /**
    * [optional] Sets text color of the element.
    */
-  @Prop({reflect: true}) color?: string = "none";
+  @Prop({reflect: true})
+	color?: string = "none";
 
   /**
    * [optional] Sets disabled style of the element.
    */
-  @Prop({reflect: true}) disabled?: boolean = false;
+  @Prop({reflect: true})
+	disabled?: boolean = false;
 
   /**
    * [optional] If is used in ZContextualMenu component
    */
-  @Prop({reflect: true}) isContextualMenu?: boolean = false;
+  @Prop({reflect: true})
+	isContextualMenu?: boolean = false;
 
-  @State() showInnerContent = false;
+  @State()
+  showInnerContent = false;
 
   private openElementConfig = {
     accordion: {

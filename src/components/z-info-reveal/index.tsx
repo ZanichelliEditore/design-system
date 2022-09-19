@@ -22,12 +22,15 @@ export class ZInfoReveal {
   @Element() el: HTMLZInfoRevealElement;
 
   /** Name of the icon for the open button */
-  @Prop() icon? = "informationsource";
+  @Prop()
+  icon? = "informationsource";
 
-  @Prop({reflect: true}) position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
+  @Prop({reflect: true})
+	position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
 
   /** Text that appears on closed panel next to the open button. */
-  @Prop() label?: string;
+  @Prop()
+  label?: string;
 
   /** Whether the info panel is open. */
   @State()

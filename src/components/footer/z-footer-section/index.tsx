@@ -10,9 +10,11 @@ import {Component, Prop, h, State} from "@stencil/core";
 })
 export class ZFooterSection {
   /** section title */
-  @Prop() name: string;
+  @Prop()
+  name: string;
 
-  @State() isOpen = false;
+  @State()
+  isOpen = false;
 
   renderToggleButton(): HTMLButtonElement {
     return (
