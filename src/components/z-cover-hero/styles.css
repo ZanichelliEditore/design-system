@@ -1,0 +1,128 @@
+:host {
+  /* Variable to customize cover hero height */
+  --cover-hero-height: auto;
+
+  /* Variable to customize cover hero container width in overlay variant */
+  --cover-hero-overlay-container-width: calc(var(--space-unit) * 60);
+
+  /* Variable to customize cover hero text */
+  --cover-hero-text-color: var(--gray100);
+
+  /* Variable to customize cover hero opacity */
+  --cover-hero-opacity: 0.5;
+
+  display: block;
+}
+
+:host,
+* {
+  box-sizing: border-box;
+}
+
+:host .hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 100%;
+  height: var(--cover-hero-height);
+  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
+}
+
+:host(:empty) .hero {
+  padding: 0;
+}
+
+/* Hero cover - div with image & z-info-reveal */
+:host .hero .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:host .hero .cover img,
+:host .hero .cover ::slotted(*) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  -webkit-user-drag: none;
+}
+
+:host .hero .cover z-info-reveal {
+  position: absolute;
+  bottom: calc(var(--space-unit) * 2);
+  right: calc(var(--space-unit) * 2);
+  z-index: 1;
+}
+
+/* Hero content - div with content slotted */
+:host .hero .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Variant overlay */
+:host([variant="overlay"]) .hero .cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-black);
+  opacity: var(--cover-hero-opacity);
+}
+
+:host .container {
+  color: var(--cover-hero-text-color);
+  fill: var(--cover-hero-text-color);
+}
+
+/* Variant stacked */
+:host([variant="stacked"]) {
+  --cover-hero-height: calc(var(--space-unit) * 60);
+  --cover-hero-text-color: var(--gray800);
+}
+
+:host([variant="stacked"]) .container {
+  padding: var(--grid-mobile-margin) 0;
+}
+
+
+:host([variant="overlay"]) .container {
+  margin-bottom: calc(var(--space-unit) * 10);
+}
+
+/* Tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  :host([variant="stacked"]) .container {
+    padding: var(--grid-tablet-margin) 0;
+  }
+
+  :host([variant="overlay"]) .container {
+    width: var(--cover-hero-overlay-container-width);
+  }
+}
+
+/* Desktop breakpoint */
+@media only screen and (min-width: 1152px) {
+  :host([variant="stacked"]) .container {
+    padding: var(--grid-tablet-margin) 0;
+  }
+}

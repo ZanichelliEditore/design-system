@@ -1,0 +1,47 @@
+import { html } from "lit-html";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { select, radios } from "@storybook/addon-knobs";
+import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
+import "./index";
+
+<Meta title="ZCoverHero" component="z-cover-hero" />
+
+# ZCoverHero
+
+<Preview>
+  <Story name="ZCoverHero overlay">
+    {html`
+      <z-cover-hero
+        variant="overlay"
+        style="--cover-hero-height:500px;"
+      >
+        <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
+        <span slot="content">
+          Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
+          Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </span>
+      </z-cover-hero>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="ZCoverHero stacked">
+    {html`
+      <z-cover-hero
+        variant="stacked"
+        .position="${select("position", CoverHeroContentPosition, "top")}"
+      >
+        <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
+        <span slot="content">
+          Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
+          Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </span>
+      </z-cover-hero>
+    `}
+  </Story>
+</Preview>
+
+<Props of="z-cover-hero" />
