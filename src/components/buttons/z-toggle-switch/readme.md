@@ -4,12 +4,12 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                       | Type                | Default                          |
-| --------------- | ---------------- | ------------------------------------------------- | ------------------- | -------------------------------- |
-| `checked`       | `checked`        | Checked state                                     | `boolean`           | `false`                          |
-| `disabled`      | `disabled`       | Disabled flag                                     | `boolean`           | `false`                          |
-| `htmlid`        | `htmlid`         | HTML id attribute to set to the internal checkbox | `string`            | `toggle-switch-id-${randomId()}` |
-| `labelPosition` | `label-position` | Label position                                    | `"left" \| "right"` | `LabelPositions.left`            |
+| Property        | Attribute        | Description                                       | Type                                          | Default                          |
+| --------------- | ---------------- | ------------------------------------------------- | --------------------------------------------- | -------------------------------- |
+| `checked`       | `checked`        | Checked state                                     | `boolean`                                     | `false`                          |
+| `disabled`      | `disabled`       | Disabled flag                                     | `boolean`                                     | `false`                          |
+| `htmlid`        | `htmlid`         | HTML id attribute to set to the internal checkbox | `string`                                      | `toggle-switch-id-${randomId()}` |
+| `labelPosition` | `label-position` | Label position                                    | `LabelPositions.LEFT \| LabelPositions.RIGHT` | `LabelPositions.LEFT`            |
 
 ## Events
 

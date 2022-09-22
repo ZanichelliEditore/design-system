@@ -11,7 +11,7 @@ import {ZTableRowExpandedType} from "../../../beans";
 export class ZTableRow {
   /** Table row expanded type */
   @Prop({reflect: true})
-  expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
+  expandedType: ZTableRowExpandedType = ZTableRowExpandedType.NONE;
 
   @State()
   expanded = false;
@@ -30,7 +30,7 @@ export class ZTableRow {
   }
 
   private renderExpandButton(): HTMLZTableCellElement {
-    if (this.expandedType == ZTableRowExpandedType.expandable) {
+    if (this.expandedType == ZTableRowExpandedType.EXPANDABLE) {
       return (
         <z-table-cell style={{borderRight: "none"}}>
           <z-icon name={this.expanded ? "minus-circled" : "plus-circled"} />
@@ -51,14 +51,14 @@ export class ZTableRow {
         expanded={this.expanded}
         onClick={(event) => {
           const contextualMenuClick = event.target.nodeName === "Z-CONTEXTUAL-MENU";
-          const isExpandable = this.expandedType === ZTableRowExpandedType.expandable;
+          const isExpandable = this.expandedType === ZTableRowExpandedType.EXPANDABLE;
 
           if (isExpandable && !contextualMenuClick) {
             this.handleExpand();
           }
         }}
       >
-        {this.expandedType !== ZTableRowExpandedType.none && this.renderExpandButton()}
+        {this.expandedType !== ZTableRowExpandedType.NONE && this.renderExpandButton()}
         <slot />
       </Host>
     );

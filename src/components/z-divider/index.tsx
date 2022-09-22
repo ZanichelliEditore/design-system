@@ -10,13 +10,13 @@ import {DividerSize, DividerOrientation} from "../../beans";
 export class ZDivider {
   /** [optional] Divider size */
   @Prop()
-  size?: DividerSize = DividerSize.small;
+  size?: DividerSize = DividerSize.SMALL;
   /** [optional] Divider color */
   @Prop()
   color?: string = "gray200";
   /** [optional] Divider orintation */
   @Prop()
-  orientation?: DividerOrientation = DividerOrientation.horizontal;
+  orientation?: DividerOrientation = DividerOrientation.HORIZONTAL;
 
   render(): HostElement {
     return (

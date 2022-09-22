@@ -1,5 +1,5 @@
 import {Component, Event, EventEmitter, h, Prop, State} from "@stencil/core";
-import {ThemeVariant, ThemeVariantBean} from "../../../beans";
+import {ThemeVariant} from "../../../beans";
 
 @Component({
   tag: "z-app-switcher",
@@ -9,7 +9,7 @@ import {ThemeVariant, ThemeVariantBean} from "../../../beans";
 export class ZAppSwitcher {
   /** theme variant, default 'dark' */
   @Prop()
-  theme?: ThemeVariantBean = ThemeVariant.dark;
+  theme?: ThemeVariant = ThemeVariant.DARK;
   @State()
   isopen = false;
 

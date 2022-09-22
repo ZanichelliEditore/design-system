@@ -66,9 +66,9 @@ export class ZMyzCardFooter {
   private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       isopen: this.isOpen,
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
-      temp: this.cardtype === LicenseTypeEnum.temp,
+      real: this.cardtype === LicenseTypeEnum.REAL,
+      trial: this.cardtype === LicenseTypeEnum.TRIAL,
+      temp: this.cardtype === LicenseTypeEnum.TEMP,
       customContent: this.customContent,
     };
   }

@@ -100,17 +100,17 @@ export class ZCard {
   }
 
   render(): HostElement {
-    if (this.variant === CardVariants.text) {
+    if (this.variant === CardVariants.TEXT) {
       return <Host>{this.renderContentDiv()}</Host>;
     }
 
-    if (this.variant === CardVariants.overlay || this.hasCoverImage) {
+    if (this.variant === CardVariants.OVERLAY || this.hasCoverImage) {
       return (
         <Host>
           <div class="cover-container">
             {this.hasCoverImage && [
               <slot name="cover"></slot>,
-              this.variant !== CardVariants.overlay && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
+              this.variant !== CardVariants.OVERLAY && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
             ]}
             {!this.hasCoverImage && <div class="color-cover"></div>}
           </div>

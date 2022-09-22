@@ -1,6 +1,6 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
-import {LabelPositions, LabelPosition} from "../../../beans";
+import {LabelPositions} from "../../../beans";
 import {HostElement} from "@stencil/core/internal";
 
 @Component({
@@ -15,7 +15,7 @@ export class ZToggleSwitch {
   disabled?: boolean = false;
   /** Label position */
   @Prop({reflect: true})
-  labelPosition?: LabelPosition = LabelPositions.left;
+  labelPosition? = LabelPositions.LEFT;
   /** Checked state */
   @Prop({mutable: true})
   checked?: boolean = false;

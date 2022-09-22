@@ -31,10 +31,10 @@ export class ZRangePicker {
   secondLabel?: string;
   /** [Optional] datepicker mode: date or datetime */
   @Prop()
-  mode: ZRangePickerMode = ZRangePickerMode.date;
+  mode: ZRangePickerMode = ZRangePickerMode.DATE;
 
   @State()
-  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
+  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
   @State()
   activeInput = "start-input";
 
@@ -108,11 +108,11 @@ export class ZRangePicker {
   @Watch("mode")
   setupPickers(): void {
     const config = {
-      enableTime: this.mode === ZRangePickerMode.dateTime,
+      enableTime: this.mode === ZRangePickerMode.DATE_TIME,
       locale: Italian,
       allowInput: true,
       wrap: true,
-      dateFormat: this.mode === ZRangePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
+      dateFormat: this.mode === ZRangePickerMode.DATE_TIME ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
       // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -198,7 +198,7 @@ export class ZRangePicker {
   private disableDates(date, index): void {
     const calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
 
-    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
+    Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element: Element) => {
       const calendarDate = this.getDateWithoutTime(this.replaceMonths(element.ariaLabel, null));
 
       const breakpoint = this.getDateWithoutTime(date);
@@ -214,7 +214,7 @@ export class ZRangePicker {
   }
 
   private formatDate(date): string {
-    if (this.mode === ZRangePickerMode.date) {
+    if (this.mode === ZRangePickerMode.DATE) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
@@ -280,8 +280,8 @@ export class ZRangePicker {
 
   /** Set style of the days between the two selected dates */
   private setRangeStyle(index): void {
-    Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element: HTMLElement) => {
-      Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
+    Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element: Element) => {
+      Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element: Element) => {
         const hasFirstDate = this.firstPicker.selectedDates.length === 1;
         const hasLastDate = this.lastPicker.selectedDates.length === 1;
         let firstDate;
@@ -327,10 +327,10 @@ export class ZRangePicker {
   private onStopTyping(value): void {
     const text = value.detail.value.replace("/", "-");
     const englishData = text.split("-");
-    const time = this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    const time = this.mode === ZRangePickerMode.DATE_TIME ? `T${englishData[3]}:00` : "";
     const englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
 
-    const isValidDate = validateDate(text, this.mode === ZRangePickerMode.dateTime);
+    const isValidDate = validateDate(text, this.mode === ZRangePickerMode.DATE_TIME);
 
     const date = Date.parse(englishParsedData).toString();
 
@@ -389,7 +389,7 @@ export class ZRangePicker {
 
   render(): HTMLDivElement {
     const zInputProps = {
-      type: InputTypeEnum.text,
+      type: InputTypeEnum.TEXT,
       icon: "event",
       tabindex: "0",
       message: false,
@@ -414,7 +414,7 @@ export class ZRangePicker {
               class={`start-input ${this.rangePickerId}-1`}
               ariaLabel={this.firstAriaLabel}
               label={this.firstLabel}
-              status={this.firstInputError && InputStatusEnum.error}
+              status={this.firstInputError && InputStatusEnum.ERROR}
               onStartTyping={() => {
                 this.firstInputError = false;
               }}
@@ -429,7 +429,7 @@ export class ZRangePicker {
               class={`end-input ${this.rangePickerId}-2`}
               ariaLabel={this.secondAriaLabel}
               label={this.secondLabel}
-              status={this.lastInputError && InputStatusEnum.error}
+              status={this.lastInputError && InputStatusEnum.ERROR}
               onStartTyping={() => {
                 this.lastInputError = false;
               }}

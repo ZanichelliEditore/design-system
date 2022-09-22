@@ -80,7 +80,7 @@ export class ZSkipToContent {
               aria-label={link.ariaLabel || link.label}
               class={`body-1-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`}
               href={link.href}
-              textcolor={this.variant === ThemeVariant.dark ? "white" : "black"}
+              textcolor={this.variant === ThemeVariant.DARK ? "white" : "black"}
               onFocus={() => (this.visibleLink = id)}
               onClick={() => this.handleLinkClick()}
               onKeyUp={(e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this))}

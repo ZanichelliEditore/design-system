@@ -55,7 +55,7 @@ describe("Suite test ZMenuDropdown", () => {
             </span>
           </span>
           <span class="arrow">
-            <z-icon  height="14" name="caret-down" width="14"></z-icon>
+            <z-icon height="14" name="caret-down" width="14"></z-icon>
           </span>
         </div>
       </a>
@@ -63,7 +63,7 @@ describe("Suite test ZMenuDropdown", () => {
   </z-menu-dropdown>`);
     expect(page.rootInstance.ismenuopen).toBeFalsy;
 
-    const image = page.root.shadowRoot.querySelector("a").querySelector("div").querySelector("span.arrow");
+    const image: HTMLElement = page.root.shadowRoot.querySelector("a").querySelector("div").querySelector("span.arrow");
     image.click();
     await page.waitForChanges();
 
@@ -74,7 +74,7 @@ describe("Suite test ZMenuDropdown", () => {
       <mock:shadow-root>
         <a class="menu-opened" role="button" tabindex="0">
           <div class="container">
-           <span class="user-wrapper">
+            <span class="user-wrapper">
               <z-icon height="14" name="user-avatar" width="14"></z-icon>
               <span class="user">
                 Dario docente

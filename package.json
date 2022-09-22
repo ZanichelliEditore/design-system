@@ -29,6 +29,7 @@
     "release": "standard-version",
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
     "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook",
+    "ts-check": "tsc --noEmit",
     "lint.eslint": "eslint ./src",
     "lint.stylelint": "stylelint 'src/**/*.css'",
     "lint-fix.eslint": "yarn lint.eslint --fix",

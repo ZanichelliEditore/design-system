@@ -146,7 +146,7 @@ export class ZTable {
   }
 
   private renderEmpty(tableClass): HostElement {
-    const buttonSize = this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big;
+    const buttonSize = this.isMobile ? ButtonSizeEnum.SMALL : ButtonSizeEnum.BIG;
     const tableContentClass = `${this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {
       return (
@@ -163,7 +163,7 @@ export class ZTable {
                 {!!this.callToActionLabel && (
                   <z-button
                     slot="cta1"
-                    variant={ButtonVariantEnum.tertiary}
+                    variant={ButtonVariantEnum.TERTIARY}
                     onClick={() => this.callToAction.emit()}
                     size={buttonSize}
                   >
@@ -173,7 +173,7 @@ export class ZTable {
                 {!!this.callToActionTwoLabel && (
                   <z-button
                     slot="cta2"
-                    variant={ButtonVariantEnum.tertiary}
+                    variant={ButtonVariantEnum.TERTIARY}
                     onClick={() => this.callToActionTwo.emit()}
                     size={buttonSize}
                   >
@@ -200,7 +200,7 @@ export class ZTable {
           {!!this.callToActionLabel && (
             <z-button
               slot="cta1"
-              variant={ButtonVariantEnum.tertiary}
+              variant={ButtonVariantEnum.TERTIARY}
               onClick={() => this.callToAction.emit()}
               size={buttonSize}
             >
@@ -210,7 +210,7 @@ export class ZTable {
           {!!this.callToActionTwoLabel && (
             <z-button
               slot="cta2"
-              variant={ButtonVariantEnum.tertiary}
+              variant={ButtonVariantEnum.TERTIARY}
               onClick={() => this.callToActionTwo.emit()}
               size={buttonSize}
             >

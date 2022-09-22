@@ -1,6 +1,6 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {InputTypeBean, InputTypeEnum, InputStatusBean, LabelPosition, LabelPositions} from "../../../beans";
+import {InputTypeEnum, LabelPositions, InputStatusEnum} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
@@ -17,7 +17,7 @@ export class ZInput {
   htmlid = `id-${randomId()}`;
   /** input types */
   @Prop()
-  type: InputTypeBean;
+  type: InputTypeEnum;
   /** the input name */
   @Prop()
   name?: string;
@@ -50,13 +50,13 @@ export class ZInput {
   htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea */
   @Prop()
-  status?: InputStatusBean;
+  status?: InputStatusEnum;
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   @Prop()
   message?: string | boolean = true;
   /** the input label position: available for checkbox, radio */
   @Prop()
-  labelPosition?: LabelPosition = LabelPositions.right;
+  labelPosition? = LabelPositions.RIGHT;
   /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop()
   autocomplete?: string;
@@ -91,8 +91,8 @@ export class ZInput {
   inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
-      case InputTypeEnum.radio:
-        if (data.type === InputTypeEnum.radio && data.name === this.name && data.id !== this.htmlid) {
+      case InputTypeEnum.RADIO:
+        if (data.type === InputTypeEnum.RADIO && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
         break;
@@ -103,8 +103,8 @@ export class ZInput {
   @Method()
   async isChecked(): Promise<boolean> {
     switch (this.type) {
-      case InputTypeEnum.checkbox:
-      case InputTypeEnum.radio:
+      case InputTypeEnum.CHECKBOX:
+      case InputTypeEnum.RADIO:
         return this.checked;
       default:
         console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
@@ -119,7 +119,7 @@ export class ZInput {
     if (!this.isTyping) this.emitStartTyping();
 
     let validity = new ValidityState();
-    if (this.type === InputTypeEnum.textarea) {
+    if (this.type === InputTypeEnum.TEXTAREA) {
       validity = this.getValidity("textarea");
     } else {
       validity = this.getValidity("input");
@@ -192,8 +192,8 @@ export class ZInput {
     };
   }
 
-  private getNumberAttributes(type: InputTypeBean): JSXBase.InputHTMLAttributes<HTMLInputElement> {
-    if (type != InputTypeEnum.number) return;
+  private getNumberAttributes(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+    if (type != InputTypeEnum.NUMBER) return;
     return {
       min: this.min,
       max: this.max,
@@ -201,14 +201,14 @@ export class ZInput {
     };
   }
 
-  private getPatternAttribute(type: InputTypeBean): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+  private getPatternAttribute(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (
-      type != InputTypeEnum.password &&
-      type != InputTypeEnum.text &&
-      type != InputTypeEnum.tel &&
-      type != InputTypeEnum.search &&
-      type != InputTypeEnum.url &&
-      type != InputTypeEnum.email
+      type != InputTypeEnum.PASSWORD &&
+      type != InputTypeEnum.TEXT &&
+      type != InputTypeEnum.TEL &&
+      type != InputTypeEnum.SEARCH &&
+      type != InputTypeEnum.URL &&
+      type != InputTypeEnum.EMAIL
     )
       return;
     return {
@@ -216,16 +216,16 @@ export class ZInput {
     };
   }
 
-  private renderInputText(type: InputTypeBean = InputTypeEnum.text): HTMLDivElement {
+  private renderInputText(type: InputTypeEnum = InputTypeEnum.TEXT): HTMLDivElement {
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
     };
-    if (this.icon || type === InputTypeEnum.password) {
+    if (this.icon || type === InputTypeEnum.PASSWORD) {
       Object.assign(attr.class, {hasIcon: true});
     }
-    if (this.hasclearicon && type != InputTypeEnum.number) {
+    if (this.hasclearicon && type != InputTypeEnum.NUMBER) {
       Object.assign(attr.class, {hasClearIcon: true});
     }
 
@@ -234,7 +234,7 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input
-            type={type === InputTypeEnum.password && !this.passwordHidden ? InputTypeEnum.text : type}
+            type={type === InputTypeEnum.PASSWORD && !this.passwordHidden ? InputTypeEnum.TEXT : type}
             {...attr}
             aria-label={this.ariaLabel || this.label}
           />
@@ -270,7 +270,7 @@ export class ZInput {
   }
 
   private renderIcon(): HTMLButtonElement {
-    if (this.type === InputTypeEnum.password) {
+    if (this.type === InputTypeEnum.PASSWORD) {
       return this.renderShowHidePassword();
     }
 
@@ -288,7 +288,7 @@ export class ZInput {
   }
 
   private renderResetIcon(): HTMLButtonElement {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.number)
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.NUMBER)
       return;
 
     return (
@@ -382,8 +382,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             checkboxLabel: true,
-            after: this.labelPosition === LabelPositions.right,
-            before: this.labelPosition === LabelPositions.left,
+            after: this.labelPosition === LabelPositions.RIGHT,
+            before: this.labelPosition === LabelPositions.LEFT,
           }}
         >
           <z-icon
@@ -417,8 +417,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             radioLabel: true,
-            after: this.labelPosition === LabelPositions.right,
-            before: this.labelPosition === LabelPositions.left,
+            after: this.labelPosition === LabelPositions.RIGHT,
+            before: this.labelPosition === LabelPositions.LEFT,
           }}
         >
           <z-icon
@@ -434,11 +434,11 @@ export class ZInput {
 
   render(): HTMLInputElement | HTMLDivElement {
     switch (this.type) {
-      case InputTypeEnum.textarea:
+      case InputTypeEnum.TEXTAREA:
         return this.renderTextarea();
-      case InputTypeEnum.checkbox:
+      case InputTypeEnum.CHECKBOX:
         return this.renderCheckbox();
-      case InputTypeEnum.radio:
+      case InputTypeEnum.RADIO:
         return this.renderRadio();
       default:
         return this.renderInputText(this.type);

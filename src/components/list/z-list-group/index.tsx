@@ -14,19 +14,19 @@ export class ZListGroup {
    * [optional] Sets size of inside elements.
    */
   @Prop({reflect: true})
-  size?: ListSize = ListSize.medium;
+  size?: ListSize = ListSize.MEDIUM;
 
   /**
    * [optional] Sets the position where to insert the divider.
    */
   @Prop({reflect: true})
-  dividerType?: ListDividerType = ListDividerType.none;
+  dividerType?: ListDividerType = ListDividerType.NONE;
 
   /**
    * [optional] Sets the divider size.
    */
   @Prop({reflect: true})
-  dividerSize?: DividerSize = DividerSize.small;
+  dividerSize?: DividerSize = DividerSize.SMALL;
 
   /**
    * [optional] Sets the divider color.
@@ -62,7 +62,7 @@ export class ZListGroup {
           }}
         >
           <slot name="header-title" />
-          {this.dividerType === ListDividerType.header && (
+          {this.dividerType === ListDividerType.HEADER && (
             <z-divider
               color={this.dividerColor}
               size={this.dividerSize}

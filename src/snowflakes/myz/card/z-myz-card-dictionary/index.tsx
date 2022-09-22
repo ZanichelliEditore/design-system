@@ -60,7 +60,7 @@ export class ZMyzCardDictionary {
               </z-myz-card-body>
               <z-button
                 class={this.hideinfobtn ? "hideInfo" : ""}
-                variant={ButtonVariantEnum.secondary}
+                variant={ButtonVariantEnum.SECONDARY}
                 icon="informationsource"
                 size={ButtonSizeEnum["x-small"]}
                 onClick={() => this.flipCard(true)}

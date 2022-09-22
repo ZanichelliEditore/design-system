@@ -129,14 +129,14 @@ export class ZToastNotification {
 
   private mapSlideOutClass(): ToastNotificationTransitionsEnum {
     switch (this.transition) {
-      case ToastNotificationTransitionsEnum.slideInDown:
-        return ToastNotificationTransitionsEnum.slideOutUp;
-      case ToastNotificationTransitionsEnum.slideInUp:
-        return ToastNotificationTransitionsEnum.slideOutDown;
-      case ToastNotificationTransitionsEnum.slideInLeft:
-        return ToastNotificationTransitionsEnum.slideOutRight;
-      case ToastNotificationTransitionsEnum.slideInRight:
-        return ToastNotificationTransitionsEnum.slideOutLeft;
+      case ToastNotificationTransitionsEnum.SLIDE_IN_DOWN:
+        return ToastNotificationTransitionsEnum.SLIDE_OUT_UP;
+      case ToastNotificationTransitionsEnum.SLIDE_IN_UP:
+        return ToastNotificationTransitionsEnum.SLIDE_OUT_DOWN;
+      case ToastNotificationTransitionsEnum.SLIDE_IN_LEFT:
+        return ToastNotificationTransitionsEnum.SLIDE_OUT_RIGHT;
+      case ToastNotificationTransitionsEnum.SLIDE_IN_RIGHT:
+        return ToastNotificationTransitionsEnum.SLIDE_OUT_LEFT;
     }
   }
 
@@ -299,7 +299,7 @@ export class ZToastNotification {
         style={{
           ["--percentuale" as string]: `${this.percentage}%` as string,
         }}
-        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.slideInDown}
+        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.SLIDE_IN_DOWN}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);

@@ -90,11 +90,11 @@ export function getSiblings(elem: HTMLElement): ChildNode[] {
 export function getDevice(): DeviceEnum {
   switch (true) {
     case window.innerWidth <= mobileBreakpoint:
-      return DeviceEnum.mobile;
+      return DeviceEnum.MOBILE;
     case window.innerWidth <= tabletBreakpoint:
-      return DeviceEnum.tablet;
+      return DeviceEnum.TABLET;
     default:
-      return DeviceEnum.desktop;
+      return DeviceEnum.DESKTOP;
   }
 }
 

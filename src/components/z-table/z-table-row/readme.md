@@ -6,7 +6,7 @@
 
 | Property       | Attribute       | Description             | Type                                                                                              | Default                      |
 | -------------- | --------------- | ----------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `expandedType` | `expanded-type` | Table row expanded type | `ZTableRowExpandedType.expandable \| ZTableRowExpandedType.none \| ZTableRowExpandedType.padding` | `ZTableRowExpandedType.none` |
+| `expandedType` | `expanded-type` | Table row expanded type | `ZTableRowExpandedType.EXPANDABLE \| ZTableRowExpandedType.NONE \| ZTableRowExpandedType.PADDING` | `ZTableRowExpandedType.NONE` |
 
 ## Events
 

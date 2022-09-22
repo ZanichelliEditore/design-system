@@ -12,7 +12,7 @@ import {getDevice} from "../../../utils/utils";
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
   @Prop({mutable: true, reflect: true})
-  type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.default;
+  type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.DEFAULT;
 
   /** Prop indicating the button variant*/
   @Prop()
@@ -86,8 +86,8 @@ export class ZFileUpload {
 
   componentWillLoad(): void {
     this.invalidFiles = new Map<string, string[]>();
-    if (this.type === ZFileUploadTypeEnum.dragdrop && getDevice() !== DeviceEnum.desktop)
-      this.type = ZFileUploadTypeEnum.default;
+    if (this.type === ZFileUploadTypeEnum.DRAGDROP && getDevice() !== DeviceEnum.DESKTOP)
+      this.type = ZFileUploadTypeEnum.DEFAULT;
   }
 
   /** Emitted when user select one or more files */
@@ -109,7 +109,7 @@ export class ZFileUpload {
     if (this.files.length > 0) {
       (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
     } else {
-      this.type === ZFileUploadTypeEnum.default
+      this.type === ZFileUploadTypeEnum.DEFAULT
         ? this.button.shadowRoot.querySelector("button").focus()
         : this.uploadLink.focus();
     }
@@ -206,7 +206,7 @@ export class ZFileUpload {
           <div class="files">
             <slot name="files" />
           </div>
-          <z-divider size={DividerSize.medium} />
+          <z-divider size={DividerSize.MEDIUM} />
         </section>
       )
     );
@@ -330,7 +330,7 @@ export class ZFileUpload {
           class={`container ${this.type}`}
         >
           {this.renderTitle()}
-          {this.type == ZFileUploadTypeEnum.default ? this.renderDefaultMode() : this.renderDragDropMode()}
+          {this.type == ZFileUploadTypeEnum.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>
         {!!this.invalidFiles.size && (
           <z-modal

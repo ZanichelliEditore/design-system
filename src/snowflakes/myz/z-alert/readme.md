@@ -6,7 +6,7 @@
 
 | Property | Attribute | Description        | Type                                                                       | Default     |
 | -------- | --------- | ------------------ | -------------------------------------------------------------------------- | ----------- |
-| `type`   | `type`    | alert variant type | `AlertTypesEnum.error \| AlertTypesEnum.success \| AlertTypesEnum.warning` | `undefined` |
+| `type`   | `type`    | alert variant type | `AlertTypesEnum.ERROR \| AlertTypesEnum.SUCCESS \| AlertTypesEnum.WARNING` | `undefined` |
 
 ## Slots
 

@@ -4,10 +4,10 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                                                                     | Type                  | Default                                |
-| ----------------- | ------------------ | ----------------------------------------------------------------------------------------------- | --------------------- | -------------------------------------- |
-| `dividerPosition` | `divider-position` | Divider position for the primary title. This prop only works if the secondary title is not set. | `"after" \| "before"` | `ZSectionTitleDividerPositions.before` |
-| `uppercase`       | `uppercase`        | Whether the primary title text is uppercase.                                                    | `boolean`             | `true`                                 |
+| Property          | Attribute          | Description                                                                                     | Type                                                                          | Default                                |
+| ----------------- | ------------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------- |
+| `dividerPosition` | `divider-position` | Divider position for the primary title. This prop only works if the secondary title is not set. | `ZSectionTitleDividerPositions.AFTER \| ZSectionTitleDividerPositions.BEFORE` | `ZSectionTitleDividerPositions.BEFORE` |
+| `uppercase`       | `uppercase`        | Whether the primary title text is uppercase.                                                    | `boolean`                                                                     | `true`                                 |
 
 ## Slots
 

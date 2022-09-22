@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatusEnum, InputTypeEnum, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotificationPositionsEnum, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -42,7 +42,7 @@ export namespace Components {
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
     }
     interface ZAppTopbar {
         /**
@@ -70,7 +70,7 @@ export namespace Components {
         /**
           * Aria live mode
          */
-        "mode": string;
+        "mode": ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
@@ -148,7 +148,7 @@ export namespace Components {
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariantEnum;
     }
     interface ZButtonDeprecated {
         /**
@@ -187,7 +187,7 @@ export namespace Components {
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariantEnum;
     }
     interface ZButtonFilter {
         /**
@@ -581,7 +581,7 @@ export namespace Components {
         /**
           * Info reveal's position
          */
-        "position"?: InfoRevealPositionBean;
+        "position"?: InfoRevealPosition;
     }
     interface ZInput {
         /**
@@ -627,7 +627,7 @@ export namespace Components {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPosition;
+        "labelPosition"?: LabelPositions;
         /**
           * max number value (optional): available for number
          */
@@ -663,7 +663,7 @@ export namespace Components {
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
         /**
           * step number value (optional): available for number
          */
@@ -671,7 +671,7 @@ export namespace Components {
         /**
           * input types
          */
-        "type": InputTypeBean;
+        "type": InputTypeEnum;
         /**
           * the input value
          */
@@ -765,11 +765,11 @@ export namespace Components {
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
         /**
           * input types
          */
-        "type": InputTypeBean;
+        "type": InputTypeEnum;
         /**
           * timeout setting before trigger `inputChange` event (optional): available for text, textarea
          */
@@ -801,7 +801,7 @@ export namespace Components {
         /**
           * input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZLink {
         /**
@@ -1041,7 +1041,7 @@ export namespace Components {
         /**
           * Username/password input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZMyzCard {
         /**
@@ -1299,7 +1299,7 @@ export namespace Components {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation": NavigationTabsOrientation;
+        "orientation": NavigationTabsOrientations;
         /**
           * Whether the tab is selected.
          */
@@ -1307,7 +1307,7 @@ export namespace Components {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size": NavigationTabsSize;
+        "size": NavigationTabsSizes;
     }
     interface ZNavigationTabLink {
         /**
@@ -1333,7 +1333,7 @@ export namespace Components {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation": NavigationTabsOrientation;
+        "orientation": NavigationTabsOrientations;
         /**
           * Whether the tab is selected.
          */
@@ -1341,7 +1341,7 @@ export namespace Components {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size": NavigationTabsSize;
+        "size": NavigationTabsSizes;
         /**
           * Html `target` attribute for the anchor element.
          */
@@ -1351,11 +1351,11 @@ export namespace Components {
         /**
           * Navigation tabs orientation.
          */
-        "orientation"?: NavigationTabsOrientation;
+        "orientation"?: NavigationTabsOrientations;
         /**
           * Navigation tabs size.
          */
-        "size"?: NavigationTabsSize;
+        "size"?: NavigationTabsSizes;
     }
     interface ZNotification {
         /**
@@ -1410,7 +1410,7 @@ export namespace Components {
         /**
           * Input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZPagination {
         /**
@@ -1596,7 +1596,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositionBean;
+        "position": PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -1658,7 +1658,7 @@ export namespace Components {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
-        "dividerPosition": ZSectionTitleDividerPosition;
+        "dividerPosition": ZSectionTitleDividerPositions;
         /**
           * Whether the primary title text is uppercase.
          */
@@ -1728,7 +1728,7 @@ export namespace Components {
         /**
           * the input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZSkipToContent {
         /**
@@ -1970,7 +1970,7 @@ export namespace Components {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position": ToastNotificationPositionsTypes;
+        "position": ToastNotificationPositionsEnum;
     }
     interface ZToggleButton {
         /**
@@ -2006,7 +2006,7 @@ export namespace Components {
         /**
           * Label position
          */
-        "labelPosition"?: LabelPosition;
+        "labelPosition"?: LabelPositions;
     }
     interface ZTooltip {
         /**
@@ -3077,7 +3077,7 @@ declare namespace LocalJSX {
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
     }
     interface ZAppTopbar {
         /**
@@ -3105,7 +3105,7 @@ declare namespace LocalJSX {
         /**
           * Aria live mode
          */
-        "mode"?: string;
+        "mode"?: ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
@@ -3183,7 +3183,7 @@ declare namespace LocalJSX {
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariantEnum;
     }
     interface ZButtonDeprecated {
         /**
@@ -3222,7 +3222,7 @@ declare namespace LocalJSX {
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariantEnum;
     }
     interface ZButtonFilter {
         /**
@@ -3668,7 +3668,7 @@ declare namespace LocalJSX {
         /**
           * Info reveal's position
          */
-        "position"?: InfoRevealPositionBean;
+        "position"?: InfoRevealPosition;
     }
     interface ZInput {
         /**
@@ -3710,7 +3710,7 @@ declare namespace LocalJSX {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPosition;
+        "labelPosition"?: LabelPositions;
         /**
           * max number value (optional): available for number
          */
@@ -3762,7 +3762,7 @@ declare namespace LocalJSX {
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
         /**
           * step number value (optional): available for number
          */
@@ -3770,7 +3770,7 @@ declare namespace LocalJSX {
         /**
           * input types
          */
-        "type"?: InputTypeBean;
+        "type"?: InputTypeEnum;
         /**
           * the input value
          */
@@ -3872,11 +3872,11 @@ declare namespace LocalJSX {
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
         /**
           * input types
          */
-        "type"?: InputTypeBean;
+        "type"?: InputTypeEnum;
         /**
           * timeout setting before trigger `inputChange` event (optional): available for text, textarea
          */
@@ -3908,7 +3908,7 @@ declare namespace LocalJSX {
         /**
           * input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZLink {
         /**
@@ -4204,7 +4204,7 @@ declare namespace LocalJSX {
         /**
           * Username/password input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZMyzCard {
         /**
@@ -4486,7 +4486,7 @@ declare namespace LocalJSX {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation"?: NavigationTabsOrientation;
+        "orientation"?: NavigationTabsOrientations;
         /**
           * Whether the tab is selected.
          */
@@ -4494,7 +4494,7 @@ declare namespace LocalJSX {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size"?: NavigationTabsSize;
+        "size"?: NavigationTabsSizes;
     }
     interface ZNavigationTabLink {
         /**
@@ -4524,7 +4524,7 @@ declare namespace LocalJSX {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation"?: NavigationTabsOrientation;
+        "orientation"?: NavigationTabsOrientations;
         /**
           * Whether the tab is selected.
          */
@@ -4532,7 +4532,7 @@ declare namespace LocalJSX {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size"?: NavigationTabsSize;
+        "size"?: NavigationTabsSizes;
         /**
           * Html `target` attribute for the anchor element.
          */
@@ -4542,11 +4542,11 @@ declare namespace LocalJSX {
         /**
           * Navigation tabs orientation.
          */
-        "orientation"?: NavigationTabsOrientation;
+        "orientation"?: NavigationTabsOrientations;
         /**
           * Navigation tabs size.
          */
-        "size"?: NavigationTabsSize;
+        "size"?: NavigationTabsSizes;
     }
     interface ZNotification {
         /**
@@ -4617,7 +4617,7 @@ declare namespace LocalJSX {
         /**
           * Input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZPagination {
         /**
@@ -4831,7 +4831,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositionBean;
+        "position"?: PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -4901,7 +4901,7 @@ declare namespace LocalJSX {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
-        "dividerPosition"?: ZSectionTitleDividerPosition;
+        "dividerPosition"?: ZSectionTitleDividerPositions;
         /**
           * Whether the primary title text is uppercase.
          */
@@ -4963,7 +4963,7 @@ declare namespace LocalJSX {
         /**
           * the input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatusEnum;
     }
     interface ZSkipToContent {
         /**
@@ -5225,7 +5225,7 @@ declare namespace LocalJSX {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position"?: ToastNotificationPositionsTypes;
+        "position"?: ToastNotificationPositionsEnum;
     }
     interface ZToggleButton {
         /**
@@ -5265,7 +5265,7 @@ declare namespace LocalJSX {
         /**
           * Label position
          */
-        "labelPosition"?: LabelPosition;
+        "labelPosition"?: LabelPositions;
         /**
           * Toggle click event
          */

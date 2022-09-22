@@ -1,5 +1,5 @@
 import {Component, h, Event, EventEmitter, Prop} from "@stencil/core";
-import {InputStatusBean, InputStatusEnum} from "../../../beans";
+import {InputStatusEnum} from "../../../beans";
 
 @Component({
   tag: "z-otp",
@@ -12,7 +12,7 @@ export class ZOtp {
   inputNum?: number = 6;
   /** Input status */
   @Prop()
-  status?: InputStatusBean;
+  status?: InputStatusEnum;
   /** Input message */
   @Prop()
   message?: string;
@@ -38,7 +38,7 @@ export class ZOtp {
         <div class="digits-container">
           {this.otp.map((_val, i) => (
             <input
-              class={this.status == InputStatusEnum.error ? "error" : null}
+              class={this.status == InputStatusEnum.ERROR ? "error" : null}
               onKeyDown={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) this.otpRef[i].value = "";
               }}

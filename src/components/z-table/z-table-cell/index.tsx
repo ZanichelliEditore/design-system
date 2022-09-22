@@ -16,7 +16,7 @@ export class ZTableCell {
 
   /** Set padding size of cell, if special 0px padding will be set */
   @Prop({reflect: true})
-  padding: Size = Size.medium;
+  padding: Size = Size.MEDIUM;
 
   @State()
   isMenuOpened = false;
@@ -42,7 +42,7 @@ export class ZTableCell {
             <div class="button-content">
               <z-button
                 icon="contextual-menu"
-                variant={ButtonVariantEnum.tertiary}
+                variant={ButtonVariantEnum.TERTIARY}
                 size={ButtonSizeEnum["x-small"]}
                 onClick={() => this.handleMenu()}
               />

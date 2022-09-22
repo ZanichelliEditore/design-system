@@ -10,7 +10,7 @@ it("Test ZButtonFilter should emit removefilter event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", (e) => {
+  await page.exposeFunction("onRemoveFilter", () => {
     removefilterCounter = 1;
   });
 
@@ -38,7 +38,7 @@ it("Test ZButtonFilter fixed button should not emit removefilter event", async (
 
   // Define a window.onCustomEvent function on the page.
   let removefilterCounter = 0;
-  await page.exposeFunction("onRemoveFilter", (e) => {
+  await page.exposeFunction("onRemoveFilter", () => {
     removefilterCounter = 1;
   });
 

@@ -23,7 +23,7 @@ export class ZTableHeader {
 
   /** Set padding size of cell, if special 0px padding will be set */
   @Prop({reflect: true})
-  padding: Size = Size.medium;
+  padding: Size = Size.MEDIUM;
 
   /** [Optional] Make the header sortable */
   @Prop()
@@ -35,11 +35,11 @@ export class ZTableHeader {
 
   /** [Optional] Default sort order */
   @Prop()
-  defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
+  defaultSortDirection?: SortDirection = SortDirectionEnum.ASC;
 
   /** Sort direction */
   @Prop({mutable: true})
-  sortDirection: SortDirection = SortDirectionEnum.none;
+  sortDirection: SortDirection = SortDirectionEnum.NONE;
 
   private popover?: HTMLZPopoverElement;
 
@@ -66,14 +66,14 @@ export class ZTableHeader {
 
     this.sortDirection = (() => {
       switch (this.sortDirection) {
-        case SortDirectionEnum.asc:
-          return SortDirectionEnum.desc;
-        case SortDirectionEnum.desc:
-          return SortDirectionEnum.asc;
-        case SortDirectionEnum.none:
+        case SortDirectionEnum.ASC:
+          return SortDirectionEnum.DESC;
+        case SortDirectionEnum.DESC:
+          return SortDirectionEnum.ASC;
+        case SortDirectionEnum.NONE:
           return this.defaultSortDirection;
         default:
-          return SortDirectionEnum.none;
+          return SortDirectionEnum.NONE;
       }
     })();
 
@@ -108,7 +108,7 @@ export class ZTableHeader {
       (target.parentNode as HTMLZTableHeaderElement).sortable || (target as HTMLZTableHeaderElement).sortable;
 
     if (parentColumnId !== this.columnId && isSortable) {
-      this.sortDirection = SortDirectionEnum.none;
+      this.sortDirection = SortDirectionEnum.NONE;
     }
   }
 
@@ -126,9 +126,9 @@ export class ZTableHeader {
       >
         <div class="container">
           <slot />
-          {this.sortable && this.sortDirection !== SortDirectionEnum.none && (
+          {this.sortable && this.sortDirection !== SortDirectionEnum.NONE && (
             <z-icon
-              name={this.sortDirection === SortDirectionEnum.asc ? "arrow-up" : "arrow-down"}
+              name={this.sortDirection === SortDirectionEnum.ASC ? "arrow-up" : "arrow-down"}
               class="arrow"
             />
           )}
@@ -147,7 +147,7 @@ export class ZTableHeader {
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement)}
-              position={PopoverPositions.bottom}
+              position={PopoverPositions.BOTTOM}
               center={true}
               bindTo={this.triggerButton}
             >

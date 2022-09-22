@@ -11,7 +11,7 @@ it("Test signup z-button should emit signupClick event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let counter = 0;
-  await page.exposeFunction("onSignupClick", (e) => {
+  await page.exposeFunction("onSignupClick", () => {
     counter++;
   });
 
@@ -40,7 +40,7 @@ it("Test zaino digitale z-button should emit zainoDigitaleClick event", async ()
 
   // Define a window.onCustomEvent function on the page.
   let counter = 0;
-  await page.exposeFunction("onZainoDigitaleClick", (e) => {
+  await page.exposeFunction("onZainoDigitaleClick", () => {
     counter++;
   });
 

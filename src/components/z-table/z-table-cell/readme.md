@@ -4,10 +4,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                  | Type                                                                                  | Default       |
-| ------------ | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------- |
-| `padding`    | `padding`     | Set padding size of cell, if special 0px padding will be set | `(typeof Size)["x-small"] \| Size.large \| Size.medium \| Size.small \| Size.special` | `Size.medium` |
-| `showButton` | `show-button` | [Optional] Show contextual menu button                       | `boolean`                                                                             | `undefined`   |
+| Property     | Attribute     | Description                                                  | Type                                                                      | Default       |
+| ------------ | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------- | ------------- |
+| `padding`    | `padding`     | Set padding size of cell, if special 0px padding will be set | `Size.LARGE \| Size.MEDIUM \| Size.SMALL \| Size.SPECIAL \| Size.X_SMALL` | `Size.MEDIUM` |
+| `showButton` | `show-button` | [Optional] Show contextual menu button                       | `boolean`                                                                 | `undefined`   |
 
 ## Dependencies
 

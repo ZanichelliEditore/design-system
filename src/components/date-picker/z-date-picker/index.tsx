@@ -26,10 +26,10 @@ export class ZDatePicker {
   label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop()
-  mode: ZDatePickerMode = ZDatePickerMode.date;
+  mode: ZDatePickerMode = ZDatePickerMode.DATE;
 
   @State()
-  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.bottom;
+  flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
   @State()
   inputError = false;
 
@@ -70,7 +70,7 @@ export class ZDatePicker {
 
       arrowPressed && ev.key === " " && ev.preventDefault();
 
-      if (this.mode === ZDatePickerMode.months) {
+      if (this.mode === ZDatePickerMode.MONTHS) {
         isPrevArrowEntered && this.picker?.changeYear(this.picker.currentYear - 1);
 
         isNextArrowEntered && this.picker?.changeYear(this.picker.currentYear + 1);
@@ -120,11 +120,11 @@ export class ZDatePicker {
 
     this.picker = flatpickr(`.${classToAppend}`, {
       appendTo: this.element.children[0] as HTMLElement,
-      enableTime: this.mode === ZDatePickerMode.dateTime,
+      enableTime: this.mode === ZDatePickerMode.DATE_TIME,
       locale: Italian,
       allowInput: true,
-      dateFormat: this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
-      ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
+      dateFormat: this.mode === ZDatePickerMode.DATE_TIME ? "d-m-Y - H:i" : "d-m-Y",
+      ariaDateFormat: this.mode === ZDatePickerMode.MONTHS ? "F Y" : "d F Y",
       minuteIncrement: 1,
       // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
@@ -139,7 +139,7 @@ export class ZDatePicker {
         setAriaOptions(this.element as HTMLElement, this.mode);
       },
       wrap: true,
-      plugins: this.mode === ZDatePickerMode.months && [
+      plugins: this.mode === ZDatePickerMode.MONTHS && [
         monthSelectPlugin({
           dateFormat: "m-Y",
           altFormat: "m-Y",
@@ -153,9 +153,9 @@ export class ZDatePicker {
   }
 
   private formatDate(date): string {
-    if (this.mode === ZDatePickerMode.date) {
+    if (this.mode === ZDatePickerMode.DATE) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
-    } else if (this.mode === ZDatePickerMode.months) {
+    } else if (this.mode === ZDatePickerMode.MONTHS) {
       return `${flatpickr.formatDate(date, "m-Y")}`;
     } else {
       return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
@@ -165,15 +165,15 @@ export class ZDatePicker {
   private onStopTyping(value): void {
     let text = value.detail.value;
 
-    if (this.mode === ZDatePickerMode.months) {
+    if (this.mode === ZDatePickerMode.MONTHS) {
       text = "01-".concat(value.detail.value);
     }
 
     const englishData = text.split("-");
-    const time = this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
+    const time = this.mode === ZDatePickerMode.DATE_TIME ? `T${englishData[3]}:00` : "";
     const englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
 
-    const isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.dateTime);
+    const isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.DATE_TIME);
 
     if (text === "") {
       this.inputError = false;
@@ -209,7 +209,7 @@ export class ZDatePicker {
           ariaLabel={this.ariaLabel}
           label={this.label}
           class={this.datePickerId}
-          type={InputTypeEnum.text}
+          type={InputTypeEnum.TEXT}
           icon="event"
           message={false}
           tabindex="0"

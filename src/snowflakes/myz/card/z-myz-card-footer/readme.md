@@ -35,7 +35,7 @@
 | Property        | Attribute        | Description                           | Type                                                                                               | Default     |
 | --------------- | ---------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
 | `autori`        | `autori`         | authors name text                     | `string`                                                                                           | `undefined` |
-| `cardtype`      | `cardtype`       | card graphic variant (optional)       | `LicenseTypeEnum.real \| LicenseTypeEnum.temp \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `cardtype`      | `cardtype`       | card graphic variant (optional)       | `LicenseTypeEnum.REAL \| LicenseTypeEnum.TEMP \| LicenseTypeEnum.TRIAL \| LicenseTypeEnum.VIRTUAL` | `undefined` |
 | `customContent` | `custom-content` | display footer custom slotted content | `boolean`                                                                                          | `false`     |
 | `faded`         | `faded`          | faded status                          | `boolean`                                                                                          | `undefined` |
 | `isbn`          | `isbn`           | volume isbn                           | `string`                                                                                           | `undefined` |

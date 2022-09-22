@@ -4,14 +4,14 @@
 
 ## Properties
 
-| Property          | Attribute           | Description                                  | Type                                                 | Default                 |
-| ----------------- | ------------------- | -------------------------------------------- | ---------------------------------------------------- | ----------------------- |
-| `firstAriaLabel`  | `first-aria-label`  | first z-input aria label                     | `string`                                             | `undefined`             |
-| `firstLabel`      | `first-label`       | first z-input label                          | `string`                                             | `undefined`             |
-| `mode`            | `mode`              | [Optional] datepicker mode: date or datetime | `ZRangePickerMode.date \| ZRangePickerMode.dateTime` | `ZRangePickerMode.date` |
-| `rangePickerId`   | `range-picker-id`   | unique id                                    | `string`                                             | `undefined`             |
-| `secondAriaLabel` | `second-aria-label` | second z-input aria label                    | `string`                                             | `undefined`             |
-| `secondLabel`     | `second-label`      | second z-input label                         | `string`                                             | `undefined`             |
+| Property          | Attribute           | Description                                  | Type                                                  | Default                 |
+| ----------------- | ------------------- | -------------------------------------------- | ----------------------------------------------------- | ----------------------- |
+| `firstAriaLabel`  | `first-aria-label`  | first z-input aria label                     | `string`                                              | `undefined`             |
+| `firstLabel`      | `first-label`       | first z-input label                          | `string`                                              | `undefined`             |
+| `mode`            | `mode`              | [Optional] datepicker mode: date or datetime | `ZRangePickerMode.DATE \| ZRangePickerMode.DATE_TIME` | `ZRangePickerMode.DATE` |
+| `rangePickerId`   | `range-picker-id`   | unique id                                    | `string`                                              | `undefined`             |
+| `secondAriaLabel` | `second-aria-label` | second z-input aria label                    | `string`                                              | `undefined`             |
+| `secondLabel`     | `second-label`      | second z-input label                         | `string`                                              | `undefined`             |
 
 ## Events
 

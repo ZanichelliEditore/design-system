@@ -7,8 +7,8 @@
 | Property      | Attribute     | Description                   | Type                                                           | Default                         |
 | ------------- | ------------- | ----------------------------- | -------------------------------------------------------------- | ------------------------------- |
 | `color`       | `color`       | [optional] Divider color      | `string`                                                       | `"gray200"`                     |
-| `orientation` | `orientation` | [optional] Divider orintation | `DividerOrientation.horizontal \| DividerOrientation.vertical` | `DividerOrientation.horizontal` |
-| `size`        | `size`        | [optional] Divider size       | `DividerSize.large \| DividerSize.medium \| DividerSize.small` | `DividerSize.small`             |
+| `orientation` | `orientation` | [optional] Divider orintation | `DividerOrientation.HORIZONTAL \| DividerOrientation.VERTICAL` | `DividerOrientation.HORIZONTAL` |
+| `size`        | `size`        | [optional] Divider size       | `DividerSize.LARGE \| DividerSize.MEDIUM \| DividerSize.SMALL` | `DividerSize.SMALL`             |
 
 ## Dependencies
 

@@ -58,9 +58,9 @@ export class ZMyzCardAlert {
   private getAlertType(): AlertTypes {
     switch (this.type) {
       case "add":
-        return AlertTypesEnum.success;
+        return AlertTypesEnum.SUCCESS;
       case "remove":
-        return AlertTypesEnum.warning;
+        return AlertTypesEnum.WARNING;
       default:
         return null;
     }

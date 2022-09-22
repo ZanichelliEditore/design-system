@@ -7,7 +7,7 @@ describe("Suite test ZNotification", () => {
     const page = await newSpecPage({
       components: [ZSectionTitle],
       html: `<z-section-title
-        divider-position=${ZSectionTitleDividerPositions.after}
+        divider-position=${ZSectionTitleDividerPositions.AFTER}
       >
         <span slot="secondary-title">Secondary title</span>
         <span slot="primary-title">Primary title</span>

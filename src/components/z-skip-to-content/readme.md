@@ -7,7 +7,7 @@
 | Property  | Attribute | Description                          | Type                                      | Default     |
 | --------- | --------- | ------------------------------------ | ----------------------------------------- | ----------- |
 | `links`   | `links`   | Array to fill link into skip-content | `SkipToContentLink[] \| string`           | `[]`        |
-| `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.dark \| ThemeVariant.light` | `undefined` |
+| `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.DARK \| ThemeVariant.LIGHT` | `undefined` |
 
 ## Dependencies
 

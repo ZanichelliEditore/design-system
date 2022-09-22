@@ -27,7 +27,7 @@
 
 | Property        | Attribute       | Description                | Type                                                                                               | Default     |
 | --------------- | --------------- | -------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.temp \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseTypeEnum.REAL \| LicenseTypeEnum.TEMP \| LicenseTypeEnum.TRIAL \| LicenseTypeEnum.VIRTUAL` | `undefined` |
 | `faded`         | `faded`         | faded status               | `boolean`                                                                                          | `undefined` |
 | `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                                          | `false`     |
 | `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                                          | `false`     |

@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                   | Type                | Default             |
-| -------- | --------- | ----------------------------- | ------------------- | ------------------- |
-| `theme`  | `theme`   | theme variant, default 'dark' | `"dark" \| "light"` | `ThemeVariant.dark` |
+| Property | Attribute | Description                   | Type                                      | Default             |
+| -------- | --------- | ----------------------------- | ----------------------------------------- | ------------------- |
+| `theme`  | `theme`   | theme variant, default 'dark' | `ThemeVariant.DARK \| ThemeVariant.LIGHT` | `ThemeVariant.DARK` |
 
 ## Events
 

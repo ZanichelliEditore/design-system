@@ -26,9 +26,9 @@ export class ZMyzCardComponent {
   private retrieveClass(): string {
     let elemClasses = "";
 
-    if (this.cardtype === LicenseTypeEnum.real) elemClasses += "real";
-    else if (this.cardtype === LicenseTypeEnum.trial) elemClasses += "trial";
-    else if (this.cardtype === LicenseTypeEnum.temp) elemClasses += "temp";
+    if (this.cardtype === LicenseTypeEnum.REAL) elemClasses += "real";
+    else if (this.cardtype === LicenseTypeEnum.TRIAL) elemClasses += "trial";
+    else if (this.cardtype === LicenseTypeEnum.TEMP) elemClasses += "temp";
 
     if (this.faded) {
       elemClasses += " faded";

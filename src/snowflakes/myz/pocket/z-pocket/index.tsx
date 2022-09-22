@@ -17,18 +17,18 @@ export class ZPocket {
   pocketid: string;
   /** pocket status */
   @Prop({mutable: true})
-  status: PocketStatus = PocketStatusEnum.preview;
+  status: PocketStatus = PocketStatusEnum.PREVIEW;
 
   /** open z-pocket */
   @Method()
   async open(): Promise<void> {
-    this.status = PocketStatusEnum.open;
+    this.status = PocketStatusEnum.OPEN;
   }
 
   /** close z-pocket */
   @Method()
   async close(): Promise<void> {
-    this.status = PocketStatusEnum.closed;
+    this.status = PocketStatusEnum.CLOSED;
   }
 
   /** Emitted on pocket toggle, returns pocket id and status */
@@ -42,12 +42,12 @@ export class ZPocket {
   handlePocketHeaderClick(e: CustomEvent): void {
     if (e.detail.id && e.detail.id === this.pocketid) {
       switch (this.status) {
-        case PocketStatusEnum.preview:
-        case PocketStatusEnum.closed:
-          this.status = PocketStatusEnum.open;
+        case PocketStatusEnum.PREVIEW:
+        case PocketStatusEnum.CLOSED:
+          this.status = PocketStatusEnum.OPEN;
           break;
-        case PocketStatusEnum.open:
-          this.status = PocketStatusEnum.closed;
+        case PocketStatusEnum.OPEN:
+          this.status = PocketStatusEnum.CLOSED;
           break;
       }
     }
@@ -57,9 +57,9 @@ export class ZPocket {
   handlePocketHeaderPan(e: CustomEvent): void {
     if (e.detail.id && e.detail.id === this.pocketid) {
       if (e.detail.direction === "up") {
-        this.status = PocketStatusEnum.open;
+        this.status = PocketStatusEnum.OPEN;
       } else if (e.detail.direction === "down") {
-        this.status = PocketStatusEnum.closed;
+        this.status = PocketStatusEnum.CLOSED;
       }
     }
   }

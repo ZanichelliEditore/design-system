@@ -101,9 +101,9 @@ export class ZSlideshow {
 
   private getBulletDimension(): number {
     switch (this.device) {
-      case DeviceEnum.mobile:
+      case DeviceEnum.MOBILE:
         return 24;
-      case DeviceEnum.tablet:
+      case DeviceEnum.TABLET:
         return 32;
       default:
         return 40;

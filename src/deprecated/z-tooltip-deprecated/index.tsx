@@ -105,7 +105,7 @@ export class ZTooltipDeprecated {
 
   /** Tooltip position. */
   @Prop({mutable: true})
-  type: PopoverPositions = PopoverPositions.auto;
+  type: PopoverPositions = PopoverPositions.AUTO;
 
   /**
    * The open state of the tooltip.
@@ -138,7 +138,7 @@ export class ZTooltipDeprecated {
   @Watch("type")
   validateType(newValue: PopoverPositions): void {
     if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
-      this.type = PopoverPositions.auto;
+      this.type = PopoverPositions.AUTO;
     }
   }
 
@@ -221,26 +221,26 @@ export class ZTooltipDeprecated {
     const availableWidth = availableLeft + availableRight + boundingRect.width;
 
     let position = this.type;
-    if (position === PopoverPositions.auto) {
+    if (position === PopoverPositions.AUTO) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
       const positions: PopoverPositions[] = [];
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(PopoverPositions.top);
+        positions.unshift(PopoverPositions.TOP);
       } else if (availableTop / availableHeight > 0.6) {
-        positions.push(PopoverPositions.top);
+        positions.push(PopoverPositions.TOP);
       } else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(PopoverPositions.bottom);
+        positions.unshift(PopoverPositions.BOTTOM);
       } else {
-        positions.push(PopoverPositions.bottom);
+        positions.push(PopoverPositions.BOTTOM);
       }
 
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(PopoverPositions.left);
+        positions.push(PopoverPositions.LEFT);
       } else if (availableLeft / availableWidth < 0.4) {
-        positions.push(PopoverPositions.right);
+        positions.push(PopoverPositions.RIGHT);
       }
 
       position = positions.join("_") as PopoverPositions;
@@ -257,41 +257,41 @@ export class ZTooltipDeprecated {
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
 
     if (
-      position === PopoverPositions.top ||
-      position === PopoverPositions.top_right ||
-      position === PopoverPositions.top_left
+      position === PopoverPositions.TOP ||
+      position === PopoverPositions.TOP_RIGHT ||
+      position === PopoverPositions.TOP_LEFT
     ) {
       style.top = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
     }
     if (
-      position === PopoverPositions.bottom ||
-      position === PopoverPositions.bottom_right ||
-      position === PopoverPositions.bottom_left
+      position === PopoverPositions.BOTTOM ||
+      position === PopoverPositions.BOTTOM_RIGHT ||
+      position === PopoverPositions.BOTTOM_LEFT
     ) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.top || position === PopoverPositions.bottom) {
+    if (position === PopoverPositions.TOP || position === PopoverPositions.BOTTOM) {
       style.left = `${offsetLeft + boundingRect.width / 2 - this.host.clientWidth / 2}px`;
     }
-    if (position === PopoverPositions.top_right || position === PopoverPositions.bottom_right) {
+    if (position === PopoverPositions.TOP_RIGHT || position === PopoverPositions.BOTTOM_RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.top_left || position === PopoverPositions.bottom_left) {
+    if (position === PopoverPositions.TOP_LEFT || position === PopoverPositions.BOTTOM_LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.right || position === PopoverPositions.left) {
+    if (position === PopoverPositions.RIGHT || position === PopoverPositions.LEFT) {
       style.top = `${offsetTop + boundingRect.height / 2 - this.host.clientHeight / 2}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.right) {
+    if (position === PopoverPositions.RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.left) {
+    if (position === PopoverPositions.LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }

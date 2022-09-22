@@ -18,9 +18,9 @@ export function setFlatpickrPosition(
   element.style.setProperty("--z-range-picker--toggle-height", `${toggleHeight}px`);
 
   const flatpickrHeight =
-    mode === ZDatePickerMode.dateTime
-      ? ZDatePickerModeValues.DATETIME
-      : mode === ZDatePickerMode.months
+    mode === ZDatePickerMode.DATE_TIME
+      ? ZDatePickerModeValues.DATE_TIME
+      : mode === ZDatePickerMode.MONTHS
       ? ZDatePickerModeValues.MONTHS
       : ZDatePickerModeValues.DATE;
 
@@ -29,9 +29,9 @@ export function setFlatpickrPosition(
   const overflowTop = bottom - flatpickrHeight - toggleHeight < 0;
 
   if (!overflowTop && overflowBottom) {
-    return ZDatePickerPosition.top;
+    return ZDatePickerPosition.TOP;
   } else {
-    return ZDatePickerPosition.bottom;
+    return ZDatePickerPosition.BOTTOM;
   }
 }
 
@@ -60,13 +60,13 @@ export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode | ZRa
 
     element.getElementsByClassName("cur-year")[0].setAttribute("aria-label", "Anno");
 
-    if (mode === ZDatePickerMode.date) {
+    if (mode === ZDatePickerMode.DATE) {
       setDateAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
-    if (mode === ZDatePickerMode.dateTime) {
+    if (mode === ZDatePickerMode.DATE_TIME) {
       setDateTimeAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
-    if (mode === ZDatePickerMode.months) {
+    if (mode === ZDatePickerMode.MONTHS) {
       setMonthsAriaOptions(element, prevMonthArrow, nextMonthArrow);
     }
   });

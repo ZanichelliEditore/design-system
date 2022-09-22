@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItemBean, InputTypeBean, InputTypeEnum, KeyboardKeyCodeEnum} from "../../../beans";
+import {ComboItemBean, InputTypeEnum, KeyboardKeyCodeEnum} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 
@@ -63,7 +63,7 @@ export class ZCombobox {
   renderItemsList: ComboItemBean[] = []; // used for render only
 
   private itemsList: ComboItemBean[] = [];
-  private inputType: InputTypeBean = InputTypeEnum.text;
+  private inputType: InputTypeEnum = InputTypeEnum.TEXT;
 
   @Watch("items")
   watchItems(): void {
@@ -229,7 +229,7 @@ export class ZCombobox {
               underlined={i !== items.length - 1}
             >
               <z-input
-                type={InputTypeEnum.checkbox}
+                type={InputTypeEnum.CHECKBOX}
                 checked={item.checked}
                 htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
                 label={item.name}
@@ -297,7 +297,7 @@ export class ZCombobox {
     return (
       <div class="checkAllWrapper">
         <z-input
-          type={InputTypeEnum.checkbox}
+          type={InputTypeEnum.CHECKBOX}
           checked={allChecked}
           htmlid={`combo-checkbox-${this.inputid}-check-all`}
           label={allChecked ? this.uncheckalltext : this.checkalltext}

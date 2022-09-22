@@ -18,7 +18,7 @@ export class ZMessagesPocket {
   messages: number;
   /** pocket status */
   @Prop({mutable: true})
-  status: PocketStatus = PocketStatusEnum.preview;
+  status: PocketStatus = PocketStatusEnum.PREVIEW;
 
   @Listen("pocketToggle", {target: "body"})
   handlePocketToggle(e: CustomEvent): void {
@@ -31,8 +31,8 @@ export class ZMessagesPocket {
     let message: HTMLElement;
     let icon: string;
     switch (this.status) {
-      case PocketStatusEnum.preview:
-      case PocketStatusEnum.closed:
+      case PocketStatusEnum.PREVIEW:
+      case PocketStatusEnum.CLOSED:
         message = (
           <span>
             Messaggi <span class="badge">{this.messages}</span>
@@ -40,7 +40,7 @@ export class ZMessagesPocket {
         );
         icon = "chevron-up";
         break;
-      case PocketStatusEnum.open:
+      case PocketStatusEnum.OPEN:
         message = <span>Riduci</span>;
         icon = "chevron-down";
         break;

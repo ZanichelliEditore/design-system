@@ -1,3 +1,4 @@
+import {InputTypeEnum} from "../../beans";
 import {ZInputDeprecated} from "./index";
 
 it("getValue() should return input value", async () => {
@@ -18,7 +19,7 @@ it("setValue() should set input value", async () => {
 
 it("isChecked() should return checked state", async () => {
   const input = new ZInputDeprecated();
-  input.type = "checkbox";
+  input.type = InputTypeEnum.CHECKBOX;
 
   input.checked = true;
   const checked = await input.isChecked();

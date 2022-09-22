@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
-import {InputStatusBean, SelectItemBean, ListDividerType, KeyboardCodeEnum} from "../../../beans";
+import {SelectItemBean, ListDividerType, KeyboardCodeEnum, InputStatusEnum} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
@@ -40,7 +40,7 @@ export class ZSelect {
   htmltitle?: string;
   /** the input status (optional) */
   @Prop()
-  status?: InputStatusBean;
+  status?: InputStatusEnum;
   /** input helper message (optional) - if set to `false` message won't be displayed */
   @Prop()
   message?: string | boolean = true;
@@ -332,7 +332,7 @@ export class ZSelect {
         <z-list-element
           clickable={!item.disabled}
           disabled={item.disabled}
-          dividerType={ListDividerType.element}
+          dividerType={ListDividerType.ELEMENT}
           role="option"
           tabindex={item.disabled || !this.isOpen ? -1 : 0}
           aria-selected={!!item.selected}

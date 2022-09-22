@@ -1,6 +1,6 @@
 import {Component, Prop, h, Host} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {InputStatusBean} from "../../../beans";
+import {InputStatusEnum} from "../../../beans";
 
 @Component({
   tag: "z-input-message",
@@ -13,7 +13,7 @@ export class ZInputMessage {
   message: string;
   /** input status (optional) */
   @Prop({reflect: true})
-  status?: InputStatusBean;
+  status?: InputStatusEnum;
 
   private statusIcons = {
     success: "checkmark-circle",

@@ -152,7 +152,7 @@ export class ZMyzCardInfo {
 
     return (
       <z-popover
-        position={PopoverPositions.right}
+        position={PopoverPositions.RIGHT}
         onClick={() => (this.tooltip = false)}
       >
         {`${title} ${year} ${author} ${description}`}

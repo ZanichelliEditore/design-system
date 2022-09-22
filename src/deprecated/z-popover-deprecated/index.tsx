@@ -18,7 +18,7 @@ export class ZPopoverDeprecated {
   backgroundColor?: string = "color-white";
   /** [optional] Border radius token for popover */
   @Prop()
-  borderRadius?: PopoverBorderRadius = PopoverBorderRadius.small;
+  borderRadius?: PopoverBorderRadius = PopoverBorderRadius.SMALL;
   /** [optional] Box shadow token for popover */
   @Prop()
   boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];

@@ -5,7 +5,7 @@ it("Test OK button should emit okButtonClick event", async () => {
 
   let clicked = false;
   // Expose a handler to the page
-  await page.exposeFunction("onAccept", ({type, detail}) => {
+  await page.exposeFunction("onAccept", () => {
     clicked = true;
   });
 

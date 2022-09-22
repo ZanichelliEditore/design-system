@@ -4,12 +4,12 @@
 
 ## Properties
 
-| Property       | Attribute        | Description                                             | Type                                                                         | Default                |
-| -------------- | ---------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------- |
-| `ariaLabel`    | `aria-label`     | z-input aria label                                      | `string`                                                                     | `undefined`            |
-| `datePickerId` | `date-picker-id` | unique id                                               | `string`                                                                     | `undefined`            |
-| `label`        | `label`          | z-input label                                           | `string`                                                                     | `undefined`            |
-| `mode`         | `mode`           | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.date \| ZDatePickerMode.dateTime \| ZDatePickerMode.months` | `ZDatePickerMode.date` |
+| Property       | Attribute        | Description                                             | Type                                                                          | Default                |
+| -------------- | ---------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------- |
+| `ariaLabel`    | `aria-label`     | z-input aria label                                      | `string`                                                                      | `undefined`            |
+| `datePickerId` | `date-picker-id` | unique id                                               | `string`                                                                      | `undefined`            |
+| `label`        | `label`          | z-input label                                           | `string`                                                                      | `undefined`            |
+| `mode`         | `mode`           | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.DATE \| ZDatePickerMode.DATE_TIME \| ZDatePickerMode.MONTHS` | `ZDatePickerMode.DATE` |
 
 ## Events
 

@@ -292,9 +292,9 @@ export class ZMyzTopbar {
     return (
       <z-button
         htmlid="login-button"
-        variant={this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary}
+        variant={this.ismyz ? ButtonVariantEnum.SECONDARY : ButtonVariantEnum.TERTIARY}
         icon="login"
-        size={ButtonSizeEnum.small}
+        size={ButtonSizeEnum.SMALL}
       >
         entra
       </z-button>

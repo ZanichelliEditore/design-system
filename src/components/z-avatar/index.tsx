@@ -10,7 +10,7 @@ import {AvatarSize} from "../../beans";
 export class ZAvatar {
   /** [optional] Avatar size */
   @Prop()
-  size?: AvatarSize = AvatarSize.medium;
+  size?: AvatarSize = AvatarSize.MEDIUM;
   /** [optional] Avatar text */
   @Prop()
   text?: string;
@@ -31,11 +31,11 @@ export class ZAvatar {
   }
 
   private getTextSize(): string {
-    if (this.size === AvatarSize.small) {
+    if (this.size === AvatarSize.SMALL) {
       return "5";
-    } else if (this.size === AvatarSize.medium) {
+    } else if (this.size === AvatarSize.MEDIUM) {
       return "4";
-    } else if (this.size === AvatarSize.large) {
+    } else if (this.size === AvatarSize.LARGE) {
       return "2";
     }
   }

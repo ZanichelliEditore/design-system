@@ -206,7 +206,7 @@ export class ZFooter {
               <div>
                 <z-body level={5}>Hai bisogno di aiuto?</z-body>
                 <z-button
-                  size={ButtonSizeEnum.small}
+                  size={ButtonSizeEnum.SMALL}
                   onClick={this.emitReportAProblemButtonClick}
                 >
                   SEGNALA UN PROBLEMA

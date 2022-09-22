@@ -20,7 +20,7 @@
 
 | Property   | Attribute  | Description                     | Type                                                                                               | Default     |
 | ---------- | ---------- | ------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.real \| LicenseTypeEnum.temp \| LicenseTypeEnum.trial \| LicenseTypeEnum.virtual` | `undefined` |
+| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.REAL \| LicenseTypeEnum.TEMP \| LicenseTypeEnum.TRIAL \| LicenseTypeEnum.VIRTUAL` | `undefined` |
 | `faded`    | `faded`    | faded status                    | `boolean`                                                                                          | `undefined` |
 | `titolo`   | `titolo`   | volume title                    | `string`                                                                                           | `undefined` |
 

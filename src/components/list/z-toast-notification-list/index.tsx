@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element, Host, Watch} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {ToastNotificationPositionsEnum, ToastNotificationPositionsTypes} from "../../../beans";
+import {ToastNotificationPositionsEnum} from "../../../beans";
 
 @Component({
   tag: "z-toast-notification-list",
@@ -11,7 +11,7 @@ export class ZToastNotificationList {
   @Element() hostElement: HTMLZToastNotificationListElement;
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
   @Prop()
-  position: ToastNotificationPositionsTypes;
+  position: ToastNotificationPositionsEnum;
   /**Set the entry position of new notification in the list */
   @Prop()
   newestontop?: boolean = true;
@@ -53,7 +53,7 @@ export class ZToastNotificationList {
 
   render(): HostElement {
     return (
-      <Host class={this.position ? this.position : ToastNotificationPositionsEnum.topRight}>
+      <Host class={this.position ? this.position : ToastNotificationPositionsEnum.TOP_RIGHT}>
         <slot name="toasts"></slot>
       </Host>
     );

@@ -11,7 +11,7 @@
 | `showclose`       | `showclose`       | Enable close icon                                                                                                                              | `boolean`                                                                        | `false`     |
 | `showshadow`      | `showshadow`      | <span style="color:red">**[DEPRECATED]**</span> shadow is available only for the `sticky` version of the notification.<br/><br/>Enable shadow. | `boolean`                                                                        | `false`     |
 | `sticky`          | `sticky`          | Enable sticky notification bar.                                                                                                                | `boolean`                                                                        | `false`     |
-| `type`            | `type`            | Alert variant type                                                                                                                             | `NotificationType.error \| NotificationType.success \| NotificationType.warning` | `undefined` |
+| `type`            | `type`            | Alert variant type                                                                                                                             | `NotificationType.ERROR \| NotificationType.SUCCESS \| NotificationType.WARNING` | `undefined` |
 
 ## Events
 

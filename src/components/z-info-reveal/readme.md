@@ -8,11 +8,11 @@ All the inner content is provided from the product.
 
 ## Properties
 
-| Property   | Attribute  | Description                                                | Type                                                           | Default                           |
-| ---------- | ---------- | ---------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
-| `icon`     | `icon`     | Name of the icon for the open button                       | `string`                                                       | `"informationsource"`             |
-| `label`    | `label`    | Text that appears on closed panel next to the open button. | `string`                                                       | `undefined`                       |
-| `position` | `position` | Info reveal's position                                     | `"bottom_left" \| "bottom_right" \| "top_left" \| "top_right"` | `InfoRevealPosition.bottom_right` |
+| Property   | Attribute  | Description                                                | Type                                                                                                                               | Default                           |
+| ---------- | ---------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `icon`     | `icon`     | Name of the icon for the open button                       | `string`                                                                                                                           | `"informationsource"`             |
+| `label`    | `label`    | Text that appears on closed panel next to the open button. | `string`                                                                                                                           | `undefined`                       |
+| `position` | `position` | Info reveal's position                                     | `InfoRevealPosition.BOTTOM_LEFT \| InfoRevealPosition.BOTTOM_RIGHT \| InfoRevealPosition.TOP_LEFT \| InfoRevealPosition.TOP_RIGHT` | `InfoRevealPosition.BOTTOM_RIGHT` |
 
 ## Dependencies
 

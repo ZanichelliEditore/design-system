@@ -1,10 +1,5 @@
 import {Component, Prop, h, Listen, Event, EventEmitter, Watch} from "@stencil/core";
-import {
-  NavigationTabsOrientations,
-  NavigationTabsOrientation,
-  NavigationTabsSizes,
-  NavigationTabsSize,
-} from "../../../../beans";
+import {NavigationTabsOrientations, NavigationTabsSizes} from "../../../../beans";
 import {ICONS} from "../../../icons/icons";
 
 /**
@@ -31,13 +26,13 @@ export class ZNavigationTab {
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  orientation: NavigationTabsOrientation = NavigationTabsOrientations.horizontal;
+  orientation = NavigationTabsOrientations.HORIZONTAL;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  size: NavigationTabsSize = NavigationTabsSizes.big;
+  size = NavigationTabsSizes.BIG;
 
   /**
    * Name of the icon to use.
@@ -69,7 +64,7 @@ export class ZNavigationTab {
    */
   private scrollToTab({target: button}): void {
     const scrollOptions =
-      this.orientation === NavigationTabsOrientations.horizontal
+      this.orientation === NavigationTabsOrientations.HORIZONTAL
         ? ({block: "nearest", inline: "center"} as ScrollIntoViewOptions)
         : ({block: "center", inline: "nearest"} as ScrollIntoViewOptions);
 
@@ -118,7 +113,7 @@ export class ZNavigationTab {
         onFocus={this.scrollToTab.bind(this)}
       >
         {this.icon && this.renderIcon()}
-        {this.orientation === "horizontal" && this.label}
+        {this.orientation === NavigationTabsOrientations.HORIZONTAL && this.label}
       </button>
     );
   }

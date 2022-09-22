@@ -47,7 +47,7 @@ export class ZListElement {
    * [optional] Align expandable button left or right.
    */
   @Prop({reflect: true})
-  alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.left;
+  alignButton?: ExpandableListButtonAlign = ExpandableListButtonAlign.LEFT;
 
   /**
    * [optional] Sets element clickable.
@@ -65,13 +65,13 @@ export class ZListElement {
    * [optional] Sets the position where to insert the divider.
    */
   @Prop()
-  dividerType?: ListDividerType = ListDividerType.none;
+  dividerType?: ListDividerType = ListDividerType.NONE;
 
   /**
    * [optional] Sets the divider size.
    */
   @Prop()
-  dividerSize?: DividerSize = DividerSize.small;
+  dividerSize?: DividerSize = DividerSize.SMALL;
 
   /**
    * [optional] Sets element as expandable.
@@ -83,7 +83,7 @@ export class ZListElement {
    * [optional] Sets expandable style to element.
    */
   @Prop()
-  expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
+  expandableStyle?: ExpandableListStyle = ExpandableListStyle.ACCORDION;
 
   /**
    * [optional] List element id.
@@ -95,7 +95,7 @@ export class ZListElement {
    * [optional] Sets size of inside elements.
    */
   @Prop({reflect: true})
-  size?: ListSize = ListSize.medium;
+  size?: ListSize = ListSize.MEDIUM;
 
   /**
    * [optional] Sets text color of the element.
@@ -245,7 +245,7 @@ export class ZListElement {
           </div>
           {this.renderExpandedContent()}
         </div>
-        {this.dividerType === ListDividerType.element && (
+        {this.dividerType === ListDividerType.ELEMENT && (
           <z-divider
             color={this.dividerColor}
             size={this.dividerSize}

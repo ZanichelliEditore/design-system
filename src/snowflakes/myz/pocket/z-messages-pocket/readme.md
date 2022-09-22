@@ -8,7 +8,7 @@
 | ---------- | ---------- | ------------------ | ------------------------------------------------------------------------------ | -------------------------- |
 | `messages` | `messages` | number of messages | `number`                                                                       | `undefined`                |
 | `pocketid` | `pocketid` | pocket id          | `string`                                                                       | `undefined`                |
-| `status`   | `status`   | pocket status      | `PocketStatusEnum.closed \| PocketStatusEnum.open \| PocketStatusEnum.preview` | `PocketStatusEnum.preview` |
+| `status`   | `status`   | pocket status      | `PocketStatusEnum.CLOSED \| PocketStatusEnum.OPEN \| PocketStatusEnum.PREVIEW` | `PocketStatusEnum.PREVIEW` |
 
 ## Slots
 

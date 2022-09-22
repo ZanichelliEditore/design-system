@@ -10,9 +10,9 @@
 | ------------ | ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `expandable` | `expandable` | [optional] Hide the text and show it on hover | `boolean`                                                                                                                           | `undefined`               |
 | `icon`       | `icon`       | [optional] Status tag icon                    | `string`                                                                                                                            | `undefined`               |
-| `status`     | `status`     | [optional] Status tag color                   | `StatusTagStatus.default \| StatusTagStatus.error \| StatusTagStatus.neutral \| StatusTagStatus.success \| StatusTagStatus.warning` | `StatusTagStatus.default` |
+| `status`     | `status`     | [optional] Status tag color                   | `StatusTagStatus.DEFAULT \| StatusTagStatus.ERROR \| StatusTagStatus.NEUTRAL \| StatusTagStatus.SUCCESS \| StatusTagStatus.WARNING` | `StatusTagStatus.DEFAULT` |
 | `text`       | `text`       | [optional] Status tag text                    | `string`                                                                                                                            | `undefined`               |
-| `variant`    | `variant`    | [optional] Status tag style                   | `ThemeVariant.dark \| ThemeVariant.light`                                                                                           | `undefined`               |
+| `variant`    | `variant`    | [optional] Status tag style                   | `ThemeVariant.DARK \| ThemeVariant.LIGHT`                                                                                           | `undefined`               |
 
 ## Dependencies
 

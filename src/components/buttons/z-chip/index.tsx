@@ -15,7 +15,7 @@ export class ZChip {
   icon?: string;
   /** z-chip size type, can be default, medium or small */
   @Prop({reflect: true})
-  type?: ZChipType = ZChipType.default;
+  type?: ZChipType = ZChipType.DEFAULT;
   /** z-chip interactive icon */
   @Prop({reflect: true})
   interactiveIcon?: string;
@@ -30,7 +30,7 @@ export class ZChip {
   }
 
   private getIconSize(): number {
-    return getDevice() !== DeviceEnum.desktop ? 22 : 14;
+    return getDevice() !== DeviceEnum.DESKTOP ? 22 : 14;
   }
 
   render(): HTMLButtonElement | HTMLDivElement {

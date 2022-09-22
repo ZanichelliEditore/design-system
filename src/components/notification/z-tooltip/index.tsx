@@ -17,7 +17,7 @@ import {PopoverPositions} from "../../../beans";
 export class ZTooltip {
   /** Tooltip position. */
   @Prop({reflect: true})
-  position: PopoverPositions = PopoverPositions.auto;
+  position: PopoverPositions = PopoverPositions.AUTO;
 
   /** Enable tooltip dark mode. */
   @Prop({reflect: true})

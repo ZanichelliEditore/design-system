@@ -52,14 +52,14 @@ it("Test ZPocket should receive pocketHeaderClick event", async () => {
 
   // Define a window.onCustomEvent function on the page.
   let headerClickCounter = 0;
-  await page.exposeFunction("onPocketHeaderClick", (e) => {
+  await page.exposeFunction("onPocketHeaderClick", () => {
     headerClickCounter++;
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const headerClickEvent = "pocketHeaderClick";
   page.evaluateOnNewDocument((headerClickEvent) => {
-    document.addEventListener(headerClickEvent, (e) => {
+    document.addEventListener(headerClickEvent, () => {
       window.onPocketHeaderClick();
     });
   }, headerClickEvent);

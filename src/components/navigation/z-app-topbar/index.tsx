@@ -11,7 +11,7 @@ import {mobileBreakpoint} from "../../../constants/breakpoints";
 export class ZAppTopbar {
   /** theme variant, default 'dark' */
   @Prop()
-  theme?: ThemeVariant = ThemeVariant.dark;
+  theme?: ThemeVariant = ThemeVariant.DARK;
   /** maximum width of topbar content */
   @Prop()
   contentMaxWidth?: number;
@@ -49,7 +49,7 @@ export class ZAppTopbar {
     return this.topbarLinks.map((link) => (
       <z-link
         htmlid={link.id}
-        textcolor={this.theme === ThemeVariant.light ? "black" : "white"}
+        textcolor={this.theme === ThemeVariant.LIGHT ? "black" : "white"}
         href={link.link}
         target={link.target}
         icon={this.isMobile ? link.icon : undefined}
@@ -93,8 +93,8 @@ export class ZAppTopbar {
             {this.showAppSwitcher && <z-app-switcher theme={this.theme} />}
             <div id="divider-container">
               <z-divider
-                orientation={DividerOrientation.vertical}
-                color={this.theme === ThemeVariant.light ? "gray800" : "color-white"}
+                orientation={DividerOrientation.VERTICAL}
+                color={this.theme === ThemeVariant.LIGHT ? "gray800" : "color-white"}
               />
             </div>
             <slot name="login"></slot>
