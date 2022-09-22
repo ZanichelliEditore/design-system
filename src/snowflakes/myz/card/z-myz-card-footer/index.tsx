@@ -15,21 +15,27 @@ export class ZMyzCardFooter {
   /** volume title */
   @Prop()
   titolo: string;
+
   /** authors name text */
   @Prop()
   autori: string;
+
   /** volume isbn */
   @Prop()
   isbn: string;
+
   /** faded status */
   @Prop()
   faded: boolean;
+
   /** card graphic variant (optional) */
   @Prop()
   cardtype?: LicenseTypeEnum;
+
   /** footer opened by default (optional) */
   @Prop()
   opened?: boolean = false;
+
   /** display footer custom slotted content */
   @Prop()
   customContent = false;

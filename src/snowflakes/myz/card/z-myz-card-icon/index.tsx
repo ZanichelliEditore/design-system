@@ -9,9 +9,11 @@ export class ZMyzCardIcon {
   /** icon name */
   @Prop()
   icon: string;
+
   /** disabled status flag */
   @Prop()
   isdisabled = false;
+
   /** description of the icon*/
   @Prop()
   ariaLabel?: string;

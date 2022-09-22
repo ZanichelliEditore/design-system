@@ -10,9 +10,11 @@ export class ZCookiebar {
   /** cookie policy link url  */
   @Prop()
   cookiepolicyurl: string;
+
   /** hide cookie bar (optional)  */
   @Prop()
   hide?: boolean;
+
   /** callback to handle ok button action (optional) */
   @Prop()
   callback?: () => unknown;
@@ -20,6 +22,7 @@ export class ZCookiebar {
   /** emitted on ACCETTA button click, returns event */
   @Event()
   accept: EventEmitter;
+
   private emitAccept(ev: MouseEvent | KeyboardEvent): void {
     this.accept.emit({ev});
   }
@@ -72,6 +75,7 @@ export class ZCookiebar {
       </div>
     );
   }
+
   render(): HTMLZCandybarElement {
     return <z-candybar class={`${this.hide ? "hidden" : ""}`}>{this.renderContentSlot()}</z-candybar>;
   }

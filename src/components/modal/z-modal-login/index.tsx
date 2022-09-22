@@ -21,15 +21,19 @@ export class ZModalLogin {
   /** Forgot Password Url */
   @Prop()
   forgotPasswordUrl: string;
+
   /** Login modal title */
   @Prop()
   heading?: string = "Entra in MyZanichelli";
+
   /** Username/password input status */
   @Prop({mutable: true})
   status?: InputStatusEnum;
+
   /** Username helper message */
   @Prop()
   message?: string;
+
   /** Password helper message */
   @Prop()
   pwdmessage?: string;
@@ -44,6 +48,7 @@ export class ZModalLogin {
   /** Emitted on login submit */
   @Event()
   loginSubmit: EventEmitter;
+
   private emitLoginSubmit(): void {
     const usernameInput = this.hostElement.querySelector("z-input#username") as HTMLZInputElement;
     const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
@@ -71,6 +76,7 @@ export class ZModalLogin {
   /** Emitted on status update */
   @Event()
   statusUpdate: EventEmitter;
+
   private emitStatusUpdate(status: InputStatusEnum): void {
     this.statusUpdate.emit(status);
   }
@@ -78,6 +84,7 @@ export class ZModalLogin {
   /** Emitted on signup button click */
   @Event()
   signupClick: EventEmitter;
+
   private emitSignupClick(): void {
     this.signupClick.emit();
   }
@@ -85,6 +92,7 @@ export class ZModalLogin {
   /** Emitted on zaino digitale button click */
   @Event()
   zainoDigitaleClick: EventEmitter;
+
   private emitZainoDigitaleClick(): void {
     this.zainoDigitaleClick.emit();
   }

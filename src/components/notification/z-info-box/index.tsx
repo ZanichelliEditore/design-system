@@ -12,6 +12,7 @@ export class ZInfoBox {
   /** info box unique id */
   @Prop()
   boxid: string;
+
   /** render close icon flag */
   @Prop()
   isclosable = true;
@@ -19,6 +20,7 @@ export class ZInfoBox {
   /** emitted on close icon click */
   @Event()
   infoBoxClose: EventEmitter;
+
   private emitInfoBoxClose(): void {
     this.infoBoxClose.emit({boxid: this.boxid});
   }

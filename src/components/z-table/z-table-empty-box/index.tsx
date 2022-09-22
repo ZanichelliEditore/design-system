@@ -20,6 +20,7 @@ export class ZTableEmptyBox {
 
   /** Checks if cta1 or cta2 slots exist */
   private hasCta1Slot: boolean;
+
   private hasCta2Slot: boolean;
 
   componentWillLoad(): void {

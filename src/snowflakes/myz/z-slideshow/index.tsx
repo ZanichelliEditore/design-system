@@ -26,12 +26,14 @@ export class ZSlideshow {
   /** slideshow id */
   @Prop()
   slideshowid: string;
+
   /** array or JSON stringified images urls */
   @Prop()
   data: string[] | string;
 
   @State()
   device: DeviceType;
+
   @State()
   currentSlide = 0;
 

@@ -10,19 +10,23 @@ export class ZOtp {
   /** Input number */
   @Prop()
   inputNum?: number = 6;
+
   /** Input status */
   @Prop()
   status?: InputStatusEnum;
+
   /** Input message */
   @Prop()
   message?: string;
 
   private otp: string[];
+
   private otpRef: HTMLInputElement[];
 
   /** Otp change event */
   @Event()
   otpChange: EventEmitter;
+
   private emitInputChange(value: string): void {
     this.otpChange.emit({value});
   }

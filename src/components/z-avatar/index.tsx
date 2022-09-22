@@ -11,15 +11,19 @@ export class ZAvatar {
   /** [optional] Avatar size */
   @Prop()
   size?: AvatarSize = AvatarSize.MEDIUM;
+
   /** [optional] Avatar text */
   @Prop()
   text?: string;
+
   /** [optional] Avatar text color */
   @Prop()
   textColor?: string = "text-white";
+
   /** [optional] Avatar background color */
   @Prop()
   backgroundColor?: string = "bg-grey-700";
+
   /** [optional] Avatar image */
   @Prop({mutable: true})
   image?: string;

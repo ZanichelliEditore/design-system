@@ -10,12 +10,15 @@ export class ZMyzCardAlert {
   /** icon name */
   @Prop()
   iconname: string;
+
   /** content text */
   @Prop()
   contenttext: string;
+
   /** action button text */
   @Prop()
   actiontext?: string;
+
   /** alert variant type */
   @Prop()
   type: string;
@@ -23,6 +26,7 @@ export class ZMyzCardAlert {
   /** undo action click/keyboard event, returns actionType */
   @Event()
   undoAction: EventEmitter;
+
   private emitUndoAction(): void {
     this.undoAction.emit({actionType: this.type});
   }

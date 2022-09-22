@@ -9,15 +9,19 @@ export class ZButtonFilter {
   /** filter text content */
   @Prop()
   filtername: string;
+
   /** disable action on button */
   @Prop()
   isfixed = false;
+
   /** add icon to button */
   @Prop()
   hasicon = true;
+
   /** filter id */
   @Prop()
   filterid: string;
+
   /** reduce button size (optional) */
   @Prop()
   issmall?: boolean = false;

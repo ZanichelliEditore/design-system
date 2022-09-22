@@ -13,12 +13,15 @@ export class ZToggleSwitch {
   /** Disabled flag */
   @Prop({reflect: true})
   disabled?: boolean = false;
+
   /** Label position */
   @Prop({reflect: true})
   labelPosition? = LabelPositions.LEFT;
+
   /** Checked state */
   @Prop({mutable: true})
   checked?: boolean = false;
+
   /** HTML id attribute to set to the internal checkbox */
   @Prop()
   htmlid = `toggle-switch-id-${randomId()}`;
@@ -26,6 +29,7 @@ export class ZToggleSwitch {
   /** Toggle click event */
   @Event()
   toggleClick: EventEmitter;
+
   private emitToggleClick(): void {
     this.toggleClick.emit({
       id: this.htmlid,

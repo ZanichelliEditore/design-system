@@ -13,9 +13,11 @@ export class ZMessagesPocket {
   /** pocket id */
   @Prop()
   pocketid: string;
+
   /** number of messages */
   @Prop()
   messages: number;
+
   /** pocket status */
   @Prop({mutable: true})
   status: PocketStatus = PocketStatusEnum.PREVIEW;

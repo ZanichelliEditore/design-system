@@ -15,6 +15,7 @@ export class ZPocket {
   /** pocket id */
   @Prop()
   pocketid: string;
+
   /** pocket status */
   @Prop({mutable: true})
   status: PocketStatus = PocketStatusEnum.PREVIEW;
@@ -34,6 +35,7 @@ export class ZPocket {
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event()
   pocketToggle: EventEmitter;
+
   private emitPocketToggle(id: string, status: PocketStatus): void {
     this.pocketToggle.emit({id, status});
   }

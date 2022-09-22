@@ -13,18 +13,23 @@ export class ZPaginationBar {
   /** pages number */
   @Prop()
   pages: number;
+
   /** number of visible pages*/
   @Prop()
   visiblepages: number;
+
   /** current displayed page (mutable) */
   @Prop({mutable: true})
   currentpage = 1;
+
   /** initial page (mutable) */
   @Prop({mutable: true})
   startpage = 1;
+
   /** json stringified history of visited pages (optional) */
   @Prop()
   historyraw?: string;
+
   /** array of history of visited pages (mutable, optional) */
   @Prop({mutable: true})
   listhistoryrow?: number[] = [];
@@ -33,6 +38,7 @@ export class ZPaginationBar {
   currentPages: number[] = [];
 
   private velocityConstantMultiplier = 2;
+
   private bar: HTMLElement;
 
   constructor() {
@@ -88,6 +94,7 @@ export class ZPaginationBar {
   /** emitted on page number click, returns page*/
   @Event()
   goToPage: EventEmitter;
+
   private emitGoToPage(page): void {
     this.currentpage = page;
     this.goToPage.emit({page: page});
@@ -97,6 +104,7 @@ export class ZPaginationBar {
   /** emitted on start page change, returns startpage*/
   @Event()
   changeStartPage: EventEmitter;
+
   private emitChangeStartPage(startpage): void {
     this.startpage = startpage;
     this.changeStartPage.emit({startpage: startpage});
@@ -123,6 +131,7 @@ export class ZPaginationBar {
   private canNavigateLeft(): boolean {
     return this.startpage > 1;
   }
+
   private canNavigateRight(): boolean {
     return this.startpage + this.visiblepages - 1 < this.pages;
   }

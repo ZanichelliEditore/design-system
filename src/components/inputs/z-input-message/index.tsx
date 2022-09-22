@@ -11,6 +11,7 @@ export class ZInputMessage {
   /** input helper message */
   @Prop()
   message: string;
+
   /** input status (optional) */
   @Prop({reflect: true})
   status?: InputStatusEnum;

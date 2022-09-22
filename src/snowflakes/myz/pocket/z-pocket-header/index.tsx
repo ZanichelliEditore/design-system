@@ -20,6 +20,7 @@ export class ZPocketHeader {
   /** Emitted on pocket header click */
   @Event()
   pocketHeaderClick: EventEmitter;
+
   private emitPocketHeaderClick(): void {
     this.pocketHeaderClick.emit({id: this.pocketid});
   }
@@ -27,6 +28,7 @@ export class ZPocketHeader {
   /** Emitted on pocket header pan */
   @Event()
   pocketHeaderPan: EventEmitter;
+
   private emitPocketHeaderPan(direction: string): void {
     this.pocketHeaderPan.emit({id: this.pocketid, direction});
   }

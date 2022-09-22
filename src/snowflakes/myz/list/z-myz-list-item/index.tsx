@@ -10,21 +10,27 @@ export class ZMyzListItem {
   /** content text */
   @Prop()
   text: string;
+
   /** link url (optional) */
   @Prop()
   link?: string;
+
   /** link target (optional) */
   @Prop()
   linktarget?: string = "_self";
+
   /** icon name (optional) */
   @Prop()
   icon?: string;
+
   /** id (optional) */
   @Prop()
   listitemid?: string;
+
   /** data-action attribute (optional) */
   @Prop()
   action?: string;
+
   /** underlined style flag */
   @Prop()
   underlined = true;
@@ -32,6 +38,7 @@ export class ZMyzListItem {
   /** emitted on list item link click, returns linkId */
   @Event()
   zListItemLinkClick: EventEmitter;
+
   private emitZListItemLinkClick(e: MouseEvent, linkId): void {
     this.zListItemLinkClick.emit({e, linkId});
   }
@@ -39,6 +46,7 @@ export class ZMyzListItem {
   /** emitted on list item click, returns listitemid */
   @Event()
   zListItemClick: EventEmitter;
+
   private emitZListItemClick(e: MouseEvent, listitemid): void {
     this.zListItemClick.emit({e, listitemid});
   }

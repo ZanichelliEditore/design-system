@@ -10,6 +10,7 @@ export class ZDragdropArea {
   /** Emitted when user drop one or more files */
   @Event()
   fileDropped: EventEmitter;
+
   private fileDroppedHandler(files: FileList): void {
     this.fileDropped.emit(files);
   }

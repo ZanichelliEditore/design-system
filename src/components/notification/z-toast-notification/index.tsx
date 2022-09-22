@@ -20,45 +20,59 @@ export class ZToastNotification {
   /** toast notification's title */
   @Prop()
   heading?: string;
+
   /** toast notification's message */
   @Prop()
   message: string;
+
   /** toggles closing button rendering */
   @Prop()
   closebutton: boolean;
+
   /** toast notification closing timeout (ms) */
   @Prop()
   autoclose?: number;
+
   /** toast notification autoclose can be paused */
   @Prop()
   pauseonfocusloss?: boolean = true;
+
   /** toast notification type:  dark, light, accent, error, success, warning*/
   @Prop()
   type?: ToastNotificationTypes;
+
   /** toast notification can be draggable*/
   @Prop()
   isdraggable?: boolean = true;
+
   /** toast notification draggable percentage*/
   @Prop()
   draggablepercentage?: number = 80;
+
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop()
   transition?: ToastNotificationTransitionTypes;
 
   @State()
   percentage: number;
+
   @State()
   isTextLong: boolean;
 
   private container!: HTMLElement;
+
   private toastText!: HTMLElement;
 
   private sliderManager: HammerManager;
 
   private elapsedTime: number;
+
   private timeoutHandle: number;
+
   private startTime: number;
+
   private isMobile: boolean;
+
   private isCloseEventCalled = false;
 
   @Watch("isdraggable")
@@ -90,6 +104,7 @@ export class ZToastNotification {
   /** notification close event */
   @Event()
   toastClose: EventEmitter;
+
   private emitToastClose(cssClass: string): void {
     this.timeoutHandle = null;
     this.elapsedTime = null;

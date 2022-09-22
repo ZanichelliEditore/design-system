@@ -17,33 +17,41 @@ export class ZRangePicker {
   /** unique id */
   @Prop()
   rangePickerId: string;
+
   /** first z-input aria label */
   @Prop()
   firstAriaLabel?: string;
+
   /** first z-input label */
   @Prop()
   firstLabel?: string;
+
   /** second z-input aria label */
   @Prop()
   secondAriaLabel?: string;
+
   /** second z-input label */
   @Prop()
   secondLabel?: string;
+
   /** [Optional] datepicker mode: date or datetime */
   @Prop()
   mode: ZRangePickerMode = ZRangePickerMode.DATE;
 
   @State()
   flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
+
   @State()
   activeInput = "start-input";
 
   @State()
   firstInputError = false;
+
   @State()
   lastInputError = false;
 
   private firstPicker;
+
   private lastPicker;
 
   /** emitted when date changes, returns an array with the two selected dates */

@@ -15,18 +15,23 @@ export class ZMenuSection {
   /** Active state */
   @Prop({reflect: true})
   active?: boolean;
+
   @State()
   open: boolean;
+
   @State()
   hasContent: boolean;
+
   @Element() hostElement: HTMLZMenuSectionElement;
 
   /** The section has been opened. */
   @Event()
   opened: EventEmitter;
+
   /** The section has been closed. */
   @Event()
   closed: EventEmitter;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;

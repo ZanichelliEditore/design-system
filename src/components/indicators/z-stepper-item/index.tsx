@@ -11,16 +11,19 @@ export class ZStepperItem {
    */
   @Prop({attribute: "index"})
   index: number;
+
   /**
    * The href to navigate on click.
    */
   @Prop({attribute: "href"})
   href: string;
+
   /**
    * The pressed state of the item.
    */
   @Prop({attribute: "pressed"})
   pressed: boolean;
+
   /**
    * The disabled state of the item.
    */

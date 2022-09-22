@@ -9,12 +9,15 @@ export class ZToggleButton {
   /** label text */
   @Prop()
   label: string;
+
   /** disabled status flag (optional) */
   @Prop()
   isdisabled?: boolean = false;
+
   /** avoidclick status flag */
   @Prop()
   avoidclick: boolean;
+
   /** open by default (optional) */
   @Prop({mutable: true})
   opened?: boolean = false;
@@ -22,6 +25,7 @@ export class ZToggleButton {
   /** emitted on toggle button click, returns isOpen */
   @Event()
   toggleClick: EventEmitter;
+
   private emitToggleClick(): void {
     if (this.isdisabled) return;
 

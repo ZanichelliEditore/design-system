@@ -12,15 +12,19 @@ export class ZAppTopbar {
   /** theme variant, default 'dark' */
   @Prop()
   theme?: ThemeVariant = ThemeVariant.DARK;
+
   /** maximum width of topbar content */
   @Prop()
   contentMaxWidth?: number;
+
   /** JSON string or MenuItem array to define topbar links */
   @Prop()
   topbarContent?: string | MenuItem[];
+
   /** link URL used by z-logo */
   @Prop()
   logoLink?: string;
+
   /** add app-switcher */
   @Prop()
   showAppSwitcher: boolean;

@@ -14,9 +14,11 @@ export class ZMyzCardHeader {
   /** volume title */
   @Prop()
   titolo: string;
+
   /** faded status */
   @Prop()
   faded: boolean;
+
   /** card graphic variant (optional) */
   @Prop()
   cardtype?: LicenseTypeEnum;

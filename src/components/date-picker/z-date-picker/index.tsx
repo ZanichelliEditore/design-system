@@ -21,24 +21,29 @@ export class ZDatePicker {
   /** z-input aria label */
   @Prop()
   ariaLabel?: string;
+
   /** z-input label */
   @Prop()
   label?: string;
+
   /** [Optional] datepicker mode: date, datetime, only months */
   @Prop()
   mode: ZDatePickerMode = ZDatePickerMode.DATE;
 
   @State()
   flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
+
   @State()
   inputError = false;
 
   private picker;
+
   private hasChildren: boolean;
 
   /** emitted when date changes, returns selected date */
   @Event()
   dateSelect: EventEmitter;
+
   private emitDateSelect(date): void {
     this.dateSelect.emit(date);
   }

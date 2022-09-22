@@ -12,9 +12,11 @@ export class ZMenuDropdown {
   /** user name text */
   @Prop()
   nomeutente: string;
+
   /** Json stringified or array to fill menu dropdown */
   @Prop()
   menucontent: string | MenuItem[];
+
   /** unique button id */
   @Prop()
   buttonid: string;

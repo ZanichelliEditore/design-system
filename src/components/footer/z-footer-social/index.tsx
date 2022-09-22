@@ -9,9 +9,11 @@ export class ZFooterSocial {
   /** icon url */
   @Prop()
   icon: string;
+
   /** social link */
   @Prop()
   href: string;
+
   /** social description */
   @Prop()
   description?: string;

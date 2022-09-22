@@ -93,6 +93,7 @@ export class ZFileUpload {
   /** Emitted when user select one or more files */
   @Event()
   fileInput: EventEmitter;
+
   private fileInputHandler(): void {
     if (this.input.files.length) {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));

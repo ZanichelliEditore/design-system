@@ -75,11 +75,13 @@ export class ZAppHeader {
    */
   @Event()
   sticking: EventEmitter;
+
   private emitStickingEvent(): void {
     this.sticking.emit(this.stucked);
   }
 
   private container?: HTMLDivElement;
+
   private menuElements?: NodeListOf<HTMLElement>;
 
   private observer?: IntersectionObserver =

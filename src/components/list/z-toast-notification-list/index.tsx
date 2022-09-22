@@ -9,9 +9,11 @@ import {ToastNotificationPositionsEnum} from "../../../beans";
 })
 export class ZToastNotificationList {
   @Element() hostElement: HTMLZToastNotificationListElement;
+
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
   @Prop()
   position: ToastNotificationPositionsEnum;
+
   /**Set the entry position of new notification in the list */
   @Prop()
   newestontop?: boolean = true;

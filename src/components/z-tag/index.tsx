@@ -17,6 +17,7 @@ export class ZTag {
   /** [optional] Tag icon */
   @Prop()
   icon?: string;
+
   /** [optional] Hide the text and show it on hover*/
   @Prop()
   expandable?: boolean;

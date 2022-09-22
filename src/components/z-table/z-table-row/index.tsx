@@ -19,6 +19,7 @@ export class ZTableRow {
   /** Row has been expanded */
   @Event()
   expand: EventEmitter;
+
   private emitOnExpand(): void {
     this.expand.emit({expanded: this.expanded});
   }

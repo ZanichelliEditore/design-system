@@ -15,76 +15,99 @@ export class ZInput {
   /** the id of the input element */
   @Prop()
   htmlid = `id-${randomId()}`;
+
   /** input types */
   @Prop()
   type: InputTypeEnum;
+
   /** the input name */
   @Prop()
   name?: string;
+
   /** the input label */
   @Prop()
   label?: string;
+
   /** the input aria-label */
   @Prop()
   ariaLabel?: string;
+
   /** the input value */
   @Prop({mutable: true})
   value?: string;
+
   /** the input is disabled */
   @Prop({reflect: true})
   disabled?: boolean = false;
+
   /** the input is readonly */
   @Prop()
   readonly?: boolean = false;
+
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
   @Prop()
   required?: boolean = false;
+
   /** checked: available for checkbox, radio */
   @Prop({mutable: true})
   checked?: boolean = false;
+
   /** the input placeholder (optional) */
   @Prop()
   placeholder?: string;
+
   /** the input html title (optional) */
   @Prop()
   htmltitle?: string;
+
   /** the input status (optional): available for text, password, number, email, textarea */
   @Prop()
   status?: InputStatusEnum;
+
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   @Prop()
   message?: string | boolean = true;
+
   /** the input label position: available for checkbox, radio */
   @Prop()
   labelPosition? = LabelPositions.RIGHT;
+
   /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop()
   autocomplete?: string;
+
   /** render clear icon when typing (optional): available for text */
   @Prop()
   hasclearicon?: boolean = true;
+
   /** render icon (optional): available for text */
   @Prop()
   icon?: string;
+
   /** min number value (optional): available for number */
   @Prop()
   min?: number;
+
   /** max number value (optional): available for number */
   @Prop()
   max?: number;
+
   /** step number value (optional): available for number */
   @Prop()
   step?: number;
+
   /** pattern value (optional): available for tel, text, search, url, email, password*/
   @Prop()
   pattern?: string;
 
   @State()
   isTyping = false;
+
   @State()
   passwordHidden = true;
 
   private timer;
+
   private typingtimeout = 300;
 
   @Listen("inputCheck", {target: "document"})
@@ -115,6 +138,7 @@ export class ZInput {
   /** Emitted on input value change, returns value, validity */
   @Event()
   inputChange: EventEmitter;
+
   private emitInputChange(value: string): void {
     if (!this.isTyping) this.emitStartTyping();
 
@@ -136,6 +160,7 @@ export class ZInput {
   /** Emitted when user starts typing */
   @Event()
   startTyping: EventEmitter;
+
   private emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
@@ -144,6 +169,7 @@ export class ZInput {
   /** Emitted when user stops typing, returns value, validity */
   @Event()
   stopTyping: EventEmitter;
+
   private emitStopTyping(value: string, validity: ValidityState): void {
     this.isTyping = false;
     this.stopTyping.emit({
@@ -155,6 +181,7 @@ export class ZInput {
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event()
   inputCheck: EventEmitter;
+
   private emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,

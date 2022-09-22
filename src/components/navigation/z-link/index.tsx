@@ -13,36 +13,47 @@ export class ZLink {
   /** link id (optional) */
   @Prop()
   htmlid?: string;
+
   /** link url (optional) */
   @Prop()
   href?: string;
+
   /** link target (optional) */
   @Prop()
   target?: string = "_self";
+
   /** tabindex link attribute (optional) */
   @Prop()
   htmltabindex?: number = 0;
+
   /** disable link flag (optional) */
   @Prop()
   isdisabled?: boolean = false;
+
   /** active link flag (optional) */
   @Prop()
   isactive?: boolean = false;
+
   /** white variant flag (optional) */
   @Prop()
   iswhite?: boolean = false;
+
   /** link text variant (optional) */
   @Prop()
   textcolor?: "primary" | "inverse" | "white" | "black" = "primary";
+
   /** link icon name (optional) */
   @Prop()
   icon?: string;
+
   /** big link version */
   @Prop()
   big?: boolean = false;
+
   /** link icon position (optional) */
   @Prop()
   iconposition?: "left" | "right" = "left";
+
   /** draw underline on text (optional) */
   @Prop()
   underline?: boolean = false;

@@ -14,12 +14,15 @@ export class ZModal {
   /** unique id */
   @Prop()
   modalid: string;
+
   /** title text (optional) */
   @Prop()
   modaltitle?: string;
+
   /** subtitle (optional) */
   @Prop()
   modalsubtitle?: string;
+
   /** aria-label for close button (optional) */
   @Prop()
   closeButtonLabel?: string = "close modal";
@@ -27,6 +30,7 @@ export class ZModal {
   /** emitted on close button click, returns modalid */
   @Event()
   modalClose: EventEmitter;
+
   private emitModalClose(): void {
     this.modalClose.emit({modalid: this.modalid});
   }
@@ -34,6 +38,7 @@ export class ZModal {
   /** emitted on modal header click, returns modalid */
   @Event()
   modalHeaderActive: EventEmitter;
+
   private emitModalHeaderActive(): void {
     this.modalHeaderActive.emit({modalid: this.modalid});
   }
@@ -41,6 +46,7 @@ export class ZModal {
   /** emitted on background click, returns modalid */
   @Event()
   modalBackgroundClick: EventEmitter;
+
   private emitBackgroundClick(): void {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }

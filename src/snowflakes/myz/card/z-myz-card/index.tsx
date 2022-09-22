@@ -13,12 +13,15 @@ export class ZMyzCardComponent {
   /** faded status */
   @Prop()
   faded: boolean;
+
   /** graphic variant (optional) */
   @Prop()
   cardtype?: LicenseTypeEnum;
+
   /** pressed status */
   @Prop()
   ispressed = false;
+
   /** highlighted status */
   @Prop()
   ishighlighted = false;

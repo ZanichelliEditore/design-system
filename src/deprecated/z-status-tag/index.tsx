@@ -11,15 +11,19 @@ export class ZStatusTag {
   /** [optional] Status tag icon */
   @Prop()
   icon?: string;
+
   /** [optional] Status tag text */
   @Prop()
   text?: string;
+
   /** [optional] Hide the text and show it on hover*/
   @Prop()
   expandable?: boolean;
+
   /** [optional] Status tag color */
   @Prop({reflect: true})
   status?: StatusTagStatus = StatusTagStatus.DEFAULT;
+
   /** [optional] Status tag style */
   @Prop()
   variant?: ThemeVariant;

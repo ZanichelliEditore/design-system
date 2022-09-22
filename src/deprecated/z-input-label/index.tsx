@@ -9,9 +9,11 @@ export class ZInputLabel {
   /** the label value */
   @Prop()
   value: string;
+
   /** the label is disabled */
   @Prop()
   disabled?: boolean = false;
+
   /** the label is attached to */
   @Prop()
   htmlfor?: string;

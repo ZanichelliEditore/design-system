@@ -52,6 +52,7 @@ export class ZTableHeader {
   /** [Optional] callback for sorting */
   @Event()
   sort: EventEmitter;
+
   private emitOnSort(): void {
     this.sort.emit({
       columnId: this.columnId,

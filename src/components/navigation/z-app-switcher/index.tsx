@@ -10,6 +10,7 @@ export class ZAppSwitcher {
   /** theme variant, default 'dark' */
   @Prop()
   theme?: ThemeVariant = ThemeVariant.DARK;
+
   @State()
   isopen = false;
 
@@ -20,6 +21,7 @@ export class ZAppSwitcher {
   /** emitted on app button icon click, returns open/closed state */
   @Event()
   appButtonClick: EventEmitter;
+
   private emitAppButtonClick(): void {
     this.isopen = !this.isopen;
     this.appButtonClick.emit({isopen: this.isopen});

@@ -16,6 +16,7 @@ export class ZMenu {
   /** Flag to set the active status of the menu. */
   @Prop({reflect: true})
   active?: boolean;
+
   /**
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
@@ -24,27 +25,34 @@ export class ZMenu {
    */
   @Prop({reflect: true})
   floating? = false;
+
   /**
    * The opening state of the menu.
    * @default false
    */
   @Prop({mutable: true, reflect: true})
   open = false;
+
   @State()
   hasHeader: boolean;
+
   @State()
   hasContent: boolean;
+
   @Element() hostElement: HTMLZMenuElement;
 
   private content: HTMLElement;
+
   private raf: number;
 
   /** The menu has been opened. */
   @Event()
   opened: EventEmitter;
+
   /** The menu has been closed. */
   @Event()
   closed: EventEmitter;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;

@@ -13,6 +13,7 @@ export class ZPocketBody {
   /** pocket id */
   @Prop()
   pocketid: string;
+
   /** pocket status */
   @Prop({mutable: true})
   status: PocketStatus = PocketStatusEnum.PREVIEW;

@@ -12,26 +12,33 @@ export class ZUserDropdown {
   /** logged status flag */
   @Prop()
   logged?: boolean;
+
   /** user full name */
   @Prop()
   userFullName?: string;
+
   /** user email */
   @Prop()
   userEmail?: string;
+
   /** Json stringified or array to fill menu dropdown */
   @Prop()
   menuContent?: string | MenuItem[];
+
   /** if inner components colors are inverted, or not, default false */
   @Prop()
   useInverseColors?: boolean = false;
 
   @State()
   isMenuOpen = false;
+
   @State()
   isMobile: boolean;
 
   private linkArray: MenuItem[];
+
   private userButton!: HTMLButtonElement;
+
   private divToResize!: HTMLDivElement;
 
   constructor() {
@@ -68,6 +75,7 @@ export class ZUserDropdown {
   /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   @Event()
   userButtonClick: EventEmitter;
+
   private emitUserButtonClick(): void {
     this.userButtonClick.emit(this.isMenuOpen);
   }
@@ -75,6 +83,7 @@ export class ZUserDropdown {
   /** Emitted on dropdown menu zlink click, returns event */
   @Event()
   dropdownMenuLinkClick: EventEmitter;
+
   private emitDropdownMenuLinkClick(e: CustomEvent): void {
     this.isMenuOpen = false;
     this.dropdownMenuLinkClick.emit({e, linkId: e.detail.linkId});

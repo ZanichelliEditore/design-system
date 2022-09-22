@@ -9,6 +9,7 @@ export class ZChipDeprecated {
   /** Text with regular font weight */
   @Prop()
   regulartext?: string;
+
   /** Text with bold font weight */
   @Prop()
   boldtext?: number;

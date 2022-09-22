@@ -14,25 +14,31 @@ export class ZMyzCardInfo {
   /** dictionary info */
   @Prop()
   data: string | DictionaryData;
+
   /** tabindex link attribute (optional) */
   @Prop()
   htmltabindex?: number = 0;
 
   @State()
   hiddenContent = false;
+
   @State()
   tooltip = false;
 
   private cardData: DictionaryData;
 
   private contentWrapper: HTMLElement;
+
   private infoWrapper: HTMLElement;
+
   private onlineLicenseWrapper: HTMLElement;
+
   private offlineLicenseWrapper: HTMLElement;
 
   /** flip card to front */
   @Event()
   flipCard: EventEmitter;
+
   private emitFlipCard(showBack = false): void {
     this.flipCard.emit(showBack);
   }

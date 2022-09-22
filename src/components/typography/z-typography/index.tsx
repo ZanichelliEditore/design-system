@@ -10,12 +10,15 @@ export type ZTypographyLevels = "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" |
 })
 export class ZTypography {
   @Element() hostElement: HTMLZTypographyElement;
+
   /** Typography level */
   @Prop()
   level: ZTypographyLevels;
+
   /** Font weight variant */
   @Prop()
   variant: "regular" | "semibold" | "light" = "regular";
+
   /** HTML tag to use to wrap slotted content */
   @Prop()
   component: string;

@@ -9,18 +9,23 @@ export class ZPaginationPage {
   /** html id */
   @Prop()
   pageid: string;
+
   /** numeric page value (optional) */
   @Prop()
   value?: number;
+
   /** selected status flag */
   @Prop()
   isselected = false;
+
   /** disabled status flag */
   @Prop()
   isdisabled = false;
+
   /** visited status flag */
   @Prop()
   isvisited = false;
+
   /** aria-label string */
   @Prop()
   ariaLabel?: string;

@@ -12,57 +12,74 @@ export class ZCombobox {
   /** input unique id */
   @Prop()
   inputid: string;
+
   /** list items array */
   @Prop()
   items: ComboItemBean[] | string;
+
   /** label text */
   @Prop()
   label: string;
+
   /** show search input flag (optional) */
   @Prop()
   hassearch?: boolean = false;
+
   /** search input label text (optional) */
   @Prop()
   searchlabel?: string;
+
   /** search input placeholder text (optional) */
   @Prop()
   searchplaceholder?: string;
+
   /** search input title text (optional) */
   @Prop()
   searchtitle?: string;
+
   /** no result text message */
   @Prop()
   noresultslabel?: string = "Nessun risultato";
+
   /** toggle combo list opening flag */
   @Prop({mutable: true})
   isopen = false;
+
   /** fixed style flag */
   @Prop()
   isfixed = false;
+
   /** close combobox list text */
   @Prop()
   closesearchtext?: string = "Chiudi";
+
   /** show "check all" checkbox (optional) */
   @Prop()
   hascheckall?: boolean = false;
+
   /** check all label (optional) */
   @Prop()
   checkalltext?: string = "Seleziona tutti";
+
   /** uncheck all label (optional) */
   @Prop()
   uncheckalltext?: string = "Deseleziona tutti";
+
   /** max number of checkable items (0 = unlimited) */
   @Prop()
   maxcheckableitems = 0;
 
   @State()
   searchValue: string;
+
   @State()
   selectedCounter: number;
+
   @State()
   renderItemsList: ComboItemBean[] = []; // used for render only
 
   private itemsList: ComboItemBean[] = [];
+
   private inputType: InputTypeEnum = InputTypeEnum.TEXT;
 
   @Watch("items")
@@ -95,6 +112,7 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event()
   comboboxChange: EventEmitter;
+
   private emitComboboxChange(): void {
     this.comboboxChange.emit({id: this.inputid, items: this.itemsList});
   }

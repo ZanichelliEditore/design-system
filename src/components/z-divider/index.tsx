@@ -11,9 +11,11 @@ export class ZDivider {
   /** [optional] Divider size */
   @Prop()
   size?: DividerSize = DividerSize.SMALL;
+
   /** [optional] Divider color */
   @Prop()
   color?: string = "gray200";
+
   /** [optional] Divider orintation */
   @Prop()
   orientation?: DividerOrientation = DividerOrientation.HORIZONTAL;
