@@ -1,6 +1,5 @@
 import {Component, Prop, h, Host} from "@stencil/core";
 import {StatusTagStatus, ThemeVariant} from "../../beans";
-import classNames from "classnames";
 import {HostElement} from "@stencil/core/internal";
 
 @Component({
@@ -34,9 +33,11 @@ export class ZStatusTag {
   render(): HostElement {
     return (
       <Host
-        class={classNames(this.variant, "body-5-sb", {
-          expandable: this.expandable && this.icon && this.text,
-        })}
+        class={{
+          "body-5-sb": true,
+          [this.variant]: true,
+          "expandable": this.expandable && !!this.icon && !!this.text,
+        }}
       >
         {this.icon && <z-icon name={this.icon} />}
         {this.text && <span>{this.text}</span>}

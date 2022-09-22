@@ -1,6 +1,6 @@
 import {Component, Element, h, Host, Prop, State} from "@stencil/core";
 import {ButtonVariantEnum, ButtonSizeEnum, Size} from "../../../beans";
-import classNames from "classnames";
+import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-table-cell",
@@ -34,9 +34,10 @@ export class ZTableCell {
       <Host>
         {this.showButton && (
           <div
-            class={classNames("button-container", {
-              visible: this.isMenuOpened,
-            })}
+            class={{
+              "button-container": true,
+              "visible": this.isMenuOpened,
+            }}
           >
             <div class="button-content">
               <z-button
@@ -46,9 +47,10 @@ export class ZTableCell {
                 onClick={() => this.handleMenu()}
               />
               <div
-                class={classNames("contextual-menu-container", {
-                  visible: this.isMenuOpened,
-                })}
+                class={{
+                  "contextual-menu-container": true,
+                  "visible": this.isMenuOpened,
+                }}
               >
                 <slot name="contextual-menu" />
               </div>

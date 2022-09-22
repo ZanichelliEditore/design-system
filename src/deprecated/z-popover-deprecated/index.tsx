@@ -1,6 +1,5 @@
 import {Component, Prop, h, Host, State, Listen, Event, EventEmitter} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import classNames from "classnames";
 import {PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys} from "../../beans";
 import {getElementTree} from "../../utils/utils";
 
@@ -157,14 +156,14 @@ export class ZPopoverDeprecated {
         </div>
         <div
           ref={(e) => (this.popoverElem = e)}
-          class={classNames(
-            "popover-content-container",
-            this.popoverPosition,
-            `border-radius-${this.borderRadius}`,
-            this.boxShadow,
-            {"show-arrow": this.showArrow},
-            {visible: this.isVisible}
-          )}
+          class={{
+            "popover-content-container": true,
+            [this.popoverPosition]: true,
+            [`border-radius-${this.borderRadius}`]: true,
+            [this.boxShadow]: true,
+            "show-arrow": this.showArrow,
+            "visible": this.isVisible,
+          }}
           style={{
             backgroundColor: `var(--${this.backgroundColor})`,
             padding: this.padding,

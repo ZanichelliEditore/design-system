@@ -3,8 +3,6 @@ import {Component, Prop, Element, h, EventEmitter, Event, Listen, State, Watch} 
 import flatpickr from "flatpickr";
 import {Italian} from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
-import classNames from "classnames";
-
 import {InputTypeEnum, ZDatePickerMode, ZDatePickerPosition} from "../../../beans";
 import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
 
@@ -210,7 +208,7 @@ export class ZDatePicker {
           data-input="data-input"
           ariaLabel={this.ariaLabel}
           label={this.label}
-          class={classNames(this.datePickerId)}
+          class={this.datePickerId}
           type={InputTypeEnum.text}
           icon="event"
           message={false}
@@ -229,7 +227,13 @@ export class ZDatePicker {
 
   render(): HTMLDivElement {
     return (
-      <div class={classNames("flatpickr-toggle-container", this.flatpickrPosition, this.mode)}>
+      <div
+        class={{
+          "flatpickr-toggle-container": true,
+          [this.flatpickrPosition]: true,
+          [this.mode]: true,
+        }}
+      >
         {this.hasChildren ? this.renderSlottedContent() : this.renderZInput()}
       </div>
     );

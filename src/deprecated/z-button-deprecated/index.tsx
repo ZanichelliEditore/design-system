@@ -1,5 +1,4 @@
 import {Component, Prop, h, Element} from "@stencil/core";
-import classNames from "classnames";
 import {ButtonVariantBean, ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../beans";
 
 /**
@@ -53,7 +52,12 @@ export class ZButtonDeprecated {
           name={this.name}
           type={this.type}
           disabled={this.disabled}
-          class={classNames(this.variant, this.size, {issmall: this.issmall}, {square: this.square})}
+          class={{
+            [this.variant]: true,
+            [this.size]: true,
+            issmall: this.issmall,
+            square: this.square,
+          }}
         >
           {this.icon && (
             <z-icon

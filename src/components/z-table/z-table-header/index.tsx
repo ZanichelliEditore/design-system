@@ -1,6 +1,5 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import classNames from "classnames";
 import {
   ButtonSizeEnum,
   ButtonVariantEnum,
@@ -120,9 +119,9 @@ export class ZTableHeader {
   render(): HostElement {
     return (
       <Host
-        class={classNames({
+        class={{
           sortable: this.sortable,
-        })}
+        }}
         onClick={() => this.handleSort()}
       >
         <div class="container">

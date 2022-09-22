@@ -1,6 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import classNames from "classnames";
 
 @Component({
   tag: "z-table-empty-box",
@@ -48,9 +47,10 @@ export class ZTableEmptyBox {
         )}
         {(!!this.hasCta1Slot || !!this.hasCta2Slot) && (
           <div
-            class={classNames("cta", {
+            class={{
+              cta: true,
               has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot,
-            })}
+            }}
           >
             <slot name="cta1"></slot>
             <slot name="cta2"></slot>
