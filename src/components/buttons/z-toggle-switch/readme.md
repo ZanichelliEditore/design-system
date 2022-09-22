@@ -4,18 +4,18 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                | Default                          |
-| --------------- | ---------------- | ----------- | ------------------- | -------------------------------- |
-| `checked`       | `checked`        |             | `boolean`           | `false`                          |
-| `disabled`      | `disabled`       |             | `boolean`           | `false`                          |
-| `htmlid`        | `htmlid`         |             | `string`            | `toggle-switch-id-${randomId()}` |
-| `labelPosition` | `label-position` |             | `"left" \| "right"` | `LabelPositions.left`            |
+| Property        | Attribute        | Description                                       | Type                | Default                          |
+| --------------- | ---------------- | ------------------------------------------------- | ------------------- | -------------------------------- |
+| `checked`       | `checked`        | Checked state                                     | `boolean`           | `false`                          |
+| `disabled`      | `disabled`       | Disabled flag                                     | `boolean`           | `false`                          |
+| `htmlid`        | `htmlid`         | HTML id attribute to set to the internal checkbox | `string`            | `toggle-switch-id-${randomId()}` |
+| `labelPosition` | `label-position` | Label position                                    | `"left" \| "right"` | `LabelPositions.left`            |
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `toggleClick` |             | `CustomEvent<any>` |
+| Event         | Description        | Type               |
+| ------------- | ------------------ | ------------------ |
+| `toggleClick` | Toggle click event | `CustomEvent<any>` |
 
 ## Dependencies
 

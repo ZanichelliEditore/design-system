@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                                    | Type        | Default     |
-| ----------------- | ----------------- | ---------------------------------------------- | ----------- | ----------- |
-| `callback`        | --                | callback to handle ok button action (optional) | `() => any` | `undefined` |
-| `cookiepolicyurl` | `cookiepolicyurl` | cookie policy link url                         | `string`    | `undefined` |
-| `hide`            | `hide`            | hide cookie bar (optional)                     | `boolean`   | `undefined` |
+| Property          | Attribute         | Description                                    | Type            | Default     |
+| ----------------- | ----------------- | ---------------------------------------------- | --------------- | ----------- |
+| `callback`        | --                | callback to handle ok button action (optional) | `() => unknown` | `undefined` |
+| `cookiepolicyurl` | `cookiepolicyurl` | cookie policy link url                         | `string`        | `undefined` |
+| `hide`            | `hide`            | hide cookie bar (optional)                     | `boolean`       | `undefined` |
 
 ## Events
 

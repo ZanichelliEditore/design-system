@@ -4,15 +4,15 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                                                                                              | Default                      |
-| -------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `expandedType` | `expanded-type` |             | `ZTableRowExpandedType.expandable \| ZTableRowExpandedType.none \| ZTableRowExpandedType.padding` | `ZTableRowExpandedType.none` |
+| Property       | Attribute       | Description             | Type                                                                                              | Default                      |
+| -------------- | --------------- | ----------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
+| `expandedType` | `expanded-type` | Table row expanded type | `ZTableRowExpandedType.expandable \| ZTableRowExpandedType.none \| ZTableRowExpandedType.padding` | `ZTableRowExpandedType.none` |
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `expand` |             | `CustomEvent<any>` |
+| Event    | Description           | Type               |
+| -------- | --------------------- | ------------------ |
+| `expand` | Row has been expanded | `CustomEvent<any>` |
 
 ## Dependencies
 

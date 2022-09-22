@@ -2,8 +2,14 @@ import {Component, Prop, h, State, Element, Watch} from "@stencil/core";
 import {DeviceEnum, DeviceType} from "../../../beans";
 import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils";
 
-const isStringArray = (data: unknown): data is string[] =>
-  Array.isArray(data) && data.every((datum: unknown): datum is string => typeof datum === "string");
+/**
+ * Check if data is an array of strings.
+ * @param {unknown} data Data to check
+ * @returns {boolean}
+ */
+function isStringArray(data: unknown): data is string[] {
+  return Array.isArray(data) && data.every((datum: unknown): datum is string => typeof datum === "string");
+}
 
 /**
  * @slot footer-right - right content slot in footer

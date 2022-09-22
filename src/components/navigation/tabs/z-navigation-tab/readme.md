@@ -36,9 +36,9 @@
 
 ## Events
 
-| Event      | Description | Type               |
-| ---------- | ----------- | ------------------ |
-| `selected` |             | `CustomEvent<any>` |
+| Event      | Description                | Type               |
+| ---------- | -------------------------- | ------------------ |
+| `selected` | The tab has been selected. | `CustomEvent<any>` |
 
 ## Dependencies
 

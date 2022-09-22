@@ -1,7 +1,8 @@
 import {colorFromId} from "./utils/utils";
 
-export * from "./components";
-
-export const Utils = {
+const UTILS = {
   colorFromId,
 };
+
+export {UTILS as Utils};
+export * from "./components";

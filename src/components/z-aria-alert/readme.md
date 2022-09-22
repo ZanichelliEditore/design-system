@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default                 |
-| -------- | --------- | ----------- | -------- | ----------------------- |
-| `mode`   | `mode`    |             | `string` | `ZAriaAlertMode.polite` |
+| Property | Attribute | Description    | Type     | Default                 |
+| -------- | --------- | -------------- | -------- | ----------------------- |
+| `mode`   | `mode`    | Aria live mode | `string` | `ZAriaAlertMode.polite` |
 
 ---
 

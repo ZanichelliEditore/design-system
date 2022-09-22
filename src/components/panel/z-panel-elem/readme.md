@@ -32,23 +32,23 @@
 
 ## Properties
 
-| Property          | Attribute         | Description                       | Type      | Default     |
-| ----------------- | ----------------- | --------------------------------- | --------- | ----------- |
-| `descr_slot_name` | `descr_slot_name` | name of slot container (optional) | `string`  | `undefined` |
-| `elemid`          | `elemid`          | html element id (optional)        | `string`  | `undefined` |
-| `imgalt`          | `imgalt`          | alternative image text (optional) | `string`  | `undefined` |
-| `imgurl`          | `imgurl`          | image url source (optional)       | `string`  | `undefined` |
-| `isdisabled`      | `isdisabled`      | disabled status flag (optional)   | `boolean` | `false`     |
-| `linkicon`        | `linkicon`        | icon link name (optional)         | `string`  | `undefined` |
-| `linklabel`       | `linklabel`       | link label text                   | `string`  | `undefined` |
-| `target`          | `target`          | link target (optional)            | `string`  | `"_blank"`  |
-| `url`             | `url`             | link url                          | `string`  | `undefined` |
+| Property        | Attribute         | Description                       | Type      | Default     |
+| --------------- | ----------------- | --------------------------------- | --------- | ----------- |
+| `descrSlotName` | `descr-slot-name` | name of slot container (optional) | `string`  | `undefined` |
+| `elemid`        | `elemid`          | html element id (optional)        | `string`  | `undefined` |
+| `imgalt`        | `imgalt`          | alternative image text (optional) | `string`  | `undefined` |
+| `imgurl`        | `imgurl`          | image url source (optional)       | `string`  | `undefined` |
+| `isdisabled`    | `isdisabled`      | disabled status flag (optional)   | `boolean` | `false`     |
+| `linkicon`      | `linkicon`        | icon link name (optional)         | `string`  | `undefined` |
+| `linklabel`     | `linklabel`       | link label text                   | `string`  | `undefined` |
+| `target`        | `target`          | link target (optional)            | `string`  | `"_blank"`  |
+| `url`           | `url`             | link url                          | `string`  | `undefined` |
 
 ## Slots
 
-| Slot                  | Description         |
-| --------------------- | ------------------- |
-| `"`descr_slot_name`"` | description content |
+| Slot                | Description         |
+| ------------------- | ------------------- |
+| `"`descrSlotName`"` | description content |
 
 ## Dependencies
 

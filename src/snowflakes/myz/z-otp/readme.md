@@ -4,17 +4,17 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type                                | Default     |
-| ---------- | ----------- | ----------- | ----------------------------------- | ----------- |
-| `inputNum` | `input-num` |             | `number`                            | `6`         |
-| `message`  | `message`   |             | `string`                            | `undefined` |
-| `status`   | `status`    |             | `"error" \| "success" \| "warning"` | `undefined` |
+| Property   | Attribute   | Description   | Type                                | Default     |
+| ---------- | ----------- | ------------- | ----------------------------------- | ----------- |
+| `inputNum` | `input-num` | Input number  | `number`                            | `6`         |
+| `message`  | `message`   | Input message | `string`                            | `undefined` |
+| `status`   | `status`    | Input status  | `"error" \| "success" \| "warning"` | `undefined` |
 
 ## Events
 
-| Event       | Description | Type               |
-| ----------- | ----------- | ------------------ |
-| `otpChange` |             | `CustomEvent<any>` |
+| Event       | Description      | Type               |
+| ----------- | ---------------- | ------------------ |
+| `otpChange` | Otp change event | `CustomEvent<any>` |
 
 ## Dependencies
 

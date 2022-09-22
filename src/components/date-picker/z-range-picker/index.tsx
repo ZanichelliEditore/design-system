@@ -228,14 +228,6 @@ export class ZRangePicker {
     this.dateSelect.emit([firstDateString, lastDateString]);
   }
 
-  private getTime(): string {
-    const hour = (this.element.getElementsByClassName("flatpickr-hour")[0] as HTMLInputElement).value;
-
-    const minutes = (this.element.getElementsByClassName("flatpickr-minute")[0] as HTMLInputElement).value;
-
-    return `${hour}:${minutes}`;
-  }
-
   private getDateWithoutTime(date): Date {
     const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
     return newDate;
@@ -273,7 +265,7 @@ export class ZRangePicker {
   }
 
   /** Get the current focused input, first or last */
-  private getFocusedInput(): void | string {
+  private getFocusedInput(): string {
     const focusedZInput = document.activeElement.closest("z-input");
     if (!focusedZInput) {
       return;

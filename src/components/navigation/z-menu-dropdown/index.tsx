@@ -33,7 +33,7 @@ export class ZMenuDropdown {
     this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
   }
 
-  private renderMenuOpen(): void | HTMLUListElement {
+  private renderMenuOpen(): HTMLUListElement {
     if (this.ismenuopen) {
       return (
         <ul>

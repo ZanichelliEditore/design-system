@@ -1,7 +1,7 @@
 /**
  * Object containing SVG d path of `stroke` icons.
  */
-const strokeIcons = {
+const STROKE_ICONS = {
   "add-image":
     "M0 198C0 307 88 395 198 395C307 395 395 307 395 198C395 88 307 0 198 0C88 0 0 88 0 198ZM20 764V408H96V782H170V447H246V635L385 427C405 398 439 396 458 428L628 714L706 594C732 555 765 554 787 593L904 798V218H446V150H702V88H406V20H694C748 20 780 52 780 106V150H894C948 150 980 182 980 236V894C980 948 948 980 894 980H256C200 980 170 948 170 894V850H106C50 850 20 818 20 764ZM86 218V176H173V74H223V176H309V218H223V309H173V218ZM246 912H903L747 651L666 775C643 810 616 812 594 775L422 489L246 750ZM629 380C629 442 678 491 740 491C801 491 850 442 850 380C850 319 801 270 740 270C678 270 629 319 629 380ZM693 380C693 353 714 331 740 331C765 331 786 353 786 380C786 408 765 430 740 430C714 430 693 408 693 380Z",
   "app-switcher":
@@ -438,7 +438,7 @@ const strokeIcons = {
 /**
  * Object containing SVG d paths of `filled` icons.
  */
-const filledIcons = {
+const FILLED_ICONS = {
   "workplace-zanichelli-filled":
     "M202 408C329 408 408 327 408 202C408 79 329 0 202 0C78 0 0 79 0 202C0 327 78 408 202 408ZM645 458H1000V390H738L994 80V20H648V88H893L645 388ZM202 1000C329 1000 408 919 408 794C408 671 329 592 202 592C78 592 0 671 0 794C0 919 78 1000 202 1000ZM794 1000C921 1000 1000 919 1000 794C1000 671 921 592 794 592C670 592 592 671 592 794C592 919 670 1000 794 1000Z",
   "add-image-filled":
@@ -853,7 +853,7 @@ const filledIcons = {
 /**
  * Object containing SVG d path of `button` icons.
  */
-const buttonIcons = {
+const BUTTON_ICONS = {
   "assign-task-button":
     "M0 914Q0 955 22 977.5 44 1000 86 1000L914 1000Q955 1000 977.5 977.5 1000 955 1000 914L1000 87Q1000 38 977.5 19 955 0 897 0L99 0Q45 0 22.5 19 0 38 0 85ZM684 406L684 189 213 189 213 796 473 796 473 845 218 845Q191 845 175.5 829.5 160 814 160 787L160 198Q160 171 175.5 155.5 191 140 218 140L679 140Q706 140 721.5 155.5 737 171 737 198L737 406ZM306 320Q295 320 287.5 312.5 280 305 280 294 280 283 287.5 276 295 269 306 269 317 269 324 276 331 283 331 294 331 305 324 312.5 317 320 306 320ZM362 315L362 274 596 274 596 315ZM306 430Q295 430 287.5 422.5 280 415 280 404 280 393 287.5 386 295 379 306 379 317 379 324 386 331 393 331 404 331 415 324 422.5 317 430 306 430ZM362 425L362 384 536 384 536 425ZM306 540Q295 540 287.5 532.5 280 525 280 514 280 503 287.5 496 295 489 306 489 317 489 324 496 331 503 331 514 331 525 324 532.5 317 540 306 540ZM362 535L362 494 496 494 496 535ZM710 652Q669 652 644.5 632 620 612 620 575 620 537 644.5 516 669 495 710 495 750 495 775.5 516 801 537 801 575 801 612 775.5 632 750 652 710 652ZM306 650Q295 650 287.5 642.5 280 635 280 624 280 613 287.5 606 295 599 306 599 317 599 324 606 331 613 331 624 331 635 324 642.5 317 650 306 650ZM362 645L362 604 536 604 536 645ZM561 845Q563 783 575 747.5 587 712 614 695.5 641 679 690 679L730 679Q801 679 829 716.5 857 754 856 845Z",
   "atom-button":
@@ -892,39 +892,39 @@ const buttonIcons = {
     "M914 0Q955 0 977.5 22.5 1000 45 1000 86L1000 914Q1000 955 977.5 977.5 955 1000 914 1000L86 1000Q44 1000 22 977.5 0 955 0 914L0 86Q0 45 23 22.5 46 0 86 0ZM871 303Q871 262 847.5 241 824 220 781 220L602 220 602 175Q602 115 557 115 543 115 530 119L167 225Q144 231 135.5 245 127 259 127 283L127 716Q127 761 170 770L530 872Q542 875 554 875 602 875 602 819L602 771 786 771Q825 771 848 748.5 871 726 871 690ZM602 324L731 324 731 387 602 387ZM390 357L452 600 487 357 534 357 484 655 422 655 360 418 359 418 297 655 237 655 186 357 235 357 271 600 331 357ZM782 527L602 527 602 464 782 464ZM731 667L602 667 602 604 731 604Z",
 };
 
-export const icons = {
-  ...strokeIcons,
-  ...filledIcons,
-  ...buttonIcons,
+export const ICONS = {
+  ...STROKE_ICONS,
+  ...FILLED_ICONS,
+  ...BUTTON_ICONS,
 };
 
 // 0.x icons compatibility
-icons["ask-your-manager"] = icons["support"];
-icons["book-add"] = icons["book-plus"];
-icons["book-delete"] = icons["book-minus"];
-icons["cart"] = icons["shopping-cart"];
-icons["checkbox-selected"] = icons["checkbox-checked"];
-icons["checkbox-unchecked"] = icons["checkbox"];
-icons["circle-check"] = icons["checkmark-circle"];
-icons["circle-chevron-down"] = icons["chevron-down-circle"];
-icons["circle-chevron-left"] = icons["chevron-left-circle"];
-icons["circle-chevron-up"] = icons["chevron-right-circle"];
-icons["circle-cross-fill"] = icons["multiply-circle-filled"];
-icons["circle-cross-stroke"] = icons["multiply-circle"];
-icons["circle-cross"] = icons["multiply-circle-filled"];
-icons["circle-plus"] = icons["plus-circled"];
-icons["circle-warning"] = icons["exclamation-circle"];
-icons["drop-down"] = icons["caret-down"];
-icons["drop-up-down"] = icons["caret-up-down"];
-icons["external-link-down"] = icons["arrow-quad-down"];
-icons["external-link-left"] = icons["arrow-quad-left"];
-icons["external-link-right"] = icons["arrow-quad-right"];
-icons["external-link-right-up"] = icons["arrow-quad-north-east"];
-icons["folder"] = icons["open-file-folder"];
-icons["menu-burger"] = icons["burger-menu"];
-icons["question-mark"] = icons["question-mark-circle"];
-icons["user"] = icons["user-avatar"];
-icons["close"] = icons["multiply"];
-icons["cross"] = icons["multiply"];
-icons["exit"] = icons["logout"];
-icons["enter"] = icons["login"];
+ICONS["ask-your-manager"] = ICONS["support"];
+ICONS["book-add"] = ICONS["book-plus"];
+ICONS["book-delete"] = ICONS["book-minus"];
+ICONS["cart"] = ICONS["shopping-cart"];
+ICONS["checkbox-selected"] = ICONS["checkbox-checked"];
+ICONS["checkbox-unchecked"] = ICONS["checkbox"];
+ICONS["circle-check"] = ICONS["checkmark-circle"];
+ICONS["circle-chevron-down"] = ICONS["chevron-down-circle"];
+ICONS["circle-chevron-left"] = ICONS["chevron-left-circle"];
+ICONS["circle-chevron-up"] = ICONS["chevron-right-circle"];
+ICONS["circle-cross-fill"] = ICONS["multiply-circle-filled"];
+ICONS["circle-cross-stroke"] = ICONS["multiply-circle"];
+ICONS["circle-cross"] = ICONS["multiply-circle-filled"];
+ICONS["circle-plus"] = ICONS["plus-circled"];
+ICONS["circle-warning"] = ICONS["exclamation-circle"];
+ICONS["drop-down"] = ICONS["caret-down"];
+ICONS["drop-up-down"] = ICONS["caret-up-down"];
+ICONS["external-link-down"] = ICONS["arrow-quad-down"];
+ICONS["external-link-left"] = ICONS["arrow-quad-left"];
+ICONS["external-link-right"] = ICONS["arrow-quad-right"];
+ICONS["external-link-right-up"] = ICONS["arrow-quad-north-east"];
+ICONS["folder"] = ICONS["open-file-folder"];
+ICONS["menu-burger"] = ICONS["burger-menu"];
+ICONS["question-mark"] = ICONS["question-mark-circle"];
+ICONS["user"] = ICONS["user-avatar"];
+ICONS["close"] = ICONS["multiply"];
+ICONS["cross"] = ICONS["multiply"];
+ICONS["exit"] = ICONS["logout"];
+ICONS["enter"] = ICONS["login"];

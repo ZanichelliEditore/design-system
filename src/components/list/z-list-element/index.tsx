@@ -186,7 +186,7 @@ export class ZListElement {
    * Renders button to expand element.
    * @returns expadable button
    */
-  private renderExpandableButton(): void | HTMLZIconElement {
+  private renderExpandableButton(): HTMLZIconElement {
     if (!this.expandable) {
       return null;
     }

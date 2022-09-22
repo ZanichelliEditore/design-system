@@ -220,7 +220,7 @@ export class ZPagination {
    * Render chunked page buttons.
    * @returns {HTMLDivElement[]}
    */
-  private renderPages(): void | HTMLDivElement[] {
+  private renderPages(): HTMLDivElement[] {
     const pagesChunks = this.getPagesChunks();
     if (pagesChunks.length <= 0) {
       return;

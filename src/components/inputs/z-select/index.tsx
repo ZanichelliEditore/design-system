@@ -364,7 +364,7 @@ export class ZSelect {
     );
   }
 
-  private renderMessage(): void | HTMLZInputMessageElement {
+  private renderMessage(): HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (

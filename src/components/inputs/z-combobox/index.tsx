@@ -290,7 +290,7 @@ export class ZCombobox {
     );
   }
 
-  private renderCheckAll(): void | HTMLDivElement {
+  private renderCheckAll(): HTMLDivElement {
     if (this.searchValue) return;
 
     const allChecked = this.selectedCounter === this.itemsList.length;

@@ -56,8 +56,8 @@ export class ZMenu {
 
   @Listen("click", {target: "document"})
   /** Close the floating list when a click is performed outside of this Element. */
-  private handleClick(ev): void {
-    if (!this.floating || !this.open || this.hostElement.contains(ev.target)) {
+  handleClick(ev: MouseEvent): void {
+    if (!this.floating || !this.open || this.hostElement.contains(ev.target as Element)) {
       return;
     }
 

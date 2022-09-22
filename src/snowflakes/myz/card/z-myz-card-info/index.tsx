@@ -144,7 +144,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  private renderTooltip(): void | HTMLZPopoverElement {
+  private renderTooltip(): HTMLZPopoverElement {
     if (!this.tooltip) return;
 
     if (!this.cardData) return;
@@ -176,7 +176,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  private renderOnlineLicenseSection(): void | HTMLElement {
+  private renderOnlineLicenseSection(): HTMLElement {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
@@ -191,7 +191,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  private renderOfflineLicenseSection(): void | HTMLElement {
+  private renderOfflineLicenseSection(): HTMLElement {
     if (!this?.cardData?.offlineLicense) return;
 
     return (

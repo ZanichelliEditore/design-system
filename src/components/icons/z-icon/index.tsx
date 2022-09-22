@@ -1,5 +1,5 @@
 import {Component, Prop, h} from "@stencil/core";
-import {icons} from "../icons";
+import {ICONS} from "../icons";
 
 @Component({
   tag: "z-icon",
@@ -25,9 +25,9 @@ export class ZIcon {
 
   private selectPathOrPolygon(iconName: string): HTMLElement {
     if (iconName && iconName.startsWith("M")) {
-      return <path d={icons[this.name]}></path>;
+      return <path d={ICONS[this.name]}></path>;
     } else {
-      return <polygon points={icons[this.name]}></polygon>;
+      return <polygon points={ICONS[this.name]}></polygon>;
     }
   }
 
@@ -40,7 +40,7 @@ export class ZIcon {
         id={this.iconid}
         fill={this.fill ? `var(--${this.fill})` : ""}
       >
-        {this.selectPathOrPolygon(icons[this.name])}
+        {this.selectPathOrPolygon(ICONS[this.name])}
       </svg>
     );
   }

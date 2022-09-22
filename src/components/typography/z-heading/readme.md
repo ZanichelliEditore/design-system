@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                 | Default     |
-| ----------- | ----------- | ----------- | ------------------------------------ | ----------- |
-| `component` | `component` |             | `string`                             | `undefined` |
-| `level`     | `level`     |             | `1 \| 2 \| 3 \| 4`                   | `undefined` |
-| `variant`   | `variant`   |             | `"light" \| "regular" \| "semibold"` | `"regular"` |
+| Property    | Attribute   | Description                             | Type                                 | Default     |
+| ----------- | ----------- | --------------------------------------- | ------------------------------------ | ----------- |
+| `component` | `component` | HTML tag to use to wrap slotted content | `string`                             | `undefined` |
+| `level`     | `level`     | Typography level                        | `1 \| 2 \| 3 \| 4`                   | `undefined` |
+| `variant`   | `variant`   | Font weight variant                     | `"light" \| "regular" \| "semibold"` | `"regular"` |
 
 ## Dependencies
 

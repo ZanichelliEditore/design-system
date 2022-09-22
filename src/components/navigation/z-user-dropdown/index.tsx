@@ -155,7 +155,7 @@ export class ZUserDropdown {
     }
   }
 
-  private renderDropdownMenu(): void | HTMLUListElement {
+  private renderDropdownMenu(): HTMLUListElement {
     const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (

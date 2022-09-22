@@ -5,7 +5,7 @@ import {
   NavigationTabsSizes,
   NavigationTabsSize,
 } from "../../../../beans";
-import {icons} from "../../../icons/icons";
+import {ICONS} from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
@@ -102,7 +102,7 @@ export class ZNavigationTab {
     let icon = this.icon;
     const iconFilled = `${icon.replace(/-filled$/, "")}-filled`;
 
-    if (this.selected && Object.keys(icons).includes(iconFilled)) {
+    if (this.selected && Object.keys(ICONS).includes(iconFilled)) {
       icon = iconFilled;
     }
 

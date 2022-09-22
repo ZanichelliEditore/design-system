@@ -192,7 +192,7 @@ export class ZInput {
     };
   }
 
-  private getNumberAttributes(type: InputTypeBean): void | JSXBase.InputHTMLAttributes<HTMLInputElement> {
+  private getNumberAttributes(type: InputTypeBean): JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (type != InputTypeEnum.number) return;
     return {
       min: this.min,
@@ -201,7 +201,7 @@ export class ZInput {
     };
   }
 
-  private getPatternAttribute(type: InputTypeBean): void | JSXBase.InputHTMLAttributes<HTMLInputElement> {
+  private getPatternAttribute(type: InputTypeBean): JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (
       type != InputTypeEnum.password &&
       type != InputTypeEnum.text &&
@@ -245,7 +245,7 @@ export class ZInput {
     );
   }
 
-  private renderLabel(): void | HTMLLabelElement {
+  private renderLabel(): HTMLLabelElement {
     if (!this.label) return;
 
     return (
@@ -269,7 +269,7 @@ export class ZInput {
     );
   }
 
-  private renderIcon(): void | HTMLButtonElement {
+  private renderIcon(): HTMLButtonElement {
     if (this.type === InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
@@ -287,7 +287,7 @@ export class ZInput {
     );
   }
 
-  private renderResetIcon(): void | HTMLButtonElement {
+  private renderResetIcon(): HTMLButtonElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.number)
       return;
 
@@ -317,7 +317,7 @@ export class ZInput {
     );
   }
 
-  private renderMessage(): void | HTMLZInputMessageElement {
+  private renderMessage(): HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (

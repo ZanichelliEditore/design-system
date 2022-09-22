@@ -1,7 +1,7 @@
 import {Component, Prop, h} from "@stencil/core";
 
 /**
- * @slot `descr_slot_name` - description content
+ * @slot `descrSlotName` - description content
  */
 @Component({
   tag: "z-panel-elem",
@@ -35,7 +35,7 @@ export class ZPanelElem {
   isdisabled?: boolean = false;
   /** name of slot container (optional) */
   @Prop()
-  descr_slot_name?: string;
+  descrSlotName?: string;
 
   private renderIcon(): HTMLZIconElement {
     if (this.isdisabled) {
@@ -76,9 +76,9 @@ export class ZPanelElem {
             {this.linklabel}
           </z-link>
         </div>
-        {this.descr_slot_name && (
+        {this.descrSlotName && (
           <div class="panel-elem-desc body-long-01">
-            <slot name={this.descr_slot_name} />
+            <slot name={this.descrSlotName} />
           </div>
         )}
       </div>

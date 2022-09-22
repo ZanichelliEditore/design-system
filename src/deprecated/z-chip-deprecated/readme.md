@@ -6,10 +6,10 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type     | Default     |
-| ------------- | ------------- | ----------- | -------- | ----------- |
-| `boldtext`    | `boldtext`    |             | `number` | `undefined` |
-| `regulartext` | `regulartext` |             | `string` | `undefined` |
+| Property      | Attribute     | Description                   | Type     | Default     |
+| ------------- | ------------- | ----------------------------- | -------- | ----------- |
+| `boldtext`    | `boldtext`    | Text with bold font weight    | `number` | `undefined` |
+| `regulartext` | `regulartext` | Text with regular font weight | `string` | `undefined` |
 
 ---
 

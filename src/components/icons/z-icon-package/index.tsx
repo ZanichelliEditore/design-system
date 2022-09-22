@@ -1,5 +1,5 @@
 import {Component, h} from "@stencil/core";
-import {icons} from "../icons";
+import {ICONS} from "../icons";
 
 @Component({
   tag: "z-icon-package",
@@ -10,7 +10,7 @@ export class ZIconPackage {
   render(): HTMLDivElement {
     return (
       <div>
-        {Object.keys(icons).map((icon) => {
+        {Object.keys(ICONS).map((icon) => {
           return (
             <div>
               <z-icon name={icon} />

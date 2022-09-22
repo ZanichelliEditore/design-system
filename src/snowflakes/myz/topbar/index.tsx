@@ -171,7 +171,7 @@ export class ZMyzTopbar {
     this.element.shadowRoot.querySelector("#mobile-dropdown-" + elementId).classList.toggle("visible");
   }
 
-  private renderMenuItemsData(menuItem): HTMLSpanElement | null {
+  private renderMenuItemsData(menuItem): HTMLSpanElement {
     if (!menuItem.subMenu) return null;
 
     const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
@@ -231,10 +231,12 @@ export class ZMyzTopbar {
     );
   }
 
-  private renderExtLinksIcons(icon): boolean | Record<string, string> {
+  private renderExtLinksIcons(icon): Record<string, string> {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
-    return !hideIcons && {icon};
+    if (!hideIcons) {
+      return {icon};
+    }
   }
 
   private renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
@@ -282,7 +284,7 @@ export class ZMyzTopbar {
     );
   }
 
-  private renderLoginButton(): void | HTMLZButtonElement {
+  private renderLoginButton(): HTMLZButtonElement {
     if (this.hideloginbutton) {
       return;
     }
@@ -411,8 +413,8 @@ export class ZMyzTopbar {
     );
   }
 
-  private renderMobileMenuContent(): HTMLDivElement | null {
-    if (!this.isLogged) return null;
+  private renderMobileMenuContent(): HTMLDivElement {
+    if (!this.isLogged) return;
 
     return (
       <div

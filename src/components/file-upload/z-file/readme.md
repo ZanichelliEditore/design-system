@@ -4,10 +4,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type     | Default     |
-| ------------ | ------------- | ----------- | -------- | ----------- |
-| `fileName`   | `file-name`   | File name   | `any`    | `undefined` |
-| `fileNumber` | `file-number` |             | `number` | `undefined` |
+| Property     | Attribute     | Description  | Type     | Default     |
+| ------------ | ------------- | ------------ | -------- | ----------- |
+| `fileName`   | `file-name`   | File name    | `string` | `undefined` |
+| `fileNumber` | `file-number` | File chip id | `number` | `undefined` |
 
 ## Events
 

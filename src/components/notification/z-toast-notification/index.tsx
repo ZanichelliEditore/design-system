@@ -231,7 +231,7 @@ export class ZToastNotification {
     );
   }
 
-  private renderCloseIcon(): void | HTMLDivElement {
+  private renderCloseIcon(): HTMLDivElement {
     return (
       this.closebutton && (
         <div id="icon">

@@ -1,6 +1,6 @@
 import {newE2EPage} from "@stencil/core/testing";
 
-import {icons} from "../../components/icons/icons";
+import {ICONS} from "../../components/icons/icons";
 
 type CustomWindow = Window &
   typeof globalThis & {
@@ -99,7 +99,7 @@ it("Test ZInputDeprecated - input password - change hide/show icon on click", as
     `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
-            <path d="${icons["view-off-filled"]}"></path>
+            <path d="${ICONS["view-off-filled"]}"></path>
         </svg>
       </mock:shadow-root>
     </z-icon>`
@@ -112,7 +112,7 @@ it("Test ZInputDeprecated - input password - change hide/show icon on click", as
     `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
-          <path d="${icons["view-filled"]}"></path>
+          <path d="${ICONS["view-filled"]}"></path>
         </svg>
       </mock:shadow-root>
     </z-icon>`

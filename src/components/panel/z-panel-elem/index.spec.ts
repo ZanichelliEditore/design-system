@@ -216,11 +216,11 @@ describe("Suite test ZPanelElem", () => {
   it("Test render ZPanelElem with icon and slot name", async () => {
     const page = await newSpecPage({
       components: [ZPanelElem],
-      html: `<z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" ></z-panel-elem>`,
+      html: `<z-panel-elem descrSlotName="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" ></z-panel-elem>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
+      <z-panel-elem descrSlotName="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
           <div class="panel-elem-icon">
@@ -243,11 +243,11 @@ describe("Suite test ZPanelElem", () => {
   it("Test render ZPanelElem with icon and complete slot data", async () => {
     const page = await newSpecPage({
       components: [ZPanelElem],
-      html: `<z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" > <span slot="slotname">Full application description</span> </z-panel-elem>`,
+      html: `<z-panel-elem descrSlotName="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" > <span slot="slotname">Full application description</span> </z-panel-elem>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-panel-elem descr_slot_name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
+      <z-panel-elem descrSlotName="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
           <div class="panel-elem-icon">

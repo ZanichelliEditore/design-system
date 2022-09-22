@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `expandable` | `expandable` |             | `boolean` | `undefined` |
+| Property     | Attribute    | Description         | Type      | Default     |
+| ------------ | ------------ | ------------------- | --------- | ----------- |
+| `expandable` | `expandable` | Row expandable flag | `boolean` | `undefined` |
 
 ## Dependencies
 

@@ -262,7 +262,7 @@ export class ZInputDeprecated {
     );
   }
 
-  private renderLabel(): void | HTMLZInputLabelElement {
+  private renderLabel(): HTMLZInputLabelElement {
     if (!this.label) return;
 
     return (
@@ -305,7 +305,7 @@ export class ZInputDeprecated {
     );
   }
 
-  private renderResetIcon(): void | HTMLZIconElement {
+  private renderResetIcon(): HTMLZIconElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
 
     return (
@@ -329,7 +329,7 @@ export class ZInputDeprecated {
     );
   }
 
-  private renderMessage(): void | HTMLZInputMessageElement {
+  private renderMessage(): HTMLZInputMessageElement {
     if (!this.hasmessage) return;
 
     return (

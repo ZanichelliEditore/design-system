@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `active` | `active`  |             | `boolean` | `undefined` |
+| Property | Attribute | Description  | Type      | Default     |
+| -------- | --------- | ------------ | --------- | ----------- |
+| `active` | `active`  | Active state | `boolean` | `undefined` |
 
 ## Events
 
