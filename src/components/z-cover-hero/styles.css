@@ -1,14 +1,7 @@
 :host {
-  /* Variable to customize cover hero height */
   --cover-hero-height: auto;
-
-  /* Variable to customize cover hero container width in overlay variant */
   --cover-hero-overlay-container-width: calc(var(--space-unit) * 60);
-
-  /* Variable to customize cover hero text */
   --cover-hero-text-color: var(--gray100);
-
-  /* Variable to customize cover hero opacity */
   --cover-hero-opacity: 0.5;
 
   display: block;
@@ -27,6 +20,7 @@
   align-items: baseline;
   width: 100%;
   height: var(--cover-hero-height);
+  min-height: calc(var(--space-unit) * 60);
   padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
 }
 
@@ -76,6 +70,11 @@
   width: 100%;
 }
 
+:host .hero .container ::slotted(:not(:last-child)),
+:host .container ::slotted(:not(:last-child)) {
+  margin-bottom: calc(var(--space-unit) * 2);
+}
+
 /* Variant overlay */
 :host([variant="overlay"]) .hero .cover::after {
   content: '';
@@ -90,13 +89,13 @@
 }
 
 :host .container {
+  display: grid;
   color: var(--cover-hero-text-color);
   fill: var(--cover-hero-text-color);
 }
 
 /* Variant stacked */
 :host([variant="stacked"]) {
-  --cover-hero-height: calc(var(--space-unit) * 60);
   --cover-hero-text-color: var(--gray800);
 }
 

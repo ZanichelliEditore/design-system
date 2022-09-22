@@ -1,19 +1,78 @@
-import { html } from "lit-html";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
-import { select, radios } from "@storybook/addon-knobs";
+import { styleMap } from 'lit-html/directives/style-map.js';
 import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
+import { getColorTokens } from "../../utils/storybook-utils";
+import { html } from "lit-html";
 import "./index";
 
-<Meta title="ZCoverHero" component="z-cover-hero" />
+<Meta
+  title="ZCoverHero"
+  component="z-cover-hero"
+  argTypes={{
+    variant: {
+      control: { type: "inline-radio" },
+      options: Object.values(CoverHeroVariants),
+      defaultValue: CoverHeroVariants.overlay
+    },
+    position: {
+      if: { arg: "variant", eq: CoverHeroVariants.stacked },
+      control: { type: "inline-radio" },
+      options: Object.values(CoverHeroContentPosition),
+      defaultValue: CoverHeroContentPosition.top,
+    },
+    caption: {
+      control: { type: "text" },
+      defaultValue: "Lorem ipsum dolor sit amet."
+    },
+    "--cover-hero-text-color": {
+      control: { type: "select" },
+      options: getColorTokens(),
+    },
+    "--cover-hero-opacity": {
+      if: { arg: "variant", eq: CoverHeroVariants.overlay },
+      control: {
+        type: "range",
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+      defaultValue: 0.5,
+    },
+    "--cover-hero-height": {
+      control: {
+        type: "range",
+        min: 480,
+        max: 700,
+      },
+      defaultValue: 480,
+    },
+    "--cover-hero-overlay-container-width": {
+      if: { arg: "variant", eq: CoverHeroVariants.overlay },
+      control: {
+        type: "range",
+        min: 480,
+        max: 1000,
+      },
+      defaultValue: 480,
+    },
+  }}
+/>
 
 # ZCoverHero
 
-<Preview>
-  <Story name="ZCoverHero overlay">
-    {html`
+<Canvas>
+  <Story name="ZCoverHero">
+    {(args) => html`
       <z-cover-hero
-        variant="overlay"
-        style="--cover-hero-height:500px;"
+        .position=${args.position}
+        .variant=${args.variant}
+        .caption=${args.caption}
+        style=${styleMap({
+          "--cover-hero-opacity": `${args["--cover-hero-opacity"]}`,
+          "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
+          "--cover-hero-height": `${args["--cover-hero-height"]}px`,
+          "--cover-hero-overlay-container-width": `${args["--cover-hero-overlay-container-width"]}px`,
+        })}
       >
         <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
         <span slot="content">
@@ -21,27 +80,13 @@ import "./index";
           Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
           Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </span>
-      </z-cover-hero>
-    `}
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="ZCoverHero stacked">
-    {html`
-      <z-cover-hero
-        variant="stacked"
-        .position="${select("position", CoverHeroContentPosition, "top")}"
-      >
-        <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
         <span slot="content">
-          Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
-          Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          <z-button variant="primary">Primary</z-button>
+          <z-button variant="secondary">Secondary</z-button>
         </span>
       </z-cover-hero>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-cover-hero" />
+<ArgsTable of="z-cover-hero" />

@@ -494,11 +494,9 @@ export enum InfoRevealPosition {
 export enum CoverHeroVariants {
   overlay = "overlay",
   stacked = "stacked",
-  default = "overlay",
 }
 
 export enum CoverHeroContentPosition {
   top = "top",
   bottom = "bottom",
-  default = "top",
 }
