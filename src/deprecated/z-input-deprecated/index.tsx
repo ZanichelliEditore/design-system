@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
-import {HTMLAttributes} from "react";
+import {JSXBase} from "@stencil/core/internal";
 import {InputTypeBean, InputTypeEnum, InputStatusBean, SelectItemBean} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -144,11 +144,11 @@ export class ZInputDeprecated {
   /** Emitted on input value change, returns value, keycode, validity */
   @Event()
   inputChange: EventEmitter;
-  emitInputChange(value: string, keycode: number): void {
+  private emitInputChange(value: string, keycode: number): void {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-    let validity = {};
+    let validity = new ValidityState();
     if (this.type === InputTypeEnum.textarea) {
       validity = this.getValidity("textarea");
     } else {
@@ -166,7 +166,7 @@ export class ZInputDeprecated {
   /** Emitted when user starts typing */
   @Event()
   startTyping: EventEmitter;
-  emitStartTyping(): void {
+  private emitStartTyping(): void {
     this.isTyping = true;
     this.startTyping.emit();
   }
@@ -174,7 +174,7 @@ export class ZInputDeprecated {
   /** Emitted when user stops typing, returns value, validity */
   @Event()
   stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any): void {
+  private emitStopTyping(value: string, validity: ValidityState): void {
     this.isTyping = false;
     this.stopTyping.emit({
       value: value,
@@ -185,7 +185,7 @@ export class ZInputDeprecated {
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   @Event()
   inputCheck: EventEmitter;
-  emitInputCheck(checked: boolean): void {
+  private emitInputCheck(checked: boolean): void {
     this.inputCheck.emit({
       id: this.htmlid,
       checked: checked,
@@ -200,14 +200,14 @@ export class ZInputDeprecated {
   @Event()
   optionSelect: EventEmitter;
 
-  getValidity(type: string): ValidityState {
+  private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
     return input.validity;
   }
 
   /* START text/password/email/number */
 
-  getTextAttributes(): HTMLAttributes<HTMLInputElement> {
+  private getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     const attr = {
       id: this.htmlid,
       name: this.name,
@@ -224,7 +224,11 @@ export class ZInputDeprecated {
       ]
         .filter(Boolean)
         .join(" "),
-      onInput: (e: any) => this.emitInputChange(e.target.value, e.keyCode),
+      onInput: (e: InputEvent | KeyboardEvent) =>
+        this.emitInputChange(
+          (e.target as HTMLInputElement | HTMLTextAreaElement).value,
+          e instanceof KeyboardEvent ? e.keyCode : null
+        ),
     };
     if (this.autocomplete) {
       attr["autocomplete"] = this.autocomplete;
@@ -233,7 +237,7 @@ export class ZInputDeprecated {
     return attr;
   }
 
-  renderInputText(type: InputTypeBean = InputTypeEnum.text): HTMLDivElement {
+  private renderInputText(type: InputTypeBean = InputTypeEnum.text): HTMLDivElement {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.password) {
       attr.class += " hasIcon";
@@ -258,7 +262,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderLabel(): void | HTMLZInputLabelElement {
+  private renderLabel(): void | HTMLZInputLabelElement {
     if (!this.label) return;
 
     return (
@@ -272,7 +276,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderIcons(): HTMLSpanElement {
+  private renderIcons(): HTMLSpanElement {
     return (
       <span
         class={{
@@ -286,7 +290,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderIcon(): HTMLZIconElement {
+  private renderIcon(): HTMLZIconElement {
     if (this.type === InputTypeEnum.password) {
       return this.renderShowHidePassword();
     }
@@ -301,19 +305,21 @@ export class ZInputDeprecated {
     );
   }
 
-  renderResetIcon(): void | HTMLZIconElement {
+  private renderResetIcon(): void | HTMLZIconElement {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
 
     return (
       <z-icon
         class="resetIcon"
         name="multiply"
-        onClick={(e: any) => this.emitInputChange("", e.keyCode)}
+        onClick={(e: MouseEvent | KeyboardEvent) =>
+          this.emitInputChange("", e instanceof KeyboardEvent ? e.keyCode : null)
+        }
       />
     );
   }
 
-  renderShowHidePassword(): HTMLZIconElement {
+  private renderShowHidePassword(): HTMLZIconElement {
     return (
       <z-icon
         class="showHidePasswordIcon"
@@ -323,7 +329,7 @@ export class ZInputDeprecated {
     );
   }
 
-  renderMessage(): void | HTMLZInputMessageElement {
+  private renderMessage(): void | HTMLZInputMessageElement {
     if (!this.hasmessage) return;
 
     return (
@@ -338,7 +344,7 @@ export class ZInputDeprecated {
 
   /* START textarea */
 
-  renderTextarea(): HTMLDivElement {
+  private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
 
     return (
@@ -373,13 +379,13 @@ export class ZInputDeprecated {
 
   /* END textarea */
 
-  handleCheck(ev): void {
+  private handleCheck(ev): void {
     this.checked = ev.target.checked;
     this.emitInputCheck(this.checked);
   }
 
   /* START checkbox */
-  renderCheckbox(): HTMLDivElement {
+  private renderCheckbox(): HTMLDivElement {
     return (
       <div class="checkboxWrapper">
         <input
@@ -415,7 +421,7 @@ export class ZInputDeprecated {
   /* END checkbox */
 
   /* START radio */
-  renderRadio(): HTMLDivElement {
+  private renderRadio(): HTMLDivElement {
     return (
       <div class="radioWrapper">
         <input
@@ -450,7 +456,7 @@ export class ZInputDeprecated {
 
   /* START select */
 
-  renderSelect(): HTMLZSelectElement {
+  private renderSelect(): HTMLZSelectElement {
     return (
       <z-select
         htmlid={this.htmlid}

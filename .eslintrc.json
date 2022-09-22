@@ -10,8 +10,9 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "@stencil/eslint-plugin"],
+  "plugins": ["@typescript-eslint", "@stencil/eslint-plugin", "prettier"],
   "rules": {
+    "prettier/prettier": "warn",
     "no-duplicate-imports": "error",
     "constructor-super": "off",
     "no-fallthrough": "warn",
@@ -66,6 +67,7 @@
         "format": ["PascalCase"]
       }
     ],
+    "react/jsx-no-bind": "off",
     "@stencil/class-pattern": [
       "error",
       {

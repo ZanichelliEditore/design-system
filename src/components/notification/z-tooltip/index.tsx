@@ -35,7 +35,7 @@ export class ZTooltip {
   @Prop()
   bindTo?: string | HTMLElement;
 
-  popover: HTMLZPopoverElement;
+  private popover: HTMLZPopoverElement;
 
   @Listen("openChange")
   onPopoverOpenChange(): void {

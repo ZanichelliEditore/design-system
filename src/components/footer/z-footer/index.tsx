@@ -35,7 +35,7 @@ export class ZFooter {
 
   private jsonData;
 
-  creditsLinkId = "creditsLinkId";
+  private creditsLinkId = "creditsLinkId";
 
   constructor() {
     this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
@@ -58,18 +58,18 @@ export class ZFooter {
   /** Emitted on credits link click */
   @Event()
   creditsLinkClick: EventEmitter;
-  emitCreditsLinkClick(): void {
+  private emitCreditsLinkClick(): void {
     this.creditsLinkClick.emit();
   }
 
   /** Emitted on report a problem button click */
   @Event()
   reportAProblemButtonClick: EventEmitter;
-  emitReportAProblemButtonClick(): void {
+  private emitReportAProblemButtonClick(): void {
     this.reportAProblemButtonClick.emit();
   }
 
-  renderZLogo(): HTMLZLogoElement {
+  private renderZLogo(): HTMLZLogoElement {
     return (
       <z-logo
         link="https://www.zanichelli.it"
@@ -81,7 +81,7 @@ export class ZFooter {
     );
   }
 
-  renderAddress(): HTMLParagraphElement {
+  private renderAddress(): HTMLParagraphElement {
     return (
       <p>
         Zanichelli editore S.p.A. via Irnerio 34, 40126 Bologna
@@ -93,7 +93,7 @@ export class ZFooter {
     );
   }
 
-  renderSocial(): HTMLDivElement {
+  private renderSocial(): HTMLDivElement {
     return (
       <div class="social">
         <slot name="social" />
@@ -102,7 +102,7 @@ export class ZFooter {
     );
   }
 
-  renderCopyright(): HTMLParagraphElement {
+  private renderCopyright(): HTMLParagraphElement {
     return (
       <p>
         Copyright – 2018-{new Date().getFullYear()} Zanichelli
@@ -111,7 +111,7 @@ export class ZFooter {
     );
   }
 
-  renderCertification(): HTMLParagraphElement {
+  private renderCertification(): HTMLParagraphElement {
     return (
       <p>
         Zanichelli editore S.p.A. opera con sistema qualità certificato CertiCarGraf n. 477
@@ -121,7 +121,7 @@ export class ZFooter {
     );
   }
 
-  renderBottomLinks(): HTMLDivElement {
+  private renderBottomLinks(): HTMLDivElement {
     return (
       <div class="item bottom-links">
         <slot name="links" />
@@ -130,7 +130,7 @@ export class ZFooter {
     );
   }
 
-  renderFooterBottom(): HTMLElement {
+  private renderFooterBottom(): HTMLElement {
     return (
       <section id="bottom">
         <div
@@ -152,7 +152,7 @@ export class ZFooter {
     );
   }
 
-  renderFooterTop(): HTMLElement {
+  private renderFooterTop(): HTMLElement {
     return (
       <section id="top">
         <div
@@ -166,7 +166,7 @@ export class ZFooter {
     );
   }
 
-  renderFooterProductInfo(): HTMLElement {
+  private renderFooterProductInfo(): HTMLElement {
     if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
       const versionString = `${this.productName ? " versione" : "Versione"} ${this.productVersion}`;
 
@@ -221,7 +221,7 @@ export class ZFooter {
   }
 
   // INFO: backward compatibility
-  renderFooterTopJsonData(): null | HTMLElement {
+  private renderFooterTopJsonData(): null | HTMLElement {
     if (!this.jsonData || !this.jsonData.zanichelliLinks) return null;
 
     const zanichelliLinks = this.jsonData.zanichelliLinks;
@@ -243,7 +243,7 @@ export class ZFooter {
   }
 
   // INFO: backward compatibility
-  renderFooterBottomJsonData(): null | HTMLElement {
+  private renderFooterBottomJsonData(): null | HTMLElement {
     if (!this.jsonData || !this.jsonData.bottomLinks) return null;
 
     const bottomLinks = this.jsonData.bottomLinks;
@@ -251,7 +251,7 @@ export class ZFooter {
   }
 
   // INFO: backward compatibility
-  renderFooterSocialJsonData(): null | HTMLElement {
+  private renderFooterSocialJsonData(): null | HTMLElement {
     if (!this.jsonData || !this.jsonData.social) return null;
 
     const social = this.jsonData.social;

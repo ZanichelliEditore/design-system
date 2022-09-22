@@ -19,7 +19,7 @@ export class ZInfoBox {
   /** emitted on close icon click */
   @Event()
   infoBoxClose: EventEmitter;
-  emitInfoBoxClose(): void {
+  private emitInfoBoxClose(): void {
     this.infoBoxClose.emit({boxid: this.boxid});
   }
 

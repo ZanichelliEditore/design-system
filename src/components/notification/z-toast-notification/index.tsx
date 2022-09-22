@@ -53,10 +53,10 @@ export class ZToastNotification {
   private container!: HTMLElement;
   private toastText!: HTMLElement;
 
-  private sliderManager: any;
+  private sliderManager: HammerManager;
 
   private elapsedTime: number;
-  private timeoutHandle: any;
+  private timeoutHandle: number;
   private startTime: number;
   private isMobile: boolean;
   private isCloseEventCalled = false;
@@ -90,7 +90,7 @@ export class ZToastNotification {
   /** notification close event */
   @Event()
   toastClose: EventEmitter;
-  emitToastClose(cssClass: string): void {
+  private emitToastClose(cssClass: string): void {
     this.timeoutHandle = null;
     this.elapsedTime = null;
     this.hostElement.classList.add(cssClass);
@@ -114,7 +114,7 @@ export class ZToastNotification {
     this.percentage = 0;
   }
 
-  visibilityChangeEventHandler(): void {
+  private visibilityChangeEventHandler(): void {
     if (document.visibilityState === "hidden") {
       this.timeoutHandle && this.onBlur();
     } else {
@@ -122,12 +122,12 @@ export class ZToastNotification {
     }
   }
 
-  validateAutoclose(): void {
+  private validateAutoclose(): void {
     if (!this.autoclose && !this.closebutton)
       console.error("At least one between autoclose and closebutton must be present");
   }
 
-  mapSlideOutClass(): ToastNotificationTransitionsEnum {
+  private mapSlideOutClass(): ToastNotificationTransitionsEnum {
     switch (this.transition) {
       case ToastNotificationTransitionsEnum.slideInDown:
         return ToastNotificationTransitionsEnum.slideOutUp;
@@ -140,13 +140,13 @@ export class ZToastNotification {
     }
   }
 
-  calculateDraggedPercentage(e): number {
+  private calculateDraggedPercentage(e): number {
     const bounding = this.hostElement.getBoundingClientRect();
 
     return Math.round((100 * e.deltaX) / bounding.width);
   }
 
-  handleSlideOutDragAnimation(): void {
+  private handleSlideOutDragAnimation(): void {
     this.sliderManager = new Hammer(this.hostElement);
     this.sliderManager.get("pan").set({
       direction: Hammer.DIRECTION_HORIZONTAL,
@@ -179,7 +179,7 @@ export class ZToastNotification {
     });
   }
 
-  onFocus(): void {
+  private onFocus(): void {
     let time;
     time = this.autoclose;
     if (this.elapsedTime) {
@@ -190,16 +190,16 @@ export class ZToastNotification {
     }
   }
 
-  onBlur(): void {
+  private onBlur(): void {
     this.elapsedTime = Date.now() - this.startTime;
     clearTimeout(this.timeoutHandle);
   }
 
-  startClosingTimeout(time: number): void {
-    this.timeoutHandle = setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
+  private startClosingTimeout(time: number): void {
+    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
   }
 
-  detectWrap(): void {
+  private detectWrap(): boolean {
     const parentWidth = this.container.offsetWidth;
     const children = this.container.children;
     let totalWidth = 0;
@@ -211,7 +211,7 @@ export class ZToastNotification {
     return totalWidth > parentWidth;
   }
 
-  renderText(): HTMLDivElement {
+  private renderText(): HTMLDivElement {
     return (
       <div
         id="text"
@@ -223,7 +223,7 @@ export class ZToastNotification {
     );
   }
 
-  renderButton(): HTMLDivElement {
+  private renderButton(): HTMLDivElement {
     return (
       <div id="button">
         <slot name="button" />
@@ -231,7 +231,7 @@ export class ZToastNotification {
     );
   }
 
-  renderCloseIcon(): void | HTMLDivElement {
+  private renderCloseIcon(): void | HTMLDivElement {
     return (
       this.closebutton && (
         <div id="icon">
@@ -253,7 +253,7 @@ export class ZToastNotification {
     );
   }
 
-  renderContainer(): HTMLDivElement {
+  private renderContainer(): HTMLDivElement {
     return (
       <div
         tabIndex={0}
@@ -271,7 +271,7 @@ export class ZToastNotification {
     );
   }
 
-  renderMobileContainer(): HTMLDivElement {
+  private renderMobileContainer(): HTMLDivElement {
     return (
       <div
         id="external-container"

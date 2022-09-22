@@ -100,7 +100,7 @@ export class ZSelect {
   /** Emitted on select option selection, returns select id, selected item id */
   @Event()
   optionSelect: EventEmitter;
-  emitOptionSelect(): void {
+  private emitOptionSelect(): void {
     this.optionSelect.emit({
       id: this.htmlid,
       selected: this.getSelectedValue(),
@@ -115,11 +115,11 @@ export class ZSelect {
     this.filterItems(this.searchString);
   }
 
-  getInitialItemsArray(): SelectItemBean[] {
+  private getInitialItemsArray(): SelectItemBean[] {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  mapSelectedItemToItemsArray(): SelectItemBean[] {
+  private mapSelectedItemToItemsArray(): SelectItemBean[] {
     const initialItemsList = this.getInitialItemsArray();
     return initialItemsList.map((item: SelectItemBean) => {
       item.selected = item.id === this.selectedItem?.id;
@@ -127,11 +127,11 @@ export class ZSelect {
     });
   }
 
-  getSelectedValue(): string {
+  private getSelectedValue(): string {
     return this.selectedItem?.id;
   }
 
-  filterItems(searchString: string): void {
+  private filterItems(searchString: string): void {
     const prevList = this.mapSelectedItemToItemsArray();
     if (!searchString?.length) {
       this.itemsList = prevList;
@@ -153,16 +153,16 @@ export class ZSelect {
     }
   }
 
-  hasAutocomplete(): boolean {
+  private hasAutocomplete(): boolean {
     return boolean(this.autocomplete) === true;
   }
 
-  handleInputChange(e: CustomEvent): void {
+  private handleInputChange(e: CustomEvent): void {
     this.searchString = e.detail.value;
     if (!this.isOpen) this.toggleSelectUl();
   }
 
-  selectItem(item: null | SelectItemBean, selected: boolean): void {
+  private selectItem(item: null | SelectItemBean, selected: boolean): void {
     if (item && item.disabled) return;
 
     this.itemsList = this.mapSelectedItemToItemsArray();
@@ -179,7 +179,7 @@ export class ZSelect {
     if (this.searchString) this.searchString = null;
   }
 
-  arrowsSelectNav(e: KeyboardEvent, key: number): void {
+  private arrowsSelectNav(e: KeyboardEvent, key: number): void {
     const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCodeEnum)) return;
 
@@ -198,12 +198,12 @@ export class ZSelect {
     this.focusSelectItem(index);
   }
 
-  focusSelectItem(index: number): void {
+  private focusSelectItem(index: number): void {
     const focusElem: HTMLLIElement = this.element.querySelector(`#${this.htmlid}_${index}`);
     if (focusElem) focusElem.focus();
   }
 
-  toggleSelectUl(selfFocusOnClose = false): void {
+  private toggleSelectUl(selfFocusOnClose = false): void {
     if (this.disabled || this.readonly) return;
 
     if (!this.isOpen) {
@@ -220,9 +220,9 @@ export class ZSelect {
     this.isOpen = !this.isOpen;
   }
 
-  handleInputClick(e: MouseEvent | KeyboardEvent): void {
+  private handleInputClick(e: MouseEvent | KeyboardEvent): void {
     const cp = e.composedPath();
-    const clearIcon = cp.find((item: any) => item.classList && item.classList.contains("resetIcon"));
+    const clearIcon = cp.find((item: HTMLElement) => item.classList && item.classList.contains("resetIcon"));
     if (clearIcon) {
       e.stopPropagation();
       return;
@@ -231,7 +231,7 @@ export class ZSelect {
     this.toggleSelectUl();
   }
 
-  handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
+  private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
     if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
@@ -242,7 +242,7 @@ export class ZSelect {
     }
 
     const tree = getElementTree(getClickedElement());
-    const parent = tree.find((elem: any) => {
+    const parent = tree.find((elem: HTMLElement) => {
       return elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`;
     });
 
@@ -251,12 +251,12 @@ export class ZSelect {
     }
   }
 
-  scrollToLetter(letter: string): void {
+  private scrollToLetter(letter: string): void {
     const foundItem = this.itemsList.find((item: SelectItemBean) => item.name.charAt(0) === letter);
     if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
   }
 
-  renderInput(): HTMLZInputElement {
+  private renderInput(): HTMLZInputElement {
     return (
       <z-input
         id={`${this.htmlid}_input`}
@@ -294,7 +294,7 @@ export class ZSelect {
     );
   }
 
-  renderSelectUl(): HTMLDivElement {
+  private renderSelectUl(): HTMLDivElement {
     return (
       <div
         class={this.isOpen ? "open" : "closed"}
@@ -315,7 +315,6 @@ export class ZSelect {
               readonly: this.readonly,
               filled: !!this.selectedItem,
               [`input_${this.status}`]: !this.isOpen && !!this.status,
-              input_default: this.isOpen || !this.status,
             }}
           >
             {this.renderSelectUlItems()}
@@ -325,7 +324,7 @@ export class ZSelect {
     );
   }
 
-  renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+  private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
     if (!this.itemsList.length) return this.renderNoSearchResults();
 
     return this.itemsList.map((item: SelectItemBean, key) => {
@@ -350,7 +349,7 @@ export class ZSelect {
     });
   }
 
-  renderNoSearchResults(): HTMLZListElementElement {
+  private renderNoSearchResults(): HTMLZListElementElement {
     return (
       <z-list-element
         color="blue500"
@@ -365,7 +364,7 @@ export class ZSelect {
     );
   }
 
-  renderMessage(): void | HTMLZInputMessageElement {
+  private renderMessage(): void | HTMLZInputMessageElement {
     if (boolean(this.message) === false) return;
 
     return (

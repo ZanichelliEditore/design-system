@@ -23,23 +23,23 @@ export class ZMyzCardAlert {
   /** undo action click/keyboard event, returns actionType */
   @Event()
   undoAction: EventEmitter;
-  emitUndoAction(): void {
+  private emitUndoAction(): void {
     this.undoAction.emit({actionType: this.type});
   }
 
-  handleSpaceKeyPress(e: KeyboardEvent): void {
+  private handleSpaceKeyPress(e: KeyboardEvent): void {
     if (e.keyCode == 32 || e.keyCode == 13) {
       e.preventDefault();
       this.emitUndoAction();
     }
   }
 
-  handleActionButtonClick(e: MouseEvent): void {
+  private handleActionButtonClick(e: MouseEvent): void {
     e.preventDefault();
     this.emitUndoAction();
   }
 
-  retrieveClass(): string {
+  private retrieveClass(): string {
     let className = "";
     switch (this.type) {
       case "add":
@@ -55,7 +55,7 @@ export class ZMyzCardAlert {
     return className;
   }
 
-  getAlertType(): string {
+  private getAlertType(): string {
     switch (this.type) {
       case "add":
         return AlertTypesEnum.success;

@@ -20,8 +20,8 @@ export class ZTableEmptyBox {
   subtitle?: string = "";
 
   /** Checks if cta1 or cta2 slots exist */
-  hasCta1Slot: boolean;
-  hasCta2Slot: boolean;
+  private hasCta1Slot: boolean;
+  private hasCta2Slot: boolean;
 
   componentWillLoad(): void {
     this.hasCta1Slot = !!this.hostElement.querySelector('[slot="cta1"]');

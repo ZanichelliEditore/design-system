@@ -7,6 +7,7 @@ import {ZAriaAlertMode} from "../../beans";
   shadow: false,
 })
 export class ZAriaAlert {
+  /** Aria live mode */
   @Prop()
   mode: string = ZAriaAlertMode.polite;
 

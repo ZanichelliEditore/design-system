@@ -37,7 +37,7 @@ export class ZPanelElem {
   @Prop()
   descr_slot_name?: string;
 
-  renderIcon(): HTMLZIconElement {
+  private renderIcon(): HTMLZIconElement {
     if (this.isdisabled) {
       return (
         <img

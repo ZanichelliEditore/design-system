@@ -10,25 +10,30 @@ import {HostElement} from "@stencil/core/internal";
   scoped: true,
 })
 export class ZToggleSwitch {
+  /** Disabled flag */
   @Prop({reflect: true})
   disabled?: boolean = false;
+  /** Label position */
   @Prop({reflect: true})
   labelPosition?: LabelPosition = LabelPositions.left;
+  /** Checked state */
   @Prop({mutable: true})
   checked?: boolean = false;
+  /** HTML id attribute to set to the internal checkbox */
   @Prop()
   htmlid = `toggle-switch-id-${randomId()}`;
 
+  /** Toggle click event */
   @Event()
   toggleClick: EventEmitter;
-  emitToggleClick(): void {
+  private emitToggleClick(): void {
     this.toggleClick.emit({
       id: this.htmlid,
       checked: this.checked,
     });
   }
 
-  handleClick(ev): void {
+  private handleClick(ev): void {
     if (this.disabled) return;
 
     this.checked = ev.target.checked;

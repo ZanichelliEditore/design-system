@@ -12,6 +12,7 @@ import {HostElement} from "@stencil/core/internal";
   shadow: true,
 })
 export class ZMenuSection {
+  /** Active state */
   @Prop({reflect: true})
   active?: boolean;
   @State()
@@ -26,7 +27,7 @@ export class ZMenuSection {
   /** The section has been closed. */
   @Event()
   closed: EventEmitter;
-  toggle(): void {
+  private toggle(): void {
     if (!this.hasContent) {
       return;
     }
@@ -37,8 +38,8 @@ export class ZMenuSection {
 
   @Listen("click", {target: "document"})
   /** Close the list when a click is performed outside of this Element. */
-  handleClick(ev): void {
-    if (!this.open || this.hostElement.contains(ev.target)) {
+  handleClick(ev: MouseEvent): void {
+    if (!this.open || this.hostElement.contains(ev.target as Node)) {
       return;
     }
 
@@ -49,7 +50,7 @@ export class ZMenuSection {
   /**
    * Check if some content slot is set.
    */
-  checkContent(): void {
+  private checkContent(): void {
     this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
   }
 

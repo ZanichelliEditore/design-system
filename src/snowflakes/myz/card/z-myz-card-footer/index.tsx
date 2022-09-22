@@ -47,7 +47,7 @@ export class ZMyzCardFooter {
     this.isOpen = !this.isOpen;
   }
 
-  getTitleAuthors(): string {
+  private getTitleAuthors(): string {
     return this.allowTooltipAuthors ? this.autori : "";
   }
 
@@ -55,15 +55,15 @@ export class ZMyzCardFooter {
     if (this.opened) this.isOpen = true;
   }
 
-  elementsEllipsis(): void {
+  private elementsEllipsis(): void {
     this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
   }
 
-  elementAuthorsHasEllipsis(): boolean {
+  private elementAuthorsHasEllipsis(): boolean {
     return this.ellipsisAuthors.offsetWidth < this.ellipsisAuthors.scrollWidth;
   }
 
-  retrieveClass(): JSXBase.HTMLAttributes["class"] {
+  private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       isopen: this.isOpen,
       real: this.cardtype === LicenseTypeEnum.real,
@@ -73,7 +73,7 @@ export class ZMyzCardFooter {
     };
   }
 
-  footerTransitionHandler(e: TransitionEvent): void {
+  private footerTransitionHandler(e: TransitionEvent): void {
     if (["visibility", "height"].includes(e.propertyName)) {
       this.elementsEllipsis();
     }

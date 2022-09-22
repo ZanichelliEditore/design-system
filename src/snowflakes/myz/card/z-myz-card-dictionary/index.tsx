@@ -38,7 +38,7 @@ export class ZMyzCardDictionary {
   /** when card is flipped */
   @Event()
   cardFlipped: EventEmitter;
-  flipCard(showBack = true): void {
+  private flipCard(showBack = true): void {
     this.flipped = showBack;
     this.cardFlipped.emit(showBack);
   }

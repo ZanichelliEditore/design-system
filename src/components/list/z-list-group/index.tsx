@@ -34,7 +34,7 @@ export class ZListGroup {
   @Prop({reflect: true})
   dividerColor?: string = "gray200";
 
-  hasHeader: boolean;
+  private hasHeader: boolean;
 
   componentDidLoad(): void {
     const children = this.host.children;

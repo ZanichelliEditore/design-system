@@ -22,7 +22,7 @@ export class ZMenuDropdown {
   @State()
   ismenuopen = false;
 
-  linkarray: MenuItem[];
+  private linkarray: MenuItem[];
 
   constructor() {
     this.handleToggle = this.handleToggle.bind(this);
@@ -33,7 +33,7 @@ export class ZMenuDropdown {
     this.linkarray = typeof this.menucontent === "string" ? JSON.parse(this.menucontent) : this.menucontent;
   }
 
-  renderMenuOpen(): void | HTMLUListElement {
+  private renderMenuOpen(): void | HTMLUListElement {
     if (this.ismenuopen) {
       return (
         <ul>
@@ -53,7 +53,7 @@ export class ZMenuDropdown {
     }
   }
 
-  renderButtonMenu(): HTMLSpanElement {
+  private renderButtonMenu(): HTMLSpanElement {
     return (
       <span class="arrow">
         <z-icon
@@ -65,19 +65,19 @@ export class ZMenuDropdown {
     );
   }
 
-  retriveMenuClass(): string {
+  private retriveMenuClass(): string {
     if (this.ismenuopen) return "menu-opened";
   }
 
-  handleToggle(): void {
+  private handleToggle(): void {
     this.ismenuopen = !this.ismenuopen;
   }
 
-  handleFocus(e: MouseEvent | KeyboardEvent): void {
+  private handleFocus(e: MouseEvent | KeyboardEvent): void {
     if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) return;
 
     const tree = getElementTree(getClickedElement());
-    const menuParent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-menu-dropdown");
+    const menuParent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-menu-dropdown");
 
     if (!menuParent) {
       document.removeEventListener("click", this.handleFocus);

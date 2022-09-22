@@ -175,7 +175,7 @@ export class ZRangePicker {
     });
   }
 
-  onDateSelect(): void {
+  private onDateSelect(): void {
     const firstInputActive = this.activeInput === "start-input";
     const firstDate = this.firstPicker.selectedDates[0];
     const lastDate = this.lastPicker.selectedDates[0];
@@ -195,7 +195,7 @@ export class ZRangePicker {
     }
   }
 
-  disableDates(date, index): void {
+  private disableDates(date, index): void {
     const calendar = this.element.getElementsByClassName("flatpickr-calendar")[index];
 
     Array.from(calendar.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
@@ -213,7 +213,7 @@ export class ZRangePicker {
     setAriaOptions(this.element, this.mode);
   }
 
-  formatDate(date): string {
+  private formatDate(date): string {
     if (this.mode === ZRangePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else {
@@ -221,14 +221,14 @@ export class ZRangePicker {
     }
   }
 
-  printDate(firstDate, lastDate): void {
+  private printDate(firstDate, lastDate): void {
     const firstDateString = firstDate ? this.formatDate(firstDate) : null;
     const lastDateString = lastDate ? this.formatDate(lastDate) : null;
 
     this.dateSelect.emit([firstDateString, lastDateString]);
   }
 
-  getTime(): string {
+  private getTime(): string {
     const hour = (this.element.getElementsByClassName("flatpickr-hour")[0] as HTMLInputElement).value;
 
     const minutes = (this.element.getElementsByClassName("flatpickr-minute")[0] as HTMLInputElement).value;
@@ -236,13 +236,13 @@ export class ZRangePicker {
     return `${hour}:${minutes}`;
   }
 
-  getDateWithoutTime(date): Date {
+  private getDateWithoutTime(date): Date {
     const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
     return newDate;
   }
 
   /** Replace month word to month number */
-  replaceMonths(date, time): Date {
+  private replaceMonths(date, time): Date {
     const month = date.split(" ")[1];
     const months = {
       /* eslint-disable @typescript-eslint/naming-convention */
@@ -273,7 +273,7 @@ export class ZRangePicker {
   }
 
   /** Get the current focused input, first or last */
-  getFocusedInput(): void | string {
+  private getFocusedInput(): void | string {
     const focusedZInput = document.activeElement.closest("z-input");
     if (!focusedZInput) {
       return;
@@ -287,7 +287,7 @@ export class ZRangePicker {
   }
 
   /** Set style of the days between the two selected dates */
-  setRangeStyle(index): void {
+  private setRangeStyle(index): void {
     Array.from(this.element.getElementsByClassName("flatpickr-calendar")).forEach((element: HTMLElement) => {
       Array.from(element.getElementsByClassName("flatpickr-day")).forEach((element: HTMLElement) => {
         const hasFirstDate = this.firstPicker.selectedDates.length === 1;
@@ -332,7 +332,7 @@ export class ZRangePicker {
     });
   }
 
-  onStopTyping(value): void {
+  private onStopTyping(value): void {
     const text = value.detail.value.replace("/", "-");
     const englishData = text.split("-");
     const time = this.mode === ZRangePickerMode.dateTime ? `T${englishData[3]}:00` : "";

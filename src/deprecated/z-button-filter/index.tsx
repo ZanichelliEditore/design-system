@@ -35,13 +35,13 @@ export class ZButtonFilter {
     this.handleRemovingFilterClick = this.handleRemovingFilterClick.bind(this);
   }
 
-  handleRemovingFilterClick(): void {
+  private handleRemovingFilterClick(): void {
     this.removefilter.emit({
       filterid: this.filterid,
     });
   }
 
-  renderFixedPillow(filtername): HTMLButtonElement {
+  private renderFixedPillow(filtername): HTMLButtonElement {
     return (
       <button class={`container ${this.issmall ? "small" : ""}`}>
         {this.renderIcon()}
@@ -50,7 +50,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderDynamicPillow(filtername): HTMLButtonElement {
+  private renderDynamicPillow(filtername): HTMLButtonElement {
     return (
       <button
         class={`container isactive ${this.issmall ? "small" : ""}`}
@@ -62,7 +62,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderIcon(): HTMLZIconElement {
+  private renderIcon(): HTMLZIconElement {
     if (!this.hasicon) return null;
     return (
       <z-icon
@@ -74,7 +74,7 @@ export class ZButtonFilter {
     );
   }
 
-  renderContent(filtername): HTMLSpanElement {
+  private renderContent(filtername): HTMLSpanElement {
     return <span class="text-container">{filtername}</span>;
   }
 

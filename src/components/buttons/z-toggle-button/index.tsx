@@ -22,14 +22,14 @@ export class ZToggleButton {
   /** emitted on toggle button click, returns isOpen */
   @Event()
   toggleClick: EventEmitter;
-  emitToggleClick(): void {
+  private emitToggleClick(): void {
     if (this.isdisabled) return;
 
     this.opened = !this.opened;
     this.toggleClick.emit(this.opened);
   }
 
-  retrieveButtonClass(): string {
+  private retrieveButtonClass(): string {
     let className = this.opened && "isopen";
     if (this.avoidclick) className = className + " avoid-clicks";
     return className;

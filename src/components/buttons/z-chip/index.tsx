@@ -25,11 +25,11 @@ export class ZChip {
   /** click on interactive icon */
   @Event()
   interactiveIconClick: EventEmitter;
-  emitinteractiveIconClick(): void {
+  private emitinteractiveIconClick(): void {
     this.interactiveIconClick.emit();
   }
 
-  getIconSize(): number {
+  private getIconSize(): number {
     return getDevice() !== DeviceEnum.desktop ? 22 : 14;
   }
 

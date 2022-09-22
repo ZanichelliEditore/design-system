@@ -51,11 +51,11 @@ export class ZContextualMenu {
     this.popover.bindTo = this.triggerButton;
   }
 
-  showIcon(): boolean {
+  private showIcon(): boolean {
     return !this.jsonElements.some((element) => !element.icon);
   }
 
-  togglePopover(): void {
+  private togglePopover(): void {
     if (!this.popover.open) {
       this.popover.open = true;
     }

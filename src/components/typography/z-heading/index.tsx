@@ -6,10 +6,13 @@ import {ZTypographyLevels} from "../z-typography";
   shadow: true,
 })
 export class ZHeading {
+  /** Typography level */
   @Prop()
   level: 1 | 2 | 3 | 4;
+  /** Font weight variant */
   @Prop()
   variant: "regular" | "semibold" | "light" = "regular";
+  /** HTML tag to use to wrap slotted content */
   @Prop()
   component: string;
 

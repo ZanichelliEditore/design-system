@@ -38,6 +38,7 @@ export class ZTableHeader {
   @Prop()
   defaultSortDirection?: SortDirection = SortDirectionEnum.asc;
 
+  /** Sort direction */
   @Prop({mutable: true})
   sortDirection: SortDirection = SortDirectionEnum.none;
 
@@ -52,14 +53,14 @@ export class ZTableHeader {
   /** [Optional] callback for sorting */
   @Event()
   sort: EventEmitter;
-  emitOnSort(): void {
+  private emitOnSort(): void {
     this.sort.emit({
       columnId: this.columnId,
       sortDirection: this.sortDirection,
     });
   }
 
-  handleSort(): void {
+  private handleSort(): void {
     if (!this.sortable) {
       return;
     }
@@ -80,14 +81,14 @@ export class ZTableHeader {
     this.emitOnSort();
   }
 
-  handleMenuClick(): void {
+  private handleMenuClick(): void {
     this.popover.open = !this.popover.open;
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleOutsideClick(e: any): void {
-    const tree = getElementTree(e.target);
-    const parent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-popover");
+  handleOutsideClick(e: MouseEvent): void {
+    const tree = getElementTree(e.target as Element);
+    const parent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-popover");
 
     if (!parent && this.popover) {
       this.popover.open = false;
@@ -95,16 +96,17 @@ export class ZTableHeader {
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleClickHeaders(e: any): void {
-    const {target} = e;
-    const parent = getElementTree(target).find((elem: any) => elem.nodeName.toLowerCase() === "z-table-header");
+  handleClickHeaders(e: MouseEvent): void {
+    const target = e.target as HTMLElement;
+    const parent = getElementTree(target).find((elem: Element) => elem.nodeName.toLowerCase() === "z-table-header");
 
     if (!this.sortable || !parent) {
       return;
     }
 
     const parentColumnId = parent.attributes.getNamedItem("column-id").value;
-    const isSortable = target.parentNode.sortable || target.sortable;
+    const isSortable =
+      (target.parentNode as HTMLZTableHeaderElement).sortable || (target as HTMLZTableHeaderElement).sortable;
 
     if (parentColumnId !== this.columnId && isSortable) {
       this.sortDirection = SortDirectionEnum.none;

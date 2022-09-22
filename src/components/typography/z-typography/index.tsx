@@ -9,13 +9,16 @@ export type ZTypographyLevels = "h1" | "h2" | "h3" | "h4" | "b1" | "b2" | "b3" |
   shadow: true,
 })
 export class ZTypography {
-  @Prop()
-  component: string;
   @Element() hostElement: HTMLZTypographyElement;
-  @Prop()
-  variant: "regular" | "semibold" | "light" = "regular";
+  /** Typography level */
   @Prop()
   level: ZTypographyLevels;
+  /** Font weight variant */
+  @Prop()
+  variant: "regular" | "semibold" | "light" = "regular";
+  /** HTML tag to use to wrap slotted content */
+  @Prop()
+  component: string;
 
   render(): HostElement {
     const el = document.createElement(this.component || "span");

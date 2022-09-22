@@ -26,7 +26,7 @@ export class ZMyzCardHeader {
 
   private ellipsis?: HTMLElement;
 
-  getTitle(): string {
+  private getTitle(): string {
     return this.allowTooltip ? this.titolo : "";
   }
 
@@ -34,11 +34,11 @@ export class ZMyzCardHeader {
     if (this.elementHasEllipsis()) this.allowTooltip = true;
   }
 
-  elementHasEllipsis(): boolean {
+  private elementHasEllipsis(): boolean {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  retrieveClass(): JSXBase.HTMLAttributes["class"] {
+  private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       real: this.cardtype === LicenseTypeEnum.real,
       trial: this.cardtype === LicenseTypeEnum.trial,

@@ -40,7 +40,7 @@ export class ZButtonSort {
   @Event()
   buttonSortClick: EventEmitter;
 
-  emitButtonSortClick(): void {
+  private emitButtonSortClick(): void {
     if (!this.isselected) {
       this.isselected = true;
     } else {
@@ -56,11 +56,11 @@ export class ZButtonSort {
     if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) this.allowTooltip = true;
   }
 
-  setButtonTitle(): string {
+  private setButtonTitle(): string {
     return this.allowTooltip ? `${this.sortasc ? this.label : this.desclabel}` : "";
   }
 
-  elementHasEllipsis(): boolean {
+  private elementHasEllipsis(): boolean {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 

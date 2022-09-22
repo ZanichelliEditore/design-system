@@ -15,14 +15,14 @@ export class ZMyzCardList {
     this.renderList = this.renderList.bind(this);
   }
 
-  handleSpaceKeyPress(e: KeyboardEvent, url: string): void {
+  private handleSpaceKeyPress(e: KeyboardEvent, url: string): void {
     if (e.keyCode == 32 || e.keyCode == 13) {
       e.preventDefault();
       window.open(url, "_blank");
     }
   }
 
-  formatListContent(data: ActionBean): HTMLAnchorElement {
+  private formatListContent(data: ActionBean): HTMLAnchorElement {
     const {value, isLink, url} = data;
     if (!isLink) return <span>{value}</span>;
     return (
@@ -37,7 +37,7 @@ export class ZMyzCardList {
     );
   }
 
-  renderList(dataArray: ActionBean[]): HTMLLIElement[] {
+  private renderList(dataArray: ActionBean[]): HTMLLIElement[] {
     return dataArray.map((data: ActionBean) => {
       return <li>{this.formatListContent(data)}</li>;
     });

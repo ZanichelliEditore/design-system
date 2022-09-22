@@ -39,6 +39,7 @@ export function randomId(): string {
   return Math.random().toString(36).replace("0.", "");
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
   if (ev.code === KeyboardCodeEnum.ENTER || ev.code === KeyboardCodeEnum.SPACE) {
     ev.preventDefault();
@@ -97,15 +98,21 @@ export function getDevice(): DeviceEnum {
   }
 }
 
-export function convertJson(data: string): any {
+type JSONValue = string | number | boolean | JSONObject | JSONArray;
+interface JSONObject {
+  [x: string]: JSONValue;
+}
+type JSONArray = JSONValue[];
+
+export function convertJson(data: string): JSONValue {
   try {
     return JSON.parse(data);
-  } catch (e) {
+  } catch {
     return false;
   }
 }
 
-export function colorFromId(id): string {
+export function colorFromId(id: number): string {
   const prefix = "avatar-C"; // prefix for color vars name
   const colorsCount = 19; // available colors
   const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);

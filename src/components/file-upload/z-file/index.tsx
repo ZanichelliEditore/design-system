@@ -16,11 +16,13 @@ export class ZFile {
 
   private chip?: HTMLZChipElement;
 
+  /** File chip id */
   @Prop()
   fileNumber: number;
 
   /** File name */
-  @Prop() fileName: any;
+  @Prop()
+  fileName: string;
 
   @State()
   allowPopover = false;
@@ -33,7 +35,7 @@ export class ZFile {
   /** Emitted when a z-file component is removed from the DOM */
   @Event()
   removeFile: EventEmitter;
-  removeFileHandler(): void {
+  private removeFileHandler(): void {
     this.removeFile.emit({fileName: this.fileName});
     this.el.remove();
   }
@@ -61,7 +63,7 @@ export class ZFile {
     this.icon?.focus?.();
   }
 
-  elementHasEllipsis(): boolean {
+  private elementHasEllipsis(): boolean {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 

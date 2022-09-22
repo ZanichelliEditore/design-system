@@ -32,14 +32,14 @@ export class ZMyzListItem {
   /** emitted on list item link click, returns linkId */
   @Event()
   zListItemLinkClick: EventEmitter;
-  emitZListItemLinkClick(e: MouseEvent, linkId): void {
+  private emitZListItemLinkClick(e: MouseEvent, linkId): void {
     this.zListItemLinkClick.emit({e, linkId});
   }
 
   /** emitted on list item click, returns listitemid */
   @Event()
   zListItemClick: EventEmitter;
-  emitZListItemClick(e: MouseEvent, listitemid): void {
+  private emitZListItemClick(e: MouseEvent, listitemid): void {
     this.zListItemClick.emit({e, listitemid});
   }
 

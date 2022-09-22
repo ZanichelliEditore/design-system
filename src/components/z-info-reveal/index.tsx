@@ -25,6 +25,7 @@ export class ZInfoReveal {
   @Prop()
   icon? = "informationsource";
 
+  /** Info reveal's position */
   @Prop({reflect: true})
   position?: InfoRevealPositionBean = InfoRevealPosition.bottom_right;
 
@@ -54,7 +55,7 @@ export class ZInfoReveal {
   /**
    * Open the info box.
    */
-  openInfoBox(): void {
+  private openInfoBox(): void {
     this.currentIndex = 0;
     this.open = true;
   }
@@ -62,7 +63,7 @@ export class ZInfoReveal {
   /**
    * Close the info box.
    */
-  closeInfoBox(): void {
+  private closeInfoBox(): void {
     this.open = false;
   }
 
@@ -70,7 +71,7 @@ export class ZInfoReveal {
    * Navigate slotted info.
    * It closes the info box after the last info has been navigated.
    */
-  next(): void {
+  private next(): void {
     this.currentIndex = this.currentIndex + 1;
     if (this.currentIndex === this.el.children.length) {
       this.closeInfoBox();

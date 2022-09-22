@@ -176,11 +176,12 @@ export class ZPopover {
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleOutsideClick(e: any): void {
+  handleOutsideClick(e: MouseEvent): void {
     if (!this.closable) {
       return;
     }
 
+    // @ts-ignore
     const parent = e.path.find((elem) => elem === this.host);
 
     if (!parent) {

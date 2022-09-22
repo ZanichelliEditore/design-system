@@ -93,7 +93,7 @@ export class ZFileUpload {
   /** Emitted when user select one or more files */
   @Event()
   fileInput: EventEmitter;
-  fileInputHandler(): void {
+  private fileInputHandler(): void {
     if (this.input.files.length) {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));
     }
@@ -105,7 +105,7 @@ export class ZFileUpload {
     return this.files;
   }
 
-  handleAccessibility(): void {
+  private handleAccessibility(): void {
     if (this.files.length > 0) {
       (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
     } else {
@@ -115,7 +115,7 @@ export class ZFileUpload {
     }
   }
 
-  checkFiles(files: File[]): Map<string, string[]> {
+  private checkFiles(files: File[]): Map<string, string[]> {
     const errors = new Map<string, string[]>();
     const sizeErrorString = `supera i ${this.fileMaxSize}MB`;
     const formatErrorString = " ha un'estensione non prevista";
@@ -145,7 +145,7 @@ export class ZFileUpload {
     return errors;
   }
 
-  renderTitle(): HTMLZHeadingElement {
+  private renderTitle(): HTMLZHeadingElement {
     return (
       <z-heading
         id="title"
@@ -157,7 +157,7 @@ export class ZFileUpload {
     );
   }
 
-  renderDescription(variant, level): HTMLZBodyElement {
+  private renderDescription(variant, level): HTMLZBodyElement {
     return (
       <z-body
         variant={variant}
@@ -168,7 +168,7 @@ export class ZFileUpload {
     );
   }
 
-  renderAllowedFileExtensions(): HTMLZBodyElement {
+  private renderAllowedFileExtensions(): HTMLZBodyElement {
     let fileFormatString = "";
     let fileWeightString = "";
 
@@ -189,7 +189,11 @@ export class ZFileUpload {
     return <z-body level={3}>{fileFormatString || fileWeightString ? finalString : null}</z-body>;
   }
 
-  renderFileSection(): boolean | HTMLElement {
+  private renderFileSection(): HTMLElement {
+    if (!this.files.length) {
+      return;
+    }
+
     return (
       this.files.length > 0 && (
         <section class="files-container">
@@ -208,7 +212,7 @@ export class ZFileUpload {
     );
   }
 
-  renderInput(): HTMLInputElement {
+  private renderInput(): HTMLInputElement {
     return (
       <input
         {...this.inputAttributes}
@@ -219,7 +223,7 @@ export class ZFileUpload {
     );
   }
 
-  renderUploadButton(): HTMLElement[] {
+  private renderUploadButton(): unknown[] {
     return [
       this.renderInput(),
       <z-button
@@ -240,7 +244,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderUploadLink(): HTMLElement[] {
+  private renderUploadLink(): unknown[] {
     return [
       this.renderInput(),
       <z-body
@@ -270,7 +274,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderDefaultMode(): HTMLElement[] {
+  private renderDefaultMode(): unknown[] {
     return [
       this.renderDescription("semibold", 3),
       this.renderAllowedFileExtensions(),
@@ -279,7 +283,7 @@ export class ZFileUpload {
     ];
   }
 
-  renderDragDropMode(): HTMLElement[] {
+  private renderDragDropMode(): unknown[] {
     return [
       this.renderFileSection(),
       <z-dragdrop-area>
@@ -292,12 +296,12 @@ export class ZFileUpload {
     ];
   }
 
-  formatErrorString(key, value): string {
+  private formatErrorString(key, value): string {
     const bothErrors = value[0] && value[1] ? ", " : "";
     return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${value[1] ?? ""} e non può quindi essere caricato.`;
   }
 
-  handleErrorModalContent(): HTMLDivElement {
+  private handleErrorModalContent(): HTMLDivElement {
     return (
       <div slot="modalContent">
         <div class="modalWrapper">

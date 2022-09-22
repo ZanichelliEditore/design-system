@@ -43,7 +43,7 @@ export class ZOffcanvas {
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
-  handleOpenStatus(): void {
+  private handleOpenStatus(): void {
     if (this.open) {
       this.hostElement.style.display = "flex";
     } else if (this.variant === OffCanvasVariantsEnum.pushcontent) {
@@ -52,7 +52,7 @@ export class ZOffcanvas {
     }
   }
 
-  handleAnimationEnd(): void {
+  private handleAnimationEnd(): void {
     if (this.hostElement.hasAttribute("open")) {
       (this.hostElement.querySelector(`.canvas-content`) as HTMLElement).focus();
     } else if (this.variant === OffCanvasVariantsEnum.overlay) {

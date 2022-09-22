@@ -45,7 +45,7 @@ export class ZMenu {
   /** The menu has been closed. */
   @Event()
   closed: EventEmitter;
-  toggle(): void {
+  private toggle(): void {
     if (!this.hasContent) {
       return;
     }
@@ -56,7 +56,7 @@ export class ZMenu {
 
   @Listen("click", {target: "document"})
   /** Close the floating list when a click is performed outside of this Element. */
-  handleClick(ev): void {
+  private handleClick(ev): void {
     if (!this.floating || !this.open || this.hostElement.contains(ev.target)) {
       return;
     }
@@ -89,7 +89,7 @@ export class ZMenu {
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
-  reflow(live = false): void {
+  private reflow(live = false): void {
     if (this.content) {
       const {style} = this.content;
       const {left} = this.hostElement.getBoundingClientRect();

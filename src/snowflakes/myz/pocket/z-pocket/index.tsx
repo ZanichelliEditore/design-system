@@ -34,7 +34,7 @@ export class ZPocket {
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event()
   pocketToggle: EventEmitter;
-  emitPocketToggle(id: string, status: PocketStatus): void {
+  private emitPocketToggle(id: string, status: PocketStatus): void {
     this.pocketToggle.emit({id, status});
   }
 
@@ -73,8 +73,8 @@ export class ZPocket {
     this.emitPocketToggle(this.pocketid, this.status);
   }
 
-  handleBackgroundClick(e: any): void {
-    if (e.target.dataset.action == "pocketBackground") {
+  private handleBackgroundClick(e: MouseEvent): void {
+    if ((e.target as HTMLElement).dataset.action == "pocketBackground") {
       this.close();
     }
   }
@@ -86,7 +86,7 @@ export class ZPocket {
           data-action="pocketBackground"
           data-pocket={this.pocketid}
           class={`background ${this.status}`}
-          onClick={(e: any) => this.handleBackgroundClick(e)}
+          onClick={(e: MouseEvent) => this.handleBackgroundClick(e)}
         />
         <div
           id={this.pocketid}

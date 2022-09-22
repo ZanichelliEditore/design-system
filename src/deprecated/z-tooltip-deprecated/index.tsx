@@ -136,7 +136,7 @@ export class ZTooltipDeprecated {
   private animationFrameRequestId?: number;
 
   @Watch("type")
-  validateType(newValue): void {
+  validateType(newValue: PopoverPositions): void {
     if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
       this.type = PopoverPositions.auto;
     }

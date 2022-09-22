@@ -116,7 +116,7 @@ export class ZTable {
     this.host.setAttribute("role", "table");
   }
 
-  renderError(tableClass): HostElement {
+  private renderError(tableClass): HostElement {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
     return (
       <Host>
@@ -145,7 +145,7 @@ export class ZTable {
     );
   }
 
-  renderEmpty(tableClass): HostElement {
+  private renderEmpty(tableClass): HostElement {
     const buttonSize = this.isMobile ? ButtonSizeEnum.small : ButtonSizeEnum.big;
     const tableContentClass = `${this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {

@@ -32,9 +32,8 @@ export class ZPaginationBar {
   @State()
   currentPages: number[] = [];
 
-  velocityConstantMultiplier = 2;
-
-  bar: HTMLElement;
+  private velocityConstantMultiplier = 2;
+  private bar: HTMLElement;
 
   constructor() {
     this.navigateRight = this.navigateRight.bind(this);
@@ -58,18 +57,18 @@ export class ZPaginationBar {
     this.initPagination();
   }
 
-  initPagination(): void {
+  private initPagination(): void {
     this.loadPages();
     if (this.historyraw) {
       this.parsehistoryraw(this.historyraw);
     }
   }
 
-  parsehistoryraw(historyraw: string): void {
+  private parsehistoryraw(historyraw: string): void {
     this.listhistoryrow = [...JSON.parse(historyraw)];
   }
 
-  scrollPage(ev: HammerInput): void {
+  private scrollPage(ev: HammerInput): void {
     const vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
@@ -89,7 +88,7 @@ export class ZPaginationBar {
   /** emitted on page number click, returns page*/
   @Event()
   goToPage: EventEmitter;
-  emitGoToPage(page): void {
+  private emitGoToPage(page): void {
     this.currentpage = page;
     this.goToPage.emit({page: page});
     this.addPageToHistory.emit({page: page});
@@ -98,7 +97,7 @@ export class ZPaginationBar {
   /** emitted on start page change, returns startpage*/
   @Event()
   changeStartPage: EventEmitter;
-  emitChangeStartPage(startpage): void {
+  private emitChangeStartPage(startpage): void {
     this.startpage = startpage;
     this.changeStartPage.emit({startpage: startpage});
   }
@@ -106,12 +105,8 @@ export class ZPaginationBar {
   /** emitted on adding page to isvisited array, returns page*/
   @Event()
   addPageToHistory: EventEmitter;
-  emitAddPageToHistory(page): void {
-    this.listhistoryrow.push(page);
-    this.changeStartPage.emit({page: page});
-  }
 
-  loadPages(): void {
+  private loadPages(): void {
     this.currentPages.splice(0);
     const lastPage = this.pageWindow();
 
@@ -121,18 +116,18 @@ export class ZPaginationBar {
     }
   }
 
-  pageWindow(): number {
+  private pageWindow(): number {
     return Math.min(this.pages, this.visiblepages); //How many pages are there to show?
   }
 
-  canNavigateLeft(): boolean {
+  private canNavigateLeft(): boolean {
     return this.startpage > 1;
   }
-  canNavigateRight(): boolean {
+  private canNavigateRight(): boolean {
     return this.startpage + this.visiblepages - 1 < this.pages;
   }
 
-  navigateLeft(): void {
+  private navigateLeft(): void {
     if (this.canNavigateLeft()) {
       this.startpage--;
       this.emitChangeStartPage(this.startpage);
@@ -140,7 +135,7 @@ export class ZPaginationBar {
     }
   }
 
-  navigateRight(): void {
+  private navigateRight(): void {
     if (this.canNavigateRight()) {
       this.startpage++;
       this.emitChangeStartPage(this.startpage);

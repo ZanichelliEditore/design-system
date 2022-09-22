@@ -44,7 +44,7 @@ export class ZModalLogin {
   /** Emitted on login submit */
   @Event()
   loginSubmit: EventEmitter;
-  emitLoginSubmit(): void {
+  private emitLoginSubmit(): void {
     const usernameInput = this.hostElement.querySelector("z-input#username") as HTMLZInputElement;
     const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
 
@@ -71,35 +71,35 @@ export class ZModalLogin {
   /** Emitted on status update */
   @Event()
   statusUpdate: EventEmitter;
-  emitStatusUpdate(status: InputStatusBean): void {
+  private emitStatusUpdate(status: InputStatusBean): void {
     this.statusUpdate.emit(status);
   }
 
   /** Emitted on signup button click */
   @Event()
   signupClick: EventEmitter;
-  emitSignupClick(): void {
+  private emitSignupClick(): void {
     this.signupClick.emit();
   }
 
   /** Emitted on zaino digitale button click */
   @Event()
   zainoDigitaleClick: EventEmitter;
-  emitZainoDigitaleClick(): void {
+  private emitZainoDigitaleClick(): void {
     this.zainoDigitaleClick.emit();
   }
 
-  handleInputKeyUp(e: KeyboardEvent): void {
+  private handleInputKeyUp(e: KeyboardEvent): void {
     if (e.code !== "Enter") return;
     this.emitLoginSubmit();
   }
 
-  handleInputChange(): void {
+  private handleInputChange(): void {
     this.status = null;
     this.emitStatusUpdate(this.status);
   }
 
-  cleanUsername(username: string): string {
+  private cleanUsername(username: string): string {
     username = username.trim().toLowerCase();
 
     const mobileRegex = /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
@@ -111,7 +111,7 @@ export class ZModalLogin {
     return username;
   }
 
-  renderZainoDigitaleButton(): HTMLZButtonElement {
+  private renderZainoDigitaleButton(): HTMLZButtonElement {
     return (
       <z-button
         variant={ButtonVariantEnum.secondary}

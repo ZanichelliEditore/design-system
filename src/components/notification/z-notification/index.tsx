@@ -44,7 +44,7 @@ export class ZNotification {
   @Event()
   notificationAction: EventEmitter;
 
-  handleActionButtonClick(e: MouseEvent): void {
+  private handleActionButtonClick(e: MouseEvent): void {
     e.preventDefault();
     this.notificationAction.emit();
   }
@@ -53,7 +53,7 @@ export class ZNotification {
   @Event()
   notificationClose: EventEmitter;
 
-  handleCloseButtonClick(e: MouseEvent): void {
+  private handleCloseButtonClick(e: MouseEvent): void {
     e.preventDefault();
     this.notificationClose.emit();
   }

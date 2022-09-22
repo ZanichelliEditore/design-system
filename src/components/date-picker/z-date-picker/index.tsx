@@ -41,7 +41,7 @@ export class ZDatePicker {
   /** emitted when date changes, returns selected date */
   @Event()
   dateSelect: EventEmitter;
-  emitDateSelect(date): void {
+  private emitDateSelect(date): void {
     this.dateSelect.emit(date);
   }
 
@@ -154,7 +154,7 @@ export class ZDatePicker {
     });
   }
 
-  formatDate(date): string {
+  private formatDate(date): string {
     if (this.mode === ZDatePickerMode.date) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else if (this.mode === ZDatePickerMode.months) {
@@ -164,7 +164,7 @@ export class ZDatePicker {
     }
   }
 
-  onStopTyping(value): void {
+  private onStopTyping(value): void {
     let text = value.detail.value;
 
     if (this.mode === ZDatePickerMode.months) {
@@ -191,7 +191,7 @@ export class ZDatePicker {
     }
   }
 
-  renderSlottedContent(): HTMLDivElement {
+  private renderSlottedContent(): HTMLDivElement {
     return (
       <div class={`${this.datePickerId}-hidden`}>
         <input
@@ -203,7 +203,7 @@ export class ZDatePicker {
     );
   }
 
-  renderZInput(): HTMLDivElement {
+  private renderZInput(): HTMLDivElement {
     return (
       <div class={`${this.datePickerId}-container`}>
         <z-input

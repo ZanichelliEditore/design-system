@@ -53,7 +53,7 @@ export class ZUserDropdown {
     }
   }
 
-  setMobileAndDivToResizeWidth(): void {
+  private setMobileAndDivToResizeWidth(): void {
     if (this.divToResize) {
       this.isMobile = window.screen.width <= mobileBreakpoint || window.innerWidth <= mobileBreakpoint;
 
@@ -68,14 +68,14 @@ export class ZUserDropdown {
   /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   @Event()
   userButtonClick: EventEmitter;
-  emitUserButtonClick(): void {
+  private emitUserButtonClick(): void {
     this.userButtonClick.emit(this.isMenuOpen);
   }
 
   /** Emitted on dropdown menu zlink click, returns event */
   @Event()
   dropdownMenuLinkClick: EventEmitter;
-  emitDropdownMenuLinkClick(e: CustomEvent): void {
+  private emitDropdownMenuLinkClick(e: CustomEvent): void {
     this.isMenuOpen = false;
     this.dropdownMenuLinkClick.emit({e, linkId: e.detail.linkId});
   }
@@ -97,12 +97,12 @@ export class ZUserDropdown {
     }
   }
 
-  handleLoggedButtonClick(): void {
+  private handleLoggedButtonClick(): void {
     this.isMenuOpen = !this.isMenuOpen;
     this.emitUserButtonClick();
   }
 
-  renderGuestButton(): HTMLButtonElement {
+  private renderGuestButton(): HTMLButtonElement {
     return (
       <button
         id="guestbutton"
@@ -114,7 +114,7 @@ export class ZUserDropdown {
     );
   }
 
-  renderLoggedButton(): HTMLButtonElement {
+  private renderLoggedButton(): HTMLButtonElement {
     const direction = this.isMenuOpen ? "up" : "down";
     const colorClass = this.useInverseColors ? "inverse" : "";
 
@@ -147,7 +147,7 @@ export class ZUserDropdown {
     );
   }
 
-  getZLinkTextcolor(): "white" | "black" {
+  private getZLinkTextcolor(): "white" | "black" {
     if (this.isMobile) {
       return this.useInverseColors ? "black" : "white";
     } else {
@@ -155,7 +155,7 @@ export class ZUserDropdown {
     }
   }
 
-  renderDropdownMenu(): void | HTMLUListElement {
+  private renderDropdownMenu(): void | HTMLUListElement {
     const colorClass = this.useInverseColors ? "inverse" : "";
 
     return (

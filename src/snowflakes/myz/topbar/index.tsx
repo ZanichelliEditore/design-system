@@ -91,7 +91,7 @@ export class ZMyzTopbar {
     this.handleResize();
   }
 
-  renderLogoDiv(): HTMLDivElement {
+  private renderLogoDiv(): HTMLDivElement {
     return (
       <div class="logo">
         <z-logo
@@ -105,7 +105,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined {
+  private renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined {
     if (!this.isLogged || !this.ismyz) return;
 
     return (
@@ -118,7 +118,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement {
+  private renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement {
     const {id, label, link} = menuItem;
     return (
       <span>
@@ -160,18 +160,18 @@ export class ZMyzTopbar {
     );
   }
 
-  getIntMenuItemTabindex(item: MenuItem): number {
+  private getIntMenuItemTabindex(item: MenuItem): number {
     return this.intMenuData.indexOf(item) + 1;
   }
 
-  handleToggleMobileMenuItem(elementId: string): void {
+  private handleToggleMobileMenuItem(elementId: string): void {
     if (!this.isMobile) return;
 
     this.element.shadowRoot.querySelector(`#${elementId}`).classList.toggle("isopen");
     this.element.shadowRoot.querySelector("#mobile-dropdown-" + elementId).classList.toggle("visible");
   }
 
-  renderMenuItemsData(menuItem): HTMLSpanElement | null {
+  private renderMenuItemsData(menuItem): HTMLSpanElement | null {
     if (!menuItem.subMenu) return null;
 
     const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
@@ -185,7 +185,7 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
 
-  renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
+  private renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
     return (
       <span
         class="mobile-dropdown"
@@ -196,7 +196,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
+  private renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
     if (!this.ismyz || !this.isLogged) return;
     if (!menuItem || !menuItem["subMenu"]) {
       return (
@@ -231,13 +231,13 @@ export class ZMyzTopbar {
     );
   }
 
-  renderExtLinksIcons(icon): boolean | Record<string, string> {
+  private renderExtLinksIcons(icon): boolean | Record<string, string> {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
     return !hideIcons && {icon};
   }
 
-  renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
+  private renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged) return <div />;
 
     return (
@@ -267,7 +267,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
+  private renderLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div class="login">
         {this.isLogged ? (
@@ -282,7 +282,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderLoginButton(): void | HTMLZButtonElement {
+  private renderLoginButton(): void | HTMLZButtonElement {
     if (this.hideloginbutton) {
       return;
     }
@@ -299,7 +299,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement {
+  private renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement {
     return (
       <div
         id="mobile-login"
@@ -328,7 +328,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderUserData(userData: HeaderUserData): null | HTMLSpanElement {
+  private renderUserData(userData: HeaderUserData): null | HTMLSpanElement {
     if (this.isMobile && !userData) return null;
 
     const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
@@ -342,7 +342,7 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, "user-data");
   }
 
-  renderDesktopHeader(): HTMLElement {
+  private renderDesktopHeader(): HTMLElement {
     return (
       <header class={!this.ismyz ? "myz-out" : ""}>
         {this.renderMainHeader()}
@@ -351,7 +351,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMainHeader(): HTMLDivElement {
+  private renderMainHeader(): HTMLDivElement {
     return (
       <div
         id="main-header"
@@ -368,7 +368,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileHeader(): HTMLElement {
+  private renderMobileHeader(): HTMLElement {
     return (
       <header>
         {this.renderMobileMenu()}
@@ -377,7 +377,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenu(): HTMLDivElement {
+  private renderMobileMenu(): HTMLDivElement {
     return (
       <div
         id="mobile-header"
@@ -389,7 +389,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuToggle(): HTMLZButtonElement | HTMLDivElement {
+  private renderMobileMenuToggle(): HTMLZButtonElement | HTMLDivElement {
     if (!this.isLogged) return this.renderLoginButton();
 
     return (
@@ -411,7 +411,7 @@ export class ZMyzTopbar {
     );
   }
 
-  renderMobileMenuContent(): HTMLDivElement | null {
+  private renderMobileMenuContent(): HTMLDivElement | null {
     if (!this.isLogged) return null;
 
     return (

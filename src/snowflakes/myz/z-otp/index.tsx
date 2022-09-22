@@ -7,19 +7,23 @@ import {InputStatusBean, InputStatusEnum} from "../../../beans";
   shadow: true,
 })
 export class ZOtp {
+  /** Input number */
   @Prop()
   inputNum?: number = 6;
+  /** Input status */
   @Prop()
   status?: InputStatusBean;
+  /** Input message */
   @Prop()
   message?: string;
 
   private otp: string[];
   private otpRef: HTMLInputElement[];
 
+  /** Otp change event */
   @Event()
   otpChange: EventEmitter;
-  emitInputChange(value: string): void {
+  private emitInputChange(value: string): void {
     this.otpChange.emit({value});
   }
 
@@ -35,16 +39,16 @@ export class ZOtp {
           {this.otp.map((_val, i) => (
             <input
               class={this.status == InputStatusEnum.error ? "error" : null}
-              onKeyDown={(e: any) => {
+              onKeyDown={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) this.otpRef[i].value = "";
               }}
-              onKeyUp={(e: any) => {
+              onKeyUp={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) {
                   i < this.inputNum - 1 && this.otpRef[i + 1].focus();
                 }
               }}
-              onInput={(e: any) => {
-                this.otp[i] = e.target.value;
+              onInput={(e: InputEvent) => {
+                this.otp[i] = (e.target as HTMLInputElement).value;
                 this.emitInputChange(this.otp.join(""));
               }}
               type="text"

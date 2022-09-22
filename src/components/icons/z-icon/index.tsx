@@ -23,7 +23,7 @@ export class ZIcon {
   @Prop()
   fill?: string;
 
-  selectPathOrPolygon(iconName: string): HTMLElement {
+  private selectPathOrPolygon(iconName: string): HTMLElement {
     if (iconName && iconName.startsWith("M")) {
       return <path d={icons[this.name]}></path>;
     } else {

@@ -30,7 +30,7 @@ export class ZAvatar {
     }
   }
 
-  getTextSize(): string {
+  private getTextSize(): string {
     if (this.size === AvatarSize.small) {
       return "5";
     } else if (this.size === AvatarSize.medium) {

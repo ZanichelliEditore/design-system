@@ -32,14 +32,14 @@ export class ZToastNotificationList {
     this.newestontop && this.handleNewestOnTop();
   }
 
-  handleNewestOnTop(): void {
+  private handleNewestOnTop(): void {
     this.notificationArray = Array.from(this.hostElement.children);
     this.hostElement.append(...this.notificationArray.reverse());
 
     this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
   }
 
-  slotChangeHandler(): void {
+  private slotChangeHandler(): void {
     const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
     if (difference) {
       difference.forEach((elem) => {

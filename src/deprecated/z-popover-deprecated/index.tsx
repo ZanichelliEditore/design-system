@@ -38,7 +38,7 @@ export class ZPopoverDeprecated {
   /** Emitted on popover click, returns isVisible state */
   @Event()
   triggerClick: EventEmitter;
-  emitTriggerClick(): void {
+  private emitTriggerClick(): void {
     this.triggerClick.emit({
       isVisible: this.isVisible,
     });
@@ -53,7 +53,7 @@ export class ZPopoverDeprecated {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  openPopover(): void {
+  private openPopover(): void {
     const width = document.body.clientWidth;
     const height = window.innerHeight;
     const rect = this.popoverElem.getBoundingClientRect();
@@ -113,27 +113,27 @@ export class ZPopoverDeprecated {
   }
 
   @Listen("keyup", {target: "window"})
-  closePopoverWithKeyboard(e: any): void {
+  closePopoverWithKeyboard(e: KeyboardEvent): void {
     if (e.key === KeyboardKeys.ESC) {
       this.closePopover();
     }
   }
 
-  handleClick(event): void {
+  private handleClick(event): void {
     this.isVisible ? this.closePopover() : this.openPopover();
     this.emitTriggerClick();
     event.stopPropagation();
   }
 
-  handleKeyDown(event): void {
+  private handleKeyDown(event): void {
     if (event.code === KeyboardKeys.ENTER) {
       this.isVisible ? this.closePopover() : this.openPopover();
     }
   }
 
   @Listen("click", {target: "body", capture: true})
-  handleOutsideClick(e: any): void {
-    const tree = getElementTree(e.target);
+  handleOutsideClick(e: MouseEvent): void {
+    const tree = getElementTree(e.target as HTMLElement);
     const parent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-popover-deprecated");
 
     if (!parent) {

@@ -16,7 +16,7 @@ export class ZFooterSection {
   @State()
   isOpen = false;
 
-  renderToggleButton(): HTMLButtonElement {
+  private renderToggleButton(): HTMLButtonElement {
     return (
       <button
         class="toggleButton"

@@ -28,12 +28,12 @@ export class ZSkipToContent {
   @Element() hostElement: HTMLZSkipToContentElement;
 
   @Listen("focusout", {target: "document"})
-  handleFocusOutSkipToContent(e): void {
+  handleFocusOutSkipToContent(e: FocusEvent): void {
     if (this.isInSkipToContent(e.target)) this.visible = false;
   }
 
   @Listen("focusin", {target: "document"})
-  handleFocusSkipToContent(e): void {
+  handleFocusSkipToContent(e: FocusEvent): void {
     if (this.isInSkipToContent(e.target)) this.visible = true;
   }
 
@@ -47,31 +47,30 @@ export class ZSkipToContent {
     }
   }
 
-  isInSkipToContent(elem): boolean {
+  private isInSkipToContent(elem): boolean {
     const tree = getElementTree(elem);
-    const menuParent = tree.find((elem: any) => elem.nodeName.toLowerCase() === "z-skip-to-content");
-    if (menuParent) return true;
-    return false;
+    const menuParent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-skip-to-content");
+
+    return !!menuParent;
   }
 
-  getFirstChild(): Element | boolean {
-    const children = this.hostElement.children;
-    if (children.length) return children[0];
-    return false;
-  }
-
-  showFirstChild(): void {
-    const firstChild = this.getFirstChild();
+  private showFirstChild(): void {
+    const firstChild = this.hostElement.children?.[0];
     if (firstChild) this.visibleLink = firstChild.id;
   }
 
-  handleLinkClick(): void {
+  private handleLinkClick(): void {
     this.visible = false;
   }
 
   render(): HostElement {
     return (
-      <Host class={`${this.variant} ${this.visible && "skip-to-content-visible"} `}>
+      <Host
+        class={{
+          [this.variant]: true,
+          "skip-to-content-visible": this.visible,
+        }}
+      >
         {(this.links as SkipToContentLink[]).map((link, i) => {
           const id = `skip-to-content-${i}`;
           return (

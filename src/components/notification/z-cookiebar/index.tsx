@@ -15,23 +15,23 @@ export class ZCookiebar {
   hide?: boolean;
   /** callback to handle ok button action (optional) */
   @Prop()
-  callback?: () => any;
+  callback?: () => unknown;
 
   /** emitted on ACCETTA button click, returns event */
   @Event()
   accept: EventEmitter;
-  emitAccept(ev: MouseEvent | KeyboardEvent): void {
+  private emitAccept(ev: MouseEvent | KeyboardEvent): void {
     this.accept.emit({ev});
   }
 
-  handleOkButtonClick(ev: MouseEvent): void {
+  private handleOkButtonClick(ev: MouseEvent): void {
     this.emitAccept(ev);
     if (typeof this.callback === "function") {
       this.callback();
     }
   }
 
-  handleOkButtonKeyUp(ev: KeyboardEvent): void {
+  private handleOkButtonKeyUp(ev: KeyboardEvent): void {
     this.emitAccept(ev);
     if (ev.code === "Enter") {
       if (typeof this.callback !== "undefined" && typeof this.callback === "function") {
@@ -40,7 +40,7 @@ export class ZCookiebar {
     }
   }
 
-  renderContentSlot(): HTMLDivElement {
+  private renderContentSlot(): HTMLDivElement {
     return (
       <div
         class="content"

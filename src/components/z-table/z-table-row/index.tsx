@@ -9,25 +9,27 @@ import {ZTableRowExpandedType} from "../../../beans";
   scoped: false,
 })
 export class ZTableRow {
+  /** Table row expanded type */
   @Prop({reflect: true})
   expandedType: ZTableRowExpandedType = ZTableRowExpandedType.none;
 
   @State()
   expanded = false;
 
+  /** Row has been expanded */
   @Event()
   expand: EventEmitter;
-  emitOnExpand(): void {
+  private emitOnExpand(): void {
     this.expand.emit({expanded: this.expanded});
   }
 
-  handleExpand(): void {
+  private handleExpand(): void {
     this.expanded = !this.expanded;
 
     this.emitOnExpand();
   }
 
-  renderExpandButton(): HTMLZTableCellElement {
+  private renderExpandButton(): HTMLZTableCellElement {
     if (this.expandedType == ZTableRowExpandedType.expandable) {
       return (
         <z-table-cell style={{borderRight: "none"}}>

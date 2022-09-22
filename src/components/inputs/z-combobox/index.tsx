@@ -95,7 +95,7 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event()
   comboboxChange: EventEmitter;
-  emitComboboxChange(): void {
+  private emitComboboxChange(): void {
     this.comboboxChange.emit({id: this.inputid, items: this.itemsList});
   }
 
@@ -115,15 +115,15 @@ export class ZCombobox {
     }
   }
 
-  resetRenderItemsList(): void {
+  private resetRenderItemsList(): void {
     const renderItemsList = [];
-    this.itemsList.forEach((item: any) => {
+    this.itemsList.forEach((item: ComboItemBean) => {
       renderItemsList.push({...item});
     });
     this.renderItemsList = renderItemsList;
   }
 
-  filterItems(value: string): void {
+  private filterItems(value: string): void {
     if (!value) return this.closeFilterItems();
 
     this.searchValue = value;
@@ -142,7 +142,7 @@ export class ZCombobox {
     });
   }
 
-  checkAll(checked = true): void {
+  private checkAll(checked = true): void {
     this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
       ...item,
       checked: checked,
@@ -151,16 +151,16 @@ export class ZCombobox {
     this.emitComboboxChange();
   }
 
-  closeFilterItems(): void {
+  private closeFilterItems(): void {
     this.searchValue = "";
     this.resetRenderItemsList();
   }
 
-  toggleComboBox(): void {
+  private toggleComboBox(): void {
     this.isopen = !this.isopen;
   }
 
-  renderHeader(): HTMLDivElement {
+  private renderHeader(): HTMLDivElement {
     return (
       <div
         class="header"
@@ -188,7 +188,7 @@ export class ZCombobox {
     );
   }
 
-  renderContent(): HTMLDivElement | undefined {
+  private renderContent(): HTMLDivElement | undefined {
     if (!this.isopen) return;
 
     return (
@@ -200,7 +200,7 @@ export class ZCombobox {
     );
   }
 
-  renderItems(): HTMLDivElement | undefined {
+  private renderItems(): HTMLDivElement | undefined {
     if (!this.isopen) return;
 
     return (
@@ -214,7 +214,7 @@ export class ZCombobox {
     );
   }
 
-  renderList(items: ComboItemBean[]): HTMLUListElement | undefined {
+  private renderList(items: ComboItemBean[]): HTMLUListElement | undefined {
     if (!items) return;
     if (!items.length && this.searchValue) return this.renderNoSearchResults();
 
@@ -242,7 +242,7 @@ export class ZCombobox {
     );
   }
 
-  renderNoSearchResults(): HTMLUListElement {
+  private renderNoSearchResults(): HTMLUListElement {
     return (
       <ul>
         <z-myz-list-item
@@ -255,7 +255,7 @@ export class ZCombobox {
     );
   }
 
-  renderCloseButton(): HTMLDivElement {
+  private renderCloseButton(): HTMLDivElement {
     return (
       <div>
         <a
@@ -270,7 +270,7 @@ export class ZCombobox {
     );
   }
 
-  renderSearchInput(): ZInput | undefined {
+  private renderSearchInput(): ZInput | undefined {
     if (!this.isopen) return;
 
     return (
@@ -290,7 +290,7 @@ export class ZCombobox {
     );
   }
 
-  renderCheckAll(): void | HTMLDivElement {
+  private renderCheckAll(): void | HTMLDivElement {
     if (this.searchValue) return;
 
     const allChecked = this.selectedCounter === this.itemsList.length;

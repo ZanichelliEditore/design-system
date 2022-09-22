@@ -45,7 +45,7 @@ export class ZAppTopbar {
     }
   }
 
-  renderTopbarLinks(): HTMLZLinkElement[] {
+  private renderTopbarLinks(): HTMLZLinkElement[] {
     return this.topbarLinks.map((link) => (
       <z-link
         htmlid={link.id}

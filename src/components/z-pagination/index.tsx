@@ -138,7 +138,7 @@ export class ZPagination {
    * Get a list of pages chunks, each of `visiblePages` length.
    * @returns {number[][]}
    */
-  getPagesChunks(): number[][] {
+  private getPagesChunks(): number[][] {
     // array of numbers from 1 to `totalPages`
     const pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
 
@@ -154,7 +154,7 @@ export class ZPagination {
   /**
    * Scroll to the left the chunk of pages containing the current page.
    */
-  scrollToPage(): void {
+  private scrollToPage(): void {
     const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
 
     if (!pageBtn) {
@@ -173,7 +173,7 @@ export class ZPagination {
    * Do validations on the passed value before assigning it to `currentPage`.
    * @param {number} page Page number to set
    */
-  selectPage(page): void {
+  private selectPage(page): void {
     this.currentPage = Math.min(Math.max(page, 1), this.totalPages);
   }
 
@@ -182,7 +182,7 @@ export class ZPagination {
    * @param {number} page Page number to render
    * @returns {HTMLButtonElement}
    */
-  renderPage(page): HTMLButtonElement {
+  private renderPage(page): HTMLButtonElement {
     return (
       <button
         class="page-button"
@@ -203,7 +203,7 @@ export class ZPagination {
    * @param {number} page Page to select on click.
    * @returns {HTMLButtonElement}
    */
-  renderEllipsisButton(page): HTMLButtonElement {
+  private renderEllipsisButton(page): HTMLButtonElement {
     return (
       <button
         class="ellipsis-button"
@@ -220,7 +220,7 @@ export class ZPagination {
    * Render chunked page buttons.
    * @returns {HTMLDivElement[]}
    */
-  renderPages(): void | HTMLDivElement[] {
+  private renderPages(): void | HTMLDivElement[] {
     const pagesChunks = this.getPagesChunks();
     if (pagesChunks.length <= 0) {
       return;
@@ -233,7 +233,7 @@ export class ZPagination {
    * Render page buttons when split feature is enabled.
    * @returns {HTMLButtonElement[]}
    */
-  renderSplitPages(): HTMLButtonElement[] {
+  private renderSplitPages(): HTMLButtonElement[] {
     // left and right split pages, current page, first and last page, left and right ellipsis button
     if (this.totalPages <= this.split * 2 + 5) {
       // Too few pages: ellipsis will never be rendered, so let's just render all pages and that's it.
@@ -268,7 +268,7 @@ export class ZPagination {
     ];
   }
 
-  renderBackButton(): HTMLButtonElement {
+  private renderBackButton(): HTMLButtonElement {
     return (
       <button
         class="navigation-button"
@@ -282,7 +282,7 @@ export class ZPagination {
     );
   }
 
-  renderForwardButton(): HTMLButtonElement {
+  private renderForwardButton(): HTMLButtonElement {
     return (
       <button
         class="navigation-button"
@@ -296,7 +296,7 @@ export class ZPagination {
     );
   }
 
-  renderMobile(): HTMLElement[] {
+  private renderMobile(): HTMLElement[] {
     const pagesChunks = this.getPagesChunks();
 
     return [

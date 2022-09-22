@@ -20,7 +20,7 @@ export class ZMyzList {
     }
   }
 
-  parseinputrawdata(inputrawdata: string): void {
+  private parseinputrawdata(inputrawdata: string): void {
     this.list = [...JSON.parse(inputrawdata)];
   }
 

@@ -1,7 +1,9 @@
 import {Component, Prop, h, State, Element, Watch} from "@stencil/core";
-
 import {DeviceEnum, DeviceType} from "../../../beans";
 import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils";
+
+const isStringArray = (data: unknown): data is string[] =>
+  Array.isArray(data) && data.every((datum: unknown): datum is string => typeof datum === "string");
 
 /**
  * @slot footer-right - right content slot in footer
@@ -45,23 +47,29 @@ export class ZSlideshow {
     this.setStyle();
   }
 
-  handleResize(): void {
+  private handleResize(): void {
     this.setDevice();
     this.setStyle();
   }
 
-  parseLinks(): void {
+  private parseLinks(): void {
     switch (typeof this.data) {
-      case "string":
-        this.links = convertJson(this.data) ?? [];
+      case "string": {
+        const parsed = convertJson(this.data) ?? [];
+        if (!isStringArray(parsed)) {
+          throw new Error("Passed data is invalid");
+        }
+
+        this.links = parsed;
         break;
+      }
       default:
         this.links = this.data;
         break;
     }
   }
 
-  setStyle(): void {
+  private setStyle(): void {
     const refSlides = this.el.shadowRoot.querySelector("#slides") as HTMLElement;
     if (!refSlides) return;
 
@@ -77,15 +85,15 @@ export class ZSlideshow {
     });
   }
 
-  setDevice(): void {
+  private setDevice(): void {
     this.device = getDevice();
   }
 
-  setCurrentSlide(index: number): void {
+  private setCurrentSlide(index: number): void {
     this.currentSlide = index;
   }
 
-  getBulletDimension(): number {
+  private getBulletDimension(): number {
     switch (this.device) {
       case DeviceEnum.mobile:
         return 24;
@@ -96,7 +104,7 @@ export class ZSlideshow {
     }
   }
 
-  renderSlides(items: string[]): HTMLElement {
+  private renderSlides(items: string[]): HTMLElement {
     return (
       <div id="slides">
         {items.map((item: string, i: number) => (
@@ -111,7 +119,7 @@ export class ZSlideshow {
     );
   }
 
-  renderScroll(direction: "left" | "right"): HTMLZIconElement {
+  private renderScroll(direction: "left" | "right"): HTMLZIconElement {
     let disabled = false,
       nextSlide = this.currentSlide;
 
@@ -144,7 +152,7 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshowMain(): HTMLElement {
+  private renderSlideshowMain(): HTMLElement {
     return (
       <main>
         {this.renderScroll("left")}
@@ -154,7 +162,7 @@ export class ZSlideshow {
     );
   }
 
-  renderBullet(i: number): HTMLElement {
+  private renderBullet(i: number): HTMLElement {
     return (
       <a
         class={`bullet ${this.currentSlide === i && "selected"}`}
@@ -166,7 +174,7 @@ export class ZSlideshow {
     );
   }
 
-  renderSlideshowFooter(): HTMLElement {
+  private renderSlideshowFooter(): HTMLElement {
     return (
       <footer>
         <div class="footerLeft">

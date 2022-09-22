@@ -33,7 +33,7 @@ export class ZMyzCardInfo {
   /** flip card to front */
   @Event()
   flipCard: EventEmitter;
-  emitFlipCard(showBack = false): void {
+  private emitFlipCard(showBack = false): void {
     this.flipCard.emit(showBack);
   }
 
@@ -53,8 +53,11 @@ export class ZMyzCardInfo {
     this.handleContentHeight();
   }
 
-  handleContentHeight(): void {
-    if (!this.contentWrapper && !this.infoWrapper) return (this.hiddenContent = false);
+  private handleContentHeight(): void {
+    if (!this.contentWrapper && !this.infoWrapper) {
+      this.hiddenContent = false;
+      return;
+    }
 
     if (
       this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight ||
@@ -65,13 +68,15 @@ export class ZMyzCardInfo {
         this.onlineLicenseWrapper.offsetHeight -
         this.offlineLicenseWrapper.offsetHeight;
       this.infoWrapper.style.height = `${height}px`;
-      return (this.hiddenContent = true);
+      this.hiddenContent = true;
+      return;
     }
 
-    return (this.hiddenContent = false);
+    this.hiddenContent = false;
+    return;
   }
 
-  setStringOrArray(): void {
+  private setStringOrArray(): void {
     if (typeof this.data === "string") {
       this.cardData = JSON.parse(this.data);
     } else {
@@ -79,7 +84,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  renderCloseIcon(): HTMLZIconElement {
+  private renderCloseIcon(): HTMLZIconElement {
     return (
       <z-icon
         name="multiply-circled-filled"
@@ -94,7 +99,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderGeneralSection(): HTMLElement {
+  private renderGeneralSection(): HTMLElement {
     const title = this?.cardData?.title;
     const description = this?.cardData?.description;
 
@@ -115,7 +120,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderAuthor(): HTMLSpanElement {
+  private renderAuthor(): HTMLSpanElement {
     const author = this?.cardData?.author;
     if (!author) return null;
 
@@ -127,7 +132,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderYear(): HTMLSpanElement {
+  private renderYear(): HTMLSpanElement {
     const year = this?.cardData?.year;
     if (!year) return null;
 
@@ -139,11 +144,11 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderTooltip(): void | HTMLZPopoverElement {
+  private renderTooltip(): void | HTMLZPopoverElement {
     if (!this.tooltip) return;
 
     if (!this.cardData) return;
-    const {title, year, author, description} = this.cardData!;
+    const {title, year, author, description} = this.cardData;
 
     return (
       <z-popover
@@ -155,7 +160,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  setExpirationLicenseMessage(type: string): HTMLSpanElement {
+  private setExpirationLicenseMessage(type: string): HTMLSpanElement {
     if (
       (type === "online" && this.cardData.onlineLicense.expired) ||
       (type === "offline" && this.cardData.offlineLicense.expired)
@@ -171,7 +176,7 @@ export class ZMyzCardInfo {
     }
   }
 
-  renderOnlineLicenseSection(): void | HTMLElement {
+  private renderOnlineLicenseSection(): void | HTMLElement {
     if (!this?.cardData?.onlineLicense) return;
 
     return (
@@ -186,7 +191,7 @@ export class ZMyzCardInfo {
     );
   }
 
-  renderOfflineLicenseSection(): void | HTMLElement {
+  private renderOfflineLicenseSection(): void | HTMLElement {
     if (!this?.cardData?.offlineLicense) return;
 
     return (

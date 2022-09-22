@@ -10,13 +10,13 @@ export class ZDragdropArea {
   /** Emitted when user drop one or more files */
   @Event()
   fileDropped: EventEmitter;
-  fileDroppedHandler(files: FileList): void {
+  private fileDroppedHandler(files: FileList): void {
     this.fileDropped.emit(files);
   }
 
   private dragDropContainer: HTMLDivElement;
 
-  renderOnDragOverMessage(): HTMLDivElement {
+  private renderOnDragOverMessage(): HTMLDivElement {
     return (
       <div class="dragover-container">
         <div class="dragover-message">

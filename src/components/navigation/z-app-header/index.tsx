@@ -75,7 +75,7 @@ export class ZAppHeader {
    */
   @Event()
   sticking: EventEmitter;
-  emitStickingEvent(): void {
+  private emitStickingEvent(): void {
     this.sticking.emit(this.stucked);
   }
 
@@ -136,13 +136,13 @@ export class ZAppHeader {
     }
   }
 
-  enableStuckObserver(): void {
+  private enableStuckObserver(): void {
     if (this.observer) {
       this.observer.observe(this.container);
     }
   }
 
-  disableStuckMode(): void {
+  private disableStuckMode(): void {
     this.stucked = false;
     if (this.observer) {
       this.observer.unobserve(this.container);
@@ -257,11 +257,11 @@ export class ZAppHeader {
     );
   }
 
-  openDrawer(): void {
+  private openDrawer(): void {
     this.drawerOpen = true;
   }
 
-  closeDrawer(): void {
+  private closeDrawer(): void {
     this.drawerOpen = false;
   }
 }

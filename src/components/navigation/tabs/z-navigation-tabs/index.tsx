@@ -134,7 +134,7 @@ export class ZNavigationTabs {
   /**
    * Scroll the navigation bar half of its size backward.
    */
-  navigateBackwards(): void {
+  private navigateBackwards(): void {
     this.tabsNav.scrollBy({
       [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
       behavior: "smooth",
@@ -144,7 +144,7 @@ export class ZNavigationTabs {
   /**
    * Scroll the navigation bar half of its size forward.
    */
-  navigateForward(): void {
+  private navigateForward(): void {
     this.tabsNav.scrollBy({
       [this.direction.toLowerCase()]:
         this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,

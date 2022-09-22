@@ -85,6 +85,9 @@ export class ZListElement {
   @Prop()
   expandableStyle?: ExpandableListStyle = ExpandableListStyle.accordion;
 
+  /**
+   * [optional] List element id.
+   */
   @Prop({reflect: true})
   listElementId?: number;
 
@@ -138,7 +141,7 @@ export class ZListElement {
    * Handler for click on element. If element is expandable, change state.
    * @returns void
    */
-  handleClick(): void {
+  private handleClick(): void {
     this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
@@ -146,7 +149,7 @@ export class ZListElement {
     this.showInnerContent = !this.showInnerContent;
   }
 
-  calculateClass(): string {
+  private calculateClass(): string {
     if (this.isContextualMenu) {
       return "container-contextual-menu";
     }
@@ -154,7 +157,7 @@ export class ZListElement {
     return "container";
   }
 
-  handleKeyDown(event): void {
+  private handleKeyDown(event): void {
     const expandByKey = event.code === KeyboardKeys.ENTER;
     switch (event.code) {
       case KeyboardKeys.ARROW_DOWN:
@@ -183,7 +186,7 @@ export class ZListElement {
    * Renders button to expand element.
    * @returns expadable button
    */
-  renderExpandableButton(): void | HTMLZIconElement {
+  private renderExpandableButton(): void | HTMLZIconElement {
     if (!this.expandable) {
       return null;
     }
@@ -203,7 +206,7 @@ export class ZListElement {
    * Renders expanded content if element is expandable.
    * @returns expanded content
    */
-  renderExpandedContent(): HTMLDivElement {
+  private renderExpandedContent(): HTMLDivElement {
     if (!this.expandable) {
       return null;
     }
