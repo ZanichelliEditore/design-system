@@ -10,6 +10,7 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/web-components-library/web-components-library.esm.js",
+  "jsdelivr": "dist/web-components-library/web-components-library.esm.js",
   "files": [
     "dist/",
     "loader/",
