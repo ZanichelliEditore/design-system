@@ -6,3 +6,4 @@ const UTILS = {
 
 export {UTILS as Utils};
 export * from "./components";
+export * from "./beans";

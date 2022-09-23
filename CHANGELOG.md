@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.5.1](https://github.com/ZanichelliEditore/design-system/compare/v5.5.0...v5.5.1) (2022-09-23)
+
 ## [5.5.0](https://github.com/ZanichelliEditore/design-system/compare/v5.4.0...v5.5.0) (2022-09-19)
 
 
