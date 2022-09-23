@@ -103,6 +103,7 @@ export class ZCombobox {
 
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
       if (item.id === id) item.checked = e.detail.checked;
+
       return item;
     });
     this.resetRenderItemsList();
@@ -156,6 +157,7 @@ export class ZCombobox {
         item.name.substring(end, item.name.length);
 
       item.name = newName;
+
       return start >= 0;
     });
   }
@@ -312,6 +314,7 @@ export class ZCombobox {
     if (this.searchValue) return;
 
     const allChecked = this.selectedCounter === this.itemsList.length;
+
     return (
       <div class="checkAllWrapper">
         <z-input

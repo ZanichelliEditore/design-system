@@ -75,6 +75,7 @@ export class ZSkipToContent {
       >
         {(this.links as SkipToContentLink[]).map((link, i) => {
           const id = `skip-to-content-${i}`;
+
           return (
             <z-link
               id={id}

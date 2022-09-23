@@ -30,9 +30,9 @@ export function setFlatpickrPosition(
 
   if (!overflowTop && overflowBottom) {
     return ZDatePickerPosition.TOP;
-  } else {
-    return ZDatePickerPosition.BOTTOM;
   }
+
+  return ZDatePickerPosition.BOTTOM;
 }
 
 export function setAriaOptions(element: HTMLElement, mode: ZDatePickerMode | ZRangePickerMode): void {

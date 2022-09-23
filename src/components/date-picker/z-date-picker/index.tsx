@@ -162,9 +162,9 @@ export class ZDatePicker {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     } else if (this.mode === ZDatePickerMode.MONTHS) {
       return `${flatpickr.formatDate(date, "m-Y")}`;
-    } else {
-      return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
     }
+
+    return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
   }
 
   private onStopTyping(value): void {

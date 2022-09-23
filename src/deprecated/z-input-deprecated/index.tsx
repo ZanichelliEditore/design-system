@@ -231,6 +231,7 @@ export class ZInputDeprecated {
 
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
+
     return input.validity;
   }
 

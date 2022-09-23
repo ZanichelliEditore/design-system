@@ -44,6 +44,7 @@ export class ZStepperItem {
         </a>
       );
     }
+
     return (
       <button
         class="stepper-item"

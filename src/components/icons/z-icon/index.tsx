@@ -30,9 +30,9 @@ export class ZIcon {
   private selectPathOrPolygon(iconName: string): HTMLElement {
     if (iconName && iconName.startsWith("M")) {
       return <path d={ICONS[this.name]}></path>;
-    } else {
-      return <polygon points={ICONS[this.name]}></polygon>;
     }
+
+    return <polygon points={ICONS[this.name]}></polygon>;
   }
 
   render(): SVGElement {

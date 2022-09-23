@@ -224,9 +224,9 @@ export class ZRangePicker {
   private formatDate(date): string {
     if (this.mode === ZRangePickerMode.DATE) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
-    } else {
-      return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
     }
+
+    return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
   }
 
   private printDate(firstDate, lastDate): void {
@@ -238,6 +238,7 @@ export class ZRangePicker {
 
   private getDateWithoutTime(date): Date {
     const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0);
+
     return newDate;
   }
 
@@ -366,29 +367,27 @@ export class ZRangePicker {
           this.printDate(new Date(englishParsedData), null);
         }
       }
-    } else {
-      if (text === "") {
-        this.lastInputError = false;
-        this.lastPicker.setDate([]);
-        this.printDate(this.firstPicker.selectedDates[0] || null, null);
-      } else if (!isValidDate) {
-        this.lastInputError = true;
-        this.printDate(this.firstPicker.selectedDates[0] || null, null);
-      } else if (isValidDate) {
-        if (this.firstPicker.selectedDates.length === 1) {
-          if (+date >= +this.firstPicker.selectedDates[0]) {
-            this.lastInputError = false;
-            this.lastPicker.setDate([text]);
-            this.printDate(this.firstPicker.selectedDates[0], new Date(englishParsedData));
-          } else {
-            this.lastInputError = true;
-            this.printDate(this.firstPicker.selectedDates[0], null);
-          }
-        } else {
+    } else if (text === "") {
+      this.lastInputError = false;
+      this.lastPicker.setDate([]);
+      this.printDate(this.firstPicker.selectedDates[0] || null, null);
+    } else if (!isValidDate) {
+      this.lastInputError = true;
+      this.printDate(this.firstPicker.selectedDates[0] || null, null);
+    } else if (isValidDate) {
+      if (this.firstPicker.selectedDates.length === 1) {
+        if (+date >= +this.firstPicker.selectedDates[0]) {
           this.lastInputError = false;
           this.lastPicker.setDate([text]);
-          this.printDate(null, new Date(englishParsedData));
+          this.printDate(this.firstPicker.selectedDates[0], new Date(englishParsedData));
+        } else {
+          this.lastInputError = true;
+          this.printDate(this.firstPicker.selectedDates[0], null);
         }
+      } else {
+        this.lastInputError = false;
+        this.lastPicker.setDate([text]);
+        this.printDate(null, new Date(englishParsedData));
       }
     }
 

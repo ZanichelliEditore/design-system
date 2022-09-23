@@ -132,6 +132,7 @@ export class ZFileUpload {
           this.fileInput.emit(file);
           this.input.value = "";
         }
+
         return;
       }
       errors.set(file.name, []);
@@ -299,6 +300,7 @@ export class ZFileUpload {
 
   private formatErrorString(key, value): string {
     const bothErrors = value[0] && value[1] ? ", " : "";
+
     return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${value[1] ?? ""} e non può quindi essere caricato.`;
   }
 

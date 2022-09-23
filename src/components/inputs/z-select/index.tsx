@@ -136,8 +136,10 @@ export class ZSelect {
 
   private mapSelectedItemToItemsArray(): SelectItemBean[] {
     const initialItemsList = this.getInitialItemsArray();
+
     return initialItemsList.map((item: SelectItemBean) => {
       item.selected = item.id === this.selectedItem?.id;
+
       return item;
     });
   }
@@ -163,6 +165,7 @@ export class ZSelect {
             `<strong>${item.name.substring(start, end)}</strong>` +
             item.name.substring(end, item.name.length);
           item.name = newName;
+
           return item;
         });
     }
@@ -184,6 +187,7 @@ export class ZSelect {
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
       i.selected = false;
       if (i.id === (item ? item.id : null)) i.selected = selected;
+
       return i;
     });
 
@@ -240,6 +244,7 @@ export class ZSelect {
     const clearIcon = cp.find((item: HTMLElement) => item.classList && item.classList.contains("resetIcon"));
     if (clearIcon) {
       e.stopPropagation();
+
       return;
     }
 
@@ -249,6 +254,7 @@ export class ZSelect {
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
     if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
       e.stopPropagation();
+
       return this.toggleSelectUl(true);
     }
 

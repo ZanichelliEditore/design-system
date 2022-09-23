@@ -7,6 +7,7 @@ function getParentElement(element: Element): ShadowRoot["host"] {
   if ((element.parentNode as ShadowRoot).host) {
     return (element.parentNode as ShadowRoot).host;
   }
+
   return element.parentNode as Element;
 }
 

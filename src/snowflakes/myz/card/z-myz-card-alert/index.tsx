@@ -56,6 +56,7 @@ export class ZMyzCardAlert {
         className = "";
         break;
     }
+
     return className;
   }
 

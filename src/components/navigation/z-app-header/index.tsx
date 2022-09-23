@@ -120,6 +120,7 @@ export class ZAppHeader {
     if (parent === document.body || parent === document.documentElement) {
       return window;
     }
+
     return parent;
   }
 

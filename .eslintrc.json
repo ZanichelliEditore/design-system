@@ -20,6 +20,17 @@
     "no-unmodified-loop-condition": "error",
     "keyword-spacing": "warn",
     "lines-between-class-members": "error",
+    "no-else-return": "error",
+    "no-useless-return": "error",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "no-lonely-if": "error",
     "@typescript-eslint/array-type": [
       "error",
       {

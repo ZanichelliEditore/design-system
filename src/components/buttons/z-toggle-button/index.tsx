@@ -36,6 +36,7 @@ export class ZToggleButton {
   private retrieveButtonClass(): string {
     let className = this.opened && "isopen";
     if (this.avoidclick) className = className + " avoid-clicks";
+
     return className;
   }
 

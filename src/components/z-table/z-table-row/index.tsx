@@ -38,6 +38,7 @@ export class ZTableRow {
         </z-table-cell>
       );
     }
+
     return (
       <z-table-cell style={{borderRight: "none"}}>
         <div class="z-icon-placeholder" />

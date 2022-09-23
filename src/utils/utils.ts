@@ -52,6 +52,7 @@ export function getClickedElement(elem: null | Element = null): null | Element {
 
   if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
     elem = elem.shadowRoot.activeElement;
+
     return getClickedElement(elem);
   }
 
@@ -63,9 +64,11 @@ export function getElementTree(elem: Element, tree: Element[] = []): null | Elem
 
   if (elem.parentElement) {
     elem = elem.parentElement;
+
     return getElementTree(elem, tree);
   } else if (elem.parentNode && (elem.parentNode as ShadowRoot).host) {
     elem = (elem.parentNode as ShadowRoot).host;
+
     return getElementTree(elem, tree);
   }
 

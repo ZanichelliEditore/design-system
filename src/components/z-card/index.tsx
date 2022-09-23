@@ -50,6 +50,7 @@ export class ZCard {
     if (!this.clickable) {
       ev.preventDefault();
       ev.stopPropagation();
+
       return;
     }
 

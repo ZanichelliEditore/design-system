@@ -118,6 +118,7 @@ export class ZTable {
 
   private renderError(tableClass): HostElement {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
+
     return (
       <Host>
         <div class={tableClass}>
@@ -233,6 +234,7 @@ export class ZTable {
     if (this.empty) {
       return this.renderEmpty(tableClass);
     }
+
     return (
       <Host>
         <div class={tableClass}>

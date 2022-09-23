@@ -31,6 +31,7 @@ export class ZCarousel {
         </div>
       );
     }
+
     return (
       <ul class="z-carousel-items-container">
         <slot />

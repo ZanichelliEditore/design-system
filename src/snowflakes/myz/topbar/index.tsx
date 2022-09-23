@@ -136,6 +136,7 @@ export class ZMyzTopbar {
 
   private renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement {
     const {id, label, link} = menuItem;
+
     return (
       <span>
         <a
@@ -198,6 +199,7 @@ export class ZMyzTopbar {
         listitemid: item.id,
       };
     });
+
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
 
@@ -265,6 +267,7 @@ export class ZMyzTopbar {
       >
         {menuItems.map((menuItem: MenuItem) => {
           const {id, label, link, icon} = menuItem;
+
           return (
             <span class={`link-ext-span${this.ismyz ? " myz" : ""}`}>
               <z-link
@@ -357,6 +360,7 @@ export class ZMyzTopbar {
         listitemid: item.id,
       };
     });
+
     return this.renderMobileSubMenu(listItems, "user-data");
   }
 

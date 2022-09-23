@@ -254,6 +254,7 @@ export class ZFooter {
     if (!this.jsonData || !this.jsonData.bottomLinks) return null;
 
     const bottomLinks = this.jsonData.bottomLinks;
+
     return bottomLinks.map((item) => <z-footer-link href={item.link}>{item.label}</z-footer-link>);
   }
 
@@ -262,6 +263,7 @@ export class ZFooter {
     if (!this.jsonData || !this.jsonData.social) return null;
 
     const social = this.jsonData.social;
+
     return social.map((item) => (
       <z-footer-social
         href={item.link}

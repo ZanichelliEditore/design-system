@@ -54,6 +54,7 @@ export class ZPanelElem {
         />
       );
     }
+
     return (
       <a
         class="elem-icon"
@@ -70,6 +71,7 @@ export class ZPanelElem {
 
   render(): HTMLDivElement {
     const elemId = this.elemid ? this.elemid : "";
+
     return (
       <div class="panel-elem-container">
         {(this.imgurl || this.imgalt) && <div class="panel-elem-icon">{this.renderIcon()}</div>}

@@ -131,6 +131,7 @@ export class ZInput {
         return this.checked;
       default:
         console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
+
         return false;
     }
   }
@@ -195,6 +196,7 @@ export class ZInput {
 
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
+
     return input.validity;
   }
 
@@ -221,6 +223,7 @@ export class ZInput {
 
   private getNumberAttributes(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (type != InputTypeEnum.NUMBER) return;
+
     return {
       min: this.min,
       max: this.max,
@@ -238,6 +241,7 @@ export class ZInput {
       type != InputTypeEnum.EMAIL
     )
       return;
+
     return {
       pattern: this.pattern,
     };

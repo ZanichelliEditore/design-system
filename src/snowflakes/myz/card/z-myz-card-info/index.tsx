@@ -62,6 +62,7 @@ export class ZMyzCardInfo {
   private handleContentHeight(): void {
     if (!this.contentWrapper && !this.infoWrapper) {
       this.hiddenContent = false;
+
       return;
     }
 
@@ -75,11 +76,11 @@ export class ZMyzCardInfo {
         this.offlineLicenseWrapper.offsetHeight;
       this.infoWrapper.style.height = `${height}px`;
       this.hiddenContent = true;
+
       return;
     }
 
     this.hiddenContent = false;
-    return;
   }
 
   private setStringOrArray(): void {

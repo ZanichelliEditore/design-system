@@ -159,9 +159,9 @@ export class ZUserDropdown {
   private getZLinkTextcolor(): "white" | "black" {
     if (this.isMobile) {
       return this.useInverseColors ? "black" : "white";
-    } else {
-      return this.useInverseColors ? "white" : "black";
     }
+
+    return this.useInverseColors ? "white" : "black";
   }
 
   private renderDropdownMenu(): HTMLUListElement {

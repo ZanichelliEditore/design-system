@@ -32,6 +32,7 @@ export class ZMyzList {
 
   render(): HTMLUListElement {
     const lastElem = this.list ? this.list.length - 1 : -1;
+
     return (
       <ul>
         {this.list &&

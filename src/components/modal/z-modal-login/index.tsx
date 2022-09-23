@@ -61,6 +61,7 @@ export class ZModalLogin {
 
     if (!username || !password) {
       this.status = InputStatusEnum.ERROR;
+
       return;
     }
 
