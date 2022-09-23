@@ -15,9 +15,8 @@ import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
  *
  * @slot - info to display in the info box. If more than one element has been slotted,
  * @cssprop --cover-hero-height - height of the cover hero.
- * @cssprop --cover-hero-overlay-container-width - width of the overlay container.
+ * @cssprop --cover-hero-overlay - overlay color of the cover hero.
  * @cssprop --cover-hero-text-color - color of the text.
- * @cssprop --cover-hero-opacity - opacity of the overlay.
  */
 
 export class ZCoverHero {
@@ -30,11 +29,15 @@ export class ZCoverHero {
    */
   @Prop({ reflect: true }) variant: CoverHeroVariants = CoverHeroVariants.overlay;
 
-  /** Cover hero content position. */
+  /**
+   * Cover hero content position (only for stacked variant).
+   */
   @Prop({ reflect: true }) position: CoverHeroContentPosition = CoverHeroContentPosition.top;
 
-  /* Cover hero caption description */
-  @Prop() caption?: string;
+  /**
+   * Cover hero caption text to display in the z-info-reveal component.
+   */
+  @Prop() caption?: string = '';
 
   /**
    * Template for the content.

@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, ComboItemBean, CoverHeroContentPosition, CoverHeroVariants, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -374,6 +374,20 @@ export namespace Components {
           * hide cookie bar (optional)
          */
         "hide"?: boolean;
+    }
+    interface ZCoverHero {
+        /**
+          * Cover hero caption text to display in the z-info-reveal component.
+         */
+        "caption"?: string;
+        /**
+          * Cover hero content position (only for stacked variant).
+         */
+        "position": CoverHeroContentPosition;
+        /**
+          * Cover hero variant. Can be one of "overlay", "stacked". Leave it undefined for the default cover hero variant.
+         */
+        "variant": CoverHeroVariants;
     }
     interface ZDatePicker {
         /**
@@ -2121,6 +2135,12 @@ declare global {
         prototype: HTMLZCookiebarElement;
         new (): HTMLZCookiebarElement;
     };
+    interface HTMLZCoverHeroElement extends Components.ZCoverHero, HTMLStencilElement {
+    }
+    var HTMLZCoverHeroElement: {
+        prototype: HTMLZCoverHeroElement;
+        new (): HTMLZCoverHeroElement;
+    };
     interface HTMLZDatePickerElement extends Components.ZDatePicker, HTMLStencilElement {
     }
     var HTMLZDatePickerElement: {
@@ -2675,6 +2695,7 @@ declare global {
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cookiebar": HTMLZCookiebarElement;
+        "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
         "z-dragdrop-area": HTMLZDragdropAreaElement;
@@ -3167,6 +3188,20 @@ declare namespace LocalJSX {
           * emitted on ACCETTA button click, returns event
          */
         "onAccept"?: (event: CustomEvent<any>) => void;
+    }
+    interface ZCoverHero {
+        /**
+          * Cover hero caption text to display in the z-info-reveal component.
+         */
+        "caption"?: string;
+        /**
+          * Cover hero content position (only for stacked variant).
+         */
+        "position"?: CoverHeroContentPosition;
+        /**
+          * Cover hero variant. Can be one of "overlay", "stacked". Leave it undefined for the default cover hero variant.
+         */
+        "variant"?: CoverHeroVariants;
     }
     interface ZDatePicker {
         /**
@@ -5015,6 +5050,7 @@ declare namespace LocalJSX {
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cookiebar": ZCookiebar;
+        "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
         "z-dragdrop-area": ZDragdropArea;
@@ -5129,6 +5165,7 @@ declare module "@stencil/core" {
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
+            "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
             "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;

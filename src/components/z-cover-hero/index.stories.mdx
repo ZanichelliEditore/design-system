@@ -24,36 +24,14 @@ import "./index";
       control: { type: "text" },
       defaultValue: "Lorem ipsum dolor sit amet."
     },
-    "--cover-hero-text-color": {
-      control: { type: "select" },
-      options: getColorTokens(),
-    },
-    "--cover-hero-opacity": {
+    "--cover-hero-overlay": {
       if: { arg: "variant", eq: CoverHeroVariants.overlay },
-      control: {
-        type: "range",
-        min: 0,
-        max: 1,
-        step: 0.1,
-      },
-      defaultValue: 0.5,
+      control: { type: "text" },
+      defaultValue: "linear-gradient(270deg, #00000000 0%, #000000e6 100%) 0% 0% no-repeat"
     },
     "--cover-hero-height": {
-      control: {
-        type: "range",
-        min: 480,
-        max: 700,
-      },
-      defaultValue: 480,
-    },
-    "--cover-hero-overlay-container-width": {
-      if: { arg: "variant", eq: CoverHeroVariants.overlay },
-      control: {
-        type: "range",
-        min: 480,
-        max: 1000,
-      },
-      defaultValue: 480,
+      control: { type: "text" },
+      defaultValue: "60vh",
     },
   }}
 />
@@ -68,10 +46,9 @@ import "./index";
         .variant=${args.variant}
         .caption=${args.caption}
         style=${styleMap({
-          "--cover-hero-opacity": `${args["--cover-hero-opacity"]}`,
+          "--cover-hero-height": `${args["--cover-hero-height"]}`,
+          "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
           "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
-          "--cover-hero-height": `${args["--cover-hero-height"]}px`,
-          "--cover-hero-overlay-container-width": `${args["--cover-hero-overlay-container-width"]}px`,
         })}
       >
         <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />

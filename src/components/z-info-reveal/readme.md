@@ -18,6 +18,10 @@ All the inner content is provided from the product.
 
 ## Dependencies
 
+### Used by
+
+ - [z-cover-hero](../z-cover-hero)
+
 ### Depends on
 
 - [z-icon](../icons/z-icon)
@@ -26,6 +30,7 @@ All the inner content is provided from the product.
 ```mermaid
 graph TD;
   z-info-reveal --> z-icon
+  z-cover-hero --> z-info-reveal
   style z-info-reveal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

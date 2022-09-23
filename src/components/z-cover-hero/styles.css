@@ -1,8 +1,7 @@
 :host {
   --cover-hero-height: auto;
-  --cover-hero-overlay-container-width: calc(var(--space-unit) * 60);
+  --cover-hero-overlay: linear-gradient(270deg, #00000000 0%, #000000e6 100%) 0% 0% no-repeat;
   --cover-hero-text-color: var(--gray100);
-  --cover-hero-opacity: 0.5;
 
   display: block;
 }
@@ -14,25 +13,28 @@
 
 :host .hero {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
   align-items: baseline;
   width: 100%;
   height: var(--cover-hero-height);
-  min-height: calc(var(--space-unit) * 60);
-  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
+  background-color: var(--gray600);
+  grid-template-columns: repeat(var(--grid-mobile-column), 1fr);
+  grid-column-gap: var(--grid-mobile-margin);
 }
 
 :host(:empty) .hero {
   padding: 0;
 }
 
+:host .container {
+  display: grid;
+  color: var(--cover-hero-text-color);
+  fill: var(--cover-hero-text-color);
+}
+
 /* Hero cover - div with image & z-info-reveal */
 :host .hero .cover {
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -52,13 +54,13 @@
 
 :host .hero .cover z-info-reveal {
   position: absolute;
-  bottom: calc(var(--space-unit) * 2);
-  right: calc(var(--space-unit) * 2);
+  bottom: var(--grid-mobile-margin);
+  right: var(--grid-mobile-margin);
   z-index: 1;
 }
 
 /* Hero content - div with content slotted */
-:host .hero .container {
+:host([variant="overlay"]) .hero .container {
   position: relative;
   z-index: 1;
   display: flex;
@@ -68,11 +70,13 @@
   max-width: 100%;
   margin-right: auto;
   width: 100%;
+  grid-column: 1 / -1;
+  padding: var(--grid-mobile-margin);
 }
 
 :host .hero .container ::slotted(:not(:last-child)),
 :host .container ::slotted(:not(:last-child)) {
-  margin-bottom: calc(var(--space-unit) * 2);
+  margin-bottom: var(--grid-mobile-margin);
 }
 
 /* Variant overlay */
@@ -84,14 +88,11 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: var(--color-black);
-  opacity: var(--cover-hero-opacity);
+  background: var(--cover-hero-overlay);
 }
 
-:host .container {
-  display: grid;
-  color: var(--cover-hero-text-color);
-  fill: var(--cover-hero-text-color);
+:host([variant="overlay"]) .hero .container {
+  margin-bottom: calc(var(--space-unit) * 10);
 }
 
 /* Variant stacked */
@@ -103,25 +104,90 @@
   padding: var(--grid-mobile-margin) 0;
 }
 
-
-:host([variant="overlay"]) .container {
-  margin-bottom: calc(var(--space-unit) * 10);
+:host([variant="stacked"]) .hero {
+  min-height: calc(var(--space-unit) * 30);
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
+  :host([variant="overlay"]) .hero {
+    grid-template-columns: repeat(var(--grid-tablet-column), 1fr);
+    grid-column-gap: var(--grid-tablet-margin);
+  }
+
+  :host([variant="overlay"]) .hero .container {
+    grid-column: span calc(var(--grid-tablet-column) / 2) / auto;
+    margin: var(--grid-tablet-margin);
+    padding: 0;
+  }
+
   :host([variant="stacked"]) .container {
     padding: var(--grid-tablet-margin) 0;
   }
 
-  :host([variant="overlay"]) .container {
-    width: var(--cover-hero-overlay-container-width);
+  :host .hero .container ::slotted(:not(:last-child)),
+  :host .container ::slotted(:not(:last-child)) {
+    margin-bottom: var(--grid-tablet-margin);
+  }
+
+  :host .hero .cover z-info-reveal {
+    bottom: var(--grid-tablet-margin);
+    right: var(--grid-tablet-margin);
   }
 }
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
+  :host([variant="overlay"]) .hero {
+    grid-template-columns: repeat(var(--grid-desktop-column), 1fr);
+    grid-column-gap: var(--grid-desktop-margin);
+  }
+
+  :host([variant="overlay"]) .hero .container {
+    grid-column: span calc(var(--grid-desktop-column) / 2) / auto;
+    margin: var(--grid-desktop-margin);
+    padding: 0;
+  }
+
   :host([variant="stacked"]) .container {
-    padding: var(--grid-tablet-margin) 0;
+    padding: var(--grid-desktop-margin) 0;
+  }
+
+  :host .hero .container ::slotted(:not(:last-child)),
+  :host .container ::slotted(:not(:last-child)) {
+    margin-bottom: var(--grid-desktop-margin);
+  }
+
+  :host .hero .cover z-info-reveal {
+    bottom: var(--grid-desktop-margin);
+    right: var(--grid-desktop-margin);
+  }
+}
+
+/* Wide breakpoint */
+@media only screen and (min-width: 1366px) {
+  :host([variant="overlay"]) .hero {
+    grid-template-columns: repeat(var(--grid-wide-column), 1fr);
+    grid-column-gap: var(--grid-wide-margin);
+  }
+
+  :host([variant="overlay"]) .hero .container {
+    grid-column: span calc(var(--grid-wide-column) / 2) / auto;
+    margin: var(--grid-wide-margin);
+    padding: 0;
+  }
+
+  :host([variant="stacked"]) .container {
+    padding: var(--grid-wide-margin) 0;
+  }
+
+  :host .hero .container ::slotted(:not(:last-child)),
+  :host .container ::slotted(:not(:last-child)) {
+    margin-bottom: var(--grid-wide-margin);
+  }
+
+  :host .hero .cover z-info-reveal {
+    bottom: var(--grid-wide-margin);
+    right: var(--grid-wide-margin);
   }
 }
