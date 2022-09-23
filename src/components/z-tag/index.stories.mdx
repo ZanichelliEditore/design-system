@@ -1,14 +1,14 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {getColorTokens} from "../../utils/storybook-utils";
-import {icons} from "../../components/icons/icons.tsx";
+import {ICONS} from "../icons/icons";
 import "./index";
 
 <Meta
   title="ZTag"
   component="z-tag"
   argTypes={{
-    "icon": {control: {type: "select"}, options: Object.keys(icons).sort()},
+    "icon": {control: {type: "select"}, options: Object.keys(ICONS).sort()},
     "text": {control: {type: "text"}},
     "expandable": {control: {type: "boolean"}},
     "--z-tag-text-color": {

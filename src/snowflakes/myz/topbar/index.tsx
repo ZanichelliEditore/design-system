@@ -121,7 +121,7 @@ export class ZMyzTopbar {
     );
   }
 
-  private renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined {
+  private renderIntMenu(menuItems: MenuItem[]): HTMLDivElement {
     if (!this.isLogged || !this.ismyz) return;
 
     return (
@@ -212,9 +212,9 @@ export class ZMyzTopbar {
     );
   }
 
-  private renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined {
+  private renderSubMenu(menuItem: MenuItem): HTMLDivElement {
     if (!this.ismyz || !this.isLogged) return;
-    if (!menuItem || !menuItem["subMenu"]) {
+    if (!menuItem || !menuItem.subMenu) {
       return (
         <div
           id="dropdown-menu"

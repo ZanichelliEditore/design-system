@@ -39,7 +39,7 @@ export class ZStatusTag {
       <Host
         class={{
           "body-5-sb": true,
-          [this.variant]: true,
+          [this.variant || ""]: true,
           "expandable": this.expandable && !!this.icon && !!this.text,
         }}
       >

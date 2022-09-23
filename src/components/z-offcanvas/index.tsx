@@ -75,7 +75,6 @@ export class ZOffcanvas {
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        ,
         <div
           class="canvas-background"
           data-action="canvasBackground"

@@ -56,8 +56,7 @@ export class ZToastNotification {
   @State()
   percentage: number;
 
-  @State()
-  isTextLong: boolean;
+  private isTextLong: boolean;
 
   private container!: HTMLElement;
 
@@ -115,6 +114,7 @@ export class ZToastNotification {
   componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
     this.validateAutoclose();
+    this.percentage = 0;
   }
 
   componentDidLoad(): void {
@@ -125,8 +125,6 @@ export class ZToastNotification {
     }
 
     this.isdraggable && this.handleSlideOutDragAnimation();
-
-    this.percentage = 0;
   }
 
   private visibilityChangeEventHandler(): void {
@@ -172,7 +170,7 @@ export class ZToastNotification {
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + this.percentage + "% )",
+        translate: `translateX(${this.percentage}%)`,
         translateBack: "translateX(0)",
       };
 
@@ -312,7 +310,7 @@ export class ZToastNotification {
     return (
       <Host
         style={{
-          ["--percentuale" as string]: `${this.percentage}%` as string,
+          ["--percentuale"]: `${this.percentage}%` as string,
         }}
         class={this.transition ? this.transition : ToastNotificationTransitionsEnum.SLIDE_IN_DOWN}
         onAnimationEnd={(e: AnimationEvent) => {

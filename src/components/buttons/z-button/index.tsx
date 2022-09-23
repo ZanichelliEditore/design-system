@@ -40,7 +40,7 @@ export class ZButton {
 
   /** HTML button type attribute. */
   @Prop()
-  type?: HTMLButtonElement["type"] = ButtonTypeEnum.BUTTON;
+  type?: ButtonTypeEnum = ButtonTypeEnum.BUTTON;
 
   /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
   @Prop({reflect: true})

@@ -12,8 +12,8 @@ describe("Suite test ZInputDeprecated - textarea", () => {
       <z-input-deprecated hasmessage="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label">
         <div class="textWrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
-          <div class="textareaWrapper filled input_default">
-            <textarea aria-label="label" class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+          <div class="textareaWrapper filled">
+            <textarea aria-label="label" class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input-deprecated>
@@ -29,8 +29,8 @@ describe("Suite test ZInputDeprecated - textarea", () => {
       <z-input-deprecated hasmessage="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly>
         <div class="textWrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label" disabled></z-input-label>
-          <div class="textareaWrapper filled input_default disabled readonly">
-            <textarea aria-label="label" disabled readonly class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+          <div class="textareaWrapper filled disabled readonly">
+            <textarea aria-label="label" disabled readonly class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input-deprecated>

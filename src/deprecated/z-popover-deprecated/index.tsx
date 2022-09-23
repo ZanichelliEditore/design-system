@@ -12,7 +12,7 @@ import {getElementTree} from "../../utils/utils";
 export class ZPopoverDeprecated {
   /** [optional] Popover position */
   @Prop()
-  position?: PopoverPosition = PopoverPosition["after-up"];
+  position?: PopoverPosition = PopoverPosition.AFTER_UP;
 
   /** [optional] Background color token for popover */
   @Prop()
@@ -24,7 +24,7 @@ export class ZPopoverDeprecated {
 
   /** [optional] Box shadow token for popover */
   @Prop()
-  boxShadow?: PopoverShadow = PopoverShadow["shadow-1"];
+  boxShadow?: PopoverShadow = PopoverShadow.SHADOW_1;
 
   /** [optional] Show or hide arrow */
   @Prop()

@@ -43,7 +43,7 @@ export class ZTableCell {
               <z-button
                 icon="contextual-menu"
                 variant={ButtonVariantEnum.TERTIARY}
-                size={ButtonSizeEnum["x-small"]}
+                size={ButtonSizeEnum.X_SMALL}
                 onClick={() => this.handleMenu()}
               />
               <div

@@ -29,7 +29,7 @@ export class ZAvatar {
   image?: string;
 
   constructor() {
-    if (this.text.length === 0 && this.image.length === 0) {
+    if (this.text?.length === 0 && this.image?.length === 0) {
       console.warn("z-avatar must contain at least one prop between text and image");
     }
   }

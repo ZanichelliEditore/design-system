@@ -174,7 +174,7 @@ export class ZInputDeprecated {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-    let validity = new ValidityState();
+    let validity: ValidityState;
     if (this.type === InputTypeEnum.TEXTAREA) {
       validity = this.getValidity("textarea");
     } else {
@@ -246,13 +246,11 @@ export class ZInputDeprecated {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [
-        `input_${this.status || "default"}`,
-        this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled",
-      ]
-        .filter(Boolean)
-        .join(" "),
+      class: {
+        [`input_${this.status}`]: !!this.status,
+        istyping: this.isTyping,
+        filled: !this.isTyping && !!this.value,
+      },
       onInput: (e: InputEvent | KeyboardEvent) =>
         this.emitInputChange(
           (e.target as HTMLInputElement | HTMLTextAreaElement).value,
@@ -269,10 +267,10 @@ export class ZInputDeprecated {
   private renderInputText(type: InputTypeEnum = InputTypeEnum.TEXT): HTMLDivElement {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.PASSWORD) {
-      attr.class += " hasIcon";
+      Object.assign(attr.class, {hasIcon: true});
     }
     if (this.hasclearicon) {
-      attr.class += " hasClearIcon";
+      Object.assign(attr.class, {hasClearIcon: true});
     }
 
     return (
@@ -380,17 +378,15 @@ export class ZInputDeprecated {
       <div class="textWrapper">
         {this.renderLabel()}
         <div
-          class={[
-            "textareaWrapper",
-            attributes.class,
-            attributes.disabled && "disabled",
-            attributes.readonly && "readonly",
-            this.isTyping && "istyping",
-            this.textareaWrapperFocus,
-            this.textareaWrapperHover,
-          ]
-            .filter(Boolean)
-            .join(" ")}
+          class={{
+            textareaWrapper: true,
+            ...(attributes.class as {[className: string]: boolean}),
+            disabled: attributes.disabled,
+            readonly: !!attributes.readonly,
+            istyping: this.isTyping,
+            [this.textareaWrapperFocus]: true,
+            [this.textareaWrapperHover]: true,
+          }}
         >
           <textarea
             {...attributes}

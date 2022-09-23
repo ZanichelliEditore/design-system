@@ -206,7 +206,7 @@ export class ZCombobox {
     );
   }
 
-  private renderContent(): HTMLDivElement | undefined {
+  private renderContent(): HTMLDivElement {
     if (!this.isopen) return;
 
     return (
@@ -218,7 +218,7 @@ export class ZCombobox {
     );
   }
 
-  private renderItems(): HTMLDivElement | undefined {
+  private renderItems(): HTMLDivElement {
     if (!this.isopen) return;
 
     return (
@@ -232,7 +232,7 @@ export class ZCombobox {
     );
   }
 
-  private renderList(items: ComboItemBean[]): HTMLUListElement | undefined {
+  private renderList(items: ComboItemBean[]): HTMLUListElement {
     if (!items) return;
     if (!items.length && this.searchValue) return this.renderNoSearchResults();
 
@@ -288,7 +288,7 @@ export class ZCombobox {
     );
   }
 
-  private renderSearchInput(): ZInput | undefined {
+  private renderSearchInput(): ZInput {
     if (!this.isopen) return;
 
     return (

@@ -12,8 +12,8 @@ describe("Suite test ZInput - textarea", () => {
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label">
         <div class="textWrapper">
           <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
-          <div class="textareaWrapper filled input_default">
-            <textarea aria-label="label" class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+          <div class="textareaWrapper filled">
+            <textarea aria-label="label" class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input>
@@ -29,8 +29,8 @@ describe("Suite test ZInput - textarea", () => {
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly>
         <div class="textWrapper">
           <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
-          <div class="textareaWrapper filled input_default readonly">
-            <textarea aria-label="label" disabled readonly class="filled input_default" id="test" placeholder="placeholder" value="value"></textarea>
+          <div class="textareaWrapper filled readonly">
+            <textarea aria-label="label" disabled readonly class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
       </z-input>

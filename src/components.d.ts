@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatusEnum, InputTypeEnum, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotificationPositionsEnum, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonTypeEnum, ButtonVariantEnum, CardVariants, ComboItemBean, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatusEnum, InputTypeEnum, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotificationPositionsEnum, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -144,7 +144,7 @@ export namespace Components {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonTypeEnum;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
@@ -183,7 +183,7 @@ export namespace Components {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonTypeEnum;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
@@ -3179,7 +3179,7 @@ declare namespace LocalJSX {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonTypeEnum;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
@@ -3218,7 +3218,7 @@ declare namespace LocalJSX {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonTypeEnum;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */

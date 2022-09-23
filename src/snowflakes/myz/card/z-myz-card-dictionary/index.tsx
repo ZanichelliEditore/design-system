@@ -68,7 +68,7 @@ export class ZMyzCardDictionary {
                 class={this.hideinfobtn ? "hideInfo" : ""}
                 variant={ButtonVariantEnum.SECONDARY}
                 icon="informationsource"
-                size={ButtonSizeEnum["x-small"]}
+                size={ButtonSizeEnum.X_SMALL}
                 onClick={() => this.flipCard(true)}
                 disabled={this.flipped}
               >

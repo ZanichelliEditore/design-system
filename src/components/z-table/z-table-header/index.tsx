@@ -141,8 +141,8 @@ export class ZTableHeader {
               ref={(el) => (this.triggerButton = el as HTMLZPopoverElement)}
               class="contextual-popover-button"
               icon="contextual-menu"
-              variant={ButtonVariantEnum["tertiary"]}
-              size={ButtonSizeEnum["x-small"]}
+              variant={ButtonVariantEnum.TERTIARY}
+              size={ButtonSizeEnum.X_SMALL}
               onClick={() => this.handleMenuClick()}
             ></z-button>
 

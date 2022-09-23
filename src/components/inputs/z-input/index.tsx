@@ -142,7 +142,7 @@ export class ZInput {
   private emitInputChange(value: string): void {
     if (!this.isTyping) this.emitStartTyping();
 
-    let validity = new ValidityState();
+    let validity: ValidityState;
     if (this.type === InputTypeEnum.TEXTAREA) {
       validity = this.getValidity("textarea");
     } else {
@@ -211,7 +211,7 @@ export class ZInput {
       required: this.required,
       title: this.htmltitle,
       class: {
-        [`input_${this.status || "default"}`]: true,
+        [`input_${this.status}`]: !!this.status,
         filled: !!this.value,
       },
       autocomplete: this.autocomplete,

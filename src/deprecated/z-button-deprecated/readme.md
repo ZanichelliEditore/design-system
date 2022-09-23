@@ -93,7 +93,7 @@
 | `name`     | `name`     | HTML button name attribute.                                                                                | `string`                                                                                                              | `undefined`                 |
 | `size`     | `size`     | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.                                          | `ButtonSizeEnum.BIG \| ButtonSizeEnum.SMALL \| ButtonSizeEnum.X_SMALL`                                                | `ButtonSizeEnum.BIG`        |
 | `square`   | `square`   | Spy to render square button.                                                                               | `boolean`                                                                                                             | `false`                     |
-| `type`     | `type`     | HTML button type attribute.                                                                                | `string`                                                                                                              | `ButtonTypeEnum.BUTTON`     |
+| `type`     | `type`     | HTML button type attribute.                                                                                | `ButtonTypeEnum.BUTTON \| ButtonTypeEnum.RESET \| ButtonTypeEnum.SUBMIT`                                              | `ButtonTypeEnum.BUTTON`     |
 | `variant`  | `variant`  | Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.                   | `ButtonVariantEnum.DARK_BG \| ButtonVariantEnum.PRIMARY \| ButtonVariantEnum.SECONDARY \| ButtonVariantEnum.TERTIARY` | `ButtonVariantEnum.PRIMARY` |
 
 ## Slots

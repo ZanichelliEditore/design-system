@@ -26,7 +26,7 @@ export class ZButtonDeprecated {
 
   /** HTML button type attribute. */
   @Prop()
-  type?: HTMLButtonElement["type"] = ButtonTypeEnum.BUTTON;
+  type?: ButtonTypeEnum = ButtonTypeEnum.BUTTON;
 
   /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
   @Prop({reflect: true})

@@ -26,7 +26,7 @@ describe("Suite test ZTableCell", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-table-cell  padding="medium" role="cell" show-button="true">
+      <z-table-cell padding="medium" role="cell" show-button="true">
         <mock:shadow-root>
           <div class="button-container">
             <div class="button-content">
