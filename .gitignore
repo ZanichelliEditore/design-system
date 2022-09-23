@@ -6,8 +6,6 @@ src-react/
 !src-react/index.ts
 
 custom-elements.json
-src/components/baseComponentLayer/index.tsx
-src/components/baseComponentLayer/styles.css
 
 src/readme
 
