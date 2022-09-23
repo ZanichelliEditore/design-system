@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host } from './index-90e18641.js';
-import { S as StatusTagStatus } from './index-e5e2b27f.js';
+import { Q as StatusTagStatus } from './index-3ee81524.js';
 import { c as classnames } from './index-abb47b30.js';
 import './_commonjsHelpers-9943807e.js';
 
