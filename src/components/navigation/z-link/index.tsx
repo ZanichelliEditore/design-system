@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Element} from "@stencil/core";
-import {Host, HostElement, State} from "@stencil/core/internal";
+import {State} from "@stencil/core/internal";
 
 /**
  * @slot - link content
@@ -111,8 +111,8 @@ export class ZLink {
         class={{
           disabled: this.isdisabled,
           active: this.isactive,
-          [this.textcolor || ""]: true,
           white: this.iswhite,
+          [this.textcolor || ""]: true,
           underline: this.underline,
         }}
         target={this.target}

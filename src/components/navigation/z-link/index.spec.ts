@@ -61,7 +61,7 @@ describe("Suite test ZLink", () => {
       <z-link icon="icon">
         <mock:shadow-root>
           <a class="primary" role="button" tabindex="0" target="_self">
-            <z-icon height="18" name="icon" width="18" style="--z-icon-width: 18; --z-icon-height: 18;"></z-icon>
+            <z-icon name="icon" style="--z-icon-width: 18px; --z-icon-height: 18px;"></z-icon>
             <slot></slot>
           </a>
         </mock:shadow-root>
@@ -171,7 +171,7 @@ describe("Suite test ZLink", () => {
       html: `<z-link big></z-link>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-link big style="--font-size-link: 16px; --font-weight-link: 600;">
+      <z-link big>
         <mock:shadow-root>
           <a class="primary" role="button" tabindex="0" target="_self">
             <slot></slot>

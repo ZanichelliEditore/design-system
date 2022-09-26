@@ -109,7 +109,6 @@ it("Test ZInput - input password - change input type on icon click to show/hide 
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
   const input = await page.find("z-input div.textWrapper div input");
   const iconButton = await page.find("z-input button.showHidePasswordIcon");
-  console.log(iconButton);
 
   //input will be type text after first click on icon
   await iconButton.click();

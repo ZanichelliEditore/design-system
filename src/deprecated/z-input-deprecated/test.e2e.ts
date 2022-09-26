@@ -19,7 +19,7 @@ it("Test ZInputDeprecated should emit inputChange event", async () => {
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputChange";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
@@ -50,7 +50,7 @@ it("Test disabled ZInputDeprecated should not change / emit inputChange event", 
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputChange";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
@@ -147,7 +147,7 @@ it("Test ZInputDeprecated checkbox should emit inputCheck event", async () => {
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputCheck({
         type,
@@ -181,7 +181,7 @@ it("Test disabled ZInputDeprecated checkbox should not emit inputCheck event", a
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputCheck({
         type,
@@ -209,7 +209,7 @@ it("Test ZInputDeprecated radio should emit inputCheck event", async () => {
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputCheck({
         type,
@@ -241,7 +241,7 @@ it("Test disabled ZInputDeprecated radio should not emit inputCheck event", asyn
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "inputCheck";
-  page.evaluateOnNewDocument((type) => {
+  await page.evaluateOnNewDocument((type) => {
     document.addEventListener(type, (e) => {
       (window as CustomWindow).onInputCheck({
         type,

@@ -246,24 +246,26 @@ export class ZToastNotification {
   }
 
   private renderCloseIcon(): HTMLDivElement {
+    if (!this.closebutton) {
+      return;
+    }
+
     return (
-      this.closebutton && (
-        <div id="icon">
-          <z-icon
-            tabIndex={0}
-            name="multiply-circled"
-            width={15}
-            height={15}
-            onClick={() => this.emitToastClose(this.mapSlideOutClass())}
-            onKeyPress={(e) => {
-              if (e.keyCode == 32 || e.keyCode == 13) {
-                e.preventDefault();
-                this.emitToastClose(this.mapSlideOutClass());
-              }
-            }}
-          />
-        </div>
-      )
+      <div id="icon">
+        <z-icon
+          tabIndex={0}
+          name="multiply-circled"
+          width={15}
+          height={15}
+          onClick={() => this.emitToastClose(this.mapSlideOutClass())}
+          onKeyPress={(e) => {
+            if (e.keyCode == 32 || e.keyCode == 13) {
+              e.preventDefault();
+              this.emitToastClose(this.mapSlideOutClass());
+            }
+          }}
+        />
+      </div>
     );
   }
 
