@@ -24,6 +24,10 @@ import "./index";
       control: { type: "text" },
       defaultValue: "Lorem ipsum dolor sit amet."
     },
+    "--cover-hero-text-color": {
+      control: { type: "select" },
+      options: getColorTokens(),
+    },
     "--cover-hero-overlay": {
       if: { arg: "variant", eq: CoverHeroVariants.overlay },
       control: { type: "text" },

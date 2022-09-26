@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Host } from '@stencil/core';
+import { Component, Prop, h, Element } from '@stencil/core';
 import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
 
 /**
@@ -25,7 +25,6 @@ export class ZCoverHero {
   /**
    * Cover hero variant.
    * Can be one of "overlay", "stacked".
-   * Leave it undefined for the default cover hero variant.
    */
   @Prop({ reflect: true }) variant: CoverHeroVariants = CoverHeroVariants.overlay;
 
@@ -51,26 +50,28 @@ export class ZCoverHero {
   }
 
   render() {
-    return <Host>
-      {(this.variant === CoverHeroVariants.stacked && this.position === CoverHeroContentPosition.top) &&
-        this.renderContent()
-      }
-      <div class="hero">
-        <div class="cover">
-          <slot name="cover"></slot>
-          {this.caption &&
-            <z-info-reveal>
-              <div>{this.caption}</div>
-            </z-info-reveal>
+    return (
+      <div class="cover-hero">
+        {(this.variant === CoverHeroVariants.stacked && this.position === CoverHeroContentPosition.top) &&
+          this.renderContent()
+        }
+        <div class="hero">
+          <div class="cover">
+            <slot name="cover"></slot>
+            {this.caption &&
+              <z-info-reveal position="top_right">
+                <span>{this.caption}</span>
+              </z-info-reveal>
+            }
+          </div>
+          {this.variant === CoverHeroVariants.overlay &&
+            this.renderContent()
           }
         </div>
-        {this.variant === CoverHeroVariants.overlay &&
+        {(this.variant === CoverHeroVariants.stacked && this.position === CoverHeroContentPosition.bottom) &&
           this.renderContent()
         }
       </div>
-      {(this.variant === CoverHeroVariants.stacked && this.position === CoverHeroContentPosition.bottom) &&
-        this.renderContent()
-      }
-    </Host>
+    );
   }
 }
