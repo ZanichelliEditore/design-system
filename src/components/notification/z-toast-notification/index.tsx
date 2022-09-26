@@ -136,8 +136,9 @@ export class ZToastNotification {
   }
 
   private validateAutoclose(): void {
-    if (!this.autoclose && !this.closebutton)
+    if (!this.autoclose && !this.closebutton) {
       console.error("At least one between autoclose and closebutton must be present");
+    }
   }
 
   private mapSlideOutClass(): ToastNotificationTransitionsEnum {

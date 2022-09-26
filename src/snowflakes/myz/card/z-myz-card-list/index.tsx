@@ -24,7 +24,9 @@ export class ZMyzCardList {
 
   private formatListContent(data: ActionBean): HTMLAnchorElement {
     const {value, isLink, url} = data;
-    if (!isLink) return <span>{value}</span>;
+    if (!isLink) {
+      return <span>{value}</span>;
+    }
 
     return (
       <a

@@ -13,6 +13,7 @@
   "plugins": ["@typescript-eslint", "@stencil/eslint-plugin", "prettier"],
   "rules": {
     "prettier/prettier": "warn",
+    "curly": "warn",
     "no-duplicate-imports": "error",
     "constructor-super": "off",
     "no-fallthrough": "warn",

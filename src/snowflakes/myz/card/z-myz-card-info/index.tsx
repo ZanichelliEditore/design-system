@@ -114,7 +114,9 @@ export class ZMyzCardInfo {
       <section
         class={`info-wrapper ${this.hiddenContent ? "hidden" : ""}`}
         onClick={() => {
-          if (this.hiddenContent) this.tooltip = !this.tooltip;
+          if (this.hiddenContent) {
+            this.tooltip = !this.tooltip;
+          }
         }}
         ref={(el) => (this.infoWrapper = el)}
       >
@@ -129,7 +131,9 @@ export class ZMyzCardInfo {
 
   private renderAuthor(): HTMLSpanElement {
     const author = this?.cardData?.author;
-    if (!author) return null;
+    if (!author) {
+      return null;
+    }
 
     return (
       <span>
@@ -141,7 +145,9 @@ export class ZMyzCardInfo {
 
   private renderYear(): HTMLSpanElement {
     const year = this?.cardData?.year;
-    if (!year) return null;
+    if (!year) {
+      return null;
+    }
 
     return (
       <span>
@@ -152,9 +158,13 @@ export class ZMyzCardInfo {
   }
 
   private renderTooltip(): HTMLZPopoverElement {
-    if (!this.tooltip) return;
+    if (!this.tooltip) {
+      return;
+    }
 
-    if (!this.cardData) return;
+    if (!this.cardData) {
+      return;
+    }
     const {title, year, author, description} = this.cardData;
 
     return (
@@ -184,7 +194,9 @@ export class ZMyzCardInfo {
   }
 
   private renderOnlineLicenseSection(): HTMLElement {
-    if (!this?.cardData?.onlineLicense) return;
+    if (!this?.cardData?.onlineLicense) {
+      return;
+    }
 
     return (
       <section ref={(el) => (this.onlineLicenseWrapper = el)}>
@@ -199,7 +211,9 @@ export class ZMyzCardInfo {
   }
 
   private renderOfflineLicenseSection(): HTMLElement {
-    if (!this?.cardData?.offlineLicense) return;
+    if (!this?.cardData?.offlineLicense) {
+      return;
+    }
 
     return (
       <section ref={(el) => (this.offlineLicenseWrapper = el)}>

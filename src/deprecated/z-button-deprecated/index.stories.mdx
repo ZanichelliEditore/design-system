@@ -27,7 +27,7 @@ import "./index";
     name="Default button"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -50,7 +50,7 @@ import "./index";
   <Story
     name="Dark Background"
     args={{
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -63,7 +63,7 @@ import "./index";
     {(args) => html`
       <div style="background: var(--gray800); padding: 8px;">
         <z-button-deprecated
-          variant=${ButtonVariantEnum["dark-bg"]}
+          variant=${ButtonVariantEnum.DARK_BG}
           size=${args.size}
           disabled=${args.disabled}
           icon=${args.icon}
@@ -80,7 +80,7 @@ import "./index";
   <Story
     name="Ocher Background"
     args={{
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -93,7 +93,7 @@ import "./index";
     {(args) => html`
       <div style="background: var(--yellow500); padding: 8px">
         <z-button-deprecated
-          variant=${ButtonVariantEnum["dark-bg"]}
+          variant=${ButtonVariantEnum.DARK_BG}
           size=${args.size}
           disabled=${args.disabled}
         >
@@ -121,7 +121,7 @@ In this special case we need to override `min-width` (achieved with additional `
     name="Icon only"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -156,7 +156,7 @@ For further customization and DOM handling is possible to pass the content of a 
     name="With named slot"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "arrow-quad-north-east",
     }}
@@ -185,7 +185,7 @@ For further customization and DOM handling is possible to pass the content of a 
     name="With named slot icon only"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "link",
     }}

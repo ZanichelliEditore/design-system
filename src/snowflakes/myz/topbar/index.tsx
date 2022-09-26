@@ -122,7 +122,9 @@ export class ZMyzTopbar {
   }
 
   private renderIntMenu(menuItems: MenuItem[]): HTMLDivElement {
-    if (!this.isLogged || !this.ismyz) return;
+    if (!this.isLogged || !this.ismyz) {
+      return;
+    }
 
     return (
       <div
@@ -146,7 +148,9 @@ export class ZMyzTopbar {
           onClick={() => {
             this.activeMenuItem = this.currentMenuItem = menuItem;
             this.activeintlinkid = menuItem.id;
-            if (menuItem.subMenu) this.handleToggleMobileMenuItem(menuItem.id);
+            if (menuItem.subMenu) {
+              this.handleToggleMobileMenuItem(menuItem.id);
+            }
           }}
           onMouseEnter={() => {
             this.activeMenuItem = menuItem;
@@ -182,14 +186,18 @@ export class ZMyzTopbar {
   }
 
   private handleToggleMobileMenuItem(elementId: string): void {
-    if (!this.isMobile) return;
+    if (!this.isMobile) {
+      return;
+    }
 
     this.element.shadowRoot.querySelector(`#${elementId}`).classList.toggle("isopen");
     this.element.shadowRoot.querySelector("#mobile-dropdown-" + elementId).classList.toggle("visible");
   }
 
   private renderMenuItemsData(menuItem): HTMLSpanElement {
-    if (!menuItem.subMenu) return null;
+    if (!menuItem.subMenu) {
+      return null;
+    }
 
     const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
       return {
@@ -215,7 +223,9 @@ export class ZMyzTopbar {
   }
 
   private renderSubMenu(menuItem: MenuItem): HTMLDivElement {
-    if (!this.ismyz || !this.isLogged) return;
+    if (!this.ismyz || !this.isLogged) {
+      return;
+    }
     if (!menuItem || !menuItem.subMenu) {
       return (
         <div
@@ -258,7 +268,9 @@ export class ZMyzTopbar {
   }
 
   private renderExtMenu(menuItems: MenuItem[]): HTMLDivElement {
-    if (!this.isLogged) return <div />;
+    if (!this.isLogged) {
+      return <div />;
+    }
 
     return (
       <div
@@ -350,7 +362,9 @@ export class ZMyzTopbar {
   }
 
   private renderUserData(userData: HeaderUserData): null | HTMLSpanElement {
-    if (this.isMobile && !userData) return null;
+    if (this.isMobile && !userData) {
+      return null;
+    }
 
     const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
       return {
@@ -412,7 +426,9 @@ export class ZMyzTopbar {
   }
 
   private renderMobileMenuToggle(): HTMLZButtonElement | HTMLDivElement {
-    if (!this.isLogged) return this.renderLoginButton();
+    if (!this.isLogged) {
+      return this.renderLoginButton();
+    }
 
     return (
       <div
@@ -434,7 +450,9 @@ export class ZMyzTopbar {
   }
 
   private renderMobileMenuContent(): HTMLDivElement {
-    if (!this.isLogged) return;
+    if (!this.isLogged) {
+      return;
+    }
 
     return (
       <div

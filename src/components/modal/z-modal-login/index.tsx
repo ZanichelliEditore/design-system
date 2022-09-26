@@ -54,7 +54,9 @@ export class ZModalLogin {
     const passwordInput = this.hostElement.querySelector("z-input#password") as HTMLZInputElement;
 
     // INFO: slotted inputs
-    if (!usernameInput || !passwordInput) return;
+    if (!usernameInput || !passwordInput) {
+      return;
+    }
 
     let username = usernameInput.value;
     const password = passwordInput.value;
@@ -99,7 +101,9 @@ export class ZModalLogin {
   }
 
   private handleInputKeyUp(e: KeyboardEvent): void {
-    if (e.code !== "Enter") return;
+    if (e.code !== "Enter") {
+      return;
+    }
     this.emitLoginSubmit();
   }
 
@@ -114,7 +118,9 @@ export class ZModalLogin {
     const mobileRegex = /^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/g;
     if (mobileRegex.test(username)) {
       username = username.replace(/[- .)(]/g, "");
-      if (/^[\d ]*$/.test(username)) username = "+39" + username;
+      if (/^[\d ]*$/.test(username)) {
+        username = "+39" + username;
+      }
     }
 
     return username;

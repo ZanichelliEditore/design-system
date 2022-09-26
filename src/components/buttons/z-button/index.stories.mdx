@@ -27,7 +27,7 @@ import "./index";
     name="Default button"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -52,8 +52,8 @@ import "./index";
   <Story
     name="Tertiary small"
     args={{
-      variant: ButtonVariantEnum["tertiary"],
-      size: ButtonSizeEnum.small,
+      variant: ButtonVariantEnum.TERTIARY,
+      size: ButtonSizeEnum.SMALL,
       disabled: false,
       icon: "download",
     }}
@@ -81,8 +81,8 @@ import "./index";
   <Story
     name="secondary x-small"
     args={{
-      variant: ButtonVariantEnum["secondary"],
-      size: ButtonSizeEnum["x-small"],
+      variant: ButtonVariantEnum.SECONDARY,
+      size: ButtonSizeEnum.X_SMALL,
       disabled: false,
       icon: "download",
     }}
@@ -119,7 +119,7 @@ It is possible use a button with icon only passing an icon name to `icon` prop.
     name="Icon only"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -151,7 +151,7 @@ To do this you need to set `href` prop.
     name="With href prop"
     args={{
       variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.big,
+      size: ButtonSizeEnum.BIG,
       disabled: false,
       icon: "arrow-quad-north-east",
       href: "https://wikipedia.com",

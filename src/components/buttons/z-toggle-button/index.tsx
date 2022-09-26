@@ -27,24 +27,22 @@ export class ZToggleButton {
   toggleClick: EventEmitter;
 
   private emitToggleClick(): void {
-    if (this.isdisabled) return;
+    if (this.isdisabled) {
+      return;
+    }
 
     this.opened = !this.opened;
     this.toggleClick.emit(this.opened);
-  }
-
-  private retrieveButtonClass(): string {
-    let className = this.opened && "isopen";
-    if (this.avoidclick) className = className + " avoid-clicks";
-
-    return className;
   }
 
   render(): HTMLButtonElement {
     return (
       <button
         tabindex={this.avoidclick ? "-1" : "0"}
-        class={this.retrieveButtonClass()}
+        class={{
+          "isopen": this.opened,
+          "avoid-clicks": this.avoidclick,
+        }}
         disabled={this.isdisabled}
         onClick={() => this.emitToggleClick()}
       >

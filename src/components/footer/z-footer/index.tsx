@@ -229,7 +229,9 @@ export class ZFooter {
 
   // INFO: backward compatibility
   private renderFooterTopJsonData(): null | HTMLElement {
-    if (!this.jsonData || !this.jsonData.zanichelliLinks) return null;
+    if (!this.jsonData || !this.jsonData.zanichelliLinks) {
+      return null;
+    }
 
     const zanichelliLinks = this.jsonData.zanichelliLinks;
     if (this.jsonData.bottomLinks) {
@@ -251,7 +253,9 @@ export class ZFooter {
 
   // INFO: backward compatibility
   private renderFooterBottomJsonData(): null | HTMLElement {
-    if (!this.jsonData || !this.jsonData.bottomLinks) return null;
+    if (!this.jsonData || !this.jsonData.bottomLinks) {
+      return null;
+    }
 
     const bottomLinks = this.jsonData.bottomLinks;
 
@@ -260,7 +264,9 @@ export class ZFooter {
 
   // INFO: backward compatibility
   private renderFooterSocialJsonData(): null | HTMLElement {
-    if (!this.jsonData || !this.jsonData.social) return null;
+    if (!this.jsonData || !this.jsonData.social) {
+      return null;
+    }
 
     const social = this.jsonData.social;
 

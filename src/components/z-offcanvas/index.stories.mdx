@@ -18,7 +18,7 @@ import "./index";
         <z-offcanvas
           transitiondirection="right"
           .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.pushcontent)}"
+          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.PUSHCONTENT)}"
           style="height:100vh"
         >
           <div slot="canvasContent">
@@ -65,7 +65,7 @@ import "./index";
       <div style="display:flex; justify-content:end; background-color: lightblue">
         <z-offcanvas
           .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.pushcontent)}"
+          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.PUSHCONTENT)}"
           style="height:100vh; flex:1"
         >
           <div slot="canvasContent">

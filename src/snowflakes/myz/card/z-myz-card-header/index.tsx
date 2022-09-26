@@ -33,7 +33,9 @@ export class ZMyzCardHeader {
   }
 
   componentDidLoad(): void {
-    if (this.elementHasEllipsis()) this.allowTooltip = true;
+    if (this.elementHasEllipsis()) {
+      this.allowTooltip = true;
+    }
   }
 
   private elementHasEllipsis(): boolean {

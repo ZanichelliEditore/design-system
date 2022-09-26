@@ -48,7 +48,9 @@ export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => v
 }
 
 export function getClickedElement(elem: null | Element = null): null | Element {
-  if (!elem) elem = document.activeElement;
+  if (!elem) {
+    elem = document.activeElement;
+  }
 
   if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
     elem = elem.shadowRoot.activeElement;
@@ -123,7 +125,9 @@ export function colorFromId(id: number): string {
 
   // if result of mc is 0
   // es.: 3895229
-  if (color === 0) color = 1;
+  if (color === 0) {
+    color = 1;
+  }
 
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }

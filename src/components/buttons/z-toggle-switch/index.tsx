@@ -38,7 +38,9 @@ export class ZToggleSwitch {
   }
 
   private handleClick(ev): void {
-    if (this.disabled) return;
+    if (this.disabled) {
+      return;
+    }
 
     this.checked = ev.target.checked;
     this.emitToggleClick();

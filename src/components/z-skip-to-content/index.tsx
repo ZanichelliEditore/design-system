@@ -31,12 +31,16 @@ export class ZSkipToContent {
 
   @Listen("focusout", {target: "document"})
   handleFocusOutSkipToContent(e: FocusEvent): void {
-    if (this.isInSkipToContent(e.target)) this.visible = false;
+    if (this.isInSkipToContent(e.target)) {
+      this.visible = false;
+    }
   }
 
   @Listen("focusin", {target: "document"})
   handleFocusSkipToContent(e: FocusEvent): void {
-    if (this.isInSkipToContent(e.target)) this.visible = true;
+    if (this.isInSkipToContent(e.target)) {
+      this.visible = true;
+    }
   }
 
   componentDidLoad(): void {
@@ -58,7 +62,9 @@ export class ZSkipToContent {
 
   private showFirstChild(): void {
     const firstChild = this.hostElement.children?.[0];
-    if (firstChild) this.visibleLink = firstChild.id;
+    if (firstChild) {
+      this.visibleLink = firstChild.id;
+    }
   }
 
   private handleLinkClick(): void {

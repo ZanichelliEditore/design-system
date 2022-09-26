@@ -141,7 +141,9 @@ export class ZInput {
   inputChange: EventEmitter;
 
   private emitInputChange(value: string): void {
-    if (!this.isTyping) this.emitStartTyping();
+    if (!this.isTyping) {
+      this.emitStartTyping();
+    }
 
     let validity: ValidityState;
     if (this.type === InputTypeEnum.TEXTAREA) {
@@ -222,7 +224,9 @@ export class ZInput {
   }
 
   private getNumberAttributes(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
-    if (type != InputTypeEnum.NUMBER) return;
+    if (type != InputTypeEnum.NUMBER) {
+      return;
+    }
 
     return {
       min: this.min,
@@ -239,8 +243,9 @@ export class ZInput {
       type != InputTypeEnum.SEARCH &&
       type != InputTypeEnum.URL &&
       type != InputTypeEnum.EMAIL
-    )
+    ) {
       return;
+    }
 
     return {
       pattern: this.pattern,
@@ -277,7 +282,9 @@ export class ZInput {
   }
 
   private renderLabel(): HTMLLabelElement {
-    if (!this.label) return;
+    if (!this.label) {
+      return;
+    }
 
     return (
       <label
@@ -305,7 +312,9 @@ export class ZInput {
       return this.renderShowHidePassword();
     }
 
-    if (!this.icon) return;
+    if (!this.icon) {
+      return;
+    }
 
     return (
       <button
@@ -319,8 +328,9 @@ export class ZInput {
   }
 
   private renderResetIcon(): HTMLButtonElement {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.NUMBER)
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.NUMBER) {
       return;
+    }
 
     return (
       <button
@@ -349,7 +359,9 @@ export class ZInput {
   }
 
   private renderMessage(): HTMLZInputMessageElement {
-    if (boolean(this.message) === false) return;
+    if (boolean(this.message) === false) {
+      return;
+    }
 
     return (
       <z-input-message

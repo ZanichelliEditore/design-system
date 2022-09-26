@@ -86,8 +86,9 @@ export class ZFileUpload {
 
   componentWillLoad(): void {
     this.invalidFiles = new Map<string, string[]>();
-    if (this.type === ZFileUploadTypeEnum.DRAGDROP && getDevice() !== DeviceEnum.DESKTOP)
+    if (this.type === ZFileUploadTypeEnum.DRAGDROP && getDevice() !== DeviceEnum.DESKTOP) {
       this.type = ZFileUploadTypeEnum.DEFAULT;
+    }
   }
 
   /** Emitted when user select one or more files */

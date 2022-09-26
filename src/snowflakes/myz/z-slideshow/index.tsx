@@ -79,7 +79,9 @@ export class ZSlideshow {
 
   private setStyle(): void {
     const refSlides = this.el.shadowRoot.querySelector("#slides") as HTMLElement;
-    if (!refSlides) return;
+    if (!refSlides) {
+      return;
+    }
 
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
     const width = this.el.offsetWidth;
@@ -199,7 +201,9 @@ export class ZSlideshow {
   }
 
   render(): HTMLElement {
-    if (!this.links || !this.links.length) return <div />;
+    if (!this.links || !this.links.length) {
+      return <div />;
+    }
 
     return (
       <div id={this.slideshowid}>

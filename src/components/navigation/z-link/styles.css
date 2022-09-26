@@ -1,14 +1,17 @@
 :host {
   --font-size-link: inherit;
   --font-weight-link: inherit;
-}
 
-:host {
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-size: var(--font-size-link);
   font-weight: var(--font-weight-link);
   line-height: inherit;
   outline: none;
+}
+
+:host([big]) {
+  --font-size-link: 16px;
+  --font-weight-link: var(--font-sb);
 }
 
 a {
@@ -156,9 +159,9 @@ a.black.disabled {
 }
 
 a > z-icon:first-child {
-  margin-right: 8px;
+  margin-right: var(--space-unit);
 }
 
 a > z-icon:last-child {
-  margin-left: 8px;
+  margin-left: var(--space-unit);
 }

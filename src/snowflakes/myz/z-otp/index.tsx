@@ -44,7 +44,9 @@ export class ZOtp {
             <input
               class={this.status == InputStatusEnum.ERROR ? "error" : null}
               onKeyDown={(e: KeyboardEvent) => {
-                if (e.keyCode > 47) this.otpRef[i].value = "";
+                if (e.keyCode > 47) {
+                  this.otpRef[i].value = "";
+                }
               }}
               onKeyUp={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) {

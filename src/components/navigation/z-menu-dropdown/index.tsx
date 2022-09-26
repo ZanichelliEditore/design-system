@@ -68,7 +68,9 @@ export class ZMenuDropdown {
   }
 
   private retriveMenuClass(): string {
-    if (this.ismenuopen) return "menu-opened";
+    if (this.ismenuopen) {
+      return "menu-opened";
+    }
   }
 
   private handleToggle(): void {
@@ -76,7 +78,9 @@ export class ZMenuDropdown {
   }
 
   private handleFocus(e: MouseEvent | KeyboardEvent): void {
-    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) return;
+    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) {
+      return;
+    }
 
     const tree = getElementTree(getClickedElement());
     const menuParent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-menu-dropdown");

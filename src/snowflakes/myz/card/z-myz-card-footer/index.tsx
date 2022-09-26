@@ -58,7 +58,9 @@ export class ZMyzCardFooter {
   }
 
   componentWillLoad(): void {
-    if (this.opened) this.isOpen = true;
+    if (this.opened) {
+      this.isOpen = true;
+    }
   }
 
   private elementsEllipsis(): void {

@@ -67,7 +67,9 @@ export class ZButtonFilter {
   }
 
   private renderIcon(): HTMLZIconElement {
-    if (!this.hasicon) return null;
+    if (!this.hasicon) {
+      return null;
+    }
 
     return (
       <z-icon

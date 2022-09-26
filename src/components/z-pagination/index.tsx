@@ -429,33 +429,33 @@ export class ZPagination {
             </button>
           )}
         </div>
-        this.goToPage && (
-        <div class="go-to-page">
-          <span class="label body-5-sb">Vai a pagina:</span>
-          <div class="inputs">
-            <z-input
-              class="go-to-page-input"
-              type={InputTypeEnum.NUMBER}
-              min={1}
-              max={this.totalPages}
-              message={false}
-              placeholder="2"
-              hasclearicon={false}
-              onInput={(ev) => {
-                this.goToPageValue = (ev.target as HTMLZInputElement).value;
-              }}
-              onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}
-            ></z-input>
-            <z-button
-              disabled={!this.goToPageValue}
-              title="Vai alla pagina inserita"
-              onClick={() => this.selectPage(this.goToPageValue)}
-            >
-              vai
-            </z-button>
+        {this.goToPage && (
+          <div class="go-to-page">
+            <span class="label body-5-sb">Vai a pagina:</span>
+            <div class="inputs">
+              <z-input
+                class="go-to-page-input"
+                type={InputTypeEnum.NUMBER}
+                min={1}
+                max={this.totalPages}
+                message={false}
+                placeholder="2"
+                hasclearicon={false}
+                onInput={(ev) => {
+                  this.goToPageValue = (ev.target as HTMLZInputElement).value;
+                }}
+                onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}
+              ></z-input>
+              <z-button
+                disabled={!this.goToPageValue}
+                title="Vai alla pagina inserita"
+                onClick={() => this.selectPage(this.goToPageValue)}
+              >
+                vai
+              </z-button>
+            </div>
           </div>
-        </div>
-        )
+        )}
       </Host>
     );
   }

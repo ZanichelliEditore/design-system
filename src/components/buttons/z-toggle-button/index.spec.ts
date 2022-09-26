@@ -65,7 +65,7 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button avoidclick="true" label="label">
         <mock:shadow-root>
-          <button class="avoid-clicks false" tabindex="-1">
+          <button class="avoid-clicks" tabindex="-1">
             <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>

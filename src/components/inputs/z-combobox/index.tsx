@@ -102,7 +102,9 @@ export class ZCombobox {
     }
 
     this.itemsList = this.itemsList.map((item: ComboItemBean) => {
-      if (item.id === id) item.checked = e.detail.checked;
+      if (item.id === id) {
+        item.checked = e.detail.checked;
+      }
 
       return item;
     });
@@ -143,7 +145,9 @@ export class ZCombobox {
   }
 
   private filterItems(value: string): void {
-    if (!value) return this.closeFilterItems();
+    if (!value) {
+      return this.closeFilterItems();
+    }
 
     this.searchValue = value;
 
@@ -186,7 +190,9 @@ export class ZCombobox {
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
-          if (ev.keyCode === KeyboardKeyCodeEnum.SPACE) ev.preventDefault();
+          if (ev.keyCode === KeyboardKeyCodeEnum.SPACE) {
+            ev.preventDefault();
+          }
         }}
         onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
@@ -209,7 +215,9 @@ export class ZCombobox {
   }
 
   private renderContent(): HTMLDivElement {
-    if (!this.isopen) return;
+    if (!this.isopen) {
+      return;
+    }
 
     return (
       <div class="openComboData">
@@ -221,7 +229,9 @@ export class ZCombobox {
   }
 
   private renderItems(): HTMLDivElement {
-    if (!this.isopen) return;
+    if (!this.isopen) {
+      return;
+    }
 
     return (
       <div
@@ -235,8 +245,12 @@ export class ZCombobox {
   }
 
   private renderList(items: ComboItemBean[]): HTMLUListElement {
-    if (!items) return;
-    if (!items.length && this.searchValue) return this.renderNoSearchResults();
+    if (!items) {
+      return;
+    }
+    if (!items.length && this.searchValue) {
+      return this.renderNoSearchResults();
+    }
 
     return (
       <ul>
@@ -291,7 +305,9 @@ export class ZCombobox {
   }
 
   private renderSearchInput(): ZInput {
-    if (!this.isopen) return;
+    if (!this.isopen) {
+      return;
+    }
 
     return (
       <z-input
@@ -303,7 +319,9 @@ export class ZCombobox {
         value={this.searchValue}
         message={false}
         onInputChange={(e: CustomEvent) => {
-          if (e.detail.keycode === 27) return this.closeFilterItems();
+          if (e.detail.keycode === 27) {
+            return this.closeFilterItems();
+          }
           this.filterItems(e.detail.value);
         }}
       />
@@ -311,7 +329,9 @@ export class ZCombobox {
   }
 
   private renderCheckAll(): HTMLDivElement {
-    if (this.searchValue) return;
+    if (this.searchValue) {
+      return;
+    }
 
     const allChecked = this.selectedCounter === this.itemsList.length;
 

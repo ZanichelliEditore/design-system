@@ -47,7 +47,7 @@ export class ZLink {
   icon?: string;
 
   /** big link version */
-  @Prop()
+  @Prop({reflect: true})
   big?: boolean = false;
 
   /** link icon position (optional) */
@@ -72,7 +72,7 @@ export class ZLink {
     this.emitZLinkInteraction = this.emitZLinkInteraction.bind(this);
   }
 
-  componentWillRender(): void {
+  componentWillLoad(): void {
     if (this.iswhite) {
       console.warn(
         "z-link iswhite prop is deprecated and will be dropped in a next release, please use textcolor prop instead"
@@ -93,7 +93,7 @@ export class ZLink {
     this.zLinkClick.emit({e, linkId});
   }
 
-  componentDidRender(): void {
+  componentDidLoad(): void {
     if (this.icon) {
       const height: number = parseFloat(window.getComputedStyle(this.hostElement).getPropertyValue("font-size"));
       const currentSize = this.big ? 18 : Math.round(height * 1.125);
@@ -103,36 +103,35 @@ export class ZLink {
     }
   }
 
-  render(): HostElement {
-    const style = this.big ? {"--font-size-link": "16px", "--font-weight-link": "600"} : {};
-
+  render(): HTMLAnchorElement {
     return (
-      <Host style={style}>
-        <a
-          id={this.htmlid}
-          href={this.href ? this.href : null}
-          class={`${this.isdisabled ? "disabled" : ""}
-            ${this.isactive ? "active" : ""}
-            ${this.textcolor}
-            ${this.iswhite ? "white" : ""}
-            ${this.underline ? "underline" : ""}`}
-          target={this.target}
-          role={this.href ? "link" : "button"}
-          tabindex={this.isdisabled ? -1 : this.htmltabindex}
-          onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
-        >
-          {this.iconposition === "right" && <slot />}
-          {this.icon && (
-            <z-icon
-              style={{"--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString()}}
-              name={this.icon}
-              height={this.iconSize}
-              width={this.iconSize}
-            />
-          )}
-          {this.iconposition === "left" && <slot />}
-        </a>
-      </Host>
+      <a
+        id={this.htmlid}
+        href={this.href ? this.href : null}
+        class={{
+          disabled: this.isdisabled,
+          active: this.isactive,
+          [this.textcolor || ""]: true,
+          white: this.iswhite,
+          underline: this.underline,
+        }}
+        target={this.target}
+        role={this.href ? "link" : "button"}
+        tabindex={this.isdisabled ? -1 : this.htmltabindex}
+        onClick={(e: MouseEvent) => this.emitZLinkClick(e, this.htmlid)}
+      >
+        {this.iconposition === "right" && <slot />}
+        {this.icon && (
+          <z-icon
+            style={{
+              "--z-icon-width": `${this.iconSize}px`,
+              "--z-icon-height": `${this.iconSize}px`,
+            }}
+            name={this.icon}
+          />
+        )}
+        {this.iconposition === "left" && <slot />}
+      </a>
     );
   }
 }

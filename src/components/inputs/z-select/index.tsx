@@ -177,16 +177,22 @@ export class ZSelect {
 
   private handleInputChange(e: CustomEvent): void {
     this.searchString = e.detail.value;
-    if (!this.isOpen) this.toggleSelectUl();
+    if (!this.isOpen) {
+      this.toggleSelectUl();
+    }
   }
 
   private selectItem(item: null | SelectItemBean, selected: boolean): void {
-    if (item && item.disabled) return;
+    if (item && item.disabled) {
+      return;
+    }
 
     this.itemsList = this.mapSelectedItemToItemsArray();
     this.itemsList = this.itemsList.map((i: SelectItemBean) => {
       i.selected = false;
-      if (i.id === (item ? item.id : null)) i.selected = selected;
+      if (i.id === item?.id) {
+        i.selected = selected;
+      }
 
       return i;
     });
@@ -195,17 +201,23 @@ export class ZSelect {
 
     this.emitOptionSelect();
 
-    if (this.searchString) this.searchString = null;
+    if (this.searchString) {
+      this.searchString = null;
+    }
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
     const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.key as KeyboardCodeEnum)) return;
+    if (!arrows.includes(e.key as KeyboardCodeEnum)) {
+      return;
+    }
 
     e.preventDefault();
     e.stopPropagation();
 
-    if (!this.isOpen) this.toggleSelectUl();
+    if (!this.isOpen) {
+      this.toggleSelectUl();
+    }
 
     let index: number;
     if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
@@ -219,11 +231,15 @@ export class ZSelect {
 
   private focusSelectItem(index: number): void {
     const focusElem: HTMLLIElement = this.element.querySelector(`#${this.htmlid}_${index}`);
-    if (focusElem) focusElem.focus();
+    if (focusElem) {
+      focusElem.focus();
+    }
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
-    if (this.disabled || this.readonly) return;
+    if (this.disabled || this.readonly) {
+      return;
+    }
 
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
@@ -274,7 +290,9 @@ export class ZSelect {
 
   private scrollToLetter(letter: string): void {
     const foundItem = this.itemsList.find((item: SelectItemBean) => item.name.charAt(0) === letter);
-    if (foundItem) this.focusSelectItem(this.itemsList.indexOf(foundItem));
+    if (foundItem) {
+      this.focusSelectItem(this.itemsList.indexOf(foundItem));
+    }
   }
 
   private renderInput(): HTMLZInputElement {
@@ -296,7 +314,9 @@ export class ZSelect {
           this.handleInputClick(e);
         }}
         onKeyUp={(e: KeyboardEvent) => {
-          if (e.keyCode !== 13) e.preventDefault();
+          if (e.keyCode !== 13) {
+            e.preventDefault();
+          }
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
         onKeyDown={(e: KeyboardEvent) => {
@@ -346,7 +366,9 @@ export class ZSelect {
   }
 
   private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
-    if (!this.itemsList.length) return this.renderNoSearchResults();
+    if (!this.itemsList.length) {
+      return this.renderNoSearchResults();
+    }
 
     return this.itemsList.map((item: SelectItemBean, key) => {
       return (
@@ -386,7 +408,9 @@ export class ZSelect {
   }
 
   private renderMessage(): HTMLZInputMessageElement {
-    if (boolean(this.message) === false) return;
+    if (boolean(this.message) === false) {
+      return;
+    }
 
     return (
       <z-input-message

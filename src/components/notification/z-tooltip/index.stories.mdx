@@ -17,15 +17,15 @@ On the following Story, the "position" prop can be set only for the original pos
   argTypes={{
     "position": {
       options: [
-        PopoverPositions.auto,
-        PopoverPositions.top,
-        PopoverPositions.bottom,
-        PopoverPositions.left,
-        PopoverPositions.right,
-        PopoverPositions.top_left,
-        PopoverPositions.top_right,
-        PopoverPositions.bottom_left,
-        PopoverPositions.bottom_right,
+        PopoverPositions.AUTO,
+        PopoverPositions.TOP,
+        PopoverPositions.BOTTOM,
+        PopoverPositions.LEFT,
+        PopoverPositions.RIGHT,
+        PopoverPositions.TOP_LEFT,
+        PopoverPositions.TOP_RIGHT,
+        PopoverPositions.BOTTOM_LEFT,
+        PopoverPositions.BOTTOM_RIGHT,
       ],
       control: {type: "select"},
     },
@@ -43,7 +43,7 @@ On the following Story, the "position" prop can be set only for the original pos
   <Story
     name="z-tooltip"
     args={{
-      "position": PopoverPositions.left,
+      "position": PopoverPositions.LEFT,
       "dark": false,
       "--z-tooltip-theme--surface": "var(--color-surface01)",
     }}

@@ -60,7 +60,9 @@ export class ZButtonSort {
   }
 
   componentDidLoad(): void {
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) this.allowTooltip = true;
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+      this.allowTooltip = true;
+    }
   }
 
   private setButtonTitle(): string {

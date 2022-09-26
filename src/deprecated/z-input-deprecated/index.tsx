@@ -149,7 +149,9 @@ export class ZInputDeprecated {
         this.selectElem.setValue(value);
         break;
       default:
-        if (typeof value === "string") this.value = value;
+        if (typeof value === "string") {
+          this.value = value;
+        }
         break;
     }
   }
@@ -291,7 +293,9 @@ export class ZInputDeprecated {
   }
 
   private renderLabel(): HTMLZInputLabelElement {
-    if (!this.label) return;
+    if (!this.label) {
+      return;
+    }
 
     return (
       <z-input-label
@@ -323,7 +327,9 @@ export class ZInputDeprecated {
       return this.renderShowHidePassword();
     }
 
-    if (!this.icon) return;
+    if (!this.icon) {
+      return;
+    }
 
     return (
       <z-icon
@@ -334,7 +340,9 @@ export class ZInputDeprecated {
   }
 
   private renderResetIcon(): HTMLZIconElement {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly) return;
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly) {
+      return;
+    }
 
     return (
       <z-icon
@@ -358,7 +366,9 @@ export class ZInputDeprecated {
   }
 
   private renderMessage(): HTMLZInputMessageElement {
-    if (!this.hasmessage) return;
+    if (!this.hasmessage) {
+      return;
+    }
 
     return (
       <z-input-message
