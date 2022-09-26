@@ -7,26 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                        | Type                                                              | Default                        |
-| ---------- | ---------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------ |
-| `caption`  | `caption`  | Cover hero caption text to display in the z-info-reveal component. | `string`                                                          | `''`                           |
-| `position` | `position` | Cover hero content position (only for stacked variant).            | `CoverHeroContentPosition.bottom \| CoverHeroContentPosition.top` | `CoverHeroContentPosition.top` |
-| `variant`  | `variant`  | Cover hero variant. Can be one of "overlay", "stacked".            | `CoverHeroVariants.overlay \| CoverHeroVariants.stacked`          | `CoverHeroVariants.overlay`    |
+| Property          | Attribute          | Description                                             | Type                                                              | Default                        |
+| ----------------- | ------------------ | ------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ |
+| `contentPosition` | `content-position` | Cover hero content position (only for stacked variant). | `CoverHeroContentPosition.BOTTOM \| CoverHeroContentPosition.TOP` | `CoverHeroContentPosition.TOP` |
+| `variant`         | `variant`          | Cover hero variant. Can be one of "OVERLAY", "STACKED". | `CoverHeroVariants.OVERLAY \| CoverHeroVariants.STACKED`          | `CoverHeroVariants.OVERLAY`    |
 
-
-## Dependencies
-
-### Depends on
-
-- [z-info-reveal](../z-info-reveal)
-
-### Graph
-```mermaid
-graph TD;
-  z-cover-hero --> z-info-reveal
-  z-info-reveal --> z-icon
-  style z-cover-hero fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

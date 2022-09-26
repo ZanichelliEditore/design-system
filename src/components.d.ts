@@ -377,15 +377,11 @@ export namespace Components {
     }
     interface ZCoverHero {
         /**
-          * Cover hero caption text to display in the z-info-reveal component.
-         */
-        "caption"?: string;
-        /**
           * Cover hero content position (only for stacked variant).
          */
-        "position": CoverHeroContentPosition;
+        "contentPosition": CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "overlay", "stacked".
+          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
          */
         "variant": CoverHeroVariants;
     }
@@ -3191,15 +3187,11 @@ declare namespace LocalJSX {
     }
     interface ZCoverHero {
         /**
-          * Cover hero caption text to display in the z-info-reveal component.
-         */
-        "caption"?: string;
-        /**
           * Cover hero content position (only for stacked variant).
          */
-        "position"?: CoverHeroContentPosition;
+        "contentPosition"?: CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "overlay", "stacked".
+          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
          */
         "variant"?: CoverHeroVariants;
     }

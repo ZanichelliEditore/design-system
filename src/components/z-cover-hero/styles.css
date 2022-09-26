@@ -1,8 +1,7 @@
 :host {
   --cover-hero-height: auto;
   --cover-hero-overlay: none;
-  --cover-hero-text-color: var(--gray100);
-  --cover-hero-columns: 1 / -1;
+  --cover-hero-text-color: var(--color-text-inverse);
 
   display: block;
 }
@@ -12,7 +11,7 @@
   box-sizing: border-box;
 }
 
-:host .hero {
+:host .content-hero {
   position: relative;
   align-items: baseline;
   width: 100%;
@@ -20,22 +19,22 @@
   background-color: var(--gray600);
 }
 
-:host .container {
+:host .content-container {
   display: grid;
   color: var(--cover-hero-text-color);
   fill: var(--cover-hero-text-color);
 }
 
 /* Cover hero - div with image & z-info-reveal */
-:host .hero .cover {
+:host .content-hero .cover {
   position: absolute;
   z-index: 0;
   width: 100%;
   height: 100%;
 }
 
-:host .hero .cover img,
-:host .hero .cover ::slotted(*) {
+:host .content-hero .cover img,
+:host .content-hero .cover ::slotted(:not(z-info-reveal)) {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,28 +45,28 @@
   -webkit-user-drag: none;
 }
 
-:host .hero .cover z-info-reveal {
+:host .content-hero .cover ::slotted(z-info-reveal) {
   position: absolute;
   bottom: var(--grid-margin);
   right: var(--grid-margin);
   z-index: 1;
 }
 
-/* Cover hero - div with slotted content */
-:host .hero .container ::slotted(:not(:last-child)),
-:host .container ::slotted(:not(:last-child)) {
-  margin-bottom: var(--grid-margin);
-}
-
-:host([variant="stacked"]) .cover-hero,
-:host([variant="overlay"]) .hero {
+:host([variant="stacked"]),
+:host([variant="overlay"]) .content-hero {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), 1fr);
   column-gap: var(--grid-gutter);
 }
 
+:host([variant="overlay"]) .content-hero .content-container,
+:host([variant="stacked"]) .content-container,
+:host([variant="stacked"]) .content-hero {
+  grid-column: 1 / -1;
+}
+
 /* Variant overlay */
-:host([variant="overlay"]) .hero .cover::after {
+:host([variant="overlay"]) .content-hero .cover::after {
   content: '';
   position: absolute;
   top: 0;
@@ -77,56 +76,25 @@
   background: var(--cover-hero-overlay);
 }
 
-:host([variant="overlay"]) .hero .container {
+:host([variant="overlay"]) .content-hero .content-container {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   max-width: 100%;
   margin-right: auto;
   width: 100%;
   padding: var(--grid-margin);
   margin-bottom: calc(var(--grid-margin) * 2);
-  grid-column: var(--cover-hero-columns);
 }
 
 /* Variant stacked */
 :host([variant="stacked"]) {
-  --cover-hero-text-color: var(--gray800);
+  --cover-hero-text-color: var(--color-text01);
 }
 
-:host([variant="stacked"]) .container,
-:host([variant="stacked"]) .hero {
-  grid-column: 1 / -1;
-}
-
-:host([variant="stacked"]) .hero {
+:host([variant="stacked"]) .content-hero {
   min-height: calc(var(--space-unit) * 30);
 }
 
-:host([variant="stacked"]) .container {
+:host([variant="stacked"]) .content-container {
   padding: var(--grid-margin) 0;
-}
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-  :host {
-    --cover-hero-columns: span calc(var(--grid-tablet-column) / 2);
-  }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-  :host {
-    --cover-hero-columns: span calc(var(--grid-desktop-column) / 2);
-  }
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
-  :host {
-    --cover-hero-columns: span calc(var(--grid-wide-column) / 2);
-  }
 }

@@ -12,13 +12,13 @@ import "./index";
     variant: {
       control: { type: "inline-radio" },
       options: Object.values(CoverHeroVariants),
-      defaultValue: CoverHeroVariants.overlay
+      defaultValue: CoverHeroVariants.OVERLAY
     },
-    position: {
-      if: { arg: "variant", eq: CoverHeroVariants.stacked },
+    contentPosition: {
+      if: { arg: "variant", eq: CoverHeroVariants.STACKED },
       control: { type: "inline-radio" },
       options: Object.values(CoverHeroContentPosition),
-      defaultValue: CoverHeroContentPosition.top,
+      defaultValue: CoverHeroContentPosition.TOP,
     },
     caption: {
       control: { type: "text" },
@@ -29,7 +29,7 @@ import "./index";
       options: getColorTokens(),
     },
     "--cover-hero-overlay": {
-      if: { arg: "variant", eq: CoverHeroVariants.overlay },
+      if: { arg: "variant", eq: CoverHeroVariants.OVERLAY },
       control: { type: "text" },
       defaultValue: "linear-gradient(270deg, #00000000 0%, #000000e6 100%) 0% 0% no-repeat"
     },
@@ -46,9 +46,8 @@ import "./index";
   <Story name="ZCoverHero">
     {(args) => html`
       <z-cover-hero
-        .position=${args.position}
+        .contentPosition=${args.contentPosition}
         .variant=${args.variant}
-        .caption=${args.caption}
         style=${styleMap({
           "--cover-hero-height": `${args["--cover-hero-height"]}`,
           "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
@@ -56,15 +55,18 @@ import "./index";
         })}
       >
         <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
-        <span slot="content">
+        <span slot="content" style="width: 50%;">
           Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
           Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </span>
-        <span slot="content">
+        <span slot="content" style="text-align: center;">
           <z-button variant="primary">Primary</z-button>
           <z-button variant="secondary">Secondary</z-button>
         </span>
+        <z-info-reveal slot="info-reveal" position="bottom_right">
+          <span>${args.caption}</span>
+        </z-info-reveal>
       </z-cover-hero>
     `}
   </Story>
