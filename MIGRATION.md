@@ -9,14 +9,13 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
-- [6.0.0](#v600)
+- [v6.0.0](#v600)
   - [Enum e Types](#enum-e-types)
   - [ZPanelElem](#zpanelelem)
     - [Rename della prop `descr_slot_name`](#rename-della-prop-descrslotname)
 - [v5.0.0](#v500)
   - [ZPopover](#zpopover)
   - [ZTooltip](#ztooltip)
-
 - [v4.0.0](#v400)
   - [ZInput](#zinput)
     - [Rimozione della prop `hasmessage`](#rimozione-della-prop-hasmessage)
@@ -40,12 +39,14 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
-
 ## v6.0.0
+
 ### Enum e Types
+
 Le regole di coding style configurate impongono l'uso dell'UPPER_CASE per i membri degli enum e il camelCase per le property dei types, quindi l'applicazione di queste regole di naming convention risultano breaking per chi usa gli enum e i types importandoli da questo repository.
 
 Lista degli Enum e tipi interessati:
+
 - `LicenseTypeEnum`
 - `CardBean`
 - `CardVariants`
@@ -92,7 +93,9 @@ Lista degli Enum e tipi interessati:
 - `InfoRevealPosition`
 
 ### ZPanelElem
+
 #### Rename della prop `descr_slot_name`
+
 Per via delle regole di coding style, la prop `descr_slot_name` diventa `descrSlotName`.
 
 ## v5.0.0
