@@ -9,8 +9,11 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [6.0.0](#v600)
+  - [Enum e Types](#enum-e-types)
+  - [ZPanelElem](#zpanelelem)
+    - [Rename della prop `descr_slot_name`](#rename-della-prop-descrslotname)
 - [v5.0.0](#v500)
-
   - [ZPopover](#zpopover)
   - [ZTooltip](#ztooltip)
 
@@ -37,11 +40,66 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
+
+## v6.0.0
+### Enum e Types
+Le regole di coding style configurate impongono l'uso dell'UPPER_CASE per i membri degli enum e il camelCase per le property dei types, quindi l'applicazione di queste regole di naming convention risultano breaking per chi usa gli enum e i types importandoli da questo repository.
+
+Lista degli Enum e tipi interessati:
+- `LicenseTypeEnum`
+- `CardBean`
+- `CardVariants`
+- `NavigationTabsOrientations`
+- `NavigationTabsSizes`
+- `ButtonVariantEnum`
+- `ButtonTypeEnum`
+- `ButtonSizeEnum`
+- `InputTypeEnum`
+- `InputStatusEnum`
+- `PopoverPositions`
+- `PopoverPosition`
+- `PopoverBorderRadius`
+- `PopoverShadow`
+- `ThemeVariant`
+- `DividerSize`
+- `DividerOrientation`
+- `SortDirectionEnum`
+- `AvatarSize`
+- `ListSize`
+- `Size`
+- `ExpandableListStyle`
+- `ExpandableListButtonAlign`
+- `LabelPositions`
+- `ListDividerType`
+- `NotificationType`
+- `AlertTypesEnum`
+- `DeviceEnum`
+- `PocketStatusEnum`
+- `ToastNotificationEnum`
+- `ToastNotificationTransitionsEnum`
+- `ToastNotificationPositionsEnum`
+- `ZTableRowExpandedType`
+- `ZAriaAlertMode`
+- `TransitionDirectionEnum`
+- `OffCanvasVariantsEnum`
+- `ZFileUploadTypeEnum`
+- `ZChipType`
+- `ZSectionTitleDividerPositions`
+- `ZDatePickerMode`
+- `ZDatePickerPosition`
+- `ZRangePickerMode`
+- `StatusTagStatus`
+- `InfoRevealPosition`
+
+### ZPanelElem
+#### Rename della prop `descr_slot_name`
+Per via delle regole di coding style, la prop `descr_slot_name` diventa `descrSlotName`.
+
 ## v5.0.0
 
 ### ZPopover
 
-Lo `ZPopover` è strutturalmente cambiato: il contenuto è completamente slottato, l'elemento che funge da "trigger" per l'apertura va aggiunto _fuori_ al componente. La proprietà "bindTo" permette di specificare l'elemento (con referenza o stringa selettore) rispetto a cui il popover deve essere posizionato, e generalmente rappresenta l'elemento "trigger" stesso.
+Lo `ZPopover` è strutturalmente cambiato: il contenuto è completamente slottato, l'elemento che funge da "trigger" per l'apertura va aggiunto _fuori_ dal componente. La proprietà "bindTo" permette di specificare l'elemento (con referenza o stringa selettore) rispetto a cui il popover deve essere posizionato, e generalmente rappresenta l'elemento "trigger" stesso.
 Le nuove "posizioni" utilizzabili sono cambiate e sono disponibili nell'enum "PopoverPositions".
 Le proprietà legate allo stile (`backgroundColor`, `borderRadius`, ecc.) sono scomparse in favore di variabili CSS.
 Anche le shadow sono settate tramite variabile CSS `--z-popover-shadow-filter`, di tipo "filter".

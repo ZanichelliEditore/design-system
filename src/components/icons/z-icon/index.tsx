@@ -7,7 +7,7 @@ import {ICONS} from "../icons";
   shadow: true,
 })
 export class ZIcon {
-  /** icon name (choice between available icons) */
+  /** icon name */
   @Prop()
   name: string;
 
@@ -27,8 +27,8 @@ export class ZIcon {
   @Prop()
   fill?: string;
 
-  private selectPathOrPolygon(iconName: string): HTMLElement {
-    if (iconName && iconName.startsWith("M")) {
+  private selectPathOrPolygon(iconValue: string): SVGPathElement | SVGPolygonElement {
+    if (iconValue?.startsWith("M")) {
       return <path d={ICONS[this.name]}></path>;
     }
 
