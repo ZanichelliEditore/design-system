@@ -49,8 +49,7 @@
   z-index: 1;
 }
 
-:host([variant="stacked"]),
-:host([variant="overlay"]) .content-hero {
+:host([variant="stacked"]) {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,9 +69,6 @@
 :host([variant="overlay"]) .content-hero .content-container {
   position: relative;
   z-index: 1;
-  max-width: 100%;
-  margin-right: auto;
-  width: 100%;
   padding: var(--grid-margin);
 }
 
