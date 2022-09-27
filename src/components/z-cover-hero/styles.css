@@ -51,12 +51,6 @@
   z-index: 1;
 }
 
-:host([variant="stacked"]) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Variant overlay */
 :host([variant="overlay"]) .content-hero .cover::after {
   content: '';
