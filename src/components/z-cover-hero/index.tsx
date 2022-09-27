@@ -1,5 +1,5 @@
-import { Component, Prop, h, Element } from '@stencil/core';
-import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
+import { Component, Prop, h, Element, Host } from "@stencil/core";
+import { CoverHeroVariants, CoverHeroContentPosition } from "../../beans";
 
 /**
  * Cover hero component.
@@ -13,11 +13,10 @@ import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
  * @cssprop --cover-hero-text-color - color of the text.
  */
 @Component({
-  tag: 'z-cover-hero',
-  styleUrl: 'styles.css',
-  shadow: true
+  tag: "z-cover-hero",
+  styleUrl: "styles.css",
+  shadow: true,
 })
-
 export class ZCoverHero {
   @Element() el: HTMLElement;
 
@@ -25,36 +24,42 @@ export class ZCoverHero {
    * Cover hero variant.
    * Can be one of "OVERLAY", "STACKED".
    */
-  @Prop({ reflect: true }) variant: CoverHeroVariants = CoverHeroVariants.OVERLAY;
+  @Prop({ reflect: true })
+  variant: CoverHeroVariants = CoverHeroVariants.OVERLAY;
 
   /**
    * Cover hero content position (only for STACKED variant).
    */
-  @Prop({ reflect: true }) contentPosition: CoverHeroContentPosition = CoverHeroContentPosition.TOP;
+  @Prop({ reflect: true })
+  contentPosition: CoverHeroContentPosition = CoverHeroContentPosition.TOP;
 
   /**
    * Template for the content.
    */
-  private renderContent() {
+  private renderContent(): HTMLDivElement {
     return (
       <div class="content-container">
         <slot name="content"></slot>
       </div>
-    )
+    );
   }
 
   render() {
-    return [
-      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.TOP) && this.renderContent(),
-      <div class="content-hero">
-        <div class="cover">
-          <slot name="cover"></slot>
+    return (
+      <Host>
+        {this.variant === CoverHeroVariants.STACKED &&
+          this.contentPosition === CoverHeroContentPosition.TOP &&
+          this.renderContent()}
+        <div class="content-hero">
+          <div class="cover">
+            <slot name="cover"></slot>
+          </div>
+          <slot name="info-reveal"></slot>
+          {this.variant === CoverHeroVariants.OVERLAY && this.renderContent()}
         </div>
-        <slot name="info-reveal"></slot>
-        {this.variant === CoverHeroVariants.OVERLAY && this.renderContent()
-        }
-      </div>,
-      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.BOTTOM) && this.renderContent()
-    ];
+        {(this.variant === CoverHeroVariants.STACKED && this.contentPosition ===
+        CoverHeroContentPosition.BOTTOM) && this.renderContent()}
+      </Host>
+    );
   }
 }
