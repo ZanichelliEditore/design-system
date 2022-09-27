@@ -67,7 +67,7 @@ textarea:focus:focus-visible {
 /* HOVER */
 input:hover,
 .textareaWrapper:hover {
-  border-width: var(--border-size-medium);
+  outline: var(--border-size-small) solid var(--color-surface04);
 }
 
 /* READONLY */
