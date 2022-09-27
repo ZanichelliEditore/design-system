@@ -41,7 +41,7 @@ export class ZCard {
   cardClicked: EventEmitter;
 
   @Listen("click")
-  onClick(ev: MouseEvent): void {
+  onClick(ev: MouseEvent):void {
     // Do nothing for clicks on actions.
     if ((ev.target as HTMLElement).getAttribute("slot") === "action") {
       return;
