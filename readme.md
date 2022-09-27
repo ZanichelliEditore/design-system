@@ -152,6 +152,10 @@ import '@zanichelli/albe-web-components/www/build/web-components-library.css';
 or via link tag:
 
 ```html
+// using jsDelivr
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zanichelli/albe-web-components/www/build/web-components-library.css" />
+
+// using unpkg
 <link type="text/css" rel="stylesheet" href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css" />
 ```
 
@@ -171,6 +175,10 @@ applyPolyfills().then(() => {
 or via a script tag:
 
 ```html
+// using jsDelivr
+<script src="https://cdn.jsdelivr.net/npm/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script>
+
+// using unpkg
 <script src="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.esm.js"></script>
 ```
 
