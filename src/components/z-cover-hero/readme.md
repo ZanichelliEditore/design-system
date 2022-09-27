@@ -13,6 +13,15 @@
 | `variant`         | `variant`          | Cover hero variant. Can be one of "OVERLAY", "STACKED". | `CoverHeroVariants.OVERLAY \| CoverHeroVariants.STACKED`          | `CoverHeroVariants.OVERLAY`    |
 
 
+## Slots
+
+| Slot            | Description               |
+| --------------- | ------------------------- |
+| `"content"`     | slot for the content.     |
+| `"cover"`       | slot for the cover image. |
+| `"info-reveal"` | slot for the info reveal. |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

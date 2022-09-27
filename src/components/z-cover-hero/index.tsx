@@ -1,12 +1,6 @@
 import { Component, Prop, h, Element } from '@stencil/core';
 import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
 
-@Component({
-  tag: 'z-cover-hero',
-  styleUrl: 'styles.css',
-  shadow: true
-})
-
 /**
  * Cover hero component.
  * Component to display a hero image with content.
@@ -18,6 +12,11 @@ import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
  * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS background property).
  * @cssprop --cover-hero-text-color - color of the text.
  */
+@Component({
+  tag: 'z-cover-hero',
+  styleUrl: 'styles.css',
+  shadow: true
+})
 
 export class ZCoverHero {
   @Element() el: HTMLElement;
@@ -50,8 +49,8 @@ export class ZCoverHero {
       <div class="content-hero">
         <div class="cover">
           <slot name="cover"></slot>
-          <slot name="info-reveal"></slot>
         </div>
+        <slot name="info-reveal"></slot>
         {this.variant === CoverHeroVariants.OVERLAY && this.renderContent()
         }
       </div>,

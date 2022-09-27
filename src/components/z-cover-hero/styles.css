@@ -32,8 +32,7 @@
   height: 100%;
 }
 
-:host .content-hero .cover img,
-:host .content-hero .cover ::slotted(:not(z-info-reveal)) {
+::slotted([slot="cover"]) {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,10 +40,9 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  -webkit-user-drag: none;
 }
 
-:host .content-hero .cover ::slotted(z-info-reveal) {
+::slotted(z-info-reveal) {
   position: absolute;
   bottom: var(--grid-margin);
   right: var(--grid-margin);
@@ -53,15 +51,9 @@
 
 :host([variant="stacked"]),
 :host([variant="overlay"]) .content-hero {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  column-gap: var(--grid-gutter);
-}
-
-:host([variant="overlay"]) .content-hero .content-container,
-:host([variant="stacked"]) .content-container,
-:host([variant="stacked"]) .content-hero {
-  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Variant overlay */
