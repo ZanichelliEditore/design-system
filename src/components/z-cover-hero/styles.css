@@ -20,6 +20,8 @@
 }
 
 :host .content-container {
+  display: flex;
+  flex-wrap: wrap;
   color: var(--cover-hero-text-color);
   fill: var(--cover-hero-text-color);
 }
