@@ -20,7 +20,6 @@
 }
 
 :host .content-container {
-  display: grid;
   color: var(--cover-hero-text-color);
   fill: var(--cover-hero-text-color);
 }
@@ -83,7 +82,6 @@
   margin-right: auto;
   width: 100%;
   padding: var(--grid-margin);
-  margin-bottom: calc(var(--grid-margin) * 2);
 }
 
 /* Variant stacked */

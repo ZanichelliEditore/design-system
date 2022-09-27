@@ -9,7 +9,7 @@
 
 | Property          | Attribute          | Description                                             | Type                                                              | Default                        |
 | ----------------- | ------------------ | ------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ |
-| `contentPosition` | `content-position` | Cover hero content position (only for stacked variant). | `CoverHeroContentPosition.BOTTOM \| CoverHeroContentPosition.TOP` | `CoverHeroContentPosition.TOP` |
+| `contentPosition` | `content-position` | Cover hero content position (only for STACKED variant). | `CoverHeroContentPosition.BOTTOM \| CoverHeroContentPosition.TOP` | `CoverHeroContentPosition.TOP` |
 | `variant`         | `variant`          | Cover hero variant. Can be one of "OVERLAY", "STACKED". | `CoverHeroVariants.OVERLAY \| CoverHeroVariants.STACKED`          | `CoverHeroVariants.OVERLAY`    |
 
 

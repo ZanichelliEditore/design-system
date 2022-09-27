@@ -15,7 +15,7 @@ import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
  * @slot content - slot for the content.
  * @slot info-reveal - slot for the info reveal.
  * @cssprop --cover-hero-height - height of the cover hero.
- * @cssprop --cover-hero-overlay - overlay color of the cover hero (css background property).
+ * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS background property).
  * @cssprop --cover-hero-text-color - color of the text.
  */
 
@@ -29,7 +29,7 @@ export class ZCoverHero {
   @Prop({ reflect: true }) variant: CoverHeroVariants = CoverHeroVariants.OVERLAY;
 
   /**
-   * Cover hero content position (only for stacked variant).
+   * Cover hero content position (only for STACKED variant).
    */
   @Prop({ reflect: true }) contentPosition: CoverHeroContentPosition = CoverHeroContentPosition.TOP;
 
@@ -46,19 +46,16 @@ export class ZCoverHero {
 
   render() {
     return [
-      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.TOP) &&
-        this.renderContent(),
+      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.TOP) && this.renderContent(),
       <div class="content-hero">
         <div class="cover">
           <slot name="cover"></slot>
           <slot name="info-reveal"></slot>
         </div>
-        {this.variant === CoverHeroVariants.OVERLAY &&
-          this.renderContent()
+        {this.variant === CoverHeroVariants.OVERLAY && this.renderContent()
         }
       </div>,
-      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.BOTTOM) &&
-        this.renderContent()
+      (this.variant === CoverHeroVariants.STACKED && this.contentPosition === CoverHeroContentPosition.BOTTOM) && this.renderContent()
     ];
   }
 }

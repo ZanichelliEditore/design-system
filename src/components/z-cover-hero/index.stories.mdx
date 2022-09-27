@@ -20,10 +20,6 @@ import "./index";
       options: Object.values(CoverHeroContentPosition),
       defaultValue: CoverHeroContentPosition.TOP,
     },
-    caption: {
-      control: { type: "text" },
-      defaultValue: "Lorem ipsum dolor sit amet."
-    },
     "--cover-hero-text-color": {
       control: { type: "select" },
       options: getColorTokens(),
@@ -55,17 +51,17 @@ import "./index";
         })}
       >
         <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
-        <span slot="content" style="width: 50%;">
+        <span slot="content">
           Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur.
           Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </span>
-        <span slot="content" style="text-align: center;">
+        <span slot="content" style="width: 100%;text-align: center;padding: 10px;display: block;">
           <z-button variant="primary">Primary</z-button>
           <z-button variant="secondary">Secondary</z-button>
         </span>
         <z-info-reveal slot="info-reveal" position="bottom_right">
-          <span>${args.caption}</span>
+          <span>Lorem ipsum dolor sit amet.</span>
         </z-info-reveal>
       </z-cover-hero>
     `}
