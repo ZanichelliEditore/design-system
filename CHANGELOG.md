@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.5.2](https://github.com/ZanichelliEditore/design-system/compare/v5.5.1...v5.5.2) (2022-09-28)
+
+
+### Features
+
+* cover hero component ([355481d](https://github.com/ZanichelliEditore/design-system/commit/355481db7f83ec0a23ae339fba8d63c7e486f0d2))
+
+
+### Bug Fixes
+
+* update cdn path ([1cec305](https://github.com/ZanichelliEditore/design-system/commit/1cec3056aafc0798d3491f2a48f2ddbafb5be96f))
+* update package.json ([b58526b](https://github.com/ZanichelliEditore/design-system/commit/b58526be49c7387acd8d25e302a9a33fd4ffd006))
+* update readme, package.json with links to jsDelivr CDN ([f13ae7b](https://github.com/ZanichelliEditore/design-system/commit/f13ae7b432194970c473bed18428fbd0c8d467a1))
+* update version number ([a6cfd28](https://github.com/ZanichelliEditore/design-system/commit/a6cfd28f9c9a27000978d634e902f039f9e1fef8))
+
 ### [5.5.1](https://github.com/ZanichelliEditore/design-system/compare/v5.5.0...v5.5.1) (2022-09-23)
 
 ## [5.5.0](https://github.com/ZanichelliEditore/design-system/compare/v5.4.0...v5.5.0) (2022-09-19)
