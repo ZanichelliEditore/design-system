@@ -26,4 +26,7 @@ export const config: Config = {
       copy: [{src: "pages"}],
     },
   ],
+  extras: {
+    experimentalImportInjection: true,
+  },
 };

@@ -549,7 +549,7 @@ export namespace Components {
          */
         "iconid"?: string;
         /**
-          * icon name (choice between available icons)
+          * icon name
          */
         "name": string;
         /**
@@ -3632,7 +3632,7 @@ declare namespace LocalJSX {
          */
         "iconid"?: string;
         /**
-          * icon name (choice between available icons)
+          * icon name
          */
         "name"?: string;
         /**
