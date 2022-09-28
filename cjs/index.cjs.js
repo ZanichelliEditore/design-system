@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-e4bc6c3c.js');
-const index = require('./index-438f76bc.js');
+const utils = require('./utils-4a419726.js');
+const index = require('./index-3dd0f9bd.js');
 require('./breakpoints-88c4fd6c.js');
 
 const Utils = {
@@ -44,6 +44,18 @@ Object.defineProperty(exports, 'CardVariants', {
   enumerable: true,
   get: function () {
     return index.CardVariants;
+  }
+});
+Object.defineProperty(exports, 'CoverHeroContentPosition', {
+  enumerable: true,
+  get: function () {
+    return index.CoverHeroContentPosition;
+  }
+});
+Object.defineProperty(exports, 'CoverHeroVariant', {
+  enumerable: true,
+  get: function () {
+    return index.CoverHeroVariant;
   }
 });
 Object.defineProperty(exports, 'DeviceEnum', {

@@ -55,6 +55,7 @@
     "./components/z-card/index.js",
     "./components/z-carousel/index.js",
     "./components/z-contextual-menu/index.js",
+    "./components/z-cover-hero/index.js",
     "./components/z-divider/index.js",
     "./components/z-ghost-loading/index.js",
     "./components/z-info-reveal/index.js",

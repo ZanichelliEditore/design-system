@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-90e18641.js';
-import { l as Size, B as ButtonVariantEnum, c as ButtonSizeEnum } from './index-3ee81524.js';
+import { l as Size, B as ButtonVariantEnum, c as ButtonSizeEnum } from './index-3c2d757b.js';
 import { c as classnames } from './index-abb47b30.js';
 import './_commonjsHelpers-9943807e.js';
 

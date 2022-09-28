@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-84b7063a.js');
-const index$1 = require('./index-438f76bc.js');
+const index$1 = require('./index-3dd0f9bd.js');
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host z-myz-card{--card-overflow:visible}:host>div{position:relative;height:522px;width:100%;transition:-webkit-transform 0.5s ease-out;transition:transform 0.5s ease-out;transition:transform 0.5s ease-out, -webkit-transform 0.5s ease-out}:host>div .content{position:relative;height:522px;width:100%;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;transition:-webkit-transform 0.5s ease-out;transition:transform 0.5s ease-out;transition:transform 0.5s ease-out, -webkit-transform 0.5s ease-out;z-index:2}:host>div .content.flipped{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);margin-top:-2px}:host>div .front,:host>div .back{position:absolute;height:100%;width:100%;top:0;left:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}:host>div .front{z-index:2;top:0;left:0;-webkit-transform:rotateY(0deg);transform:rotateY(0deg)}:host>div .front z-button{position:absolute;z-index:3;top:calc(var(--space-unit) * 0.5);left:calc(-1 * var(--space-unit))}:host>div .back{padding:0 var(--space-unit);margin-left:calc(-1 * var(--space-unit));z-index:1;top:0;left:0;-webkit-transform:rotateY(180deg);transform:rotateY(180deg);display:flex;justify-content:center}.hideInfo{display:none}";
 

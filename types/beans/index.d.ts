@@ -410,3 +410,11 @@ export declare enum InfoRevealPosition {
   bottom_right = "bottom_right",
   bottom_left = "bottom_left"
 }
+export declare enum CoverHeroVariant {
+  OVERLAY = "overlay",
+  STACKED = "stacked"
+}
+export declare enum CoverHeroContentPosition {
+  TOP = "top",
+  BOTTOM = "bottom"
+}

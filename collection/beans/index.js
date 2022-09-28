@@ -330,3 +330,13 @@ export var InfoRevealPosition;
   InfoRevealPosition["bottom_right"] = "bottom_right";
   InfoRevealPosition["bottom_left"] = "bottom_left";
 })(InfoRevealPosition || (InfoRevealPosition = {}));
+export var CoverHeroVariant;
+(function (CoverHeroVariant) {
+  CoverHeroVariant["OVERLAY"] = "overlay";
+  CoverHeroVariant["STACKED"] = "stacked";
+})(CoverHeroVariant || (CoverHeroVariant = {}));
+export var CoverHeroContentPosition;
+(function (CoverHeroContentPosition) {
+  CoverHeroContentPosition["TOP"] = "top";
+  CoverHeroContentPosition["BOTTOM"] = "bottom";
+})(CoverHeroContentPosition || (CoverHeroContentPosition = {}));
