@@ -491,7 +491,7 @@ export enum InfoRevealPosition {
   bottom_left = "bottom_left",
 }
 
-export enum CoverHeroVariants {
+export enum CoverHeroVariant {
   OVERLAY = "overlay",
   STACKED = "stacked",
 }

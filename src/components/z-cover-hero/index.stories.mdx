@@ -1,6 +1,6 @@
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 import { styleMap } from 'lit-html/directives/style-map.js';
-import { CoverHeroVariants, CoverHeroContentPosition } from '../../beans';
+import { CoverHeroVariant, CoverHeroContentPosition } from '../../beans';
 import { getColorTokens } from "../../utils/storybook-utils";
 import { html } from "lit-html";
 import "./index";
@@ -11,11 +11,11 @@ import "./index";
   argTypes={{
     variant: {
       control: { type: "inline-radio" },
-      options: Object.values(CoverHeroVariants),
-      defaultValue: CoverHeroVariants.OVERLAY
+      options: Object.values(CoverHeroVariant),
+      defaultValue: CoverHeroVariant.OVERLAY
     },
     contentPosition: {
-      if: { arg: "variant", eq: CoverHeroVariants.STACKED },
+      if: { arg: "variant", eq: CoverHeroVariant.STACKED },
       control: { type: "inline-radio" },
       options: Object.values(CoverHeroContentPosition),
       defaultValue: CoverHeroContentPosition.TOP,
@@ -25,7 +25,7 @@ import "./index";
       options: getColorTokens(),
     },
     "--cover-hero-overlay": {
-      if: { arg: "variant", eq: CoverHeroVariants.OVERLAY },
+      if: { arg: "variant", eq: CoverHeroVariant.OVERLAY },
       control: { type: "text" },
       defaultValue: "linear-gradient(270deg, #00000000 0%, #000000e6 100%) 0% 0% no-repeat"
     },

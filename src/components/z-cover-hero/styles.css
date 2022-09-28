@@ -62,18 +62,14 @@
 
 :host([variant="overlay"]) .content-hero .content-container {
   position: relative;
-  z-index: 1;
   height: 100%;
   padding: var(--grid-margin);
 }
 
 /* Variant stacked */
 :host([variant="stacked"]) {
+  --cover-hero-height: calc(var(--space-unit) * 30);
   --cover-hero-text-color: var(--color-text01);
-}
-
-:host([variant="stacked"]) .content-hero {
-  min-height: calc(var(--space-unit) * 30);
 }
 
 :host([variant="stacked"]) .content-container {
