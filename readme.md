@@ -78,31 +78,37 @@ There are some tools installed to help keeping uniformity of code style:
 
 ### Run lint checks and auto-fix
 
-to auto format code in all project, run
+#### Prettier check
+
+```sh
+yarn prettier-check
+```
+
+#### Prettier auto-format
 
 ```sh
 yarn prettify
 ```
 
-TypeScript lint check
+#### TypeScript lint check
 
 ```sh
 yarn lint.eslint
 ```
 
-CSS lint check
+#### CSS lint check
 
 ```sh
 yarn lint.stylelint
 ```
 
-TypeScript auto-fix
+#### TypeScript auto-fix
 
 ```sh
 yarn lint-fix.eslint
 ```
 
-CSS auto-fix
+#### CSS auto-fix
 
 ```sh
 yarn lint-fix.stylelint
