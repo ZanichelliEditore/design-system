@@ -67,7 +67,8 @@ textarea:focus:focus-visible {
 /* HOVER */
 input:hover,
 .textareaWrapper:hover {
-  outline: var(--border-size-small) solid var(--color-surface04);
+  outline: var(--border-size-medium) solid var(--color-surface04);
+  outline-offset: -2px;
 }
 
 /* READONLY */
@@ -120,7 +121,7 @@ textarea::placeholder {
 /* LABEL */
 label.inputLabel {
   display: block;
-  margin-bottom: var(--space-unit);
+  padding-bottom: var(--space-unit);
   color: var(--color-text02);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-1);
