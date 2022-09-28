@@ -4,7 +4,6 @@
 
 :host > div.fixed {
   position: relative;
-  height: 44px;
 }
 
 :host > div > .header {
