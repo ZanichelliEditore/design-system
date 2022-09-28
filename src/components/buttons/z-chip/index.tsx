@@ -38,7 +38,7 @@ export class ZChip {
   render() {
     if (this.interactiveIcon) {
       return (
-        <button class={this.type} disabled={this.disabled} tabindex="0">
+        <button class={this.type} disabled={this.disabled} tabindex="0" type="button">
           {this.icon && (
             <z-icon
               class={"iconSx"}

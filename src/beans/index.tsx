@@ -490,3 +490,13 @@ export enum InfoRevealPosition {
   bottom_right = "bottom_right",
   bottom_left = "bottom_left",
 }
+
+export enum CoverHeroVariant {
+  OVERLAY = "overlay",
+  STACKED = "stacked",
+}
+
+export enum CoverHeroContentPosition {
+  TOP = "top",
+  BOTTOM = "bottom",
+}
