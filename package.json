@@ -21,6 +21,7 @@
     "build.wc": "stencil build --docs",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
     "prettify": "prettier --write .",
+    "prettier-check": "prettier --check .",
     "start": "stencil build --dev --watch --serve --no-open",
     "generate": "plop --plopfile internals/generators/index.js",
     "test": "stencil test --spec",
