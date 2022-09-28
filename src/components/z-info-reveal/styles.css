@@ -67,6 +67,11 @@ z-icon {
   cursor: pointer;
 }
 
+:host([position="bottom_left"]) .info-box,
+:host([position="bottom_right"]) .info-box {
+  bottom: 0;
+}
+
 :host([position="top_right"]) .info-box,
 :host([position="bottom_right"]) .info-box {
   right: 0;

@@ -31,7 +31,7 @@
   line-height: 2rem;
 }
 
-:host([uppercase]) ::slotted([slot="primary-title"]) {
+:host([uppercase]:not([uppercase="false"])) ::slotted([slot="primary-title"]) {
   text-transform: uppercase;
 }
 
