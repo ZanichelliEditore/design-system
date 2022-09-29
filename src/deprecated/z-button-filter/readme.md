@@ -23,6 +23,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                   | Type      | Default     |
@@ -33,11 +34,13 @@
 | `isfixed`    | `isfixed`    | disable action on button      | `boolean` | `false`     |
 | `issmall`    | `issmall`    | reduce button size (optional) | `boolean` | `false`     |
 
+
 ## Events
 
 | Event          | Description                                 | Type               |
 | -------------- | ------------------------------------------- | ------------------ |
 | `removefilter` | remove filter click event, returns filterid | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -46,13 +49,12 @@
 - [z-icon](../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-button-filter --> z-icon
   style z-button-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

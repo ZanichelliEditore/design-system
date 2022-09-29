@@ -18,6 +18,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description            | Type     | Default     |
@@ -28,59 +29,59 @@
 | `name`   | `name`    | icon name              | `string` | `undefined` |
 | `width`  | `width`   | icon width (optional)  | `number` | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-app-header](../../navigation/z-app-header)
-- [z-app-switcher](../../navigation/z-app-switcher)
-- [z-button](../../buttons/z-button)
-- [z-button-deprecated](../../../deprecated/z-button-deprecated)
-- [z-button-filter](../../../deprecated/z-button-filter)
-- [z-button-sort](../../buttons/z-button-sort)
-- [z-card](../../z-card)
-- [z-chip](../../buttons/z-chip)
-- [z-combobox](../../inputs/z-combobox)
-- [z-contextual-menu](../../z-contextual-menu)
-- [z-footer-section](../../footer/z-footer-section)
-- [z-icon-package](../z-icon-package)
-- [z-info-box](../../notification/z-info-box)
-- [z-info-reveal](../../z-info-reveal)
-- [z-input](../../inputs/z-input)
-- [z-input-deprecated](../../../deprecated/z-input-deprecated)
-- [z-input-message](../../inputs/z-input-message)
-- [z-link](../../navigation/z-link)
-- [z-list-element](../../list/z-list-element)
-- [z-menu](../../navigation/z-menu)
-- [z-menu-dropdown](../../navigation/z-menu-dropdown)
-- [z-menu-section](../../navigation/z-menu-section)
-- [z-messages-pocket](../../../snowflakes/myz/pocket/z-messages-pocket)
-- [z-modal](../../modal/z-modal)
-- [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
-- [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
-- [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
-- [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
-- [z-myz-topbar](../../../snowflakes/myz/topbar)
-- [z-navigation-tab](../../navigation/tabs/z-navigation-tab)
-- [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
-- [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
-- [z-notification](../../notification/z-notification)
-- [z-pagination](../../z-pagination)
-- [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
-- [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
-- [z-select](../../inputs/z-select)
-- [z-slideshow](../../../snowflakes/myz/z-slideshow)
-- [z-status-tag](../../../deprecated/z-status-tag)
-- [z-table-header](../../z-table/z-table-header)
-- [z-table-row](../../z-table/z-table-row)
-- [z-tag](../../z-tag)
-- [z-toast-notification](../../notification/z-toast-notification)
-- [z-toggle-button](../../buttons/z-toggle-button)
-- [z-toggle-switch](../../buttons/z-toggle-switch)
-- [z-user-dropdown](../../navigation/z-user-dropdown)
+ - [z-app-header](../../navigation/z-app-header)
+ - [z-app-switcher](../../navigation/z-app-switcher)
+ - [z-button](../../buttons/z-button)
+ - [z-button-deprecated](../../../deprecated/z-button-deprecated)
+ - [z-button-filter](../../../deprecated/z-button-filter)
+ - [z-button-sort](../../buttons/z-button-sort)
+ - [z-card](../../z-card)
+ - [z-chip](../../buttons/z-chip)
+ - [z-combobox](../../inputs/z-combobox)
+ - [z-contextual-menu](../../z-contextual-menu)
+ - [z-footer-section](../../footer/z-footer-section)
+ - [z-icon-package](../z-icon-package)
+ - [z-info-box](../../notification/z-info-box)
+ - [z-info-reveal](../../z-info-reveal)
+ - [z-input](../../inputs/z-input)
+ - [z-input-deprecated](../../../deprecated/z-input-deprecated)
+ - [z-input-message](../../inputs/z-input-message)
+ - [z-link](../../navigation/z-link)
+ - [z-list-element](../../list/z-list-element)
+ - [z-menu](../../navigation/z-menu)
+ - [z-menu-dropdown](../../navigation/z-menu-dropdown)
+ - [z-menu-section](../../navigation/z-menu-section)
+ - [z-messages-pocket](../../../snowflakes/myz/pocket/z-messages-pocket)
+ - [z-modal](../../modal/z-modal)
+ - [z-myz-card-alert](../../../snowflakes/myz/card/z-myz-card-alert)
+ - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
+ - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
+ - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
+ - [z-myz-topbar](../../../snowflakes/myz/topbar)
+ - [z-navigation-tab](../../navigation/tabs/z-navigation-tab)
+ - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
+ - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
+ - [z-notification](../../notification/z-notification)
+ - [z-pagination](../../z-pagination)
+ - [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
+ - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
+ - [z-select](../../inputs/z-select)
+ - [z-slideshow](../../../snowflakes/myz/z-slideshow)
+ - [z-status-tag](../../../deprecated/z-status-tag)
+ - [z-table-header](../../z-table/z-table-header)
+ - [z-table-row](../../z-table/z-table-row)
+ - [z-tag](../../z-tag)
+ - [z-toast-notification](../../notification/z-toast-notification)
+ - [z-toggle-button](../../buttons/z-toggle-button)
+ - [z-toggle-switch](../../buttons/z-toggle-switch)
+ - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-app-header --> z-icon
@@ -132,6 +133,6 @@ graph TD;
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

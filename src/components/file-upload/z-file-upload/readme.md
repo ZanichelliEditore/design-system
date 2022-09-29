@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute         | Description                                                       | Type                                                                                                                  | Default                       |
@@ -13,11 +14,13 @@
 | `mainTitle`      | `main-title`      | Title                                                             | `string`                                                                                                              | `undefined`                   |
 | `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.DEFAULT \| ZFileUploadTypeEnum.DRAGDROP`                                                         | `ZFileUploadTypeEnum.DEFAULT` |
 
+
 ## Events
 
 | Event       | Description                                | Type               |
 | ----------- | ------------------------------------------ | ------------------ |
 | `fileInput` | Emitted when user select one or more files | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -28,6 +31,9 @@ get array of uploaded files
 #### Returns
 
 Type: `Promise<File[]>`
+
+
+
 
 ## Dependencies
 
@@ -41,7 +47,6 @@ Type: `Promise<File[]>`
 - [z-modal](../../modal/z-modal)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-file-upload --> z-heading
@@ -58,6 +63,6 @@ graph TD;
   style z-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

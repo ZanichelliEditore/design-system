@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                             | Type                      | Default     |
@@ -10,24 +11,24 @@
 | `level`     | `level`     | Typography level                        | `1 \| 2 \| 3 \| 4 \| 5`   | `undefined` |
 | `variant`   | `variant`   | Font weight variant                     | `"regular" \| "semibold"` | `"regular"` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-combobox](../../inputs/z-combobox)
-- [z-dragdrop-area](../../file-upload/z-dragdrop-area)
-- [z-file-upload](../../file-upload/z-file-upload)
-- [z-footer](../../footer/z-footer)
-- [z-modal-login](../../modal/z-modal-login)
-- [z-table](../../z-table/z-table)
-- [z-table-empty-box](../../z-table/z-table-empty-box)
+ - [z-combobox](../../inputs/z-combobox)
+ - [z-dragdrop-area](../../file-upload/z-dragdrop-area)
+ - [z-file-upload](../../file-upload/z-file-upload)
+ - [z-footer](../../footer/z-footer)
+ - [z-modal-login](../../modal/z-modal-login)
+ - [z-table](../../z-table/z-table)
+ - [z-table-empty-box](../../z-table/z-table-empty-box)
 
 ### Depends on
 
 - [z-typography](../z-typography)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-body --> z-typography
@@ -41,6 +42,6 @@ graph TD;
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

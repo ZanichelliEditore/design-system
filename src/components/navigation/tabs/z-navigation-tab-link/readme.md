@@ -22,6 +22,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                     | Type                                                                           | Default                                 |
@@ -36,11 +37,13 @@
 | `size`        | `size`        | Tab size. Do not set this manually: `z-navigation-tabs` will handle this.                                       | `NavigationTabsSizes.BIG \| NavigationTabsSizes.SMALL`                         | `NavigationTabsSizes.BIG`               |
 | `target`      | `target`      | Html `target` attribute for the anchor element.                                                                 | `string`                                                                       | `undefined`                             |
 
+
 ## Events
 
 | Event      | Description                | Type               |
 | ---------- | -------------------------- | ------------------ |
 | `selected` | The tab has been selected. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -49,13 +52,12 @@
 - [z-icon](../../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-navigation-tab-link --> z-icon
   style z-navigation-tab-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

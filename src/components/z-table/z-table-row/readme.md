@@ -2,17 +2,20 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute       | Description             | Type                                                                                              | Default                      |
 | -------------- | --------------- | ----------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `expandedType` | `expanded-type` | Table row expanded type | `ZTableRowExpandedType.EXPANDABLE \| ZTableRowExpandedType.NONE \| ZTableRowExpandedType.PADDING` | `ZTableRowExpandedType.NONE` |
 
+
 ## Events
 
 | Event    | Description           | Type               |
 | -------- | --------------------- | ------------------ |
 | `expand` | Row has been expanded | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -22,7 +25,6 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-table-row --> z-table-cell
@@ -32,6 +34,6 @@ graph TD;
   style z-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

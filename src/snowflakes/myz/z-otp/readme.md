@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description   | Type                                                                          | Default     |
@@ -10,11 +11,13 @@
 | `message`  | `message`   | Input message | `string`                                                                      | `undefined` |
 | `status`   | `status`    | Input status  | `InputStatusEnum.ERROR \| InputStatusEnum.SUCCESS \| InputStatusEnum.WARNING` | `undefined` |
 
+
 ## Events
 
 | Event       | Description      | Type               |
 | ----------- | ---------------- | ------------------ |
 | `otpChange` | Otp change event | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [z-input-message](../../../components/inputs/z-input-message)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-otp --> z-input-message
@@ -31,6 +33,6 @@ graph TD;
   style z-otp fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

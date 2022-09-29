@@ -13,6 +13,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                      | Type      | Default     |
@@ -25,6 +26,7 @@
 | `text`       | `text`       | content text                     | `string`  | `undefined` |
 | `underlined` | `underlined` | underlined style flag            | `boolean` | `true`      |
 
+
 ## Events
 
 | Event                | Description                                     | Type               |
@@ -32,19 +34,19 @@
 | `zListItemClick`     | emitted on list item click, returns listitemid  | `CustomEvent<any>` |
 | `zListItemLinkClick` | emitted on list item link click, returns linkId | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-combobox](../../../../components/inputs/z-combobox)
-- [z-myz-list](../z-myz-list)
+ - [z-combobox](../../../../components/inputs/z-combobox)
+ - [z-myz-list](../z-myz-list)
 
 ### Depends on
 
 - [z-icon](../../../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-list-item --> z-icon
@@ -53,6 +55,6 @@ graph TD;
   style z-myz-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

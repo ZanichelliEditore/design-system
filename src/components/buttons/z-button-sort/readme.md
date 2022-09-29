@@ -36,6 +36,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute       | Description                                | Type      | Default     |
@@ -49,11 +50,13 @@
 | `sortlabelasc`  | `sortlabelasc`  | sort label content (ascending) (optional)  | `string`  | `"A-Z"`     |
 | `sortlabeldesc` | `sortlabeldesc` | sort label content (descending) (optional) | `string`  | `"Z-A"`     |
 
+
 ## Events
 
 | Event             | Description                                                 | Type               |
 | ----------------- | ----------------------------------------------------------- | ------------------ |
 | `buttonSortClick` | sorting direction click event, returns buttonid and sortAsc | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -62,13 +65,12 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-button-sort --> z-icon
   style z-button-sort fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

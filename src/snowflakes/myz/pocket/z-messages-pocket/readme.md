@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description        | Type                                                                           | Default                    |
@@ -10,11 +11,13 @@
 | `pocketid` | `pocketid` | pocket id          | `string`                                                                       | `undefined`                |
 | `status`   | `status`   | pocket status      | `PocketStatusEnum.CLOSED \| PocketStatusEnum.OPEN \| PocketStatusEnum.PREVIEW` | `PocketStatusEnum.PREVIEW` |
 
+
 ## Slots
 
 | Slot | Description         |
 | ---- | ------------------- |
 |      | pocket body content |
+
 
 ## Dependencies
 
@@ -26,7 +29,6 @@
 - [z-pocket](../z-pocket)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-messages-pocket --> z-pocket-header
@@ -36,6 +38,6 @@ graph TD;
   style z-messages-pocket fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

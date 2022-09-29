@@ -30,6 +30,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                           | Type                                                                                               | Default     |
@@ -42,6 +43,7 @@
 | `opened`        | `opened`         | footer opened by default (optional)   | `boolean`                                                                                          | `false`     |
 | `titolo`        | `titolo`         | volume title                          | `string`                                                                                           | `undefined` |
 
+
 ## Slots
 
 | Slot       | Description              |
@@ -49,6 +51,7 @@
 | `"list"`   | card resources list slot |
 | `"toggle"` | toggle button slot       |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

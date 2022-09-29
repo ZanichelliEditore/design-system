@@ -25,6 +25,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute    | Description                                                                           | Type                                                                                                                                                                                                                                                                                                                                                                                  | Default                 |
@@ -36,6 +37,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 | `position`  | `position`   | Popover position.                                                                     | `PopoverPositions.AUTO \| PopoverPositions.BOTTOM \| PopoverPositions.BOTTOM_LEFT \| PopoverPositions.BOTTOM_RIGHT \| PopoverPositions.LEFT \| PopoverPositions.LEFT_BOTTOM \| PopoverPositions.LEFT_TOP \| PopoverPositions.RIGHT \| PopoverPositions.RIGHT_BOTTOM \| PopoverPositions.RIGHT_TOP \| PopoverPositions.TOP \| PopoverPositions.TOP_LEFT \| PopoverPositions.TOP_RIGHT` | `PopoverPositions.AUTO` |
 | `showArrow` | `show-arrow` | Whether to show popover's arrow.                                                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                             | `false`                 |
 
+
 ## Events
 
 | Event            | Description            | Type               |
@@ -43,18 +45,18 @@ To be sure the algorithm finds the right container, when calculating the positio
 | `openChange`     | Open change event.     | `CustomEvent<any>` |
 | `positionChange` | Position change event. | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-contextual-menu](../z-contextual-menu)
-- [z-file](../file-upload/z-file)
-- [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
-- [z-table-header](../z-table/z-table-header)
-- [z-tooltip](../notification/z-tooltip)
+ - [z-contextual-menu](../z-contextual-menu)
+ - [z-file](../file-upload/z-file)
+ - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
+ - [z-table-header](../z-table/z-table-header)
+ - [z-tooltip](../notification/z-tooltip)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-contextual-menu --> z-popover
@@ -65,6 +67,6 @@ graph TD;
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

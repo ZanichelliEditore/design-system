@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description   | Type                                                                           | Default                    |
@@ -9,11 +10,13 @@
 | `pocketid` | `pocketid` | pocket id     | `string`                                                                       | `undefined`                |
 | `status`   | `status`   | pocket status | `PocketStatusEnum.CLOSED \| PocketStatusEnum.OPEN \| PocketStatusEnum.PREVIEW` | `PocketStatusEnum.PREVIEW` |
 
+
 ## Events
 
 | Event          | Description                                            | Type               |
 | -------------- | ------------------------------------------------------ | ------------------ |
 | `pocketToggle` | Emitted on pocket toggle, returns pocket id and status | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -25,6 +28,8 @@ close z-pocket
 
 Type: `Promise<void>`
 
+
+
 ### `open() => Promise<void>`
 
 open z-pocket
@@ -33,26 +38,29 @@ open z-pocket
 
 Type: `Promise<void>`
 
+
+
+
 ## Slots
 
 | Slot | Description    |
 | ---- | -------------- |
 |      | pocket content |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-messages-pocket](../z-messages-pocket)
+ - [z-messages-pocket](../z-messages-pocket)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-messages-pocket --> z-pocket
   style z-pocket fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

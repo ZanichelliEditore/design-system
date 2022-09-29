@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute          | Description                        | Type                                                        | Default             |
@@ -12,6 +13,7 @@
 | `text`            | `text`             | [optional] Avatar text             | `string`                                                    | `undefined`         |
 | `textColor`       | `text-color`       | [optional] Avatar text color       | `string`                                                    | `"text-white"`      |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

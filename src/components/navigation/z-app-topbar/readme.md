@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute           | Description                                          | Type                                      | Default             |
@@ -11,6 +12,7 @@
 | `showAppSwitcher` | `show-app-switcher` | add app-switcher                                     | `boolean`                                 | `undefined`         |
 | `theme`           | `theme`             | theme variant, default 'dark'                        | `ThemeVariant.DARK \| ThemeVariant.LIGHT` | `ThemeVariant.DARK` |
 | `topbarContent`   | `topbar-content`    | JSON string or MenuItem array to define topbar links | `MenuItem[] \| string`                    | `undefined`         |
+
 
 ## Dependencies
 
@@ -22,7 +24,6 @@
 - [z-divider](../../z-divider)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-app-topbar --> z-link
@@ -34,6 +35,6 @@ graph TD;
   style z-app-topbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

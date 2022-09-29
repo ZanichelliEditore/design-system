@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description                   | Type                                                           | Default                         |
@@ -10,19 +11,19 @@
 | `orientation` | `orientation` | [optional] Divider orintation | `DividerOrientation.HORIZONTAL \| DividerOrientation.VERTICAL` | `DividerOrientation.HORIZONTAL` |
 | `size`        | `size`        | [optional] Divider size       | `DividerSize.LARGE \| DividerSize.MEDIUM \| DividerSize.SMALL` | `DividerSize.SMALL`             |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-app-topbar](../navigation/z-app-topbar)
-- [z-file-upload](../file-upload/z-file-upload)
-- [z-footer](../footer/z-footer)
-- [z-list-element](../list/z-list-element)
-- [z-list-group](../list/z-list-group)
-- [z-section-title](../z-section-title)
+ - [z-app-topbar](../navigation/z-app-topbar)
+ - [z-file-upload](../file-upload/z-file-upload)
+ - [z-footer](../footer/z-footer)
+ - [z-list-element](../list/z-list-element)
+ - [z-list-group](../list/z-list-group)
+ - [z-section-title](../z-section-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-app-topbar --> z-divider
@@ -34,6 +35,6 @@ graph TD;
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -28,12 +28,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Slots
 
 | Slot | Description    |
 | ---- | -------------- |
 |      | z-stepper-item |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

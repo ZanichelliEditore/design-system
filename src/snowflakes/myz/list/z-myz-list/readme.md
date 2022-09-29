@@ -10,6 +10,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute      | Description                                    | Type             | Default     |
@@ -17,18 +18,18 @@
 | `inputrawdata` | `inputrawdata` | json stringified list data (mutable, optional) | `string`         | `undefined` |
 | `list`         | --             | list item data (mutable, optional)             | `ListItemBean[]` | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-myz-topbar](../../topbar)
+ - [z-myz-topbar](../../topbar)
 
 ### Depends on
 
 - [z-myz-list-item](../z-myz-list-item)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-list --> z-myz-list-item
@@ -37,6 +38,6 @@ graph TD;
   style z-myz-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

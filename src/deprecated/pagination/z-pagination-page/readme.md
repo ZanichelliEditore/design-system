@@ -24,6 +24,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                   | Type      | Default     |
@@ -35,20 +36,20 @@
 | `pageid`     | `pageid`     | html id                       | `string`  | `undefined` |
 | `value`      | `value`      | numeric page value (optional) | `number`  | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-pagination-bar](../z-pagination-bar)
+ - [z-pagination-bar](../z-pagination-bar)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-pagination-bar --> z-pagination-page
   style z-pagination-page fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

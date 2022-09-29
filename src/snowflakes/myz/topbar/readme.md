@@ -84,6 +84,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute         | Description                                 | Type                                                                                                     | Default     |
@@ -98,11 +99,13 @@
 | `logolink`        | `logolink`        | url to attach to logo (optional)            | `string`                                                                                                 | `undefined` |
 | `userdata`        | `userdata`        | data to fill user dropdown menu (optional)  | `string \| { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }` | `undefined` |
 
+
 ## Slots
 
 | Slot        | Description                                                 |
 | ----------- | ----------------------------------------------------------- |
 | `"editors"` | top menu editors images bar (only with ismyz prop === true) |
+
 
 ## Dependencies
 
@@ -116,7 +119,6 @@
 - [z-icon](../../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-topbar --> z-logo
@@ -134,6 +136,6 @@ graph TD;
   style z-myz-topbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

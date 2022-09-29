@@ -53,6 +53,7 @@ The width of the card must be set externally, respecting the grid indication of 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                                                                                                 | Type                                                                                      | Default     |
@@ -62,11 +63,13 @@ The width of the card must be set externally, respecting the grid indication of 
 | `showshadow` | `showshadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                                 | `false`     |
 | `variant`    | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.BORDER \| CardVariants.OVERLAY \| CardVariants.SHADOW \| CardVariants.TEXT` | `undefined` |
 
+
 ## Events
 
 | Event         | Description                                          | Type               |
 | ------------- | ---------------------------------------------------- | ------------------ |
 | `cardClicked` | Card click event. Fired only if `clickable` is true. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -75,13 +78,12 @@ The width of the card must be set externally, respecting the grid indication of 
 - [z-icon](../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-card --> z-icon
   style z-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

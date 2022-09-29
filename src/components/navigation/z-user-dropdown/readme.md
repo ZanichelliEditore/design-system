@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute            | Description                                                    | Type                   | Default     |
@@ -12,12 +13,14 @@
 | `userEmail`        | `user-email`         | user email                                                     | `string`               | `undefined` |
 | `userFullName`     | `user-full-name`     | user full name                                                 | `string`               | `undefined` |
 
+
 ## Events
 
 | Event                   | Description                                                      | Type               |
 | ----------------------- | ---------------------------------------------------------------- | ------------------ |
 | `dropdownMenuLinkClick` | Emitted on dropdown menu zlink click, returns event              | `CustomEvent<any>` |
 | `userButtonClick`       | Emitted on enter or user Button click, returns isMenuOpen (bool) | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -27,7 +30,6 @@
 - [z-link](../z-link)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-user-dropdown --> z-icon
@@ -36,6 +38,6 @@ graph TD;
   style z-user-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

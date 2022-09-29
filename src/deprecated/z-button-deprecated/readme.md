@@ -82,6 +82,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                | Type                                                                                                                  | Default                     |
@@ -96,11 +97,13 @@
 | `type`     | `type`     | HTML button type attribute.                                                                                | `ButtonTypeEnum.BUTTON \| ButtonTypeEnum.RESET \| ButtonTypeEnum.SUBMIT`                                              | `ButtonTypeEnum.BUTTON`     |
 | `variant`  | `variant`  | Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.                   | `ButtonVariantEnum.DARK_BG \| ButtonVariantEnum.PRIMARY \| ButtonVariantEnum.SECONDARY \| ButtonVariantEnum.TERTIARY` | `ButtonVariantEnum.PRIMARY` |
 
+
 ## Slots
 
 | Slot | Description  |
 | ---- | ------------ |
 |      | button label |
+
 
 ## Dependencies
 
@@ -109,13 +112,12 @@
 - [z-icon](../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-button-deprecated --> z-icon
   style z-button-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

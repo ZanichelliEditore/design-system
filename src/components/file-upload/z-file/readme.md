@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute     | Description  | Type     | Default     |
@@ -9,11 +10,13 @@
 | `fileName`   | `file-name`   | File name    | `string` | `undefined` |
 | `fileNumber` | `file-number` | File chip id | `number` | `undefined` |
 
+
 ## Events
 
 | Event        | Description                                             | Type               |
 | ------------ | ------------------------------------------------------- | ------------------ |
 | `removeFile` | Emitted when a z-file component is removed from the DOM | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [z-chip](../../buttons/z-chip)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-file --> z-popover
@@ -32,6 +34,6 @@ graph TD;
   style z-file fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

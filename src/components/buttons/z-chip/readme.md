@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute          | Description                                       | Type                                                       | Default             |
@@ -11,24 +12,25 @@
 | `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |
 | `type`            | `type`             | z-chip size type, can be default, medium or small | `ZChipType.DEFAULT \| ZChipType.MEDIUM \| ZChipType.SMALL` | `ZChipType.DEFAULT` |
 
+
 ## Events
 
 | Event                  | Description               | Type               |
 | ---------------------- | ------------------------- | ------------------ |
 | `interactiveIconClick` | click on interactive icon | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-file](../../file-upload/z-file)
+ - [z-file](../../file-upload/z-file)
 
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-chip --> z-icon
@@ -36,6 +38,6 @@ graph TD;
   style z-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

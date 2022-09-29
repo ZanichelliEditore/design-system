@@ -35,6 +35,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description        | Type     | Default     |
@@ -44,11 +45,13 @@
 | `iconname`    | `iconname`    | icon name          | `string` | `undefined` |
 | `type`        | `type`        | alert variant type | `string` | `undefined` |
 
+
 ## Events
 
 | Event        | Description                                          | Type               |
 | ------------ | ---------------------------------------------------- | ------------------ |
 | `undoAction` | undo action click/keyboard event, returns actionType | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -58,7 +61,6 @@
 - [z-icon](../../../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-card-alert --> z-alert
@@ -66,6 +68,6 @@ graph TD;
   style z-myz-card-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

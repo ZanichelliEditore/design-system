@@ -30,6 +30,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute         | Description                       | Type      | Default     |
@@ -44,11 +45,13 @@
 | `target`        | `target`          | link target (optional)            | `string`  | `"_blank"`  |
 | `url`           | `url`             | link url                          | `string`  | `undefined` |
 
+
 ## Slots
 
 | Slot                | Description         |
 | ------------------- | ------------------- |
 | `"`descrSlotName`"` | description content |
+
 
 ## Dependencies
 
@@ -57,7 +60,6 @@
 - [z-link](../../navigation/z-link)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-panel-elem --> z-link
@@ -65,6 +67,6 @@ graph TD;
   style z-panel-elem fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

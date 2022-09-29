@@ -25,6 +25,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                         | Type                                                                                                                                                                                                                                                                                                                                                                                  | Default                 |
@@ -34,6 +35,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 | `open`     | `open`     | The open state of the tooltip.                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                             | `false`                 |
 | `position` | `position` | Tooltip position.                                   | `PopoverPositions.AUTO \| PopoverPositions.BOTTOM \| PopoverPositions.BOTTOM_LEFT \| PopoverPositions.BOTTOM_RIGHT \| PopoverPositions.LEFT \| PopoverPositions.LEFT_BOTTOM \| PopoverPositions.LEFT_TOP \| PopoverPositions.RIGHT \| PopoverPositions.RIGHT_BOTTOM \| PopoverPositions.RIGHT_TOP \| PopoverPositions.TOP \| PopoverPositions.TOP_LEFT \| PopoverPositions.TOP_RIGHT` | `PopoverPositions.AUTO` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -41,13 +43,12 @@ To be sure the algorithm finds the right container, when calculating the positio
 - [z-popover](../../z-popover)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-tooltip --> z-popover
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

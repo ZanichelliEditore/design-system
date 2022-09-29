@@ -6,6 +6,7 @@ All the inner content is provided from the product.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                                | Type                                                                                                                               | Default                           |
@@ -14,6 +15,7 @@ All the inner content is provided from the product.
 | `label`    | `label`    | Text that appears on closed panel next to the open button. | `string`                                                                                                                           | `undefined`                       |
 | `position` | `position` | Info reveal's position                                     | `InfoRevealPosition.BOTTOM_LEFT \| InfoRevealPosition.BOTTOM_RIGHT \| InfoRevealPosition.TOP_LEFT \| InfoRevealPosition.TOP_RIGHT` | `InfoRevealPosition.BOTTOM_RIGHT` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -21,13 +23,12 @@ All the inner content is provided from the product.
 - [z-icon](../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-info-reveal --> z-icon
   style z-info-reveal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -25,6 +25,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                | Type      | Default     |
@@ -34,20 +35,20 @@
 | `img`        | `img`        | image source               | `string`  | `undefined` |
 | `titolo`     | `titolo`     | cover alt title            | `string`  | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-myz-card-dictionary](../z-myz-card-dictionary)
+ - [z-myz-card-dictionary](../z-myz-card-dictionary)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-card-dictionary --> z-myz-card-cover
   style z-myz-card-cover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

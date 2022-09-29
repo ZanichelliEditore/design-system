@@ -22,6 +22,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                     | Type      | Default     |
@@ -31,11 +32,13 @@
 | `label`      | `label`      | label text                      | `string`  | `undefined` |
 | `opened`     | `opened`     | open by default (optional)      | `boolean` | `false`     |
 
+
 ## Events
 
 | Event         | Description                                    | Type               |
 | ------------- | ---------------------------------------------- | ------------------ |
 | `toggleClick` | emitted on toggle button click, returns isOpen | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -44,13 +47,12 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-toggle-button --> z-icon
   style z-toggle-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

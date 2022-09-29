@@ -2,12 +2,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Slots
 
 | Slot    | Description  |
 | ------- | ------------ |
 |         | message body |
 | `"cta"` | message CTAs |
+
 
 ## Dependencies
 
@@ -16,13 +18,12 @@
 - [z-icon](../../../../components/icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-pocket-message --> z-icon
   style z-pocket-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

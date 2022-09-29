@@ -22,6 +22,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                     | Type                                                                           | Default                                 |
@@ -34,11 +35,13 @@
 | `selected`    | `selected`    | Whether the tab is selected.                                                                                    | `boolean`                                                                      | `false`                                 |
 | `size`        | `size`        | Tab size. Do not set this manually: `z-navigation-tabs` will handle this.                                       | `NavigationTabsSizes.BIG \| NavigationTabsSizes.SMALL`                         | `NavigationTabsSizes.BIG`               |
 
+
 ## Events
 
 | Event      | Description                | Type               |
 | ---------- | -------------------------- | ------------------ |
 | `selected` | The tab has been selected. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -47,13 +50,12 @@
 - [z-icon](../../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-navigation-tab --> z-icon
   style z-navigation-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

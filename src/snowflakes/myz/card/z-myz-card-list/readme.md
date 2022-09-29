@@ -11,12 +11,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                 | Type     | Default     |
 | ---------- | ---------- | --------------------------- | -------- | ----------- |
 | `listdata` | `listdata` | list data stringified array | `string` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

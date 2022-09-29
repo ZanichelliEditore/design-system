@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute            | Description                                               | Type                                                                        | Default                          |
@@ -19,6 +20,7 @@
 | `listElementId`    | `list-element-id`    | [optional] List element id.                               | `number`                                                                    | `undefined`                      |
 | `size`             | `size`               | [optional] Sets size of inside elements.                  | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE`   | `ListSize.MEDIUM`                |
 
+
 ## Events
 
 | Event             | Description                                 | Type                  |
@@ -26,12 +28,13 @@
 | `accessibleFocus` | remove filter click event, returns filterid | `CustomEvent<number>` |
 | `clickItem`       | remove filter click event, returns filterid | `CustomEvent<any>`    |
 
+
 ## Dependencies
 
 ### Used by
 
-- [z-contextual-menu](../../z-contextual-menu)
-- [z-select](../../inputs/z-select)
+ - [z-contextual-menu](../../z-contextual-menu)
+ - [z-select](../../inputs/z-select)
 
 ### Depends on
 
@@ -39,7 +42,6 @@
 - [z-divider](../../z-divider)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-list-element --> z-icon
@@ -49,6 +51,6 @@ graph TD;
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

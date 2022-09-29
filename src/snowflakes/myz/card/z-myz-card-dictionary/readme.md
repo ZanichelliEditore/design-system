@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute         | Description       | Type      | Default     |
@@ -13,11 +14,13 @@
 | `hideinfobtn`     | `hideinfobtn`     | hide info button  | `boolean` | `false`     |
 | `name`            | `name`            | card title        | `string`  | `undefined` |
 
+
 ## Events
 
 | Event         | Description          | Type               |
 | ------------- | -------------------- | ------------------ |
 | `cardFlipped` | when card is flipped | `CustomEvent<any>` |
+
 
 ## Slots
 
@@ -25,6 +28,7 @@
 | -------- | ----------------- |
 |          | generic card slot |
 | `"info"` | flipped card info |
+
 
 ## Dependencies
 
@@ -37,7 +41,6 @@
 - [z-button](../../../../components/buttons/z-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-myz-card-dictionary --> z-myz-card
@@ -49,6 +52,6 @@ graph TD;
   style z-myz-card-dictionary fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

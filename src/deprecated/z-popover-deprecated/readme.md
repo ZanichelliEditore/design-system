@@ -6,6 +6,7 @@ To be sure the algorithm finds the right container, when calculating the positio
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute          | Description                                   | Type                                                                                                                                                                                                                                                                                                                                                                            | Default                     |
@@ -17,12 +18,14 @@ To be sure the algorithm finds the right container, when calculating the positio
 | `position`        | `position`         | [optional] Popover position                   | `PopoverPosition.ABOVE_CENTER \| PopoverPosition.ABOVE_LEFT \| PopoverPosition.ABOVE_RIGHT \| PopoverPosition.AFTER_CENTER \| PopoverPosition.AFTER_DOWN \| PopoverPosition.AFTER_UP \| PopoverPosition.BEFORE_CENTER \| PopoverPosition.BEFORE_DOWN \| PopoverPosition.BEFORE_UP \| PopoverPosition.BELOW_CENTER \| PopoverPosition.BELOW_LEFT \| PopoverPosition.BELOW_RIGHT` | `PopoverPosition.AFTER_UP`  |
 | `showArrow`       | `show-arrow`       | [optional] Show or hide arrow                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                       | `false`                     |
 
+
 ## Events
 
 | Event          | Description                                       | Type               |
 | -------------- | ------------------------------------------------- | ------------------ |
 | `triggerClick` | Emitted on popover click, returns isVisible state | `CustomEvent<any>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

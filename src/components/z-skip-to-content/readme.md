@@ -2,12 +2,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute | Description                          | Type                                      | Default     |
 | --------- | --------- | ------------------------------------ | ----------------------------------------- | ----------- |
 | `links`   | `links`   | Array to fill link into skip-content | `SkipToContentLink[] \| string`           | `[]`        |
 | `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.DARK \| ThemeVariant.LIGHT` | `undefined` |
+
 
 ## Dependencies
 
@@ -16,7 +18,6 @@
 - [z-link](../navigation/z-link)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-skip-to-content --> z-link
@@ -24,6 +25,6 @@ graph TD;
   style z-skip-to-content fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

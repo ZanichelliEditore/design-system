@@ -13,6 +13,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description            | Type      | Default     |
@@ -20,17 +21,20 @@
 | `boxid`      | `boxid`      | info box unique id     | `string`  | `undefined` |
 | `isclosable` | `isclosable` | render close icon flag | `boolean` | `true`      |
 
+
 ## Events
 
 | Event          | Description                 | Type               |
 | -------------- | --------------------------- | ------------------ |
 | `infoBoxClose` | emitted on close icon click | `CustomEvent<any>` |
 
+
 ## Slots
 
 | Slot        | Description              |
 | ----------- | ------------------------ |
 | `"content"` | set the info box content |
+
 
 ## Dependencies
 
@@ -39,13 +43,12 @@
 - [z-icon](../../icons/z-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-info-box --> z-icon
   style z-info-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

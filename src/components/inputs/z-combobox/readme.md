@@ -27,6 +27,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute           | Description                                   | Type                        | Default               |
@@ -47,11 +48,13 @@
 | `searchtitle`       | `searchtitle`       | search input title text (optional)            | `string`                    | `undefined`           |
 | `uncheckalltext`    | `uncheckalltext`    | uncheck all label (optional)                  | `string`                    | `"Deseleziona tutti"` |
 
+
 ## Events
 
 | Event            | Description                                                 | Type               |
 | ---------------- | ----------------------------------------------------------- | ------------------ |
 | `comboboxChange` | Emitted when value is checked/unchecked. Returns id, items. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -63,7 +66,6 @@
 - [z-input](../z-input)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-combobox --> z-body
@@ -78,6 +80,6 @@ graph TD;
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -4,6 +4,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description                   | Type     | Default     |
@@ -11,6 +12,7 @@
 | `boldtext`    | `boldtext`    | Text with bold font weight    | `number` | `undefined` |
 | `regulartext` | `regulartext` | Text with regular font weight | `string` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

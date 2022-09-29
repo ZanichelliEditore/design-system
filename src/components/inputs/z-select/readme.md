@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute        | Description                                                                    | Type                                                                          | Default              |
@@ -9,7 +10,7 @@
 | `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                                      | `undefined`          |
 | `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                                                                     | `false`              |
 | `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                                                                     | `false`              |
-| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                                      | `id-${randomId()}`   |
+| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                                      | ``id-${randomId()}`` |
 | `htmltitle`      | `htmltitle`      | the input html title (optional)                                                | `string`                                                                      | `undefined`          |
 | `items`          | `items`          | the input select options                                                       | `SelectItemBean[] \| string`                                                  | `undefined`          |
 | `label`          | `label`          | the input label                                                                | `string`                                                                      | `undefined`          |
@@ -20,11 +21,13 @@
 | `readonly`       | `readonly`       | the input is readonly                                                          | `boolean`                                                                     | `false`              |
 | `status`         | `status`         | the input status (optional)                                                    | `InputStatusEnum.ERROR \| InputStatusEnum.SUCCESS \| InputStatusEnum.WARNING` | `undefined`          |
 
+
 ## Events
 
 | Event          | Description                                                             | Type               |
 | -------------- | ----------------------------------------------------------------------- | ------------------ |
 | `optionSelect` | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -36,6 +39,8 @@ get the input selected options
 
 Type: `Promise<SelectItemBean>`
 
+
+
 ### `getValue() => Promise<string>`
 
 get the input value
@@ -43,6 +48,8 @@ get the input value
 #### Returns
 
 Type: `Promise<string>`
+
+
 
 ### `setValue(value: string | string[]) => Promise<void>`
 
@@ -52,11 +59,14 @@ set the input value
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Used by
 
-- [z-input-deprecated](../../../deprecated/z-input-deprecated)
+ - [z-input-deprecated](../../../deprecated/z-input-deprecated)
 
 ### Depends on
 
@@ -67,7 +77,6 @@ Type: `Promise<void>`
 - [z-input-message](../z-input-message)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-select --> z-input
@@ -84,6 +93,6 @@ graph TD;
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

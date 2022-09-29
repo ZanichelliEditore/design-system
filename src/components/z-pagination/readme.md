@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute       | Description                                                                               | Type      | Default     |
@@ -16,11 +17,13 @@
 | `totalPages` _(required)_ | `total-pages`   | Total number of pages. Required.                                                          | `number`  | `undefined` |
 | `visiblePages`            | `visible-pages` | Number of pages to show at a time. If not set, all pages will be shown.                   | `number`  | `undefined` |
 
+
 ## Events
 
 | Event         | Description                                      | Type               |
 | ------------- | ------------------------------------------------ | ------------------ |
 | `pageChanged` | Event emitted when the current page has changed. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -31,7 +34,6 @@
 - [z-button](../buttons/z-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   z-pagination --> z-icon
@@ -44,6 +46,6 @@ graph TD;
   style z-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
