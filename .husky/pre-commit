@@ -3,4 +3,4 @@
 
 yarn prettier --check .
 yarn lint.eslint
-# yarn lint.stylelint
+yarn lint.stylelint
