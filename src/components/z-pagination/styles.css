@@ -4,8 +4,7 @@ z-pagination {
 
   display: flex;
   max-width: 100%;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
@@ -169,7 +168,6 @@ z-pagination .mobile-go-to-page z-input input {
 
 z-pagination .mobile-go-to-page z-input input::-webkit-outer-spin-button,
 z-pagination .mobile-go-to-page z-input input::-webkit-inner-spin-button {
-  appearance: none;
   appearance: none;
 }
 

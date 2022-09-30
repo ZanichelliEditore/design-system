@@ -2,9 +2,6 @@
   all: unset;
   all: reset;
   width: 100%;
-}
-
-:host li {
   line-height: 14px;
   list-style-type: none;
 }

@@ -1,6 +1,8 @@
 @import "~flatpickr/dist/flatpickr.min.css";
 @import "~flatpickr/dist/plugins/monthSelect/style.css";
 
+/* stylelint-disable selector-class-pattern -- we have no control over flatpickr css classes naming */
+
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);

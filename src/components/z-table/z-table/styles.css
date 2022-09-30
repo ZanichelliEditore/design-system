@@ -42,15 +42,9 @@ z-table > div.table-column-sticky > z-table-head > z-table-header-row > z-table-
 
 z-table > div.table-header-sticky > z-table-head > z-table-header-row > z-table-header {
   position: sticky;
+  z-index: 2; /* L'ombra delle celle sticky non va sopra all'header fisso. */
   top: 0;
   box-shadow: 0 2px 3px -3px rgb(66 69 72 / 40%);
-}
-
-/**
- * L'ombra delle celle sticky non va sopra all'header fisso.
- */
-z-table > div.table-header-sticky > z-table-head > z-table-header-row > z-table-header {
-  z-index: 2;
 }
 
 /**

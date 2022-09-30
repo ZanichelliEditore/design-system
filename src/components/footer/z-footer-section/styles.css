@@ -17,12 +17,12 @@
   position: relative;
   display: flex;
   height: calc(var(--space-unit) * 4);
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-content: flex-start;
   align-items: stretch;
   justify-content: flex-start;
   border-bottom: 1px solid var(--gray50);
+  fill: var(--color-white);
   line-height: 1;
 }
 
@@ -30,10 +30,6 @@
   margin: var(--space-unit) 0;
   color: var(--color-white);
   font-size: 16px;
-}
-
-:host > nav > .header {
-  fill: var(--color-white);
 }
 
 :host > nav > .header > button {
@@ -102,10 +98,8 @@
     align-items: stretch;
     padding: 0;
     margin: 0;
-    margin: 0;
+    gap: var(--space-unit) var(--grid-tablet-margin);
     grid-column: span 3;
-    grid-column-gap: var(--grid-tablet-margin);
-    grid-row-gap: var(--space-unit);
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -149,13 +143,8 @@
   :host > nav > .content,
   :host > nav > .content.show {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     justify-content: flex-start;
     grid-column: auto;
   }
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

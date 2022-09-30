@@ -103,7 +103,7 @@
   max-width: 100%;
   flex-direction: row;
   padding: var(--space-unit) var(--grid-mobile-margin);
-  animation: slideStuckedHeadingIn 250ms ease-out;
+  animation: slide-stucked-heading-in 250ms ease-out;
   background: var(--app-header-stucked-bg);
   box-shadow: var(--shadow-2);
   color: var(--app-header-stucked-text-color);
@@ -155,8 +155,7 @@
 
 .menu-container {
   display: none;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: baseline;
 }
 
@@ -388,8 +387,7 @@
   }
 
   :host(:not([flow="stack"])) .heading-panel {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
   }
 
   ::slotted([slot="title"]) {
@@ -426,7 +424,7 @@
   }
 }
 
-@keyframes slideStuckedHeadingIn {
+@keyframes slide-stucked-heading-in {
   0% {
     transform: translate3d(0, -100%, 0);
   }

@@ -4,8 +4,6 @@ button.container {
   border: var(--border-size-small) solid var(--bg-grey-200);
   border-radius: 16px;
   box-shadow: 0 2px 5px 0 var(--bg-neutral-300);
-  box-shadow: 0 2px 5px 0 var(--bg-neutral-300);
-  box-shadow: 0 2px 5px 0 var(--bg-neutral-300);
   cursor: pointer;
   font-family: var(--dashboard-font);
   font-size: 12px;

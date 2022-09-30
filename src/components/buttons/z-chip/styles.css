@@ -21,16 +21,13 @@
   fill: var(--color-icon02);
 }
 
-:host > button > z-icon:last-child {
-  cursor: pointer;
-}
-
 :host > button > z-icon.iconSx {
   margin-right: calc(var(--space-unit) / 2);
 }
 
 :host > button > z-icon:last-child {
   margin-left: var(--space-unit);
+  cursor: pointer;
   fill: var(--color-primary01);
 }
 

@@ -6,6 +6,7 @@
 
 :host > div {
   position: relative;
+  display: grid;
   width: calc(100% + calc(var(--space-unit) * 2));
   height: 402px;
   box-sizing: border-box;
@@ -25,14 +26,9 @@
   fill: var(--color-primary01);
 }
 
-:host > div {
-  display: grid;
-}
-
 :host > div > div.cta-wrapper {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-self: end;
   justify-content: space-between;
 }
@@ -94,16 +90,4 @@
   position: absolute;
   top: 0;
   left: calc(var(--space-unit) * 4);
-}
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

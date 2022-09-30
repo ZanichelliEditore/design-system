@@ -51,9 +51,8 @@ footer {
   height: 56px;
   align-items: center;
   border-top: var(--border-base) solid var(--color-surface02);
+  grid-template: 2 / 2;
   grid-template-areas: "center center" "left right";
-  grid-template-columns: 2;
-  grid-template-rows: 2;
 }
 
 footer > div {
@@ -100,9 +99,8 @@ footer .bulletContainer .bullet.selected {
   footer {
     height: 76px;
     border-top: var(--border-base) solid var(--color-surface02);
+    grid-template: 1 / 1fr 2fr 1fr;
     grid-template-areas: "left center right";
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1;
   }
 
   footer .bulletContainer .bullet {

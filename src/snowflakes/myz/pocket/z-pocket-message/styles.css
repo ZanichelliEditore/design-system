@@ -27,8 +27,7 @@
 
 :host > div > div.ctaWrapper {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: var(--space-unit);
@@ -42,12 +41,4 @@
     flex-direction: row;
     grid-column: 2 / 3;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

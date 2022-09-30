@@ -92,20 +92,14 @@ textarea::placeholder {
   color: var(--color-text05);
 }
 
-::input-placeholder,
 ::-webkit-textarea-placeholder {
   color: var(--color-text05);
 }
 
-:input-placeholder,
 :-ms-textarea-placeholder {
   color: var(--color-text05);
 }
 
 ::placeholder {
-  color: var(--color-text05);
-}
-
-:placeholder {
   color: var(--color-text05);
 }

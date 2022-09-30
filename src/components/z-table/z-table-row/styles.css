@@ -36,13 +36,10 @@ z-table-row[expanded-type]:hover > z-table-cell:first-child {
 }
 
 z-table-row[expanded] > z-table-cell {
+  border-bottom: none;
   background-color: var(--gray50);
 }
 
 z-table-row[expanded] + z-table-expanded-row {
   display: table-row;
-}
-
-z-table-row[expanded] > z-table-cell {
-  border-bottom: none;
 }

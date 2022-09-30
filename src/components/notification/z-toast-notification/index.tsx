@@ -187,15 +187,14 @@ export class ZToastNotification {
       if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage) {
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
-        this.hostElement.style.opacity = `100%`;
+        this.hostElement.style.opacity = "100%";
         this.percentage = 0;
       }
     });
   }
 
   private onFocus(): void {
-    let time;
-    time = this.autoclose;
+    let time = this.autoclose;
     if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
@@ -313,7 +312,7 @@ export class ZToastNotification {
     return (
       <Host
         style={{
-          ["--percentuale"]: `${this.percentage}%` as string,
+          "--percentuale": `${this.percentage}%`,
         }}
         class={this.transition ? this.transition : ToastNotificationTransitionsEnum.SLIDE_IN_DOWN}
         onAnimationEnd={(e: AnimationEvent) => {

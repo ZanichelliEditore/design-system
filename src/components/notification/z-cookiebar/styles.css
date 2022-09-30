@@ -9,8 +9,7 @@ z-candybar.hidden {
 
 .content {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: space-between;
   align-items: stretch;
   justify-content: space-between;

@@ -34,16 +34,13 @@ label.right > span:first-child {
 }
 
 label > span.container {
-  display: flex;
-  align-items: center;
-}
-
-label > span.container {
   position: relative;
   top: 1px;
   left: 1px;
+  display: flex;
   width: calc(var(--space-unit) * 4);
   height: 18px;
+  align-items: center;
   background-color: var(--gray500);
   border-radius: var(--space-unit);
   color: var(--gray500);

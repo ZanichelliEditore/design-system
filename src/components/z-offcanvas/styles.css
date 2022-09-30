@@ -23,7 +23,7 @@
   transform: translateX(100%);
 }
 
-@keyframes enterRight {
+@keyframes enter-right {
   from {
     transform: translateX(100%);
   }
@@ -35,12 +35,12 @@
 
 :host([open]) > .canvas-container {
   animation-duration: 0.4s;
-  animation-name: enterRight;
+  animation-name: enter-right;
   animation-timing-function: ease-out;
   transform: translateX(0);
 }
 
-@keyframes exitRight {
+@keyframes exit-right {
   from {
     transform: translateX(0);
   }
@@ -52,7 +52,7 @@
 
 :host(:not([open])[variant="overlay"]) > .canvas-container {
   animation-duration: 0.4s;
-  animation-name: exitRight;
+  animation-name: exit-right;
   animation-timing-function: ease-out;
   transform: translateX(100%);
 }
@@ -83,7 +83,7 @@
   transform: translateX(-100%);
 }
 
-@keyframes enterLeft {
+@keyframes enter-left {
   from {
     transform: translateX(-100%);
   }
@@ -95,12 +95,12 @@
 
 :host([transitiondirection="right"][open]) > .canvas-container {
   animation-duration: 0.4s;
-  animation-name: enterLeft;
+  animation-name: enter-left;
   animation-timing-function: ease-out;
   transform: translateX(0);
 }
 
-@keyframes exitLeft {
+@keyframes exit-left {
   from {
     transform: translateX(0);
   }
@@ -112,7 +112,7 @@
 
 :host(:not([open])[variant="overlay"][transitiondirection="right"]) > .canvas-container {
   animation-duration: 0.4s;
-  animation-name: exitLeft;
+  animation-name: exit-left;
   animation-timing-function: ease-out;
   transform: translateX(-100%);
 }

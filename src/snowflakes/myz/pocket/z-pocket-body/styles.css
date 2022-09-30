@@ -39,11 +39,3 @@
     max-height: 157px;
   }
 }
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
-}

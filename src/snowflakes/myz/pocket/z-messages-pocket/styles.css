@@ -100,7 +100,3 @@
     border-radius: var(--radius-base);
   }
 }
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
-}

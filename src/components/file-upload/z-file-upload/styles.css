@@ -41,7 +41,7 @@
   margin-bottom: var(--space-unit);
 }
 
-input#fileElem {
+input#file-elem {
   display: none;
 }
 
@@ -77,12 +77,4 @@ input#fileElem {
   :host > .container > z-button {
     align-self: flex-start;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

@@ -1,7 +1,6 @@
 :host {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: center;
   justify-content: center;
   font-family: var(--dashboard-font);
@@ -18,8 +17,7 @@
   max-width: 297px;
   height: fit-content;
   min-height: 232px;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
   margin: auto;
   background: var(--myz-blue-lighter);
@@ -54,8 +52,4 @@
   :host > div {
     min-height: 122px;
   }
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

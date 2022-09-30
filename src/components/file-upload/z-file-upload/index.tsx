@@ -54,7 +54,7 @@ export class ZFileUpload {
 
   private inputAttributes = {
     type: "file",
-    id: "fileElem",
+    id: "file-elem",
     multiple: true,
   };
 

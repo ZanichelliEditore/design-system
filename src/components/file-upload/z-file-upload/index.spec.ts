@@ -6,9 +6,9 @@ describe("Suite test ZFileUpload", () => {
   it("Test render ZFileUpload default", async () => {
     const page = await newSpecPage({
       components: [ZFileUpload],
-      html: `<z-file-upload type="default" 
-                            variant="primary" 
-                            main-title="Allega un file" 
+      html: `<z-file-upload type="default"
+                            variant="primary"
+                            main-title="Allega un file"
                             description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
                             accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
                             file-max-size="50">>
@@ -28,7 +28,7 @@ describe("Suite test ZFileUpload", () => {
        <z-body level="3">
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </z-body>
-         <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="fileElem" multiple="" type="file">
+         <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
          <z-button icon="upload" id="fileSelect">
            Allega
          </z-button>
@@ -39,8 +39,8 @@ describe("Suite test ZFileUpload", () => {
   it("Test render ZFileUpload dragdrop", async () => {
     const page = await newSpecPage({
       components: [ZFileUpload],
-      html: `<z-file-upload type="dragdrop" 
-                            main-title="Allega un file" 
+      html: `<z-file-upload type="dragdrop"
+                            main-title="Allega un file"
                             description="Vuoi allegare un file per chiarire meglio la tua richiesta?"
                             accepted-format= ".pdf, .doc, .tiff, .png, .jpg, .jpeg"
                             file-max-size="50">>
@@ -59,7 +59,7 @@ describe("Suite test ZFileUpload", () => {
              <z-body level="1" variant="regular">
                Vuoi allegare un file per chiarire meglio la tua richiesta?
              </z-body>
-             <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="fileElem" multiple="" type="file">
+             <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
              <z-body class="upload-link-text" level="1" variant="regular">
                Trascinalo qui o
                <z-body class="upload-link" level="1" tabindex="0" variant="semibold">

@@ -201,8 +201,7 @@ ul > li:last-child {
 
   button {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     align-content: center;
     align-items: end;
     justify-content: flex-end;
@@ -304,12 +303,4 @@ ul > li:last-child {
     padding-bottom: calc(var(--space-unit) + 5px);
     border-top: var(--border-base) solid var(--gray400);
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

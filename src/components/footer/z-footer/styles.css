@@ -108,6 +108,8 @@ footer > section > div {
 }
 
 div.limited-width {
+  --mw: none;
+
   max-width: var(--mw);
   margin: auto;
 }
@@ -166,14 +168,10 @@ z-button {
   }
 
   #bottom > div > div.bottom-links {
-    display: block;
-    order: 3;
-    grid-column: span 2;
-  }
-
-  #bottom > div > div.bottom-links {
     display: grid;
+    order: 3;
     font-size: 12px;
+    grid-column: span 2;
     grid-column-gap: var(--grid-tablet-margin);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, 24px);
@@ -222,9 +220,6 @@ z-button {
 
   #bottom > div > div.bottom-links {
     padding: calc(var(--space-unit) * 2) 0 0 0;
-  }
-
-  #bottom > div > div.bottom-links {
     margin: 0;
     grid-column-gap: var(--grid-desktop-margin);
     grid-template-columns: repeat(3, 1fr);

@@ -2,6 +2,8 @@
   display: inline-block;
   width: 100vw;
   min-width: 200px;
+
+  --percentuale: 0;
 }
 
 :host(.slide-in-left) {
@@ -90,7 +92,8 @@
 
 @keyframes slideoutleft {
   0% {
-    opacity: calc(100-var(--percentuale));
+    /* stylelint-disable-next-line alpha-value-notation */
+    opacity: calc(100% - var(--percentuale));
     transform: translateX(var(--percentuale));
   }
 
@@ -102,7 +105,8 @@
 
 @keyframes slideoutright {
   0% {
-    opacity: calc(100-var(--percentuale));
+    /* stylelint-disable-next-line alpha-value-notation */
+    opacity: calc(100% - var(--percentuale));
     transform: translateX(var(--percentuale));
   }
 
@@ -206,7 +210,7 @@
 
 :host > #external-container.light #text,
 :host > #external-container.warning #text {
-  color: var(--grey800);
+  color: var(--gray800);
 }
 
 :host > #external-container.accent {
@@ -239,10 +243,6 @@
   :host > #external-container #text {
     width: 100%;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
 }
 
 /* Wide breakpoint */

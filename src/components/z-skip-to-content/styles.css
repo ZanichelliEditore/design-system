@@ -78,7 +78,3 @@
     border-right: 1px solid var(--bg-white);
   }
 }
-
-/* Wide breakpoint */
-@media (min-width: 1366px) {
-}

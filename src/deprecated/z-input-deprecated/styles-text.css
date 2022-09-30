@@ -1,4 +1,6 @@
 .textWrapper > div {
+  position: relative;
+  z-index: 1;
   fill: var(--color-icon02);
 }
 
@@ -17,11 +19,6 @@
 
 .textWrapper > div > input.hasIcon.hasClearIcon {
   padding-right: calc(var(--space-unit) * 7);
-}
-
-.textWrapper > div {
-  position: relative;
-  z-index: 1;
 }
 
 .textWrapper .iconsWrapper {

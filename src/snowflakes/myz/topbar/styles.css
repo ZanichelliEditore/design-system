@@ -10,9 +10,8 @@ header {
   margin-bottom: calc(var(--space-unit) * 6.5);
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
+  grid-template: 1fr / 1fr;
   grid-template-areas: "main-header";
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
 }
 
 .main-header {
@@ -20,13 +19,11 @@ header {
   display: grid;
   height: auto;
   align-items: center;
-  align-items: center;
   background-color: var(--bg-grey-900);
   grid-area: main-header;
   grid-column-gap: calc(var(--space-unit) * 0.5);
+  grid-template: 1fr / 2fr 2fr 4fr 100px;
   grid-template-areas: "logo link-int link-ext login";
-  grid-template-columns: 2fr 2fr 4fr 100px;
-  grid-template-rows: 1fr;
 }
 
 .main-header.myz-out {
@@ -97,8 +94,7 @@ z-logo {
   display: flex;
   width: 100%;
   height: 52px;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: center;
   align-items: stretch;
   align-items: center;
@@ -123,8 +119,7 @@ z-logo {
   overflow: hidden;
   width: 100%;
   max-height: 0;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -158,8 +153,7 @@ hr {
 
 .menu-mobile {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: center;
   align-items: center;
   justify-content: flex-start;
@@ -217,8 +211,7 @@ hr {
   height: 0%;
   height: 100%;
   max-height: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: space-between;
@@ -243,8 +236,7 @@ hr {
 
 .booktab-button > z-button {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -258,8 +250,7 @@ hr {
   height: 0%;
   height: 100%;
   max-height: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: space-between;
@@ -295,8 +286,7 @@ hr {
   width: 100%;
   height: 100%;
   max-height: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: space-between;
@@ -306,8 +296,7 @@ hr {
 .link-int > span {
   display: flex;
   width: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: flex-start;
   align-items: stretch;
   justify-content: flex-start;
@@ -318,8 +307,7 @@ hr {
   width: 100%;
   height: auto;
   box-sizing: border-box;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: space-between;
@@ -364,8 +352,7 @@ hr {
 
 .mobile-login > span {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   align-content: flex-start;
   align-items: stretch;
   justify-content: flex-start;
@@ -387,8 +374,7 @@ hr {
   width: 100%;
   height: auto;
   box-sizing: border-box;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: space-between;
@@ -471,9 +457,8 @@ hr {
 @media only screen and (min-width: 768px) {
   header {
     margin-bottom: 0;
+    grid-template: 0.2fr auto/1fr 0.8fr 1.5fr 1.1fr 0.7fr;
     grid-template-areas: "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
-    grid-template-columns: 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
-    grid-template-rows: 0.2fr auto;
   }
 
   header.myz-out {
@@ -484,9 +469,8 @@ hr {
   .main-header {
     display: grid;
     grid-area: main-header;
+    grid-template: 1fr/ 170px auto auto 120px;
     grid-template-areas: "logo link-int link-ext login";
-    grid-template-columns: 170px auto auto 120px;
-    grid-template-rows: 1fr;
   }
 
   .dropdown-menu {
@@ -497,9 +481,8 @@ hr {
     background: var(--bg-grey-200);
     grid-area: dropdown-menu;
     grid-column-gap: var(--space-unit);
+    grid-template: 1fr/ 1fr;
     grid-template-areas: "dropdown-links";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
     visibility: visible;
   }
 
@@ -514,8 +497,7 @@ hr {
   .link-int {
     display: flex;
     max-height: 46px;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     align-content: center;
     align-items: center;
     justify-content: flex-start;
@@ -526,8 +508,7 @@ hr {
   .link-int > span {
     display: flex;
     width: auto;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-flow: column nowrap;
     align-content: center;
     align-items: center;
     justify-content: flex-start;
@@ -571,8 +552,7 @@ hr {
   .link-ext {
     display: flex;
     max-height: 46px;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     align-content: center;
     align-items: center;
     justify-content: flex-end;

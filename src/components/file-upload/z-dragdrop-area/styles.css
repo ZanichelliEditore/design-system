@@ -12,9 +12,9 @@
   border-color: var(--color-surface04);
   background-color: var(--color-surface02);
 
-  /* Native CSS properties don't support the customization of border-style. 
-  Therefore, we use a trick with an SVG image inside background-image property. 
-  The SVG features give us the ability to change the distance between dashed lines, set custom pattern, add dash offset or even change a line cap. 
+  /* Native CSS properties don't support the customization of border-style.
+  Therefore, we use a trick with an SVG image inside background-image property.
+  The SVG features give us the ability to change the distance between dashed lines, set custom pattern, add dash offset or even change a line cap.
   Generated SVG image is vector and it fills width and height of elements by 100%, so it doesn't matter what size elements have. */
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 2px;
@@ -48,16 +48,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

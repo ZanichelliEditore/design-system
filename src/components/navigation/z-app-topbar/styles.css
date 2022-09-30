@@ -21,6 +21,8 @@
 }
 
 :host(.limited-width) #content-container {
+  --mw: none;
+
   max-width: var(--mw);
   margin: auto;
 }
@@ -60,12 +62,4 @@ z-link {
     display: block;
     height: calc(var(--space-unit) * 3);
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

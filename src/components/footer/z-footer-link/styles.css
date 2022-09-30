@@ -23,11 +23,3 @@
     text-decoration: underline;
   }
 }
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
-}
