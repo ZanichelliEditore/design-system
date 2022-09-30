@@ -17,7 +17,7 @@ describe("Suite test ZMessage", () => {
             <div class="content">
               <slot></slot>
             </div>
-            <div class="ctaWrapper">
+            <div class="cta-wrapper">
               <slot name="cta"></slot>
             </div>
           </div>
@@ -40,7 +40,7 @@ describe("Suite test ZMessage", () => {
             <div class="content">
               <slot></slot>
             </div>
-            <div class="ctaWrapper">
+            <div class="cta-wrapper">
               <slot name="cta"></slot>
             </div>
           </div>
@@ -68,7 +68,7 @@ describe("Suite test ZMessage", () => {
             <div class="content">
               <slot></slot>
             </div>
-            <div class="ctaWrapper">
+            <div class="cta-wrapper">
               <slot name="cta"></slot>
             </div>
           </div>

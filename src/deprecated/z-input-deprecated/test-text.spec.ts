@@ -13,10 +13,10 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" htmlid="id">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <div>
-            <input id="id" class="hasClearIcon" type="text" />
-            <span class="iconsWrapper"></span>
+            <input id="id" class="has-clear-icon" type="text" />
+            <span class="icons-wrapper"></span>
           </div>
         </div>
       </z-input-deprecated>
@@ -30,12 +30,12 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div>
-            <input aria-label="label" class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
-            <span class="iconsWrapper">
-              <z-icon name="multiply" class="resetIcon"></z-icon>
+            <input aria-label="label" class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+            <span class="icons-wrapper">
+              <z-icon name="multiply" class="reset-icon"></z-icon>
             </span>
           </div>
         </div>
@@ -50,11 +50,11 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label" disabled=""></z-input-label>
           <div>
-            <input disabled class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-            <span class="iconsWrapper disabled"></span>
+            <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+            <span class="icons-wrapper disabled"></span>
           </div>
         </div>
       </z-input-deprecated>
@@ -68,11 +68,11 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div>
-            <input readonly class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-            <span class="iconsWrapper"></span>
+            <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+            <span class="icons-wrapper"></span>
           </div>
         </div>
       </z-input-deprecated>
@@ -86,12 +86,12 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div>
-            <input class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-            <span class="iconsWrapper">
-              <z-icon name="multiply" class="resetIcon"></z-icon>
+            <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+            <span class="icons-wrapper">
+              <z-icon name="multiply" class="reset-icon"></z-icon>
             </span>
           </div>
           <z-input-message message="helper message"></z-input-message>
@@ -107,12 +107,12 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
           <div>
-            <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-            <span class="iconsWrapper">
-              <z-icon name="multiply" class="resetIcon"></z-icon>
+            <input class="filled input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+            <span class="icons-wrapper">
+              <z-icon name="multiply" class="reset-icon"></z-icon>
             </span>
           </div>
           <z-input-message message="success message" status="success"></z-input-message>
@@ -140,11 +140,11 @@ describe("Suite test ZInputDeprecated - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" htmlid="id" type="password">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <div>
-            <input id="id" class="hasClearIcon hasIcon" type="password" />
-            <span class="iconsWrapper">
-              <z-icon name="view-filled" class="showHidePasswordIcon"></z-icon>
+            <input id="id" class="has-clear-icon has-icon" type="password" />
+            <span class="icons-wrapper">
+              <z-icon name="view-filled" class="toggle-password-icon"></z-icon>
             </span>
           </div>
         </div>
@@ -161,11 +161,11 @@ describe("Suite test ZInputDeprecated - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" htmlid="id" type="password">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <div>
-            <input id="id" class="hasClearIcon hasIcon" type="text" />
-            <span class="iconsWrapper">
-              <z-icon name="view-off-filled" class="showHidePasswordIcon"></z-icon>
+            <input id="id" class="has-clear-icon has-icon" type="text" />
+            <span class="icons-wrapper">
+              <z-icon name="view-off-filled" class="toggle-password-icon"></z-icon>
             </span>
           </div>
         </div>

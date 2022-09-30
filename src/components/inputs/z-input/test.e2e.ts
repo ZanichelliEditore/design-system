@@ -74,8 +74,8 @@ it("Test ZInput - input password - change hide/show icon on click", async () => 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
-  const iconButton = await page.find("z-input button.showHidePasswordIcon");
-  const icon = await page.find("z-input button.showHidePasswordIcon z-icon");
+  const iconButton = await page.find("z-input button.toggle-password-icon");
+  const icon = await page.find("z-input button.toggle-password-icon z-icon");
   //icon will be an open eye on first click
   await iconButton.click();
   await page.waitForChanges();
@@ -107,8 +107,8 @@ it("Test ZInput - input password - change input type on icon click to show/hide 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
-  const input = await page.find("z-input div.textWrapper div input");
-  const iconButton = await page.find("z-input button.showHidePasswordIcon");
+  const input = await page.find("z-input div.text-wrapper div input");
+  const iconButton = await page.find("z-input button.toggle-password-icon");
 
   //input will be type text after first click on icon
   await iconButton.click();

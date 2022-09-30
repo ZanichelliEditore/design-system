@@ -49,8 +49,8 @@ export class ZTableEmptyBox {
         {(!!this.hasCta1Slot || !!this.hasCta2Slot) && (
           <div
             class={{
-              cta: true,
-              has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot,
+              "cta": true,
+              "has-2-cta": !!this.hasCta1Slot && !!this.hasCta2Slot,
             }}
           >
             <slot name="cta1"></slot>

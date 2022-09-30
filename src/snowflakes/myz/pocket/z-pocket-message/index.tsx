@@ -17,7 +17,7 @@ export class ZPocketMessage {
         <div class="content">
           <slot />
         </div>
-        <div class="ctaWrapper">
+        <div class="cta-wrapper">
           <slot name="cta" />
         </div>
       </div>

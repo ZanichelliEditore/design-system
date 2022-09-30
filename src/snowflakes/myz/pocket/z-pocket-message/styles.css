@@ -25,7 +25,7 @@
   grid-row: 1 / 2;
 }
 
-:host > div > div.ctaWrapper {
+:host > div > div.cta-wrapper {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -37,7 +37,7 @@
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
-  :host > div > div.ctaWrapper {
+  :host > div > div.cta-wrapper {
     flex-direction: row;
     grid-column: 2 / 3;
   }

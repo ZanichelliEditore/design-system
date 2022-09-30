@@ -70,7 +70,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="default">
           <button class="default" tabindex="0" type="button">
-            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
             <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
           </button>
@@ -87,7 +87,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default">
           <button class="default" tabindex="0" disabled type="button">
-            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
             <z-icon height="14" name="multiply-circled" tabindex="-1" width="14"></z-icon>
           </button>
@@ -104,7 +104,7 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="small">
           <button class="small" tabindex="0" type="button">
-            <z-icon class="iconSx" height="14" name="pdf" width="14"></z-icon>
+            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
             <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
           </button>

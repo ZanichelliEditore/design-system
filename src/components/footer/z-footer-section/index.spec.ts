@@ -14,7 +14,7 @@ describe("Suite test ZFooterSection", () => {
           <nav>
             <div class="header">
               <h2></h2>
-              <button class="toggleButton">
+              <button class="toggle-button">
                 <z-icon name="chevron-down" width="16" height="16"></z-icon>
               </button>
             </div>
@@ -38,7 +38,7 @@ describe("Suite test ZFooterSection", () => {
           <nav>
             <div class="header">
               <h2>section name</h2>
-              <button class="toggleButton">
+              <button class="toggle-button">
                 <z-icon name="chevron-down" width="16" height="16"></z-icon>
               </button>
             </div>
@@ -65,7 +65,7 @@ describe("Suite test ZFooterSection", () => {
           <nav>
             <div class="header">
               <h2>section name</h2>
-              <button class="toggleButton">
+              <button class="toggle-button">
                 <z-icon name="chevron-down" width="16" height="16"></z-icon>
               </button>
             </div>
@@ -93,7 +93,7 @@ describe("Suite test ZFooterSection", () => {
           <nav>
             <div class="header">
               <h2>section name</h2>
-              <button class="toggleButton">
+              <button class="toggle-button">
                 <z-icon name="chevron-up" width="16" height="16"></z-icon>
               </button>
             </div>

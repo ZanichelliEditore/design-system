@@ -187,13 +187,13 @@ export class ZSlideshow {
   private renderSlideshowFooter(): HTMLElement {
     return (
       <footer>
-        <div class="footerLeft">
+        <div class="footer-left">
           <slot name="footer-left" />
         </div>
-        <div class="footerCenter">
-          <div class="bulletContainer">{Object.keys(this.links).map((i) => this.renderBullet(parseInt(i)))}</div>
+        <div class="footer-center">
+          <div class="bullet-container">{Object.keys(this.links).map((i) => this.renderBullet(parseInt(i)))}</div>
         </div>
-        <div class="footerRight">
+        <div class="footer-right">
           <slot name="footer-right" />
         </div>
       </footer>

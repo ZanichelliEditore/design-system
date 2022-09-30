@@ -92,7 +92,7 @@ export class ZPocket {
         />
         <div
           id={this.pocketid}
-          class="contentWrapper"
+          class="content-wrapper"
         >
           <div>
             <slot />

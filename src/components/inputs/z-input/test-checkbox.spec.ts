@@ -11,9 +11,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox">
 
-          <div class="checkboxWrapper">
+          <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" />
-            <label htmlFor="checkid" class="checkboxLabel after">
+            <label htmlFor="checkid" class="checkbox-label after">
               <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -30,9 +30,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value">
 
-          <div class="checkboxWrapper">
+          <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" name="name" value="value" />
-            <label htmlFor="checkid" class="checkboxLabel after">
+            <label htmlFor="checkid" class="checkbox-label after">
               <z-icon name="checkbox" aria-hidden="true"></z-icon>
               <span>checkbox label</span>
             </label>
@@ -50,9 +50,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" checked>
 
-          <div class="checkboxWrapper">
+          <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" checked />
-            <label htmlFor="checkid" class="checkboxLabel after">
+            <label htmlFor="checkid" class="checkbox-label after">
               <z-icon name="checkbox-checked" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -69,9 +69,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" label-position="left">
 
-          <div class="checkboxWrapper">
+          <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" />
-            <label htmlFor="checkid" class="checkboxLabel before">
+            <label htmlFor="checkid" class="checkbox-label before">
               <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -88,9 +88,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" disabled>
 
-          <div class="checkboxWrapper">
+          <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" disabled />
-            <label htmlFor="checkid" class="checkboxLabel after">
+            <label htmlFor="checkid" class="checkbox-label after">
               <z-icon name="checkbox" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -107,9 +107,9 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
         <z-input htmlid="checkid" type="checkbox" readonly>
 
-            <div class="checkboxWrapper">
+            <div class="checkbox-wrapper">
               <input id="checkid" type="checkbox" readonly />
-              <label htmlFor="checkid" class="checkboxLabel after">
+              <label htmlFor="checkid" class="checkbox-label after">
                 <z-icon name="checkbox" aria-hidden="true"></z-icon>
               </label>
             </div>

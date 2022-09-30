@@ -14,7 +14,7 @@
   margin-top: calc(var(--space-unit) / 2);
 }
 
-.cta.has2Cta {
+.cta.has-2-cta {
   flex-direction: column;
 }
 
@@ -32,7 +32,7 @@
     margin-top: var(--space-unit);
   }
 
-  .cta.has2Cta {
+  .cta.has-2-cta {
     flex-direction: row;
   }
 }

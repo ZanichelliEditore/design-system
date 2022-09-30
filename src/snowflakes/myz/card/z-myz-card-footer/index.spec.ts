@@ -27,7 +27,7 @@ describe("Suite test ZMyzCardFooter", () => {
                       Mario Rossi, Paolo Bianchi
                     </span></span>
                   </p>
-                  <p class="year_isbn">
+                  <p class="year-isbn">
                     <span class="isbn">
                       <span><span class="bold">
                         123456
@@ -70,7 +70,7 @@ describe("Suite test ZMyzCardFooter", () => {
                       Mario Rossi, Paolo Bianchi
                     </span></span>
                   </p>
-                  <p class="year_isbn">
+                  <p class="year-isbn">
                     <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
@@ -106,7 +106,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   <p class="authors">
                     <span><span class="bold"></span></span>
                   </p>
-                  <p class="year_isbn">
+                  <p class="year-isbn">
                     <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
@@ -148,7 +148,7 @@ describe("Suite test ZMyzCardFooter", () => {
                       Mario Rossi, Paolo Bianchi
                     </span></span>
                   </p>
-                  <p class="year_isbn">
+                  <p class="year-isbn">
                     <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>
@@ -188,7 +188,7 @@ describe("Suite test ZMyzCardFooter", () => {
                       Mario Rossi, Paolo Bianchi
                     </span></span>
                   </p>
-                  <p class="year_isbn">
+                  <p class="year-isbn">
                     <span class="isbn">
                       <span><span class="bold"></span> (ed. cartacea)</span>
                     </span>

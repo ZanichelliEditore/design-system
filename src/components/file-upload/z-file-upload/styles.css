@@ -9,13 +9,13 @@
   flex-direction: column;
 }
 
-:host .modalWrapper {
+:host .modal-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-:host .modalWrapper > .files {
+:host .modal-wrapper > .files {
   display: flex;
   flex-direction: column;
   margin: calc(var(--space-unit) * 4);

@@ -42,17 +42,17 @@ describe("Suite test ZSlideshow", () => {
              <z-icon class="false right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
            </main>
            <footer>
-             <div class="footerLeft">
+             <div class="footer-left">
                <slot name="footer-left"></slot>
              </div>
-             <div class="footerCenter">
-               <div class="bulletContainer">
+             <div class="footer-center">
+               <div class="bullet-container">
                  <a class="bullet selected" role="button" tabindex="0"></a>
                  <a class="bullet false" role="button" tabindex="0"></a>
                  <a class="bullet false" role="button" tabindex="0"></a>
                </div>
              </div>
-             <div class="footerRight">
+             <div class="footer-right">
                <slot name="footer-right"></slot>
              </div>
            </footer>
@@ -89,17 +89,17 @@ describe("Suite test ZSlideshow", () => {
              <z-icon class="disabled right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
            </main>
            <footer>
-             <div class="footerLeft">
+             <div class="footer-left">
                <slot name="footer-left"></slot>
              </div>
-             <div class="footerCenter">
-               <div class="bulletContainer">
+             <div class="footer-center">
+               <div class="bullet-container">
                  <a class="bullet false" role="button" tabindex="0"></a>
                  <a class="bullet false" role="button" tabindex="0"></a>
                  <a class="bullet selected" role="button" tabindex="0"></a>
                </div>
              </div>
-             <div class="footerRight">
+             <div class="footer-right">
                <slot name="footer-right"></slot>
              </div>
            </footer>
@@ -142,17 +142,17 @@ describe("Suite test ZSlideshow", () => {
                } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
              </main>
              <footer>
-               <div class="footerLeft">
+               <div class="footer-left">
                  <slot name="footer-left"></slot>
                </div>
-               <div class="footerCenter">
-                 <div class="bulletContainer">
+               <div class="footer-center">
+                 <div class="bullet-container">
                    <a class="bullet ${lengthSlide === 3 ? "selected" : "false"}" role="button" tabindex="0"></a>
                    <a class="bullet ${lengthSlide === 2 ? "selected" : "false"}" role="button" tabindex="0"></a>
                    <a class="bullet ${lengthSlide === 1 ? "selected" : "false"}" role="button" tabindex="0"></a>
                  </div>
                </div>
-               <div class="footerRight">
+               <div class="footer-right">
                  <slot name="footer-right"></slot>
                </div>
              </footer>
@@ -190,17 +190,17 @@ describe("Suite test ZSlideshow", () => {
                } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
              </main>
              <footer>
-               <div class="footerLeft">
+               <div class="footer-left">
                  <slot name="footer-left"></slot>
                </div>
-               <div class="footerCenter">
-                 <div class="bulletContainer">
+               <div class="footer-center">
+                 <div class="bullet-container">
                    <a class="bullet ${lengthSlide === 3 ? "selected" : "false"}" role="button" tabindex="0"></a>
                    <a class="bullet ${lengthSlide === 2 ? "selected" : "false"}" role="button" tabindex="0"></a>
                    <a class="bullet ${lengthSlide === 1 ? "selected" : "false"}" role="button" tabindex="0"></a>
                  </div>
                </div>
-               <div class="footerRight">
+               <div class="footer-right">
                  <slot name="footer-right"></slot>
                </div>
              </footer>

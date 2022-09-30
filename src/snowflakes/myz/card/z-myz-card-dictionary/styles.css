@@ -67,6 +67,6 @@
   transform: rotateY(180deg);
 }
 
-.hideInfo {
+.hide-info {
   display: none;
 }

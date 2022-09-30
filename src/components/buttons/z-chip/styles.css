@@ -21,7 +21,7 @@
   fill: var(--color-icon02);
 }
 
-:host > button > z-icon.iconSx {
+:host > button > z-icon.icon-sx {
   margin-right: calc(var(--space-unit) / 2);
 }
 

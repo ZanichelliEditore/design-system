@@ -257,7 +257,7 @@ export class ZSelect {
 
   private handleInputClick(e: MouseEvent | KeyboardEvent): void {
     const cp = e.composedPath();
-    const clearIcon = cp.find((item: HTMLElement) => item.classList && item.classList.contains("resetIcon"));
+    const clearIcon = cp.find((item: HTMLElement) => item.classList && item.classList.contains("reset-icon"));
     if (clearIcon) {
       e.stopPropagation();
 
@@ -342,7 +342,7 @@ export class ZSelect {
         tabindex="-1"
       >
         <div
-          class="ulScrollWrapper"
+          class="ul-scroll-wrapper"
           tabindex="-1"
         >
           <z-list
@@ -355,7 +355,7 @@ export class ZSelect {
               disabled: this.disabled,
               readonly: this.readonly,
               filled: !!this.selectedItem,
-              [`input_${this.status}`]: !this.isOpen && !!this.status,
+              [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
             {this.renderSelectUlItems()}
@@ -396,7 +396,7 @@ export class ZSelect {
     return (
       <z-list-element
         color="blue500"
-        class="noResults"
+        class="no-results"
       >
         <z-icon
           name="multiply-circle"
@@ -422,7 +422,7 @@ export class ZSelect {
 
   render(): HTMLDivElement {
     return (
-      <div class="selectWrapper">
+      <div class="select-wrapper">
         {this.renderInput()}
         {this.renderSelectUl()}
         {this.renderMessage()}

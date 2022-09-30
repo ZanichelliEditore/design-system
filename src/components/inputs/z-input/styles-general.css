@@ -16,7 +16,7 @@ input::-ms-reveal {
 
 input,
 textarea,
-.textareaWrapper {
+.textarea-wrapper {
   box-sizing: border-box;
   border: var(--border-size-small) solid var(--color-surface04);
   background: var(--color-input-field01);
@@ -31,7 +31,7 @@ textarea,
 
 /* FOCUS */
 input:focus:focus-visible,
-.textareaWrapper:focus-within {
+.textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -46,19 +46,19 @@ textarea:focus:focus-visible {
 }
 
 /* STATUSES (success, warning, error) */
-.input_success {
+.input-success {
   border-color: var(--color-success01);
   background: var(--color-success-inverse);
   fill: var(--color-success01);
 }
 
-.input_error {
+.input-error {
   border-color: var(--color-error01);
   background: var(--color-error-inverse);
   fill: var(--color-error01);
 }
 
-.input_warning {
+.input-warning {
   border-color: var(--color-warning01);
   background: var(--color-warning-inverse);
   fill: var(--color-warning01);
@@ -66,7 +66,7 @@ textarea:focus:focus-visible {
 
 /* HOVER */
 input:hover,
-.textareaWrapper:hover {
+.textarea-wrapper:hover {
   outline: var(--border-size-medium) solid var(--color-surface04);
   outline-offset: -2px;
 }
@@ -81,7 +81,7 @@ input[readonly],
 
 /* DISABLED */
 :host([disabled]:not([disabled="false"])) input,
-:host([disabled]:not([disabled="false"])) .textareaWrapper,
+:host([disabled]:not([disabled="false"])) .textarea-wrapper,
 :host([disabled]:not([disabled="false"])) z-icon {
   border-color: var(--color-disabled01);
   box-shadow: none;
@@ -117,7 +117,7 @@ textarea::placeholder {
 }
 
 /* LABEL */
-label.inputLabel {
+label.input-label {
   display: block;
   padding-bottom: var(--space-unit);
   color: var(--color-text02);
@@ -128,6 +128,6 @@ label.inputLabel {
   text-transform: uppercase;
 }
 
-:host([disabled]:not([disabled="false"])) label.inputLabel {
+:host([disabled]:not([disabled="false"])) label.input-label {
   color: var(--color-disabled02);
 }

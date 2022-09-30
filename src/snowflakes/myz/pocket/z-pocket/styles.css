@@ -28,7 +28,7 @@
   height: 100%;
 }
 
-:host > div > div.contentWrapper {
+:host > div > div.content-wrapper {
   position: fixed;
   z-index: 999;
   bottom: 0;
@@ -37,7 +37,7 @@
   margin: inherit;
 }
 
-:host > div > div.contentWrapper > div {
+:host > div > div.content-wrapper > div {
   margin: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5);
   border-radius: var(--space-unit) var(--space-unit) 0 0;
   box-shadow: 0 -2px calc(var(--space-unit) * 0.5) 0 rgb(66 69 72 / 40%);

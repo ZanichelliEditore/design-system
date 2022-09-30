@@ -91,12 +91,12 @@ it("Test ZInputDeprecated - input password - change hide/show icon on click", as
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input-deprecated htmlid="checkid" type="password"></z-input-deprecated>`);
-  const icon = await page.find("z-input-deprecated z-icon.showHidePasswordIcon");
+  const icon = await page.find("z-input-deprecated z-icon.toggle-password-icon");
   //icon will be an open eye on first click
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
+    `<z-icon class="hydrated toggle-password-icon sc-z-input-deprecated">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
             <path d="${ICONS["view-off-filled"]}"></path>
@@ -109,7 +109,7 @@ it("Test ZInputDeprecated - input password - change hide/show icon on click", as
   await icon.click();
   await page.waitForChanges();
   expect(icon).toEqualHtml(
-    `<z-icon class="hydrated showHidePasswordIcon sc-z-input-deprecated">
+    `<z-icon class="hydrated toggle-password-icon sc-z-input-deprecated">
       <mock:shadow-root>
         <svg  fill="" viewBox="0 0 1000 1000">
           <path d="${ICONS["view-filled"]}"></path>
@@ -123,8 +123,8 @@ it("Test ZInputDeprecated - input password - change input type on icon click to 
   const page = await newE2EPage();
   // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input-deprecated htmlid="checkid" type="password"></z-input-deprecated>`);
-  const input = await page.find("z-input-deprecated div.textWrapper div input");
-  const icon = await page.find("z-input-deprecated z-icon.showHidePasswordIcon");
+  const input = await page.find("z-input-deprecated div.text-wrapper div input");
+  const icon = await page.find("z-input-deprecated z-icon.toggle-password-icon");
 
   //input will be type text after first click on icon
   await icon.click();

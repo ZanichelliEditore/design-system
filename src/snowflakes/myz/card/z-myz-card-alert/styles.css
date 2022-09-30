@@ -12,7 +12,7 @@
   height: calc(var(--space-unit) * 6);
 }
 
-.relativeContainer {
+.relative-container {
   position: relative;
   display: grid;
   align-items: center;
@@ -23,31 +23,31 @@
   outline: none;
 }
 
-.relativeContainer::-moz-focus-inner {
+.relative-container::-moz-focus-inner {
   border: 0;
 }
 
-.alert-external-wrapper.removeAlert {
+.alert-external-wrapper.remove-alert {
   border: var(--border-size-medium) solid var(--color-surface02);
   border-top: none;
 }
 
-:host div.addAlert {
+:host div.add-alert {
   background: var(--color-success-inverse);
 }
 
-:host div.removeAlert {
+:host div.remove-alert {
   background: var(--color-warning-inverse);
 }
 
-:host div > .contentText {
+:host div > .content-text {
   color: var(--color-surface05);
   font-size: 14px;
   letter-spacing: 0.16px;
   line-height: 20px;
 }
 
-:host div > .contentAction {
+:host div > .content-action {
   height: 20px;
   color: var(--color-primary01);
   cursor: pointer;

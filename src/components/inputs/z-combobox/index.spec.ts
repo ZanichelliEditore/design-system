@@ -81,7 +81,7 @@ describe("Suite test ZCombobox", () => {
             <z-body component="p" level="3"><span></span></z-body>
               <z-icon name="caret-down" width="18" height="18"></z-icon>
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <div tabindex="-1">
                 <ul></ul>
               </div>
@@ -107,7 +107,7 @@ describe("Suite test ZCombobox", () => {
             <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <div tabindex="-1">
                 <ul>
                   <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
@@ -140,7 +140,7 @@ describe("Suite test ZCombobox", () => {
             <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text"></z-input>
               <div tabindex="-1">
                 <ul>
@@ -175,7 +175,7 @@ describe("Suite test ZCombobox", () => {
             <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
@@ -210,7 +210,7 @@ describe("Suite test ZCombobox", () => {
             <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="primo"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
@@ -245,7 +245,7 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <z-input htmlid="combo_search" label="cerca" placeholder="placeholder" type="text" value="prova"></z-input>
               <div class="search" tabindex="-1">
                 <ul>
@@ -277,8 +277,8 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
-              <div class="checkAllWrapper">
+            <div class="open-combo-data">
+              <div class="check-all-wrapper">
                 <z-input type="checkbox" htmlid="combo-checkbox-combo-check-all" label="CHECK" disabled="0" />
               </div>
               <div tabindex="-1">
@@ -313,8 +313,8 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(2)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
-              <div class="checkAllWrapper">
+            <div class="open-combo-data">
+              <div class="check-all-wrapper">
                 <z-input type="checkbox" htmlid="combo-checkbox-combo-check-all" label="UNCHECK" checked disabled="0" />
               </div>
               <div tabindex="-1">
@@ -349,7 +349,7 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
+            <div class="open-combo-data">
               <div tabindex="-1">
                 <ul>
                   <z-myz-list-item id="item_1" listitemid="item_1" action="combo-li-combo" underlined="">
@@ -382,8 +382,8 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
-              <div class="checkAllWrapper">
+            <div class="open-combo-data">
+              <div class="check-all-wrapper">
                 <z-input type="checkbox" htmlid="combo-checkbox-combo-check-all" label="CHECK" />
               </div>
               <div tabindex="-1">
@@ -418,8 +418,8 @@ describe("Suite test ZCombobox", () => {
               <z-body component="p" level="3">combo<span>(1)</span></z-body>
               <z-icon name="caret-down" width="18" height="18" />
             </div>
-            <div class="openComboData">
-              <div class="checkAllWrapper">
+            <div class="open-combo-data">
+              <div class="check-all-wrapper">
                 <z-input type="checkbox" disabled htmlid="combo-checkbox-combo-check-all" label="CHECK" />
               </div>
               <div tabindex="-1">

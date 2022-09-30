@@ -75,7 +75,7 @@
     grid-template-rows: 1fr;
   }
 
-  :host > nav > .header > button.toggleButton {
+  :host > nav > .header > button.toggle-button {
     display: none;
   }
 

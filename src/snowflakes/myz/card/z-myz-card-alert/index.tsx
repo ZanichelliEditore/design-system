@@ -47,10 +47,10 @@ export class ZMyzCardAlert {
     let className = "";
     switch (this.type) {
       case "add":
-        className = "addAlert";
+        className = "add-alert";
         break;
       case "remove":
-        className = "removeAlert";
+        className = "remove-alert";
         break;
       default:
         className = "";
@@ -75,19 +75,19 @@ export class ZMyzCardAlert {
     return (
       <div class={"alert-external-wrapper " + this.retrieveClass()}>
         <z-alert type={this.getAlertType()}>
-          <div class="relativeContainer">
+          <div class="relative-container">
             <z-icon
               name={this.iconname}
               width={18}
               height={18}
               class={this.retrieveClass()}
             ></z-icon>
-            <span class="contentText">{this.contenttext}</span>
+            <span class="content-text">{this.contenttext}</span>
             {this.actiontext && !!this.actiontext.trim().length && (
               <span
                 role="button"
                 tabindex="0"
-                class="contentAction"
+                class="content-action"
                 onClick={(e: MouseEvent) => {
                   this.handleActionButtonClick(e);
                 }}

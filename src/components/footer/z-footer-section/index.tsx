@@ -19,7 +19,7 @@ export class ZFooterSection {
   private renderToggleButton(): HTMLButtonElement {
     return (
       <button
-        class="toggleButton"
+        class="toggle-button"
         onClick={() => (this.isOpen = !this.isOpen)}
       >
         <z-icon

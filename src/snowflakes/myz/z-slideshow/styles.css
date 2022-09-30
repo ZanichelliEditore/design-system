@@ -60,19 +60,19 @@ footer > div {
   align-items: center;
 }
 
-footer .footerCenter {
+footer .footer-center {
   grid-area: center;
 }
 
-footer .footerLeft {
+footer .footer-left {
   grid-area: left;
 }
 
-footer .footerRight {
+footer .footer-right {
   grid-area: right;
 }
 
-footer .bulletContainer {
+footer .bullet-container {
   display: flex;
   min-height: 60px;
   align-items: center;
@@ -80,7 +80,7 @@ footer .bulletContainer {
   margin: 0 auto;
 }
 
-footer .bulletContainer .bullet {
+footer .bullet-container .bullet {
   width: 8px;
   height: 8px;
   margin: var(--space-unit) 2px;
@@ -89,7 +89,7 @@ footer .bulletContainer .bullet {
   pointer-events: none;
 }
 
-footer .bulletContainer .bullet.selected {
+footer .bullet-container .bullet.selected {
   background-color: var(--bg-neutral-400);
 }
 
@@ -103,7 +103,7 @@ footer .bulletContainer .bullet.selected {
     grid-template-areas: "left center right";
   }
 
-  footer .bulletContainer .bullet {
+  footer .bullet-container .bullet {
     width: 10px;
     height: 10px;
     margin: var(--space-unit) 3px;
@@ -117,7 +117,7 @@ footer .bulletContainer .bullet.selected {
     margin: 0 10px;
   }
 
-  footer .bulletContainer .bullet {
+  footer .bullet-container .bullet {
     width: 16px;
     height: 16px;
     margin: var(--space-unit) calc(var(--space-unit) * 0.5);

@@ -81,14 +81,14 @@ footer > div.content > div > p {
   white-space: nowrap;
 }
 
-footer > div.content > div > p.year_isbn {
+footer > div.content > div > p.year-isbn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-top: var(--space-unit);
 }
 
-footer > div.content > div > p.year_isbn > span.isbn {
+footer > div.content > div > p.year-isbn > span.isbn {
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -103,13 +103,13 @@ footer.isopen > div.content > div > p.authors {
   white-space: initial;
 }
 
-footer.isopen > div.content > div > p.year_isbn {
+footer.isopen > div.content > div > p.year-isbn {
   height: 50px;
   flex-direction: column;
   padding-left: 0;
 }
 
-footer.isopen > div.content > div > p.year_isbn > span.isbn {
+footer.isopen > div.content > div > p.year-isbn > span.isbn {
   display: inline-grid;
   padding-left: 0;
 }
@@ -120,7 +120,7 @@ footer.isopen {
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
-footer.isopen.customContent {
+footer.isopen.custom-content {
   top: -292px;
 }
 
@@ -129,7 +129,7 @@ footer.isopen > div.content {
   transition: height 500ms ease-in-out, top 500ms ease-in-out;
 }
 
-footer.isopen.customContent > div.content {
+footer.isopen.custom-content > div.content {
   height: 230px;
 }
 
@@ -145,13 +145,13 @@ footer.isopen.customContent > div.content {
   pointer-events: none;
 }
 
-footer > p.customContent,
-footer .content.customContent {
+footer > p.custom-content,
+footer .content.custom-content {
   display: none;
 }
 
-footer.isopen > p.customContent,
-footer.isopen .content.customContent {
+footer.isopen > p.custom-content,
+footer.isopen .content.custom-content {
   display: block;
 }
 

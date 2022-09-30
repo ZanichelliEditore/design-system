@@ -12,14 +12,14 @@ describe("Suite test ZMyzCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-alert actiontext="Annulla" contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="add">
       <mock:shadow-root>
-        <div class="addAlert alert-external-wrapper">
+        <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
-              <div class="relativeContainer">
-                <z-icon class="addAlert" height="18" name="circle-check" width="18"></z-icon>
-                  <span class="contentText">
+              <div class="relative-container">
+                <z-icon class="add-alert" height="18" name="circle-check" width="18"></z-icon>
+                  <span class="content-text">
                     Libro aggiunto ai miei libri
                   </span>
-                  <span class="contentAction" role="button" tabindex="0">
+                  <span class="content-action" role="button" tabindex="0">
                     Annulla
                   </span>
               </div>
@@ -39,14 +39,14 @@ describe("Suite test ZMyzCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-alert iconName="circle-check" contenttext="Libro aggiunto ai miei libri" actiontext="Annulla" type="add">
       <mock:shadow-root>
-        <div class="addAlert alert-external-wrapper">
+        <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
-              <div class="relativeContainer">
-                <z-icon class="addAlert" name="circle-check" height="18" width="18"></z-icon>
-                <span class="contentText">
+              <div class="relative-container">
+                <z-icon class="add-alert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="content-text">
                   Libro aggiunto ai miei libri
                 </span>
-                <span class="contentAction" role="button" tabindex="0">
+                <span class="content-action" role="button" tabindex="0">
                   Annulla
                 </span>
               </div>
@@ -67,11 +67,11 @@ describe("Suite test ZMyzCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-alert contenttext="Libro aggiunto ai miei libri" iconname="circle-check" slot="alert" type="add">
       <mock:shadow-root>
-        <div class="addAlert alert-external-wrapper">
+        <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
-              <div class="relativeContainer">
-                <z-icon class="addAlert" name="circle-check" height="18" width="18"></z-icon>
-                <span class="contentText">
+              <div class="relative-container">
+                <z-icon class="add-alert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="content-text">
                   Libro aggiunto ai miei libri
                 </span>
               </div>
@@ -92,14 +92,14 @@ describe("Suite test ZMyzCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-alert actiontext="Annulla" contenttext="Libro rimosso dai miei libri" iconname="circle-check" slot="alert" type="remove">
       <mock:shadow-root>
-        <div class="removeAlert alert-external-wrapper">
+        <div class="remove-alert alert-external-wrapper">
             <z-alert type="warning">
-              <div class="relativeContainer">
-                <z-icon class="removeAlert" name="circle-check" height="18" width="18"></z-icon>
-                <span class="contentText">
+              <div class="relative-container">
+                <z-icon class="remove-alert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="content-text">
                   Libro rimosso dai miei libri
                 </span>
-                <span class="contentAction" role="button" tabindex="0">
+                <span class="content-action" role="button" tabindex="0">
                   Annulla
                 </span>
               </div>
@@ -120,11 +120,11 @@ describe("Suite test ZMyzCardAlert", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-alert contenttext="Libro rimosso dai miei libri" iconname="circle-check" slot="alert" type="remove">
       <mock:shadow-root>
-        <div class="removeAlert alert-external-wrapper">
+        <div class="remove-alert alert-external-wrapper">
             <z-alert type="warning">
-              <div class="relativeContainer">
-                <z-icon class="removeAlert" name="circle-check" height="18" width="18"></z-icon>
-                <span class="contentText">
+              <div class="relative-container">
+                <z-icon class="remove-alert" name="circle-check" height="18" width="18"></z-icon>
+                <span class="content-text">
                   Libro rimosso dai miei libri
                 </span>
               </div>

@@ -65,7 +65,7 @@ export class ZMyzCardDictionary {
                 />
               </z-myz-card-body>
               <z-button
-                class={this.hideinfobtn ? "hideInfo" : ""}
+                class={{"hide-info": this.hideinfobtn}}
                 variant={ButtonVariantEnum.SECONDARY}
                 icon="informationsource"
                 size={ButtonSizeEnum.X_SMALL}

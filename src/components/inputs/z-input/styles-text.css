@@ -1,8 +1,10 @@
-.textWrapper > div {
+.text-wrapper > div {
+  position: relative;
+  z-index: 1;
   fill: var(--color-icon02);
 }
 
-.textWrapper > div > input {
+.text-wrapper > div > input {
   width: 100%;
   height: calc(var(--space-unit) * 5.5);
   box-sizing: border-box;
@@ -10,21 +12,16 @@
   margin: 0;
 }
 
-.textWrapper > div > input.hasIcon,
-.textWrapper > div > input.hasClearIcon {
+.text-wrapper > div > input.has-icon,
+.text-wrapper > div > input.has-clear-icon {
   padding-right: calc(var(--space-unit) * 5.25);
 }
 
-.textWrapper > div > input.hasIcon.hasClearIcon {
+.text-wrapper > div > input.has-icon.has-clear-icon {
   padding-right: calc(var(--space-unit) * 8);
 }
 
-.textWrapper > div {
-  position: relative;
-  z-index: 1;
-}
-
-.textWrapper .iconsWrapper {
+.text-wrapper .icons-wrapper {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -34,7 +31,7 @@
   transform: translateY(-50%);
 }
 
-.textWrapper .iconsWrapper > button.iconButton {
+.text-wrapper .icons-wrapper > button.icon-button {
   padding: 0;
   border: 0;
   background: none;
@@ -43,16 +40,16 @@
   pointer-events: initial;
 }
 
-.textWrapper .iconsWrapper > button.iconButton + button.iconButton {
+.text-wrapper .icons-wrapper > button.icon-button + button.icon-button {
   margin-left: calc(var(--space-unit) * 0.5);
 }
 
-.textWrapper .iconsWrapper > button.iconButton.resetIcon,
-.textWrapper .iconsWrapper > button.iconButton.showHidePasswordIcon {
+.text-wrapper .icons-wrapper > button.icon-button.reset-icon,
+.text-wrapper .icons-wrapper > button.icon-button.toggle-password-icon {
   cursor: pointer;
 }
 
-.textWrapper .iconsWrapper > button.iconButton > z-icon {
+.text-wrapper .icons-wrapper > button.icon-button > z-icon {
   --z-icon-width: 18px;
   --z-icon-height: 18px;
 
@@ -60,9 +57,9 @@
 }
 
 /* Disable background color webkit */
-.textWrapper > div > input:-webkit-autofill,
-.textWrapper > div > input:-webkit-autofill:hover,
-.textWrapper > div > input:-webkit-autofill:focus,
-.textWrapper > div > input:-webkit-autofill:active {
+.text-wrapper > div > input:-webkit-autofill,
+.text-wrapper > div > input:-webkit-autofill:hover,
+.text-wrapper > div > input:-webkit-autofill:focus,
+.text-wrapper > div > input:-webkit-autofill:active {
   background-clip: text !important;
 }

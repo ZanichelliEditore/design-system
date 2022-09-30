@@ -57,7 +57,7 @@ export class ZDatePicker {
     if (ev.key === "Enter" || ev.key === " ") {
       !this.hasChildren && this.picker?.open();
 
-      const isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      const isCrossIconEntered = document.activeElement.classList.contains("reset-icon");
 
       if (isCrossIconEntered) {
         this.inputError = false;

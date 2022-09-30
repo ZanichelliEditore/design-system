@@ -73,11 +73,11 @@ export class ZMyzCardFooter {
 
   private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
-      isopen: this.isOpen,
-      real: this.cardtype === LicenseTypeEnum.REAL,
-      trial: this.cardtype === LicenseTypeEnum.TRIAL,
-      temp: this.cardtype === LicenseTypeEnum.TEMP,
-      customContent: this.customContent,
+      "isopen": this.isOpen,
+      "real": this.cardtype === LicenseTypeEnum.REAL,
+      "trial": this.cardtype === LicenseTypeEnum.TRIAL,
+      "temp": this.cardtype === LicenseTypeEnum.TEMP,
+      "custom-content": this.customContent,
     };
   }
 
@@ -97,8 +97,8 @@ export class ZMyzCardFooter {
           <span class="toggle">
             <slot name="toggle" />
           </span>
-          {this.titolo && <p class={{customContent: this.customContent}}>{this.titolo}</p>}
-          <div class={{content: true, customContent: this.customContent}}>
+          {this.titolo && <p class={{"custom-content": this.customContent}}>{this.titolo}</p>}
+          <div class={{"content": true, "custom-content": this.customContent}}>
             <div>
               <p
                 class="authors"
@@ -108,7 +108,7 @@ export class ZMyzCardFooter {
                   <span class="bold">{this.autori}</span>
                 </span>
               </p>
-              <p class="year_isbn">
+              <p class="year-isbn">
                 <span class="isbn">
                   <span>
                     <span class="bold">{this.isbn}</span> (ed. cartacea)

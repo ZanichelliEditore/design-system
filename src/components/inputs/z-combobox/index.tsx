@@ -220,7 +220,7 @@ export class ZCombobox {
     }
 
     return (
-      <div class="openComboData">
+      <div class="open-combo-data">
         {this.hassearch && this.renderSearchInput()}
         {this.hascheckall && this.renderCheckAll()}
         {this.renderItems()}
@@ -336,7 +336,7 @@ export class ZCombobox {
     const allChecked = this.selectedCounter === this.itemsList.length;
 
     return (
-      <div class="checkAllWrapper">
+      <div class="check-all-wrapper">
         <z-input
           type={InputTypeEnum.CHECKBOX}
           checked={allChecked}

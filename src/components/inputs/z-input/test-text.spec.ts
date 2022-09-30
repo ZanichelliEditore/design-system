@@ -13,10 +13,10 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input message="false" htmlid="id">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
-              <input id="id" class="hasClearIcon" type="text" />
-              <span class="iconsWrapper"></span>
+              <input id="id" class="has-clear-icon" type="text" />
+              <span class="icons-wrapper"></span>
             </div>
           </div>
       </z-input>
@@ -30,12 +30,12 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
-          <div class="textWrapper">
-            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="text-wrapper">
+            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input aria-label="label" class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+              <input aria-label="label" class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -52,11 +52,11 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
-          <div class="textWrapper">
-            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="text-wrapper">
+            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input disabled class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-              <span class="iconsWrapper"></span>
+              <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <span class="icons-wrapper"></span>
             </div>
           </div>
       </z-input>
@@ -70,11 +70,11 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
-          <div class="textWrapper">
-            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="text-wrapper">
+            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input readonly class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-              <span class="iconsWrapper"></span>
+              <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <span class="icons-wrapper"></span>
             </div>
           </div>
       </z-input>
@@ -88,12 +88,12 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
-          <div class="textWrapper">
-            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="text-wrapper">
+            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -111,12 +111,12 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
-          <div class="textWrapper">
-            <label class="body-5-sb inputLabel" aria-label="label" htmlfor="test" id="test_label">label</label>
+          <div class="text-wrapper">
+            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled input_success hasClearIcon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+              <input class="filled input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -132,7 +132,7 @@ describe("Suite test ZInput - text", () => {
       components: [ZInput, ZIcon],
       html: `<z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label'></z-input>`,
     });
-    const icon: HTMLZIconElement = page.body.querySelector(".resetIcon z-icon");
+    const icon: HTMLZIconElement = page.body.querySelector(".reset-icon z-icon");
     expect(page.rootInstance.value).toEqual("value");
     icon.click();
     await page.waitForChanges();
@@ -146,11 +146,11 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input message="false" htmlid="id" type="password">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
-              <input id="id" class="hasClearIcon hasIcon" type="password" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton showHidePasswordIcon" aria-label="mostra password">
+              <input id="id" class="has-clear-icon has-icon" type="password" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button toggle-password-icon" aria-label="mostra password">
                   <z-icon name="view-filled"></z-icon>
                 </button>
               </span>
@@ -169,11 +169,11 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input message="false" htmlid="id" type="password">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
-              <input id="id" class="hasClearIcon hasIcon" type="text" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton showHidePasswordIcon" aria-label="nascondi password">
+              <input id="id" class="has-clear-icon has-icon" type="text" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button toggle-password-icon" aria-label="nascondi password">
                   <z-icon name="view-off-filled"></z-icon>
                 </button>
               </span>
@@ -192,11 +192,11 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input htmlid="id" hasclearicon="true" value="value">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
-              <input id="id" class="filled hasClearIcon" type="text" value="value" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton resetIcon" aria-label="cancella il contenuto dell'input">
+              <input id="id" class="filled has-clear-icon" type="text" value="value" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
                 </button>
               </span>
@@ -216,10 +216,10 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input htmlid="id" hasclearicon="false" value="value">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
               <input id="id" class="filled" type="text" value="value" />
-              <span class="iconsWrapper"></span>
+              <span class="icons-wrapper"></span>
             </div>
             <z-input-message></z-input-message>
           </div>
@@ -236,11 +236,11 @@ describe("Suite test ZInput - text", () => {
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-input htmlid="id" icon="pdf">
-          <div class="textWrapper">
+          <div class="text-wrapper">
             <div>
-              <input id="id" class="hasIcon hasClearIcon" type="text" />
-              <span class="iconsWrapper">
-                <button type="button" class="iconButton inputIcon" tabindex="-1">
+              <input id="id" class="has-icon has-clear-icon" type="text" />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button input-icon" tabindex="-1">
                   <z-icon name="pdf"></z-icon>
                 </button>
               </span>
@@ -258,10 +258,10 @@ describe("Suite test ZInput - text", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="test" max="10" message="false" min="1" step="2" type="number">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <div>
             <input id="test" max="10" min="1" step="2" type="number">
-            <span class="iconsWrapper"></span>
+            <span class="icons-wrapper"></span>
           </div>
         </div>
       </z-input>

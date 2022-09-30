@@ -49,7 +49,7 @@ export class ZChip {
         >
           {this.icon && (
             <z-icon
-              class={"iconSx"}
+              class="icon-sx"
               name={this.icon}
               width={this.getIconSize()}
               height={this.getIconSize()}

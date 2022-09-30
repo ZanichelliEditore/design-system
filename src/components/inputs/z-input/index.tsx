@@ -215,7 +215,7 @@ export class ZInput {
       required: this.required,
       title: this.htmltitle,
       class: {
-        [`input_${this.status}`]: !!this.status,
+        [`input-${this.status}`]: !!this.status,
         filled: !!this.value,
       },
       autocomplete: this.autocomplete,
@@ -259,14 +259,14 @@ export class ZInput {
       ...this.getPatternAttribute(type),
     };
     if (this.icon || type === InputTypeEnum.PASSWORD) {
-      Object.assign(attr.class, {hasIcon: true});
+      Object.assign(attr.class, {"has-icon": true});
     }
     if (this.hasclearicon && type != InputTypeEnum.NUMBER) {
-      Object.assign(attr.class, {hasClearIcon: true});
+      Object.assign(attr.class, {"has-clear-icon": true});
     }
 
     return (
-      <div class="textWrapper">
+      <div class="text-wrapper">
         {this.renderLabel()}
         <div>
           <input
@@ -288,7 +288,7 @@ export class ZInput {
 
     return (
       <label
-        class="inputLabel body-5-sb"
+        class="input-label body-5-sb"
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
         aria-label={this.label}
@@ -300,7 +300,7 @@ export class ZInput {
 
   private renderIcons(): HTMLSpanElement {
     return (
-      <span class="iconsWrapper">
+      <span class="icons-wrapper">
         {this.renderResetIcon()}
         {this.renderIcon()}
       </span>
@@ -319,7 +319,7 @@ export class ZInput {
     return (
       <button
         type="button"
-        class="iconButton inputIcon"
+        class="icon-button input-icon"
         tabIndex={-1}
       >
         <z-icon name={this.icon} />
@@ -335,7 +335,7 @@ export class ZInput {
     return (
       <button
         type="button"
-        class="iconButton resetIcon"
+        class="icon-button reset-icon"
         aria-label="cancella il contenuto dell'input"
         onClick={() => this.emitInputChange("")}
       >
@@ -348,7 +348,7 @@ export class ZInput {
     return (
       <button
         type="button"
-        class="iconButton showHidePasswordIcon"
+        class="icon-button toggle-password-icon"
         disabled={this.disabled}
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
@@ -379,13 +379,13 @@ export class ZInput {
     const attributes = this.getTextAttributes();
 
     return (
-      <div class="textWrapper">
+      <div class="text-wrapper">
         {this.renderLabel()}
         <div
           class={{
             ...(attributes.class as Record<string, boolean>),
-            textareaWrapper: true,
-            readonly: attributes.readonly as boolean,
+            "textarea-wrapper": true,
+            "readonly": attributes.readonly as boolean,
           }}
         >
           <textarea
@@ -408,7 +408,7 @@ export class ZInput {
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
     return (
-      <div class="checkboxWrapper">
+      <div class="checkbox-wrapper">
         <input
           id={this.htmlid}
           type="checkbox"
@@ -424,9 +424,9 @@ export class ZInput {
         <label
           htmlFor={this.htmlid}
           class={{
-            checkboxLabel: true,
-            after: this.labelPosition === LabelPositions.RIGHT,
-            before: this.labelPosition === LabelPositions.LEFT,
+            "checkbox-label": true,
+            "after": this.labelPosition === LabelPositions.RIGHT,
+            "before": this.labelPosition === LabelPositions.LEFT,
           }}
         >
           <z-icon
@@ -444,7 +444,7 @@ export class ZInput {
   /* START radio */
   private renderRadio(): HTMLDivElement {
     return (
-      <div class="radioWrapper">
+      <div class="radio-wrapper">
         <input
           id={this.htmlid}
           type="radio"
@@ -459,9 +459,9 @@ export class ZInput {
         <label
           htmlFor={this.htmlid}
           class={{
-            radioLabel: true,
-            after: this.labelPosition === LabelPositions.RIGHT,
-            before: this.labelPosition === LabelPositions.LEFT,
+            "radio-label": true,
+            "after": this.labelPosition === LabelPositions.RIGHT,
+            "before": this.labelPosition === LabelPositions.LEFT,
           }}
         >
           <z-icon

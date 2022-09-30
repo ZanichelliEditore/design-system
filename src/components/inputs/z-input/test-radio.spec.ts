@@ -11,9 +11,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio">
 
-          <div class="radioWrapper">
+          <div class="radio-wrapper">
             <input id="radioid" type="radio" />
-            <label htmlFor="radioid" class="radioLabel after">
+            <label htmlFor="radioid" class="radio-label after">
               <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -30,9 +30,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" name="name" value="value" label="radio label">
 
-          <div class="radioWrapper">
+          <div class="radio-wrapper">
             <input id="radioid" type="radio" name="name" value="value" />
-            <label htmlFor="radioid" class="radioLabel after">
+            <label htmlFor="radioid" class="radio-label after">
               <z-icon name="radio-button" aria-hidden="true"></z-icon>
               <span>radio label</span>
             </label>
@@ -50,9 +50,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" checked>
 
-          <div class="radioWrapper">
+          <div class="radio-wrapper">
             <input id="radioid" type="radio" checked />
-            <label htmlFor="radioid" class="radioLabel after">
+            <label htmlFor="radioid" class="radio-label after">
               <z-icon name="radio-button-checked" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -69,9 +69,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" label-position="left">
 
-          <div class="radioWrapper">
+          <div class="radio-wrapper">
             <input id="radioid" type="radio" />
-            <label htmlFor="radioid" class="radioLabel before">
+            <label htmlFor="radioid" class="radio-label before">
               <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -88,9 +88,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" disabled>
 
-          <div class="radioWrapper">
+          <div class="radio-wrapper">
             <input id="radioid" type="radio" disabled />
-            <label htmlFor="radioid" class="radioLabel after">
+            <label htmlFor="radioid" class="radio-label after">
               <z-icon name="radio-button" aria-hidden="true"></z-icon>
             </label>
           </div>
@@ -107,9 +107,9 @@ describe("Suite test ZInput - radio", () => {
     expect(page.root).toEqualHtml(`
         <z-input htmlid="radioid" type="radio" readonly>
 
-            <div class="radioWrapper">
+            <div class="radio-wrapper">
               <input id="radioid" type="radio" readonly />
-              <label htmlFor="radioid" class="radioLabel after">
+              <label htmlFor="radioid" class="radio-label after">
                 <z-icon name="radio-button" aria-hidden="true"></z-icon>
               </label>
             </div>

@@ -1,4 +1,4 @@
-.textareaWrapper {
+.textarea-wrapper {
   padding: calc(var(--space-unit) * 1.5);
 
   /* Firefox scrollbar */

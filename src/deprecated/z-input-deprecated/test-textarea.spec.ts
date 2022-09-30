@@ -10,9 +10,9 @@ describe("Suite test ZInputDeprecated - textarea", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
-          <div class="textareaWrapper filled">
+          <div class="textarea-wrapper filled">
             <textarea aria-label="label" class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
@@ -27,9 +27,9 @@ describe("Suite test ZInputDeprecated - textarea", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated hasmessage="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly>
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label" disabled></z-input-label>
-          <div class="textareaWrapper filled disabled readonly">
+          <div class="textarea-wrapper filled disabled readonly">
             <textarea aria-label="label" disabled readonly class="filled" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
         </div>
@@ -44,10 +44,10 @@ describe("Suite test ZInputDeprecated - textarea", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input-deprecated type="textarea" htmlid="test" placeholder="placeholder" label="label" status="error" message="error message" value="value">
-        <div class="textWrapper">
+        <div class="text-wrapper">
           <z-input-label aria-label="label" htmlfor="test" id="test_label" value="label"></z-input-label>
-          <div class="textareaWrapper filled input_error">
-            <textarea aria-label="label" class="filled input_error" id="test" placeholder="placeholder" value="value"></textarea>
+          <div class="textarea-wrapper filled input-error">
+            <textarea aria-label="label" class="filled input-error" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
           <z-input-message message="error message" status="error"></z-input-message>
         </div>

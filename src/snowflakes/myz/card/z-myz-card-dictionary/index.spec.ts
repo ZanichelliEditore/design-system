@@ -109,7 +109,7 @@ describe("Suite test ZMyzCardDictionary", () => {
                   <z-myz-card-body>
                     <z-myz-card-cover titolo="title" img="img-url" slot="cover" faded=""></z-myz-card-cover>
                   </z-myz-card-body>
-                  <z-button class="hideInfo" variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
+                  <z-button class="hide-info" variant="secondary" icon="informationsource" size="x-small">INFO</z-button>
                 </div>
                 <div class="back">
                   <slot name="info"></slot>

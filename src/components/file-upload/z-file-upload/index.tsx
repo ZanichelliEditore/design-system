@@ -308,7 +308,7 @@ export class ZFileUpload {
   private handleErrorModalContent(): HTMLDivElement {
     return (
       <div slot="modalContent">
-        <div class="modalWrapper">
+        <div class="modal-wrapper">
           <div class="files">
             {Array.from(this.invalidFiles).map(([key, value]) => {
               return (

@@ -457,7 +457,7 @@ hr {
 @media only screen and (min-width: 768px) {
   header {
     margin-bottom: 0;
-    grid-template: 0.2fr auto/1fr 0.8fr 1.5fr 1.1fr 0.7fr;
+    grid-template: 0.2fr auto / 1fr 0.8fr 1.5fr 1.1fr 0.7fr;
     grid-template-areas: "main-header main-header main-header main-header main-header" "dropdown-menu dropdown-menu dropdown-menu dropdown-menu dropdown-menu";
   }
 
@@ -469,7 +469,7 @@ hr {
   .main-header {
     display: grid;
     grid-area: main-header;
-    grid-template: 1fr/ 170px auto auto 120px;
+    grid-template: 1fr / 170px auto auto 120px;
     grid-template-areas: "logo link-int link-ext login";
   }
 
@@ -481,7 +481,7 @@ hr {
     background: var(--bg-grey-200);
     grid-area: dropdown-menu;
     grid-column-gap: var(--space-unit);
-    grid-template: 1fr/ 1fr;
+    grid-template: 1fr / 1fr;
     grid-template-areas: "dropdown-links";
     visibility: visible;
   }

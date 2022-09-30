@@ -83,7 +83,7 @@ export class ZRangePicker {
         currentPicker?.open();
       }
 
-      const isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      const isCrossIconEntered = document.activeElement.classList.contains("reset-icon");
 
       if (isCrossIconEntered) {
         if (this.activeInput === "start-input") {

@@ -160,7 +160,7 @@ button.tertiary,
   color: var(--color-primary01);
 }
 
-button.tertiary.hasContent {
+button.tertiary.has-content {
   padding: 0 var(--space-unit);
 }
 
@@ -206,7 +206,7 @@ button.dark-bg,
   color: var(--color-text04);
 }
 
-button.dark-bg.hasContent {
+button.dark-bg.has-content {
   padding: 0 var(--space-unit);
 }
 

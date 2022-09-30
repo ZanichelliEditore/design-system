@@ -250,7 +250,7 @@ export class ZInputDeprecated {
       required: this.required,
       title: this.htmltitle,
       class: {
-        [`input_${this.status}`]: !!this.status,
+        [`input-${this.status}`]: !!this.status,
         istyping: this.isTyping,
         filled: !this.isTyping && !!this.value,
       },
@@ -270,14 +270,14 @@ export class ZInputDeprecated {
   private renderInputText(type: InputTypeEnum = InputTypeEnum.TEXT): HTMLDivElement {
     const attr = this.getTextAttributes();
     if (this.icon || type === InputTypeEnum.PASSWORD) {
-      Object.assign(attr.class, {hasIcon: true});
+      Object.assign(attr.class, {"has-icon": true});
     }
     if (this.hasclearicon) {
-      Object.assign(attr.class, {hasClearIcon: true});
+      Object.assign(attr.class, {"has-clear-icon": true});
     }
 
     return (
-      <div class="textWrapper">
+      <div class="text-wrapper">
         {this.renderLabel()}
         <div>
           <input
@@ -312,8 +312,8 @@ export class ZInputDeprecated {
     return (
       <span
         class={{
-          iconsWrapper: true,
-          disabled: this.disabled,
+          "icons-wrapper": true,
+          "disabled": this.disabled,
         }}
       >
         {this.renderResetIcon()}
@@ -333,7 +333,7 @@ export class ZInputDeprecated {
 
     return (
       <z-icon
-        class="inputIcon"
+        class="input-icon"
         name={this.icon}
       />
     );
@@ -346,7 +346,7 @@ export class ZInputDeprecated {
 
     return (
       <z-icon
-        class="resetIcon"
+        class="reset-icon"
         name="multiply"
         onClick={(e: MouseEvent | KeyboardEvent) =>
           this.emitInputChange("", e instanceof KeyboardEvent ? e.keyCode : null)
@@ -358,7 +358,7 @@ export class ZInputDeprecated {
   private renderShowHidePassword(): HTMLZIconElement {
     return (
       <z-icon
-        class="showHidePasswordIcon"
+        class="toggle-password-icon"
         name={this.passwordHidden ? "view-filled" : "view-off-filled"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       />
@@ -386,15 +386,15 @@ export class ZInputDeprecated {
     const attributes = this.getTextAttributes();
 
     return (
-      <div class="textWrapper">
+      <div class="text-wrapper">
         {this.renderLabel()}
         <div
           class={{
-            textareaWrapper: true,
+            "textarea-wrapper": true,
             ...(attributes.class as {[className: string]: boolean}),
-            disabled: attributes.disabled,
-            readonly: !!attributes.readonly,
-            istyping: this.isTyping,
+            "disabled": attributes.disabled,
+            "readonly": !!attributes.readonly,
+            "istyping": this.isTyping,
             [this.textareaWrapperFocus]: true,
             [this.textareaWrapperHover]: true,
           }}
@@ -423,7 +423,7 @@ export class ZInputDeprecated {
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
     return (
-      <div class="checkboxWrapper">
+      <div class="checkbox-wrapper">
         <input
           id={this.htmlid}
           type="checkbox"
@@ -439,9 +439,9 @@ export class ZInputDeprecated {
         <label
           htmlFor={this.htmlid}
           class={{
-            checkboxLabel: true,
-            after: this.labelafter,
-            before: !this.labelafter,
+            "checkbox-label": true,
+            "after": this.labelafter,
+            "before": !this.labelafter,
           }}
         >
           <z-icon
@@ -459,7 +459,7 @@ export class ZInputDeprecated {
   /* START radio */
   private renderRadio(): HTMLDivElement {
     return (
-      <div class="radioWrapper">
+      <div class="radio-wrapper">
         <input
           id={this.htmlid}
           type="radio"
@@ -474,9 +474,9 @@ export class ZInputDeprecated {
         <label
           htmlFor={this.htmlid}
           class={{
-            radioLabel: true,
-            after: this.labelafter,
-            before: !this.labelafter,
+            "radio-label": true,
+            "after": this.labelafter,
+            "before": !this.labelafter,
           }}
         >
           <z-icon
