@@ -500,3 +500,14 @@ export enum CoverHeroContentPosition {
   TOP = "top",
   BOTTOM = "bottom",
 }
+
+export enum CarouselButtonOptions {
+  TOP = "top",
+  BOTTOM = "bottom",
+}
+
+export enum CarouselProgressOptions {
+  BAR = "bar",  // to be implemented
+  DOTS = "dots",
+  NUMBERS = "numbers",
+}

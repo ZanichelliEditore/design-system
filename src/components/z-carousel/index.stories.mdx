@@ -1,4 +1,5 @@
 import { html } from "lit-html";
+import { CarouselButtonOptions, CarouselProgressOptions } from "../../beans";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import "./index.stories.css";
@@ -12,6 +13,14 @@ import "./index";
     ghostLoadinghHeight: {
       control: "number",
     },
+    buttons: {
+      options: Object.values(CarouselButtonOptions),
+      control: { type: "select" },
+    },
+    progress: {
+      options: Object.values(CarouselProgressOptions),
+      control: { type: "select" },
+    },
     zCarouselGutter: { control: "number", min: 0 },
   }}
 />
@@ -23,9 +32,13 @@ import "./index";
     name="ZCarousel-with-div"
     args={{
       zCarouselGutter: 8,
+      buttons: CarouselButtonOptions.TOP,
+      progress: CarouselProgressOptions.DOTS,
     }}
   >
     {(args) => html`<z-carousel
+      buttons=${args.buttons}
+      progress=${args.progress}
       style="--z-carousel-gutter: ${args.zCarouselGutter}px"
     >
       <li>

@@ -5,12 +5,20 @@
   --z-carousel-gutter: 0;
 }
 
+.z-carousel-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .z-carousel-items-container {
   display: flex;
+  flex-direction: row;
   overflow-x: scroll;
   padding-inline-start: 0;
   margin: 0;
   list-style: none;
+  scroll-snap-type: x mandatory;
 
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -24,4 +32,29 @@
 
 .z-carousel-items-container > *:not(:last-child) {
   margin-right: var(--z-carousel-gutter);
+}
+
+.z-carousel-items-container > li {
+  scroll-snap-align: center;
+}
+
+z-button[data-direction] {
+  --z-icon-width: 32px;
+  --z-icon-height: 32px;
+
+  position: absolute;
+  bottom: calc(50% - calc(var(--space-unit) * 3));
+  cursor: pointer;
+}
+
+z-button[data-direction="next"] {
+  right: 0;
+}
+
+.z-carousel-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-unit);
 }
