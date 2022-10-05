@@ -127,7 +127,7 @@ export class ZCarousel {
       this.showFooter() && <div class="z-carousel-footer">
         {this.buttons === CarouselButtonOptions.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-left-filled' onClick={this.onPrev.bind(this)}/>}
         {this.progress === CarouselProgressOptions.DOTS && this.single && this.items && <div class="dots-progress">
-          {this.items.map((item, key) => this.itemIndex === key ? <button class="current"><z-icon name="black-circle-filled"/></button> :
+          {this.items.map((_item, key) => this.itemIndex === key ? <button class="current"><z-icon name="black-circle-filled"/></button> :
             <button onClick={() => this.itemIndex = key}><z-icon name="white-circle-filled"/></button>)}
         </div>}
         {this.progress === CarouselProgressOptions.NUMBERS && this.single && this.items && <div class="numbers-progress">

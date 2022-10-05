@@ -263,13 +263,17 @@ export namespace Components {
          */
         "ghostLoadingHeight": number;
         /**
-          * whether the z-carousel is on loading state
+          * the z-carousel is on loading state
          */
         "isLoading": boolean;
         /**
-          * progress indicators if given
+          * progress indicators. progress is available only for "single" mode
          */
         "progress": null|CarouselProgressOptions;
+        /**
+          * shows only one content at a time
+         */
+        "single": boolean;
     }
     interface ZChip {
         /**
@@ -3065,13 +3069,21 @@ declare namespace LocalJSX {
          */
         "ghostLoadingHeight"?: number;
         /**
-          * whether the z-carousel is on loading state
+          * the z-carousel is on loading state
          */
         "isLoading"?: boolean;
         /**
-          * progress indicators if given
+          * emitted on single page mode index change
+         */
+        "onIndexChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * progress indicators. progress is available only for "single" mode
          */
         "progress"?: null|CarouselProgressOptions;
+        /**
+          * shows only one content at a time
+         */
+        "single"?: boolean;
     }
     interface ZChip {
         /**
