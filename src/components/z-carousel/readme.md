@@ -9,13 +9,13 @@ To activate keyboard navigation through elements, use any <a href="https://html.
 
 ## Properties
 
-| Property             | Attribute              | Description                                                                                                                          | Type                                                              | Default     |
-| -------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ----------- |
-| `buttons`            | `buttons`              | arrow buttons style if given                                                                                                         | `CarouselButtonOptions.BOTTOM \| CarouselButtonOptions.TOP`       | `undefined` |
-| `ghostLoadingHeight` | `ghost-loading-height` | the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. | `number`                                                          | `100`       |
-| `isLoading`          | `is-loading`           | the z-carousel is on loading state                                                                                                   | `boolean`                                                         | `undefined` |
-| `progress`           | `progress`             | progress indicators. progress is available only for "single" mode                                                                    | `CarouselProgressOptions.DOTS \| CarouselProgressOptions.NUMBERS` | `undefined` |
-| `single`             | `single`               | shows only one content at a time                                                                                                     | `boolean`                                                         | `false`     |
+| Property             | Attribute              | Description                                                                                                                          | Type                                                         | Default     |
+| -------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ----------- |
+| `arrows`             | `arrows`               | arrow buttons style if given                                                                                                         | `CarouselButtonOptions.BOTTOM \| CarouselButtonOptions.OVER` | `undefined` |
+| `ghostLoadingHeight` | `ghost-loading-height` | the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. | `number`                                                     | `100`       |
+| `isLoading`          | `is-loading`           | the z-carousel is on loading state                                                                                                   | `boolean`                                                    | `undefined` |
+| `progress`           | `progress`             | progress indicators. progress is available only for "single" mode                                                                    | `CarouselProgressMode.DOTS \| CarouselProgressMode.NUMBERS`  | `undefined` |
+| `single`             | `single`               | shows only one content at a time                                                                                                     | `boolean`                                                    | `false`     |
 
 
 ## Events

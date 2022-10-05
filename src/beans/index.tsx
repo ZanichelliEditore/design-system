@@ -502,11 +502,11 @@ export enum CoverHeroContentPosition {
 }
 
 export enum CarouselButtonOptions {
-  TOP = "top",
+  OVER = "over",
   BOTTOM = "bottom",
 }
 
-export enum CarouselProgressOptions {
+export enum CarouselProgressMode {
   DOTS = "dots",
   NUMBERS = "numbers",
 }

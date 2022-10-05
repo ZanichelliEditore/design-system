@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, CarouselButtonOptions, CarouselProgressOptions, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, CarouselButtonOptions, CarouselProgressMode, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -257,7 +257,7 @@ export namespace Components {
         /**
           * arrow buttons style if given
          */
-        "buttons": null|CarouselButtonOptions;
+        "arrows": null|CarouselButtonOptions;
         /**
           * the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
@@ -269,7 +269,7 @@ export namespace Components {
         /**
           * progress indicators. progress is available only for "single" mode
          */
-        "progress": null|CarouselProgressOptions;
+        "progress": null|CarouselProgressMode;
         /**
           * shows only one content at a time
          */
@@ -3063,7 +3063,7 @@ declare namespace LocalJSX {
         /**
           * arrow buttons style if given
          */
-        "buttons"?: null|CarouselButtonOptions;
+        "arrows"?: null|CarouselButtonOptions;
         /**
           * the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
@@ -3079,7 +3079,7 @@ declare namespace LocalJSX {
         /**
           * progress indicators. progress is available only for "single" mode
          */
-        "progress"?: null|CarouselProgressOptions;
+        "progress"?: null|CarouselProgressMode;
         /**
           * shows only one content at a time
          */
