@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { CarouselButtonOptions, CarouselProgressMode } from "../../beans";
+import { CarouselButtonPosition, CarouselProgressMode } from "../../beans";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import "./index.stories.css";
@@ -14,7 +14,7 @@ import "./index";
       control: "number",
     },
     arrows: {
-      options: Object.values(CarouselButtonOptions),
+      options: Object.values(CarouselButtonPosition),
       control: { type: "select" },
     },
     progress: {
@@ -31,13 +31,13 @@ import "./index";
   <Story
     name="ZCarousel-with-div"
     args={{
-      arrows: CarouselButtonOptions.OVER,
+      arrows: CarouselButtonPosition.OVER,
       progress: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
-      arrows=${args.arrows}
-      progress=${args.progress}
+      .arrows=${args.arrows}
+      .progress=${args.progress}
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -74,14 +74,14 @@ import "./index";
   <Story
     name="ZCarousel-single"
     args={{
-      arrows: CarouselButtonOptions.OVER,
+      arrows: CarouselButtonPosition.OVER,
       progress: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
-      arrows=${args.arrows}
-      progress=${args.progress}
+      .arrows=${args.arrows}
+      .progress=${args.progress}
       style="width: 200px; height: 200px;"
     >
       <li tabindex="0">

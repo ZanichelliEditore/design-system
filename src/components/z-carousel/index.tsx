@@ -1,5 +1,5 @@
 import { Component, h, Prop, Element, Watch, Event, EventEmitter, State } from "@stencil/core";
-import { CarouselButtonOptions, CarouselProgressMode, ButtonVariantEnum } from "../../beans";
+import { CarouselButtonPosition, CarouselProgressMode, ButtonVariantEnum } from "../../beans";
 
 /**
  * ZCarousel component.
@@ -20,7 +20,7 @@ export class ZCarousel {
   /** shows only one content at a time */
   @Prop() single: boolean = false;
   /** arrow buttons style if given */
-  @Prop() arrows: null|CarouselButtonOptions
+  @Prop() arrows: null|CarouselButtonPosition
   /** progress indicators. progress is available only for "single" mode */
   @Prop() progress: null|CarouselProgressMode
   /** the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
@@ -100,7 +100,7 @@ export class ZCarousel {
   }
 
   showFooter() {
-    return this.arrows === CarouselButtonOptions.BOTTOM ||
+    return this.arrows === CarouselButtonPosition.BOTTOM ||
       this.progress === CarouselProgressMode.DOTS || this.progress === CarouselProgressMode.NUMBERS;
   }
 
@@ -118,14 +118,14 @@ export class ZCarousel {
 
     return [
       <div class="z-carousel-container">
-        {this.arrows === CarouselButtonOptions.OVER && <z-button data-direction='prev' icon='chevron-left' onClick={this.onPrev.bind(this)}/>}
+        {this.arrows === CarouselButtonPosition.OVER && <z-button data-direction='prev' icon='chevron-left' onClick={this.onPrev.bind(this)}/>}
         <ul class="z-carousel-items-container">
           <slot />
         </ul>
-        {this.arrows === CarouselButtonOptions.OVER && <z-button data-direction='next' icon='chevron-right' onClick={this.onNext.bind(this)}/>}
+        {this.arrows === CarouselButtonPosition.OVER && <z-button data-direction='next' icon='chevron-right' onClick={this.onNext.bind(this)}/>}
       </div>,
       this.showFooter() && <div class="z-carousel-footer">
-        {this.arrows === CarouselButtonOptions.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-left-filled' onClick={this.onPrev.bind(this)}/>}
+        {this.arrows === CarouselButtonPosition.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-left-filled' onClick={this.onPrev.bind(this)}/>}
         {this.progress === CarouselProgressMode.DOTS && this.single && this.items && <div class="dots-progress">
           {this.items.map((_item, key) => this.current === key ? <button type="button" class="current"><z-icon name="white-circle-filled"/></button> :
             <button type="button" onClick={() => this.current = key}><z-icon name="black-circle-filled"/></button>)}
@@ -135,7 +135,7 @@ export class ZCarousel {
           <span class="interactive-3">di</span>
           <span class="interactive-3">{this.items.length}</span>
         </div>}
-        {this.arrows === CarouselButtonOptions.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-right-filled' onClick={this.onNext.bind(this)}/>}
+        {this.arrows === CarouselButtonPosition.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-right-filled' onClick={this.onNext.bind(this)}/>}
       </div>];
   }
 }

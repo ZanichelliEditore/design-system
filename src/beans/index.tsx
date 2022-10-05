@@ -501,7 +501,7 @@ export enum CoverHeroContentPosition {
   BOTTOM = "bottom",
 }
 
-export enum CarouselButtonOptions {
+export enum CarouselButtonPosition {
   OVER = "over",
   BOTTOM = "bottom",
 }
