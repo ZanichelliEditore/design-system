@@ -91,7 +91,7 @@ export class ZCarousel {
       this.current = this.items.findIndex((item) => item === entry.target);
     }, {
         root: this.itemsContainer,
-        threshold: 1,
+        threshold: 0.25,
     });
 
     this.items.forEach((element) => this.intersectionObserver.observe(element));
