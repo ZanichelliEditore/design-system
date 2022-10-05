@@ -507,7 +507,6 @@ export enum CarouselButtonOptions {
 }
 
 export enum CarouselProgressOptions {
-  BAR = "bar",  // to be implemented
   DOTS = "dots",
   NUMBERS = "numbers",
 }
