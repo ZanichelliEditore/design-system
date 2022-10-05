@@ -13,6 +13,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [Enum e Types](#enum-e-types)
   - [ZPanelElem](#zpanelelem)
     - [Rename della prop `descr_slot_name`](#rename-della-prop-descrslotname)
+  - [Classi CSS](#classi-css)
 - [v5.0.0](#v500)
   - [ZPopover](#zpopover)
   - [ZTooltip](#ztooltip)
@@ -97,6 +98,67 @@ Lista degli Enum e tipi interessati:
 #### Rename della prop `descr_slot_name`
 
 Per via delle regole di coding style, la prop `descr_slot_name` diventa `descrSlotName`.
+
+### Classi CSS
+
+Per via delle regole di Stylelint, alcune classi CSS hanno cambiato nome (da _camelCase_ a _kebab-case_). Non dovrebbe avere un impatto nei prodotti MA se, per via di situazioni molto particolari, è stato necessario intervenire sullo stile dei componenti, usando dei selettori per classi, allora sarà neccessario andarli a modificare.
+
+Di seguito l'elenco dei componenti interessati e delle classi modificate:
+
+- `z-input`
+
+  - .hasClearIcon
+  - .hasIcon
+  - .iconButton
+  - .iconsWrapper
+  - .inputIcon
+  - .inputLabel
+  - .resetIcon
+  - .showHidePasswordIcon
+  - .textareaWrapper
+  - .textWrapper
+
+- `z-input-deprecated`
+
+  - .hasClearIcon
+  - .hasIcon
+  - .iconsWrapper
+  - .input_error
+  - .input_success
+  - .input_warning
+  - .resetIcon
+  - .showHidePasswordIcon
+  - .textareaWrapper
+
+- `z-input` / `z-input-deprecated`
+
+  - La classe `.showHidePasswordIcon` è stata modificata in `.toggle-password-icon` per chiarezza
+
+- `z-input-deprecated` _(checkbox)_
+
+  - .checkboxLabel
+  - .checkboxWrapper
+  - .radioLabel
+  - .radioWrapper
+
+- `z-select`
+
+  - .noResults
+  - .selectWrapper
+  - .ulScrollWrapper
+
+- `z-chip`
+
+  - .iconSx
+
+- `z-file-upload`
+
+  - .modalWrapper
+
+- `z-table-empty-box`
+  - .has2Cta
+
+> Sono state cambiate classi CSS anche in altri componenti che non sono inclusi nell'elenco: quei componenti hanno l'opzione `shadow: true`, quindi di sicuro non è stato possibile usare le classi CSS per modificarne lo stile dai prodotti.
 
 ## v5.0.0
 
