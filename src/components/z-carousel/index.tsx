@@ -40,6 +40,11 @@ export class ZCarousel {
    */
   itemsContainer: HTMLUListElement;
 
+  /**
+   * Observer that handles current index change when scrolling on single mode.
+   */
+  intersectionObserver: IntersectionObserver;
+
   /** emitted on single page mode index change */
   @Event() indexChange: EventEmitter;
   emitIndexChange() {
@@ -57,12 +62,39 @@ export class ZCarousel {
     this.emitIndexChange();
   }
 
+  @Watch('single')
+  onSingleModeChange() {
+    if (this.single && !this.intersectionObserver) {
+        this.setIntersectionObserver();
+    }
+  }
+
   componentDidLoad() {
     this.itemsContainer = this.hostElement.querySelector('.z-carousel-items-container');
     if (!this.itemsContainer) {
       return;
     }
     this.items = Array.from(this.itemsContainer.querySelectorAll('li'));
+
+    if (this.single) {
+      this.setIntersectionObserver();
+    }
+  }
+
+  setIntersectionObserver() {
+    this.intersectionObserver = new window.IntersectionObserver((entries) => {
+      const entry = entries.find((entry) => entry.isIntersecting);
+      if (!entry) {
+          return;
+      }
+
+      this.current = this.items.findIndex((item) => item === entry.target);
+    }, {
+        root: this.itemsContainer,
+        threshold: 1,
+    });
+
+    this.items.forEach((element) => this.intersectionObserver.observe(element));
   }
 
   onPrev() {

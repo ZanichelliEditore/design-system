@@ -13,10 +13,6 @@ import "./index";
     ghostLoadinghHeight: {
       control: "number",
     },
-    arrows: {
-      options: Object.values(CarouselButtonPosition),
-      control: { type: "select" },
-    },
     progress: {
       options: Object.values(CarouselProgressMode),
       control: { type: "select" },
@@ -29,15 +25,10 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-with-div"
-    args={{
-      arrows: CarouselButtonPosition.OVER,
-      progress: CarouselProgressMode.DOTS,
-    }}
+    name="ZCarousel-over-arrows"
   >
     {(args) => html`<z-carousel
-      .arrows=${args.arrows}
-      .progress=${args.progress}
+      arrows=${CarouselButtonPosition.OVER}
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -72,16 +63,59 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-single"
+    name="ZCarousel-single-bottom-arrows"
     args={{
-      arrows: CarouselButtonPosition.OVER,
       progress: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
-      .arrows=${args.arrows}
-      .progress=${args.progress}
+      arrows=${CarouselButtonPosition.BOTTOM}
+      progress=${args.progress}
+      style="width: 200px; height: 200px;"
+    >
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="ZCarousel-single-over-arrows"
+    args={{
+      progress: CarouselProgressMode.DOTS,
+    }}
+  >
+    {(args) => html`<z-carousel
+      single
+      arrows=${CarouselButtonPosition.OVER}
+      progress=${args.progress}
       style="width: 200px; height: 200px;"
     >
       <li tabindex="0">

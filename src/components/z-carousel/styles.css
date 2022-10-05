@@ -91,19 +91,20 @@ z-button[data-direction="next"] {
 }
 
 .z-carousel-footer .dots-progress button {
-  border: none;
-  background-color: transparent;
-}
-
-.z-carousel-footer .dots-progress button {
   display: flex;
   align-items: center;
   margin: 0;
   padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .z-carousel-footer .dots-progress button:not(.current) {
   cursor: pointer;
+}
+
+.z-carousel-footer .numbers-progress {
+  margin: 0 calc(var(--space-unit) / 2);
 }
 
 .z-carousel-footer .numbers-progress > * {
