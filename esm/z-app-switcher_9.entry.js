@@ -322,7 +322,7 @@ const ZInput = class {
 };
 ZInput.style = stylesCss$4;
 
-const stylesCss$3 = ":host{display:flex;align-items:start;min-height:calc(var(--space-unit) * 2);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host(:focus){outline:none}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);margin:calc(var(--space-unit) / 3) var(--space-unit) 0 0}";
+const stylesCss$3 = ":host{display:flex;align-items:start;min-height:calc(var(--space-unit) * 2.5);margin-top:var(--space-unit);color:var(--color-text05);fill:currentColor;font-family:var(--font-family-sans);font-size:var(--font-size-2);letter-spacing:0.16px}:host([status='success']){color:var(--color-text-success)}:host([status='error']){color:var(--color-text-error)}:host([status='warning']){color:var(--color-warning02)}:host(:focus){outline:none}:host>z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);--z-icon-right-margin:var(--space-unit)}";
 
 const ZInputMessage = class {
   constructor(hostRef) {
