@@ -29,6 +29,11 @@ z-carousel .loading-items-container {
   flex-direction: column;
 }
 
+.z-carousel-title {
+  color: var(--gray800);
+  margin-bottom: var(--space-unit);
+}
+
 .z-carousel-items-container {
   display: flex;
   flex-direction: row;

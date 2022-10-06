@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, CarouselButtonPosition, CarouselProgressMode, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, CarouselArrowsPosition, CarouselProgressMode, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -255,23 +255,27 @@ export namespace Components {
     }
     interface ZCarousel {
         /**
-          * arrow buttons style if given
+          * Arrow buttons position
          */
-        "arrows": null|CarouselButtonPosition;
+        "arrows": null | CarouselArrowsPosition;
         /**
-          * the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostLoadingHeight": number;
         /**
-          * the z-carousel is on loading state
+          * The z-carousel is on loading state
          */
         "isLoading": boolean;
         /**
-          * progress indicators. progress is available only for "single" mode
+          * The z-carousel title, if given.
          */
-        "progress": null|CarouselProgressMode;
+        "label"?: string;
         /**
-          * shows only one content at a time
+          * Progress indicator. Only available for `single` mode
+         */
+        "progress": null | CarouselProgressMode;
+        /**
+          * Shows only one content at a time
          */
         "single": boolean;
     }
@@ -3061,27 +3065,31 @@ declare namespace LocalJSX {
     }
     interface ZCarousel {
         /**
-          * arrow buttons style if given
+          * Arrow buttons position
          */
-        "arrows"?: null|CarouselButtonPosition;
+        "arrows"?: null | CarouselArrowsPosition;
         /**
-          * the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostLoadingHeight"?: number;
         /**
-          * the z-carousel is on loading state
+          * The z-carousel is on loading state
          */
         "isLoading"?: boolean;
         /**
-          * emitted on single page mode index change
+          * The z-carousel title, if given.
+         */
+        "label"?: string;
+        /**
+          * Emitted on index change and only in `single` mode.
          */
         "onIndexChange"?: (event: CustomEvent<any>) => void;
         /**
-          * progress indicators. progress is available only for "single" mode
+          * Progress indicator. Only available for `single` mode
          */
-        "progress"?: null|CarouselProgressMode;
+        "progress"?: null | CarouselProgressMode;
         /**
-          * shows only one content at a time
+          * Shows only one content at a time
          */
         "single"?: boolean;
     }

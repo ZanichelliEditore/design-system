@@ -9,6 +9,7 @@ import "./index";
   title="ZCarousel"
   component="z-carousel"
   argTypes={{
+    label: { control: { type: 'text' } },
     isLoading: { control: { type: "boolean" } },
     ghostLoadinghHeight: {
       control: "number",
@@ -28,6 +29,7 @@ import "./index";
     name="ZCarousel-over-arrows"
   >
     {(args) => html`<z-carousel
+      label=${args.label || ''}
       arrows=${CarouselArrowsPosition.OVER}
     >
       <li tabindex="0">
@@ -68,11 +70,13 @@ import "./index";
       layout: "centered",
     }}
     args={{
+      label: 'Carousel title',
       progress: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
+      label=${args.label}
       arrows=${CarouselArrowsPosition.BOTTOM}
       progress=${args.progress}
       style="width: 200px; height: 200px;"
@@ -115,11 +119,13 @@ import "./index";
       layout: "centered",
     }}
     args={{
+      label: 'Carousel title',
       progress: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
+      label=${args.label}
       arrows=${CarouselArrowsPosition.OVER}
       progress=${args.progress}
       style="width: 200px; height: 200px;"
@@ -158,8 +164,12 @@ import "./index";
 <Canvas>
   <Story
     name="ZCarousel-with-elements-loading"
+    args={{
+      label: 'Carousel title',
+    }}
   >
     {(args) => html`<z-carousel
+      label=${args.label}
     >
       <li>
         <div class="carousel-box-loading">
@@ -204,11 +214,13 @@ import "./index";
   <Story
     name="ZCarousel-ghost-loading"
     args={{
+      label: 'Carousel title',
       isLoading: true,
       ghostLoadinghHeight: 200,
     }}
   >
     {(args) => html`<z-carousel
+      label=${args.label}
       is-loading=${args.isLoading}
       ghost-loading-height=${args.ghostLoadinghHeight}
     >

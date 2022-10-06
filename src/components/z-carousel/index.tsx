@@ -33,6 +33,10 @@ export class ZCarousel {
   @Prop()
   isLoading: boolean;
 
+  /** The z-carousel title, if given. */
+  @Prop()
+  label?: string;
+
   /** Shows only one content at a time */
   @Prop()
   single: boolean = false;
@@ -192,19 +196,21 @@ export class ZCarousel {
 
   render(): HTMLDivElement | HostElement {
     if (this.isLoading) {
-      return (
+      return <Host>
+        {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
         <div style={{ height: `${this.ghostLoadingHeight}px` }}>
           <z-ghost-loading></z-ghost-loading>
           <div class="loading-items-container">
             <slot />
           </div>
         </div>
-      );
+      </Host>;
     }
 
     return (
       <Host>
         <div class="z-carousel-container">
+          {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
           {this.arrows === CarouselArrowsPosition.OVER && (
             <z-button
               data-direction="prev"
