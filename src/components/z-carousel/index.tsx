@@ -1,103 +1,123 @@
-import { Component, h, Prop, Element, Watch, Event, EventEmitter, State } from "@stencil/core";
-import { CarouselButtonPosition, CarouselProgressMode, ButtonVariantEnum } from "../../beans";
+import {
+  Component,
+  h,
+  Prop,
+  Element,
+  Watch,
+  Event,
+  EventEmitter,
+  State,
+  Host,
+} from "@stencil/core";
+import { HostElement } from "@stencil/core/internal";
+import {
+  CarouselArrowsPosition,
+  CarouselProgressMode,
+  ButtonVariantEnum,
+} from "../../beans";
 
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.
  * @slot - carousel items. use `<li>` elements inside this slot as it is wrapped inside an `<ul>`
  */
-
 @Component({
   tag: "z-carousel",
   styleUrl: "styles.css",
   shadow: false,
 })
 export class ZCarousel {
-  @Element() hostElement: HTMLElement;
+  @Element() hostElement: HTMLZCarouselElement;
 
-  /** the z-carousel is on loading state */
-  @Prop() isLoading: boolean;
-  /** shows only one content at a time */
-  @Prop() single: boolean = false;
-  /** arrow buttons style if given */
-  @Prop() arrows: null|CarouselButtonPosition
-  /** progress indicators. progress is available only for "single" mode */
-  @Prop() progress: null|CarouselProgressMode
-  /** the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
-  @Prop() ghostLoadingHeight: number = 100;
-  /**
-   * Current item index for single mode.
-   */
+  /** The z-carousel is on loading state */
+  @Prop()
+  isLoading: boolean;
+
+  /** Shows only one content at a time */
+  @Prop()
+  single: boolean = false;
+
+  /** Arrow buttons position */
+  @Prop()
+  arrows: null | CarouselArrowsPosition;
+
+  /** Progress indicator. Only available for `single` mode */
+  @Prop()
+  progress: null | CarouselProgressMode;
+
+  /** The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won"t show. */
+  @Prop()
+  ghostLoadingHeight: number = 100;
+
+  /** Current item index for single mode. */
   @State() current: number = 0;
 
-  /**
-   * Items on the slider.
-   */
-  @State() items: HTMLLIElement[];
+  /** Items on the slider. */
+  @State()
+  items: HTMLLIElement[];
 
-  /**
-   * Reference for the items container element.
-   */
-  itemsContainer: HTMLUListElement;
+  /** Reference for the items container element. */
+  private itemsContainer: HTMLUListElement;
 
-  /**
-   * Observer that handles current index change when scrolling on single mode.
-   */
-  intersectionObserver: IntersectionObserver;
+  /** Observer that handles current index change when scrolling on single mode. */
+  private intersectionObserver: IntersectionObserver;
 
-  /** emitted on single page mode index change */
+  /** Emitted on index change and only in `single` mode. */
   @Event() indexChange: EventEmitter;
-  emitIndexChange() {
-    this.indexChange.emit({ currentItem: this.current });
-    console.debug('z-carousel: indexChange', this.current);
-  }
 
-  @Watch('current')
+  @Watch("current")
   onIndexChange() {
-    this.items.find((a) => !a.classList.contains('hidden'))?.classList.add('hidden');
-    this.items[this.current].classList.remove('hidden');
     this.items[this.current].scrollIntoView({
-      behavior: 'smooth',
+      behavior: "smooth",
     });
-    this.emitIndexChange();
+    this.indexChange.emit({ currentItem: this.current });
   }
 
-  @Watch('single')
+  @Watch("single")
   onSingleModeChange() {
     if (this.single && !this.intersectionObserver) {
-        this.setIntersectionObserver();
+      this.setIntersectionObserver();
     }
   }
 
-  componentDidLoad() {
-    this.itemsContainer = this.hostElement.querySelector('.z-carousel-items-container');
+  componentDidLoad(): void {
+    this.itemsContainer = this.hostElement.querySelector(
+      ".z-carousel-items-container"
+    );
     if (!this.itemsContainer) {
       return;
     }
-    this.items = Array.from(this.itemsContainer.querySelectorAll('li'));
+
+    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
 
     if (this.single) {
       this.setIntersectionObserver();
     }
   }
 
-  setIntersectionObserver() {
-    this.intersectionObserver = new window.IntersectionObserver((entries) => {
-      const entry = entries.find((entry) => entry.isIntersecting);
-      if (!entry) {
+  /**
+   * Set an intersection observer to show the current index to the indicator when scrolling.
+   */
+  private setIntersectionObserver(): void {
+    this.intersectionObserver = new window.IntersectionObserver(
+      (entries) => {
+        const entry = entries.find((entry) => entry.isIntersecting);
+        if (!entry) {
           return;
-      }
+        }
 
-      this.current = this.items.findIndex((item) => item === entry.target);
-    }, {
+        this.current = this.items.findIndex((item) => item === entry.target);
+      },
+      {
         root: this.itemsContainer,
         threshold: 0.25,
-    });
+      }
+    );
 
     this.items.forEach((element) => this.intersectionObserver.observe(element));
   }
 
-  onPrev() {
+  private onPrev(): void {
     if (this.single) {
       this.current = Math.max(0, this.current - 1);
       return;
@@ -110,13 +130,14 @@ export class ZCarousel {
 
     scroller.scrollBy({
       left: -scroller.clientWidth / 2,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 
-  onNext() {
+  private onNext(): void {
     if (this.single) {
       this.current = Math.min(this.current + 1, this.items.length - 1);
+
       return;
     }
 
@@ -127,16 +148,36 @@ export class ZCarousel {
 
     scroller.scrollBy({
       left: scroller.clientWidth / 2,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 
-  showFooter() {
-    return this.arrows === CarouselButtonPosition.BOTTOM ||
-      this.progress === CarouselProgressMode.DOTS || this.progress === CarouselProgressMode.NUMBERS;
+  /**
+   * Check if footer can be rendered.
+   * @returns {boolean}
+   */
+  private canShowFooter(): boolean {
+    return (
+      this.arrows === CarouselArrowsPosition.BOTTOM ||
+      this.progress === CarouselProgressMode.DOTS ||
+      this.progress === CarouselProgressMode.NUMBERS
+    );
   }
 
-  render() {
+  /**
+   * Set current item to passed index.
+   * @param {number} index Index to set
+   * @returns {void}
+   */
+  private goTo(index): void {
+    if (this.current === index) {
+      return;
+    }
+
+    this.current = index;
+  }
+
+  render(): HTMLDivElement | HostElement {
     if (this.isLoading) {
       return (
         <div style={{ height: `${this.ghostLoadingHeight}px` }}>
@@ -148,26 +189,77 @@ export class ZCarousel {
       );
     }
 
-    return [
-      <div class="z-carousel-container">
-        {this.arrows === CarouselButtonPosition.OVER && <z-button data-direction='prev' icon='chevron-left' onClick={this.onPrev.bind(this)}/>}
-        <ul class="z-carousel-items-container">
-          <slot />
-        </ul>
-        {this.arrows === CarouselButtonPosition.OVER && <z-button data-direction='next' icon='chevron-right' onClick={this.onNext.bind(this)}/>}
-      </div>,
-      this.showFooter() && <div class="z-carousel-footer">
-        {this.arrows === CarouselButtonPosition.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-left-filled' onClick={this.onPrev.bind(this)}/>}
-        {this.progress === CarouselProgressMode.DOTS && this.single && this.items && <div class="dots-progress">
-          {this.items.map((_item, key) => this.current === key ? <button type="button" class="current"><z-icon name="white-circle-filled"/></button> :
-            <button type="button" onClick={() => this.current = key}><z-icon name="black-circle-filled"/></button>)}
-        </div>}
-        {this.progress === CarouselProgressMode.NUMBERS && this.single && this.items && <div class="numbers-progress">
-          <span class="interactive-3 current">{this.current + 1}</span>
-          <span class="interactive-3">di</span>
-          <span class="interactive-3">{this.items.length}</span>
-        </div>}
-        {this.arrows === CarouselButtonPosition.BOTTOM && <z-button variant={ButtonVariantEnum.tertiary} icon='arrow-right-filled' onClick={this.onNext.bind(this)}/>}
-      </div>];
+    return (
+      <Host>
+        <div class="z-carousel-container">
+          {this.arrows === CarouselArrowsPosition.OVER && (
+            <z-button
+              data-direction="prev"
+              icon="chevron-left"
+              onClick={this.onPrev.bind(this)}
+            />
+          )}
+          <ul class="z-carousel-items-container">
+            <slot />
+          </ul>
+          {this.arrows === CarouselArrowsPosition.OVER && (
+            <z-button
+              data-direction="next"
+              icon="chevron-right"
+              onClick={this.onNext.bind(this)}
+            />
+          )}
+        </div>
+
+        {this.canShowFooter() && (
+          <div class="z-carousel-footer">
+            {this.arrows === CarouselArrowsPosition.BOTTOM && (
+              <z-button
+                variant={ButtonVariantEnum.tertiary}
+                icon="arrow-left-filled"
+                onClick={this.onPrev.bind(this)}
+              />
+            )}
+            {this.progress === CarouselProgressMode.DOTS &&
+              this.single &&
+              this.items && (
+                <div class="dots-progress">
+                  {this.items.map((_item, key) => (
+                    <button
+                      type="button"
+                      class={{ current: this.current === key }}
+                      onClick={() => this.goTo(key)}
+                    >
+                      <z-icon
+                        name={
+                          this.current === key
+                            ? "white-circle-filled"
+                            : "black-circle-filled"
+                        }
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            {this.progress === CarouselProgressMode.NUMBERS &&
+              this.single &&
+              this.items && (
+                <div class="numbers-progress">
+                  <span class="interactive-3 current">{this.current + 1}</span>
+                  <span class="interactive-3">di</span>
+                  <span class="interactive-3">{this.items.length}</span>
+                </div>
+              )}
+            {this.arrows === CarouselArrowsPosition.BOTTOM && (
+              <z-button
+                variant={ButtonVariantEnum.tertiary}
+                icon="arrow-right-filled"
+                onClick={this.onNext.bind(this)}
+              />
+            )}
+          </div>
+        )}
+      </Host>
+    );
   }
 }

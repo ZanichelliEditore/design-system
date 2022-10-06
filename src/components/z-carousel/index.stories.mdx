@@ -1,5 +1,5 @@
 import { html } from "lit-html";
-import { CarouselButtonPosition, CarouselProgressMode } from "../../beans";
+import { CarouselArrowsPosition, CarouselProgressMode } from "../../beans";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import "./index.stories.css";
@@ -28,7 +28,7 @@ import "./index";
     name="ZCarousel-over-arrows"
   >
     {(args) => html`<z-carousel
-      arrows=${CarouselButtonPosition.OVER}
+      arrows=${CarouselArrowsPosition.OVER}
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -70,7 +70,7 @@ import "./index";
   >
     {(args) => html`<z-carousel
       single
-      arrows=${CarouselButtonPosition.BOTTOM}
+      arrows=${CarouselArrowsPosition.BOTTOM}
       progress=${args.progress}
       style="width: 200px; height: 200px;"
     >
@@ -114,7 +114,7 @@ import "./index";
   >
     {(args) => html`<z-carousel
       single
-      arrows=${CarouselButtonPosition.OVER}
+      arrows=${CarouselArrowsPosition.OVER}
       progress=${args.progress}
       style="width: 200px; height: 200px;"
     >
