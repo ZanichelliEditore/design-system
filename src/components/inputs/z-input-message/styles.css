@@ -1,7 +1,7 @@
 :host {
   display: flex;
   align-items: start;
-  min-height: calc(var(--space-unit) * 2);
+  min-height: calc(var(--space-unit) * 2.5);
   margin-top: var(--space-unit);
   color: var(--color-text05);
   fill: currentColor;
@@ -29,5 +29,5 @@
 :host > z-icon {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
-  margin: calc(var(--space-unit) / 3) var(--space-unit) 0 0
+  --z-icon-right-margin: var(--space-unit);
 }
