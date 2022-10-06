@@ -29,5 +29,5 @@
 :host > z-icon {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
-  margin-right: var(--space-unit);
+  --z-icon-right-margin: var(--space-unit);
 }
