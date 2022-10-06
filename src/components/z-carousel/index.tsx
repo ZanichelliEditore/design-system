@@ -45,7 +45,7 @@ export class ZCarousel {
   @Prop()
   progress: null | CarouselProgressMode;
 
-  /** The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won"t show. */
+  /** The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
   @Prop()
   ghostLoadingHeight: number = 100;
 
@@ -62,11 +62,15 @@ export class ZCarousel {
   /** Observer that handles current index change when scrolling on single mode. */
   private intersectionObserver: IntersectionObserver;
 
+  /** Flag indicating the items container is scrolling programmatically towards the stored index. */
+  private scrollingTo: number = null;
+
   /** Emitted on index change and only in `single` mode. */
   @Event() indexChange: EventEmitter;
 
   @Watch("current")
   onIndexChange() {
+    this.scrollingTo = this.current;
     this.items[this.current].scrollIntoView({
       behavior: "smooth",
     });
@@ -106,11 +110,20 @@ export class ZCarousel {
           return;
         }
 
-        this.current = this.items.findIndex((item) => item === entry.target);
+        const entryIndex = this.items.findIndex((item) => item === entry.target);
+
+        /* skip setting the current item if intersection has been triggered by a programmatic scroll
+        (the scrollIntoView in `onIndexChange`) */
+        if (this.scrollingTo !== null && entryIndex !== this.scrollingTo) {
+          return;
+        }
+
+        this.current = entryIndex;
+        this.scrollingTo = null;
       },
       {
         root: this.itemsContainer,
-        threshold: 0.25,
+        threshold: 0.5,
       }
     );
 
