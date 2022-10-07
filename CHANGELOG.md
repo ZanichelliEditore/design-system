@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.5.5](https://github.com/ZanichelliEditore/design-system/compare/v5.5.4...v5.5.5) (2022-10-06)
+
+
+### Bug Fixes
+
+* component min-height, icon vertical alignment ([30babe9](https://github.com/ZanichelliEditore/design-system/commit/30babe909197a2d2e2ca92b91e4b4c7cf73dd24d))
+* update css property name ([d70ec04](https://github.com/ZanichelliEditore/design-system/commit/d70ec04a9ce23b231fda1946b24d4a6996f4e886))
+
 ### [5.5.4](https://github.com/ZanichelliEditore/design-system/compare/v5.5.3...v5.5.4) (2022-09-28)
 
 ### [5.5.3](https://github.com/ZanichelliEditore/design-system/compare/v5.5.2...v5.5.3) (2022-09-28)
