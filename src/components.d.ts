@@ -2032,6 +2032,202 @@ export namespace Components {
     interface ZVisuallyHidden {
     }
 }
+export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAppHeaderElement;
+}
+export interface ZAppSwitcherCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAppSwitcherElement;
+}
+export interface ZButtonFilterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZButtonFilterElement;
+}
+export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZButtonSortElement;
+}
+export interface ZCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZCardElement;
+}
+export interface ZCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZCarouselElement;
+}
+export interface ZChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZChipElement;
+}
+export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZComboboxElement;
+}
+export interface ZContextualMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZContextualMenuElement;
+}
+export interface ZCookiebarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZCookiebarElement;
+}
+export interface ZDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZDatePickerElement;
+}
+export interface ZDragdropAreaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZDragdropAreaElement;
+}
+export interface ZFileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZFileElement;
+}
+export interface ZFileUploadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZFileUploadElement;
+}
+export interface ZFooterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZFooterElement;
+}
+export interface ZInfoBoxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZInfoBoxElement;
+}
+export interface ZInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZInputElement;
+}
+export interface ZInputDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZInputDeprecatedElement;
+}
+export interface ZLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZLinkElement;
+}
+export interface ZListElementCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZListElementElement;
+}
+export interface ZMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuElement;
+}
+export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuSectionElement;
+}
+export interface ZModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZModalElement;
+}
+export interface ZModalLoginCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZModalLoginElement;
+}
+export interface ZMyzCardAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMyzCardAlertElement;
+}
+export interface ZMyzCardDictionaryCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMyzCardDictionaryElement;
+}
+export interface ZMyzCardInfoCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMyzCardInfoElement;
+}
+export interface ZMyzListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMyzListItemElement;
+}
+export interface ZNavigationTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZNavigationTabElement;
+}
+export interface ZNavigationTabLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZNavigationTabLinkElement;
+}
+export interface ZNotificationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZNotificationElement;
+}
+export interface ZOffcanvasCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZOffcanvasElement;
+}
+export interface ZOtpCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZOtpElement;
+}
+export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPaginationElement;
+}
+export interface ZPaginationBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPaginationBarElement;
+}
+export interface ZPocketCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPocketElement;
+}
+export interface ZPocketHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPocketHeaderElement;
+}
+export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPopoverElement;
+}
+export interface ZPopoverDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPopoverDeprecatedElement;
+}
+export interface ZRangePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZRangePickerElement;
+}
+export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZSelectElement;
+}
+export interface ZTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTableElement;
+}
+export interface ZTableHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTableHeaderElement;
+}
+export interface ZTableRowCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTableRowElement;
+}
+export interface ZToastNotificationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZToastNotificationElement;
+}
+export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZToggleButtonElement;
+}
+export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZToggleSwitchElement;
+}
+export interface ZTooltipDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTooltipDeprecatedElement;
+}
+export interface ZUserDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZUserDropdownElement;
+}
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
@@ -2822,7 +3018,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the `stucked` state of the header changes
          */
-        "onSticking"?: (event: CustomEvent<any>) => void;
+        "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
           * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
          */
@@ -2836,7 +3032,7 @@ declare namespace LocalJSX {
         /**
           * emitted on app button icon click, returns open/closed state
          */
-        "onAppButtonClick"?: (event: CustomEvent<any>) => void;
+        "onAppButtonClick"?: (event: ZAppSwitcherCustomEvent<any>) => void;
         /**
           * theme variant, default 'dark'
          */
@@ -2999,7 +3195,7 @@ declare namespace LocalJSX {
         /**
           * remove filter click event, returns filterid
          */
-        "onRemovefilter"?: (event: CustomEvent<any>) => void;
+        "onRemovefilter"?: (event: ZButtonFilterCustomEvent<any>) => void;
     }
     interface ZButtonSort {
         /**
@@ -3025,7 +3221,7 @@ declare namespace LocalJSX {
         /**
           * sorting direction click event, returns buttonid and sortAsc
          */
-        "onButtonSortClick"?: (event: CustomEvent<any>) => void;
+        "onButtonSortClick"?: (event: ZButtonSortCustomEvent<any>) => void;
         /**
           * sortable flag (optional)
          */
@@ -3053,7 +3249,7 @@ declare namespace LocalJSX {
         /**
           * Card click event. Fired only if `clickable` is true.
          */
-        "onCardClicked"?: (event: CustomEvent<any>) => void;
+        "onCardClicked"?: (event: ZCardCustomEvent<any>) => void;
         /**
           * Enable shadow. Default: false.
          */
@@ -3083,7 +3279,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on index change and only in `single` mode.
          */
-        "onIndexChange"?: (event: CustomEvent<any>) => void;
+        "onIndexChange"?: (event: ZCarouselCustomEvent<any>) => void;
         /**
           * Progress indicator. Only available for `single` mode
          */
@@ -3109,7 +3305,7 @@ declare namespace LocalJSX {
         /**
           * click on interactive icon
          */
-        "onInteractiveIconClick"?: (event: CustomEvent<any>) => void;
+        "onInteractiveIconClick"?: (event: ZChipCustomEvent<any>) => void;
         /**
           * z-chip size type, can be default, medium or small
          */
@@ -3167,7 +3363,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when value is checked/unchecked. Returns id, items.
          */
-        "onComboboxChange"?: (event: CustomEvent<any>) => void;
+        "onComboboxChange"?: (event: ZComboboxCustomEvent<any>) => void;
         /**
           * search input label text (optional)
          */
@@ -3197,7 +3393,7 @@ declare namespace LocalJSX {
         /**
           * remove filter click event, returns filterid
          */
-        "onClickContextualMenu"?: (event: CustomEvent<any>) => void;
+        "onClickContextualMenu"?: (event: ZContextualMenuCustomEvent<any>) => void;
         /**
           * [optional] Sets the position of the popover
          */
@@ -3219,7 +3415,7 @@ declare namespace LocalJSX {
         /**
           * emitted on ACCETTA button click, returns event
          */
-        "onAccept"?: (event: CustomEvent<any>) => void;
+        "onAccept"?: (event: ZCookiebarCustomEvent<any>) => void;
     }
     interface ZCoverHero {
         /**
@@ -3251,7 +3447,7 @@ declare namespace LocalJSX {
         /**
           * emitted when date changes, returns selected date
          */
-        "onDateSelect"?: (event: CustomEvent<any>) => void;
+        "onDateSelect"?: (event: ZDatePickerCustomEvent<any>) => void;
     }
     interface ZDivider {
         /**
@@ -3271,7 +3467,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when user drop one or more files
          */
-        "onFileDropped"?: (event: CustomEvent<any>) => void;
+        "onFileDropped"?: (event: ZDragdropAreaCustomEvent<any>) => void;
     }
     interface ZFile {
         /**
@@ -3282,7 +3478,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a z-file component is removed from the DOM
          */
-        "onRemoveFile"?: (event: CustomEvent<any>) => void;
+        "onRemoveFile"?: (event: ZFileCustomEvent<any>) => void;
     }
     interface ZFileUpload {
         /**
@@ -3308,7 +3504,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when user select one or more files
          */
-        "onFileInput"?: (event: CustomEvent<any>) => void;
+        "onFileInput"?: (event: ZFileUploadCustomEvent<any>) => void;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
@@ -3326,11 +3522,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on credits link click
          */
-        "onCreditsLinkClick"?: (event: CustomEvent<any>) => void;
+        "onCreditsLinkClick"?: (event: ZFooterCustomEvent<any>) => void;
         /**
           * Emitted on report a problem button click
          */
-        "onReportAProblemButtonClick"?: (event: CustomEvent<any>) => void;
+        "onReportAProblemButtonClick"?: (event: ZFooterCustomEvent<any>) => void;
         /**
           * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
          */
@@ -3417,7 +3613,7 @@ declare namespace LocalJSX {
         /**
           * emitted on close icon click
          */
-        "onInfoBoxClose"?: (event: CustomEvent<any>) => void;
+        "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
     }
     interface ZInfoReveal {
         /**
@@ -3490,19 +3686,19 @@ declare namespace LocalJSX {
         /**
           * Emitted on input value change, returns value, validity
          */
-        "onInputChange"?: (event: CustomEvent<any>) => void;
+        "onInputChange"?: (event: ZInputCustomEvent<any>) => void;
         /**
           * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
          */
-        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        "onInputCheck"?: (event: ZInputCustomEvent<any>) => void;
         /**
           * Emitted when user starts typing
          */
-        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        "onStartTyping"?: (event: ZInputCustomEvent<any>) => void;
         /**
           * Emitted when user stops typing, returns value, validity
          */
-        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        "onStopTyping"?: (event: ZInputCustomEvent<any>) => void;
         /**
           * pattern value (optional): available for tel, text, search, url, email, password
          */
@@ -3600,23 +3796,23 @@ declare namespace LocalJSX {
         /**
           * Emitted on input value change, returns value, keycode, validity
          */
-        "onInputChange"?: (event: CustomEvent<any>) => void;
+        "onInputChange"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
         /**
           * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
          */
-        "onInputCheck"?: (event: CustomEvent<any>) => void;
+        "onInputCheck"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
         /**
           * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
          */
-        "onOptionSelect"?: (event: CustomEvent<any>) => void;
+        "onOptionSelect"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
         /**
           * Emitted when user starts typing
          */
-        "onStartTyping"?: (event: CustomEvent<any>) => void;
+        "onStartTyping"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
         /**
           * Emitted when user stops typing, returns value, validity
          */
-        "onStopTyping"?: (event: CustomEvent<any>) => void;
+        "onStopTyping"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
         /**
           * the input placeholder (optional)
          */
@@ -3710,7 +3906,7 @@ declare namespace LocalJSX {
         /**
           * emitted on link click, returns linkId
          */
-        "onZLinkClick"?: (event: CustomEvent<any>) => void;
+        "onZLinkClick"?: (event: ZLinkCustomEvent<any>) => void;
         /**
           * link target (optional)
          */
@@ -3775,11 +3971,11 @@ declare namespace LocalJSX {
         /**
           * remove filter click event, returns filterid
          */
-        "onAccessibleFocus"?: (event: CustomEvent<number>) => void;
+        "onAccessibleFocus"?: (event: ZListElementCustomEvent<number>) => void;
         /**
           * remove filter click event, returns filterid
          */
-        "onClickItem"?: (event: CustomEvent<any>) => void;
+        "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3842,11 +4038,11 @@ declare namespace LocalJSX {
         /**
           * The menu has been closed.
          */
-        "onClosed"?: (event: CustomEvent<any>) => void;
+        "onClosed"?: (event: ZMenuCustomEvent<any>) => void;
         /**
           * The menu has been opened.
          */
-        "onOpened"?: (event: CustomEvent<any>) => void;
+        "onOpened"?: (event: ZMenuCustomEvent<any>) => void;
         /**
           * The opening state of the menu.
           * @default false
@@ -3872,11 +4068,11 @@ declare namespace LocalJSX {
         /**
           * The section has been closed.
          */
-        "onClosed"?: (event: CustomEvent<any>) => void;
+        "onClosed"?: (event: ZMenuSectionCustomEvent<any>) => void;
         /**
           * The section has been opened.
          */
-        "onOpened"?: (event: CustomEvent<any>) => void;
+        "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
     }
     interface ZMessagesPocket {
         /**
@@ -3912,15 +4108,15 @@ declare namespace LocalJSX {
         /**
           * emitted on background click, returns modalid
          */
-        "onModalBackgroundClick"?: (event: CustomEvent<any>) => void;
+        "onModalBackgroundClick"?: (event: ZModalCustomEvent<any>) => void;
         /**
           * emitted on close button click, returns modalid
          */
-        "onModalClose"?: (event: CustomEvent<any>) => void;
+        "onModalClose"?: (event: ZModalCustomEvent<any>) => void;
         /**
           * emitted on modal header click, returns modalid
          */
-        "onModalHeaderActive"?: (event: CustomEvent<any>) => void;
+        "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
     }
     interface ZModalLogin {
         /**
@@ -3938,19 +4134,19 @@ declare namespace LocalJSX {
         /**
           * Emitted on login submit
          */
-        "onLoginSubmit"?: (event: CustomEvent<any>) => void;
+        "onLoginSubmit"?: (event: ZModalLoginCustomEvent<any>) => void;
         /**
           * Emitted on signup button click
          */
-        "onSignupClick"?: (event: CustomEvent<any>) => void;
+        "onSignupClick"?: (event: ZModalLoginCustomEvent<any>) => void;
         /**
           * Emitted on status update
          */
-        "onStatusUpdate"?: (event: CustomEvent<any>) => void;
+        "onStatusUpdate"?: (event: ZModalLoginCustomEvent<any>) => void;
         /**
           * Emitted on zaino digitale button click
          */
-        "onZainoDigitaleClick"?: (event: CustomEvent<any>) => void;
+        "onZainoDigitaleClick"?: (event: ZModalLoginCustomEvent<any>) => void;
         /**
           * Password helper message
          */
@@ -3994,7 +4190,7 @@ declare namespace LocalJSX {
         /**
           * undo action click/keyboard event, returns actionType
          */
-        "onUndoAction"?: (event: CustomEvent<any>) => void;
+        "onUndoAction"?: (event: ZMyzCardAlertCustomEvent<any>) => void;
         /**
           * alert variant type
          */
@@ -4048,7 +4244,7 @@ declare namespace LocalJSX {
         /**
           * when card is flipped
          */
-        "onCardFlipped"?: (event: CustomEvent<any>) => void;
+        "onCardFlipped"?: (event: ZMyzCardDictionaryCustomEvent<any>) => void;
     }
     interface ZMyzCardFooter {
         /**
@@ -4122,7 +4318,7 @@ declare namespace LocalJSX {
         /**
           * flip card to front
          */
-        "onFlipCard"?: (event: CustomEvent<any>) => void;
+        "onFlipCard"?: (event: ZMyzCardInfoCustomEvent<any>) => void;
     }
     interface ZMyzCardList {
         /**
@@ -4164,11 +4360,11 @@ declare namespace LocalJSX {
         /**
           * emitted on list item click, returns listitemid
          */
-        "onZListItemClick"?: (event: CustomEvent<any>) => void;
+        "onZListItemClick"?: (event: ZMyzListItemCustomEvent<any>) => void;
         /**
           * emitted on list item link click, returns linkId
          */
-        "onZListItemLinkClick"?: (event: CustomEvent<any>) => void;
+        "onZListItemLinkClick"?: (event: ZMyzListItemCustomEvent<any>) => void;
         /**
           * content text
          */
@@ -4233,7 +4429,7 @@ declare namespace LocalJSX {
           * Label to show in the tab.
          */
         "label"?: string;
-        "onSelected"?: (event: CustomEvent<any>) => void;
+        "onSelected"?: (event: ZNavigationTabCustomEvent<any>) => void;
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
@@ -4268,7 +4464,7 @@ declare namespace LocalJSX {
           * Label to show in the tab.
          */
         "label"?: string;
-        "onSelected"?: (event: CustomEvent<any>) => void;
+        "onSelected"?: (event: ZNavigationTabLinkCustomEvent<any>) => void;
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
@@ -4308,11 +4504,11 @@ declare namespace LocalJSX {
         /**
           * Call to action clicked
          */
-        "onNotificationAction"?: (event: CustomEvent<any>) => void;
+        "onNotificationAction"?: (event: ZNotificationCustomEvent<any>) => void;
         /**
           * Close button clicked
          */
-        "onNotificationClose"?: (event: CustomEvent<any>) => void;
+        "onNotificationClose"?: (event: ZNotificationCustomEvent<any>) => void;
         /**
           * Enable close icon
          */
@@ -4335,7 +4531,7 @@ declare namespace LocalJSX {
         /**
           * emitted when open prop changes
          */
-        "onCanvasOpenStatusChanged"?: (event: CustomEvent<any>) => void;
+        "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
         /**
           * open component. Default: false
          */
@@ -4352,7 +4548,7 @@ declare namespace LocalJSX {
     interface ZOtp {
         "inputNum"?: number;
         "message"?: string;
-        "onOtpChange"?: (event: CustomEvent<any>) => void;
+        "onOtpChange"?: (event: ZOtpCustomEvent<any>) => void;
         "status"?: InputStatusBean;
     }
     interface ZPagination {
@@ -4379,7 +4575,7 @@ declare namespace LocalJSX {
         /**
           * Event emitted when the current page has changed.
          */
-        "onPageChanged"?: (event: CustomEvent<any>) => void;
+        "onPageChanged"?: (event: ZPaginationCustomEvent<any>) => void;
         /**
           * Number of pages to skip.
          */
@@ -4413,15 +4609,15 @@ declare namespace LocalJSX {
         /**
           * emitted on adding page to isvisited array, returns page
          */
-        "onAddPageToHistory"?: (event: CustomEvent<any>) => void;
+        "onAddPageToHistory"?: (event: ZPaginationBarCustomEvent<any>) => void;
         /**
           * emitted on start page change, returns startpage
          */
-        "onChangeStartPage"?: (event: CustomEvent<any>) => void;
+        "onChangeStartPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
         /**
           * emitted on page number click, returns page
          */
-        "onGoToPage"?: (event: CustomEvent<any>) => void;
+        "onGoToPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
         /**
           * pages number
          */
@@ -4503,7 +4699,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on pocket toggle, returns pocket id and status
          */
-        "onPocketToggle"?: (event: CustomEvent<any>) => void;
+        "onPocketToggle"?: (event: ZPocketCustomEvent<any>) => void;
         /**
           * pocket id
          */
@@ -4527,11 +4723,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on pocket header click
          */
-        "onPocketHeaderClick"?: (event: CustomEvent<any>) => void;
+        "onPocketHeaderClick"?: (event: ZPocketHeaderCustomEvent<any>) => void;
         /**
           * Emitted on pocket header pan
          */
-        "onPocketHeaderPan"?: (event: CustomEvent<any>) => void;
+        "onPocketHeaderPan"?: (event: ZPocketHeaderCustomEvent<any>) => void;
         /**
           * pocket id
          */
@@ -4555,11 +4751,11 @@ declare namespace LocalJSX {
         /**
           * Open change event.
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
           * Position change event.
          */
-        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
           * The open state of the popover.
          */
@@ -4589,7 +4785,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on popover click, returns isVisible state
          */
-        "onTriggerClick"?: (event: CustomEvent<any>) => void;
+        "onTriggerClick"?: (event: ZPopoverDeprecatedCustomEvent<any>) => void;
         /**
           * [optional] Sets padding for Popover container
          */
@@ -4619,7 +4815,7 @@ declare namespace LocalJSX {
         /**
           * emitted when date changes, returns an array with the two selected dates
          */
-        "onDateSelect"?: (event: CustomEvent<any>) => void;
+        "onDateSelect"?: (event: ZRangePickerCustomEvent<any>) => void;
         /**
           * unique id
          */
@@ -4687,7 +4883,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on select option selection, returns select id, selected item id
          */
-        "onOptionSelect"?: (event: CustomEvent<any>) => void;
+        "onOptionSelect"?: (event: ZSelectCustomEvent<any>) => void;
         /**
           * the input placeholder (optional)
          */
@@ -4811,11 +5007,11 @@ declare namespace LocalJSX {
         /**
           * remove call to action event
          */
-        "onCallToAction"?: (event: CustomEvent<any>) => void;
+        "onCallToAction"?: (event: ZTableCustomEvent<any>) => void;
         /**
           * remove call to action event
          */
-        "onCallToActionTwo"?: (event: CustomEvent<any>) => void;
+        "onCallToActionTwo"?: (event: ZTableCustomEvent<any>) => void;
         /**
           * Set subtitle
          */
@@ -4865,7 +5061,7 @@ declare namespace LocalJSX {
         /**
           * [Optional] callback for sorting
          */
-        "onSort"?: (event: CustomEvent<any>) => void;
+        "onSort"?: (event: ZTableHeaderCustomEvent<any>) => void;
         /**
           * Set padding size of cell, if special 0px padding will be set
          */
@@ -4885,7 +5081,7 @@ declare namespace LocalJSX {
     }
     interface ZTableRow {
         "expandedType"?: ZTableRowExpandedType;
-        "onExpand"?: (event: CustomEvent<any>) => void;
+        "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
     }
     interface ZTableStickyFooter {
     }
@@ -4927,7 +5123,7 @@ declare namespace LocalJSX {
         /**
           * notification close event
          */
-        "onToastClose"?: (event: CustomEvent<any>) => void;
+        "onToastClose"?: (event: ZToastNotificationCustomEvent<any>) => void;
         /**
           * toast notification autoclose can be paused
          */
@@ -4967,7 +5163,7 @@ declare namespace LocalJSX {
         /**
           * emitted on toggle button click, returns isOpen
          */
-        "onToggleClick"?: (event: CustomEvent<any>) => void;
+        "onToggleClick"?: (event: ZToggleButtonCustomEvent<any>) => void;
         /**
           * open by default (optional)
          */
@@ -4978,7 +5174,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "htmlid"?: string;
         "labelPosition"?: LabelPosition;
-        "onToggleClick"?: (event: CustomEvent<any>) => void;
+        "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     interface ZTooltip {
         /**
@@ -5011,7 +5207,7 @@ declare namespace LocalJSX {
         /**
           * Position change event.
          */
-        "onPositionChange"?: (event: CustomEvent<any>) => void;
+        "onPositionChange"?: (event: ZTooltipDeprecatedCustomEvent<any>) => void;
         /**
           * The open state of the tooltip.
          */
@@ -5038,11 +5234,11 @@ declare namespace LocalJSX {
         /**
           * Emitted on dropdown menu zlink click, returns event
          */
-        "onDropdownMenuLinkClick"?: (event: CustomEvent<any>) => void;
+        "onDropdownMenuLinkClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
         /**
           * Emitted on enter or user Button click, returns isMenuOpen (bool)
          */
-        "onUserButtonClick"?: (event: CustomEvent<any>) => void;
+        "onUserButtonClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
         /**
           * if inner components colors are inverted, or not, default false
          */
