@@ -43,11 +43,11 @@ export class ZCarousel {
 
   /** Arrow buttons position */
   @Prop()
-  arrows: null | CarouselArrowsPosition;
+  arrowsPosition?: CarouselArrowsPosition;
 
   /** Progress indicator. Only available for `single` mode */
   @Prop()
-  progress: null | CarouselProgressMode;
+  progressMode?: CarouselProgressMode;
 
   /** The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
   @Prop()
@@ -175,9 +175,9 @@ export class ZCarousel {
    */
   private canShowFooter(): boolean {
     return (
-      this.arrows === CarouselArrowsPosition.BOTTOM ||
-      this.progress === CarouselProgressMode.DOTS ||
-      this.progress === CarouselProgressMode.NUMBERS
+      this.arrowsPosition === CarouselArrowsPosition.BOTTOM ||
+      this.progressMode === CarouselProgressMode.DOTS ||
+      this.progressMode === CarouselProgressMode.NUMBERS
     );
   }
 
@@ -211,35 +211,37 @@ export class ZCarousel {
       <Host>
         <div class="z-carousel-container">
           {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
-          {this.arrows === CarouselArrowsPosition.OVER && (
-            <z-button
-              data-direction="prev"
-              icon="chevron-left"
-              onClick={this.onPrev.bind(this)}
-            />
-          )}
-          <ul class="z-carousel-items-container">
-            <slot />
-          </ul>
-          {this.arrows === CarouselArrowsPosition.OVER && (
-            <z-button
-              data-direction="next"
-              icon="chevron-right"
-              onClick={this.onNext.bind(this)}
-            />
-          )}
+          <div class="z-carousel-wrapper">
+            {this.arrowsPosition === CarouselArrowsPosition.OVER && (
+              <z-button
+                data-direction="prev"
+                icon="chevron-left"
+                onClick={this.onPrev.bind(this)}
+              />
+            )}
+            <ul class="z-carousel-items-container">
+              <slot />
+            </ul>
+            {this.arrowsPosition === CarouselArrowsPosition.OVER && (
+              <z-button
+                data-direction="next"
+                icon="chevron-right"
+                onClick={this.onNext.bind(this)}
+              />
+            )}
+          </div>
         </div>
 
         {this.canShowFooter() && (
           <div class="z-carousel-footer">
-            {this.arrows === CarouselArrowsPosition.BOTTOM && (
+            {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
                 variant={ButtonVariantEnum.tertiary}
                 icon="arrow-left-filled"
                 onClick={this.onPrev.bind(this)}
               />
             )}
-            {this.progress === CarouselProgressMode.DOTS &&
+            {this.progressMode === CarouselProgressMode.DOTS &&
               this.single &&
               this.items && (
                 <div class="dots-progress">
@@ -260,7 +262,7 @@ export class ZCarousel {
                   ))}
                 </div>
               )}
-            {this.progress === CarouselProgressMode.NUMBERS &&
+            {this.progressMode === CarouselProgressMode.NUMBERS &&
               this.single &&
               this.items && (
                 <div class="numbers-progress">
@@ -269,7 +271,7 @@ export class ZCarousel {
                   <span class="interactive-3">{this.items.length}</span>
                 </div>
               )}
-            {this.arrows === CarouselArrowsPosition.BOTTOM && (
+            {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
                 variant={ButtonVariantEnum.tertiary}
                 icon="arrow-right-filled"

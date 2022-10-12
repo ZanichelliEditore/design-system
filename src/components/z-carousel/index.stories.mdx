@@ -14,7 +14,7 @@ import "./index";
     ghostLoadinghHeight: {
       control: "number",
     },
-    progress: {
+    progressMode: {
       options: Object.values(CarouselProgressMode),
       control: { type: "select" },
     },
@@ -30,7 +30,7 @@ import "./index";
   >
     {(args) => html`<z-carousel
       label=${args.label || ''}
-      arrows=${CarouselArrowsPosition.OVER}
+      arrows-position=${CarouselArrowsPosition.OVER}
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -71,14 +71,14 @@ import "./index";
     }}
     args={{
       label: 'Carousel title',
-      progress: CarouselProgressMode.DOTS,
+      progressMode: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
       label=${args.label}
-      arrows=${CarouselArrowsPosition.BOTTOM}
-      progress=${args.progress}
+      arrows-position=${CarouselArrowsPosition.BOTTOM}
+      progress-mode=${args.progressMode}
       style="width: 200px; height: 200px;"
     >
       <li tabindex="0">
@@ -120,14 +120,14 @@ import "./index";
     }}
     args={{
       label: 'Carousel title',
-      progress: CarouselProgressMode.DOTS,
+      progressMode: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
       single
       label=${args.label}
-      arrows=${CarouselArrowsPosition.OVER}
-      progress=${args.progress}
+      arrows-position=${CarouselArrowsPosition.OVER}
+      progress-mode=${args.progressMode}
       style="width: 200px; height: 200px;"
     >
       <li tabindex="0">

@@ -24,9 +24,12 @@ z-carousel .loading-items-container {
 }
 
 .z-carousel-container {
-  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.z-carousel-wrapper {
+  position: relative;
 }
 
 .z-carousel-title {
