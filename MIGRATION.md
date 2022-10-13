@@ -156,7 +156,80 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
   - .modalWrapper
 
 - `z-table-empty-box`
+
   - .has2Cta
+
+- `z-button`
+
+- `z-date-picker`
+
+- `z-range-picker`
+
+- `z-footer`
+
+- `z-combobox`
+
+- `z-input-message`
+
+- `z-list-element`
+
+- `z-toast-notification-list`
+
+- `z-modal-login`
+
+- `z-menu-dropdown`
+
+- `z-cookiebar`
+
+- `z-toast-notification`
+
+- `z-offcanvas`
+
+- `z-pagination`
+
+- `z-popover`
+
+- `z-table`
+
+- `z-table-cell`
+
+- `z-table-header`
+
+- `z-button-deprecated`
+
+- `z-popover-deprecated`
+
+- `z-myz-card-alert`
+
+- `z-myz-card-dictionary`
+
+- `z-myz-card-footer`
+
+- `z-myz-card-header`
+
+- `z-myz-card-list`
+
+- `z-myz-card`
+
+- `z-myz-card-alert`
+
+- `z-myz-list`
+
+- `z-messages-pocket`
+
+- `z-pocket-body`
+
+- `z-pocket`
+
+- `topbar`
+
+- `z-alert`
+
+- `z-otp`
+
+- `z-slideshow`
+
+- `z-utils`
 
 > Sono state cambiate classi CSS anche in altri componenti che non sono inclusi nell'elenco: quei componenti hanno l'opzione `shadow: true`, quindi di sicuro non è stato possibile usare le classi CSS per modificarne lo stile dai prodotti.
 
