@@ -161,6 +161,8 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 
 - `z-button`
 
+- `z-toggle-switch`
+
 - `z-date-picker`
 
 - `z-range-picker`
@@ -177,17 +179,27 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 
 - `z-modal-login`
 
+- `z-navigation-tab-link`
+
+- `z-navigation-tab`
+
+- `z-navigation-tabs`
+
 - `z-menu-dropdown`
 
 - `z-cookiebar`
 
 - `z-toast-notification`
 
+- `z-card`
+
 - `z-offcanvas`
 
 - `z-pagination`
 
 - `z-popover`
+
+- `z-section-title`
 
 - `z-table`
 
