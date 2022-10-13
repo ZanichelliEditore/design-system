@@ -1,9 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Element, Host, State, Watch} from "@stencil/core";
-import {
-  ToastNotificationTransitionsEnum,
-  ToastNotificationTransitionTypes,
-  ToastNotificationTypes,
-} from "../../../beans";
+import {ToastNotificationTransitionsEnum, ToastNotificationEnum} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
@@ -39,7 +35,7 @@ export class ZToastNotification {
 
   /** toast notification type:  dark, light, accent, error, success, warning*/
   @Prop()
-  type?: ToastNotificationTypes;
+  type?: ToastNotificationEnum;
 
   /** toast notification can be draggable*/
   @Prop()
@@ -51,7 +47,7 @@ export class ZToastNotification {
 
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop()
-  transition?: ToastNotificationTransitionTypes;
+  transition?: ToastNotificationTransitionsEnum;
 
   @State()
   percentage: number;

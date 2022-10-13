@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Element, Watch} from "@stencil/core";
-import {DeviceEnum, DeviceType} from "../../../beans";
+import {DeviceEnum} from "../../../beans";
 import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils";
 
 /**
@@ -32,7 +32,7 @@ export class ZSlideshow {
   data: string[] | string;
 
   @State()
-  device: DeviceType;
+  device: DeviceEnum;
 
   @State()
   currentSlide = 0;

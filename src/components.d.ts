@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonTypeEnum, ButtonVariantEnum, CardVariants, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatusEnum, InputTypeEnum, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotificationPositionsEnum, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
+import { AlertTypesEnum, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSizeEnum, ButtonTypeEnum, ButtonVariantEnum, CardVariants, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatusEnum, InputTypeEnum, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariantsEnum, PocketStatusEnum, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirectionEnum, StatusTagStatus, ThemeVariant, ToastNotificationEnum, ToastNotificationPositionsEnum, ToastNotificationTransitionsEnum, TransitionDirectionEnum, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
 import { ListItemBean } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -14,7 +14,7 @@ export namespace Components {
         /**
           * alert variant type
          */
-        "type": AlertTypes;
+        "type": AlertTypesEnum;
     }
     interface ZAppHeader {
         /**
@@ -1011,7 +1011,7 @@ export namespace Components {
         /**
           * pocket status
          */
-        "status": PocketStatus;
+        "status": PocketStatusEnum;
     }
     interface ZModal {
         /**
@@ -1566,7 +1566,7 @@ export namespace Components {
         /**
           * pocket status
          */
-        "status": PocketStatus;
+        "status": PocketStatusEnum;
     }
     interface ZPocketBody {
         /**
@@ -1576,7 +1576,7 @@ export namespace Components {
         /**
           * pocket status
          */
-        "status": PocketStatus;
+        "status": PocketStatusEnum;
     }
     interface ZPocketHeader {
         /**
@@ -1892,7 +1892,7 @@ export namespace Components {
         /**
           * [Optional] Default sort order
          */
-        "defaultSortDirection"?: SortDirection;
+        "defaultSortDirection"?: SortDirectionEnum;
         /**
           * Set padding size of cell, if special 0px padding will be set
          */
@@ -1904,7 +1904,7 @@ export namespace Components {
         /**
           * Sort direction
          */
-        "sortDirection": SortDirection;
+        "sortDirection": SortDirectionEnum;
         /**
           * [Optional] Make the header sortable
          */
@@ -1966,11 +1966,11 @@ export namespace Components {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitionTypes;
+        "transition"?: ToastNotificationTransitionsEnum;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
-        "type"?: ToastNotificationTypes;
+        "type"?: ToastNotificationEnum;
     }
     interface ZToastNotificationList {
         /**
@@ -3058,7 +3058,7 @@ declare namespace LocalJSX {
         /**
           * alert variant type
          */
-        "type"?: AlertTypes;
+        "type"?: AlertTypesEnum;
     }
     interface ZAppHeader {
         /**
@@ -4163,7 +4163,7 @@ declare namespace LocalJSX {
         /**
           * pocket status
          */
-        "status"?: PocketStatus;
+        "status"?: PocketStatusEnum;
     }
     interface ZModal {
         /**
@@ -4802,7 +4802,7 @@ declare namespace LocalJSX {
         /**
           * pocket status
          */
-        "status"?: PocketStatus;
+        "status"?: PocketStatusEnum;
     }
     interface ZPocketBody {
         /**
@@ -4812,7 +4812,7 @@ declare namespace LocalJSX {
         /**
           * pocket status
          */
-        "status"?: PocketStatus;
+        "status"?: PocketStatusEnum;
     }
     interface ZPocketHeader {
         /**
@@ -5152,7 +5152,7 @@ declare namespace LocalJSX {
         /**
           * [Optional] Default sort order
          */
-        "defaultSortDirection"?: SortDirection;
+        "defaultSortDirection"?: SortDirectionEnum;
         /**
           * [Optional] callback for sorting
          */
@@ -5168,7 +5168,7 @@ declare namespace LocalJSX {
         /**
           * Sort direction
          */
-        "sortDirection"?: SortDirection;
+        "sortDirection"?: SortDirectionEnum;
         /**
           * [Optional] Make the header sortable
          */
@@ -5238,11 +5238,11 @@ declare namespace LocalJSX {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitionTypes;
+        "transition"?: ToastNotificationTransitionsEnum;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
-        "type"?: ToastNotificationTypes;
+        "type"?: ToastNotificationEnum;
     }
     interface ZToastNotificationList {
         /**

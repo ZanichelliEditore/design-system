@@ -1,5 +1,5 @@
 import {Component, Prop, h, Method, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
-import {PocketStatus, PocketStatusEnum} from "../../../../beans";
+import {PocketStatusEnum} from "../../../../beans";
 
 /**
  * @slot - pocket content
@@ -18,7 +18,7 @@ export class ZPocket {
 
   /** pocket status */
   @Prop({mutable: true})
-  status: PocketStatus = PocketStatusEnum.PREVIEW;
+  status: PocketStatusEnum = PocketStatusEnum.PREVIEW;
 
   /** open z-pocket */
   @Method()
@@ -36,7 +36,7 @@ export class ZPocket {
   @Event()
   pocketToggle: EventEmitter;
 
-  private emitPocketToggle(id: string, status: PocketStatus): void {
+  private emitPocketToggle(id: string, status: PocketStatusEnum): void {
     this.pocketToggle.emit({id, status});
   }
 
@@ -67,7 +67,7 @@ export class ZPocket {
   }
 
   @Watch("status")
-  watchStatusHandler(newVal: PocketStatus): void {
+  watchStatusHandler(newVal: PocketStatusEnum): void {
     this.emitPocketToggle(this.pocketid, newVal);
   }
 

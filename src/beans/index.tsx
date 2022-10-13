@@ -36,7 +36,6 @@ export enum LicenseTypeEnum {
   TRIAL = "saggio",
   TEMP = "reale_temp",
 }
-export type LicenseType = keyof typeof LicenseTypeEnum;
 
 export type CardBean = {
   id: string;
@@ -57,7 +56,7 @@ export enum CardVariants {
   TEXT = "text",
 }
 
-export declare type ActionBean = {
+export type ActionBean = {
   isLink: boolean;
   value: string;
   url?: string;
@@ -113,13 +112,12 @@ export type HeaderUserData = {
   usergroup: number;
   userlinks: MenuItem[];
 };
+
 export type ComboItemBean = {
   id: string;
   name: string;
   checked: boolean;
 };
-
-export type ButtonVariantBean = ButtonVariantEnum;
 
 export enum ButtonVariantEnum {
   PRIMARY = "primary",
@@ -140,8 +138,6 @@ export enum ButtonSizeEnum {
   X_SMALL = "x-small",
 }
 
-export type InputTypeBean = keyof typeof InputTypeEnum;
-
 export enum InputTypeEnum {
   TEXT = "text",
   PASSWORD = "password",
@@ -155,15 +151,11 @@ export enum InputTypeEnum {
   SEARCH = "search",
 }
 
-export type InputStatusBean = keyof typeof InputStatusEnum;
-
 export enum InputStatusEnum {
   SUCCESS = "success",
   ERROR = "error",
   WARNING = "warning",
 }
-
-export type PopoverPositionBean = keyof typeof PopoverPositions;
 
 export enum PopoverPositions {
   AUTO = "auto",
@@ -251,8 +243,6 @@ export type SelectItemBean = {
   disabled?: boolean;
 };
 
-export type ThemeVariantBean = keyof typeof ThemeVariant;
-
 export enum ThemeVariant {
   DARK = "dark",
   LIGHT = "light",
@@ -274,8 +264,6 @@ export enum SortDirectionEnum {
   DESC = "desc",
   NONE = "none",
 }
-
-export type SortDirection = SortDirectionEnum;
 
 export enum AvatarSize {
   SMALL = "small",
@@ -331,15 +319,11 @@ export enum AlertTypesEnum {
   ERROR = "error",
 }
 
-export type AlertTypes = AlertTypesEnum;
-
 export enum DeviceEnum {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
 }
-
-export type DeviceType = DeviceEnum;
 
 export type DictionaryData = {
   author: string;
@@ -362,7 +346,6 @@ export enum PocketStatusEnum {
   OPEN = "open",
   CLOSED = "closed",
 }
-export type PocketStatus = PocketStatusEnum;
 
 export enum ToastNotificationEnum {
   DARK = "dark",
@@ -372,7 +355,6 @@ export enum ToastNotificationEnum {
   SUCCESS = "success",
   WARNING = "warning",
 }
-export type ToastNotificationTypes = ToastNotificationEnum;
 
 export enum ToastNotificationTransitionsEnum {
   SLIDE_IN_LEFT = "slide-in-left",
@@ -384,8 +366,6 @@ export enum ToastNotificationTransitionsEnum {
   SLIDE_OUT_DOWN = "slide-out-down",
   SLIDE_OUT_UP = "slide-out-up",
 }
-
-export type ToastNotificationTransitionTypes = ToastNotificationTransitionsEnum;
 
 export enum ToastNotificationPositionsEnum {
   TOP_RIGHT = "top-right",
@@ -417,8 +397,6 @@ export enum OffCanvasVariantsEnum {
   PUSHCONTENT = "pushcontent",
 }
 
-export type ToastNotificationPositionsTypes = ToastNotificationPositionsEnum;
-
 export enum ZFileUploadTypeEnum {
   DEFAULT = "default",
   DRAGDROP = "dragdrop",
@@ -434,8 +412,6 @@ export enum ZSectionTitleDividerPositions {
   BEFORE = "before",
   AFTER = "after",
 }
-
-export type ZSectionTitleDividerPosition = keyof typeof ZSectionTitleDividerPositions;
 
 export enum ZDatePickerMode {
   DATE = "date",
@@ -459,7 +435,7 @@ export enum ZRangePickerMode {
   DATE_TIME = "date-time",
 }
 
-export declare type SkipToContentLink = {
+export type SkipToContentLink = {
   label: string;
   href: string;
   ariaLabel?: string;
@@ -472,8 +448,6 @@ export enum StatusTagStatus {
   NEUTRAL = "neutral",
   DEFAULT = "default",
 }
-
-export type InfoRevealPositionBean = keyof typeof InfoRevealPosition;
 
 export enum InfoRevealPosition {
   TOP_RIGHT = "top_right",

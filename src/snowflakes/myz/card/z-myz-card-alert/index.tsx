@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
-import {AlertTypes, AlertTypesEnum} from "../../../../beans";
+import {AlertTypesEnum} from "../../../../beans";
 
 @Component({
   tag: "z-myz-card-alert",
@@ -60,7 +60,7 @@ export class ZMyzCardAlert {
     return className;
   }
 
-  private getAlertType(): AlertTypes {
+  private getAlertType(): AlertTypesEnum {
     switch (this.type) {
       case "add":
         return AlertTypesEnum.SUCCESS;

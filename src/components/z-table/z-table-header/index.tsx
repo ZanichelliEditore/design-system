@@ -1,13 +1,6 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {
-  ButtonSizeEnum,
-  ButtonVariantEnum,
-  PopoverPositions,
-  Size,
-  SortDirection,
-  SortDirectionEnum,
-} from "../../../beans";
+import {ButtonSizeEnum, ButtonVariantEnum, PopoverPositions, Size, SortDirectionEnum} from "../../../beans";
 import {getElementTree} from "../../../utils/utils";
 @Component({
   tag: "z-table-header",
@@ -35,11 +28,11 @@ export class ZTableHeader {
 
   /** [Optional] Default sort order */
   @Prop()
-  defaultSortDirection?: SortDirection = SortDirectionEnum.ASC;
+  defaultSortDirection?: SortDirectionEnum = SortDirectionEnum.ASC;
 
   /** Sort direction */
   @Prop({mutable: true})
-  sortDirection: SortDirection = SortDirectionEnum.NONE;
+  sortDirection: SortDirectionEnum = SortDirectionEnum.NONE;
 
   private popover?: HTMLZPopoverElement;
 
