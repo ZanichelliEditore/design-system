@@ -12,11 +12,11 @@
 
 ## Properties
 
-| Property              | Attribute             | Description                                                                            | Type                                                                 | Default                             |
-| --------------------- | --------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------- |
-| `open`                | `open`                | open component. Default: false                                                         | `boolean`                                                            | `false`                             |
-| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left       | `TransitionDirectionEnum.LEFT \| TransitionDirectionEnum.RIGHT`      | `TransitionDirectionEnum.LEFT`      |
-| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent | `OffCanvasVariantsEnum.OVERLAY \| OffCanvasVariantsEnum.PUSHCONTENT` | `OffCanvasVariantsEnum.PUSHCONTENT` |
+| Property              | Attribute             | Description                                                                            | Type                                                         | Default                         |
+| --------------------- | --------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------- |
+| `open`                | `open`                | open component. Default: false                                                         | `boolean`                                                    | `false`                         |
+| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left       | `TransitionDirection.LEFT \| TransitionDirection.RIGHT`      | `TransitionDirection.LEFT`      |
+| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent | `OffCanvasVariants.OVERLAY \| OffCanvasVariants.PUSHCONTENT` | `OffCanvasVariants.PUSHCONTENT` |
 
 
 ## Events

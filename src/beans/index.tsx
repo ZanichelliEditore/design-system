@@ -1,52 +1,52 @@
-export type FooterBean = {
-  zanichelliLinks: FooterGroupBean[];
-  myzLink: MyzLinkBean;
+export type Footer = {
+  zanichelliLinks: FooterGroup[];
+  myzLink: MyzLink;
   zanichelliAddress: string;
-  social: FooterSocialBean[];
+  social: FooterSocial[];
   certification: string;
-  bottomLinks: FooterGroupItemBean[];
+  bottomLinks: FooterGroupItem[];
 };
 
-export type FooterGroupItemBean = {
+export type FooterGroupItem = {
   label: string;
   link: string;
   target?: string;
 };
 
-export type FooterGroupBean = {
+export type FooterGroup = {
   title: string;
-  items: FooterGroupItemBean[];
+  items: FooterGroupItem[];
 };
 
-export type MyzLinkBean = {
+export type MyzLink = {
   label: string;
   img: string;
   link: string;
 };
 
-export type FooterSocialBean = {
+export type FooterSocial = {
   icon: string;
   link: string;
   description?: string;
 };
 
-export enum LicenseTypeEnum {
+export enum LicenseType {
   REAL = "reale",
   VIRTUAL = "virtuale",
   TRIAL = "saggio",
   TEMP = "reale_temp",
 }
 
-export type CardBean = {
+export type Card = {
   id: string;
   isbn: string;
   volumeTitle: string;
   operaTitle: string;
   img: string;
   authors: string;
-  actions: ActionBean[];
+  actions: Action[];
   isBookmark: boolean;
-  licenseType: LicenseTypeEnum;
+  licenseType: LicenseType;
 };
 
 export enum CardVariants {
@@ -56,13 +56,13 @@ export enum CardVariants {
   TEXT = "text",
 }
 
-export type ActionBean = {
+export type Action = {
   isLink: boolean;
   value: string;
   url?: string;
 };
 
-export type ListItemBean = {
+export type ListItem = {
   text: string;
   link?: string;
   linktarget?: string;
@@ -113,32 +113,32 @@ export type HeaderUserData = {
   userlinks: MenuItem[];
 };
 
-export type ComboItemBean = {
+export type ComboItem = {
   id: string;
   name: string;
   checked: boolean;
 };
 
-export enum ButtonVariantEnum {
+export enum ButtonVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   TERTIARY = "tertiary",
   DARK_BG = "dark-bg",
 }
 
-export enum ButtonTypeEnum {
+export enum ButtonType {
   SUBMIT = "submit",
   RESET = "reset",
   BUTTON = "button",
 }
 
-export enum ButtonSizeEnum {
+export enum ButtonSize {
   BIG = "big",
   SMALL = "small",
   X_SMALL = "x-small",
 }
 
-export enum InputTypeEnum {
+export enum InputType {
   TEXT = "text",
   PASSWORD = "password",
   NUMBER = "number",
@@ -151,7 +151,7 @@ export enum InputTypeEnum {
   SEARCH = "search",
 }
 
-export enum InputStatusEnum {
+export enum InputStatus {
   SUCCESS = "success",
   ERROR = "error",
   WARNING = "warning",
@@ -206,7 +206,7 @@ export enum PopoverShadow {
   SHADOW_24 = "shadow-24",
 }
 
-export enum KeyboardKeyCodeEnum {
+export enum KeyboardKeyCode {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -217,7 +217,7 @@ export enum KeyboardKeyCodeEnum {
   DELETE = 46,
 }
 
-export enum KeyboardCodeEnum {
+export enum KeyboardCode {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -228,15 +228,7 @@ export enum KeyboardCodeEnum {
   DELETE = "Delete",
 }
 
-export enum KeyboardKeys {
-  ARROW_DOWN = "ArrowDown",
-  ARROW_UP = "ArrowUp",
-  ENTER = "Enter",
-  ESC = "Escape",
-  SPACE = "Space",
-}
-
-export type SelectItemBean = {
+export type SelectItem = {
   id: string;
   name: string;
   selected: boolean;
@@ -259,7 +251,7 @@ export enum DividerOrientation {
   VERTICAL = "vertical",
 }
 
-export enum SortDirectionEnum {
+export enum SortDirection {
   ASC = "asc",
   DESC = "desc",
   NONE = "none",
@@ -313,13 +305,13 @@ export enum NotificationType {
   ERROR = "error",
 }
 
-export enum AlertTypesEnum {
+export enum AlertTypes {
   SUCCESS = "success",
   WARNING = "warning",
   ERROR = "error",
 }
 
-export enum DeviceEnum {
+export enum Device {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
@@ -341,13 +333,13 @@ export type DictionaryLicenseData = {
   installations: string;
 };
 
-export enum PocketStatusEnum {
+export enum PocketStatus {
   PREVIEW = "preview",
   OPEN = "open",
   CLOSED = "closed",
 }
 
-export enum ToastNotificationEnum {
+export enum ToastNotification {
   DARK = "dark",
   LIGHT = "light",
   ACCENT = "accent",
@@ -356,7 +348,7 @@ export enum ToastNotificationEnum {
   WARNING = "warning",
 }
 
-export enum ToastNotificationTransitionsEnum {
+export enum ToastNotificationTransitions {
   SLIDE_IN_LEFT = "slide-in-left",
   SLIDE_IN_RIGHT = "slide-in-right",
   SLIDE_IN_DOWN = "slide-in-down",
@@ -367,7 +359,7 @@ export enum ToastNotificationTransitionsEnum {
   SLIDE_OUT_UP = "slide-out-up",
 }
 
-export enum ToastNotificationPositionsEnum {
+export enum ToastNotificationPositions {
   TOP_RIGHT = "top-right",
   TOP_LEFT = "top-left",
   TOP_CENTRE = "top-centre",
@@ -387,17 +379,17 @@ export enum ZAriaAlertMode {
   ASSERTIVE = "assertive",
 }
 
-export enum TransitionDirectionEnum {
+export enum TransitionDirection {
   LEFT = "left",
   RIGHT = "right",
 }
 
-export enum OffCanvasVariantsEnum {
+export enum OffCanvasVariants {
   OVERLAY = "overlay",
   PUSHCONTENT = "pushcontent",
 }
 
-export enum ZFileUploadTypeEnum {
+export enum ZFileUploadType {
   DEFAULT = "default",
   DRAGDROP = "dragdrop",
 }

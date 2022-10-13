@@ -1,5 +1,5 @@
 import {Component, Prop, h} from "@stencil/core";
-import {ActionBean} from "../../../../beans";
+import {Action} from "../../../../beans";
 
 @Component({
   tag: "z-myz-card-list",
@@ -22,7 +22,7 @@ export class ZMyzCardList {
     }
   }
 
-  private formatListContent(data: ActionBean): HTMLAnchorElement {
+  private formatListContent(data: Action): HTMLAnchorElement {
     const {value, isLink, url} = data;
     if (!isLink) {
       return <span>{value}</span>;
@@ -40,8 +40,8 @@ export class ZMyzCardList {
     );
   }
 
-  private renderList(dataArray: ActionBean[]): HTMLLIElement[] {
-    return dataArray.map((data: ActionBean) => {
+  private renderList(dataArray: Action[]): HTMLLIElement[] {
+    return dataArray.map((data: Action) => {
       return <li>{this.formatListContent(data)}</li>;
     });
   }

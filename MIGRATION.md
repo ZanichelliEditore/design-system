@@ -48,16 +48,16 @@ Le regole di coding style configurate impongono l'uso dell'UPPER_CASE per i memb
 
 Lista degli Enum e tipi interessati:
 
-- `LicenseTypeEnum`
-- `CardBean`
+- `LicenseType`
+- `Card`
 - `CardVariants`
 - `NavigationTabsOrientations`
 - `NavigationTabsSizes`
-- `ButtonVariantEnum`
-- `ButtonTypeEnum`
-- `ButtonSizeEnum`
-- `InputTypeEnum`
-- `InputStatusEnum`
+- `ButtonVariant`
+- `ButtonType`
+- `ButtonSize`
+- `InputType`
+- `InputStatus`
 - `PopoverPositions`
 - `PopoverPosition`
 - `PopoverBorderRadius`
@@ -65,7 +65,7 @@ Lista degli Enum e tipi interessati:
 - `ThemeVariant`
 - `DividerSize`
 - `DividerOrientation`
-- `SortDirectionEnum`
+- `SortDirection`
 - `AvatarSize`
 - `ListSize`
 - `Size`
@@ -74,17 +74,17 @@ Lista degli Enum e tipi interessati:
 - `LabelPositions`
 - `ListDividerType`
 - `NotificationType`
-- `AlertTypesEnum`
-- `DeviceEnum`
-- `PocketStatusEnum`
-- `ToastNotificationEnum`
-- `ToastNotificationTransitionsEnum`
-- `ToastNotificationPositionsEnum`
+- `AlertTypes`
+- `Device`
+- `PocketStatus`
+- `ToastNotification`
+- `ToastNotificationTransitions`
+- `ToastNotificationPositions`
 - `ZTableRowExpandedType`
 - `ZAriaAlertMode`
-- `TransitionDirectionEnum`
-- `OffCanvasVariantsEnum`
-- `ZFileUploadTypeEnum`
+- `TransitionDirection`
+- `OffCanvasVariants`
+- `ZFileUploadType`
 - `ZChipType`
 - `ZSectionTitleDividerPositions`
 - `ZDatePickerMode`

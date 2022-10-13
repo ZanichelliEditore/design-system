@@ -1,5 +1,5 @@
 import {Component, Prop, h, State} from "@stencil/core";
-import {MenuItem, KeyboardKeyCodeEnum} from "../../../beans/index";
+import {MenuItem, KeyboardKeyCode} from "../../../beans/index";
 
 import {handleKeyboardSubmit, getClickedElement, getElementTree} from "../../../utils/utils";
 
@@ -78,7 +78,7 @@ export class ZMenuDropdown {
   }
 
   private handleFocus(e: MouseEvent | KeyboardEvent): void {
-    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCodeEnum.TAB) {
+    if (e instanceof KeyboardEvent && e.keyCode !== KeyboardKeyCode.TAB) {
       return;
     }
 

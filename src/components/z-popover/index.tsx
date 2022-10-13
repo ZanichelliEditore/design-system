@@ -1,5 +1,5 @@
 import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
-import {PopoverPositions, KeyboardKeys} from "../../beans";
+import {PopoverPositions, KeyboardCode} from "../../beans";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
@@ -171,7 +171,7 @@ export class ZPopover {
 
   @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: KeyboardEvent): void {
-    if (this.closable && e.key === KeyboardKeys.ESC) {
+    if (this.closable && e.key === KeyboardCode.ESC) {
       this.open = false;
     }
   }

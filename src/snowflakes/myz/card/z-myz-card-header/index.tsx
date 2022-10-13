@@ -1,6 +1,6 @@
 import {Component, Prop, State, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {LicenseTypeEnum} from "../../../../beans/index";
+import {LicenseType} from "../../../../beans/index";
 
 /**
  * @slot icon - card header icon slot
@@ -21,7 +21,7 @@ export class ZMyzCardHeader {
 
   /** card graphic variant (optional) */
   @Prop()
-  cardtype?: LicenseTypeEnum;
+  cardtype?: LicenseType;
 
   @State()
   allowTooltip = false;
@@ -44,9 +44,9 @@ export class ZMyzCardHeader {
 
   private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
-      real: this.cardtype === LicenseTypeEnum.REAL,
-      trial: this.cardtype === LicenseTypeEnum.TRIAL,
-      temp: this.cardtype === LicenseTypeEnum.TEMP,
+      real: this.cardtype === LicenseType.REAL,
+      trial: this.cardtype === LicenseType.TRIAL,
+      temp: this.cardtype === LicenseType.TEMP,
       faded: this.faded,
     };
   }

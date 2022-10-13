@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {ButtonSizeEnum, ButtonVariantEnum} from "../../../beans";
+import {ButtonSize, ButtonVariant} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 /**
@@ -147,7 +147,7 @@ export class ZTable {
   }
 
   private renderEmpty(tableClass): HostElement {
-    const buttonSize = this.isMobile ? ButtonSizeEnum.SMALL : ButtonSizeEnum.BIG;
+    const buttonSize = this.isMobile ? ButtonSize.SMALL : ButtonSize.BIG;
     const tableContentClass = `${this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {
       return (
@@ -164,7 +164,7 @@ export class ZTable {
                 {!!this.callToActionLabel && (
                   <z-button
                     slot="cta1"
-                    variant={ButtonVariantEnum.TERTIARY}
+                    variant={ButtonVariant.TERTIARY}
                     onClick={() => this.callToAction.emit()}
                     size={buttonSize}
                   >
@@ -174,7 +174,7 @@ export class ZTable {
                 {!!this.callToActionTwoLabel && (
                   <z-button
                     slot="cta2"
-                    variant={ButtonVariantEnum.TERTIARY}
+                    variant={ButtonVariant.TERTIARY}
                     onClick={() => this.callToActionTwo.emit()}
                     size={buttonSize}
                   >
@@ -201,7 +201,7 @@ export class ZTable {
           {!!this.callToActionLabel && (
             <z-button
               slot="cta1"
-              variant={ButtonVariantEnum.TERTIARY}
+              variant={ButtonVariant.TERTIARY}
               onClick={() => this.callToAction.emit()}
               size={buttonSize}
             >
@@ -211,7 +211,7 @@ export class ZTable {
           {!!this.callToActionTwoLabel && (
             <z-button
               slot="cta2"
-              variant={ButtonVariantEnum.TERTIARY}
+              variant={ButtonVariant.TERTIARY}
               onClick={() => this.callToActionTwo.emit()}
               size={buttonSize}
             >

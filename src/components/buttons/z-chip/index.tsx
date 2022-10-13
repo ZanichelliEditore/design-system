@@ -1,5 +1,5 @@
 import {Component, Prop, h, Element, Event, EventEmitter} from "@stencil/core";
-import {DeviceEnum, ZChipType} from "../../../beans";
+import {Device, ZChipType} from "../../../beans";
 import {getDevice, handleKeyboardSubmit} from "../../../utils/utils";
 @Component({
   tag: "z-chip",
@@ -35,7 +35,7 @@ export class ZChip {
   }
 
   private getIconSize(): number {
-    return getDevice() !== DeviceEnum.DESKTOP ? 22 : 14;
+    return getDevice() !== Device.DESKTOP ? 22 : 14;
   }
 
   render(): HTMLButtonElement | HTMLDivElement {

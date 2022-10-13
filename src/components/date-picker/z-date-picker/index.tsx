@@ -3,7 +3,7 @@ import {Component, Prop, Element, h, EventEmitter, Event, Listen, State, Watch} 
 import flatpickr from "flatpickr";
 import {Italian} from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
-import {InputTypeEnum, ZDatePickerMode, ZDatePickerPosition} from "../../../beans";
+import {InputType, ZDatePickerMode, ZDatePickerPosition} from "../../../beans";
 import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
 
 @Component({
@@ -214,7 +214,7 @@ export class ZDatePicker {
           ariaLabel={this.ariaLabel}
           label={this.label}
           class={this.datePickerId}
-          type={InputTypeEnum.TEXT}
+          type={InputType.TEXT}
           icon="event"
           message={false}
           tabindex="0"

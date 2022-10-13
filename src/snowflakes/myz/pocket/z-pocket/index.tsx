@@ -1,5 +1,5 @@
 import {Component, Prop, h, Method, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
-import {PocketStatusEnum} from "../../../../beans";
+import {PocketStatus} from "../../../../beans";
 
 /**
  * @slot - pocket content
@@ -18,25 +18,25 @@ export class ZPocket {
 
   /** pocket status */
   @Prop({mutable: true})
-  status: PocketStatusEnum = PocketStatusEnum.PREVIEW;
+  status: PocketStatus = PocketStatus.PREVIEW;
 
   /** open z-pocket */
   @Method()
   async open(): Promise<void> {
-    this.status = PocketStatusEnum.OPEN;
+    this.status = PocketStatus.OPEN;
   }
 
   /** close z-pocket */
   @Method()
   async close(): Promise<void> {
-    this.status = PocketStatusEnum.CLOSED;
+    this.status = PocketStatus.CLOSED;
   }
 
   /** Emitted on pocket toggle, returns pocket id and status */
   @Event()
   pocketToggle: EventEmitter;
 
-  private emitPocketToggle(id: string, status: PocketStatusEnum): void {
+  private emitPocketToggle(id: string, status: PocketStatus): void {
     this.pocketToggle.emit({id, status});
   }
 
@@ -44,12 +44,12 @@ export class ZPocket {
   handlePocketHeaderClick(e: CustomEvent): void {
     if (e.detail.id && e.detail.id === this.pocketid) {
       switch (this.status) {
-        case PocketStatusEnum.PREVIEW:
-        case PocketStatusEnum.CLOSED:
-          this.status = PocketStatusEnum.OPEN;
+        case PocketStatus.PREVIEW:
+        case PocketStatus.CLOSED:
+          this.status = PocketStatus.OPEN;
           break;
-        case PocketStatusEnum.OPEN:
-          this.status = PocketStatusEnum.CLOSED;
+        case PocketStatus.OPEN:
+          this.status = PocketStatus.CLOSED;
           break;
       }
     }
@@ -59,15 +59,15 @@ export class ZPocket {
   handlePocketHeaderPan(e: CustomEvent): void {
     if (e.detail.id && e.detail.id === this.pocketid) {
       if (e.detail.direction === "up") {
-        this.status = PocketStatusEnum.OPEN;
+        this.status = PocketStatus.OPEN;
       } else if (e.detail.direction === "down") {
-        this.status = PocketStatusEnum.CLOSED;
+        this.status = PocketStatus.CLOSED;
       }
     }
   }
 
   @Watch("status")
-  watchStatusHandler(newVal: PocketStatusEnum): void {
+  watchStatusHandler(newVal: PocketStatus): void {
     this.emitPocketToggle(this.pocketid, newVal);
   }
 

@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
-import {SelectItemBean, ListDividerType, KeyboardCodeEnum, InputStatusEnum} from "../../../beans";
+import {SelectItem, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItemBean[] | string;
+  items: SelectItem[] | string;
 
   /** the input name */
   @Prop()
@@ -49,7 +49,7 @@ export class ZSelect {
 
   /** the input status (optional) */
   @Prop()
-  status?: InputStatusEnum;
+  status?: InputStatus;
 
   /** input helper message (optional) - if set to `false` message won't be displayed */
   @Prop()
@@ -67,12 +67,12 @@ export class ZSelect {
   isOpen = false;
 
   @State()
-  selectedItem: null | SelectItemBean = null;
+  selectedItem: null | SelectItem = null;
 
   @State()
   searchString: null | string;
 
-  private itemsList: SelectItemBean[] = [];
+  private itemsList: SelectItem[] = [];
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -83,12 +83,12 @@ export class ZSelect {
   @Watch("items")
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItem = this.itemsList.find((item: SelectItemBean) => item.selected);
+    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
   }
 
   /** get the input selected options */
   @Method()
-  async getSelectedItem(): Promise<SelectItemBean> {
+  async getSelectedItem(): Promise<SelectItem> {
     return this.selectedItem;
   }
 
@@ -108,7 +108,7 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItem = this.itemsList.find((item: SelectItemBean) => values.includes(item.id));
+    this.selectedItem = this.itemsList.find((item: SelectItem) => values.includes(item.id));
   }
 
   /** Emitted on select option selection, returns select id, selected item id */
@@ -130,14 +130,14 @@ export class ZSelect {
     this.filterItems(this.searchString);
   }
 
-  private getInitialItemsArray(): SelectItemBean[] {
+  private getInitialItemsArray(): SelectItem[] {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  private mapSelectedItemToItemsArray(): SelectItemBean[] {
+  private mapSelectedItemToItemsArray(): SelectItem[] {
     const initialItemsList = this.getInitialItemsArray();
 
-    return initialItemsList.map((item: SelectItemBean) => {
+    return initialItemsList.map((item: SelectItem) => {
       item.selected = item.id === this.selectedItem?.id;
 
       return item;
@@ -154,10 +154,10 @@ export class ZSelect {
       this.itemsList = prevList;
     } else {
       this.itemsList = prevList
-        .filter((item: SelectItemBean) => {
+        .filter((item: SelectItem) => {
           return item.name.toUpperCase().includes(searchString.toUpperCase());
         })
-        .map((item: SelectItemBean) => {
+        .map((item: SelectItem) => {
           const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
           const end = start + searchString.length;
           const newName =
@@ -182,13 +182,13 @@ export class ZSelect {
     }
   }
 
-  private selectItem(item: null | SelectItemBean, selected: boolean): void {
+  private selectItem(item: null | SelectItem, selected: boolean): void {
     if (item && item.disabled) {
       return;
     }
 
     this.itemsList = this.mapSelectedItemToItemsArray();
-    this.itemsList = this.itemsList.map((i: SelectItemBean) => {
+    this.itemsList = this.itemsList.map((i: SelectItem) => {
       i.selected = false;
       if (i.id === item?.id) {
         i.selected = selected;
@@ -197,7 +197,7 @@ export class ZSelect {
       return i;
     });
 
-    this.selectedItem = this.itemsList.find((item: SelectItemBean) => item.selected);
+    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
 
     this.emitOptionSelect();
 
@@ -207,8 +207,8 @@ export class ZSelect {
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
-    const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.key as KeyboardCodeEnum)) {
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+    if (!arrows.includes(e.key as KeyboardCode)) {
       return;
     }
 
@@ -220,9 +220,9 @@ export class ZSelect {
     }
 
     let index: number;
-    if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
+    if (e.key === KeyboardCode.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.key === KeyboardCodeEnum.ARROW_UP) {
+    } else if (e.key === KeyboardCode.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
 
@@ -268,13 +268,13 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
-    if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
 
       return this.toggleSelectUl(true);
     }
 
-    if (e instanceof KeyboardEvent && e.key !== KeyboardCodeEnum.TAB && e.key !== KeyboardCodeEnum.ENTER) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB && e.key !== KeyboardCode.ENTER) {
       return;
     }
 
@@ -289,7 +289,7 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
-    const foundItem = this.itemsList.find((item: SelectItemBean) => item.name.charAt(0) === letter);
+    const foundItem = this.itemsList.find((item: SelectItem) => item.name.charAt(0) === letter);
     if (foundItem) {
       this.focusSelectItem(this.itemsList.indexOf(foundItem));
     }
@@ -370,7 +370,7 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
-    return this.itemsList.map((item: SelectItemBean, key) => {
+    return this.itemsList.map((item: SelectItem, key) => {
       return (
         <z-list-element
           clickable={!item.disabled}

@@ -3,7 +3,7 @@ import {Component, Prop, Element, h, Listen, EventEmitter, Event, State, Watch} 
 import flatpickr from "flatpickr";
 import {Italian} from "flatpickr/dist/l10n/it.js";
 
-import {ZRangePickerMode, ZDatePickerPosition, InputTypeEnum, InputStatusEnum} from "../../../beans";
+import {ZRangePickerMode, ZDatePickerPosition, InputType, InputStatus} from "../../../beans";
 import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
 
 @Component({
@@ -396,7 +396,7 @@ export class ZRangePicker {
 
   render(): HTMLDivElement {
     const zInputProps = {
-      type: InputTypeEnum.TEXT,
+      type: InputType.TEXT,
       icon: "event",
       tabindex: "0",
       message: false,
@@ -421,7 +421,7 @@ export class ZRangePicker {
               class={`start-input ${this.rangePickerId}-1`}
               ariaLabel={this.firstAriaLabel}
               label={this.firstLabel}
-              status={this.firstInputError && InputStatusEnum.ERROR}
+              status={this.firstInputError && InputStatus.ERROR}
               onStartTyping={() => {
                 this.firstInputError = false;
               }}
@@ -436,7 +436,7 @@ export class ZRangePicker {
               class={`end-input ${this.rangePickerId}-2`}
               ariaLabel={this.secondAriaLabel}
               label={this.secondLabel}
-              status={this.lastInputError && InputStatusEnum.ERROR}
+              status={this.lastInputError && InputStatus.ERROR}
               onStartTyping={() => {
                 this.lastInputError = false;
               }}

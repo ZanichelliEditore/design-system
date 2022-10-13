@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Element, Host, State, Watch} from "@stencil/core";
-import {ToastNotificationTransitionsEnum, ToastNotificationEnum} from "../../../beans";
+import {ToastNotificationTransitions, ToastNotification} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
@@ -35,7 +35,7 @@ export class ZToastNotification {
 
   /** toast notification type:  dark, light, accent, error, success, warning*/
   @Prop()
-  type?: ToastNotificationEnum;
+  type?: ToastNotification;
 
   /** toast notification can be draggable*/
   @Prop()
@@ -47,7 +47,7 @@ export class ZToastNotification {
 
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop()
-  transition?: ToastNotificationTransitionsEnum;
+  transition?: ToastNotificationTransitions;
 
   @State()
   percentage: number;
@@ -137,16 +137,16 @@ export class ZToastNotification {
     }
   }
 
-  private mapSlideOutClass(): ToastNotificationTransitionsEnum {
+  private mapSlideOutClass(): ToastNotificationTransitions {
     switch (this.transition) {
-      case ToastNotificationTransitionsEnum.SLIDE_IN_DOWN:
-        return ToastNotificationTransitionsEnum.SLIDE_OUT_UP;
-      case ToastNotificationTransitionsEnum.SLIDE_IN_UP:
-        return ToastNotificationTransitionsEnum.SLIDE_OUT_DOWN;
-      case ToastNotificationTransitionsEnum.SLIDE_IN_LEFT:
-        return ToastNotificationTransitionsEnum.SLIDE_OUT_RIGHT;
-      case ToastNotificationTransitionsEnum.SLIDE_IN_RIGHT:
-        return ToastNotificationTransitionsEnum.SLIDE_OUT_LEFT;
+      case ToastNotificationTransitions.SLIDE_IN_DOWN:
+        return ToastNotificationTransitions.SLIDE_OUT_UP;
+      case ToastNotificationTransitions.SLIDE_IN_UP:
+        return ToastNotificationTransitions.SLIDE_OUT_DOWN;
+      case ToastNotificationTransitions.SLIDE_IN_LEFT:
+        return ToastNotificationTransitions.SLIDE_OUT_RIGHT;
+      case ToastNotificationTransitions.SLIDE_IN_RIGHT:
+        return ToastNotificationTransitions.SLIDE_OUT_LEFT;
     }
   }
 
@@ -310,7 +310,7 @@ export class ZToastNotification {
         style={{
           "--percentuale": `${this.percentage}%`,
         }}
-        class={this.transition ? this.transition : ToastNotificationTransitionsEnum.SLIDE_IN_DOWN}
+        class={this.transition ? this.transition : ToastNotificationTransitions.SLIDE_IN_DOWN}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);

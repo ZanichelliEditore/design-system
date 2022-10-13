@@ -33,15 +33,15 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                           | Type                                                                                               | Default     |
-| --------------- | ---------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `autori`        | `autori`         | authors name text                     | `string`                                                                                           | `undefined` |
-| `cardtype`      | `cardtype`       | card graphic variant (optional)       | `LicenseTypeEnum.REAL \| LicenseTypeEnum.TEMP \| LicenseTypeEnum.TRIAL \| LicenseTypeEnum.VIRTUAL` | `undefined` |
-| `customContent` | `custom-content` | display footer custom slotted content | `boolean`                                                                                          | `false`     |
-| `faded`         | `faded`          | faded status                          | `boolean`                                                                                          | `undefined` |
-| `isbn`          | `isbn`           | volume isbn                           | `string`                                                                                           | `undefined` |
-| `opened`        | `opened`         | footer opened by default (optional)   | `boolean`                                                                                          | `false`     |
-| `titolo`        | `titolo`         | volume title                          | `string`                                                                                           | `undefined` |
+| Property        | Attribute        | Description                           | Type                                                                               | Default     |
+| --------------- | ---------------- | ------------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| `autori`        | `autori`         | authors name text                     | `string`                                                                           | `undefined` |
+| `cardtype`      | `cardtype`       | card graphic variant (optional)       | `LicenseType.REAL \| LicenseType.TEMP \| LicenseType.TRIAL \| LicenseType.VIRTUAL` | `undefined` |
+| `customContent` | `custom-content` | display footer custom slotted content | `boolean`                                                                          | `false`     |
+| `faded`         | `faded`          | faded status                          | `boolean`                                                                          | `undefined` |
+| `isbn`          | `isbn`           | volume isbn                           | `string`                                                                           | `undefined` |
+| `opened`        | `opened`         | footer opened by default (optional)   | `boolean`                                                                          | `false`     |
+| `titolo`        | `titolo`         | volume title                          | `string`                                                                           | `undefined` |
 
 
 ## Slots

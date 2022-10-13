@@ -19,11 +19,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                     | Type                                                                                               | Default     |
-| ---------- | ---------- | ------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseTypeEnum.REAL \| LicenseTypeEnum.TEMP \| LicenseTypeEnum.TRIAL \| LicenseTypeEnum.VIRTUAL` | `undefined` |
-| `faded`    | `faded`    | faded status                    | `boolean`                                                                                          | `undefined` |
-| `titolo`   | `titolo`   | volume title                    | `string`                                                                                           | `undefined` |
+| Property   | Attribute  | Description                     | Type                                                                               | Default     |
+| ---------- | ---------- | ------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| `cardtype` | `cardtype` | card graphic variant (optional) | `LicenseType.REAL \| LicenseType.TEMP \| LicenseType.TRIAL \| LicenseType.VIRTUAL` | `undefined` |
+| `faded`    | `faded`    | faded status                    | `boolean`                                                                          | `undefined` |
+| `titolo`   | `titolo`   | volume title                    | `string`                                                                           | `undefined` |
 
 
 ## Slots

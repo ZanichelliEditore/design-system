@@ -1,6 +1,6 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {InputTypeEnum, SelectItemBean, InputStatusEnum} from "../../beans";
+import {InputType, SelectItem, InputStatus} from "../../beans";
 import {randomId} from "../../utils/utils";
 
 @Component({
@@ -18,7 +18,7 @@ export class ZInputDeprecated {
 
   /** input types */
   @Prop()
-  type: InputTypeEnum;
+  type: InputType;
 
   /** the input name */
   @Prop()
@@ -62,7 +62,7 @@ export class ZInputDeprecated {
 
   /** the input status (optional): available for text, password, number, email, textarea, select */
   @Prop()
-  status?: InputStatusEnum;
+  status?: InputStatus;
 
   /** show input helper message (optional): available for text, password, number, email, textarea, select */
   @Prop()
@@ -82,7 +82,7 @@ export class ZInputDeprecated {
 
   /** items (optional): available for select */
   @Prop()
-  items?: SelectItemBean[] | string;
+  items?: SelectItem[] | string;
 
   /** the input has autocomplete option (optional): available for select, input */
   @Prop()
@@ -120,8 +120,8 @@ export class ZInputDeprecated {
   inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
-      case InputTypeEnum.RADIO:
-        if (data.type === InputTypeEnum.RADIO && data.name === this.name && data.id !== this.htmlid) {
+      case InputType.RADIO:
+        if (data.type === InputType.RADIO && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
         break;
@@ -160,8 +160,8 @@ export class ZInputDeprecated {
   @Method()
   async isChecked(): Promise<boolean> {
     switch (this.type) {
-      case InputTypeEnum.CHECKBOX:
-      case InputTypeEnum.RADIO:
+      case InputType.CHECKBOX:
+      case InputType.RADIO:
         return this.checked;
       default:
         return false;
@@ -177,7 +177,7 @@ export class ZInputDeprecated {
       this.emitStartTyping();
     }
     let validity: ValidityState;
-    if (this.type === InputTypeEnum.TEXTAREA) {
+    if (this.type === InputType.TEXTAREA) {
       validity = this.getValidity("textarea");
     } else {
       validity = this.getValidity("input");
@@ -267,9 +267,9 @@ export class ZInputDeprecated {
     return attr;
   }
 
-  private renderInputText(type: InputTypeEnum = InputTypeEnum.TEXT): HTMLDivElement {
+  private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const attr = this.getTextAttributes();
-    if (this.icon || type === InputTypeEnum.PASSWORD) {
+    if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
     }
     if (this.hasclearicon) {
@@ -281,7 +281,7 @@ export class ZInputDeprecated {
         {this.renderLabel()}
         <div>
           <input
-            type={type === InputTypeEnum.PASSWORD && !this.passwordHidden ? InputTypeEnum.TEXT : type}
+            type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
             aria-label={this.ariaLabel || this.label}
           />
@@ -323,7 +323,7 @@ export class ZInputDeprecated {
   }
 
   private renderIcon(): HTMLZIconElement {
-    if (this.type === InputTypeEnum.PASSWORD) {
+    if (this.type === InputType.PASSWORD) {
       return this.renderShowHidePassword();
     }
 
@@ -516,16 +516,16 @@ export class ZInputDeprecated {
 
   render(): HTMLDivElement | HTMLZSelectElement {
     switch (this.type) {
-      case InputTypeEnum.TEXT:
-      case InputTypeEnum.PASSWORD:
-      case InputTypeEnum.NUMBER:
-      case InputTypeEnum.EMAIL:
+      case InputType.TEXT:
+      case InputType.PASSWORD:
+      case InputType.NUMBER:
+      case InputType.EMAIL:
         return this.renderInputText(this.type);
-      case InputTypeEnum.TEXTAREA:
+      case InputType.TEXTAREA:
         return this.renderTextarea();
-      case InputTypeEnum.CHECKBOX:
+      case InputType.CHECKBOX:
         return this.renderCheckbox();
-      case InputTypeEnum.RADIO:
+      case InputType.RADIO:
         return this.renderRadio();
       // @ts-ignore
       case "select":

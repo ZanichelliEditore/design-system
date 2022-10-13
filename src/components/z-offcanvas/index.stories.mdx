@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {boolean, radios} from "@storybook/addon-knobs";
-import {OffCanvasVariantsEnum} from "../../beans";
+import {OffCanvasVariants} from "../../beans";
 import "./index";
 
 <Meta
@@ -18,7 +18,7 @@ import "./index";
         <z-offcanvas
           transitiondirection="right"
           .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.PUSHCONTENT)}"
+          .variant="${radios("Variant", {...OffCanvasVariants}, OffCanvasVariants.PUSHCONTENT)}"
           style="height:100vh"
         >
           <div slot="canvasContent">
@@ -65,7 +65,7 @@ import "./index";
       <div style="display:flex; justify-content:end; background-color: lightblue">
         <z-offcanvas
           .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariantsEnum}, OffCanvasVariantsEnum.PUSHCONTENT)}"
+          .variant="${radios("Variant", {...OffCanvasVariants}, OffCanvasVariants.PUSHCONTENT)}"
           style="height:100vh; flex:1"
         >
           <div slot="canvasContent">

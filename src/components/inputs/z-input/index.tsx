@@ -1,6 +1,6 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {InputTypeEnum, LabelPositions, InputStatusEnum} from "../../../beans";
+import {InputType, LabelPositions, InputStatus} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
@@ -18,7 +18,7 @@ export class ZInput {
 
   /** input types */
   @Prop()
-  type: InputTypeEnum;
+  type: InputType;
 
   /** the input name */
   @Prop()
@@ -62,7 +62,7 @@ export class ZInput {
 
   /** the input status (optional): available for text, password, number, email, textarea */
   @Prop()
-  status?: InputStatusEnum;
+  status?: InputStatus;
 
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   @Prop()
@@ -114,8 +114,8 @@ export class ZInput {
   inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
-      case InputTypeEnum.RADIO:
-        if (data.type === InputTypeEnum.RADIO && data.name === this.name && data.id !== this.htmlid) {
+      case InputType.RADIO:
+        if (data.type === InputType.RADIO && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
         break;
@@ -126,8 +126,8 @@ export class ZInput {
   @Method()
   async isChecked(): Promise<boolean> {
     switch (this.type) {
-      case InputTypeEnum.CHECKBOX:
-      case InputTypeEnum.RADIO:
+      case InputType.CHECKBOX:
+      case InputType.RADIO:
         return this.checked;
       default:
         console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
@@ -146,7 +146,7 @@ export class ZInput {
     }
 
     let validity: ValidityState;
-    if (this.type === InputTypeEnum.TEXTAREA) {
+    if (this.type === InputType.TEXTAREA) {
       validity = this.getValidity("textarea");
     } else {
       validity = this.getValidity("input");
@@ -223,8 +223,8 @@ export class ZInput {
     };
   }
 
-  private getNumberAttributes(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
-    if (type != InputTypeEnum.NUMBER) {
+  private getNumberAttributes(type: InputType): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+    if (type != InputType.NUMBER) {
       return;
     }
 
@@ -235,14 +235,14 @@ export class ZInput {
     };
   }
 
-  private getPatternAttribute(type: InputTypeEnum): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+  private getPatternAttribute(type: InputType): JSXBase.InputHTMLAttributes<HTMLInputElement> {
     if (
-      type != InputTypeEnum.PASSWORD &&
-      type != InputTypeEnum.TEXT &&
-      type != InputTypeEnum.TEL &&
-      type != InputTypeEnum.SEARCH &&
-      type != InputTypeEnum.URL &&
-      type != InputTypeEnum.EMAIL
+      type != InputType.PASSWORD &&
+      type != InputType.TEXT &&
+      type != InputType.TEL &&
+      type != InputType.SEARCH &&
+      type != InputType.URL &&
+      type != InputType.EMAIL
     ) {
       return;
     }
@@ -252,16 +252,16 @@ export class ZInput {
     };
   }
 
-  private renderInputText(type: InputTypeEnum = InputTypeEnum.TEXT): HTMLDivElement {
+  private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
     };
-    if (this.icon || type === InputTypeEnum.PASSWORD) {
+    if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
     }
-    if (this.hasclearicon && type != InputTypeEnum.NUMBER) {
+    if (this.hasclearicon && type != InputType.NUMBER) {
       Object.assign(attr.class, {"has-clear-icon": true});
     }
 
@@ -270,7 +270,7 @@ export class ZInput {
         {this.renderLabel()}
         <div>
           <input
-            type={type === InputTypeEnum.PASSWORD && !this.passwordHidden ? InputTypeEnum.TEXT : type}
+            type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
             aria-label={this.ariaLabel || this.label}
           />
@@ -308,7 +308,7 @@ export class ZInput {
   }
 
   private renderIcon(): HTMLButtonElement {
-    if (this.type === InputTypeEnum.PASSWORD) {
+    if (this.type === InputType.PASSWORD) {
       return this.renderShowHidePassword();
     }
 
@@ -328,7 +328,7 @@ export class ZInput {
   }
 
   private renderResetIcon(): HTMLButtonElement {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputTypeEnum.NUMBER) {
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputType.NUMBER) {
       return;
     }
 
@@ -477,11 +477,11 @@ export class ZInput {
 
   render(): HTMLInputElement | HTMLDivElement {
     switch (this.type) {
-      case InputTypeEnum.TEXTAREA:
+      case InputType.TEXTAREA:
         return this.renderTextarea();
-      case InputTypeEnum.CHECKBOX:
+      case InputType.CHECKBOX:
         return this.renderCheckbox();
-      case InputTypeEnum.RADIO:
+      case InputType.RADIO:
         return this.renderRadio();
       default:
         return this.renderInputText(this.type);

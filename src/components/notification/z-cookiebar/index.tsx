@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
-import {ButtonVariantEnum} from "../../../beans";
+import {ButtonVariant} from "../../../beans";
 
 @Component({
   tag: "z-cookiebar",
@@ -66,7 +66,7 @@ export class ZCookiebar {
           </div>
         </div>
         <z-button
-          variant={ButtonVariantEnum.PRIMARY}
+          variant={ButtonVariant.PRIMARY}
           onClick={(ev: MouseEvent) => this.handleOkButtonClick(ev)}
           onKeyUp={(ev: KeyboardEvent) => this.handleOkButtonKeyUp(ev)}
         >

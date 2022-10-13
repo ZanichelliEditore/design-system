@@ -5,21 +5,21 @@
 
 ## Properties
 
-| Property         | Attribute        | Description                                                                    | Type                                                                          | Default              |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | -------------------- |
-| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                                      | `undefined`          |
-| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                                                                     | `false`              |
-| `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                                                                     | `false`              |
-| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                                      | ``id-${randomId()}`` |
-| `htmltitle`      | `htmltitle`      | the input html title (optional)                                                | `string`                                                                      | `undefined`          |
-| `items`          | `items`          | the input select options                                                       | `SelectItemBean[] \| string`                                                  | `undefined`          |
-| `label`          | `label`          | the input label                                                                | `string`                                                                      | `undefined`          |
-| `message`        | `message`        | input helper message (optional) - if set to `false` message won't be displayed | `boolean \| string`                                                           | `true`               |
-| `name`           | `name`           | the input name                                                                 | `string`                                                                      | `undefined`          |
-| `noresultslabel` | `noresultslabel` | no result text message                                                         | `string`                                                                      | `"Nessun risultato"` |
-| `placeholder`    | `placeholder`    | the input placeholder (optional)                                               | `string`                                                                      | `undefined`          |
-| `readonly`       | `readonly`       | the input is readonly                                                          | `boolean`                                                                     | `false`              |
-| `status`         | `status`         | the input status (optional)                                                    | `InputStatusEnum.ERROR \| InputStatusEnum.SUCCESS \| InputStatusEnum.WARNING` | `undefined`          |
+| Property         | Attribute        | Description                                                                    | Type                                                              | Default              |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------- |
+| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                          | `undefined`          |
+| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
+| `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                                                         | `false`              |
+| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |
+| `htmltitle`      | `htmltitle`      | the input html title (optional)                                                | `string`                                                          | `undefined`          |
+| `items`          | `items`          | the input select options                                                       | `SelectItem[] \| string`                                          | `undefined`          |
+| `label`          | `label`          | the input label                                                                | `string`                                                          | `undefined`          |
+| `message`        | `message`        | input helper message (optional) - if set to `false` message won't be displayed | `boolean \| string`                                               | `true`               |
+| `name`           | `name`           | the input name                                                                 | `string`                                                          | `undefined`          |
+| `noresultslabel` | `noresultslabel` | no result text message                                                         | `string`                                                          | `"Nessun risultato"` |
+| `placeholder`    | `placeholder`    | the input placeholder (optional)                                               | `string`                                                          | `undefined`          |
+| `readonly`       | `readonly`       | the input is readonly                                                          | `boolean`                                                         | `false`              |
+| `status`         | `status`         | the input status (optional)                                                    | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
 
 
 ## Events
@@ -31,13 +31,13 @@
 
 ## Methods
 
-### `getSelectedItem() => Promise<SelectItemBean>`
+### `getSelectedItem() => Promise<SelectItem>`
 
 get the input selected options
 
 #### Returns
 
-Type: `Promise<SelectItemBean>`
+Type: `Promise<SelectItem>`
 
 
 

@@ -1,6 +1,6 @@
 import {Component, Prop, h, Host, State, Listen, Event, EventEmitter} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys} from "../../beans";
+import {PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardCode} from "../../beans";
 import {getElementTree} from "../../utils/utils";
 
 @Component({
@@ -120,7 +120,7 @@ export class ZPopoverDeprecated {
 
   @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: KeyboardEvent): void {
-    if (e.key === KeyboardKeys.ESC) {
+    if (e.key === KeyboardCode.ESC) {
       this.closePopover();
     }
   }
@@ -132,7 +132,7 @@ export class ZPopoverDeprecated {
   }
 
   private handleKeyDown(event): void {
-    if (event.code === KeyboardKeys.ENTER) {
+    if (event.code === KeyboardCode.ENTER) {
       this.isVisible ? this.closePopover() : this.openPopover();
     }
   }
@@ -154,7 +154,7 @@ export class ZPopoverDeprecated {
           tabindex="0"
           onClick={(event) => this.handleClick(event)}
           onKeyDown={(event) => {
-            if (event.key === KeyboardKeys.ENTER) {
+            if (event.key === KeyboardCode.ENTER) {
               this.handleClick(event);
             }
           }}

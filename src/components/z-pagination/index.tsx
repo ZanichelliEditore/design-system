@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {InputTypeEnum} from "../../beans";
+import {InputType} from "../../beans";
 
 /**
  * Pagination bar component.
@@ -327,7 +327,7 @@ export class ZPagination {
           >
             <z-input
               class="go-to-page-input"
-              type={InputTypeEnum.NUMBER}
+              type={InputType.NUMBER}
               min={1}
               max={this.totalPages}
               message={false}
@@ -435,7 +435,7 @@ export class ZPagination {
             <div class="inputs">
               <z-input
                 class="go-to-page-input"
-                type={InputTypeEnum.NUMBER}
+                type={InputType.NUMBER}
                 min={1}
                 max={this.totalPages}
                 message={false}

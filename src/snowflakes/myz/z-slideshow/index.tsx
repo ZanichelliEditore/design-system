@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Element, Watch} from "@stencil/core";
-import {DeviceEnum} from "../../../beans";
+import {Device} from "../../../beans";
 import {getDevice, handleKeyboardSubmit, convertJson} from "../../../utils/utils";
 
 /**
@@ -32,7 +32,7 @@ export class ZSlideshow {
   data: string[] | string;
 
   @State()
-  device: DeviceEnum;
+  device: Device;
 
   @State()
   currentSlide = 0;
@@ -105,9 +105,9 @@ export class ZSlideshow {
 
   private getBulletDimension(): number {
     switch (this.device) {
-      case DeviceEnum.MOBILE:
+      case Device.MOBILE:
         return 24;
-      case DeviceEnum.TABLET:
+      case Device.TABLET:
         return 32;
       default:
         return 40;

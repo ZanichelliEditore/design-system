@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {ButtonSizeEnum, ButtonVariantEnum, PopoverPositions, Size, SortDirectionEnum} from "../../../beans";
+import {ButtonSize, ButtonVariant, PopoverPositions, Size, SortDirection} from "../../../beans";
 import {getElementTree} from "../../../utils/utils";
 @Component({
   tag: "z-table-header",
@@ -28,11 +28,11 @@ export class ZTableHeader {
 
   /** [Optional] Default sort order */
   @Prop()
-  defaultSortDirection?: SortDirectionEnum = SortDirectionEnum.ASC;
+  defaultSortDirection?: SortDirection = SortDirection.ASC;
 
   /** Sort direction */
   @Prop({mutable: true})
-  sortDirection: SortDirectionEnum = SortDirectionEnum.NONE;
+  sortDirection: SortDirection = SortDirection.NONE;
 
   private popover?: HTMLZPopoverElement;
 
@@ -60,14 +60,14 @@ export class ZTableHeader {
 
     this.sortDirection = (() => {
       switch (this.sortDirection) {
-        case SortDirectionEnum.ASC:
-          return SortDirectionEnum.DESC;
-        case SortDirectionEnum.DESC:
-          return SortDirectionEnum.ASC;
-        case SortDirectionEnum.NONE:
+        case SortDirection.ASC:
+          return SortDirection.DESC;
+        case SortDirection.DESC:
+          return SortDirection.ASC;
+        case SortDirection.NONE:
           return this.defaultSortDirection;
         default:
-          return SortDirectionEnum.NONE;
+          return SortDirection.NONE;
       }
     })();
 
@@ -102,7 +102,7 @@ export class ZTableHeader {
       (target.parentNode as HTMLZTableHeaderElement).sortable || (target as HTMLZTableHeaderElement).sortable;
 
     if (parentColumnId !== this.columnId && isSortable) {
-      this.sortDirection = SortDirectionEnum.NONE;
+      this.sortDirection = SortDirection.NONE;
     }
   }
 
@@ -120,9 +120,9 @@ export class ZTableHeader {
       >
         <div class="container">
           <slot />
-          {this.sortable && this.sortDirection !== SortDirectionEnum.NONE && (
+          {this.sortable && this.sortDirection !== SortDirection.NONE && (
             <z-icon
-              name={this.sortDirection === SortDirectionEnum.ASC ? "arrow-up" : "arrow-down"}
+              name={this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down"}
               class="arrow"
             />
           )}
@@ -134,8 +134,8 @@ export class ZTableHeader {
               ref={(el) => (this.triggerButton = el as HTMLZPopoverElement)}
               class="contextual-popover-button"
               icon="contextual-menu"
-              variant={ButtonVariantEnum.TERTIARY}
-              size={ButtonSizeEnum.X_SMALL}
+              variant={ButtonVariant.TERTIARY}
+              size={ButtonSize.X_SMALL}
               onClick={() => this.handleMenuClick()}
             ></z-button>
 

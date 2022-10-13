@@ -1,5 +1,5 @@
 import {Component, Prop, h, Element, Watch} from "@stencil/core";
-import {ToastNotificationPositionsEnum} from "../../../beans";
+import {ToastNotificationPositions} from "../../../beans";
 
 @Component({
   tag: "z-toast-notification-list",
@@ -11,7 +11,7 @@ export class ZToastNotificationList {
 
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
   @Prop({reflect: true})
-  position: ToastNotificationPositionsEnum = ToastNotificationPositionsEnum.TOP_RIGHT;
+  position: ToastNotificationPositions = ToastNotificationPositions.TOP_RIGHT;
 
   /**Set the entry position of new notification in the list */
   @Prop()

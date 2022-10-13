@@ -1,6 +1,6 @@
 import {Component, h, Element, Event, EventEmitter, Prop} from "@stencil/core";
 import {State} from "@stencil/core/internal";
-import {ButtonVariantEnum, InputStatusEnum, InputTypeEnum} from "../../../beans";
+import {ButtonVariant, InputStatus, InputType} from "../../../beans";
 
 /**
  * @slot username - username input
@@ -28,7 +28,7 @@ export class ZModalLogin {
 
   /** Username/password input status */
   @Prop({mutable: true})
-  status?: InputStatusEnum;
+  status?: InputStatus;
 
   /** Username helper message */
   @Prop()
@@ -62,7 +62,7 @@ export class ZModalLogin {
     const password = passwordInput.value;
 
     if (!username || !password) {
-      this.status = InputStatusEnum.ERROR;
+      this.status = InputStatus.ERROR;
 
       return;
     }
@@ -80,7 +80,7 @@ export class ZModalLogin {
   @Event()
   statusUpdate: EventEmitter;
 
-  private emitStatusUpdate(status: InputStatusEnum): void {
+  private emitStatusUpdate(status: InputStatus): void {
     this.statusUpdate.emit(status);
   }
 
@@ -129,7 +129,7 @@ export class ZModalLogin {
   private renderZainoDigitaleButton(): HTMLZButtonElement {
     return (
       <z-button
-        variant={ButtonVariantEnum.SECONDARY}
+        variant={ButtonVariant.SECONDARY}
         onClick={() => this.emitZainoDigitaleClick()}
         class="zainoDigitale"
       >
@@ -200,7 +200,7 @@ export class ZModalLogin {
                   id="password"
                   label="password"
                   placeholder="Inserisci la tua password"
-                  type={InputTypeEnum.PASSWORD}
+                  type={InputType.PASSWORD}
                   name="password"
                   autocomplete="current-password"
                   status={this.status}
@@ -221,7 +221,7 @@ export class ZModalLogin {
             <div class="login">
               <slot name="login">
                 <z-button
-                  variant={ButtonVariantEnum.PRIMARY}
+                  variant={ButtonVariant.PRIMARY}
                   onClick={() => this.emitLoginSubmit()}
                 >
                   Accedi
@@ -243,7 +243,7 @@ export class ZModalLogin {
           <div class="signup">
             <slot name="signup">
               <z-button
-                variant={ButtonVariantEnum.SECONDARY}
+                variant={ButtonVariant.SECONDARY}
                 onClick={() => this.emitSignupClick()}
               >
                 Registrati

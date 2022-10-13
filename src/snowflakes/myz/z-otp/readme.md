@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description   | Type                                                                          | Default     |
-| ---------- | ----------- | ------------- | ----------------------------------------------------------------------------- | ----------- |
-| `inputNum` | `input-num` | Input number  | `number`                                                                      | `6`         |
-| `message`  | `message`   | Input message | `string`                                                                      | `undefined` |
-| `status`   | `status`    | Input status  | `InputStatusEnum.ERROR \| InputStatusEnum.SUCCESS \| InputStatusEnum.WARNING` | `undefined` |
+| Property   | Attribute   | Description   | Type                                                              | Default     |
+| ---------- | ----------- | ------------- | ----------------------------------------------------------------- | ----------- |
+| `inputNum` | `input-num` | Input number  | `number`                                                          | `6`         |
+| `message`  | `message`   | Input message | `string`                                                          | `undefined` |
+| `status`   | `status`    | Input status  | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
 
 
 ## Events

@@ -1,5 +1,5 @@
 import {Component, h, Prop, Listen} from "@stencil/core";
-import {PocketStatusEnum} from "../../../../beans";
+import {PocketStatus} from "../../../../beans";
 
 /**
  * @slot  - pocket body content
@@ -16,7 +16,7 @@ export class ZPocketBody {
 
   /** pocket status */
   @Prop({mutable: true})
-  status: PocketStatusEnum = PocketStatusEnum.PREVIEW;
+  status: PocketStatus = PocketStatus.PREVIEW;
 
   @Listen("pocketToggle", {target: "body"})
   handlePocketToggle(e: CustomEvent): void {
