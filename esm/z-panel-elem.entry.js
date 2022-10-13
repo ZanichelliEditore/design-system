@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-90e18641.js';
+import { r as registerInstance, h } from './index-a2ca4b97.js';
 
 const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg);width:inherit}.panel-elem-container{width:100%}.panel-elem-icon{margin:auto calc(var(--space-unit) * 3)}.panel-elem-icon img{display:block;object-fit:contain;max-width:96px;height:32px;margin:auto}.panel-elem-link{border-radius:var(--border-no-radius);margin:var(--space-unit) auto 0;text-align:center;font-size:12px}.panel-elem-link>z-link{font-weight:var(--font-sb)}.panel-elem-desc{letter-spacing:0.16px;text-align:center;margin:0;padding-top:var(--space-unit)}";
 

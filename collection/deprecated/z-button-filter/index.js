@@ -1,4 +1,4 @@
-import { Component, Prop, Event, h } from "@stencil/core";
+import { h } from "@stencil/core";
 export class ZButtonFilter {
   constructor() {
     /** disable action on button */
@@ -15,14 +15,10 @@ export class ZButtonFilter {
     });
   }
   renderFixedPillow(filtername) {
-    return (h("button", { class: `container ${this.issmall ? "small" : ""}` },
-      this.renderIcon(),
-      this.renderContent(filtername)));
+    return (h("button", { class: `container ${this.issmall ? "small" : ""}` }, this.renderIcon(), this.renderContent(filtername)));
   }
   renderDynamicPillow(filtername) {
-    return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick },
-      this.renderIcon(),
-      this.renderContent(filtername)));
+    return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.renderIcon(), this.renderContent(filtername)));
   }
   renderIcon() {
     if (!this.hasicon)
@@ -40,116 +36,124 @@ export class ZButtonFilter {
   }
   static get is() { return "z-button-filter"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "filtername": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "filtername": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "filter text content"
+        },
+        "attribute": "filtername",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "filter text content"
+      "isfixed": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "disable action on button"
+        },
+        "attribute": "isfixed",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "filtername",
-      "reflect": false
-    },
-    "isfixed": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "hasicon": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "add icon to button"
+        },
+        "attribute": "hasicon",
+        "reflect": false,
+        "defaultValue": "true"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "disable action on button"
+      "filterid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "filter id"
+        },
+        "attribute": "filterid",
+        "reflect": false
       },
-      "attribute": "isfixed",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "hasicon": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "add icon to button"
-      },
-      "attribute": "hasicon",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "filterid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "filter id"
-      },
-      "attribute": "filterid",
-      "reflect": false
-    },
-    "issmall": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "reduce button size (optional)"
-      },
-      "attribute": "issmall",
-      "reflect": false,
-      "defaultValue": "false"
-    }
-  }; }
-  static get events() { return [{
-      "method": "removefilter",
-      "name": "removefilter",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "remove filter click event, returns filterid"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "issmall": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "reduce button size (optional)"
+        },
+        "attribute": "issmall",
+        "reflect": false,
+        "defaultValue": "false"
       }
-    }]; }
+    };
+  }
+  static get events() {
+    return [{
+        "method": "removefilter",
+        "name": "removefilter",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "remove filter click event, returns filterid"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
 }

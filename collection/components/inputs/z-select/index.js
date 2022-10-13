@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Event, Watch, Element, Method, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import { ListDividerType, KeyboardCodeEnum, } from "../../../beans";
 import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean, } from "../../../utils/utils";
 export class ZSelect {
@@ -211,28 +211,23 @@ export class ZSelect {
   }
   renderSelectUl() {
     var _a;
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" },
-      h("div", { class: "ulScrollWrapper", tabindex: "-1" },
-        h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
-            disabled: this.disabled,
-            readonly: this.readonly,
-            filled: !!this.selectedItem,
-            [`input_${this.status}`]: !this.isOpen && !!this.status,
-            input_default: this.isOpen || !this.status,
-          } }, this.renderSelectUlItems()))));
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ulScrollWrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+        disabled: this.disabled,
+        readonly: this.readonly,
+        filled: !!this.selectedItem,
+        [`input_${this.status}`]: !this.isOpen && !!this.status,
+        input_default: this.isOpen || !this.status,
+      } }, this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length)
       return this.renderNoSearchResults();
     return this.itemsList.map((item, key) => {
-      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.element, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) },
-        h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.element, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
     });
   }
   renderNoSearchResults() {
-    return (h("z-list-element", { color: "blue500", class: "noResults" },
-      h("z-icon", { name: "multiply-circle", fill: "blue500" }),
-      this.noresultslabel));
+    return (h("z-list-element", { color: "blue500", class: "noResults" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
   }
   renderMessage() {
     if (boolean(this.message) === false)
@@ -240,343 +235,354 @@ export class ZSelect {
     return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
   }
   render() {
-    return (h("div", { class: "selectWrapper" },
-      this.renderInput(),
-      this.renderSelectUl(),
-      this.renderMessage()));
+    return (h("div", { class: "selectWrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
   }
   static get is() { return "z-select"; }
   static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "htmlid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "htmlid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "the id of the input element"
+        },
+        "attribute": "htmlid",
+        "reflect": false,
+        "defaultValue": "`id-${randomId()}`"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "the id of the input element"
-      },
-      "attribute": "htmlid",
-      "reflect": false,
-      "defaultValue": "`id-${randomId()}`"
-    },
-    "items": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "SelectItemBean[] | string",
-        "resolved": "SelectItemBean[] | string",
-        "references": {
-          "SelectItemBean": {
-            "location": "import",
-            "path": "../../../beans"
+      "items": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "SelectItemBean[] | string",
+          "resolved": "SelectItemBean[] | string",
+          "references": {
+            "SelectItemBean": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "the input select options"
+        },
+        "attribute": "items",
+        "reflect": false
+      },
+      "name": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input name"
+        },
+        "attribute": "name",
+        "reflect": false
+      },
+      "label": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input label"
+        },
+        "attribute": "label",
+        "reflect": false
+      },
+      "ariaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input aria-label"
+        },
+        "attribute": "aria-label",
+        "reflect": false
+      },
+      "disabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input is disabled"
+        },
+        "attribute": "disabled",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "readonly": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input is readonly"
+        },
+        "attribute": "readonly",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "placeholder": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input placeholder (optional)"
+        },
+        "attribute": "placeholder",
+        "reflect": false
+      },
+      "htmltitle": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input html title (optional)"
+        },
+        "attribute": "htmltitle",
+        "reflect": false
+      },
+      "status": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "InputStatusBean",
+          "resolved": "\"error\" | \"success\" | \"warning\"",
+          "references": {
+            "InputStatusBean": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input status (optional)"
+        },
+        "attribute": "status",
+        "reflect": false
+      },
+      "message": {
+        "type": "any",
+        "mutable": false,
+        "complexType": {
+          "original": "string | boolean",
+          "resolved": "boolean | string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "input helper message (optional) - if set to `false` message won't be displayed"
+        },
+        "attribute": "message",
+        "reflect": false,
+        "defaultValue": "true"
+      },
+      "autocomplete": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input has autocomplete option"
+        },
+        "attribute": "autocomplete",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "noresultslabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "no result text message"
+        },
+        "attribute": "noresultslabel",
+        "reflect": false,
+        "defaultValue": "\"Nessun risultato\""
+      }
+    };
+  }
+  static get states() {
+    return {
+      "isOpen": {},
+      "selectedItem": {},
+      "searchString": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "optionSelect",
+        "name": "optionSelect",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Emitted on select option selection, returns select id, selected item id"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
+  static get methods() {
+    return {
+      "getSelectedItem": {
+        "complexType": {
+          "signature": "() => Promise<SelectItemBean>",
+          "parameters": [],
+          "references": {
+            "Promise": {
+              "location": "global"
+            },
+            "SelectItemBean": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          },
+          "return": "Promise<SelectItemBean>"
+        },
+        "docs": {
+          "text": "get the input selected options",
+          "tags": []
         }
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "the input select options"
-      },
-      "attribute": "items",
-      "reflect": false
-    },
-    "name": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input name"
-      },
-      "attribute": "name",
-      "reflect": false
-    },
-    "label": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input label"
-      },
-      "attribute": "label",
-      "reflect": false
-    },
-    "ariaLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input aria-label"
-      },
-      "attribute": "aria-label",
-      "reflect": false
-    },
-    "disabled": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input is disabled"
-      },
-      "attribute": "disabled",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "readonly": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input is readonly"
-      },
-      "attribute": "readonly",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "placeholder": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input placeholder (optional)"
-      },
-      "attribute": "placeholder",
-      "reflect": false
-    },
-    "htmltitle": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input html title (optional)"
-      },
-      "attribute": "htmltitle",
-      "reflect": false
-    },
-    "status": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "InputStatusBean",
-        "resolved": "\"error\" | \"success\" | \"warning\"",
-        "references": {
-          "InputStatusBean": {
-            "location": "import",
-            "path": "../../../beans"
-          }
+      "getValue": {
+        "complexType": {
+          "signature": "() => Promise<string>",
+          "parameters": [],
+          "references": {
+            "Promise": {
+              "location": "global"
+            }
+          },
+          "return": "Promise<string>"
+        },
+        "docs": {
+          "text": "get the input value",
+          "tags": []
         }
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input status (optional)"
-      },
-      "attribute": "status",
-      "reflect": false
-    },
-    "message": {
-      "type": "any",
-      "mutable": false,
-      "complexType": {
-        "original": "string | boolean",
-        "resolved": "boolean | string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "input helper message (optional) - if set to `false` message won't be displayed"
-      },
-      "attribute": "message",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "autocomplete": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "the input has autocomplete option"
-      },
-      "attribute": "autocomplete",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "noresultslabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "no result text message"
-      },
-      "attribute": "noresultslabel",
-      "reflect": false,
-      "defaultValue": "\"Nessun risultato\""
-    }
-  }; }
-  static get states() { return {
-    "isOpen": {},
-    "selectedItem": {},
-    "searchString": {}
-  }; }
-  static get events() { return [{
-      "method": "optionSelect",
-      "name": "optionSelect",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Emitted on select option selection, returns select id, selected item id"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
-  static get methods() { return {
-    "getSelectedItem": {
-      "complexType": {
-        "signature": "() => Promise<SelectItemBean>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
+      "setValue": {
+        "complexType": {
+          "signature": "(value: string | string[]) => Promise<void>",
+          "parameters": [{
+              "tags": [],
+              "text": ""
+            }],
+          "references": {
+            "Promise": {
+              "location": "global"
+            },
+            "SelectItemBean": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           },
-          "SelectItemBean": {
-            "location": "import",
-            "path": "../../../beans"
-          }
+          "return": "Promise<void>"
         },
-        "return": "Promise<SelectItemBean>"
-      },
-      "docs": {
-        "text": "get the input selected options",
-        "tags": []
+        "docs": {
+          "text": "set the input value",
+          "tags": []
+        }
       }
-    },
-    "getValue": {
-      "complexType": {
-        "signature": "() => Promise<string>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
-          }
-        },
-        "return": "Promise<string>"
-      },
-      "docs": {
-        "text": "get the input value",
-        "tags": []
-      }
-    },
-    "setValue": {
-      "complexType": {
-        "signature": "(value: string | string[]) => Promise<void>",
-        "parameters": [{
-            "tags": [],
-            "text": ""
-          }],
-        "references": {
-          "Promise": {
-            "location": "global"
-          },
-          "SelectItemBean": {
-            "location": "import",
-            "path": "../../../beans"
-          }
-        },
-        "return": "Promise<void>"
-      },
-      "docs": {
-        "text": "set the input value",
-        "tags": []
-      }
-    }
-  }; }
+    };
+  }
   static get elementRef() { return "element"; }
-  static get watchers() { return [{
-      "propName": "items",
-      "methodName": "watchItems"
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "items",
+        "methodName": "watchItems"
+      }];
+  }
 }

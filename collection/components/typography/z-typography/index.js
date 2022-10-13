@@ -1,4 +1,4 @@
-import { Component, Element, Prop, h, Host } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 export class ZTypography {
   constructor() {
     this.variant = "regular";
@@ -16,69 +16,75 @@ export class ZTypography {
   }
   static get is() { return "z-typography"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "component": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "component": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "component",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
+      "variant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "\"regular\" | \"semibold\" | \"light\"",
+          "resolved": "\"light\" | \"regular\" | \"semibold\"",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "variant",
+        "reflect": false,
+        "defaultValue": "\"regular\""
       },
-      "attribute": "component",
-      "reflect": false
-    },
-    "variant": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "\"regular\" | \"semibold\" | \"light\"",
-        "resolved": "\"light\" | \"regular\" | \"semibold\"",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "variant",
-      "reflect": false,
-      "defaultValue": "\"regular\""
-    },
-    "level": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ZTypographyLevels",
-        "resolved": "\"b1\" | \"b2\" | \"b3\" | \"b4\" | \"b5\" | \"h1\" | \"h2\" | \"h3\" | \"h4\"",
-        "references": {
-          "ZTypographyLevels": {
-            "location": "local"
+      "level": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ZTypographyLevels",
+          "resolved": "\"b1\" | \"b2\" | \"b3\" | \"b4\" | \"b5\" | \"h1\" | \"h2\" | \"h3\" | \"h4\"",
+          "references": {
+            "ZTypographyLevels": {
+              "location": "local"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "level",
-      "reflect": false
-    }
-  }; }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "level",
+        "reflect": false
+      }
+    };
+  }
   static get elementRef() { return "hostElement"; }
 }

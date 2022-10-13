@@ -1,4 +1,4 @@
-import { Component, Element, Event, h, Host, Listen, Prop, State, } from "@stencil/core";
+import { h, Host, } from "@stencil/core";
 import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardKeys, ListDividerType, ListSize, } from "../../../beans";
 export class ZListElement {
   /**
@@ -132,308 +132,313 @@ export class ZListElement {
     return (h("div", { class: {
         "z-list-element-inner-container": true,
         expanded: this.showInnerContent,
-      } },
-      h("slot", { name: "inner-content" })));
+      } }, h("slot", { name: "inner-content" })));
   }
   render() {
-    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null },
-      h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` },
-        h("div", { class: "z-list-element-container" },
-          this.renderExpandableButton(),
-          h("slot", null)),
-        this.renderExpandedContent()),
-      this.dividerType === ListDividerType.element && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), h("slot", null)), this.renderExpandedContent()), this.dividerType === ListDividerType.element && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   static get is() { return "z-list-element"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "alignButton": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ExpandableListButtonAlign",
-        "resolved": "ExpandableListButtonAlign.left | ExpandableListButtonAlign.right",
-        "references": {
-          "ExpandableListButtonAlign": {
-            "location": "import",
-            "path": "../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "alignButton": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ExpandableListButtonAlign",
+          "resolved": "ExpandableListButtonAlign.left | ExpandableListButtonAlign.right",
+          "references": {
+            "ExpandableListButtonAlign": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Align expandable button left or right."
+        },
+        "attribute": "align-button",
+        "reflect": true,
+        "defaultValue": "ExpandableListButtonAlign.left"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Align expandable button left or right."
+      "clickable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets element clickable."
+        },
+        "attribute": "clickable",
+        "reflect": true,
+        "defaultValue": "false"
       },
-      "attribute": "align-button",
-      "reflect": true,
-      "defaultValue": "ExpandableListButtonAlign.left"
-    },
-    "clickable": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "dividerColor": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets the divider color."
+        },
+        "attribute": "divider-color",
+        "reflect": false,
+        "defaultValue": "\"color-surface03\""
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets element clickable."
-      },
-      "attribute": "clickable",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "dividerColor": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets the divider color."
-      },
-      "attribute": "divider-color",
-      "reflect": false,
-      "defaultValue": "\"color-surface03\""
-    },
-    "dividerType": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ListDividerType",
-        "resolved": "ListDividerType.element | ListDividerType.header | ListDividerType.none",
-        "references": {
-          "ListDividerType": {
-            "location": "import",
-            "path": "../../../beans"
+      "dividerType": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ListDividerType",
+          "resolved": "ListDividerType.element | ListDividerType.header | ListDividerType.none",
+          "references": {
+            "ListDividerType": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets the position where to insert the divider."
+        },
+        "attribute": "divider-type",
+        "reflect": false,
+        "defaultValue": "ListDividerType.none"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets the position where to insert the divider."
-      },
-      "attribute": "divider-type",
-      "reflect": false,
-      "defaultValue": "ListDividerType.none"
-    },
-    "dividerSize": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "DividerSize",
-        "resolved": "DividerSize.large | DividerSize.medium | DividerSize.small",
-        "references": {
-          "DividerSize": {
-            "location": "import",
-            "path": "../../../beans"
+      "dividerSize": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "DividerSize",
+          "resolved": "DividerSize.large | DividerSize.medium | DividerSize.small",
+          "references": {
+            "DividerSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets the divider size."
+        },
+        "attribute": "divider-size",
+        "reflect": false,
+        "defaultValue": "DividerSize.small"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets the divider size."
+      "expandable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets element as expandable."
+        },
+        "attribute": "expandable",
+        "reflect": true,
+        "defaultValue": "false"
       },
-      "attribute": "divider-size",
-      "reflect": false,
-      "defaultValue": "DividerSize.small"
-    },
-    "expandable": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets element as expandable."
-      },
-      "attribute": "expandable",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "expandableStyle": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ExpandableListStyle",
-        "resolved": "ExpandableListStyle.accordion | ExpandableListStyle.menu",
-        "references": {
-          "ExpandableListStyle": {
-            "location": "import",
-            "path": "../../../beans"
+      "expandableStyle": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ExpandableListStyle",
+          "resolved": "ExpandableListStyle.accordion | ExpandableListStyle.menu",
+          "references": {
+            "ExpandableListStyle": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets expandable style to element."
+        },
+        "attribute": "expandable-style",
+        "reflect": false,
+        "defaultValue": "ExpandableListStyle.accordion"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets expandable style to element."
+      "listElementId": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "list-element-id",
+        "reflect": true
       },
-      "attribute": "expandable-style",
-      "reflect": false,
-      "defaultValue": "ExpandableListStyle.accordion"
-    },
-    "listElementId": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": ""
-      },
-      "attribute": "list-element-id",
-      "reflect": true
-    },
-    "size": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ListSize",
-        "resolved": "ListSize.large | ListSize.medium | ListSize.small | typeof ListSize[\"x-large\"]",
-        "references": {
-          "ListSize": {
-            "location": "import",
-            "path": "../../../beans"
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ListSize",
+          "resolved": "(typeof ListSize)[\"x-large\"] | ListSize.large | ListSize.medium | ListSize.small",
+          "references": {
+            "ListSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets size of inside elements."
+        },
+        "attribute": "size",
+        "reflect": true,
+        "defaultValue": "ListSize.medium"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets size of inside elements."
+      "color": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets text color of the element."
+        },
+        "attribute": "color",
+        "reflect": true,
+        "defaultValue": "\"none\""
       },
-      "attribute": "size",
-      "reflect": true,
-      "defaultValue": "ListSize.medium"
-    },
-    "color": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "disabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets disabled style of the element."
+        },
+        "attribute": "disabled",
+        "reflect": true,
+        "defaultValue": "false"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets text color of the element."
-      },
-      "attribute": "color",
-      "reflect": true,
-      "defaultValue": "\"none\""
-    },
-    "disabled": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] Sets disabled style of the element."
-      },
-      "attribute": "disabled",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "isContextualMenu": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "[optional] If is used in ZContextualMenu component"
-      },
-      "attribute": "is-contextual-menu",
-      "reflect": true,
-      "defaultValue": "false"
-    }
-  }; }
-  static get states() { return {
-    "showInnerContent": {}
-  }; }
-  static get events() { return [{
-      "method": "accessibleFocus",
-      "name": "accessibleFocus",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "remove filter click event, returns filterid"
-      },
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
+      "isContextualMenu": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] If is used in ZContextualMenu component"
+        },
+        "attribute": "is-contextual-menu",
+        "reflect": true,
+        "defaultValue": "false"
       }
-    }, {
-      "method": "clickItem",
-      "name": "clickItem",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "remove filter click event, returns filterid"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "showInnerContent": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "accessibleFocus",
+        "name": "accessibleFocus",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "remove filter click event, returns filterid"
+        },
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        }
+      }, {
+        "method": "clickItem",
+        "name": "clickItem",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "remove filter click event, returns filterid"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "host"; }
-  static get listeners() { return [{
-      "name": "accessibleFocus",
-      "method": "accessibleFocusHandler",
-      "target": "document",
-      "capture": false,
-      "passive": false
-    }]; }
+  static get listeners() {
+    return [{
+        "name": "accessibleFocus",
+        "method": "accessibleFocusHandler",
+        "target": "document",
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-90e18641.js';
+import { r as registerInstance, h } from './index-a2ca4b97.js';
 
 const stylesCss = ".sc-z-table-sticky-footer-h{display:block;position:sticky;left:0;padding:var(--basex2);background-color:var(--bg-white);border-style:solid;border-color:var(--gray200);border-width:var(--border-size-small) 0 var(--border-base);font-weight:var(--font-rg)}";
 

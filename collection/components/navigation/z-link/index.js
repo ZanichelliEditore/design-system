@@ -1,5 +1,5 @@
-import { Component, Prop, h, Event, Element } from "@stencil/core";
-import { Host, State } from "@stencil/core/internal";
+import { h } from "@stencil/core";
+import { Host } from "@stencil/core/internal";
 /**
  * @slot - link content
  */
@@ -52,258 +52,264 @@ export class ZLink {
   }
   render() {
     const style = this.big ? { "--font-size-link": "16px", "--font-weight-link": "600" } : {};
-    return (h(Host, { style: style },
-      h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled ? "disabled" : ""}
+    return (h(Host, { style: style }, h("a", { id: this.htmlid, href: this.href ? this.href : null, class: `${this.isdisabled ? "disabled" : ""}
             ${this.isactive ? "active" : ""}
             ${this.textcolor}
             ${this.iswhite ? "white" : ""}
-            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) },
-        this.iconposition === "right" && h("slot", null),
-        this.icon &&
-          h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }),
-        this.iconposition === "left" && h("slot", null))));
+            ${this.underline ? "underline" : ""}`, target: this.target, role: this.href ? "link" : "button", tabindex: this.isdisabled ? -1 : this.htmltabindex, onClick: (e) => this.emitZLinkClick(e, this.htmlid) }, this.iconposition === "right" && h("slot", null), this.icon &&
+      h("z-icon", { style: { "--z-icon-width": this.iconSize.toString(), "--z-icon-height": this.iconSize.toString() }, name: this.icon, height: this.iconSize, width: this.iconSize }), this.iconposition === "left" && h("slot", null))));
   }
   static get is() { return "z-link"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "htmlid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "htmlid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link id (optional)"
+        },
+        "attribute": "htmlid",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link id (optional)"
+      "href": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link url (optional)"
+        },
+        "attribute": "href",
+        "reflect": false
       },
-      "attribute": "htmlid",
-      "reflect": false
-    },
-    "href": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "target": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link target (optional)"
+        },
+        "attribute": "target",
+        "reflect": false,
+        "defaultValue": "\"_self\""
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link url (optional)"
+      "htmltabindex": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "tabindex link attribute (optional)"
+        },
+        "attribute": "htmltabindex",
+        "reflect": false,
+        "defaultValue": "0"
       },
-      "attribute": "href",
-      "reflect": false
-    },
-    "target": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "isdisabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "disable link flag (optional)"
+        },
+        "attribute": "isdisabled",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link target (optional)"
+      "isactive": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "active link flag (optional)"
+        },
+        "attribute": "isactive",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "target",
-      "reflect": false,
-      "defaultValue": "\"_self\""
-    },
-    "htmltabindex": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
+      "iswhite": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "white variant flag (optional)"
+        },
+        "attribute": "iswhite",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "tabindex link attribute (optional)"
+      "textcolor": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "\"primary\"| \"inverse\" | \"white\" | \"black\"",
+          "resolved": "\"black\" | \"inverse\" | \"primary\" | \"white\"",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link text variant (optional)"
+        },
+        "attribute": "textcolor",
+        "reflect": false,
+        "defaultValue": "\"primary\""
       },
-      "attribute": "htmltabindex",
-      "reflect": false,
-      "defaultValue": "0"
-    },
-    "isdisabled": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "icon": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link icon name (optional)"
+        },
+        "attribute": "icon",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "disable link flag (optional)"
+      "big": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "big link version"
+        },
+        "attribute": "big",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "isdisabled",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "isactive": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "iconposition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "\"left\" | \"right\"",
+          "resolved": "\"left\" | \"right\"",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link icon position (optional)"
+        },
+        "attribute": "iconposition",
+        "reflect": false,
+        "defaultValue": "\"left\""
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "active link flag (optional)"
-      },
-      "attribute": "isactive",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "iswhite": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "white variant flag (optional)"
-      },
-      "attribute": "iswhite",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "textcolor": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "\"primary\"| \"inverse\" | \"white\" | \"black\"",
-        "resolved": "\"black\" | \"inverse\" | \"primary\" | \"white\"",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link text variant (optional)"
-      },
-      "attribute": "textcolor",
-      "reflect": false,
-      "defaultValue": "\"primary\""
-    },
-    "icon": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link icon name (optional)"
-      },
-      "attribute": "icon",
-      "reflect": false
-    },
-    "big": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "big link version"
-      },
-      "attribute": "big",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "iconposition": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "\"left\" | \"right\"",
-        "resolved": "\"left\" | \"right\"",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link icon position (optional)"
-      },
-      "attribute": "iconposition",
-      "reflect": false,
-      "defaultValue": "\"left\""
-    },
-    "underline": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "draw underline on text (optional)"
-      },
-      "attribute": "underline",
-      "reflect": false,
-      "defaultValue": "false"
-    }
-  }; }
-  static get states() { return {
-    "iconSize": {}
-  }; }
-  static get events() { return [{
-      "method": "zLinkClick",
-      "name": "zLinkClick",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "emitted on link click, returns linkId"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "underline": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "draw underline on text (optional)"
+        },
+        "attribute": "underline",
+        "reflect": false,
+        "defaultValue": "false"
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "iconSize": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "zLinkClick",
+        "name": "zLinkClick",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "emitted on link click, returns linkId"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "hostElement"; }
 }

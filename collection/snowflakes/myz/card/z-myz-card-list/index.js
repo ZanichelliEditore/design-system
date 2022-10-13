@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { h } from "@stencil/core";
 export class ZMyzCardList {
   constructor() {
     this.renderList = this.renderList.bind(this);
@@ -25,29 +25,35 @@ export class ZMyzCardList {
   }
   static get is() { return "z-myz-card-list"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "listdata": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "list data stringified array"
-      },
-      "attribute": "listdata",
-      "reflect": false
-    }
-  }; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "listdata": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "list data stringified array"
+        },
+        "attribute": "listdata",
+        "reflect": false
+      }
+    };
+  }
 }

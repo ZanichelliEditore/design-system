@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, State, Listen, Element, Method, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import { DeviceEnum, DividerSize, ZFileUploadTypeEnum, } from "../../../beans";
 import { getDevice } from "../../../utils/utils";
 export class ZFileUpload {
@@ -110,11 +110,7 @@ export class ZFileUpload {
     return (h("z-body", { level: 3 }, fileFormatString || fileWeightString ? finalString : null));
   }
   renderFileSection() {
-    return (this.files.length > 0 && (h("section", { class: "files-container" },
-      h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"),
-      h("div", { class: "files" },
-        h("slot", { name: "files" })),
-      h("z-divider", { size: DividerSize.medium }))));
+    return (this.files.length > 0 && (h("section", { class: "files-container" }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.medium }))));
   }
   renderInput() {
     return (h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));
@@ -133,17 +129,12 @@ export class ZFileUpload {
   renderUploadLink() {
     return [
       this.renderInput(),
-      h("z-body", { class: "upload-link-text", variant: "regular", level: 1 },
-        "Trascinalo qui o",
-        " ",
-        h("z-body", { tabIndex: 0, class: "upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
-            if (e.code == "Space" || e.code == "Enter") {
-              e.preventDefault();
-              this.input.click();
-            }
-          }, variant: "semibold", level: 1, ref: (val) => (this.uploadLink = val) }, "caricalo"),
-        " ",
-        "dal tuo computer"),
+      h("z-body", { class: "upload-link-text", variant: "regular", level: 1 }, "Trascinalo qui o", " ", h("z-body", { tabIndex: 0, class: "upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
+          if (e.code == "Space" || e.code == "Enter") {
+            e.preventDefault();
+            this.input.click();
+          }
+        }, variant: "semibold", level: 1, ref: (val) => (this.uploadLink = val) }, "caricalo"), " ", "dal tuo computer"),
     ];
   }
   renderDefaultMode() {
@@ -157,11 +148,7 @@ export class ZFileUpload {
   renderDragDropMode() {
     return [
       this.renderFileSection(),
-      h("z-dragdrop-area", null,
-        h("div", { class: "text-container" },
-          this.renderDescription("regular", 1),
-          this.renderUploadLink(),
-          this.renderAllowedFileExtensions())),
+      h("z-dragdrop-area", null, h("div", { class: "text-container" }, this.renderDescription("regular", 1), this.renderUploadLink(), this.renderAllowedFileExtensions())),
     ];
   }
   formatErrorString(key, value) {
@@ -170,198 +157,208 @@ export class ZFileUpload {
     return `Il file ${key} ${(_a = value[0]) !== null && _a !== void 0 ? _a : ""}${bothErrors} ${(_b = value[1]) !== null && _b !== void 0 ? _b : ""} e non può quindi essere caricato.`;
   }
   handleErrorModalContent() {
-    return (h("div", { slot: "modalContent" },
-      h("div", { class: "modalWrapper" },
-        h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
-          return (h("z-body", { variant: "regular", level: 3 }, this.formatErrorString(key, value)));
-        })))));
+    return (h("div", { slot: "modalContent" }, h("div", { class: "modalWrapper" }, h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
+      return (h("z-body", { variant: "regular", level: 3 }, this.formatErrorString(key, value)));
+    })))));
   }
   render() {
     return [
-      h("div", { tabIndex: 0, class: `container ${this.type}` },
-        this.renderTitle(),
-        this.type == ZFileUploadTypeEnum.default
-          ? this.renderDefaultMode()
-          : this.renderDragDropMode()),
+      h("div", { tabIndex: 0, class: `container ${this.type}` }, this.renderTitle(), this.type == ZFileUploadTypeEnum.default
+        ? this.renderDefaultMode()
+        : this.renderDragDropMode()),
       !!this.invalidFiles.size && (h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent())),
     ];
   }
   static get is() { return "z-file-upload"; }
   static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "type": {
-      "type": "string",
-      "mutable": true,
-      "complexType": {
-        "original": "ZFileUploadTypeEnum",
-        "resolved": "ZFileUploadTypeEnum.default | ZFileUploadTypeEnum.dragdrop",
-        "references": {
-          "ZFileUploadTypeEnum": {
-            "location": "import",
-            "path": "../../../beans"
-          }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Prop indicating the file upload type - can be default or dragdrop"
-      },
-      "attribute": "type",
-      "reflect": true,
-      "defaultValue": "ZFileUploadTypeEnum.default"
-    },
-    "buttonVariant": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ButtonVariantEnum",
-        "resolved": "ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary | typeof ButtonVariantEnum[\"dark-bg\"]",
-        "references": {
-          "ButtonVariantEnum": {
-            "location": "import",
-            "path": "../../../beans"
-          }
-        }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Prop indicating the button variant"
-      },
-      "attribute": "button-variant",
-      "reflect": false
-    },
-    "acceptedFormat": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Prop indicating the accepted file type: ex \".pdf, .doc, .jpg\""
-      },
-      "attribute": "accepted-format",
-      "reflect": false
-    },
-    "fileMaxSize": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Max file dimension in Megabyte"
-      },
-      "attribute": "file-max-size",
-      "reflect": false
-    },
-    "mainTitle": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Title"
-      },
-      "attribute": "main-title",
-      "reflect": false
-    },
-    "description": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Description"
-      },
-      "attribute": "description",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "files": {},
-    "invalidFiles": {}
-  }; }
-  static get events() { return [{
-      "method": "fileInput",
-      "name": "fileInput",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Emitted when user select one or more files"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
-  static get methods() { return {
-    "getFiles": {
-      "complexType": {
-        "signature": "() => Promise<File[]>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
-          },
-          "File": {
-            "location": "global"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "type": {
+        "type": "string",
+        "mutable": true,
+        "complexType": {
+          "original": "ZFileUploadTypeEnum",
+          "resolved": "ZFileUploadTypeEnum.default | ZFileUploadTypeEnum.dragdrop",
+          "references": {
+            "ZFileUploadTypeEnum": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
         },
-        "return": "Promise<File[]>"
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Prop indicating the file upload type - can be default or dragdrop"
+        },
+        "attribute": "type",
+        "reflect": true,
+        "defaultValue": "ZFileUploadTypeEnum.default"
       },
-      "docs": {
-        "text": "get array of uploaded files",
-        "tags": []
+      "buttonVariant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ButtonVariantEnum",
+          "resolved": "(typeof ButtonVariantEnum)[\"dark-bg\"] | ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary",
+          "references": {
+            "ButtonVariantEnum": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Prop indicating the button variant"
+        },
+        "attribute": "button-variant",
+        "reflect": false
+      },
+      "acceptedFormat": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Prop indicating the accepted file type: ex \".pdf, .doc, .jpg\""
+        },
+        "attribute": "accepted-format",
+        "reflect": false
+      },
+      "fileMaxSize": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Max file dimension in Megabyte"
+        },
+        "attribute": "file-max-size",
+        "reflect": false
+      },
+      "mainTitle": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Title"
+        },
+        "attribute": "main-title",
+        "reflect": false
+      },
+      "description": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Description"
+        },
+        "attribute": "description",
+        "reflect": false
       }
-    }
-  }; }
+    };
+  }
+  static get states() {
+    return {
+      "files": {},
+      "invalidFiles": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "fileInput",
+        "name": "fileInput",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Emitted when user select one or more files"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
+  static get methods() {
+    return {
+      "getFiles": {
+        "complexType": {
+          "signature": "() => Promise<File[]>",
+          "parameters": [],
+          "references": {
+            "Promise": {
+              "location": "global"
+            },
+            "File": {
+              "location": "global"
+            }
+          },
+          "return": "Promise<File[]>"
+        },
+        "docs": {
+          "text": "get array of uploaded files",
+          "tags": []
+        }
+      }
+    };
+  }
   static get elementRef() { return "el"; }
-  static get listeners() { return [{
-      "name": "removeFile",
-      "method": "removeFileListener",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }, {
-      "name": "fileDropped",
-      "method": "fileDroppedListener",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }]; }
+  static get listeners() {
+    return [{
+        "name": "removeFile",
+        "method": "removeFileListener",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }, {
+        "name": "fileDropped",
+        "method": "fileDroppedListener",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-90e18641.js';
+import { r as registerInstance, h } from './index-a2ca4b97.js';
 
 const stylesCss = ":host>div{display:inline-block;min-height:28px;line-height:28px;padding:0 calc(var(--space-unit) * 1.5);background-color:var(--bg-white);border:var(--border-size-small) solid var(--bg-grey-200);border-radius:14px;color:var(--text-grey-800);fill:var(--text-grey-800);font-family:var(--dashboard-font);font-size:12px}.boldtext{font-weight:bold}";
 

@@ -1,4 +1,4 @@
-import { Component, Element, Event, Host, Listen, Prop, State, h, } from "@stencil/core";
+import { Host, h, } from "@stencil/core";
 import { ButtonSizeEnum, ButtonVariantEnum } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 /**
@@ -44,15 +44,7 @@ export class ZTable {
   }
   renderError(tableClass) {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-    return (h(Host, null,
-      h("div", { class: tableClass },
-        h("slot", { name: "table-header" })),
-      h("z-table-error", null,
-        h("div", { class: "error-content", style: { minHeight } },
-          h("slot", { name: "error-image" }),
-          h("div", { class: "text" },
-            h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage),
-            h("slot", { name: "error-action" }))))));
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-table-error", null, h("div", { class: "error-content", style: { minHeight } }, h("slot", { name: "error-image" }), h("div", { class: "text" }, h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage), h("slot", { name: "error-action" }))))));
   }
   renderEmpty(tableClass) {
     const buttonSize = this.isMobile
@@ -60,21 +52,9 @@ export class ZTable {
       : ButtonSizeEnum.big;
     const tableContentClass = `${!!this.hasTableBody ? "table-content" : ""}`;
     if (this.hasTableBody) {
-      return (h(Host, null,
-        h("div", { class: tableClass },
-          h("slot", { name: "table-header" }),
-          h("div", { class: tableContentClass },
-            h("slot", { name: "table-body" }),
-            h("z-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
-              !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
-              !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
+      return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" }), h("div", { class: tableContentClass }, h("slot", { name: "table-body" }), h("z-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))))));
     }
-    return (h(Host, null,
-      h("div", { class: tableClass },
-        h("slot", { name: "table-header" })),
-      h("z-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle },
-        !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)),
-        !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-table-empty-box", { class: this.bordered && "bordered", message: this.message, subtitle: this.subtitle }, !!this.callToActionLabel && (h("z-button", { slot: "cta1", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToAction.emit(), size: buttonSize }, this.callToActionLabel)), !!this.callToActionTwoLabel && (h("z-button", { slot: "cta2", variant: ButtonVariantEnum.tertiary, onClick: () => this.callToActionTwo.emit(), size: buttonSize }, this.callToActionTwoLabel)))));
   }
   render() {
     const tableClass = `table ${this.empty ? "table-empty" : ""} ${this.bordered ? "table-bordered" : ""}
@@ -86,280 +66,289 @@ export class ZTable {
     if (this.empty) {
       return this.renderEmpty(tableClass);
     }
-    return (h(Host, null,
-      h("div", { class: tableClass },
-        h("slot", null)),
-      h("slot", { name: "sticky-footer" })));
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", null)), h("slot", { name: "sticky-footer" })));
   }
   static get is() { return "z-table"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
   static get assetsDirs() { return ["assets"]; }
-  static get properties() { return {
-    "lines": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
+  static get properties() {
+    return {
+      "lines": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Number of lines of element"
+        },
+        "attribute": "lines",
+        "reflect": true
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Number of lines of element"
+      "errorMessage": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Error message"
+        },
+        "attribute": "error-message",
+        "reflect": false,
+        "defaultValue": "\"Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto\""
       },
-      "attribute": "lines",
-      "reflect": true
-    },
-    "errorMessage": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "bordered": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets table with border"
+        },
+        "attribute": "bordered",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Error message"
+      "callToActionLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets call to action label"
+        },
+        "attribute": "call-to-action-label",
+        "reflect": false
       },
-      "attribute": "error-message",
-      "reflect": false,
-      "defaultValue": "\"Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto\""
-    },
-    "bordered": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "callToActionTwoLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets call to action label"
+        },
+        "attribute": "call-to-action-two-label",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets table with border"
+      "columnSticky": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets first column sticky"
+        },
+        "attribute": "column-sticky",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "bordered",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "callToActionLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "empty": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets empty table"
+        },
+        "attribute": "empty",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets call to action label"
+      "error": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set error status"
+        },
+        "attribute": "error",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "call-to-action-label",
-      "reflect": false
-    },
-    "callToActionTwoLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "errorLink": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set error status"
+        },
+        "attribute": "error-link",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets call to action label"
+      "headerSticky": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Sets header sticky"
+        },
+        "attribute": "header-sticky",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "attribute": "call-to-action-two-label",
-      "reflect": false
-    },
-    "columnSticky": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "message": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set message"
+        },
+        "attribute": "message",
+        "reflect": false,
+        "defaultValue": "\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\""
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets first column sticky"
-      },
-      "attribute": "column-sticky",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "empty": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets empty table"
-      },
-      "attribute": "empty",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "error": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Set error status"
-      },
-      "attribute": "error",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "errorLink": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Set error status"
-      },
-      "attribute": "error-link",
-      "reflect": false
-    },
-    "headerSticky": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Sets header sticky"
-      },
-      "attribute": "header-sticky",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "message": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Set message"
-      },
-      "attribute": "message",
-      "reflect": false,
-      "defaultValue": "\"Siamo spiacenti, al momento non sono presenti dati da visualizzare\""
-    },
-    "subtitle": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Set subtitle"
-      },
-      "attribute": "subtitle",
-      "reflect": false,
-      "defaultValue": "\"\""
-    }
-  }; }
-  static get states() { return {
-    "hasTableBody": {},
-    "isMobile": {}
-  }; }
-  static get events() { return [{
-      "method": "callToAction",
-      "name": "callToAction",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "remove call to action event"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "subtitle": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set subtitle"
+        },
+        "attribute": "subtitle",
+        "reflect": false,
+        "defaultValue": "\"\""
       }
-    }, {
-      "method": "callToActionTwo",
-      "name": "callToActionTwo",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "remove call to action event"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "hasTableBody": {},
+      "isMobile": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "callToAction",
+        "name": "callToAction",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "remove call to action event"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }, {
+        "method": "callToActionTwo",
+        "name": "callToActionTwo",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "remove call to action event"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "host"; }
-  static get listeners() { return [{
-      "name": "resize",
-      "method": "handleResize",
-      "target": "window",
-      "capture": false,
-      "passive": true
-    }, {
-      "name": "orientationchange",
-      "method": "handleOrientationChange",
-      "target": "window",
-      "capture": false,
-      "passive": false
-    }]; }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "handleResize",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }, {
+        "name": "orientationchange",
+        "method": "handleOrientationChange",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

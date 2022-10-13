@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Listen, Host } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { DividerOrientation, ThemeVariant } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 export class ZAppTopbar {
@@ -25,132 +25,132 @@ export class ZAppTopbar {
     return (h(Host, { class: {
         [this.theme]: true,
         "limited-width": !!this.contentMaxWidth
-      } },
-      h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} },
-        h("div", { id: "left-panel", class: "content-panel" },
-          h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }),
-          this.isMobile && this.renderTopbarLinks()),
-        h("div", { id: "right-panel", class: "content-panel" },
-          !this.isMobile && this.renderTopbarLinks(),
-          this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }),
-          h("div", { id: "divider-container" },
-            h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })),
-          h("slot", { name: "login" })))));
+      } }, h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("div", { id: "left-panel", class: "content-panel" }, h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }), this.isMobile && this.renderTopbarLinks()), h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }), h("div", { id: "divider-container" }, h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })), h("slot", { name: "login" })))));
   }
   static get is() { return "z-app-topbar"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "theme": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ThemeVariant",
-        "resolved": "ThemeVariant.dark | ThemeVariant.light",
-        "references": {
-          "ThemeVariant": {
-            "location": "import",
-            "path": "../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "theme": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ThemeVariant",
+          "resolved": "ThemeVariant.dark | ThemeVariant.light",
+          "references": {
+            "ThemeVariant": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "theme variant, default 'dark'"
+        },
+        "attribute": "theme",
+        "reflect": false,
+        "defaultValue": "ThemeVariant.dark"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "theme variant, default 'dark'"
+      "contentMaxWidth": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "maximum width of topbar content"
+        },
+        "attribute": "content-max-width",
+        "reflect": false
       },
-      "attribute": "theme",
-      "reflect": false,
-      "defaultValue": "ThemeVariant.dark"
-    },
-    "contentMaxWidth": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "maximum width of topbar content"
-      },
-      "attribute": "content-max-width",
-      "reflect": false
-    },
-    "topbarContent": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | MenuItem[]",
-        "resolved": "MenuItem[] | string",
-        "references": {
-          "MenuItem": {
-            "location": "import",
-            "path": "../../../beans"
+      "topbarContent": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | MenuItem[]",
+          "resolved": "MenuItem[] | string",
+          "references": {
+            "MenuItem": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "JSON string or MenuItem array to define topbar links"
+        },
+        "attribute": "topbar-content",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "JSON string or MenuItem array to define topbar links"
+      "logoLink": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "link URL used by z-logo"
+        },
+        "attribute": "logo-link",
+        "reflect": false
       },
-      "attribute": "topbar-content",
-      "reflect": false
-    },
-    "logoLink": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "link URL used by z-logo"
-      },
-      "attribute": "logo-link",
-      "reflect": false
-    },
-    "showAppSwitcher": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "add app-switcher"
-      },
-      "attribute": "show-app-switcher",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "isMobile": {}
-  }; }
-  static get listeners() { return [{
-      "name": "resize",
-      "method": "handleResize",
-      "target": "window",
-      "capture": false,
-      "passive": true
-    }]; }
+      "showAppSwitcher": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "add app-switcher"
+        },
+        "attribute": "show-app-switcher",
+        "reflect": false
+      }
+    };
+  }
+  static get states() {
+    return {
+      "isMobile": {}
+    };
+  }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "handleResize",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }];
+  }
 }

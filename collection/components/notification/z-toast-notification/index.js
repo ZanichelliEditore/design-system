@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, Element, Host, State, Watch, } from "@stencil/core";
+import { h, Host, } from "@stencil/core";
 import { ToastNotificationTransitionsEnum, } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 import Hammer from "hammerjs";
@@ -141,42 +141,31 @@ export class ZToastNotification {
     return totalWidth > parentWidth;
   }
   renderText() {
-    return (h("div", { id: "text", ref: (el) => (this.toastText = el) },
-      h("span", { class: "title" }, this.heading),
-      h("span", { class: "message" }, this.message)));
+    return (h("div", { id: "text", ref: (el) => (this.toastText = el) }, h("span", { class: "title" }, this.heading), h("span", { class: "message" }, this.message)));
   }
   renderButton() {
-    return (h("div", { id: "button" },
-      h("slot", { name: "button" })));
+    return (h("div", { id: "button" }, h("slot", { name: "button" })));
   }
   renderCloseIcon() {
-    return (this.closebutton && (h("div", { id: "icon" },
-      h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
-          if (e.keyCode == 32 || e.keyCode == 13) {
-            e.preventDefault();
-            this.emitToastClose(this.mapSlideOutClass());
-          }
-        } }))));
+    return (this.closebutton && (h("div", { id: "icon" }, h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
+        if (e.keyCode == 32 || e.keyCode == 13) {
+          e.preventDefault();
+          this.emitToastClose(this.mapSlideOutClass());
+        }
+      } }))));
   }
   renderContainer() {
     return (h("div", { tabIndex: 0, id: "external-container", class: {
         [this.type]: !!this.type,
         "several-lines-padding": this.isTextLong,
-      }, ref: (el) => (this.container = el) },
-      this.renderText(),
-      this.renderButton(),
-      this.renderCloseIcon()));
+      }, ref: (el) => (this.container = el) }, this.renderText(), this.renderButton(), this.renderCloseIcon()));
   }
   renderMobileContainer() {
     return (h("div", { id: "external-container", class: {
         [this.type]: !!this.type,
         "several-lines-padding": this.isTextLong,
         "mobile-wrapped": this.isTextLong,
-      } },
-      h("div", { id: "flex-container", ref: (el) => (this.container = el) },
-        this.renderText(),
-        this.renderButton()),
-      this.renderCloseIcon()));
+      } }, h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
   }
   render() {
     return (h(Host, { style: {
@@ -194,209 +183,221 @@ export class ZToastNotification {
   }
   static get is() { return "z-toast-notification"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "heading": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "heading": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification's title"
+        },
+        "attribute": "heading",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification's title"
+      "message": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "toast notification's message"
+        },
+        "attribute": "message",
+        "reflect": false
       },
-      "attribute": "heading",
-      "reflect": false
-    },
-    "message": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "closebutton": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "toggles closing button rendering"
+        },
+        "attribute": "closebutton",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "toast notification's message"
+      "autoclose": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification closing timeout (ms)"
+        },
+        "attribute": "autoclose",
+        "reflect": false
       },
-      "attribute": "message",
-      "reflect": false
-    },
-    "closebutton": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "pauseonfocusloss": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification autoclose can be paused"
+        },
+        "attribute": "pauseonfocusloss",
+        "reflect": false,
+        "defaultValue": "true"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "toggles closing button rendering"
-      },
-      "attribute": "closebutton",
-      "reflect": false
-    },
-    "autoclose": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification closing timeout (ms)"
-      },
-      "attribute": "autoclose",
-      "reflect": false
-    },
-    "pauseonfocusloss": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification autoclose can be paused"
-      },
-      "attribute": "pauseonfocusloss",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "type": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ToastNotificationTypes",
-        "resolved": "ToastNotificationEnum.accent | ToastNotificationEnum.dark | ToastNotificationEnum.error | ToastNotificationEnum.light | ToastNotificationEnum.success | ToastNotificationEnum.warning",
-        "references": {
-          "ToastNotificationTypes": {
-            "location": "import",
-            "path": "../../../beans"
+      "type": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ToastNotificationTypes",
+          "resolved": "ToastNotificationEnum.accent | ToastNotificationEnum.dark | ToastNotificationEnum.error | ToastNotificationEnum.light | ToastNotificationEnum.success | ToastNotificationEnum.warning",
+          "references": {
+            "ToastNotificationTypes": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification type:  dark, light, accent, error, success, warning"
+        },
+        "attribute": "type",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification type:  dark, light, accent, error, success, warning"
+      "isdraggable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification can be draggable"
+        },
+        "attribute": "isdraggable",
+        "reflect": false,
+        "defaultValue": "true"
       },
-      "attribute": "type",
-      "reflect": false
-    },
-    "isdraggable": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "draggablepercentage": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification draggable percentage"
+        },
+        "attribute": "draggablepercentage",
+        "reflect": false,
+        "defaultValue": "80"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification can be draggable"
-      },
-      "attribute": "isdraggable",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "draggablepercentage": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification draggable percentage"
-      },
-      "attribute": "draggablepercentage",
-      "reflect": false,
-      "defaultValue": "80"
-    },
-    "transition": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ToastNotificationTransitionTypes",
-        "resolved": "ToastNotificationTransitionsEnum.slideInDown | ToastNotificationTransitionsEnum.slideInLeft | ToastNotificationTransitionsEnum.slideInRight | ToastNotificationTransitionsEnum.slideInUp | ToastNotificationTransitionsEnum.slideOutDown | ToastNotificationTransitionsEnum.slideOutLeft | ToastNotificationTransitionsEnum.slideOutRight | ToastNotificationTransitionsEnum.slideOutUp",
-        "references": {
-          "ToastNotificationTransitionTypes": {
-            "location": "import",
-            "path": "../../../beans"
+      "transition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ToastNotificationTransitionTypes",
+          "resolved": "ToastNotificationTransitionsEnum.slideInDown | ToastNotificationTransitionsEnum.slideInLeft | ToastNotificationTransitionsEnum.slideInRight | ToastNotificationTransitionsEnum.slideInUp | ToastNotificationTransitionsEnum.slideOutDown | ToastNotificationTransitionsEnum.slideOutLeft | ToastNotificationTransitionsEnum.slideOutRight | ToastNotificationTransitionsEnum.slideOutUp",
+          "references": {
+            "ToastNotificationTransitionTypes": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up"
-      },
-      "attribute": "transition",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "percentage": {},
-    "isTextLong": {}
-  }; }
-  static get events() { return [{
-      "method": "toastClose",
-      "name": "toastClose",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "notification close event"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up"
+        },
+        "attribute": "transition",
+        "reflect": false
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "percentage": {},
+      "isTextLong": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "toastClose",
+        "name": "toastClose",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "notification close event"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "hostElement"; }
-  static get watchers() { return [{
-      "propName": "isdraggable",
-      "methodName": "watchPropIsdraggable"
-    }, {
-      "propName": "autoclose",
-      "methodName": "watchPropAutoclose"
-    }, {
-      "propName": "pauseonfocusloss",
-      "methodName": "watchPropPauseonfocusloss"
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "isdraggable",
+        "methodName": "watchPropIsdraggable"
+      }, {
+        "propName": "autoclose",
+        "methodName": "watchPropAutoclose"
+      }, {
+        "propName": "pauseonfocusloss",
+        "methodName": "watchPropPauseonfocusloss"
+      }];
+  }
 }

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './index-90e18641.js';
+import { r as registerInstance, h, g as getElement } from './index-a2ca4b97.js';
 
 const stylesCss = ".sc-z-table-head-h{display:table-header-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";
 

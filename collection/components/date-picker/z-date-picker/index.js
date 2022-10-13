@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, Event, Listen, State, Watch, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
@@ -155,134 +155,145 @@ export class ZDatePicker {
     }
   }
   renderSlottedContent() {
-    return (h("div", { class: `${this.datePickerId}-hidden` },
-      h("input", { class: "hidden-input", "data-input": true }),
-      h("slot", { name: "toggle" })));
+    return (h("div", { class: `${this.datePickerId}-hidden` }, h("input", { class: "hidden-input", "data-input": true }), h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (h("div", { class: `${this.datePickerId}-container` },
-      h("z-input", { "data-input": "data-input", ariaLabel: this.ariaLabel, label: this.label, class: classNames(this.datePickerId), type: InputTypeEnum.text, icon: "event", message: false, tabindex: "0", value: "", onStopTyping: (value) => {
-          this.onStopTyping(value);
-        }, onStartTyping: () => {
-          this.inputError = false;
-        } })));
+    return (h("div", { class: `${this.datePickerId}-container` }, h("z-input", { "data-input": "data-input", ariaLabel: this.ariaLabel, label: this.label, class: classNames(this.datePickerId), type: InputTypeEnum.text, icon: "event", message: false, tabindex: "0", value: "", onStopTyping: (value) => {
+        this.onStopTyping(value);
+      }, onStartTyping: () => {
+        this.inputError = false;
+      } })));
   }
   render() {
     return (h("div", { class: classNames("flatpickr-toggle-container", this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));
   }
   static get is() { return "z-date-picker"; }
-  static get originalStyleUrls() { return {
-    "$": ["../styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["../styles.css"]
-  }; }
-  static get properties() { return {
-    "datePickerId": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["../styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["../styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "datePickerId": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "unique id"
+        },
+        "attribute": "date-picker-id",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "unique id"
+      "ariaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "z-input aria label"
+        },
+        "attribute": "aria-label",
+        "reflect": false
       },
-      "attribute": "date-picker-id",
-      "reflect": false
-    },
-    "ariaLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "label": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "z-input label"
+        },
+        "attribute": "label",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "z-input aria label"
-      },
-      "attribute": "aria-label",
-      "reflect": false
-    },
-    "label": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "z-input label"
-      },
-      "attribute": "label",
-      "reflect": false
-    },
-    "mode": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ZDatePickerMode",
-        "resolved": "ZDatePickerMode.date | ZDatePickerMode.dateTime | ZDatePickerMode.months",
-        "references": {
-          "ZDatePickerMode": {
-            "location": "import",
-            "path": "../../../beans"
+      "mode": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ZDatePickerMode",
+          "resolved": "ZDatePickerMode.date | ZDatePickerMode.dateTime | ZDatePickerMode.months",
+          "references": {
+            "ZDatePickerMode": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "[Optional] datepicker mode: date, datetime, only months"
-      },
-      "attribute": "mode",
-      "reflect": false,
-      "defaultValue": "ZDatePickerMode.date"
-    }
-  }; }
-  static get states() { return {
-    "flatpickrPosition": {},
-    "inputError": {}
-  }; }
-  static get events() { return [{
-      "method": "dateSelect",
-      "name": "dateSelect",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "emitted when date changes, returns selected date"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "[Optional] datepicker mode: date, datetime, only months"
+        },
+        "attribute": "mode",
+        "reflect": false,
+        "defaultValue": "ZDatePickerMode.date"
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "flatpickrPosition": {},
+      "inputError": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "dateSelect",
+        "name": "dateSelect",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "emitted when date changes, returns selected date"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "element"; }
-  static get watchers() { return [{
-      "propName": "mode",
-      "methodName": "watchMode"
-    }]; }
-  static get listeners() { return [{
-      "name": "keydown",
-      "method": "handleKeyDown",
-      "target": "body",
-      "capture": true,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "mode",
+        "methodName": "watchMode"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "keydown",
+        "method": "handleKeyDown",
+        "target": "body",
+        "capture": true,
+        "passive": false
+      }];
+  }
 }

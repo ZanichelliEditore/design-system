@@ -418,3 +418,11 @@ export declare enum CoverHeroContentPosition {
   TOP = "top",
   BOTTOM = "bottom"
 }
+export declare enum CarouselArrowsPosition {
+  OVER = "over",
+  BOTTOM = "bottom"
+}
+export declare enum CarouselProgressMode {
+  DOTS = "dots",
+  NUMBERS = "numbers"
+}

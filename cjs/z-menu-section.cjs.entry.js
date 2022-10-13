@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-84b7063a.js');
+const index = require('./index-e3299e0a.js');
 
 const stylesCss = ":host{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0;font-family:var(--font-family-sans)}:host,::slotted(*),*{box-sizing:border-box}::slotted(a){text-decoration:none}::slotted(*){font-family:var(--font-family-sans);font-weight:var(--font-rg);color:var(--color-text01)}:host([active]) .label,:host([open]) .label,.label:hover{border-color:var(--color-secondary01)}.label{display:flex;align-items:center;width:100%;margin:0;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);text-align:left;background:transparent;border-radius:0;border:0;border-bottom:var(--border-size-small) solid var(--color-surface05);cursor:pointer}.label ::slotted(*){width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25}.label:focus:focus-visible{outline:none;box-shadow:var(--shadow-focus-primary)}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:currentColor}.items{display:flex;flex-direction:column;width:100%;padding:calc(var(--space-unit) * 0.5);padding-bottom:calc(var(--space-unit) * 2)}.items>::slotted([slot='item']){display:inline-flex;margin:0;padding:calc(var(--space-unit) * 0.5);font-size:var(--font-size-2);line-height:1.4;outline:none}.items>::slotted([slot='item']:last-child){padding-bottom:0}.items>::slotted([slot='item']:focus:focus-visible){box-shadow:var(--shadow-focus-primary);color:var(--color-secondary01)}.items>::slotted([slot='item']:hover){color:var(--color-secondary01)}";
 

@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Listen, Prop, State, } from "@stencil/core";
+import { h, Host, } from "@stencil/core";
 import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
 import { ThemeVariant } from "../../beans";
 /**
@@ -57,75 +57,85 @@ export class ZSkipToContent {
   }
   static get is() { return "z-skip-to-content"; }
   static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "variant": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ThemeVariant",
-        "resolved": "ThemeVariant.dark | ThemeVariant.light",
-        "references": {
-          "ThemeVariant": {
-            "location": "import",
-            "path": "../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "variant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ThemeVariant",
+          "resolved": "ThemeVariant.dark | ThemeVariant.light",
+          "references": {
+            "ThemeVariant": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Graphical variant: `dark`, `light`."
+        },
+        "attribute": "variant",
+        "reflect": true
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Graphical variant: `dark`, `light`."
-      },
-      "attribute": "variant",
-      "reflect": true
-    },
-    "links": {
-      "type": "string",
-      "mutable": true,
-      "complexType": {
-        "original": "string | SkipToContentLink[]",
-        "resolved": "SkipToContentLink[] | string",
-        "references": {
-          "SkipToContentLink": {
-            "location": "import",
-            "path": "../../beans"
+      "links": {
+        "type": "string",
+        "mutable": true,
+        "complexType": {
+          "original": "string | SkipToContentLink[]",
+          "resolved": "SkipToContentLink[] | string",
+          "references": {
+            "SkipToContentLink": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Array to fill link into skip-content"
-      },
-      "attribute": "links",
-      "reflect": false,
-      "defaultValue": "[]"
-    }
-  }; }
-  static get states() { return {
-    "visible": {},
-    "visibleLink": {}
-  }; }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Array to fill link into skip-content"
+        },
+        "attribute": "links",
+        "reflect": false,
+        "defaultValue": "[]"
+      }
+    };
+  }
+  static get states() {
+    return {
+      "visible": {},
+      "visibleLink": {}
+    };
+  }
   static get elementRef() { return "hostElement"; }
-  static get listeners() { return [{
-      "name": "focusout",
-      "method": "handleFocusOutSkipToContent",
-      "target": "document",
-      "capture": false,
-      "passive": false
-    }, {
-      "name": "focusin",
-      "method": "handleFocusSkipToContent",
-      "target": "document",
-      "capture": false,
-      "passive": false
-    }]; }
+  static get listeners() {
+    return [{
+        "name": "focusout",
+        "method": "handleFocusOutSkipToContent",
+        "target": "document",
+        "capture": false,
+        "passive": false
+      }, {
+        "name": "focusin",
+        "method": "handleFocusSkipToContent",
+        "target": "document",
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

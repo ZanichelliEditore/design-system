@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, State } from "@stencil/core";
+import { h } from "@stencil/core";
 import { PopoverPositions } from "../../../../beans";
 import { handleKeyboardSubmit } from "../../../../utils/utils";
 /**
@@ -57,32 +57,21 @@ export class ZMyzCardInfo {
     return (h("section", { class: `info-wrapper ${this.hiddenContent ? "hidden" : ""}`, onClick: () => {
         if (this.hiddenContent)
           this.tooltip = !this.tooltip;
-      }, ref: (el) => (this.infoWrapper = el) },
-      this.renderAuthor(),
-      this.renderYear(),
-      title,
-      h("br", null),
-      description));
+      }, ref: (el) => (this.infoWrapper = el) }, this.renderAuthor(), this.renderYear(), title, h("br", null), description));
   }
   renderAuthor() {
     var _a;
     const author = (_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.author;
     if (!author)
       return null;
-    return (h("span", null,
-      "Autore: ",
-      h("b", null, author),
-      h("br", null)));
+    return (h("span", null, "Autore: ", h("b", null, author), h("br", null)));
   }
   renderYear() {
     var _a;
     const year = (_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.year;
     if (!year)
       return null;
-    return (h("span", null,
-      "Anno: ",
-      h("b", null, year),
-      h("br", null)));
+    return (h("span", null, "Anno: ", h("b", null, year), h("br", null)));
   }
   renderTooltip() {
     if (!this.tooltip)
@@ -106,108 +95,95 @@ export class ZMyzCardInfo {
     var _a;
     if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.onlineLicense))
       return;
-    return (h("section", { ref: (el) => (this.onlineLicenseWrapper = el) },
-      h("span", { class: "license-heading" },
-        h("span", null, "Licenza online"),
-        this.setExpirationLicenseMessage("online")),
-      "Scadenza il ",
-      h("b", null, this.cardData.onlineLicense.expiration),
-      h("br", null)));
+    return (h("section", { ref: (el) => (this.onlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza online"), this.setExpirationLicenseMessage("online")), "Scadenza il ", h("b", null, this.cardData.onlineLicense.expiration), h("br", null)));
   }
   renderOfflineLicenseSection() {
     var _a;
     if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.offlineLicense))
       return;
-    return (h("section", { ref: (el) => (this.offlineLicenseWrapper = el) },
-      h("span", { class: "license-heading" },
-        h("span", null, "Licenza offline"),
-        this.setExpirationLicenseMessage("offline")),
-      "Scadenza il ",
-      h("b", null, this.cardData.offlineLicense.expiration),
-      h("br", null),
-      "Installazioni disponibili:",
-      " ",
-      h("b", null, this.cardData.offlineLicense.installations)));
+    return (h("section", { ref: (el) => (this.offlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza offline"), this.setExpirationLicenseMessage("offline")), "Scadenza il ", h("b", null, this.cardData.offlineLicense.expiration), h("br", null), "Installazioni disponibili:", " ", h("b", null, this.cardData.offlineLicense.installations)));
   }
   render() {
-    return (h("div", null,
-      this.renderCloseIcon(),
-      h("div", { class: "content-wrapper", ref: (el) => (this.contentWrapper = el) },
-        this.renderGeneralSection(),
-        this.renderTooltip(),
-        this.renderOnlineLicenseSection(),
-        this.renderOfflineLicenseSection()),
-      h("div", { class: "cta-wrapper" },
-        h("slot", null))));
+    return (h("div", null, this.renderCloseIcon(), h("div", { class: "content-wrapper", ref: (el) => (this.contentWrapper = el) }, this.renderGeneralSection(), this.renderTooltip(), this.renderOnlineLicenseSection(), this.renderOfflineLicenseSection()), h("div", { class: "cta-wrapper" }, h("slot", null))));
   }
   static get is() { return "z-myz-card-info"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "data": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | DictionaryData",
-        "resolved": "string | { author: string; year: string; title: string; description: string; onlineLicense: DictionaryLicenseData; offlineLicense: DictionaryLicenseData; }",
-        "references": {
-          "DictionaryData": {
-            "location": "import",
-            "path": "../../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "data": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | DictionaryData",
+          "resolved": "string | { author: string; year: string; title: string; description: string; onlineLicense: DictionaryLicenseData; offlineLicense: DictionaryLicenseData; }",
+          "references": {
+            "DictionaryData": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "dictionary info"
+        },
+        "attribute": "data",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "dictionary info"
-      },
-      "attribute": "data",
-      "reflect": false
-    },
-    "htmltabindex": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "tabindex link attribute (optional)"
-      },
-      "attribute": "htmltabindex",
-      "reflect": false,
-      "defaultValue": "0"
-    }
-  }; }
-  static get states() { return {
-    "hiddenContent": {},
-    "tooltip": {}
-  }; }
-  static get events() { return [{
-      "method": "flipCard",
-      "name": "flipCard",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "flip card to front"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "htmltabindex": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "tabindex link attribute (optional)"
+        },
+        "attribute": "htmltabindex",
+        "reflect": false,
+        "defaultValue": "0"
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "hiddenContent": {},
+      "tooltip": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "flipCard",
+        "name": "flipCard",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "flip card to front"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
 }

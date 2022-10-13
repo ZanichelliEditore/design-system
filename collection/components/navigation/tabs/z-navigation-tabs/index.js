@@ -1,4 +1,4 @@
-import { Component, Prop, h, Listen, Element, State, Watch, Host } from '@stencil/core';
+import { h, Host } from '@stencil/core';
 import { NavigationTabsSizes, NavigationTabsOrientations } from '../../../../beans';
 /**
  * Navigation tabs component.
@@ -108,97 +108,103 @@ export class ZNavigationTabs {
     return h(Host, { class: {
         'interactive-2': this.size === NavigationTabsSizes.small,
         'interactive-1': this.size !== NavigationTabsSizes.small
-      }, scrollable: this.canNavigate },
-      this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev },
-        h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })),
-      h("nav", { role: "tablist", ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) },
-        h("slot", null)),
-      this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext },
-        h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
+      }, scrollable: this.canNavigate }, this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })), h("nav", { role: "tablist", ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) }, h("slot", null)), this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
   }
   static get is() { return "z-navigation-tabs"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "orientation": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "NavigationTabsOrientation",
-        "resolved": "\"horizontal\" | \"vertical\"",
-        "references": {
-          "NavigationTabsOrientation": {
-            "location": "import",
-            "path": "../../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "orientation": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "NavigationTabsOrientation",
+          "resolved": "\"horizontal\" | \"vertical\"",
+          "references": {
+            "NavigationTabsOrientation": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Navigation tabs orientation."
+        },
+        "attribute": "orientation",
+        "reflect": true,
+        "defaultValue": "NavigationTabsOrientations.horizontal"
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Navigation tabs orientation."
-      },
-      "attribute": "orientation",
-      "reflect": true,
-      "defaultValue": "NavigationTabsOrientations.horizontal"
-    },
-    "size": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "NavigationTabsSize",
-        "resolved": "\"big\" | \"small\"",
-        "references": {
-          "NavigationTabsSize": {
-            "location": "import",
-            "path": "../../../../beans"
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "NavigationTabsSize",
+          "resolved": "\"big\" | \"small\"",
+          "references": {
+            "NavigationTabsSize": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Navigation tabs size."
-      },
-      "attribute": "size",
-      "reflect": true,
-      "defaultValue": "NavigationTabsSizes.big"
-    }
-  }; }
-  static get states() { return {
-    "canNavigate": {},
-    "canNavigatePrev": {},
-    "canNavigateNext": {}
-  }; }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Navigation tabs size."
+        },
+        "attribute": "size",
+        "reflect": true,
+        "defaultValue": "NavigationTabsSizes.big"
+      }
+    };
+  }
+  static get states() {
+    return {
+      "canNavigate": {},
+      "canNavigatePrev": {},
+      "canNavigateNext": {}
+    };
+  }
   static get elementRef() { return "host"; }
-  static get watchers() { return [{
-      "propName": "size",
-      "methodName": "setChildrenSize"
-    }, {
-      "propName": "orientation",
-      "methodName": "setChildrenOrientation"
-    }, {
-      "propName": "canNavigate",
-      "methodName": "checkScrollEnabled"
-    }]; }
-  static get listeners() { return [{
-      "name": "resize",
-      "method": "checkScrollVisible",
-      "target": "window",
-      "capture": false,
-      "passive": true
-    }, {
-      "name": "selected",
-      "method": "onTabSelected",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "size",
+        "methodName": "setChildrenSize"
+      }, {
+        "propName": "orientation",
+        "methodName": "setChildrenOrientation"
+      }, {
+        "propName": "canNavigate",
+        "methodName": "checkScrollEnabled"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "checkScrollVisible",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }, {
+        "name": "selected",
+        "method": "onTabSelected",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

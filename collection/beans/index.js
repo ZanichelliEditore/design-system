@@ -340,3 +340,13 @@ export var CoverHeroContentPosition;
   CoverHeroContentPosition["TOP"] = "top";
   CoverHeroContentPosition["BOTTOM"] = "bottom";
 })(CoverHeroContentPosition || (CoverHeroContentPosition = {}));
+export var CarouselArrowsPosition;
+(function (CarouselArrowsPosition) {
+  CarouselArrowsPosition["OVER"] = "over";
+  CarouselArrowsPosition["BOTTOM"] = "bottom";
+})(CarouselArrowsPosition || (CarouselArrowsPosition = {}));
+export var CarouselProgressMode;
+(function (CarouselProgressMode) {
+  CarouselProgressMode["DOTS"] = "dots";
+  CarouselProgressMode["NUMBERS"] = "numbers";
+})(CarouselProgressMode || (CarouselProgressMode = {}));

@@ -1,5 +1,5 @@
-import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-90e18641.js';
-import { z as ZChipType, P as PopoverPositions } from './index-3c2d757b.js';
+import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-a2ca4b97.js';
+import { z as ZChipType, P as PopoverPositions } from './index-8390ddaf.js';
 import { t as tabletBreakpoint } from './breakpoints-c386984e.js';
 
 const stylesCss = ".sc-z-file-h{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:relative}.sc-z-file-h>z-popover.sc-z-file{z-index:10}.sc-z-file-h>z-popover.sc-z-file>.tooltip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file span.sc-z-file{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.33;letter-spacing:0.32px;display:block}";

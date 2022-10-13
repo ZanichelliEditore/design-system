@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Host, Watch } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { ToastNotificationPositionsEnum, } from "../../../beans";
 export class ZToastNotificationList {
   constructor() {
@@ -36,62 +36,69 @@ export class ZToastNotificationList {
   render() {
     return (h(Host, { class: this.position
         ? this.position
-        : ToastNotificationPositionsEnum.topRight },
-      h("slot", { name: "toasts" })));
+        : ToastNotificationPositionsEnum.topRight }, h("slot", { name: "toasts" })));
   }
   static get is() { return "z-toast-notification-list"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "position": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ToastNotificationPositionsTypes",
-        "resolved": "ToastNotificationPositionsEnum.bottomCentre | ToastNotificationPositionsEnum.bottomLeft | ToastNotificationPositionsEnum.bottomRight | ToastNotificationPositionsEnum.topCentre | ToastNotificationPositionsEnum.topLeft | ToastNotificationPositionsEnum.topRight",
-        "references": {
-          "ToastNotificationPositionsTypes": {
-            "location": "import",
-            "path": "../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "position": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ToastNotificationPositionsTypes",
+          "resolved": "ToastNotificationPositionsEnum.bottomCentre | ToastNotificationPositionsEnum.bottomLeft | ToastNotificationPositionsEnum.bottomRight | ToastNotificationPositionsEnum.topCentre | ToastNotificationPositionsEnum.topLeft | ToastNotificationPositionsEnum.topRight",
+          "references": {
+            "ToastNotificationPositionsTypes": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right"
+        },
+        "attribute": "position",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right"
-      },
-      "attribute": "position",
-      "reflect": false
-    },
-    "newestontop": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Set the entry position of new notification in the list"
-      },
-      "attribute": "newestontop",
-      "reflect": false,
-      "defaultValue": "true"
-    }
-  }; }
+      "newestontop": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set the entry position of new notification in the list"
+        },
+        "attribute": "newestontop",
+        "reflect": false,
+        "defaultValue": "true"
+      }
+    };
+  }
   static get elementRef() { return "hostElement"; }
-  static get watchers() { return [{
-      "propName": "newestontop",
-      "methodName": "watchPropNewestontop"
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "newestontop",
+        "methodName": "watchPropNewestontop"
+      }];
+  }
 }

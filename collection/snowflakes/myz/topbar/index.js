@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element, Listen, Watch, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import { ButtonVariantEnum, ButtonSizeEnum, } from "../../../beans";
 import { mobileBreakpoint, tabletBreakpoint, } from "../../../constants/breakpoints";
 /**
@@ -48,8 +48,7 @@ export class ZMyzTopbar {
     this.handleResize();
   }
   renderLogoDiv() {
-    return (h("div", { class: "logo" },
-      h("z-logo", { link: this.logolink ? this.logolink : null, "target-blank": true, width: 144, height: 36, "image-alt": this.imagealt })));
+    return (h("div", { class: "logo" }, h("z-logo", { link: this.logolink ? this.logolink : null, "target-blank": true, width: 144, height: 36, "image-alt": this.imagealt })));
   }
   renderIntMenu(menuItems) {
     if (!this.isLogged || !this.ismyz)
@@ -58,24 +57,18 @@ export class ZMyzTopbar {
   }
   renderIntMenuItem(menuItem) {
     const { id, label, link } = menuItem;
-    return (h("span", null,
-      h("a", { href: link ? link : null, id: id, class: "menu-item", onClick: () => {
-          this.activeMenuItem = this.currentMenuItem = menuItem;
-          this.activeintlinkid = menuItem.id;
-          if (menuItem.subMenu)
-            this.handleToggleMobileMenuItem(menuItem.id);
-        }, onMouseEnter: () => {
-          this.activeMenuItem = menuItem;
-        }, onMouseLeave: () => {
-          this.activeMenuItem = this.currentMenuItem;
-        }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) },
-        h("span", null, label),
-        menuItem.subMenu ? h("i", null) : null),
-      h("svg", { height: "8", width: "16", class: {
-          hidden: !this.activeMenuItem || this.activeMenuItem.id !== id,
-        } },
-        h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })),
-      this.isMobile && this.renderMenuItemsData(menuItem)));
+    return (h("span", null, h("a", { href: link ? link : null, id: id, class: "menu-item", onClick: () => {
+        this.activeMenuItem = this.currentMenuItem = menuItem;
+        this.activeintlinkid = menuItem.id;
+        if (menuItem.subMenu)
+          this.handleToggleMobileMenuItem(menuItem.id);
+      }, onMouseEnter: () => {
+        this.activeMenuItem = menuItem;
+      }, onMouseLeave: () => {
+        this.activeMenuItem = this.currentMenuItem;
+      }, role: link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, h("span", null, label), menuItem.subMenu ? h("i", null) : null), h("svg", { height: "8", width: "16", class: {
+        hidden: !this.activeMenuItem || this.activeMenuItem.id !== id,
+      } }, h("polygon", { points: "8,0 16,8 0,8", class: "arrow" })), this.isMobile && this.renderMenuItemsData(menuItem)));
   }
   getIntMenuItemTabindex(item) {
     return this.intMenuData.indexOf(item) + 1;
@@ -104,8 +97,7 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
   renderMobileSubMenu(menuItems, id) {
-    return (h("span", { class: "mobile-dropdown", id: id ? `mobile-dropdown-${id}` : "" },
-      h("z-myz-list", { list: menuItems })));
+    return (h("span", { class: "mobile-dropdown", id: id ? `mobile-dropdown-${id}` : "" }, h("z-myz-list", { list: menuItems })));
   }
   renderSubMenu(menuItem) {
     if (!this.ismyz || !this.isLogged)
@@ -113,9 +105,7 @@ export class ZMyzTopbar {
     if (!menuItem || !menuItem["subMenu"]) {
       return h("div", { id: "dropdown-menu", class: `dropdown-menu hidden` });
     }
-    return (h("div", { id: "dropdown-menu", class: `dropdown-menu` },
-      h("ul", { class: "dropdown-links" }, menuItem.subMenu.map((item) => (h("li", null,
-        h("a", { id: item.id, class: item.id === this.activesublinkid ? "active" : "", href: item.link ? item.link : null, role: item.link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, item.label)))))));
+    return (h("div", { id: "dropdown-menu", class: `dropdown-menu` }, h("ul", { class: "dropdown-links" }, menuItem.subMenu.map((item) => (h("li", null, h("a", { id: item.id, class: item.id === this.activesublinkid ? "active" : "", href: item.link ? item.link : null, role: item.link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, item.label)))))));
   }
   renderExtLinksIcons(icon) {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
@@ -127,8 +117,7 @@ export class ZMyzTopbar {
       return h("div", null);
     return (h("div", { id: "link-ext", class: "link-ext" }, menuItems.map((menuItem) => {
       const { id, label, link, icon } = menuItem;
-      return (h("span", { class: `link-ext-span${this.ismyz ? " myz" : ""}` },
-        h("z-link", Object.assign({ id: id, htmlid: id, href: link, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, this.renderExtLinksIcons(icon)), label)));
+      return (h("span", { class: `link-ext-span${this.ismyz ? " myz" : ""}` }, h("z-link", Object.assign({ id: id, htmlid: id, href: link, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, this.renderExtLinksIcons(icon)), label)));
     })));
   }
   renderLoginDiv(userData) {
@@ -141,14 +130,7 @@ export class ZMyzTopbar {
     return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", size: ButtonSizeEnum.small }, "entra"));
   }
   renderMobileLoginDiv(userData) {
-    return (h("div", { id: "mobile-login", class: "mobile-login" },
-      h("span", null,
-        h("a", { class: "menu-item", id: "user-data", onClick: () => this.handleToggleMobileMenuItem("user-data"), role: "button" },
-          h("span", null,
-            h("z-icon", { name: "user-avatar", height: 16, width: 16 }),
-            userData.name),
-          h("i", null)),
-        this.renderUserData(userData))));
+    return (h("div", { id: "mobile-login", class: "mobile-login" }, h("span", null, h("a", { class: "menu-item", id: "user-data", onClick: () => this.handleToggleMobileMenuItem("user-data"), role: "button" }, h("span", null, h("z-icon", { name: "user-avatar", height: 16, width: 16 }), userData.name), h("i", null)), this.renderUserData(userData))));
   }
   renderUserData(userData) {
     if (this.isMobile && !userData)
@@ -164,39 +146,24 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, "user-data");
   }
   renderDesktopHeader() {
-    return (h("header", { class: !this.ismyz ? "myz-out" : "" },
-      this.renderMainHeader(),
-      this.renderSubMenu(this.activeMenuItem)));
+    return (h("header", { class: !this.ismyz ? "myz-out" : "" }, this.renderMainHeader(), this.renderSubMenu(this.activeMenuItem)));
   }
   renderMainHeader() {
     return (h("div", { id: "main-header", class: {
         "main-header": true,
         "myz-out": !this.ismyz,
-      } },
-      this.renderLogoDiv(),
-      this.renderIntMenu(this.intMenuData),
-      this.renderExtMenu(this.extMenuData),
-      this.renderLoginDiv(this.userData)));
+      } }, this.renderLogoDiv(), this.renderIntMenu(this.intMenuData), this.renderExtMenu(this.extMenuData), this.renderLoginDiv(this.userData)));
   }
   renderMobileHeader() {
-    return (h("header", null,
-      this.renderMobileMenu(),
-      this.renderMobileMenuContent()));
+    return (h("header", null, this.renderMobileMenu(), this.renderMobileMenuContent()));
   }
   renderMobileMenu() {
-    return (h("div", { id: "mobile-header", class: `mobile-header${this.ismyz ? "" : " myz-out"}` },
-      this.renderLogoDiv(),
-      this.renderMobileMenuToggle()));
+    return (h("div", { id: "mobile-header", class: `mobile-header${this.ismyz ? "" : " myz-out"}` }, this.renderLogoDiv(), this.renderMobileMenuToggle()));
   }
   renderMobileMenuToggle() {
     if (!this.isLogged)
       return this.renderLoginButton();
-    return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: () => (this.isMenuMobileOpen = !this.isMenuMobileOpen) },
-      h("div", { class: `menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`, id: "mobile-menu" },
-        h("span", { class: "bar" }),
-        h("span", { class: "bar" }),
-        h("span", { class: "bar" })),
-      h("span", null, "Menu")));
+    return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: () => (this.isMenuMobileOpen = !this.isMenuMobileOpen) }, h("div", { class: `menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`, id: "mobile-menu" }, h("span", { class: "bar" }), h("span", { class: "bar" }), h("span", { class: "bar" })), h("span", null, "Menu")));
   }
   renderMobileMenuContent() {
     if (!this.isLogged)
@@ -205,12 +172,7 @@ export class ZMyzTopbar {
         "mobile-content": true,
         open: this.isMenuMobileOpen,
         "myz-out": !this.ismyz,
-      } },
-      this.renderMobileLoginDiv(this.userData),
-      this.ismyz && h("hr", null),
-      this.renderIntMenu(this.intMenuData),
-      h("hr", null),
-      this.renderExtMenu(this.extMenuData)));
+      } }, this.renderMobileLoginDiv(this.userData), this.ismyz && h("hr", null), this.renderIntMenu(this.intMenuData), h("hr", null), this.renderExtMenu(this.extMenuData)));
   }
   render() {
     return this.isMobile
@@ -219,210 +181,222 @@ export class ZMyzTopbar {
   }
   static get is() { return "z-myz-topbar"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "intlinkdata": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | MenuItem[]",
-        "resolved": "MenuItem[] | string",
-        "references": {
-          "MenuItem": {
-            "location": "import",
-            "path": "../../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "intlinkdata": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | MenuItem[]",
+          "resolved": "MenuItem[] | string",
+          "references": {
+            "MenuItem": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "data to fill internal navigation links"
+        },
+        "attribute": "intlinkdata",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "data to fill internal navigation links"
-      },
-      "attribute": "intlinkdata",
-      "reflect": false
-    },
-    "extlinkdata": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | MenuItem[]",
-        "resolved": "MenuItem[] | string",
-        "references": {
-          "MenuItem": {
-            "location": "import",
-            "path": "../../../beans"
+      "extlinkdata": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | MenuItem[]",
+          "resolved": "MenuItem[] | string",
+          "references": {
+            "MenuItem": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "data to fill external navigation links"
+        },
+        "attribute": "extlinkdata",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "data to fill external navigation links"
-      },
-      "attribute": "extlinkdata",
-      "reflect": false
-    },
-    "userdata": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | HeaderUserData",
-        "resolved": "string | { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }",
-        "references": {
-          "HeaderUserData": {
-            "location": "import",
-            "path": "../../../beans"
+      "userdata": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | HeaderUserData",
+          "resolved": "string | { islogged: boolean; id?: number; name?: string; usergroup: number; userlinks: MenuItem[]; }",
+          "references": {
+            "HeaderUserData": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "data to fill user dropdown menu (optional)"
+        },
+        "attribute": "userdata",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "data to fill user dropdown menu (optional)"
+      "ismyz": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "graphic flag to set myzanichelli style"
+        },
+        "attribute": "ismyz",
+        "reflect": false
       },
-      "attribute": "userdata",
-      "reflect": false
-    },
-    "ismyz": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "logolink": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "url to attach to logo (optional)"
+        },
+        "attribute": "logolink",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "graphic flag to set myzanichelli style"
+      "imagealt": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "alternative logo title text (optional)"
+        },
+        "attribute": "imagealt",
+        "reflect": false
       },
-      "attribute": "ismyz",
-      "reflect": false
-    },
-    "logolink": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "activeintlinkid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set current active menu link (optional)"
+        },
+        "attribute": "activeintlinkid",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "url to attach to logo (optional)"
+      "activesublinkid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set current active sub menu link (optional)"
+        },
+        "attribute": "activesublinkid",
+        "reflect": false
       },
-      "attribute": "logolink",
-      "reflect": false
-    },
-    "imagealt": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "alternative logo title text (optional)"
-      },
-      "attribute": "imagealt",
-      "reflect": false
-    },
-    "activeintlinkid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "set current active menu link (optional)"
-      },
-      "attribute": "activeintlinkid",
-      "reflect": false
-    },
-    "activesublinkid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "set current active sub menu link (optional)"
-      },
-      "attribute": "activesublinkid",
-      "reflect": false
-    },
-    "hideloginbutton": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "hide login button if true (optional)"
-      },
-      "attribute": "hideloginbutton",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "activeMenuItem": {},
-    "currentMenuItem": {},
-    "isMobile": {},
-    "isMenuMobileOpen": {}
-  }; }
+      "hideloginbutton": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "hide login button if true (optional)"
+        },
+        "attribute": "hideloginbutton",
+        "reflect": false
+      }
+    };
+  }
+  static get states() {
+    return {
+      "activeMenuItem": {},
+      "currentMenuItem": {},
+      "isMobile": {},
+      "isMenuMobileOpen": {}
+    };
+  }
   static get elementRef() { return "element"; }
-  static get watchers() { return [{
-      "propName": "activeintlinkid",
-      "methodName": "activeIntLinkChange"
-    }]; }
-  static get listeners() { return [{
-      "name": "resize",
-      "method": "handleResize",
-      "target": "window",
-      "capture": false,
-      "passive": true
-    }, {
-      "name": "zListItemLinkClick",
-      "method": "handleZListItemLinkClick",
-      "target": undefined,
-      "capture": true,
-      "passive": false
-    }, {
-      "name": "zListItemClick",
-      "method": "handleZListItemClick",
-      "target": undefined,
-      "capture": true,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "activeintlinkid",
+        "methodName": "activeIntLinkChange"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "handleResize",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }, {
+        "name": "zListItemLinkClick",
+        "method": "handleZListItemLinkClick",
+        "target": undefined,
+        "capture": true,
+        "passive": false
+      }, {
+        "name": "zListItemClick",
+        "method": "handleZListItemClick",
+        "target": undefined,
+        "capture": true,
+        "passive": false
+      }];
+  }
 }

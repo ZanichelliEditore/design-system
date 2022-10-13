@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Watch, Element, State, Event, } from "@stencil/core";
+import { h, Host, } from "@stencil/core";
 import { PopoverPositions } from "../../beans/index";
 const documentElement = document.documentElement;
 /**
@@ -251,129 +251,140 @@ export class ZTooltipDeprecated {
     if (this.content) {
       return (h(Host, { class: "legacy", position: this.type }, this.content));
     }
-    return (h(Host, { position: this.position },
-      h("slot", null)));
+    return (h(Host, { position: this.position }, h("slot", null)));
   }
   static get is() { return "z-tooltip-deprecated"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "content": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "content": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [{
+              "name": "deprecated",
+              "text": undefined
+            }],
+          "text": "Content text."
+        },
+        "attribute": "content",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [{
-            "name": "deprecated",
-            "text": undefined
-          }],
-        "text": "Content text."
-      },
-      "attribute": "content",
-      "reflect": false
-    },
-    "type": {
-      "type": "string",
-      "mutable": true,
-      "complexType": {
-        "original": "PopoverPositions",
-        "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
-        "references": {
-          "PopoverPositions": {
-            "location": "import",
-            "path": "../../beans/index"
+      "type": {
+        "type": "string",
+        "mutable": true,
+        "complexType": {
+          "original": "PopoverPositions",
+          "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
+          "references": {
+            "PopoverPositions": {
+              "location": "import",
+              "path": "../../beans/index"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Tooltip position."
+        },
+        "attribute": "type",
+        "reflect": false,
+        "defaultValue": "PopoverPositions.auto"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Tooltip position."
+      "open": {
+        "type": "boolean",
+        "mutable": true,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "The open state of the tooltip."
+        },
+        "attribute": "open",
+        "reflect": true,
+        "defaultValue": "false"
       },
-      "attribute": "type",
-      "reflect": false,
-      "defaultValue": "PopoverPositions.auto"
-    },
-    "open": {
-      "type": "boolean",
-      "mutable": true,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "The open state of the tooltip."
-      },
-      "attribute": "open",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "bindTo": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | HTMLElement",
-        "resolved": "HTMLElement | string",
-        "references": {
-          "HTMLElement": {
-            "location": "global"
+      "bindTo": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | HTMLElement",
+          "resolved": "HTMLElement | string",
+          "references": {
+            "HTMLElement": {
+              "location": "global"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "The selector or the element bound with the tooltip."
-      },
-      "attribute": "bind-to",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "position": {}
-  }; }
-  static get events() { return [{
-      "method": "positionChange",
-      "name": "positionChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Position change event."
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "The selector or the element bound with the tooltip."
+        },
+        "attribute": "bind-to",
+        "reflect": false
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "position": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "positionChange",
+        "name": "positionChange",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Position change event."
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "host"; }
-  static get watchers() { return [{
-      "propName": "type",
-      "methodName": "validateType"
-    }, {
-      "propName": "position",
-      "methodName": "onPositionChange"
-    }, {
-      "propName": "open",
-      "methodName": "onOpen"
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "type",
+        "methodName": "validateType"
+      }, {
+        "propName": "position",
+        "methodName": "onPositionChange"
+      }, {
+        "propName": "open",
+        "methodName": "onOpen"
+      }];
+  }
 }

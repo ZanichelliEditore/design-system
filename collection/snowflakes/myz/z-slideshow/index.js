@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element, Watch } from "@stencil/core";
+import { h } from "@stencil/core";
 import { DeviceEnum } from "../../../beans";
 import { getDevice, handleKeyboardSubmit, convertJson } from "../../../utils/utils";
 /**
@@ -64,8 +64,7 @@ export class ZSlideshow {
     }
   }
   renderSlides(items) {
-    return (h("div", { id: "slides" }, items.map((item, i) => (h("div", { id: "slide" + i, class: `slide ${this.currentSlide !== i && "hide"}` },
-      h("img", { src: item }))))));
+    return (h("div", { id: "slides" }, items.map((item, i) => (h("div", { id: "slide" + i, class: `slide ${this.currentSlide !== i && "hide"}` }, h("img", { src: item }))))));
   }
   renderScroll(direction) {
     let disabled = false, nextSlide = this.currentSlide;
@@ -85,81 +84,80 @@ export class ZSlideshow {
         }), tabindex: 0, role: "button" }));
   }
   renderSlideshowMain() {
-    return (h("main", null,
-      this.renderScroll("left"),
-      this.renderSlides(this.links),
-      this.renderScroll("right")));
+    return (h("main", null, this.renderScroll("left"), this.renderSlides(this.links), this.renderScroll("right")));
   }
   renderBullet(i) {
     return (h("a", { class: `bullet ${this.currentSlide === i && "selected"}`, onClick: () => this.setCurrentSlide(i), onKeyUp: (e) => handleKeyboardSubmit(e, () => this.setCurrentSlide(i)), tabindex: 0, role: "button" }));
   }
   renderSlideshowFooter() {
-    return (h("footer", null,
-      h("div", { class: "footerLeft" },
-        h("slot", { name: "footer-left" })),
-      h("div", { class: "footerCenter" },
-        h("div", { class: "bulletContainer" }, Object.keys(this.links).map(i => this.renderBullet(parseInt(i))))),
-      h("div", { class: "footerRight" },
-        h("slot", { name: "footer-right" }))));
+    return (h("footer", null, h("div", { class: "footerLeft" }, h("slot", { name: "footer-left" })), h("div", { class: "footerCenter" }, h("div", { class: "bulletContainer" }, Object.keys(this.links).map(i => this.renderBullet(parseInt(i))))), h("div", { class: "footerRight" }, h("slot", { name: "footer-right" }))));
   }
   render() {
     if (!this.links || !this.links.length)
       return h("div", null);
-    return (h("div", { id: this.slideshowid },
-      this.renderSlideshowMain(),
-      this.renderSlideshowFooter()));
+    return (h("div", { id: this.slideshowid }, this.renderSlideshowMain(), this.renderSlideshowFooter()));
   }
   static get is() { return "z-slideshow"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "slideshowid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "slideshowid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "slideshow id"
+        },
+        "attribute": "slideshowid",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "slideshow id"
-      },
-      "attribute": "slideshowid",
-      "reflect": false
-    },
-    "data": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string[] | string",
-        "resolved": "string | string[]",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "array or JSON stringified images urls"
-      },
-      "attribute": "data",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "device": {},
-    "currentSlide": {}
-  }; }
+      "data": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string[] | string",
+          "resolved": "string | string[]",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "array or JSON stringified images urls"
+        },
+        "attribute": "data",
+        "reflect": false
+      }
+    };
+  }
+  static get states() {
+    return {
+      "device": {},
+      "currentSlide": {}
+    };
+  }
   static get elementRef() { return "el"; }
-  static get watchers() { return [{
-      "propName": "data",
-      "methodName": "watchData"
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "data",
+        "methodName": "watchData"
+      }];
+  }
 }

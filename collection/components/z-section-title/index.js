@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop } from "@stencil/core";
+import { h } from "@stencil/core";
 import { DividerSize, ZSectionTitleDividerPositions, } from "../../beans";
 /**
  * Section title component.
@@ -38,54 +38,60 @@ export class ZSectionTitle {
   }
   static get is() { return "z-section-title"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "dividerPosition": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ZSectionTitleDividerPosition",
-        "resolved": "\"after\" | \"before\"",
-        "references": {
-          "ZSectionTitleDividerPosition": {
-            "location": "import",
-            "path": "../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "dividerPosition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ZSectionTitleDividerPosition",
+          "resolved": "\"after\" | \"before\"",
+          "references": {
+            "ZSectionTitleDividerPosition": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Divider position for the primary title.\nThis prop only works if the secondary title is not set."
+        },
+        "attribute": "divider-position",
+        "reflect": false,
+        "defaultValue": "ZSectionTitleDividerPositions.before"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Divider position for the primary title.\nThis prop only works if the secondary title is not set."
-      },
-      "attribute": "divider-position",
-      "reflect": false,
-      "defaultValue": "ZSectionTitleDividerPositions.before"
-    },
-    "uppercase": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Whether the primary title text is uppercase."
-      },
-      "attribute": "uppercase",
-      "reflect": true,
-      "defaultValue": "true"
-    }
-  }; }
+      "uppercase": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether the primary title text is uppercase."
+        },
+        "attribute": "uppercase",
+        "reflect": true,
+        "defaultValue": "true"
+      }
+    };
+  }
   static get elementRef() { return "host"; }
 }

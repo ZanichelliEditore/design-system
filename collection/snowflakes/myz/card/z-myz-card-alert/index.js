@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event } from "@stencil/core";
+import { h } from "@stencil/core";
 import { AlertTypesEnum } from "../../../../beans";
 export class ZMyzCardAlert {
   emitUndoAction() {
@@ -40,109 +40,112 @@ export class ZMyzCardAlert {
     }
   }
   render() {
-    return (h("div", { class: "alert-external-wrapper " + this.retrieveClass() },
-      h("z-alert", { type: this.getAlertType() },
-        h("div", { class: "relativeContainer" },
-          h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }),
-          h("span", { class: "contentText" }, this.contenttext),
-          this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
-              this.handleActionButtonClick(e);
-            }, onKeyPress: (e) => {
-              this.handleSpaceKeyPress(e);
-            } }, this.actiontext))))));
+    return (h("div", { class: "alert-external-wrapper " + this.retrieveClass() }, h("z-alert", { type: this.getAlertType() }, h("div", { class: "relativeContainer" }, h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), h("span", { class: "contentText" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
+        this.handleActionButtonClick(e);
+      }, onKeyPress: (e) => {
+        this.handleSpaceKeyPress(e);
+      } }, this.actiontext))))));
   }
   static get is() { return "z-myz-card-alert"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "iconname": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "iconname": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "icon name"
+        },
+        "attribute": "iconname",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "icon name"
+      "contenttext": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "content text"
+        },
+        "attribute": "contenttext",
+        "reflect": false
       },
-      "attribute": "iconname",
-      "reflect": false
-    },
-    "contenttext": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "actiontext": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "action button text"
+        },
+        "attribute": "actiontext",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "content text"
-      },
-      "attribute": "contenttext",
-      "reflect": false
-    },
-    "actiontext": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "action button text"
-      },
-      "attribute": "actiontext",
-      "reflect": false
-    },
-    "type": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "alert variant type"
-      },
-      "attribute": "type",
-      "reflect": false
-    }
-  }; }
-  static get events() { return [{
-      "method": "undoAction",
-      "name": "undoAction",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "undo action click/keyboard event, returns actionType"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "type": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "alert variant type"
+        },
+        "attribute": "type",
+        "reflect": false
       }
-    }]; }
+    };
+  }
+  static get events() {
+    return [{
+        "method": "undoAction",
+        "name": "undoAction",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "undo action click/keyboard event, returns actionType"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
 }

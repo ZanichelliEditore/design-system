@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, Listen, Event, State, Watch, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 import { ZRangePickerMode, ZDatePickerPosition, InputTypeEnum, InputStatusEnum, } from "../../../beans";
@@ -334,173 +334,181 @@ export class ZRangePicker {
         [this.mode]: true,
         [this.activeInput]: true,
         [this.flatpickrPosition]: true,
-      } },
-      h("div", { class: `${this.rangePickerId}-1-wrapper` },
-        h("div", { class: `${this.rangePickerId}-1-container` },
-          h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatusEnum.error, onStartTyping: () => {
-              this.firstInputError = false;
-            } })))),
-      h("div", { class: `${this.rangePickerId}-2-wrapper` },
-        h("div", { class: `${this.rangePickerId}-2-container` },
-          h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatusEnum.error, onStartTyping: () => {
-              this.lastInputError = false;
-            } }))))));
+      } }, h("div", { class: `${this.rangePickerId}-1-wrapper` }, h("div", { class: `${this.rangePickerId}-1-container` }, h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatusEnum.error, onStartTyping: () => {
+        this.firstInputError = false;
+      } })))), h("div", { class: `${this.rangePickerId}-2-wrapper` }, h("div", { class: `${this.rangePickerId}-2-container` }, h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatusEnum.error, onStartTyping: () => {
+        this.lastInputError = false;
+      } }))))));
   }
   static get is() { return "z-range-picker"; }
-  static get originalStyleUrls() { return {
-    "$": ["../styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["../styles.css"]
-  }; }
-  static get properties() { return {
-    "rangePickerId": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["../styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["../styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "rangePickerId": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "unique id"
+        },
+        "attribute": "range-picker-id",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "unique id"
+      "firstAriaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "first z-input aria label"
+        },
+        "attribute": "first-aria-label",
+        "reflect": false
       },
-      "attribute": "range-picker-id",
-      "reflect": false
-    },
-    "firstAriaLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "firstLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "first z-input label"
+        },
+        "attribute": "first-label",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "first z-input aria label"
+      "secondAriaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "second z-input aria label"
+        },
+        "attribute": "second-aria-label",
+        "reflect": false
       },
-      "attribute": "first-aria-label",
-      "reflect": false
-    },
-    "firstLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+      "secondLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "second z-input label"
+        },
+        "attribute": "second-label",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "first z-input label"
-      },
-      "attribute": "first-label",
-      "reflect": false
-    },
-    "secondAriaLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "second z-input aria label"
-      },
-      "attribute": "second-aria-label",
-      "reflect": false
-    },
-    "secondLabel": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "second z-input label"
-      },
-      "attribute": "second-label",
-      "reflect": false
-    },
-    "mode": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "ZRangePickerMode",
-        "resolved": "ZRangePickerMode.date | ZRangePickerMode.dateTime",
-        "references": {
-          "ZRangePickerMode": {
-            "location": "import",
-            "path": "../../../beans"
+      "mode": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ZRangePickerMode",
+          "resolved": "ZRangePickerMode.date | ZRangePickerMode.dateTime",
+          "references": {
+            "ZRangePickerMode": {
+              "location": "import",
+              "path": "../../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "[Optional] datepicker mode: date or datetime"
-      },
-      "attribute": "mode",
-      "reflect": false,
-      "defaultValue": "ZRangePickerMode.date"
-    }
-  }; }
-  static get states() { return {
-    "flatpickrPosition": {},
-    "activeInput": {},
-    "firstInputError": {},
-    "lastInputError": {}
-  }; }
-  static get events() { return [{
-      "method": "dateSelect",
-      "name": "dateSelect",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "emitted when date changes, returns an array with the two selected dates"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "[Optional] datepicker mode: date or datetime"
+        },
+        "attribute": "mode",
+        "reflect": false,
+        "defaultValue": "ZRangePickerMode.date"
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "flatpickrPosition": {},
+      "activeInput": {},
+      "firstInputError": {},
+      "lastInputError": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "dateSelect",
+        "name": "dateSelect",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "emitted when date changes, returns an array with the two selected dates"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "element"; }
-  static get watchers() { return [{
-      "propName": "mode",
-      "methodName": "watchMode"
-    }]; }
-  static get listeners() { return [{
-      "name": "click",
-      "method": "handleClick",
-      "target": "body",
-      "capture": true,
-      "passive": false
-    }, {
-      "name": "keyup",
-      "method": "handleKeyDown",
-      "target": "body",
-      "capture": true,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "mode",
+        "methodName": "watchMode"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "click",
+        "method": "handleClick",
+        "target": "body",
+        "capture": true,
+        "passive": false
+      }, {
+        "name": "keyup",
+        "method": "handleKeyDown",
+        "target": "body",
+        "capture": true,
+        "passive": false
+      }];
+  }
 }

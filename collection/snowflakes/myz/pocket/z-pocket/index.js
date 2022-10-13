@@ -1,4 +1,4 @@
-import { Component, Prop, h, Method, Event, Listen, Element, Watch } from "@stencil/core";
+import { h } from "@stencil/core";
 import { PocketStatusEnum } from "../../../../beans";
 /**
  * @slot  - pocket content
@@ -54,128 +54,138 @@ export class ZPocket {
     }
   }
   render() {
-    return (h("div", null,
-      h("div", { "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }),
-      h("div", { id: this.pocketid, class: "contentWrapper" },
-        h("div", null,
-          h("slot", null)))));
+    return (h("div", null, h("div", { "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { id: this.pocketid, class: "contentWrapper" }, h("div", null, h("slot", null)))));
   }
   static get is() { return "z-pocket"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "pocketid": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "pocketid": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "pocket id"
+        },
+        "attribute": "pocketid",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "pocket id"
-      },
-      "attribute": "pocketid",
-      "reflect": false
-    },
-    "status": {
-      "type": "string",
-      "mutable": true,
-      "complexType": {
-        "original": "PocketStatus",
-        "resolved": "PocketStatusEnum.closed | PocketStatusEnum.open | PocketStatusEnum.preview",
-        "references": {
-          "PocketStatus": {
-            "location": "import",
-            "path": "../../../../beans"
+      "status": {
+        "type": "string",
+        "mutable": true,
+        "complexType": {
+          "original": "PocketStatus",
+          "resolved": "PocketStatusEnum.closed | PocketStatusEnum.open | PocketStatusEnum.preview",
+          "references": {
+            "PocketStatus": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
           }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "pocket status"
+        },
+        "attribute": "status",
+        "reflect": false,
+        "defaultValue": "PocketStatusEnum.preview"
+      }
+    };
+  }
+  static get events() {
+    return [{
+        "method": "pocketToggle",
+        "name": "pocketToggle",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Emitted on pocket toggle, returns pocket id and status"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
+  static get methods() {
+    return {
+      "open": {
+        "complexType": {
+          "signature": "() => Promise<void>",
+          "parameters": [],
+          "references": {
+            "Promise": {
+              "location": "global"
+            }
+          },
+          "return": "Promise<void>"
+        },
+        "docs": {
+          "text": "open z-pocket",
+          "tags": []
         }
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "pocket status"
-      },
-      "attribute": "status",
-      "reflect": false,
-      "defaultValue": "PocketStatusEnum.preview"
-    }
-  }; }
-  static get events() { return [{
-      "method": "pocketToggle",
-      "name": "pocketToggle",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Emitted on pocket toggle, returns pocket id and status"
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
-  static get methods() { return {
-    "open": {
-      "complexType": {
-        "signature": "() => Promise<void>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
-          }
+      "close": {
+        "complexType": {
+          "signature": "() => Promise<void>",
+          "parameters": [],
+          "references": {
+            "Promise": {
+              "location": "global"
+            }
+          },
+          "return": "Promise<void>"
         },
-        "return": "Promise<void>"
-      },
-      "docs": {
-        "text": "open z-pocket",
-        "tags": []
+        "docs": {
+          "text": "close z-pocket",
+          "tags": []
+        }
       }
-    },
-    "close": {
-      "complexType": {
-        "signature": "() => Promise<void>",
-        "parameters": [],
-        "references": {
-          "Promise": {
-            "location": "global"
-          }
-        },
-        "return": "Promise<void>"
-      },
-      "docs": {
-        "text": "close z-pocket",
-        "tags": []
-      }
-    }
-  }; }
+    };
+  }
   static get elementRef() { return "hostElement"; }
-  static get watchers() { return [{
-      "propName": "status",
-      "methodName": "watchStatusHandler"
-    }]; }
-  static get listeners() { return [{
-      "name": "pocketHeaderClick",
-      "method": "handlePocketHeaderClick",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }, {
-      "name": "pocketHeaderPan",
-      "method": "handlePocketHeaderPan",
-      "target": undefined,
-      "capture": false,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "status",
+        "methodName": "watchStatusHandler"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "pocketHeaderClick",
+        "method": "handlePocketHeaderClick",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }, {
+        "name": "pocketHeaderPan",
+        "method": "handlePocketHeaderPan",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }];
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { h } from '@stencil/core';
 /**
  * @slot - table sticky footer content
  */
@@ -8,10 +8,14 @@ export class ZTableStickyFooter {
   }
   static get is() { return "z-table-sticky-footer"; }
   static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
 }

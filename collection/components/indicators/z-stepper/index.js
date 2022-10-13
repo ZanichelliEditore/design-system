@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { h } from '@stencil/core';
 /**
  * @slot - z-stepper-item
  */
@@ -8,10 +8,14 @@ export class ZStepper {
   }
   static get is() { return "z-stepper"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
 }

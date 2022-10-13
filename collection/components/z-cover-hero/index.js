@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Host } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
 /**
  * Cover hero component.
@@ -27,77 +27,75 @@ export class ZCoverHero {
    * Template for the content.
    */
   renderContent() {
-    return (h("div", { class: "content-container" },
-      h("slot", { name: "content" })));
+    return (h("div", { class: "content-container" }, h("slot", { name: "content" })));
   }
   render() {
-    return (h(Host, null,
-      this.variant === CoverHeroVariant.STACKED &&
-        this.contentPosition === CoverHeroContentPosition.TOP &&
-        this.renderContent(),
-      h("div", { class: "content-hero" },
-        h("div", { class: "cover" },
-          h("slot", { name: "cover" })),
-        h("slot", { name: "info-reveal" }),
-        this.variant === CoverHeroVariant.OVERLAY && this.renderContent()),
-      (this.variant === CoverHeroVariant.STACKED && this.contentPosition ===
-        CoverHeroContentPosition.BOTTOM) && this.renderContent()));
+    return (h(Host, null, this.variant === CoverHeroVariant.STACKED &&
+      this.contentPosition === CoverHeroContentPosition.TOP &&
+      this.renderContent(), h("div", { class: "content-hero" }, h("div", { class: "cover" }, h("slot", { name: "cover" })), h("slot", { name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), (this.variant === CoverHeroVariant.STACKED && this.contentPosition ===
+      CoverHeroContentPosition.BOTTOM) && this.renderContent()));
   }
   static get is() { return "z-cover-hero"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "variant": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "CoverHeroVariant",
-        "resolved": "CoverHeroVariant.OVERLAY | CoverHeroVariant.STACKED",
-        "references": {
-          "CoverHeroVariant": {
-            "location": "import",
-            "path": "../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "variant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "CoverHeroVariant",
+          "resolved": "CoverHeroVariant.OVERLAY | CoverHeroVariant.STACKED",
+          "references": {
+            "CoverHeroVariant": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Cover hero variant.\nCan be one of \"OVERLAY\", \"STACKED\"."
+        },
+        "attribute": "variant",
+        "reflect": true,
+        "defaultValue": "CoverHeroVariant.OVERLAY"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Cover hero variant.\nCan be one of \"OVERLAY\", \"STACKED\"."
-      },
-      "attribute": "variant",
-      "reflect": true,
-      "defaultValue": "CoverHeroVariant.OVERLAY"
-    },
-    "contentPosition": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "CoverHeroContentPosition",
-        "resolved": "CoverHeroContentPosition.BOTTOM | CoverHeroContentPosition.TOP",
-        "references": {
-          "CoverHeroContentPosition": {
-            "location": "import",
-            "path": "../../beans"
+      "contentPosition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "CoverHeroContentPosition",
+          "resolved": "CoverHeroContentPosition.BOTTOM | CoverHeroContentPosition.TOP",
+          "references": {
+            "CoverHeroContentPosition": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Cover hero content position (only for STACKED variant)."
-      },
-      "attribute": "content-position",
-      "reflect": true,
-      "defaultValue": "CoverHeroContentPosition.TOP"
-    }
-  }; }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Cover hero content position (only for STACKED variant)."
+        },
+        "attribute": "content-position",
+        "reflect": true,
+        "defaultValue": "CoverHeroContentPosition.TOP"
+      }
+    };
+  }
   static get elementRef() { return "el"; }
 }

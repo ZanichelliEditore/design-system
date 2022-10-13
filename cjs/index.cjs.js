@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-4a419726.js');
-const index = require('./index-3dd0f9bd.js');
+const utils = require('./utils-dfe717c7.js');
+const index = require('./index-745c0423.js');
 require('./breakpoints-88c4fd6c.js');
 
 const Utils = {
@@ -44,6 +44,18 @@ Object.defineProperty(exports, 'CardVariants', {
   enumerable: true,
   get: function () {
     return index.CardVariants;
+  }
+});
+Object.defineProperty(exports, 'CarouselArrowsPosition', {
+  enumerable: true,
+  get: function () {
+    return index.CarouselArrowsPosition;
+  }
+});
+Object.defineProperty(exports, 'CarouselProgressMode', {
+  enumerable: true,
+  get: function () {
+    return index.CarouselProgressMode;
   }
 });
 Object.defineProperty(exports, 'CoverHeroContentPosition', {

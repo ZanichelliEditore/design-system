@@ -1,4 +1,4 @@
-import { Component, Element, h } from "@stencil/core";
+import { h } from "@stencil/core";
 export class ZTableBody {
   componentWillRender() {
     this.host.setAttribute("role", "rowgroup");
@@ -9,11 +9,15 @@ export class ZTableBody {
   }
   static get is() { return "z-table-body"; }
   static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
   static get elementRef() { return "host"; }
 }

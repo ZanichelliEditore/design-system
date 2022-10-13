@@ -1,4 +1,4 @@
-import { Component, Prop, h, Watch, Listen, Element, State, Event, } from "@stencil/core";
+import { h, } from "@stencil/core";
 import { PopoverPositions, KeyboardKeys } from "../../beans";
 const documentElement = document.documentElement;
 function getParentElement(element) {
@@ -325,183 +325,197 @@ export class ZPopover {
   }
   static get is() { return "z-popover"; }
   static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "position": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "PopoverPositionBean",
-        "resolved": "\"auto\" | \"bottom\" | \"bottom_left\" | \"bottom_right\" | \"left\" | \"left_bottom\" | \"left_top\" | \"right\" | \"right_bottom\" | \"right_top\" | \"top\" | \"top_left\" | \"top_right\"",
-        "references": {
-          "PopoverPositionBean": {
-            "location": "import",
-            "path": "../../beans"
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "position": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "PopoverPositionBean",
+          "resolved": "\"auto\" | \"bottom\" | \"bottom_left\" | \"bottom_right\" | \"left\" | \"left_bottom\" | \"left_top\" | \"right\" | \"right_bottom\" | \"right_top\" | \"top\" | \"top_left\" | \"top_right\"",
+          "references": {
+            "PopoverPositionBean": {
+              "location": "import",
+              "path": "../../beans"
+            }
           }
-        }
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Popover position."
+        },
+        "attribute": "position",
+        "reflect": true,
+        "defaultValue": "PopoverPositions.auto"
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Popover position."
+      "open": {
+        "type": "boolean",
+        "mutable": true,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "The open state of the popover."
+        },
+        "attribute": "open",
+        "reflect": true,
+        "defaultValue": "false"
       },
-      "attribute": "position",
-      "reflect": true,
-      "defaultValue": "PopoverPositions.auto"
-    },
-    "open": {
-      "type": "boolean",
-      "mutable": true,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "The open state of the popover."
-      },
-      "attribute": "open",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "bindTo": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string | HTMLElement",
-        "resolved": "HTMLElement | string",
-        "references": {
-          "HTMLElement": {
-            "location": "global"
+      "bindTo": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string | HTMLElement",
+          "resolved": "HTMLElement | string",
+          "references": {
+            "HTMLElement": {
+              "location": "global"
+            }
           }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "The selector or the element bound with the popover."
+        },
+        "attribute": "bind-to",
+        "reflect": false
+      },
+      "showArrow": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether to show popover's arrow."
+        },
+        "attribute": "show-arrow",
+        "reflect": true,
+        "defaultValue": "false"
+      },
+      "center": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether to center the popup on the main side (according to \"position\")."
+        },
+        "attribute": "center",
+        "reflect": true,
+        "defaultValue": "false"
+      },
+      "closable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether the popover should be closed when the user clicks outside of it or hit \"ESC\"."
+        },
+        "attribute": "closable",
+        "reflect": false,
+        "defaultValue": "true"
+      }
+    };
+  }
+  static get states() {
+    return {
+      "currentPosition": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "positionChange",
+        "name": "positionChange",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Position change event."
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
         }
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "The selector or the element bound with the popover."
-      },
-      "attribute": "bind-to",
-      "reflect": false
-    },
-    "showArrow": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Whether to show popover's arrow."
-      },
-      "attribute": "show-arrow",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "center": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Whether to center the popup on the main side (according to \"position\")."
-      },
-      "attribute": "center",
-      "reflect": true,
-      "defaultValue": "false"
-    },
-    "closable": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Whether the popover should be closed when the user clicks outside of it or hit \"ESC\"."
-      },
-      "attribute": "closable",
-      "reflect": false,
-      "defaultValue": "true"
-    }
-  }; }
-  static get states() { return {
-    "currentPosition": {}
-  }; }
-  static get events() { return [{
-      "method": "positionChange",
-      "name": "positionChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Position change event."
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }, {
-      "method": "openChange",
-      "name": "openChange",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Open change event."
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
-      }
-    }]; }
+      }, {
+        "method": "openChange",
+        "name": "openChange",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Open change event."
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "host"; }
-  static get watchers() { return [{
-      "propName": "position",
-      "methodName": "validatePosition"
-    }, {
-      "propName": "open",
-      "methodName": "onOpen"
-    }]; }
-  static get listeners() { return [{
-      "name": "keyup",
-      "method": "closePopoverWithKeyboard",
-      "target": "window",
-      "capture": false,
-      "passive": false
-    }, {
-      "name": "click",
-      "method": "handleOutsideClick",
-      "target": "body",
-      "capture": true,
-      "passive": false
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "position",
+        "methodName": "validatePosition"
+      }, {
+        "propName": "open",
+        "methodName": "onOpen"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "keyup",
+        "method": "closePopoverWithKeyboard",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      }, {
+        "name": "click",
+        "method": "handleOutsideClick",
+        "target": "body",
+        "capture": true,
+        "passive": false
+      }];
+  }
 }

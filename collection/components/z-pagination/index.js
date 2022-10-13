@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Event, Watch, State, Listen, } from "@stencil/core";
+import { h, } from "@stencil/core";
 /**
  * Pagination bar component.
  */
@@ -174,30 +174,22 @@ export class ZPagination {
     ];
   }
   renderBackButton() {
-    return (h("button", { class: "navigation-button", type: "button", title: "Vai alla pagina precedente", disabled: this.currentPage === 1, onClick: () => this.selectPage(this.currentPage - 1) },
-      h("z-icon", { name: "chevron-left" })));
+    return (h("button", { class: "navigation-button", type: "button", title: "Vai alla pagina precedente", disabled: this.currentPage === 1, onClick: () => this.selectPage(this.currentPage - 1) }, h("z-icon", { name: "chevron-left" })));
   }
   renderForwardButton() {
-    return (h("button", { class: "navigation-button", type: "button", title: "Vai alla prossima pagina", disabled: this.currentPage === this.totalPages, onClick: () => this.selectPage(this.currentPage + 1) },
-      h("z-icon", { name: "chevron-right" })));
+    return (h("button", { class: "navigation-button", type: "button", title: "Vai alla prossima pagina", disabled: this.currentPage === this.totalPages, onClick: () => this.selectPage(this.currentPage + 1) }, h("z-icon", { name: "chevron-right" })));
   }
   renderMobile() {
     const pagesChunks = this.getPagesChunks();
     return [
       this.label && h("span", { class: "page-label body-1-sb" }, this.label),
-      h("div", { class: "pagination-bar" },
-        this.renderBackButton(),
-        !this.goToPage && (h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, pagesChunks.length > 0 &&
-          pagesChunks.map((chunk) => (h("div", { class: "pages-chunk" }, chunk.map((page) => this.renderPage(page))))))),
-        this.goToPage && (h("form", { class: "mobile-go-to-page", onSubmit: (ev) => {
-            ev.preventDefault();
-            this.selectPage(this.goToPageValue);
-          } },
-          h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, onInput: (ev) => {
-              this.goToPageValue = ev.target.value;
-            }, placeholder: this.currentPage.toString(), hasclearicon: false }),
-          h("span", null, `/${this.totalPages}`))),
-        this.renderForwardButton()),
+      h("div", { class: "pagination-bar" }, this.renderBackButton(), !this.goToPage && (h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, pagesChunks.length > 0 &&
+        pagesChunks.map((chunk) => (h("div", { class: "pages-chunk" }, chunk.map((page) => this.renderPage(page))))))), this.goToPage && (h("form", { class: "mobile-go-to-page", onSubmit: (ev) => {
+          ev.preventDefault();
+          this.selectPage(this.goToPageValue);
+        } }, h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, onInput: (ev) => {
+          this.goToPageValue = ev.target.value;
+        }, placeholder: this.currentPage.toString(), hasclearicon: false }), h("span", null, `/${this.totalPages}`))), this.renderForwardButton()),
     ];
   }
   componentDidLoad() {
@@ -215,236 +207,232 @@ export class ZPagination {
       return this.renderMobile();
     }
     return [
-      h("div", { class: "pagination-bar" },
-        this.label && h("span", { class: "page-label body-1-sb" }, this.label),
-        this.edges && (h("button", { class: "pagination-button", type: "button", title: "Vai alla pagina 1", disabled: this.currentPage === 1, onClick: () => this.selectPage(1) }, "Pagina 1")),
-        this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage - this.skip}`, disabled: this.currentPage <= this.skip, onClick: () => this.selectPage(this.currentPage - this.skip) },
-          "-",
-          this.skip)),
-        this.navArrows && this.renderBackButton(),
-        h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, this.split ? this.renderSplitPages() : this.renderPages()),
-        this.navArrows && this.renderForwardButton(),
-        this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage + this.skip}`, disabled: this.currentPage > this.totalPages - this.skip, onClick: () => this.selectPage(this.currentPage + this.skip) },
-          "+",
-          this.skip)),
-        this.edges && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.totalPages}`, disabled: this.currentPage === this.totalPages, onClick: () => this.selectPage(this.totalPages) },
-          "Pagina ",
-          this.totalPages))),
-      this.goToPage && (h("div", { class: "go-to-page" },
-        h("span", { class: "label body-5-sb" }, "Vai a pagina:"),
-        h("div", { class: "inputs" },
-          h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => {
-              this.goToPageValue = ev.target.value;
-            }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }),
-          h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
+      h("div", { class: "pagination-bar" }, this.label && h("span", { class: "page-label body-1-sb" }, this.label), this.edges && (h("button", { class: "pagination-button", type: "button", title: "Vai alla pagina 1", disabled: this.currentPage === 1, onClick: () => this.selectPage(1) }, "Pagina 1")), this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage - this.skip}`, disabled: this.currentPage <= this.skip, onClick: () => this.selectPage(this.currentPage - this.skip) }, "-", this.skip)), this.navArrows && this.renderBackButton(), h("div", { class: "pages-container", role: "navigation", tabIndex: -1 }, this.split ? this.renderSplitPages() : this.renderPages()), this.navArrows && this.renderForwardButton(), this.skip < this.totalPages && this.skip > 1 && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.currentPage + this.skip}`, disabled: this.currentPage > this.totalPages - this.skip, onClick: () => this.selectPage(this.currentPage + this.skip) }, "+", this.skip)), this.edges && (h("button", { class: "pagination-button", type: "button", title: `Vai alla pagina ${this.totalPages}`, disabled: this.currentPage === this.totalPages, onClick: () => this.selectPage(this.totalPages) }, "Pagina ", this.totalPages))),
+      this.goToPage && (h("div", { class: "go-to-page" }, h("span", { class: "label body-5-sb" }, "Vai a pagina:"), h("div", { class: "inputs" }, h("z-input", { class: "go-to-page-input", type: "number", min: 1, max: this.totalPages, message: false, placeholder: "2", hasclearicon: false, onInput: (ev) => {
+          this.goToPageValue = ev.target.value;
+        }, onKeyDown: (ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue) }), h("z-button", { disabled: !this.goToPageValue, title: "Vai alla pagina inserita", onClick: () => this.selectPage(this.goToPageValue) }, "vai")))),
     ];
   }
   static get is() { return "z-pagination"; }
-  static get originalStyleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get styleUrls() { return {
-    "$": ["styles.css"]
-  }; }
-  static get properties() { return {
-    "label": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "label": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Pagination label placed before the bar."
+        },
+        "attribute": "label",
+        "reflect": false
       },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Pagination label placed before the bar."
+      "navArrows": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Enable navigation arrows."
+        },
+        "attribute": "nav-arrows",
+        "reflect": false,
+        "defaultValue": "true"
       },
-      "attribute": "label",
-      "reflect": false
-    },
-    "navArrows": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
+      "totalPages": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": true,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Total number of pages. Required."
+        },
+        "attribute": "total-pages",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Enable navigation arrows."
+      "skip": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Number of pages to skip."
+        },
+        "attribute": "skip",
+        "reflect": false,
+        "defaultValue": "0"
       },
-      "attribute": "nav-arrows",
-      "reflect": false,
-      "defaultValue": "true"
-    },
-    "totalPages": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
+      "edges": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Enable buttons to go to the first and last pages."
+        },
+        "attribute": "edges",
+        "reflect": false,
+        "defaultValue": "false"
       },
-      "required": true,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Total number of pages. Required."
+      "split": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Number of pages to show left/right of the current, before showing \"load more\" symbol (\u2026)."
+        },
+        "attribute": "split",
+        "reflect": false
       },
-      "attribute": "total-pages",
-      "reflect": false
-    },
-    "skip": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
+      "visiblePages": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Number of pages to show at a time. If not set, all pages will be shown."
+        },
+        "attribute": "visible-pages",
+        "reflect": false
       },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Number of pages to skip."
+      "currentPage": {
+        "type": "number",
+        "mutable": true,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Current page."
+        },
+        "attribute": "current-page",
+        "reflect": false,
+        "defaultValue": "1"
       },
-      "attribute": "skip",
-      "reflect": false,
-      "defaultValue": "0"
-    },
-    "edges": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Enable buttons to go to the first and last pages."
-      },
-      "attribute": "edges",
-      "reflect": false,
-      "defaultValue": "false"
-    },
-    "split": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Number of pages to show left/right of the current, before showing \"load more\" symbol (\u2026)."
-      },
-      "attribute": "split",
-      "reflect": false
-    },
-    "visiblePages": {
-      "type": "number",
-      "mutable": false,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": true,
-      "docs": {
-        "tags": [],
-        "text": "Number of pages to show at a time. If not set, all pages will be shown."
-      },
-      "attribute": "visible-pages",
-      "reflect": false
-    },
-    "currentPage": {
-      "type": "number",
-      "mutable": true,
-      "complexType": {
-        "original": "number",
-        "resolved": "number",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Current page."
-      },
-      "attribute": "current-page",
-      "reflect": false,
-      "defaultValue": "1"
-    },
-    "goToPage": {
-      "type": "boolean",
-      "mutable": false,
-      "complexType": {
-        "original": "boolean",
-        "resolved": "boolean",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "Whether to show \"go to page\" feature."
-      },
-      "attribute": "go-to-page",
-      "reflect": false
-    }
-  }; }
-  static get states() { return {
-    "_visiblePages": {},
-    "isMobile": {},
-    "goToPageValue": {}
-  }; }
-  static get events() { return [{
-      "method": "pageChanged",
-      "name": "pageChanged",
-      "bubbles": true,
-      "cancelable": true,
-      "composed": true,
-      "docs": {
-        "tags": [],
-        "text": "Event emitted when the current page has changed."
-      },
-      "complexType": {
-        "original": "any",
-        "resolved": "any",
-        "references": {}
+      "goToPage": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether to show \"go to page\" feature."
+        },
+        "attribute": "go-to-page",
+        "reflect": false
       }
-    }]; }
+    };
+  }
+  static get states() {
+    return {
+      "_visiblePages": {},
+      "isMobile": {},
+      "goToPageValue": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "pageChanged",
+        "name": "pageChanged",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Event emitted when the current page has changed."
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
+  }
   static get elementRef() { return "host"; }
-  static get watchers() { return [{
-      "propName": "_visiblePages",
-      "methodName": "setPagesContainerWidth"
-    }, {
-      "propName": "visiblePages",
-      "methodName": "setVisiblePages"
-    }, {
-      "propName": "currentPage",
-      "methodName": "onPageChanged"
-    }, {
-      "propName": "split",
-      "methodName": "onSplitChanged"
-    }]; }
-  static get listeners() { return [{
-      "name": "resize",
-      "method": "onResize",
-      "target": "window",
-      "capture": false,
-      "passive": true
-    }]; }
+  static get watchers() {
+    return [{
+        "propName": "_visiblePages",
+        "methodName": "setPagesContainerWidth"
+      }, {
+        "propName": "visiblePages",
+        "methodName": "setVisiblePages"
+      }, {
+        "propName": "currentPage",
+        "methodName": "onPageChanged"
+      }, {
+        "propName": "split",
+        "methodName": "onSplitChanged"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "onResize",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }];
+  }
 }
