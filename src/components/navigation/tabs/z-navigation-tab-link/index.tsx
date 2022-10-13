@@ -1,5 +1,5 @@
 import {Component, Prop, h, Listen, Event, EventEmitter, Watch} from "@stencil/core";
-import {NavigationTabsOrientations, NavigationTabsSizes} from "../../../../beans";
+import {NavigationTabsOrientation, NavigationTabsSize} from "../../../../beans";
 import {ICONS} from "../../../icons/icons";
 
 /**
@@ -26,13 +26,13 @@ export class ZNavigationTabLink {
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  orientation = NavigationTabsOrientations.HORIZONTAL;
+  orientation = NavigationTabsOrientation.HORIZONTAL;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  size = NavigationTabsSizes.BIG;
+  size = NavigationTabsSize.BIG;
 
   /**
    * Html title attribute for the anchor element.
@@ -76,7 +76,7 @@ export class ZNavigationTabLink {
    */
   private scrollToTab({target: button}): void {
     const scrollOptions =
-      this.orientation === NavigationTabsOrientations.HORIZONTAL
+      this.orientation === NavigationTabsOrientation.HORIZONTAL
         ? ({block: "nearest", inline: "center"} as ScrollIntoViewOptions)
         : ({block: "center", inline: "nearest"} as ScrollIntoViewOptions);
 

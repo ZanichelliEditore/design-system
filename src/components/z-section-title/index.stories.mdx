@@ -1,6 +1,6 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {html} from "lit-html";
-import {ZSectionTitleDividerPositions} from "../../beans";
+import {ZSectionTitleDividerPosition} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
 import "./index";
 
@@ -9,7 +9,7 @@ import "./index";
   component="z-section-title"
   argTypes={{
     "dividerPosition": {
-      options: Object.values(ZSectionTitleDividerPositions),
+      options: Object.values(ZSectionTitleDividerPosition),
       control: {type: "inline-radio"},
     },
     "uppercase": {
@@ -30,7 +30,7 @@ import "./index";
   <Story
     name="Primary title only"
     args={{
-      "dividerPosition": ZSectionTitleDividerPositions.BEFORE,
+      "dividerPosition": ZSectionTitleDividerPosition.BEFORE,
       "uppercase": true,
       "--z-section-title--divider-color": "--red500",
     }}

@@ -50,9 +50,9 @@ Lista degli Enum e tipi interessati:
 
 - `LicenseType`
 - `Card`
-- `CardVariants`
-- `NavigationTabsOrientations`
-- `NavigationTabsSizes`
+- `CardVariant`
+- `NavigationTabsOrientation`
+- `NavigationTabsSize`
 - `ButtonVariant`
 - `ButtonType`
 - `ButtonSize`
@@ -71,22 +71,22 @@ Lista degli Enum e tipi interessati:
 - `Size`
 - `ExpandableListStyle`
 - `ExpandableListButtonAlign`
-- `LabelPositions`
+- `LabelPosition`
 - `ListDividerType`
 - `NotificationType`
-- `AlertTypes`
+- `AlertType`
 - `Device`
 - `PocketStatus`
 - `ToastNotification`
-- `ToastNotificationTransitions`
-- `ToastNotificationPositions`
+- `ToastNotificationTransition`
+- `ToastNotificationPosition`
 - `ZTableRowExpandedType`
 - `ZAriaAlertMode`
 - `TransitionDirection`
-- `OffCanvasVariants`
+- `OffCanvasVariant`
 - `ZFileUploadType`
 - `ZChipType`
-- `ZSectionTitleDividerPositions`
+- `ZSectionTitleDividerPosition`
 - `ZDatePickerMode`
 - `ZDatePickerPosition`
 - `ZRangePickerMode`
@@ -264,7 +264,7 @@ Il timeout prima che venga fatto un emit dell'evento `inputChange` non è più c
 
 #### Rimozione della prop `labelafter`
 
-La prop `labelafter` è stata rimossa e sostituita da `labelPosition`. Quest'ultima non è di tipo `boolean` ma di tipo `LabelPosition` e accetta uno dei due valori dell'enum `LabelPositions` (`LabelPositions.right`, `LabelPositions.left` o una stringa tra "right" e "left").
+La prop `labelafter` è stata rimossa e sostituita da `labelPosition`. Quest'ultima non è di tipo `boolean` ma di tipo `LabelPosition` e accetta uno dei due valori dell'enum `LabelPosition` (`LabelPosition.right`, `LabelPosition.left` o una stringa tra "right" e "left").
 
 #### Rimozione metodi `setValue()` e `getValue()`
 

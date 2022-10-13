@@ -1,6 +1,6 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {InputType, LabelPositions, InputStatus} from "../../../beans";
+import {InputType, LabelPosition, InputStatus} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
@@ -70,7 +70,7 @@ export class ZInput {
 
   /** the input label position: available for checkbox, radio */
   @Prop()
-  labelPosition? = LabelPositions.RIGHT;
+  labelPosition? = LabelPosition.RIGHT;
 
   /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop()
@@ -425,8 +425,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             "checkbox-label": true,
-            "after": this.labelPosition === LabelPositions.RIGHT,
-            "before": this.labelPosition === LabelPositions.LEFT,
+            "after": this.labelPosition === LabelPosition.RIGHT,
+            "before": this.labelPosition === LabelPosition.LEFT,
           }}
         >
           <z-icon
@@ -460,8 +460,8 @@ export class ZInput {
           htmlFor={this.htmlid}
           class={{
             "radio-label": true,
-            "after": this.labelPosition === LabelPositions.RIGHT,
-            "before": this.labelPosition === LabelPositions.LEFT,
+            "after": this.labelPosition === LabelPosition.RIGHT,
+            "before": this.labelPosition === LabelPosition.LEFT,
           }}
         >
           <z-icon

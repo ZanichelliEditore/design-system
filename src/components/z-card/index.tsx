@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element, State, Listen, Event, EventEmitter, Host} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {CardVariants} from "../../beans";
+import {CardVariant} from "../../beans";
 
 @Component({
   tag: "z-card",
@@ -14,7 +14,7 @@ export class ZCard {
    * Leave it undefined for the default card.
    */
   @Prop({reflect: true})
-  variant: CardVariants;
+  variant: CardVariant;
 
   /** Name of the icon to place over the image cover */
   @Prop()
@@ -101,17 +101,17 @@ export class ZCard {
   }
 
   render(): HostElement {
-    if (this.variant === CardVariants.TEXT) {
+    if (this.variant === CardVariant.TEXT) {
       return <Host>{this.renderContentDiv()}</Host>;
     }
 
-    if (this.variant === CardVariants.OVERLAY || this.hasCoverImage) {
+    if (this.variant === CardVariant.OVERLAY || this.hasCoverImage) {
       return (
         <Host>
           <div class="cover-container">
             {this.hasCoverImage && [
               <slot name="cover"></slot>,
-              this.variant !== CardVariants.OVERLAY && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
+              this.variant !== CardVariant.OVERLAY && this.coverIcon && <z-icon name={this.coverIcon}></z-icon>,
             ]}
             {!this.hasCoverImage && <div class="color-cover"></div>}
           </div>

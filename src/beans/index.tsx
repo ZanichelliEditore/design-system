@@ -49,7 +49,7 @@ export type Card = {
   licenseType: LicenseType;
 };
 
-export enum CardVariants {
+export enum CardVariant {
   BORDER = "border",
   SHADOW = "shadow",
   OVERLAY = "overlay",
@@ -95,12 +95,12 @@ export type TabItem = {
   disabled?: boolean;
 };
 
-export enum NavigationTabsOrientations {
+export enum NavigationTabsOrientation {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical",
 }
 
-export enum NavigationTabsSizes {
+export enum NavigationTabsSize {
   BIG = "big",
   SMALL = "small",
 }
@@ -288,7 +288,7 @@ export enum ExpandableListButtonAlign {
   LEFT = "left",
 }
 
-export enum LabelPositions {
+export enum LabelPosition {
   RIGHT = "right",
   LEFT = "left",
 }
@@ -305,7 +305,7 @@ export enum NotificationType {
   ERROR = "error",
 }
 
-export enum AlertTypes {
+export enum AlertType {
   SUCCESS = "success",
   WARNING = "warning",
   ERROR = "error",
@@ -348,7 +348,7 @@ export enum ToastNotification {
   WARNING = "warning",
 }
 
-export enum ToastNotificationTransitions {
+export enum ToastNotificationTransition {
   SLIDE_IN_LEFT = "slide-in-left",
   SLIDE_IN_RIGHT = "slide-in-right",
   SLIDE_IN_DOWN = "slide-in-down",
@@ -359,7 +359,7 @@ export enum ToastNotificationTransitions {
   SLIDE_OUT_UP = "slide-out-up",
 }
 
-export enum ToastNotificationPositions {
+export enum ToastNotificationPosition {
   TOP_RIGHT = "top-right",
   TOP_LEFT = "top-left",
   TOP_CENTRE = "top-centre",
@@ -384,7 +384,7 @@ export enum TransitionDirection {
   RIGHT = "right",
 }
 
-export enum OffCanvasVariants {
+export enum OffCanvasVariant {
   OVERLAY = "overlay",
   PUSHCONTENT = "pushcontent",
 }
@@ -400,7 +400,7 @@ export enum ZChipType {
   SMALL = "small",
 }
 
-export enum ZSectionTitleDividerPositions {
+export enum ZSectionTitleDividerPosition {
   BEFORE = "before",
   AFTER = "after",
 }
@@ -411,7 +411,7 @@ export enum ZDatePickerMode {
   MONTHS = "months",
 }
 
-export enum ZDatePickerModeValues {
+export enum ZDatePickerModeValue {
   DATE = 401,
   DATE_TIME = 523,
   MONTHS = 288,

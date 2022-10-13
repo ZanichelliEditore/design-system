@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property | Attribute | Description        | Type                                                           | Default     |
-| -------- | --------- | ------------------ | -------------------------------------------------------------- | ----------- |
-| `type`   | `type`    | alert variant type | `AlertTypes.ERROR \| AlertTypes.SUCCESS \| AlertTypes.WARNING` | `undefined` |
+| Property | Attribute | Description        | Type                                                        | Default     |
+| -------- | --------- | ------------------ | ----------------------------------------------------------- | ----------- |
+| `type`   | `type`    | alert variant type | `AlertType.ERROR \| AlertType.SUCCESS \| AlertType.WARNING` | `undefined` |
 
 
 ## Slots

@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertTypes, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariants, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariants, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPositions, ToastNotificationTransitions, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPositions, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -14,7 +14,7 @@ export namespace Components {
         /**
           * alert variant type
          */
-        "type": AlertTypes;
+        "type": AlertType;
     }
     interface ZAppHeader {
         /**
@@ -263,7 +263,7 @@ export namespace Components {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant": CardVariants;
+        "variant": CardVariant;
     }
     interface ZCarousel {
         /**
@@ -637,7 +637,7 @@ export namespace Components {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPositions;
+        "labelPosition"?: LabelPosition;
         /**
           * max number value (optional): available for number
          */
@@ -1309,7 +1309,7 @@ export namespace Components {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation": NavigationTabsOrientations;
+        "orientation": NavigationTabsOrientation;
         /**
           * Whether the tab is selected.
          */
@@ -1317,7 +1317,7 @@ export namespace Components {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size": NavigationTabsSizes;
+        "size": NavigationTabsSize;
     }
     interface ZNavigationTabLink {
         /**
@@ -1343,7 +1343,7 @@ export namespace Components {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation": NavigationTabsOrientations;
+        "orientation": NavigationTabsOrientation;
         /**
           * Whether the tab is selected.
          */
@@ -1351,7 +1351,7 @@ export namespace Components {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size": NavigationTabsSizes;
+        "size": NavigationTabsSize;
         /**
           * Html `target` attribute for the anchor element.
          */
@@ -1361,11 +1361,11 @@ export namespace Components {
         /**
           * Navigation tabs orientation.
          */
-        "orientation"?: NavigationTabsOrientations;
+        "orientation"?: NavigationTabsOrientation;
         /**
           * Navigation tabs size.
          */
-        "size"?: NavigationTabsSizes;
+        "size"?: NavigationTabsSize;
     }
     interface ZNotification {
         /**
@@ -1406,7 +1406,7 @@ export namespace Components {
         /**
           * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
-        "variant"?: OffCanvasVariants;
+        "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
         /**
@@ -1668,7 +1668,7 @@ export namespace Components {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
-        "dividerPosition": ZSectionTitleDividerPositions;
+        "dividerPosition": ZSectionTitleDividerPosition;
         /**
           * Whether the primary title text is uppercase.
          */
@@ -1966,7 +1966,7 @@ export namespace Components {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitions;
+        "transition"?: ToastNotificationTransition;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
@@ -1980,7 +1980,7 @@ export namespace Components {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position": ToastNotificationPositions;
+        "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
@@ -2016,7 +2016,7 @@ export namespace Components {
         /**
           * Label position
          */
-        "labelPosition"?: LabelPositions;
+        "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
         /**
@@ -3058,7 +3058,7 @@ declare namespace LocalJSX {
         /**
           * alert variant type
          */
-        "type"?: AlertTypes;
+        "type"?: AlertType;
     }
     interface ZAppHeader {
         /**
@@ -3327,7 +3327,7 @@ declare namespace LocalJSX {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant"?: CardVariants;
+        "variant"?: CardVariant;
     }
     interface ZCarousel {
         /**
@@ -3737,7 +3737,7 @@ declare namespace LocalJSX {
         /**
           * the input label position: available for checkbox, radio
          */
-        "labelPosition"?: LabelPositions;
+        "labelPosition"?: LabelPosition;
         /**
           * max number value (optional): available for number
          */
@@ -4513,7 +4513,7 @@ declare namespace LocalJSX {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation"?: NavigationTabsOrientations;
+        "orientation"?: NavigationTabsOrientation;
         /**
           * Whether the tab is selected.
          */
@@ -4521,7 +4521,7 @@ declare namespace LocalJSX {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size"?: NavigationTabsSizes;
+        "size"?: NavigationTabsSize;
     }
     interface ZNavigationTabLink {
         /**
@@ -4551,7 +4551,7 @@ declare namespace LocalJSX {
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "orientation"?: NavigationTabsOrientations;
+        "orientation"?: NavigationTabsOrientation;
         /**
           * Whether the tab is selected.
          */
@@ -4559,7 +4559,7 @@ declare namespace LocalJSX {
         /**
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
-        "size"?: NavigationTabsSizes;
+        "size"?: NavigationTabsSize;
         /**
           * Html `target` attribute for the anchor element.
          */
@@ -4569,11 +4569,11 @@ declare namespace LocalJSX {
         /**
           * Navigation tabs orientation.
          */
-        "orientation"?: NavigationTabsOrientations;
+        "orientation"?: NavigationTabsOrientation;
         /**
           * Navigation tabs size.
          */
-        "size"?: NavigationTabsSizes;
+        "size"?: NavigationTabsSize;
     }
     interface ZNotification {
         /**
@@ -4626,7 +4626,7 @@ declare namespace LocalJSX {
         /**
           * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
-        "variant"?: OffCanvasVariants;
+        "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
         /**
@@ -4928,7 +4928,7 @@ declare namespace LocalJSX {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
          */
-        "dividerPosition"?: ZSectionTitleDividerPositions;
+        "dividerPosition"?: ZSectionTitleDividerPosition;
         /**
           * Whether the primary title text is uppercase.
          */
@@ -5238,7 +5238,7 @@ declare namespace LocalJSX {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitions;
+        "transition"?: ToastNotificationTransition;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
@@ -5252,7 +5252,7 @@ declare namespace LocalJSX {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position"?: ToastNotificationPositions;
+        "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
@@ -5292,7 +5292,7 @@ declare namespace LocalJSX {
         /**
           * Label position
          */
-        "labelPosition"?: LabelPositions;
+        "labelPosition"?: LabelPosition;
         /**
           * Toggle click event
          */

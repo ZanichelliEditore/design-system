@@ -1,6 +1,6 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {NavigationTabsSizes, NavigationTabsOrientations} from "../../../../beans";
+import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
 
 /**
  * Navigation tabs component.
@@ -16,13 +16,13 @@ export class ZNavigationTabs {
    * Navigation tabs orientation.
    */
   @Prop({reflect: true})
-  orientation? = NavigationTabsOrientations.HORIZONTAL;
+  orientation? = NavigationTabsOrientation.HORIZONTAL;
 
   /**
    * Navigation tabs size.
    */
   @Prop({reflect: true})
-  size? = NavigationTabsSizes.BIG;
+  size? = NavigationTabsSize.BIG;
 
   /**
    * Whether to show navigation buttons.
@@ -50,14 +50,14 @@ export class ZNavigationTabs {
    * Getter for the direction to check based on current orientation.
    */
   get direction(): string {
-    return this.orientation == NavigationTabsOrientations.HORIZONTAL ? "Left" : "Top";
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Left" : "Top";
   }
 
   /**
    * Getter for the dimension to check based on current orientation.
    */
   get dimension(): string {
-    return this.orientation == NavigationTabsOrientations.HORIZONTAL ? "Width" : "Height";
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Width" : "Height";
   }
 
   /**
@@ -157,8 +157,8 @@ export class ZNavigationTabs {
     return (
       <Host
         class={{
-          "interactive-2": this.size === NavigationTabsSizes.SMALL,
-          "interactive-1": this.size !== NavigationTabsSizes.SMALL,
+          "interactive-2": this.size === NavigationTabsSize.SMALL,
+          "interactive-1": this.size !== NavigationTabsSize.SMALL,
         }}
         scrollable={this.canNavigate}
       >
@@ -170,7 +170,7 @@ export class ZNavigationTabs {
             disabled={!this.canNavigatePrev}
           >
             <z-icon
-              name={this.orientation === NavigationTabsOrientations.HORIZONTAL ? "chevron-left" : "chevron-up"}
+              name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up"}
               width={16}
               height={16}
             />
@@ -193,7 +193,7 @@ export class ZNavigationTabs {
             disabled={!this.canNavigateNext}
           >
             <z-icon
-              name={this.orientation === NavigationTabsOrientations.HORIZONTAL ? "chevron-right" : "chevron-down"}
+              name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down"}
               width={16}
               height={16}
             />

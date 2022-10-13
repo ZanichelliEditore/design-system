@@ -56,12 +56,12 @@ The width of the card must be set externally, respecting the grid indication of 
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                                                 | Type                                                                                      | Default     |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| `clickable`  | `clickable`  | Enable click interactions on the card. Default: false                                                       | `boolean`                                                                                 | `false`     |
-| `coverIcon`  | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                                                  | `undefined` |
-| `showshadow` | `showshadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                                 | `false`     |
-| `variant`    | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariants.BORDER \| CardVariants.OVERLAY \| CardVariants.SHADOW \| CardVariants.TEXT` | `undefined` |
+| Property     | Attribute    | Description                                                                                                 | Type                                                                                  | Default     |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------- |
+| `clickable`  | `clickable`  | Enable click interactions on the card. Default: false                                                       | `boolean`                                                                             | `false`     |
+| `coverIcon`  | `cover-icon` | Name of the icon to place over the image cover                                                              | `string`                                                                              | `undefined` |
+| `showshadow` | `showshadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                             | `false`     |
+| `variant`    | `variant`    | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariant.BORDER \| CardVariant.OVERLAY \| CardVariant.SHADOW \| CardVariant.TEXT` | `undefined` |
 
 
 ## Events

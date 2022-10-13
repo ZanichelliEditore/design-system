@@ -1,5 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Element, Host, State, Watch} from "@stencil/core";
-import {ToastNotificationTransitions, ToastNotification} from "../../../beans";
+import {ToastNotificationTransition, ToastNotification} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
@@ -47,7 +47,7 @@ export class ZToastNotification {
 
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
   @Prop()
-  transition?: ToastNotificationTransitions;
+  transition?: ToastNotificationTransition;
 
   @State()
   percentage: number;
@@ -137,16 +137,16 @@ export class ZToastNotification {
     }
   }
 
-  private mapSlideOutClass(): ToastNotificationTransitions {
+  private mapSlideOutClass(): ToastNotificationTransition {
     switch (this.transition) {
-      case ToastNotificationTransitions.SLIDE_IN_DOWN:
-        return ToastNotificationTransitions.SLIDE_OUT_UP;
-      case ToastNotificationTransitions.SLIDE_IN_UP:
-        return ToastNotificationTransitions.SLIDE_OUT_DOWN;
-      case ToastNotificationTransitions.SLIDE_IN_LEFT:
-        return ToastNotificationTransitions.SLIDE_OUT_RIGHT;
-      case ToastNotificationTransitions.SLIDE_IN_RIGHT:
-        return ToastNotificationTransitions.SLIDE_OUT_LEFT;
+      case ToastNotificationTransition.SLIDE_IN_DOWN:
+        return ToastNotificationTransition.SLIDE_OUT_UP;
+      case ToastNotificationTransition.SLIDE_IN_UP:
+        return ToastNotificationTransition.SLIDE_OUT_DOWN;
+      case ToastNotificationTransition.SLIDE_IN_LEFT:
+        return ToastNotificationTransition.SLIDE_OUT_RIGHT;
+      case ToastNotificationTransition.SLIDE_IN_RIGHT:
+        return ToastNotificationTransition.SLIDE_OUT_LEFT;
     }
   }
 
@@ -310,7 +310,7 @@ export class ZToastNotification {
         style={{
           "--percentuale": `${this.percentage}%`,
         }}
-        class={this.transition ? this.transition : ToastNotificationTransitions.SLIDE_IN_DOWN}
+        class={this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);
