@@ -14,11 +14,11 @@ To activate single mode, set the attribute `single` to `true` and set a width to
 
 | Property             | Attribute              | Description                                                                                                                          | Type                                                           | Default     |
 | -------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ----------- |
-| `arrows`             | `arrows`               | Arrow buttons position                                                                                                               | `CarouselArrowsPosition.BOTTOM \| CarouselArrowsPosition.OVER` | `undefined` |
+| `arrowsPosition`     | `arrows-position`      | Arrow buttons position                                                                                                               | `CarouselArrowsPosition.BOTTOM \| CarouselArrowsPosition.OVER` | `undefined` |
 | `ghostLoadingHeight` | `ghost-loading-height` | The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. | `number`                                                       | `100`       |
 | `isLoading`          | `is-loading`           | The z-carousel is on loading state                                                                                                   | `boolean`                                                      | `undefined` |
 | `label`              | `label`                | The z-carousel title, if given.                                                                                                      | `string`                                                       | `undefined` |
-| `progress`           | `progress`             | Progress indicator. Only available for `single` mode                                                                                 | `CarouselProgressMode.DOTS \| CarouselProgressMode.NUMBERS`    | `undefined` |
+| `progressMode`       | `progress-mode`        | Progress indicator. Only available for `single` mode                                                                                 | `CarouselProgressMode.DOTS \| CarouselProgressMode.NUMBERS`    | `undefined` |
 | `single`             | `single`               | Shows only one content at a time                                                                                                     | `boolean`                                                      | `false`     |
 
 

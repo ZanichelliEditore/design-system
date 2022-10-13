@@ -257,7 +257,7 @@ export namespace Components {
         /**
           * Arrow buttons position
          */
-        "arrows": null | CarouselArrowsPosition;
+        "arrowsPosition"?: CarouselArrowsPosition;
         /**
           * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
@@ -273,7 +273,7 @@ export namespace Components {
         /**
           * Progress indicator. Only available for `single` mode
          */
-        "progress": null | CarouselProgressMode;
+        "progressMode"?: CarouselProgressMode;
         /**
           * Shows only one content at a time
          */
@@ -3263,7 +3263,7 @@ declare namespace LocalJSX {
         /**
           * Arrow buttons position
          */
-        "arrows"?: null | CarouselArrowsPosition;
+        "arrowsPosition"?: CarouselArrowsPosition;
         /**
           * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
@@ -3283,7 +3283,7 @@ declare namespace LocalJSX {
         /**
           * Progress indicator. Only available for `single` mode
          */
-        "progress"?: null | CarouselProgressMode;
+        "progressMode"?: CarouselProgressMode;
         /**
           * Shows only one content at a time
          */

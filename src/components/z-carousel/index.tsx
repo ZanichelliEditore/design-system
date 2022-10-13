@@ -14,6 +14,7 @@ import {
   CarouselArrowsPosition,
   CarouselProgressMode,
   ButtonVariantEnum,
+  ButtonSizeEnum
 } from "../../beans";
 
 /**
@@ -214,6 +215,7 @@ export class ZCarousel {
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
+                size={ButtonSizeEnum.small}
                 data-direction="prev"
                 icon="chevron-left"
                 onClick={this.onPrev.bind(this)}
@@ -224,6 +226,7 @@ export class ZCarousel {
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
+                size={ButtonSizeEnum.small}
                 data-direction="next"
                 icon="chevron-right"
                 onClick={this.onNext.bind(this)}
@@ -236,6 +239,7 @@ export class ZCarousel {
           <div class="z-carousel-footer">
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
+                size={ButtonSizeEnum.small}
                 variant={ButtonVariantEnum.tertiary}
                 icon="arrow-left-filled"
                 onClick={this.onPrev.bind(this)}
@@ -273,6 +277,7 @@ export class ZCarousel {
               )}
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
+                size={ButtonSizeEnum.small}
                 variant={ButtonVariantEnum.tertiary}
                 icon="arrow-right-filled"
                 onClick={this.onNext.bind(this)}
