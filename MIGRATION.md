@@ -229,7 +229,7 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 
 - `z-slideshow`
 
-- `z-utils`
+- `utils`
 
 > Sono state cambiate classi CSS anche in altri componenti che non sono inclusi nell'elenco: quei componenti hanno l'opzione `shadow: true`, quindi di sicuro non è stato possibile usare le classi CSS per modificarne lo stile dai prodotti.
 
