@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                       | Type                                                                                                                            | Default                       |
-| ---------------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"     | `string`                                                                                                                        | `undefined`                   |
-| `buttonVariant`  | `button-variant`  | Prop indicating the button variant                                | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `undefined`                   |
-| `description`    | `description`     | Description                                                       | `string`                                                                                                                        | `undefined`                   |
-| `fileMaxSize`    | `file-max-size`   | Max file dimension in Megabyte                                    | `number`                                                                                                                        | `undefined`                   |
-| `mainTitle`      | `main-title`      | Title                                                             | `string`                                                                                                                        | `undefined`                   |
-| `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.default \| ZFileUploadTypeEnum.dragdrop`                                                                   | `ZFileUploadTypeEnum.default` |
+| Property         | Attribute         | Description                                                       | Type                                                                                                                              | Default                       |
+| ---------------- | ----------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `acceptedFormat` | `accepted-format` | Prop indicating the accepted file type: ex ".pdf, .doc, .jpg"     | `string`                                                                                                                          | `undefined`                   |
+| `buttonVariant`  | `button-variant`  | Prop indicating the button variant                                | `(typeof ButtonVariantEnum)["dark-bg"] \| ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `undefined`                   |
+| `description`    | `description`     | Description                                                       | `string`                                                                                                                          | `undefined`                   |
+| `fileMaxSize`    | `file-max-size`   | Max file dimension in Megabyte                                    | `number`                                                                                                                          | `undefined`                   |
+| `mainTitle`      | `main-title`      | Title                                                             | `string`                                                                                                                          | `undefined`                   |
+| `type`           | `type`            | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadTypeEnum.default \| ZFileUploadTypeEnum.dragdrop`                                                                     | `ZFileUploadTypeEnum.default` |
 
 
 ## Events

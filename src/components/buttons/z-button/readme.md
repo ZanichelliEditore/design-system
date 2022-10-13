@@ -30,18 +30,18 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                        | Type                                                                                                                            | Default                     |
-| ----------- | ------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `ariaLabel` | `aria-label` | defines a string value that labels an interactive element, used for accessibility. | `string`                                                                                                                        | `undefined`                 |
-| `disabled`  | `disabled`   | HTML button disabled attribute.                                                    | `boolean`                                                                                                                       | `false`                     |
-| `href`      | `href`       | HTML <a> href attribute. If it is set, it renders an HTML <a> tag.                 | `string`                                                                                                                        | `undefined`                 |
-| `htmlid`    | `htmlid`     | Identifier, should be unique.                                                      | `string`                                                                                                                        | `undefined`                 |
-| `icon`      | `icon`       | `z-icon` name to use (optional).                                                   | `string`                                                                                                                        | `undefined`                 |
-| `name`      | `name`       | HTML button name attribute.                                                        | `string`                                                                                                                        | `undefined`                 |
-| `size`      | `size`       | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.                  | `ButtonSizeEnum.big \| ButtonSizeEnum.small \| typeof ButtonSizeEnum["x-small"]`                                                | `ButtonSizeEnum.big`        |
-| `target`    | `target`     | HTML a target attribute.                                                           | `string`                                                                                                                        | `undefined`                 |
-| `type`      | `type`       | HTML button type attribute.                                                        | `string`                                                                                                                        | `ButtonTypeEnum.button`     |
-| `variant`   | `variant`    | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.      | `ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary \| typeof ButtonVariantEnum["dark-bg"]` | `ButtonVariantEnum.primary` |
+| Property    | Attribute    | Description                                                                        | Type                                                                                                                              | Default                     |
+| ----------- | ------------ | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `ariaLabel` | `aria-label` | defines a string value that labels an interactive element, used for accessibility. | `string`                                                                                                                          | `undefined`                 |
+| `disabled`  | `disabled`   | HTML button disabled attribute.                                                    | `boolean`                                                                                                                         | `false`                     |
+| `href`      | `href`       | HTML <a> href attribute. If it is set, it renders an HTML <a> tag.                 | `string`                                                                                                                          | `undefined`                 |
+| `htmlid`    | `htmlid`     | Identifier, should be unique.                                                      | `string`                                                                                                                          | `undefined`                 |
+| `icon`      | `icon`       | `z-icon` name to use (optional).                                                   | `string`                                                                                                                          | `undefined`                 |
+| `name`      | `name`       | HTML button name attribute.                                                        | `string`                                                                                                                          | `undefined`                 |
+| `size`      | `size`       | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.                  | `(typeof ButtonSizeEnum)["x-small"] \| ButtonSizeEnum.big \| ButtonSizeEnum.small`                                                | `ButtonSizeEnum.big`        |
+| `target`    | `target`     | HTML a target attribute.                                                           | `string`                                                                                                                          | `undefined`                 |
+| `type`      | `type`       | HTML button type attribute.                                                        | `string`                                                                                                                          | `ButtonTypeEnum.button`     |
+| `variant`   | `variant`    | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.      | `(typeof ButtonVariantEnum)["dark-bg"] \| ButtonVariantEnum.primary \| ButtonVariantEnum.secondary \| ButtonVariantEnum.tertiary` | `ButtonVariantEnum.primary` |
 
 
 ## Slots
@@ -55,6 +55,7 @@
 
 ### Used by
 
+ - [z-carousel](../../z-carousel)
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-file-upload](../../file-upload/z-file-upload)
  - [z-footer](../../footer/z-footer)
@@ -74,6 +75,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-carousel --> z-button
   z-cookiebar --> z-button
   z-file-upload --> z-button
   z-footer --> z-button

@@ -1,4 +1,5 @@
 import { html } from "lit-html";
+import { CarouselArrowsPosition, CarouselProgressMode } from "../../beans";
 import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import "./index.stories.css";
@@ -8,9 +9,14 @@ import "./index";
   title="ZCarousel"
   component="z-carousel"
   argTypes={{
+    label: { control: { type: 'text' } },
     isLoading: { control: { type: "boolean" } },
     ghostLoadinghHeight: {
       control: "number",
+    },
+    progressMode: {
+      options: Object.values(CarouselProgressMode),
+      control: { type: "select" },
     },
     zCarouselGutter: { control: "number", min: 0 },
   }}
@@ -20,39 +26,37 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-with-div"
-    args={{
-      zCarouselGutter: 8,
-    }}
+    name="ZCarousel-over-arrows"
   >
     {(args) => html`<z-carousel
-      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+      label=${args.label || ''}
+      arrows-position=${CarouselArrowsPosition.OVER}
     >
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
-      <li>
+      <li tabindex="0">
         <div class="carousel-box"></div>
       </li>
     </z-carousel>`}
@@ -61,113 +65,97 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-with-component"
+    name="ZCarousel-single-bottom-arrows"
+    parameters={{
+      layout: "centered",
+    }}
     args={{
-      zCarouselGutter: 8,
+      label: 'Carousel title',
+      progressMode: CarouselProgressMode.DOTS,
     }}
   >
     {(args) => html`<z-carousel
-      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+      single
+      label=${args.label}
+      arrows-position=${CarouselArrowsPosition.BOTTOM}
+      progress-mode=${args.progressMode}
+      style="width: 200px; height: 200px;"
     >
-      <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download">
-          Click Me
-        </z-button>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-card
-          variant="text"
-          .clickable="false"
-          .showshadow="false"
-          style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"
-        >
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">
-            Some description for the content of the card.
-          </p>
-          <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
-        </z-card>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-card
-          variant="text"
-          .clickable="false"
-          .showshadow="false"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
-        >
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">
-            Some description for the content of the card.
-          </p>
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download">
-          Click Me
-        </z-button>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-card
-          variant="text"
-          .clickable="false"
-          .showshadow="false"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
-        >
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">
-            Some description for the content of the card.
-          </p>
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download">
-          Click Me
-        </z-button>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-card
-          variant="text"
-          .clickable="false"
-          .showshadow="false"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
-        >
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">
-            Some description for the content of the card.
-          </p>
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-button variant="primary" size="big" disabled="false" icon="download">
-          Click Me
-        </z-button>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
-      <li>
-        <z-card
-          variant="text"
-          .clickable="false"
-          .showshadow="false"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
-        >
-          <h2 class="body-5" slot="metadata">metadata</h2>
-          <h3 slot="title">Card Title</h3>
-          <p class="body-3" slot="text">
-            Some description for the content of the card.
-          </p>
-          <z-icon name="share" slot="action" fill="color-surface01"></z-icon>
-          <z-icon name="delete" slot="action" fill="color-surface01"></z-icon>
-        </z-card>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+    </z-carousel>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="ZCarousel-single-over-arrows"
+    parameters={{
+      layout: "centered",
+    }}
+    args={{
+      label: 'Carousel title',
+      progressMode: CarouselProgressMode.DOTS,
+    }}
+  >
+    {(args) => html`<z-carousel
+      single
+      label=${args.label}
+      arrows-position=${CarouselArrowsPosition.OVER}
+      progress-mode=${args.progressMode}
+      style="width: 200px; height: 200px;"
+    >
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
+      </li>
+      <li tabindex="0">
+        <div class="carousel-box"></div>
       </li>
     </z-carousel>`}
   </Story>
@@ -177,11 +165,11 @@ import "./index";
   <Story
     name="ZCarousel-with-elements-loading"
     args={{
-      zCarouselGutter: 8,
+      label: 'Carousel title',
     }}
   >
     {(args) => html`<z-carousel
-      style="--z-carousel-gutter: ${args.zCarouselGutter}px"
+      label=${args.label}
     >
       <li>
         <div class="carousel-box-loading">
@@ -226,11 +214,13 @@ import "./index";
   <Story
     name="ZCarousel-ghost-loading"
     args={{
+      label: 'Carousel title',
       isLoading: true,
       ghostLoadinghHeight: 200,
     }}
   >
     {(args) => html`<z-carousel
+      label=${args.label}
       is-loading=${args.isLoading}
       ghost-loading-height=${args.ghostLoadinghHeight}
     >

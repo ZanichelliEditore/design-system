@@ -500,3 +500,13 @@ export enum CoverHeroContentPosition {
   TOP = "top",
   BOTTOM = "bottom",
 }
+
+export enum CarouselArrowsPosition {
+  OVER = "over",
+  BOTTOM = "bottom",
+}
+
+export enum CarouselProgressMode {
+  DOTS = "dots",
+  NUMBERS = "numbers",
+}
