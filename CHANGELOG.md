@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.6.0](https://github.com/ZanichelliEditore/design-system/compare/v5.5.5...v5.6.0) (2022-10-13)
+
+
+### Features
+
+* added title ([e4858b8](https://github.com/ZanichelliEditore/design-system/commit/e4858b871399d01f345e0afb3c4891f307ffb609))
+* carousel arrows ([efa1331](https://github.com/ZanichelliEditore/design-system/commit/efa133189c693c6dca9e68c00b2d0601bb13779b))
+* single mode and progress on carousel ([5d0dee0](https://github.com/ZanichelliEditore/design-system/commit/5d0dee08a111ac3cd3ca64986874a130e8691d2f))
+
+
+### Bug Fixes
+
+* add intersection observer to change current index on scroll ([8ba1729](https://github.com/ZanichelliEditore/design-system/commit/8ba172934eb3434f489145161808e86811ec925c))
+* center over arrows ([667f9a5](https://github.com/ZanichelliEditore/design-system/commit/667f9a560afc920dde6b2d542871cee4e88b78dd))
+* colors and naming ([a38a7bc](https://github.com/ZanichelliEditore/design-system/commit/a38a7bc9236624c3a542b55b5c4abfaca76f31b2))
+* indicator when scrolling ([121ec2a](https://github.com/ZanichelliEditore/design-system/commit/121ec2af7f40ad31dc747309f0304092e6e75376))
+* typescript ([d64d8e0](https://github.com/ZanichelliEditore/design-system/commit/d64d8e0b3dfd8c88b823134a5202cfd280527b60))
+
 ### [5.5.5](https://github.com/ZanichelliEditore/design-system/compare/v5.5.4...v5.5.5) (2022-10-06)
 
 
