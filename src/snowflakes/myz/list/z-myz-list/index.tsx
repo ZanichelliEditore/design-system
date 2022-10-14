@@ -1,5 +1,5 @@
 import {Component, Prop, h, Watch} from "@stencil/core";
-import {ListItemBean} from "../../../../beans/index.js";
+import {ListItem} from "../../../../beans/index.js";
 
 @Component({
   tag: "z-myz-list",
@@ -13,7 +13,7 @@ export class ZMyzList {
 
   /** list item data (mutable, optional)*/
   @Prop({mutable: true})
-  list?: ListItemBean[];
+  list?: ListItem[];
 
   componentWillLoad(): void {
     if (this.inputrawdata) {

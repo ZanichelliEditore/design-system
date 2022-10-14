@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Story, ArgsTable, Canvas} from "@storybook/addon-docs";
-import {ButtonVariantEnum} from "../../../beans";
+import {ButtonVariant} from "../../../beans";
 
 import "./index";
 
@@ -33,7 +33,7 @@ import "./index";
   <Story
     name="ZFileUpload default version"
     args={{
-      buttonVariant: ButtonVariantEnum.PRIMARY,
+      buttonVariant: ButtonVariant.PRIMARY,
       fileMaxSize: "50",
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",

@@ -1,5 +1,5 @@
 import {ChildNode} from "@stencil/core";
-import {KeyboardCodeEnum, DeviceEnum} from "../beans/index";
+import {KeyboardCode, Device} from "../beans/index";
 import {mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
@@ -41,7 +41,7 @@ export function randomId(): string {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
-  if (ev.code === KeyboardCodeEnum.ENTER || ev.code === KeyboardCodeEnum.SPACE) {
+  if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
@@ -92,14 +92,14 @@ export function getSiblings(elem: HTMLElement): ChildNode[] {
   return siblings;
 }
 
-export function getDevice(): DeviceEnum {
+export function getDevice(): Device {
   switch (true) {
     case window.innerWidth <= mobileBreakpoint:
-      return DeviceEnum.MOBILE;
+      return Device.MOBILE;
     case window.innerWidth <= tabletBreakpoint:
-      return DeviceEnum.TABLET;
+      return Device.TABLET;
     default:
-      return DeviceEnum.DESKTOP;
+      return Device.DESKTOP;
   }
 }
 

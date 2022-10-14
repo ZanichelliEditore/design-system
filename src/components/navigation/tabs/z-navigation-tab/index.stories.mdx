@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {NavigationTabsSizes, NavigationTabsOrientations} from "../../../../beans/index";
+import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans/index";
 import {ICONS} from "../../../icons/icons";
 import "./index";
 
@@ -18,11 +18,11 @@ import "./index";
     },
     size: {
       control: {type: "inline-radio"},
-      options: Object.values(NavigationTabsSizes),
+      options: Object.values(NavigationTabsSize),
     },
     orientation: {
       control: {type: "inline-radio"},
-      options: Object.values(NavigationTabsOrientations),
+      options: Object.values(NavigationTabsOrientation),
     },
     htmlTitle: {
       control: {type: "text"},
@@ -43,8 +43,8 @@ import "./index";
     args={{
       selected: false,
       disabled: false,
-      size: NavigationTabsSizes.BIG,
-      orientation: NavigationTabsOrientations.HORIZONTAL,
+      size: NavigationTabsSize.BIG,
+      orientation: NavigationTabsOrientation.HORIZONTAL,
       htmlTitle: "Download stuff",
       icon: "download",
       label: "Download",

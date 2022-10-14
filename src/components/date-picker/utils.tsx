@@ -1,4 +1,4 @@
-import {ZDatePickerMode, ZDatePickerModeValues, ZDatePickerPosition, ZRangePickerMode} from "../../beans";
+import {ZDatePickerMode, ZDatePickerModeValue, ZDatePickerPosition, ZRangePickerMode} from "../../beans";
 
 export function validateDate(dateStr: string, hasTime = false): boolean {
   const regex = hasTime ? /^\d{1,2}[/-]\d{1,2}[/-]\d{2,4} - \d{2}:\d{2}$/ : /^\d{1,2}[/-]\d{1,2}[/-]\d{2,4}$/;
@@ -19,10 +19,10 @@ export function setFlatpickrPosition(
 
   const flatpickrHeight =
     mode === ZDatePickerMode.DATE_TIME
-      ? ZDatePickerModeValues.DATE_TIME
+      ? ZDatePickerModeValue.DATE_TIME
       : mode === ZDatePickerMode.MONTHS
-      ? ZDatePickerModeValues.MONTHS
-      : ZDatePickerModeValues.DATE;
+      ? ZDatePickerModeValue.MONTHS
+      : ZDatePickerModeValue.DATE;
 
   const bottom = element.getBoundingClientRect().bottom;
   const overflowBottom = bottom + flatpickrHeight > window.innerHeight;

@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../../beans";
+import {ButtonVariant, ButtonType, ButtonSize} from "../../../beans";
 import "./index";
 
 <Meta
@@ -8,11 +8,11 @@ import "./index";
   component="z-button"
   argTypes={{
     variant: {
-      options: Object.values(ButtonVariantEnum),
+      options: Object.values(ButtonVariant),
       control: {type: "radio"},
     },
     size: {
-      options: Object.values(ButtonSizeEnum),
+      options: Object.values(ButtonSize),
       control: {type: "radio"},
     },
   }}
@@ -26,8 +26,8 @@ import "./index";
   <Story
     name="Default button"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -52,8 +52,8 @@ import "./index";
   <Story
     name="Tertiary small"
     args={{
-      variant: ButtonVariantEnum.TERTIARY,
-      size: ButtonSizeEnum.SMALL,
+      variant: ButtonVariant.TERTIARY,
+      size: ButtonSize.SMALL,
       disabled: false,
       icon: "download",
     }}
@@ -81,8 +81,8 @@ import "./index";
   <Story
     name="secondary x-small"
     args={{
-      variant: ButtonVariantEnum.SECONDARY,
-      size: ButtonSizeEnum.X_SMALL,
+      variant: ButtonVariant.SECONDARY,
+      size: ButtonSize.X_SMALL,
       disabled: false,
       icon: "download",
     }}
@@ -118,8 +118,8 @@ It is possible use a button with icon only passing an icon name to `icon` prop.
   <Story
     name="Icon only"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -150,8 +150,8 @@ To do this you need to set `href` prop.
   <Story
     name="With href prop"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "arrow-quad-north-east",
       href: "https://wikipedia.com",

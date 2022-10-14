@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                  | Type                                                                           | Default                                 |
-| ------------- | ------------- | ---------------------------- | ------------------------------------------------------------------------------ | --------------------------------------- |
-| `orientation` | `orientation` | Navigation tabs orientation. | `NavigationTabsOrientations.HORIZONTAL \| NavigationTabsOrientations.VERTICAL` | `NavigationTabsOrientations.HORIZONTAL` |
-| `size`        | `size`        | Navigation tabs size.        | `NavigationTabsSizes.BIG \| NavigationTabsSizes.SMALL`                         | `NavigationTabsSizes.BIG`               |
+| Property      | Attribute     | Description                  | Type                                                                         | Default                                |
+| ------------- | ------------- | ---------------------------- | ---------------------------------------------------------------------------- | -------------------------------------- |
+| `orientation` | `orientation` | Navigation tabs orientation. | `NavigationTabsOrientation.HORIZONTAL \| NavigationTabsOrientation.VERTICAL` | `NavigationTabsOrientation.HORIZONTAL` |
+| `size`        | `size`        | Navigation tabs size.        | `NavigationTabsSize.BIG \| NavigationTabsSize.SMALL`                         | `NavigationTabsSize.BIG`               |
 
 
 ## Slots

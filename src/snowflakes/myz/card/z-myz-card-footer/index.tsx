@@ -1,6 +1,6 @@
 import {Component, Prop, h, State, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {LicenseTypeEnum} from "../../../../beans/index";
+import {LicenseType} from "../../../../beans/index";
 
 /**
  * @slot toggle - toggle button slot
@@ -30,7 +30,7 @@ export class ZMyzCardFooter {
 
   /** card graphic variant (optional) */
   @Prop()
-  cardtype?: LicenseTypeEnum;
+  cardtype?: LicenseType;
 
   /** footer opened by default (optional) */
   @Prop()
@@ -74,9 +74,9 @@ export class ZMyzCardFooter {
   private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
       "isopen": this.isOpen,
-      "real": this.cardtype === LicenseTypeEnum.REAL,
-      "trial": this.cardtype === LicenseTypeEnum.TRIAL,
-      "temp": this.cardtype === LicenseTypeEnum.TEMP,
+      "real": this.cardtype === LicenseType.REAL,
+      "trial": this.cardtype === LicenseType.TRIAL,
+      "temp": this.cardtype === LicenseType.TEMP,
       "custom-content": this.customContent,
     };
   }

@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop, State} from "@stencil/core";
-import {ButtonVariantEnum, ButtonSizeEnum, Size} from "../../../beans";
+import {ButtonVariant, ButtonSize, Size} from "../../../beans";
 import {HostElement} from "@stencil/core/internal";
 
 @Component({
@@ -42,8 +42,8 @@ export class ZTableCell {
             <div class="button-content">
               <z-button
                 icon="contextual-menu"
-                variant={ButtonVariantEnum.TERTIARY}
-                size={ButtonSizeEnum.X_SMALL}
+                variant={ButtonVariant.TERTIARY}
+                size={ButtonSize.X_SMALL}
                 onClick={() => this.handleMenu()}
               />
               <div

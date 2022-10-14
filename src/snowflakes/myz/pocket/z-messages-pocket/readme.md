@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description        | Type                                                                           | Default                    |
-| ---------- | ---------- | ------------------ | ------------------------------------------------------------------------------ | -------------------------- |
-| `messages` | `messages` | number of messages | `number`                                                                       | `undefined`                |
-| `pocketid` | `pocketid` | pocket id          | `string`                                                                       | `undefined`                |
-| `status`   | `status`   | pocket status      | `PocketStatusEnum.CLOSED \| PocketStatusEnum.OPEN \| PocketStatusEnum.PREVIEW` | `PocketStatusEnum.PREVIEW` |
+| Property   | Attribute  | Description        | Type                                                               | Default                |
+| ---------- | ---------- | ------------------ | ------------------------------------------------------------------ | ---------------------- |
+| `messages` | `messages` | number of messages | `number`                                                           | `undefined`            |
+| `pocketid` | `pocketid` | pocket id          | `string`                                                           | `undefined`            |
+| `status`   | `status`   | pocket status      | `PocketStatus.CLOSED \| PocketStatus.OPEN \| PocketStatus.PREVIEW` | `PocketStatus.PREVIEW` |
 
 
 ## Slots

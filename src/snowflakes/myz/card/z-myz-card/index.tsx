@@ -1,5 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
-import {LicenseTypeEnum} from "../../../../beans/index";
+import {LicenseType} from "../../../../beans/index";
 
 /**
  * @slot  - generic card slot
@@ -16,7 +16,7 @@ export class ZMyzCardComponent {
 
   /** graphic variant (optional) */
   @Prop()
-  cardtype?: LicenseTypeEnum;
+  cardtype?: LicenseType;
 
   /** pressed status */
   @Prop()
@@ -29,11 +29,11 @@ export class ZMyzCardComponent {
   private retrieveClass(): string {
     let elemClasses = "";
 
-    if (this.cardtype === LicenseTypeEnum.REAL) {
+    if (this.cardtype === LicenseType.REAL) {
       elemClasses += "real";
-    } else if (this.cardtype === LicenseTypeEnum.TRIAL) {
+    } else if (this.cardtype === LicenseType.TRIAL) {
       elemClasses += "trial";
-    } else if (this.cardtype === LicenseTypeEnum.TEMP) {
+    } else if (this.cardtype === LicenseType.TEMP) {
       elemClasses += "temp";
     }
 

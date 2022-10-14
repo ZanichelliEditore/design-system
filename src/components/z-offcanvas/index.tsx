@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {OffCanvasVariantsEnum, TransitionDirectionEnum} from "../../beans";
+import {OffCanvasVariant, TransitionDirection} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
  */
@@ -19,7 +19,7 @@ export class ZOffcanvas {
    * Default variant: pushcontent
    */
   @Prop({reflect: true})
-  variant?: OffCanvasVariantsEnum = OffCanvasVariantsEnum.PUSHCONTENT;
+  variant?: OffCanvasVariant = OffCanvasVariant.PUSHCONTENT;
 
   /** open component. Default: false */
   @Prop({reflect: true, mutable: true})
@@ -27,7 +27,7 @@ export class ZOffcanvas {
 
   /** open content transitioning in a specified direction left | right. Default: left */
   @Prop({reflect: true})
-  transitiondirection?: TransitionDirectionEnum = TransitionDirectionEnum.LEFT;
+  transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
   /** emitted when open prop changes */
   @Event()
@@ -46,7 +46,7 @@ export class ZOffcanvas {
   private handleOpenStatus(): void {
     if (this.open) {
       this.hostElement.style.display = "flex";
-    } else if (this.variant === OffCanvasVariantsEnum.PUSHCONTENT) {
+    } else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "hidden";
     }
@@ -55,7 +55,7 @@ export class ZOffcanvas {
   private handleAnimationEnd(): void {
     if (this.hostElement.hasAttribute("open")) {
       (this.hostElement.querySelector(`.canvas-content`) as HTMLElement).focus();
-    } else if (this.variant === OffCanvasVariantsEnum.OVERLAY) {
+    } else if (this.variant === OffCanvasVariant.OVERLAY) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "initial";
     }

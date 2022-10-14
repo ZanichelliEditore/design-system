@@ -13,10 +13,10 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                                    | Type             | Default     |
-| -------------- | -------------- | ---------------------------------------------- | ---------------- | ----------- |
-| `inputrawdata` | `inputrawdata` | json stringified list data (mutable, optional) | `string`         | `undefined` |
-| `list`         | --             | list item data (mutable, optional)             | `ListItemBean[]` | `undefined` |
+| Property       | Attribute      | Description                                    | Type         | Default     |
+| -------------- | -------------- | ---------------------------------------------- | ------------ | ----------- |
+| `inputrawdata` | `inputrawdata` | json stringified list data (mutable, optional) | `string`     | `undefined` |
+| `list`         | --             | list item data (mutable, optional)             | `ListItem[]` | `undefined` |
 
 
 ## Dependencies

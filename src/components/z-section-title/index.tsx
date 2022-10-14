@@ -1,6 +1,6 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {DividerSize, ZSectionTitleDividerPositions} from "../../beans";
+import {DividerSize, ZSectionTitleDividerPosition} from "../../beans";
 
 /**
  * Section title component.
@@ -22,7 +22,7 @@ export class ZSectionTitle {
    * This prop only works if the secondary title is not set.
    */
   @Prop()
-  dividerPosition: ZSectionTitleDividerPositions = ZSectionTitleDividerPositions.BEFORE;
+  dividerPosition: ZSectionTitleDividerPosition = ZSectionTitleDividerPosition.BEFORE;
 
   /**
    * Whether the primary title text is uppercase.
@@ -42,14 +42,14 @@ export class ZSectionTitle {
     return (
       <Host>
         <slot name="secondary-title" />
-        {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPositions.BEFORE && (
+        {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (
           <z-divider
             size={DividerSize.LARGE}
             color="z-section-title--divider-color"
           />
         )}
         <slot name="primary-title" />
-        {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPositions.AFTER && (
+        {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (
           <z-divider
             size={DividerSize.LARGE}
             color="z-section-title--divider-color"

@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, boolean, number, radios, select} from "@storybook/addon-knobs";
-import {InputStatusEnum} from "../../beans";
+import {InputStatus} from "../../beans";
 import "./index";
 
 <Meta
@@ -21,7 +21,7 @@ import "./index";
       placeholder="Placeholder text"
       disabled="${boolean("disabled", false)}"
       value="${text("value", "value")}"
-      status="${select("status", ["default", ...Object.keys(InputStatusEnum)], "default")}"
+      status="${select("status", ["default", ...Object.keys(InputStatus)], "default")}"
       message="${text("message", "Helper text")}"
       readonly="${boolean("readonly", false)}"
     ></z-input-deprecated>`}
@@ -73,7 +73,7 @@ import "./index";
         "value",
         "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
       )}"
-      status="${select("status", ["default", ...Object.keys(InputStatusEnum)], "default")}"
+      status="${select("status", ["default", ...Object.keys(InputStatus)], "default")}"
       message="${text("message", "Helper text")}"
       readonly="${boolean("readonly", false)}"
     ></z-input-deprecated>`}

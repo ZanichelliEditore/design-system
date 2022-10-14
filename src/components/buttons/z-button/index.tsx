@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../../beans";
+import {ButtonVariant, ButtonType, ButtonSize} from "../../../beans";
 
 /**
  * @slot - button label
@@ -40,11 +40,11 @@ export class ZButton {
 
   /** HTML button type attribute. */
   @Prop()
-  type?: ButtonTypeEnum = ButtonTypeEnum.BUTTON;
+  type?: ButtonType = ButtonType.BUTTON;
 
   /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
   @Prop({reflect: true})
-  variant?: ButtonVariantEnum = ButtonVariantEnum.PRIMARY;
+  variant?: ButtonVariant = ButtonVariant.PRIMARY;
 
   /** `z-icon` name to use (optional). */
   @Prop()
@@ -52,7 +52,7 @@ export class ZButton {
 
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({reflect: true})
-  size?: ButtonSizeEnum = ButtonSizeEnum.BIG;
+  size?: ButtonSize = ButtonSize.BIG;
 
   private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {

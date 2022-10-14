@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Element, Listen, Watch} from "@stencil/core";
-import {MenuItem, HeaderUserData, ListItemBean, ButtonVariantEnum, ButtonSizeEnum} from "../../../beans";
+import {MenuItem, HeaderUserData, ListItem, ButtonVariant, ButtonSize} from "../../../beans";
 import {mobileBreakpoint, tabletBreakpoint} from "../../../constants/breakpoints";
 
 /**
@@ -199,7 +199,7 @@ export class ZMyzTopbar {
       return null;
     }
 
-    const listItems: ListItemBean[] = menuItem.subMenu.map((item: MenuItem) => {
+    const listItems: ListItem[] = menuItem.subMenu.map((item: MenuItem) => {
       return {
         id: item.id,
         text: item.label,
@@ -211,7 +211,7 @@ export class ZMyzTopbar {
     return this.renderMobileSubMenu(listItems, menuItem.id);
   }
 
-  private renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement {
+  private renderMobileSubMenu(menuItems: ListItem[], id?: string): HTMLSpanElement {
     return (
       <span
         class="mobile-dropdown"
@@ -323,9 +323,9 @@ export class ZMyzTopbar {
     return (
       <z-button
         htmlid="login-button"
-        variant={this.ismyz ? ButtonVariantEnum.SECONDARY : ButtonVariantEnum.TERTIARY}
+        variant={this.ismyz ? ButtonVariant.SECONDARY : ButtonVariant.TERTIARY}
         icon="login"
-        size={ButtonSizeEnum.SMALL}
+        size={ButtonSize.SMALL}
       >
         entra
       </z-button>
@@ -366,7 +366,7 @@ export class ZMyzTopbar {
       return null;
     }
 
-    const listItems: ListItemBean[] = userData.userlinks.map((item: MenuItem) => {
+    const listItems: ListItem[] = userData.userlinks.map((item: MenuItem) => {
       return {
         text: item.label,
         link: item.link,

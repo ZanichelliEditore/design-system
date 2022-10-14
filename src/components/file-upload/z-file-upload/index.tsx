@@ -1,6 +1,6 @@
 import {Component, Prop, h, EventEmitter, Event, State, Listen, Element, Host, Method} from "@stencil/core";
 import {HostElement} from "@stencil/core/internal";
-import {ButtonVariantEnum, DeviceEnum, DividerSize, ZFileUploadTypeEnum} from "../../../beans";
+import {ButtonVariant, Device, DividerSize, ZFileUploadType} from "../../../beans";
 import {getDevice} from "../../../utils/utils";
 
 @Component({
@@ -12,11 +12,11 @@ import {getDevice} from "../../../utils/utils";
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
   @Prop({mutable: true, reflect: true})
-  type: ZFileUploadTypeEnum = ZFileUploadTypeEnum.DEFAULT;
+  type: ZFileUploadType = ZFileUploadType.DEFAULT;
 
   /** Prop indicating the button variant*/
   @Prop()
-  buttonVariant?: ButtonVariantEnum;
+  buttonVariant?: ButtonVariant;
 
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   @Prop()
@@ -86,8 +86,8 @@ export class ZFileUpload {
 
   componentWillLoad(): void {
     this.invalidFiles = new Map<string, string[]>();
-    if (this.type === ZFileUploadTypeEnum.DRAGDROP && getDevice() !== DeviceEnum.DESKTOP) {
-      this.type = ZFileUploadTypeEnum.DEFAULT;
+    if (this.type === ZFileUploadType.DRAGDROP && getDevice() !== Device.DESKTOP) {
+      this.type = ZFileUploadType.DEFAULT;
     }
   }
 
@@ -111,7 +111,7 @@ export class ZFileUpload {
     if (this.files.length > 0) {
       (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
     } else {
-      this.type === ZFileUploadTypeEnum.DEFAULT
+      this.type === ZFileUploadType.DEFAULT
         ? this.button.shadowRoot.querySelector("button").focus()
         : this.uploadLink.focus();
     }
@@ -334,7 +334,7 @@ export class ZFileUpload {
           class={`container ${this.type}`}
         >
           {this.renderTitle()}
-          {this.type == ZFileUploadTypeEnum.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
+          {this.type == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>
         {!!this.invalidFiles.size && (
           <z-modal

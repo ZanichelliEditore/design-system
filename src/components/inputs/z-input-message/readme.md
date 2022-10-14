@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description             | Type                                                                          | Default     |
-| --------- | --------- | ----------------------- | ----------------------------------------------------------------------------- | ----------- |
-| `message` | `message` | input helper message    | `string`                                                                      | `undefined` |
-| `status`  | `status`  | input status (optional) | `InputStatusEnum.ERROR \| InputStatusEnum.SUCCESS \| InputStatusEnum.WARNING` | `undefined` |
+| Property  | Attribute | Description             | Type                                                              | Default     |
+| --------- | --------- | ----------------------- | ----------------------------------------------------------------- | ----------- |
+| `message` | `message` | input helper message    | `string`                                                          | `undefined` |
+| `status`  | `status`  | input status (optional) | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
 
 
 ## Dependencies

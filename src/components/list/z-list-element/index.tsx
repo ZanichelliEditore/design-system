@@ -4,7 +4,7 @@ import {
   DividerSize,
   ExpandableListButtonAlign,
   ExpandableListStyle,
-  KeyboardKeys,
+  KeyboardCode,
   ListDividerType,
   ListSize,
 } from "../../../beans";
@@ -158,17 +158,17 @@ export class ZListElement {
   }
 
   private handleKeyDown(event): void {
-    const expandByKey = event.code === KeyboardKeys.ENTER;
+    const expandByKey = event.code === KeyboardCode.ENTER;
     switch (event.code) {
-      case KeyboardKeys.ARROW_DOWN:
+      case KeyboardCode.ARROW_DOWN:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId + 1);
         break;
-      case KeyboardKeys.ARROW_UP:
+      case KeyboardCode.ARROW_UP:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId - 1);
         break;
-      case KeyboardKeys.ENTER:
+      case KeyboardCode.ENTER:
         event.preventDefault();
         this.clickItem.emit(this.listElementId);
         break;

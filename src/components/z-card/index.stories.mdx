@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, boolean, select, radios} from "@storybook/addon-knobs";
-import {CardVariants} from "../../beans";
+import {CardVariant} from "../../beans";
 import "./index";
 
 <Meta
@@ -15,7 +15,7 @@ import "./index";
   <Story name="ZCard with image">
     {html`
       <z-card
-        .variant="${radios("Variant", {default: "", ...CardVariants}, "")}"
+        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
         .clickable="${boolean("Clickable", false)}"
         .showshadow="${boolean("Show shadow", false)}"
         style="width: 356px;"
@@ -55,7 +55,7 @@ import "./index";
     {html`
       <z-card
         cover-icon="play-filled"
-        .variant="${radios("Variant", {default: "", ...CardVariants}, "")}"
+        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
         .clickable="${boolean("Clickable", false)}"
         .showshadow="${boolean("Show shadow", false)}"
         style="width: 356px;"
@@ -94,7 +94,7 @@ import "./index";
   <Story name="ZCard color cover">
     {html`
       <z-card
-        .variant="${radios("Variant", {default: "", ...CardVariants}, "")}"
+        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
         .clickable="${boolean("Clickable", false)}"
         .showshadow="${boolean("Show shadow", false)}"
         style="--z-card--color-cover-background: orange; width: 356px;"

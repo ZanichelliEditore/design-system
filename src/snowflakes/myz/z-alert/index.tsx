@@ -1,5 +1,5 @@
 import {Component, Prop, h} from "@stencil/core";
-import {AlertTypes} from "../../../beans/index";
+import {AlertType} from "../../../beans/index";
 
 /**
  * @slot - alert content
@@ -13,7 +13,7 @@ import {AlertTypes} from "../../../beans/index";
 export class ZAlert {
   /** alert variant type */
   @Prop()
-  type: AlertTypes;
+  type: AlertType;
 
   render(): HTMLDivElement {
     return (

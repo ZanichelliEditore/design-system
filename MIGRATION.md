@@ -48,16 +48,16 @@ Le regole di coding style configurate impongono l'uso dell'UPPER_CASE per i memb
 
 Lista degli Enum e tipi interessati:
 
-- `LicenseTypeEnum`
-- `CardBean`
-- `CardVariants`
-- `NavigationTabsOrientations`
-- `NavigationTabsSizes`
-- `ButtonVariantEnum`
-- `ButtonTypeEnum`
-- `ButtonSizeEnum`
-- `InputTypeEnum`
-- `InputStatusEnum`
+- `LicenseType`
+- `Card`
+- `CardVariant`
+- `NavigationTabsOrientation`
+- `NavigationTabsSize`
+- `ButtonVariant`
+- `ButtonType`
+- `ButtonSize`
+- `InputType`
+- `InputStatus`
 - `PopoverPositions`
 - `PopoverPosition`
 - `PopoverBorderRadius`
@@ -65,28 +65,28 @@ Lista degli Enum e tipi interessati:
 - `ThemeVariant`
 - `DividerSize`
 - `DividerOrientation`
-- `SortDirectionEnum`
+- `SortDirection`
 - `AvatarSize`
 - `ListSize`
 - `Size`
 - `ExpandableListStyle`
 - `ExpandableListButtonAlign`
-- `LabelPositions`
+- `LabelPosition`
 - `ListDividerType`
 - `NotificationType`
-- `AlertTypesEnum`
-- `DeviceEnum`
-- `PocketStatusEnum`
-- `ToastNotificationEnum`
-- `ToastNotificationTransitionsEnum`
-- `ToastNotificationPositionsEnum`
+- `AlertType`
+- `Device`
+- `PocketStatus`
+- `ToastNotification`
+- `ToastNotificationTransition`
+- `ToastNotificationPosition`
 - `ZTableRowExpandedType`
 - `ZAriaAlertMode`
-- `TransitionDirectionEnum`
-- `OffCanvasVariantsEnum`
-- `ZFileUploadTypeEnum`
+- `TransitionDirection`
+- `OffCanvasVariant`
+- `ZFileUploadType`
 - `ZChipType`
-- `ZSectionTitleDividerPositions`
+- `ZSectionTitleDividerPosition`
 - `ZDatePickerMode`
 - `ZDatePickerPosition`
 - `ZRangePickerMode`
@@ -156,7 +156,92 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
   - .modalWrapper
 
 - `z-table-empty-box`
+
   - .has2Cta
+
+- `z-button`
+
+- `z-toggle-switch`
+
+- `z-date-picker`
+
+- `z-range-picker`
+
+- `z-footer`
+
+- `z-combobox`
+
+- `z-input-message`
+
+- `z-list-element`
+
+- `z-toast-notification-list`
+
+- `z-modal-login`
+
+- `z-navigation-tab-link`
+
+- `z-navigation-tab`
+
+- `z-navigation-tabs`
+
+- `z-menu-dropdown`
+
+- `z-cookiebar`
+
+- `z-toast-notification`
+
+- `z-card`
+
+- `z-offcanvas`
+
+- `z-pagination`
+
+- `z-popover`
+
+- `z-section-title`
+
+- `z-table`
+
+- `z-table-cell`
+
+- `z-table-header`
+
+- `z-button-deprecated`
+
+- `z-popover-deprecated`
+
+- `z-myz-card-alert`
+
+- `z-myz-card-dictionary`
+
+- `z-myz-card-footer`
+
+- `z-myz-card-header`
+
+- `z-myz-card-list`
+
+- `z-myz-card`
+
+- `z-myz-card-alert`
+
+- `z-myz-list`
+
+- `z-messages-pocket`
+
+- `z-pocket-body`
+
+- `z-pocket`
+
+- `topbar`
+
+- `z-alert`
+
+- `z-otp`
+
+- `z-slideshow`
+
+- `utils`
 
 > Sono state cambiate classi CSS anche in altri componenti che non sono inclusi nell'elenco: quei componenti hanno l'opzione `shadow: true`, quindi di sicuro non è stato possibile usare le classi CSS per modificarne lo stile dai prodotti.
 
@@ -191,7 +276,7 @@ Il timeout prima che venga fatto un emit dell'evento `inputChange` non è più c
 
 #### Rimozione della prop `labelafter`
 
-La prop `labelafter` è stata rimossa e sostituita da `labelPosition`. Quest'ultima non è di tipo `boolean` ma di tipo `LabelPosition` e accetta uno dei due valori dell'enum `LabelPositions` (`LabelPositions.right`, `LabelPositions.left` o una stringa tra "right" e "left").
+La prop `labelafter` è stata rimossa e sostituita da `labelPosition`. Quest'ultima non è di tipo `boolean` ma di tipo `LabelPosition` e accetta uno dei due valori dell'enum `LabelPosition` (`LabelPosition.right`, `LabelPosition.left` o una stringa tra "right" e "left").
 
 #### Rimozione metodi `setValue()` e `getValue()`
 

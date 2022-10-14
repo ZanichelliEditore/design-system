@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum} from "../../beans";
+import {ButtonVariant, ButtonType, ButtonSize} from "../../beans";
 import "./index";
 
 <Meta
@@ -8,11 +8,11 @@ import "./index";
   component="z-button-deprecated"
   argTypes={{
     variant: {
-      options: Object.values(ButtonVariantEnum),
+      options: Object.values(ButtonVariant),
       control: {type: "radio"},
     },
     size: {
-      options: Object.values(ButtonSizeEnum),
+      options: Object.values(ButtonSize),
       control: {type: "radio"},
     },
   }}
@@ -26,8 +26,8 @@ import "./index";
   <Story
     name="Default button"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -50,7 +50,7 @@ import "./index";
   <Story
     name="Dark Background"
     args={{
-      size: ButtonSizeEnum.BIG,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -63,7 +63,7 @@ import "./index";
     {(args) => html`
       <div style="background: var(--gray800); padding: 8px;">
         <z-button-deprecated
-          variant=${ButtonVariantEnum.DARK_BG}
+          variant=${ButtonVariant.DARK_BG}
           size=${args.size}
           disabled=${args.disabled}
           icon=${args.icon}
@@ -80,7 +80,7 @@ import "./index";
   <Story
     name="Ocher Background"
     args={{
-      size: ButtonSizeEnum.BIG,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -93,7 +93,7 @@ import "./index";
     {(args) => html`
       <div style="background: var(--yellow500); padding: 8px">
         <z-button-deprecated
-          variant=${ButtonVariantEnum.DARK_BG}
+          variant=${ButtonVariant.DARK_BG}
           size=${args.size}
           disabled=${args.disabled}
         >
@@ -120,8 +120,8 @@ In this special case we need to override `min-width` (achieved with additional `
   <Story
     name="Icon only"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
     }}
@@ -155,8 +155,8 @@ For further customization and DOM handling is possible to pass the content of a 
   <Story
     name="With named slot"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "arrow-quad-north-east",
     }}
@@ -184,8 +184,8 @@ For further customization and DOM handling is possible to pass the content of a 
   <Story
     name="With named slot icon only"
     args={{
-      variant: ButtonVariantEnum.PRIMARY,
-      size: ButtonSizeEnum.BIG,
+      variant: ButtonVariant.PRIMARY,
+      size: ButtonSize.BIG,
       disabled: false,
       icon: "link",
     }}

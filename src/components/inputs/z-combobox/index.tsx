@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItemBean, InputTypeEnum, KeyboardKeyCodeEnum} from "../../../beans";
+import {ComboItem, InputType, KeyboardKeyCode} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 
@@ -15,7 +15,7 @@ export class ZCombobox {
 
   /** list items array */
   @Prop()
-  items: ComboItemBean[] | string;
+  items: ComboItem[] | string;
 
   /** label text */
   @Prop()
@@ -76,11 +76,11 @@ export class ZCombobox {
   selectedCounter: number;
 
   @State()
-  renderItemsList: ComboItemBean[] = []; // used for render only
+  renderItemsList: ComboItem[] = []; // used for render only
 
-  private itemsList: ComboItemBean[] = [];
+  private itemsList: ComboItem[] = [];
 
-  private inputType: InputTypeEnum = InputTypeEnum.TEXT;
+  private inputType: InputType = InputType.TEXT;
 
   @Watch("items")
   watchItems(): void {
@@ -101,7 +101,7 @@ export class ZCombobox {
       return this.checkAll(e.detail.checked);
     }
 
-    this.itemsList = this.itemsList.map((item: ComboItemBean) => {
+    this.itemsList = this.itemsList.map((item: ComboItem) => {
       if (item.id === id) {
         item.checked = e.detail.checked;
       }
@@ -138,7 +138,7 @@ export class ZCombobox {
 
   private resetRenderItemsList(): void {
     const renderItemsList = [];
-    this.itemsList.forEach((item: ComboItemBean) => {
+    this.itemsList.forEach((item: ComboItem) => {
       renderItemsList.push({...item});
     });
     this.renderItemsList = renderItemsList;
@@ -167,7 +167,7 @@ export class ZCombobox {
   }
 
   private checkAll(checked = true): void {
-    this.itemsList = this.itemsList.map((item: ComboItemBean) => ({
+    this.itemsList = this.itemsList.map((item: ComboItem) => ({
       ...item,
       checked: checked,
     }));
@@ -190,7 +190,7 @@ export class ZCombobox {
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
-          if (ev.keyCode === KeyboardKeyCodeEnum.SPACE) {
+          if (ev.keyCode === KeyboardKeyCode.SPACE) {
             ev.preventDefault();
           }
         }}
@@ -244,7 +244,7 @@ export class ZCombobox {
     );
   }
 
-  private renderList(items: ComboItemBean[]): HTMLUListElement {
+  private renderList(items: ComboItem[]): HTMLUListElement {
     if (!items) {
       return;
     }
@@ -263,7 +263,7 @@ export class ZCombobox {
               underlined={i !== items.length - 1}
             >
               <z-input
-                type={InputTypeEnum.CHECKBOX}
+                type={InputType.CHECKBOX}
                 checked={item.checked}
                 htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
                 label={item.name}
@@ -338,7 +338,7 @@ export class ZCombobox {
     return (
       <div class="check-all-wrapper">
         <z-input
-          type={InputTypeEnum.CHECKBOX}
+          type={InputType.CHECKBOX}
           checked={allChecked}
           htmlid={`combo-checkbox-${this.inputid}-check-all`}
           label={allChecked ? this.uncheckalltext : this.checkalltext}

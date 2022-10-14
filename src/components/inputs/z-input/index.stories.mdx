@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
-import {InputTypeEnum, InputStatusEnum, LabelPositions} from "../../../beans";
+import {InputType, InputStatus, LabelPosition} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -11,7 +11,7 @@ import "./index";
   argTypes={{
     type: {
       control: {type: "inline-radio"},
-      options: Object.values(InputTypeEnum),
+      options: Object.values(InputType),
       defaultValue: "text",
     },
     label: {
@@ -24,8 +24,8 @@ import "./index";
     },
     labelPosition: {
       control: {type: "inline-radio"},
-      options: Object.values(LabelPositions),
-      defaultValue: LabelPositions.RIGHT,
+      options: Object.values(LabelPosition),
+      defaultValue: LabelPosition.RIGHT,
     },
     placeholder: {
       control: {type: "text"},
@@ -41,7 +41,7 @@ import "./index";
     },
     status: {
       control: {type: "inline-radio"},
-      options: ["default", ...Object.values(InputStatusEnum)],
+      options: ["default", ...Object.values(InputStatus)],
       defaultValue: "default",
     },
     message: {
