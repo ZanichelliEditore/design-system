@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                       | Type                                          | Default                            |
-| --------------- | ---------------- | ------------------------------------------------- | --------------------------------------------- | ---------------------------------- |
-| `checked`       | `checked`        | Checked state                                     | `boolean`                                     | `false`                            |
-| `disabled`      | `disabled`       | Disabled flag                                     | `boolean`                                     | `false`                            |
-| `htmlid`        | `htmlid`         | HTML id attribute to set to the internal checkbox | `string`                                      | ``toggle-switch-id-${randomId()}`` |
-| `labelPosition` | `label-position` | Label position                                    | `LabelPosition.LEFT \| LabelPosition.RIGHT` | `LabelPosition.LEFT`              |
+| Property        | Attribute        | Description                                       | Type                                        | Default                            |
+| --------------- | ---------------- | ------------------------------------------------- | ------------------------------------------- | ---------------------------------- |
+| `checked`       | `checked`        | Checked state                                     | `boolean`                                   | `false`                            |
+| `disabled`      | `disabled`       | Disabled flag                                     | `boolean`                                   | `false`                            |
+| `htmlid`        | `htmlid`         | HTML id attribute to set to the internal checkbox | `string`                                    | ``toggle-switch-id-${randomId()}`` |
+| `labelPosition` | `label-position` | Label position                                    | `LabelPosition.LEFT \| LabelPosition.RIGHT` | `LabelPosition.LEFT`               |
 
 
 ## Events
