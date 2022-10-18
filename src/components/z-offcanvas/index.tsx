@@ -61,7 +61,7 @@ export class ZOffcanvas
   render() {
     return [
       <div class="canvas-container" onAnimationEnd={() => this.handleAnimationEnd()}>
-        <div class="canvas-content" tabindex="0">
+        <div class="canvas-content">
           <slot name="canvasContent"></slot>
         </div>
       </div>,
