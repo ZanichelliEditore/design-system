@@ -15,7 +15,7 @@ describe("Suite test ZOffcanvas", () => {
 			<z-offcanvas open="" transitiondirection="left" variant="pushcontent" style="display: flex;">
 
 				<div class="canvas-container">
-					<div class="canvas-content" tabindex="0">
+					<div class="canvas-content">
 						<div slot="canvasContent"></div>
 					</div>
 					</div>
