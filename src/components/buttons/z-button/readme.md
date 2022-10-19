@@ -108,6 +108,7 @@
 
 ### Used by
 
+ - [z-carousel](../../z-carousel)
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-file-upload](../../file-upload/z-file-upload)
  - [z-footer](../../footer/z-footer)
@@ -127,6 +128,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-carousel --> z-button
   z-cookiebar --> z-button
   z-file-upload --> z-button
   z-footer --> z-button

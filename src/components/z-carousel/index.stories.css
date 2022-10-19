@@ -1,3 +1,7 @@
+z-carousel {
+  --z-carousel-gutter: 8px !important;
+}
+
 z-carousel li .carousel-box {
   width: 200px;
   height: 200px;

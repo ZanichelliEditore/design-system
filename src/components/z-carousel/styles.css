@@ -1,19 +1,54 @@
-:host {
+z-carousel {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
   --z-carousel-gutter: 0;
 }
 
+z-carousel[single],
+z-carousel[single="true"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+z-carousel[single="true"] .z-carousel-container,
+z-carousel[single] .z-carousel-container {
+  width: fit-content;
+  max-width: 100%;
+}
+
+z-carousel .loading-items-container {
+  display: none;
+}
+
+.z-carousel-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.z-carousel-wrapper {
+  position: relative;
+}
+
+.z-carousel-title {
+  margin-bottom: var(--space-unit);
+  color: var(--gray800);
+}
+
 .z-carousel-items-container {
   display: flex;
+  max-width: 100%;
+  flex-direction: row;
   margin: 0;
   list-style: none;
-
-  /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   overflow-x: scroll;
   padding-inline-start: 0;
+  scroll-snap-type: x mandatory;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
   scrollbar-width: none; /* Firefox */
 }
 
@@ -24,4 +59,74 @@
 
 .z-carousel-items-container > *:not(:last-child) {
   margin-right: var(--z-carousel-gutter);
+}
+
+z-carousel[single="true"] .z-carousel-items-container > *:not(:last-child),
+z-carousel[single] .z-carousel-items-container > *:not(:last-child) {
+  margin-right: 0;
+}
+
+.z-carousel-items-container > li {
+  scroll-snap-align: center;
+}
+
+z-button[data-direction] {
+  --z-icon-width: 32px;
+  --z-icon-height: 32px;
+
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+z-button[data-direction="next"] {
+  right: 0;
+}
+
+.z-carousel-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-unit);
+}
+
+.z-carousel-footer .number-progress,
+.z-carousel-footer .dots-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.z-carousel-footer .dots-progress button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+.z-carousel-footer .dots-progress button:not(.current) {
+  cursor: pointer;
+}
+
+.z-carousel-footer .numbers-progress {
+  margin: 0 calc(var(--space-unit) / 2);
+}
+
+.z-carousel-footer .numbers-progress > * {
+  margin-right: calc(var(--space-unit) / 2);
+}
+
+.z-carousel-footer .numbers-progress .current {
+  font-weight: var(--font-sb);
+}
+
+.z-carousel-footer .dots-progress button.current z-icon {
+  fill: var(--gray800);
+}
+
+.z-carousel-footer .dots-progress button:not(.current) z-icon {
+  fill: var(--gray200);
 }

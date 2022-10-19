@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -267,13 +267,29 @@ export namespace Components {
     }
     interface ZCarousel {
         /**
-          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Arrow buttons position
+         */
+        "arrowsPosition"?: CarouselArrowsPosition;
+        /**
+          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostLoadingHeight": number;
         /**
-          * sets whether the z-carousel is on loading state
+          * The z-carousel is on loading state
          */
         "isLoading": boolean;
+        /**
+          * The z-carousel title, if given.
+         */
+        "label"?: string;
+        /**
+          * Progress indicator. Only available for `single` mode
+         */
+        "progressMode"?: CarouselProgressMode;
+        /**
+          * Shows only one content at a time
+         */
+        "single": boolean;
     }
     interface ZChip {
         /**
@@ -2114,6 +2130,10 @@ export interface ZCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZCardElement;
 }
+export interface ZCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZCarouselElement;
+}
 export interface ZChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZChipElement;
@@ -3331,13 +3351,33 @@ declare namespace LocalJSX {
     }
     interface ZCarousel {
         /**
-          * sets the height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Arrow buttons position
+         */
+        "arrowsPosition"?: CarouselArrowsPosition;
+        /**
+          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
          */
         "ghostLoadingHeight"?: number;
         /**
-          * sets whether the z-carousel is on loading state
+          * The z-carousel is on loading state
          */
         "isLoading"?: boolean;
+        /**
+          * The z-carousel title, if given.
+         */
+        "label"?: string;
+        /**
+          * Emitted on index change and only in `single` mode.
+         */
+        "onIndexChange"?: (event: ZCarouselCustomEvent<any>) => void;
+        /**
+          * Progress indicator. Only available for `single` mode
+         */
+        "progressMode"?: CarouselProgressMode;
+        /**
+          * Shows only one content at a time
+         */
+        "single"?: boolean;
     }
     interface ZChip {
         /**

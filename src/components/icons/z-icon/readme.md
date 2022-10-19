@@ -41,6 +41,7 @@
  - [z-button-filter](../../../deprecated/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
+ - [z-carousel](../../z-carousel)
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
@@ -91,6 +92,7 @@ graph TD;
   z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
+  z-carousel --> z-icon
   z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
