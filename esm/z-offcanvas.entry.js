@@ -45,7 +45,7 @@ const ZOffcanvas = class {
   }
   render() {
     return [
-      h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content", tabindex: "0" }, h("slot", { name: "canvasContent" }))),
+      h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))),
       h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => this.open = false })
     ];
   }
