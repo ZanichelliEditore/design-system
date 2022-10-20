@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/ZanichelliEditore/design-system/compare/v5.6.2...v6.0.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* github stylelint job ([11e9436](https://github.com/ZanichelliEditore/design-system/commit/11e94361686b1a08c0a8991fc21b220ef4a4a520))
+* most errors; remove no-descending-specificity, since it not fits well with components css ([a39ffe7](https://github.com/ZanichelliEditore/design-system/commit/a39ffe7d7d3369d631a80e5af243a5af774ac782))
+* pre-commit hook command ([a351240](https://github.com/ZanichelliEditore/design-system/commit/a3512403d9f91f63824d577100782cff9250309c))
+* rename all css classes using kebab-case instead of camelCase ([f45e63b](https://github.com/ZanichelliEditore/design-system/commit/f45e63be060d8e9c47e7ca89c72b9568b5795ac6))
+* stylelint selector pattern ([f20175b](https://github.com/ZanichelliEditore/design-system/commit/f20175b64896abf0a8f52352c041d84fbc7865f3))
+* yml sintax ([de754e9](https://github.com/ZanichelliEditore/design-system/commit/de754e9ff66e09003fe90cc737cc129cc98e422f))
+
+## [6.0.0](https://github.com/ZanichelliEditore/design-system/compare/v5.6.2...v6.0.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* github stylelint job ([11e9436](https://github.com/ZanichelliEditore/design-system/commit/11e94361686b1a08c0a8991fc21b220ef4a4a520))
+* most errors; remove no-descending-specificity, since it not fits well with components css ([a39ffe7](https://github.com/ZanichelliEditore/design-system/commit/a39ffe7d7d3369d631a80e5af243a5af774ac782))
+* pre-commit hook command ([a351240](https://github.com/ZanichelliEditore/design-system/commit/a3512403d9f91f63824d577100782cff9250309c))
+* rename all css classes using kebab-case instead of camelCase ([f45e63b](https://github.com/ZanichelliEditore/design-system/commit/f45e63be060d8e9c47e7ca89c72b9568b5795ac6))
+* stylelint selector pattern ([f20175b](https://github.com/ZanichelliEditore/design-system/commit/f20175b64896abf0a8f52352c041d84fbc7865f3))
+* yml sintax ([de754e9](https://github.com/ZanichelliEditore/design-system/commit/de754e9ff66e09003fe90cc737cc129cc98e422f))
+
+## [6.0.0](https://github.com/ZanichelliEditore/design-system/compare/v5.6.2...v6.0.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* github stylelint job ([11e9436](https://github.com/ZanichelliEditore/design-system/commit/11e94361686b1a08c0a8991fc21b220ef4a4a520))
+* most errors; remove no-descending-specificity, since it not fits well with components css ([a39ffe7](https://github.com/ZanichelliEditore/design-system/commit/a39ffe7d7d3369d631a80e5af243a5af774ac782))
+* pre-commit hook command ([a351240](https://github.com/ZanichelliEditore/design-system/commit/a3512403d9f91f63824d577100782cff9250309c))
+* rename all css classes using kebab-case instead of camelCase ([f45e63b](https://github.com/ZanichelliEditore/design-system/commit/f45e63be060d8e9c47e7ca89c72b9568b5795ac6))
+* stylelint selector pattern ([f20175b](https://github.com/ZanichelliEditore/design-system/commit/f20175b64896abf0a8f52352c041d84fbc7865f3))
+* yml sintax ([de754e9](https://github.com/ZanichelliEditore/design-system/commit/de754e9ff66e09003fe90cc737cc129cc98e422f))
+
+## [6.0.0](https://github.com/ZanichelliEditore/design-system/compare/v5.6.2...v6.0.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* github stylelint job ([11e9436](https://github.com/ZanichelliEditore/design-system/commit/11e94361686b1a08c0a8991fc21b220ef4a4a520))
+* most errors; remove no-descending-specificity, since it not fits well with components css ([a39ffe7](https://github.com/ZanichelliEditore/design-system/commit/a39ffe7d7d3369d631a80e5af243a5af774ac782))
+* pre-commit hook command ([a351240](https://github.com/ZanichelliEditore/design-system/commit/a3512403d9f91f63824d577100782cff9250309c))
+* rename all css classes using kebab-case instead of camelCase ([f45e63b](https://github.com/ZanichelliEditore/design-system/commit/f45e63be060d8e9c47e7ca89c72b9568b5795ac6))
+* stylelint selector pattern ([f20175b](https://github.com/ZanichelliEditore/design-system/commit/f20175b64896abf0a8f52352c041d84fbc7865f3))
+* yml sintax ([de754e9](https://github.com/ZanichelliEditore/design-system/commit/de754e9ff66e09003fe90cc737cc129cc98e422f))
+
 ### [5.6.2](https://github.com/ZanichelliEditore/design-system/compare/v5.6.1...v5.6.2) (2022-10-19)
 
 ## [5.6.0](https://github.com/ZanichelliEditore/design-system/compare/v5.5.5...v5.6.0) (2022-10-13)
