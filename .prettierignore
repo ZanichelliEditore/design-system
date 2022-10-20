@@ -8,3 +8,5 @@ internals
 components.d.ts
 CHANGELOG.md
 src/**/readme.md
+src-react
+custom-elements.json
