@@ -32,13 +32,14 @@ export declare class ZNavigationTab {
    * Html `title` attribute for the button.
    */
   htmlTitle: string;
+  /**
+   * The tab has been selected.
+   */
   private selectedEvent;
   /**
    * Scroll into view to center the tab.
    */
-  scrollToTab({ target: button }: {
-    target: any;
-  }): void;
+  private scrollToTab;
   onClick(): void;
   onSelected(): void;
   /**
@@ -46,6 +47,6 @@ export declare class ZNavigationTab {
    * Use the `filled` version when the tab is `selected`.
    * @returns {HTMLElement}
    */
-  renderIcon(): any;
-  render(): any;
+  private renderIcon;
+  render(): HTMLButtonElement;
 }

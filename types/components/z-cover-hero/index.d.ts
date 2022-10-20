@@ -1,3 +1,4 @@
+import { HostElement } from "../../stencil-public-runtime";
 import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
 /**
  * Cover hero component.
@@ -11,7 +12,7 @@ import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
  * @cssprop --cover-hero-text-color - color of the text.
  */
 export declare class ZCoverHero {
-  el: HTMLElement;
+  el: HTMLZCoverHeroElement;
   /**
    * Cover hero variant.
    * Can be one of "OVERLAY", "STACKED".
@@ -25,5 +26,5 @@ export declare class ZCoverHero {
    * Template for the content.
    */
   private renderContent;
-  render(): any;
+  render(): HostElement;
 }

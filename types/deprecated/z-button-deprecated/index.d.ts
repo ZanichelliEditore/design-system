@@ -1,9 +1,9 @@
-import { ButtonVariantBean, ButtonSizeEnum } from "../../beans";
+import { ButtonVariant, ButtonType, ButtonSize } from "../../beans";
 /**
  * @slot - button label
  */
 export declare class ZButtonDeprecated {
-  hostElement: HTMLElement;
+  hostElement: HTMLZButtonDeprecatedElement;
   /** Identifier, should be unique. */
   htmlid?: string;
   /** HTML button name attribute. */
@@ -11,18 +11,18 @@ export declare class ZButtonDeprecated {
   /** HTML button disabled attribute. */
   disabled?: boolean;
   /** HTML button type attribute. */
-  type?: HTMLButtonElement["type"];
+  type?: ButtonType;
   /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
-  variant?: ButtonVariantBean;
+  variant?: ButtonVariant;
   /** `z-icon` name to use (optional). */
   icon?: string;
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-  size?: ButtonSizeEnum;
+  size?: ButtonSize;
   /** Reduce button size (deprecated).
    * @deprecated Use `size` prop.
    */
   issmall?: boolean;
   /** Spy to render square button. */
   square?: boolean;
-  render(): any;
+  render(): HTMLSlotElement;
 }

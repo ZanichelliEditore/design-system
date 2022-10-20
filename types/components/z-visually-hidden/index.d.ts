@@ -1,3 +1,3 @@
 export declare class ZVisuallyHidden {
-  render(): any;
+  render(): HTMLSlotElement;
 }

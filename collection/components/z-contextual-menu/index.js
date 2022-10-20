@@ -1,4 +1,4 @@
-import { h, } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { PopoverPositions } from "../../beans";
 export class ZContextualMenu {
   constructor() {
@@ -9,7 +9,7 @@ export class ZContextualMenu {
     /**
      * [optional] Sets the position of the popover
      */
-    this.popoverPosition = PopoverPositions.bottom_right;
+    this.popoverPosition = PopoverPositions.BOTTOM_RIGHT;
   }
   componentWillRender() {
     if (this.elements) {
@@ -29,12 +29,7 @@ export class ZContextualMenu {
   }
   render() {
     var _a, _b;
-    return [
-      h("button", { ref: (el) => (this.triggerButton = el), "aria-label": ((_a = this.popover) === null || _a === void 0 ? void 0 : _a.open) ? "chiudi menu contestuale" : "apri menu contestuale", onClick: () => this.togglePopover() }, h("z-icon", { name: "contextual-menu", fill: this.color })),
-      h("z-popover", { ref: (el) => (this.popover = el), position: this.popoverPosition }, h("div", { class: "popover-content-container" }, h("z-list", null, h("z-list-group", { "divider-type": "element" }, (_b = this.jsonElements) === null || _b === void 0 ? void 0 : _b.map((element, index) => (h("z-list-element", { clickable: !element.disabled, class: "my-z-list-element", "align-button": "left", "expandable-style": "accordion", color: element.disabled ? `color-disabled03` : this.color, isContextualMenu: true, listElementId: index, onClickItem: (event) => this.clickContextualMenu.emit(event.detail) }, h("div", { class: element.disabled
-          ? "disabled-element-container"
-          : "element-container" }, this.showIcon() && (h("div", { class: "element-icon" }, h("z-icon", { name: element.icon, width: 16, height: 16 }))), h("div", { class: "element-text" }, h("span", null, element.text))))))))))
-    ];
+    return (h(Host, null, h("button", { ref: (el) => (this.triggerButton = el), "aria-label": ((_a = this.popover) === null || _a === void 0 ? void 0 : _a.open) ? "chiudi menu contestuale" : "apri menu contestuale", onClick: () => this.togglePopover() }, h("z-icon", { name: "contextual-menu", fill: this.color })), h("z-popover", { ref: (el) => (this.popover = el), position: this.popoverPosition }, h("div", { class: "popover-content-container" }, h("z-list", null, h("z-list-group", { "divider-type": "element" }, (_b = this.jsonElements) === null || _b === void 0 ? void 0 : _b.map((element, index) => (h("z-list-element", { clickable: !element.disabled, class: "my-z-list-element", "align-button": "left", "expandable-style": "accordion", color: element.disabled ? `color-disabled03` : this.color, isContextualMenu: true, listElementId: index, onClickItem: (event) => this.clickContextualMenu.emit(event.detail) }, h("div", { class: element.disabled ? "disabled-element-container" : "element-container" }, this.showIcon() && (h("div", { class: "element-icon" }, h("z-icon", { name: element.icon, width: 16, height: 16 }))), h("div", { class: "element-text" }, h("span", null, element.text))))))))))));
   }
   static get is() { return "z-contextual-menu"; }
   static get encapsulation() { return "shadow"; }
@@ -90,7 +85,7 @@ export class ZContextualMenu {
         "mutable": false,
         "complexType": {
           "original": "PopoverPositions",
-          "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
+          "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
           "references": {
             "PopoverPositions": {
               "location": "import",
@@ -106,7 +101,7 @@ export class ZContextualMenu {
         },
         "attribute": "popover-position",
         "reflect": true,
-        "defaultValue": "PopoverPositions.bottom_right"
+        "defaultValue": "PopoverPositions.BOTTOM_RIGHT"
       }
     };
   }

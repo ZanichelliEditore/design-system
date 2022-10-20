@@ -1,4 +1,4 @@
-import { h, Host } from '@stencil/core';
+import { h, Host } from "@stencil/core";
 /**
  * @slot - Menu section label
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items.
@@ -29,7 +29,7 @@ export class ZMenuSection {
     this.checkContent();
   }
   render() {
-    return h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? 'true' : 'false', onClick: this.toggle.bind(this) }, h("slot", null), this.hasContent && h("z-icon", { name: this.open ? 'chevron-up' : 'chevron-down' })), this.open && h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })));
+    return (h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", null), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
   }
   static get is() { return "z-menu-section"; }
   static get encapsulation() { return "shadow"; }
@@ -57,7 +57,7 @@ export class ZMenuSection {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Active state"
         },
         "attribute": "active",
         "reflect": true

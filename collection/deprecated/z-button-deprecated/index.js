@@ -1,6 +1,5 @@
 import { h } from "@stencil/core";
-import classNames from "classnames";
-import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum, } from "../../beans";
+import { ButtonVariant, ButtonType, ButtonSize } from "../../beans";
 /**
  * @slot - button label
  */
@@ -9,11 +8,11 @@ export class ZButtonDeprecated {
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */
-    this.type = ButtonTypeEnum.button;
+    this.type = ButtonType.BUTTON;
     /** Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`. */
-    this.variant = ButtonVariantEnum.primary;
+    this.variant = ButtonVariant.PRIMARY;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = ButtonSizeEnum.big;
+    this.size = ButtonSize.BIG;
     /** Reduce button size (deprecated).
      * @deprecated Use `size` prop.
      */
@@ -23,7 +22,12 @@ export class ZButtonDeprecated {
   }
   render() {
     this.hostElement.style.pointerEvents = this.disabled ? "none" : "auto";
-    return (h("slot", { name: "element" }, h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: classNames(this.variant, this.size, { issmall: this.issmall }, { square: this.square }) }, this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null))));
+    return (h("slot", { name: "element" }, h("button", { id: this.htmlid, name: this.name, type: this.type, disabled: this.disabled, class: {
+        [this.variant]: true,
+        [this.size]: true,
+        issmall: this.issmall,
+        square: this.square,
+      } }, this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null))));
   }
   static get is() { return "z-button-deprecated"; }
   static get encapsulation() { return "shadow"; }
@@ -95,11 +99,12 @@ export class ZButtonDeprecated {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "HTMLButtonElement[\"type\"]",
-          "resolved": "string",
+          "original": "ButtonType",
+          "resolved": "ButtonType.BUTTON | ButtonType.RESET | ButtonType.SUBMIT",
           "references": {
-            "HTMLButtonElement": {
-              "location": "global"
+            "ButtonType": {
+              "location": "import",
+              "path": "../../beans"
             }
           }
         },
@@ -111,16 +116,16 @@ export class ZButtonDeprecated {
         },
         "attribute": "type",
         "reflect": false,
-        "defaultValue": "ButtonTypeEnum.button"
+        "defaultValue": "ButtonType.BUTTON"
       },
       "variant": {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ButtonVariantBean",
-          "resolved": "(typeof ButtonVariantEnum)[\"dark-bg\"] | ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary",
+          "original": "ButtonVariant",
+          "resolved": "ButtonVariant.DARK_BG | ButtonVariant.PRIMARY | ButtonVariant.SECONDARY | ButtonVariant.TERTIARY",
           "references": {
-            "ButtonVariantBean": {
+            "ButtonVariant": {
               "location": "import",
               "path": "../../beans"
             }
@@ -134,7 +139,7 @@ export class ZButtonDeprecated {
         },
         "attribute": "variant",
         "reflect": true,
-        "defaultValue": "ButtonVariantEnum.primary"
+        "defaultValue": "ButtonVariant.PRIMARY"
       },
       "icon": {
         "type": "string",
@@ -157,10 +162,10 @@ export class ZButtonDeprecated {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ButtonSizeEnum",
-          "resolved": "(typeof ButtonSizeEnum)[\"x-small\"] | ButtonSizeEnum.big | ButtonSizeEnum.small",
+          "original": "ButtonSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
           "references": {
-            "ButtonSizeEnum": {
+            "ButtonSize": {
               "location": "import",
               "path": "../../beans"
             }
@@ -174,7 +179,7 @@ export class ZButtonDeprecated {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ButtonSizeEnum.big"
+        "defaultValue": "ButtonSize.BIG"
       },
       "issmall": {
         "type": "boolean",

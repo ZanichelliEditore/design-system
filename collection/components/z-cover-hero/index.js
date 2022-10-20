@@ -32,8 +32,9 @@ export class ZCoverHero {
   render() {
     return (h(Host, null, this.variant === CoverHeroVariant.STACKED &&
       this.contentPosition === CoverHeroContentPosition.TOP &&
-      this.renderContent(), h("div", { class: "content-hero" }, h("div", { class: "cover" }, h("slot", { name: "cover" })), h("slot", { name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), (this.variant === CoverHeroVariant.STACKED && this.contentPosition ===
-      CoverHeroContentPosition.BOTTOM) && this.renderContent()));
+      this.renderContent(), h("div", { class: "content-hero" }, h("div", { class: "cover" }, h("slot", { name: "cover" })), h("slot", { name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), this.variant === CoverHeroVariant.STACKED &&
+      this.contentPosition === CoverHeroContentPosition.BOTTOM &&
+      this.renderContent()));
   }
   static get is() { return "z-cover-hero"; }
   static get encapsulation() { return "shadow"; }

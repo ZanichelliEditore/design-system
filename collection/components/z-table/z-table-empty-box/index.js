@@ -1,5 +1,4 @@
 import { h, Host } from "@stencil/core";
-import classNames from "classnames";
 export class ZTableEmptyBox {
   constructor() {
     /** Sets main title message*/
@@ -12,9 +11,10 @@ export class ZTableEmptyBox {
     this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
   render() {
-    return (h(Host, null, h("z-body", { level: 3, variant: "semibold" }, this.message), h("br", null), !!this.subtitle && (h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (h("div", { class: classNames("cta", {
-        has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot
-      }) }, h("slot", { name: "cta1" }), h("slot", { name: "cta2" })))));
+    return (h(Host, null, h("z-body", { level: 3, variant: "semibold" }, this.message), h("br", null), !!this.subtitle && (h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (h("div", { class: {
+        "cta": true,
+        "has-2-cta": !!this.hasCta1Slot && !!this.hasCta2Slot,
+      } }, h("slot", { name: "cta1" }), h("slot", { name: "cta2" })))));
   }
   static get is() { return "z-table-empty-box"; }
   static get encapsulation() { return "scoped"; }

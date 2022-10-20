@@ -1,4 +1,4 @@
-import { h, } from "@stencil/core";
+import { h } from "@stencil/core";
 import { PopoverPositions } from "../../../beans";
 /**
  * Tooltip component.
@@ -11,7 +11,7 @@ import { PopoverPositions } from "../../../beans";
 export class ZTooltip {
   constructor() {
     /** Tooltip position. */
-    this.position = PopoverPositions.auto;
+    this.position = PopoverPositions.AUTO;
     /** Enable tooltip dark mode. */
     this.dark = false;
     /**
@@ -23,7 +23,7 @@ export class ZTooltip {
     this.open = this.popover.open;
   }
   render() {
-    return h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, center: true, showArrow: true }, h("slot", null));
+    return (h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, center: true, showArrow: true }, h("slot", null)));
   }
   static get is() { return "z-tooltip"; }
   static get encapsulation() { return "shadow"; }
@@ -41,10 +41,10 @@ export class ZTooltip {
     return {
       "position": {
         "type": "string",
-        "mutable": true,
+        "mutable": false,
         "complexType": {
           "original": "PopoverPositions",
-          "resolved": "PopoverPositions.auto | PopoverPositions.bottom | PopoverPositions.bottom_left | PopoverPositions.bottom_right | PopoverPositions.left | PopoverPositions.left_bottom | PopoverPositions.left_top | PopoverPositions.right | PopoverPositions.right_bottom | PopoverPositions.right_top | PopoverPositions.top | PopoverPositions.top_left | PopoverPositions.top_right",
+          "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
           "references": {
             "PopoverPositions": {
               "location": "import",
@@ -60,7 +60,7 @@ export class ZTooltip {
         },
         "attribute": "position",
         "reflect": true,
-        "defaultValue": "PopoverPositions.auto"
+        "defaultValue": "PopoverPositions.AUTO"
       },
       "dark": {
         "type": "boolean",

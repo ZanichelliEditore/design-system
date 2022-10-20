@@ -3,11 +3,11 @@ import { DividerSize, DividerOrientation } from "../../beans";
 export class ZDivider {
   constructor() {
     /** [optional] Divider size */
-    this.size = DividerSize.small;
+    this.size = DividerSize.SMALL;
     /** [optional] Divider color */
     this.color = "gray200";
     /** [optional] Divider orintation */
-    this.orientation = DividerOrientation.horizontal;
+    this.orientation = DividerOrientation.HORIZONTAL;
   }
   render() {
     return (h(Host, { class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
@@ -31,7 +31,7 @@ export class ZDivider {
         "mutable": false,
         "complexType": {
           "original": "DividerSize",
-          "resolved": "DividerSize.large | DividerSize.medium | DividerSize.small",
+          "resolved": "DividerSize.LARGE | DividerSize.MEDIUM | DividerSize.SMALL",
           "references": {
             "DividerSize": {
               "location": "import",
@@ -47,7 +47,7 @@ export class ZDivider {
         },
         "attribute": "size",
         "reflect": false,
-        "defaultValue": "DividerSize.small"
+        "defaultValue": "DividerSize.SMALL"
       },
       "color": {
         "type": "string",
@@ -72,7 +72,7 @@ export class ZDivider {
         "mutable": false,
         "complexType": {
           "original": "DividerOrientation",
-          "resolved": "DividerOrientation.horizontal | DividerOrientation.vertical",
+          "resolved": "DividerOrientation.HORIZONTAL | DividerOrientation.VERTICAL",
           "references": {
             "DividerOrientation": {
               "location": "import",
@@ -88,7 +88,7 @@ export class ZDivider {
         },
         "attribute": "orientation",
         "reflect": false,
-        "defaultValue": "DividerOrientation.horizontal"
+        "defaultValue": "DividerOrientation.HORIZONTAL"
       }
     };
   }

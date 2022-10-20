@@ -3,9 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
+const index$1 = require('./index-199cd650.js');
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.z-list-group-header-container{color:var(--gray700);font-size:var(--font-size-2);font-weight:var(--font-sb) !important;line-height:1.4;letter-spacing:0.16px}:host>.z-list-group-header-container.has-header{padding-top:var(--space-unit);padding-bottom:var(--space-unit)}:host>.z-list-group-header-container.has-header>z-divider{margin-top:var(--space-unit)}";
+const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.z-list-group-header-container{color:var(--gray700);font-size:var(--font-size-2);font-weight:var(--font-sb) !important;letter-spacing:0.16px;line-height:1.4}:host>.z-list-group-header-container.has-header{padding-top:var(--space-unit);padding-bottom:var(--space-unit)}:host>.z-list-group-header-container.has-header>z-divider{margin-top:var(--space-unit)}";
 
 const ZListGroup = class {
   constructor(hostRef) {
@@ -13,15 +13,15 @@ const ZListGroup = class {
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = index$1.ListSize.medium;
+    this.size = index$1.ListSize.MEDIUM;
     /**
      * [optional] Sets the position where to insert the divider.
      */
-    this.dividerType = index$1.ListDividerType.none;
+    this.dividerType = index$1.ListDividerType.NONE;
     /**
      * [optional] Sets the divider size.
      */
-    this.dividerSize = index$1.DividerSize.small;
+    this.dividerSize = index$1.DividerSize.SMALL;
     /**
      * [optional] Sets the divider color.
      */
@@ -45,7 +45,7 @@ const ZListGroup = class {
     return (index.h(index.Host, { role: "group" }, index.h("div", { class: {
         "z-list-group-header-container": true,
         "has-header": this.hasHeader,
-      } }, index.h("slot", { name: "header-title" }), this.dividerType === index$1.ListDividerType.header && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), index.h("slot", null)));
+      } }, index.h("slot", { name: "header-title" }), this.dividerType === index$1.ListDividerType.HEADER && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), index.h("slot", null)));
   }
   get host() { return index.getElement(this); }
 };

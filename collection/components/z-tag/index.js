@@ -9,7 +9,7 @@ export class ZTag {
   render() {
     return (h(Host, { class: {
         "body-5-sb": true,
-        expandable: this.expandable && !!this.icon,
+        "expandable": this.expandable && !!this.icon,
       } }, this.icon && h("z-icon", { name: this.icon }), h("div", null, h("slot", null))));
   }
   static get is() { return "z-tag"; }

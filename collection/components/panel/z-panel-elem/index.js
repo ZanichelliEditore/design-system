@@ -1,6 +1,6 @@
 import { h } from "@stencil/core";
 /**
- * @slot `descr_slot_name` - description content
+ * @slot `descrSlotName` - description content
  */
 export class ZPanelElem {
   constructor() {
@@ -11,13 +11,13 @@ export class ZPanelElem {
   }
   renderIcon() {
     if (this.isdisabled) {
-      return h("img", { src: this.imgurl, alt: this.imgalt });
+      return (h("img", { src: this.imgurl, alt: this.imgalt }));
     }
     return (h("a", { class: "elem-icon", href: this.url, target: this.target }, h("img", { src: this.imgurl, alt: this.imgalt })));
   }
   render() {
     const elemId = this.elemid ? this.elemid : "";
-    return (h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { class: "panel-elem-icon" }, this.renderIcon())), h("div", { class: "panel-elem-link" }, h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descr_slot_name && (h("div", { class: "panel-elem-desc body-long-01" }, h("slot", { name: this.descr_slot_name })))));
+    return (h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && h("div", { class: "panel-elem-icon" }, this.renderIcon()), h("div", { class: "panel-elem-link" }, h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc body-long-01" }, h("slot", { name: this.descrSlotName })))));
   }
   static get is() { return "z-panel-elem"; }
   static get encapsulation() { return "shadow"; }
@@ -171,7 +171,7 @@ export class ZPanelElem {
         "reflect": false,
         "defaultValue": "false"
       },
-      "descr_slot_name": {
+      "descrSlotName": {
         "type": "string",
         "mutable": false,
         "complexType": {
@@ -185,7 +185,7 @@ export class ZPanelElem {
           "tags": [],
           "text": "name of slot container (optional)"
         },
-        "attribute": "descr_slot_name",
+        "attribute": "descr-slot-name",
         "reflect": false
       }
     };

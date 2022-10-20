@@ -1,3 +1,4 @@
+import { HostElement } from "../../stencil-public-runtime";
 export declare class ZGhostLoading {
-  render(): any;
+  render(): HostElement;
 }

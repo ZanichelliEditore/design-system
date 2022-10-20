@@ -1,7 +1,7 @@
-import { r as registerInstance, h, g as getElement } from './index-a2ca4b97.js';
-import { F as ZSectionTitleDividerPositions, D as DividerSize } from './index-8390ddaf.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
+import { z as ZSectionTitleDividerPosition, D as DividerSize } from './index-9d028352.js';
 
-const stylesCss = ":host{--z-section-title--divider-color:var(--red500);display:flex;flex-direction:column;align-items:flex-start;width:fit-content;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,:host ::slotted(*){box-sizing:border-box}::slotted(*){margin:0}::slotted([slot=\"secondary-title\"]){padding-bottom:calc(var(--space-unit) / 2);border-bottom:var(--border-size-large) solid var(--z-section-title--divider-color);text-transform:uppercase;font-size:var(--font-size-3);line-height:1.5rem}::slotted([slot=\"primary-title\"]){font-size:var(--font-size-6);line-height:2rem}:host([uppercase]:not([uppercase=\"false\"])) ::slotted([slot=\"primary-title\"]){text-transform:uppercase}@media (min-width: 1152px){::slotted([slot=\"primary-title\"]){font-size:var(--font-size-7);line-height:2.25rem}}";
+const stylesCss = ":host{--z-section-title--divider-color:var(--red500);display:flex;width:fit-content;flex-direction:column;align-items:flex-start;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,:host ::slotted(*){box-sizing:border-box}::slotted(*){margin:0}::slotted([slot=\"secondary-title\"]){padding-bottom:calc(var(--space-unit) / 2);border-bottom:var(--border-size-large) solid var(--z-section-title--divider-color);font-size:var(--font-size-3);line-height:1.5rem;text-transform:uppercase}::slotted([slot=\"primary-title\"]){font-size:var(--font-size-6);line-height:2rem}:host([uppercase]:not([uppercase=\"false\"])) ::slotted([slot=\"primary-title\"]){text-transform:uppercase}@media (min-width: 1152px){::slotted([slot=\"primary-title\"]){font-size:var(--font-size-7);line-height:2.25rem}}";
 
 const ZSectionTitle = class {
   constructor(hostRef) {
@@ -10,7 +10,7 @@ const ZSectionTitle = class {
      * Divider position for the primary title.
      * This prop only works if the secondary title is not set.
      */
-    this.dividerPosition = ZSectionTitleDividerPositions.before;
+    this.dividerPosition = ZSectionTitleDividerPosition.BEFORE;
     /**
      * Whether the primary title text is uppercase.
      */
@@ -20,16 +20,7 @@ const ZSectionTitle = class {
     this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
   }
   render() {
-    return [
-      h("slot", { name: "secondary-title" }),
-      !this.hasSecondaryTitle &&
-        this.dividerPosition == ZSectionTitleDividerPositions.before &&
-        h("z-divider", { size: DividerSize.large, color: "z-section-title--divider-color" }),
-      h("slot", { name: "primary-title" }),
-      !this.hasSecondaryTitle &&
-        this.dividerPosition == ZSectionTitleDividerPositions.after &&
-        h("z-divider", { size: DividerSize.large, color: "z-section-title--divider-color" }),
-    ];
+    return (h(Host, null, h("slot", { name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
   }
   get host() { return getElement(this); }
 };

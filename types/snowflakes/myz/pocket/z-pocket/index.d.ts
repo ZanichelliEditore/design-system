@@ -1,10 +1,10 @@
 import { EventEmitter } from "../../../../stencil-public-runtime";
 import { PocketStatus } from "../../../../beans";
 /**
- * @slot  - pocket content
+ * @slot - pocket content
  */
 export declare class ZPocket {
-  hostElement: HTMLElement;
+  hostElement: HTMLZPocketElement;
   /** pocket id */
   pocketid: string;
   /** pocket status */
@@ -15,11 +15,11 @@ export declare class ZPocket {
   close(): Promise<void>;
   /** Emitted on pocket toggle, returns pocket id and status */
   pocketToggle: EventEmitter;
-  emitPocketToggle(id: string, status: PocketStatus): void;
+  private emitPocketToggle;
   handlePocketHeaderClick(e: CustomEvent): void;
   handlePocketHeaderPan(e: CustomEvent): void;
   watchStatusHandler(newVal: PocketStatus): void;
   componentWillLoad(): void;
-  handleBackgroundClick(e: any): void;
+  private handleBackgroundClick;
   render(): HTMLDivElement;
 }

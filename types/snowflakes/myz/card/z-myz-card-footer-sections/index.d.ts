@@ -3,5 +3,5 @@
  * @slot bottom - footer bottom content
  */
 export declare class ZMyzCardFooterSections {
-  render(): any;
+  render(): HTMLDivElement;
 }

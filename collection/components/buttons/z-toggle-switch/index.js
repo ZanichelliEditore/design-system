@@ -1,11 +1,15 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { randomId } from "../../../utils/utils";
-import { LabelPositions } from "../../../beans";
+import { LabelPosition } from "../../../beans";
 export class ZToggleSwitch {
   constructor() {
+    /** Disabled flag */
     this.disabled = false;
-    this.labelPosition = LabelPositions.left;
+    /** Label position */
+    this.labelPosition = LabelPosition.LEFT;
+    /** Checked state */
     this.checked = false;
+    /** HTML id attribute to set to the internal checkbox */
     this.htmlid = `toggle-switch-id-${randomId()}`;
   }
   emitToggleClick() {
@@ -15,23 +19,21 @@ export class ZToggleSwitch {
     });
   }
   handleClick(ev) {
-    if (this.disabled)
+    if (this.disabled) {
       return;
+    }
     this.checked = ev.target.checked;
     this.emitToggleClick();
   }
   render() {
-    return [
-      h("input", { id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }),
-      h("label", { htmlFor: this.htmlid, class: {
-          [this.labelPosition]: true,
-          disabled: this.disabled,
-        } }, h("span", null, h("slot", null)), h("span", { class: {
-          container: true,
-          disabled: this.disabled,
-          checked: this.checked,
-        } }, h("span", { class: "circle" }, this.checked && (h("z-icon", { width: 12, height: 12, name: "checkmark" }))))),
-    ];
+    return (h(Host, null, h("input", { id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }), h("label", { htmlFor: this.htmlid, class: {
+        [this.labelPosition]: true,
+        disabled: this.disabled,
+      } }, h("span", null, h("slot", null)), h("span", { class: {
+        container: true,
+        disabled: this.disabled,
+        checked: this.checked,
+      } }, h("span", { class: "circle" }, this.checked && (h("z-icon", { width: 12, height: 12, name: "checkmark" })))))));
   }
   static get is() { return "z-toggle-switch"; }
   static get encapsulation() { return "scoped"; }
@@ -59,7 +61,7 @@ export class ZToggleSwitch {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Disabled flag"
         },
         "attribute": "disabled",
         "reflect": true,
@@ -70,23 +72,18 @@ export class ZToggleSwitch {
         "mutable": false,
         "complexType": {
           "original": "LabelPosition",
-          "resolved": "\"left\" | \"right\"",
-          "references": {
-            "LabelPosition": {
-              "location": "import",
-              "path": "../../../beans"
-            }
-          }
+          "resolved": "LabelPosition.LEFT | LabelPosition.RIGHT",
+          "references": {}
         },
         "required": false,
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Label position"
         },
         "attribute": "label-position",
         "reflect": true,
-        "defaultValue": "LabelPositions.left"
+        "defaultValue": "LabelPosition.LEFT"
       },
       "checked": {
         "type": "boolean",
@@ -100,7 +97,7 @@ export class ZToggleSwitch {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Checked state"
         },
         "attribute": "checked",
         "reflect": false,
@@ -118,7 +115,7 @@ export class ZToggleSwitch {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "HTML id attribute to set to the internal checkbox"
         },
         "attribute": "htmlid",
         "reflect": false,
@@ -135,7 +132,7 @@ export class ZToggleSwitch {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Toggle click event"
         },
         "complexType": {
           "original": "any",

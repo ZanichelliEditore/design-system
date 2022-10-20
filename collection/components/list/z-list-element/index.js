@@ -1,5 +1,5 @@
-import { h, Host, } from "@stencil/core";
-import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardKeys, ListDividerType, ListSize, } from "../../../beans";
+import { h, Host } from "@stencil/core";
+import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardCode, ListDividerType, ListSize, } from "../../../beans";
 export class ZListElement {
   /**
    * Constructor.
@@ -8,7 +8,7 @@ export class ZListElement {
     /**
      * [optional] Align expandable button left or right.
      */
-    this.alignButton = ExpandableListButtonAlign.left;
+    this.alignButton = ExpandableListButtonAlign.LEFT;
     /**
      * [optional] Sets element clickable.
      */
@@ -20,11 +20,11 @@ export class ZListElement {
     /**
      * [optional] Sets the position where to insert the divider.
      */
-    this.dividerType = ListDividerType.none;
+    this.dividerType = ListDividerType.NONE;
     /**
      * [optional] Sets the divider size.
      */
-    this.dividerSize = DividerSize.small;
+    this.dividerSize = DividerSize.SMALL;
     /**
      * [optional] Sets element as expandable.
      */
@@ -32,11 +32,11 @@ export class ZListElement {
     /**
      * [optional] Sets expandable style to element.
      */
-    this.expandableStyle = ExpandableListStyle.accordion;
+    this.expandableStyle = ExpandableListStyle.ACCORDION;
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = ListSize.medium;
+    this.size = ListSize.MEDIUM;
     /**
      * [optional] Sets text color of the element.
      */
@@ -87,17 +87,17 @@ export class ZListElement {
     return "container";
   }
   handleKeyDown(event) {
-    const expandByKey = event.code === KeyboardKeys.ENTER;
+    const expandByKey = event.code === KeyboardCode.ENTER;
     switch (event.code) {
-      case KeyboardKeys.ARROW_DOWN:
+      case KeyboardCode.ARROW_DOWN:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId + 1);
         break;
-      case KeyboardKeys.ARROW_UP:
+      case KeyboardCode.ARROW_UP:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId - 1);
         break;
-      case KeyboardKeys.ENTER:
+      case KeyboardCode.ENTER:
         event.preventDefault();
         this.clickItem.emit(this.listElementId);
         break;
@@ -131,11 +131,11 @@ export class ZListElement {
     }
     return (h("div", { class: {
         "z-list-element-inner-container": true,
-        expanded: this.showInnerContent,
+        "expanded": this.showInnerContent,
       } }, h("slot", { name: "inner-content" })));
   }
   render() {
-    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), h("slot", null)), this.renderExpandedContent()), this.dividerType === ListDividerType.element && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), h("slot", null)), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   static get is() { return "z-list-element"; }
   static get encapsulation() { return "shadow"; }
@@ -156,7 +156,7 @@ export class ZListElement {
         "mutable": false,
         "complexType": {
           "original": "ExpandableListButtonAlign",
-          "resolved": "ExpandableListButtonAlign.left | ExpandableListButtonAlign.right",
+          "resolved": "ExpandableListButtonAlign.LEFT | ExpandableListButtonAlign.RIGHT",
           "references": {
             "ExpandableListButtonAlign": {
               "location": "import",
@@ -172,7 +172,7 @@ export class ZListElement {
         },
         "attribute": "align-button",
         "reflect": true,
-        "defaultValue": "ExpandableListButtonAlign.left"
+        "defaultValue": "ExpandableListButtonAlign.LEFT"
       },
       "clickable": {
         "type": "boolean",
@@ -215,7 +215,7 @@ export class ZListElement {
         "mutable": false,
         "complexType": {
           "original": "ListDividerType",
-          "resolved": "ListDividerType.element | ListDividerType.header | ListDividerType.none",
+          "resolved": "ListDividerType.ELEMENT | ListDividerType.HEADER | ListDividerType.NONE",
           "references": {
             "ListDividerType": {
               "location": "import",
@@ -231,14 +231,14 @@ export class ZListElement {
         },
         "attribute": "divider-type",
         "reflect": false,
-        "defaultValue": "ListDividerType.none"
+        "defaultValue": "ListDividerType.NONE"
       },
       "dividerSize": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "DividerSize",
-          "resolved": "DividerSize.large | DividerSize.medium | DividerSize.small",
+          "resolved": "DividerSize.LARGE | DividerSize.MEDIUM | DividerSize.SMALL",
           "references": {
             "DividerSize": {
               "location": "import",
@@ -254,7 +254,7 @@ export class ZListElement {
         },
         "attribute": "divider-size",
         "reflect": false,
-        "defaultValue": "DividerSize.small"
+        "defaultValue": "DividerSize.SMALL"
       },
       "expandable": {
         "type": "boolean",
@@ -279,7 +279,7 @@ export class ZListElement {
         "mutable": false,
         "complexType": {
           "original": "ExpandableListStyle",
-          "resolved": "ExpandableListStyle.accordion | ExpandableListStyle.menu",
+          "resolved": "ExpandableListStyle.ACCORDION | ExpandableListStyle.MENU",
           "references": {
             "ExpandableListStyle": {
               "location": "import",
@@ -295,7 +295,7 @@ export class ZListElement {
         },
         "attribute": "expandable-style",
         "reflect": false,
-        "defaultValue": "ExpandableListStyle.accordion"
+        "defaultValue": "ExpandableListStyle.ACCORDION"
       },
       "listElementId": {
         "type": "number",
@@ -309,7 +309,7 @@ export class ZListElement {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "[optional] List element id."
         },
         "attribute": "list-element-id",
         "reflect": true
@@ -319,7 +319,7 @@ export class ZListElement {
         "mutable": false,
         "complexType": {
           "original": "ListSize",
-          "resolved": "(typeof ListSize)[\"x-large\"] | ListSize.large | ListSize.medium | ListSize.small",
+          "resolved": "ListSize.LARGE | ListSize.MEDIUM | ListSize.SMALL | ListSize.X_LARGE",
           "references": {
             "ListSize": {
               "location": "import",
@@ -335,7 +335,7 @@ export class ZListElement {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ListSize.medium"
+        "defaultValue": "ListSize.MEDIUM"
       },
       "color": {
         "type": "string",

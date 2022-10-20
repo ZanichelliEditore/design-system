@@ -20,7 +20,7 @@ export declare class ZTooltip {
    * The selector or the element bound with the tooltip.
    */
   bindTo?: string | HTMLElement;
-  popover: HTMLZPopoverElement;
+  private popover;
   onPopoverOpenChange(): void;
-  render(): any;
+  render(): HTMLZPopoverElement;
 }

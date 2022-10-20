@@ -1,10 +1,10 @@
-import { h } from '@stencil/core';
+import { h } from "@stencil/core";
 /**
  * @slot - table sticky footer content
  */
 export class ZTableStickyFooter {
   render() {
-    return (h("slot", null));
+    return h("slot", null);
   }
   static get is() { return "z-table-sticky-footer"; }
   static get encapsulation() { return "scoped"; }

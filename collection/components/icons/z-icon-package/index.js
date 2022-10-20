@@ -1,9 +1,8 @@
-import { h } from '@stencil/core';
-import { icons } from '../icons';
+import { h } from "@stencil/core";
+import { ICONS } from "../icons";
 export class ZIconPackage {
   render() {
-    const iconsNames = Object.keys(icons);
-    return (h("div", null, iconsNames.map((icon) => {
+    return (h("div", null, Object.keys(ICONS).map((icon) => {
       return (h("div", null, h("z-icon", { name: icon }), h("label", null, icon)));
     })));
   }

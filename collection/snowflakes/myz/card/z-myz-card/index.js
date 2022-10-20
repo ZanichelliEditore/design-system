@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import { LicenseType } from "../../../../beans/index";
 /**
  * @slot  - generic card slot
  */
@@ -12,12 +12,15 @@ export class ZMyzCardComponent {
   }
   retrieveClass() {
     let elemClasses = "";
-    if (this.cardtype === LicenseTypeEnum.real)
+    if (this.cardtype === LicenseType.REAL) {
       elemClasses += "real";
-    else if (this.cardtype === LicenseTypeEnum.trial)
+    }
+    else if (this.cardtype === LicenseType.TRIAL) {
       elemClasses += "trial";
-    else if (this.cardtype === LicenseTypeEnum.temp)
+    }
+    else if (this.cardtype === LicenseType.TEMP) {
       elemClasses += "temp";
+    }
     if (this.faded) {
       elemClasses += " faded";
     }
@@ -67,10 +70,10 @@ export class ZMyzCardComponent {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "LicenseTypeEnum",
-          "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+          "original": "LicenseType",
+          "resolved": "LicenseType.REAL | LicenseType.TEMP | LicenseType.TRIAL | LicenseType.VIRTUAL",
           "references": {
-            "LicenseTypeEnum": {
+            "LicenseType": {
               "location": "import",
               "path": "../../../../beans/index"
             }

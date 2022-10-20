@@ -15,5 +15,5 @@ export declare class ZStepperItem {
    * The disabled state of the item.
    */
   disabled: boolean;
-  render(): any;
+  render(): HTMLAnchorElement | HTMLButtonElement;
 }

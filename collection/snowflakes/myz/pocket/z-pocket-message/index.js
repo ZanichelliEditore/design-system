@@ -5,7 +5,7 @@ import { h } from "@stencil/core";
  */
 export class ZPocketMessage {
   render() {
-    return (h("div", null, h("z-icon", { name: "exclamation-circle" }), h("div", { class: "content" }, h("slot", null)), h("div", { class: "ctaWrapper" }, h("slot", { name: "cta" }))));
+    return (h("div", null, h("z-icon", { name: "exclamation-circle" }), h("div", { class: "content" }, h("slot", null)), h("div", { class: "cta-wrapper" }, h("slot", { name: "cta" }))));
   }
   static get is() { return "z-pocket-message"; }
   static get encapsulation() { return "shadow"; }

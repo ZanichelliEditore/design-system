@@ -1,7 +1,7 @@
 import { r as registerInstance, c as createEvent, h } from './index-a2ca4b97.js';
-import { q as AlertTypesEnum } from './index-8390ddaf.js';
+import { p as AlertType } from './index-9d028352.js';
 
-const stylesCss = ":host{position:absolute;font-family:var(--font-family-sans);font-weight:var(--font-rg);width:100%;top:0px;left:0px;z-index:2}:host>z-alert{height:calc(var(--space-unit) * 6)}.relativeContainer{position:relative;display:grid;grid-template-columns:18px auto 46px;grid-template-rows:1fr;grid-column-gap:var(--space-unit);align-items:center;padding:0;outline:none}.relativeContainer::-moz-focus-inner{border:0}.alert-external-wrapper.removeAlert{border:var(--border-size-medium) solid var(--color-surface02);border-top:none}:host div.addAlert{background:var(--color-success-inverse)}:host div.removeAlert{background:var(--color-warning-inverse)}:host div>.contentText{color:var(--color-surface05);font-size:14px;letter-spacing:0.16px;line-height:20px}:host div>.contentAction{color:var(--color-primary01);font-size:12px;font-weight:var(--font-sb);height:20px;letter-spacing:0.32px;line-height:20px;cursor:pointer}:host div>z-icon{justify-self:center}";
+const stylesCss = ":host{position:absolute;z-index:2;top:0;left:0;width:100%;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>z-alert{height:calc(var(--space-unit) * 6)}.relative-container{position:relative;display:grid;align-items:center;padding:0;grid-column-gap:var(--space-unit);grid-template-columns:18px auto 46px;grid-template-rows:1fr;outline:none}.relative-container::-moz-focus-inner{border:0}.alert-external-wrapper.remove-alert{border:var(--border-size-medium) solid var(--color-surface02);border-top:none}:host div.add-alert{background:var(--color-success-inverse)}:host div.remove-alert{background:var(--color-warning-inverse)}:host div>.content-text{color:var(--color-surface05);font-size:14px;letter-spacing:0.16px;line-height:20px}:host div>.content-action{height:20px;color:var(--color-primary01);cursor:pointer;font-size:12px;font-weight:var(--font-sb);letter-spacing:0.32px;line-height:20px}:host div>z-icon{justify-self:center}";
 
 const ZMyzCardAlert = class {
   constructor(hostRef) {
@@ -25,10 +25,10 @@ const ZMyzCardAlert = class {
     let className = "";
     switch (this.type) {
       case "add":
-        className = "addAlert";
+        className = "add-alert";
         break;
       case "remove":
-        className = "removeAlert";
+        className = "remove-alert";
         break;
       default:
         className = "";
@@ -39,15 +39,15 @@ const ZMyzCardAlert = class {
   getAlertType() {
     switch (this.type) {
       case "add":
-        return AlertTypesEnum.success;
+        return AlertType.SUCCESS;
       case "remove":
-        return AlertTypesEnum.warning;
+        return AlertType.WARNING;
       default:
         return null;
     }
   }
   render() {
-    return (h("div", { class: "alert-external-wrapper " + this.retrieveClass() }, h("z-alert", { type: this.getAlertType() }, h("div", { class: "relativeContainer" }, h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), h("span", { class: "contentText" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "contentAction", onClick: (e) => {
+    return (h("div", { class: "alert-external-wrapper " + this.retrieveClass() }, h("z-alert", { type: this.getAlertType() }, h("div", { class: "relative-container" }, h("z-icon", { name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), h("span", { class: "content-text" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (h("span", { role: "button", tabindex: "0", class: "content-action", onClick: (e) => {
         this.handleActionButtonClick(e);
       }, onKeyPress: (e) => {
         this.handleSpaceKeyPress(e);

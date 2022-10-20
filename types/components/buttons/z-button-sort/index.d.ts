@@ -20,9 +20,9 @@ export declare class ZButtonSort {
   private ellipsis?;
   /** sorting direction click event, returns buttonid and sortAsc */
   buttonSortClick: EventEmitter;
-  emitButtonSortClick(): void;
+  private emitButtonSortClick;
   componentDidLoad(): void;
-  setButtonTitle(): string;
-  elementHasEllipsis(): boolean;
-  render(): any;
+  private setButtonTitle;
+  private elementHasEllipsis;
+  render(): HTMLButtonElement;
 }

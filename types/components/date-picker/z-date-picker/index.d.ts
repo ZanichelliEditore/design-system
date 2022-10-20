@@ -1,7 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { ZDatePickerMode, ZDatePickerPosition } from "../../../beans";
 export declare class ZDatePicker {
-  element: HTMLElement;
+  element: HTMLZDatePickerElement;
   /** unique id */
   datePickerId: string;
   /** z-input aria label */
@@ -14,17 +14,16 @@ export declare class ZDatePicker {
   inputError: boolean;
   private picker;
   private hasChildren;
-  watchMode(): void;
   /** emitted when date changes, returns selected date */
   dateSelect: EventEmitter;
-  emitDateSelect(date: any): void;
+  private emitDateSelect;
   handleKeyDown(ev: KeyboardEvent): void;
   componentWillLoad(): void;
   componentDidLoad(): void;
   setupPickers(): void;
-  formatDate(date: any): string;
-  onStopTyping(value: any): void;
-  renderSlottedContent(): any;
-  renderZInput(): any;
-  render(): any;
+  private formatDate;
+  private onStopTyping;
+  private renderSlottedContent;
+  private renderZInput;
+  render(): HTMLDivElement;
 }

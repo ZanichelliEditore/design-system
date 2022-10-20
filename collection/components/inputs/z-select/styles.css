@@ -1,89 +1,84 @@
 :host {
   display: inline-block;
   width: inherit;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-  font-size: var(--font-size-3);
   color: var(--color-text02);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
 }
 
-.selectWrapper > z-input {
+.select-wrapper > z-input {
   width: 100%;
 }
 
-.selectWrapper > div {
+.select-wrapper > div {
   position: relative;
 }
 
-.selectWrapper > div.closed {
-  height: 0;
+.select-wrapper > div.closed {
   overflow: hidden;
+  height: 0;
 }
 
-.selectWrapper .ulScrollWrapper {
-  background: var(--color-surface01);
+.select-wrapper .ul-scroll-wrapper {
   position: absolute;
+  width: 100%;
+  box-sizing: border-box;
   padding: calc(var(--space-unit) * 0.5) var(--space-unit);
   border: var(--border-size-small) solid var(--gray200);
   border-top: none;
-  width: 100%;
-  box-sizing: border-box;
+  background: var(--color-surface01);
   outline: none;
 }
 
-.selectWrapper .closed .ulScrollWrapper {
+.select-wrapper .closed .ul-scroll-wrapper {
   z-index: 10;
 }
 
-.selectWrapper .open .ulScrollWrapper {
+.select-wrapper .open .ul-scroll-wrapper {
   z-index: 20;
 }
 
-.selectWrapper .ulScrollWrapper > z-list {
+.select-wrapper .ul-scroll-wrapper > z-list {
   position: relative;
-  padding: calc(var(--space-unit) * 0.5);
-  max-height: 240px;
   overflow: auto;
+  max-height: 240px;
+  padding: calc(var(--space-unit) * 0.5);
   outline: none;
 
   /* Firefox scrollbar */
   scrollbar-color: var(--color-primary01) transparent;
 }
 
-.selectWrapper .ulScrollWrapper > z-list::-webkit-scrollbar {
-  background: linear-gradient(
-    to right,
-    transparent 0 3px,
-    var(--gray200) 3px 7px,
-    transparent 7px 10px
-  );
+.select-wrapper .ul-scroll-wrapper > z-list::-webkit-scrollbar {
   width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 
-.selectWrapper .ulScrollWrapper > z-list::-webkit-scrollbar-track {
+.select-wrapper .ul-scroll-wrapper > z-list::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-.selectWrapper .ulScrollWrapper > z-list::-webkit-scrollbar-thumb {
+.select-wrapper .ul-scroll-wrapper > z-list::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: var(--color-primary01);
   border-radius: var(--border-radius);
 }
 
-.selectWrapper .ulScrollWrapper > z-list::-webkit-scrollbar-thumb:hover {
+.select-wrapper .ul-scroll-wrapper > z-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover-primary);
 }
 
-.selectWrapper .ulScrollWrapper z-list z-list-element span {
+.select-wrapper .ul-scroll-wrapper z-list z-list-element span {
   display: block;
   padding: 0 calc(var(--space-unit) * 1.5);
 }
 
-.selectWrapper .ulScrollWrapper z-list z-list-element span.selected {
+.select-wrapper .ul-scroll-wrapper z-list z-list-element span.selected {
   font-weight: bold;
 }
 
-.selectWrapper .ulScrollWrapper .noResults z-icon {
+.select-wrapper .ul-scroll-wrapper .no-results z-icon {
   margin-right: var(--space-unit);
 }

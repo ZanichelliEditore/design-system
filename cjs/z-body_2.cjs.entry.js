@@ -7,6 +7,7 @@ const index = require('./index-e3299e0a.js');
 const ZBody = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    /** Font weight variant */
     this.variant = "regular";
   }
   render() {
@@ -14,11 +15,12 @@ const ZBody = class {
   }
 };
 
-const stylesCss = ":host>*{font-family:var(--dashboard-font);margin:0}:host(.regular)>*{font-weight:var(--font-rg)}:host(.semibold)>*{font-weight:600}:host(.light)>*{font-weight:300}:host(.h1)>*{font-size:32px;line-height:40px}:host(.h2)>*{font-size:28px;line-height:36px}:host(.h3)>*{font-size:24px;line-height:32px}:host(.h4)>*{font-size:20px;line-height:28px}:host(.b1)>*{font-size:20px;line-height:28px}:host(.b2)>*{font-size:18px;line-height:28px}:host(.b3)>*{font-size:16px;line-height:24px}:host(.b4)>*{font-size:14px;line-height:20px}:host(.b5)>*{font-size:12px;line-height:16px}:host(:focus-visible){outline:none}";
+const stylesCss = ":host>*{margin:0;font-family:var(--dashboard-font)}:host(.regular)>*{font-weight:var(--font-rg)}:host(.semibold)>*{font-weight:600}:host(.light)>*{font-weight:300}:host(.h1)>*{font-size:32px;line-height:40px}:host(.h2)>*{font-size:28px;line-height:36px}:host(.h3)>*{font-size:24px;line-height:32px}:host(.h4)>*{font-size:20px;line-height:28px}:host(.b1)>*{font-size:20px;line-height:28px}:host(.b2)>*{font-size:18px;line-height:28px}:host(.b3)>*{font-size:16px;line-height:24px}:host(.b4)>*{font-size:14px;line-height:20px}:host(.b5)>*{font-size:12px;line-height:16px}:host(:focus-visible){outline:none}";
 
 const ZTypography = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    /** Font weight variant */
     this.variant = "regular";
   }
   render() {
@@ -29,7 +31,7 @@ const ZTypography = class {
         [this.level]: Boolean(this.level),
         regular: this.variant === "regular",
         semibold: this.variant === "semibold",
-        light: this.variant === "light"
+        light: this.variant === "light",
       } }));
   }
   get hostElement() { return index.getElement(this); }

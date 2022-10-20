@@ -1,7 +1,7 @@
 import { r as registerInstance, h } from './index-a2ca4b97.js';
-import { L as LicenseTypeEnum } from './index-8390ddaf.js';
+import { L as LicenseType } from './index-9d028352.js';
 
-const stylesCss$3 = ":host{--card-overflow:hidden}div{background-color:var(--color-surface01);display:flex;flex-direction:column;width:auto;box-sizing:border-box;width:256px;height:522px;border:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius);overflow:var(--card-overflow)}div.real,div.trial,div.temp{border-color:var(--accent)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
+const stylesCss$3 = ":host{--card-overflow:hidden}div{display:flex;overflow:var(--card-overflow);width:auto;width:256px;height:522px;box-sizing:border-box;flex-direction:column;border:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius)}div.real,div.trial,div.temp{border-color:var(--accent)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
 
 const ZMyzCardComponent = class {
   constructor(hostRef) {
@@ -13,12 +13,15 @@ const ZMyzCardComponent = class {
   }
   retrieveClass() {
     let elemClasses = "";
-    if (this.cardtype === LicenseTypeEnum.real)
+    if (this.cardtype === LicenseType.REAL) {
       elemClasses += "real";
-    else if (this.cardtype === LicenseTypeEnum.trial)
+    }
+    else if (this.cardtype === LicenseType.TRIAL) {
       elemClasses += "trial";
-    else if (this.cardtype === LicenseTypeEnum.temp)
+    }
+    else if (this.cardtype === LicenseType.TEMP) {
       elemClasses += "temp";
+    }
     if (this.faded) {
       elemClasses += " faded";
     }
@@ -36,7 +39,7 @@ const ZMyzCardComponent = class {
 };
 ZMyzCardComponent.style = stylesCss$3;
 
-const stylesCss$2 = ":host{height:340px;width:auto}:host>div{height:340px;width:auto;display:flex;align-items:center;justify-content:center;position:relative}";
+const stylesCss$2 = ":host{width:auto;height:340px}:host>div{position:relative;display:flex;width:auto;height:340px;align-items:center;justify-content:center}";
 
 const ZMyzCardBody = class {
   constructor(hostRef) {
@@ -48,7 +51,7 @@ const ZMyzCardBody = class {
 };
 ZMyzCardBody.style = stylesCss$2;
 
-const stylesCss$1 = "img{display:block;margin:auto auto;height:340px;max-width:100%;object-fit:cover}img.faded{opacity:0.3}";
+const stylesCss$1 = "img{display:block;max-width:100%;height:340px;margin:auto;object-fit:cover}img.faded{opacity:0.3}";
 
 const ZMyzCardCover = class {
   constructor(hostRef) {
@@ -63,7 +66,7 @@ const ZMyzCardCover = class {
 };
 ZMyzCardCover.style = stylesCss$1;
 
-const stylesCss = "header{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;width:auto;height:calc(var(--space-unit) * 6);position:relative;border-bottom:var(--border-size-medium) solid var(--color-surface03);border-radius:var(--border-radius) var(--border-radius)\n    var(--border-no-radius) var(--border-no-radius);background-color:var(--color-surface01)}header.real,header.trial,header.temp{background-color:var(--accent-lighter);border-bottom:var(--border-size-medium) solid var(--accent)}h2{font-family:var(--font-family-sans);font-weight:var(--font-sb);color:var(--color-surface05);height:calc(var(--space-unit) * 2);font-size:12px;text-transform:uppercase;letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);margin:0px;padding:calc(var(--space-unit) * 2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial,.faded.temp{border-top:var(--border-size-medium) solid var(--accent);border-right:var(--border-size-medium) solid var(--accent);border-left:var(--border-size-medium) solid var(--accent)}";
+const stylesCss = "header{position:relative;display:flex;width:auto;height:calc(var(--space-unit) * 6);flex-direction:row;align-items:flex-start;justify-content:space-between;border-bottom:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius) var(--border-radius) var(--border-no-radius) var(--border-no-radius)}header.real,header.trial,header.temp{border-bottom:var(--border-size-medium) solid var(--accent);background-color:var(--accent-lighter)}h2{overflow:hidden;height:calc(var(--space-unit) * 2);padding:calc(var(--space-unit) * 2);margin:0;color:var(--color-surface05);font-family:var(--font-family-sans);font-size:12px;font-weight:var(--font-sb);letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);text-overflow:ellipsis;text-transform:uppercase;white-space:nowrap}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial,.faded.temp{border-top:var(--border-size-medium) solid var(--accent);border-right:var(--border-size-medium) solid var(--accent);border-left:var(--border-size-medium) solid var(--accent)}";
 
 const ZMyzCardHeader = class {
   constructor(hostRef) {
@@ -74,17 +77,18 @@ const ZMyzCardHeader = class {
     return this.allowTooltip ? this.titolo : "";
   }
   componentDidLoad() {
-    if (this.elementHasEllipsis())
+    if (this.elementHasEllipsis()) {
       this.allowTooltip = true;
+    }
   }
   elementHasEllipsis() {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   retrieveClass() {
     return {
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
-      temp: this.cardtype === LicenseTypeEnum.temp,
+      real: this.cardtype === LicenseType.REAL,
+      trial: this.cardtype === LicenseType.TRIAL,
+      temp: this.cardtype === LicenseType.TEMP,
       faded: this.faded,
     };
   }

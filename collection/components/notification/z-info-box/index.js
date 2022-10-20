@@ -1,4 +1,4 @@
-import { h } from '@stencil/core';
+import { h } from "@stencil/core";
 /**
  * @slot content - set the info box content
  */
@@ -11,7 +11,7 @@ export class ZInfoBox {
     this.infoBoxClose.emit({ boxid: this.boxid });
   }
   render() {
-    return (h("div", { id: this.boxid }, h("slot", { name: "content" }), this.isclosable && h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() })));
+    return (h("div", { id: this.boxid }, h("slot", { name: "content" }), this.isclosable && (h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() }))));
   }
   static get is() { return "z-info-box"; }
   static get encapsulation() { return "shadow"; }

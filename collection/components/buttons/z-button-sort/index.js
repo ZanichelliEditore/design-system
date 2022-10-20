@@ -25,13 +25,12 @@ export class ZButtonSort {
     });
   }
   componentDidLoad() {
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint)
+    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
       this.allowTooltip = true;
+    }
   }
   setButtonTitle() {
-    return this.allowTooltip
-      ? `${this.sortasc ? this.label : this.desclabel}`
-      : "";
+    return this.allowTooltip ? `${this.sortasc ? this.label : this.desclabel}` : "";
   }
   elementHasEllipsis() {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;

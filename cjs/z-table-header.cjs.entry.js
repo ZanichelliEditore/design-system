@@ -3,23 +3,22 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$2 = require('./index-1fda0714.js');
-const index$1 = require('./index-745c0423.js');
-const utils = require('./utils-dfe717c7.js');
-require('./_commonjsHelpers-537d719a.js');
+const index$1 = require('./index-199cd650.js');
+const utils = require('./utils-ce225fb3.js');
 require('./breakpoints-88c4fd6c.js');
 
-const stylesCss = ":host{position:relative;display:table-cell;background-color:var(--gray50);border-bottom:var(--border-size-medium) solid var(--gray200);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{opacity:1;padding-left:var(--space-unit)}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container z-popover{--z-popover-theme--surface:var(--gray200);position:relative;z-index:1}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
+const stylesCss = ":host{position:relative;display:table-cell;border-bottom:var(--border-size-medium) solid var(--gray200);background-color:var(--gray50);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{padding-left:var(--space-unit);opacity:1}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container z-popover{--z-popover-theme--surface:var(--gray200);position:relative;z-index:1}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
 
 const ZTableHeader = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.sort = index.createEvent(this, "sort", 7);
     /** Set padding size of cell, if special 0px padding will be set */
-    this.padding = index$1.Size.medium;
+    this.padding = index$1.Size.MEDIUM;
     /** [Optional] Default sort order */
-    this.defaultSortDirection = index$1.SortDirectionEnum.asc;
-    this.sortDirection = index$1.SortDirectionEnum.none;
+    this.defaultSortDirection = index$1.SortDirection.ASC;
+    /** Sort direction */
+    this.sortDirection = index$1.SortDirection.NONE;
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
@@ -34,14 +33,14 @@ const ZTableHeader = class {
     }
     this.sortDirection = (() => {
       switch (this.sortDirection) {
-        case index$1.SortDirectionEnum.asc:
-          return index$1.SortDirectionEnum.desc;
-        case index$1.SortDirectionEnum.desc:
-          return index$1.SortDirectionEnum.asc;
-        case index$1.SortDirectionEnum.none:
+        case index$1.SortDirection.ASC:
+          return index$1.SortDirection.DESC;
+        case index$1.SortDirection.DESC:
+          return index$1.SortDirection.ASC;
+        case index$1.SortDirection.NONE:
           return this.defaultSortDirection;
         default:
-          return index$1.SortDirectionEnum.none;
+          return index$1.SortDirection.NONE;
       }
     })();
     this.emitOnSort();
@@ -57,7 +56,7 @@ const ZTableHeader = class {
     }
   }
   handleClickHeaders(e) {
-    const { target } = e;
+    const target = e.target;
     const parent = utils.getElementTree(target).find((elem) => elem.nodeName.toLowerCase() === "z-table-header");
     if (!this.sortable || !parent) {
       return;
@@ -65,18 +64,16 @@ const ZTableHeader = class {
     const parentColumnId = parent.attributes.getNamedItem("column-id").value;
     const isSortable = target.parentNode.sortable || target.sortable;
     if (parentColumnId !== this.columnId && isSortable) {
-      this.sortDirection = index$1.SortDirectionEnum.none;
+      this.sortDirection = index$1.SortDirection.NONE;
     }
   }
   componentWillRender() {
     this.host.setAttribute("role", "columnheader");
   }
   render() {
-    return (index.h(index.Host, { class: index$2.classnames({
+    return (index.h(index.Host, { class: {
         sortable: this.sortable,
-      }), onClick: () => this.handleSort() }, index.h("div", { class: 'container' }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirectionEnum.none && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirectionEnum.asc
-        ? "arrow-up"
-        : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: 'popover-container' }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariantEnum["tertiary"], size: index$1.ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPositions.bottom, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
+      }, onClick: () => this.handleSort() }, index.h("div", { class: "container" }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirection.NONE && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: "popover-container" }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariant.TERTIARY, size: index$1.ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return index.getElement(this); }
 };

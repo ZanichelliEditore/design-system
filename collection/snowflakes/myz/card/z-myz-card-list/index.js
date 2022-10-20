@@ -11,8 +11,9 @@ export class ZMyzCardList {
   }
   formatListContent(data) {
     const { value, isLink, url } = data;
-    if (!isLink)
+    if (!isLink) {
       return h("span", null, value);
+    }
     return (h("a", { role: "button", onKeyPress: (e) => this.handleSpaceKeyPress(e, url), href: url, target: "_blank" }, value));
   }
   renderList(dataArray) {

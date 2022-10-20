@@ -1,11 +1,12 @@
+import { HostElement } from "../../../stencil-public-runtime";
 import { ListSize } from "../../../beans";
 export declare class ZList {
-  host: HTMLElement;
+  host: HTMLZListElement;
   /**
    * [optional] Sets size of inside elements.
    */
   size?: ListSize;
-  setChildrenSizeType(): void;
+  private setChildrenSizeType;
   componentDidLoad(): void;
-  render(): any;
+  render(): HostElement;
 }

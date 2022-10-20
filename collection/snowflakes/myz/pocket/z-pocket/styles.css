@@ -1,9 +1,9 @@
 :host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   width: inherit;
   height: 100%;
   margin: inherit;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 :host > div {
@@ -14,21 +14,21 @@
 
 :host > div > div.background {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   z-index: 998;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 0;
   height: 0;
 }
 
 :host > div > div.background.open {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
-:host > div > div.contentWrapper {
+:host > div > div.content-wrapper {
   position: fixed;
   z-index: 999;
   bottom: 0;
@@ -37,20 +37,8 @@
   margin: inherit;
 }
 
-:host > div > div.contentWrapper > div {
-  border-radius: var(--space-unit) var(--space-unit) 0px 0px;
-  box-shadow: 0px -2px calc(var(--space-unit) * 0.5) 0px rgba(66, 69, 72, 0.4);
+:host > div > div.content-wrapper > div {
   margin: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5);
-}
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
+  border-radius: var(--space-unit) var(--space-unit) 0 0;
+  box-shadow: 0 -2px calc(var(--space-unit) * 0.5) 0 rgb(66 69 72 / 40%);
 }

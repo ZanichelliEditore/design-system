@@ -1,10 +1,10 @@
-import { h } from '@stencil/core';
+import { h } from "@stencil/core";
 /**
  * @slot - z-stepper-item
  */
 export class ZStepper {
   render() {
-    return (h("slot", null));
+    return h("slot", null);
   }
   static get is() { return "z-stepper"; }
   static get encapsulation() { return "shadow"; }

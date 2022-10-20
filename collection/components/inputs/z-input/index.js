@@ -1,5 +1,5 @@
-import { h, } from "@stencil/core";
-import { InputTypeEnum, LabelPositions, } from "../../../beans";
+import { h } from "@stencil/core";
+import { InputType, LabelPosition } from "../../../beans";
 import { boolean, randomId } from "../../../utils/utils";
 export class ZInput {
   constructor() {
@@ -16,7 +16,7 @@ export class ZInput {
     /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
     this.message = true;
     /** the input label position: available for checkbox, radio */
-    this.labelPosition = LabelPositions.right;
+    this.labelPosition = LabelPosition.RIGHT;
     /** render clear icon when typing (optional): available for text */
     this.hasclearicon = true;
     this.isTyping = false;
@@ -26,21 +26,18 @@ export class ZInput {
   inputCheckListener(e) {
     const data = e.detail;
     switch (this.type) {
-      case InputTypeEnum.radio:
-        if (data.type === InputTypeEnum.radio &&
-          data.name === this.name &&
-          data.id !== this.htmlid) {
+      case InputType.RADIO:
+        if (data.type === InputType.RADIO && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
-      default:
-        return;
+        break;
     }
   }
   /** get checked status */
   async isChecked() {
     switch (this.type) {
-      case InputTypeEnum.checkbox:
-      case InputTypeEnum.radio:
+      case InputType.CHECKBOX:
+      case InputType.RADIO:
         return this.checked;
       default:
         console.warn("`isChecked` method is only available for type `checkbox` and `radio`");
@@ -48,10 +45,11 @@ export class ZInput {
     }
   }
   emitInputChange(value) {
-    if (!this.isTyping)
+    if (!this.isTyping) {
       this.emitStartTyping();
-    let validity = {};
-    if (this.type === InputTypeEnum.textarea) {
+    }
+    let validity;
+    if (this.type === InputType.TEXTAREA) {
       validity = this.getValidity("textarea");
     }
     else {
@@ -101,7 +99,7 @@ export class ZInput {
       required: this.required,
       title: this.htmltitle,
       class: {
-        [`input_${this.status || "default"}`]: true,
+        [`input-${this.status}`]: !!this.status,
         filled: !!this.value,
       },
       autocomplete: this.autocomplete,
@@ -109,8 +107,9 @@ export class ZInput {
     };
   }
   getNumberAttributes(type) {
-    if (type != InputTypeEnum.number)
+    if (type != InputType.NUMBER) {
       return;
+    }
     return {
       min: this.min,
       max: this.max,
@@ -118,67 +117,66 @@ export class ZInput {
     };
   }
   getPatternAttribute(type) {
-    if (type != InputTypeEnum.password &&
-      type != InputTypeEnum.text &&
-      type != InputTypeEnum.tel &&
-      type != InputTypeEnum.search &&
-      type != InputTypeEnum.url &&
-      type != InputTypeEnum.email)
+    if (type != InputType.PASSWORD &&
+      type != InputType.TEXT &&
+      type != InputType.TEL &&
+      type != InputType.SEARCH &&
+      type != InputType.URL &&
+      type != InputType.EMAIL) {
       return;
+    }
     return {
       pattern: this.pattern,
     };
   }
-  renderInputText(type = InputTypeEnum.text) {
+  renderInputText(type = InputType.TEXT) {
     const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
-    if (this.icon || type === InputTypeEnum.password) {
-      attr.class = Object.assign(Object.assign({}, attr.class), { hasIcon: true });
+    if (this.icon || type === InputType.PASSWORD) {
+      Object.assign(attr.class, { "has-icon": true });
     }
-    if (this.hasclearicon && type != InputTypeEnum.number) {
-      attr.class = Object.assign(Object.assign({}, attr.class), { hasClearIcon: true });
+    if (this.hasclearicon && type != InputType.NUMBER) {
+      Object.assign(attr.class, { "has-clear-icon": true });
     }
-    return (h("div", { class: "textWrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputTypeEnum.password && !this.passwordHidden
-        ? InputTypeEnum.text
-        : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
-    if (!this.label)
+    if (!this.label) {
       return;
-    return (h("label", { class: "inputLabel body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid, "aria-label": this.label }, this.label));
+    }
+    return (h("label", { class: "input-label body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid, "aria-label": this.label }, this.label));
   }
   renderIcons() {
-    return (h("span", { class: "iconsWrapper" }, this.renderResetIcon(), this.renderIcon()));
+    return (h("span", { class: "icons-wrapper" }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
-    if (this.type === InputTypeEnum.password) {
+    if (this.type === InputType.PASSWORD) {
       return this.renderShowHidePassword();
     }
-    if (!this.icon)
+    if (!this.icon) {
       return;
-    return (h("button", { type: "button", class: "iconButton inputIcon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
+    }
+    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
   }
   renderResetIcon() {
-    if (!this.hasclearicon ||
-      !this.value ||
-      this.disabled ||
-      this.readonly ||
-      this.type == InputTypeEnum.number)
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputType.NUMBER) {
       return;
-    return (h("button", { type: "button", class: "iconButton resetIcon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
+    }
+    return (h("button", { type: "button", class: "icon-button reset-icon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
   }
   renderShowHidePassword() {
-    return (h("button", { type: "button", class: "iconButton showHidePasswordIcon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
+    return (h("button", { type: "button", class: "icon-button toggle-password-icon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
   }
   renderMessage() {
-    if (boolean(this.message) === false)
+    if (boolean(this.message) === false) {
       return;
+    }
     return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
   }
   /* END text/password/email/number */
   /* START textarea */
   renderTextarea() {
     const attributes = this.getTextAttributes();
-    return (h("div", { class: "textWrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { textareaWrapper: true, readonly: attributes.readonly }) }, h("textarea", Object.assign({}, attributes, { "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, { "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -187,29 +185,29 @@ export class ZInput {
   }
   /* START checkbox */
   renderCheckbox() {
-    return (h("div", { class: "checkboxWrapper" }, h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
-        checkboxLabel: true,
-        after: this.labelPosition === LabelPositions.right,
-        before: this.labelPosition === LabelPositions.left,
+    return (h("div", { class: "checkbox-wrapper" }, h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+        "checkbox-label": true,
+        "after": this.labelPosition === LabelPosition.RIGHT,
+        "before": this.labelPosition === LabelPosition.LEFT,
       } }, h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }), this.label && h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
   renderRadio() {
-    return (h("div", { class: "radioWrapper" }, h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
-        radioLabel: true,
-        after: this.labelPosition === LabelPositions.right,
-        before: this.labelPosition === LabelPositions.left,
+    return (h("div", { class: "radio-wrapper" }, h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+        "radio-label": true,
+        "after": this.labelPosition === LabelPosition.RIGHT,
+        "before": this.labelPosition === LabelPosition.LEFT,
       } }, h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }), this.label && h("span", { innerHTML: this.label }))));
   }
   /* END radio */
   render() {
     switch (this.type) {
-      case InputTypeEnum.textarea:
+      case InputType.TEXTAREA:
         return this.renderTextarea();
-      case InputTypeEnum.checkbox:
+      case InputType.CHECKBOX:
         return this.renderCheckbox();
-      case InputTypeEnum.radio:
+      case InputType.RADIO:
         return this.renderRadio();
       default:
         return this.renderInputText(this.type);
@@ -251,10 +249,10 @@ export class ZInput {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InputTypeBean",
-          "resolved": "\"checkbox\" | \"email\" | \"number\" | \"password\" | \"radio\" | \"search\" | \"tel\" | \"text\" | \"textarea\" | \"url\"",
+          "original": "InputType",
+          "resolved": "InputType.CHECKBOX | InputType.EMAIL | InputType.NUMBER | InputType.PASSWORD | InputType.RADIO | InputType.SEARCH | InputType.TEL | InputType.TEXT | InputType.TEXTAREA | InputType.URL",
           "references": {
-            "InputTypeBean": {
+            "InputType": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -447,10 +445,10 @@ export class ZInput {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InputStatusBean",
-          "resolved": "\"error\" | \"success\" | \"warning\"",
+          "original": "InputStatus",
+          "resolved": "InputStatus.ERROR | InputStatus.SUCCESS | InputStatus.WARNING",
           "references": {
-            "InputStatusBean": {
+            "InputStatus": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -488,13 +486,8 @@ export class ZInput {
         "mutable": false,
         "complexType": {
           "original": "LabelPosition",
-          "resolved": "\"left\" | \"right\"",
-          "references": {
-            "LabelPosition": {
-              "location": "import",
-              "path": "../../../beans"
-            }
-          }
+          "resolved": "LabelPosition.LEFT | LabelPosition.RIGHT",
+          "references": {}
         },
         "required": false,
         "optional": true,
@@ -504,7 +497,7 @@ export class ZInput {
         },
         "attribute": "label-position",
         "reflect": false,
-        "defaultValue": "LabelPositions.right"
+        "defaultValue": "LabelPosition.RIGHT"
       },
       "autocomplete": {
         "type": "string",

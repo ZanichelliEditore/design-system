@@ -3,12 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
+const index$1 = require('./index-199cd650.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 const hammer = require('./hammer-4f20813e.js');
 require('./_commonjsHelpers-537d719a.js');
 
-const stylesCss = ":host{display:inline-block;min-width:200px;width:100vw}:host(.slide-in-left){animation:slideinleft 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-right){animation:slideinright 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-down){animation:slideindown 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-up){animation:slideinup 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-left){animation:slideoutleft 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-right){animation:slideoutright 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-down){animation:slideoutdown 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-up){animation:slideoutup 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}@keyframes slideinleft{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideinright{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}@keyframes slideinup{0%{transform:translateY(100%);opacity:0}100%{transform:translateY(0);opacity:100%}}@keyframes slideindown{0%{transform:translateY(-100%);opacity:0}100%{transform:translateY(0);opacity:100%}}@keyframes slideoutleft{0%{transform:translateX(var(--percentuale));opacity:calc(100-var(--percentuale))}100%{transform:translateX(-100%);opacity:0%}}@keyframes slideoutright{0%{transform:translateX(var(--percentuale));opacity:calc(100-var(--percentuale))}100%{transform:translateX(100%);opacity:0%}}@keyframes slideoutup{0%{transform:translateY(var(--percentuale));opacity:100%}100%{transform:translateY(-100%);opacity:0}}@keyframes slideoutdown{0%{transform:translateY(var(--percentuale));opacity:100%}100%{transform:translateY(100%);opacity:0}}:host>#external-container{font-family:var(--font-family-sans);font-weight:var(--font-rg);border-radius:4px;font-size:14px;letter-spacing:0.16px;box-sizing:border-box;min-height:52px;padding:calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-3)}:host>#external-container.mobile-wrapped>#icon{align-self:flex-start}:host>#external-container.several-lines-padding{padding:calc(var(--space-unit) * 2)}:host>#external-container>#flex-container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;width:100%}:host>#external-container #text{color:var(--color-white);line-height:20px;margin-right:calc(var(--space-unit) * 2);letter-spacing:0.16px;text-align:left}:host>#external-container #text>.title{margin-right:4px;font-weight:600}:host>#external-container.mobile-wrapped #button ::slotted(z-button){margin-top:calc(var(--space-unit) * 2)}:host>#external-container #icon{cursor:pointer;fill:var(--color-white);margin-left:calc(var(--space-unit) * 2)}:host>#external-container.dark{background:var(--gray800)}:host>#external-container.light{background:var(--color-background)}:host>#external-container.light #icon,:host>#external-container.warning #text,:host>#external-container.warning #icon{fill:var(--color-icon01)}:host>#external-container.light #text,:host>#external-container.warning #text{color:var(--grey800)}:host>#external-container.accent{background:var(--color-primary01)}:host>#external-container.error{background:var(--color-error-default)}:host>#external-container.success{background:var(--color-success-default)}:host>#external-container.warning{background:var(--color-warning-default)}@media only screen and (min-width: 768px){:host{width:unset;max-width:50vw}:host>#external-container>#flex-container{flex-wrap:nowrap}:host>#external-container #text{width:100%}}@media only screen and (min-width: 1366px){:host{width:unset;max-width:33vw}}";
+const stylesCss = ":host{display:inline-block;width:100vw;min-width:200px;--percentuale:0}:host(.slide-in-left){animation:slideinleft 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-right){animation:slideinright 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-down){animation:slideindown 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-in-up){animation:slideinup 1s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-left){animation:slideoutleft 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-right){animation:slideoutright 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-down){animation:slideoutdown 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}:host(.slide-out-up){animation:slideoutup 0.5s cubic-bezier(0.25, 0.1, 0.25, 0.1);animation-fill-mode:forwards}@keyframes slideinleft{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideinright{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}@keyframes slideinup{0%{opacity:0;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideindown{0%{opacity:0;transform:translateY(-100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideoutleft{0%{opacity:calc(100% - var(--percentuale));transform:translateX(var(--percentuale))}100%{opacity:0;transform:translateX(-100%)}}@keyframes slideoutright{0%{opacity:calc(100% - var(--percentuale));transform:translateX(var(--percentuale))}100%{opacity:0;transform:translateX(100%)}}@keyframes slideoutup{0%{opacity:1;transform:translateY(var(--percentuale))}100%{opacity:0;transform:translateY(-100%)}}@keyframes slideoutdown{0%{opacity:1;transform:translateY(var(--percentuale))}100%{opacity:0;transform:translateY(100%)}}:host>#external-container{display:flex;min-height:52px;box-sizing:border-box;align-items:center;justify-content:space-between;padding:calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);border-radius:4px;box-shadow:var(--shadow-3);font-family:var(--font-family-sans);font-size:14px;font-weight:var(--font-rg);letter-spacing:0.16px}:host>#external-container.mobile-wrapped>#icon{align-self:flex-start}:host>#external-container.several-lines-padding{padding:calc(var(--space-unit) * 2)}:host>#external-container>#flex-container{display:flex;width:100%;flex-wrap:wrap;align-items:center;justify-content:space-between}:host>#external-container #text{margin-right:calc(var(--space-unit) * 2);color:var(--color-white);letter-spacing:0.16px;line-height:20px;text-align:left}:host>#external-container #text>.title{margin-right:4px;font-weight:600}:host>#external-container.mobile-wrapped #button ::slotted(z-button){margin-top:calc(var(--space-unit) * 2)}:host>#external-container #icon{margin-left:calc(var(--space-unit) * 2);cursor:pointer;fill:var(--color-white)}:host>#external-container.dark{background:var(--gray800)}:host>#external-container.light{background:var(--color-background)}:host>#external-container.light #icon,:host>#external-container.warning #text,:host>#external-container.warning #icon{fill:var(--color-icon01)}:host>#external-container.light #text,:host>#external-container.warning #text{color:var(--gray800)}:host>#external-container.accent{background:var(--color-primary01)}:host>#external-container.error{background:var(--color-error-default)}:host>#external-container.success{background:var(--color-success-default)}:host>#external-container.warning{background:var(--color-warning-default)}@media only screen and (min-width: 768px){:host{width:unset;max-width:50vw}:host>#external-container>#flex-container{flex-wrap:nowrap}:host>#external-container #text{width:100%}}@media only screen and (min-width: 1366px){:host{width:unset;max-width:33vw}}";
 
 const ZToastNotification = class {
   constructor(hostRef) {
@@ -21,21 +21,13 @@ const ZToastNotification = class {
     /** toast notification draggable percentage*/
     this.draggablepercentage = 80;
     this.isCloseEventCalled = false;
-    this.visibilityChangeEventHandler = () => {
-      if (document.visibilityState === "hidden") {
-        this.timeoutHandle && this.onBlur();
-      }
-      else {
-        this.elapsedTime && this.onFocus();
-      }
-    };
   }
   watchPropIsdraggable(newValue) {
     if (newValue) {
-      this.sliderManager.get('pan').set({ enable: true });
+      this.sliderManager.get("pan").set({ enable: true });
     }
     else {
-      this.sliderManager.get('pan').set({ enable: false });
+      this.sliderManager.get("pan").set({ enable: false });
     }
   }
   watchPropAutoclose(newValue) {
@@ -61,6 +53,7 @@ const ZToastNotification = class {
   componentWillLoad() {
     this.isMobile = window.innerWidth <= breakpoints.mobileBreakpoint;
     this.validateAutoclose();
+    this.percentage = 0;
   }
   componentDidLoad() {
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
@@ -69,22 +62,30 @@ const ZToastNotification = class {
       document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
     }
     this.isdraggable && this.handleSlideOutDragAnimation();
-    this.percentage = 0;
+  }
+  visibilityChangeEventHandler() {
+    if (document.visibilityState === "hidden") {
+      this.timeoutHandle && this.onBlur();
+    }
+    else {
+      this.elapsedTime && this.onFocus();
+    }
   }
   validateAutoclose() {
-    if (!this.autoclose && !this.closebutton)
+    if (!this.autoclose && !this.closebutton) {
       console.error("At least one between autoclose and closebutton must be present");
+    }
   }
   mapSlideOutClass() {
     switch (this.transition) {
-      case index$1.ToastNotificationTransitionsEnum.slideInDown:
-        return index$1.ToastNotificationTransitionsEnum.slideOutUp;
-      case index$1.ToastNotificationTransitionsEnum.slideInUp:
-        return index$1.ToastNotificationTransitionsEnum.slideOutDown;
-      case index$1.ToastNotificationTransitionsEnum.slideInLeft:
-        return index$1.ToastNotificationTransitionsEnum.slideOutRight;
-      case index$1.ToastNotificationTransitionsEnum.slideInRight:
-        return index$1.ToastNotificationTransitionsEnum.slideOutLeft;
+      case index$1.ToastNotificationTransition.SLIDE_IN_DOWN:
+        return index$1.ToastNotificationTransition.SLIDE_OUT_UP;
+      case index$1.ToastNotificationTransition.SLIDE_IN_UP:
+        return index$1.ToastNotificationTransition.SLIDE_OUT_DOWN;
+      case index$1.ToastNotificationTransition.SLIDE_IN_LEFT:
+        return index$1.ToastNotificationTransition.SLIDE_OUT_RIGHT;
+      case index$1.ToastNotificationTransition.SLIDE_IN_RIGHT:
+        return index$1.ToastNotificationTransition.SLIDE_OUT_LEFT;
     }
   }
   calculateDraggedPercentage(e) {
@@ -101,32 +102,27 @@ const ZToastNotification = class {
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + this.percentage + "% )",
+        translate: `translateX(${this.percentage}%)`,
         translateBack: "translateX(0)",
       };
       this.hostElement.style.opacity = `${100 - Math.abs(this.percentage)}%`;
-      if (e.eventType === hammer.hammer.DIRECTION_LEFT ||
-        e.eventType === hammer.hammer.DIRECTION_RIGHT) {
+      if (e.eventType === hammer.hammer.DIRECTION_LEFT || e.eventType === hammer.hammer.DIRECTION_RIGHT) {
         this.hostElement.style.transform = translateObj.translate;
-        if (Math.abs(this.percentage) > this.draggablepercentage &&
-          !this.isCloseEventCalled) {
+        if (Math.abs(this.percentage) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
-          this.emitToastClose(e.direction === hammer.hammer.DIRECTION_LEFT
-            ? "slide-out-left"
-            : "slide-out-right");
+          this.emitToastClose(e.direction === hammer.hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right");
         }
       }
       if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage) {
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
-        this.hostElement.style.opacity = `100%`;
+        this.hostElement.style.opacity = "100%";
         this.percentage = 0;
       }
     });
   }
   onFocus() {
-    let time;
-    time = this.autoclose;
+    let time = this.autoclose;
     if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
@@ -139,7 +135,7 @@ const ZToastNotification = class {
     clearTimeout(this.timeoutHandle);
   }
   startClosingTimeout(time) {
-    this.timeoutHandle = setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
+    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
   }
   detectWrap() {
     const parentWidth = this.container.offsetWidth;
@@ -157,12 +153,15 @@ const ZToastNotification = class {
     return (index.h("div", { id: "button" }, index.h("slot", { name: "button" })));
   }
   renderCloseIcon() {
-    return (this.closebutton && (index.h("div", { id: "icon" }, index.h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
+    if (!this.closebutton) {
+      return;
+    }
+    return (index.h("div", { id: "icon" }, index.h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
         if (e.keyCode == 32 || e.keyCode == 13) {
           e.preventDefault();
           this.emitToastClose(this.mapSlideOutClass());
         }
-      } }))));
+      } })));
   }
   renderContainer() {
     return (index.h("div", { tabIndex: 0, id: "external-container", class: {
@@ -179,10 +178,8 @@ const ZToastNotification = class {
   }
   render() {
     return (index.h(index.Host, { style: {
-        ["--percentuale"]: `${this.percentage}%`,
-      }, class: this.transition
-        ? this.transition
-        : index$1.ToastNotificationTransitionsEnum.slideInDown, onAnimationEnd: (e) => {
+        "--percentuale": `${this.percentage}%`,
+      }, class: this.transition ? this.transition : index$1.ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
         if (this.autoclose && e.animationName.includes("slidein")) {
           this.startClosingTimeout(this.autoclose);
         }

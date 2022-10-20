@@ -1,5 +1,5 @@
 export declare class ZIcon {
-  /** icon name (choice between available icons) */
+  /** icon name */
   name: string;
   /** icon height (optional) */
   height?: number;
@@ -9,6 +9,6 @@ export declare class ZIcon {
   iconid?: string;
   /** icon fill (optional) */
   fill?: string;
-  selectPathOrPolygon(iconName: string): HTMLElement;
-  render(): any;
+  private selectPathOrPolygon;
+  render(): SVGElement;
 }

@@ -1,24 +1,24 @@
 :host {
   display: flex;
-  align-items: start;
   min-height: calc(var(--space-unit) * 2.5);
+  align-items: start;
   margin-top: var(--space-unit);
   color: var(--color-text05);
-  fill: currentColor;
+  fill: currentcolor;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
   letter-spacing: 0.16px;
 }
 
-:host([status='success']) {
+:host([status="success"]) {
   color: var(--color-text-success);
 }
 
-:host([status='error']) {
+:host([status="error"]) {
   color: var(--color-text-error);
 }
 
-:host([status='warning']) {
+:host([status="warning"]) {
   color: var(--color-warning02);
 }
 

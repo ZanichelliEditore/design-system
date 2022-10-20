@@ -1,4 +1,4 @@
-import { h } from '@stencil/core';
+import { h, Host } from "@stencil/core";
 /**
  * Notification bar component.
  * @slot - The text of the notification.
@@ -28,12 +28,7 @@ export class ZNotification {
   }
   render() {
     var _a;
-    return [
-      this.contenticonname && h("z-icon", { class: "status-icon", name: this.contenticonname, width: 16, height: 16 }),
-      h("div", { class: "content-container" }, h("div", { class: "content-text" }, h("slot", null)), !!((_a = this.actiontext) === null || _a === void 0 ? void 0 : _a.trim()) &&
-        h("button", { class: "action-button", type: "button", onClick: this.handleActionButtonClick }, this.actiontext)),
-      this.showclose && h("button", { class: "close-button", type: "button", onClick: this.handleCloseButtonClick }, h("z-icon", { name: "multiply-circle", width: 16, height: 16 }))
-    ];
+    return (h(Host, null, this.contenticonname && (h("z-icon", { class: "status-icon", name: this.contenticonname, width: 16, height: 16 })), h("div", { class: "content-container" }, h("div", { class: "content-text" }, h("slot", null)), !!((_a = this.actiontext) === null || _a === void 0 ? void 0 : _a.trim()) && (h("button", { class: "action-button", type: "button", onClick: this.handleActionButtonClick }, this.actiontext))), this.showclose && (h("button", { class: "close-button", type: "button", onClick: this.handleCloseButtonClick }, h("z-icon", { name: "multiply-circle", width: 16, height: 16 })))));
   }
   static get is() { return "z-notification"; }
   static get encapsulation() { return "shadow"; }
@@ -88,7 +83,7 @@ export class ZNotification {
         "mutable": false,
         "complexType": {
           "original": "NotificationType",
-          "resolved": "NotificationType.error | NotificationType.success | NotificationType.warning",
+          "resolved": "NotificationType.ERROR | NotificationType.SUCCESS | NotificationType.WARNING",
           "references": {
             "NotificationType": {
               "location": "import",

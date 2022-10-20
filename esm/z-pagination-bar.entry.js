@@ -1,11 +1,11 @@
 import { r as registerInstance, c as createEvent, h } from './index-a2ca4b97.js';
 import { h as hammer } from './hammer-c3266b17.js';
-import { h as handleKeyboardSubmit } from './utils-2c5dfb88.js';
+import { h as handleKeyboardSubmit } from './utils-39ca028c.js';
 import './_commonjsHelpers-9943807e.js';
-import './index-8390ddaf.js';
+import './index-9d028352.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss = ":host>div{height:48px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;align-content:center}:host>div>z-icon{cursor:pointer;margin:calc(var(--space-unit) * 2) 0;color:var(--color-primary01);fill:var(--color-primary01)}:host>div>z-icon.disabled{cursor:default;pointer-events:none;color:var(--color-disabled01);fill:var(--color-disabled01)}";
+const stylesCss = ":host>div{display:flex;height:48px;flex-flow:row nowrap;align-content:center;align-items:center;justify-content:space-around}:host>div>z-icon{margin:calc(var(--space-unit) * 2) 0;color:var(--color-primary01);cursor:pointer;fill:var(--color-primary01)}:host>div>z-icon.disabled{color:var(--color-disabled01);cursor:default;fill:var(--color-disabled01);pointer-events:none}";
 
 const ZPaginationBar = class {
   constructor(hostRef) {
@@ -27,7 +27,7 @@ const ZPaginationBar = class {
   }
   componentDidLoad() {
     this.scrollPage = this.scrollPage.bind(this);
-    let mc = new hammer(this.bar);
+    const mc = new hammer(this.bar);
     // listen to events...
     mc.on("swiperight", this.scrollPage);
     mc.on("swipeleft", this.scrollPage);
@@ -48,26 +48,18 @@ const ZPaginationBar = class {
     this.listhistoryrow = [...JSON.parse(historyraw)];
   }
   scrollPage(ev) {
-    let vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
+    const vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
       case "swiperight":
-        if (!this.canNavigateLeft())
-          break;
-        const newstartPage1 = this.startpage - deltaPage;
-        if (newstartPage1 > 1)
-          this.emitChangeStartPage(newstartPage1);
-        else
-          this.emitChangeStartPage(1);
+        if (this.canNavigateLeft()) {
+          this.emitChangeStartPage(Math.max(1, this.startpage - deltaPage));
+        }
         break;
       case "swipeleft":
-        if (!this.canNavigateRight())
-          break;
-        const newstartPage2 = this.startpage + deltaPage;
-        if (newstartPage2 < this.pages - this.visiblepages + 1)
-          this.emitChangeStartPage(newstartPage2);
-        else
-          this.emitChangeStartPage(this.pages - this.visiblepages + 1);
+        if (this.canNavigateRight()) {
+          this.emitChangeStartPage(Math.min(this.startpage + deltaPage, this.pages - this.visiblepages + 1));
+        }
         break;
     }
   }
@@ -79,10 +71,6 @@ const ZPaginationBar = class {
   emitChangeStartPage(startpage) {
     this.startpage = startpage;
     this.changeStartPage.emit({ startpage: startpage });
-  }
-  emitAddPageToHistory(page) {
-    this.listhistoryrow.push(page);
-    this.changeStartPage.emit({ page: page });
   }
   loadPages() {
     this.currentPages.splice(0);
@@ -116,7 +104,7 @@ const ZPaginationBar = class {
     }
   }
   render() {
-    return (h("div", { ref: el => (this.bar = el) }, h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map(page => (h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
+    return (h("div", { ref: (el) => (this.bar = el) }, h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map((page) => (h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
   }
 };
 ZPaginationBar.style = stylesCss;

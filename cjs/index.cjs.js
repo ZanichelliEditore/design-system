@@ -2,18 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-dfe717c7.js');
-const index = require('./index-745c0423.js');
+const utils = require('./utils-ce225fb3.js');
+const index = require('./index-199cd650.js');
 require('./breakpoints-88c4fd6c.js');
 
-const Utils = {
-  colorFromId: utils.colorFromId
+const UTILS = {
+  colorFromId: utils.colorFromId,
 };
 
-Object.defineProperty(exports, 'AlertTypesEnum', {
+Object.defineProperty(exports, 'AlertType', {
   enumerable: true,
   get: function () {
-    return index.AlertTypesEnum;
+    return index.AlertType;
   }
 });
 Object.defineProperty(exports, 'AvatarSize', {
@@ -22,28 +22,28 @@ Object.defineProperty(exports, 'AvatarSize', {
     return index.AvatarSize;
   }
 });
-Object.defineProperty(exports, 'ButtonSizeEnum', {
+Object.defineProperty(exports, 'ButtonSize', {
   enumerable: true,
   get: function () {
-    return index.ButtonSizeEnum;
+    return index.ButtonSize;
   }
 });
-Object.defineProperty(exports, 'ButtonTypeEnum', {
+Object.defineProperty(exports, 'ButtonType', {
   enumerable: true,
   get: function () {
-    return index.ButtonTypeEnum;
+    return index.ButtonType;
   }
 });
-Object.defineProperty(exports, 'ButtonVariantEnum', {
+Object.defineProperty(exports, 'ButtonVariant', {
   enumerable: true,
   get: function () {
-    return index.ButtonVariantEnum;
+    return index.ButtonVariant;
   }
 });
-Object.defineProperty(exports, 'CardVariants', {
+Object.defineProperty(exports, 'CardVariant', {
   enumerable: true,
   get: function () {
-    return index.CardVariants;
+    return index.CardVariant;
   }
 });
 Object.defineProperty(exports, 'CarouselArrowsPosition', {
@@ -70,10 +70,10 @@ Object.defineProperty(exports, 'CoverHeroVariant', {
     return index.CoverHeroVariant;
   }
 });
-Object.defineProperty(exports, 'DeviceEnum', {
+Object.defineProperty(exports, 'Device', {
   enumerable: true,
   get: function () {
-    return index.DeviceEnum;
+    return index.Device;
   }
 });
 Object.defineProperty(exports, 'DividerOrientation', {
@@ -106,46 +106,40 @@ Object.defineProperty(exports, 'InfoRevealPosition', {
     return index.InfoRevealPosition;
   }
 });
-Object.defineProperty(exports, 'InputStatusEnum', {
+Object.defineProperty(exports, 'InputStatus', {
   enumerable: true,
   get: function () {
-    return index.InputStatusEnum;
+    return index.InputStatus;
   }
 });
-Object.defineProperty(exports, 'InputTypeEnum', {
+Object.defineProperty(exports, 'InputType', {
   enumerable: true,
   get: function () {
-    return index.InputTypeEnum;
+    return index.InputType;
   }
 });
-Object.defineProperty(exports, 'KeyboardCodeEnum', {
+Object.defineProperty(exports, 'KeyboardCode', {
   enumerable: true,
   get: function () {
-    return index.KeyboardCodeEnum;
+    return index.KeyboardCode;
   }
 });
-Object.defineProperty(exports, 'KeyboardKeyCodeEnum', {
+Object.defineProperty(exports, 'KeyboardKeyCode', {
   enumerable: true,
   get: function () {
-    return index.KeyboardKeyCodeEnum;
+    return index.KeyboardKeyCode;
   }
 });
-Object.defineProperty(exports, 'KeyboardKeys', {
+Object.defineProperty(exports, 'LabelPosition', {
   enumerable: true,
   get: function () {
-    return index.KeyboardKeys;
+    return index.LabelPosition;
   }
 });
-Object.defineProperty(exports, 'LabelPositions', {
+Object.defineProperty(exports, 'LicenseType', {
   enumerable: true,
   get: function () {
-    return index.LabelPositions;
-  }
-});
-Object.defineProperty(exports, 'LicenseTypeEnum', {
-  enumerable: true,
-  get: function () {
-    return index.LicenseTypeEnum;
+    return index.LicenseType;
   }
 });
 Object.defineProperty(exports, 'ListDividerType', {
@@ -160,16 +154,16 @@ Object.defineProperty(exports, 'ListSize', {
     return index.ListSize;
   }
 });
-Object.defineProperty(exports, 'NavigationTabsOrientations', {
+Object.defineProperty(exports, 'NavigationTabsOrientation', {
   enumerable: true,
   get: function () {
-    return index.NavigationTabsOrientations;
+    return index.NavigationTabsOrientation;
   }
 });
-Object.defineProperty(exports, 'NavigationTabsSizes', {
+Object.defineProperty(exports, 'NavigationTabsSize', {
   enumerable: true,
   get: function () {
-    return index.NavigationTabsSizes;
+    return index.NavigationTabsSize;
   }
 });
 Object.defineProperty(exports, 'NotificationType', {
@@ -178,16 +172,16 @@ Object.defineProperty(exports, 'NotificationType', {
     return index.NotificationType;
   }
 });
-Object.defineProperty(exports, 'OffCanvasVariantsEnum', {
+Object.defineProperty(exports, 'OffCanvasVariant', {
   enumerable: true,
   get: function () {
-    return index.OffCanvasVariantsEnum;
+    return index.OffCanvasVariant;
   }
 });
-Object.defineProperty(exports, 'PocketStatusEnum', {
+Object.defineProperty(exports, 'PocketStatus', {
   enumerable: true,
   get: function () {
-    return index.PocketStatusEnum;
+    return index.PocketStatus;
   }
 });
 Object.defineProperty(exports, 'PopoverBorderRadius', {
@@ -220,10 +214,10 @@ Object.defineProperty(exports, 'Size', {
     return index.Size;
   }
 });
-Object.defineProperty(exports, 'SortDirectionEnum', {
+Object.defineProperty(exports, 'SortDirection', {
   enumerable: true,
   get: function () {
-    return index.SortDirectionEnum;
+    return index.SortDirection;
   }
 });
 Object.defineProperty(exports, 'StatusTagStatus', {
@@ -238,28 +232,28 @@ Object.defineProperty(exports, 'ThemeVariant', {
     return index.ThemeVariant;
   }
 });
-Object.defineProperty(exports, 'ToastNotificationEnum', {
+Object.defineProperty(exports, 'ToastNotification', {
   enumerable: true,
   get: function () {
-    return index.ToastNotificationEnum;
+    return index.ToastNotification;
   }
 });
-Object.defineProperty(exports, 'ToastNotificationPositionsEnum', {
+Object.defineProperty(exports, 'ToastNotificationPosition', {
   enumerable: true,
   get: function () {
-    return index.ToastNotificationPositionsEnum;
+    return index.ToastNotificationPosition;
   }
 });
-Object.defineProperty(exports, 'ToastNotificationTransitionsEnum', {
+Object.defineProperty(exports, 'ToastNotificationTransition', {
   enumerable: true,
   get: function () {
-    return index.ToastNotificationTransitionsEnum;
+    return index.ToastNotificationTransition;
   }
 });
-Object.defineProperty(exports, 'TransitionDirectionEnum', {
+Object.defineProperty(exports, 'TransitionDirection', {
   enumerable: true,
   get: function () {
-    return index.TransitionDirectionEnum;
+    return index.TransitionDirection;
   }
 });
 Object.defineProperty(exports, 'ZAriaAlertMode', {
@@ -280,10 +274,10 @@ Object.defineProperty(exports, 'ZDatePickerMode', {
     return index.ZDatePickerMode;
   }
 });
-Object.defineProperty(exports, 'ZDatePickerModeValues', {
+Object.defineProperty(exports, 'ZDatePickerModeValue', {
   enumerable: true,
   get: function () {
-    return index.ZDatePickerModeValues;
+    return index.ZDatePickerModeValue;
   }
 });
 Object.defineProperty(exports, 'ZDatePickerPosition', {
@@ -292,10 +286,10 @@ Object.defineProperty(exports, 'ZDatePickerPosition', {
     return index.ZDatePickerPosition;
   }
 });
-Object.defineProperty(exports, 'ZFileUploadTypeEnum', {
+Object.defineProperty(exports, 'ZFileUploadType', {
   enumerable: true,
   get: function () {
-    return index.ZFileUploadTypeEnum;
+    return index.ZFileUploadType;
   }
 });
 Object.defineProperty(exports, 'ZRangePickerMode', {
@@ -304,10 +298,10 @@ Object.defineProperty(exports, 'ZRangePickerMode', {
     return index.ZRangePickerMode;
   }
 });
-Object.defineProperty(exports, 'ZSectionTitleDividerPositions', {
+Object.defineProperty(exports, 'ZSectionTitleDividerPosition', {
   enumerable: true,
   get: function () {
-    return index.ZSectionTitleDividerPositions;
+    return index.ZSectionTitleDividerPosition;
   }
 });
 Object.defineProperty(exports, 'ZTableRowExpandedType', {
@@ -316,4 +310,4 @@ Object.defineProperty(exports, 'ZTableRowExpandedType', {
     return index.ZTableRowExpandedType;
   }
 });
-exports.Utils = Utils;
+exports.Utils = UTILS;

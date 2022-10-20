@@ -1,6 +1,14 @@
 import { h } from "@stencil/core";
-import { DeviceEnum } from "../../../beans";
+import { Device } from "../../../beans";
 import { getDevice, handleKeyboardSubmit, convertJson } from "../../../utils/utils";
+/**
+ * Check if data is an array of strings.
+ * @param {unknown} data Data to check
+ * @returns {boolean}
+ */
+function isStringArray(data) {
+  return Array.isArray(data) && data.every((datum) => typeof datum === "string");
+}
 /**
  * @slot footer-right - right content slot in footer
  * @slot footer-left - left content slot in footer
@@ -27,16 +35,24 @@ export class ZSlideshow {
   parseLinks() {
     var _a;
     switch (typeof this.data) {
-      case "string":
-        return (this.links = (_a = convertJson(this.data)) !== null && _a !== void 0 ? _a : []);
+      case "string": {
+        const parsed = (_a = convertJson(this.data)) !== null && _a !== void 0 ? _a : [];
+        if (!isStringArray(parsed)) {
+          throw new Error("Passed data is invalid");
+        }
+        this.links = parsed;
+        break;
+      }
       default:
-        return (this.links = this.data);
+        this.links = this.data;
+        break;
     }
   }
   setStyle() {
     const refSlides = this.el.shadowRoot.querySelector("#slides");
-    if (!refSlides)
+    if (!refSlides) {
       return;
+    }
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
     const width = this.el.offsetWidth;
     const fullwidth = width * this.links.length;
@@ -55,9 +71,9 @@ export class ZSlideshow {
   }
   getBulletDimension() {
     switch (this.device) {
-      case DeviceEnum.mobile:
+      case Device.MOBILE:
         return 24;
-      case DeviceEnum.tablet:
+      case Device.TABLET:
         return 32;
       default:
         return 40;
@@ -90,11 +106,12 @@ export class ZSlideshow {
     return (h("a", { class: `bullet ${this.currentSlide === i && "selected"}`, onClick: () => this.setCurrentSlide(i), onKeyUp: (e) => handleKeyboardSubmit(e, () => this.setCurrentSlide(i)), tabindex: 0, role: "button" }));
   }
   renderSlideshowFooter() {
-    return (h("footer", null, h("div", { class: "footerLeft" }, h("slot", { name: "footer-left" })), h("div", { class: "footerCenter" }, h("div", { class: "bulletContainer" }, Object.keys(this.links).map(i => this.renderBullet(parseInt(i))))), h("div", { class: "footerRight" }, h("slot", { name: "footer-right" }))));
+    return (h("footer", null, h("div", { class: "footer-left" }, h("slot", { name: "footer-left" })), h("div", { class: "footer-center" }, h("div", { class: "bullet-container" }, Object.keys(this.links).map((i) => this.renderBullet(parseInt(i))))), h("div", { class: "footer-right" }, h("slot", { name: "footer-right" }))));
   }
   render() {
-    if (!this.links || !this.links.length)
+    if (!this.links || !this.links.length) {
       return h("div", null);
+    }
     return (h("div", { id: this.slideshowid }, this.renderSlideshowMain(), this.renderSlideshowFooter()));
   }
   static get is() { return "z-slideshow"; }

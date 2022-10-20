@@ -11,32 +11,32 @@
 
 :host(:not(:last-child))::after {
   position: absolute;
-  top: calc(var(--space-unit) * 4);
-  left: calc(var(--space-unit) * 3);
-  right: calc(var(--space-unit) * 2);
   z-index: 1;
-  content: '';
+  top: calc(var(--space-unit) * 4);
+  right: calc(var(--space-unit) * 2);
+  left: calc(var(--space-unit) * 3);
   display: block;
   width: auto;
-  margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
   border-bottom: solid 2px var(--bg-grey-700);
+  margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
+  content: "";
 }
 
 .stepper-item {
   display: flex;
+  width: calc(var(--space-unit) * 5);
   flex-direction: column;
   align-items: center;
-  width: calc(var(--space-unit) * 5);
   padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
   color: inherit;
   font-family: inherit;
   font-size: 18px;
-  text-decoration: none;
   line-height: 28px;
-  background: transparent;
-  border: 0;
   outline: 0;
-  appearance: none;
+  text-decoration: none;
 }
 
 .stepper-item span {
@@ -49,43 +49,42 @@
   cursor: pointer;
 }
 
-
 :host([disabled]) .stepper-item {
   pointer-events: none;
 }
 
 .indicator {
-  content: counter(stepper);
-  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: calc(var(--space-unit) * 4);
   height: calc(var(--space-unit) * 4);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--myz-blue);
   margin: calc(var(--space-unit) * 2);
+  background: var(--bg-white);
+  border-radius: 50%;
+  color: var(--myz-blue);
+  content: counter(stepper);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 1;
-  color: var(--myz-blue);
-  background: var(--bg-white);
-  border: 2px solid var(--myz-blue);
-  border-radius: 50%;
 }
 
 :host([pressed]:not([disabled])) .indicator {
-  color: var(--text-white);
-  background: var(--myz-blue-dark);
   border-color: var(--myz-blue-dark);
+  background: var(--myz-blue-dark);
+  color: var(--text-white);
 }
 
 :host(:not([disabled]):focus-within) .indicator {
-  box-shadow: 0px 0px 2px 2px var(--accent-dark);
+  box-shadow: 0 0 2px 2px var(--accent-dark);
 }
 
 :host([disabled]) .indicator {
-  color: var(--text-grey-700);
+  border-color: currentcolor;
   background: var(--bg-grey-200);
-  border-color: currentColor;
+  color: var(--text-grey-700);
 }
 
 /* Tablet breakpoint */

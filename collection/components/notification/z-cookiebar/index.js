@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ButtonVariantEnum } from "../../../beans";
+import { ButtonVariant } from "../../../beans";
 export class ZCookiebar {
   emitAccept(ev) {
     this.accept.emit({ ev });
@@ -13,17 +13,16 @@ export class ZCookiebar {
   handleOkButtonKeyUp(ev) {
     this.emitAccept(ev);
     if (ev.code === "Enter") {
-      if (typeof this.callback !== "undefined" &&
-        typeof this.callback === "function") {
+      if (typeof this.callback !== "undefined" && typeof this.callback === "function") {
         this.callback();
       }
     }
   }
   renderContentSlot() {
-    return (h("div", { class: "content", slot: "content" }, h("div", null, h("h2", null, "Su questo sito usiamo i cookie."), h("div", null, h("p", null, "Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai \u00A0", h("a", { href: this.cookiepolicyurl, target: "_blank" }, "cookie"), "."))), h("z-button", { variant: ButtonVariantEnum.primary, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
+    return (h("div", { class: "content", slot: "content" }, h("div", null, h("h2", null, "Su questo sito usiamo i cookie."), h("div", null, h("p", null, "Se continui a navigare ci permetti di farlo secondo le regole spiegate nella nostra informativa sulla privacy relativa ai \u00A0", h("a", { href: this.cookiepolicyurl, target: "_blank" }, "cookie"), "."))), h("z-button", { variant: ButtonVariant.PRIMARY, onClick: (ev) => this.handleOkButtonClick(ev), onKeyUp: (ev) => this.handleOkButtonKeyUp(ev) }, "ACCETTA")));
   }
   render() {
-    return (h("z-candybar", { class: `${this.hide ? "hidden" : ""}` }, this.renderContentSlot()));
+    return h("z-candybar", { class: `${this.hide ? "hidden" : ""}` }, this.renderContentSlot());
   }
   static get is() { return "z-cookiebar"; }
   static get encapsulation() { return "shadow"; }
@@ -77,8 +76,8 @@ export class ZCookiebar {
         "type": "unknown",
         "mutable": false,
         "complexType": {
-          "original": "() => any",
-          "resolved": "() => any",
+          "original": "() => unknown",
+          "resolved": "() => unknown",
           "references": {}
         },
         "required": false,

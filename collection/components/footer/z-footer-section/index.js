@@ -7,7 +7,7 @@ export class ZFooterSection {
     this.isOpen = false;
   }
   renderToggleButton() {
-    return (h("button", { class: "toggleButton", onClick: () => (this.isOpen = !this.isOpen) }, h("z-icon", { name: this.isOpen ? "chevron-up" : "chevron-down", width: 16, height: 16 })));
+    return (h("button", { class: "toggle-button", onClick: () => (this.isOpen = !this.isOpen) }, h("z-icon", { name: this.isOpen ? "chevron-up" : "chevron-down", width: 16, height: 16 })));
   }
   render() {
     return (h("nav", null, h("div", { class: "header" }, h("h2", null, this.name), this.renderToggleButton()), h("div", { class: `content ${this.isOpen ? "show" : ""}` }, h("slot", null))));

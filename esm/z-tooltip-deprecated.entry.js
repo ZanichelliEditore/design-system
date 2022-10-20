@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { P as PopoverPositions } from './index-8390ddaf.js';
+import { P as PopoverPositions } from './index-9d028352.js';
 
-const stylesCss = ":host{--z-tooltip-theme--surface:var(--color-surface01);--z-tooltip-theme--text:var(--color-text01);--arrow-size:6px;--edge-offset:calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));position:relative;display:none;align-items:center;justify-content:center;padding:var(--space-unit);min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);color:var(--z-tooltip-theme--text);fill:currentColor;font-family:var(--font-family-sans);text-align:center;border-radius:var(--border-radius-small);background:var(--z-tooltip-theme--surface);filter:drop-shadow(0 4px 8px var(--shadow-color-base));will-change:filter}:host(.legacy){display:inline-flex;padding:calc(var(--space-unit) * 2);min-width:auto;min-height:auto;max-width:200px;font-style:italic;line-height:16px;letter-spacing:0.32px;font-size:12px;border:var(--border-size-small) solid var(--gray200);border-radius:var(--border-radius);filter:drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.08))}:host(.legacy)::before{--arrow-size:14px}:host([position])::before{--arrow-edge-offset:calc(100% - var(--arrow-size) - var(--space-unit));--arrow-center-x-offset:calc(50% - calc(var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - calc(var(--arrow-size) / 2));content:'';position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:inherit;transform:rotate(45deg)}:host([open][style*='top:']),:host([open][style*='inset:']){display:inline-flex}:host([position^='top']){margin-bottom:var(--space-unit)}:host([position='right']){margin-left:var(--space-unit)}:host([position='top_right']),:host([position='bottom_right']){margin-left:var(--edge-offset)}:host([position^='bottom']){margin-top:var(--space-unit)}:host([position='left']){margin-right:var(--space-unit)}:host([position='top_left']),:host([position='bottom_left']){margin-right:var(--edge-offset)}:host([position^='top'])::before{top:var(--arrow-center-y-offset)}:host([position^='bottom'])::before{bottom:var(--arrow-center-y-offset)}:host([position='top'])::before,:host([position='bottom'])::before{left:var(--arrow-center-x-offset)}:host([position='right'])::before,:host([position='left'])::before{top:var(--arrow-center-x-offset)}:host([position='right'])::before{right:var(--arrow-center-y-offset)}:host([position='top_right'])::before,:host([position='bottom_right'])::before{right:var(--arrow-edge-offset)}:host([position='left'])::before{left:var(--arrow-center-y-offset)}:host([position='top_left'])::before,:host([position='bottom_left'])::before{left:var(--arrow-edge-offset)}::slotted(*){flex:1 auto;overflow:auto}";
+const stylesCss = ":host{--z-tooltip-theme--surface:var(--color-surface01);--z-tooltip-theme--text:var(--color-text01);--arrow-size:6px;--edge-offset:calc(-1 * (var(--arrow-size) + calc(var(--space-unit) * 2)));position:relative;display:none;min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);align-items:center;justify-content:center;padding:var(--space-unit);background:var(--z-tooltip-theme--surface);border-radius:var(--border-radius-small);color:var(--z-tooltip-theme--text);fill:currentcolor;filter:drop-shadow(0 4px 8px var(--shadow-color-base));font-family:var(--font-family-sans);text-align:center;will-change:filter}:host(.legacy){display:inline-flex;min-width:auto;max-width:200px;min-height:auto;padding:calc(var(--space-unit) * 2);border:var(--border-size-small) solid var(--gray200);border-radius:var(--border-radius);filter:drop-shadow(0 0 2px rgb(0 0 0 / 8%));font-size:12px;font-style:italic;letter-spacing:0.32px;line-height:16px}:host(.legacy)::before{--arrow-size:14px}:host([position])::before{--arrow-edge-offset:calc(100% - var(--arrow-size) - var(--space-unit));--arrow-center-x-offset:calc(50% - calc(var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - calc(var(--arrow-size) / 2));position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:inherit;content:\"\";transform:rotate(45deg)}:host([open][style*=\"top:\"]),:host([open][style*=\"inset:\"]){display:inline-flex}:host([position^=\"top\"]){margin-bottom:var(--space-unit)}:host([position=\"right\"]){margin-left:var(--space-unit)}:host([position=\"top_right\"]),:host([position=\"bottom_right\"]){margin-left:var(--edge-offset)}:host([position^=\"bottom\"]){margin-top:var(--space-unit)}:host([position=\"left\"]){margin-right:var(--space-unit)}:host([position=\"top_left\"]),:host([position=\"bottom_left\"]){margin-right:var(--edge-offset)}:host([position^=\"top\"])::before{top:var(--arrow-center-y-offset)}:host([position^=\"bottom\"])::before{bottom:var(--arrow-center-y-offset)}:host([position=\"top\"])::before,:host([position=\"bottom\"])::before{left:var(--arrow-center-x-offset)}:host([position=\"right\"])::before,:host([position=\"left\"])::before{top:var(--arrow-center-x-offset)}:host([position=\"right\"])::before{right:var(--arrow-center-y-offset)}:host([position=\"top_right\"])::before,:host([position=\"bottom_right\"])::before{right:var(--arrow-edge-offset)}:host([position=\"left\"])::before{left:var(--arrow-center-y-offset)}:host([position=\"top_left\"])::before,:host([position=\"bottom_left\"])::before{left:var(--arrow-edge-offset)}::slotted(*){overflow:auto;flex:1 auto}";
 
-const documentElement = document.documentElement;
+const DOCUMENT_ELEMENT = document.documentElement;
 /**
  * Find the closest scrollable parent of a node.
  *
@@ -11,20 +11,18 @@ const documentElement = document.documentElement;
  */
 function findScrollableParent(element) {
   let parent = element.parentNode;
-  while (parent && parent !== documentElement) {
+  while (parent && parent !== DOCUMENT_ELEMENT) {
     const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
-    if (overflow === 'hidden' ||
-      overflowY === 'hidden' ||
-      overflowX === 'hidden') {
+    if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
       return parent;
     }
-    if ((parent.scrollHeight > parent.clientHeight && overflow !== 'visible' && overflowY !== 'visible') ||
-      (parent.scrollWidth > parent.clientWidth && overflow !== 'visible' && overflowX !== 'visible')) {
+    if ((parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible")) {
       return parent;
     }
     parent = parent.parentNode;
   }
-  return documentElement;
+  return DOCUMENT_ELEMENT;
 }
 /**
  * Calculate computed offset.
@@ -85,18 +83,15 @@ const ZTooltipDeprecated = class {
     registerInstance(this, hostRef);
     this.positionChange = createEvent(this, "positionChange", 7);
     /** Tooltip position. */
-    this.type = PopoverPositions.auto;
+    this.type = PopoverPositions.AUTO;
     /**
      * The open state of the tooltip.
      */
     this.open = false;
   }
   validateType(newValue) {
-    if (newValue &&
-      Object
-        .values(PopoverPositions)
-        .every((position) => newValue !== position)) {
-      this.type = PopoverPositions.auto;
+    if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
+      this.type = PopoverPositions.AUTO;
     }
   }
   onPositionChange() {
@@ -150,7 +145,9 @@ const ZTooltipDeprecated = class {
     const scrollContainer = findScrollableParent(element);
     const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
     const offsetContainer = this.host.offsetParent;
-    const relativeBoundingRect = offsetContainer ? computeOffset(offsetContainer, scrollContainer) : { top: 0, right: 0, bottom: 0, left: 0 };
+    const relativeBoundingRect = offsetContainer
+      ? computeOffset(offsetContainer, scrollContainer)
+      : { top: 0, right: 0, bottom: 0, left: 0 };
     const boundingRect = computeOffset(element, scrollContainer);
     const top = boundingRect.top - scrollContainer.scrollTop;
     const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height) + scrollContainer.scrollTop;
@@ -165,29 +162,29 @@ const ZTooltipDeprecated = class {
     const availableHeight = availableTop + availableBottom + boundingRect.height;
     const availableWidth = availableLeft + availableRight + boundingRect.width;
     let position = this.type;
-    if (position === PopoverPositions.auto) {
+    if (position === PopoverPositions.AUTO) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
       const positions = [];
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(PopoverPositions.top);
+        positions.unshift(PopoverPositions.TOP);
       }
       else if (availableTop / availableHeight > 0.6) {
-        positions.push(PopoverPositions.top);
+        positions.push(PopoverPositions.TOP);
       }
       else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(PopoverPositions.bottom);
+        positions.unshift(PopoverPositions.BOTTOM);
       }
       else {
-        positions.push(PopoverPositions.bottom);
+        positions.push(PopoverPositions.BOTTOM);
       }
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(PopoverPositions.left);
+        positions.push(PopoverPositions.LEFT);
       }
       else if (availableLeft / availableWidth < 0.4) {
-        positions.push(PopoverPositions.right);
+        positions.push(PopoverPositions.RIGHT);
       }
       position = positions.join("_");
     }
@@ -199,46 +196,38 @@ const ZTooltipDeprecated = class {
     const offsetRight = boundingRect.right - relativeBoundingRect.right;
     const offsetBottom = boundingRect.bottom - relativeBoundingRect.bottom;
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
-    if (position === PopoverPositions.top ||
-      position === PopoverPositions.top_right ||
-      position === PopoverPositions.top_left) {
+    if (position === PopoverPositions.TOP ||
+      position === PopoverPositions.TOP_RIGHT ||
+      position === PopoverPositions.TOP_LEFT) {
       style.top = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
     }
-    if (position === PopoverPositions.bottom ||
-      position === PopoverPositions.bottom_right ||
-      position === PopoverPositions.bottom_left) {
+    if (position === PopoverPositions.BOTTOM ||
+      position === PopoverPositions.BOTTOM_RIGHT ||
+      position === PopoverPositions.BOTTOM_LEFT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.top ||
-      position === PopoverPositions.bottom) {
-      style.left = `${offsetLeft +
-        (boundingRect.width / 2) -
-        (this.host.clientWidth / 2)}px`;
+    if (position === PopoverPositions.TOP || position === PopoverPositions.BOTTOM) {
+      style.left = `${offsetLeft + boundingRect.width / 2 - this.host.clientWidth / 2}px`;
     }
-    if (position === PopoverPositions.top_right ||
-      position === PopoverPositions.bottom_right) {
+    if (position === PopoverPositions.TOP_RIGHT || position === PopoverPositions.BOTTOM_RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.top_left ||
-      position === PopoverPositions.bottom_left) {
+    if (position === PopoverPositions.TOP_LEFT || position === PopoverPositions.BOTTOM_LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.right ||
-      position === PopoverPositions.left) {
-      style.top = `${offsetTop +
-        (boundingRect.height / 2) -
-        (this.host.clientHeight / 2)}px`;
+    if (position === PopoverPositions.RIGHT || position === PopoverPositions.LEFT) {
+      style.top = `${offsetTop + boundingRect.height / 2 - this.host.clientHeight / 2}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.right) {
+    if (position === PopoverPositions.RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.left) {
+    if (position === PopoverPositions.LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }

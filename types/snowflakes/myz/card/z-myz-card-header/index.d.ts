@@ -1,4 +1,4 @@
-import { LicenseTypeEnum } from "../../../../beans/index";
+import { LicenseType } from "../../../../beans/index";
 /**
  * @slot icon - card header icon slot
  */
@@ -8,17 +8,12 @@ export declare class ZMyzCardHeader {
   /** faded status */
   faded: boolean;
   /** card graphic variant (optional) */
-  cardtype?: LicenseTypeEnum;
+  cardtype?: LicenseType;
   allowTooltip: boolean;
   private ellipsis?;
-  getTitle(): string;
+  private getTitle;
   componentDidLoad(): void;
-  elementHasEllipsis(): boolean;
-  retrieveClass(): {
-    real: boolean;
-    trial: boolean;
-    temp: boolean;
-    faded: boolean;
-  };
-  render(): any;
+  private elementHasEllipsis;
+  private retrieveClass;
+  render(): HTMLElement;
 }

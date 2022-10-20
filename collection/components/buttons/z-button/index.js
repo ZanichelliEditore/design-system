@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ButtonVariantEnum, ButtonTypeEnum, ButtonSizeEnum, } from "../../../beans";
+import { ButtonVariant, ButtonType, ButtonSize } from "../../../beans";
 /**
  * @slot - button label
  */
@@ -8,27 +8,26 @@ export class ZButton {
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */
-    this.type = ButtonTypeEnum.button;
+    this.type = ButtonType.BUTTON;
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
-    this.variant = ButtonVariantEnum.primary;
+    this.variant = ButtonVariant.PRIMARY;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = ButtonSizeEnum.big;
+    this.size = ButtonSize.BIG;
   }
   getAttributes() {
     return {
       id: this.htmlid,
-      "aria-label": this.ariaLabel,
       class: {
         "z-button--container": true,
-        "z-button--has-text": !!this.hostElement.textContent.trim()
-      }
+        "z-button--has-text": !!this.hostElement.textContent.trim(),
+      },
     };
   }
   render() {
     if (this.href) {
-      return (h("a", Object.assign({}, this.getAttributes(), { href: this.href, target: this.target }), this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
+      return (h("a", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, href: this.href, target: this.target }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
     }
-    return (h("button", Object.assign({}, this.getAttributes(), { name: this.name, type: this.type, disabled: this.disabled }), this.icon && h("z-icon", { name: this.icon, width: 16, height: 16 }), h("slot", null)));
+    return (h("button", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, name: this.name, type: this.type, disabled: this.disabled }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
   }
   static get is() { return "z-button"; }
   static get encapsulation() { return "scoped"; }
@@ -151,11 +150,12 @@ export class ZButton {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "HTMLButtonElement[\"type\"]",
-          "resolved": "string",
+          "original": "ButtonType",
+          "resolved": "ButtonType.BUTTON | ButtonType.RESET | ButtonType.SUBMIT",
           "references": {
-            "HTMLButtonElement": {
-              "location": "global"
+            "ButtonType": {
+              "location": "import",
+              "path": "../../../beans"
             }
           }
         },
@@ -167,16 +167,16 @@ export class ZButton {
         },
         "attribute": "type",
         "reflect": false,
-        "defaultValue": "ButtonTypeEnum.button"
+        "defaultValue": "ButtonType.BUTTON"
       },
       "variant": {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ButtonVariantBean",
-          "resolved": "(typeof ButtonVariantEnum)[\"dark-bg\"] | ButtonVariantEnum.primary | ButtonVariantEnum.secondary | ButtonVariantEnum.tertiary",
+          "original": "ButtonVariant",
+          "resolved": "ButtonVariant.DARK_BG | ButtonVariant.PRIMARY | ButtonVariant.SECONDARY | ButtonVariant.TERTIARY",
           "references": {
-            "ButtonVariantBean": {
+            "ButtonVariant": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -190,7 +190,7 @@ export class ZButton {
         },
         "attribute": "variant",
         "reflect": true,
-        "defaultValue": "ButtonVariantEnum.primary"
+        "defaultValue": "ButtonVariant.PRIMARY"
       },
       "icon": {
         "type": "string",
@@ -213,10 +213,10 @@ export class ZButton {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ButtonSizeEnum",
-          "resolved": "(typeof ButtonSizeEnum)[\"x-small\"] | ButtonSizeEnum.big | ButtonSizeEnum.small",
+          "original": "ButtonSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
           "references": {
-            "ButtonSizeEnum": {
+            "ButtonSize": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -230,7 +230,7 @@ export class ZButton {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ButtonSizeEnum.big"
+        "defaultValue": "ButtonSize.BIG"
       }
     };
   }

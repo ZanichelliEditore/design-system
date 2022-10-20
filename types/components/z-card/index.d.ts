@@ -1,19 +1,20 @@
-import { EventEmitter } from '../../stencil-public-runtime';
-import { CardVariants } from '../../beans';
+import { EventEmitter } from "../../stencil-public-runtime";
+import { HostElement } from "../../stencil-public-runtime";
+import { CardVariant } from "../../beans";
 export declare class ZCard {
   /**
    * Card variant.
    * Can be one of "text", "border", "shadow", "overlay".
    * Leave it undefined for the default card.
    */
-  variant: CardVariants;
+  variant: CardVariant;
   /** Name of the icon to place over the image cover */
   coverIcon: string;
   /** Enable click interactions on the card. Default: false */
   clickable: boolean;
   /** Enable shadow. Default: false. */
   showshadow: boolean;
-  host: HTMLElement;
+  host: HTMLZCardElement;
   hasCoverImage: boolean;
   /**
    * Card click event.
@@ -28,8 +29,8 @@ export declare class ZCard {
    */
   private renderColorCoverCard;
   /**
-  * Template for the content div.
-  */
+   * Template for the content div.
+   */
   private renderContentDiv;
-  render(): any;
+  render(): HostElement;
 }

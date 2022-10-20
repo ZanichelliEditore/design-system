@@ -3,5 +3,5 @@
  * @slot cta - message CTAs
  */
 export declare class ZPocketMessage {
-  render(): any;
+  render(): HTMLDivElement;
 }

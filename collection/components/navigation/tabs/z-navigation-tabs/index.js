@@ -1,5 +1,5 @@
-import { h, Host } from '@stencil/core';
-import { NavigationTabsSizes, NavigationTabsOrientations } from '../../../../beans';
+import { h, Host } from "@stencil/core";
+import { NavigationTabsSize, NavigationTabsOrientation } from "../../../../beans";
 /**
  * Navigation tabs component.
  * @slot - Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children.
@@ -9,23 +9,23 @@ export class ZNavigationTabs {
     /**
      * Navigation tabs orientation.
      */
-    this.orientation = NavigationTabsOrientations.horizontal;
+    this.orientation = NavigationTabsOrientation.HORIZONTAL;
     /**
      * Navigation tabs size.
      */
-    this.size = NavigationTabsSizes.big;
+    this.size = NavigationTabsSize.BIG;
   }
   /**
    * Getter for the direction to check based on current orientation.
    */
   get direction() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Left' : 'Top';
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Left" : "Top";
   }
   /**
    * Getter for the dimension to check based on current orientation.
    */
   get dimension() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Width' : 'Height';
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Width" : "Height";
   }
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
@@ -33,7 +33,7 @@ export class ZNavigationTabs {
   setChildrenSize() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('size', this.size);
+      child.setAttribute("size", this.size);
     });
   }
   /**
@@ -42,7 +42,7 @@ export class ZNavigationTabs {
   setChildrenOrientation() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('orientation', this.orientation);
+      child.setAttribute("orientation", this.orientation);
     });
   }
   /**
@@ -61,8 +61,9 @@ export class ZNavigationTabs {
     if (!this.tabsNav) {
       return;
     }
-    this.canNavigateNext = (this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`]) <
-      this.tabsNav[`scroll${this.dimension}`];
+    this.canNavigateNext =
+      this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] <
+        this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
   /**
@@ -76,7 +77,7 @@ export class ZNavigationTabs {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       if (child !== tab) {
-        child.removeAttribute('selected');
+        child.removeAttribute("selected");
       }
     });
   }
@@ -85,8 +86,8 @@ export class ZNavigationTabs {
    */
   navigateBackwards() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 - (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
   /**
@@ -94,9 +95,8 @@ export class ZNavigationTabs {
    */
   navigateForward() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] +
-        (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
   componentDidRender() {
@@ -105,10 +105,10 @@ export class ZNavigationTabs {
     this.checkScrollVisible();
   }
   render() {
-    return h(Host, { class: {
-        'interactive-2': this.size === NavigationTabsSizes.small,
-        'interactive-1': this.size !== NavigationTabsSizes.small
-      }, scrollable: this.canNavigate }, this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })), h("nav", { role: "tablist", ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) }, h("slot", null)), this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
+    return (h(Host, { class: {
+        "interactive-2": this.size === NavigationTabsSize.SMALL,
+        "interactive-1": this.size !== NavigationTabsSize.SMALL,
+      }, scrollable: this.canNavigate }, this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), h("nav", { role: "tablist", ref: (el) => (this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav), onScroll: this.checkScrollEnabled.bind(this) }, h("slot", null)), this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
   }
   static get is() { return "z-navigation-tabs"; }
   static get encapsulation() { return "shadow"; }
@@ -129,13 +129,8 @@ export class ZNavigationTabs {
         "mutable": false,
         "complexType": {
           "original": "NavigationTabsOrientation",
-          "resolved": "\"horizontal\" | \"vertical\"",
-          "references": {
-            "NavigationTabsOrientation": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "resolved": "NavigationTabsOrientation.HORIZONTAL | NavigationTabsOrientation.VERTICAL",
+          "references": {}
         },
         "required": false,
         "optional": true,
@@ -145,20 +140,15 @@ export class ZNavigationTabs {
         },
         "attribute": "orientation",
         "reflect": true,
-        "defaultValue": "NavigationTabsOrientations.horizontal"
+        "defaultValue": "NavigationTabsOrientation.HORIZONTAL"
       },
       "size": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "NavigationTabsSize",
-          "resolved": "\"big\" | \"small\"",
-          "references": {
-            "NavigationTabsSize": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "resolved": "NavigationTabsSize.BIG | NavigationTabsSize.SMALL",
+          "references": {}
         },
         "required": false,
         "optional": true,
@@ -168,7 +158,7 @@ export class ZNavigationTabs {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "NavigationTabsSizes.big"
+        "defaultValue": "NavigationTabsSize.BIG"
       }
     };
   }

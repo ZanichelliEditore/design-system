@@ -5,16 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { AlertTypes, LicenseTypeEnum, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSizeEnum, ButtonVariantBean, ButtonVariantEnum, CardVariants, CarouselArrowsPosition, CarouselProgressMode, ComboItemBean, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPositionBean, InputStatusBean, InputTypeBean, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariantsEnum, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositionBean, PopoverPositions, PopoverShadow, SelectItemBean, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ThemeVariantBean, ToastNotificationPositionsTypes, ToastNotificationTransitionTypes, ToastNotificationTypes, TransitionDirectionEnum, ZChipType, ZDatePickerMode, ZFileUploadTypeEnum, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
-import { ListItemBean } from "./beans/index.js";
+import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
     interface ZAlert {
         /**
           * alert variant type
          */
-        "type": AlertTypes;
+        "type": AlertType;
     }
     interface ZAppHeader {
         /**
@@ -24,7 +24,7 @@ export namespace Components {
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow": 'auto'|'stack'|'offcanvas';
+        "flow": "auto" | "stack" | "offcanvas";
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -42,7 +42,7 @@ export namespace Components {
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
     }
     interface ZAppTopbar {
         /**
@@ -67,7 +67,10 @@ export namespace Components {
         "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
-        "mode": string;
+        /**
+          * Aria live mode
+         */
+        "mode": ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
@@ -92,8 +95,17 @@ export namespace Components {
         "textColor"?: string;
     }
     interface ZBody {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component": string;
+        /**
+          * Typography level
+         */
         "level": 1 | 2 | 3 | 4 | 5;
+        /**
+          * Font weight variant
+         */
         "variant": "regular" | "semibold";
     }
     interface ZButton {
@@ -124,7 +136,7 @@ export namespace Components {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSizeEnum;
+        "size"?: ButtonSize;
         /**
           * HTML a target attribute.
          */
@@ -132,11 +144,11 @@ export namespace Components {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariant;
     }
     interface ZButtonDeprecated {
         /**
@@ -163,7 +175,7 @@ export namespace Components {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSizeEnum;
+        "size"?: ButtonSize;
         /**
           * Spy to render square button.
          */
@@ -171,11 +183,11 @@ export namespace Components {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariant;
     }
     interface ZButtonFilter {
         /**
@@ -251,7 +263,7 @@ export namespace Components {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant": CardVariants;
+        "variant": CardVariant;
     }
     interface ZCarousel {
         /**
@@ -298,7 +310,13 @@ export namespace Components {
         "type"?: ZChipType;
     }
     interface ZChipDeprecated {
+        /**
+          * Text with bold font weight
+         */
         "boldtext"?: number;
+        /**
+          * Text with regular font weight
+         */
         "regulartext"?: string;
     }
     interface ZCombobox {
@@ -333,7 +351,7 @@ export namespace Components {
         /**
           * list items array
          */
-        "items": ComboItemBean[] | string;
+        "items": ComboItem[] | string;
         /**
           * label text
          */
@@ -381,7 +399,7 @@ export namespace Components {
         /**
           * callback to handle ok button action (optional)
          */
-        "callback"?: () => any;
+        "callback"?: () => unknown;
         /**
           * cookie policy link url
          */
@@ -439,7 +457,10 @@ export namespace Components {
         /**
           * File name
          */
-        "fileName": any;
+        "fileName": string;
+        /**
+          * File chip id
+         */
         "fileNumber": number;
     }
     interface ZFileUpload {
@@ -450,7 +471,7 @@ export namespace Components {
         /**
           * Prop indicating the button variant
          */
-        "buttonVariant"?: ButtonVariantEnum;
+        "buttonVariant"?: ButtonVariant;
         /**
           * Description
          */
@@ -470,7 +491,7 @@ export namespace Components {
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
-        "type": ZFileUploadTypeEnum;
+        "type": ZFileUploadType;
     }
     interface ZFooter {
         /**
@@ -527,8 +548,17 @@ export namespace Components {
     interface ZGhostLoading {
     }
     interface ZHeading {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component": string;
+        /**
+          * Typography level
+         */
         "level": 1 | 2 | 3 | 4;
+        /**
+          * Font weight variant
+         */
         "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -545,7 +575,7 @@ export namespace Components {
          */
         "iconid"?: string;
         /**
-          * icon name (choice between available icons)
+          * icon name
          */
         "name": string;
         /**
@@ -574,7 +604,10 @@ export namespace Components {
           * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
-        "position"?: InfoRevealPositionBean;
+        /**
+          * Info reveal's position
+         */
+        "position"?: InfoRevealPosition;
     }
     interface ZInput {
         /**
@@ -656,7 +689,7 @@ export namespace Components {
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
         /**
           * step number value (optional): available for number
          */
@@ -664,7 +697,7 @@ export namespace Components {
         /**
           * input types
          */
-        "type": InputTypeBean;
+        "type": InputType;
         /**
           * the input value
          */
@@ -718,7 +751,7 @@ export namespace Components {
         /**
           * items (optional): available for select
          */
-        "items"?: SelectItemBean[] | string;
+        "items"?: SelectItem[] | string;
         /**
           * the input label
          */
@@ -758,11 +791,11 @@ export namespace Components {
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
         /**
           * input types
          */
-        "type": InputTypeBean;
+        "type": InputType;
         /**
           * timeout setting before trigger `inputChange` event (optional): available for text, textarea
          */
@@ -794,7 +827,7 @@ export namespace Components {
         /**
           * input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZLink {
         /**
@@ -840,7 +873,7 @@ export namespace Components {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        "textcolor"?: "primary" | "inverse" | "white" | "black";
         /**
           * draw underline on text (optional)
          */
@@ -893,6 +926,9 @@ export namespace Components {
           * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
+        /**
+          * [optional] List element id.
+         */
         "listElementId"?: number;
         /**
           * [optional] Sets size of inside elements.
@@ -974,6 +1010,9 @@ export namespace Components {
         "nomeutente": string;
     }
     interface ZMenuSection {
+        /**
+          * Active state
+         */
         "active"?: boolean;
     }
     interface ZMessagesPocket {
@@ -1028,13 +1067,13 @@ export namespace Components {
         /**
           * Username/password input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZMyzCard {
         /**
           * graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * faded status
          */
@@ -1120,7 +1159,7 @@ export namespace Components {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * display footer custom slotted content
          */
@@ -1148,7 +1187,7 @@ export namespace Components {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * faded status
          */
@@ -1196,7 +1235,7 @@ export namespace Components {
         /**
           * list item data (mutable, optional)
          */
-        "list"?: ListItemBean[];
+        "list"?: ListItem[];
     }
     interface ZMyzListItem {
         /**
@@ -1379,16 +1418,25 @@ export namespace Components {
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
-        "transitiondirection"?: TransitionDirectionEnum;
+        "transitiondirection"?: TransitionDirection;
         /**
           * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
-        "variant"?: OffCanvasVariantsEnum;
+        "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
+        /**
+          * Input number
+         */
         "inputNum"?: number;
+        /**
+          * Input message
+         */
         "message"?: string;
-        "status"?: InputStatusBean;
+        /**
+          * Input status
+         */
+        "status"?: InputStatus;
     }
     interface ZPagination {
         /**
@@ -1484,7 +1532,7 @@ export namespace Components {
         /**
           * name of slot container (optional)
          */
-        "descr_slot_name"?: string;
+        "descrSlotName"?: string;
         /**
           * html element id (optional)
          */
@@ -1574,7 +1622,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositionBean;
+        "position": PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -1658,7 +1706,7 @@ export namespace Components {
         /**
           * get the input selected options
          */
-        "getSelectedItem": () => Promise<SelectItemBean>;
+        "getSelectedItem": () => Promise<SelectItem>;
         /**
           * get the input value
          */
@@ -1674,7 +1722,7 @@ export namespace Components {
         /**
           * the input select options
          */
-        "items": SelectItemBean[] | string;
+        "items": SelectItem[] | string;
         /**
           * the input label
          */
@@ -1706,7 +1754,7 @@ export namespace Components {
         /**
           * the input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZSkipToContent {
         /**
@@ -1869,6 +1917,9 @@ export namespace Components {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+        /**
+          * Sort direction
+         */
         "sortDirection": SortDirection;
         /**
           * [Optional] Make the header sortable
@@ -1876,9 +1927,15 @@ export namespace Components {
         "sortable"?: boolean;
     }
     interface ZTableHeaderRow {
+        /**
+          * Row expandable flag
+         */
         "expandable"?: boolean;
     }
     interface ZTableRow {
+        /**
+          * Table row expanded type
+         */
         "expandedType": ZTableRowExpandedType;
     }
     interface ZTableStickyFooter {
@@ -1925,11 +1982,11 @@ export namespace Components {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitionTypes;
+        "transition"?: ToastNotificationTransition;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
-        "type"?: ToastNotificationTypes;
+        "type"?: ToastNotification;
     }
     interface ZToastNotificationList {
         /**
@@ -1939,7 +1996,7 @@ export namespace Components {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position": ToastNotificationPositionsTypes;
+        "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
@@ -1960,9 +2017,21 @@ export namespace Components {
         "opened"?: boolean;
     }
     interface ZToggleSwitch {
+        /**
+          * Checked state
+         */
         "checked"?: boolean;
+        /**
+          * Disabled flag
+         */
         "disabled"?: boolean;
+        /**
+          * HTML id attribute to set to the internal checkbox
+         */
         "htmlid": string;
+        /**
+          * Label position
+         */
         "labelPosition"?: LabelPosition;
     }
     interface ZTooltip {
@@ -2003,8 +2072,17 @@ export namespace Components {
         "type": PopoverPositions1;
     }
     interface ZTypography {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component": string;
+        /**
+          * Typography level
+         */
         "level": ZTypographyLevels;
+        /**
+          * Font weight variant
+         */
         "variant": "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {
@@ -3000,7 +3078,7 @@ declare namespace LocalJSX {
         /**
           * alert variant type
          */
-        "type"?: AlertTypes;
+        "type"?: AlertType;
     }
     interface ZAppHeader {
         /**
@@ -3010,7 +3088,7 @@ declare namespace LocalJSX {
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
          */
-        "flow"?: 'auto'|'stack'|'offcanvas';
+        "flow"?: "auto" | "stack" | "offcanvas";
         /**
           * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
          */
@@ -3036,7 +3114,7 @@ declare namespace LocalJSX {
         /**
           * theme variant, default 'dark'
          */
-        "theme"?: ThemeVariantBean;
+        "theme"?: ThemeVariant;
     }
     interface ZAppTopbar {
         /**
@@ -3061,7 +3139,10 @@ declare namespace LocalJSX {
         "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
-        "mode"?: string;
+        /**
+          * Aria live mode
+         */
+        "mode"?: ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
@@ -3086,8 +3167,17 @@ declare namespace LocalJSX {
         "textColor"?: string;
     }
     interface ZBody {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component"?: string;
+        /**
+          * Typography level
+         */
         "level"?: 1 | 2 | 3 | 4 | 5;
+        /**
+          * Font weight variant
+         */
         "variant"?: "regular" | "semibold";
     }
     interface ZButton {
@@ -3118,7 +3208,7 @@ declare namespace LocalJSX {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSizeEnum;
+        "size"?: ButtonSize;
         /**
           * HTML a target attribute.
          */
@@ -3126,11 +3216,11 @@ declare namespace LocalJSX {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariant;
     }
     interface ZButtonDeprecated {
         /**
@@ -3157,7 +3247,7 @@ declare namespace LocalJSX {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSizeEnum;
+        "size"?: ButtonSize;
         /**
           * Spy to render square button.
          */
@@ -3165,11 +3255,11 @@ declare namespace LocalJSX {
         /**
           * HTML button type attribute.
          */
-        "type"?: HTMLButtonElement["type"];
+        "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
-        "variant"?: ButtonVariantBean;
+        "variant"?: ButtonVariant;
     }
     interface ZButtonFilter {
         /**
@@ -3257,7 +3347,7 @@ declare namespace LocalJSX {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant"?: CardVariants;
+        "variant"?: CardVariant;
     }
     interface ZCarousel {
         /**
@@ -3312,7 +3402,13 @@ declare namespace LocalJSX {
         "type"?: ZChipType;
     }
     interface ZChipDeprecated {
+        /**
+          * Text with bold font weight
+         */
         "boldtext"?: number;
+        /**
+          * Text with regular font weight
+         */
         "regulartext"?: string;
     }
     interface ZCombobox {
@@ -3347,7 +3443,7 @@ declare namespace LocalJSX {
         /**
           * list items array
          */
-        "items"?: ComboItemBean[] | string;
+        "items"?: ComboItem[] | string;
         /**
           * label text
          */
@@ -3403,7 +3499,7 @@ declare namespace LocalJSX {
         /**
           * callback to handle ok button action (optional)
          */
-        "callback"?: () => any;
+        "callback"?: () => unknown;
         /**
           * cookie policy link url
          */
@@ -3473,7 +3569,10 @@ declare namespace LocalJSX {
         /**
           * File name
          */
-        "fileName"?: any;
+        "fileName"?: string;
+        /**
+          * File chip id
+         */
         "fileNumber"?: number;
         /**
           * Emitted when a z-file component is removed from the DOM
@@ -3488,7 +3587,7 @@ declare namespace LocalJSX {
         /**
           * Prop indicating the button variant
          */
-        "buttonVariant"?: ButtonVariantEnum;
+        "buttonVariant"?: ButtonVariant;
         /**
           * Description
          */
@@ -3508,7 +3607,7 @@ declare namespace LocalJSX {
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
-        "type"?: ZFileUploadTypeEnum;
+        "type"?: ZFileUploadType;
     }
     interface ZFooter {
         /**
@@ -3573,8 +3672,17 @@ declare namespace LocalJSX {
     interface ZGhostLoading {
     }
     interface ZHeading {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component"?: string;
+        /**
+          * Typography level
+         */
         "level"?: 1 | 2 | 3 | 4;
+        /**
+          * Font weight variant
+         */
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
@@ -3591,7 +3699,7 @@ declare namespace LocalJSX {
          */
         "iconid"?: string;
         /**
-          * icon name (choice between available icons)
+          * icon name
          */
         "name"?: string;
         /**
@@ -3624,7 +3732,10 @@ declare namespace LocalJSX {
           * Text that appears on closed panel next to the open button.
          */
         "label"?: string;
-        "position"?: InfoRevealPositionBean;
+        /**
+          * Info reveal's position
+         */
+        "position"?: InfoRevealPosition;
     }
     interface ZInput {
         /**
@@ -3718,7 +3829,7 @@ declare namespace LocalJSX {
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
         /**
           * step number value (optional): available for number
          */
@@ -3726,7 +3837,7 @@ declare namespace LocalJSX {
         /**
           * input types
          */
-        "type"?: InputTypeBean;
+        "type"?: InputType;
         /**
           * the input value
          */
@@ -3772,7 +3883,7 @@ declare namespace LocalJSX {
         /**
           * items (optional): available for select
          */
-        "items"?: SelectItemBean[] | string;
+        "items"?: SelectItem[] | string;
         /**
           * the input label
          */
@@ -3828,11 +3939,11 @@ declare namespace LocalJSX {
         /**
           * the input status (optional): available for text, password, number, email, textarea, select
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
         /**
           * input types
          */
-        "type"?: InputTypeBean;
+        "type"?: InputType;
         /**
           * timeout setting before trigger `inputChange` event (optional): available for text, textarea
          */
@@ -3864,7 +3975,7 @@ declare namespace LocalJSX {
         /**
           * input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZLink {
         /**
@@ -3914,7 +4025,7 @@ declare namespace LocalJSX {
         /**
           * link text variant (optional)
          */
-        "textcolor"?: "primary"| "inverse" | "white" | "black";
+        "textcolor"?: "primary" | "inverse" | "white" | "black";
         /**
           * draw underline on text (optional)
          */
@@ -3967,6 +4078,9 @@ declare namespace LocalJSX {
           * [optional] If is used in ZContextualMenu component
          */
         "isContextualMenu"?: boolean;
+        /**
+          * [optional] List element id.
+         */
         "listElementId"?: number;
         /**
           * remove filter click event, returns filterid
@@ -4064,6 +4178,9 @@ declare namespace LocalJSX {
         "nomeutente"?: string;
     }
     interface ZMenuSection {
+        /**
+          * Active state
+         */
         "active"?: boolean;
         /**
           * The section has been closed.
@@ -4154,13 +4271,13 @@ declare namespace LocalJSX {
         /**
           * Username/password input status
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZMyzCard {
         /**
           * graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * faded status
          */
@@ -4254,7 +4371,7 @@ declare namespace LocalJSX {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * display footer custom slotted content
          */
@@ -4282,7 +4399,7 @@ declare namespace LocalJSX {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseTypeEnum;
+        "cardtype"?: LicenseType;
         /**
           * faded status
          */
@@ -4334,7 +4451,7 @@ declare namespace LocalJSX {
         /**
           * list item data (mutable, optional)
          */
-        "list"?: ListItemBean[];
+        "list"?: ListItem[];
     }
     interface ZMyzListItem {
         /**
@@ -4429,6 +4546,9 @@ declare namespace LocalJSX {
           * Label to show in the tab.
          */
         "label"?: string;
+        /**
+          * The tab has been selected.
+         */
         "onSelected"?: (event: ZNavigationTabCustomEvent<any>) => void;
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
@@ -4464,6 +4584,9 @@ declare namespace LocalJSX {
           * Label to show in the tab.
          */
         "label"?: string;
+        /**
+          * The tab has been selected.
+         */
         "onSelected"?: (event: ZNavigationTabLinkCustomEvent<any>) => void;
         /**
           * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
@@ -4539,17 +4662,29 @@ declare namespace LocalJSX {
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
-        "transitiondirection"?: TransitionDirectionEnum;
+        "transitiondirection"?: TransitionDirection;
         /**
           * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
          */
-        "variant"?: OffCanvasVariantsEnum;
+        "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
+        /**
+          * Input number
+         */
         "inputNum"?: number;
+        /**
+          * Input message
+         */
         "message"?: string;
+        /**
+          * Otp change event
+         */
         "onOtpChange"?: (event: ZOtpCustomEvent<any>) => void;
-        "status"?: InputStatusBean;
+        /**
+          * Input status
+         */
+        "status"?: InputStatus;
     }
     interface ZPagination {
         /**
@@ -4661,7 +4796,7 @@ declare namespace LocalJSX {
         /**
           * name of slot container (optional)
          */
-        "descr_slot_name"?: string;
+        "descrSlotName"?: string;
         /**
           * html element id (optional)
          */
@@ -4763,7 +4898,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositionBean;
+        "position"?: PopoverPositions;
         /**
           * Whether to show popover's arrow.
          */
@@ -4863,7 +4998,7 @@ declare namespace LocalJSX {
         /**
           * the input select options
          */
-        "items"?: SelectItemBean[] | string;
+        "items"?: SelectItem[] | string;
         /**
           * the input label
          */
@@ -4895,7 +5030,7 @@ declare namespace LocalJSX {
         /**
           * the input status (optional)
          */
-        "status"?: InputStatusBean;
+        "status"?: InputStatus;
     }
     interface ZSkipToContent {
         /**
@@ -5070,6 +5205,9 @@ declare namespace LocalJSX {
           * [Optional] Show contextual menu button
          */
         "showButton"?: boolean;
+        /**
+          * Sort direction
+         */
         "sortDirection"?: SortDirection;
         /**
           * [Optional] Make the header sortable
@@ -5077,10 +5215,19 @@ declare namespace LocalJSX {
         "sortable"?: boolean;
     }
     interface ZTableHeaderRow {
+        /**
+          * Row expandable flag
+         */
         "expandable"?: boolean;
     }
     interface ZTableRow {
+        /**
+          * Table row expanded type
+         */
         "expandedType"?: ZTableRowExpandedType;
+        /**
+          * Row has been expanded
+         */
         "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
     }
     interface ZTableStickyFooter {
@@ -5131,11 +5278,11 @@ declare namespace LocalJSX {
         /**
           * toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up
          */
-        "transition"?: ToastNotificationTransitionTypes;
+        "transition"?: ToastNotificationTransition;
         /**
           * toast notification type:  dark, light, accent, error, success, warning
          */
-        "type"?: ToastNotificationTypes;
+        "type"?: ToastNotification;
     }
     interface ZToastNotificationList {
         /**
@@ -5145,7 +5292,7 @@ declare namespace LocalJSX {
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
          */
-        "position"?: ToastNotificationPositionsTypes;
+        "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
@@ -5170,10 +5317,25 @@ declare namespace LocalJSX {
         "opened"?: boolean;
     }
     interface ZToggleSwitch {
+        /**
+          * Checked state
+         */
         "checked"?: boolean;
+        /**
+          * Disabled flag
+         */
         "disabled"?: boolean;
+        /**
+          * HTML id attribute to set to the internal checkbox
+         */
         "htmlid"?: string;
+        /**
+          * Label position
+         */
         "labelPosition"?: LabelPosition;
+        /**
+          * Toggle click event
+         */
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     interface ZTooltip {
@@ -5218,8 +5380,17 @@ declare namespace LocalJSX {
         "type"?: PopoverPositions1;
     }
     interface ZTypography {
+        /**
+          * HTML tag to use to wrap slotted content
+         */
         "component"?: string;
+        /**
+          * Typography level
+         */
         "level"?: ZTypographyLevels;
+        /**
+          * Font weight variant
+         */
         "variant"?: "regular" | "semibold" | "light";
     }
     interface ZUserDropdown {

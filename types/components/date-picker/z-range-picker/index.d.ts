@@ -1,7 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { ZRangePickerMode, ZDatePickerPosition } from "../../../beans";
 export declare class ZRangePicker {
-  element: HTMLElement;
+  element: HTMLZRangePickerElement;
   /** unique id */
   rangePickerId: string;
   /** first z-input aria label */
@@ -22,23 +22,21 @@ export declare class ZRangePicker {
   private lastPicker;
   /** emitted when date changes, returns an array with the two selected dates */
   dateSelect: EventEmitter;
-  watchMode(): void;
   handleClick(): void;
   handleKeyDown(ev: KeyboardEvent): void;
   componentDidLoad(): void;
   setupPickers(): void;
-  onDateSelect(): void;
-  disableDates(date: any, index: any): void;
-  formatDate(date: any): string;
-  printDate(firstDate: any, lastDate: any): void;
-  getTime(): string;
-  getDateWithoutTime(date: any): Date;
+  private onDateSelect;
+  private disableDates;
+  private formatDate;
+  private printDate;
+  private getDateWithoutTime;
   /** Replace month word to month number */
-  replaceMonths(date: any, time: any): Date;
+  private replaceMonths;
   /** Get the current focused input, first or last */
-  getFocusedInput(): void;
+  private getFocusedInput;
   /** Set style of the days between the two selected dates */
-  setRangeStyle(index: any): void;
-  onStopTyping(value: any): void;
-  render(): any;
+  private setRangeStyle;
+  private onStopTyping;
+  render(): HTMLDivElement;
 }

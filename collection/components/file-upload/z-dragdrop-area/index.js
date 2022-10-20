@@ -12,7 +12,7 @@ export class ZDragdropArea {
         this.dragDropContainer.classList.add("dragover");
       }, onDragLeave: () => {
         this.dragDropContainer.classList.remove("dragover");
-      }, onDragEnd: () => { }, onDrop: (e) => {
+      }, onDrop: (e) => {
         e.preventDefault();
         if (e.dataTransfer.files.length) {
           this.dragDropContainer.classList.remove("dragover");

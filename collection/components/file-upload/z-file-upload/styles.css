@@ -1,7 +1,7 @@
 :host {
+  color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  color: var(--color-text01);
 }
 
 :host > .container {
@@ -9,16 +9,16 @@
   flex-direction: column;
 }
 
-:host .modalWrapper {
+:host .modal-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-:host .modalWrapper > .files {
-  margin: calc(var(--space-unit) * 4);
+:host .modal-wrapper > .files {
   display: flex;
   flex-direction: column;
+  margin: calc(var(--space-unit) * 4);
   gap: var(--space-unit);
 }
 
@@ -41,7 +41,7 @@
   margin-bottom: var(--space-unit);
 }
 
-input#fileElem {
+input#file-elem {
   display: none;
 }
 
@@ -63,9 +63,10 @@ input#fileElem {
 :host > .container > .files-container > .files {
   display: flex;
   flex-wrap: wrap;
-  row-gap: calc(var(--space-unit) * 2);
   column-gap: calc(var(--space-unit) * 2);
+  row-gap: calc(var(--space-unit) * 2);
 }
+
 :host > .container > .files-container > z-divider {
   margin-top: calc(var(--space-unit) * 3);
   margin-bottom: 0;
@@ -76,12 +77,4 @@ input#fileElem {
   :host > .container > z-button {
     align-self: flex-start;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

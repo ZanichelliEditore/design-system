@@ -1,6 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
-import { InputStatusBean } from "../../../beans";
+import { InputStatus } from "../../../beans";
 /**
  * @slot username - username input
  * @slot password - password input
@@ -8,14 +7,14 @@ import { InputStatusBean } from "../../../beans";
  * @slot signup - signup button
  * @slot provider - expternal providers login buttons
  */
-export declare class zModalLogin {
-  hostElement: HostElement;
+export declare class ZModalLogin {
+  hostElement: HTMLZModalLoginElement;
   /** Forgot Password Url */
   forgotPasswordUrl: string;
   /** Login modal title */
   heading?: string;
   /** Username/password input status */
-  status?: InputStatusBean;
+  status?: InputStatus;
   /** Username helper message */
   message?: string;
   /** Password helper message */
@@ -24,19 +23,19 @@ export declare class zModalLogin {
   componentDidLoad(): void;
   /** Emitted on login submit */
   loginSubmit: EventEmitter;
-  emitLoginSubmit(): void;
+  private emitLoginSubmit;
   /** Emitted on status update */
   statusUpdate: EventEmitter;
-  emitStatusUpdate(status: InputStatusBean): void;
+  private emitStatusUpdate;
   /** Emitted on signup button click */
   signupClick: EventEmitter;
-  emitSignupClick(): void;
+  private emitSignupClick;
   /** Emitted on zaino digitale button click */
   zainoDigitaleClick: EventEmitter;
-  emitZainoDigitaleClick(): void;
-  handleInputKeyUp(e: KeyboardEvent): void;
-  handleInputChange(): void;
-  cleanUsername(username: string): string;
-  renderZainoDigitaleButton(): any;
-  render(): any;
+  private emitZainoDigitaleClick;
+  private handleInputKeyUp;
+  private handleInputChange;
+  private cleanUsername;
+  private renderZainoDigitaleButton;
+  render(): HTMLZModalElement;
 }

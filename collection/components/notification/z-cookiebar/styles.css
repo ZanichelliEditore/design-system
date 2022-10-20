@@ -9,27 +9,26 @@ z-candybar.hidden {
 
 .content {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: stretch;
+  flex-flow: column nowrap;
   align-content: space-between;
-  color: var(--text-grey-800);
-  border-radius: calc(var(--space-unit) * 0.5);
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 24px;
+  align-items: stretch;
+  justify-content: space-between;
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+  border-radius: calc(var(--space-unit) * 0.5);
+  color: var(--text-grey-800);
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
 }
 
 .content > div > h2 {
-  margin: 0;
   padding: 0;
+  margin: 0;
+  border-radius: 0;
   color: var(--text-grey-800);
-  border-radius: 0px;
   font-size: 18px;
   font-weight: var(--font-sb);
-  letter-spacing: 0px;
+  letter-spacing: 0;
 }
 
 .content > div > div {
@@ -44,23 +43,23 @@ z-candybar.hidden {
 }
 
 .content > div > div > p > a {
+  display: inline-flex;
+  height: 14px;
+  color: var(--text-grey-800);
   cursor: pointer;
   font-weight: var(--font-sb);
-  color: var(--text-grey-800);
   text-decoration: underline;
-  height: 14px;
-  display: inline-flex;
 }
 
 .content > div > div > p > a:visited {
+  z-index: 1000;
   color: var(--text-grey-800);
   cursor: pointer;
-  z-index: 1000;
 }
 
 .content > z-button {
-  margin: 0;
   width: 100%;
+  margin: 0;
 }
 
 /* Tablet breakpoint */
@@ -69,10 +68,10 @@ z-candybar.hidden {
     width: 100%;
     flex-direction: row;
     align-items: center;
-    font-size: 16px;
-    letter-spacing: 0px;
-    line-height: 24px;
     padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 3);
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
   }
 
   .content > div {
@@ -88,8 +87,8 @@ z-candybar.hidden {
   }
 
   .content > z-button {
-    margin: 0;
     width: initial;
+    margin: 0;
   }
 }
 
@@ -103,7 +102,7 @@ z-candybar.hidden {
 /* Wide breakpoint */
 @media only screen and (min-width: 1366px) {
   .content {
-    padding-left: calc(var(--space-unit) * 4);
     padding-right: calc(var(--space-unit) * 4);
+    padding-left: calc(var(--space-unit) * 4);
   }
 }

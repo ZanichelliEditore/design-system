@@ -3,7 +3,7 @@ import { ThemeVariant } from "../../../beans";
 export class ZAppSwitcher {
   constructor() {
     /** theme variant, default 'dark' */
-    this.theme = ThemeVariant.dark;
+    this.theme = ThemeVariant.DARK;
     this.isopen = false;
     this.emitAppButtonClick = this.emitAppButtonClick.bind(this);
   }
@@ -32,10 +32,10 @@ export class ZAppSwitcher {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ThemeVariantBean",
-          "resolved": "\"dark\" | \"light\"",
+          "original": "ThemeVariant",
+          "resolved": "ThemeVariant.DARK | ThemeVariant.LIGHT",
           "references": {
-            "ThemeVariantBean": {
+            "ThemeVariant": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -49,7 +49,7 @@ export class ZAppSwitcher {
         },
         "attribute": "theme",
         "reflect": false,
-        "defaultValue": "ThemeVariant.dark"
+        "defaultValue": "ThemeVariant.DARK"
       }
     };
   }

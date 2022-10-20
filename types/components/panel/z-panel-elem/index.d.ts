@@ -1,5 +1,5 @@
 /**
- * @slot `descr_slot_name` - description content
+ * @slot `descrSlotName` - description content
  */
 export declare class ZPanelElem {
   /** html element id (optional) */
@@ -19,7 +19,7 @@ export declare class ZPanelElem {
   /** disabled status flag (optional) */
   isdisabled?: boolean;
   /** name of slot container (optional) */
-  descr_slot_name?: string;
-  renderIcon(): any;
-  render(): any;
+  descrSlotName?: string;
+  private renderIcon;
+  render(): HTMLDivElement;
 }

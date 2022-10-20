@@ -1,16 +1,14 @@
 import { h } from "@stencil/core";
-import { icons } from "../icons";
+import { ICONS } from "../icons";
 export class ZIcon {
-  selectPathOrPolygon(iconName) {
-    if (iconName && iconName.startsWith("M")) {
-      return h("path", { d: icons[this.name] });
+  selectPathOrPolygon(iconValue) {
+    if (iconValue === null || iconValue === void 0 ? void 0 : iconValue.startsWith("M")) {
+      return h("path", { d: ICONS[this.name] });
     }
-    else {
-      return h("polygon", { points: icons[this.name] });
-    }
+    return h("polygon", { points: ICONS[this.name] });
   }
   render() {
-    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons[this.name])));
+    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(ICONS[this.name])));
   }
   static get is() { return "z-icon"; }
   static get encapsulation() { return "shadow"; }
@@ -38,7 +36,7 @@ export class ZIcon {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "icon name (choice between available icons)"
+          "text": "icon name"
         },
         "attribute": "name",
         "reflect": false

@@ -1,24 +1,26 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - Menu section label
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items.
  */
 export declare class ZMenuSection {
+  /** Active state */
   active?: boolean;
   open: boolean;
   hasContent: boolean;
-  hostElement: HTMLElement;
+  hostElement: HTMLZMenuSectionElement;
   /** The section has been opened. */
   opened: EventEmitter;
   /** The section has been closed. */
   closed: EventEmitter;
-  toggle(): void;
+  private toggle;
   /** Close the list when a click is performed outside of this Element. */
-  handleClick(ev: any): void;
+  handleClick(ev: MouseEvent): void;
   /**
    * Check if some content slot is set.
    */
-  checkContent(): void;
+  private checkContent;
   componentWillLoad(): void;
-  render(): any;
+  render(): HostElement;
 }

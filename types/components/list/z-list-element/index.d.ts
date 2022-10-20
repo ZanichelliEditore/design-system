@@ -1,7 +1,8 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, ListDividerType, ListSize } from "../../../beans";
 export declare class ZListElement {
-  host: HTMLElement;
+  host: HTMLZListElementElement;
   /** remove filter click event, returns filterid */
   accessibleFocus: EventEmitter<number>;
   /** remove filter click event, returns filterid */
@@ -35,6 +36,9 @@ export declare class ZListElement {
    * [optional] Sets expandable style to element.
    */
   expandableStyle?: ExpandableListStyle;
+  /**
+   * [optional] List element id.
+   */
   listElementId?: number;
   /**
    * [optional] Sets size of inside elements.
@@ -62,18 +66,18 @@ export declare class ZListElement {
    * Handler for click on element. If element is expandable, change state.
    * @returns void
    */
-  handleClick(): void;
-  calculateClass(): "container-contextual-menu" | "container";
-  handleKeyDown(event: any): void;
+  private handleClick;
+  private calculateClass;
+  private handleKeyDown;
   /**
    * Renders button to expand element.
    * @returns expadable button
    */
-  renderExpandableButton(): any;
+  private renderExpandableButton;
   /**
    * Renders expanded content if element is expandable.
    * @returns expanded content
    */
-  renderExpandedContent(): any;
-  render(): any;
+  private renderExpandedContent;
+  render(): HostElement;
 }

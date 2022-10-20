@@ -5,7 +5,7 @@ export class ZList {
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = ListSize.medium;
+    this.size = ListSize.MEDIUM;
   }
   setChildrenSizeType() {
     const children = this.host.children;
@@ -38,7 +38,7 @@ export class ZList {
         "mutable": false,
         "complexType": {
           "original": "ListSize",
-          "resolved": "(typeof ListSize)[\"x-large\"] | ListSize.large | ListSize.medium | ListSize.small",
+          "resolved": "ListSize.LARGE | ListSize.MEDIUM | ListSize.SMALL | ListSize.X_LARGE",
           "references": {
             "ListSize": {
               "location": "import",
@@ -54,7 +54,7 @@ export class ZList {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ListSize.medium"
+        "defaultValue": "ListSize.MEDIUM"
       }
     };
   }

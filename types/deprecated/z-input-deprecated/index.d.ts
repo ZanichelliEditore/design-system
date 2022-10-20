@@ -1,11 +1,11 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { InputTypeBean, InputStatusBean, SelectItemBean } from "../../beans";
+import { InputType, SelectItem, InputStatus } from "../../beans";
 export declare class ZInputDeprecated {
-  hostElement: HTMLElement;
+  hostElement: HTMLZInputDeprecatedElement;
   /** the id of the input element */
   htmlid: string;
   /** input types */
-  type: InputTypeBean;
+  type: InputType;
   /** the input name */
   name?: string;
   /** the input label */
@@ -27,7 +27,7 @@ export declare class ZInputDeprecated {
   /** the input html title (optional) */
   htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea, select */
-  status?: InputStatusBean;
+  status?: InputStatus;
   /** show input helper message (optional): available for text, password, number, email, textarea, select */
   hasmessage?: boolean;
   /** input helper message (optional): available for text, password, number, email, textarea, select */
@@ -37,7 +37,7 @@ export declare class ZInputDeprecated {
   /** timeout setting before trigger `inputChange` event (optional): available for text, textarea */
   typingtimeout?: number;
   /** items (optional): available for select */
-  items?: SelectItemBean[] | string;
+  items?: SelectItem[] | string;
   /** the input has autocomplete option (optional): available for select, input */
   autocomplete?: boolean | string;
   /** multiple options can be selected (optional): available for select */
@@ -61,42 +61,31 @@ export declare class ZInputDeprecated {
   isChecked(): Promise<boolean>;
   /** Emitted on input value change, returns value, keycode, validity */
   inputChange: EventEmitter;
-  emitInputChange(value: string, keycode: number): void;
+  private emitInputChange;
   /** Emitted when user starts typing */
   startTyping: EventEmitter;
-  emitStartTyping(): void;
+  private emitStartTyping;
   /** Emitted when user stops typing, returns value, validity */
   stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any): void;
+  private emitStopTyping;
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   inputCheck: EventEmitter;
-  emitInputCheck(checked: boolean): void;
+  private emitInputCheck;
   /** Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple) */
   optionSelect: EventEmitter;
-  getValidity(type: string): ValidityState;
-  getTextAttributes(): {
-    id: string;
-    name: string;
-    placeholder: string;
-    value: string;
-    disabled: boolean;
-    readonly: boolean;
-    required: boolean;
-    title: string;
-    class: string;
-    onInput: (e: any) => void;
-  };
-  renderInputText(type?: InputTypeBean): any;
-  renderLabel(): any;
-  renderIcons(): any;
-  renderIcon(): any;
-  renderResetIcon(): any;
-  renderShowHidePassword(): any;
-  renderMessage(): any;
-  renderTextarea(): any;
-  handleCheck(ev: any): void;
-  renderCheckbox(): any;
-  renderRadio(): any;
-  renderSelect(): any;
-  render(): any;
+  private getValidity;
+  private getTextAttributes;
+  private renderInputText;
+  private renderLabel;
+  private renderIcons;
+  private renderIcon;
+  private renderResetIcon;
+  private renderShowHidePassword;
+  private renderMessage;
+  private renderTextarea;
+  private handleCheck;
+  private renderCheckbox;
+  private renderRadio;
+  private renderSelect;
+  render(): HTMLDivElement | HTMLZSelectElement;
 }

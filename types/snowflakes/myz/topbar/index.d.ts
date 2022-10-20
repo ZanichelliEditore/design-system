@@ -1,4 +1,4 @@
-import { MenuItem, HeaderUserData, ListItemBean } from "../../../beans";
+import { MenuItem, HeaderUserData } from "../../../beans";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
@@ -35,27 +35,25 @@ export declare class ZMyzTopbar {
   handleZListItemLinkClick(): void;
   handleZListItemClick(): void;
   componentWillLoad(): void;
-  renderLogoDiv(): HTMLDivElement;
-  renderIntMenu(menuItems: MenuItem[]): HTMLDivElement | undefined;
-  renderIntMenuItem(menuItem: MenuItem): HTMLSpanElement;
-  getIntMenuItemTabindex(item: MenuItem): number;
-  handleToggleMobileMenuItem(elementId: string): void;
-  renderMenuItemsData(menuItem: any): HTMLSpanElement | null;
-  renderMobileSubMenu(menuItems: ListItemBean[], id?: string): HTMLSpanElement;
-  renderSubMenu(menuItem: MenuItem): HTMLDivElement | undefined;
-  renderExtLinksIcons(icon: any): {
-    icon: any;
-  };
-  renderExtMenu(menuItems: MenuItem[]): HTMLDivElement;
-  renderLoginDiv(userData: HeaderUserData): HTMLDivElement;
-  renderLoginButton(): any;
-  renderMobileLoginDiv(userData: HeaderUserData): HTMLDivElement;
-  renderUserData(userData: HeaderUserData): HTMLSpanElement;
-  renderDesktopHeader(): HTMLHeadingElement;
-  renderMainHeader(): HTMLDivElement;
-  renderMobileHeader(): HTMLHeadingElement;
-  renderMobileMenu(): HTMLDivElement;
-  renderMobileMenuToggle(): any;
-  renderMobileMenuContent(): HTMLDivElement | null;
-  render(): HTMLHeadingElement;
+  private renderLogoDiv;
+  private renderIntMenu;
+  private renderIntMenuItem;
+  private getIntMenuItemTabindex;
+  private handleToggleMobileMenuItem;
+  private renderMenuItemsData;
+  private renderMobileSubMenu;
+  private renderSubMenu;
+  private renderExtLinksIcons;
+  private renderExtMenu;
+  private renderLoginDiv;
+  private renderLoginButton;
+  private renderMobileLoginDiv;
+  private renderUserData;
+  private renderDesktopHeader;
+  private renderMainHeader;
+  private renderMobileHeader;
+  private renderMobileMenu;
+  private renderMobileMenuToggle;
+  private renderMobileMenuContent;
+  render(): HTMLElement;
 }

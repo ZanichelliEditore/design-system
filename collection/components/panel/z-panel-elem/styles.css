@@ -1,7 +1,7 @@
 :host {
+  width: inherit;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
-  width: inherit;
 }
 
 .panel-elem-container {
@@ -14,17 +14,17 @@
 
 .panel-elem-icon img {
   display: block;
-  object-fit: contain;
   max-width: 96px;
   height: 32px;
   margin: auto;
+  object-fit: contain;
 }
 
 .panel-elem-link {
-  border-radius: var(--border-no-radius);
   margin: var(--space-unit) auto 0;
-  text-align: center;
+  border-radius: var(--border-no-radius);
   font-size: 12px;
+  text-align: center;
 }
 
 .panel-elem-link > z-link {
@@ -32,8 +32,8 @@
 }
 
 .panel-elem-desc {
+  padding-top: var(--space-unit);
+  margin: 0;
   letter-spacing: 0.16px;
   text-align: center;
-  margin: 0;
-  padding-top: var(--space-unit);
 }

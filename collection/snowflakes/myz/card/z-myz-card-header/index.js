@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import { LicenseType } from "../../../../beans/index";
 /**
  * @slot icon - card header icon slot
  */
@@ -11,17 +11,18 @@ export class ZMyzCardHeader {
     return this.allowTooltip ? this.titolo : "";
   }
   componentDidLoad() {
-    if (this.elementHasEllipsis())
+    if (this.elementHasEllipsis()) {
       this.allowTooltip = true;
+    }
   }
   elementHasEllipsis() {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   retrieveClass() {
     return {
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
-      temp: this.cardtype === LicenseTypeEnum.temp,
+      real: this.cardtype === LicenseType.REAL,
+      trial: this.cardtype === LicenseType.TRIAL,
+      temp: this.cardtype === LicenseType.TEMP,
       faded: this.faded,
     };
   }
@@ -80,10 +81,10 @@ export class ZMyzCardHeader {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "LicenseTypeEnum",
-          "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+          "original": "LicenseType",
+          "resolved": "LicenseType.REAL | LicenseType.TEMP | LicenseType.TRIAL | LicenseType.VIRTUAL",
           "references": {
-            "LicenseTypeEnum": {
+            "LicenseType": {
               "location": "import",
               "path": "../../../../beans/index"
             }

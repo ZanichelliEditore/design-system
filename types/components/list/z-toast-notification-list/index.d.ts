@@ -1,14 +1,14 @@
-import { ToastNotificationPositionsTypes } from "../../../beans";
+import { ToastNotificationPosition } from "../../../beans";
 export declare class ZToastNotificationList {
-  hostElement: HTMLElement;
+  hostElement: HTMLZToastNotificationListElement;
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
-  position: ToastNotificationPositionsTypes;
+  position: ToastNotificationPosition;
   /**Set the entry position of new notification in the list */
   newestontop?: boolean;
   private notificationArray;
   watchPropNewestontop(newValue: boolean): void;
   componentWillLoad(): void;
-  handleNewestOnTop(): void;
-  slotChangeHandler: () => void;
-  render(): any;
+  private handleNewestOnTop;
+  private slotChangeHandler;
+  render(): HTMLSlotElement;
 }

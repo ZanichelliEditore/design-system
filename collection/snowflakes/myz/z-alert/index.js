@@ -24,10 +24,10 @@ export class ZAlert {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "AlertTypes",
-          "resolved": "AlertTypesEnum.error | AlertTypesEnum.success | AlertTypesEnum.warning",
+          "original": "AlertType",
+          "resolved": "AlertType.ERROR | AlertType.SUCCESS | AlertType.WARNING",
           "references": {
-            "AlertTypes": {
+            "AlertType": {
               "location": "import",
               "path": "../../../beans/index"
             }

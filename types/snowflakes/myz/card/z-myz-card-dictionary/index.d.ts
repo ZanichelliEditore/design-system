@@ -19,6 +19,6 @@ export declare class ZMyzCardDictionary {
   handleFlipCard(e: CustomEvent): void;
   /** when card is flipped */
   cardFlipped: EventEmitter;
-  flipCard(showBack?: boolean): void;
-  render(): any;
+  private flipCard;
+  render(): HTMLDivElement;
 }

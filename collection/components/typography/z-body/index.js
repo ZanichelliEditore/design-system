@@ -1,6 +1,7 @@
 import { h } from "@stencil/core";
 export class ZBody {
   constructor() {
+    /** Font weight variant */
     this.variant = "regular";
   }
   render() {
@@ -22,7 +23,7 @@ export class ZBody {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Typography level"
         },
         "attribute": "level",
         "reflect": false
@@ -39,7 +40,7 @@ export class ZBody {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Font weight variant"
         },
         "attribute": "variant",
         "reflect": false,
@@ -57,7 +58,7 @@ export class ZBody {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "HTML tag to use to wrap slotted content"
         },
         "attribute": "component",
         "reflect": false

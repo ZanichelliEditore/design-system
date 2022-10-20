@@ -6,11 +6,11 @@ footer {
   width: auto;
   height: auto;
   box-sizing: border-box;
-  font-family: var(--font-family-sans);
-  font-size: 13px;
   padding: var(--space-unit) 0;
   background-color: var(--gray900);
   color: var(--gray50);
+  font-family: var(--font-family-sans);
+  font-size: 13px;
 }
 
 footer * {
@@ -28,10 +28,10 @@ footer > section > div {
 #bottom {
   width: auto;
   height: auto;
-  margin: 0;
   padding: 0 calc(var(--space-unit) * 2);
-  white-space: pre-line;
+  margin: 0;
   font-size: 12px;
+  white-space: pre-line;
 }
 
 #bottom > div {
@@ -41,12 +41,12 @@ footer > section > div {
 
 #bottom > div > div.item {
   display: flex;
+  width: auto;
+  height: auto;
   flex-direction: column;
   align-items: flex-start;
-  grid-column: span 1;
-  height: auto;
-  width: auto;
   padding: calc(var(--space-unit) * 2) 0;
+  grid-column: span 1;
 }
 
 #bottom > div > div.item:nth-child(1) {
@@ -60,11 +60,11 @@ footer > section > div {
 
 #bottom > div > div.item > div.social {
   display: grid;
+  padding: 0;
+  margin-bottom: 0;
+  column-gap: 12px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(auto-fill, 24px);
-  column-gap: 12px;
-  padding: 0;
-  margin-bottom: 0px;
 }
 
 #bottom > div > div.bottom-links {
@@ -72,8 +72,8 @@ footer > section > div {
 }
 
 #bottom > div > div.item > p {
-  margin: var(--space-unit) 0;
   padding: var(--space-unit) 0;
+  margin: var(--space-unit) 0;
 }
 
 #bottom > div > div.item > p:first-child {
@@ -94,9 +94,9 @@ footer > section > div {
 
 #extension > div {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-row-gap: var(--space-unit);
   align-items: center;
+  grid-row-gap: var(--space-unit);
+  grid-template-columns: 1fr;
 }
 
 #extension z-divider {
@@ -108,8 +108,10 @@ footer > section > div {
 }
 
 div.limited-width {
-  margin: auto;
+  --mw: none;
+
   max-width: var(--mw);
+  margin: auto;
 }
 
 z-button {
@@ -124,8 +126,8 @@ z-button {
   }
 
   #top {
-    background-color: var(--gray800);
     padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
+    background-color: var(--gray800);
   }
 
   /* backward compatibility */
@@ -134,13 +136,13 @@ z-button {
   }
 
   #bottom {
-    background-color: var(--gray900);
     padding: 0 calc(var(--space-unit) * 3);
+    background-color: var(--gray900);
   }
 
   #bottom > div {
-    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--grid-tablet-margin);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   #bottom > div > div.item {
@@ -166,22 +168,18 @@ z-button {
   }
 
   #bottom > div > div.bottom-links {
-    display: block;
-    grid-column: span 2;
-    order: 3;
-  }
-
-  #bottom > div > div.bottom-links {
     display: grid;
+    order: 3;
+    font-size: 12px;
+    grid-column: span 2;
+    grid-column-gap: var(--grid-tablet-margin);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, 24px);
-    grid-column-gap: var(--grid-tablet-margin);
-    font-size: 12px;
   }
 
   #extension {
-    margin: auto;
     padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3) 0;
+    margin: auto;
     background-color: var(--gray800);
     color: white;
     grid-template-columns: 1fr 1fr;
@@ -203,8 +201,8 @@ z-button {
   }
 
   #top > div {
-    grid-template-columns: repeat(6, 1fr);
     grid-column-gap: var(--grid-desktop-margin);
+    grid-template-columns: repeat(6, 1fr);
   }
 
   #bottom > div > div.item:nth-child(1) > p:nth-of-type(2) {
@@ -222,12 +220,9 @@ z-button {
 
   #bottom > div > div.bottom-links {
     padding: calc(var(--space-unit) * 2) 0 0 0;
-  }
-
-  #bottom > div > div.bottom-links {
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: var(--grid-desktop-margin);
     margin: 0;
+    grid-column-gap: var(--grid-desktop-margin);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

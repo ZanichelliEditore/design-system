@@ -1,3 +1,4 @@
+import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZLogo {
   /** image width */
   width?: number;
@@ -11,5 +12,5 @@ export declare class ZLogo {
   targetBlank?: boolean;
   /** if true, the mobile logo is displayed, otherwise the desktop one */
   mobileLogo?: boolean;
-  render(): any;
+  render(): HostElement;
 }

@@ -13,10 +13,10 @@ export declare class ZButtonFilter {
   /** remove filter click event, returns filterid */
   removefilter: EventEmitter;
   constructor();
-  handleRemovingFilterClick(): void;
-  renderFixedPillow(filtername: any): any;
-  renderDynamicPillow(filtername: any): any;
-  renderIcon(): any;
-  renderContent(filtername: any): any;
-  render(): any;
+  private handleRemovingFilterClick;
+  private renderFixedPillow;
+  private renderDynamicPillow;
+  private renderIcon;
+  private renderContent;
+  render(): HTMLButtonElement;
 }

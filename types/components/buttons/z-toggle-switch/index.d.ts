@@ -1,12 +1,18 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { LabelPosition } from "../../../beans";
+import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZToggleSwitch {
+  /** Disabled flag */
   disabled?: boolean;
+  /** Label position */
   labelPosition?: LabelPosition;
+  /** Checked state */
   checked?: boolean;
+  /** HTML id attribute to set to the internal checkbox */
   htmlid: string;
+  /** Toggle click event */
   toggleClick: EventEmitter;
-  emitToggleClick(): void;
-  handleClick(ev: any): void;
-  render(): any[];
+  private emitToggleClick;
+  private handleClick;
+  render(): HostElement;
 }

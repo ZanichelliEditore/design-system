@@ -1,6 +1,6 @@
-import { h, } from "@stencil/core";
-import { ButtonVariantEnum, ButtonSizeEnum, } from "../../../beans";
-import { mobileBreakpoint, tabletBreakpoint, } from "../../../constants/breakpoints";
+import { h } from "@stencil/core";
+import { ButtonVariant, ButtonSize } from "../../../beans";
+import { mobileBreakpoint, tabletBreakpoint } from "../../../constants/breakpoints";
 /**
  * @slot editors - top menu editors images bar (only with ismyz prop === true)
  */
@@ -26,23 +26,14 @@ export class ZMyzTopbar {
   }
   componentWillLoad() {
     if (this.intlinkdata) {
-      this.intMenuData =
-        typeof this.intlinkdata === "string"
-          ? JSON.parse(this.intlinkdata)
-          : this.intlinkdata;
+      this.intMenuData = typeof this.intlinkdata === "string" ? JSON.parse(this.intlinkdata) : this.intlinkdata;
     }
     this.activeMenuItem = this.currentMenuItem = this.intMenuData.find((item) => item.id === this.activeintlinkid);
     if (this.extlinkdata) {
-      this.extMenuData =
-        typeof this.extlinkdata === "string"
-          ? JSON.parse(this.extlinkdata)
-          : this.extlinkdata;
+      this.extMenuData = typeof this.extlinkdata === "string" ? JSON.parse(this.extlinkdata) : this.extlinkdata;
     }
     if (this.userdata) {
-      this.userData =
-        typeof this.userdata === "string"
-          ? JSON.parse(this.userdata)
-          : this.userdata;
+      this.userData = typeof this.userdata === "string" ? JSON.parse(this.userdata) : this.userdata;
       this.isLogged = this.userData.islogged;
     }
     this.handleResize();
@@ -51,8 +42,9 @@ export class ZMyzTopbar {
     return (h("div", { class: "logo" }, h("z-logo", { link: this.logolink ? this.logolink : null, "target-blank": true, width: 144, height: 36, "image-alt": this.imagealt })));
   }
   renderIntMenu(menuItems) {
-    if (!this.isLogged || !this.ismyz)
+    if (!this.isLogged || !this.ismyz) {
       return;
+    }
     return (h("div", { id: "link-int", class: "link-int" }, menuItems.map((item) => this.renderIntMenuItem(item))));
   }
   renderIntMenuItem(menuItem) {
@@ -60,8 +52,9 @@ export class ZMyzTopbar {
     return (h("span", null, h("a", { href: link ? link : null, id: id, class: "menu-item", onClick: () => {
         this.activeMenuItem = this.currentMenuItem = menuItem;
         this.activeintlinkid = menuItem.id;
-        if (menuItem.subMenu)
+        if (menuItem.subMenu) {
           this.handleToggleMobileMenuItem(menuItem.id);
+        }
       }, onMouseEnter: () => {
         this.activeMenuItem = menuItem;
       }, onMouseLeave: () => {
@@ -74,18 +67,16 @@ export class ZMyzTopbar {
     return this.intMenuData.indexOf(item) + 1;
   }
   handleToggleMobileMenuItem(elementId) {
-    if (!this.isMobile)
+    if (!this.isMobile) {
       return;
-    this.element.shadowRoot
-      .querySelector(`#${elementId}`)
-      .classList.toggle("isopen");
-    this.element.shadowRoot
-      .querySelector("#mobile-dropdown-" + elementId)
-      .classList.toggle("visible");
+    }
+    this.element.shadowRoot.querySelector(`#${elementId}`).classList.toggle("isopen");
+    this.element.shadowRoot.querySelector("#mobile-dropdown-" + elementId).classList.toggle("visible");
   }
   renderMenuItemsData(menuItem) {
-    if (!menuItem.subMenu)
+    if (!menuItem.subMenu) {
       return null;
+    }
     const listItems = menuItem.subMenu.map((item) => {
       return {
         id: item.id,
@@ -100,21 +91,25 @@ export class ZMyzTopbar {
     return (h("span", { class: "mobile-dropdown", id: id ? `mobile-dropdown-${id}` : "" }, h("z-myz-list", { list: menuItems })));
   }
   renderSubMenu(menuItem) {
-    if (!this.ismyz || !this.isLogged)
+    if (!this.ismyz || !this.isLogged) {
       return;
-    if (!menuItem || !menuItem["subMenu"]) {
-      return h("div", { id: "dropdown-menu", class: `dropdown-menu hidden` });
+    }
+    if (!menuItem || !menuItem.subMenu) {
+      return (h("div", { id: "dropdown-menu", class: `dropdown-menu hidden` }));
     }
     return (h("div", { id: "dropdown-menu", class: `dropdown-menu` }, h("ul", { class: "dropdown-links" }, menuItem.subMenu.map((item) => (h("li", null, h("a", { id: item.id, class: item.id === this.activesublinkid ? "active" : "", href: item.link ? item.link : null, role: item.link ? "link" : "button", tabindex: this.getIntMenuItemTabindex(menuItem) }, item.label)))))));
   }
   renderExtLinksIcons(icon) {
     const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
     const hideIcons = width > mobileBreakpoint && width < tabletBreakpoint;
-    return !hideIcons && { icon };
+    if (!hideIcons) {
+      return { icon };
+    }
   }
   renderExtMenu(menuItems) {
-    if (!this.isLogged)
+    if (!this.isLogged) {
       return h("div", null);
+    }
     return (h("div", { id: "link-ext", class: "link-ext" }, menuItems.map((menuItem) => {
       const { id, label, link, icon } = menuItem;
       return (h("span", { class: `link-ext-span${this.ismyz ? " myz" : ""}` }, h("z-link", Object.assign({ id: id, htmlid: id, href: link, iswhite: !!this.ismyz, target: "_blank", htmltabindex: 10 }, this.renderExtLinksIcons(icon)), label)));
@@ -127,14 +122,15 @@ export class ZMyzTopbar {
     if (this.hideloginbutton) {
       return;
     }
-    return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariantEnum.secondary : ButtonVariantEnum.tertiary, icon: "login", size: ButtonSizeEnum.small }, "entra"));
+    return (h("z-button", { htmlid: "login-button", variant: this.ismyz ? ButtonVariant.SECONDARY : ButtonVariant.TERTIARY, icon: "login", size: ButtonSize.SMALL }, "entra"));
   }
   renderMobileLoginDiv(userData) {
     return (h("div", { id: "mobile-login", class: "mobile-login" }, h("span", null, h("a", { class: "menu-item", id: "user-data", onClick: () => this.handleToggleMobileMenuItem("user-data"), role: "button" }, h("span", null, h("z-icon", { name: "user-avatar", height: 16, width: 16 }), userData.name), h("i", null)), this.renderUserData(userData))));
   }
   renderUserData(userData) {
-    if (this.isMobile && !userData)
+    if (this.isMobile && !userData) {
       return null;
+    }
     const listItems = userData.userlinks.map((item) => {
       return {
         text: item.label,
@@ -161,23 +157,23 @@ export class ZMyzTopbar {
     return (h("div", { id: "mobile-header", class: `mobile-header${this.ismyz ? "" : " myz-out"}` }, this.renderLogoDiv(), this.renderMobileMenuToggle()));
   }
   renderMobileMenuToggle() {
-    if (!this.isLogged)
+    if (!this.isLogged) {
       return this.renderLoginButton();
+    }
     return (h("div", { class: "menu-mobile", id: "mobile-menu-wrapper", onClick: () => (this.isMenuMobileOpen = !this.isMenuMobileOpen) }, h("div", { class: `menu-toggle${this.isMenuMobileOpen ? " is-active" : ""}`, id: "mobile-menu" }, h("span", { class: "bar" }), h("span", { class: "bar" }), h("span", { class: "bar" })), h("span", null, "Menu")));
   }
   renderMobileMenuContent() {
-    if (!this.isLogged)
-      return null;
+    if (!this.isLogged) {
+      return;
+    }
     return (h("div", { id: "mobile-content", class: {
         "mobile-content": true,
-        open: this.isMenuMobileOpen,
+        "open": this.isMenuMobileOpen,
         "myz-out": !this.ismyz,
       } }, this.renderMobileLoginDiv(this.userData), this.ismyz && h("hr", null), this.renderIntMenu(this.intMenuData), h("hr", null), this.renderExtMenu(this.extMenuData)));
   }
   render() {
-    return this.isMobile
-      ? this.renderMobileHeader()
-      : this.renderDesktopHeader();
+    return this.isMobile ? this.renderMobileHeader() : this.renderDesktopHeader();
   }
   static get is() { return "z-myz-topbar"; }
   static get encapsulation() { return "shadow"; }

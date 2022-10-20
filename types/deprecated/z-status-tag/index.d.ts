@@ -1,4 +1,5 @@
 import { StatusTagStatus, ThemeVariant } from "../../beans";
+import { HostElement } from "../../stencil-public-runtime";
 export declare class ZStatusTag {
   /** [optional] Status tag icon */
   icon?: string;
@@ -11,5 +12,5 @@ export declare class ZStatusTag {
   /** [optional] Status tag style */
   variant?: ThemeVariant;
   constructor();
-  render(): any;
+  render(): HostElement;
 }

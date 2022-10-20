@@ -2,24 +2,25 @@ import { h, Host } from "@stencil/core";
 import { AvatarSize } from "../../beans";
 export class ZAvatar {
   constructor() {
+    var _a, _b;
     /** [optional] Avatar size */
-    this.size = AvatarSize.medium;
+    this.size = AvatarSize.MEDIUM;
     /** [optional] Avatar text color */
     this.textColor = "text-white";
     /** [optional] Avatar background color */
     this.backgroundColor = "bg-grey-700";
-    if (!this.text && !this.image) {
+    if (((_a = this.text) === null || _a === void 0 ? void 0 : _a.length) === 0 && ((_b = this.image) === null || _b === void 0 ? void 0 : _b.length) === 0) {
       console.warn("z-avatar must contain at least one prop between text and image");
     }
   }
   getTextSize() {
-    if (this.size === AvatarSize.small) {
+    if (this.size === AvatarSize.SMALL) {
       return "5";
     }
-    else if (this.size === AvatarSize.medium) {
+    else if (this.size === AvatarSize.MEDIUM) {
       return "4";
     }
-    else if (this.size === AvatarSize.large) {
+    else if (this.size === AvatarSize.LARGE) {
       return "2";
     }
   }
@@ -48,7 +49,7 @@ export class ZAvatar {
         "mutable": false,
         "complexType": {
           "original": "AvatarSize",
-          "resolved": "AvatarSize.large | AvatarSize.medium | AvatarSize.small",
+          "resolved": "AvatarSize.LARGE | AvatarSize.MEDIUM | AvatarSize.SMALL",
           "references": {
             "AvatarSize": {
               "location": "import",
@@ -64,7 +65,7 @@ export class ZAvatar {
         },
         "attribute": "size",
         "reflect": false,
-        "defaultValue": "AvatarSize.medium"
+        "defaultValue": "AvatarSize.MEDIUM"
       },
       "text": {
         "type": "string",

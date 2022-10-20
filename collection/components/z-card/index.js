@@ -1,5 +1,5 @@
-import { h } from '@stencil/core';
-import { CardVariants } from '../../beans';
+import { h, Host } from "@stencil/core";
+import { CardVariant } from "../../beans";
 export class ZCard {
   constructor() {
     /** Enable click interactions on the card. Default: false */
@@ -9,7 +9,7 @@ export class ZCard {
   }
   onClick(ev) {
     // Do nothing for clicks on actions.
-    if (ev.target.getAttribute('slot') === 'action') {
+    if (ev.target.getAttribute("slot") === "action") {
       return;
     }
     if (!this.clickable) {
@@ -20,7 +20,7 @@ export class ZCard {
     this.cardClicked.emit();
   }
   componentWillLoad() {
-    this.hasCoverImage = !!this.host.querySelector('[slot="cover"]');
+    this.hasCoverImage = this.host.querySelector('[slot="cover"]') !== null;
   }
   /**
    * Template for a card without image cover.
@@ -29,29 +29,26 @@ export class ZCard {
   renderColorCoverCard() {
     return [
       h("div", { class: "cover-container" }, h("div", { class: "color-cover" }, h("div", { class: "cover-content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" })))),
-      h("div", { class: "content" }, h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" })))
+      h("div", { class: "content" }, h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" }))),
     ];
   }
   /**
-  * Template for the content div.
-  */
+   * Template for the content div.
+   */
   renderContentDiv() {
     return (h("div", { class: "content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" }), h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" }))));
   }
   render() {
-    if (this.variant === CardVariants.text) {
-      return this.renderContentDiv();
+    if (this.variant === CardVariant.TEXT) {
+      return h(Host, null, this.renderContentDiv());
     }
-    if (this.variant === CardVariants.overlay || this.hasCoverImage) {
-      return [
-        h("div", { class: "cover-container" }, this.hasCoverImage && [
-          h("slot", { name: "cover" }),
-          (this.variant !== CardVariants.overlay) && this.coverIcon && h("z-icon", { name: this.coverIcon })
-        ], !this.hasCoverImage && h("div", { class: "color-cover" })),
-        this.renderContentDiv()
-      ];
+    if (this.variant === CardVariant.OVERLAY || this.hasCoverImage) {
+      return (h(Host, null, h("div", { class: "cover-container" }, this.hasCoverImage && [
+        h("slot", { name: "cover" }),
+        this.variant !== CardVariant.OVERLAY && this.coverIcon && h("z-icon", { name: this.coverIcon }),
+      ], !this.hasCoverImage && h("div", { class: "color-cover" })), this.renderContentDiv()));
     }
-    return this.renderColorCoverCard();
+    return h(Host, null, this.renderColorCoverCard());
   }
   static get is() { return "z-card"; }
   static get encapsulation() { return "shadow"; }
@@ -71,10 +68,10 @@ export class ZCard {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "CardVariants",
-          "resolved": "CardVariants.border | CardVariants.overlay | CardVariants.shadow | CardVariants.text",
+          "original": "CardVariant",
+          "resolved": "CardVariant.BORDER | CardVariant.OVERLAY | CardVariant.SHADOW | CardVariant.TEXT",
           "references": {
-            "CardVariants": {
+            "CardVariant": {
               "location": "import",
               "path": "../../beans"
             }

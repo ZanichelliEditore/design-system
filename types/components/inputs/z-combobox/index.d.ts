@@ -1,11 +1,10 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ComboItemBean } from "../../../beans";
-import { ZInput } from "../z-input";
+import { ComboItem } from "../../../beans";
 export declare class ZCombobox {
   /** input unique id */
   inputid: string;
   /** list items array */
-  items: ComboItemBean[] | string;
+  items: ComboItem[] | string;
   /** label text */
   label: string;
   /** show search input flag (optional) */
@@ -34,29 +33,29 @@ export declare class ZCombobox {
   maxcheckableitems: number;
   searchValue: string;
   selectedCounter: number;
-  renderItemsList: ComboItemBean[];
+  renderItemsList: ComboItem[];
   private itemsList;
   private inputType;
   watchItems(): void;
   inputCheckListener(e: CustomEvent): void;
   /** Emitted when value is checked/unchecked. Returns id, items. */
   comboboxChange: EventEmitter;
-  emitComboboxChange(): void;
+  private emitComboboxChange;
   constructor();
   componentWillLoad(): void;
   componentWillRender(): void;
-  resetRenderItemsList(): void;
-  filterItems(value: string): void;
-  checkAll(checked?: boolean): void;
-  closeFilterItems(): void;
-  toggleComboBox(): void;
-  renderHeader(): HTMLDivElement;
-  renderContent(): HTMLDivElement | undefined;
-  renderItems(): HTMLDivElement | undefined;
-  renderList(items: ComboItemBean[]): HTMLUListElement | undefined;
-  renderNoSearchResults(): HTMLUListElement;
-  renderCloseButton(): HTMLDivElement;
-  renderSearchInput(): ZInput | undefined;
-  renderCheckAll(): any;
+  private resetRenderItemsList;
+  private filterItems;
+  private checkAll;
+  private closeFilterItems;
+  private toggleComboBox;
+  private renderHeader;
+  private renderContent;
+  private renderItems;
+  private renderList;
+  private renderNoSearchResults;
+  private renderCloseButton;
+  private renderSearchInput;
+  private renderCheckAll;
   render(): HTMLDivElement;
 }

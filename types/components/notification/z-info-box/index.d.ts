@@ -1,4 +1,4 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
+import { EventEmitter } from "../../../stencil-public-runtime";
 /**
  * @slot content - set the info box content
  */
@@ -9,6 +9,6 @@ export declare class ZInfoBox {
   isclosable: boolean;
   /** emitted on close icon click */
   infoBoxClose: EventEmitter;
-  emitInfoBoxClose(): void;
-  render(): any;
+  private emitInfoBoxClose;
+  render(): HTMLDivElement;
 }

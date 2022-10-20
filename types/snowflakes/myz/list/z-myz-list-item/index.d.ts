@@ -16,10 +16,10 @@ export declare class ZMyzListItem {
   underlined: boolean;
   /** emitted on list item link click, returns linkId */
   zListItemLinkClick: EventEmitter;
-  emitZListItemLinkClick(e: MouseEvent, linkId: any): void;
+  private emitZListItemLinkClick;
   /** emitted on list item click, returns listitemid */
   zListItemClick: EventEmitter;
-  emitZListItemClick(e: MouseEvent, listitemid: any): void;
+  private emitZListItemClick;
   constructor();
-  render(): any;
+  render(): HTMLLIElement;
 }

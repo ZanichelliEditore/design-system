@@ -3,10 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-1fda0714.js');
-require('./_commonjsHelpers-537d719a.js');
 
-const stylesCss = ".sc-z-table-empty-box-h{display:block;padding:calc(var(--space-unit)) calc(var(--space-unit) * 3)\n    calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);background-color:var(--bg-white)}.sc-z-table-empty-box-s>*{margin-top:var(--space-unit)}.cta.sc-z-table-empty-box{display:flex;flex-direction:row;margin-top:calc(var(--space-unit) / 2)}.cta.has2Cta.sc-z-table-empty-box{flex-direction:column}@media only screen and (min-width: 768px){.sc-z-table-empty-box-h{padding:calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)\n      calc(var(--space-unit) * 3) calc(var(--space-unit) * 7)}.sc-z-table-empty-box-s>*{margin-right:calc(var(--space-unit) * 2)}.cta.sc-z-table-empty-box{margin-top:var(--space-unit)}.cta.has2Cta.sc-z-table-empty-box{flex-direction:row}}";
+const stylesCss = ".sc-z-table-empty-box-h{display:block;padding:calc(var(--space-unit)) calc(var(--space-unit) * 3) calc(var(--space-unit) * 3) calc(var(--space-unit) * 3);background-color:var(--bg-white)}.sc-z-table-empty-box-s>*{margin-top:var(--space-unit)}.cta.sc-z-table-empty-box{display:flex;flex-direction:row;margin-top:calc(var(--space-unit) / 2)}.cta.has-2-cta.sc-z-table-empty-box{flex-direction:column}@media only screen and (min-width: 768px){.sc-z-table-empty-box-h{padding:calc(var(--space-unit) * 3) calc(var(--space-unit) * 7) calc(var(--space-unit) * 3)\n      calc(var(--space-unit) * 7)}.sc-z-table-empty-box-s>*{margin-right:calc(var(--space-unit) * 2)}.cta.sc-z-table-empty-box{margin-top:var(--space-unit)}.cta.has-2-cta.sc-z-table-empty-box{flex-direction:row}}";
 
 const ZTableEmptyBox = class {
   constructor(hostRef) {
@@ -21,9 +19,10 @@ const ZTableEmptyBox = class {
     this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
   render() {
-    return (index.h(index.Host, null, index.h("z-body", { level: 3, variant: "semibold" }, this.message), index.h("br", null), !!this.subtitle && (index.h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (index.h("div", { class: index$1.classnames("cta", {
-        has2Cta: !!this.hasCta1Slot && !!this.hasCta2Slot
-      }) }, index.h("slot", { name: "cta1" }), index.h("slot", { name: "cta2" })))));
+    return (index.h(index.Host, null, index.h("z-body", { level: 3, variant: "semibold" }, this.message), index.h("br", null), !!this.subtitle && (index.h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (index.h("div", { class: {
+        "cta": true,
+        "has-2-cta": !!this.hasCta1Slot && !!this.hasCta2Slot,
+      } }, index.h("slot", { name: "cta1" }), index.h("slot", { name: "cta2" })))));
   }
   get hostElement() { return index.getElement(this); }
 };

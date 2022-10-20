@@ -1,11 +1,11 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { InputTypeBean, InputStatusBean, LabelPosition } from "../../../beans";
+import { InputType, LabelPosition, InputStatus } from "../../../beans";
 export declare class ZInput {
-  hostElement: HTMLElement;
+  hostElement: HTMLZInputElement;
   /** the id of the input element */
   htmlid: string;
   /** input types */
-  type: InputTypeBean;
+  type: InputType;
   /** the input name */
   name?: string;
   /** the input label */
@@ -27,7 +27,7 @@ export declare class ZInput {
   /** the input html title (optional) */
   htmltitle?: string;
   /** the input status (optional): available for text, password, number, email, textarea */
-  status?: InputStatusBean;
+  status?: InputStatus;
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   message?: string | boolean;
   /** the input label position: available for checkbox, radio */
@@ -55,51 +55,30 @@ export declare class ZInput {
   isChecked(): Promise<boolean>;
   /** Emitted on input value change, returns value, validity */
   inputChange: EventEmitter;
-  emitInputChange(value: string): void;
+  private emitInputChange;
   /** Emitted when user starts typing */
   startTyping: EventEmitter;
-  emitStartTyping(): void;
+  private emitStartTyping;
   /** Emitted when user stops typing, returns value, validity */
   stopTyping: EventEmitter;
-  emitStopTyping(value: string, validity: any): void;
+  private emitStopTyping;
   /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
   inputCheck: EventEmitter;
-  emitInputCheck(checked: boolean): void;
-  getValidity(type: string): ValidityState;
-  getTextAttributes(): {
-    id: string;
-    name: string;
-    placeholder: string;
-    value: string;
-    disabled: boolean;
-    readonly: boolean;
-    required: boolean;
-    title: string;
-    class: {
-      [x: string]: boolean;
-      filled: boolean;
-    };
-    autocomplete: string;
-    onInput: (e: any) => void;
-  };
-  getNumberAttributes(type: InputTypeBean): {
-    min: number;
-    max: number;
-    step: number;
-  };
-  getPatternAttribute(type: InputTypeBean): {
-    pattern: string;
-  };
-  renderInputText(type?: InputTypeBean): any;
-  renderLabel(): any;
-  renderIcons(): any;
-  renderIcon(): any;
-  renderResetIcon(): any;
-  renderShowHidePassword(): any;
-  renderMessage(): any;
-  renderTextarea(): any;
-  handleCheck(ev: any): void;
-  renderCheckbox(): any;
-  renderRadio(): any;
-  render(): any;
+  private emitInputCheck;
+  private getValidity;
+  private getTextAttributes;
+  private getNumberAttributes;
+  private getPatternAttribute;
+  private renderInputText;
+  private renderLabel;
+  private renderIcons;
+  private renderIcon;
+  private renderResetIcon;
+  private renderShowHidePassword;
+  private renderMessage;
+  private renderTextarea;
+  private handleCheck;
+  private renderCheckbox;
+  private renderRadio;
+  render(): HTMLInputElement | HTMLDivElement;
 }

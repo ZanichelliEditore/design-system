@@ -5,31 +5,19 @@
 
 button {
   display: flex;
-  justify-content: center;
   align-content: center;
-  background-color: transparent;
-  border: none;
+  justify-content: center;
   padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 button > z-icon {
   color: var(--bg-white);
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 button > z-icon.light {
   color: var(--bg-grey-900);
-  fill: currentColor;
-} 
-
-/* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
+  fill: currentcolor;
 }

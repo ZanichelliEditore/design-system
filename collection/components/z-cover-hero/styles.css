@@ -13,10 +13,10 @@
 
 :host .content-hero {
   position: relative;
-  align-items: baseline;
   width: 100%;
   height: var(--cover-hero-height);
   min-height: calc(var(--space-unit) * 30);
+  align-items: baseline;
   background-color: var(--gray600);
 }
 
@@ -45,20 +45,20 @@
 
 ::slotted(z-info-reveal) {
   position: absolute;
-  bottom: var(--grid-margin);
-  right: var(--grid-margin);
   z-index: 1;
+  right: var(--grid-margin);
+  bottom: var(--grid-margin);
 }
 
 /* Variant overlay */
 :host([variant="overlay"]) .content-hero .cover::after {
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: var(--cover-hero-overlay);
+  content: "";
 }
 
 :host([variant="overlay"]) .content-hero .content-container {

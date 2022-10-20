@@ -1,18 +1,19 @@
 import { h, Host } from "@stencil/core";
 import { StatusTagStatus } from "../../beans";
-import classNames from "classnames";
 export class ZStatusTag {
   constructor() {
     /** [optional] Status tag color */
-    this.status = StatusTagStatus.default;
+    this.status = StatusTagStatus.DEFAULT;
     if (!this.icon && !this.text) {
       console.warn("z-status-tag must contain at least one prop between icon and text");
     }
   }
   render() {
-    return (h(Host, { class: classNames(this.variant, "body-5-sb", {
-        expandable: this.expandable && this.icon && this.text,
-      }) }, this.icon && h("z-icon", { name: this.icon }), this.text && h("span", null, this.text)));
+    return (h(Host, { class: {
+        "body-5-sb": true,
+        [this.variant || ""]: true,
+        "expandable": this.expandable && !!this.icon && !!this.text,
+      } }, this.icon && h("z-icon", { name: this.icon }), this.text && h("span", null, this.text)));
   }
   static get is() { return "z-status-tag"; }
   static get encapsulation() { return "shadow"; }
@@ -84,7 +85,7 @@ export class ZStatusTag {
         "mutable": false,
         "complexType": {
           "original": "StatusTagStatus",
-          "resolved": "StatusTagStatus.default | StatusTagStatus.error | StatusTagStatus.neutral | StatusTagStatus.success | StatusTagStatus.warning",
+          "resolved": "StatusTagStatus.DEFAULT | StatusTagStatus.ERROR | StatusTagStatus.NEUTRAL | StatusTagStatus.SUCCESS | StatusTagStatus.WARNING",
           "references": {
             "StatusTagStatus": {
               "location": "import",
@@ -100,14 +101,14 @@ export class ZStatusTag {
         },
         "attribute": "status",
         "reflect": true,
-        "defaultValue": "StatusTagStatus.default"
+        "defaultValue": "StatusTagStatus.DEFAULT"
       },
       "variant": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "ThemeVariant",
-          "resolved": "ThemeVariant.dark | ThemeVariant.light",
+          "resolved": "ThemeVariant.DARK | ThemeVariant.LIGHT",
           "references": {
             "ThemeVariant": {
               "location": "import",

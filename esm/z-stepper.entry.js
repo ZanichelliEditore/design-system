@@ -1,13 +1,13 @@
 import { r as registerInstance, h } from './index-a2ca4b97.js';
 
-const stylesCss = ":host{box-sizing:border-box;position:relative;display:flex;flex-direction:row;width:100%;max-width:100%;margin:0;padding:0;font-family:var(--dashboard-font);font-weight:var(--font-rg);list-style:none}@media only screen and (min-width: 768px){:host{padding:0 calc(var(--space-unit) * 2)}}";
+const stylesCss = ":host{position:relative;display:flex;width:100%;max-width:100%;box-sizing:border-box;flex-direction:row;padding:0;margin:0;font-family:var(--dashboard-font);font-weight:var(--font-rg);list-style:none}@media only screen and (min-width: 768px){:host{padding:0 calc(var(--space-unit) * 2)}}";
 
 const ZStepper = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h("slot", null));
+    return h("slot", null);
   }
 };
 ZStepper.style = stylesCss;

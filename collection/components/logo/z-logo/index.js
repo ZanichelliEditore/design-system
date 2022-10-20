@@ -8,9 +8,7 @@ export class ZLogo {
     if (this.height) {
       style["height"] = style["max-height"] = `${this.height}px`;
     }
-    return (h(Host, { style: style, class: { "mobile": !!this.mobileLogo } }, this.link ?
-      h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, h("img", { alt: this.imageAlt })) :
-      h("img", { alt: this.imageAlt })));
+    return (h(Host, { style: style, class: { mobile: !!this.mobileLogo } }, this.link ? (h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, h("img", { alt: this.imageAlt }))) : (h("img", { alt: this.imageAlt }))));
   }
   static get is() { return "z-logo"; }
   static get encapsulation() { return "shadow"; }

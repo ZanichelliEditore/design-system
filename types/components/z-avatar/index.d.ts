@@ -1,3 +1,4 @@
+import { HostElement } from "../../stencil-public-runtime";
 import { AvatarSize } from "../../beans";
 export declare class ZAvatar {
   /** [optional] Avatar size */
@@ -11,6 +12,6 @@ export declare class ZAvatar {
   /** [optional] Avatar image */
   image?: string;
   constructor();
-  getTextSize(): "5" | "4" | "2";
-  render(): any;
+  private getTextSize;
+  render(): HostElement;
 }

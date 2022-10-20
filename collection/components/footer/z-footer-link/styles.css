@@ -5,29 +5,21 @@
 
 :host > a {
   display: inline-block;
-  color: var(--color-white);
+  width: 100%;
   padding: calc(var(--space-unit) / 2 * 3) 0;
   border-bottom: 1px solid var(--gray50);
-  text-decoration: none;
+  color: var(--color-white);
   font-size: 14px;
-  width: 100%;
+  text-decoration: none;
 }
 
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host a {
-    font-size: 12px;
-    border-bottom: none;
-    text-decoration: underline;
-    padding: 0;
     width: initial;
+    padding: 0;
+    border-bottom: none;
+    font-size: 12px;
+    text-decoration: underline;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

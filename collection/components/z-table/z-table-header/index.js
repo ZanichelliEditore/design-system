@@ -1,14 +1,14 @@
-import { h, Host, } from "@stencil/core";
-import classNames from "classnames";
-import { ButtonSizeEnum, ButtonVariantEnum, PopoverPositions, Size, SortDirectionEnum, } from "../../../beans";
+import { h, Host } from "@stencil/core";
+import { ButtonSize, ButtonVariant, PopoverPositions, Size, SortDirection } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 export class ZTableHeader {
   constructor() {
     /** Set padding size of cell, if special 0px padding will be set */
-    this.padding = Size.medium;
+    this.padding = Size.MEDIUM;
     /** [Optional] Default sort order */
-    this.defaultSortDirection = SortDirectionEnum.asc;
-    this.sortDirection = SortDirectionEnum.none;
+    this.defaultSortDirection = SortDirection.ASC;
+    /** Sort direction */
+    this.sortDirection = SortDirection.NONE;
     this.emitOnSort = this.emitOnSort.bind(this);
   }
   emitOnSort() {
@@ -23,14 +23,14 @@ export class ZTableHeader {
     }
     this.sortDirection = (() => {
       switch (this.sortDirection) {
-        case SortDirectionEnum.asc:
-          return SortDirectionEnum.desc;
-        case SortDirectionEnum.desc:
-          return SortDirectionEnum.asc;
-        case SortDirectionEnum.none:
+        case SortDirection.ASC:
+          return SortDirection.DESC;
+        case SortDirection.DESC:
+          return SortDirection.ASC;
+        case SortDirection.NONE:
           return this.defaultSortDirection;
         default:
-          return SortDirectionEnum.none;
+          return SortDirection.NONE;
       }
     })();
     this.emitOnSort();
@@ -46,7 +46,7 @@ export class ZTableHeader {
     }
   }
   handleClickHeaders(e) {
-    const { target } = e;
+    const target = e.target;
     const parent = getElementTree(target).find((elem) => elem.nodeName.toLowerCase() === "z-table-header");
     if (!this.sortable || !parent) {
       return;
@@ -54,18 +54,16 @@ export class ZTableHeader {
     const parentColumnId = parent.attributes.getNamedItem("column-id").value;
     const isSortable = target.parentNode.sortable || target.sortable;
     if (parentColumnId !== this.columnId && isSortable) {
-      this.sortDirection = SortDirectionEnum.none;
+      this.sortDirection = SortDirection.NONE;
     }
   }
   componentWillRender() {
     this.host.setAttribute("role", "columnheader");
   }
   render() {
-    return (h(Host, { class: classNames({
+    return (h(Host, { class: {
         sortable: this.sortable,
-      }), onClick: () => this.handleSort() }, h("div", { class: 'container' }, h("slot", null), this.sortable && this.sortDirection !== SortDirectionEnum.none && (h("z-icon", { name: this.sortDirection === SortDirectionEnum.asc
-        ? "arrow-up"
-        : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: 'popover-container' }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariantEnum["tertiary"], size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.bottom, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
+      }, onClick: () => this.handleSort() }, h("div", { class: "container" }, h("slot", null), this.sortable && this.sortDirection !== SortDirection.NONE && (h("z-icon", { name: this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: "popover-container" }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariant.TERTIARY, size: ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
   }
   static get is() { return "z-table-header"; }
   static get encapsulation() { return "shadow"; }
@@ -103,7 +101,7 @@ export class ZTableHeader {
         "mutable": false,
         "complexType": {
           "original": "Size",
-          "resolved": "(typeof Size)[\"x-small\"] | Size.large | Size.medium | Size.small | Size.special",
+          "resolved": "Size.LARGE | Size.MEDIUM | Size.SMALL | Size.SPECIAL | Size.X_SMALL",
           "references": {
             "Size": {
               "location": "import",
@@ -119,7 +117,7 @@ export class ZTableHeader {
         },
         "attribute": "padding",
         "reflect": true,
-        "defaultValue": "Size.medium"
+        "defaultValue": "Size.MEDIUM"
       },
       "sortable": {
         "type": "boolean",
@@ -160,7 +158,7 @@ export class ZTableHeader {
         "mutable": false,
         "complexType": {
           "original": "SortDirection",
-          "resolved": "SortDirectionEnum.asc | SortDirectionEnum.desc | SortDirectionEnum.none",
+          "resolved": "SortDirection.ASC | SortDirection.DESC | SortDirection.NONE",
           "references": {
             "SortDirection": {
               "location": "import",
@@ -176,14 +174,14 @@ export class ZTableHeader {
         },
         "attribute": "default-sort-direction",
         "reflect": false,
-        "defaultValue": "SortDirectionEnum.asc"
+        "defaultValue": "SortDirection.ASC"
       },
       "sortDirection": {
         "type": "string",
         "mutable": true,
         "complexType": {
           "original": "SortDirection",
-          "resolved": "SortDirectionEnum.asc | SortDirectionEnum.desc | SortDirectionEnum.none",
+          "resolved": "SortDirection.ASC | SortDirection.DESC | SortDirection.NONE",
           "references": {
             "SortDirection": {
               "location": "import",
@@ -195,11 +193,11 @@ export class ZTableHeader {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Sort direction"
         },
         "attribute": "sort-direction",
         "reflect": false,
-        "defaultValue": "SortDirectionEnum.none"
+        "defaultValue": "SortDirection.NONE"
       }
     };
   }

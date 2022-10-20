@@ -1,9 +1,9 @@
 import { r as registerInstance, h, c as createEvent, g as getElement } from './index-a2ca4b97.js';
-import { h as KeyboardCodeEnum, o as ListDividerType } from './index-8390ddaf.js';
-import { r as randomId, b as boolean, a as getElementTree, h as handleKeyboardSubmit, e as getClickedElement } from './utils-2c5dfb88.js';
+import { h as KeyboardCode, n as ListDividerType } from './index-9d028352.js';
+import { r as randomId, b as boolean, a as getElementTree, h as handleKeyboardSubmit, e as getClickedElement } from './utils-39ca028c.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss$1 = "label{display:block;margin:var(--space-unit) 0;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-1);font-weight:var(--font-sb);line-height:1.33;letter-spacing:0.32px;text-transform:uppercase;text-align:left}label.disabled{color:var(--color-disabled02)}";
+const stylesCss$1 = "label{display:block;margin:var(--space-unit) 0;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-1);font-weight:var(--font-sb);letter-spacing:0.32px;line-height:1.33;text-align:left;text-transform:uppercase}label.disabled{color:var(--color-disabled02)}";
 
 const ZInputLabel = class {
   constructor(hostRef) {
@@ -12,12 +12,12 @@ const ZInputLabel = class {
     this.disabled = false;
   }
   render() {
-    return h("label", { htmlFor: this.htmlfor, class: { disabled: this.disabled } }, this.value);
+    return (h("label", { htmlFor: this.htmlfor, class: { disabled: this.disabled } }, this.value));
   }
 };
 ZInputLabel.style = stylesCss$1;
 
-const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:var(--font-size-3);color:var(--color-text02)}.selectWrapper.sc-z-select>z-input.sc-z-select{width:100%}.selectWrapper.sc-z-select>div.sc-z-select{position:relative}.selectWrapper.sc-z-select>div.closed.sc-z-select{height:0;overflow:hidden}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select{background:var(--color-surface01);position:absolute;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;width:100%;box-sizing:border-box;outline:none}.selectWrapper.sc-z-select .closed.sc-z-select .ulScrollWrapper.sc-z-select{z-index:10}.selectWrapper.sc-z-select .open.sc-z-select .ulScrollWrapper.sc-z-select{z-index:20}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>z-list.sc-z-select{position:relative;padding:calc(var(--space-unit) * 0.5);max-height:240px;overflow:auto;outline:none;scrollbar-color:var(--color-primary01) transparent}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.sc-z-select{display:block;padding:0 calc(var(--space-unit) * 1.5)}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.selected.sc-z-select{font-weight:bold}.selectWrapper.sc-z-select .ulScrollWrapper.sc-z-select .noResults.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}";
+const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.sc-z-select{display:block;padding:0 calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}";
 
 const ZSelect = class {
   constructor(hostRef) {
@@ -103,9 +103,7 @@ const ZSelect = class {
         return item.name.toUpperCase().includes(searchString.toUpperCase());
       })
         .map((item) => {
-        const start = item.name
-          .toUpperCase()
-          .indexOf(searchString.toUpperCase());
+        const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
         const end = start + searchString.length;
         const newName = item.name.substring(0, start) +
           `<strong>${item.name.substring(start, end)}</strong>` +
@@ -120,49 +118,57 @@ const ZSelect = class {
   }
   handleInputChange(e) {
     this.searchString = e.detail.value;
-    if (!this.isOpen)
+    if (!this.isOpen) {
       this.toggleSelectUl();
+    }
   }
   selectItem(item, selected) {
-    if (item && item.disabled)
+    if (item && item.disabled) {
       return;
+    }
     this.itemsList = this.mapSelectedItemToItemsArray();
     this.itemsList = this.itemsList.map((i) => {
       i.selected = false;
-      if (i.id === (item ? item.id : null))
+      if (i.id === (item === null || item === void 0 ? void 0 : item.id)) {
         i.selected = selected;
+      }
       return i;
     });
     this.selectedItem = this.itemsList.find((item) => item.selected);
     this.emitOptionSelect();
-    if (this.searchString)
+    if (this.searchString) {
       this.searchString = null;
+    }
   }
   arrowsSelectNav(e, key) {
-    const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.key))
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+    if (!arrows.includes(e.key)) {
       return;
+    }
     e.preventDefault();
     e.stopPropagation();
-    if (!this.isOpen)
+    if (!this.isOpen) {
       this.toggleSelectUl();
+    }
     let index;
-    if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
+    if (e.key === KeyboardCode.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
     }
-    else if (e.key === KeyboardCodeEnum.ARROW_UP) {
+    else if (e.key === KeyboardCode.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
     this.focusSelectItem(index);
   }
   focusSelectItem(index) {
     const focusElem = this.element.querySelector(`#${this.htmlid}_${index}`);
-    if (focusElem)
+    if (focusElem) {
       focusElem.focus();
+    }
   }
   toggleSelectUl(selfFocusOnClose = false) {
-    if (this.disabled || this.readonly)
+    if (this.disabled || this.readonly) {
       return;
+    }
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
       document.addEventListener("keyup", this.handleSelectFocus);
@@ -178,7 +184,7 @@ const ZSelect = class {
   }
   handleInputClick(e) {
     const cp = e.composedPath();
-    const clearIcon = cp.find((item) => item.classList && item.classList.contains("resetIcon"));
+    const clearIcon = cp.find((item) => item.classList && item.classList.contains("reset-icon"));
     if (clearIcon) {
       e.stopPropagation();
       return;
@@ -186,19 +192,16 @@ const ZSelect = class {
     this.toggleSelectUl();
   }
   handleSelectFocus(e) {
-    if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
-    if (e instanceof KeyboardEvent &&
-      e.key !== KeyboardCodeEnum.TAB &&
-      e.key !== KeyboardCodeEnum.ENTER) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB && e.key !== KeyboardCode.ENTER) {
       return;
     }
     const tree = getElementTree(getClickedElement());
     const parent = tree.find((elem) => {
-      return (elem.nodeName.toLowerCase() === "z-input" &&
-        elem.id === `${this.htmlid}_input`);
+      return elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`;
     });
     if (!parent) {
       this.toggleSelectUl(e instanceof MouseEvent ? true : false);
@@ -206,17 +209,17 @@ const ZSelect = class {
   }
   scrollToLetter(letter) {
     const foundItem = this.itemsList.find((item) => item.name.charAt(0) === letter);
-    if (foundItem)
+    if (foundItem) {
       this.focusSelectItem(this.itemsList.indexOf(foundItem));
+    }
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem
-        ? this.selectedItem.name.replace(/<[^>]+>/g, "")
-        : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
+    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
-        if (e.keyCode !== 13)
+        if (e.keyCode !== 13) {
           e.preventDefault();
+        }
         handleKeyboardSubmit(e, this.toggleSelectUl);
       }, onKeyDown: (e) => {
         return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1);
@@ -231,31 +234,32 @@ const ZSelect = class {
   }
   renderSelectUl() {
     var _a;
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ulScrollWrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ul-scroll-wrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
-        [`input_${this.status}`]: !this.isOpen && !!this.status,
-        input_default: this.isOpen || !this.status,
+        [`input-${this.status}`]: !this.isOpen && !!this.status,
       } }, this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
-    if (!this.itemsList.length)
+    if (!this.itemsList.length) {
       return this.renderNoSearchResults();
+    }
     return this.itemsList.map((item, key) => {
-      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.element, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
     });
   }
   renderNoSearchResults() {
-    return (h("z-list-element", { color: "blue500", class: "noResults" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
+    return (h("z-list-element", { color: "blue500", class: "no-results" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
   }
   renderMessage() {
-    if (boolean(this.message) === false)
+    if (boolean(this.message) === false) {
       return;
+    }
     return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
   }
   render() {
-    return (h("div", { class: "selectWrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+    return (h("div", { class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
   }
   get element() { return getElement(this); }
   static get watchers() { return {

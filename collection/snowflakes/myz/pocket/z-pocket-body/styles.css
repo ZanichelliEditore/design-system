@@ -1,16 +1,16 @@
 :host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   display: block;
   width: 100%;
   box-sizing: border-box;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 :host > main {
-  background: var(--color-surface01);
-  border-left: var(--border-size-small) solid var(--color-surface03);
-  border-right: var(--border-size-small) solid var(--color-surface03);
   overflow: auto;
+  border-right: var(--border-size-small) solid var(--color-surface03);
+  border-left: var(--border-size-small) solid var(--color-surface03);
+  background: var(--color-surface01);
   scrollbar-width: none;
 }
 
@@ -25,7 +25,7 @@
 }
 
 :host > main.closed {
-  height: 0px;
+  height: 0;
   transition: all 200ms ease-in-out, top 200ms ease-in-out;
 }
 
@@ -38,12 +38,4 @@
   :host > main.preview {
     max-height: 157px;
   }
-}
-
-/* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-}
-
-/* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
 }

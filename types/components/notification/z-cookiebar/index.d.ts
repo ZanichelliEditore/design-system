@@ -5,12 +5,12 @@ export declare class ZCookiebar {
   /** hide cookie bar (optional)  */
   hide?: boolean;
   /** callback to handle ok button action (optional) */
-  callback?: () => any;
+  callback?: () => unknown;
   /** emitted on ACCETTA button click, returns event */
   accept: EventEmitter;
-  emitAccept(ev: MouseEvent | KeyboardEvent): void;
-  handleOkButtonClick(ev: MouseEvent): void;
-  handleOkButtonKeyUp(ev: KeyboardEvent): void;
-  renderContentSlot(): any;
-  render(): any;
+  private emitAccept;
+  private handleOkButtonClick;
+  private handleOkButtonKeyUp;
+  private renderContentSlot;
+  render(): HTMLZCandybarElement;
 }

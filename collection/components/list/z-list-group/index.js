@@ -5,15 +5,15 @@ export class ZListGroup {
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = ListSize.medium;
+    this.size = ListSize.MEDIUM;
     /**
      * [optional] Sets the position where to insert the divider.
      */
-    this.dividerType = ListDividerType.none;
+    this.dividerType = ListDividerType.NONE;
     /**
      * [optional] Sets the divider size.
      */
-    this.dividerSize = DividerSize.small;
+    this.dividerSize = DividerSize.SMALL;
     /**
      * [optional] Sets the divider color.
      */
@@ -37,7 +37,7 @@ export class ZListGroup {
     return (h(Host, { role: "group" }, h("div", { class: {
         "z-list-group-header-container": true,
         "has-header": this.hasHeader,
-      } }, h("slot", { name: "header-title" }), this.dividerType === ListDividerType.header && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), h("slot", null)));
+      } }, h("slot", { name: "header-title" }), this.dividerType === ListDividerType.HEADER && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), h("slot", null)));
   }
   static get is() { return "z-list-group"; }
   static get encapsulation() { return "shadow"; }
@@ -58,7 +58,7 @@ export class ZListGroup {
         "mutable": false,
         "complexType": {
           "original": "ListSize",
-          "resolved": "(typeof ListSize)[\"x-large\"] | ListSize.large | ListSize.medium | ListSize.small",
+          "resolved": "ListSize.LARGE | ListSize.MEDIUM | ListSize.SMALL | ListSize.X_LARGE",
           "references": {
             "ListSize": {
               "location": "import",
@@ -74,14 +74,14 @@ export class ZListGroup {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ListSize.medium"
+        "defaultValue": "ListSize.MEDIUM"
       },
       "dividerType": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "ListDividerType",
-          "resolved": "ListDividerType.element | ListDividerType.header | ListDividerType.none",
+          "resolved": "ListDividerType.ELEMENT | ListDividerType.HEADER | ListDividerType.NONE",
           "references": {
             "ListDividerType": {
               "location": "import",
@@ -97,14 +97,14 @@ export class ZListGroup {
         },
         "attribute": "divider-type",
         "reflect": true,
-        "defaultValue": "ListDividerType.none"
+        "defaultValue": "ListDividerType.NONE"
       },
       "dividerSize": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "DividerSize",
-          "resolved": "DividerSize.large | DividerSize.medium | DividerSize.small",
+          "resolved": "DividerSize.LARGE | DividerSize.MEDIUM | DividerSize.SMALL",
           "references": {
             "DividerSize": {
               "location": "import",
@@ -120,7 +120,7 @@ export class ZListGroup {
         },
         "attribute": "divider-size",
         "reflect": true,
-        "defaultValue": "DividerSize.small"
+        "defaultValue": "DividerSize.SMALL"
       },
       "dividerColor": {
         "type": "string",

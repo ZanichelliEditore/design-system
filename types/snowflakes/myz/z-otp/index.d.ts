@@ -1,13 +1,17 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { InputStatusBean } from "../../../beans";
+import { InputStatus } from "../../../beans";
 export declare class ZOtp {
+  /** Input number */
   inputNum?: number;
-  status?: InputStatusBean;
+  /** Input status */
+  status?: InputStatus;
+  /** Input message */
   message?: string;
   private otp;
   private otpRef;
+  /** Otp change event */
   otpChange: EventEmitter;
-  emitInputChange(value: string): void;
+  private emitInputChange;
   componentWillLoad(): void;
-  render(): any;
+  render(): HTMLDivElement;
 }

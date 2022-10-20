@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 /**
  * @slot modalContent - set the content of the modal
  * @slot modalCloseButton - accept custom close button
@@ -18,10 +18,7 @@ export class ZModal {
     this.modalBackgroundClick.emit({ modalid: this.modalid });
   }
   render() {
-    return [
-      h("div", { class: "modal-container", id: this.modalid, role: "dialog" }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", null, this.modaltitle), this.modalsubtitle && h("h2", null, this.modalsubtitle)), h("slot", { name: "modalCloseButton" }, h("button", { "aria-label": this.closeButtonLabel, onClick: this.emitModalClose.bind(this) }, h("z-icon", { name: "multiply-circle-filled" })))), h("div", { class: "modal-content" }, h("slot", { name: "modalContent" }))),
-      h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: this.emitBackgroundClick.bind(this) })
-    ];
+    return (h(Host, null, h("div", { class: "modal-container", id: this.modalid, role: "dialog" }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", null, this.modaltitle), this.modalsubtitle && h("h2", null, this.modalsubtitle)), h("slot", { name: "modalCloseButton" }, h("button", { "aria-label": this.closeButtonLabel, onClick: this.emitModalClose.bind(this) }, h("z-icon", { name: "multiply-circle-filled" })))), h("div", { class: "modal-content" }, h("slot", { name: "modalContent" }))), h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: this.emitBackgroundClick.bind(this) })));
   }
   static get is() { return "z-modal"; }
   static get encapsulation() { return "shadow"; }

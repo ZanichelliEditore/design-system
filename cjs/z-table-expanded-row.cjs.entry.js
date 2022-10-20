@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
 
-const stylesCss = ":host{background-color:var(--gray50);display:none}:host>td>div.content-container{box-shadow:var(--shadow-2);margin-bottom:calc(var(--space-unit) / 2)}";
+const stylesCss = ":host{display:none;background-color:var(--gray50)}:host>td>div.content-container{margin-bottom:calc(var(--space-unit) / 2);box-shadow:var(--shadow-2)}";
 
 const ZTableExpandedRow = class {
   constructor(hostRef) {

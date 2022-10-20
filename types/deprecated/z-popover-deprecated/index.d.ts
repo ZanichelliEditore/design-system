@@ -1,4 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
+import { HostElement } from "../../stencil-public-runtime";
 import { PopoverPosition, PopoverBorderRadius, PopoverShadow } from "../../beans";
 export declare class ZPopoverDeprecated {
   /** [optional] Popover position */
@@ -17,17 +18,17 @@ export declare class ZPopoverDeprecated {
   popoverPosition: PopoverPosition;
   /** Emitted on popover click, returns isVisible state */
   triggerClick: EventEmitter;
-  emitTriggerClick(): void;
+  private emitTriggerClick;
   private popoverElem;
   /**
    * Constructor.
    */
   constructor();
-  openPopover(): void;
+  private openPopover;
   closePopover(): void;
-  closePopoverWithKeyboard(e: any): void;
-  handleClick(event: any): void;
-  handleKeyDown(event: any): void;
-  handleOutsideClick(e: any): void;
-  render(): any;
+  closePopoverWithKeyboard(e: KeyboardEvent): void;
+  private handleClick;
+  private handleKeyDown;
+  handleOutsideClick(e: MouseEvent): void;
+  render(): HostElement;
 }

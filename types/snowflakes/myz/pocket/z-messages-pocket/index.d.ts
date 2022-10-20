@@ -10,7 +10,7 @@ export declare class ZMessagesPocket {
   /** pocket status */
   status: PocketStatus;
   handlePocketToggle(e: CustomEvent): void;
-  renderHeader(): any;
-  renderBody(): any;
-  render(): any;
+  private renderHeader;
+  private renderBody;
+  render(): HTMLZPocketElement;
 }

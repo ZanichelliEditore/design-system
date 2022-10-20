@@ -1,334 +1,326 @@
-export var LicenseTypeEnum;
-(function (LicenseTypeEnum) {
-  LicenseTypeEnum["real"] = "reale";
-  LicenseTypeEnum["virtual"] = "virtuale";
-  LicenseTypeEnum["trial"] = "saggio";
-  LicenseTypeEnum["temp"] = "reale_temp";
-})(LicenseTypeEnum || (LicenseTypeEnum = {}));
-export var CardVariants;
-(function (CardVariants) {
-  CardVariants["border"] = "border";
-  CardVariants["shadow"] = "shadow";
-  CardVariants["overlay"] = "overlay";
-  CardVariants["text"] = "text";
-})(CardVariants || (CardVariants = {}));
-export var NavigationTabsOrientations;
-(function (NavigationTabsOrientations) {
-  NavigationTabsOrientations["horizontal"] = "horizontal";
-  NavigationTabsOrientations["vertical"] = "vertical";
-})(NavigationTabsOrientations || (NavigationTabsOrientations = {}));
-export var NavigationTabsSizes;
-(function (NavigationTabsSizes) {
-  NavigationTabsSizes["big"] = "big";
-  NavigationTabsSizes["small"] = "small";
-})(NavigationTabsSizes || (NavigationTabsSizes = {}));
-export var ButtonVariantEnum;
-(function (ButtonVariantEnum) {
-  ButtonVariantEnum["primary"] = "primary";
-  ButtonVariantEnum["secondary"] = "secondary";
-  ButtonVariantEnum["tertiary"] = "tertiary";
-  ButtonVariantEnum["dark-bg"] = "dark-bg";
-})(ButtonVariantEnum || (ButtonVariantEnum = {}));
-export var ButtonTypeEnum;
-(function (ButtonTypeEnum) {
-  ButtonTypeEnum["submit"] = "submit";
-  ButtonTypeEnum["reset"] = "reset";
-  ButtonTypeEnum["button"] = "button";
-})(ButtonTypeEnum || (ButtonTypeEnum = {}));
-export var ButtonSizeEnum;
-(function (ButtonSizeEnum) {
-  ButtonSizeEnum["big"] = "big";
-  ButtonSizeEnum["small"] = "small";
-  ButtonSizeEnum["x-small"] = "x-small";
-})(ButtonSizeEnum || (ButtonSizeEnum = {}));
-export var InputTypeEnum;
-(function (InputTypeEnum) {
-  InputTypeEnum["text"] = "text";
-  InputTypeEnum["password"] = "password";
-  InputTypeEnum["number"] = "number";
-  InputTypeEnum["email"] = "email";
-  InputTypeEnum["textarea"] = "textarea";
-  InputTypeEnum["checkbox"] = "checkbox";
-  InputTypeEnum["radio"] = "radio";
-  InputTypeEnum["tel"] = "tel";
-  InputTypeEnum["url"] = "url";
-  InputTypeEnum["search"] = "search";
-})(InputTypeEnum || (InputTypeEnum = {}));
-export var InputStatusEnum;
-(function (InputStatusEnum) {
-  InputStatusEnum["success"] = "success";
-  InputStatusEnum["error"] = "error";
-  InputStatusEnum["warning"] = "warning";
-})(InputStatusEnum || (InputStatusEnum = {}));
+export var LicenseType;
+(function (LicenseType) {
+  LicenseType["REAL"] = "reale";
+  LicenseType["VIRTUAL"] = "virtuale";
+  LicenseType["TRIAL"] = "saggio";
+  LicenseType["TEMP"] = "reale_temp";
+})(LicenseType || (LicenseType = {}));
+export var CardVariant;
+(function (CardVariant) {
+  CardVariant["BORDER"] = "border";
+  CardVariant["SHADOW"] = "shadow";
+  CardVariant["OVERLAY"] = "overlay";
+  CardVariant["TEXT"] = "text";
+})(CardVariant || (CardVariant = {}));
+export var NavigationTabsOrientation;
+(function (NavigationTabsOrientation) {
+  NavigationTabsOrientation["HORIZONTAL"] = "horizontal";
+  NavigationTabsOrientation["VERTICAL"] = "vertical";
+})(NavigationTabsOrientation || (NavigationTabsOrientation = {}));
+export var NavigationTabsSize;
+(function (NavigationTabsSize) {
+  NavigationTabsSize["BIG"] = "big";
+  NavigationTabsSize["SMALL"] = "small";
+})(NavigationTabsSize || (NavigationTabsSize = {}));
+export var ButtonVariant;
+(function (ButtonVariant) {
+  ButtonVariant["PRIMARY"] = "primary";
+  ButtonVariant["SECONDARY"] = "secondary";
+  ButtonVariant["TERTIARY"] = "tertiary";
+  ButtonVariant["DARK_BG"] = "dark-bg";
+})(ButtonVariant || (ButtonVariant = {}));
+export var ButtonType;
+(function (ButtonType) {
+  ButtonType["SUBMIT"] = "submit";
+  ButtonType["RESET"] = "reset";
+  ButtonType["BUTTON"] = "button";
+})(ButtonType || (ButtonType = {}));
+export var ButtonSize;
+(function (ButtonSize) {
+  ButtonSize["BIG"] = "big";
+  ButtonSize["SMALL"] = "small";
+  ButtonSize["X_SMALL"] = "x-small";
+})(ButtonSize || (ButtonSize = {}));
+export var InputType;
+(function (InputType) {
+  InputType["TEXT"] = "text";
+  InputType["PASSWORD"] = "password";
+  InputType["NUMBER"] = "number";
+  InputType["EMAIL"] = "email";
+  InputType["TEXTAREA"] = "textarea";
+  InputType["CHECKBOX"] = "checkbox";
+  InputType["RADIO"] = "radio";
+  InputType["TEL"] = "tel";
+  InputType["URL"] = "url";
+  InputType["SEARCH"] = "search";
+})(InputType || (InputType = {}));
+export var InputStatus;
+(function (InputStatus) {
+  InputStatus["SUCCESS"] = "success";
+  InputStatus["ERROR"] = "error";
+  InputStatus["WARNING"] = "warning";
+})(InputStatus || (InputStatus = {}));
 export var PopoverPositions;
 (function (PopoverPositions) {
-  PopoverPositions["auto"] = "auto";
-  PopoverPositions["top"] = "top";
-  PopoverPositions["right"] = "right";
-  PopoverPositions["bottom"] = "bottom";
-  PopoverPositions["left"] = "left";
-  PopoverPositions["top_right"] = "top_right";
-  PopoverPositions["top_left"] = "top_left";
-  PopoverPositions["bottom_right"] = "bottom_right";
-  PopoverPositions["bottom_left"] = "bottom_left";
-  PopoverPositions["right_top"] = "right_top";
-  PopoverPositions["right_bottom"] = "right_bottom";
-  PopoverPositions["left_top"] = "left_top";
-  PopoverPositions["left_bottom"] = "left_bottom";
+  PopoverPositions["AUTO"] = "auto";
+  PopoverPositions["TOP"] = "top";
+  PopoverPositions["RIGHT"] = "right";
+  PopoverPositions["BOTTOM"] = "bottom";
+  PopoverPositions["LEFT"] = "left";
+  PopoverPositions["TOP_RIGHT"] = "top_right";
+  PopoverPositions["TOP_LEFT"] = "top_left";
+  PopoverPositions["BOTTOM_RIGHT"] = "bottom_right";
+  PopoverPositions["BOTTOM_LEFT"] = "bottom_left";
+  PopoverPositions["RIGHT_TOP"] = "right_top";
+  PopoverPositions["RIGHT_BOTTOM"] = "right_bottom";
+  PopoverPositions["LEFT_TOP"] = "left_top";
+  PopoverPositions["LEFT_BOTTOM"] = "left_bottom";
 })(PopoverPositions || (PopoverPositions = {}));
 export var PopoverPosition;
 (function (PopoverPosition) {
-  PopoverPosition["after-down"] = "after-down";
-  PopoverPosition["after-center"] = "after-center";
-  PopoverPosition["after-up"] = "after-up";
-  PopoverPosition["below-right"] = "below-right";
-  PopoverPosition["below-center"] = "below-center";
-  PopoverPosition["below-left"] = "below-left";
-  PopoverPosition["before-down"] = "before-down";
-  PopoverPosition["before-center"] = "before-center";
-  PopoverPosition["before-up"] = "before-up";
-  PopoverPosition["above-right"] = "above-right";
-  PopoverPosition["above-center"] = "above-center";
-  PopoverPosition["above-left"] = "above-left";
+  PopoverPosition["AFTER_DOWN"] = "after-down";
+  PopoverPosition["AFTER_CENTER"] = "after-center";
+  PopoverPosition["AFTER_UP"] = "after-up";
+  PopoverPosition["BELOW_RIGHT"] = "below-right";
+  PopoverPosition["BELOW_CENTER"] = "below-center";
+  PopoverPosition["BELOW_LEFT"] = "below-left";
+  PopoverPosition["BEFORE_DOWN"] = "before-down";
+  PopoverPosition["BEFORE_CENTER"] = "before-center";
+  PopoverPosition["BEFORE_UP"] = "before-up";
+  PopoverPosition["ABOVE_RIGHT"] = "above-right";
+  PopoverPosition["ABOVE_CENTER"] = "above-center";
+  PopoverPosition["ABOVE_LEFT"] = "above-left";
 })(PopoverPosition || (PopoverPosition = {}));
 export var PopoverBorderRadius;
 (function (PopoverBorderRadius) {
-  PopoverBorderRadius["none"] = "none";
-  PopoverBorderRadius["small"] = "small";
-  PopoverBorderRadius["medium"] = "medium";
+  PopoverBorderRadius["NONE"] = "none";
+  PopoverBorderRadius["SMALL"] = "small";
+  PopoverBorderRadius["MEDIUM"] = "medium";
 })(PopoverBorderRadius || (PopoverBorderRadius = {}));
 export var PopoverShadow;
 (function (PopoverShadow) {
-  PopoverShadow["shadow-1"] = "shadow-1";
-  PopoverShadow["shadow-2"] = "shadow-2";
-  PopoverShadow["shadow-3"] = "shadow-3";
-  PopoverShadow["shadow-4"] = "shadow-4";
-  PopoverShadow["shadow-6"] = "shadow-6";
-  PopoverShadow["shadow-8"] = "shadow-8";
-  PopoverShadow["shadow-12"] = "shadow-12";
-  PopoverShadow["shadow-16"] = "shadow-16";
-  PopoverShadow["shadow-24"] = "shadow-24";
+  PopoverShadow["SHADOW_1"] = "shadow-1";
+  PopoverShadow["SHADOW_2"] = "shadow-2";
+  PopoverShadow["SHADOW_3"] = "shadow-3";
+  PopoverShadow["SHADOW_4"] = "shadow-4";
+  PopoverShadow["SHADOW_6"] = "shadow-6";
+  PopoverShadow["SHADOW_8"] = "shadow-8";
+  PopoverShadow["SHADOW_12"] = "shadow-12";
+  PopoverShadow["SHADOW_16"] = "shadow-16";
+  PopoverShadow["SHADOW_24"] = "shadow-24";
 })(PopoverShadow || (PopoverShadow = {}));
-export var KeyboardKeyCodeEnum;
-(function (KeyboardKeyCodeEnum) {
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["TAB"] = 9] = "TAB";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["SPACE"] = 32] = "SPACE";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ESC"] = 27] = "ESC";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ENTER"] = 13] = "ENTER";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ARROW_UP"] = 38] = "ARROW_UP";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["ARROW_DOWN"] = 40] = "ARROW_DOWN";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["BACKSPACE"] = 8] = "BACKSPACE";
-  KeyboardKeyCodeEnum[KeyboardKeyCodeEnum["DELETE"] = 46] = "DELETE";
-})(KeyboardKeyCodeEnum || (KeyboardKeyCodeEnum = {}));
-export var KeyboardCodeEnum;
-(function (KeyboardCodeEnum) {
-  KeyboardCodeEnum["TAB"] = "Tab";
-  KeyboardCodeEnum["SPACE"] = "Space";
-  KeyboardCodeEnum["ESC"] = "Escape";
-  KeyboardCodeEnum["ENTER"] = "Enter";
-  KeyboardCodeEnum["ARROW_UP"] = "ArrowUp";
-  KeyboardCodeEnum["ARROW_DOWN"] = "ArrowDown";
-  KeyboardCodeEnum["BACKSPACE"] = "Backspace";
-  KeyboardCodeEnum["DELETE"] = "Delete";
-})(KeyboardCodeEnum || (KeyboardCodeEnum = {}));
-export var KeyboardKeys;
-(function (KeyboardKeys) {
-  KeyboardKeys["ARROW_DOWN"] = "ArrowDown";
-  KeyboardKeys["ARROW_UP"] = "ArrowUp";
-  KeyboardKeys["ENTER"] = "Enter";
-  KeyboardKeys["ESC"] = "Escape";
-  KeyboardKeys["SPACE"] = "Space";
-})(KeyboardKeys || (KeyboardKeys = {}));
+export var KeyboardKeyCode;
+(function (KeyboardKeyCode) {
+  KeyboardKeyCode[KeyboardKeyCode["TAB"] = 9] = "TAB";
+  KeyboardKeyCode[KeyboardKeyCode["SPACE"] = 32] = "SPACE";
+  KeyboardKeyCode[KeyboardKeyCode["ESC"] = 27] = "ESC";
+  KeyboardKeyCode[KeyboardKeyCode["ENTER"] = 13] = "ENTER";
+  KeyboardKeyCode[KeyboardKeyCode["ARROW_UP"] = 38] = "ARROW_UP";
+  KeyboardKeyCode[KeyboardKeyCode["ARROW_DOWN"] = 40] = "ARROW_DOWN";
+  KeyboardKeyCode[KeyboardKeyCode["BACKSPACE"] = 8] = "BACKSPACE";
+  KeyboardKeyCode[KeyboardKeyCode["DELETE"] = 46] = "DELETE";
+})(KeyboardKeyCode || (KeyboardKeyCode = {}));
+export var KeyboardCode;
+(function (KeyboardCode) {
+  KeyboardCode["TAB"] = "Tab";
+  KeyboardCode["SPACE"] = "Space";
+  KeyboardCode["ESC"] = "Escape";
+  KeyboardCode["ENTER"] = "Enter";
+  KeyboardCode["ARROW_UP"] = "ArrowUp";
+  KeyboardCode["ARROW_DOWN"] = "ArrowDown";
+  KeyboardCode["BACKSPACE"] = "Backspace";
+  KeyboardCode["DELETE"] = "Delete";
+})(KeyboardCode || (KeyboardCode = {}));
 export var ThemeVariant;
 (function (ThemeVariant) {
-  ThemeVariant["dark"] = "dark";
-  ThemeVariant["light"] = "light";
+  ThemeVariant["DARK"] = "dark";
+  ThemeVariant["LIGHT"] = "light";
 })(ThemeVariant || (ThemeVariant = {}));
 export var DividerSize;
 (function (DividerSize) {
-  DividerSize["small"] = "small";
-  DividerSize["medium"] = "medium";
-  DividerSize["large"] = "large";
+  DividerSize["SMALL"] = "small";
+  DividerSize["MEDIUM"] = "medium";
+  DividerSize["LARGE"] = "large";
 })(DividerSize || (DividerSize = {}));
 export var DividerOrientation;
 (function (DividerOrientation) {
-  DividerOrientation["horizontal"] = "horizontal";
-  DividerOrientation["vertical"] = "vertical";
+  DividerOrientation["HORIZONTAL"] = "horizontal";
+  DividerOrientation["VERTICAL"] = "vertical";
 })(DividerOrientation || (DividerOrientation = {}));
-export var SortDirectionEnum;
-(function (SortDirectionEnum) {
-  SortDirectionEnum["asc"] = "asc";
-  SortDirectionEnum["desc"] = "desc";
-  SortDirectionEnum["none"] = "none";
-})(SortDirectionEnum || (SortDirectionEnum = {}));
+export var SortDirection;
+(function (SortDirection) {
+  SortDirection["ASC"] = "asc";
+  SortDirection["DESC"] = "desc";
+  SortDirection["NONE"] = "none";
+})(SortDirection || (SortDirection = {}));
 export var AvatarSize;
 (function (AvatarSize) {
-  AvatarSize["small"] = "small";
-  AvatarSize["medium"] = "medium";
-  AvatarSize["large"] = "large";
+  AvatarSize["SMALL"] = "small";
+  AvatarSize["MEDIUM"] = "medium";
+  AvatarSize["LARGE"] = "large";
 })(AvatarSize || (AvatarSize = {}));
 export var ListSize;
 (function (ListSize) {
-  ListSize["small"] = "small";
-  ListSize["medium"] = "medium";
-  ListSize["large"] = "large";
-  ListSize["x-large"] = "x-large";
+  ListSize["SMALL"] = "small";
+  ListSize["MEDIUM"] = "medium";
+  ListSize["LARGE"] = "large";
+  ListSize["X_LARGE"] = "x-large";
 })(ListSize || (ListSize = {}));
 export var Size;
 (function (Size) {
-  Size["x-small"] = "x-small";
-  Size["small"] = "small";
-  Size["medium"] = "medium";
-  Size["large"] = "large";
-  Size["special"] = "special";
+  Size["X_SMALL"] = "x-small";
+  Size["SMALL"] = "small";
+  Size["MEDIUM"] = "medium";
+  Size["LARGE"] = "large";
+  Size["SPECIAL"] = "special";
 })(Size || (Size = {}));
 export var ExpandableListStyle;
 (function (ExpandableListStyle) {
-  ExpandableListStyle["accordion"] = "accordion";
-  ExpandableListStyle["menu"] = "menu";
+  ExpandableListStyle["ACCORDION"] = "accordion";
+  ExpandableListStyle["MENU"] = "menu";
 })(ExpandableListStyle || (ExpandableListStyle = {}));
 export var ExpandableListButtonAlign;
 (function (ExpandableListButtonAlign) {
-  ExpandableListButtonAlign["right"] = "right";
-  ExpandableListButtonAlign["left"] = "left";
+  ExpandableListButtonAlign["RIGHT"] = "right";
+  ExpandableListButtonAlign["LEFT"] = "left";
 })(ExpandableListButtonAlign || (ExpandableListButtonAlign = {}));
-export var LabelPositions;
-(function (LabelPositions) {
-  LabelPositions["right"] = "right";
-  LabelPositions["left"] = "left";
-})(LabelPositions || (LabelPositions = {}));
+export var LabelPosition;
+(function (LabelPosition) {
+  LabelPosition["RIGHT"] = "right";
+  LabelPosition["LEFT"] = "left";
+})(LabelPosition || (LabelPosition = {}));
 export var ListDividerType;
 (function (ListDividerType) {
-  ListDividerType["none"] = "none";
-  ListDividerType["header"] = "header";
-  ListDividerType["element"] = "element";
+  ListDividerType["NONE"] = "none";
+  ListDividerType["HEADER"] = "header";
+  ListDividerType["ELEMENT"] = "element";
 })(ListDividerType || (ListDividerType = {}));
 export var NotificationType;
 (function (NotificationType) {
-  NotificationType["success"] = "success";
-  NotificationType["warning"] = "warning";
-  NotificationType["error"] = "error";
+  NotificationType["SUCCESS"] = "success";
+  NotificationType["WARNING"] = "warning";
+  NotificationType["ERROR"] = "error";
 })(NotificationType || (NotificationType = {}));
-export var AlertTypesEnum;
-(function (AlertTypesEnum) {
-  AlertTypesEnum["success"] = "success";
-  AlertTypesEnum["warning"] = "warning";
-  AlertTypesEnum["error"] = "error";
-})(AlertTypesEnum || (AlertTypesEnum = {}));
-export var DeviceEnum;
-(function (DeviceEnum) {
-  DeviceEnum["mobile"] = "mobile";
-  DeviceEnum["tablet"] = "tablet";
-  DeviceEnum["desktop"] = "desktop";
-})(DeviceEnum || (DeviceEnum = {}));
-export var PocketStatusEnum;
-(function (PocketStatusEnum) {
-  PocketStatusEnum["preview"] = "preview";
-  PocketStatusEnum["open"] = "open";
-  PocketStatusEnum["closed"] = "closed";
-})(PocketStatusEnum || (PocketStatusEnum = {}));
-export var ToastNotificationEnum;
-(function (ToastNotificationEnum) {
-  ToastNotificationEnum["dark"] = "dark";
-  ToastNotificationEnum["light"] = "light";
-  ToastNotificationEnum["accent"] = "accent";
-  ToastNotificationEnum["error"] = "error";
-  ToastNotificationEnum["success"] = "success";
-  ToastNotificationEnum["warning"] = "warning";
-})(ToastNotificationEnum || (ToastNotificationEnum = {}));
-export var ToastNotificationTransitionsEnum;
-(function (ToastNotificationTransitionsEnum) {
-  ToastNotificationTransitionsEnum["slideInLeft"] = "slide-in-left";
-  ToastNotificationTransitionsEnum["slideInRight"] = "slide-in-right";
-  ToastNotificationTransitionsEnum["slideInDown"] = "slide-in-down";
-  ToastNotificationTransitionsEnum["slideInUp"] = "slide-in-up";
-  ToastNotificationTransitionsEnum["slideOutLeft"] = "slide-out-left";
-  ToastNotificationTransitionsEnum["slideOutRight"] = "slide-out-right";
-  ToastNotificationTransitionsEnum["slideOutDown"] = "slide-out-down";
-  ToastNotificationTransitionsEnum["slideOutUp"] = "slide-out-up";
-})(ToastNotificationTransitionsEnum || (ToastNotificationTransitionsEnum = {}));
-export var ToastNotificationPositionsEnum;
-(function (ToastNotificationPositionsEnum) {
-  ToastNotificationPositionsEnum["topRight"] = "top-right";
-  ToastNotificationPositionsEnum["topLeft"] = "top-left";
-  ToastNotificationPositionsEnum["topCentre"] = "top-centre";
-  ToastNotificationPositionsEnum["bottomRight"] = "bottom-right";
-  ToastNotificationPositionsEnum["bottomLeft"] = "bottom-left";
-  ToastNotificationPositionsEnum["bottomCentre"] = "bottom-centre";
-})(ToastNotificationPositionsEnum || (ToastNotificationPositionsEnum = {}));
+export var AlertType;
+(function (AlertType) {
+  AlertType["SUCCESS"] = "success";
+  AlertType["WARNING"] = "warning";
+  AlertType["ERROR"] = "error";
+})(AlertType || (AlertType = {}));
+export var Device;
+(function (Device) {
+  Device["MOBILE"] = "mobile";
+  Device["TABLET"] = "tablet";
+  Device["DESKTOP"] = "desktop";
+})(Device || (Device = {}));
+export var PocketStatus;
+(function (PocketStatus) {
+  PocketStatus["PREVIEW"] = "preview";
+  PocketStatus["OPEN"] = "open";
+  PocketStatus["CLOSED"] = "closed";
+})(PocketStatus || (PocketStatus = {}));
+export var ToastNotification;
+(function (ToastNotification) {
+  ToastNotification["DARK"] = "dark";
+  ToastNotification["LIGHT"] = "light";
+  ToastNotification["ACCENT"] = "accent";
+  ToastNotification["ERROR"] = "error";
+  ToastNotification["SUCCESS"] = "success";
+  ToastNotification["WARNING"] = "warning";
+})(ToastNotification || (ToastNotification = {}));
+export var ToastNotificationTransition;
+(function (ToastNotificationTransition) {
+  ToastNotificationTransition["SLIDE_IN_LEFT"] = "slide-in-left";
+  ToastNotificationTransition["SLIDE_IN_RIGHT"] = "slide-in-right";
+  ToastNotificationTransition["SLIDE_IN_DOWN"] = "slide-in-down";
+  ToastNotificationTransition["SLIDE_IN_UP"] = "slide-in-up";
+  ToastNotificationTransition["SLIDE_OUT_LEFT"] = "slide-out-left";
+  ToastNotificationTransition["SLIDE_OUT_RIGHT"] = "slide-out-right";
+  ToastNotificationTransition["SLIDE_OUT_DOWN"] = "slide-out-down";
+  ToastNotificationTransition["SLIDE_OUT_UP"] = "slide-out-up";
+})(ToastNotificationTransition || (ToastNotificationTransition = {}));
+export var ToastNotificationPosition;
+(function (ToastNotificationPosition) {
+  ToastNotificationPosition["TOP_RIGHT"] = "top-right";
+  ToastNotificationPosition["TOP_LEFT"] = "top-left";
+  ToastNotificationPosition["TOP_CENTRE"] = "top-centre";
+  ToastNotificationPosition["BOTTOM_RIGHT"] = "bottom-right";
+  ToastNotificationPosition["BOTTOM_LEFT"] = "bottom-left";
+  ToastNotificationPosition["BOTTOM_CENTRE"] = "bottom-centre";
+})(ToastNotificationPosition || (ToastNotificationPosition = {}));
 export var ZTableRowExpandedType;
 (function (ZTableRowExpandedType) {
-  ZTableRowExpandedType["expandable"] = "expandable";
-  ZTableRowExpandedType["padding"] = "padding";
-  ZTableRowExpandedType["none"] = "none";
+  ZTableRowExpandedType["EXPANDABLE"] = "expandable";
+  ZTableRowExpandedType["PADDING"] = "padding";
+  ZTableRowExpandedType["NONE"] = "none";
 })(ZTableRowExpandedType || (ZTableRowExpandedType = {}));
 export var ZAriaAlertMode;
 (function (ZAriaAlertMode) {
-  ZAriaAlertMode["polite"] = "polite";
-  ZAriaAlertMode["assertive"] = "assertive";
+  ZAriaAlertMode["POLITE"] = "polite";
+  ZAriaAlertMode["ASSERTIVE"] = "assertive";
 })(ZAriaAlertMode || (ZAriaAlertMode = {}));
-export var TransitionDirectionEnum;
-(function (TransitionDirectionEnum) {
-  TransitionDirectionEnum["left"] = "left";
-  TransitionDirectionEnum["right"] = "right";
-})(TransitionDirectionEnum || (TransitionDirectionEnum = {}));
-export var OffCanvasVariantsEnum;
-(function (OffCanvasVariantsEnum) {
-  OffCanvasVariantsEnum["overlay"] = "overlay";
-  OffCanvasVariantsEnum["pushcontent"] = "pushcontent";
-})(OffCanvasVariantsEnum || (OffCanvasVariantsEnum = {}));
-export var ZFileUploadTypeEnum;
-(function (ZFileUploadTypeEnum) {
-  ZFileUploadTypeEnum["default"] = "default";
-  ZFileUploadTypeEnum["dragdrop"] = "dragdrop";
-})(ZFileUploadTypeEnum || (ZFileUploadTypeEnum = {}));
+export var TransitionDirection;
+(function (TransitionDirection) {
+  TransitionDirection["LEFT"] = "left";
+  TransitionDirection["RIGHT"] = "right";
+})(TransitionDirection || (TransitionDirection = {}));
+export var OffCanvasVariant;
+(function (OffCanvasVariant) {
+  OffCanvasVariant["OVERLAY"] = "overlay";
+  OffCanvasVariant["PUSHCONTENT"] = "pushcontent";
+})(OffCanvasVariant || (OffCanvasVariant = {}));
+export var ZFileUploadType;
+(function (ZFileUploadType) {
+  ZFileUploadType["DEFAULT"] = "default";
+  ZFileUploadType["DRAGDROP"] = "dragdrop";
+})(ZFileUploadType || (ZFileUploadType = {}));
 export var ZChipType;
 (function (ZChipType) {
-  ZChipType["default"] = "default";
-  ZChipType["medium"] = "medium";
-  ZChipType["small"] = "small";
+  ZChipType["DEFAULT"] = "default";
+  ZChipType["MEDIUM"] = "medium";
+  ZChipType["SMALL"] = "small";
 })(ZChipType || (ZChipType = {}));
-export var ZSectionTitleDividerPositions;
-(function (ZSectionTitleDividerPositions) {
-  ZSectionTitleDividerPositions["before"] = "before";
-  ZSectionTitleDividerPositions["after"] = "after";
-})(ZSectionTitleDividerPositions || (ZSectionTitleDividerPositions = {}));
+export var ZSectionTitleDividerPosition;
+(function (ZSectionTitleDividerPosition) {
+  ZSectionTitleDividerPosition["BEFORE"] = "before";
+  ZSectionTitleDividerPosition["AFTER"] = "after";
+})(ZSectionTitleDividerPosition || (ZSectionTitleDividerPosition = {}));
 export var ZDatePickerMode;
 (function (ZDatePickerMode) {
-  ZDatePickerMode["date"] = "date";
-  ZDatePickerMode["dateTime"] = "date-time";
-  ZDatePickerMode["months"] = "months";
+  ZDatePickerMode["DATE"] = "date";
+  ZDatePickerMode["DATE_TIME"] = "date-time";
+  ZDatePickerMode["MONTHS"] = "months";
 })(ZDatePickerMode || (ZDatePickerMode = {}));
-export var ZDatePickerModeValues;
-(function (ZDatePickerModeValues) {
-  ZDatePickerModeValues[ZDatePickerModeValues["DATE"] = 401] = "DATE";
-  ZDatePickerModeValues[ZDatePickerModeValues["DATETIME"] = 523] = "DATETIME";
-  ZDatePickerModeValues[ZDatePickerModeValues["MONTHS"] = 288] = "MONTHS";
-})(ZDatePickerModeValues || (ZDatePickerModeValues = {}));
+export var ZDatePickerModeValue;
+(function (ZDatePickerModeValue) {
+  ZDatePickerModeValue[ZDatePickerModeValue["DATE"] = 401] = "DATE";
+  ZDatePickerModeValue[ZDatePickerModeValue["DATE_TIME"] = 523] = "DATE_TIME";
+  ZDatePickerModeValue[ZDatePickerModeValue["MONTHS"] = 288] = "MONTHS";
+})(ZDatePickerModeValue || (ZDatePickerModeValue = {}));
 export var ZDatePickerPosition;
 (function (ZDatePickerPosition) {
-  ZDatePickerPosition["top"] = "top";
-  ZDatePickerPosition["bottom"] = "bottom";
+  ZDatePickerPosition["TOP"] = "top";
+  ZDatePickerPosition["BOTTOM"] = "bottom";
 })(ZDatePickerPosition || (ZDatePickerPosition = {}));
 export var ZRangePickerMode;
 (function (ZRangePickerMode) {
-  ZRangePickerMode["date"] = "date";
-  ZRangePickerMode["dateTime"] = "date-time";
+  ZRangePickerMode["DATE"] = "date";
+  ZRangePickerMode["DATE_TIME"] = "date-time";
 })(ZRangePickerMode || (ZRangePickerMode = {}));
 export var StatusTagStatus;
 (function (StatusTagStatus) {
-  StatusTagStatus["warning"] = "warning";
-  StatusTagStatus["error"] = "error";
-  StatusTagStatus["success"] = "success";
-  StatusTagStatus["neutral"] = "neutral";
-  StatusTagStatus["default"] = "default";
+  StatusTagStatus["WARNING"] = "warning";
+  StatusTagStatus["ERROR"] = "error";
+  StatusTagStatus["SUCCESS"] = "success";
+  StatusTagStatus["NEUTRAL"] = "neutral";
+  StatusTagStatus["DEFAULT"] = "default";
 })(StatusTagStatus || (StatusTagStatus = {}));
 export var InfoRevealPosition;
 (function (InfoRevealPosition) {
-  InfoRevealPosition["top_right"] = "top_right";
-  InfoRevealPosition["top_left"] = "top_left";
-  InfoRevealPosition["bottom_right"] = "bottom_right";
-  InfoRevealPosition["bottom_left"] = "bottom_left";
+  InfoRevealPosition["TOP_RIGHT"] = "top_right";
+  InfoRevealPosition["TOP_LEFT"] = "top_left";
+  InfoRevealPosition["BOTTOM_RIGHT"] = "bottom_right";
+  InfoRevealPosition["BOTTOM_LEFT"] = "bottom_left";
 })(InfoRevealPosition || (InfoRevealPosition = {}));
 export var CoverHeroVariant;
 (function (CoverHeroVariant) {

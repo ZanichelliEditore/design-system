@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - link content
  */
@@ -30,12 +29,12 @@ export declare class ZLink {
   underline?: boolean;
   /** emitted on link click, returns linkId */
   zLinkClick: EventEmitter;
-  hostElement: HostElement;
+  hostElement: HTMLZLinkElement;
   iconSize: number;
   constructor();
-  componentWillRender(): void;
-  emitZLinkClick(e: MouseEvent, linkId: any): void;
-  emitZLinkInteraction(e: Event, linkId: string): void;
-  componentDidRender(): void;
-  render(): any;
+  componentWillLoad(): void;
+  private emitZLinkClick;
+  private emitZLinkInteraction;
+  componentDidLoad(): void;
+  render(): HTMLAnchorElement;
 }

@@ -1,5 +1,5 @@
-import { h } from "@stencil/core";
-import { DividerSize, ZSectionTitleDividerPositions, } from "../../beans";
+import { h, Host } from "@stencil/core";
+import { DividerSize, ZSectionTitleDividerPosition } from "../../beans";
 /**
  * Section title component.
  * An optional secondary title can be put over the primary one.
@@ -15,7 +15,7 @@ export class ZSectionTitle {
      * Divider position for the primary title.
      * This prop only works if the secondary title is not set.
      */
-    this.dividerPosition = ZSectionTitleDividerPositions.before;
+    this.dividerPosition = ZSectionTitleDividerPosition.BEFORE;
     /**
      * Whether the primary title text is uppercase.
      */
@@ -25,16 +25,7 @@ export class ZSectionTitle {
     this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
   }
   render() {
-    return [
-      h("slot", { name: "secondary-title" }),
-      !this.hasSecondaryTitle &&
-        this.dividerPosition == ZSectionTitleDividerPositions.before &&
-        h("z-divider", { size: DividerSize.large, color: "z-section-title--divider-color" }),
-      h("slot", { name: "primary-title" }),
-      !this.hasSecondaryTitle &&
-        this.dividerPosition == ZSectionTitleDividerPositions.after &&
-        h("z-divider", { size: DividerSize.large, color: "z-section-title--divider-color" }),
-    ];
+    return (h(Host, null, h("slot", { name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
   }
   static get is() { return "z-section-title"; }
   static get encapsulation() { return "shadow"; }
@@ -55,7 +46,7 @@ export class ZSectionTitle {
         "mutable": false,
         "complexType": {
           "original": "ZSectionTitleDividerPosition",
-          "resolved": "\"after\" | \"before\"",
+          "resolved": "ZSectionTitleDividerPosition.AFTER | ZSectionTitleDividerPosition.BEFORE",
           "references": {
             "ZSectionTitleDividerPosition": {
               "location": "import",
@@ -71,7 +62,7 @@ export class ZSectionTitle {
         },
         "attribute": "divider-position",
         "reflect": false,
-        "defaultValue": "ZSectionTitleDividerPositions.before"
+        "defaultValue": "ZSectionTitleDividerPosition.BEFORE"
       },
       "uppercase": {
         "type": "boolean",

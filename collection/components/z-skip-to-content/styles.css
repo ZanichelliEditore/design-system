@@ -1,12 +1,12 @@
 :host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   position: absolute;
   left: -100%;
-  background-color: #24f4ff;
-  padding: calc(var(--space-unit) * 1.25) calc(var(--space-unit) * 3);
   height: 60px;
   box-sizing: border-box;
+  padding: calc(var(--space-unit) * 1.25) calc(var(--space-unit) * 3);
+  background-color: #24f4ff;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 :host.skip-to-content-visible,
@@ -21,14 +21,14 @@
 }
 
 :host > z-link.link-invisible {
-  height: 0;
-  width: 0;
   overflow: hidden;
+  width: 0;
+  height: 0;
 }
 
 :host > z-link.link-visible {
-  height: initial;
   width: initial;
+  height: initial;
 }
 
 :host.dark {
@@ -37,9 +37,9 @@
 }
 
 :host.light {
+  border: 2px solid var(--text-grey-800);
   background-color: var(--bg-white);
   color: var(--text-grey-800);
-  border: 2px solid var(--text-grey-800);
 }
 
 /* Tablet breakpoint */
@@ -58,9 +58,9 @@
   }
 
   :host > z-link.link-invisible {
-    height: initial;
-    width: initial;
     overflow: initial;
+    width: initial;
+    height: initial;
   }
 
   :host > z-link:first-child {
@@ -70,15 +70,11 @@
   :host > z-link:last-child,
   :host.dark > z-link:last-child,
   :host.light > z-link:last-child {
-    border-right: none;
     padding-right: 0;
+    border-right: none;
   }
 
   :host.dark > z-link {
     border-right: 1px solid var(--bg-white);
   }
-}
-
-/* Wide breakpoint */
-@media (min-width: 1366px) {
 }

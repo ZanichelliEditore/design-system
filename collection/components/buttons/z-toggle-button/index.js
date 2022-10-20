@@ -7,19 +7,17 @@ export class ZToggleButton {
     this.opened = false;
   }
   emitToggleClick() {
-    if (this.isdisabled)
+    if (this.isdisabled) {
       return;
+    }
     this.opened = !this.opened;
     this.toggleClick.emit(this.opened);
   }
-  retrieveButtonClass() {
-    let className = this.opened && "isopen";
-    if (this.avoidclick)
-      className = className + " avoid-clicks";
-    return className;
-  }
   render() {
-    return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: this.retrieveButtonClass(), disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+    return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: {
+        "isopen": this.opened,
+        "avoid-clicks": this.avoidclick,
+      }, disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
   }
   static get is() { return "z-toggle-button"; }
   static get encapsulation() { return "shadow"; }

@@ -3,16 +3,16 @@
 }
 
 div {
-  background-color: var(--color-surface01);
   display: flex;
-  flex-direction: column;
+  overflow: var(--card-overflow);
   width: auto;
-  box-sizing: border-box;
   width: 256px; /* TODO: width must be 100% - must be handled in dashboard */
   height: 522px;
+  box-sizing: border-box;
+  flex-direction: column;
   border: var(--border-size-medium) solid var(--color-surface03);
+  background-color: var(--color-surface01);
   border-radius: var(--border-radius);
-  overflow: var(--card-overflow);
 }
 
 div.real,

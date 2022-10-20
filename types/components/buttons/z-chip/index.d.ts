@@ -1,7 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { ZChipType } from "../../../beans";
 export declare class ZChip {
-  el: HTMLElement;
+  el: HTMLZChipElement;
   /** Non interactive icon */
   icon?: string;
   /** z-chip size type, can be default, medium or small */
@@ -12,7 +12,7 @@ export declare class ZChip {
   disabled?: boolean;
   /** click on interactive icon */
   interactiveIconClick: EventEmitter;
-  emitinteractiveIconClick(): void;
-  getIconSize(): 22 | 14;
-  render(): any;
+  private emitinteractiveIconClick;
+  private getIconSize;
+  render(): HTMLButtonElement | HTMLDivElement;
 }

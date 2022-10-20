@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../../stencil-public-runtime";
-import { AlertTypesEnum } from "../../../../beans";
 export declare class ZMyzCardAlert {
   /** icon name */
   iconname: string;
@@ -11,10 +10,10 @@ export declare class ZMyzCardAlert {
   type: string;
   /** undo action click/keyboard event, returns actionType */
   undoAction: EventEmitter;
-  emitUndoAction(): void;
-  handleSpaceKeyPress(e: KeyboardEvent): void;
-  handleActionButtonClick(e: MouseEvent): void;
-  retrieveClass(): string;
-  getAlertType(): AlertTypesEnum.success | AlertTypesEnum.warning;
-  render(): any;
+  private emitUndoAction;
+  private handleSpaceKeyPress;
+  private handleActionButtonClick;
+  private retrieveClass;
+  private getAlertType;
+  render(): HTMLDivElement;
 }

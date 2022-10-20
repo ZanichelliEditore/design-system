@@ -1,19 +1,15 @@
-import { h, } from "@stencil/core";
+import { h } from "@stencil/core";
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
-import classNames from "classnames";
-import { InputTypeEnum, ZDatePickerMode, ZDatePickerPosition, } from "../../../beans";
+import { InputType, ZDatePickerMode, ZDatePickerPosition } from "../../../beans";
 import { setAriaOptions, setFlatpickrPosition, validateDate } from "../utils";
 export class ZDatePicker {
   constructor() {
     /** [Optional] datepicker mode: date, datetime, only months */
-    this.mode = ZDatePickerMode.date;
-    this.flatpickrPosition = ZDatePickerPosition.bottom;
+    this.mode = ZDatePickerMode.DATE;
+    this.flatpickrPosition = ZDatePickerPosition.BOTTOM;
     this.inputError = false;
-  }
-  watchMode() {
-    this.setupPickers();
   }
   emitDateSelect(date) {
     this.dateSelect.emit(date);
@@ -25,28 +21,26 @@ export class ZDatePicker {
     }
     if (ev.key === "Enter" || ev.key === " ") {
       !this.hasChildren && ((_b = this.picker) === null || _b === void 0 ? void 0 : _b.open());
-      let isCrossIconEntered = document.activeElement.classList.contains("resetIcon");
+      const isCrossIconEntered = document.activeElement.classList.contains("reset-icon");
       if (isCrossIconEntered) {
         this.inputError = false;
         (_c = this.picker) === null || _c === void 0 ? void 0 : _c.setDate([]);
         this.dateSelect.emit(null);
       }
-      let flatpickrDayPressed = document.activeElement.classList.contains("flatpickr-day");
+      const flatpickrDayPressed = document.activeElement.classList.contains("flatpickr-day");
       if (flatpickrDayPressed) {
         //Sistemare il toggle
       }
-      let isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
-      let isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
-      let arrowPressed = isPrevArrowEntered || isNextArrowEntered;
+      const isPrevArrowEntered = document.activeElement.classList.contains("flatpickr-prev-month");
+      const isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
+      const arrowPressed = isPrevArrowEntered || isNextArrowEntered;
       arrowPressed && ev.key === " " && ev.preventDefault();
-      if (this.mode === ZDatePickerMode.months) {
-        isPrevArrowEntered &&
-          ((_d = this.picker) === null || _d === void 0 ? void 0 : _d.changeYear(this.picker.currentYear - 1));
-        isNextArrowEntered &&
-          ((_e = this.picker) === null || _e === void 0 ? void 0 : _e.changeYear(this.picker.currentYear + 1));
+      if (this.mode === ZDatePickerMode.MONTHS) {
+        isPrevArrowEntered && ((_d = this.picker) === null || _d === void 0 ? void 0 : _d.changeYear(this.picker.currentYear - 1));
+        isNextArrowEntered && ((_e = this.picker) === null || _e === void 0 ? void 0 : _e.changeYear(this.picker.currentYear + 1));
         if (arrowPressed) {
-          let calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
-          let months = calendar === null || calendar === void 0 ? void 0 : calendar.querySelectorAll(".flatpickr-monthSelect-month");
+          const calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
+          const months = calendar === null || calendar === void 0 ? void 0 : calendar.querySelectorAll(".flatpickr-monthSelect-month");
           months === null || months === void 0 ? void 0 : months.forEach((element) => {
             var _a;
             element.setAttribute("aria-label", `${element.innerHTML} ${(_a = this.picker) === null || _a === void 0 ? void 0 : _a.currentYear}`);
@@ -55,8 +49,8 @@ export class ZDatePicker {
           months &&
             Array.from(months).forEach((element, index) => {
               var _a;
-              let curMonth = new Date().getMonth();
-              let curYear = new Date().getFullYear();
+              const curMonth = new Date().getMonth();
+              const curYear = new Date().getFullYear();
               if (index === curMonth) {
                 if (((_a = this.picker) === null || _a === void 0 ? void 0 : _a.currentYear) === curYear) {
                   element.setAttribute("class", "flatpickr-monthSelect-month today");
@@ -75,7 +69,7 @@ export class ZDatePicker {
     }
   }
   componentWillLoad() {
-    let customToggle = this.element.querySelector("[slot=toggle]");
+    const customToggle = this.element.querySelector("[slot=toggle]");
     this.hasChildren = !!customToggle;
     this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
   }
@@ -83,17 +77,16 @@ export class ZDatePicker {
     this.setupPickers();
   }
   setupPickers() {
-    const classToAppend = this.hasChildren
-      ? `${this.datePickerId}-hidden`
-      : `${this.datePickerId}-container`;
+    const classToAppend = this.hasChildren ? `${this.datePickerId}-hidden` : `${this.datePickerId}-container`;
     this.picker = flatpickr(`.${classToAppend}`, {
       appendTo: this.element.children[0],
-      enableTime: this.mode === ZDatePickerMode.dateTime,
+      enableTime: this.mode === ZDatePickerMode.DATE_TIME,
       locale: Italian,
       allowInput: true,
-      dateFormat: this.mode === ZDatePickerMode.dateTime ? "d-m-Y - H:i" : "d-m-Y",
-      ariaDateFormat: this.mode === ZDatePickerMode.months ? "F Y" : "d F Y",
+      dateFormat: this.mode === ZDatePickerMode.DATE_TIME ? "d-m-Y - H:i" : "d-m-Y",
+      ariaDateFormat: this.mode === ZDatePickerMode.MONTHS ? "F Y" : "d F Y",
       minuteIncrement: 1,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
       onChange: (_selectedDates, dateStr) => {
         this.emitDateSelect(dateStr);
@@ -106,7 +99,7 @@ export class ZDatePicker {
         setAriaOptions(this.element, this.mode);
       },
       wrap: true,
-      plugins: this.mode === ZDatePickerMode.months && [
+      plugins: this.mode === ZDatePickerMode.MONTHS && [
         monthSelectPlugin({
           dateFormat: "m-Y",
           altFormat: "m-Y",
@@ -118,27 +111,23 @@ export class ZDatePicker {
     });
   }
   formatDate(date) {
-    if (this.mode === ZDatePickerMode.date) {
+    if (this.mode === ZDatePickerMode.DATE) {
       return `${flatpickr.formatDate(date, "d-m-Y")}`;
     }
-    else if (this.mode === ZDatePickerMode.months) {
+    else if (this.mode === ZDatePickerMode.MONTHS) {
       return `${flatpickr.formatDate(date, "m-Y")}`;
     }
-    else {
-      return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
-    }
+    return `${flatpickr.formatDate(date, "d-m-Y - H:i")}`;
   }
   onStopTyping(value) {
     let text = value.detail.value;
-    if (this.mode === ZDatePickerMode.months) {
+    if (this.mode === ZDatePickerMode.MONTHS) {
       text = "01-".concat(value.detail.value);
     }
-    let englishData = text.split("-");
-    let time = this.mode === ZDatePickerMode.dateTime ? `T${englishData[3]}:00` : "";
-    let englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`
-      .split(" ")
-      .join("");
-    let isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.dateTime);
+    const englishData = text.split("-");
+    const time = this.mode === ZDatePickerMode.DATE_TIME ? `T${englishData[3]}:00` : "";
+    const englishParsedData = `${englishData[2]}-${englishData[1]}-${englishData[0]}${time}`.split(" ").join("");
+    const isValidDate = validateDate(englishParsedData, this.mode === ZDatePickerMode.DATE_TIME);
     if (text === "") {
       this.inputError = false;
       this.picker.setDate([]);
@@ -158,14 +147,18 @@ export class ZDatePicker {
     return (h("div", { class: `${this.datePickerId}-hidden` }, h("input", { class: "hidden-input", "data-input": true }), h("slot", { name: "toggle" })));
   }
   renderZInput() {
-    return (h("div", { class: `${this.datePickerId}-container` }, h("z-input", { "data-input": "data-input", ariaLabel: this.ariaLabel, label: this.label, class: classNames(this.datePickerId), type: InputTypeEnum.text, icon: "event", message: false, tabindex: "0", value: "", onStopTyping: (value) => {
+    return (h("div", { class: `${this.datePickerId}-container` }, h("z-input", { "data-input": "data-input", ariaLabel: this.ariaLabel, label: this.label, class: this.datePickerId, type: InputType.TEXT, icon: "event", message: false, tabindex: "0", value: "", onStopTyping: (value) => {
         this.onStopTyping(value);
       }, onStartTyping: () => {
         this.inputError = false;
       } })));
   }
   render() {
-    return (h("div", { class: classNames("flatpickr-toggle-container", this.flatpickrPosition, this.mode) }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));
+    return (h("div", { class: {
+        "flatpickr-toggle-container": true,
+        [this.flatpickrPosition]: true,
+        [this.mode]: true,
+      } }, this.hasChildren ? this.renderSlottedContent() : this.renderZInput()));
   }
   static get is() { return "z-date-picker"; }
   static get originalStyleUrls() {
@@ -236,7 +229,7 @@ export class ZDatePicker {
         "mutable": false,
         "complexType": {
           "original": "ZDatePickerMode",
-          "resolved": "ZDatePickerMode.date | ZDatePickerMode.dateTime | ZDatePickerMode.months",
+          "resolved": "ZDatePickerMode.DATE | ZDatePickerMode.DATE_TIME | ZDatePickerMode.MONTHS",
           "references": {
             "ZDatePickerMode": {
               "location": "import",
@@ -252,7 +245,7 @@ export class ZDatePicker {
         },
         "attribute": "mode",
         "reflect": false,
-        "defaultValue": "ZDatePickerMode.date"
+        "defaultValue": "ZDatePickerMode.DATE"
       }
     };
   }
@@ -284,7 +277,7 @@ export class ZDatePicker {
   static get watchers() {
     return [{
         "propName": "mode",
-        "methodName": "watchMode"
+        "methodName": "setupPickers"
       }];
   }
   static get listeners() {

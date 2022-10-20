@@ -1,4 +1,4 @@
-import { h, Host, } from '@stencil/core';
+import { h, Host } from "@stencil/core";
 import { InfoRevealPosition } from "../../beans";
 /**
  * Info reveal component.
@@ -13,8 +13,9 @@ import { InfoRevealPosition } from "../../beans";
 export class ZInfoReveal {
   constructor() {
     /** Name of the icon for the open button */
-    this.icon = 'informationsource';
-    this.position = InfoRevealPosition.bottom_right;
+    this.icon = "informationsource";
+    /** Info reveal's position */
+    this.position = InfoRevealPosition.BOTTOM_RIGHT;
     /** Whether the info panel is open. */
     this.open = false;
     /** Current index for the info queue. */
@@ -23,10 +24,10 @@ export class ZInfoReveal {
   watchItems() {
     Array.from(this.el.children).forEach((child, index) => {
       if (this.currentIndex === index) {
-        child.setAttribute('data-current', '');
+        child.setAttribute("data-current", "");
       }
       else {
-        child.removeAttribute('data-current');
+        child.removeAttribute("data-current");
       }
     });
   }
@@ -54,7 +55,7 @@ export class ZInfoReveal {
     }
   }
   render() {
-    return h(Host, { open: this.open }, h("button", { class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && h("span", { class: "z-info-reveal-label" }, this.label), h("z-icon", { name: this.icon })), this.open && h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, h("slot", null), h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, h("z-icon", { name: "close" }))));
+    return (h(Host, { open: this.open }, h("button", { class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && h("span", { class: "z-info-reveal-label" }, this.label), h("z-icon", { name: this.icon })), this.open && (h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, h("slot", null), h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, h("z-icon", { name: "close" }))))));
   }
   static get is() { return "z-info-reveal"; }
   static get encapsulation() { return "shadow"; }
@@ -86,16 +87,16 @@ export class ZInfoReveal {
         },
         "attribute": "icon",
         "reflect": false,
-        "defaultValue": "'informationsource'"
+        "defaultValue": "\"informationsource\""
       },
       "position": {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InfoRevealPositionBean",
-          "resolved": "\"bottom_left\" | \"bottom_right\" | \"top_left\" | \"top_right\"",
+          "original": "InfoRevealPosition",
+          "resolved": "InfoRevealPosition.BOTTOM_LEFT | InfoRevealPosition.BOTTOM_RIGHT | InfoRevealPosition.TOP_LEFT | InfoRevealPosition.TOP_RIGHT",
           "references": {
-            "InfoRevealPositionBean": {
+            "InfoRevealPosition": {
               "location": "import",
               "path": "../../beans"
             }
@@ -105,11 +106,11 @@ export class ZInfoReveal {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Info reveal's position"
         },
         "attribute": "position",
         "reflect": true,
-        "defaultValue": "InfoRevealPosition.bottom_right"
+        "defaultValue": "InfoRevealPosition.BOTTOM_RIGHT"
       },
       "label": {
         "type": "string",

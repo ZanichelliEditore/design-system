@@ -3,12 +3,11 @@ z-pagination {
   --z-pagination--pages-container-max-width: 100%;
 
   display: flex;
-  flex-direction: column;
-  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
   max-width: 100%;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
 }
 
 z-pagination,
@@ -35,40 +34,37 @@ z-pagination .page-label {
 
 z-pagination .pagination-bar {
   display: flex;
-  align-items: center;
-  height: 48px;
   max-width: 100%;
+  height: 48px;
+  align-items: center;
 }
 
 z-pagination .pagination-bar button {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
   margin: 0;
   background-color: var(--color-surface03);
-  transition: background-color .150s ease-out,
-    color .150s ease-out,
-    border-bottom-color .150s ease-out,
-    font-size .150s ease-in-out,
-    font-weight .150s ease-in-out;
   color: var(--color-primary01);
-  border: none;
+  cursor: pointer;
   font-family: inherit;
   font-weight: inherit;
-  cursor: pointer;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out, border-bottom-color 0.15s ease-out,
+    font-size 0.15s ease-in-out, font-weight 0.15s ease-in-out;
 }
 
 z-pagination .pagination-bar button:focus-visible {
-  outline: none;
-  box-shadow: inset var(--shadow-focus-primary);
   background-color: var(--color-hover-surface);
+  box-shadow: inset var(--shadow-focus-primary);
+  outline: none;
 }
 
 z-pagination .pagination-bar .pagination-button {
   padding: calc(var(--space-unit) * 2);
+  font-weight: var(--font-sb);
   text-transform: uppercase;
   white-space: nowrap;
-  font-weight: var(--font-sb);
 }
 
 z-pagination .pagination-bar .navigation-button {
@@ -122,8 +118,8 @@ z-pagination .pagination-bar .page-button:focus-visible {
 }
 
 z-pagination .pagination-bar .page-button[data-current] {
-  font-size: var(--font-size-7);
   border-bottom-color: var(--color-primary01);
+  font-size: var(--font-size-7);
 }
 
 z-pagination .go-to-page {
@@ -149,15 +145,15 @@ z-pagination .go-to-page .inputs z-input {
 z-pagination .go-to-page .inputs z-input input,
 z-pagination .mobile-go-to-page z-input input {
   padding: 0 calc(var(--space-unit) * 1.5) !important;
-  -moz-appearance: none;
+  appearance: none;
 }
 
 z-pagination .mobile-go-to-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 auto;
   height: 100%;
+  flex: 1 auto;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-surface03);
 }
 
@@ -173,7 +169,6 @@ z-pagination .mobile-go-to-page z-input input {
 z-pagination .mobile-go-to-page z-input input::-webkit-outer-spin-button,
 z-pagination .mobile-go-to-page z-input input::-webkit-inner-spin-button {
   appearance: none;
-  -webkit-appearance: none;
 }
 
 z-pagination .mobile-go-to-page > span {

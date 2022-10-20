@@ -27,7 +27,7 @@ export class ZUserDropdown {
         this.divToResize.style.width = `${(_a = this.userButton) === null || _a === void 0 ? void 0 : _a.offsetWidth}px`;
       }
       else {
-        this.divToResize.removeAttribute('style');
+        this.divToResize.removeAttribute("style");
       }
     }
   }
@@ -65,14 +65,12 @@ export class ZUserDropdown {
     if (this.isMobile) {
       return this.useInverseColors ? "black" : "white";
     }
-    else {
-      return this.useInverseColors ? "white" : "black";
-    }
+    return this.useInverseColors ? "white" : "black";
   }
   renderDropdownMenu() {
     const colorClass = this.useInverseColors ? "inverse" : "";
-    return (this.isMenuOpen && (h("ul", { class: colorClass }, this.isMobile &&
-      h("li", { class: colorClass }, h("div", { class: `userfullname ${colorClass}` }, this.userFullName), h("div", { class: `useremail ${colorClass}` }, this.userEmail)), this.linkArray && this.linkArray.map((link) => h("li", { id: link.id, class: colorClass }, h("z-link", { textcolor: this.getZLinkTextcolor(), href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label))))));
+    return (this.isMenuOpen && (h("ul", { class: colorClass }, this.isMobile && (h("li", { class: colorClass }, h("div", { class: `userfullname ${colorClass}` }, this.userFullName), h("div", { class: `useremail ${colorClass}` }, this.userEmail))), this.linkArray &&
+      this.linkArray.map((link) => (h("li", { id: link.id, class: colorClass }, h("z-link", { textcolor: this.getZLinkTextcolor(), href: link.link, htmlid: link.id, target: link.target, icon: link.icon, onZLinkClick: this.emitDropdownMenuLinkClick }, link.label)))))));
   }
   render() {
     const openClass = `${this.logged && this.isMenuOpen ? "open" : ""}`;

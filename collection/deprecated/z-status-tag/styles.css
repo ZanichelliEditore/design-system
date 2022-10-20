@@ -2,16 +2,14 @@
   --z-icon-width: 14px;
   --z-icon-height: 14px;
 
-  font-family: var(--font-family-sans);
-
+  display: inline-flex;
   height: 22px;
-  border-radius: var(--border-radius);
+  align-items: center;
   padding-right: 4px;
   padding-left: 4px;
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-sans);
   text-transform: uppercase;
-
-  display: inline-flex;
-  align-items: center;
 }
 
 :host(.expandable) > z-icon {
@@ -26,10 +24,10 @@
 }
 
 :host(.expandable) > span {
+  overflow: hidden;
   max-width: 0;
   transition: max-width 0.3s ease-out 0.2s;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 :host(.expandable:hover) > span {
@@ -37,7 +35,7 @@
   transition: max-width 0.3s ease-out 0s;
 }
 
-/*Warning status-tag styles*/
+/* Warning status-tag styles */
 :host([status="warning"]) {
   background-color: var(--status-warning-yellow-lighter);
   color: var(--status-warning-yellow-dark);
@@ -56,7 +54,7 @@
   fill: var(--status-warning-yellow-lighter);
 }
 
-/*Error status-tag styles*/
+/* Error status-tag styles */
 :host([status="error"]) {
   background-color: var(--status-error-red-lighter);
   color: var(--status-error-red-dark);
@@ -75,7 +73,7 @@
   fill: var(--status-error-red-lighter);
 }
 
-/*Success status-tag styles*/
+/* Success status-tag styles */
 :host([status="success"]) {
   background-color: var(--status-success-green-lighter);
   color: var(--status-success-green-dark);
@@ -94,7 +92,7 @@
   fill: var(--status-success-green-lighter);
 }
 
-/*Default status-tag styles*/
+/* Default status-tag styles */
 :host([status="default"]) {
   background-color: var(--myz-blue-lighter);
   color: var(--myz-blue-dark);
@@ -113,7 +111,7 @@
   fill: var(--myz-blue-lighter);
 }
 
-/*Neutral status-tag styles*/
+/* Neutral status-tag styles */
 :host([status="neutral"]) {
   background-color: var(--bg-grey-050);
   color: var(--text-grey-800);

@@ -1,4 +1,5 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -21,16 +22,16 @@ export declare class ZMenu {
   open: boolean;
   hasHeader: boolean;
   hasContent: boolean;
-  hostElement: HTMLElement;
+  hostElement: HTMLZMenuElement;
   private content;
   private raf;
   /** The menu has been opened. */
   opened: EventEmitter;
   /** The menu has been closed. */
   closed: EventEmitter;
-  toggle(): void;
+  private toggle;
   /** Close the floating list when a click is performed outside of this Element. */
-  handleClick(ev: any): void;
+  handleClick(ev: MouseEvent): void;
   onOpenChanged(): void;
   constructor();
   componentWillLoad(): void;
@@ -38,7 +39,7 @@ export declare class ZMenu {
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
-  reflow(live?: boolean): void;
+  private reflow;
   /**
    * Check if some content slot is set.
    */
@@ -48,5 +49,5 @@ export declare class ZMenu {
    */
   private onItemsChange;
   private renderMenuLabel;
-  render(): any[];
+  render(): HostElement;
 }

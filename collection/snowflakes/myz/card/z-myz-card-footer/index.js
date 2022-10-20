@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { LicenseTypeEnum } from "../../../../beans/index";
+import { LicenseType } from "../../../../beans/index";
 /**
  * @slot toggle - toggle button slot
  * @slot list - card resources list slot
@@ -20,8 +20,9 @@ export class ZMyzCardFooter {
     return this.allowTooltipAuthors ? this.autori : "";
   }
   componentWillLoad() {
-    if (this.opened)
+    if (this.opened) {
       this.isOpen = true;
+    }
   }
   elementsEllipsis() {
     this.allowTooltipAuthors = this.elementAuthorsHasEllipsis() ? true : false;
@@ -31,11 +32,11 @@ export class ZMyzCardFooter {
   }
   retrieveClass() {
     return {
-      isopen: this.isOpen,
-      real: this.cardtype === LicenseTypeEnum.real,
-      trial: this.cardtype === LicenseTypeEnum.trial,
-      temp: this.cardtype === LicenseTypeEnum.temp,
-      customContent: this.customContent,
+      "isopen": this.isOpen,
+      "real": this.cardtype === LicenseType.REAL,
+      "trial": this.cardtype === LicenseType.TRIAL,
+      "temp": this.cardtype === LicenseType.TEMP,
+      "custom-content": this.customContent,
     };
   }
   footerTransitionHandler(e) {
@@ -44,7 +45,7 @@ export class ZMyzCardFooter {
     }
   }
   render() {
-    return (h("div", { class: Object.assign(Object.assign({}, this.retrieveClass()), { wrapper: true }) }, h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, h("span", { class: "toggle" }, h("slot", { name: "toggle" })), this.titolo && (h("p", { class: { customContent: this.customContent } }, this.titolo)), h("div", { class: { content: true, customContent: this.customContent } }, h("div", null, h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) }, h("span", { title: this.getTitleAuthors() }, h("span", { class: "bold" }, this.autori))), h("p", { class: "year_isbn" }, h("span", { class: "isbn" }, h("span", null, h("span", { class: "bold" }, this.isbn), " (ed. cartacea)")))), h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, h("slot", { name: "list" })))), this.customContent && h("slot", { name: "content" })));
+    return (h("div", { class: Object.assign(Object.assign({}, this.retrieveClass()), { wrapper: true }) }, h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, h("span", { class: "toggle" }, h("slot", { name: "toggle" })), this.titolo && h("p", { class: { "custom-content": this.customContent } }, this.titolo), h("div", { class: { "content": true, "custom-content": this.customContent } }, h("div", null, h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) }, h("span", { title: this.getTitleAuthors() }, h("span", { class: "bold" }, this.autori))), h("p", { class: "year-isbn" }, h("span", { class: "isbn" }, h("span", null, h("span", { class: "bold" }, this.isbn), " (ed. cartacea)")))), h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, h("slot", { name: "list" })))), this.customContent && h("slot", { name: "content" })));
   }
   static get is() { return "z-myz-card-footer"; }
   static get encapsulation() { return "shadow"; }
@@ -132,10 +133,10 @@ export class ZMyzCardFooter {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "LicenseTypeEnum",
-          "resolved": "LicenseTypeEnum.real | LicenseTypeEnum.temp | LicenseTypeEnum.trial | LicenseTypeEnum.virtual",
+          "original": "LicenseType",
+          "resolved": "LicenseType.REAL | LicenseType.TEMP | LicenseType.TRIAL | LicenseType.VIRTUAL",
           "references": {
-            "LicenseTypeEnum": {
+            "LicenseType": {
               "location": "import",
               "path": "../../../../beans/index"
             }

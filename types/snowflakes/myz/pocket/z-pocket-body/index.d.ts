@@ -8,5 +8,5 @@ export declare class ZPocketBody {
   /** pocket status */
   status: PocketStatus;
   handlePocketToggle(e: CustomEvent): void;
-  render(): any;
+  render(): HTMLElement;
 }

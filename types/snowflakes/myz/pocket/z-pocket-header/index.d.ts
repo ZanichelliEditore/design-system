@@ -8,11 +8,11 @@ export declare class ZPocketHeader {
   private swipeWrap;
   /** Emitted on pocket header click */
   pocketHeaderClick: EventEmitter;
-  emitPocketHeaderClick(): void;
+  private emitPocketHeaderClick;
   /** Emitted on pocket header pan */
   pocketHeaderPan: EventEmitter;
-  emitPocketHeaderPan(direction: string): void;
+  private emitPocketHeaderPan;
   constructor();
   componentDidLoad(): void;
-  render(): any;
+  render(): HTMLElement;
 }

@@ -1,6 +1,7 @@
 import { h, Host } from "@stencil/core";
 export class ZTypography {
   constructor() {
+    /** Font weight variant */
     this.variant = "regular";
   }
   render() {
@@ -11,7 +12,7 @@ export class ZTypography {
         [this.level]: Boolean(this.level),
         regular: this.variant === "regular",
         semibold: this.variant === "semibold",
-        light: this.variant === "light"
+        light: this.variant === "light",
       } }));
   }
   static get is() { return "z-typography"; }
@@ -28,41 +29,6 @@ export class ZTypography {
   }
   static get properties() {
     return {
-      "component": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "string",
-          "resolved": "string",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": ""
-        },
-        "attribute": "component",
-        "reflect": false
-      },
-      "variant": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "\"regular\" | \"semibold\" | \"light\"",
-          "resolved": "\"light\" | \"regular\" | \"semibold\"",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": ""
-        },
-        "attribute": "variant",
-        "reflect": false,
-        "defaultValue": "\"regular\""
-      },
       "level": {
         "type": "string",
         "mutable": false,
@@ -79,9 +45,44 @@ export class ZTypography {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Typography level"
         },
         "attribute": "level",
+        "reflect": false
+      },
+      "variant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "\"regular\" | \"semibold\" | \"light\"",
+          "resolved": "\"light\" | \"regular\" | \"semibold\"",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Font weight variant"
+        },
+        "attribute": "variant",
+        "reflect": false,
+        "defaultValue": "\"regular\""
+      },
+      "component": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "HTML tag to use to wrap slotted content"
+        },
+        "attribute": "component",
         "reflect": false
       }
     };

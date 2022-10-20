@@ -1,7 +1,8 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ToastNotificationTransitionsEnum, ToastNotificationTransitionTypes, ToastNotificationTypes } from "../../../beans";
+import { ToastNotificationTransition, ToastNotification } from "../../../beans";
+import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZToastNotification {
-  hostElement: HTMLElement;
+  hostElement: HTMLZToastNotificationElement;
   /** toast notification's title */
   heading?: string;
   /** toast notification's message */
@@ -13,15 +14,15 @@ export declare class ZToastNotification {
   /** toast notification autoclose can be paused */
   pauseonfocusloss?: boolean;
   /** toast notification type:  dark, light, accent, error, success, warning*/
-  type?: ToastNotificationTypes;
+  type?: ToastNotification;
   /** toast notification can be draggable*/
   isdraggable?: boolean;
   /** toast notification draggable percentage*/
   draggablepercentage?: number;
   /** toast notification animation type: slide-in-left, slide-in-right, slide-in-down, slide-in-up*/
-  transition?: ToastNotificationTransitionTypes;
+  transition?: ToastNotificationTransition;
   percentage: number;
-  isTextLong: boolean;
+  private isTextLong;
   private container;
   private toastText;
   private sliderManager;
@@ -35,22 +36,22 @@ export declare class ZToastNotification {
   watchPropPauseonfocusloss(newValue: boolean): void;
   /** notification close event */
   toastClose: EventEmitter;
-  emitToastClose(cssClass: string): void;
+  private emitToastClose;
   componentWillLoad(): void;
   componentDidLoad(): void;
-  visibilityChangeEventHandler: () => void;
-  validateAutoclose(): void;
-  mapSlideOutClass(): ToastNotificationTransitionsEnum.slideOutLeft | ToastNotificationTransitionsEnum.slideOutRight | ToastNotificationTransitionsEnum.slideOutDown | ToastNotificationTransitionsEnum.slideOutUp;
-  calculateDraggedPercentage(e: any): number;
-  handleSlideOutDragAnimation(): void;
-  onFocus(): void;
-  onBlur(): void;
-  startClosingTimeout(time: number): void;
-  detectWrap(): boolean;
-  renderText(): any;
-  renderButton(): any;
-  renderCloseIcon(): any;
-  renderContainer(): any;
-  renderMobileContainer(): any;
-  render(): any;
+  private visibilityChangeEventHandler;
+  private validateAutoclose;
+  private mapSlideOutClass;
+  private calculateDraggedPercentage;
+  private handleSlideOutDragAnimation;
+  private onFocus;
+  private onBlur;
+  private startClosingTimeout;
+  private detectWrap;
+  private renderText;
+  private renderButton;
+  private renderCloseIcon;
+  private renderContainer;
+  private renderMobileContainer;
+  render(): HostElement;
 }

@@ -1,5 +1,5 @@
 export declare class ZTableFooter {
-  host: HTMLElement;
+  host: HTMLZTableFooterElement;
   componentWillRender(): void;
-  render(): any;
+  render(): HTMLSlotElement;
 }

@@ -1,25 +1,26 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans";
+import { HostElement } from "../../stencil-public-runtime";
+import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
  */
 export declare class ZOffcanvas {
-  hostElement: HTMLElement;
+  hostElement: HTMLZOffcanvasElement;
   /**
-  * Offcanvas variant.
-  * Can be one of "overlay", "pushcontent"
-  * Default variant: pushcontent
-  */
-  variant?: OffCanvasVariantsEnum;
+   * Offcanvas variant.
+   * Can be one of "overlay", "pushcontent"
+   * Default variant: pushcontent
+   */
+  variant?: OffCanvasVariant;
   /** open component. Default: false */
   open: boolean;
   /** open content transitioning in a specified direction left | right. Default: left */
-  transitiondirection?: TransitionDirectionEnum;
+  transitiondirection?: TransitionDirection;
   /** emitted when open prop changes */
   canvasOpenStatusChanged: EventEmitter;
   componentWillLoad(): void;
   onOpenChanged(): void;
-  handleOpenStatus(): void;
-  handleAnimationEnd(): void;
-  render(): any[];
+  private handleOpenStatus;
+  private handleAnimationEnd;
+  render(): HostElement;
 }

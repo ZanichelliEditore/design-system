@@ -17,20 +17,20 @@ export declare class ZMyzCardInfo {
   private offlineLicenseWrapper;
   /** flip card to front */
   flipCard: EventEmitter;
-  emitFlipCard(showBack?: boolean): void;
+  private emitFlipCard;
   constructor();
   componentWillLoad(): void;
   componentWillUpdate(): void;
   componentDidRender(): void;
-  handleContentHeight(): boolean;
-  setStringOrArray(): void;
-  renderCloseIcon(): any;
-  renderGeneralSection(): any;
-  renderAuthor(): any;
-  renderYear(): any;
-  renderTooltip(): any;
-  setExpirationLicenseMessage(type: string): any;
-  renderOnlineLicenseSection(): any;
-  renderOfflineLicenseSection(): any;
-  render(): any;
+  private handleContentHeight;
+  private setStringOrArray;
+  private renderCloseIcon;
+  private renderGeneralSection;
+  private renderAuthor;
+  private renderYear;
+  private renderTooltip;
+  private setExpirationLicenseMessage;
+  private renderOnlineLicenseSection;
+  private renderOfflineLicenseSection;
+  render(): HTMLDivElement;
 }

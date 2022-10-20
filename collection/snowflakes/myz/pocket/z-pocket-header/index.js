@@ -22,7 +22,7 @@ export class ZPocketHeader {
     mc.on("pandown", () => this.emitPocketHeaderPan("down"));
   }
   render() {
-    return (h("header", { role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: el => (this.swipeWrap = el) }, h("slot", null)));
+    return (h("header", { role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", null)));
   }
   static get is() { return "z-pocket-header"; }
   static get encapsulation() { return "shadow"; }

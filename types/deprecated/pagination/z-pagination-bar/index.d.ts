@@ -1,4 +1,3 @@
-/// <reference types="hammerjs" />
 import { EventEmitter } from "../../../stencil-public-runtime";
 export declare class ZPaginationBar {
   /** pages number */
@@ -14,29 +13,28 @@ export declare class ZPaginationBar {
   /** array of history of visited pages (mutable, optional) */
   listhistoryrow?: number[];
   currentPages: number[];
-  velocityConstantMultiplier: number;
-  bar: HTMLElement;
+  private velocityConstantMultiplier;
+  private bar;
   constructor();
   componentDidLoad(): void;
   componentWillRender(): void;
   componentWillUpdate(): void;
-  initPagination(): void;
-  parsehistoryraw(historyraw: string): void;
-  scrollPage(ev: HammerInput): void;
+  private initPagination;
+  private parsehistoryraw;
+  private scrollPage;
   /** emitted on page number click, returns page*/
   goToPage: EventEmitter;
-  emitGoToPage(page: any): void;
+  private emitGoToPage;
   /** emitted on start page change, returns startpage*/
   changeStartPage: EventEmitter;
-  emitChangeStartPage(startpage: any): void;
+  private emitChangeStartPage;
   /** emitted on adding page to isvisited array, returns page*/
   addPageToHistory: EventEmitter;
-  emitAddPageToHistory(page: any): void;
-  loadPages(): void;
-  pageWindow(): number;
-  canNavigateLeft(): boolean;
-  canNavigateRight(): boolean;
-  navigateLeft(): void;
-  navigateRight(): void;
-  render(): any;
+  private loadPages;
+  private pageWindow;
+  private canNavigateLeft;
+  private canNavigateRight;
+  private navigateLeft;
+  private navigateRight;
+  render(): HTMLDivElement;
 }

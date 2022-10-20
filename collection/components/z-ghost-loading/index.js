@@ -1,7 +1,7 @@
-import { h, Host } from '@stencil/core';
+import { h, Host } from "@stencil/core";
 export class ZGhostLoading {
   render() {
-    return (h(Host, null));
+    return h(Host, null);
   }
   static get is() { return "z-ghost-loading"; }
   static get encapsulation() { return "shadow"; }

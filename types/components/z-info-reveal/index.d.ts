@@ -1,9 +1,11 @@
-import { InfoRevealPositionBean } from "../../beans";
+import { HostElement } from "../../stencil-public-runtime";
+import { InfoRevealPosition } from "../../beans";
 export declare class ZInfoReveal {
-  el: HTMLElement;
+  el: HTMLZInfoRevealElement;
   /** Name of the icon for the open button */
   icon?: string;
-  position?: InfoRevealPositionBean;
+  /** Info reveal's position */
+  position?: InfoRevealPosition;
   /** Text that appears on closed panel next to the open button. */
   label?: string;
   /** Whether the info panel is open. */
@@ -14,15 +16,15 @@ export declare class ZInfoReveal {
   /**
    * Open the info box.
    */
-  openInfoBox(): void;
+  private openInfoBox;
   /**
    * Close the info box.
    */
-  closeInfoBox(): void;
+  private closeInfoBox;
   /**
    * Navigate slotted info.
    * It closes the info box after the last info has been navigated.
    */
-  next(): void;
-  render(): any;
+  private next;
+  render(): HostElement;
 }

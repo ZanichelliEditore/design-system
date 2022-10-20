@@ -1,6 +1,6 @@
-import { h, } from "@stencil/core";
-import { ListDividerType, KeyboardCodeEnum, } from "../../../beans";
-import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean, } from "../../../utils/utils";
+import { h } from "@stencil/core";
+import { ListDividerType, KeyboardCode } from "../../../beans";
+import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean } from "../../../utils/utils";
 export class ZSelect {
   constructor() {
     /** the id of the input element */
@@ -83,9 +83,7 @@ export class ZSelect {
         return item.name.toUpperCase().includes(searchString.toUpperCase());
       })
         .map((item) => {
-        const start = item.name
-          .toUpperCase()
-          .indexOf(searchString.toUpperCase());
+        const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
         const end = start + searchString.length;
         const newName = item.name.substring(0, start) +
           `<strong>${item.name.substring(start, end)}</strong>` +
@@ -100,49 +98,57 @@ export class ZSelect {
   }
   handleInputChange(e) {
     this.searchString = e.detail.value;
-    if (!this.isOpen)
+    if (!this.isOpen) {
       this.toggleSelectUl();
+    }
   }
   selectItem(item, selected) {
-    if (item && item.disabled)
+    if (item && item.disabled) {
       return;
+    }
     this.itemsList = this.mapSelectedItemToItemsArray();
     this.itemsList = this.itemsList.map((i) => {
       i.selected = false;
-      if (i.id === (item ? item.id : null))
+      if (i.id === (item === null || item === void 0 ? void 0 : item.id)) {
         i.selected = selected;
+      }
       return i;
     });
     this.selectedItem = this.itemsList.find((item) => item.selected);
     this.emitOptionSelect();
-    if (this.searchString)
+    if (this.searchString) {
       this.searchString = null;
+    }
   }
   arrowsSelectNav(e, key) {
-    const arrows = [KeyboardCodeEnum.ARROW_DOWN, KeyboardCodeEnum.ARROW_UP];
-    if (!arrows.includes(e.key))
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+    if (!arrows.includes(e.key)) {
       return;
+    }
     e.preventDefault();
     e.stopPropagation();
-    if (!this.isOpen)
+    if (!this.isOpen) {
       this.toggleSelectUl();
+    }
     let index;
-    if (e.key === KeyboardCodeEnum.ARROW_DOWN) {
+    if (e.key === KeyboardCode.ARROW_DOWN) {
       index = key + 1 === this.itemsList.length ? 0 : key + 1;
     }
-    else if (e.key === KeyboardCodeEnum.ARROW_UP) {
+    else if (e.key === KeyboardCode.ARROW_UP) {
       index = key <= 0 ? this.itemsList.length - 1 : key - 1;
     }
     this.focusSelectItem(index);
   }
   focusSelectItem(index) {
     const focusElem = this.element.querySelector(`#${this.htmlid}_${index}`);
-    if (focusElem)
+    if (focusElem) {
       focusElem.focus();
+    }
   }
   toggleSelectUl(selfFocusOnClose = false) {
-    if (this.disabled || this.readonly)
+    if (this.disabled || this.readonly) {
       return;
+    }
     if (!this.isOpen) {
       document.addEventListener("click", this.handleSelectFocus);
       document.addEventListener("keyup", this.handleSelectFocus);
@@ -158,7 +164,7 @@ export class ZSelect {
   }
   handleInputClick(e) {
     const cp = e.composedPath();
-    const clearIcon = cp.find((item) => item.classList && item.classList.contains("resetIcon"));
+    const clearIcon = cp.find((item) => item.classList && item.classList.contains("reset-icon"));
     if (clearIcon) {
       e.stopPropagation();
       return;
@@ -166,19 +172,16 @@ export class ZSelect {
     this.toggleSelectUl();
   }
   handleSelectFocus(e) {
-    if (e instanceof KeyboardEvent && e.key === KeyboardCodeEnum.ESC) {
+    if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
       return this.toggleSelectUl(true);
     }
-    if (e instanceof KeyboardEvent &&
-      e.key !== KeyboardCodeEnum.TAB &&
-      e.key !== KeyboardCodeEnum.ENTER) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB && e.key !== KeyboardCode.ENTER) {
       return;
     }
     const tree = getElementTree(getClickedElement());
     const parent = tree.find((elem) => {
-      return (elem.nodeName.toLowerCase() === "z-input" &&
-        elem.id === `${this.htmlid}_input`);
+      return elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`;
     });
     if (!parent) {
       this.toggleSelectUl(e instanceof MouseEvent ? true : false);
@@ -186,17 +189,17 @@ export class ZSelect {
   }
   scrollToLetter(letter) {
     const foundItem = this.itemsList.find((item) => item.name.charAt(0) === letter);
-    if (foundItem)
+    if (foundItem) {
       this.focusSelectItem(this.itemsList.indexOf(foundItem));
+    }
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem
-        ? this.selectedItem.name.replace(/<[^>]+>/g, "")
-        : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
+    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
-        if (e.keyCode !== 13)
+        if (e.keyCode !== 13) {
           e.preventDefault();
+        }
         handleKeyboardSubmit(e, this.toggleSelectUl);
       }, onKeyDown: (e) => {
         return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1);
@@ -211,31 +214,32 @@ export class ZSelect {
   }
   renderSelectUl() {
     var _a;
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ulScrollWrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ul-scroll-wrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
-        [`input_${this.status}`]: !this.isOpen && !!this.status,
-        input_default: this.isOpen || !this.status,
+        [`input-${this.status}`]: !this.isOpen && !!this.status,
       } }, this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
-    if (!this.itemsList.length)
+    if (!this.itemsList.length) {
       return this.renderNoSearchResults();
+    }
     return this.itemsList.map((item, key) => {
-      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.element, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
     });
   }
   renderNoSearchResults() {
-    return (h("z-list-element", { color: "blue500", class: "noResults" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
+    return (h("z-list-element", { color: "blue500", class: "no-results" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
   }
   renderMessage() {
-    if (boolean(this.message) === false)
+    if (boolean(this.message) === false) {
       return;
+    }
     return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
   }
   render() {
-    return (h("div", { class: "selectWrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+    return (h("div", { class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
   }
   static get is() { return "z-select"; }
   static get encapsulation() { return "scoped"; }
@@ -273,10 +277,10 @@ export class ZSelect {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "SelectItemBean[] | string",
-          "resolved": "SelectItemBean[] | string",
+          "original": "SelectItem[] | string",
+          "resolved": "SelectItem[] | string",
           "references": {
-            "SelectItemBean": {
+            "SelectItem": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -416,10 +420,10 @@ export class ZSelect {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InputStatusBean",
-          "resolved": "\"error\" | \"success\" | \"warning\"",
+          "original": "InputStatus",
+          "resolved": "InputStatus.ERROR | InputStatus.SUCCESS | InputStatus.WARNING",
           "references": {
-            "InputStatusBean": {
+            "InputStatus": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -519,18 +523,18 @@ export class ZSelect {
     return {
       "getSelectedItem": {
         "complexType": {
-          "signature": "() => Promise<SelectItemBean>",
+          "signature": "() => Promise<SelectItem>",
           "parameters": [],
           "references": {
             "Promise": {
               "location": "global"
             },
-            "SelectItemBean": {
+            "SelectItem": {
               "location": "import",
               "path": "../../../beans"
             }
           },
-          "return": "Promise<SelectItemBean>"
+          "return": "Promise<SelectItem>"
         },
         "docs": {
           "text": "get the input selected options",
@@ -564,7 +568,7 @@ export class ZSelect {
             "Promise": {
               "location": "global"
             },
-            "SelectItemBean": {
+            "SelectItem": {
               "location": "import",
               "path": "../../../beans"
             }

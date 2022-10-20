@@ -1,5 +1,5 @@
-import { h, Host, } from "@stencil/core";
-import { ToastNotificationTransitionsEnum, } from "../../../beans";
+import { h, Host } from "@stencil/core";
+import { ToastNotificationTransition } from "../../../beans";
 import { mobileBreakpoint } from "../../../constants/breakpoints";
 import Hammer from "hammerjs";
 export class ZToastNotification {
@@ -11,21 +11,13 @@ export class ZToastNotification {
     /** toast notification draggable percentage*/
     this.draggablepercentage = 80;
     this.isCloseEventCalled = false;
-    this.visibilityChangeEventHandler = () => {
-      if (document.visibilityState === "hidden") {
-        this.timeoutHandle && this.onBlur();
-      }
-      else {
-        this.elapsedTime && this.onFocus();
-      }
-    };
   }
   watchPropIsdraggable(newValue) {
     if (newValue) {
-      this.sliderManager.get('pan').set({ enable: true });
+      this.sliderManager.get("pan").set({ enable: true });
     }
     else {
-      this.sliderManager.get('pan').set({ enable: false });
+      this.sliderManager.get("pan").set({ enable: false });
     }
   }
   watchPropAutoclose(newValue) {
@@ -51,6 +43,7 @@ export class ZToastNotification {
   componentWillLoad() {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
     this.validateAutoclose();
+    this.percentage = 0;
   }
   componentDidLoad() {
     this.isTextLong = this.detectWrap() || this.toastText.offsetHeight > 20;
@@ -59,22 +52,30 @@ export class ZToastNotification {
       document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
     }
     this.isdraggable && this.handleSlideOutDragAnimation();
-    this.percentage = 0;
+  }
+  visibilityChangeEventHandler() {
+    if (document.visibilityState === "hidden") {
+      this.timeoutHandle && this.onBlur();
+    }
+    else {
+      this.elapsedTime && this.onFocus();
+    }
   }
   validateAutoclose() {
-    if (!this.autoclose && !this.closebutton)
+    if (!this.autoclose && !this.closebutton) {
       console.error("At least one between autoclose and closebutton must be present");
+    }
   }
   mapSlideOutClass() {
     switch (this.transition) {
-      case ToastNotificationTransitionsEnum.slideInDown:
-        return ToastNotificationTransitionsEnum.slideOutUp;
-      case ToastNotificationTransitionsEnum.slideInUp:
-        return ToastNotificationTransitionsEnum.slideOutDown;
-      case ToastNotificationTransitionsEnum.slideInLeft:
-        return ToastNotificationTransitionsEnum.slideOutRight;
-      case ToastNotificationTransitionsEnum.slideInRight:
-        return ToastNotificationTransitionsEnum.slideOutLeft;
+      case ToastNotificationTransition.SLIDE_IN_DOWN:
+        return ToastNotificationTransition.SLIDE_OUT_UP;
+      case ToastNotificationTransition.SLIDE_IN_UP:
+        return ToastNotificationTransition.SLIDE_OUT_DOWN;
+      case ToastNotificationTransition.SLIDE_IN_LEFT:
+        return ToastNotificationTransition.SLIDE_OUT_RIGHT;
+      case ToastNotificationTransition.SLIDE_IN_RIGHT:
+        return ToastNotificationTransition.SLIDE_OUT_LEFT;
     }
   }
   calculateDraggedPercentage(e) {
@@ -91,32 +92,27 @@ export class ZToastNotification {
       this.hostElement.style.transition = "none";
       this.hostElement.classList.remove(this.transition);
       const translateObj = {
-        translate: "translateX( " + this.percentage + "% )",
+        translate: `translateX(${this.percentage}%)`,
         translateBack: "translateX(0)",
       };
       this.hostElement.style.opacity = `${100 - Math.abs(this.percentage)}%`;
-      if (e.eventType === Hammer.DIRECTION_LEFT ||
-        e.eventType === Hammer.DIRECTION_RIGHT) {
+      if (e.eventType === Hammer.DIRECTION_LEFT || e.eventType === Hammer.DIRECTION_RIGHT) {
         this.hostElement.style.transform = translateObj.translate;
-        if (Math.abs(this.percentage) > this.draggablepercentage &&
-          !this.isCloseEventCalled) {
+        if (Math.abs(this.percentage) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
-          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT
-            ? "slide-out-left"
-            : "slide-out-right");
+          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right");
         }
       }
       if (e.isFinal && Math.abs(this.percentage) < this.draggablepercentage) {
         this.hostElement.style.transform = translateObj.translateBack;
         this.hostElement.style.transition = "all 1s";
-        this.hostElement.style.opacity = `100%`;
+        this.hostElement.style.opacity = "100%";
         this.percentage = 0;
       }
     });
   }
   onFocus() {
-    let time;
-    time = this.autoclose;
+    let time = this.autoclose;
     if (this.elapsedTime) {
       time = this.autoclose - this.elapsedTime;
     }
@@ -129,7 +125,7 @@ export class ZToastNotification {
     clearTimeout(this.timeoutHandle);
   }
   startClosingTimeout(time) {
-    this.timeoutHandle = setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
+    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
   }
   detectWrap() {
     const parentWidth = this.container.offsetWidth;
@@ -147,12 +143,15 @@ export class ZToastNotification {
     return (h("div", { id: "button" }, h("slot", { name: "button" })));
   }
   renderCloseIcon() {
-    return (this.closebutton && (h("div", { id: "icon" }, h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
+    if (!this.closebutton) {
+      return;
+    }
+    return (h("div", { id: "icon" }, h("z-icon", { tabIndex: 0, name: "multiply-circled", width: 15, height: 15, onClick: () => this.emitToastClose(this.mapSlideOutClass()), onKeyPress: (e) => {
         if (e.keyCode == 32 || e.keyCode == 13) {
           e.preventDefault();
           this.emitToastClose(this.mapSlideOutClass());
         }
-      } }))));
+      } })));
   }
   renderContainer() {
     return (h("div", { tabIndex: 0, id: "external-container", class: {
@@ -169,10 +168,8 @@ export class ZToastNotification {
   }
   render() {
     return (h(Host, { style: {
-        ["--percentuale"]: `${this.percentage}%`,
-      }, class: this.transition
-        ? this.transition
-        : ToastNotificationTransitionsEnum.slideInDown, onAnimationEnd: (e) => {
+        "--percentuale": `${this.percentage}%`,
+      }, class: this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
         if (this.autoclose && e.animationName.includes("slidein")) {
           this.startClosingTimeout(this.autoclose);
         }
@@ -285,10 +282,10 @@ export class ZToastNotification {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ToastNotificationTypes",
-          "resolved": "ToastNotificationEnum.accent | ToastNotificationEnum.dark | ToastNotificationEnum.error | ToastNotificationEnum.light | ToastNotificationEnum.success | ToastNotificationEnum.warning",
+          "original": "ToastNotification",
+          "resolved": "ToastNotification.ACCENT | ToastNotification.DARK | ToastNotification.ERROR | ToastNotification.LIGHT | ToastNotification.SUCCESS | ToastNotification.WARNING",
           "references": {
-            "ToastNotificationTypes": {
+            "ToastNotification": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -343,10 +340,10 @@ export class ZToastNotification {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ToastNotificationTransitionTypes",
-          "resolved": "ToastNotificationTransitionsEnum.slideInDown | ToastNotificationTransitionsEnum.slideInLeft | ToastNotificationTransitionsEnum.slideInRight | ToastNotificationTransitionsEnum.slideInUp | ToastNotificationTransitionsEnum.slideOutDown | ToastNotificationTransitionsEnum.slideOutLeft | ToastNotificationTransitionsEnum.slideOutRight | ToastNotificationTransitionsEnum.slideOutUp",
+          "original": "ToastNotificationTransition",
+          "resolved": "ToastNotificationTransition.SLIDE_IN_DOWN | ToastNotificationTransition.SLIDE_IN_LEFT | ToastNotificationTransition.SLIDE_IN_RIGHT | ToastNotificationTransition.SLIDE_IN_UP | ToastNotificationTransition.SLIDE_OUT_DOWN | ToastNotificationTransition.SLIDE_OUT_LEFT | ToastNotificationTransition.SLIDE_OUT_RIGHT | ToastNotificationTransition.SLIDE_OUT_UP",
           "references": {
-            "ToastNotificationTransitionTypes": {
+            "ToastNotificationTransition": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -365,8 +362,7 @@ export class ZToastNotification {
   }
   static get states() {
     return {
-      "percentage": {},
-      "isTextLong": {}
+      "percentage": {}
     };
   }
   static get events() {

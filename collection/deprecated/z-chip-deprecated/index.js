@@ -1,12 +1,10 @@
-import { h } from '@stencil/core';
+import { h } from "@stencil/core";
 export class ZChipDeprecated {
   renderLegacyChip() {
-    return h("div", null, h("span", { class: "boldtext" }, this.boldtext), " ", this.regulartext);
+    return (h("div", null, h("span", { class: "boldtext" }, this.boldtext), " ", this.regulartext));
   }
   render() {
-    return this.boldtext != null || this.regulartext != null ?
-      this.renderLegacyChip() :
-      h("div", null, h("slot", null));
+    return this.boldtext != null || this.regulartext != null ? (this.renderLegacyChip()) : (h("div", null, h("slot", null)));
   }
   static get is() { return "z-chip-deprecated"; }
   static get encapsulation() { return "shadow"; }
@@ -34,7 +32,7 @@ export class ZChipDeprecated {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Text with regular font weight"
         },
         "attribute": "regulartext",
         "reflect": false
@@ -51,7 +49,7 @@ export class ZChipDeprecated {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Text with bold font weight"
         },
         "attribute": "boldtext",
         "reflect": false

@@ -1,11 +1,11 @@
-import { ListItemBean } from "../../../../beans/index.js";
+import { ListItem } from "../../../../beans/index.js";
 export declare class ZMyzList {
   /** json stringified list data (mutable, optional) */
   inputrawdata?: string;
   /** list item data (mutable, optional)*/
-  list?: ListItemBean[];
+  list?: ListItem[];
   componentWillLoad(): void;
-  parseinputrawdata(inputrawdata: string): void;
+  private parseinputrawdata;
   oninputrawdataChange(newValue: string): void;
-  render(): any;
+  render(): HTMLUListElement;
 }

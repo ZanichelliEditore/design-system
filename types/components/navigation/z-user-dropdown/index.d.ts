@@ -1,4 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 import { MenuItem } from "../../../beans";
 export declare class ZUserDropdown {
   /** logged status flag */
@@ -20,20 +21,20 @@ export declare class ZUserDropdown {
   componentDidLoad(): void;
   componentWillUpdate(): void;
   componentWillRender(): void;
-  setMobileAndDivToResizeWidth(): void;
+  private setMobileAndDivToResizeWidth;
   /** Emitted on enter or user Button click, returns isMenuOpen (bool) */
   userButtonClick: EventEmitter;
-  emitUserButtonClick(): void;
+  private emitUserButtonClick;
   /** Emitted on dropdown menu zlink click, returns event */
   dropdownMenuLinkClick: EventEmitter;
-  emitDropdownMenuLinkClick(e: CustomEvent): void;
+  private emitDropdownMenuLinkClick;
   handleResize(): void;
   handleOrientationChange(): void;
   handleClickOutside(e: MouseEvent): void;
-  handleLoggedButtonClick(): void;
-  renderGuestButton(): any;
-  renderLoggedButton(): any;
-  getZLinkTextcolor(): "white" | "black";
-  renderDropdownMenu(): any;
-  render(): any;
+  private handleLoggedButtonClick;
+  private renderGuestButton;
+  private renderLoggedButton;
+  private getZLinkTextcolor;
+  private renderDropdownMenu;
+  render(): HostElement;
 }

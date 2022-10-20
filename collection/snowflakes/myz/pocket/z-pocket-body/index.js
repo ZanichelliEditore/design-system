@@ -1,12 +1,12 @@
 import { h } from "@stencil/core";
-import { PocketStatusEnum } from "../../../../beans";
+import { PocketStatus } from "../../../../beans";
 /**
  * @slot  - pocket body content
  */
 export class ZPocketBody {
   constructor() {
     /** pocket status */
-    this.status = PocketStatusEnum.preview;
+    this.status = PocketStatus.PREVIEW;
   }
   handlePocketToggle(e) {
     if (e.detail.id && e.detail.id === this.pocketid) {
@@ -52,7 +52,7 @@ export class ZPocketBody {
         "mutable": true,
         "complexType": {
           "original": "PocketStatus",
-          "resolved": "PocketStatusEnum.closed | PocketStatusEnum.open | PocketStatusEnum.preview",
+          "resolved": "PocketStatus.CLOSED | PocketStatus.OPEN | PocketStatus.PREVIEW",
           "references": {
             "PocketStatus": {
               "location": "import",
@@ -68,7 +68,7 @@ export class ZPocketBody {
         },
         "attribute": "status",
         "reflect": false,
-        "defaultValue": "PocketStatusEnum.preview"
+        "defaultValue": "PocketStatus.PREVIEW"
       }
     };
   }

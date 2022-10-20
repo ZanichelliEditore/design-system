@@ -1,6 +1,6 @@
 import { h } from "@stencil/core";
-import { NavigationTabsOrientations, NavigationTabsSizes } from "../../../../beans";
-import { icons } from "../../../icons/icons";
+import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
+import { ICONS } from "../../../icons/icons";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
  */
@@ -17,19 +17,19 @@ export class ZNavigationTab {
     /**
      * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
      */
-    this.orientation = NavigationTabsOrientations.horizontal;
+    this.orientation = NavigationTabsOrientation.HORIZONTAL;
     /**
      * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
      */
-    this.size = NavigationTabsSizes.big;
+    this.size = NavigationTabsSize.BIG;
   }
   /**
    * Scroll into view to center the tab.
    */
   scrollToTab({ target: button }) {
-    const scrollOptions = this.orientation === NavigationTabsOrientations.horizontal ?
-      { block: "nearest", inline: "center" } :
-      { block: "center", inline: "nearest" };
+    const scrollOptions = this.orientation === NavigationTabsOrientation.HORIZONTAL
+      ? { block: "nearest", inline: "center" }
+      : { block: "center", inline: "nearest" };
     button.scrollIntoView(Object.assign({ behavior: "smooth" }, scrollOptions));
   }
   onClick() {
@@ -49,14 +49,14 @@ export class ZNavigationTab {
    */
   renderIcon() {
     let icon = this.icon;
-    const iconFilled = `${icon.replace(/-filled$/, '')}-filled`;
-    if (this.selected && Object.keys(icons).includes(iconFilled)) {
+    const iconFilled = `${icon.replace(/-filled$/, "")}-filled`;
+    if (this.selected && Object.keys(ICONS).includes(iconFilled)) {
       icon = iconFilled;
     }
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h("button", { role: "tab", disabled: this.disabled, title: this.htmlTitle, onFocus: this.scrollToTab.bind(this) }, this.icon && this.renderIcon(), this.orientation === "horizontal" && this.label));
+    return (h("button", { role: "tab", disabled: this.disabled, title: this.htmlTitle, onFocus: this.scrollToTab.bind(this) }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label));
   }
   static get is() { return "z-navigation-tab"; }
   static get originalStyleUrls() {
@@ -112,13 +112,8 @@ export class ZNavigationTab {
         "mutable": false,
         "complexType": {
           "original": "NavigationTabsOrientation",
-          "resolved": "\"horizontal\" | \"vertical\"",
-          "references": {
-            "NavigationTabsOrientation": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "resolved": "NavigationTabsOrientation.HORIZONTAL | NavigationTabsOrientation.VERTICAL",
+          "references": {}
         },
         "required": false,
         "optional": false,
@@ -128,20 +123,15 @@ export class ZNavigationTab {
         },
         "attribute": "orientation",
         "reflect": true,
-        "defaultValue": "NavigationTabsOrientations.horizontal"
+        "defaultValue": "NavigationTabsOrientation.HORIZONTAL"
       },
       "size": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "NavigationTabsSize",
-          "resolved": "\"big\" | \"small\"",
-          "references": {
-            "NavigationTabsSize": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "resolved": "NavigationTabsSize.BIG | NavigationTabsSize.SMALL",
+          "references": {}
         },
         "required": false,
         "optional": false,
@@ -151,7 +141,7 @@ export class ZNavigationTab {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "NavigationTabsSizes.big"
+        "defaultValue": "NavigationTabsSize.BIG"
       },
       "icon": {
         "type": "string",
@@ -215,7 +205,7 @@ export class ZNavigationTab {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "The tab has been selected."
         },
         "complexType": {
           "original": "any",

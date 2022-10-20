@@ -20,27 +20,27 @@ export declare class ZFooter {
   /** Maximum width of footer content */
   contentMaxWidth?: number;
   private jsonData;
-  creditsLinkId: string;
+  private creditsLinkId;
   constructor();
   componentWillLoad(): void;
   zLinkClickListener(e: CustomEvent): void;
   /** Emitted on credits link click */
   creditsLinkClick: EventEmitter;
-  emitCreditsLinkClick(): void;
+  private emitCreditsLinkClick;
   /** Emitted on report a problem button click */
   reportAProblemButtonClick: EventEmitter;
-  emitReportAProblemButtonClick(): void;
-  renderZLogo(): HTMLZLogoElement;
-  renderAddress(): HTMLParagraphElement;
-  renderSocial(): HTMLDivElement;
-  renderCopyright(): HTMLParagraphElement;
-  renderCertification(): HTMLParagraphElement;
-  renderBottomLinks(): HTMLDivElement;
-  renderFooterBottom(): HTMLElement;
-  renderFooterTop(): HTMLElement;
-  renderFooterProductInfo(): HTMLElement;
-  renderFooterTopJsonData(): null | HTMLElement;
-  renderFooterBottomJsonData(): null | HTMLElement;
-  renderFooterSocialJsonData(): null | HTMLElement;
+  private emitReportAProblemButtonClick;
+  private renderZLogo;
+  private renderAddress;
+  private renderSocial;
+  private renderCopyright;
+  private renderCertification;
+  private renderBottomLinks;
+  private renderFooterBottom;
+  private renderFooterTop;
+  private renderFooterProductInfo;
+  private renderFooterTopJsonData;
+  private renderFooterBottomJsonData;
+  private renderFooterSocialJsonData;
   render(): HTMLElement;
 }

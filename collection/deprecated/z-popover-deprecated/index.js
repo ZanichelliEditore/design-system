@@ -1,6 +1,5 @@
-import { h, Host, } from "@stencil/core";
-import classNames from "classnames";
-import { PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardKeys, } from "../../beans";
+import { h, Host } from "@stencil/core";
+import { PopoverPosition, PopoverBorderRadius, PopoverShadow, KeyboardCode } from "../../beans";
 import { getElementTree } from "../../utils/utils";
 export class ZPopoverDeprecated {
   /**
@@ -8,13 +7,13 @@ export class ZPopoverDeprecated {
    */
   constructor() {
     /** [optional] Popover position */
-    this.position = PopoverPosition["after-up"];
+    this.position = PopoverPosition.AFTER_UP;
     /** [optional] Background color token for popover */
     this.backgroundColor = "color-white";
     /** [optional] Border radius token for popover */
-    this.borderRadius = PopoverBorderRadius.small;
+    this.borderRadius = PopoverBorderRadius.SMALL;
     /** [optional] Box shadow token for popover */
-    this.boxShadow = PopoverShadow["shadow-1"];
+    this.boxShadow = PopoverShadow.SHADOW_1;
     /** [optional] Show or hide arrow */
     this.showArrow = false;
     /** [optional] Sets padding for Popover container */
@@ -58,8 +57,7 @@ export class ZPopoverDeprecated {
     }
     // If right is outside viewport
     if (r > width) {
-      if (this.position.startsWith("above") ||
-        this.position.startsWith("below")) {
+      if (this.position.startsWith("above") || this.position.startsWith("below")) {
         secondSide = "left";
       }
       else {
@@ -68,8 +66,7 @@ export class ZPopoverDeprecated {
     }
     // If left is outside viewport
     if (l < 0) {
-      if (this.position.startsWith("above") ||
-        this.position.startsWith("below")) {
+      if (this.position.startsWith("above") || this.position.startsWith("below")) {
         secondSide = "right";
       }
       else {
@@ -84,7 +81,7 @@ export class ZPopoverDeprecated {
     this.isVisible = false;
   }
   closePopoverWithKeyboard(e) {
-    if (e.key === KeyboardKeys.ESC) {
+    if (e.key === KeyboardCode.ESC) {
       this.closePopover();
     }
   }
@@ -94,7 +91,7 @@ export class ZPopoverDeprecated {
     event.stopPropagation();
   }
   handleKeyDown(event) {
-    if (event.code === KeyboardKeys.ENTER) {
+    if (event.code === KeyboardCode.ENTER) {
       this.isVisible ? this.closePopover() : this.openPopover();
     }
   }
@@ -107,10 +104,17 @@ export class ZPopoverDeprecated {
   }
   render() {
     return (h(Host, { onKeyDown: this.handleKeyDown }, h("div", { tabindex: "0", onClick: (event) => this.handleClick(event), onKeyDown: (event) => {
-        if (event.key === KeyboardKeys.ENTER) {
+        if (event.key === KeyboardCode.ENTER) {
           this.handleClick(event);
         }
-      } }, h("slot", { name: "trigger" })), h("div", { ref: (e) => (this.popoverElem = e), class: classNames("popover-content-container", this.popoverPosition, `border-radius-${this.borderRadius}`, this.boxShadow, { "show-arrow": this.showArrow }, { visible: this.isVisible }), style: {
+      } }, h("slot", { name: "trigger" })), h("div", { ref: (e) => (this.popoverElem = e), class: {
+        "popover-content-container": true,
+        [this.popoverPosition]: true,
+        [`border-radius-${this.borderRadius}`]: true,
+        [this.boxShadow]: true,
+        "show-arrow": this.showArrow,
+        "visible": this.isVisible,
+      }, style: {
         backgroundColor: `var(--${this.backgroundColor})`,
         padding: this.padding,
       } }, h("slot", { name: "popover" }))));
@@ -134,7 +138,7 @@ export class ZPopoverDeprecated {
         "mutable": false,
         "complexType": {
           "original": "PopoverPosition",
-          "resolved": "(typeof PopoverPosition)[\"above-center\"] | (typeof PopoverPosition)[\"above-left\"] | (typeof PopoverPosition)[\"above-right\"] | (typeof PopoverPosition)[\"after-center\"] | (typeof PopoverPosition)[\"after-down\"] | (typeof PopoverPosition)[\"after-up\"] | (typeof PopoverPosition)[\"before-center\"] | (typeof PopoverPosition)[\"before-down\"] | (typeof PopoverPosition)[\"before-up\"] | (typeof PopoverPosition)[\"below-center\"] | (typeof PopoverPosition)[\"below-left\"] | (typeof PopoverPosition)[\"below-right\"]",
+          "resolved": "PopoverPosition.ABOVE_CENTER | PopoverPosition.ABOVE_LEFT | PopoverPosition.ABOVE_RIGHT | PopoverPosition.AFTER_CENTER | PopoverPosition.AFTER_DOWN | PopoverPosition.AFTER_UP | PopoverPosition.BEFORE_CENTER | PopoverPosition.BEFORE_DOWN | PopoverPosition.BEFORE_UP | PopoverPosition.BELOW_CENTER | PopoverPosition.BELOW_LEFT | PopoverPosition.BELOW_RIGHT",
           "references": {
             "PopoverPosition": {
               "location": "import",
@@ -150,7 +154,7 @@ export class ZPopoverDeprecated {
         },
         "attribute": "position",
         "reflect": false,
-        "defaultValue": "PopoverPosition[\"after-up\"]"
+        "defaultValue": "PopoverPosition.AFTER_UP"
       },
       "backgroundColor": {
         "type": "string",
@@ -175,7 +179,7 @@ export class ZPopoverDeprecated {
         "mutable": false,
         "complexType": {
           "original": "PopoverBorderRadius",
-          "resolved": "PopoverBorderRadius.medium | PopoverBorderRadius.none | PopoverBorderRadius.small",
+          "resolved": "PopoverBorderRadius.MEDIUM | PopoverBorderRadius.NONE | PopoverBorderRadius.SMALL",
           "references": {
             "PopoverBorderRadius": {
               "location": "import",
@@ -191,14 +195,14 @@ export class ZPopoverDeprecated {
         },
         "attribute": "border-radius",
         "reflect": false,
-        "defaultValue": "PopoverBorderRadius.small"
+        "defaultValue": "PopoverBorderRadius.SMALL"
       },
       "boxShadow": {
         "type": "string",
         "mutable": false,
         "complexType": {
           "original": "PopoverShadow",
-          "resolved": "(typeof PopoverShadow)[\"shadow-1\"] | (typeof PopoverShadow)[\"shadow-12\"] | (typeof PopoverShadow)[\"shadow-16\"] | (typeof PopoverShadow)[\"shadow-2\"] | (typeof PopoverShadow)[\"shadow-24\"] | (typeof PopoverShadow)[\"shadow-3\"] | (typeof PopoverShadow)[\"shadow-4\"] | (typeof PopoverShadow)[\"shadow-6\"] | (typeof PopoverShadow)[\"shadow-8\"]",
+          "resolved": "PopoverShadow.SHADOW_1 | PopoverShadow.SHADOW_12 | PopoverShadow.SHADOW_16 | PopoverShadow.SHADOW_2 | PopoverShadow.SHADOW_24 | PopoverShadow.SHADOW_3 | PopoverShadow.SHADOW_4 | PopoverShadow.SHADOW_6 | PopoverShadow.SHADOW_8",
           "references": {
             "PopoverShadow": {
               "location": "import",
@@ -214,7 +218,7 @@ export class ZPopoverDeprecated {
         },
         "attribute": "box-shadow",
         "reflect": false,
-        "defaultValue": "PopoverShadow[\"shadow-1\"]"
+        "defaultValue": "PopoverShadow.SHADOW_1"
       },
       "showArrow": {
         "type": "boolean",

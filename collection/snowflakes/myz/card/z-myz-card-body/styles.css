@@ -1,13 +1,13 @@
 :host {
-  height: 340px;
   width: auto;
+  height: 340px;
 }
 
 :host > div {
-  height: 340px;
-  width: auto;
+  position: relative;
   display: flex;
+  width: auto;
+  height: 340px;
   align-items: center;
   justify-content: center;
-  position: relative;
 }

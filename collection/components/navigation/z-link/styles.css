@@ -1,26 +1,29 @@
 :host {
   --font-size-link: inherit;
   --font-weight-link: inherit;
-}
 
-:host {
-  font-family: var(--dashboard-font);
-  font-weight: var(--font-weight-link);
+  font-family: var(--font-family-sans);
   font-size: var(--font-size-link);
+  font-weight: var(--font-weight-link);
   line-height: inherit;
   outline: none;
 }
 
+:host([big]) {
+  --font-size-link: 16px;
+  --font-weight-link: var(--font-sb);
+}
+
 a {
-  cursor: pointer;
-  color: var(--color-link-primary);
-  fill: var(--color-link-primary);
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
   padding: calc(var(--space-unit) * 0.5) 0;
   border-top: var(--border-size-medium) solid transparent;
   border-bottom: var(--border-size-medium) solid transparent;
+  color: var(--color-link-primary);
+  cursor: pointer;
+  fill: var(--color-link-primary);
+  text-decoration: none;
 }
 
 a:hover,
@@ -52,10 +55,10 @@ a:visited {
 
 a.disabled,
 a.inverse.disabled {
-  cursor: default;
-  pointer-events: none;
   color: var(--color-disabled03);
+  cursor: default;
   fill: var(--color-disabled03);
+  pointer-events: none;
 }
 
 a.underline,
@@ -156,9 +159,9 @@ a.black.disabled {
 }
 
 a > z-icon:first-child {
-  margin-right: 8px;
+  margin-right: var(--space-unit);
 }
 
 a > z-icon:last-child {
-  margin-left: 8px;
+  margin-left: var(--space-unit);
 }

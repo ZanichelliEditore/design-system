@@ -1,59 +1,69 @@
 :host {
   --z-offcanvas--container-width: 375px;
-  --z-offcanvas--top-space: 0px;
+  --z-offcanvas--top-space: 0;
 
   z-index: 1000;
   display: none;
-  justify-content: end;
-  height: 100%;
   min-width: 100%;
+  height: 100%;
+  justify-content: end;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
 .canvas-container {
-  display: flex;
-  flex-direction: column;
   z-index: 1010;
-  min-width: 100%;
-  height: 100%;
+  display: flex;
   overflow: -moz-scrollbars-none;
   overflow: hidden;
+  min-width: 100%;
+  height: 100%;
+  flex-direction: column;
   background: var(--color-surface01);
   transform: translateX(100%);
 }
 
-@keyframes enterRight {
-  from {transform: translateX(100%);}
-  to {transform: translateX(0);}
+@keyframes enter-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 :host([open]) > .canvas-container {
-  animation-name: enterRight;
-  animation-duration:0.4s;
+  animation-duration: 0.4s;
+  animation-name: enter-right;
   animation-timing-function: ease-out;
   transform: translateX(0);
 }
 
-@keyframes exitRight {
-  from {transform: translateX(0);}
-  to {transform: translateX(100%);}
+@keyframes exit-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
 }
 
 :host(:not([open])[variant="overlay"]) > .canvas-container {
-  animation-name: exitRight;
-  animation-duration:0.4s;
+  animation-duration: 0.4s;
+  animation-name: exit-right;
   animation-timing-function: ease-out;
   transform: translateX(100%);
 }
 
 :host([variant="overlay"]) {
   position: fixed;
-  height: calc(100% - var(--z-offcanvas--top-space));
   top: var(--z-offcanvas--top-space);
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  height: calc(100% - var(--z-offcanvas--top-space));
 }
 
 :host([variant="overlay"]) .canvas-background {
@@ -73,46 +83,51 @@
   transform: translateX(-100%);
 }
 
-@keyframes enterLeft {
-  from {transform: translateX(-100%);}
-  to {transform: translateX(0);}
+@keyframes enter-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 :host([transitiondirection="right"][open]) > .canvas-container {
-  animation-name: enterLeft;
   animation-duration: 0.4s;
+  animation-name: enter-left;
   animation-timing-function: ease-out;
   transform: translateX(0);
 }
 
-@keyframes exitLeft {
-  from {transform: translateX(0);}
-  to {transform: translateX(-100%);}
+@keyframes exit-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 :host(:not([open])[variant="overlay"][transitiondirection="right"]) > .canvas-container {
-  animation-name: exitLeft;
-  animation-duration:0.4s;
+  animation-duration: 0.4s;
+  animation-name: exit-left;
   animation-timing-function: ease-out;
   transform: translateX(-100%);
 }
 
 .canvas-container > .canvas-content {
-  flex: 1 auto;
   overflow: auto;
-  overflow-x: hidden;
-  padding: 0 calc(var(--space-unit) * 2) ;
+  flex: 1 auto;
+  padding: 0 calc(var(--space-unit) * 2);
   margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0;
+  overflow-x: hidden;
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar {
-  background: linear-gradient(
-    to right,
-    transparent 0 3px,
-    var(--gray200) 3px 7px,
-    transparent 7px 10px
-  );
   width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 
@@ -121,9 +136,9 @@
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar-thumb {
+  width: 10px;
   background-color: var(--color-primary01);
   border-radius: var(--border-radius);
-  width: 10px;
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar-thumb:hover {
@@ -140,24 +155,29 @@
   :host {
     min-width: auto;
   }
+
   .canvas-container {
     width: auto;
-    height: auto;
     min-width: max(var(--z-offcanvas--container-width), 375px);
-    min-height: calc(var(--space-unit) * 40);
     max-width: max(var(--z-offcanvas--container-width), 375px);
+    height: auto;
+    min-height: calc(var(--space-unit) * 40);
   }
 
   @keyframes grow {
-    from {width: 0;}
-    to {width: max(var(--z-offcanvas--container-width), 375px)}
+    from {
+      width: 0;
+    }
+
+    to {
+      width: max(var(--z-offcanvas--container-width), 375px);
+    }
   }
 
   :host(:not([variant="overlay"])[open]) {
-    animation-name: grow;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-out;
     width: auto;
+    animation-duration: 0.4s;
+    animation-name: grow;
+    animation-timing-function: ease-out;
   }
 }
-

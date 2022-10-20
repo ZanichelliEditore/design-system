@@ -1,20 +1,11 @@
-import { h, Host } from "@stencil/core";
-import { ToastNotificationPositionsEnum, } from "../../../beans";
+import { h } from "@stencil/core";
+import { ToastNotificationPosition } from "../../../beans";
 export class ZToastNotificationList {
   constructor() {
+    /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
+    this.position = ToastNotificationPosition.TOP_RIGHT;
     /**Set the entry position of new notification in the list */
     this.newestontop = true;
-    this.slotChangeHandler = () => {
-      const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
-      if (difference) {
-        difference.forEach((elem) => {
-          this.notificationArray.push(elem);
-          const newElem = elem;
-          elem.remove();
-          this.hostElement.prepend(newElem);
-        });
-      }
-    };
   }
   watchPropNewestontop(newValue) {
     this.hostElement.append(...this.notificationArray.reverse());
@@ -33,10 +24,19 @@ export class ZToastNotificationList {
     this.hostElement.append(...this.notificationArray.reverse());
     this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
   }
+  slotChangeHandler() {
+    const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
+    if (difference) {
+      difference.forEach((elem) => {
+        this.notificationArray.push(elem);
+        const newElem = elem;
+        elem.remove();
+        this.hostElement.prepend(newElem);
+      });
+    }
+  }
   render() {
-    return (h(Host, { class: this.position
-        ? this.position
-        : ToastNotificationPositionsEnum.topRight }, h("slot", { name: "toasts" })));
+    return h("slot", { name: "toasts" });
   }
   static get is() { return "z-toast-notification-list"; }
   static get encapsulation() { return "shadow"; }
@@ -56,10 +56,10 @@ export class ZToastNotificationList {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ToastNotificationPositionsTypes",
-          "resolved": "ToastNotificationPositionsEnum.bottomCentre | ToastNotificationPositionsEnum.bottomLeft | ToastNotificationPositionsEnum.bottomRight | ToastNotificationPositionsEnum.topCentre | ToastNotificationPositionsEnum.topLeft | ToastNotificationPositionsEnum.topRight",
+          "original": "ToastNotificationPosition",
+          "resolved": "ToastNotificationPosition.BOTTOM_CENTRE | ToastNotificationPosition.BOTTOM_LEFT | ToastNotificationPosition.BOTTOM_RIGHT | ToastNotificationPosition.TOP_CENTRE | ToastNotificationPosition.TOP_LEFT | ToastNotificationPosition.TOP_RIGHT",
           "references": {
-            "ToastNotificationPositionsTypes": {
+            "ToastNotificationPosition": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -72,7 +72,8 @@ export class ZToastNotificationList {
           "text": "Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right"
         },
         "attribute": "position",
-        "reflect": false
+        "reflect": true,
+        "defaultValue": "ToastNotificationPosition.TOP_RIGHT"
       },
       "newestontop": {
         "type": "boolean",

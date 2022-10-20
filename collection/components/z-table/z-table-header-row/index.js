@@ -1,10 +1,10 @@
 import { Host, h } from "@stencil/core";
 export class ZTableHeaderRow {
-  _renderExpandHeader() {
+  renderExpandHeader() {
     return h("z-table-header", null);
   }
   render() {
-    return (h(Host, { role: "row" }, this.expandable && this._renderExpandHeader(), h("slot", null)));
+    return (h(Host, { role: "row" }, this.expandable && this.renderExpandHeader(), h("slot", null)));
   }
   static get is() { return "z-table-header-row"; }
   static get originalStyleUrls() {
@@ -31,7 +31,7 @@ export class ZTableHeaderRow {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Row expandable flag"
         },
         "attribute": "expandable",
         "reflect": true

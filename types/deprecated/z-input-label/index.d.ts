@@ -5,5 +5,5 @@ export declare class ZInputLabel {
   disabled?: boolean;
   /** the label is attached to */
   htmlfor?: string;
-  render(): any;
+  render(): HTMLLabelElement;
 }

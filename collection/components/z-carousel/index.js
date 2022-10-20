@@ -1,5 +1,5 @@
-import { h, Host, } from "@stencil/core";
-import { CarouselArrowsPosition, CarouselProgressMode, ButtonVariantEnum, ButtonSizeEnum } from "../../beans";
+import { h, Host } from "@stencil/core";
+import { CarouselArrowsPosition, CarouselProgressMode, ButtonVariant, ButtonSize } from "../../beans";
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.
@@ -18,7 +18,8 @@ export class ZCarousel {
   }
   onIndexChange() {
     this.scrollingTo = this.current;
-    this.items[this.current].scrollIntoView({
+    this.itemsContainer.scroll({
+      left: this.items[this.current].offsetLeft,
       behavior: "smooth",
     });
     this.indexChange.emit({ currentItem: this.current });
@@ -49,7 +50,7 @@ export class ZCarousel {
       }
       const entryIndex = this.items.findIndex((item) => item === entry.target);
       /* skip setting the current item if intersection has been triggered by a programmatic scroll
-      (the scrollIntoView in `onIndexChange`) */
+      (the scroll in `onIndexChange`) */
       if (this.scrollingTo !== null && entryIndex !== this.scrollingTo) {
         return;
       }
@@ -111,15 +112,9 @@ export class ZCarousel {
   }
   render() {
     if (this.isLoading) {
-      return h(Host, null, this.label && h("div", { class: "heading-4 z-carousel-title" }, this.label), h("div", { style: { height: `${this.ghostLoadingHeight}px` } }, h("z-ghost-loading", null), h("div", { class: "loading-items-container" }, h("slot", null))));
+      return (h(Host, null, this.label && h("div", { class: "heading-4 z-carousel-title" }, this.label), h("div", { style: { height: `${this.ghostLoadingHeight}px` } }, h("z-ghost-loading", null), h("div", { class: "loading-items-container" }, h("slot", null)))));
     }
-    return (h(Host, null, h("div", { class: "z-carousel-container" }, this.label && h("div", { class: "heading-4 z-carousel-title" }, this.label), h("div", { class: "z-carousel-wrapper" }, this.arrowsPosition === CarouselArrowsPosition.OVER && (h("z-button", { size: ButtonSizeEnum.small, "data-direction": "prev", icon: "chevron-left", onClick: this.onPrev.bind(this) })), h("ul", { class: "z-carousel-items-container" }, h("slot", null)), this.arrowsPosition === CarouselArrowsPosition.OVER && (h("z-button", { size: ButtonSizeEnum.small, "data-direction": "next", icon: "chevron-right", onClick: this.onNext.bind(this) })))), this.canShowFooter() && (h("div", { class: "z-carousel-footer" }, this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (h("z-button", { size: ButtonSizeEnum.small, variant: ButtonVariantEnum.tertiary, icon: "arrow-left-filled", onClick: this.onPrev.bind(this) })), this.progressMode === CarouselProgressMode.DOTS &&
-      this.single &&
-      this.items && (h("div", { class: "dots-progress" }, this.items.map((_item, key) => (h("button", { type: "button", class: { current: this.current === key }, onClick: () => this.goTo(key) }, h("z-icon", { name: this.current === key
-        ? "white-circle-filled"
-        : "black-circle-filled" })))))), this.progressMode === CarouselProgressMode.NUMBERS &&
-      this.single &&
-      this.items && (h("div", { class: "numbers-progress" }, h("span", { class: "interactive-3 current" }, this.current + 1), h("span", { class: "interactive-3" }, "di"), h("span", { class: "interactive-3" }, this.items.length))), this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (h("z-button", { size: ButtonSizeEnum.small, variant: ButtonVariantEnum.tertiary, icon: "arrow-right-filled", onClick: this.onNext.bind(this) }))))));
+    return (h(Host, null, h("div", { class: "z-carousel-container" }, this.label && h("div", { class: "heading-4 z-carousel-title" }, this.label), h("div", { class: "z-carousel-wrapper" }, this.arrowsPosition === CarouselArrowsPosition.OVER && (h("z-button", { size: ButtonSize.SMALL, "data-direction": "prev", icon: "chevron-left", onClick: this.onPrev.bind(this) })), h("ul", { class: "z-carousel-items-container" }, h("slot", null)), this.arrowsPosition === CarouselArrowsPosition.OVER && (h("z-button", { size: ButtonSize.SMALL, "data-direction": "next", icon: "chevron-right", onClick: this.onNext.bind(this) })))), this.canShowFooter() && (h("div", { class: "z-carousel-footer" }, this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (h("z-button", { size: ButtonSize.SMALL, variant: ButtonVariant.TERTIARY, icon: "arrow-left-filled", onClick: this.onPrev.bind(this) })), this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (h("div", { class: "dots-progress" }, this.items.map((_item, key) => (h("button", { type: "button", class: { current: this.current === key }, onClick: () => this.goTo(key) }, h("z-icon", { name: this.current === key ? "white-circle-filled" : "black-circle-filled" })))))), this.progressMode === CarouselProgressMode.NUMBERS && this.single && this.items && (h("div", { class: "numbers-progress" }, h("span", { class: "interactive-3 current" }, this.current + 1), h("span", { class: "interactive-3" }, "di"), h("span", { class: "interactive-3" }, this.items.length))), this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (h("z-button", { size: ButtonSize.SMALL, variant: ButtonVariant.TERTIARY, icon: "arrow-right-filled", onClick: this.onNext.bind(this) }))))));
   }
   static get is() { return "z-carousel"; }
   static get originalStyleUrls() {

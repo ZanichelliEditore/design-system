@@ -1,7 +1,7 @@
-import { KeyboardCodeEnum, DeviceEnum } from "../beans/index";
+import { KeyboardCode, Device } from "../beans/index";
 import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
-  return ((first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : ""));
+  return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");
 }
 /**
  * Return boolean value for passed value if a boolean corresponding value is found
@@ -33,16 +33,17 @@ export function retrieveAsset(assetName) {
 export function randomId() {
   return Math.random().toString(36).replace("0.", "");
 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.code === KeyboardCodeEnum.ENTER ||
-    ev.code === KeyboardCodeEnum.SPACE) {
+  if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
 }
 export function getClickedElement(elem = null) {
-  if (!elem)
+  if (!elem) {
     elem = document.activeElement;
+  }
   if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
     elem = elem.shadowRoot.activeElement;
     return getClickedElement(elem);
@@ -54,17 +55,15 @@ export function getElementTree(elem, tree = []) {
   if (elem.parentElement) {
     elem = elem.parentElement;
     return getElementTree(elem, tree);
-    // @ts-ignore
   }
   else if (elem.parentNode && elem.parentNode.host) {
-    // @ts-ignore
     elem = elem.parentNode.host;
     return getElementTree(elem, tree);
   }
   return tree;
 }
 export function getSiblings(elem) {
-  let siblings = [];
+  const siblings = [];
   if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
     return siblings;
   }
@@ -78,29 +77,30 @@ export function getSiblings(elem) {
 export function getDevice() {
   switch (true) {
     case window.innerWidth <= mobileBreakpoint:
-      return DeviceEnum.mobile;
+      return Device.MOBILE;
     case window.innerWidth <= tabletBreakpoint:
-      return DeviceEnum.tablet;
+      return Device.TABLET;
     default:
-      return DeviceEnum.desktop;
+      return Device.DESKTOP;
   }
 }
 export function convertJson(data) {
   try {
     return JSON.parse(data);
   }
-  catch (e) {
+  catch (_a) {
     return false;
   }
 }
-const prefix = "avatar-C"; // prefix for color vars name
-const colorsCount = 19; // available colors
 export function colorFromId(id) {
+  const prefix = "avatar-C"; // prefix for color vars name
+  const colorsCount = 19; // available colors
   const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);
   let color = Math.ceil(colorsCount * (seed % 1));
   // if result of mc is 0
   // es.: 3895229
-  if (color === 0)
+  if (color === 0) {
     color = 1;
+  }
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }

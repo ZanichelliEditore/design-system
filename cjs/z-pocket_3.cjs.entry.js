@@ -3,28 +3,28 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
-const utils = require('./utils-dfe717c7.js');
+const index$1 = require('./index-199cd650.js');
+const utils = require('./utils-ce225fb3.js');
 const hammer = require('./hammer-4f20813e.js');
 require('./breakpoints-88c4fd6c.js');
 require('./_commonjsHelpers-537d719a.js');
 
-const stylesCss$2 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);width:inherit;height:100%;margin:inherit}:host>div{width:inherit;height:100%;margin:inherit}:host>div>div.background{position:fixed;left:0;right:0;top:0;bottom:0;z-index:998;width:0;height:0}:host>div>div.background.open{height:100%;width:100%}:host>div>div.contentWrapper{position:fixed;z-index:999;bottom:0;left:0;width:inherit;margin:inherit}:host>div>div.contentWrapper>div{border-radius:var(--space-unit) var(--space-unit) 0px 0px;box-shadow:0px -2px calc(var(--space-unit) * 0.5) 0px rgba(66, 69, 72, 0.4);margin:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5)}";
+const stylesCss$2 = ":host{width:inherit;height:100%;margin:inherit;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>div{width:inherit;height:100%;margin:inherit}:host>div>div.background{position:fixed;z-index:998;top:0;right:0;bottom:0;left:0;width:0;height:0}:host>div>div.background.open{width:100%;height:100%}:host>div>div.content-wrapper{position:fixed;z-index:999;bottom:0;left:0;width:inherit;margin:inherit}:host>div>div.content-wrapper>div{margin:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5);border-radius:var(--space-unit) var(--space-unit) 0 0;box-shadow:0 -2px calc(var(--space-unit) * 0.5) 0 rgb(66 69 72 / 40%)}";
 
 const ZPocket = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.pocketToggle = index.createEvent(this, "pocketToggle", 7);
     /** pocket status */
-    this.status = index$1.PocketStatusEnum.preview;
+    this.status = index$1.PocketStatus.PREVIEW;
   }
   /** open z-pocket */
   async open() {
-    this.status = index$1.PocketStatusEnum.open;
+    this.status = index$1.PocketStatus.OPEN;
   }
   /** close z-pocket */
   async close() {
-    this.status = index$1.PocketStatusEnum.closed;
+    this.status = index$1.PocketStatus.CLOSED;
   }
   emitPocketToggle(id, status) {
     this.pocketToggle.emit({ id, status });
@@ -32,12 +32,12 @@ const ZPocket = class {
   handlePocketHeaderClick(e) {
     if (e.detail.id && e.detail.id === this.pocketid) {
       switch (this.status) {
-        case index$1.PocketStatusEnum.preview:
-        case index$1.PocketStatusEnum.closed:
-          this.status = index$1.PocketStatusEnum.open;
+        case index$1.PocketStatus.PREVIEW:
+        case index$1.PocketStatus.CLOSED:
+          this.status = index$1.PocketStatus.OPEN;
           break;
-        case index$1.PocketStatusEnum.open:
-          this.status = index$1.PocketStatusEnum.closed;
+        case index$1.PocketStatus.OPEN:
+          this.status = index$1.PocketStatus.CLOSED;
           break;
       }
     }
@@ -45,10 +45,10 @@ const ZPocket = class {
   handlePocketHeaderPan(e) {
     if (e.detail.id && e.detail.id === this.pocketid) {
       if (e.detail.direction === "up") {
-        this.status = index$1.PocketStatusEnum.open;
+        this.status = index$1.PocketStatus.OPEN;
       }
       else if (e.detail.direction === "down") {
-        this.status = index$1.PocketStatusEnum.closed;
+        this.status = index$1.PocketStatus.CLOSED;
       }
     }
   }
@@ -64,7 +64,7 @@ const ZPocket = class {
     }
   }
   render() {
-    return (index.h("div", null, index.h("div", { "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), index.h("div", { id: this.pocketid, class: "contentWrapper" }, index.h("div", null, index.h("slot", null)))));
+    return (index.h("div", null, index.h("div", { "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), index.h("div", { id: this.pocketid, class: "content-wrapper" }, index.h("div", null, index.h("slot", null)))));
   }
   get hostElement() { return index.getElement(this); }
   static get watchers() { return {
@@ -73,13 +73,13 @@ const ZPocket = class {
 };
 ZPocket.style = stylesCss$2;
 
-const stylesCss$1 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);display:block;width:100%;box-sizing:border-box}:host>main{background:var(--color-surface01);border-left:var(--border-size-small) solid var(--color-surface03);border-right:var(--border-size-small) solid var(--color-surface03);overflow:auto;scrollbar-width:none}:host>main.preview{max-height:225px;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.open{max-height:calc(100vh - 48px);transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.closed{height:0px;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host ::-webkit-scrollbar{width:0}@media only screen and (min-width: 768px){:host>main.preview{max-height:157px}}";
+const stylesCss$1 = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>main{overflow:auto;border-right:var(--border-size-small) solid var(--color-surface03);border-left:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);scrollbar-width:none}:host>main.preview{max-height:225px;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.open{max-height:calc(100vh - 48px);transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.closed{height:0;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host ::-webkit-scrollbar{width:0}@media only screen and (min-width: 768px){:host>main.preview{max-height:157px}}";
 
 const ZPocketBody = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     /** pocket status */
-    this.status = index$1.PocketStatusEnum.preview;
+    this.status = index$1.PocketStatus.PREVIEW;
   }
   handlePocketToggle(e) {
     if (e.detail.id && e.detail.id === this.pocketid) {
@@ -92,7 +92,7 @@ const ZPocketBody = class {
 };
 ZPocketBody.style = stylesCss$1;
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);display:block;width:100%;box-sizing:border-box}:host>header{background:var(--color-surface01);border:var(--border-size-small) solid var(--color-surface03);border-radius:var(--space-unit) var(--space-unit) 0px 0px;height:36px;cursor:pointer;display:flex;flex-wrap:nowrap;flex-direction:row;justify-content:center;align-items:center}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
+const stylesCss = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>header{display:flex;height:36px;flex-flow:row nowrap;align-items:center;justify-content:center;border:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);border-radius:var(--space-unit) var(--space-unit) 0 0;cursor:pointer}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
 
 const ZPocketHeader = class {
   constructor(hostRef) {
@@ -115,7 +115,7 @@ const ZPocketHeader = class {
     mc.on("pandown", () => this.emitPocketHeaderPan("down"));
   }
   render() {
-    return (index.h("header", { role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: el => (this.swipeWrap = el) }, index.h("slot", null)));
+    return (index.h("header", { role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, index.h("slot", null)));
   }
 };
 ZPocketHeader.style = stylesCss;

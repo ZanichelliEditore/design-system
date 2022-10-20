@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
+const index$1 = require('./index-199cd650.js');
 
-const stylesCss = ":host{--z-popover-theme--surface:var(--color-surface01);--z-popover-theme--text:var(--color-text01);--z-popover-padding:0;--z-popover-shadow-filter:drop-shadow(0 1px 2px var(--shadow-color-base));position:relative;display:none;align-items:center;justify-content:center;padding:var(--z-popover-padding);min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);color:var(--z-popover-theme--text);fill:currentColor;font-family:var(--font-family-sans);text-align:center;border-radius:var(--border-radius-small);background:var(--z-popover-theme--surface);filter:var(--z-popover-shadow-filter)}:host([open][current-position]),:host([open=\"true\"][current-position]){display:flex}:host([center][current-position=\"top\"]),:host([center][current-position=\"bottom\"]){transform:translateX(-50%)}:host([center][current-position=\"right\"]),:host([center][current-position=\"left\"]){transform:translateY(-50%)}:host([current-position^=\"top\"]){margin:0 0 var(--space-unit)}:host([current-position^=\"bottom\"]){margin:var(--space-unit) 0 0}:host([current-position^=\"left\"]){margin:0 var(--space-unit) 0 0}:host([current-position^=\"right\"]){margin:0 0 0 var(--space-unit)}:host([current-position])::before{--arrow-size:6px;--arrow-edge-offset:calc(100% - var(--space-unit) - (var(--arrow-size) / 2));--arrow-center-x-offset:calc(50% - (var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - (var(--arrow-size) / 2));display:block;content:\"\";position:absolute;width:var(--arrow-size);height:var(--arrow-size);background:var(--z-popover-theme--surface);transform:rotate(45deg)}:host([show-arrow=\"false\"])::before,:host(:not([show-arrow]))::before{display:none}:host([current-position^=\"top\"])::before{top:var(--arrow-center-y-offset)}:host([current-position^=\"bottom\"])::before{bottom:var(--arrow-center-y-offset)}:host([current-position=\"top\"])::before,:host([current-position=\"bottom\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before,:host([current-position=\"left\"])::before{bottom:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"top_right\"])::before,:host([current-position=\"bottom_right\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"top_left\"])::before,:host([current-position=\"bottom_left\"])::before{left:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"left_top\"])::before{top:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"right_bottom\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left_top\"])::before,:host([current-position=\"left_bottom\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"right_bottom\"])::before,:host([current-position=\"left_bottom\"])::before{bottom:var(--arrow-edge-offset)}:host([center][current-position=\"top\"])::before,:host([center][current-position=\"bottom\"])::before{right:auto;left:var(--arrow-center-x-offset)}:host([center][current-position=\"right\"])::before,:host([center][current-position=\"left\"])::before{top:var(--arrow-center-x-offset);bottom:auto}::slotted(*){flex:1 auto;overflow:auto}";
+const stylesCss = ":host{--z-popover-theme--surface:var(--color-surface01);--z-popover-theme--text:var(--color-text01);--z-popover-padding:0;--z-popover-shadow-filter:drop-shadow(0 1px 2px var(--shadow-color-base));position:relative;display:none;min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);align-items:center;justify-content:center;padding:var(--z-popover-padding);background:var(--z-popover-theme--surface);border-radius:var(--border-radius-small);color:var(--z-popover-theme--text);fill:currentcolor;filter:var(--z-popover-shadow-filter);font-family:var(--font-family-sans);text-align:center}:host([open][current-position]),:host([open=\"true\"][current-position]){display:flex}:host([center][current-position=\"top\"]),:host([center][current-position=\"bottom\"]){transform:translateX(-50%)}:host([center][current-position=\"right\"]),:host([center][current-position=\"left\"]){transform:translateY(-50%)}:host([current-position^=\"top\"]){margin:0 0 var(--space-unit)}:host([current-position^=\"bottom\"]){margin:var(--space-unit) 0 0}:host([current-position^=\"left\"]){margin:0 var(--space-unit) 0 0}:host([current-position^=\"right\"]){margin:0 0 0 var(--space-unit)}:host([current-position])::before{--arrow-size:6px;--arrow-edge-offset:calc(100% - var(--space-unit) - (var(--arrow-size) / 2));--arrow-center-x-offset:calc(50% - (var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - (var(--arrow-size) / 2));position:absolute;display:block;width:var(--arrow-size);height:var(--arrow-size);background:var(--z-popover-theme--surface);content:\"\";transform:rotate(45deg)}:host([show-arrow=\"false\"])::before,:host(:not([show-arrow]))::before{display:none}:host([current-position^=\"top\"])::before{top:var(--arrow-center-y-offset)}:host([current-position^=\"bottom\"])::before{bottom:var(--arrow-center-y-offset)}:host([current-position=\"top\"])::before,:host([current-position=\"bottom\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before,:host([current-position=\"left\"])::before{bottom:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"top_right\"])::before,:host([current-position=\"bottom_right\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"top_left\"])::before,:host([current-position=\"bottom_left\"])::before{left:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"left_top\"])::before{top:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"right_bottom\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left_top\"])::before,:host([current-position=\"left_bottom\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"right_bottom\"])::before,:host([current-position=\"left_bottom\"])::before{bottom:var(--arrow-edge-offset)}:host([center][current-position=\"top\"])::before,:host([center][current-position=\"bottom\"])::before{right:auto;left:var(--arrow-center-x-offset)}:host([center][current-position=\"right\"])::before,:host([center][current-position=\"left\"])::before{top:var(--arrow-center-x-offset);bottom:auto}::slotted(*){overflow:auto;flex:1 auto}";
 
-const documentElement = document.documentElement;
+const DOCUMENT_ELEMENT = document.documentElement;
 function getParentElement(element) {
   if (element.parentNode.host) {
     return element.parentNode.host;
@@ -21,24 +21,18 @@ function getParentElement(element) {
  */
 function findScrollableParent(element) {
   let parent = getParentElement(element);
-  while (parent && parent !== documentElement) {
+  while (parent && parent !== DOCUMENT_ELEMENT) {
     const { overflow, overflowX, overflowY } = window.getComputedStyle(parent);
-    if (overflow === "hidden" ||
-      overflowY === "hidden" ||
-      overflowX === "hidden") {
+    if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
       return parent;
     }
-    if ((parent.scrollHeight > parent.clientHeight &&
-      overflow !== "visible" &&
-      overflowY !== "visible") ||
-      (parent.scrollWidth > parent.clientWidth &&
-        overflow !== "visible" &&
-        overflowX !== "visible")) {
+    if ((parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible")) {
       return parent;
     }
     parent = getParentElement(parent);
   }
-  return documentElement;
+  return DOCUMENT_ELEMENT;
 }
 /**
  * Calculate computed offset.
@@ -100,7 +94,7 @@ const ZPopover = class {
     this.positionChange = index.createEvent(this, "positionChange", 7);
     this.openChange = index.createEvent(this, "openChange", 7);
     /** Popover position. */
-    this.position = index$1.PopoverPositions.auto;
+    this.position = index$1.PopoverPositions.AUTO;
     /**
      * The open state of the popover.
      */
@@ -119,7 +113,7 @@ const ZPopover = class {
     this.closable = true;
   }
   closePopoverWithKeyboard(e) {
-    if (this.closable && e.key === index$1.KeyboardKeys.ESC) {
+    if (this.closable && e.key === index$1.KeyboardCode.ESC) {
       this.open = false;
     }
   }
@@ -127,6 +121,7 @@ const ZPopover = class {
     if (!this.closable) {
       return;
     }
+    // @ts-ignore
     const parent = e.path.find((elem) => elem === this.host);
     if (!parent) {
       this.open = false;
@@ -134,9 +129,8 @@ const ZPopover = class {
     }
   }
   validatePosition(newValue) {
-    if (newValue &&
-      !Object.values(index$1.PopoverPositions).includes(newValue)) {
-      this.position = index$1.PopoverPositions.auto;
+    if (newValue && !Object.values(index$1.PopoverPositions).includes(newValue)) {
+      this.position = index$1.PopoverPositions.AUTO;
     }
     this.currentPosition = this.position;
     this.positionChange.emit({ position: this.currentPosition });
@@ -155,8 +149,8 @@ const ZPopover = class {
       };
       setPosition();
     }
-    else if (this.host.hasAttribute('current-position')) {
-      this.host.removeAttribute('current-position');
+    else if (this.host.hasAttribute("current-position")) {
+      this.host.removeAttribute("current-position");
       this.currentPosition = undefined;
     }
     this.openChange.emit({ open: this.open });
@@ -189,19 +183,11 @@ const ZPopover = class {
       : { top: 0, right: 0, bottom: 0, left: 0 };
     const boundingRect = computeOffset(element, scrollContainer);
     const top = boundingRect.top - scrollContainer.scrollTop;
-    const bottom = scrollingBoundingRect.height -
-      (boundingRect.top + boundingRect.height) +
-      scrollContainer.scrollTop;
+    const bottom = scrollingBoundingRect.height - (boundingRect.top + boundingRect.height) + scrollContainer.scrollTop;
     const left = boundingRect.left - scrollContainer.scrollLeft;
-    const right = scrollingBoundingRect.width -
-      (boundingRect.left + boundingRect.width) +
-      scrollContainer.scrollLeft;
-    const overflowBottom = Math.max(0, scrollingBoundingRect.top +
-      scrollingBoundingRect.height -
-      window.innerHeight);
-    const overflowRight = Math.max(0, scrollingBoundingRect.left +
-      scrollingBoundingRect.width -
-      window.innerWidth);
+    const right = scrollingBoundingRect.width - (boundingRect.left + boundingRect.width) + scrollContainer.scrollLeft;
+    const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
+    const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
     const availableTop = Math.min(top, top + scrollingBoundingRect.top);
     const availableBottom = Math.min(bottom, bottom - overflowBottom);
     const availableLeft = Math.min(left, left + scrollingBoundingRect.left);
@@ -210,28 +196,28 @@ const ZPopover = class {
     const availableWidth = availableLeft + availableRight + boundingRect.width;
     let position = this.currentPosition;
     const positions = [];
-    if (this.position === index$1.PopoverPositions.auto) {
+    if (this.position === index$1.PopoverPositions.AUTO) {
       /**
        * The `AUTO` position tries to place the popover in the 'safest' area,
        * where there's more space available.
        */
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(index$1.PopoverPositions.left);
+        positions.push(index$1.PopoverPositions.LEFT);
       }
       else if (availableLeft / availableWidth < 0.4) {
-        positions.push(index$1.PopoverPositions.right);
+        positions.push(index$1.PopoverPositions.RIGHT);
       }
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(index$1.PopoverPositions.top);
+        positions.unshift(index$1.PopoverPositions.TOP);
       }
       else if (availableTop / availableHeight > 0.6) {
-        positions.push(index$1.PopoverPositions.top);
+        positions.push(index$1.PopoverPositions.TOP);
       }
       else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(index$1.PopoverPositions.bottom);
+        positions.unshift(index$1.PopoverPositions.BOTTOM);
       }
       else {
-        positions.push(index$1.PopoverPositions.bottom);
+        positions.push(index$1.PopoverPositions.BOTTOM);
       }
       position = positions.join("_");
     }
@@ -243,18 +229,17 @@ const ZPopover = class {
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
     const offsetModifier = this.center ? 0.5 : 0;
     const sizeModifier = this.center ? 0.5 : 0;
-    if (position === index$1.PopoverPositions.top ||
-      position === index$1.PopoverPositions.top_right) {
+    if (position === index$1.PopoverPositions.TOP || position === index$1.PopoverPositions.TOP_RIGHT) {
       style.top = "auto";
       style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableTop}px`;
-      if (position === index$1.PopoverPositions.top_right) {
+      if (position === index$1.PopoverPositions.TOP_RIGHT) {
         style.maxWidth = `${availableRight + boundingRect.width * sizeModifier}px`;
       }
     }
-    else if (position === index$1.PopoverPositions.top_left) {
+    else if (position === index$1.PopoverPositions.TOP_LEFT) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = `${offsetBottom + boundingRect.height}px`;
@@ -262,18 +247,17 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableTop}px`;
     }
-    else if (position === index$1.PopoverPositions.bottom ||
-      position === index$1.PopoverPositions.bottom_right) {
+    else if (position === index$1.PopoverPositions.BOTTOM || position === index$1.PopoverPositions.BOTTOM_RIGHT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = "auto";
       style.bottom = "auto";
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableBottom}px`;
-      if (position === index$1.PopoverPositions.bottom_right) {
+      if (position === index$1.PopoverPositions.BOTTOM_RIGHT) {
         style.maxWidth = `${availableRight + boundingRect.width * sizeModifier}px`;
       }
     }
-    else if (position === index$1.PopoverPositions.bottom_left) {
+    else if (position === index$1.PopoverPositions.BOTTOM_LEFT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = "auto";
@@ -281,8 +265,7 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom}px`;
     }
-    else if (position === index$1.PopoverPositions.right ||
-      position === index$1.PopoverPositions.right_bottom) {
+    else if (position === index$1.PopoverPositions.RIGHT || position === index$1.PopoverPositions.RIGHT_BOTTOM) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = "auto";
       style.bottom = "auto";
@@ -290,7 +273,7 @@ const ZPopover = class {
       style.maxWidth = `${availableRight}px`;
       style.maxHeight = `${availableBottom + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.right_top) {
+    else if (position === index$1.PopoverPositions.RIGHT_TOP) {
       style.top = "auto";
       style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
@@ -298,8 +281,7 @@ const ZPopover = class {
       style.maxWidth = `${availableRight}px`;
       style.maxHeight = `${availableTop + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.left ||
-      position === index$1.PopoverPositions.left_bottom) {
+    else if (position === index$1.PopoverPositions.LEFT || position === index$1.PopoverPositions.LEFT_BOTTOM) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = `${offsetRight + boundingRect.width}px`;
       style.bottom = "auto";
@@ -307,7 +289,7 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.left_top) {
+    else if (position === index$1.PopoverPositions.LEFT_TOP) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
@@ -316,7 +298,7 @@ const ZPopover = class {
       style.maxHeight = `${availableTop + boundingRect.height * sizeModifier}px`;
     }
     this.currentPosition = position || this.position;
-    this.host.setAttribute('current-position', this.currentPosition);
+    this.host.setAttribute("current-position", this.currentPosition);
   }
   componentWillLoad() {
     this.validatePosition(this.position);

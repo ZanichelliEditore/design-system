@@ -1,5 +1,6 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
-import { NotificationType } from '../../../beans';
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
+import { NotificationType } from "../../../beans";
 /**
  * Notification bar component.
  * @slot - The text of the notification.
@@ -23,10 +24,10 @@ export declare class ZNotification {
   sticky?: boolean;
   /** Call to action clicked */
   notificationAction: EventEmitter;
-  handleActionButtonClick(e: MouseEvent): void;
+  private handleActionButtonClick;
   /** Close button clicked */
   notificationClose: EventEmitter;
-  handleCloseButtonClick(e: MouseEvent): void;
+  private handleCloseButtonClick;
   constructor();
-  render(): any[];
+  render(): HostElement;
 }

@@ -1,11 +1,12 @@
-import { EventEmitter } from '../../../stencil-public-runtime';
+import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot title
  * @slot subtitle
  * @slot stucked-title - Title for the stucked header. By default it uses the text from the `title` slot.
  */
 export declare class ZAppHeader {
-  hostElement: HTMLElement;
+  hostElement: HTMLZAppHeaderElement;
   /**
    * Stuck mode for the header.
    * You can programmatically set it using an IntersectionObserver.
@@ -32,7 +33,7 @@ export declare class ZAppHeader {
    *
    * **Optional**
    */
-  flow: 'auto' | 'stack' | 'offcanvas';
+  flow: "auto" | "stack" | "offcanvas";
   /**
    * The opening state of the drawer.
    */
@@ -44,12 +45,12 @@ export declare class ZAppHeader {
   /**
    * Current count of menu items.
    */
-  menuLength: Number;
+  menuLength: number;
   /**
    * Emitted when the `stucked` state of the header changes
    */
   sticking: EventEmitter;
-  emitStickingEvent(): void;
+  private emitStickingEvent;
   private container?;
   private menuElements?;
   private observer?;
@@ -59,11 +60,11 @@ export declare class ZAppHeader {
   private get scrollParent();
   private collectMenuElements;
   onStuckMode(): void;
-  enableStuckObserver(): void;
-  disableStuckMode(): void;
+  private enableStuckObserver;
+  private disableStuckMode;
   onStucked(): void;
   setMenuFloatingMode(): void;
-  render(): any;
-  openDrawer(): void;
-  closeDrawer(): void;
+  render(): HostElement;
+  private openDrawer;
+  private closeDrawer;
 }

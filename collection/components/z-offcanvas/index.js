@@ -1,20 +1,20 @@
-import { h } from "@stencil/core";
-import { OffCanvasVariantsEnum, TransitionDirectionEnum } from "../../beans";
+import { h, Host } from "@stencil/core";
+import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
  */
 export class ZOffcanvas {
   constructor() {
     /**
-    * Offcanvas variant.
-    * Can be one of "overlay", "pushcontent"
-    * Default variant: pushcontent
-    */
-    this.variant = OffCanvasVariantsEnum.pushcontent;
+     * Offcanvas variant.
+     * Can be one of "overlay", "pushcontent"
+     * Default variant: pushcontent
+     */
+    this.variant = OffCanvasVariant.PUSHCONTENT;
     /** open component. Default: false */
     this.open = false;
     /** open content transitioning in a specified direction left | right. Default: left */
-    this.transitiondirection = TransitionDirectionEnum.left;
+    this.transitiondirection = TransitionDirection.LEFT;
   }
   componentWillLoad() {
     this.handleOpenStatus();
@@ -27,7 +27,7 @@ export class ZOffcanvas {
     if (this.open) {
       this.hostElement.style.display = "flex";
     }
-    else if (this.variant === OffCanvasVariantsEnum.pushcontent) {
+    else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "hidden";
     }
@@ -36,16 +36,13 @@ export class ZOffcanvas {
     if (this.hostElement.hasAttribute("open")) {
       this.hostElement.querySelector(`.canvas-content`).focus();
     }
-    else if (this.variant === OffCanvasVariantsEnum.overlay) {
+    else if (this.variant === OffCanvasVariant.OVERLAY) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "initial";
     }
   }
   render() {
-    return [
-      h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))),
-      h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => this.open = false })
-    ];
+    return (h(Host, null, h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))), h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
   }
   static get is() { return "z-offcanvas"; }
   static get encapsulation() { return "scoped"; }
@@ -65,10 +62,10 @@ export class ZOffcanvas {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "OffCanvasVariantsEnum",
-          "resolved": "OffCanvasVariantsEnum.overlay | OffCanvasVariantsEnum.pushcontent",
+          "original": "OffCanvasVariant",
+          "resolved": "OffCanvasVariant.OVERLAY | OffCanvasVariant.PUSHCONTENT",
           "references": {
-            "OffCanvasVariantsEnum": {
+            "OffCanvasVariant": {
               "location": "import",
               "path": "../../beans"
             }
@@ -82,7 +79,7 @@ export class ZOffcanvas {
         },
         "attribute": "variant",
         "reflect": true,
-        "defaultValue": "OffCanvasVariantsEnum.pushcontent"
+        "defaultValue": "OffCanvasVariant.PUSHCONTENT"
       },
       "open": {
         "type": "boolean",
@@ -106,10 +103,10 @@ export class ZOffcanvas {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "TransitionDirectionEnum",
-          "resolved": "TransitionDirectionEnum.left | TransitionDirectionEnum.right",
+          "original": "TransitionDirection",
+          "resolved": "TransitionDirection.LEFT | TransitionDirection.RIGHT",
           "references": {
-            "TransitionDirectionEnum": {
+            "TransitionDirection": {
               "location": "import",
               "path": "../../beans"
             }
@@ -123,7 +120,7 @@ export class ZOffcanvas {
         },
         "attribute": "transitiondirection",
         "reflect": true,
-        "defaultValue": "TransitionDirectionEnum.left"
+        "defaultValue": "TransitionDirection.LEFT"
       }
     };
   }

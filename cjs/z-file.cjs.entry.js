@@ -3,10 +3,10 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
+const index$1 = require('./index-199cd650.js');
 const breakpoints = require('./breakpoints-88c4fd6c.js');
 
-const stylesCss = ".sc-z-file-h{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:relative}.sc-z-file-h>z-popover.sc-z-file{z-index:10}.sc-z-file-h>z-popover.sc-z-file>.tooltip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file span.sc-z-file{max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.33;letter-spacing:0.32px;display:block}";
+const stylesCss = ".sc-z-file-h{position:relative;font-family:var(--font-family-sans);font-weight:var(--font-rg)}.sc-z-file-h>z-popover.sc-z-file{z-index:10}.sc-z-file-h>z-popover.sc-z-file>.tooltip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file span.sc-z-file{display:block;overflow:hidden;max-width:250px;letter-spacing:0.32px;line-height:1.33;text-overflow:ellipsis;white-space:nowrap}";
 
 const ZFile = class {
   constructor(hostRef) {
@@ -39,7 +39,7 @@ const ZFile = class {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
-    return (index.h(index.Host, null, this.allowPopover && (index.h("z-popover", { open: this.popoverVisible, position: index$1.PopoverPositions.auto, bindTo: this.chip }, index.h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.default }, index.h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+    return (index.h(index.Host, null, this.allowPopover && (index.h("z-popover", { open: this.popoverVisible, position: index$1.PopoverPositions.AUTO, bindTo: this.chip }, index.h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.DEFAULT }, index.h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
   }
   get el() { return index.getElement(this); }
 };

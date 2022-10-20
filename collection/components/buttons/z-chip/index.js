@@ -1,10 +1,10 @@
-import { h, } from "@stencil/core";
-import { DeviceEnum, ZChipType } from "../../../beans";
+import { h } from "@stencil/core";
+import { Device, ZChipType } from "../../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 export class ZChip {
   constructor() {
     /** z-chip size type, can be default, medium or small */
-    this.type = ZChipType.default;
+    this.type = ZChipType.DEFAULT;
     /** set z-chip as disabled  */
     this.disabled = false;
   }
@@ -12,11 +12,11 @@ export class ZChip {
     this.interactiveIconClick.emit();
   }
   getIconSize() {
-    return getDevice() !== DeviceEnum.desktop ? 22 : 14;
+    return getDevice() !== Device.DESKTOP ? 22 : 14;
   }
   render() {
     if (this.interactiveIcon) {
-      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0", type: "button" }, this.icon && (h("z-icon", { class: "iconSx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null), h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
+      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0", type: "button" }, this.icon && (h("z-icon", { class: "icon-sx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null), h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
     }
     return (h("div", { class: `${this.type}`, tabindex: "0" }, this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null)));
   }
@@ -56,7 +56,7 @@ export class ZChip {
         "mutable": false,
         "complexType": {
           "original": "ZChipType",
-          "resolved": "ZChipType.default | ZChipType.medium | ZChipType.small",
+          "resolved": "ZChipType.DEFAULT | ZChipType.MEDIUM | ZChipType.SMALL",
           "references": {
             "ZChipType": {
               "location": "import",
@@ -72,7 +72,7 @@ export class ZChip {
         },
         "attribute": "type",
         "reflect": true,
-        "defaultValue": "ZChipType.default"
+        "defaultValue": "ZChipType.DEFAULT"
       },
       "interactiveIcon": {
         "type": "string",

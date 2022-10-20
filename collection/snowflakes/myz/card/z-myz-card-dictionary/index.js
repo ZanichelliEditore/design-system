@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ButtonSizeEnum, ButtonVariantEnum } from "../../../../beans";
+import { ButtonSize, ButtonVariant } from "../../../../beans";
 /**
  * @slot  - generic card slot
  * @slot info - flipped card info
@@ -23,7 +23,7 @@ export class ZMyzCardDictionary {
     this.cardFlipped.emit(showBack);
   }
   render() {
-    return (h("div", null, h("z-myz-card", null, h("z-myz-card-header", { titolo: this.name }), h("div", { class: `content ${this.flipped ? "flipped" : ""}` }, h("div", { class: "front" }, h("z-myz-card-body", null, h("z-myz-card-cover", { slot: "cover", titolo: this.name, img: this.cover, faded: this.disabled })), h("z-button", { class: this.hideinfobtn ? "hideInfo" : "", variant: ButtonVariantEnum.secondary, icon: "informationsource", size: ButtonSizeEnum["x-small"], onClick: () => this.flipCard(true), disabled: this.flipped }, this.flipbuttonlabel)), h("div", { class: "back" }, h("slot", { name: "info" }))), h("slot", null))));
+    return (h("div", null, h("z-myz-card", null, h("z-myz-card-header", { titolo: this.name }), h("div", { class: `content ${this.flipped ? "flipped" : ""}` }, h("div", { class: "front" }, h("z-myz-card-body", null, h("z-myz-card-cover", { slot: "cover", titolo: this.name, img: this.cover, faded: this.disabled })), h("z-button", { class: { "hide-info": this.hideinfobtn }, variant: ButtonVariant.SECONDARY, icon: "informationsource", size: ButtonSize.X_SMALL, onClick: () => this.flipCard(true), disabled: this.flipped }, this.flipbuttonlabel)), h("div", { class: "back" }, h("slot", { name: "info" }))), h("slot", null))));
   }
   static get is() { return "z-myz-card-dictionary"; }
   static get encapsulation() { return "shadow"; }

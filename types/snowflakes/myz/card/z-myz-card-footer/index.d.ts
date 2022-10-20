@@ -1,4 +1,4 @@
-import { LicenseTypeEnum } from "../../../../beans/index";
+import { LicenseType } from "../../../../beans/index";
 /**
  * @slot toggle - toggle button slot
  * @slot list - card resources list slot
@@ -13,7 +13,7 @@ export declare class ZMyzCardFooter {
   /** faded status */
   faded: boolean;
   /** card graphic variant (optional) */
-  cardtype?: LicenseTypeEnum;
+  cardtype?: LicenseType;
   /** footer opened by default (optional) */
   opened?: boolean;
   /** display footer custom slotted content */
@@ -22,17 +22,11 @@ export declare class ZMyzCardFooter {
   allowTooltipAuthors: boolean;
   private ellipsisAuthors?;
   handleToggle(): void;
-  getTitleAuthors(): string;
+  private getTitleAuthors;
   componentWillLoad(): void;
-  elementsEllipsis(): void;
-  elementAuthorsHasEllipsis(): boolean;
-  retrieveClass(): {
-    isopen: boolean;
-    real: boolean;
-    trial: boolean;
-    temp: boolean;
-    customContent: boolean;
-  };
-  footerTransitionHandler(e: TransitionEvent): void;
-  render(): any;
+  private elementsEllipsis;
+  private elementAuthorsHasEllipsis;
+  private retrieveClass;
+  private footerTransitionHandler;
+  render(): HTMLDivElement;
 }

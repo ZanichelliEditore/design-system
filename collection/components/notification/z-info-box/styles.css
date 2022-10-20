@@ -3,21 +3,21 @@
   font-weight: var(--font-rg);
 }
 
-:host>div {
-  background: var(--accent-lighter);
-  padding: calc(var(--space-unit) * 2);
-  border-radius: var(--border-radius);
+:host > div {
   display: flex;
   width: inherit;
+  padding: calc(var(--space-unit) * 2);
+  background: var(--accent-lighter);
+  border-radius: var(--border-radius);
 }
 
-:host>div>slot {
+:host > div > slot {
   color: var(--text-grey-800);
   font-size: 14px;
 }
 
-:host>div>z-icon {
-  fill: var(--myz-blue);
-  cursor: pointer;
+:host > div > z-icon {
   margin-left: calc(var(--space-unit) * 2);
+  cursor: pointer;
+  fill: var(--myz-blue);
 }

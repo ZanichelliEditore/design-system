@@ -1,4 +1,4 @@
-import { h, Host, } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
 import { ThemeVariant } from "../../beans";
 /**
@@ -12,47 +12,45 @@ export class ZSkipToContent {
     this.visibleLink = "";
   }
   handleFocusOutSkipToContent(e) {
-    if (this.isInSkipToContent(e.target))
+    if (this.isInSkipToContent(e.target)) {
       this.visible = false;
+    }
   }
   handleFocusSkipToContent(e) {
-    if (this.isInSkipToContent(e.target))
+    if (this.isInSkipToContent(e.target)) {
       this.visible = true;
+    }
   }
   componentDidLoad() {
     this.showFirstChild();
   }
   componentWillRender() {
     if (this.links) {
-      this.links =
-        typeof this.links === "string" ? JSON.parse(this.links) : this.links;
+      this.links = typeof this.links === "string" ? JSON.parse(this.links) : this.links;
     }
   }
   isInSkipToContent(elem) {
     const tree = getElementTree(elem);
     const menuParent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-skip-to-content");
-    if (menuParent)
-      return true;
-    return false;
-  }
-  getFirstChild() {
-    const children = this.hostElement.children;
-    if (children.length)
-      return children[0];
-    return false;
+    return !!menuParent;
   }
   showFirstChild() {
-    const firstChild = this.getFirstChild();
-    if (firstChild)
+    var _a;
+    const firstChild = (_a = this.hostElement.children) === null || _a === void 0 ? void 0 : _a[0];
+    if (firstChild) {
       this.visibleLink = firstChild.id;
+    }
   }
   handleLinkClick() {
     this.visible = false;
   }
   render() {
-    return (h(Host, { class: `${this.variant} ${this.visible && "skip-to-content-visible"} `, ref: (el) => el }, this.links.map((link, i) => {
+    return (h(Host, { class: {
+        [this.variant]: true,
+        "skip-to-content-visible": this.visible,
+      } }, this.links.map((link, i) => {
       const id = `skip-to-content-${i}`;
-      return (h("z-link", { id: id, underline: true, "aria-label": link.ariaLabel || link.label, class: `body-1-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`, href: link.href, textcolor: this.variant === ThemeVariant.dark ? "white" : "black", onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label));
+      return (h("z-link", { id: id, underline: true, "aria-label": link.ariaLabel || link.label, class: `body-1-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`, href: link.href, textcolor: this.variant === ThemeVariant.DARK ? "white" : "black", onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label));
     })));
   }
   static get is() { return "z-skip-to-content"; }
@@ -74,7 +72,7 @@ export class ZSkipToContent {
         "mutable": false,
         "complexType": {
           "original": "ThemeVariant",
-          "resolved": "ThemeVariant.dark | ThemeVariant.light",
+          "resolved": "ThemeVariant.DARK | ThemeVariant.LIGHT",
           "references": {
             "ThemeVariant": {
               "location": "import",

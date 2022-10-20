@@ -5,5 +5,5 @@ export declare class ZMyzCardIcon {
   isdisabled: boolean;
   /** description of the icon*/
   ariaLabel?: string;
-  render(): any;
+  render(): HTMLButtonElement;
 }

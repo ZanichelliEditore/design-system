@@ -1,7 +1,7 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { N as NavigationTabsOrientations, a as NavigationTabsSizes } from './index-8390ddaf.js';
+import { N as NavigationTabsOrientation, a as NavigationTabsSize } from './index-9d028352.js';
 
-const stylesCss = ":host{position:relative;display:flex;flex-direction:row;z-index:0;font-family:var(--font-family-sans);font-weight:var(--font-rg);overflow:hidden}:host,:host *,::slotted(*){box-sizing:border-box}::-webkit-scrollbar{display:none}.navigation-button{position:absolute;display:flex;align-items:center;justify-content:center;margin:0;padding:0;background:var(--color-white);border:none;outline:none;fill:var(--color-primary01);border-radius:var(--border-no-radius);cursor:pointer;z-index:1;box-shadow:0px 0px 4px 1px rgb(66, 69, 72, 0.40)}.navigation-button:focus:focus-visible{fill:var(--color-primary01);box-shadow:inset var(--shadow-focus-primary)}.navigation-button:disabled{display:none}nav{display:flex;align-items:center;justify-content:flex-start;overflow:auto;scroll-behavior:smooth;scrollbar-width:none}:host([orientation='horizontal']) nav{width:100%}:host([orientation='horizontal']) .navigation-button{top:0;height:100%;width:calc(var(--space-unit) * 4)}:host([orientation='horizontal']) .navigation-button:first-child{left:0}:host([orientation='horizontal']) .navigation-button:last-child{right:0}:host([orientation='vertical']){flex-direction:column;width:fit-content}:host([orientation='vertical']) nav{flex-direction:column;align-items:stretch;height:100%}:host([orientation='vertical']) .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}:host([orientation='vertical']) .navigation-button:first-child{top:0}:host([orientation='vertical']) .navigation-button:last-child{bottom:0}:host([size='small'][orientation='vertical']) .navigation-button{height:calc(var(--space-unit) * 4)}";
+const stylesCss = ":host{position:relative;z-index:0;display:flex;overflow:hidden;flex-direction:row;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,:host *,::slotted(*){box-sizing:border-box}::-webkit-scrollbar{display:none}.navigation-button{position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;padding:0;border:none;margin:0;background:var(--color-white);border-radius:var(--border-no-radius);box-shadow:0 0 4px 1px rgb(66 69 72 / 40%);cursor:pointer;fill:var(--color-primary01);outline:none}.navigation-button:focus:focus-visible{box-shadow:inset var(--shadow-focus-primary);fill:var(--color-primary01)}.navigation-button:disabled{display:none}nav{display:flex;overflow:auto;align-items:center;justify-content:flex-start;scroll-behavior:smooth;scrollbar-width:none}:host([orientation=\"horizontal\"]) nav{width:100%}:host([orientation=\"horizontal\"]) .navigation-button{top:0;width:calc(var(--space-unit) * 4);height:100%}:host([orientation=\"horizontal\"]) .navigation-button:first-child{left:0}:host([orientation=\"horizontal\"]) .navigation-button:last-child{right:0}:host([orientation=\"vertical\"]){width:fit-content;flex-direction:column}:host([orientation=\"vertical\"]) nav{height:100%;flex-direction:column;align-items:stretch}:host([orientation=\"vertical\"]) .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}:host([orientation=\"vertical\"]) .navigation-button:first-child{top:0}:host([orientation=\"vertical\"]) .navigation-button:last-child{bottom:0}:host([size=\"small\"][orientation=\"vertical\"]) .navigation-button{height:calc(var(--space-unit) * 4)}";
 
 const ZNavigationTabs = class {
   constructor(hostRef) {
@@ -9,23 +9,23 @@ const ZNavigationTabs = class {
     /**
      * Navigation tabs orientation.
      */
-    this.orientation = NavigationTabsOrientations.horizontal;
+    this.orientation = NavigationTabsOrientation.HORIZONTAL;
     /**
      * Navigation tabs size.
      */
-    this.size = NavigationTabsSizes.big;
+    this.size = NavigationTabsSize.BIG;
   }
   /**
    * Getter for the direction to check based on current orientation.
    */
   get direction() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Left' : 'Top';
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Left" : "Top";
   }
   /**
    * Getter for the dimension to check based on current orientation.
    */
   get dimension() {
-    return this.orientation == NavigationTabsOrientations.horizontal ? 'Width' : 'Height';
+    return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Width" : "Height";
   }
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
@@ -33,7 +33,7 @@ const ZNavigationTabs = class {
   setChildrenSize() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('size', this.size);
+      child.setAttribute("size", this.size);
     });
   }
   /**
@@ -42,7 +42,7 @@ const ZNavigationTabs = class {
   setChildrenOrientation() {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
-      child.setAttribute('orientation', this.orientation);
+      child.setAttribute("orientation", this.orientation);
     });
   }
   /**
@@ -61,8 +61,9 @@ const ZNavigationTabs = class {
     if (!this.tabsNav) {
       return;
     }
-    this.canNavigateNext = (this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`]) <
-      this.tabsNav[`scroll${this.dimension}`];
+    this.canNavigateNext =
+      this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] <
+        this.tabsNav[`scroll${this.dimension}`];
     this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
   }
   /**
@@ -76,7 +77,7 @@ const ZNavigationTabs = class {
     const children = Array.from(this.host.children);
     children.forEach((child) => {
       if (child !== tab) {
-        child.removeAttribute('selected');
+        child.removeAttribute("selected");
       }
     });
   }
@@ -85,8 +86,8 @@ const ZNavigationTabs = class {
    */
   navigateBackwards() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 - (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
   /**
@@ -94,9 +95,8 @@ const ZNavigationTabs = class {
    */
   navigateForward() {
     this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] +
-        (this.tabsNav[`client${this.dimension}`] / 2),
-      behavior: 'smooth',
+      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,
+      behavior: "smooth",
     });
   }
   componentDidRender() {
@@ -105,10 +105,10 @@ const ZNavigationTabs = class {
     this.checkScrollVisible();
   }
   render() {
-    return h(Host, { class: {
-        'interactive-2': this.size === NavigationTabsSizes.small,
-        'interactive-1': this.size !== NavigationTabsSizes.small
-      }, scrollable: this.canNavigate }, this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-left' : 'chevron-up', width: 16, height: 16 })), h("nav", { role: "tablist", ref: (el) => this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav, onScroll: this.checkScrollEnabled.bind(this) }, h("slot", null)), this.canNavigate && h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation == NavigationTabsOrientations.horizontal ? 'chevron-right' : 'chevron-down', width: 16, height: 16 })));
+    return (h(Host, { class: {
+        "interactive-2": this.size === NavigationTabsSize.SMALL,
+        "interactive-1": this.size !== NavigationTabsSize.SMALL,
+      }, scrollable: this.canNavigate }, this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), h("nav", { role: "tablist", ref: (el) => (this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav), onScroll: this.checkScrollEnabled.bind(this) }, h("slot", null)), this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
   }
   get host() { return getElement(this); }
   static get watchers() { return {

@@ -1,3 +1,4 @@
+import { HostElement } from "../../stencil-public-runtime";
 import { ZSectionTitleDividerPosition } from "../../beans";
 /**
  * Section title component.
@@ -18,8 +19,8 @@ export declare class ZSectionTitle {
    * Whether the primary title text is uppercase.
    */
   uppercase: boolean;
-  host: HTMLElement;
+  host: HTMLZSectionTitleElement;
   private hasSecondaryTitle;
   componentWillRender(): void;
-  render(): any[];
+  render(): HostElement;
 }

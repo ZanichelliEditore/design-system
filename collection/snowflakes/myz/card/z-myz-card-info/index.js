@@ -25,17 +25,20 @@ export class ZMyzCardInfo {
     this.handleContentHeight();
   }
   handleContentHeight() {
-    if (!this.contentWrapper && !this.infoWrapper)
-      return (this.hiddenContent = false);
+    if (!this.contentWrapper && !this.infoWrapper) {
+      this.hiddenContent = false;
+      return;
+    }
     if (this.contentWrapper.scrollHeight > this.contentWrapper.offsetHeight ||
       this.infoWrapper.scrollHeight > this.infoWrapper.offsetHeight) {
       const height = this.contentWrapper.offsetHeight -
         this.onlineLicenseWrapper.offsetHeight -
         this.offlineLicenseWrapper.offsetHeight;
       this.infoWrapper.style.height = `${height}px`;
-      return (this.hiddenContent = true);
+      this.hiddenContent = true;
+      return;
     }
-    return (this.hiddenContent = false);
+    this.hiddenContent = false;
   }
   setStringOrArray() {
     if (typeof this.data === "string") {
@@ -55,31 +58,36 @@ export class ZMyzCardInfo {
     const title = (_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.title;
     const description = (_b = this === null || this === void 0 ? void 0 : this.cardData) === null || _b === void 0 ? void 0 : _b.description;
     return (h("section", { class: `info-wrapper ${this.hiddenContent ? "hidden" : ""}`, onClick: () => {
-        if (this.hiddenContent)
+        if (this.hiddenContent) {
           this.tooltip = !this.tooltip;
+        }
       }, ref: (el) => (this.infoWrapper = el) }, this.renderAuthor(), this.renderYear(), title, h("br", null), description));
   }
   renderAuthor() {
     var _a;
     const author = (_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.author;
-    if (!author)
+    if (!author) {
       return null;
+    }
     return (h("span", null, "Autore: ", h("b", null, author), h("br", null)));
   }
   renderYear() {
     var _a;
     const year = (_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.year;
-    if (!year)
+    if (!year) {
       return null;
+    }
     return (h("span", null, "Anno: ", h("b", null, year), h("br", null)));
   }
   renderTooltip() {
-    if (!this.tooltip)
+    if (!this.tooltip) {
       return;
-    if (!this.cardData)
+    }
+    if (!this.cardData) {
       return;
+    }
     const { title, year, author, description } = this.cardData;
-    return (h("z-popover", { position: PopoverPositions.right, onClick: () => (this.tooltip = false) }, `${title} ${year} ${author} ${description}`));
+    return (h("z-popover", { position: PopoverPositions.RIGHT, onClick: () => (this.tooltip = false) }, `${title} ${year} ${author} ${description}`));
   }
   setExpirationLicenseMessage(type) {
     if ((type === "online" && this.cardData.onlineLicense.expired) ||
@@ -93,15 +101,17 @@ export class ZMyzCardInfo {
   }
   renderOnlineLicenseSection() {
     var _a;
-    if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.onlineLicense))
+    if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.onlineLicense)) {
       return;
+    }
     return (h("section", { ref: (el) => (this.onlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza online"), this.setExpirationLicenseMessage("online")), "Scadenza il ", h("b", null, this.cardData.onlineLicense.expiration), h("br", null)));
   }
   renderOfflineLicenseSection() {
     var _a;
-    if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.offlineLicense))
+    if (!((_a = this === null || this === void 0 ? void 0 : this.cardData) === null || _a === void 0 ? void 0 : _a.offlineLicense)) {
       return;
-    return (h("section", { ref: (el) => (this.offlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza offline"), this.setExpirationLicenseMessage("offline")), "Scadenza il ", h("b", null, this.cardData.offlineLicense.expiration), h("br", null), "Installazioni disponibili:", " ", h("b", null, this.cardData.offlineLicense.installations)));
+    }
+    return (h("section", { ref: (el) => (this.offlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza offline"), this.setExpirationLicenseMessage("offline")), "Scadenza il ", h("b", null, this.cardData.offlineLicense.expiration), h("br", null), "Installazioni disponibili: ", h("b", null, this.cardData.offlineLicense.installations)));
   }
   render() {
     return (h("div", null, this.renderCloseIcon(), h("div", { class: "content-wrapper", ref: (el) => (this.contentWrapper = el) }, this.renderGeneralSection(), this.renderTooltip(), this.renderOnlineLicenseSection(), this.renderOfflineLicenseSection()), h("div", { class: "cta-wrapper" }, h("slot", null))));

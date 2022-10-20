@@ -1,8 +1,8 @@
 :host {
-  line-height: 0;
-  vertical-align: middle;
   margin-right: var(--z-icon-right-margin, 0);
   margin-left: var(--z-icon-left-margin, 0);
+  line-height: 0;
+  vertical-align: middle;
 }
 
 :host svg:not([width]) {

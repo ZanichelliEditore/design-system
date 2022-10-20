@@ -2,7 +2,8 @@ import { h, Host } from "@stencil/core";
 import { ZAriaAlertMode } from "../../beans";
 export class ZAriaAlert {
   constructor() {
-    this.mode = ZAriaAlertMode.polite;
+    /** Aria live mode */
+    this.mode = ZAriaAlertMode.POLITE;
   }
   render() {
     return (h(Host, { "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", null)));
@@ -14,19 +15,24 @@ export class ZAriaAlert {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "string",
-          "resolved": "string",
-          "references": {}
+          "original": "ZAriaAlertMode",
+          "resolved": "ZAriaAlertMode.ASSERTIVE | ZAriaAlertMode.POLITE",
+          "references": {
+            "ZAriaAlertMode": {
+              "location": "import",
+              "path": "../../beans"
+            }
+          }
         },
         "required": false,
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Aria live mode"
         },
         "attribute": "mode",
         "reflect": false,
-        "defaultValue": "ZAriaAlertMode.polite"
+        "defaultValue": "ZAriaAlertMode.POLITE"
       }
     };
   }

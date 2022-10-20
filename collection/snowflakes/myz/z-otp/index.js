@@ -1,30 +1,30 @@
 import { h } from "@stencil/core";
-import { InputStatusEnum } from "../../../beans";
+import { InputStatus } from "../../../beans";
 export class ZOtp {
   constructor() {
+    /** Input number */
     this.inputNum = 6;
   }
   emitInputChange(value) {
     this.otpChange.emit({ value });
   }
   componentWillLoad() {
-    this.otp = Array.apply(null, Array(this.inputNum));
-    this.otpRef = Array.apply(null, Array(this.inputNum));
+    this.otp = [...Array(this.inputNum)];
+    this.otpRef = [...Array(this.inputNum)];
   }
   render() {
-    return (h("div", { class: "otp-container" }, h("div", { class: "digits-container" }, this.otp.map((_elem, i) => {
-      return (h("input", { class: this.status == InputStatusEnum.error ? "error" : null, onKeyDown: (e) => {
-          if (e.keyCode > 47)
-            this.otpRef[i].value = "";
-        }, onKeyUp: (e) => {
-          if (e.keyCode > 47) {
-            i < this.inputNum - 1 && this.otpRef[i + 1].focus();
-          }
-        }, onInput: (e) => {
-          this.otp[i] = e.target.value;
-          this.emitInputChange(this.otp.join(""));
-        }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: input => (this.otpRef[i] = input) }));
-    })), h("z-input-message", { message: this.message, status: this.status })));
+    return (h("div", { class: "otp-container" }, h("div", { class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
+        if (e.keyCode > 47) {
+          this.otpRef[i].value = "";
+        }
+      }, onKeyUp: (e) => {
+        if (e.keyCode > 47) {
+          i < this.inputNum - 1 && this.otpRef[i + 1].focus();
+        }
+      }, onInput: (e) => {
+        this.otp[i] = e.target.value;
+        this.emitInputChange(this.otp.join(""));
+      }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { message: this.message, status: this.status })));
   }
   static get is() { return "z-otp"; }
   static get encapsulation() { return "shadow"; }
@@ -52,7 +52,7 @@ export class ZOtp {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Input number"
         },
         "attribute": "input-num",
         "reflect": false,
@@ -62,10 +62,10 @@ export class ZOtp {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InputStatusBean",
-          "resolved": "\"error\" | \"success\" | \"warning\"",
+          "original": "InputStatus",
+          "resolved": "InputStatus.ERROR | InputStatus.SUCCESS | InputStatus.WARNING",
           "references": {
-            "InputStatusBean": {
+            "InputStatus": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -75,7 +75,7 @@ export class ZOtp {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Input status"
         },
         "attribute": "status",
         "reflect": false
@@ -92,7 +92,7 @@ export class ZOtp {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Input message"
         },
         "attribute": "message",
         "reflect": false
@@ -108,7 +108,7 @@ export class ZOtp {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Otp change event"
         },
         "complexType": {
           "original": "any",

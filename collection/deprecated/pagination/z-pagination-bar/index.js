@@ -17,7 +17,7 @@ export class ZPaginationBar {
   }
   componentDidLoad() {
     this.scrollPage = this.scrollPage.bind(this);
-    let mc = new Hammer(this.bar);
+    const mc = new Hammer(this.bar);
     // listen to events...
     mc.on("swiperight", this.scrollPage);
     mc.on("swipeleft", this.scrollPage);
@@ -38,28 +38,18 @@ export class ZPaginationBar {
     this.listhistoryrow = [...JSON.parse(historyraw)];
   }
   scrollPage(ev) {
-    let vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
+    const vel = Math.round(Math.abs(ev.velocity)) * this.velocityConstantMultiplier;
     const deltaPage = Math.max(1, vel);
     switch (ev.type) {
       case "swiperight":
-        if (!this.canNavigateLeft())
-          break;
-        const newstartPage1 = this.startpage - deltaPage;
-        if (newstartPage1 > 1)
-          this.emitChangeStartPage(newstartPage1);
-        else
-          this.emitChangeStartPage(1);
+        if (this.canNavigateLeft()) {
+          this.emitChangeStartPage(Math.max(1, this.startpage - deltaPage));
+        }
         break;
       case "swipeleft":
-        if (!this.canNavigateRight())
-          break;
-        const newstartPage2 = this.startpage + deltaPage;
-        if (newstartPage2 < this.pages - this.visiblepages + 1)
-          this.emitChangeStartPage(newstartPage2);
-        else
-          this.emitChangeStartPage(this.pages - this.visiblepages + 1);
-        break;
-      default:
+        if (this.canNavigateRight()) {
+          this.emitChangeStartPage(Math.min(this.startpage + deltaPage, this.pages - this.visiblepages + 1));
+        }
         break;
     }
   }
@@ -71,10 +61,6 @@ export class ZPaginationBar {
   emitChangeStartPage(startpage) {
     this.startpage = startpage;
     this.changeStartPage.emit({ startpage: startpage });
-  }
-  emitAddPageToHistory(page) {
-    this.listhistoryrow.push(page);
-    this.changeStartPage.emit({ page: page });
   }
   loadPages() {
     this.currentPages.splice(0);
@@ -108,7 +94,7 @@ export class ZPaginationBar {
     }
   }
   render() {
-    return (h("div", { ref: el => (this.bar = el) }, h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map(page => (h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
+    return (h("div", { ref: (el) => (this.bar = el) }, h("z-icon", { name: "chevron-left", class: !this.canNavigateLeft() && "disabled", onClick: () => this.navigateLeft(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateLeft), tabindex: this.canNavigateLeft() ? 0 : -1 }), this.currentPages.map((page) => (h("z-pagination-page", { value: page, isselected: page === this.currentpage, onClick: () => this.emitGoToPage(page), onKeyDown: (ev) => handleKeyboardSubmit(ev, this.emitGoToPage, page), isvisited: this.listhistoryrow.includes(page) }))), h("z-icon", { name: "chevron-right", class: !this.canNavigateRight() && "disabled", onClick: () => this.navigateRight(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.navigateRight), tabindex: this.canNavigateRight() ? 0 : -1 })));
   }
   static get is() { return "z-pagination-bar"; }
   static get encapsulation() { return "shadow"; }

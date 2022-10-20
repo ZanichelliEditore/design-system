@@ -10,7 +10,6 @@ export declare class ZToggleButton {
   opened?: boolean;
   /** emitted on toggle button click, returns isOpen */
   toggleClick: EventEmitter;
-  emitToggleClick(): void;
-  retrieveButtonClass(): string;
-  render(): any;
+  private emitToggleClick;
+  render(): HTMLButtonElement;
 }

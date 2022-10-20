@@ -1,10 +1,11 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
+import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - table elements
  * @slot sticky-footer - set the content of the sticky footer
  */
 export declare class ZTable {
-  host: HTMLElement;
+  host: HTMLZTableElement;
   /** Number of lines of element */
   lines?: number;
   /** Error message */
@@ -42,7 +43,7 @@ export declare class ZTable {
   handleOrientationChange(): void;
   componentWillLoad(): void;
   componentWillRender(): void;
-  renderError(tableClass: any): any;
-  renderEmpty(tableClass: any): any;
-  render(): any;
+  private renderError;
+  private renderEmpty;
+  render(): HostElement;
 }

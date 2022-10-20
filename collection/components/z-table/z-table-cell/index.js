@@ -1,10 +1,9 @@
 import { h, Host } from "@stencil/core";
-import { ButtonVariantEnum, ButtonSizeEnum, Size } from "../../../beans";
-import classNames from "classnames";
+import { ButtonVariant, ButtonSize, Size } from "../../../beans";
 export class ZTableCell {
   constructor() {
     /** Set padding size of cell, if special 0px padding will be set */
-    this.padding = Size.medium;
+    this.padding = Size.MEDIUM;
     this.isMenuOpened = false;
   }
   handleMenu() {
@@ -14,11 +13,13 @@ export class ZTableCell {
     this.host.setAttribute("role", "cell");
   }
   render() {
-    return (h(Host, null, this.showButton && (h("div", { class: classNames("button-container", {
-        visible: this.isMenuOpened,
-      }) }, h("div", { class: "button-content" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariantEnum.tertiary, size: ButtonSizeEnum["x-small"], onClick: () => this.handleMenu() }), h("div", { class: classNames("contextual-menu-container", {
-        visible: this.isMenuOpened,
-      }) }, h("slot", { name: "contextual-menu" }))))), h("slot", null)));
+    return (h(Host, null, this.showButton && (h("div", { class: {
+        "button-container": true,
+        "visible": this.isMenuOpened,
+      } }, h("div", { class: "button-content" }, h("z-button", { icon: "contextual-menu", variant: ButtonVariant.TERTIARY, size: ButtonSize.X_SMALL, onClick: () => this.handleMenu() }), h("div", { class: {
+        "contextual-menu-container": true,
+        "visible": this.isMenuOpened,
+      } }, h("slot", { name: "contextual-menu" }))))), h("slot", null)));
   }
   static get is() { return "z-table-cell"; }
   static get encapsulation() { return "shadow"; }
@@ -56,7 +57,7 @@ export class ZTableCell {
         "mutable": false,
         "complexType": {
           "original": "Size",
-          "resolved": "(typeof Size)[\"x-small\"] | Size.large | Size.medium | Size.small | Size.special",
+          "resolved": "Size.LARGE | Size.MEDIUM | Size.SMALL | Size.SPECIAL | Size.X_SMALL",
           "references": {
             "Size": {
               "location": "import",
@@ -72,7 +73,7 @@ export class ZTableCell {
         },
         "attribute": "padding",
         "reflect": true,
-        "defaultValue": "Size.medium"
+        "defaultValue": "Size.MEDIUM"
       }
     };
   }

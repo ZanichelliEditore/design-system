@@ -1,9 +1,10 @@
 import { EventEmitter } from "../../stencil-public-runtime";
+import { HostElement } from "../../stencil-public-runtime";
 /**
  * Pagination bar component.
  */
 export declare class ZPagination {
-  host: HTMLElement;
+  host: HTMLZPaginationElement;
   /** Pagination label placed before the bar. */
   label?: string;
   /** Enable navigation arrows. */
@@ -67,43 +68,43 @@ export declare class ZPagination {
    * Get a list of pages chunks, each of `visiblePages` length.
    * @returns {number[][]}
    */
-  getPagesChunks(): any[];
+  private getPagesChunks;
   /**
    * Scroll to the left the chunk of pages containing the current page.
    */
-  scrollToPage(): void;
+  private scrollToPage;
   /**
    * Select a page.
    * Do validations on the passed value before assigning it to `currentPage`.
    * @param {number} page Page number to set
    */
-  selectPage(page: any): void;
+  private selectPage;
   /**
    * Render page number button.
    * @param {number} page Page number to render
    * @returns {HTMLButtonElement}
    */
-  renderPage(page: any): any;
+  private renderPage;
   /**
    * Render split button.
    * @param {number} page Page to select on click.
    * @returns {HTMLButtonElement}
    */
-  renderEllipsisButton(page: any): any;
+  private renderEllipsisButton;
   /**
    * Render chunked page buttons.
-   * @returns {HTMLDivElement}
+   * @returns {HTMLDivElement[]}
    */
-  renderPages(): any[];
+  private renderPages;
   /**
    * Render page buttons when split feature is enabled.
    * @returns {HTMLButtonElement[]}
    */
-  renderSplitPages(): any[];
-  renderBackButton(): any;
-  renderForwardButton(): any;
-  renderMobile(): any[];
+  private renderSplitPages;
+  private renderBackButton;
+  private renderForwardButton;
+  private renderMobile;
   componentDidLoad(): void;
   componentDidRender(): void;
-  render(): any[];
+  render(): HostElement;
 }

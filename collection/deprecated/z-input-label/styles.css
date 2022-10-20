@@ -5,10 +5,10 @@ label {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
-  line-height: 1.33;
   letter-spacing: 0.32px;
-  text-transform: uppercase;
+  line-height: 1.33;
   text-align: left;
+  text-transform: uppercase;
 }
 
 label.disabled {

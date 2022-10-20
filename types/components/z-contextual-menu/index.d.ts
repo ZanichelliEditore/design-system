@@ -1,4 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
+import { HostElement } from "../../stencil-public-runtime";
 import { PopoverPositions } from "../../beans";
 export declare class ZContextualMenu {
   /**
@@ -20,7 +21,7 @@ export declare class ZContextualMenu {
   private jsonElements;
   componentWillRender(): void;
   componentDidLoad(): void;
-  showIcon(): boolean;
-  togglePopover(): void;
-  render(): any[];
+  private showIcon;
+  private togglePopover;
+  render(): HostElement;
 }

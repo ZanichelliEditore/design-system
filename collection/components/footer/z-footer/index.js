@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ButtonSizeEnum } from "../../../beans";
+import { ButtonSize } from "../../../beans";
 /**
  * @slot - main navigation
  * @slot links - bottom navigation
@@ -8,8 +8,7 @@ import { ButtonSizeEnum } from "../../../beans";
 export class ZFooter {
   constructor() {
     this.creditsLinkId = "creditsLinkId";
-    this.emitReportAProblemButtonClick =
-      this.emitReportAProblemButtonClick.bind(this);
+    this.emitReportAProblemButtonClick = this.emitReportAProblemButtonClick.bind(this);
   }
   componentWillLoad() {
     if (this.data) {
@@ -54,21 +53,17 @@ export class ZFooter {
   }
   renderFooterProductInfo() {
     var _a;
-    if (this.productName ||
-      this.productVersion ||
-      this.productCreditsLink != null ||
-      this.showReportAProblemButton) {
+    if (this.productName || this.productVersion || this.productCreditsLink != null || this.showReportAProblemButton) {
       const versionString = `${this.productName ? " versione" : "Versione"} ${this.productVersion}`;
       const creditsObject = (h("z-body", { level: 5 }, (this.productName || this.productVersion) && " - ", h("z-link", { htmlid: this.creditsLinkId, href: (_a = this.productCreditsLink) === null || _a === void 0 ? void 0 : _a.trim(), target: "_blank", textcolor: "white" }, "Credits")));
-      return (h("div", { id: "extension" }, h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth
-          ? { "--mw": `${this.contentMaxWidth}px` }
-          : {} }, h("span", null, this.productName && (h("z-body", { level: 5, variant: "semibold" }, this.productName)), this.productVersion && (h("z-body", { level: 5 }, versionString)), this.productCreditsLink != null && creditsObject), this.showReportAProblemButton && (h("div", null, h("z-body", { level: 5 }, "Hai bisogno di aiuto?"), h("z-button", { size: ButtonSizeEnum.small, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA"))), h("z-divider", { color: "gray500" }))));
+      return (h("div", { id: "extension" }, h("div", { class: { "limited-width": !!this.contentMaxWidth }, style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("span", null, this.productName && (h("z-body", { level: 5, variant: "semibold" }, this.productName)), this.productVersion && h("z-body", { level: 5 }, versionString), this.productCreditsLink != null && creditsObject), this.showReportAProblemButton && (h("div", null, h("z-body", { level: 5 }, "Hai bisogno di aiuto?"), h("z-button", { size: ButtonSize.SMALL, onClick: this.emitReportAProblemButtonClick }, "SEGNALA UN PROBLEMA"))), h("z-divider", { color: "gray500" }))));
     }
   }
   // INFO: backward compatibility
   renderFooterTopJsonData() {
-    if (!this.jsonData || !this.jsonData.zanichelliLinks)
+    if (!this.jsonData || !this.jsonData.zanichelliLinks) {
       return null;
+    }
     const zanichelliLinks = this.jsonData.zanichelliLinks;
     if (this.jsonData.bottomLinks) {
       const bottomLinks = this.jsonData.bottomLinks;
@@ -81,15 +76,17 @@ export class ZFooter {
   }
   // INFO: backward compatibility
   renderFooterBottomJsonData() {
-    if (!this.jsonData || !this.jsonData.bottomLinks)
+    if (!this.jsonData || !this.jsonData.bottomLinks) {
       return null;
+    }
     const bottomLinks = this.jsonData.bottomLinks;
-    return bottomLinks.map((item) => (h("z-footer-link", { href: item.link }, item.label)));
+    return bottomLinks.map((item) => h("z-footer-link", { href: item.link }, item.label));
   }
   // INFO: backward compatibility
   renderFooterSocialJsonData() {
-    if (!this.jsonData || !this.jsonData.social)
+    if (!this.jsonData || !this.jsonData.social) {
       return null;
+    }
     const social = this.jsonData.social;
     return social.map((item) => (h("z-footer-social", { href: item.link, icon: item.icon, description: item.description })));
   }

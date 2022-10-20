@@ -1,4 +1,5 @@
-import { NavigationTabsSize, NavigationTabsOrientation } from '../../../../beans';
+import { HostElement } from "../../../../stencil-public-runtime";
+import { NavigationTabsSize, NavigationTabsOrientation } from "../../../../beans";
 /**
  * Navigation tabs component.
  * @slot - Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children.
@@ -24,16 +25,16 @@ export declare class ZNavigationTabs {
    * Whether forward navigation is enabled.
    */
   canNavigateNext: boolean;
-  host: HTMLElement;
+  host: HTMLZNavigationTabsElement;
   private tabsNav;
   /**
    * Getter for the direction to check based on current orientation.
    */
-  get direction(): "Left" | "Top";
+  get direction(): string;
   /**
    * Getter for the dimension to check based on current orientation.
    */
-  get dimension(): "Width" | "Height";
+  get dimension(): string;
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
    */
@@ -60,11 +61,11 @@ export declare class ZNavigationTabs {
   /**
    * Scroll the navigation bar half of its size backward.
    */
-  navigateBackwards(): void;
+  private navigateBackwards;
   /**
    * Scroll the navigation bar half of its size forward.
    */
-  navigateForward(): void;
+  private navigateForward;
   componentDidRender(): void;
-  render(): any;
+  render(): HostElement;
 }

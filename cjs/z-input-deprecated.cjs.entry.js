@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
-const utils = require('./utils-dfe717c7.js');
+const index$1 = require('./index-199cd650.js');
+const utils = require('./utils-ce225fb3.js');
 require('./breakpoints-88c4fd6c.js');
 
-const stylesCss = ".sc-z-input-deprecated-h{display:inline-block;width:inherit}input.sc-z-input-deprecated::-ms-clear,input.sc-z-input-deprecated::-ms-reveal{display:none}.sc-z-input-deprecated-h input.sc-z-input-deprecated::-ms-clear,.sc-z-input-deprecated-h input.sc-z-input-deprecated::-ms-reveal{display:none}input.sc-z-input-deprecated,textarea.sc-z-input-deprecated,.textareaWrapper.sc-z-input-deprecated,ul[role=\"listbox\"].sc-z-input-deprecated{background:var(--color-input-field01);border-radius:var(--border-radius-small);border:var(--border-size-small) solid var(--color-surface04);box-sizing:border-box;color:var(--color-text02);fill:var(--color-icon02);font-family:var(--font-family-sans);font-weight:var(--font-rg);font-size:var(--font-size-3);outline:none}input.sc-z-input-deprecated:focus:focus-visible,li[role=\"option\"].sc-z-input-deprecated:focus:focus-visible,.focus.sc-z-input-deprecated{box-shadow:var(--shadow-focus-primary)}.filled.sc-z-input-deprecated{border-color:var(--color-surface05)}.input_success.sc-z-input-deprecated,.input_success.sc-z-input-deprecated:hover,.input_success.hover.sc-z-input-deprecated{background:var(--color-success-inverse);border-color:var(--color-success01);fill:var(--color-success01)}.input_error.sc-z-input-deprecated,.input_error.sc-z-input-deprecated:hover,.input_error.hover.sc-z-input-deprecated{background:var(--color-error-inverse);border-color:var(--color-error01);fill:var(--color-error01)}.input_warning.sc-z-input-deprecated,.input_warning.sc-z-input-deprecated:hover,.input_warning.hover.sc-z-input-deprecated{background:var(--color-warning-inverse);border-color:var(--color-warning01);fill:var(--color-warning01)}input[readonly].sc-z-input-deprecated,.readonly.sc-z-input-deprecated{border-color:var(--color-disabled01);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input-deprecated:disabled,.disabled.sc-z-input-deprecated,.filled.sc-z-input-deprecated:disabled{border-color:var(--color-disabled01);color:var(--color-disabled02);fill:var(--color-disabled01);pointer-events:none;box-shadow:none}input.sc-z-input-deprecated::placeholder,textarea.sc-z-input-deprecated::placeholder{color:var(--color-text05)}.sc-z-input-deprecated::-webkit-input-placeholder,.sc-z-input-deprecated::-webkit-textarea-placeholder{color:var(--color-text05)}.sc-z-input-deprecated:-ms-input-placeholder,.sc-z-input-deprecated:-ms-textarea-placeholder{color:var(--color-text05)}.sc-z-input-deprecated::-moz-placeholder{color:var(--color-text05)}.sc-z-input-deprecated:-moz-placeholder{color:var(--color-text05)}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated{fill:var(--color-icon02)}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated{width:100%;height:calc(var(--space-unit) * 5.5);margin:0;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);box-sizing:border-box}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.hasIcon.sc-z-input-deprecated,.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.hasClearIcon.sc-z-input-deprecated{padding-right:calc(var(--space-unit) * 4)}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.hasIcon.hasClearIcon.sc-z-input-deprecated{padding-right:calc(var(--space-unit) * 7)}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated{position:relative;z-index:1}.textWrapper.sc-z-input-deprecated .iconsWrapper.sc-z-input-deprecated{position:absolute;bottom:calc(var(--space-unit) * 1.5);right:calc(var(--space-unit) * 1.5);display:flex;z-index:2}.textWrapper.sc-z-input-deprecated .iconsWrapper.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{--z-icon-width:18px;--z-icon-height:18px;display:block;margin-left:calc(var(--space-unit) * 0.5)}.textWrapper.sc-z-input-deprecated .iconsWrapper.sc-z-input-deprecated>z-icon.resetIcon.sc-z-input-deprecated,.textWrapper.sc-z-input-deprecated .iconsWrapper.sc-z-input-deprecated>z-icon.showHidePasswordIcon.sc-z-input-deprecated{cursor:pointer}.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill,.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:hover,.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:focus,.textWrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:active{-webkit-background-clip:text !important}.textareaWrapper.sc-z-input-deprecated{padding:calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}textarea.sc-z-input-deprecated::-webkit-scrollbar{background:linear-gradient(\n    to right,\n    transparent 0 3px,\n    var(--gray200) 3px 7px,\n    transparent 7px 10px\n  );width:10px;border-radius:var(--border-radius)}textarea.sc-z-input-deprecated::-webkit-scrollbar-track{background-color:transparent}textarea.sc-z-input-deprecated::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}textarea.sc-z-input-deprecated::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}textarea.sc-z-input-deprecated{min-height:132px;width:100%;margin:0;padding:0;border:none;resize:none}.radioWrapper.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated{display:inline-flex;flex-direction:row;align-items:center;font-family:var(--font-family-sans);position:relative;color:var(--color-text01);fill:var(--color-primary01)}.radioWrapper.sc-z-input-deprecated:hover,.checkboxWrapper.sc-z-input-deprecated:hover{color:var(--color-hover-primary);fill:currentColor}.radioWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated{position:absolute;opacity:0;z-index:-1;pointer-events:none}.radioWrapper.sc-z-input-deprecated .radioLabel.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.sc-z-input-deprecated{display:inline-flex;align-items:center;margin:0;line-height:1;color:inherit;font-family:inherit;font-weight:inherit;font-size:inherit;text-transform:inherit}.radioWrapper.sc-z-input-deprecated input.sc-z-input-deprecated:not(:disabled)+.radioLabel.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated input.sc-z-input-deprecated:not(:disabled)+.checkboxLabel.sc-z-input-deprecated{cursor:pointer}.radioWrapper.sc-z-input-deprecated .radioLabel.sc-z-input-deprecated z-icon.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.sc-z-input-deprecated z-icon.sc-z-input-deprecated{fill:inherit;cursor:pointer}.radioWrapper.sc-z-input-deprecated .radioLabel.after.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.after.sc-z-input-deprecated{flex-direction:row}.radioWrapper.sc-z-input-deprecated .radioLabel.before.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.before.sc-z-input-deprecated{flex-direction:row-reverse}.radioWrapper.sc-z-input-deprecated .radioLabel.after.sc-z-input-deprecated>span.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.after.sc-z-input-deprecated>span.sc-z-input-deprecated{margin-left:var(--space-unit)}.radioWrapper.sc-z-input-deprecated .radioLabel.before.sc-z-input-deprecated>span.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated .checkboxLabel.before.sc-z-input-deprecated>span.sc-z-input-deprecated{margin-right:var(--space-unit)}.radioWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:focus:focus-visible+.radioLabel.sc-z-input-deprecated>z-icon.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:focus:focus-visible+.checkboxLabel.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{box-shadow:var(--shadow-focus-primary);border-radius:var(--border-radius-small)}.radioWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.radioLabel.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.checkboxLabel.sc-z-input-deprecated{color:var(--color-disabled02)}.radioWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.radioLabel.sc-z-input-deprecated>z-icon.sc-z-input-deprecated,.checkboxWrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.checkboxLabel.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{fill:var(--color-disabled01);cursor:default}";
+const stylesCss = ".sc-z-input-deprecated-h{display:inline-block;width:inherit}input.sc-z-input-deprecated::-ms-clear,input.sc-z-input-deprecated::-ms-reveal{display:none}.sc-z-input-deprecated-h input.sc-z-input-deprecated::-ms-clear,.sc-z-input-deprecated-h input.sc-z-input-deprecated::-ms-reveal{display:none}input.sc-z-input-deprecated,textarea.sc-z-input-deprecated,.textarea-wrapper.sc-z-input-deprecated,ul[role=\"listbox\"].sc-z-input-deprecated{box-sizing:border-box;border:var(--border-size-small) solid var(--color-surface04);background:var(--color-input-field01);border-radius:var(--border-radius-small);color:var(--color-text02);fill:var(--color-icon02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg);outline:none}input.sc-z-input-deprecated:focus:focus-visible,li[role=\"option\"].sc-z-input-deprecated:focus:focus-visible,.focus.sc-z-input-deprecated{box-shadow:var(--shadow-focus-primary)}.filled.sc-z-input-deprecated{border-color:var(--color-surface05)}.input-success.sc-z-input-deprecated,.input-success.sc-z-input-deprecated:hover,.input-success.hover.sc-z-input-deprecated{border-color:var(--color-success01);background:var(--color-success-inverse);fill:var(--color-success01)}.input-error.sc-z-input-deprecated,.input-error.sc-z-input-deprecated:hover,.input-error.hover.sc-z-input-deprecated{border-color:var(--color-error01);background:var(--color-error-inverse);fill:var(--color-error01)}.input-warning.sc-z-input-deprecated,.input-warning.sc-z-input-deprecated:hover,.input-warning.hover.sc-z-input-deprecated{border-color:var(--color-warning01);background:var(--color-warning-inverse);fill:var(--color-warning01)}input[readonly].sc-z-input-deprecated,.readonly.sc-z-input-deprecated{border-color:var(--color-disabled01);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input-deprecated:disabled,.disabled.sc-z-input-deprecated,.filled.sc-z-input-deprecated:disabled{border-color:var(--color-disabled01);box-shadow:none;color:var(--color-disabled02);fill:var(--color-disabled01);pointer-events:none}input.sc-z-input-deprecated::placeholder,textarea.sc-z-input-deprecated::placeholder{color:var(--color-text05)}.sc-z-input-deprecated::-webkit-textarea-placeholder{color:var(--color-text05)}.sc-z-input-deprecated:-ms-textarea-placeholder{color:var(--color-text05)}.sc-z-input-deprecated::placeholder{color:var(--color-text05)}.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated{position:relative;z-index:1;fill:var(--color-icon02)}.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated{width:100%;height:calc(var(--space-unit) * 5.5);box-sizing:border-box;padding:0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);margin:0}.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.has-icon.sc-z-input-deprecated,.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.has-clear-icon.sc-z-input-deprecated{padding-right:calc(var(--space-unit) * 4)}.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.has-icon.has-clear-icon.sc-z-input-deprecated{padding-right:calc(var(--space-unit) * 7)}.text-wrapper.sc-z-input-deprecated .icons-wrapper.sc-z-input-deprecated{position:absolute;z-index:2;right:calc(var(--space-unit) * 1.5);bottom:calc(var(--space-unit) * 1.5);display:flex}.text-wrapper.sc-z-input-deprecated .icons-wrapper.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{--z-icon-width:18px;--z-icon-height:18px;display:block;margin-left:calc(var(--space-unit) * 0.5)}.text-wrapper.sc-z-input-deprecated .icons-wrapper.sc-z-input-deprecated>z-icon.reset-icon.sc-z-input-deprecated,.text-wrapper.sc-z-input-deprecated .icons-wrapper.sc-z-input-deprecated>z-icon.toggle-password-icon.sc-z-input-deprecated{cursor:pointer}.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill,.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:hover,.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:focus,.text-wrapper.sc-z-input-deprecated>div.sc-z-input-deprecated>input.sc-z-input-deprecated:-webkit-autofill:active{background-clip:text !important}.textarea-wrapper.sc-z-input-deprecated{padding:calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}textarea.sc-z-input-deprecated::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}textarea.sc-z-input-deprecated::-webkit-scrollbar-track{background-color:transparent}textarea.sc-z-input-deprecated::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}textarea.sc-z-input-deprecated::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}textarea.sc-z-input-deprecated{width:100%;min-height:132px;padding:0;border:none;margin:0;resize:none}.radio-wrapper.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated{position:relative;display:inline-flex;flex-direction:row;align-items:center;color:var(--color-text01);fill:var(--color-primary01);font-family:var(--font-family-sans)}.radio-wrapper.sc-z-input-deprecated:hover,.checkbox-wrapper.sc-z-input-deprecated:hover{color:var(--color-hover-primary);fill:currentcolor}.radio-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated{position:absolute;z-index:-1;opacity:0;pointer-events:none}.radio-wrapper.sc-z-input-deprecated .radio-label.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.sc-z-input-deprecated{display:inline-flex;align-items:center;margin:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:1;text-transform:inherit}.radio-wrapper.sc-z-input-deprecated input.sc-z-input-deprecated:not(:disabled)+.radio-label.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated input.sc-z-input-deprecated:not(:disabled)+.checkbox-label.sc-z-input-deprecated{cursor:pointer}.radio-wrapper.sc-z-input-deprecated .radio-label.sc-z-input-deprecated z-icon.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.sc-z-input-deprecated z-icon.sc-z-input-deprecated{cursor:pointer;fill:inherit}.radio-wrapper.sc-z-input-deprecated .radio-label.after.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.after.sc-z-input-deprecated{flex-direction:row}.radio-wrapper.sc-z-input-deprecated .radio-label.before.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.before.sc-z-input-deprecated{flex-direction:row-reverse}.radio-wrapper.sc-z-input-deprecated .radio-label.after.sc-z-input-deprecated>span.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.after.sc-z-input-deprecated>span.sc-z-input-deprecated{margin-left:var(--space-unit)}.radio-wrapper.sc-z-input-deprecated .radio-label.before.sc-z-input-deprecated>span.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated .checkbox-label.before.sc-z-input-deprecated>span.sc-z-input-deprecated{margin-right:var(--space-unit)}.radio-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:focus:focus-visible+.radio-label.sc-z-input-deprecated>z-icon.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:focus:focus-visible+.checkbox-label.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{border-radius:var(--border-radius-small);box-shadow:var(--shadow-focus-primary)}.radio-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.radio-label.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.checkbox-label.sc-z-input-deprecated{color:var(--color-disabled02)}.radio-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.radio-label.sc-z-input-deprecated>z-icon.sc-z-input-deprecated,.checkbox-wrapper.sc-z-input-deprecated>input.sc-z-input-deprecated:disabled+.checkbox-label.sc-z-input-deprecated>z-icon.sc-z-input-deprecated{cursor:default;fill:var(--color-disabled01)}";
 
 const ZInputDeprecated = class {
   constructor(hostRef) {
@@ -45,14 +45,11 @@ const ZInputDeprecated = class {
   inputCheckListener(e) {
     const data = e.detail;
     switch (this.type) {
-      case index$1.InputTypeEnum.radio:
-        if (data.type === index$1.InputTypeEnum.radio &&
-          data.name === this.name &&
-          data.id !== this.htmlid) {
+      case index$1.InputType.RADIO:
+        if (data.type === index$1.InputType.RADIO && data.name === this.name && data.id !== this.htmlid) {
           this.checked = false;
         }
-      default:
-        return;
+        break;
     }
   }
   /** get the input value */
@@ -73,16 +70,17 @@ const ZInputDeprecated = class {
         this.selectElem.setValue(value);
         break;
       default:
-        if (typeof value === "string")
+        if (typeof value === "string") {
           this.value = value;
+        }
         break;
     }
   }
   /** get checked status */
   async isChecked() {
     switch (this.type) {
-      case index$1.InputTypeEnum.checkbox:
-      case index$1.InputTypeEnum.radio:
+      case index$1.InputType.CHECKBOX:
+      case index$1.InputType.RADIO:
         return this.checked;
       default:
         return false;
@@ -92,8 +90,8 @@ const ZInputDeprecated = class {
     if (!this.isTyping) {
       this.emitStartTyping();
     }
-    let validity = {};
-    if (this.type === index$1.InputTypeEnum.textarea) {
+    let validity;
+    if (this.type === index$1.InputType.TEXTAREA) {
       validity = this.getValidity("textarea");
     }
     else {
@@ -142,79 +140,69 @@ const ZInputDeprecated = class {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
-      class: [
-        `input_${this.status || "default"}`,
-        this.isTyping && "istyping",
-        !this.isTyping && this.value && "filled",
-      ]
-        .filter(Boolean)
-        .join(" "),
-      onInput: (e) => this.emitInputChange(e.target.value, e.keyCode),
+      class: {
+        [`input-${this.status}`]: !!this.status,
+        istyping: this.isTyping,
+        filled: !this.isTyping && !!this.value,
+      },
+      onInput: (e) => this.emitInputChange(e.target.value, e instanceof KeyboardEvent ? e.keyCode : null),
     };
     if (this.autocomplete) {
       attr["autocomplete"] = this.autocomplete;
     }
     return attr;
   }
-  renderInputText(type = index$1.InputTypeEnum.text) {
+  renderInputText(type = index$1.InputType.TEXT) {
     const attr = this.getTextAttributes();
-    if (this.icon || type === index$1.InputTypeEnum.password) {
-      attr.class += " hasIcon";
+    if (this.icon || type === index$1.InputType.PASSWORD) {
+      Object.assign(attr.class, { "has-icon": true });
     }
     if (this.hasclearicon) {
-      attr.class += " hasClearIcon";
+      Object.assign(attr.class, { "has-clear-icon": true });
     }
-    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputTypeEnum.password && !this.passwordHidden
-        ? index$1.InputTypeEnum.text
-        : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
+    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputType.PASSWORD && !this.passwordHidden ? index$1.InputType.TEXT : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
-    if (!this.label)
+    if (!this.label) {
       return;
+    }
     return (index.h("z-input-label", { htmlfor: this.htmlid, value: this.label, disabled: this.disabled, "aria-label": this.label, id: `${this.htmlid}_label` }));
   }
   renderIcons() {
     return (index.h("span", { class: {
-        iconsWrapper: true,
-        disabled: this.disabled,
+        "icons-wrapper": true,
+        "disabled": this.disabled,
       } }, this.renderResetIcon(), this.renderIcon()));
   }
   renderIcon() {
-    if (this.type === index$1.InputTypeEnum.password) {
+    if (this.type === index$1.InputType.PASSWORD) {
       return this.renderShowHidePassword();
     }
-    if (!this.icon)
+    if (!this.icon) {
       return;
-    return index.h("z-icon", { class: "inputIcon", name: this.icon });
+    }
+    return (index.h("z-icon", { class: "input-icon", name: this.icon }));
   }
   renderResetIcon() {
-    if (!this.hasclearicon || !this.value || this.disabled || this.readonly)
+    if (!this.hasclearicon || !this.value || this.disabled || this.readonly) {
       return;
-    return (index.h("z-icon", { class: "resetIcon", name: "multiply", onClick: (e) => this.emitInputChange("", e.keyCode) }));
+    }
+    return (index.h("z-icon", { class: "reset-icon", name: "multiply", onClick: (e) => this.emitInputChange("", e instanceof KeyboardEvent ? e.keyCode : null) }));
   }
   renderShowHidePassword() {
-    return (index.h("z-icon", { class: "showHidePasswordIcon", name: this.passwordHidden ? "view-filled" : "view-off-filled", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
+    return (index.h("z-icon", { class: "toggle-password-icon", name: this.passwordHidden ? "view-filled" : "view-off-filled", onClick: () => (this.passwordHidden = !this.passwordHidden) }));
   }
   renderMessage() {
-    if (!this.hasmessage)
+    if (!this.hasmessage) {
       return;
-    return index.h("z-input-message", { message: this.message, status: this.status });
+    }
+    return (index.h("z-input-message", { message: this.message, status: this.status }));
   }
   /* END text/password/email/number */
   /* START textarea */
   renderTextarea() {
     const attributes = this.getTextAttributes();
-    return (index.h("div", { class: "textWrapper" }, this.renderLabel(), index.h("div", { class: [
-        "textareaWrapper",
-        attributes.class,
-        attributes.disabled && "disabled",
-        attributes.readonly && "readonly",
-        this.isTyping && "istyping",
-        this.textareaWrapperFocus,
-        this.textareaWrapperHover,
-      ]
-        .filter(Boolean)
-        .join(" ") }, index.h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
+    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", { class: Object.assign(Object.assign({ "textarea-wrapper": true }, attributes.class), { "disabled": attributes.disabled, "readonly": !!attributes.readonly, "istyping": this.isTyping, [this.textareaWrapperFocus]: true, [this.textareaWrapperHover]: true }) }, index.h("textarea", Object.assign({}, attributes, { onFocus: () => (this.textareaWrapperFocus = "focus"), onBlur: () => (this.textareaWrapperFocus = ""), onMouseOver: () => (this.textareaWrapperHover = "hover"), onMouseOut: () => (this.textareaWrapperHover = ""), "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -223,19 +211,19 @@ const ZInputDeprecated = class {
   }
   /* START checkbox */
   renderCheckbox() {
-    return (index.h("div", { class: "checkboxWrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
-        checkboxLabel: true,
-        after: this.labelafter,
-        before: !this.labelafter,
+    return (index.h("div", { class: "checkbox-wrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+        "checkbox-label": true,
+        "after": this.labelafter,
+        "before": !this.labelafter,
       } }, index.h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
   renderRadio() {
-    return (index.h("div", { class: "radioWrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
-        radioLabel: true,
-        after: this.labelafter,
-        before: !this.labelafter,
+    return (index.h("div", { class: "radio-wrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+        "radio-label": true,
+        "after": this.labelafter,
+        "before": !this.labelafter,
       } }, index.h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }), this.label && index.h("span", { innerHTML: this.label }))));
   }
   /* END radio */
@@ -246,16 +234,16 @@ const ZInputDeprecated = class {
   /* END select */
   render() {
     switch (this.type) {
-      case index$1.InputTypeEnum.text:
-      case index$1.InputTypeEnum.password:
-      case index$1.InputTypeEnum.number:
-      case index$1.InputTypeEnum.email:
+      case index$1.InputType.TEXT:
+      case index$1.InputType.PASSWORD:
+      case index$1.InputType.NUMBER:
+      case index$1.InputType.EMAIL:
         return this.renderInputText(this.type);
-      case index$1.InputTypeEnum.textarea:
+      case index$1.InputType.TEXTAREA:
         return this.renderTextarea();
-      case index$1.InputTypeEnum.checkbox:
+      case index$1.InputType.CHECKBOX:
         return this.renderCheckbox();
-      case index$1.InputTypeEnum.radio:
+      case index$1.InputType.RADIO:
         return this.renderRadio();
       // @ts-ignore
       case "select":

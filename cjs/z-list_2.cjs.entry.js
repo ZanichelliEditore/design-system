@@ -3,9 +3,9 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-745c0423.js');
+const index$1 = require('./index-199cd650.js');
 
-const stylesCss$1 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);display:flex;flex-direction:column}";
+const stylesCss$1 = ":host{display:flex;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";
 
 const ZList = class {
   constructor(hostRef) {
@@ -13,7 +13,7 @@ const ZList = class {
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = index$1.ListSize.medium;
+    this.size = index$1.ListSize.MEDIUM;
   }
   setChildrenSizeType() {
     const children = this.host.children;
@@ -31,7 +31,7 @@ const ZList = class {
 };
 ZList.style = stylesCss$1;
 
-const stylesCss = ":host{outline:none}:host>.container,:host>.container-contextual-menu{--background-color-list-element:var(--bg-white);--background-hover-color-list-element:var(--color-surface02);--background-active-color-list-element:var(--color-surface02);font-family:var(--font-family-sans);font-weight:var(--font-rg);outline:none;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}:host([size=\"small\"])>.container{padding:calc(var(--space-unit) / 2) 0;min-height:calc(var(--space-unit) * 4)}:host([size=\"medium\"])>.container{padding:var(--space-unit) 0;min-height:calc(var(--space-unit) * 5)}:host([size=\"large\"])>.container{padding:calc(var(--space-unit) * 2) 0;min-height:calc(var(--space-unit) * 7)}:host([size=\"x-large\"])>.container{padding:calc(var(--space-unit) * 3) 0;min-height:calc(var(--space-unit) * 9)}:host([expandable])>.container,:host([expandable])>.container-contextual-menu,:host([clickable])>.container,:host([clickable])>.container-contextual-menu{cursor:pointer}:host([expandable]:hover)>.container,:host([expandable]:hover)>.container-contextual-menu,:host([clickable]:hover)>.container,:host([clickable]:hover)>.container-contextual-menu{background-color:var(--background-hover-color-list-element)}:host([expandable]:focus:focus-visible)>.container,:host([expandable]:focus:focus-visible)>.container-contextual-menu,:host([clickable]:focus:focus-visible)>.container,:host([clickable]:focus:focus-visible)>.container-contextual-menu{box-shadow:var(--shadow-focus-primary)}:host([expandable]:active)>.container,:host([expandable]:active)>.container-contextual-menu,:host([clickable]:active)>.container,:host([clickable]:active)>.container-contextual-menu{background-color:var(--background-active-color-list-element)}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex;flex-direction:row-reverse;justify-content:space-between}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-right:var(--space-unit)}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-left:var(--space-unit)}:host>.container>.z-list-element-inner-container,:host>.container-contextual-menu>.z-list-element-inner-container{display:none}:host>.container>.z-list-element-inner-container.expanded,:host>.container-contextual-menu>.z-list-element-inner-container.expanded{display:block}:host([clickable]:hover)>.container-contextual-menu{background-color:var(--color-surface03)}.container-contextual-menu:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none}";
+const stylesCss = ":host{outline:none}:host>.container,:host>.container-contextual-menu{--background-color-list-element:var(--bg-white);--background-hover-color-list-element:var(--color-surface02);--background-active-color-list-element:var(--color-surface02);display:flex;box-sizing:border-box;flex-direction:column;justify-content:center;font-family:var(--font-family-sans);font-weight:var(--font-rg);outline:none}:host([size=\"small\"])>.container{min-height:calc(var(--space-unit) * 4);padding:calc(var(--space-unit) / 2) 0}:host([size=\"medium\"])>.container{min-height:calc(var(--space-unit) * 5);padding:var(--space-unit) 0}:host([size=\"large\"])>.container{min-height:calc(var(--space-unit) * 7);padding:calc(var(--space-unit) * 2) 0}:host([size=\"x-large\"])>.container{min-height:calc(var(--space-unit) * 9);padding:calc(var(--space-unit) * 3) 0}:host([expandable])>.container,:host([expandable])>.container-contextual-menu,:host([clickable])>.container,:host([clickable])>.container-contextual-menu{cursor:pointer}:host([expandable]:hover)>.container,:host([expandable]:hover)>.container-contextual-menu,:host([clickable]:hover)>.container,:host([clickable]:hover)>.container-contextual-menu{background-color:var(--background-hover-color-list-element)}:host([expandable]:focus:focus-visible)>.container,:host([expandable]:focus:focus-visible)>.container-contextual-menu,:host([clickable]:focus:focus-visible)>.container,:host([clickable]:focus:focus-visible)>.container-contextual-menu{box-shadow:var(--shadow-focus-primary)}:host([expandable]:active)>.container,:host([expandable]:active)>.container-contextual-menu,:host([clickable]:active)>.container,:host([clickable]:active)>.container-contextual-menu{background-color:var(--background-active-color-list-element)}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex;flex-direction:row-reverse;justify-content:space-between}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-right:var(--space-unit)}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-left:var(--space-unit)}:host>.container>.z-list-element-inner-container,:host>.container-contextual-menu>.z-list-element-inner-container{display:none}:host>.container>.z-list-element-inner-container.expanded,:host>.container-contextual-menu>.z-list-element-inner-container.expanded{display:block}:host([clickable]:hover)>.container-contextual-menu{background-color:var(--color-surface03)}.container-contextual-menu:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none}";
 
 const ZListElement = class {
   /**
@@ -44,7 +44,7 @@ const ZListElement = class {
     /**
      * [optional] Align expandable button left or right.
      */
-    this.alignButton = index$1.ExpandableListButtonAlign.left;
+    this.alignButton = index$1.ExpandableListButtonAlign.LEFT;
     /**
      * [optional] Sets element clickable.
      */
@@ -56,11 +56,11 @@ const ZListElement = class {
     /**
      * [optional] Sets the position where to insert the divider.
      */
-    this.dividerType = index$1.ListDividerType.none;
+    this.dividerType = index$1.ListDividerType.NONE;
     /**
      * [optional] Sets the divider size.
      */
-    this.dividerSize = index$1.DividerSize.small;
+    this.dividerSize = index$1.DividerSize.SMALL;
     /**
      * [optional] Sets element as expandable.
      */
@@ -68,11 +68,11 @@ const ZListElement = class {
     /**
      * [optional] Sets expandable style to element.
      */
-    this.expandableStyle = index$1.ExpandableListStyle.accordion;
+    this.expandableStyle = index$1.ExpandableListStyle.ACCORDION;
     /**
      * [optional] Sets size of inside elements.
      */
-    this.size = index$1.ListSize.medium;
+    this.size = index$1.ListSize.MEDIUM;
     /**
      * [optional] Sets text color of the element.
      */
@@ -123,17 +123,17 @@ const ZListElement = class {
     return "container";
   }
   handleKeyDown(event) {
-    const expandByKey = event.code === index$1.KeyboardKeys.ENTER;
+    const expandByKey = event.code === index$1.KeyboardCode.ENTER;
     switch (event.code) {
-      case index$1.KeyboardKeys.ARROW_DOWN:
+      case index$1.KeyboardCode.ARROW_DOWN:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId + 1);
         break;
-      case index$1.KeyboardKeys.ARROW_UP:
+      case index$1.KeyboardCode.ARROW_UP:
         event.preventDefault();
         this.accessibleFocus.emit(this.listElementId - 1);
         break;
-      case index$1.KeyboardKeys.ENTER:
+      case index$1.KeyboardCode.ENTER:
         event.preventDefault();
         this.clickItem.emit(this.listElementId);
         break;
@@ -165,11 +165,11 @@ const ZListElement = class {
     }
     return (index.h("div", { class: {
         "z-list-element-inner-container": true,
-        expanded: this.showInnerContent,
+        "expanded": this.showInnerContent,
       } }, index.h("slot", { name: "inner-content" })));
   }
   render() {
-    return (index.h(index.Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, index.h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, index.h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), index.h("slot", null)), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.element && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (index.h(index.Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, index.h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, index.h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), index.h("slot", null)), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.ELEMENT && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   get host() { return index.getElement(this); }
 };

@@ -1,10 +1,18 @@
 import { r as registerInstance, h, g as getElement } from './index-a2ca4b97.js';
-import { r as DeviceEnum } from './index-8390ddaf.js';
-import { d as convertJson, g as getDevice, h as handleKeyboardSubmit } from './utils-2c5dfb88.js';
+import { q as Device } from './index-9d028352.js';
+import { d as convertJson, g as getDevice, h as handleKeyboardSubmit } from './utils-39ca028c.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);display:block;width:inherit}:host>div{display:flex;flex-direction:column;width:inherit}main{position:relative;overflow:hidden;width:100%}main z-icon.scroll{position:absolute;top:50%;width:auto;cursor:pointer;transition:0.6s ease;margin:0 var(--space-unit);fill:var(--color-primary01);z-index:10}main .scroll.disabled{opacity:50%;pointer-events:none}main .scroll.right{right:0}#slides{display:flex;flex-wrap:wrap;transition:all 300ms;line-height:0px;overflow-y:hidden}footer{height:56px;width:100%;align-items:center;display:grid;grid-template-columns:2;grid-template-rows:2;grid-template-areas:\"center center\" \"left right\";border-top:var(--border-base) solid var(--color-surface02)}footer>div{align-items:center;width:100%}footer .footerCenter{grid-area:center}footer .footerLeft{grid-area:left}footer .footerRight{grid-area:right}footer .bulletContainer{display:flex;margin:0 auto;justify-content:center;align-items:center;min-height:60px}footer .bulletContainer .bullet{width:8px;height:8px;border-radius:50%;background-color:var(--bg-neutral-150);margin:var(--space-unit) 2px;pointer-events:none}footer .bulletContainer .bullet.selected{background-color:var(--bg-neutral-400)}@media only screen and (min-width: 768px){footer{grid-template-columns:1fr 2fr 1fr;grid-template-rows:1;grid-template-areas:\"left center right\";height:76px;border-top:var(--border-base) solid var(--color-surface02)}footer .bulletContainer .bullet{width:10px;height:10px;margin:var(--space-unit) 3px}}@media only screen and (min-width: 1025px){main z-icon.scroll{margin:0 10px}footer .bulletContainer .bullet{width:16px;height:16px;margin:var(--space-unit) calc(var(--space-unit) * 0.5);pointer-events:auto;cursor:pointer}}";
+const stylesCss = ":host{display:block;width:inherit;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>div{display:flex;width:inherit;flex-direction:column}main{position:relative;overflow:hidden;width:100%}main z-icon.scroll{position:absolute;z-index:10;top:50%;width:auto;margin:0 var(--space-unit);cursor:pointer;fill:var(--color-primary01);transition:0.6s ease}main .scroll.disabled{opacity:0.5;pointer-events:none}main .scroll.right{right:0}#slides{display:flex;flex-wrap:wrap;line-height:0px;overflow-y:hidden;transition:all 300ms}footer{display:grid;width:100%;height:56px;align-items:center;border-top:var(--border-base) solid var(--color-surface02);grid-template:2 / 2;grid-template-areas:\"center center\" \"left right\"}footer>div{width:100%;align-items:center}footer .footer-center{grid-area:center}footer .footer-left{grid-area:left}footer .footer-right{grid-area:right}footer .bullet-container{display:flex;min-height:60px;align-items:center;justify-content:center;margin:0 auto}footer .bullet-container .bullet{width:8px;height:8px;margin:var(--space-unit) 2px;background-color:var(--bg-neutral-150);border-radius:50%;pointer-events:none}footer .bullet-container .bullet.selected{background-color:var(--bg-neutral-400)}@media only screen and (min-width: 768px){footer{height:76px;border-top:var(--border-base) solid var(--color-surface02);grid-template:1 / 1fr 2fr 1fr;grid-template-areas:\"left center right\"}footer .bullet-container .bullet{width:10px;height:10px;margin:var(--space-unit) 3px}}@media only screen and (min-width: 1025px){main z-icon.scroll{margin:0 10px}footer .bullet-container .bullet{width:16px;height:16px;margin:var(--space-unit) calc(var(--space-unit) * 0.5);cursor:pointer;pointer-events:auto}}";
 
+/**
+ * Check if data is an array of strings.
+ * @param {unknown} data Data to check
+ * @returns {boolean}
+ */
+function isStringArray(data) {
+  return Array.isArray(data) && data.every((datum) => typeof datum === "string");
+}
 const ZSlideshow = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
@@ -28,16 +36,24 @@ const ZSlideshow = class {
   parseLinks() {
     var _a;
     switch (typeof this.data) {
-      case "string":
-        return (this.links = (_a = convertJson(this.data)) !== null && _a !== void 0 ? _a : []);
+      case "string": {
+        const parsed = (_a = convertJson(this.data)) !== null && _a !== void 0 ? _a : [];
+        if (!isStringArray(parsed)) {
+          throw new Error("Passed data is invalid");
+        }
+        this.links = parsed;
+        break;
+      }
       default:
-        return (this.links = this.data);
+        this.links = this.data;
+        break;
     }
   }
   setStyle() {
     const refSlides = this.el.shadowRoot.querySelector("#slides");
-    if (!refSlides)
+    if (!refSlides) {
       return;
+    }
     const allImages = this.el.shadowRoot.querySelectorAll(".slide");
     const width = this.el.offsetWidth;
     const fullwidth = width * this.links.length;
@@ -56,9 +72,9 @@ const ZSlideshow = class {
   }
   getBulletDimension() {
     switch (this.device) {
-      case DeviceEnum.mobile:
+      case Device.MOBILE:
         return 24;
-      case DeviceEnum.tablet:
+      case Device.TABLET:
         return 32;
       default:
         return 40;
@@ -91,11 +107,12 @@ const ZSlideshow = class {
     return (h("a", { class: `bullet ${this.currentSlide === i && "selected"}`, onClick: () => this.setCurrentSlide(i), onKeyUp: (e) => handleKeyboardSubmit(e, () => this.setCurrentSlide(i)), tabindex: 0, role: "button" }));
   }
   renderSlideshowFooter() {
-    return (h("footer", null, h("div", { class: "footerLeft" }, h("slot", { name: "footer-left" })), h("div", { class: "footerCenter" }, h("div", { class: "bulletContainer" }, Object.keys(this.links).map(i => this.renderBullet(parseInt(i))))), h("div", { class: "footerRight" }, h("slot", { name: "footer-right" }))));
+    return (h("footer", null, h("div", { class: "footer-left" }, h("slot", { name: "footer-left" })), h("div", { class: "footer-center" }, h("div", { class: "bullet-container" }, Object.keys(this.links).map((i) => this.renderBullet(parseInt(i))))), h("div", { class: "footer-right" }, h("slot", { name: "footer-right" }))));
   }
   render() {
-    if (!this.links || !this.links.length)
+    if (!this.links || !this.links.length) {
       return h("div", null);
+    }
     return (h("div", { id: this.slideshowid }, this.renderSlideshowMain(), this.renderSlideshowFooter()));
   }
   get el() { return getElement(this); }

@@ -1,9 +1,10 @@
-import { InputStatusBean } from "../../../beans";
+import { HostElement } from "../../../stencil-public-runtime";
+import { InputStatus } from "../../../beans";
 export declare class ZInputMessage {
   /** input helper message */
   message: string;
   /** input status (optional) */
-  status?: InputStatusBean;
+  status?: InputStatus;
   private statusIcons;
-  render(): any;
+  render(): HostElement;
 }

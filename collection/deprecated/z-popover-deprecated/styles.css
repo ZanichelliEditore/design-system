@@ -1,21 +1,20 @@
 :host {
+  position: relative;
+  display: inline-block;
   font-family: var(--dashboard-font);
   font-weight: var(--font-rg);
 
-  position: relative;
-  display: inline-block;
-
-  --shadow-arrow-color: rgba(66, 69, 72, 0.2);
-  --shadow-arrow-below-color: rgba(66, 69, 72, 0.1);
+  --shadow-arrow-color: rgb(66 69 72 / 20%);
+  --shadow-arrow-below-color: rgb(66 69 72 / 10%);
 }
 
 .popover-content-container {
-  box-sizing: border-box;
-  visibility: hidden;
   position: absolute;
+  z-index: 999;
   min-width: 64px;
   min-height: 32px;
-  z-index: 999;
+  box-sizing: border-box;
+  visibility: hidden;
 }
 
 .popover-content-container.visible {
@@ -97,19 +96,19 @@ Popover-positions
 }
 
 .popover-content-container.below-right {
-  left: 0;
   top: calc(100% + var(--space-unit));
+  left: 0;
 }
 
 .popover-content-container.below-center {
-  left: 50%;
   top: calc(100% + var(--space-unit));
+  left: 50%;
   transform: translateX(-50%);
 }
 
 .popover-content-container.below-left {
-  right: 0;
   top: calc(100% + var(--space-unit));
+  right: 0;
 }
 
 .popover-content-container.before-down {
@@ -124,18 +123,18 @@ Popover-positions
 }
 
 .popover-content-container.before-up {
-  bottom: 0;
   right: calc(100% + var(--space-unit));
+  bottom: 0;
 }
 
 .popover-content-container.above-right {
-  left: 0;
   bottom: calc(100% + var(--space-unit));
+  left: 0;
 }
 
 .popover-content-container.above-center {
-  left: 50%;
   bottom: calc(100% + var(--space-unit));
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -147,90 +146,90 @@ Popover-positions
 /*
 Arrows
 */
-.popover-content-container:before {
-  display: none;
+.popover-content-container::before {
   position: absolute;
-  content: "";
+  z-index: -1;
+  display: none;
   width: 8px;
   height: 8px;
-  z-index: -1;
   background-color: inherit;
+  content: "";
   transform: rotate(45deg);
 }
 
-.popover-content-container.after-down:before {
+.popover-content-container.after-down::before {
   top: 12px;
   left: -4px;
   box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.after-center:before {
+.popover-content-container.after-center::before {
   top: calc(50% - 4px);
   left: -4px;
   box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.after-up:before {
+.popover-content-container.after-up::before {
   bottom: 12px;
   left: -4px;
   box-shadow: -1px 1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.below-right:before {
+.popover-content-container.below-right::before {
+  top: -4px;
   left: 12px;
-  top: -4px;
   box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
 }
 
-.popover-content-container.below-center:before {
+.popover-content-container.below-center::before {
+  top: -4px;
   left: calc(50% - 4px);
-  top: -4px;
   box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
 }
 
-.popover-content-container.below-left:before {
+.popover-content-container.below-left::before {
+  top: -4px;
   right: 12px;
-  top: -4px;
   box-shadow: -1px -1px 2px var(--shadow-arrow-below-color);
 }
 
-.popover-content-container.before-down:before {
+.popover-content-container.before-down::before {
   top: 12px;
   right: -4px;
   box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.before-center:before {
+.popover-content-container.before-center::before {
   top: calc(50% - 4px);
   right: -4px;
   box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.before-up:before {
-  bottom: 12px;
+.popover-content-container.before-up::before {
   right: -4px;
+  bottom: 12px;
   box-shadow: 1px -1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.above-right:before {
+.popover-content-container.above-right::before {
+  bottom: -4px;
   left: 12px;
-  bottom: -4px;
   box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.above-center:before {
+.popover-content-container.above-center::before {
+  bottom: -4px;
   left: calc(50% - 4px);
-  bottom: -4px;
   box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
-.popover-content-container.above-left:before {
+.popover-content-container.above-left::before {
   right: 12px;
   bottom: -4px;
   box-shadow: 1px 1px 1.5px var(--shadow-arrow-color);
 }
 
 /** Show/Hide arrow */
-.popover-content-container.show-arrow:before {
+.popover-content-container.show-arrow::before {
   display: block;
 }

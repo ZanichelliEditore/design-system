@@ -4,10 +4,10 @@
  */
 function getRootCssProperties() {
   return [...document.styleSheets]
-    .map(sheet => [...sheet.cssRules])
+    .map((sheet) => [...sheet.cssRules])
     .flat()
     .filter((rule) => rule.selectorText === ":root")
-    .map(rule => Object.values(rule.style || {}))
+    .map((rule) => Object.values(rule.style || {}))
     .flat()
     .filter(Boolean);
 }
@@ -29,10 +29,11 @@ function getRootCssProperties() {
  * @returns {string[]}
  */
 export function getColorTokens() {
-  const availableColorGroups = ['red', 'green', 'blue', 'yellow', 'gray', 'avatar', 'color'];
+  const availableColorGroups = ["red", "green", "blue", "yellow", "gray", "avatar", "color"];
 
-  const colorTokens = getRootCssProperties()
-    ?.filter(token => availableColorGroups.some((group) => token.startsWith(`--${group}`)));
+  const colorTokens = getRootCssProperties()?.filter((token) =>
+    availableColorGroups.some((group) => token.startsWith(`--${group}`))
+  );
 
   // remove duplicates
   return [...new Set(colorTokens)];

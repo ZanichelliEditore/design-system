@@ -11,5 +11,5 @@ export declare class ZPaginationPage {
   isvisited: boolean;
   /** aria-label string */
   ariaLabel?: string;
-  render(): any;
+  render(): HTMLButtonElement;
 }

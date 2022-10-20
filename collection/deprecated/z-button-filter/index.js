@@ -21,8 +21,9 @@ export class ZButtonFilter {
     return (h("button", { class: `container isactive ${this.issmall ? "small" : ""}`, onClick: this.handleRemovingFilterClick }, this.renderIcon(), this.renderContent(filtername)));
   }
   renderIcon() {
-    if (!this.hasicon)
+    if (!this.hasicon) {
       return null;
+    }
     return (h("z-icon", { class: "close-icon-container", name: "multiply", height: 12, width: 12 }));
   }
   renderContent(filtername) {

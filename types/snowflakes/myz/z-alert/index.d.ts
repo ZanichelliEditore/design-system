@@ -1,9 +1,9 @@
-import { AlertTypes } from "../../../beans/index";
+import { AlertType } from "../../../beans/index";
 /**
  * @slot - alert content
  */
 export declare class ZAlert {
   /** alert variant type */
-  type: AlertTypes;
-  render(): any;
+  type: AlertType;
+  render(): HTMLDivElement;
 }

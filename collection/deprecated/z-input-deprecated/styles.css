@@ -16,17 +16,17 @@ input::-ms-reveal {
 
 input,
 textarea,
-.textareaWrapper,
+.textarea-wrapper,
 ul[role="listbox"] {
+  box-sizing: border-box;
+  border: var(--border-size-small) solid var(--color-surface04);
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
-  border: var(--border-size-small) solid var(--color-surface04);
-  box-sizing: border-box;
   color: var(--color-text02);
   fill: var(--color-icon02);
   font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
   outline: none;
 }
 
@@ -43,27 +43,27 @@ li[role="option"]:focus:focus-visible,
 }
 
 /* STATUSES (success, warning, error) */
-.input_success,
-.input_success:hover,
-.input_success.hover {
-  background: var(--color-success-inverse);
+.input-success,
+.input-success:hover,
+.input-success.hover {
   border-color: var(--color-success01);
+  background: var(--color-success-inverse);
   fill: var(--color-success01);
 }
 
-.input_error,
-.input_error:hover,
-.input_error.hover {
-  background: var(--color-error-inverse);
+.input-error,
+.input-error:hover,
+.input-error.hover {
   border-color: var(--color-error01);
+  background: var(--color-error-inverse);
   fill: var(--color-error01);
 }
 
-.input_warning,
-.input_warning:hover,
-.input_warning.hover {
-  background: var(--color-warning-inverse);
+.input-warning,
+.input-warning:hover,
+.input-warning.hover {
   border-color: var(--color-warning01);
+  background: var(--color-warning-inverse);
   fill: var(--color-warning01);
 }
 
@@ -80,10 +80,10 @@ input:disabled,
 .disabled,
 .filled:disabled {
   border-color: var(--color-disabled01);
+  box-shadow: none;
   color: var(--color-disabled02);
   fill: var(--color-disabled01);
   pointer-events: none;
-  box-shadow: none;
 }
 
 /* PLACEHOLDER */
@@ -92,59 +92,50 @@ textarea::placeholder {
   color: var(--color-text05);
 }
 
-::-webkit-input-placeholder,
 ::-webkit-textarea-placeholder {
   color: var(--color-text05);
 }
 
-:-ms-input-placeholder,
 :-ms-textarea-placeholder {
   color: var(--color-text05);
 }
 
-::-moz-placeholder {
+::placeholder {
   color: var(--color-text05);
 }
 
-:-moz-placeholder {
-  color: var(--color-text05);
-}
-
-.textWrapper > div {
+.text-wrapper > div {
+  position: relative;
+  z-index: 1;
   fill: var(--color-icon02);
 }
 
-.textWrapper > div > input {
+.text-wrapper > div > input {
   width: 100%;
   height: calc(var(--space-unit) * 5.5);
-  margin: 0;
-  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
   box-sizing: border-box;
+  padding: 0 calc(var(--space-unit) * 4.5) 0 calc(var(--space-unit) * 1.5);
+  margin: 0;
 }
 
-.textWrapper > div > input.hasIcon,
-.textWrapper > div > input.hasClearIcon {
+.text-wrapper > div > input.has-icon,
+.text-wrapper > div > input.has-clear-icon {
   padding-right: calc(var(--space-unit) * 4);
 }
 
-.textWrapper > div > input.hasIcon.hasClearIcon {
+.text-wrapper > div > input.has-icon.has-clear-icon {
   padding-right: calc(var(--space-unit) * 7);
 }
 
-.textWrapper > div {
-  position: relative;
-  z-index: 1;
-}
-
-.textWrapper .iconsWrapper {
+.text-wrapper .icons-wrapper {
   position: absolute;
-  bottom: calc(var(--space-unit) * 1.5);
-  right: calc(var(--space-unit) * 1.5);
-  display: flex;
   z-index: 2;
+  right: calc(var(--space-unit) * 1.5);
+  bottom: calc(var(--space-unit) * 1.5);
+  display: flex;
 }
 
-.textWrapper .iconsWrapper > z-icon {
+.text-wrapper .icons-wrapper > z-icon {
   --z-icon-width: 18px;
   --z-icon-height: 18px;
 
@@ -152,20 +143,20 @@ textarea::placeholder {
   margin-left: calc(var(--space-unit) * 0.5);
 }
 
-.textWrapper .iconsWrapper > z-icon.resetIcon,
-.textWrapper .iconsWrapper > z-icon.showHidePasswordIcon {
+.text-wrapper .icons-wrapper > z-icon.reset-icon,
+.text-wrapper .icons-wrapper > z-icon.toggle-password-icon {
   cursor: pointer;
 }
 
 /* Disable background color webkit */
-.textWrapper > div > input:-webkit-autofill,
-.textWrapper > div > input:-webkit-autofill:hover,
-.textWrapper > div > input:-webkit-autofill:focus,
-.textWrapper > div > input:-webkit-autofill:active {
-  -webkit-background-clip: text !important;
+.text-wrapper > div > input:-webkit-autofill,
+.text-wrapper > div > input:-webkit-autofill:hover,
+.text-wrapper > div > input:-webkit-autofill:focus,
+.text-wrapper > div > input:-webkit-autofill:active {
+  background-clip: text !important;
 }
 
-.textareaWrapper {
+.textarea-wrapper {
   padding: calc(var(--space-unit) * 1.5);
 
   /* Firefox scrollbar */
@@ -173,13 +164,8 @@ textarea::placeholder {
 }
 
 textarea::-webkit-scrollbar {
-  background: linear-gradient(
-    to right,
-    transparent 0 3px,
-    var(--gray200) 3px 7px,
-    transparent 7px 10px
-  );
   width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 
@@ -198,99 +184,99 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 textarea {
-  min-height: 132px;
   width: 100%;
-  margin: 0;
+  min-height: 132px;
   padding: 0;
   border: none;
+  margin: 0;
   resize: none;
 }
 
-.radioWrapper,
-.checkboxWrapper {
+.radio-wrapper,
+.checkbox-wrapper {
+  position: relative;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  font-family: var(--font-family-sans);
-  position: relative;
   color: var(--color-text01);
   fill: var(--color-primary01);
+  font-family: var(--font-family-sans);
 }
 
-.radioWrapper:hover,
-.checkboxWrapper:hover {
+.radio-wrapper:hover,
+.checkbox-wrapper:hover {
   color: var(--color-hover-primary);
-  fill: currentColor;
+  fill: currentcolor;
 }
 
-.radioWrapper > input,
-.checkboxWrapper > input {
+.radio-wrapper > input,
+.checkbox-wrapper > input {
   position: absolute;
-  opacity: 0;
   z-index: -1;
+  opacity: 0;
   pointer-events: none;
 }
 
-.radioWrapper .radioLabel,
-.checkboxWrapper .checkboxLabel {
+.radio-wrapper .radio-label,
+.checkbox-wrapper .checkbox-label {
   display: inline-flex;
   align-items: center;
   margin: 0;
-  line-height: 1;
   color: inherit;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
   text-transform: inherit;
 }
 
-.radioWrapper input:not(:disabled) + .radioLabel,
-.checkboxWrapper input:not(:disabled) + .checkboxLabel {
+.radio-wrapper input:not(:disabled) + .radio-label,
+.checkbox-wrapper input:not(:disabled) + .checkbox-label {
   cursor: pointer;
 }
 
-.radioWrapper .radioLabel z-icon,
-.checkboxWrapper .checkboxLabel z-icon {
+.radio-wrapper .radio-label z-icon,
+.checkbox-wrapper .checkbox-label z-icon {
+  cursor: pointer;
   fill: inherit;
-  cursor: pointer;
 }
 
-.radioWrapper .radioLabel.after,
-.checkboxWrapper .checkboxLabel.after {
+.radio-wrapper .radio-label.after,
+.checkbox-wrapper .checkbox-label.after {
   flex-direction: row;
 }
 
-.radioWrapper .radioLabel.before,
-.checkboxWrapper .checkboxLabel.before {
+.radio-wrapper .radio-label.before,
+.checkbox-wrapper .checkbox-label.before {
   flex-direction: row-reverse;
 }
 
-.radioWrapper .radioLabel.after > span,
-.checkboxWrapper .checkboxLabel.after > span {
+.radio-wrapper .radio-label.after > span,
+.checkbox-wrapper .checkbox-label.after > span {
   margin-left: var(--space-unit);
 }
 
-.radioWrapper .radioLabel.before > span,
-.checkboxWrapper .checkboxLabel.before > span {
+.radio-wrapper .radio-label.before > span,
+.checkbox-wrapper .checkbox-label.before > span {
   margin-right: var(--space-unit);
 }
 
 /* focus */
-.radioWrapper > input:focus:focus-visible + .radioLabel > z-icon,
-.checkboxWrapper > input:focus:focus-visible + .checkboxLabel > z-icon {
-  box-shadow: var(--shadow-focus-primary);
+.radio-wrapper > input:focus:focus-visible + .radio-label > z-icon,
+.checkbox-wrapper > input:focus:focus-visible + .checkbox-label > z-icon {
   border-radius: var(--border-radius-small);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 /* disabled */
-.radioWrapper > input:disabled + .radioLabel,
-.checkboxWrapper > input:disabled + .checkboxLabel {
+.radio-wrapper > input:disabled + .radio-label,
+.checkbox-wrapper > input:disabled + .checkbox-label {
   color: var(--color-disabled02);
 }
 
-.radioWrapper > input:disabled + .radioLabel > z-icon,
-.checkboxWrapper > input:disabled + .checkboxLabel > z-icon {
-  fill: var(--color-disabled01);
+.radio-wrapper > input:disabled + .radio-label > z-icon,
+.checkbox-wrapper > input:disabled + .checkbox-label > z-icon {
   cursor: default;
+  fill: var(--color-disabled01);
 }
 

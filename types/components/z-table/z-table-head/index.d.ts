@@ -1,5 +1,5 @@
 export declare class ZTableHead {
-  host: HTMLElement;
+  host: HTMLZTableHeadElement;
   componentWillRender(): void;
-  render(): any;
+  render(): HTMLSlotElement;
 }

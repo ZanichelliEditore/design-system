@@ -1,5 +1,5 @@
-import { h, Host } from '@stencil/core';
-const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== 'undefined';
+import { h, Host } from "@stencil/core";
+const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 /**
  * @slot title
  * @slot subtitle
@@ -27,7 +27,7 @@ export class ZAppHeader {
      *
      * **Optional**
      */
-    this.flow = 'auto';
+    this.flow = "auto";
     /**
      * The opening state of the drawer.
      */
@@ -36,13 +36,15 @@ export class ZAppHeader {
      * The stucked state of the bar.
      */
     this.stucked = false;
-    this.observer = SUPPORT_INTERSECTION_OBSERVER && new IntersectionObserver(([entry]) => {
-      this.stucked = !entry.isIntersecting;
-    }, {
-      threshold: 0.5
-    });
+    this.observer = SUPPORT_INTERSECTION_OBSERVER &&
+      new IntersectionObserver(([entry]) => {
+        this.stucked = !entry.isIntersecting;
+      }, {
+        threshold: 0.5,
+      });
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
+    this.collectMenuElements.bind(this);
   }
   emitStickingEvent() {
     this.sticking.emit(this.stucked);
@@ -53,8 +55,8 @@ export class ZAppHeader {
   }
   get title() {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
-    if (!titleElement) {
-      return '';
+    if (titleElement === null) {
+      return "";
     }
     return titleElement.textContent.trim();
   }
@@ -66,7 +68,7 @@ export class ZAppHeader {
     return parent;
   }
   collectMenuElements() {
-    const menuElements = this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]');
+    const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
   }
@@ -97,7 +99,7 @@ export class ZAppHeader {
     this.emitStickingEvent();
   }
   setMenuFloatingMode() {
-    if (!this.menuElements) {
+    if (this.menuElements.length === 0) {
       return;
     }
     const elements = this.menuElements;
@@ -107,7 +109,7 @@ export class ZAppHeader {
     }
   }
   render() {
-    return h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => this.container = el }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && h("img", { alt: "", src: this.hero }))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" })), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== 'offcanvas' && h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() }))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() })))), this.stucked && h("div", { class: "heading-stucked" }, this.menuLength > 0 && h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" })), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title))));
+    return (h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero })))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements }))))), this.stucked && (h("div", { class: "heading-stucked" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title))))));
   }
   openDrawer() {
     this.drawerOpen = true;
@@ -186,7 +188,7 @@ export class ZAppHeader {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "'auto'|'stack'|'offcanvas'",
+          "original": "\"auto\" | \"stack\" | \"offcanvas\"",
           "resolved": "\"auto\" | \"offcanvas\" | \"stack\"",
           "references": {}
         },
@@ -198,7 +200,7 @@ export class ZAppHeader {
         },
         "attribute": "flow",
         "reflect": true,
-        "defaultValue": "'auto'"
+        "defaultValue": "\"auto\""
       },
       "drawerOpen": {
         "type": "boolean",

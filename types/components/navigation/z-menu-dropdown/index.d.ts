@@ -7,13 +7,13 @@ export declare class ZMenuDropdown {
   /** unique button id */
   buttonid: string;
   ismenuopen: boolean;
-  linkarray: MenuItem[];
+  private linkarray;
   constructor();
   componentWillRender(): void;
-  renderMenuOpen(): any;
-  renderButtonMenu(): any;
-  retriveMenuClass(): string;
-  handleToggle(): void;
-  handleFocus(e: MouseEvent | KeyboardEvent): void;
-  render(): any;
+  private renderMenuOpen;
+  private renderButtonMenu;
+  private retriveMenuClass;
+  private handleToggle;
+  private handleFocus;
+  render(): HTMLAnchorElement;
 }

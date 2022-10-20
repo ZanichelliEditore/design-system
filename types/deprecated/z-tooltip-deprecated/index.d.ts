@@ -1,4 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
+import { HostElement } from "../../stencil-public-runtime";
 import { PopoverPositions } from "../../beans/index";
 export declare class ZTooltipDeprecated {
   /** Content text.
@@ -23,9 +24,9 @@ export declare class ZTooltipDeprecated {
    * Position change event.
    */
   positionChange: EventEmitter;
-  host: HTMLElement;
+  host: HTMLZTooltipDeprecatedElement;
   private animationFrameRequestId?;
-  validateType(newValue: any): void;
+  validateType(newValue: PopoverPositions): void;
   onPositionChange(): void;
   disconnectedCallback(): void;
   /**
@@ -37,5 +38,5 @@ export declare class ZTooltipDeprecated {
    */
   private setPosition;
   componentWillLoad(): void;
-  render(): any;
+  render(): HostElement;
 }

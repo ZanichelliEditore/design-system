@@ -1,24 +1,15 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { v as ToastNotificationPositionsEnum } from './index-8390ddaf.js';
+import { r as registerInstance, h, g as getElement } from './index-a2ca4b97.js';
+import { u as ToastNotificationPosition } from './index-9d028352.js';
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);position:fixed;display:flex;flex-direction:column;flex-wrap:nowrap;z-index:10000;margin-bottom:calc(var(--space-unit) * 2);margin-top:calc(var(--space-unit) * 2)}::slotted(z-toast-notification){width:100vw}::slotted(:not(:last-child)){margin-bottom:calc(var(--space-unit) * 1)}:host(.bottom-centre),:host(.bottom-right),:host(.bottom-left){justify-content:flex-end;align-items:flex-end;bottom:0}:host(.top-left),:host(.top-right),:host(.top-centre){justify-content:flex-start;align-items:flex-start;top:0}@media only screen and (min-width: 768px){:host{margin:calc(var(--space-unit) * 3)}:host(.top-centre){justify-content:flex-start;align-items:center;top:0;left:50%;transform:translateX(-50%)}:host(.top-left){justify-content:flex-start;align-items:flex-start;top:0;left:0}:host(.top-right){justify-content:flex-start;align-items:flex-end;top:0;right:0}:host(.bottom-centre){justify-content:flex-end;align-items:center;bottom:0;left:50%;transform:translateX(-50%)}:host(.bottom-right){justify-content:flex-end;align-items:flex-end;bottom:0;right:0}:host(.bottom-left){justify-content:flex-end;align-items:flex-start;bottom:0;left:0}::slotted(z-toast-notification){width:50vw}}@media only screen and (min-width: 1366px){:host{margin:calc(var(--space-unit) * 4)}::slotted(z-toast-notification){width:33vw}}";
+const stylesCss = ":host{position:fixed;z-index:10000;display:flex;flex-flow:column nowrap;margin-top:calc(var(--space-unit) * 2);margin-bottom:calc(var(--space-unit) * 2);font-family:var(--font-family-sans);font-weight:var(--font-rg)}::slotted(z-toast-notification){width:100vw}::slotted(:not(:last-child)){margin-bottom:calc(var(--space-unit) * 1)}:host([position=\"bottom-centre\"]),:host([position=\"bottom-right\"]),:host([position=\"bottom-left\"]){bottom:0;align-items:flex-end;justify-content:flex-end}:host([position=\"top-left\"]),:host([position=\"top-right\"]),:host([position=\"top-centre\"]){top:0;align-items:flex-start;justify-content:flex-start}@media only screen and (min-width: 768px){:host{margin:calc(var(--space-unit) * 3)}:host([position=\"top-centre\"]){top:0;left:50%;align-items:center;justify-content:flex-start;transform:translateX(-50%)}:host([position=\"top-left\"]){top:0;left:0;align-items:flex-start;justify-content:flex-start}:host([position=\"top-right\"]){top:0;right:0;align-items:flex-end;justify-content:flex-start}:host([position=\"bottom-centre\"]){bottom:0;left:50%;align-items:center;justify-content:flex-end;transform:translateX(-50%)}:host([position=\"bottom-right\"]){right:0;bottom:0;align-items:flex-end;justify-content:flex-end}:host([position=\"bottom-left\"]){bottom:0;left:0;align-items:flex-start;justify-content:flex-end}::slotted(z-toast-notification){width:50vw}}@media only screen and (min-width: 1366px){:host{margin:calc(var(--space-unit) * 4)}::slotted(z-toast-notification){width:33vw}}";
 
 const ZToastNotificationList = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
+    this.position = ToastNotificationPosition.TOP_RIGHT;
     /**Set the entry position of new notification in the list */
     this.newestontop = true;
-    this.slotChangeHandler = () => {
-      const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
-      if (difference) {
-        difference.forEach((elem) => {
-          this.notificationArray.push(elem);
-          const newElem = elem;
-          elem.remove();
-          this.hostElement.prepend(newElem);
-        });
-      }
-    };
   }
   watchPropNewestontop(newValue) {
     this.hostElement.append(...this.notificationArray.reverse());
@@ -37,10 +28,19 @@ const ZToastNotificationList = class {
     this.hostElement.append(...this.notificationArray.reverse());
     this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
   }
+  slotChangeHandler() {
+    const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
+    if (difference) {
+      difference.forEach((elem) => {
+        this.notificationArray.push(elem);
+        const newElem = elem;
+        elem.remove();
+        this.hostElement.prepend(newElem);
+      });
+    }
+  }
   render() {
-    return (h(Host, { class: this.position
-        ? this.position
-        : ToastNotificationPositionsEnum.topRight }, h("slot", { name: "toasts" })));
+    return h("slot", { name: "toasts" });
   }
   get hostElement() { return getElement(this); }
   static get watchers() { return {

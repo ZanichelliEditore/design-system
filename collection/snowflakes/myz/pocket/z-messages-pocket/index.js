@@ -1,12 +1,12 @@
 import { h } from "@stencil/core";
-import { PocketStatusEnum } from "../../../../beans";
+import { PocketStatus } from "../../../../beans";
 /**
  * @slot  - pocket body content
  */
 export class ZMessagesPocket {
   constructor() {
     /** pocket status */
-    this.status = PocketStatusEnum.preview;
+    this.status = PocketStatus.PREVIEW;
   }
   handlePocketToggle(e) {
     if (e.detail.id === this.pocketid) {
@@ -17,12 +17,12 @@ export class ZMessagesPocket {
     let message;
     let icon;
     switch (this.status) {
-      case PocketStatusEnum.preview:
-      case PocketStatusEnum.closed:
+      case PocketStatus.PREVIEW:
+      case PocketStatus.CLOSED:
         message = (h("span", null, "Messaggi ", h("span", { class: "badge" }, this.messages)));
         icon = "chevron-up";
         break;
-      case PocketStatusEnum.open:
+      case PocketStatus.OPEN:
         message = h("span", null, "Riduci");
         icon = "chevron-down";
         break;
@@ -88,7 +88,7 @@ export class ZMessagesPocket {
         "mutable": true,
         "complexType": {
           "original": "PocketStatus",
-          "resolved": "PocketStatusEnum.closed | PocketStatusEnum.open | PocketStatusEnum.preview",
+          "resolved": "PocketStatus.CLOSED | PocketStatus.OPEN | PocketStatus.PREVIEW",
           "references": {
             "PocketStatus": {
               "location": "import",
@@ -104,7 +104,7 @@ export class ZMessagesPocket {
         },
         "attribute": "status",
         "reflect": false,
-        "defaultValue": "PocketStatusEnum.preview"
+        "defaultValue": "PocketStatus.PREVIEW"
       }
     };
   }

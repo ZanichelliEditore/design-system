@@ -1,6 +1,7 @@
 import { colorFromId } from "./utils/utils";
-export * from "./components";
-export * from "./beans";
-export declare const Utils: {
+declare const UTILS: {
   colorFromId: typeof colorFromId;
 };
+export { UTILS as Utils };
+export * from "./components";
+export * from "./beans";

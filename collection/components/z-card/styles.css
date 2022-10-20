@@ -22,7 +22,7 @@ respecting the grid indications of the design. */
   box-sizing: border-box;
 }
 
-:host(:not([variant='overlay'])) .cover-container {
+:host(:not([variant="overlay"])) .cover-container {
   position: relative;
   width: 100%;
 }
@@ -33,7 +33,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   padding-bottom: calc(100% / var(--aspect-ratio));
 }
 
-::slotted([slot='cover']),
+::slotted([slot="cover"]),
 .color-cover {
   position: absolute;
   top: 0;
@@ -66,44 +66,44 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 .color-cover .cover-content {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
   padding: var(--space-unit);
 }
 
 /* Truncates overflowing text */
-::slotted([slot='metadata']),
-::slotted([slot='title']),
-::slotted([slot='text']) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
+::slotted([slot="metadata"]),
+::slotted([slot="title"]),
+::slotted([slot="text"]) {
+  display: box;
   overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
-::slotted([slot='title']:not(:last-child)),
-::slotted([slot='text']:not(:last-child)) {
+::slotted([slot="title"]:not(:last-child)),
+::slotted([slot="text"]:not(:last-child)) {
   margin-bottom: var(--space-unit);
 }
 
-::slotted([slot='text']),
-::slotted([slot='actions']) {
+::slotted([slot="text"]),
+::slotted([slot="actions"]) {
   margin: 0;
 }
 
-::slotted([slot='metadata']:not(:last-child)) {
+::slotted([slot="metadata"]:not(:last-child)) {
   margin: 0 0 calc(var(--space-unit) * 0.25);
   -webkit-line-clamp: 1;
   text-transform: uppercase;
 }
 
-::slotted([slot='title']) {
+::slotted([slot="title"]) {
   margin: 0;
   font-weight: var(--font-sb);
   -webkit-line-clamp: 2;
 }
 
-::slotted([slot='text']) {
+::slotted([slot="text"]) {
   -webkit-line-clamp: 3;
 }
 
@@ -113,7 +113,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   align-items: center;
 }
 
-::slotted([slot='action']:not(:last-child)) {
+::slotted([slot="action"]:not(:last-child)) {
   margin-right: calc(var(--space-unit) * 1.5);
 }
 
@@ -131,72 +131,68 @@ Unfortunately the `aspect-ratio` property is still experimental */
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant='text']) {
-  background-color: var(--z-card--text-background);
+:host([variant="text"]) {
   border: var(--z-card--text-border);
+  background-color: var(--z-card--text-background);
   border-radius: var(--z-card--text-border-radius);
 }
 
 :host([showshadow]) > .content,
-:host([variant='border']) > .content,
-:host([variant='shadow']) > .content {
+:host([variant="border"]) > .content,
+:host([variant="shadow"]) > .content {
   height: 100%;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host([variant='text']) > .content {
-  padding: calc(var(--space-unit) * 2) var(--space-unit)
+:host([variant="text"]) > .content {
+  padding: calc(var(--space-unit) * 2) var(--space-unit);
 }
 
-:host([variant='border']) .actions,
-:host([variant='shadow']) .actions {
+:host([variant="border"]) .actions,
+:host([variant="shadow"]) .actions {
   margin-top: auto;
 }
 
 /* Border */
-:host([variant='border']) {
+:host([variant="border"]) {
   border: var(--border-size-small) solid var(--z-card--border-color);
 }
 
-:host([variant='border'][clickable]:hover) > .content {
+:host([variant="border"][clickable]:hover) > .content {
   background: var(--color-background);
 }
 
-:host([variant='border'][clickable]:focus:focus-visible) {
+:host([variant="border"][clickable]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant='border'][clickable]:active) {
+:host([variant="border"][clickable]:active) {
   border-color: transparent;
 }
 
 /* Shadow */
-:host([variant='shadow']),
-:host([showshadow])
-{
+:host([variant="shadow"]),
+:host([showshadow]) {
   box-shadow: var(--shadow-2);
 }
 
-:host([variant='shadow'][clickable]:hover),
-:host([clickable][showshadow]:hover)
-{
+:host([variant="shadow"][clickable]:hover),
+:host([clickable][showshadow]:hover) {
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:focus:focus-visible),
-:host([clickable][showshadow]:focus:focus-visible)
-{
+:host([variant="shadow"][clickable]:focus:focus-visible),
+:host([clickable][showshadow]:focus:focus-visible) {
   box-shadow: var(--shadow-4);
 }
 
-:host([variant='shadow'][clickable]:active),
-:host([clickable][showshadow]:active)
-{
+:host([variant="shadow"][clickable]:active),
+:host([clickable][showshadow]:active) {
   box-shadow: none;
 }
 
 /* Overlay */
-:host([variant='overlay']) .content {
+:host([variant="overlay"]) .content {
   position: absolute;
   top: 0;
   right: 0;
@@ -204,7 +200,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   left: 0;
   justify-content: flex-end;
   padding: var(--space-unit);
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
 }

@@ -5,5 +5,5 @@ export declare class ZFooterSocial {
   href: string;
   /** social description */
   description?: string;
-  render(): any;
+  render(): HTMLAnchorElement;
 }

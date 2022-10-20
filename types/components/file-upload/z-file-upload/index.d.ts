@@ -1,10 +1,11 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ButtonVariantEnum, ZFileUploadTypeEnum } from "../../../beans";
+import { HostElement } from "../../../stencil-public-runtime";
+import { ButtonVariant, ZFileUploadType } from "../../../beans";
 export declare class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
-  type: ZFileUploadTypeEnum;
+  type: ZFileUploadType;
   /** Prop indicating the button variant*/
-  buttonVariant?: ButtonVariantEnum;
+  buttonVariant?: ButtonVariant;
   /** Prop indicating the accepted file type: ex ".pdf, .doc, .jpg" */
   acceptedFormat?: string;
   /** Max file dimension in Megabyte */
@@ -16,8 +17,8 @@ export declare class ZFileUpload {
   /** Files added by the user */
   files: File[];
   /** List of files not allowed to be uploaded */
-  invalidFiles: Map<string, Array<string>>;
-  el: HTMLElement;
+  invalidFiles: Map<string, string[]>;
+  el: HTMLZFileUploadElement;
   private input;
   private button;
   private errorModal;
@@ -31,21 +32,21 @@ export declare class ZFileUpload {
   componentWillLoad(): void;
   /** Emitted when user select one or more files */
   fileInput: EventEmitter;
-  fileInputHandler(): void;
+  private fileInputHandler;
   /** get array of uploaded files */
   getFiles(): Promise<File[]>;
-  handleAccessibility(): void;
-  checkFiles(files: Array<File>): Map<string, Array<string>>;
-  renderTitle(): any;
-  renderDescription(variant: any, level: any): any;
-  renderAllowedFileExtensions(): any;
-  renderFileSection(): any;
-  renderInput(): any;
-  renderUploadButton(): any[];
-  renderUploadLink(): any[];
-  renderDefaultMode(): any[];
-  renderDragDropMode(): any[];
-  formatErrorString(key: any, value: any): string;
-  handleErrorModalContent(): any;
-  render(): any[];
+  private handleAccessibility;
+  private checkFiles;
+  private renderTitle;
+  private renderDescription;
+  private renderAllowedFileExtensions;
+  private renderFileSection;
+  private renderInput;
+  private renderUploadButton;
+  private renderUploadLink;
+  private renderDefaultMode;
+  private renderDragDropMode;
+  private formatErrorString;
+  private handleErrorModalContent;
+  render(): HostElement;
 }

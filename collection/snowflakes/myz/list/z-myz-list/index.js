@@ -32,7 +32,7 @@ export class ZMyzList {
     return {
       "inputrawdata": {
         "type": "string",
-        "mutable": true,
+        "mutable": false,
         "complexType": {
           "original": "string",
           "resolved": "string",
@@ -51,10 +51,10 @@ export class ZMyzList {
         "type": "unknown",
         "mutable": true,
         "complexType": {
-          "original": "ListItemBean[]",
-          "resolved": "ListItemBean[]",
+          "original": "ListItem[]",
+          "resolved": "ListItem[]",
           "references": {
-            "ListItemBean": {
+            "ListItem": {
               "location": "import",
               "path": "../../../../beans/index.js"
             }

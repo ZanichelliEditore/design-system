@@ -4,7 +4,7 @@ import { mobileBreakpoint } from "../../../constants/breakpoints";
 export class ZAppTopbar {
   constructor() {
     /** theme variant, default 'dark' */
-    this.theme = ThemeVariant.dark;
+    this.theme = ThemeVariant.DARK;
     this.topbarLinks = [];
   }
   handleResize() {
@@ -19,13 +19,13 @@ export class ZAppTopbar {
     }
   }
   renderTopbarLinks() {
-    return this.topbarLinks.map((link) => h("z-link", { htmlid: link.id, textcolor: this.theme === ThemeVariant.light ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label));
+    return this.topbarLinks.map((link) => (h("z-link", { htmlid: link.id, textcolor: this.theme === ThemeVariant.LIGHT ? "black" : "white", href: link.link, target: link.target, icon: this.isMobile ? link.icon : undefined }, !this.isMobile && link.label)));
   }
   render() {
     return (h(Host, { class: {
         [this.theme]: true,
-        "limited-width": !!this.contentMaxWidth
-      } }, h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("div", { id: "left-panel", class: "content-panel" }, h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }), this.isMobile && this.renderTopbarLinks()), h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }), h("div", { id: "divider-container" }, h("z-divider", { orientation: DividerOrientation.vertical, color: this.theme === ThemeVariant.light ? "gray800" : "color-white" })), h("slot", { name: "login" })))));
+        "limited-width": !!this.contentMaxWidth,
+      } }, h("div", { id: "content-container", style: this.contentMaxWidth ? { "--mw": `${this.contentMaxWidth}px` } : {} }, h("div", { id: "left-panel", class: "content-panel" }, h("z-logo", { mobileLogo: this.isMobile, width: this.isMobile ? 32 : 128, height: this.isMobile ? 40 : 32, imageAlt: "zanichelli-logo", link: this.logoLink, targetBlank: true }), this.isMobile && this.renderTopbarLinks()), h("div", { id: "right-panel", class: "content-panel" }, !this.isMobile && this.renderTopbarLinks(), this.showAppSwitcher && h("z-app-switcher", { theme: this.theme }), h("div", { id: "divider-container" }, h("z-divider", { orientation: DividerOrientation.VERTICAL, color: this.theme === ThemeVariant.LIGHT ? "gray800" : "color-white" })), h("slot", { name: "login" })))));
   }
   static get is() { return "z-app-topbar"; }
   static get encapsulation() { return "shadow"; }
@@ -46,7 +46,7 @@ export class ZAppTopbar {
         "mutable": false,
         "complexType": {
           "original": "ThemeVariant",
-          "resolved": "ThemeVariant.dark | ThemeVariant.light",
+          "resolved": "ThemeVariant.DARK | ThemeVariant.LIGHT",
           "references": {
             "ThemeVariant": {
               "location": "import",
@@ -62,7 +62,7 @@ export class ZAppTopbar {
         },
         "attribute": "theme",
         "reflect": false,
-        "defaultValue": "ThemeVariant.dark"
+        "defaultValue": "ThemeVariant.DARK"
       },
       "contentMaxWidth": {
         "type": "number",

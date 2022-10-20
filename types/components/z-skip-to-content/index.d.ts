@@ -1,4 +1,5 @@
 import { ThemeVariant, SkipToContentLink } from "../../beans";
+import { HostElement } from "../../stencil-public-runtime";
 /**
  * Component short description.
  */
@@ -9,14 +10,13 @@ export declare class ZSkipToContent {
   links: string | SkipToContentLink[];
   visible: boolean;
   visibleLink: string;
-  hostElement: HTMLElement;
-  handleFocusOutSkipToContent(e: any): void;
-  handleFocusSkipToContent(e: any): void;
+  hostElement: HTMLZSkipToContentElement;
+  handleFocusOutSkipToContent(e: FocusEvent): void;
+  handleFocusSkipToContent(e: FocusEvent): void;
   componentDidLoad(): void;
   componentWillRender(): void;
-  isInSkipToContent(elem: any): boolean;
-  getFirstChild(): false | Element;
-  showFirstChild(): void;
-  handleLinkClick(): void;
-  render(): any;
+  private isInSkipToContent;
+  private showFirstChild;
+  private handleLinkClick;
+  render(): HostElement;
 }

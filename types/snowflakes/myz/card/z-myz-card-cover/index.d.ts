@@ -7,6 +7,6 @@ export declare class ZMyzCardCover {
   faded: boolean;
   /** default error image source */
   defaultimg: string;
-  hadleOnImageError(): void;
-  render(): any;
+  private hadleOnImageError;
+  render(): HTMLImageElement;
 }

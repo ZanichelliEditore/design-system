@@ -1,6 +1,7 @@
+import { HostElement } from "../../../stencil-public-runtime";
 import { DividerSize, ListSize, ListDividerType } from "../../../beans";
 export declare class ZListGroup {
-  host: HTMLElement;
+  host: HTMLZListGroupElement;
   /**
    * [optional] Sets size of inside elements.
    */
@@ -17,8 +18,8 @@ export declare class ZListGroup {
    * [optional] Sets the divider color.
    */
   dividerColor?: string;
-  hasHeader: boolean;
+  private hasHeader;
   componentDidLoad(): void;
   componentWillLoad(): void;
-  render(): any;
+  render(): HostElement;
 }

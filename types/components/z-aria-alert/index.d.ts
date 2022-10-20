@@ -1,4 +1,7 @@
+import { HostElement } from "../../stencil-public-runtime";
+import { ZAriaAlertMode } from "../../beans";
 export declare class ZAriaAlert {
-  mode: string;
-  render(): any;
+  /** Aria live mode */
+  mode: ZAriaAlertMode;
+  render(): HostElement;
 }

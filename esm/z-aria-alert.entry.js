@@ -1,10 +1,11 @@
 import { r as registerInstance, h, H as Host } from './index-a2ca4b97.js';
-import { w as ZAriaAlertMode } from './index-8390ddaf.js';
+import { v as ZAriaAlertMode } from './index-9d028352.js';
 
 const ZAriaAlert = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
-    this.mode = ZAriaAlertMode.polite;
+    /** Aria live mode */
+    this.mode = ZAriaAlertMode.POLITE;
   }
   render() {
     return (h(Host, { "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", null)));

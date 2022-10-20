@@ -1,8 +1,9 @@
-import { Host, h, } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { ZTableRowExpandedType } from "../../../beans";
 export class ZTableRow {
   constructor() {
-    this.expandedType = ZTableRowExpandedType.none;
+    /** Table row expanded type */
+    this.expandedType = ZTableRowExpandedType.NONE;
     this.expanded = false;
   }
   emitOnExpand() {
@@ -13,20 +14,19 @@ export class ZTableRow {
     this.emitOnExpand();
   }
   renderExpandButton() {
-    if (this.expandedType == ZTableRowExpandedType.expandable) {
+    if (this.expandedType == ZTableRowExpandedType.EXPANDABLE) {
       return (h("z-table-cell", { style: { borderRight: "none" } }, h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })));
     }
     return (h("z-table-cell", { style: { borderRight: "none" } }, h("div", { class: "z-icon-placeholder" })));
   }
   render() {
     return (h(Host, { role: "row", expanded: this.expanded, onClick: (event) => {
-        const contextualMenuClick = event.target.nodeName === 'Z-CONTEXTUAL-MENU';
-        const isExpandable = this.expandedType === ZTableRowExpandedType.expandable;
+        const contextualMenuClick = event.target.nodeName === "Z-CONTEXTUAL-MENU";
+        const isExpandable = this.expandedType === ZTableRowExpandedType.EXPANDABLE;
         if (isExpandable && !contextualMenuClick) {
           this.handleExpand();
         }
-      } }, this.expandedType !== ZTableRowExpandedType.none &&
-      this.renderExpandButton(), h("slot", null)));
+      } }, this.expandedType !== ZTableRowExpandedType.NONE && this.renderExpandButton(), h("slot", null)));
   }
   static get is() { return "z-table-row"; }
   static get originalStyleUrls() {
@@ -46,7 +46,7 @@ export class ZTableRow {
         "mutable": false,
         "complexType": {
           "original": "ZTableRowExpandedType",
-          "resolved": "ZTableRowExpandedType.expandable | ZTableRowExpandedType.none | ZTableRowExpandedType.padding",
+          "resolved": "ZTableRowExpandedType.EXPANDABLE | ZTableRowExpandedType.NONE | ZTableRowExpandedType.PADDING",
           "references": {
             "ZTableRowExpandedType": {
               "location": "import",
@@ -58,11 +58,11 @@ export class ZTableRow {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Table row expanded type"
         },
         "attribute": "expanded-type",
         "reflect": true,
-        "defaultValue": "ZTableRowExpandedType.none"
+        "defaultValue": "ZTableRowExpandedType.NONE"
       }
     };
   }
@@ -80,7 +80,7 @@ export class ZTableRow {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": ""
+          "text": "Row has been expanded"
         },
         "complexType": {
           "original": "any",

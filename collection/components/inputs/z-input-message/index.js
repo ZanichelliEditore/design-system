@@ -8,7 +8,7 @@ export class ZInputMessage {
     };
   }
   render() {
-    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 }, this.statusIcons[this.status] && this.message && (h("z-icon", { name: this.statusIcons[this.status] })), h("span", { innerHTML: this.message })));
+    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 }, this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { innerHTML: this.message })));
   }
   static get is() { return "z-input-message"; }
   static get encapsulation() { return "shadow"; }
@@ -45,10 +45,10 @@ export class ZInputMessage {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "InputStatusBean",
-          "resolved": "\"error\" | \"success\" | \"warning\"",
+          "original": "InputStatus",
+          "resolved": "InputStatus.ERROR | InputStatus.SUCCESS | InputStatus.WARNING",
           "references": {
-            "InputStatusBean": {
+            "InputStatus": {
               "location": "import",
               "path": "../../../beans"
             }

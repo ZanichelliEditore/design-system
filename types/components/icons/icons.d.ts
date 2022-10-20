@@ -1,4 +1,4 @@
-export declare const icons: {
+export declare const ICONS: {
   "assign-task-button": string;
   "atom-button": string;
   "burger-menu-booktab-button": string;
