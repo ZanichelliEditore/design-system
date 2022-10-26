@@ -6,8 +6,7 @@ import {getDevice} from "../../../utils/utils";
 @Component({
   tag: "z-file-upload",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
@@ -108,8 +107,9 @@ export class ZFileUpload {
   }
 
   private handleAccessibility(): void {
-    if (this.files.length > 0) {
-      (this.el.querySelector("z-file:last-child z-chip button") as HTMLElement).focus();
+    const lastFile = this.el.querySelector("z-file:last-child z-chip button");
+    if (this.files.length > 0 && lastFile) {
+      (lastFile as HTMLElement).focus();
     } else {
       this.type === ZFileUploadType.DEFAULT
         ? this.button.shadowRoot.querySelector("button").focus()
@@ -193,25 +193,19 @@ export class ZFileUpload {
   }
 
   private renderFileSection(): HTMLElement {
-    if (!this.files.length) {
-      return;
-    }
-
     return (
-      this.files.length > 0 && (
-        <section class="files-container">
-          <z-heading
-            variant="semibold"
-            level={4}
-          >
-            File appena caricati
-          </z-heading>
-          <div class="files">
-            <slot name="files" />
-          </div>
-          <z-divider size={DividerSize.MEDIUM} />
-        </section>
-      )
+      <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
+        <z-heading
+          variant="semibold"
+          level={4}
+        >
+          File appena caricati
+        </z-heading>
+        <div class="files-wrapper">
+          <slot name="files" />
+        </div>
+        <z-divider size={DividerSize.MEDIUM} />
+      </section>
     );
   }
 
