@@ -1,5 +1,6 @@
 import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
 import {PopoverPositions, KeyboardCode} from "../../beans";
+import {getElementTree} from "../../utils/utils";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
@@ -182,8 +183,8 @@ export class ZPopover {
       return;
     }
 
-    // @ts-ignore
-    const parent = e.path.find((elem) => elem === this.host);
+    const tree = getElementTree(e.target as Element);
+    const parent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-popover");
 
     if (!parent) {
       this.open = false;
