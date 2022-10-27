@@ -181,7 +181,7 @@ export class ZCarousel {
     this.current = index;
   }
 
-  render(): HTMLDivElement | HTMLBaseElement {
+  render(): HTMLZCarouselElement {
     if (this.isLoading) {
       return (
         <Host>
