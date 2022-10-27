@@ -7,7 +7,7 @@
 
 | Property         | Attribute        | Description                                                                    | Type                                                              | Default              |
 | ---------------- | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------- |
-| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                          | `undefined`          |
+| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                          | `""`                 |
 | `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
 | `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                                                         | `false`              |
 | `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |

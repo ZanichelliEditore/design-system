@@ -12,7 +12,7 @@ describe("Suite test ZMyzCardIcon", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-icon icon="icon">
       <mock:shadow-root>
-        <button>
+        <button aria-label="">
           <span>
             <z-icon height="16" name="icon" width="16"></z-icon>
           </span>
@@ -48,7 +48,7 @@ describe("Suite test ZMyzCardIcon", () => {
     expect(page.root).toEqualHtml(`
     <z-myz-card-icon icon="icon" isdisabled>
       <mock:shadow-root>
-        <button disabled>
+        <button aria-label="" disabled>
           <span>
             <z-icon height="16" name="icon" width="16"></z-icon>
           </span>
