@@ -1,5 +1,4 @@
 import {Component, h, Prop, Element, Watch, Event, EventEmitter, State, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant, ButtonSize} from "../../beans";
 
 /**
@@ -182,7 +181,7 @@ export class ZCarousel {
     this.current = index;
   }
 
-  render(): HTMLDivElement | HostElement {
+  render(): HTMLDivElement | HTMLBaseElement {
     if (this.isLoading) {
       return (
         <Host>
