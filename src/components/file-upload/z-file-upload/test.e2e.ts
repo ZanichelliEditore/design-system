@@ -19,10 +19,9 @@ describe("z-file-upload test end2end", () => {
     await page.waitForChanges();
 
     // simulate upload of file
-    const [fileChooser] = await Promise.all([
-      page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector("z-file-upload div z-button") as HTMLElement).click()),
-    ]);
+    const button = await page.find("z-file-upload >>> div z-button >>> button");
+    button.click();
+    const fileChooser = await page.waitForFileChooser();
 
     const fileInputEvent = await zfu.spyOnEvent("fileInput");
 
@@ -47,10 +46,9 @@ describe("z-file-upload test end2end", () => {
     const zfu = await page.find("z-file-upload");
 
     // simulate upload of file
-    const [fileChooser] = await Promise.all([
-      page.waitForFileChooser(),
-      page.evaluate(() => (document.querySelector("z-file-upload div z-button") as HTMLElement).click()),
-    ]);
+    const button = await page.find("z-file-upload >>> div z-button >>> button");
+    button.click();
+    const fileChooser = await page.waitForFileChooser();
 
     const fileInputEvent = await zfu.spyOnEvent("fileInput");
 
@@ -59,7 +57,7 @@ describe("z-file-upload test end2end", () => {
 
     expect(fileInputEvent).not.toHaveReceivedEvent();
 
-    const errorModal = await page.find("z-file-upload z-modal");
+    const errorModal = await page.find("z-file-upload >>> z-modal");
     expect(errorModal).not.toBeNull();
   });
 
