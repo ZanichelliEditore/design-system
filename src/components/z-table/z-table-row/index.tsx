@@ -1,5 +1,4 @@
 import {Component, Prop, State, Host, h, Event, EventEmitter} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 import {ZTableRowExpandedType} from "../../../beans";
 @Component({
@@ -46,7 +45,7 @@ export class ZTableRow {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZTableRowElement {
     return (
       <Host
         role="row"

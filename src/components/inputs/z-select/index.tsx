@@ -29,7 +29,7 @@ export class ZSelect {
 
   /** the input aria-label */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel: string;
 
   /** the input is disabled */
   @Prop()

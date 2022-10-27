@@ -1,5 +1,4 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {DividerSize, ZSectionTitleDividerPosition} from "../../beans";
 
 /**
@@ -38,7 +37,7 @@ export class ZSectionTitle {
     this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
   }
 
-  render(): HostElement {
+  render(): HTMLZSectionTitleElement {
     return (
       <Host>
         <slot name="secondary-title" />

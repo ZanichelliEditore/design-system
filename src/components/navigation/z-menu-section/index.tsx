@@ -1,5 +1,4 @@
 import {Component, h, Prop, State, Event, EventEmitter, Element, Listen, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 /**
  * @slot - Menu section label
@@ -63,7 +62,7 @@ export class ZMenuSection {
     this.checkContent();
   }
 
-  render(): HostElement {
+  render(): HTMLZMenuSectionElement {
     return (
       <Host
         role="menu"

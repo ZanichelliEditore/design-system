@@ -3,7 +3,6 @@ import {ToastNotificationTransition, ToastNotification} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
 import Hammer from "hammerjs";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-toast-notification",
@@ -304,7 +303,7 @@ export class ZToastNotification {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZToastNotificationElement {
     return (
       <Host
         style={{

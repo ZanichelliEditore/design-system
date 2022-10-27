@@ -30,7 +30,7 @@ export class ZInputDeprecated {
 
   /** the input aria-label */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel: string = "";
 
   /** the input value */
   @Prop({mutable: true})

@@ -1,5 +1,4 @@
 import {Component, Prop, Host, h} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-table-header-row",
@@ -15,7 +14,7 @@ export class ZTableHeaderRow {
     return <z-table-header></z-table-header>;
   }
 
-  render(): HostElement {
+  render(): HTMLZTableHeaderRowElement {
     return (
       <Host role="row">
         {this.expandable && this.renderExpandHeader()}

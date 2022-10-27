@@ -1,5 +1,4 @@
 import {Component, Element, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
@@ -61,7 +60,7 @@ export class ZOffcanvas {
     }
   }
 
-  render(): HostElement {
+  render(): HTMLZOffcanvasElement {
     return (
       <Host>
         <div

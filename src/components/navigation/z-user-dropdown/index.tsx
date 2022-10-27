@@ -1,5 +1,4 @@
 import {Component, Prop, State, Event, Listen, h, EventEmitter, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {MenuItem} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -199,7 +198,7 @@ export class ZUserDropdown {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZUserDropdownElement {
     const openClass = `${this.logged && this.isMenuOpen ? "open" : ""}`;
     const colorClass = this.useInverseColors ? "inverse" : "";
 

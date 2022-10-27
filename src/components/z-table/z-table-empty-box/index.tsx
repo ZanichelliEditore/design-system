@@ -1,5 +1,4 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-table-empty-box",
@@ -28,7 +27,7 @@ export class ZTableEmptyBox {
     this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
 
-  render(): HostElement {
+  render(): HTMLZTableEmptyBoxElement {
     return (
       <Host>
         <z-body

@@ -1,5 +1,4 @@
 import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions} from "../../beans/index";
 
 const DOCUMENT_ELEMENT = document.documentElement;
@@ -309,7 +308,7 @@ export class ZTooltipDeprecated {
     this.onOpen();
   }
 
-  render(): HostElement {
+  render(): HTMLZTooltipDeprecatedElement {
     if (this.content) {
       return (
         <Host

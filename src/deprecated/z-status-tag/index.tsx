@@ -1,6 +1,5 @@
 import {Component, Prop, h, Host} from "@stencil/core";
 import {StatusTagStatus, ThemeVariant} from "../../beans";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-status-tag",
@@ -34,7 +33,7 @@ export class ZStatusTag {
     }
   }
 
-  render(): HostElement {
+  render(): HTMLZStatusTagElement {
     return (
       <Host
         class={{

@@ -1,5 +1,4 @@
 import {Component, Prop, h, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 /**
  * Ztag  component.
@@ -22,7 +21,7 @@ export class ZTag {
   @Prop()
   expandable?: boolean;
 
-  render(): HostElement {
+  render(): HTMLZTagElement {
     return (
       <Host
         class={{

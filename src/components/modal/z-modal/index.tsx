@@ -1,5 +1,4 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 /**
  * @slot modalContent - set the content of the modal
@@ -51,7 +50,7 @@ export class ZModal {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 
-  render(): HostElement {
+  render(): HTMLZModalElement {
     return (
       <Host>
         <div

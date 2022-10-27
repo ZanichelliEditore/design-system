@@ -1,7 +1,6 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
 import {LabelPosition} from "../../../beans";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-toggle-switch",
@@ -46,7 +45,7 @@ export class ZToggleSwitch {
     this.emitToggleClick();
   }
 
-  render(): HostElement {
+  render(): HTMLZToggleSwitchElement {
     return (
       <Host>
         <input
