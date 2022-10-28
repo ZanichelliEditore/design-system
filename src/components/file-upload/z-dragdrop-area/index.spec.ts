@@ -11,6 +11,7 @@ describe("Suite test ZDragdropArea", () => {
 
     expect(page.root).toEqualHtml(`
     <z-dragdrop-area>
+      <mock:shadow-root>
        <div class="dragdrop" tabindex="0">
          <div class="dragover-container">
            <div class="dragover-message">
@@ -18,9 +19,11 @@ describe("Suite test ZDragdropArea", () => {
                Rilascia i file in questa area per allegarli.
              </z-body>
            </div>
-         </div>
+          </div>
+          <slot></slot>
        </div>
-      </z-dragdrop-area>
+      </mock:shadow-root>
+    </z-dragdrop-area>
     `);
   });
 
@@ -36,12 +39,7 @@ describe("Suite test ZDragdropArea", () => {
 
     expect(page.root).toEqualHtml(`
     <z-dragdrop-area>
-       <span hidden="" slot="description">
-         Vuoi allegare un file per chiarire meglio la tua richiesta?
-       </span>
-       <span hidden="" slot="file-format">
-         Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un massimo di 50Mb di peso.
-       </span>
+      <mock:shadow-root>
        <div class="dragdrop" tabindex="0">
          <div class="dragover-container">
            <div class="dragover-message">
@@ -50,8 +48,16 @@ describe("Suite test ZDragdropArea", () => {
              </z-body>
            </div>
          </div>
+         <slot></slot>
        </div>
-      </z-dragdrop-area>
+      </mock:shadow-root>
+      <span slot="description">
+        Vuoi allegare un file per chiarire meglio la tua richiesta?
+      </span>
+      <span slot="file-format">
+        Puoi allegare file nei formati PDF, PNG, JPG, TIFF, DOC, per un massimo di 50Mb di peso.
+      </span>
+    </z-dragdrop-area>
     `);
   });
 });

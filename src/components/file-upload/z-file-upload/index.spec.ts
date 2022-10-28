@@ -14,10 +14,9 @@ describe("Suite test ZFileUpload", () => {
                             file-max-size="50">>
              </z-file-upload>`,
     });
-
     expect(page.root).toEqualHtml(`
     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="default" variant="primary">
-       &gt;
+      <mock:shadow-root>
        <div class="container default" tabindex="0">
          <z-heading id="title" level="2" variant="semibold">
            Allega un file
@@ -25,15 +24,26 @@ describe("Suite test ZFileUpload", () => {
          <z-body level="3" variant="semibold">
            Vuoi allegare un file per chiarire meglio la tua richiesta?
          </z-body>
-       <z-body level="3">
+         <z-body level="3">
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </z-body>
+         <section class="files-container hidden">
+          <z-heading level="4" variant="semibold">
+            File appena caricati
+          </z-heading>
+          <div class="files-wrapper">
+            <slot name="files"></slot>
+          </div>
+          <z-divider size="medium"></z-divider>
+         </section>
          <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
          <z-button icon="upload" id="fileSelect">
            Allega
          </z-button>
        </div>
-      </z-file-upload>`);
+      </mock:shadow-root>
+      &gt;
+    </z-file-upload>`);
   });
 
   it("Test render ZFileUpload dragdrop", async () => {
@@ -46,14 +56,22 @@ describe("Suite test ZFileUpload", () => {
                             file-max-size="50">>
              </z-file-upload>`,
     });
-
     expect(page.root)
       .toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
-       &gt;
+       <mock:shadow-root>
        <div class="container dragdrop" tabindex="0">
          <z-heading id="title" level="2" variant="semibold">
            Allega un file
          </z-heading>
+         <section class="files-container hidden">
+          <z-heading level="4" variant="semibold">
+            File appena caricati
+          </z-heading>
+          <div class="files-wrapper">
+            <slot name="files"></slot>
+          </div>
+          <z-divider size="medium"></z-divider>
+         </section>
          <z-dragdrop-area>
            <div class="text-container">
              <z-body level="1" variant="regular">
@@ -73,6 +91,8 @@ describe("Suite test ZFileUpload", () => {
            </div>
          </z-dragdrop-area>
        </div>
+      </mock:shadow-root>
+      &gt;
       </z-file-upload>`);
   });
 });
