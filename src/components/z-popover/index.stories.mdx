@@ -49,18 +49,9 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
         <z-popover
           .position=${args.position}
           bind-to="#icon"
-          style=${styleMap({
-            "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
-            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
-          })}
         >
           <div class="container">
-            <z-button
-              slot="trigger"
-              icon="gear"
-            >
-              Impostazioni
-            </z-button>
+            <z-button icon="gear"> Impostazioni </z-button>
           </div>
         </z-popover>
         <z-icon
@@ -96,21 +87,12 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
       <div class="popover-container popover-container-tooltip">
         <z-popover
           .position=${args.position}
-          center
-          show-arrow
+          center="true"
+          show-arrow="true"
           bind-to="#icon"
-          style=${styleMap({
-            "--z-popover-theme--surface": `var(${args["--z-popover-theme--surface"]})`,
-            "--z-popover-theme--text": `var(${args["--z-popover-theme--text"]})`,
-          })}
         >
           <div class="container">
-            <z-button
-              slot="trigger"
-              icon="gear"
-            >
-              Impostazioni
-            </z-button>
+            <z-button icon="gear"> Impostazioni </z-button>
           </div>
         </z-popover>
         <z-icon
