@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { HostElement } from "../../stencil-public-runtime";
 import { CarouselArrowsPosition, CarouselProgressMode } from "../../beans";
 /**
  * ZCarousel component.
@@ -52,5 +51,5 @@ export declare class ZCarousel {
    * @returns {void}
    */
   private goTo;
-  render(): HTMLDivElement | HostElement;
+  render(): HTMLZCarouselElement;
 }

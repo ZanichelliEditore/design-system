@@ -106,6 +106,8 @@ const ZInput = class {
     this.inputCheck = createEvent(this, "inputCheck", 7);
     /** the id of the input element */
     this.htmlid = `id-${randomId()}`;
+    /** the input aria-label */
+    this.ariaLabel = "";
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */

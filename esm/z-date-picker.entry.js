@@ -310,6 +310,8 @@ const ZDatePicker = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.dateSelect = createEvent(this, "dateSelect", 7);
+    /** z-input aria label */
+    this.ariaLabel = "";
     /** [Optional] datepicker mode: date, datetime, only months */
     this.mode = ZDatePickerMode.DATE;
     this.flatpickrPosition = ZDatePickerPosition.BOTTOM;

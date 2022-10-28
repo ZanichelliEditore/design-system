@@ -1,4 +1,3 @@
-import { HostElement } from "../../../stencil-public-runtime";
 import { ListSize } from "../../../beans";
 export declare class ZList {
   host: HTMLZListElement;
@@ -8,5 +7,5 @@ export declare class ZList {
   size?: ListSize;
   private setChildrenSizeType;
   componentDidLoad(): void;
-  render(): HostElement;
+  render(): HTMLZListElement;
 }

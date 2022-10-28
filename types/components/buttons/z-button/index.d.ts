@@ -5,7 +5,7 @@ import { ButtonVariant, ButtonType, ButtonSize } from "../../../beans";
 export declare class ZButton {
   hostElement: HTMLZButtonElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
-  ariaLabel?: string;
+  ariaLabel: string;
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   href?: string;
   /** HTML a target attribute. */

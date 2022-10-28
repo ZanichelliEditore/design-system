@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { HostElement } from "../../stencil-public-runtime";
 import { CardVariant } from "../../beans";
 export declare class ZCard {
   /**
@@ -32,5 +31,5 @@ export declare class ZCard {
    * Template for the content div.
    */
   private renderContentDiv;
-  render(): HostElement;
+  render(): HTMLZCardElement;
 }

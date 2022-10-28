@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot title
  * @slot subtitle
@@ -64,7 +63,7 @@ export declare class ZAppHeader {
   private disableStuckMode;
   onStucked(): void;
   setMenuFloatingMode(): void;
-  render(): HostElement;
+  render(): HTMLZAppHeaderElement;
   private openDrawer;
   private closeDrawer;
 }

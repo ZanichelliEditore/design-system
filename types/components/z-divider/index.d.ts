@@ -1,4 +1,3 @@
-import { HostElement } from "../../stencil-public-runtime";
 import { DividerSize, DividerOrientation } from "../../beans";
 export declare class ZDivider {
   /** [optional] Divider size */
@@ -7,5 +6,5 @@ export declare class ZDivider {
   color?: string;
   /** [optional] Divider orintation */
   orientation?: DividerOrientation;
-  render(): HostElement;
+  render(): HTMLZDividerElement;
 }

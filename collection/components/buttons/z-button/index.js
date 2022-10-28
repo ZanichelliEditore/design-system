@@ -5,6 +5,8 @@ import { ButtonVariant, ButtonType, ButtonSize } from "../../../beans";
  */
 export class ZButton {
   constructor() {
+    /** defines a string value that labels an interactive element, used for accessibility. */
+    this.ariaLabel = "";
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */
@@ -52,13 +54,14 @@ export class ZButton {
           "references": {}
         },
         "required": false,
-        "optional": true,
+        "optional": false,
         "docs": {
           "tags": [],
           "text": "defines a string value that labels an interactive element, used for accessibility."
         },
         "attribute": "aria-label",
-        "reflect": true
+        "reflect": true,
+        "defaultValue": "\"\""
       },
       "href": {
         "type": "string",

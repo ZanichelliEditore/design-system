@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { ButtonVariant, ZFileUploadType } from "../../../beans";
 export declare class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
@@ -48,5 +47,5 @@ export declare class ZFileUpload {
   private renderDragDropMode;
   private formatErrorString;
   private handleErrorModalContent;
-  render(): HostElement;
+  render(): HTMLZFileUploadElement;
 }

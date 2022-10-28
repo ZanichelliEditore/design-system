@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { HostElement } from "../../stencil-public-runtime";
 /**
  * Pagination bar component.
  */
@@ -106,5 +105,5 @@ export declare class ZPagination {
   private renderMobile;
   componentDidLoad(): void;
   componentDidRender(): void;
-  render(): HostElement;
+  render(): HTMLZPaginationElement;
 }

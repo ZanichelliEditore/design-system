@@ -19,6 +19,8 @@ const ZInputDeprecated = class {
     this.optionSelect = index.createEvent(this, "optionSelect", 7);
     /** the id of the input element */
     this.htmlid = `id-${utils.randomId()}`;
+    /** the input aria-label */
+    this.ariaLabel = "";
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */

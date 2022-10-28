@@ -1,4 +1,3 @@
-import { HostElement } from "../../stencil-public-runtime";
 import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
 /**
  * Cover hero component.
@@ -26,5 +25,5 @@ export declare class ZCoverHero {
    * Template for the content.
    */
   private renderContent;
-  render(): HostElement;
+  render(): HTMLZCoverHeroElement;
 }

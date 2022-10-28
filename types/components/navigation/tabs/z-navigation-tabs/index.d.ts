@@ -1,4 +1,3 @@
-import { HostElement } from "../../../../stencil-public-runtime";
 import { NavigationTabsSize, NavigationTabsOrientation } from "../../../../beans";
 /**
  * Navigation tabs component.
@@ -67,5 +66,5 @@ export declare class ZNavigationTabs {
    */
   private navigateForward;
   componentDidRender(): void;
-  render(): HostElement;
+  render(): HTMLZNavigationTabsElement;
 }

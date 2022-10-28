@@ -5,7 +5,7 @@ export declare class ZDatePicker {
   /** unique id */
   datePickerId: string;
   /** z-input aria label */
-  ariaLabel?: string;
+  ariaLabel: string;
   /** z-input label */
   label?: string;
   /** [Optional] datepicker mode: date, datetime, only months */

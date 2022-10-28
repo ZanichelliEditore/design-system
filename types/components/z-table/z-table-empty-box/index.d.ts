@@ -1,4 +1,3 @@
-import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZTableEmptyBox {
   hostElement: HTMLZTableEmptyBoxElement;
   /** Sets main title message*/
@@ -9,5 +8,5 @@ export declare class ZTableEmptyBox {
   private hasCta1Slot;
   private hasCta2Slot;
   componentWillLoad(): void;
-  render(): HostElement;
+  render(): HTMLZTableEmptyBoxElement;
 }

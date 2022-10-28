@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -49,5 +48,5 @@ export declare class ZMenu {
    */
   private onItemsChange;
   private renderMenuLabel;
-  render(): HostElement;
+  render(): HTMLZMenuElement;
 }

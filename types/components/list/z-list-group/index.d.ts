@@ -1,4 +1,3 @@
-import { HostElement } from "../../../stencil-public-runtime";
 import { DividerSize, ListSize, ListDividerType } from "../../../beans";
 export declare class ZListGroup {
   host: HTMLZListGroupElement;
@@ -21,5 +20,5 @@ export declare class ZListGroup {
   private hasHeader;
   componentDidLoad(): void;
   componentWillLoad(): void;
-  render(): HostElement;
+  render(): HTMLZListGroupElement;
 }

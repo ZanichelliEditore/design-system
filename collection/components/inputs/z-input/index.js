@@ -5,6 +5,8 @@ export class ZInput {
   constructor() {
     /** the id of the input element */
     this.htmlid = `id-${randomId()}`;
+    /** the input aria-label */
+    this.ariaLabel = "";
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -310,13 +312,14 @@ export class ZInput {
           "references": {}
         },
         "required": false,
-        "optional": true,
+        "optional": false,
         "docs": {
           "tags": [],
           "text": "the input aria-label"
         },
         "attribute": "aria-label",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "\"\""
       },
       "value": {
         "type": "string",
@@ -487,7 +490,12 @@ export class ZInput {
         "complexType": {
           "original": "LabelPosition",
           "resolved": "LabelPosition.LEFT | LabelPosition.RIGHT",
-          "references": {}
+          "references": {
+            "LabelPosition": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
         },
         "required": false,
         "optional": true,

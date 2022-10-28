@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { ZTableRowExpandedType } from "../../../beans";
 export declare class ZTableRow {
   /** Table row expanded type */
@@ -10,5 +9,5 @@ export declare class ZTableRow {
   private emitOnExpand;
   private handleExpand;
   private renderExpandButton;
-  render(): HostElement;
+  render(): HTMLZTableRowElement;
 }

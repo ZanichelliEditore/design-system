@@ -11,7 +11,7 @@ export declare class ZSelect {
   /** the input label */
   label?: string;
   /** the input aria-label */
-  ariaLabel?: string;
+  ariaLabel: string;
   /** the input is disabled */
   disabled?: boolean;
   /** the input is readonly */

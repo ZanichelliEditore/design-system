@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, ListDividerType, ListSize, MenuItem, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -112,7 +112,7 @@ export namespace Components {
         /**
           * defines a string value that labels an interactive element, used for accessibility.
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * HTML button disabled attribute.
          */
@@ -423,7 +423,7 @@ export namespace Components {
         /**
           * z-input aria label
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * unique id
          */
@@ -613,7 +613,7 @@ export namespace Components {
         /**
           * the input aria-label
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * the input has autocomplete option (optional): available for text, password, number, email
          */
@@ -707,7 +707,7 @@ export namespace Components {
         /**
           * the input aria-label
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * the input has autocomplete option (optional): available for select, input
          */
@@ -1201,7 +1201,7 @@ export namespace Components {
         /**
           * description of the icon
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * icon name
          */
@@ -1506,7 +1506,7 @@ export namespace Components {
         /**
           * aria-label string
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * disabled status flag
          */
@@ -1694,7 +1694,7 @@ export namespace Components {
         /**
           * the input aria-label
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * the input has autocomplete option
          */

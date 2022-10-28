@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { Size, SortDirection } from "../../../beans";
 export declare class ZTableHeader {
   host: HTMLZTableHeaderElement;
@@ -26,5 +25,5 @@ export declare class ZTableHeader {
   handleOutsideClick(e: MouseEvent): void;
   handleClickHeaders(e: MouseEvent): void;
   componentWillRender(): void;
-  render(): HostElement;
+  render(): HTMLZTableHeaderElement;
 }

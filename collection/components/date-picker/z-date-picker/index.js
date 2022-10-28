@@ -6,6 +6,8 @@ import { InputType, ZDatePickerMode, ZDatePickerPosition } from "../../../beans"
 import { setAriaOptions, setFlatpickrPosition, validateDate } from "../utils";
 export class ZDatePicker {
   constructor() {
+    /** z-input aria label */
+    this.ariaLabel = "";
     /** [Optional] datepicker mode: date, datetime, only months */
     this.mode = ZDatePickerMode.DATE;
     this.flatpickrPosition = ZDatePickerPosition.BOTTOM;
@@ -199,13 +201,14 @@ export class ZDatePicker {
           "references": {}
         },
         "required": false,
-        "optional": true,
+        "optional": false,
         "docs": {
           "tags": [],
           "text": "z-input aria label"
         },
         "attribute": "aria-label",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "\"\""
       },
       "label": {
         "type": "string",

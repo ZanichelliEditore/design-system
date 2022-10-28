@@ -4,6 +4,6 @@ export declare class ZMyzCardIcon {
   /** disabled status flag */
   isdisabled: boolean;
   /** description of the icon*/
-  ariaLabel?: string;
+  ariaLabel: string;
   render(): HTMLButtonElement;
 }

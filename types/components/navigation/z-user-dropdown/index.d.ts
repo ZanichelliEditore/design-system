@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { MenuItem } from "../../../beans";
 export declare class ZUserDropdown {
   /** logged status flag */
@@ -36,5 +35,5 @@ export declare class ZUserDropdown {
   private renderLoggedButton;
   private getZLinkTextcolor;
   private renderDropdownMenu;
-  render(): HostElement;
+  render(): HTMLZUserDropdownElement;
 }

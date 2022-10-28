@@ -1,5 +1,4 @@
 import { ThemeVariant, SkipToContentLink } from "../../beans";
-import { HostElement } from "../../stencil-public-runtime";
 /**
  * Component short description.
  */
@@ -18,5 +17,5 @@ export declare class ZSkipToContent {
   private isInSkipToContent;
   private showFirstChild;
   private handleLinkClick;
-  render(): HostElement;
+  render(): HTMLZSkipToContentElement;
 }

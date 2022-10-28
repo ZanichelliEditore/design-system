@@ -11,6 +11,8 @@ const ZPaginationPage = class {
     this.isdisabled = false;
     /** visited status flag */
     this.isvisited = false;
+    /** aria-label string */
+    this.ariaLabel = "";
   }
   render() {
     return (h("button", { id: this.pageid, "aria-label": this.ariaLabel ? this.ariaLabel : `Go to page ${this.value}`, class: { selected: this.isselected, visited: this.isvisited }, disabled: this.isdisabled, type: "button" }, this.value));

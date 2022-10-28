@@ -10,6 +10,6 @@ export declare class ZPaginationPage {
   /** visited status flag */
   isvisited: boolean;
   /** aria-label string */
-  ariaLabel?: string;
+  ariaLabel: string;
   render(): HTMLButtonElement;
 }

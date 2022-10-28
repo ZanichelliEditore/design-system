@@ -1,4 +1,3 @@
-import { HostElement } from "../../stencil-public-runtime";
 import { InfoRevealPosition } from "../../beans";
 export declare class ZInfoReveal {
   el: HTMLZInfoRevealElement;
@@ -26,5 +25,5 @@ export declare class ZInfoReveal {
    * It closes the info box after the last info has been navigated.
    */
   private next;
-  render(): HostElement;
+  render(): HTMLZInfoRevealElement;
 }

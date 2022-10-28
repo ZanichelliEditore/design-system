@@ -5,6 +5,8 @@ export class ZInputDeprecated {
   constructor() {
     /** the id of the input element */
     this.htmlid = `id-${randomId()}`;
+    /** the input aria-label */
+    this.ariaLabel = "";
     /** the input is disabled */
     this.disabled = false;
     /** the input is readonly */
@@ -335,13 +337,14 @@ export class ZInputDeprecated {
           "references": {}
         },
         "required": false,
-        "optional": true,
+        "optional": false,
         "docs": {
           "tags": [],
           "text": "the input aria-label"
         },
         "attribute": "aria-label",
-        "reflect": false
+        "reflect": false,
+        "defaultValue": "\"\""
       },
       "value": {
         "type": "string",

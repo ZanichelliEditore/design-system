@@ -1,4 +1,3 @@
-import { HostElement } from "../../stencil-public-runtime";
 /**
  * Ztag  component.
  * @slot - The text of the z-tag.
@@ -10,5 +9,5 @@ export declare class ZTag {
   icon?: string;
   /** [optional] Hide the text and show it on hover*/
   expandable?: boolean;
-  render(): HostElement;
+  render(): HTMLZTagElement;
 }

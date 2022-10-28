@@ -113,7 +113,12 @@ export class ZNavigationTab {
         "complexType": {
           "original": "NavigationTabsOrientation",
           "resolved": "NavigationTabsOrientation.HORIZONTAL | NavigationTabsOrientation.VERTICAL",
-          "references": {}
+          "references": {
+            "NavigationTabsOrientation": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
+          }
         },
         "required": false,
         "optional": false,
@@ -131,7 +136,12 @@ export class ZNavigationTab {
         "complexType": {
           "original": "NavigationTabsSize",
           "resolved": "NavigationTabsSize.BIG | NavigationTabsSize.SMALL",
-          "references": {}
+          "references": {
+            "NavigationTabsSize": {
+              "location": "import",
+              "path": "../../../../beans"
+            }
+          }
         },
         "required": false,
         "optional": false,

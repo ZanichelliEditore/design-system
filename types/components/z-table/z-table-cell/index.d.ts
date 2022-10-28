@@ -1,5 +1,4 @@
 import { Size } from "../../../beans";
-import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZTableCell {
   host: HTMLZTableCellElement;
   /** [Optional] Show contextual menu button */
@@ -9,5 +8,5 @@ export declare class ZTableCell {
   isMenuOpened: boolean;
   private handleMenu;
   componentWillRender(): void;
-  render(): HostElement;
+  render(): HTMLZTableCellElement;
 }

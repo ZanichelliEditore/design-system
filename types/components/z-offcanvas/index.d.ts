@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { HostElement } from "../../stencil-public-runtime";
 import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
@@ -22,5 +21,5 @@ export declare class ZOffcanvas {
   onOpenChanged(): void;
   private handleOpenStatus;
   private handleAnimationEnd;
-  render(): HostElement;
+  render(): HTMLZOffcanvasElement;
 }

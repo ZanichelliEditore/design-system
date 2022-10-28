@@ -1,4 +1,3 @@
-import { HostElement } from "../../stencil-public-runtime";
 import { ZSectionTitleDividerPosition } from "../../beans";
 /**
  * Section title component.
@@ -22,5 +21,5 @@ export declare class ZSectionTitle {
   host: HTMLZSectionTitleElement;
   private hasSecondaryTitle;
   componentWillRender(): void;
-  render(): HostElement;
+  render(): HTMLZSectionTitleElement;
 }

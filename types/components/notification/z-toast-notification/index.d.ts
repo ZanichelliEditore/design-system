@@ -1,6 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { ToastNotificationTransition, ToastNotification } from "../../../beans";
-import { HostElement } from "../../../stencil-public-runtime";
 export declare class ZToastNotification {
   hostElement: HTMLZToastNotificationElement;
   /** toast notification's title */
@@ -53,5 +52,5 @@ export declare class ZToastNotification {
   private renderCloseIcon;
   private renderContainer;
   private renderMobileContainer;
-  render(): HostElement;
+  render(): HTMLZToastNotificationElement;
 }

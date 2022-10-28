@@ -6,6 +6,8 @@ const stylesCss = ".sc-z-button-h{display:inline-block;--z-icon-width:16px;--z-i
 const ZButton = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    /** defines a string value that labels an interactive element, used for accessibility. */
+    this.ariaLabel = "";
     /** HTML button disabled attribute. */
     this.disabled = false;
     /** HTML button type attribute. */

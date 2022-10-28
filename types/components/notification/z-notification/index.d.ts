@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { NotificationType } from "../../../beans";
 /**
  * Notification bar component.
@@ -29,5 +28,5 @@ export declare class ZNotification {
   notificationClose: EventEmitter;
   private handleCloseButtonClick;
   constructor();
-  render(): HostElement;
+  render(): HTMLZNotificationElement;
 }

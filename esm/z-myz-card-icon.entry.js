@@ -7,6 +7,8 @@ const ZMyzCardIcon = class {
     registerInstance(this, hostRef);
     /** disabled status flag */
     this.isdisabled = false;
+    /** description of the icon*/
+    this.ariaLabel = "";
   }
   render() {
     return (h("button", { disabled: this.isdisabled, "aria-label": this.ariaLabel }, h("span", null, h("z-icon", { name: this.icon, width: 16, height: 16 }))));

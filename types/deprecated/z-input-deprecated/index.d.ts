@@ -11,7 +11,7 @@ export declare class ZInputDeprecated {
   /** the input label */
   label?: string;
   /** the input aria-label */
-  ariaLabel?: string;
+  ariaLabel: string;
   /** the input value */
   value?: string;
   /** the input is disabled */

@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot modalContent - set the content of the modal
  * @slot modalCloseButton - accept custom close button
@@ -22,5 +21,5 @@ export declare class ZModal {
   /** emitted on background click, returns modalid */
   modalBackgroundClick: EventEmitter;
   private emitBackgroundClick;
-  render(): HostElement;
+  render(): HTMLZModalElement;
 }

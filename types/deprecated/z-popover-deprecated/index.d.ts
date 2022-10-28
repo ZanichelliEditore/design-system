@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { HostElement } from "../../stencil-public-runtime";
 import { PopoverPosition, PopoverBorderRadius, PopoverShadow } from "../../beans";
 export declare class ZPopoverDeprecated {
   /** [optional] Popover position */
@@ -30,5 +29,5 @@ export declare class ZPopoverDeprecated {
   private handleClick;
   private handleKeyDown;
   handleOutsideClick(e: MouseEvent): void;
-  render(): HostElement;
+  render(): HTMLZPopoverDeprecatedElement;
 }

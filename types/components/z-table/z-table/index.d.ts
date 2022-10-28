@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 /**
  * @slot - table elements
  * @slot sticky-footer - set the content of the sticky footer
@@ -45,5 +44,5 @@ export declare class ZTable {
   componentWillRender(): void;
   private renderError;
   private renderEmpty;
-  render(): HostElement;
+  render(): HTMLZTableElement;
 }

@@ -1,5 +1,4 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { HostElement } from "../../../stencil-public-runtime";
 import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, ListDividerType, ListSize } from "../../../beans";
 export declare class ZListElement {
   host: HTMLZListElementElement;
@@ -79,5 +78,5 @@ export declare class ZListElement {
    * @returns expanded content
    */
   private renderExpandedContent;
-  render(): HostElement;
+  render(): HTMLZListElementElement;
 }

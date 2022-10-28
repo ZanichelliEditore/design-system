@@ -1,4 +1,3 @@
-import { HostElement } from "../../../stencil-public-runtime";
 import { MenuItem, ThemeVariant } from "../../../beans";
 export declare class ZAppTopbar {
   /** theme variant, default 'dark' */
@@ -17,5 +16,5 @@ export declare class ZAppTopbar {
   componentWillLoad(): void;
   componentWillRender(): void;
   private renderTopbarLinks;
-  render(): HostElement;
+  render(): HTMLZAppTopbarElement;
 }
