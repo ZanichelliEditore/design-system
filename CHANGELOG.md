@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/ZanichelliEditore/design-system/compare/v6.0.0...v6.0.1) (2022-10-28)
+
+
+### Bug Fixes
+
+* added shadow dom to z-file-upload and z-dragdrop-area ([fdb655e](https://github.com/ZanichelliEditore/design-system/commit/fdb655ebad1f15cf3afca9e0eff4e0e363487b1b))
+* e2e tests ([5858edc](https://github.com/ZanichelliEditore/design-system/commit/5858edcb1ebb4cf0de90ab306d2116203f33f3f4))
+* handle popover outside click ([3184d2e](https://github.com/ZanichelliEditore/design-system/commit/3184d2ea333c65eca928e5bcc7f99a066bfa35be))
+* update .prettierignore ([7abd719](https://github.com/ZanichelliEditore/design-system/commit/7abd7193fd4ee72d6ccf60c6621ffef871bf3be0))
+
 ## [6.0.0](https://github.com/ZanichelliEditore/design-system/compare/v5.6.2...v6.0.0) (2022-10-20)
 
 
