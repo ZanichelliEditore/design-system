@@ -50,8 +50,9 @@ export class ZFileUpload {
     return this.files;
   }
   handleAccessibility() {
-    if (this.files.length > 0) {
-      this.el.querySelector("z-file:last-child z-chip button").focus();
+    const lastFile = this.el.querySelector("z-file:last-child z-chip button");
+    if (this.files.length > 0 && lastFile) {
+      lastFile.focus();
     }
     else {
       this.type === ZFileUploadType.DEFAULT
@@ -110,10 +111,7 @@ export class ZFileUpload {
     return h("z-body", { level: 3 }, fileFormatString || fileWeightString ? finalString : null);
   }
   renderFileSection() {
-    if (!this.files.length) {
-      return;
-    }
-    return (this.files.length > 0 && (h("section", { class: "files-container" }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM }))));
+    return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
   }
   renderInput() {
     return (h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));
@@ -168,7 +166,7 @@ export class ZFileUpload {
     return (h(Host, null, h("div", { tabIndex: 0, class: `container ${this.type}` }, this.renderTitle(), this.type == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
   }
   static get is() { return "z-file-upload"; }
-  static get encapsulation() { return "scoped"; }
+  static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() {
     return {
       "$": ["styles.css"]

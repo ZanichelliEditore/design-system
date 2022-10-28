@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-:host .modal-wrapper > .files {
+:host .modal-wrapper > .files-wrapper {
   display: flex;
   flex-direction: column;
   margin: calc(var(--space-unit) * 4);
@@ -55,12 +55,16 @@ input#file-elem {
   margin-top: calc(var(--space-unit) * 3);
 }
 
+:host > .container > .files-container.hidden {
+  display: none;
+}
+
 :host > .container > .files-container > z-heading {
   display: inline-block;
   margin: calc(var(--space-unit) * 3) 0;
 }
 
-:host > .container > .files-container > .files {
+:host > .container > .files-container > .files-wrapper {
   display: flex;
   flex-wrap: wrap;
   column-gap: calc(var(--space-unit) * 2);

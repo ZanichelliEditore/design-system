@@ -21,7 +21,7 @@ export class ZDragdropArea {
       } }, this.renderOnDragOverMessage(), h("slot", null)));
   }
   static get is() { return "z-dragdrop-area"; }
-  static get encapsulation() { return "scoped"; }
+  static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() {
     return {
       "$": ["styles.css"]
