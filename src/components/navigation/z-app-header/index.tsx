@@ -211,7 +211,7 @@ export class ZAppHeader {
             {!this.drawerOpen && this.flow !== "offcanvas" && (
               <slot
                 name="menu"
-                onSlotchange={this.collectMenuElements}
+                onSlotchange={() => this.collectMenuElements()}
               ></slot>
             )}
           </div>
@@ -233,7 +233,7 @@ export class ZAppHeader {
               {this.drawerOpen && (
                 <slot
                   name="menu"
-                  onSlotchange={this.collectMenuElements}
+                  onSlotchange={() => this.collectMenuElements()}
                 ></slot>
               )}
             </div>
