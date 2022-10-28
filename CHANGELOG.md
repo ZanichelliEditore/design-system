@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/ZanichelliEditore/design-system/compare/v6.0.1...v6.0.2) (2022-10-28)
+
+
+### Bug Fixes
+
+* @Element console error ([2b79dcc](https://github.com/ZanichelliEditore/design-system/commit/2b79dcc19aa3725794bcdc0f129e8513609d75fa))
+* added file to prevent stencil import errors ([d21e1ff](https://github.com/ZanichelliEditore/design-system/commit/d21e1ff3c8c71e4f5c41ef5830e00aea1fbfef19))
+* remove last HostElement ([7f136e0](https://github.com/ZanichelliEditore/design-system/commit/7f136e0459b3093bc5ac7478006d3b9304c750a4))
+* restore current version ([5c364ae](https://github.com/ZanichelliEditore/design-system/commit/5c364ae0be1afe9e257a9e046c16fc9cb26a8261))
+* tests ([c96570d](https://github.com/ZanichelliEditore/design-system/commit/c96570dc027fad19ab72b9003ad21d74c2001329))
+* z-carousel return type ([117b7b8](https://github.com/ZanichelliEditore/design-system/commit/117b7b82b14287056e10173c6ef6006e71fe487f))
+* z-popover Storybook docs ([4e4e12f](https://github.com/ZanichelliEditore/design-system/commit/4e4e12ff04206ee72fb5f4d330c0ee5c8a00e54a))
+
+### [6.0.1-rc4](https://github.com/ZanichelliEditore/design-system/compare/v6.0.0...v6.0.1-rc4) (2022-10-27)
+
+
+### Bug Fixes
+
+* remove hostElement, set ariaLabel prop as not optional ([0dfaa44](https://github.com/ZanichelliEditore/design-system/commit/0dfaa44c498a10b07ee95e833c8b46558b4d8716))
+
 ### [6.0.1](https://github.com/ZanichelliEditore/design-system/compare/v6.0.0...v6.0.1) (2022-10-28)
 
 
