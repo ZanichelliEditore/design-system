@@ -1,5 +1,4 @@
 import {Component, Prop, h, State, Listen, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {DividerOrientation, MenuItem, ThemeVariant} from "../../../beans";
 import {mobileBreakpoint} from "../../../constants/breakpoints";
 
@@ -63,7 +62,7 @@ export class ZAppTopbar {
     ));
   }
 
-  render(): HostElement {
+  render(): HTMLZAppTopbarElement {
     return (
       <Host
         class={{

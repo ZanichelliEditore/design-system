@@ -1,5 +1,4 @@
 import {Component, Prop, h, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {ZAriaAlertMode} from "../../beans";
 
 @Component({
@@ -11,7 +10,7 @@ export class ZAriaAlert {
   @Prop()
   mode: ZAriaAlertMode = ZAriaAlertMode.POLITE;
 
-  render(): HostElement {
+  render(): HTMLZAriaAlertElement {
     return (
       <Host
         aria-live={this.mode}

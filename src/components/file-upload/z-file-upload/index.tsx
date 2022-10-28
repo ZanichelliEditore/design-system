@@ -1,5 +1,4 @@
 import {Component, Prop, h, EventEmitter, Event, State, Listen, Element, Host, Method} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {ButtonVariant, Device, DividerSize, ZFileUploadType} from "../../../beans";
 import {getDevice} from "../../../utils/utils";
 
@@ -320,7 +319,7 @@ export class ZFileUpload {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZFileUploadElement {
     return (
       <Host>
         <div

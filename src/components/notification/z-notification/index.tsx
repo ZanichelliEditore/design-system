@@ -1,5 +1,4 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {NotificationType} from "../../../beans";
 
 /**
@@ -63,7 +62,7 @@ export class ZNotification {
     this.handleCloseButtonClick = this.handleCloseButtonClick.bind(this);
   }
 
-  render(): HostElement {
+  render(): HTMLZNotificationElement {
     return (
       <Host>
         {this.contenticonname && (

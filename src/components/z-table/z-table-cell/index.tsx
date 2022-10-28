@@ -1,6 +1,5 @@
 import {Component, Element, h, Host, Prop, State} from "@stencil/core";
 import {ButtonVariant, ButtonSize, Size} from "../../../beans";
-import {HostElement} from "@stencil/core/internal";
 
 @Component({
   tag: "z-table-cell",
@@ -29,7 +28,7 @@ export class ZTableCell {
     this.host.setAttribute("role", "cell");
   }
 
-  render(): HostElement {
+  render(): HTMLZTableCellElement {
     return (
       <Host>
         {this.showButton && (

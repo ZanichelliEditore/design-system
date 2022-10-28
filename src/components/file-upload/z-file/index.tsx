@@ -1,5 +1,4 @@
 import {Component, h, EventEmitter, Event, Element, Host, State, Listen, Prop} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions, ZChipType} from "../../../beans";
 import {tabletBreakpoint} from "../../../constants/breakpoints";
 
@@ -68,7 +67,7 @@ export class ZFile {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
 
-  render(): HostElement {
+  render(): HTMLZFileElement {
     return (
       <Host>
         {this.allowPopover && (

@@ -1,5 +1,4 @@
 import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {ZMenu} from "../z-menu";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
@@ -174,7 +173,7 @@ export class ZAppHeader {
     }
   }
 
-  render(): HostElement {
+  render(): HTMLZAppHeaderElement {
     return (
       <Host menu-length={this.menuLength}>
         <div
@@ -212,7 +211,7 @@ export class ZAppHeader {
             {!this.drawerOpen && this.flow !== "offcanvas" && (
               <slot
                 name="menu"
-                onSlotchange={this.collectMenuElements}
+                onSlotchange={() => this.collectMenuElements()}
               ></slot>
             )}
           </div>
@@ -234,7 +233,7 @@ export class ZAppHeader {
               {this.drawerOpen && (
                 <slot
                   name="menu"
-                  onSlotchange={this.collectMenuElements}
+                  onSlotchange={() => this.collectMenuElements()}
                 ></slot>
               )}
             </div>

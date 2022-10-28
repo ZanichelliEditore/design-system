@@ -21,7 +21,7 @@
 
 | Property     | Attribute    | Description             | Type      | Default     |
 | ------------ | ------------ | ----------------------- | --------- | ----------- |
-| `ariaLabel`  | `aria-label` | description of the icon | `string`  | `undefined` |
+| `ariaLabel`  | `aria-label` | description of the icon | `string`  | `""`        |
 | `icon`       | `icon`       | icon name               | `string`  | `undefined` |
 | `isdisabled` | `isdisabled` | disabled status flag    | `boolean` | `false`     |
 

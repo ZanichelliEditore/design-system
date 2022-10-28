@@ -1,5 +1,4 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {DividerSize, ListSize, ListDividerType} from "../../../beans";
 
 @Component({
@@ -52,7 +51,7 @@ export class ZListGroup {
     this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
   }
 
-  render(): HostElement {
+  render(): HTMLZListGroupElement {
     return (
       <Host role="group">
         <div

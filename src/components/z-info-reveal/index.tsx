@@ -1,5 +1,4 @@
 import {Component, h, Prop, State, Watch, Element, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {InfoRevealPosition} from "../../beans";
 
 @Component({
@@ -78,7 +77,7 @@ export class ZInfoReveal {
     }
   }
 
-  render(): HostElement {
+  render(): HTMLZInfoRevealElement {
     return (
       <Host open={this.open}>
         <button

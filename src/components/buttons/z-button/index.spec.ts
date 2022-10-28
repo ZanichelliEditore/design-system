@@ -9,8 +9,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary">
-        <button class="z-button--container" type="button"></button>
+      <z-button aria-label="" size="big" variant="primary">
+        <button aria-label="" class="z-button--container" type="button"></button>
       </z-button>
     `);
   });
@@ -35,8 +35,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" icon="icon">
-        <button type="button" class="z-button--container">
+      <z-button aria-label="" size="big" variant="primary" icon="icon">
+        <button aria-label="" type="button" class="z-button--container">
           <z-icon name="icon" height="16" width="16"></z-icon>
         </button>
       </z-button>
@@ -49,8 +49,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="secondary">
-        <button type="button" class="z-button--container"></button>
+      <z-button aria-label="" size="big" variant="secondary">
+        <button aria-label="" type="button" class="z-button--container"></button>
       </z-button>
     `);
   });
@@ -61,8 +61,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button size="small"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="small" variant="primary">
-        <button type="button" class="z-button--container"></button>
+      <z-button aria-label="" size="small" variant="primary">
+        <button aria-label="" type="button" class="z-button--container"></button>
       </z-button>
     `);
   });
@@ -73,8 +73,8 @@ describe("Suite test ZButton", () => {
       html: `<z-button disabled></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" disabled>
-        <button type="button" class="z-button--container" disabled></button>
+      <z-button aria-label="" size="big" variant="primary" disabled>
+        <button aria-label="" type="button" class="z-button--container" disabled></button>
       </z-button>
     `);
   });
@@ -86,8 +86,8 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" href="https://wikipedia.com">
-        <a href="https://wikipedia.com" class="z-button--container z-button--has-text">
+      <z-button aria-label="" size="big" variant="primary" href="https://wikipedia.com">
+        <a aria-label="" href="https://wikipedia.com" class="z-button--container z-button--has-text">
           link
         </a>
       </z-button>

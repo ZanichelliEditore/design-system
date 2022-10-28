@@ -1,5 +1,4 @@
 import {Component, Prop, h, Element, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {CoverHeroVariant, CoverHeroContentPosition} from "../../beans";
 
 /**
@@ -45,7 +44,7 @@ export class ZCoverHero {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZCoverHeroElement {
     return (
       <Host>
         {this.variant === CoverHeroVariant.STACKED &&

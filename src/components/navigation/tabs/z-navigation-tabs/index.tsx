@@ -1,5 +1,4 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
 
 /**
@@ -153,7 +152,7 @@ export class ZNavigationTabs {
     this.checkScrollVisible();
   }
 
-  render(): HostElement {
+  render(): HTMLZNavigationTabsElement {
     return (
       <Host
         class={{

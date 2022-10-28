@@ -28,7 +28,7 @@ export class ZPaginationPage {
 
   /** aria-label string */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel: string = "";
 
   render(): HTMLButtonElement {
     return (

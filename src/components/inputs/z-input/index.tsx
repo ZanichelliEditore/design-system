@@ -30,7 +30,7 @@ export class ZInput {
 
   /** the input aria-label */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel: string = "";
 
   /** the input value */
   @Prop({mutable: true})
@@ -70,7 +70,7 @@ export class ZInput {
 
   /** the input label position: available for checkbox, radio */
   @Prop()
-  labelPosition? = LabelPosition.RIGHT;
+  labelPosition?: LabelPosition = LabelPosition.RIGHT;
 
   /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop()

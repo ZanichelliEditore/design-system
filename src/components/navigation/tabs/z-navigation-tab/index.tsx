@@ -26,13 +26,13 @@ export class ZNavigationTab {
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  orientation = NavigationTabsOrientation.HORIZONTAL;
+  orientation: NavigationTabsOrientation = NavigationTabsOrientation.HORIZONTAL;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  size = NavigationTabsSize.BIG;
+  size: NavigationTabsSize = NavigationTabsSize.BIG;
 
   /**
    * Name of the icon to use.

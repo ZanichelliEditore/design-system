@@ -85,7 +85,7 @@
 
 | Property    | Attribute    | Description                                                                        | Type                                                                                                  | Default                 |
 | ----------- | ------------ | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------- |
-| `ariaLabel` | `aria-label` | defines a string value that labels an interactive element, used for accessibility. | `string`                                                                                              | `undefined`             |
+| `ariaLabel` | `aria-label` | defines a string value that labels an interactive element, used for accessibility. | `string`                                                                                              | `""`                    |
 | `disabled`  | `disabled`   | HTML button disabled attribute.                                                    | `boolean`                                                                                             | `false`                 |
 | `href`      | `href`       | HTML <a> href attribute. If it is set, it renders an HTML <a> tag.                 | `string`                                                                                              | `undefined`             |
 | `htmlid`    | `htmlid`     | Identifier, should be unique.                                                      | `string`                                                                                              | `undefined`             |

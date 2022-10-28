@@ -1,5 +1,4 @@
 import {Component, Element, h, Prop, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 
 import {ListSize} from "../../../beans";
 
@@ -28,7 +27,7 @@ export class ZList {
     this.setChildrenSizeType();
   }
 
-  render(): HostElement {
+  render(): HTMLZListElement {
     return (
       <Host role="list">
         <slot />

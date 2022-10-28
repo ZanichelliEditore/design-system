@@ -1,5 +1,4 @@
 import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {InputType} from "../../beans";
 
 /**
@@ -359,7 +358,7 @@ export class ZPagination {
     this.setMobile();
   }
 
-  render(): HostElement {
+  render(): HTMLZPaginationElement {
     if (this.isMobile) {
       return <Host>{this.renderMobile()}</Host>;
     }

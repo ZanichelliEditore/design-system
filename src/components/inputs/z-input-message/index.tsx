@@ -1,5 +1,4 @@
 import {Component, Prop, h, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {InputStatus} from "../../../beans";
 
 @Component({
@@ -22,7 +21,7 @@ export class ZInputMessage {
     warning: "exclamation-circle",
   };
 
-  render(): HostElement {
+  render(): HTMLZInputMessageElement {
     return (
       <Host
         role="alert"

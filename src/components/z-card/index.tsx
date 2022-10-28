@@ -1,5 +1,4 @@
 import {Component, Prop, h, Element, State, Listen, Event, EventEmitter, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {CardVariant} from "../../beans";
 
 @Component({
@@ -100,7 +99,7 @@ export class ZCard {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZCardElement {
     if (this.variant === CardVariant.TEXT) {
       return <Host>{this.renderContentDiv()}</Host>;
     }

@@ -1,5 +1,4 @@
 import {Component, Event, EventEmitter, Prop, h, Host} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {PopoverPositions} from "../../beans";
 
 @Component({
@@ -61,7 +60,7 @@ export class ZContextualMenu {
     }
   }
 
-  render(): HostElement {
+  render(): HTMLZContextualMenuElement {
     return (
       <Host>
         <button

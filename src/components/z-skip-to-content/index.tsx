@@ -1,7 +1,6 @@
 import {Component, h, Host, Element, Listen, Prop, State} from "@stencil/core";
 import {getElementTree, handleKeyboardSubmit} from "../../utils/utils";
 import {ThemeVariant, SkipToContentLink} from "../../beans";
-import {HostElement} from "@stencil/core/internal";
 
 /**
  * Component short description.
@@ -71,7 +70,7 @@ export class ZSkipToContent {
     this.visible = false;
   }
 
-  render(): HostElement {
+  render(): HTMLZSkipToContentElement {
     return (
       <Host
         class={{

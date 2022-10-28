@@ -29,7 +29,7 @@
 
 | Property     | Attribute    | Description                   | Type      | Default     |
 | ------------ | ------------ | ----------------------------- | --------- | ----------- |
-| `ariaLabel`  | `aria-label` | aria-label string             | `string`  | `undefined` |
+| `ariaLabel`  | `aria-label` | aria-label string             | `string`  | `""`        |
 | `isdisabled` | `isdisabled` | disabled status flag          | `boolean` | `false`     |
 | `isselected` | `isselected` | selected status flag          | `boolean` | `false`     |
 | `isvisited`  | `isvisited`  | visited status flag           | `boolean` | `false`     |

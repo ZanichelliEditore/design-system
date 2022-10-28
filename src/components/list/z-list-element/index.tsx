@@ -1,5 +1,4 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
-import {HostElement} from "@stencil/core/internal";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -223,7 +222,7 @@ export class ZListElement {
     );
   }
 
-  render(): HostElement {
+  render(): HTMLZListElementElement {
     return (
       <Host
         role="listitem"
