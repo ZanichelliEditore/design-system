@@ -84,6 +84,9 @@ export class ZFileUpload {
 
   componentWillLoad(): void {
     this.invalidFiles = new Map<string, string[]>();
+  }
+
+  componentWillRender(): void {
     if (this.type === ZFileUploadType.DRAGDROP && getDevice() !== Device.DESKTOP) {
       this.type = ZFileUploadType.DEFAULT;
     }
@@ -110,9 +113,7 @@ export class ZFileUpload {
     if (this.files.length > 0 && lastFile) {
       (lastFile as HTMLElement).focus();
     } else {
-      this.type === ZFileUploadType.DEFAULT
-        ? this.button.shadowRoot.querySelector("button").focus()
-        : this.uploadLink.focus();
+      this.type === ZFileUploadType.DEFAULT ? this.button.querySelector("button").focus() : this.uploadLink.focus();
     }
   }
 
