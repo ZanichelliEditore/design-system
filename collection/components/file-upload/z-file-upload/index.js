@@ -36,6 +36,8 @@ export class ZFileUpload {
   }
   componentWillLoad() {
     this.invalidFiles = new Map();
+  }
+  componentWillRender() {
     if (this.type === ZFileUploadType.DRAGDROP && getDevice() !== Device.DESKTOP) {
       this.type = ZFileUploadType.DEFAULT;
     }
@@ -55,9 +57,7 @@ export class ZFileUpload {
       lastFile.focus();
     }
     else {
-      this.type === ZFileUploadType.DEFAULT
-        ? this.button.shadowRoot.querySelector("button").focus()
-        : this.uploadLink.focus();
+      this.type === ZFileUploadType.DEFAULT ? this.button.querySelector("button").focus() : this.uploadLink.focus();
     }
   }
   checkFiles(files) {

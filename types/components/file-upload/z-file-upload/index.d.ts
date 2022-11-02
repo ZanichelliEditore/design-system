@@ -29,6 +29,7 @@ export declare class ZFileUpload {
   fileDroppedListener(e: CustomEvent): void;
   componentDidUpdate(): void;
   componentWillLoad(): void;
+  componentWillRender(): void;
   /** Emitted when user select one or more files */
   fileInput: EventEmitter;
   private fileInputHandler;
