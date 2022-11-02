@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/ZanichelliEditore/design-system/compare/v6.0.2...v6.0.3) (2022-11-02)
+
+
+### Bug Fixes
+
+* type prop handing and console error ([d01d9c3](https://github.com/ZanichelliEditore/design-system/commit/d01d9c3ec97560a174b3f1dfb3f1111bf9be1277))
+
 ### [6.0.2](https://github.com/ZanichelliEditore/design-system/compare/v6.0.1...v6.0.2) (2022-10-28)
 
 
