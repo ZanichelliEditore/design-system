@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.4](https://github.com/ZanichelliEditore/design-system/compare/v6.0.3...v6.0.4) (2022-11-03)
+
+
+### Bug Fixes
+
+* camel case ([d8b2b0a](https://github.com/ZanichelliEditore/design-system/commit/d8b2b0ad58f6e64c69167e2e290dee4a9ba5ca51))
+* file-upload rerender and focus problem ([da6665b](https://github.com/ZanichelliEditore/design-system/commit/da6665b6e2c2c10c08b7a603a32e4e30c7cc62fc))
+
 ### [6.0.3](https://github.com/ZanichelliEditore/design-system/compare/v6.0.2...v6.0.3) (2022-11-02)
 
 
