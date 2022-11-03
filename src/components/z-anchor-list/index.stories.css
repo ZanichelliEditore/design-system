@@ -1,0 +1,12 @@
+.z-anchor-list-story-wrapper {
+  display: inline-flex;
+  column-gap: 16px;
+}
+
+.z-anchor-list-story-wrapper z-anchor-list {
+  position: sticky;
+  top: 16px;
+  max-width: 25%;
+  height: 100%;
+  flex: none;
+}

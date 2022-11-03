@@ -1,0 +1,46 @@
+/* stylelint-disable value-no-vendor-prefix */
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: calc(var(--space-unit) / 2);
+}
+
+nav > * {
+  display: inline-flex;
+  max-height: calc((var(--space-unit) * 3) + (2 * 1.2em));
+  align-items: center;
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
+  border-left: var(--border-size-large) solid var(--color-surface04);
+  color: var(--color-text01);
+  column-gap: calc(var(--space-unit) * 1.5);
+  text-decoration: none;
+}
+
+main *[aria-current="true"] {
+  border-left-color: var(--color-primary01);
+  color: var(--color-link-primary);
+}
+
+nav > *:hover {
+  border-left-color: var(--color-hover-secondary);
+  background-color: var(--color-hover-surface);
+  color: var(--color-hover-link);
+}
+
+nav > * z-icon {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+
+  margin-left: auto;
+  fill: var(--color-icon02);
+}

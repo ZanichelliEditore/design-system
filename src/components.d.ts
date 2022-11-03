@@ -16,6 +16,8 @@ export namespace Components {
          */
         "type": AlertType;
     }
+    interface ZAnchorList {
+    }
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -2314,6 +2316,12 @@ declare global {
         prototype: HTMLZAlertElement;
         new (): HTMLZAlertElement;
     };
+    interface HTMLZAnchorListElement extends Components.ZAnchorList, HTMLStencilElement {
+    }
+    var HTMLZAnchorListElement: {
+        prototype: HTMLZAnchorListElement;
+        new (): HTMLZAnchorListElement;
+    };
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
     }
     var HTMLZAppHeaderElement: {
@@ -2964,6 +2972,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
+        "z-anchor-list": HTMLZAnchorListElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
@@ -3080,6 +3089,8 @@ declare namespace LocalJSX {
           * alert variant type
          */
         "type"?: AlertType;
+    }
+    interface ZAnchorList {
     }
     interface ZAppHeader {
         /**
@@ -5429,6 +5440,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;
+        "z-anchor-list": ZAnchorList;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
@@ -5544,6 +5556,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
+            "z-anchor-list": LocalJSX.ZAnchorList & JSXBase.HTMLAttributes<HTMLZAnchorListElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
