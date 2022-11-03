@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import {Component, Prop, h} from '@stencil/core';
 
 /**
  * Component short description.
@@ -6,20 +6,16 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: '{{kebabCase name}}',
   styleUrl: 'styles.css',
-  shadow: true
+  shadow: true,
 })
 export class {{properCase name}} {
   /**
    * Property description.
    */
-  @Prop() myProp: string;
+  @Prop()
+  myProp: string;
 
-  render() {
-    return (
-      <div>
-        This is your {{name}} component
-        This is your default prop: {this.myProp}
-      </div>
-    );
+  render(): HTML{{properCase name}}Element {
+    return (<div>This is your {{name}} component. This is your default prop: {this.myProp}</div>);
   }
 }
