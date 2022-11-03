@@ -9,7 +9,7 @@ import {getDevice} from "../../../utils/utils";
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
-  @Prop({mutable: true, reflect: true})
+  @Prop({reflect: true})
   type: ZFileUploadType = ZFileUploadType.DEFAULT;
 
   /** Prop indicating the button variant*/
@@ -86,12 +86,6 @@ export class ZFileUpload {
     this.invalidFiles = new Map<string, string[]>();
   }
 
-  componentWillRender(): void {
-    if (this.type === ZFileUploadType.DRAGDROP && getDevice() !== Device.DESKTOP) {
-      this.type = ZFileUploadType.DEFAULT;
-    }
-  }
-
   /** Emitted when user select one or more files */
   @Event()
   fileInput: EventEmitter;
@@ -108,12 +102,20 @@ export class ZFileUpload {
     return this.files;
   }
 
+  private getType(): ZFileUploadType {
+    if (getDevice() !== Device.DESKTOP) return ZFileUploadType.DEFAULT;
+
+    return this.type;
+  }
+
   private handleAccessibility(): void {
     const lastFile = this.el.querySelector("z-file:last-child z-chip button");
     if (this.files.length > 0 && lastFile) {
       (lastFile as HTMLElement).focus();
     } else {
-      this.type === ZFileUploadType.DEFAULT ? this.button.querySelector("button").focus() : this.uploadLink.focus();
+      this.getType() === ZFileUploadType.DEFAULT
+        ? this.button.querySelector("button").focus()
+        : this.uploadLink.focus();
     }
   }
 
@@ -325,10 +327,10 @@ export class ZFileUpload {
       <Host>
         <div
           tabIndex={0}
-          class={`container ${this.type}`}
+          class={`container ${this.getType()}`}
         >
           {this.renderTitle()}
-          {this.type == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
+          {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>
         {!!this.invalidFiles.size && (
           <z-modal

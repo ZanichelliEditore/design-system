@@ -54,7 +54,7 @@ import "./index";
       >
       </z-file-upload>
       <script>
-        const uploader = document.querySelector("z-file-upload");
+        const uploader_default = document.querySelector("z-file-upload");
         let fileNumber = 0;
         document.addEventListener("fileInput", (e) => {
           fileNumber++;
@@ -63,7 +63,7 @@ import "./index";
           chip.setAttribute("slot", "files");
           chip.setAttribute("file-number", fileNumber);
           chip.setAttribute("file-name", item.name);
-          uploader.appendChild(chip);
+          uploader_default.appendChild(chip);
         });
       </script>`}
   </Story>
@@ -88,14 +88,14 @@ import "./index";
                          main-title="${args.mainTitle}">
       </z-file-upload>
       <script>
-        const uploader = document.querySelector("z-file-upload");
+        const uploader_dragdrop = document.querySelector("z-file-upload");
           document.addEventListener("fileInput", (e) => {
               const item = e.detail
                   const chip = document.createElement('Z-FILE')
                   chip.setAttribute('slot', 'files')
                   chip.setAttribute('filetype', item.type)
                   chip.setAttribute("file-name", item.name);
-                  uploader.appendChild(chip);
+                  uploader_dragdrop.appendChild(chip);
           })
         </script>`}
   </Story>
