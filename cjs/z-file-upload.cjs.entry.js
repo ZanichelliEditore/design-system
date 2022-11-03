@@ -47,11 +47,6 @@ const ZFileUpload = class {
   componentWillLoad() {
     this.invalidFiles = new Map();
   }
-  componentWillRender() {
-    if (this.type === index$1.ZFileUploadType.DRAGDROP && utils.getDevice() !== index$1.Device.DESKTOP) {
-      this.type = index$1.ZFileUploadType.DEFAULT;
-    }
-  }
   fileInputHandler() {
     if (this.input.files.length) {
       this.invalidFiles = this.checkFiles(Array.from(this.input.files));
@@ -61,13 +56,20 @@ const ZFileUpload = class {
   async getFiles() {
     return this.files;
   }
+  getType() {
+    if (utils.getDevice() !== index$1.Device.DESKTOP)
+      return index$1.ZFileUploadType.DEFAULT;
+    return this.type;
+  }
   handleAccessibility() {
     const lastFile = this.el.querySelector("z-file:last-child z-chip button");
     if (this.files.length > 0 && lastFile) {
       lastFile.focus();
     }
     else {
-      this.type === index$1.ZFileUploadType.DEFAULT ? this.button.querySelector("button").focus() : this.uploadLink.focus();
+      this.getType() === index$1.ZFileUploadType.DEFAULT
+        ? this.button.querySelector("button").focus()
+        : this.uploadLink.focus();
     }
   }
   checkFiles(files) {
@@ -173,7 +175,7 @@ const ZFileUpload = class {
     })))));
   }
   render() {
-    return (index.h(index.Host, null, index.h("div", { tabIndex: 0, class: `container ${this.type}` }, this.renderTitle(), this.type == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+    return (index.h(index.Host, null, index.h("div", { tabIndex: 0, class: `container ${this.getType()}` }, this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
   }
   get el() { return index.getElement(this); }
 };

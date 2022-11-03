@@ -29,12 +29,12 @@ export declare class ZFileUpload {
   fileDroppedListener(e: CustomEvent): void;
   componentDidUpdate(): void;
   componentWillLoad(): void;
-  componentWillRender(): void;
   /** Emitted when user select one or more files */
   fileInput: EventEmitter;
   private fileInputHandler;
   /** get array of uploaded files */
   getFiles(): Promise<File[]>;
+  private getType;
   private handleAccessibility;
   private checkFiles;
   private renderTitle;
