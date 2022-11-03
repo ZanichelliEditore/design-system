@@ -30,7 +30,7 @@ export type FooterSocial = {
   description?: string;
 };
 
-export enum LicenseType {
+export const enum LicenseType {
   REAL = "reale",
   VIRTUAL = "virtuale",
   TRIAL = "saggio",
@@ -49,7 +49,7 @@ export type Card = {
   licenseType: LicenseType;
 };
 
-export enum CardVariant {
+export const enum CardVariant {
   BORDER = "border",
   SHADOW = "shadow",
   OVERLAY = "overlay",
@@ -95,12 +95,12 @@ export type TabItem = {
   disabled?: boolean;
 };
 
-export enum NavigationTabsOrientation {
+export const enum NavigationTabsOrientation {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical",
 }
 
-export enum NavigationTabsSize {
+export const enum NavigationTabsSize {
   BIG = "big",
   SMALL = "small",
 }
@@ -119,26 +119,26 @@ export type ComboItem = {
   checked: boolean;
 };
 
-export enum ButtonVariant {
+export const enum ButtonVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   TERTIARY = "tertiary",
   DARK_BG = "dark-bg",
 }
 
-export enum ButtonType {
+export const enum ButtonType {
   SUBMIT = "submit",
   RESET = "reset",
   BUTTON = "button",
 }
 
-export enum ButtonSize {
+export const enum ButtonSize {
   BIG = "big",
   SMALL = "small",
   X_SMALL = "x-small",
 }
 
-export enum InputType {
+export const enum InputType {
   TEXT = "text",
   PASSWORD = "password",
   NUMBER = "number",
@@ -151,13 +151,13 @@ export enum InputType {
   SEARCH = "search",
 }
 
-export enum InputStatus {
+export const enum InputStatus {
   SUCCESS = "success",
   ERROR = "error",
   WARNING = "warning",
 }
 
-export enum PopoverPositions {
+export const enum PopoverPositions {
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
@@ -173,7 +173,7 @@ export enum PopoverPositions {
   LEFT_BOTTOM = "left_bottom",
 }
 
-export enum PopoverPosition {
+export const enum PopoverPosition {
   AFTER_DOWN = "after-down",
   AFTER_CENTER = "after-center",
   AFTER_UP = "after-up",
@@ -188,13 +188,13 @@ export enum PopoverPosition {
   ABOVE_LEFT = "above-left",
 }
 
-export enum PopoverBorderRadius {
+export const enum PopoverBorderRadius {
   NONE = "none",
   SMALL = "small",
   MEDIUM = "medium",
 }
 
-export enum PopoverShadow {
+export const enum PopoverShadow {
   SHADOW_1 = "shadow-1",
   SHADOW_2 = "shadow-2",
   SHADOW_3 = "shadow-3",
@@ -206,7 +206,7 @@ export enum PopoverShadow {
   SHADOW_24 = "shadow-24",
 }
 
-export enum KeyboardKeyCode {
+export const enum KeyboardKeyCode {
   TAB = 9,
   SPACE = 32,
   ESC = 27,
@@ -217,7 +217,7 @@ export enum KeyboardKeyCode {
   DELETE = 46,
 }
 
-export enum KeyboardCode {
+export const enum KeyboardCode {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -235,42 +235,42 @@ export type SelectItem = {
   disabled?: boolean;
 };
 
-export enum ThemeVariant {
+export const enum ThemeVariant {
   DARK = "dark",
   LIGHT = "light",
 }
 
-export enum DividerSize {
+export const enum DividerSize {
   SMALL = "small",
   MEDIUM = "medium",
   LARGE = "large",
 }
 
-export enum DividerOrientation {
+export const enum DividerOrientation {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical",
 }
 
-export enum SortDirection {
+export const enum SortDirection {
   ASC = "asc",
   DESC = "desc",
   NONE = "none",
 }
 
-export enum AvatarSize {
+export const enum AvatarSize {
   SMALL = "small",
   MEDIUM = "medium",
   LARGE = "large",
 }
 
-export enum ListSize {
+export const enum ListSize {
   SMALL = "small",
   MEDIUM = "medium",
   LARGE = "large",
   X_LARGE = "x-large",
 }
 
-export enum Size {
+export const enum Size {
   X_SMALL = "x-small",
   SMALL = "small",
   MEDIUM = "medium",
@@ -278,40 +278,40 @@ export enum Size {
   SPECIAL = "special",
 }
 
-export enum ExpandableListStyle {
+export const enum ExpandableListStyle {
   ACCORDION = "accordion",
   MENU = "menu",
 }
 
-export enum ExpandableListButtonAlign {
+export const enum ExpandableListButtonAlign {
   RIGHT = "right",
   LEFT = "left",
 }
 
-export enum LabelPosition {
+export const enum LabelPosition {
   RIGHT = "right",
   LEFT = "left",
 }
 
-export enum ListDividerType {
+export const enum ListDividerType {
   NONE = "none",
   HEADER = "header",
   ELEMENT = "element",
 }
 
-export enum NotificationType {
+export const enum NotificationType {
   SUCCESS = "success",
   WARNING = "warning",
   ERROR = "error",
 }
 
-export enum AlertType {
+export const enum AlertType {
   SUCCESS = "success",
   WARNING = "warning",
   ERROR = "error",
 }
 
-export enum Device {
+export const enum Device {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
@@ -333,13 +333,13 @@ export type DictionaryLicenseData = {
   installations: string;
 };
 
-export enum PocketStatus {
+export const enum PocketStatus {
   PREVIEW = "preview",
   OPEN = "open",
   CLOSED = "closed",
 }
 
-export enum ToastNotification {
+export const enum ToastNotification {
   DARK = "dark",
   LIGHT = "light",
   ACCENT = "accent",
@@ -348,7 +348,7 @@ export enum ToastNotification {
   WARNING = "warning",
 }
 
-export enum ToastNotificationTransition {
+export const enum ToastNotificationTransition {
   SLIDE_IN_LEFT = "slide-in-left",
   SLIDE_IN_RIGHT = "slide-in-right",
   SLIDE_IN_DOWN = "slide-in-down",
@@ -359,7 +359,7 @@ export enum ToastNotificationTransition {
   SLIDE_OUT_UP = "slide-out-up",
 }
 
-export enum ToastNotificationPosition {
+export const enum ToastNotificationPosition {
   TOP_RIGHT = "top-right",
   TOP_LEFT = "top-left",
   TOP_CENTRE = "top-centre",
@@ -368,61 +368,61 @@ export enum ToastNotificationPosition {
   BOTTOM_CENTRE = "bottom-centre",
 }
 
-export enum ZTableRowExpandedType {
+export const enum ZTableRowExpandedType {
   EXPANDABLE = "expandable",
   PADDING = "padding",
   NONE = "none",
 }
 
-export enum ZAriaAlertMode {
+export const enum ZAriaAlertMode {
   POLITE = "polite",
   ASSERTIVE = "assertive",
 }
 
-export enum TransitionDirection {
+export const enum TransitionDirection {
   LEFT = "left",
   RIGHT = "right",
 }
 
-export enum OffCanvasVariant {
+export const enum OffCanvasVariant {
   OVERLAY = "overlay",
   PUSHCONTENT = "pushcontent",
 }
 
-export enum ZFileUploadType {
+export const enum ZFileUploadType {
   DEFAULT = "default",
   DRAGDROP = "dragdrop",
 }
 
-export enum ZChipType {
+export const enum ZChipType {
   DEFAULT = "default",
   MEDIUM = "medium",
   SMALL = "small",
 }
 
-export enum ZSectionTitleDividerPosition {
+export const enum ZSectionTitleDividerPosition {
   BEFORE = "before",
   AFTER = "after",
 }
 
-export enum ZDatePickerMode {
+export const enum ZDatePickerMode {
   DATE = "date",
   DATE_TIME = "date-time",
   MONTHS = "months",
 }
 
-export enum ZDatePickerModeValue {
+export const enum ZDatePickerModeValue {
   DATE = 401,
   DATE_TIME = 523,
   MONTHS = 288,
 }
 
-export enum ZDatePickerPosition {
+export const enum ZDatePickerPosition {
   TOP = "top",
   BOTTOM = "bottom",
 }
 
-export enum ZRangePickerMode {
+export const enum ZRangePickerMode {
   DATE = "date",
   DATE_TIME = "date-time",
 }
@@ -433,7 +433,7 @@ export type SkipToContentLink = {
   ariaLabel?: string;
 };
 
-export enum StatusTagStatus {
+export const enum StatusTagStatus {
   WARNING = "warning",
   ERROR = "error",
   SUCCESS = "success",
@@ -441,29 +441,29 @@ export enum StatusTagStatus {
   DEFAULT = "default",
 }
 
-export enum InfoRevealPosition {
+export const enum InfoRevealPosition {
   TOP_RIGHT = "top_right",
   TOP_LEFT = "top_left",
   BOTTOM_RIGHT = "bottom_right",
   BOTTOM_LEFT = "bottom_left",
 }
 
-export enum CoverHeroVariant {
+export const enum CoverHeroVariant {
   OVERLAY = "overlay",
   STACKED = "stacked",
 }
 
-export enum CoverHeroContentPosition {
+export const enum CoverHeroContentPosition {
   TOP = "top",
   BOTTOM = "bottom",
 }
 
-export enum CarouselArrowsPosition {
+export const enum CarouselArrowsPosition {
   OVER = "over",
   BOTTOM = "bottom",
 }
 
-export enum CarouselProgressMode {
+export const enum CarouselProgressMode {
   DOTS = "dots",
   NUMBERS = "numbers",
 }

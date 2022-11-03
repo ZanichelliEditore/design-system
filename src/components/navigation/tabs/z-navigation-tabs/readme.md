@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Navigation tabs component.
+
 ## Properties
 
 | Property      | Attribute     | Description                  | Type                                                                         | Default                                |

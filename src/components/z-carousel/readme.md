@@ -13,6 +13,10 @@ To activate single mode, set the attribute `single` to `true` and set a width to
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZCarousel component.
+
 ## Properties
 
 | Property             | Attribute              | Description                                                                                                                          | Type                                                           | Default     |

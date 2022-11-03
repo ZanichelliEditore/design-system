@@ -107,7 +107,7 @@ export class ZPopoverDeprecated {
       }
     }
 
-    this.popoverPosition = PopoverPosition[`${firstSide}-${secondSide}`];
+    this.popoverPosition = `${firstSide}-${secondSide}` as PopoverPosition;
     this.isVisible = true;
   }
 

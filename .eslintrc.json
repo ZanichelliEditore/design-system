@@ -106,6 +106,7 @@
     ],
     "@stencil/required-prefix": ["error", ["z"]],
     "@stencil/strict-boolean-conditions": "off",
-    "@stencil/prefer-vdom-listener": "off"
+    "@stencil/prefer-vdom-listener": "off",
+    "@stencil/ban-exported-const-enums": "off"
   }
 }

@@ -136,7 +136,23 @@ export class ZTooltipDeprecated {
 
   @Watch("type")
   validateType(newValue: PopoverPositions): void {
-    if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
+    // FIXME: avoid this check and treat "AUTO" as the default case when modifying tooltip position
+    if (
+      newValue &&
+      newValue !== PopoverPositions.AUTO &&
+      newValue !== PopoverPositions.BOTTOM &&
+      newValue !== PopoverPositions.BOTTOM_LEFT &&
+      newValue !== PopoverPositions.BOTTOM_RIGHT &&
+      newValue !== PopoverPositions.LEFT &&
+      newValue !== PopoverPositions.LEFT_BOTTOM &&
+      newValue !== PopoverPositions.LEFT_TOP &&
+      newValue !== PopoverPositions.RIGHT &&
+      newValue !== PopoverPositions.RIGHT_BOTTOM &&
+      newValue !== PopoverPositions.RIGHT_TOP &&
+      newValue !== PopoverPositions.TOP &&
+      newValue !== PopoverPositions.TOP_LEFT &&
+      newValue !== PopoverPositions.TOP_RIGHT
+    ) {
       this.type = PopoverPositions.AUTO;
     }
   }
