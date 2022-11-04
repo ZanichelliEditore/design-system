@@ -1,0 +1,64 @@
+import {html} from "lit-html";
+import {Meta, Story, Canvas} from "@storybook/addon-docs";
+import "./index.stories.css";
+
+<Meta title="Grid" />
+
+# Grid
+
+<Canvas>
+  <Story name="Grid System">
+    {html`
+      <div class="grid-story">
+        <p>
+          This story highlights grid column and row responsive CSS classes from albe-design-tokens grid system.
+        </p>
+        <p>
+          Changing the viewport size will change the grid layout.
+        </p>
+        <p>
+          Try changing viewport size using Storybook preview tool on Canvas tab.
+        </p>
+        <div class="container">
+          <h3>Responsive columns</h3>
+          <div class="grid">
+            <div class="wide-col-6 desktop-col-4 tablet-col-3 mobile-col-2">wide-col-6 desktop-col-4 tablet-col-3 mobile-col-2</div>
+            <div class="wide-col-6 desktop-col-4 tablet-col-3 mobile-col-2">wide-col-6 desktop-col-4 tablet-col-3 mobile-col-2</div>
+            <div class="wide-col-4 desktop-col-4 tablet-col-3 mobile-col-2">wide-col-4 desktop-col-4 tablet-col-3 mobile-col-2</div>
+            <div class="wide-col-4 desktop-col-4 tablet-col-3 mobile-col-2">wide-col-4 desktop-col-4 tablet-col-3 mobile-col-2</div>
+            <div class="ghost-grid grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h3>Responsive rows</h3>
+            <div class="grid grid-rows-6">
+              <div class="col-full wide-row-5 desktop-row-3 tablet-row-3 mobile-row-1">wide-row-5 desktop-row-3 tablet-row-3 mobile-row-1</div>
+              <div class="col-full wide-row-1 desktop-row-3 tablet-row-3 mobile-row-5">wide-row-1 desktop-row-3 tablet-row-3 mobile-row-5</div>
+                <div class="ghost-grid grid-rows-6 ghost-row grid">
+                    <div class="col-full row-1"></div>
+                    <div class="col-full row-1"></div>
+                    <div class="col-full row-1"></div>
+                    <div class="col-full row-1"></div>
+                    <div class="col-full row-1"></div>
+                    <div class="col-full row-1"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Canvas>
