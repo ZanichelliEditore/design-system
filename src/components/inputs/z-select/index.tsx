@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
-import {SelectItem, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
+import {SelectItem, SelectGroup, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | string;
+  items: SelectItem[] | SelectGroup[] | string;
 
   /** the input name */
   @Prop()
@@ -55,6 +55,10 @@ export class ZSelect {
   @Prop()
   message?: string | boolean = true;
 
+  /** the select items are splitted in groups */
+  @Prop()
+  hasListGroups?: string | boolean = false;
+
   /** the input has autocomplete option */
   @Prop()
   autocomplete?: boolean = false;
@@ -74,6 +78,8 @@ export class ZSelect {
 
   private itemsList: SelectItem[] = [];
 
+  private itemsWithGroups: SelectGroup[] = [];
+
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -82,7 +88,12 @@ export class ZSelect {
 
   @Watch("items")
   watchItems(): void {
-    this.itemsList = this.getInitialItemsArray();
+    if (this.hasListGroups) {
+      this.itemsWithGroups = this.getInitialGroupsArray();
+      this.itemsWithGroups.forEach((item: SelectGroup) => this.itemsList.push(...item.items));
+    } else {
+      this.itemsList = this.getInitialItemsArray();
+    }
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
   }
 
@@ -134,8 +145,19 @@ export class ZSelect {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
+  private getInitialGroupsArray(): SelectGroup[] {
+    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+  }
+
   private mapSelectedItemToItemsArray(): SelectItem[] {
-    const initialItemsList = this.getInitialItemsArray();
+    let initialItemsList = [];
+
+    if (this.hasListGroups) {
+      this.itemsWithGroups = this.getInitialGroupsArray();
+      this.itemsWithGroups.forEach((item: SelectGroup) => initialItemsList.push(...item.items));
+    } else {
+      initialItemsList = this.getInitialItemsArray();
+    }
 
     return initialItemsList.map((item: SelectItem) => {
       item.selected = item.id === this.selectedItem?.id;
@@ -358,11 +380,51 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
-            {this.renderSelectUlItems()}
+            {this.hasListGroups ? this.renderSelectUlGroups() : this.renderSelectUlItems()}
           </z-list>
         </div>
       </div>
     );
+  }
+
+  private renderSelectUlGroups(): HTMLZListGroupElement | HTMLZListGroupElement[] {
+    if (!this.itemsWithGroups.length) {
+      return this.renderNoSearchResults();
+    }
+
+    return this.itemsWithGroups.map((group: SelectGroup) => {
+      return (
+        <z-list-group divider-type={ListDividerType.HEADER}>
+          <z-body
+            class="z-list-group-title"
+            level={4}
+            slot="header-title"
+          >
+            {group.title}
+          </z-body>
+          {group.items.map((item: SelectItem, key) => {
+            return (
+              <z-list-element
+                clickable={!item.disabled}
+                disabled={item.disabled}
+                dividerType={ListDividerType.HEADER}
+                role="option"
+                tabindex={item.disabled || !this.isOpen ? -1 : 0}
+                aria-selected={!!item.selected}
+                id={`${this.htmlid}_${key}`}
+                onClickItem={() => this.selectItem(item, true)}
+                onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+              >
+                <span
+                  class={{selected: !!item.selected}}
+                  innerHTML={item.name}
+                />
+              </z-list-element>
+            );
+          })}
+        </z-list-group>
+      );
+    });
   }
 
   private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {

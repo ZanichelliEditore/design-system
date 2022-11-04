@@ -39,11 +39,27 @@
       </z-app-topbar>
     </header>
     <div style="padding: 300px">
-      <z-range-picker
-        mode="date-time"
-        range-picker-id="dp1"
-        id="dp123456"
-      ></z-range-picker>
+      <z-select
+        items='[{"title":"Gruppo 1","items":[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":false},{"id":"item_3","name":"third item","selected":false}]},{"title":"Gruppo 2","items":[{"id":"item_4","name":"fourth item","selected":false},{"id":"item_5","name":"fifth item","selected":false},{"id":"item_6","name":"sixth item","selected":false}]}]'
+        label="this is the label"
+        aria-label=""
+        placeholder="select placeholder"
+        name=""
+        status="-"
+        message="helper text"
+        autocomplete="false"
+        noresultslabel="Nessun risultato"
+        disabled="false"
+        readonly="false"
+        htmlid=""
+        htmltitle=""
+        has-list-groups="false"
+      >
+        <z-app-switcher
+          id="myappswitcher"
+          slot="header-title-lol"
+        />
+      </z-select>
     </div>
   </body>
 </html>

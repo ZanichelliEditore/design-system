@@ -82,3 +82,8 @@
 .select-wrapper .ul-scroll-wrapper .no-results z-icon {
   margin-right: var(--space-unit);
 }
+
+.z-list-group-title {
+  color: var(--gray400);
+  font-style: italic;
+}

@@ -235,6 +235,11 @@ export type SelectItem = {
   disabled?: boolean;
 };
 
+export type SelectGroup = {
+  title: string;
+  items: SelectItem[];
+};
+
 export enum ThemeVariant {
   DARK = "dark",
   LIGHT = "light",
