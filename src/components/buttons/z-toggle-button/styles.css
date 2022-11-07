@@ -1,16 +1,18 @@
 button {
+  display: flex;
   height: 36px;
-  padding-right: calc(var(--space-unit) * 2);
-  padding-left: 0;
+  align-items: center;
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
   border: var(--border-size-medium) solid;
   border-color: transparent;
-  background-color: var(--bg-white);
+  background-color: var(--color-surface01);
   border-radius: var(--border-radius);
   box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
-  color: var(--myz-blue);
+  color: var(--color-primary01);
+  column-gap: var(--space-unit);
   cursor: pointer;
-  fill: var(--myz-blue);
-  font-family: var(--dashboard-font);
+  fill: var(--color-icon01);
+  font-family: var(--font-family-sans);
   font-size: 14px;
   font-weight: var(--font-sb);
   outline: none;
@@ -18,43 +20,31 @@ button {
   transition: all 200ms linear;
 }
 
-button::-moz-focus-inner {
-  border: 0;
+:host([opened]:not([opened="false"])) button {
+  background-color: var(--color-active-primary);
+  color: var(--color-text-inverse);
+  fill: var(--color-text-inverse);
 }
 
 button:hover {
-  color: var(--myz-blue-dark);
-  fill: var(--myz-blue-dark);
+  color: var(--color-hover-primary);
+  fill: var(--color-icon02);
 }
 
 button:focus {
-  border-color: var(--myz-blue);
-  box-shadow: 0 0 2px 2px var(--accent-dark);
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 button:active {
-  border-color: var(--myz-blue-light);
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
-  color: var(--myz-blue-light);
-  fill: var(--myz-blue-light);
+  border-color: var(--color-pressed-primary);
+  box-shadow: var(--shadow-2);
+  color: var(--color-pressed-primary);
+  fill: var(--color-pressed-primary);
 }
 
 button:disabled {
-  color: var(--text-grey-700);
-  fill: var(--text-grey-700);
-}
-
-z-icon {
-  display: inline-block;
-  margin: 0 var(--space-unit) 0 calc(var(--space-unit) * 2);
-  transform: rotate(360deg);
-  transition: all 200ms linear;
-}
-
-button.isopen {
-  top: -20px;
+  color: var(--color-disabled02);
+  fill: var(--color-disabled02);
 }
 
 button.avoid-clicks {

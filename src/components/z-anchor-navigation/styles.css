@@ -4,10 +4,15 @@ html {
 }
 
 z-anchor-navigation nav {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   row-gap: calc(var(--space-unit) / 2);
+}
+
+z-anchor-navigation z-toggle-button[opened] + nav {
+  display: flex;
+  margin-top: var(--space-unit);
 }
 
 z-anchor-navigation:not([hide-unselected], [hide-unselected="true"]) nav > * {
@@ -70,7 +75,6 @@ z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
   position: absolute;
   top: 50%;
   right: 0;
-  opacity: 0;
   transform: translateY(-50%);
   transition: opacity 0.3s ease-in-out;
 }
@@ -94,4 +98,20 @@ z-anchor-navigation nav z-icon {
   display: flex;
   padding: calc(var(--space-unit) * 1.5);
   fill: var(--color-icon02);
+}
+
+@media (hover: hover) {
+  z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  z-anchor-navigation z-toggle-button {
+    display: none;
+  }
+
+  z-anchor-navigation nav {
+    display: flex;
+  }
 }

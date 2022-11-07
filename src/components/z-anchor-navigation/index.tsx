@@ -1,4 +1,4 @@
-import {Component, h, Prop} from "@stencil/core";
+import {Component, h, Host, Prop} from "@stencil/core";
 
 /**
  * * Anchor navigation component.
@@ -53,9 +53,12 @@ export class ZAnchorNavigation {
 
   render(): HTMLZAnchorNavigationElement {
     return (
-      <nav ref={(el) => (this.nav = el)}>
-        <slot></slot>
-      </nav>
+      <Host>
+        <z-toggle-button label="salta a"></z-toggle-button>
+        <nav ref={(el) => (this.nav = el)}>
+          <slot></slot>
+        </nav>
+      </Host>
     );
   }
 }

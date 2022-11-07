@@ -12,15 +12,15 @@ export class ZToggleButton {
 
   /** disabled status flag (optional) */
   @Prop()
-  isdisabled?: boolean = false;
+  isdisabled? = false;
 
   /** avoidclick status flag */
   @Prop()
   avoidclick: boolean;
 
   /** open by default (optional) */
-  @Prop({mutable: true})
-  opened?: boolean = false;
+  @Prop({mutable: true, reflect: true})
+  opened? = false;
 
   /** emitted on toggle button click, returns isOpen */
   @Event()
@@ -40,14 +40,14 @@ export class ZToggleButton {
       <button
         tabindex={this.avoidclick ? "-1" : "0"}
         class={{
-          "isopen": this.opened,
           "avoid-clicks": this.avoidclick,
         }}
+        type="button"
         disabled={this.isdisabled}
         onClick={() => this.emitToggleClick()}
       >
         <z-icon
-          name={this.opened ? "chevron-down" : "chevron-up"}
+          name={this.opened ? "chevron-up" : "chevron-down"}
           width={16}
           height={16}
         />
