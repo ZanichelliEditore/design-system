@@ -16,7 +16,11 @@ export namespace Components {
          */
         "type": AlertType;
     }
-    interface ZAnchorList {
+    interface ZAnchorNavigation {
+        /**
+          * Whether to hide the text of internal unselected anchors unless hovering it.
+         */
+        "hideUnselected": boolean;
     }
     interface ZAppHeader {
         /**
@@ -2316,11 +2320,11 @@ declare global {
         prototype: HTMLZAlertElement;
         new (): HTMLZAlertElement;
     };
-    interface HTMLZAnchorListElement extends Components.ZAnchorList, HTMLStencilElement {
+    interface HTMLZAnchorNavigationElement extends Components.ZAnchorNavigation, HTMLStencilElement {
     }
-    var HTMLZAnchorListElement: {
-        prototype: HTMLZAnchorListElement;
-        new (): HTMLZAnchorListElement;
+    var HTMLZAnchorNavigationElement: {
+        prototype: HTMLZAnchorNavigationElement;
+        new (): HTMLZAnchorNavigationElement;
     };
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
     }
@@ -2972,7 +2976,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
-        "z-anchor-list": HTMLZAnchorListElement;
+        "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
@@ -3090,7 +3094,11 @@ declare namespace LocalJSX {
          */
         "type"?: AlertType;
     }
-    interface ZAnchorList {
+    interface ZAnchorNavigation {
+        /**
+          * Whether to hide the text of internal unselected anchors unless hovering it.
+         */
+        "hideUnselected"?: boolean;
     }
     interface ZAppHeader {
         /**
@@ -5440,7 +5448,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;
-        "z-anchor-list": ZAnchorList;
+        "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
@@ -5556,7 +5564,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
-            "z-anchor-list": LocalJSX.ZAnchorList & JSXBase.HTMLAttributes<HTMLZAnchorListElement>;
+            "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
