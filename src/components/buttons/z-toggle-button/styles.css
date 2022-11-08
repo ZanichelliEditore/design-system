@@ -7,7 +7,7 @@ button {
   border-color: transparent;
   background-color: var(--color-surface01);
   border-radius: var(--border-radius);
-  box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+  box-shadow: var(--shadow-2);
   color: var(--color-primary01);
   column-gap: var(--space-unit);
   cursor: pointer;
@@ -28,18 +28,21 @@ button {
 
 button:hover {
   color: var(--color-hover-primary);
-  fill: var(--color-icon02);
+  fill: var(--color-hover-primary);
 }
 
 button:focus {
   box-shadow: var(--shadow-focus-primary);
 }
 
-button:active {
+:host(:is(:not([opened]), [opened="false"])) button:active {
   border-color: var(--color-pressed-primary);
-  box-shadow: var(--shadow-2);
   color: var(--color-pressed-primary);
   fill: var(--color-pressed-primary);
+}
+
+:host([opened]:not([opened="false"])) button:active {
+  background-color: var(--color-pressed-primary);
 }
 
 button:disabled {
