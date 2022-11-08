@@ -1,4 +1,5 @@
-import {Component, h, Host, Prop} from "@stencil/core";
+import {Component, h, Host, Prop, State} from "@stencil/core";
+import {ButtonVariant} from "../../beans";
 
 /**
  * * Anchor navigation component.
@@ -28,6 +29,12 @@ export class ZAnchorNavigation {
   @Prop({reflect: true})
   hideUnselected = false;
 
+  /**
+   * Whether the mobile list is collapsed.
+   */
+  @State()
+  collapsed = false;
+
   /** Reference to the nav element. */
   private nav: HTMLElement;
 
@@ -43,6 +50,13 @@ export class ZAnchorNavigation {
     });
   }
 
+  /**
+   * Toggle collapsed state.
+   */
+  private toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+
   componentDidLoad(): void {
     window.addEventListener("hashchange", this.setAriaCurrent.bind(this));
     this.setAriaCurrent();
@@ -54,8 +68,14 @@ export class ZAnchorNavigation {
 
   render(): HTMLZAnchorNavigationElement {
     return (
-      <Host>
-        <z-toggle-button label="salta a"></z-toggle-button>
+      <Host collapsed={this.collapsed}>
+        <z-button
+          variant={ButtonVariant.SECONDARY}
+          icon={this.collapsed ? "chevron-up" : "chevron-down"}
+          onClick={this.toggleCollapsed.bind(this)}
+        >
+          salta a
+        </z-button>
         <nav ref={(el) => (this.nav = el)}>
           <slot></slot>
         </nav>

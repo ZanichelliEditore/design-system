@@ -10,7 +10,7 @@ z-anchor-navigation nav {
   row-gap: calc(var(--space-unit) / 2);
 }
 
-z-anchor-navigation z-toggle-button[opened] + nav {
+z-anchor-navigation[collapsed] nav {
   display: flex;
   margin-top: var(--space-unit);
 }
@@ -39,6 +39,7 @@ z-anchor-navigation nav * a:not(:only-child) {
 
 @supports not (overflow-clip-margin: content-box) {
   z-anchor-navigation nav a {
+    display: inline-block;
     overflow: hidden;
     -webkit-line-clamp: none;
     text-overflow: ellipsis;
@@ -107,8 +108,8 @@ z-anchor-navigation nav z-icon {
 }
 
 @media (min-width: 768px) {
-  z-anchor-navigation z-toggle-button {
-    display: none;
+  z-anchor-navigation z-button {
+    display: none !important;
   }
 
   z-anchor-navigation nav {
