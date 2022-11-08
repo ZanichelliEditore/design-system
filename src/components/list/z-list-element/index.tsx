@@ -6,6 +6,7 @@ import {
   KeyboardCode,
   ListDividerType,
   ListSize,
+  ListType,
 } from "../../../beans";
 
 @Component({
@@ -113,6 +114,18 @@ export class ZListElement {
    */
   @Prop({reflect: true})
   isContextualMenu?: boolean = false;
+
+  /**
+   * [optional] position of the list element inside the list or the group
+   */
+  @Prop({reflect: true})
+  listElementPosition?: string = "0";
+
+  /**
+   * [optional] type of the list marker for each element
+   */
+  @Prop({reflect: true})
+  listType?: ListType = ListType.NONE;
 
   @State()
   showInnerContent = false;
@@ -222,6 +235,20 @@ export class ZListElement {
     );
   }
 
+  /**
+   * Renders bullet or number on the left of the list content
+   * @returns list symbol
+   */
+  private renderListIndex(): HTMLDivElement {
+    if (this.listType === ListType.ORDERED) {
+      return <span>{this.listElementPosition}.&emsp;</span>;
+    }
+
+    if (this.listType === ListType.UNORDERED) {
+      return <span>&bull;&emsp;</span>;
+    }
+  }
+
   render(): HTMLZListElementElement {
     return (
       <Host
@@ -240,7 +267,10 @@ export class ZListElement {
         >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
-            <slot />
+            <div>
+              {this.listType !== ListType.NONE && this.renderListIndex()}
+              <slot />
+            </div>
           </div>
           {this.renderExpandedContent()}
         </div>
