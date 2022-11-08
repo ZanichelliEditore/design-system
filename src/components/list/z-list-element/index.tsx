@@ -236,16 +236,30 @@ export class ZListElement {
   }
 
   /**
-   * Renders bullet or number on the left of the list content
-   * @returns list symbol
+   * Renders content of the z-list-element
+   * @returns list content
    */
-  private renderListIndex(): HTMLDivElement {
+  private renderContent(): HTMLDivElement {
+    if (this.listType === ListType.NONE) {
+      return <slot />;
+    }
+
     if (this.listType === ListType.ORDERED) {
-      return <span>{this.listElementPosition}.&emsp;</span>;
+      return (
+        <div>
+          <span>{this.listElementPosition}.&emsp;</span>
+          <slot />
+        </div>
+      );
     }
 
     if (this.listType === ListType.UNORDERED) {
-      return <span>&bull;&emsp;</span>;
+      return (
+        <div>
+          <span>&bull;&emsp;</span>
+          <slot />
+        </div>
+      );
     }
   }
 
@@ -267,10 +281,7 @@ export class ZListElement {
         >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}
-            <div>
-              {this.listType !== ListType.NONE && this.renderListIndex()}
-              <slot />
-            </div>
+            {this.renderContent()}
           </div>
           {this.renderExpandedContent()}
         </div>
