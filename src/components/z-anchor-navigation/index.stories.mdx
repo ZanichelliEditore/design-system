@@ -26,21 +26,31 @@ import "./index.stories.css";
       <div class="z-anchor-navigation-story-wrapper">
         <z-anchor-navigation .hideUnselected=${args.hideUnselected}>
           <div>
-            <a href="#first-section">First section</a>
+            <a
+              href="#first-section"
+              target="_self"
+              >First section</a
+            >
             <z-button
               variant="tertiary"
               icon="share"
             ></z-button>
           </div>
           <div>
-            <a href="#second-section">Second section</a>
+            <a
+              href="#second-section"
+              target="_self"
+              >Second section</a
+            >
             <z-icon
               name="share"
               tabindex="0"
             ></z-icon>
           </div>
           <div>
-            <a href="#third-section"
+            <a
+              href="#third-section"
+              target="_self"
               >Third section with a very very long title and an icon and the title is repeated so it can go over 2 lines
               Third section with a very very long title and an icon and the title is repeated so it can go over 2 lines
             </a>
@@ -51,7 +61,9 @@ import "./index.stories.css";
               <z-icon name="share" />
             </button>
           </div>
-          <a href="#fourth-section"
+          <a
+            href="#fourth-section"
+            target="_self"
             >Third section with a very very long title and an icon and the title is repeated so it can go over 2 lines
             Third section with a very very long title and an icon and the title is repeated so it can go over 2 lines
           </a>
