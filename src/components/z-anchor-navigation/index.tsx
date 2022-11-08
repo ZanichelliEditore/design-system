@@ -22,7 +22,8 @@ import {Component, h, Host, Prop} from "@stencil/core";
 })
 export class ZAnchorNavigation {
   /**
-   * Whether to hide the text of internal unselected anchors unless hovering it.
+   * If enabled, the text of each anchor will be hidden unless
+   * for the current one or the one the user is hovering.
    */
   @Prop({reflect: true})
   hideUnselected = false;

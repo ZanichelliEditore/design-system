@@ -18,7 +18,7 @@ export namespace Components {
     }
     interface ZAnchorNavigation {
         /**
-          * Whether to hide the text of internal unselected anchors unless hovering it.
+          * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected": boolean;
     }
@@ -2011,15 +2011,15 @@ export namespace Components {
          */
         "avoidclick": boolean;
         /**
-          * disabled status flag (optional)
+          * Disabled status
          */
         "isdisabled"?: boolean;
         /**
-          * label text
+          * Label text
          */
         "label": string;
         /**
-          * open by default (optional)
+          * Toggle status of the button
          */
         "opened"?: boolean;
     }
@@ -3096,7 +3096,7 @@ declare namespace LocalJSX {
     }
     interface ZAnchorNavigation {
         /**
-          * Whether to hide the text of internal unselected anchors unless hovering it.
+          * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected"?: boolean;
     }
@@ -5321,19 +5321,19 @@ declare namespace LocalJSX {
          */
         "avoidclick"?: boolean;
         /**
-          * disabled status flag (optional)
+          * Disabled status
          */
         "isdisabled"?: boolean;
         /**
-          * label text
+          * Label text
          */
         "label"?: string;
         /**
-          * emitted on toggle button click, returns isOpen
+          * Emitted on toggle button click, returns `opened` value
          */
         "onToggleClick"?: (event: ZToggleButtonCustomEvent<any>) => void;
         /**
-          * open by default (optional)
+          * Toggle status of the button
          */
         "opened"?: boolean;
     }
