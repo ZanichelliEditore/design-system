@@ -23,13 +23,13 @@
 
 ### Depends on
 
-- [z-toggle-button](../buttons/z-toggle-button)
+- [z-button](../buttons/z-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-anchor-navigation --> z-toggle-button
-  z-toggle-button --> z-icon
+  z-anchor-navigation --> z-button
+  z-button --> z-icon
   style z-anchor-navigation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

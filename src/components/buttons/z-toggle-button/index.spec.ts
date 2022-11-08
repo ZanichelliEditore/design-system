@@ -12,8 +12,8 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button>
         <mock:shadow-root>
-          <button tabindex="0" type="button">
-            <z-icon height="16" name="chevron-down" width="16"></z-icon>
+          <button tabindex="0">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
           </button>
         </mock:shadow-root>
       </z-toggle-button>
@@ -29,8 +29,8 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button label="label">
         <mock:shadow-root>
-          <button tabindex="0" type="button">
-            <z-icon height="16" name="chevron-down" width="16"></z-icon>
+          <button tabindex="0">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>
@@ -47,8 +47,8 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button label="label" isdisabled="true">
         <mock:shadow-root>
-          <button disabled tabindex="0" type="button">
-            <z-icon height="16" name="chevron-down" width="16"></z-icon>
+          <button disabled tabindex="0">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>
@@ -65,8 +65,8 @@ describe("Suite test ZToggleButton", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-button avoidclick="true" label="label">
         <mock:shadow-root>
-          <button class="avoid-clicks" tabindex="-1" type="button">
-            <z-icon height="16" name="chevron-down" width="16"></z-icon>
+          <button class="avoid-clicks" tabindex="-1">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>
@@ -81,10 +81,10 @@ describe("Suite test ZToggleButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toggle-button opened label="label">
+      <z-toggle-button opened="true" label="label">
         <mock:shadow-root>
-          <button tabindex="0" type="button">
-            <z-icon height="16" name="chevron-up" width="16"></z-icon>
+          <button class="isopen" tabindex="0">
+            <z-icon height="16" name="chevron-down" width="16"></z-icon>
             label
           </button>
         </mock:shadow-root>

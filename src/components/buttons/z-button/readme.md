@@ -108,6 +108,7 @@
 
 ### Used by
 
+ - [z-anchor-navigation](../../z-anchor-navigation)
  - [z-carousel](../../z-carousel)
  - [z-cookiebar](../../notification/z-cookiebar)
  - [z-file-upload](../../file-upload/z-file-upload)
@@ -128,6 +129,7 @@
 ```mermaid
 graph TD;
   z-button --> z-icon
+  z-anchor-navigation --> z-button
   z-carousel --> z-button
   z-cookiebar --> z-button
   z-file-upload --> z-button

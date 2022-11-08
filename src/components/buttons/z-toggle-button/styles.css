@@ -1,18 +1,16 @@
 button {
-  display: flex;
   height: 36px;
-  align-items: center;
-  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  padding-right: calc(var(--space-unit) * 2);
+  padding-left: 0;
   border: var(--border-size-medium) solid;
   border-color: transparent;
-  background-color: var(--color-surface01);
+  background-color: var(--bg-white);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-2);
-  color: var(--color-primary01);
-  column-gap: var(--space-unit);
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+  color: var(--myz-blue);
   cursor: pointer;
-  fill: var(--color-icon01);
-  font-family: var(--font-family-sans);
+  fill: var(--myz-blue);
+  font-family: var(--dashboard-font);
   font-size: 14px;
   font-weight: var(--font-sb);
   outline: none;
@@ -20,34 +18,43 @@ button {
   transition: all 200ms linear;
 }
 
-:host([opened]:not([opened="false"])) button {
-  background-color: var(--color-active-primary);
-  color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
+button::-moz-focus-inner {
+  border: 0;
 }
 
 button:hover {
-  color: var(--color-hover-primary);
-  fill: var(--color-hover-primary);
+  color: var(--myz-blue-dark);
+  fill: var(--myz-blue-dark);
 }
 
 button:focus {
-  box-shadow: var(--shadow-focus-primary);
+  border-color: var(--myz-blue);
+  box-shadow: 0 0 2px 2px var(--accent-dark);
+  color: var(--myz-blue);
+  fill: var(--myz-blue);
 }
 
-:host(:is(:not([opened]), [opened="false"])) button:active {
-  border-color: var(--color-pressed-primary);
-  color: var(--color-pressed-primary);
-  fill: var(--color-pressed-primary);
-}
-
-:host([opened]:not([opened="false"])) button:active {
-  background-color: var(--color-pressed-primary);
+button:active {
+  border-color: var(--myz-blue-light);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
+  color: var(--myz-blue-light);
+  fill: var(--myz-blue-light);
 }
 
 button:disabled {
-  color: var(--color-disabled02);
-  fill: var(--color-disabled02);
+  color: var(--text-grey-700);
+  fill: var(--text-grey-700);
+}
+
+z-icon {
+  display: inline-block;
+  margin: 0 var(--space-unit) 0 calc(var(--space-unit) * 2);
+  transform: rotate(360deg);
+  transition: all 200ms linear;
+}
+
+button.isopen {
+  top: -20px;
 }
 
 button.avoid-clicks {

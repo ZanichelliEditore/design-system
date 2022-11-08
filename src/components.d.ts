@@ -2011,15 +2011,15 @@ export namespace Components {
          */
         "avoidclick": boolean;
         /**
-          * Disabled status
+          * disabled status flag (optional)
          */
         "isdisabled"?: boolean;
         /**
-          * Label text
+          * label text
          */
         "label": string;
         /**
-          * Toggle status of the button
+          * open by default (optional)
          */
         "opened"?: boolean;
     }
@@ -5321,19 +5321,19 @@ declare namespace LocalJSX {
          */
         "avoidclick"?: boolean;
         /**
-          * Disabled status
+          * disabled status flag (optional)
          */
         "isdisabled"?: boolean;
         /**
-          * Label text
+          * label text
          */
         "label"?: string;
         /**
-          * Emitted on toggle button click, returns `opened` value
+          * emitted on toggle button click, returns isOpen
          */
         "onToggleClick"?: (event: ZToggleButtonCustomEvent<any>) => void;
         /**
-          * Toggle status of the button
+          * open by default (optional)
          */
         "opened"?: boolean;
     }

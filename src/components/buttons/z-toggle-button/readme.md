@@ -25,26 +25,22 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                 | Type      | Default     |
-| ------------ | ------------ | --------------------------- | --------- | ----------- |
-| `avoidclick` | `avoidclick` | avoidclick status flag      | `boolean` | `undefined` |
-| `isdisabled` | `isdisabled` | Disabled status             | `boolean` | `false`     |
-| `label`      | `label`      | Label text                  | `string`  | `undefined` |
-| `opened`     | `opened`     | Toggle status of the button | `boolean` | `false`     |
+| Property     | Attribute    | Description                     | Type      | Default     |
+| ------------ | ------------ | ------------------------------- | --------- | ----------- |
+| `avoidclick` | `avoidclick` | avoidclick status flag          | `boolean` | `undefined` |
+| `isdisabled` | `isdisabled` | disabled status flag (optional) | `boolean` | `false`     |
+| `label`      | `label`      | label text                      | `string`  | `undefined` |
+| `opened`     | `opened`     | open by default (optional)      | `boolean` | `false`     |
 
 
 ## Events
 
-| Event         | Description                                            | Type               |
-| ------------- | ------------------------------------------------------ | ------------------ |
-| `toggleClick` | Emitted on toggle button click, returns `opened` value | `CustomEvent<any>` |
+| Event         | Description                                    | Type               |
+| ------------- | ---------------------------------------------- | ------------------ |
+| `toggleClick` | emitted on toggle button click, returns isOpen | `CustomEvent<any>` |
 
 
 ## Dependencies
-
-### Used by
-
- - [z-anchor-navigation](../../z-anchor-navigation)
 
 ### Depends on
 
@@ -54,7 +50,6 @@
 ```mermaid
 graph TD;
   z-toggle-button --> z-icon
-  z-anchor-navigation --> z-toggle-button
   style z-toggle-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
