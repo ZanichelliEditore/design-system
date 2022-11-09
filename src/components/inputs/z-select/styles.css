@@ -84,6 +84,5 @@
 }
 
 .z-list-group-title {
-  color: var(--gray400);
-  font-style: italic;
+  color: var(--gray800);
 }

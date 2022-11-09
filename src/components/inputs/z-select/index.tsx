@@ -394,11 +394,12 @@ export class ZSelect {
 
     return this.itemsWithGroups.map((group: SelectGroup) => {
       return (
-        <z-list-group divider-type={ListDividerType.HEADER}>
+        <z-list-group divider-type={ListDividerType.ELEMENT}>
           <z-body
             class="z-list-group-title"
-            level={4}
+            level={3}
             slot="header-title"
+            variant="semibold"
           >
             {group.title}
           </z-body>
