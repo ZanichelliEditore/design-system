@@ -63,6 +63,10 @@ export class ZSelect {
   @Prop()
   noresultslabel?: string = "Nessun risultato";
 
+  /** */
+  @Prop()
+  hasGroupItems?: boolean;
+
   @State()
   isOpen = false;
 
@@ -310,6 +314,7 @@ export class ZSelect {
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
+        autocomplete="off"
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
@@ -358,7 +363,7 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
-            {this.renderSelectUlItems()}
+            {this.hasGroupItems ? this.renderSelectGroupItems() : this.renderSelectUlItems()}
           </z-list>
         </div>
       </div>
@@ -388,6 +393,55 @@ export class ZSelect {
             innerHTML={item.name}
           />
         </z-list-element>
+      );
+    });
+  }
+
+  private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+    if (!this.itemsList.length) {
+      return this.renderNoSearchResults();
+    }
+
+    const newData = this.itemsList.reduce((group, item, index) => {
+      const {category} = item;
+      const zListItem = (
+        <z-list-element
+          clickable={!item.disabled}
+          disabled={item.disabled}
+          dividerType={ListDividerType.HEADER}
+          role="option"
+          tabindex={item.disabled || !this.isOpen ? -1 : 0}
+          aria-selected={!!item.selected}
+          id={`${this.htmlid}_${index}`}
+          onClickItem={() => this.selectItem(item, true)}
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
+        >
+          <span
+            class={{selected: !!item.selected}}
+            innerHTML={item.name}
+          />
+        </z-list-element>
+      );
+
+      group[category] = group[category] ?? [];
+      group[category].push(zListItem);
+
+      return group;
+    }, {});
+
+    return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+      return (
+        <z-list-group divider-type={ListDividerType.ELEMENT}>
+          <z-body
+            class="z-list-group-title"
+            level={3}
+            slot="header-title"
+            variant="semibold"
+          >
+            {key}
+          </z-body>
+          {value.map((item) => item)}
+        </z-list-group>
       );
     });
   }

@@ -1711,6 +1711,7 @@ export namespace Components {
           * get the input value
          */
         "getValue": () => Promise<string>;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -4987,6 +4988,7 @@ declare namespace LocalJSX {
           * the input is disabled
          */
         "disabled"?: boolean;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
