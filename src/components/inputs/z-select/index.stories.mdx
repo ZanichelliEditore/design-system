@@ -84,10 +84,14 @@ import "./index";
       control: {type: "text"},
       defaultValue: "Nessun risultato",
     },
+    hasListGroups: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
   }}
 />
 
-# ZInput
+# ZSelect
 
 <Canvas>
   <Story name="z-select">
@@ -107,6 +111,64 @@ import "./index";
           readonly=${args.readonly}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+        ></z-select>
+      `
+    }
+  </Story>
+</Canvas>
+
+# ZSelect with groups
+
+<Canvas>
+  <Story
+    name="z-select with groups"
+    args={{
+      hasListGroups: true,
+      items: [
+        {
+          id: "item_1",
+          name: "first item",
+          selected: false,
+          category: "Gruppo 1",
+        },
+        {
+          id: "item_2",
+          name: "second item",
+          selected: false,
+          category: "Gruppo 1",
+        },
+        {
+          id: "item_3",
+          name: "disabled item",
+          selected: false,
+          category: "Gruppo 2",
+        },
+        {
+          id: "item_4",
+          name: "fourth item",
+          selected: false,
+          category: "Gruppo 2",
+        },
+      ],
+    }}
+  >
+    {(args) =>
+      html`
+        <z-select
+          items=${JSON.stringify(args.items)}
+          label=${args.label}
+          aria-label=${args.ariaLabel}
+          placeholder=${args.placeholder}
+          name=${args.name}
+          status=${args.status}
+          message=${args.message}
+          autocomplete=${args.autocomplete}
+          noresultslabel=${args.noresultslabel}
+          disabled=${args.disabled}
+          readonly=${args.readonly}
+          htmlid=${args.htmlid}
+          htmltitle=${args.htmltitle}
+          has-group-items=${args.hasListGroups}
         ></z-select>
       `
     }

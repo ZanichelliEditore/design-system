@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/ZanichelliEditore/design-system/compare/v6.0.4...v6.1.0) (2022-11-09)
+
+
+### Features
+
+* added grid system story ([e7e58f2](https://github.com/ZanichelliEditore/design-system/commit/e7e58f216262c5b5e112ae2a203bd5260346192f))
+
+
+### Bug Fixes
+
+* prettier ([0b043bb](https://github.com/ZanichelliEditore/design-system/commit/0b043bb20b585a0be3febcd658757d065f1123a7))
+
 ### [6.0.4](https://github.com/ZanichelliEditore/design-system/compare/v6.0.3...v6.0.4) (2022-11-03)
 
 

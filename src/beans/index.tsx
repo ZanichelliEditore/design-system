@@ -233,6 +233,7 @@ export type SelectItem = {
   name: string;
   selected: boolean;
   disabled?: boolean;
+  category?: string;
 };
 
 export enum ThemeVariant {
