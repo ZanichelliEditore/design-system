@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectGroup, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1711,10 +1711,7 @@ export namespace Components {
           * get the input value
          */
         "getValue": () => Promise<string>;
-        /**
-          * the select items are splitted in groups
-         */
-        "hasListGroups"?: string | boolean;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -1726,7 +1723,7 @@ export namespace Components {
         /**
           * the input select options
          */
-        "items": SelectItem[] | SelectGroup[] | string;
+        "items": SelectItem[] | string;
         /**
           * the input label
          */
@@ -4991,10 +4988,7 @@ declare namespace LocalJSX {
           * the input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * the select items are splitted in groups
-         */
-        "hasListGroups"?: string | boolean;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -5006,7 +5000,7 @@ declare namespace LocalJSX {
         /**
           * the input select options
          */
-        "items"?: SelectItem[] | SelectGroup[] | string;
+        "items"?: SelectItem[] | string;
         /**
           * the input label
          */

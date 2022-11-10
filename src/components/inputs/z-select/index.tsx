@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
-import {SelectItem, SelectGroup, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
+import {SelectItem, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | SelectGroup[] | string;
+  items: SelectItem[] | string;
 
   /** the input name */
   @Prop()
@@ -55,10 +55,6 @@ export class ZSelect {
   @Prop()
   message?: string | boolean = true;
 
-  /** the select items are splitted in groups */
-  @Prop()
-  hasListGroups?: string | boolean = false;
-
   /** the input has autocomplete option */
   @Prop()
   autocomplete?: boolean = false;
@@ -66,6 +62,10 @@ export class ZSelect {
   /** no result text message */
   @Prop()
   noresultslabel?: string = "Nessun risultato";
+
+  /** */
+  @Prop()
+  hasGroupItems?: boolean;
 
   @State()
   isOpen = false;
@@ -78,8 +78,6 @@ export class ZSelect {
 
   private itemsList: SelectItem[] = [];
 
-  private itemsWithGroups: SelectGroup[] = [];
-
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -88,12 +86,7 @@ export class ZSelect {
 
   @Watch("items")
   watchItems(): void {
-    if (this.hasListGroups) {
-      this.itemsWithGroups = this.getInitialGroupsArray();
-      this.itemsWithGroups.forEach((item: SelectGroup) => this.itemsList.push(...item.items));
-    } else {
-      this.itemsList = this.getInitialItemsArray();
-    }
+    this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
   }
 
@@ -145,19 +138,8 @@ export class ZSelect {
     return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
-  private getInitialGroupsArray(): SelectGroup[] {
-    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-  }
-
   private mapSelectedItemToItemsArray(): SelectItem[] {
-    let initialItemsList = [];
-
-    if (this.hasListGroups) {
-      this.itemsWithGroups = this.getInitialGroupsArray();
-      this.itemsWithGroups.forEach((item: SelectGroup) => initialItemsList.push(...item.items));
-    } else {
-      initialItemsList = this.getInitialItemsArray();
-    }
+    const initialItemsList = this.getInitialItemsArray();
 
     return initialItemsList.map((item: SelectItem) => {
       item.selected = item.id === this.selectedItem?.id;
@@ -380,52 +362,11 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
-            {this.hasListGroups ? this.renderSelectUlGroups() : this.renderSelectUlItems()}
+            {this.hasGroupItems ? this.renderSelectGroupItems() : this.renderSelectUlItems()}
           </z-list>
         </div>
       </div>
     );
-  }
-
-  private renderSelectUlGroups(): HTMLZListGroupElement | HTMLZListGroupElement[] {
-    if (!this.itemsWithGroups.length) {
-      return this.renderNoSearchResults();
-    }
-
-    return this.itemsWithGroups.map((group: SelectGroup) => {
-      return (
-        <z-list-group divider-type={ListDividerType.ELEMENT}>
-          <z-body
-            class="z-list-group-title"
-            level={3}
-            slot="header-title"
-            variant="semibold"
-          >
-            {group.title}
-          </z-body>
-          {group.items.map((item: SelectItem, key) => {
-            return (
-              <z-list-element
-                clickable={!item.disabled}
-                disabled={item.disabled}
-                dividerType={ListDividerType.HEADER}
-                role="option"
-                tabindex={item.disabled || !this.isOpen ? -1 : 0}
-                aria-selected={!!item.selected}
-                id={`${this.htmlid}_${key}`}
-                onClickItem={() => this.selectItem(item, true)}
-                onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
-              >
-                <span
-                  class={{selected: !!item.selected}}
-                  innerHTML={item.name}
-                />
-              </z-list-element>
-            );
-          })}
-        </z-list-group>
-      );
-    });
   }
 
   private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
@@ -451,6 +392,55 @@ export class ZSelect {
             innerHTML={item.name}
           />
         </z-list-element>
+      );
+    });
+  }
+
+  private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+    if (!this.itemsList.length) {
+      return this.renderNoSearchResults();
+    }
+
+    const newData = this.itemsList.reduce((group, item, index) => {
+      const {category} = item;
+      const zListItem = (
+        <z-list-element
+          clickable={!item.disabled}
+          disabled={item.disabled}
+          dividerType={ListDividerType.HEADER}
+          role="option"
+          tabindex={item.disabled || !this.isOpen ? -1 : 0}
+          aria-selected={!!item.selected}
+          id={`${this.htmlid}_${index}`}
+          onClickItem={() => this.selectItem(item, true)}
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
+        >
+          <span
+            class={{selected: !!item.selected}}
+            innerHTML={item.name}
+          />
+        </z-list-element>
+      );
+
+      group[category] = group[category] ?? [];
+      group[category].push(zListItem);
+
+      return group;
+    }, {});
+
+    return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+      return (
+        <z-list-group divider-type={ListDividerType.ELEMENT}>
+          <z-body
+            class="z-list-group-title"
+            level={3}
+            slot="header-title"
+            variant="semibold"
+          >
+            {key}
+          </z-body>
+          {value.map((item) => item)}
+        </z-list-group>
       );
     });
   }
