@@ -114,3 +114,8 @@
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
+
+.z-list-content-container {
+  display: flex;
+  align-items: center;
+}

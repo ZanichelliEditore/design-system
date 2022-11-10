@@ -256,8 +256,8 @@ export class ZListElement {
 
     if (this.listType === ListType.ORDERED) {
       return (
-        <div>
-          <span>{this.listElementPosition}.&emsp;</span>
+        <div class="z-list-content-container">
+          <div>{this.listElementPosition}.&emsp;</div>
           <slot />
         </div>
       );
@@ -265,7 +265,7 @@ export class ZListElement {
 
     if (this.listType === ListType.UNORDERED) {
       return (
-        <div>
+        <div class="z-list-content-container">
           <span>&bull;&emsp;</span>
           <slot />
         </div>
