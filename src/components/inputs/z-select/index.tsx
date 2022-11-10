@@ -314,6 +314,7 @@ export class ZSelect {
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
+        autocomplete="off"
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
