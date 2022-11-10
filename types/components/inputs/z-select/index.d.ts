@@ -28,6 +28,8 @@ export declare class ZSelect {
   autocomplete?: boolean;
   /** no result text message */
   noresultslabel?: string;
+  /** */
+  hasGroupItems?: boolean;
   isOpen: boolean;
   selectedItem: null | SelectItem;
   searchString: null | string;
@@ -61,6 +63,7 @@ export declare class ZSelect {
   private renderInput;
   private renderSelectUl;
   private renderSelectUlItems;
+  private renderSelectGroupItems;
   private renderNoSearchResults;
   private renderMessage;
   render(): HTMLDivElement;

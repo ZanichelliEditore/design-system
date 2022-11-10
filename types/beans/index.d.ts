@@ -205,6 +205,7 @@ export declare type SelectItem = {
   name: string;
   selected: boolean;
   disabled?: boolean;
+  category?: string;
 };
 export declare enum ThemeVariant {
   DARK = "dark",

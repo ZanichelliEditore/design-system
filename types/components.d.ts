@@ -16,6 +16,12 @@ export namespace Components {
          */
         "type": AlertType;
     }
+    interface ZAnchorNavigation {
+        /**
+          * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
+         */
+        "hideUnselected": boolean;
+    }
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -1711,6 +1717,7 @@ export namespace Components {
           * get the input value
          */
         "getValue": () => Promise<string>;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -2312,6 +2319,12 @@ declare global {
     var HTMLZAlertElement: {
         prototype: HTMLZAlertElement;
         new (): HTMLZAlertElement;
+    };
+    interface HTMLZAnchorNavigationElement extends Components.ZAnchorNavigation, HTMLStencilElement {
+    }
+    var HTMLZAnchorNavigationElement: {
+        prototype: HTMLZAnchorNavigationElement;
+        new (): HTMLZAnchorNavigationElement;
     };
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
     }
@@ -2963,6 +2976,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-alert": HTMLZAlertElement;
+        "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
         "z-app-topbar": HTMLZAppTopbarElement;
@@ -3079,6 +3093,12 @@ declare namespace LocalJSX {
           * alert variant type
          */
         "type"?: AlertType;
+    }
+    interface ZAnchorNavigation {
+        /**
+          * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
+         */
+        "hideUnselected"?: boolean;
     }
     interface ZAppHeader {
         /**
@@ -4987,6 +5007,7 @@ declare namespace LocalJSX {
           * the input is disabled
          */
         "disabled"?: boolean;
+        "hasGroupItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -5427,6 +5448,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "z-alert": ZAlert;
+        "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
         "z-app-topbar": ZAppTopbar;
@@ -5542,6 +5564,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
+            "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;

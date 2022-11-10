@@ -1,6 +1,6 @@
 import { r as registerInstance, h, c as createEvent, g as getElement } from './index-a2ca4b97.js';
 import { h as KeyboardCode, n as ListDividerType } from './index-9d028352.js';
-import { r as randomId, b as boolean, a as getElementTree, h as handleKeyboardSubmit, e as getClickedElement } from './utils-39ca028c.js';
+import { r as randomId, d as boolean, a as getElementTree, h as handleKeyboardSubmit, e as getClickedElement } from './utils-9e81727a.js';
 import './breakpoints-c386984e.js';
 
 const stylesCss$1 = "label{display:block;margin:var(--space-unit) 0;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-1);font-weight:var(--font-sb);letter-spacing:0.32px;line-height:1.33;text-align:left;text-transform:uppercase}label.disabled{color:var(--color-disabled02)}";
@@ -17,7 +17,7 @@ const ZInputLabel = class {
 };
 ZInputLabel.style = stylesCss$1;
 
-const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.sc-z-select{display:block;padding:0 calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}";
+const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.sc-z-select{display:block;padding:0 calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select span.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.z-list-group-title.sc-z-select{color:var(--gray800)}";
 
 const ZSelect = class {
   constructor(hostRef) {
@@ -216,7 +216,7 @@ const ZSelect = class {
     }
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
+    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -241,7 +241,7 @@ const ZSelect = class {
         readonly: this.readonly,
         filled: !!this.selectedItem,
         [`input-${this.status}`]: !this.isOpen && !!this.status,
-      } }, this.renderSelectUlItems()))));
+      } }, this.hasGroupItems ? this.renderSelectGroupItems() : this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length) {
@@ -249,6 +249,22 @@ const ZSelect = class {
     }
     return this.itemsList.map((item, key) => {
       return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+    });
+  }
+  renderSelectGroupItems() {
+    if (!this.itemsList.length) {
+      return this.renderNoSearchResults();
+    }
+    const newData = this.itemsList.reduce((group, item, index) => {
+      var _a;
+      const { category } = item;
+      const zListItem = (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.HEADER, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${index}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, index) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
+      group[category].push(zListItem);
+      return group;
+    }, {});
+    return Object.entries(newData).map(([key, value]) => {
+      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
     });
   }
   renderNoSearchResults() {

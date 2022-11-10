@@ -196,7 +196,7 @@ export class ZSelect {
     }
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, onClick: (e) => {
+    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -221,7 +221,7 @@ export class ZSelect {
         readonly: this.readonly,
         filled: !!this.selectedItem,
         [`input-${this.status}`]: !this.isOpen && !!this.status,
-      } }, this.renderSelectUlItems()))));
+      } }, this.hasGroupItems ? this.renderSelectGroupItems() : this.renderSelectUlItems()))));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length) {
@@ -229,6 +229,22 @@ export class ZSelect {
     }
     return this.itemsList.map((item, key) => {
       return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+    });
+  }
+  renderSelectGroupItems() {
+    if (!this.itemsList.length) {
+      return this.renderNoSearchResults();
+    }
+    const newData = this.itemsList.reduce((group, item, index) => {
+      var _a;
+      const { category } = item;
+      const zListItem = (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: ListDividerType.HEADER, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${index}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, index) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
+      group[category].push(zListItem);
+      return group;
+    }, {});
+    return Object.entries(newData).map(([key, value]) => {
+      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
     });
   }
   renderNoSearchResults() {
@@ -494,6 +510,23 @@ export class ZSelect {
         "attribute": "noresultslabel",
         "reflect": false,
         "defaultValue": "\"Nessun risultato\""
+      },
+      "hasGroupItems": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "has-group-items",
+        "reflect": false
       }
     };
   }

@@ -50,6 +50,7 @@
     "./components/panel/z-panel-elem/index.js",
     "./components/typography/z-body/index.js",
     "./components/typography/z-heading/index.js",
+    "./components/z-anchor-navigation/index.js",
     "./components/z-aria-alert/index.js",
     "./components/z-avatar/index.js",
     "./components/z-card/index.js",
