@@ -52,7 +52,7 @@ export class ZAnchorNavigation {
     window.removeEventListener("hashchange", this.setAriaCurrent);
   }
   render() {
-    return (h(Host, { collapsed: this.collapsed }, h("z-button", { variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { ref: (el) => (this.nav = el) }, h("slot", null))));
+    return (h(Host, { collapsed: this.collapsed }, h("z-button", { class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { ref: (el) => (this.nav = el) }, h("slot", null))));
   }
   static get is() { return "z-anchor-navigation"; }
   static get originalStyleUrls() {
