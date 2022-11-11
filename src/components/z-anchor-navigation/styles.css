@@ -15,10 +15,6 @@ z-anchor-navigation[collapsed] nav {
   margin-top: var(--space-unit);
 }
 
-z-anchor-navigation:not([hide-unselected], [hide-unselected="true"]) nav > * {
-  color: var(--color-text01);
-}
-
 z-anchor-navigation nav a {
   display: -webkit-box;
   overflow: clip;
@@ -34,7 +30,7 @@ z-anchor-navigation nav a {
 }
 
 z-anchor-navigation nav * a:not(:only-child) {
-  padding-right: calc(var(--space-unit) * 6);
+  padding-right: calc(var(--space-unit) * 5);
 }
 
 @supports not (overflow-clip-margin: content-box) {
@@ -50,14 +46,9 @@ z-anchor-navigation nav * a:not(:only-child) {
 z-anchor-navigation nav > * {
   position: relative;
   border-left: var(--border-size-large) solid var(--color-surface04);
+  color: var(--color-text01);
   font-family: var(--font-family-sans);
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-z-anchor-navigation:is([hide-unselected], [hide-unselected="true"])
-  nav
-  > *:not([current], [current="true"], :hover, :focus-within) {
-  color: transparent;
 }
 
 z-anchor-navigation nav > [current] {
@@ -66,23 +57,12 @@ z-anchor-navigation nav > [current] {
   font-weight: var(--font-sb);
 }
 
-z-anchor-navigation nav > *:hover {
-  border-left-color: var(--color-hover-secondary);
-  background-color: var(--color-hover-surface);
-  color: var(--color-hover-link);
-}
-
 z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
   transition: opacity 0.3s ease-in-out;
-}
-
-z-anchor-navigation nav > *:hover > *:is(z-button, button, z-icon) {
-  cursor: pointer;
-  opacity: 1;
 }
 
 z-anchor-navigation nav button {
@@ -101,18 +81,49 @@ z-anchor-navigation nav z-icon {
   fill: var(--color-icon02);
 }
 
-@media (hover: hover) {
-  z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
-    opacity: 0;
-  }
-}
-
 @media (min-width: 768px) {
-  z-anchor-navigation z-button {
+  z-anchor-navigation z-button.toggle {
     display: none !important;
   }
 
   z-anchor-navigation nav {
     display: flex;
+  }
+
+  z-anchor-navigation nav a {
+    outline: none;
+  }
+
+  @media (hover: hover) {
+    z-anchor-navigation nav > *:hover {
+      border-left-color: var(--color-hover-secondary);
+      background-color: var(--color-hover-surface);
+      color: var(--color-hover-link);
+    }
+  }
+
+  z-anchor-navigation nav > *:is(:focus, :focus-within),
+  z-anchor-navigation nav :is(z-icon, button):focus:focus-visible {
+    box-shadow: var(--shadow-focus-primary);
+    outline: none;
+  }
+
+  z-anchor-navigation[hide-unselected] nav > *:not([current], :hover, :focus, :focus-within) {
+    color: transparent;
+  }
+
+  z-anchor-navigation
+    nav
+    > *:not([current], :hover, :focus, :focus-within)
+    > *:is(z-button, button, z-icon):not(:focus:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (hover: none) {
+    z-anchor-navigation:not([hide-unselected]) nav > * > *:is(z-button, button, z-icon) {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 }

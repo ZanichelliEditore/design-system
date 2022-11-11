@@ -70,6 +70,7 @@ export class ZAnchorNavigation {
     return (
       <Host collapsed={this.collapsed}>
         <z-button
+          class="toggle"
           variant={ButtonVariant.SECONDARY}
           icon={this.collapsed ? "chevron-up" : "chevron-down"}
           onClick={this.toggleCollapsed.bind(this)}

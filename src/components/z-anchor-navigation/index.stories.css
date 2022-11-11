@@ -25,6 +25,12 @@
 
   .z-anchor-navigation-story-wrapper z-anchor-navigation {
     position: sticky;
+    max-width: 20%;
+  }
+}
+
+@media (min-width: 1151px) {
+  .z-anchor-navigation-story-wrapper z-anchor-navigation {
     max-width: 15%;
   }
 }
