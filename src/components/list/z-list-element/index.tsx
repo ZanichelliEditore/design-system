@@ -161,7 +161,7 @@ export class ZListElement {
     if (!this.expandable && this.clickable) {
       //return;
       this.host.parentElement.querySelectorAll("z-list-element").forEach((item) => {
-        const listItem = item.shadowRoot.querySelector("clicked");
+        const listItem = item.shadowRoot.querySelector("div.container");
         listItem.classList.contains("clicked") && listItem.classList.remove("clicked");
       });
       this.clicked = !this.clicked;
