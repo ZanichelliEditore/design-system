@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.2.2](https://github.com/ZanichelliEditore/design-system/compare/v6.2.1...v6.2.2) (2022-11-11)
+
+
+### Bug Fixes
+
+* storybook ([8d355de](https://github.com/ZanichelliEditore/design-system/commit/8d355de3f71e028d6229fc470a4af0a872e01703))
+
+### [6.2.1](https://github.com/ZanichelliEditore/design-system/compare/v6.2.0...v6.2.1) (2022-11-10)
+
+## [6.2.0](https://github.com/ZanichelliEditore/design-system/compare/v6.1.0...v6.2.0) (2022-11-10)
+
+
+### Features
+
+* add ZListGroup mode in ZSelect ([bbcaff7](https://github.com/ZanichelliEditore/design-system/commit/bbcaff783d6915d93ea32c25dbb544f7b4743e34))
+* fix z-list-group title style ([7a9bc71](https://github.com/ZanichelliEditore/design-system/commit/7a9bc711fe0aa86b14e5ff7af1b24700fa94a566))
+* mobile anchor navigation; fix toggle button style ([4db8c9e](https://github.com/ZanichelliEditore/design-system/commit/4db8c9e6c9b9b3e9b45a6f6e448ec2f97b0523d3))
+* z-anchor-list component (wip) ([be64b44](https://github.com/ZanichelliEditore/design-system/commit/be64b44b3f40880280c392b145c6a110ef4f7890))
+
+
+### Bug Fixes
+
+* component generation template ([6b45760](https://github.com/ZanichelliEditore/design-system/commit/6b457606eaa63cee4424a921e5d1c6144503d827))
+* component generation templates ([b95c206](https://github.com/ZanichelliEditore/design-system/commit/b95c206669df443908c056f0c3bf33984858cc79))
+* storybook story internal navigation ([e5aa277](https://github.com/ZanichelliEditore/design-system/commit/e5aa277ed2f9d8454bdb9a00f5c2dcd73e96f2fe))
+* toggle button's style ([b15350c](https://github.com/ZanichelliEditore/design-system/commit/b15350cefc45cbdba807fc6e4fce45c96c9952bf))
+
 ## [6.1.0](https://github.com/ZanichelliEditore/design-system/compare/v6.0.4...v6.1.0) (2022-11-09)
 
 

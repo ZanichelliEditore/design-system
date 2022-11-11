@@ -9,7 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Stencil Component Starter</title>
+    <title>Albe test application</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -25,128 +25,13 @@
     ></script>
   </head>
 
-  <body style="width: 100%; margin: 0; background-color: #f9f9f9">
+  <body>
     <header>
-      <z-app-topbar
-        show-app-switcher="true"
-        topbar-content='[{"label": "Assistenza", "link": "./pages/notification.html", "icon": "support"}, {"label": "Contattaci", "link": "./pages/notification.html", "icon": "question-mark-circle"}, {"label": "Carrello", "link": "./pages/notification.html", "icon": "shopping-cart"}]'
-        content-max-width="800"
-      >
-        <z-app-switcher
-          id="myappswitcher"
-          slot="login"
-        />
-      </z-app-topbar>
+      <z-app-header>
+        <h1 slot="title">Albe test app</h1>
+      </z-app-header>
     </header>
-    <div style="padding: 300px">
-      <z-list>
-        <z-list-group
-          divider-type="header"
-          size="small"
-          list-type="ordered"
-        >
-          <div slot="header-title">Gruppo 1</div>
-          <z-list-element clickable>Elemento 1</z-list-element>
-          <z-list-element clickable>Elemento 2</z-list-element>
-          <z-list-element clickable>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="header"
-          size="large"
-          list-type="ordered"
-        >
-          <div slot="header-title">Gruppo 1</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="element"
-          size="small"
-          list-type="ordered"
-        >
-          <div slot="header-title">Gruppo 2</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="header"
-          size="medium"
-        >
-          <div slot="header-title">Gruppo 1</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="element"
-          size="x-large"
-        >
-          <div slot="header-title">Gruppo 2</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="header"
-          size="large"
-        >
-          <div slot="header-title">Gruppo 1</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-        <z-list-group
-          divider-type="element"
-          size="large"
-        >
-          <div slot="header-title">Gruppo 2</div>
-          <z-list-element>Elemento 1</z-list-element>
-          <z-list-element>Elemento 2</z-list-element>
-          <z-list-element>Elemento 3</z-list-element>
-        </z-list-group>
-      </z-list>
-    </div>
-    <div style="padding: 300px">
-      <z-list
-        size="x-large"
-        list-type="unordered"
-      >
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-        <z-list-element>Elemento 4</z-list-element>
-        <z-list-element>Elemento 5</z-list-element>
-        <z-list-element>Elemento 6</z-list-element>
-      </z-list>
-    </div>
+
+    <main></main>
   </body>
 </html>
-<script>
-  function dateselect(e) {
-    console.log(e.detail);
-  }
-  const picker = document.getElementById("dp123456");
-  picker.addEventListener("dateSelect", (e) => {
-    dateselect(e);
-  });
-</script>
-<style>
-  .z-cards {
-    display: flex;
-    padding: 24px;
-  }
-
-  z-card {
-    width: 263px;
-  }
-
-  .z-cards z-card + z-card {
-    margin-left: 24px;
-  }
-
-  #mycanvas {
-    --z-offcanvas--top-space: 48px;
-  }
-</style>

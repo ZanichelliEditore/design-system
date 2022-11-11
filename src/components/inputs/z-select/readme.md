@@ -5,21 +5,22 @@
 
 ## Properties
 
-| Property         | Attribute        | Description                                                                    | Type                                                              | Default              |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------- |
-| `ariaLabel`      | `aria-label`     | the input aria-label                                                           | `string`                                                          | `""`                 |
-| `autocomplete`   | `autocomplete`   | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
-| `disabled`       | `disabled`       | the input is disabled                                                          | `boolean`                                                         | `false`              |
-| `htmlid`         | `htmlid`         | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |
-| `htmltitle`      | `htmltitle`      | the input html title (optional)                                                | `string`                                                          | `undefined`          |
-| `items`          | `items`          | the input select options                                                       | `SelectItem[] \| string`                                          | `undefined`          |
-| `label`          | `label`          | the input label                                                                | `string`                                                          | `undefined`          |
-| `message`        | `message`        | input helper message (optional) - if set to `false` message won't be displayed | `boolean \| string`                                               | `true`               |
-| `name`           | `name`           | the input name                                                                 | `string`                                                          | `undefined`          |
-| `noresultslabel` | `noresultslabel` | no result text message                                                         | `string`                                                          | `"Nessun risultato"` |
-| `placeholder`    | `placeholder`    | the input placeholder (optional)                                               | `string`                                                          | `undefined`          |
-| `readonly`       | `readonly`       | the input is readonly                                                          | `boolean`                                                         | `false`              |
-| `status`         | `status`         | the input status (optional)                                                    | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
+| Property         | Attribute         | Description                                                                    | Type                                                              | Default              |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------- |
+| `ariaLabel`      | `aria-label`      | the input aria-label                                                           | `string`                                                          | `""`                 |
+| `autocomplete`   | `autocomplete`    | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
+| `disabled`       | `disabled`        | the input is disabled                                                          | `boolean`                                                         | `false`              |
+| `hasGroupItems`  | `has-group-items` |                                                                                | `boolean`                                                         | `undefined`          |
+| `htmlid`         | `htmlid`          | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |
+| `htmltitle`      | `htmltitle`       | the input html title (optional)                                                | `string`                                                          | `undefined`          |
+| `items`          | `items`           | the input select options                                                       | `SelectItem[] \| string`                                          | `undefined`          |
+| `label`          | `label`           | the input label                                                                | `string`                                                          | `undefined`          |
+| `message`        | `message`         | input helper message (optional) - if set to `false` message won't be displayed | `boolean \| string`                                               | `true`               |
+| `name`           | `name`            | the input name                                                                 | `string`                                                          | `undefined`          |
+| `noresultslabel` | `noresultslabel`  | no result text message                                                         | `string`                                                          | `"Nessun risultato"` |
+| `placeholder`    | `placeholder`     | the input placeholder (optional)                                               | `string`                                                          | `undefined`          |
+| `readonly`       | `readonly`        | the input is readonly                                                          | `boolean`                                                         | `false`              |
+| `status`         | `status`          | the input status (optional)                                                    | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
 
 
 ## Events
@@ -73,6 +74,8 @@ Type: `Promise<void>`
 - [z-input](../z-input)
 - [z-list](../../list/z-list)
 - [z-list-element](../../list/z-list-element)
+- [z-list-group](../../list/z-list-group)
+- [z-body](../../typography/z-body)
 - [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
@@ -82,6 +85,8 @@ graph TD;
   z-select --> z-input
   z-select --> z-list
   z-select --> z-list-element
+  z-select --> z-list-group
+  z-select --> z-body
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
@@ -89,6 +94,8 @@ graph TD;
   z-input-message --> z-icon
   z-list-element --> z-icon
   z-list-element --> z-divider
+  z-list-group --> z-divider
+  z-body --> z-typography
   z-input-deprecated --> z-select
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -229,12 +229,16 @@ graph TD;
   z-select --> z-input
   z-select --> z-list
   z-select --> z-list-element
+  z-select --> z-list-group
+  z-select --> z-body
   z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
   z-list-element --> z-icon
   z-list-element --> z-divider
+  z-list-group --> z-divider
+  z-body --> z-typography
   style z-input-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
