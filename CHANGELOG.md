@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.2.2](https://github.com/ZanichelliEditore/design-system/compare/v6.2.1...v6.2.2) (2022-11-11)
+
+
+### Bug Fixes
+
+* storybook ([8d355de](https://github.com/ZanichelliEditore/design-system/commit/8d355de3f71e028d6229fc470a4af0a872e01703))
+
 ### [6.2.1](https://github.com/ZanichelliEditore/design-system/compare/v6.2.0...v6.2.1) (2022-11-10)
 
 ## [6.2.0](https://github.com/ZanichelliEditore/design-system/compare/v6.1.0...v6.2.0) (2022-11-10)
