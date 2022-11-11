@@ -1,16 +1,22 @@
 import { h, Host } from "@stencil/core";
-import { ListSize } from "../../../beans";
+import { ListSize, ListType } from "../../../beans";
 export class ZList {
   constructor() {
     /**
      * [optional] Sets size of inside elements.
      */
     this.size = ListSize.MEDIUM;
+    /**
+     * [optional] type of the list marker for each element
+     */
+    this.listType = ListType.NONE;
   }
   setChildrenSizeType() {
     const children = this.host.children;
-    for (let i = 0; i < children.length - 1; i++) {
+    for (let i = 0; i < children.length; i++) {
       children[i].setAttribute("size", this.size);
+      children[i].setAttribute("list-type", this.listType);
+      children[i].setAttribute("list-element-position", (i + 1).toString());
     }
   }
   componentDidLoad() {
@@ -55,6 +61,29 @@ export class ZList {
         "attribute": "size",
         "reflect": true,
         "defaultValue": "ListSize.MEDIUM"
+      },
+      "listType": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ListType",
+          "resolved": "ListType.NONE | ListType.ORDERED | ListType.UNORDERED",
+          "references": {
+            "ListType": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] type of the list marker for each element"
+        },
+        "attribute": "list-type",
+        "reflect": true,
+        "defaultValue": "ListType.NONE"
       }
     };
   }

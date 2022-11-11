@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, ListDividerType, ListSize } from "../../../beans";
+import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, ListDividerType, ListSize, ListType } from "../../../beans";
 export declare class ZListElement {
   host: HTMLZListElementElement;
   /** remove filter click event, returns filterid */
@@ -55,6 +55,14 @@ export declare class ZListElement {
    * [optional] If is used in ZContextualMenu component
    */
   isContextualMenu?: boolean;
+  /**
+   * [optional] position of the list element inside the list or the group
+   */
+  listElementPosition?: string;
+  /**
+   * [optional] type of the list marker for each element
+   */
+  listType?: ListType;
   showInnerContent: boolean;
   private openElementConfig;
   /**
@@ -78,5 +86,10 @@ export declare class ZListElement {
    * @returns expanded content
    */
   private renderExpandedContent;
+  /**
+   * Renders content of the z-list-element
+   * @returns list content
+   */
+  private renderContent;
   render(): HTMLZListElementElement;
 }

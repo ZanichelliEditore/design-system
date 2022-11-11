@@ -260,6 +260,11 @@ export declare enum ListDividerType {
   HEADER = "header",
   ELEMENT = "element"
 }
+export declare enum ListType {
+  NONE = "none",
+  ORDERED = "ordered",
+  UNORDERED = "unordered"
+}
 export declare enum NotificationType {
   SUCCESS = "success",
   WARNING = "warning",

@@ -62,6 +62,11 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host([clickable]:not([expandable])) > .container.clicked,
+:host([clickable]:not([expandable])) > .container-contextual-menu.clicked {
+  box-shadow: var(--shadow-focus-primary);
+}
+
 :host([expandable]:active) > .container,
 :host([expandable]:active) > .container-contextual-menu,
 :host([clickable]:active) > .container,
@@ -108,4 +113,9 @@
 .container-contextual-menu:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
+}
+
+.z-list-content-container {
+  display: flex;
+  align-items: center;
 }

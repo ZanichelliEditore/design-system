@@ -1,4 +1,4 @@
-import { DividerSize, ListSize, ListDividerType } from "../../../beans";
+import { DividerSize, ListSize, ListDividerType, ListType } from "../../../beans";
 export declare class ZListGroup {
   host: HTMLZListGroupElement;
   /**
@@ -17,6 +17,10 @@ export declare class ZListGroup {
    * [optional] Sets the divider color.
    */
   dividerColor?: string;
+  /**
+   * [optional] type of the list marker for each element
+   */
+  listType?: ListType;
   private hasHeader;
   componentDidLoad(): void;
   componentWillLoad(): void;

@@ -195,6 +195,12 @@ export var ListDividerType;
   ListDividerType["HEADER"] = "header";
   ListDividerType["ELEMENT"] = "element";
 })(ListDividerType || (ListDividerType = {}));
+export var ListType;
+(function (ListType) {
+  ListType["NONE"] = "none";
+  ListType["ORDERED"] = "ordered";
+  ListType["UNORDERED"] = "unordered";
+})(ListType || (ListType = {}));
 export var NotificationType;
 (function (NotificationType) {
   NotificationType["SUCCESS"] = "success";

@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { DividerSize, ListSize, ListDividerType } from "../../../beans";
+import { DividerSize, ListSize, ListDividerType, ListType } from "../../../beans";
 export class ZListGroup {
   constructor() {
     /**
@@ -18,6 +18,10 @@ export class ZListGroup {
      * [optional] Sets the divider color.
      */
     this.dividerColor = "gray200";
+    /**
+     * [optional] type of the list marker for each element
+     */
+    this.listType = ListType.NONE;
   }
   componentDidLoad() {
     const children = this.host.children;
@@ -28,6 +32,8 @@ export class ZListGroup {
         children[i].setAttribute("divider-color", this.dividerColor);
       }
       children[i].setAttribute("size", this.size);
+      children[i].setAttribute("list-type", this.listType);
+      children[i].setAttribute("list-element-position", i.toString());
     }
   }
   componentWillLoad() {
@@ -139,6 +145,29 @@ export class ZListGroup {
         "attribute": "divider-color",
         "reflect": true,
         "defaultValue": "\"gray200\""
+      },
+      "listType": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ListType",
+          "resolved": "ListType.NONE | ListType.ORDERED | ListType.UNORDERED",
+          "references": {
+            "ListType": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] type of the list marker for each element"
+        },
+        "attribute": "list-type",
+        "reflect": true,
+        "defaultValue": "ListType.NONE"
       }
     };
   }

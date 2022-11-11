@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardCode, ListDividerType, ListSize, } from "../../../beans";
+import { DividerSize, ExpandableListButtonAlign, ExpandableListStyle, KeyboardCode, ListDividerType, ListSize, ListType, } from "../../../beans";
 export class ZListElement {
   /**
    * Constructor.
@@ -49,6 +49,14 @@ export class ZListElement {
      * [optional] If is used in ZContextualMenu component
      */
     this.isContextualMenu = false;
+    /**
+     * [optional] position of the list element inside the list or the group
+     */
+    this.listElementPosition = "0";
+    /**
+     * [optional] type of the list marker for each element
+     */
+    this.listType = ListType.NONE;
     this.showInnerContent = false;
     this.openElementConfig = {
       accordion: {
@@ -134,8 +142,23 @@ export class ZListElement {
         "expanded": this.showInnerContent,
       } }, h("slot", { name: "inner-content" })));
   }
+  /**
+   * Renders content of the z-list-element
+   * @returns list content
+   */
+  renderContent() {
+    if (this.listType === ListType.NONE) {
+      return h("slot", null);
+    }
+    if (this.listType === ListType.ORDERED) {
+      return (h("div", { class: "z-list-content-container" }, h("div", null, this.listElementPosition, ".\u2003"), h("slot", null)));
+    }
+    if (this.listType === ListType.UNORDERED) {
+      return (h("div", { class: "z-list-content-container" }, h("span", null, "\u2022\u2003"), h("slot", null)));
+    }
+  }
   render() {
-    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), h("slot", null)), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}` }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   static get is() { return "z-list-element"; }
   static get encapsulation() { return "shadow"; }
@@ -390,6 +413,47 @@ export class ZListElement {
         "attribute": "is-contextual-menu",
         "reflect": true,
         "defaultValue": "false"
+      },
+      "listElementPosition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] position of the list element inside the list or the group"
+        },
+        "attribute": "list-element-position",
+        "reflect": true,
+        "defaultValue": "\"0\""
+      },
+      "listType": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ListType",
+          "resolved": "ListType.NONE | ListType.ORDERED | ListType.UNORDERED",
+          "references": {
+            "ListType": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] type of the list marker for each element"
+        },
+        "attribute": "list-type",
+        "reflect": true,
+        "defaultValue": "ListType.NONE"
       }
     };
   }
