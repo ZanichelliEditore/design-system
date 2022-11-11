@@ -1,5 +1,6 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {DividerSize, ListSize, ListDividerType, ListType} from "../../../beans";
 import "./index";
 
 <Meta
@@ -7,165 +8,150 @@ import "./index";
   component="z-list"
 />
 
-# ZList
+# ZList simple
 
-<Preview>
-  <Story name="ZList-simple">
-    {html`<z-list>
-      <z-list-group>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-simple">
+    {(args) =>
+      html`
+        <z-list>
+          <z-list-group>
+            <z-list-element>Elemento 1</z-list-element>
+            <z-list-element>Elemento 2</z-list-element>
+            <z-list-element>Elemento 3</z-list-element>
+          </z-list-group>
+        </z-list>
+      `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-## Props z-list
+<ArgsTable of="z-list" />
 
-<Props of="z-list" />
+# ZList with header division
 
-### ZList with header divider
-
-<Preview>
-  <Story name="ZList-with-header-divider">
-    {html`<z-list>
-      <z-list-group divider-type="header">
-        <div slot="header-title">Gruppo 1</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-      <z-list-group divider-type="header">
-        <div slot="header-title">Gruppo 2</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-header-divider">
+    {(args) =>
+      html`<z-list>
+        <z-list-group divider-type="header">
+          <div slot="header-title">Gruppo 1</div>
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+        <z-list-group divider-type="header">
+          <div slot="header-title">Gruppo 2</div>
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+      </z-list> `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-### ZList with element divider
+# ZList with element divider
 
-<Preview>
-  <Story name="ZList-with-element-divider">
-    {html`<z-list>
-      <z-list-group divider-type="element">
-        <div slot="header-title">Gruppo 1</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-      <z-list-group divider-type="element">
-        <div slot="header-title">Gruppo 2</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-element-divider">
+    {(args) =>
+      html`<z-list>
+        <z-list-group divider-type="element">
+          <div slot="header-title">Gruppo 1</div>
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+        <z-list-group divider-type="element">
+          <div slot="header-title">Gruppo 2</div>
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+      </z-list>`
+    }
   </Story>
-</Preview>
+</Canvas>
 
-## ZList with clickable elements
+# ZList with clickable elements
 
-<Preview>
-  <Story name="ZList-with-clickable-content">
-    {html`<z-list>
-      <z-list-group>
-        <z-list-element clickable>Elemento 1</z-list-element>
-        <z-list-element clickable>Elemento 2</z-list-element>
-        <z-list-element clickable>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-clickable-elements">
+    {(args) =>
+      html`<z-list>
+        <z-list-group>
+          <z-list-element clickable>Elemento 1</z-list-element>
+          <z-list-element clickable>Elemento 2</z-list-element>
+          <z-list-element clickable>Elemento 3</z-list-element>
+        </z-list-group>
+      </z-list>`
+    }
   </Story>
-</Preview>
+</Canvas>
 
-## ZList with expandable elements
+# ZList with expandable elements
 
-<Preview>
-  <Story name="ZList-with-expandable-content">
-    {html`<z-list size="large">
-      <z-list-group divider-type="element">
-        <z-list-element
-          expandable
-          align-button="left"
-          expandable-style="accordion"
-          ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1 BUTTON LEFT</span></z-list-element
-        >
-        <z-list-element
-          expandable
-          align-button="right"
-          expandable-style="menu"
-          ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
-        >
-        <z-list-element
-          expandable
-          align-button="right"
-          expandable-style="menu"
-          ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
-        >
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-expandable-elements">
+    {(args) =>
+      html`<z-list size="large">
+        <z-list-group divider-type="element">
+          <z-list-element
+            expandable
+            align-button="left"
+            expandable-style="accordion"
+            ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1 BUTTON LEFT</span></z-list-element
+          >
+          <z-list-element
+            expandable
+            align-button="right"
+            expandable-style="menu"
+            ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
+          >
+          <z-list-element
+            expandable
+            align-button="right"
+            expandable-style="menu"
+            ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
+          >
+        </z-list-group>
+      </z-list>`
+    }
   </Story>
-</Preview>
-
-## ZList with expandable elements
-
-<Preview>
-  <Story name="ZList-with-expandable-content-menu-style">
-    {html`<z-list size="large">
-      <z-list-group divider-type="element">
-        <z-list-element
-          expandable
-          expandable-style="menu"
-          align-button="right"
-          ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1</span></z-list-element
-        >
-        <z-list-element
-          expandable
-          expandable-style="menu"
-          align-button="right"
-          ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
-        >
-        <z-list-element
-          expandable
-          expandable-style="menu"
-          align-button="right"
-          ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
-        >
-      </z-list-group>
-    </z-list>`}
-  </Story>
-</Preview>
+</Canvas>
 
 # ZList with unordered index
 
-<Preview>
-  <Story name="ZList-with-unordered-index">
-    {html`<z-list>
-      <z-list-group list-type="unordered">
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-unordered-index">
+    {(args) =>
+      html`<z-list>
+        <z-list-group list-type="unordered">
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+      </z-list>`
+    }
   </Story>
-</Preview>
+</Canvas>
 
-# ZList with ordered index
+# ZList with ordered indez
 
-<Preview>
-  <Story name="ZList-with-ordered-index">
-    {html`<z-list>
-      <z-list-group list-type="ordered">
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-with-ordered-index">
+    {(args) =>
+      html`<z-list>
+        <z-list-group list-type="ordered">
+          <z-list-element>Elemento 1</z-list-element>
+          <z-list-element>Elemento 2</z-list-element>
+          <z-list-element>Elemento 3</z-list-element>
+        </z-list-group>
+      </z-list>`
+    }
   </Story>
-</Preview>
+</Canvas>
 
 ## N.B.
 
