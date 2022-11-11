@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.3.0](https://github.com/ZanichelliEditore/design-system/compare/v6.2.2...v6.3.0) (2022-11-11)
+
+
+### Features
+
+* fix list container style ([8fad6bc](https://github.com/ZanichelliEditore/design-system/commit/8fad6bc418448cb5723d4ca6283e68f0da38c549))
+* fix ZList bugs and add list-style ([ca6dfcd](https://github.com/ZanichelliEditore/design-system/commit/ca6dfcd40d0c763bf08302cb1c838f6499e5d81e))
+* fix ZList bugs and add list-style ([8041d2a](https://github.com/ZanichelliEditore/design-system/commit/8041d2a76f60e0e56b295d679b39b6f38bcf22cf))
+* remove clicked status ([2b81168](https://github.com/ZanichelliEditore/design-system/commit/2b8116869b7f4295d2c4e6587501cfdb4ecc101d))
+* update storybook ([ff4748b](https://github.com/ZanichelliEditore/design-system/commit/ff4748b7f144087225368601f0428ee6e79fe27b))
+* update storybook ([2764c9d](https://github.com/ZanichelliEditore/design-system/commit/2764c9daae012ca30ef54d4a32f87406f65f4f5a))
+* update storybook ([045463b](https://github.com/ZanichelliEditore/design-system/commit/045463b7b90940ffcd50e0ce260ca10d3a457f60))
+* update storybook ([a7390e7](https://github.com/ZanichelliEditore/design-system/commit/a7390e75384040dbe964c22dcb965555085a2bd5))
+* update storybook ([3e79420](https://github.com/ZanichelliEditore/design-system/commit/3e794209c7542b25f0e783b36bed9a55233c9caa))
+
 ### [6.2.2](https://github.com/ZanichelliEditore/design-system/compare/v6.2.1...v6.2.2) (2022-11-11)
 
 
