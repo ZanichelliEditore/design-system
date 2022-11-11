@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -103,11 +103,43 @@ import "./index";
           list-type=${args.listType}
           ><span>Elemento 1</span><span slot="inner-content">Inner content</span></z-list-element
         >
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
+        <z-list-element
+          align-button=${args.alignButton}
+          clickable=${args.clickable}
+          divider-color=${args.dividerColor}
+          divider-type=${args.dividerType}
+          divider-size=${args.dividerSize}
+          expandable=${args.expandable}
+          expandable-style=${args.expandableStyle}
+          list-element-id=${args.listElementId}
+          size=${args.size}
+          color=${args.color}
+          disabled=${args.disabled}
+          is-contextual-menu=${args.isContextualMenu}
+          list-element-position=${args.listElementPosition}
+          list-type=${args.listType}
+          >Elemento 2</z-list-element
+        >
+        <z-list-element
+          align-button=${args.alignButton}
+          clickable=${args.clickable}
+          divider-color=${args.dividerColor}
+          divider-type=${args.dividerType}
+          divider-size=${args.dividerSize}
+          expandable=${args.expandable}
+          expandable-style=${args.expandableStyle}
+          list-element-id=${args.listElementId}
+          size=${args.size}
+          color=${args.color}
+          disabled=${args.disabled}
+          is-contextual-menu=${args.isContextualMenu}
+          list-element-position=${args.listElementPosition}
+          list-type=${args.listType}
+          >Elemento 3</z-list-element
+        >
       </z-list> `
     }
   </Story>
 </Canvas>
 
-<ArgsTable of="z-list" />
+<ArgsTable of="z-list-element" />
