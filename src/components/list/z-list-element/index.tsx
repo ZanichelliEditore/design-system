@@ -130,9 +130,6 @@ export class ZListElement {
   @State()
   showInnerContent = false;
 
-  @State()
-  clicked = false;
-
   private openElementConfig = {
     accordion: {
       open: "minus-circled",
@@ -158,13 +155,8 @@ export class ZListElement {
    */
   private handleClick(): void {
     this.clickItem.emit(this.listElementId);
-    if (!this.expandable && this.clickable) {
-      //return;
-      this.host.parentElement.querySelectorAll("z-list-element").forEach((item) => {
-        const listItem = item.shadowRoot.querySelector("div.container");
-        listItem.classList.contains("clicked") && listItem.classList.remove("clicked");
-      });
-      this.clicked = !this.clicked;
+    if (!this.expandable) {
+      return;
     }
     this.showInnerContent = !this.showInnerContent;
   }
@@ -174,9 +166,7 @@ export class ZListElement {
       return "container-contextual-menu";
     }
 
-    const clicked = this.clicked ? "clicked" : "";
-
-    return `container ${clicked}`;
+    return "container";
   }
 
   private handleKeyDown(event): void {
