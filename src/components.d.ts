@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -887,6 +887,10 @@ export namespace Components {
     }
     interface ZList {
         /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -937,6 +941,14 @@ export namespace Components {
          */
         "listElementId"?: number;
         /**
+          * [optional] position of the list element inside the list or the group
+         */
+        "listElementPosition"?: string;
+        /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -954,6 +966,10 @@ export namespace Components {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -4053,6 +4069,10 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -4103,6 +4123,14 @@ declare namespace LocalJSX {
          */
         "listElementId"?: number;
         /**
+          * [optional] position of the list element inside the list or the group
+         */
+        "listElementPosition"?: string;
+        /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
+        /**
           * remove filter click event, returns filterid
          */
         "onAccessibleFocus"?: (event: ZListElementCustomEvent<number>) => void;
@@ -4128,6 +4156,10 @@ declare namespace LocalJSX {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] type of the list marker for each element
+         */
+        "listType"?: ListType;
         /**
           * [optional] Sets size of inside elements.
          */

@@ -1,31 +1,116 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {DividerSize, ListSize, ListDividerType, ListType} from "../../../beans";
 import "./index";
 
 <Meta
   title="List/ZListGroup"
   component="z-list-group"
+  argTypes={{
+    size: {
+      control: {type: "select"},
+      options: Object.values(ListSize),
+      defaultValue: ListSize.SMALL,
+    },
+    dividerType: {
+      control: {type: "select"},
+      options: Object.values(ListDividerType),
+      defaultValue: ListDividerType.HEADER,
+    },
+    dividerSize: {
+      control: {type: "select"},
+      options: Object.values(DividerSize),
+      defaultValue: DividerSize.SMALL,
+    },
+    dividerColor: {
+      control: {type: "text"},
+      defaultValue: "gray200",
+    },
+    listType: {
+      control: {type: "select"},
+      options: Object.values(ListType),
+      defaultValue: ListType.NONE,
+    },
+  }}
 />
 
 # ZListGroup
 
-<Preview>
-  <Story name="ZListGroup-sample">
-    {html`<z-list>
-      <z-list-group divider-type="header">
-        <div slot="header-title">Gruppo 1</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-      <z-list-group divider-type="element">
-        <div slot="header-title">Gruppo 2</div>
-        <z-list-element>Elemento 1</z-list-element>
-        <z-list-element>Elemento 2</z-list-element>
-        <z-list-element>Elemento 3</z-list-element>
-      </z-list-group>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-group">
+    {(args) =>
+      html`
+        <z-list>
+          <z-list-group
+            size=${args.size}
+            divider-type=${args.dividerType}
+            divider-size=${args.dividerSize}
+            divider-color=${args.dividerColor}
+            list-type=${args.listType}
+          >
+            <div slot="header-title">Gruppo 1</div>
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 1</z-list-element
+            >
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 2</z-list-element
+            >
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 3</z-list-element
+            >
+          </z-list-group>
+          <z-list-group
+            size=${args.size}
+            divider-type=${args.dividerType}
+            divider-size=${args.dividerSize}
+            divider-color=${args.dividerColor}
+            list-type=${args.listType}
+          >
+            <div slot="header-title">Gruppo 1</div>
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 1</z-list-element
+            >
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 2</z-list-element
+            >
+            <z-list-element
+              size=${args.size}
+              list-type=${args.listType}
+              divider-type=${args.dividerType}
+              divider-size=${args.dividerSize}
+              divider-color=${args.dividerColor}
+              >Elemento 3</z-list-element
+            >
+          </z-list-group>
+        </z-list>
+      `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-list-group" />
+<ArgsTable of="z-list-group" />

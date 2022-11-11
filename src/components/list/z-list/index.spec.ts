@@ -10,11 +10,11 @@ describe("Suite test ZList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list role="list" size="medium">
+      <z-list list-type="none" role="list" size="medium">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-        <z-list-element></z-list-element>
+        <z-list-element list-element-position="1" list-type="none" size="medium"></z-list-element>
       </z-list>
     `);
   });
@@ -26,11 +26,11 @@ describe("Suite test ZList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-list role="list" size="large">
+      <z-list list-type="none" role="list" size="large">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-        <z-list-element></z-list-element>
+        <z-list-element list-element-position="1" list-type="none" size="large"></z-list-element>
       </z-list>
     `);
   });

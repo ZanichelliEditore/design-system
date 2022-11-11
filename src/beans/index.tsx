@@ -300,6 +300,12 @@ export enum ListDividerType {
   ELEMENT = "element",
 }
 
+export enum ListType {
+  NONE = "none",
+  ORDERED = "ordered",
+  UNORDERED = "unordered",
+}
+
 export enum NotificationType {
   SUCCESS = "success",
   WARNING = "warning",

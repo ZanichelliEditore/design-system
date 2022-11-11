@@ -1,22 +1,145 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {
+  DividerSize,
+  ExpandableListButtonAlign,
+  ExpandableListStyle,
+  KeyboardCode,
+  ListDividerType,
+  ListSize,
+  ListType,
+} from "../../../beans";
 import "./index";
 
 <Meta
   title="List/ZListElement"
   component="z-list-element"
+  argTypes={{
+    alignButton: {
+      control: {type: "select"},
+      options: Object.values(ExpandableListButtonAlign),
+      defaultValue: ExpandableListButtonAlign.LEFT,
+    },
+    clickable: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    dividerColor: {
+      control: {type: "text"},
+      defaultValue: "color-surface03",
+    },
+    dividerType: {
+      control: {type: "select"},
+      options: Object.values(ListDividerType),
+      defaultValue: ListDividerType.NONE,
+    },
+    dividerSize: {
+      control: {type: "select"},
+      options: Object.values(DividerSize),
+      defaultValue: DividerSize.SMALL,
+    },
+    expandable: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    expandableStyle: {
+      control: {type: "select"},
+      options: Object.values(ExpandableListStyle),
+      defaultValue: ExpandableListStyle.ACCORDION,
+    },
+    listElementId: {
+      control: {type: "text"},
+      defaultValue: "0",
+    },
+    size: {
+      control: {type: "select"},
+      options: Object.values(ListSize),
+      defaultValue: ListSize.MEDIUM,
+    },
+    color: {
+      control: {type: "text"},
+      defaultValue: "none",
+    },
+    disabled: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    isContextualMenu: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    listElementPosition: {
+      control: {type: "text"},
+      defaultValue: "0",
+    },
+    listType: {
+      control: {type: "select"},
+      options: Object.values(ListType),
+      defaultValue: ListType.NONE,
+    },
+  }}
 />
 
 # ZListElement
 
-<Preview>
-  <Story name="ZList-simple">
-    {html`<z-list>
-      <z-list-element>Elemento 1</z-list-element>
-      <z-list-element>Elemento 2</z-list-element>
-      <z-list-element>Elemento 3</z-list-element>
-    </z-list>`}
+<Canvas>
+  <Story name="z-list-simple">
+    {(args) =>
+      html`<z-list>
+        <z-list-element
+          align-button=${args.alignButton}
+          clickable=${args.clickable}
+          divider-color=${args.dividerColor}
+          divider-type=${args.dividerType}
+          divider-size=${args.dividerSize}
+          expandable=${args.expandable}
+          expandable-style=${args.expandableStyle}
+          list-element-id=${args.listElementId}
+          size=${args.size}
+          color=${args.color}
+          disabled=${args.disabled}
+          is-contextual-menu=${args.isContextualMenu}
+          list-element-position=${args.listElementPosition}
+          list-type=${args.listType}
+          ><span>Elemento 1</span><span slot="inner-content">Inner content</span></z-list-element
+        >
+        <z-list-element
+          align-button=${args.alignButton}
+          clickable=${args.clickable}
+          divider-color=${args.dividerColor}
+          divider-type=${args.dividerType}
+          divider-size=${args.dividerSize}
+          expandable=${args.expandable}
+          expandable-style=${args.expandableStyle}
+          list-element-id=${args.listElementId}
+          size=${args.size}
+          color=${args.color}
+          disabled=${args.disabled}
+          is-contextual-menu=${args.isContextualMenu}
+          list-element-position=${args.listElementPosition}
+          list-type=${args.listType}
+          >Elemento 2</z-list-element
+        >
+        <z-list-element
+          align-button=${args.alignButton}
+          clickable=${args.clickable}
+          divider-color=${args.dividerColor}
+          divider-type=${args.dividerType}
+          divider-size=${args.dividerSize}
+          expandable=${args.expandable}
+          expandable-style=${args.expandableStyle}
+          list-element-id=${args.listElementId}
+          size=${args.size}
+          color=${args.color}
+          disabled=${args.disabled}
+          is-contextual-menu=${args.isContextualMenu}
+          list-element-position=${args.listElementPosition}
+          list-type=${args.listType}
+          >Elemento 3</z-list-element
+        >
+      </z-list> `
+    }
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-list-element" />
+<ArgsTable of="z-list-element" />

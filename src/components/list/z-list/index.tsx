@@ -1,6 +1,6 @@
 import {Component, Element, h, Prop, Host} from "@stencil/core";
 
-import {ListSize} from "../../../beans";
+import {ListSize, ListType} from "../../../beans";
 
 @Component({
   tag: "z-list",
@@ -16,10 +16,18 @@ export class ZList {
   @Prop({reflect: true})
   size?: ListSize = ListSize.MEDIUM;
 
+  /**
+   * [optional] type of the list marker for each element
+   */
+  @Prop({reflect: true})
+  listType?: ListType = ListType.NONE;
+
   private setChildrenSizeType(): void {
     const children = this.host.children;
-    for (let i = 0; i < children.length - 1; i++) {
+    for (let i = 0; i < children.length; i++) {
       children[i].setAttribute("size", this.size);
+      children[i].setAttribute("list-type", this.listType);
+      children[i].setAttribute("list-element-position", (i + 1).toString());
     }
   }
 

@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {DividerSize, ListSize, ListDividerType} from "../../../beans";
+import {DividerSize, ListSize, ListDividerType, ListType} from "../../../beans";
 
 @Component({
   tag: "z-list-group",
@@ -33,6 +33,12 @@ export class ZListGroup {
   @Prop({reflect: true})
   dividerColor?: string = "gray200";
 
+  /**
+   * [optional] type of the list marker for each element
+   */
+  @Prop({reflect: true})
+  listType?: ListType = ListType.NONE;
+
   private hasHeader: boolean;
 
   componentDidLoad(): void {
@@ -44,6 +50,8 @@ export class ZListGroup {
         children[i].setAttribute("divider-color", this.dividerColor);
       }
       children[i].setAttribute("size", this.size);
+      children[i].setAttribute("list-type", this.listType);
+      children[i].setAttribute("list-element-position", i.toString());
     }
   }
 
