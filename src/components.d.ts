@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1693,28 +1693,6 @@ export namespace Components {
          */
         "slideshowid": string;
     }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -2698,12 +2676,6 @@ declare global {
         prototype: HTMLZSlideshowElement;
         new (): HTMLZSlideshowElement;
     };
-    interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
-    }
-    var HTMLZStatusTagElement: {
-        prototype: HTMLZStatusTagElement;
-        new (): HTMLZStatusTagElement;
-    };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
     var HTMLZStepperElement: {
@@ -2924,7 +2896,6 @@ declare global {
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
-        "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
@@ -4830,28 +4801,6 @@ declare namespace LocalJSX {
          */
         "slideshowid"?: string;
     }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
-    }
     interface ZStepper {
     }
     interface ZStepperItem {
@@ -5285,7 +5234,6 @@ declare namespace LocalJSX {
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
         "z-slideshow": ZSlideshow;
-        "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
@@ -5396,7 +5344,6 @@ declare module "@stencil/core" {
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
-            "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;

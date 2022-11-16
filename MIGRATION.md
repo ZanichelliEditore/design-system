@@ -59,8 +59,6 @@ Lista degli Enum e tipi interessati:
 - `InputType`
 - `InputStatus`
 - `PopoverPosition`
-- `PopoverBorderRadius`
-- `PopoverShadow`
 - `ThemeVariant`
 - `DividerSize`
 - `DividerOrientation`
@@ -89,7 +87,6 @@ Lista degli Enum e tipi interessati:
 - `ZDatePickerMode`
 - `ZDatePickerPosition`
 - `ZRangePickerMode`
-- `StatusTagStatus`
 - `InfoRevealPosition`
 
 ### ZPanelElem

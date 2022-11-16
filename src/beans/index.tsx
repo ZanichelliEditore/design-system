@@ -388,14 +388,6 @@ export type SkipToContentLink = {
   ariaLabel?: string;
 };
 
-export enum StatusTagStatus {
-  WARNING = "warning",
-  ERROR = "error",
-  SUCCESS = "success",
-  NEUTRAL = "neutral",
-  DEFAULT = "default",
-}
-
 export enum InfoRevealPosition {
   TOP_RIGHT = "top_right",
   TOP_LEFT = "top_left",
