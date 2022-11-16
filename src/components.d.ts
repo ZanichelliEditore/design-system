@@ -251,8 +251,6 @@ export namespace Components {
          */
         "sortlabeldesc"?: string;
     }
-    interface ZCandybar {
-    }
     interface ZCard {
         /**
           * Enable click interactions on the card. Default: false
@@ -2316,12 +2314,6 @@ declare global {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
     };
-    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
-    }
-    var HTMLZCandybarElement: {
-        prototype: HTMLZCandybarElement;
-        new (): HTMLZCandybarElement;
-    };
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
     var HTMLZCardElement: {
@@ -2899,7 +2891,6 @@ declare global {
         "z-button-deprecated": HTMLZButtonDeprecatedElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
-        "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
@@ -3253,8 +3244,6 @@ declare namespace LocalJSX {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
-    }
-    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -5294,7 +5283,6 @@ declare namespace LocalJSX {
         "z-button-deprecated": ZButtonDeprecated;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
-        "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
@@ -5407,7 +5395,6 @@ declare module "@stencil/core" {
             "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
-            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
