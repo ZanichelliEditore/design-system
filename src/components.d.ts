@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -397,7 +397,7 @@ export namespace Components {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCoverHero {
         /**
@@ -1564,37 +1564,11 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPosition;
         /**
           * Whether to show popover's arrow.
          */
         "showArrow": boolean;
-    }
-    interface ZPopoverDeprecated {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * [optional] Sets padding for Popover container
-         */
-        "padding"?: string;
-        /**
-          * [optional] Popover position
-         */
-        "position"?: PopoverPosition;
-        /**
-          * [optional] Show or hide arrow
-         */
-        "showArrow"?: boolean;
     }
     interface ZRangePicker {
         /**
@@ -1993,7 +1967,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPosition;
     }
     interface ZTooltipDeprecated {
         /**
@@ -2012,7 +1986,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "type": PopoverPositions1;
+        "type": PopoverPosition1;
     }
     interface ZTypography {
         /**
@@ -2196,10 +2170,6 @@ export interface ZPocketHeaderCustomEvent<T> extends CustomEvent<T> {
 export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPopoverElement;
-}
-export interface ZPopoverDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPopoverDeprecatedElement;
 }
 export interface ZRangePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2698,12 +2668,6 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
-    interface HTMLZPopoverDeprecatedElement extends Components.ZPopoverDeprecated, HTMLStencilElement {
-    }
-    var HTMLZPopoverDeprecatedElement: {
-        prototype: HTMLZPopoverDeprecatedElement;
-        new (): HTMLZPopoverDeprecatedElement;
-    };
     interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
     }
     var HTMLZRangePickerElement: {
@@ -2955,7 +2919,6 @@ declare global {
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
-        "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
@@ -3411,7 +3374,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCoverHero {
         /**
@@ -4742,39 +4705,9 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositions;
-        /**
-          * Whether to show popover's arrow.
-         */
-        "showArrow"?: boolean;
-    }
-    interface ZPopoverDeprecated {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * Emitted on popover click, returns isVisible state
-         */
-        "onTriggerClick"?: (event: ZPopoverDeprecatedCustomEvent<any>) => void;
-        /**
-          * [optional] Sets padding for Popover container
-         */
-        "padding"?: string;
-        /**
-          * [optional] Popover position
-         */
         "position"?: PopoverPosition;
         /**
-          * [optional] Show or hide arrow
+          * Whether to show popover's arrow.
          */
         "showArrow"?: boolean;
     }
@@ -5199,7 +5132,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPosition;
     }
     interface ZTooltipDeprecated {
         /**
@@ -5222,7 +5155,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "type"?: PopoverPositions1;
+        "type"?: PopoverPosition1;
     }
     interface ZTypography {
         /**
@@ -5347,7 +5280,6 @@ declare namespace LocalJSX {
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
-        "z-popover-deprecated": ZPopoverDeprecated;
         "z-range-picker": ZRangePicker;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
@@ -5459,7 +5391,6 @@ declare module "@stencil/core" {
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
-            "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;

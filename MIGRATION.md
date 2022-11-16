@@ -58,7 +58,6 @@ Lista degli Enum e tipi interessati:
 - `ButtonSize`
 - `InputType`
 - `InputStatus`
-- `PopoverPositions`
 - `PopoverPosition`
 - `PopoverBorderRadius`
 - `PopoverShadow`
@@ -250,7 +249,7 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 ### ZPopover
 
 Lo `ZPopover` è strutturalmente cambiato: il contenuto è completamente slottato, l'elemento che funge da "trigger" per l'apertura va aggiunto _fuori_ dal componente. La proprietà "bindTo" permette di specificare l'elemento (con referenza o stringa selettore) rispetto a cui il popover deve essere posizionato, e generalmente rappresenta l'elemento "trigger" stesso.
-Le nuove "posizioni" utilizzabili sono cambiate e sono disponibili nell'enum "PopoverPositions".
+Le nuove "posizioni" utilizzabili sono cambiate e sono disponibili nell'enum "PopoverPosition".
 Le proprietà legate allo stile (`backgroundColor`, `borderRadius`, ecc.) sono scomparse in favore di variabili CSS.
 Anche le shadow sono settate tramite variabile CSS `--z-popover-shadow-filter`, di tipo "filter".
 

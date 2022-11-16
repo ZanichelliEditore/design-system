@@ -1,5 +1,5 @@
 import {Component, h, EventEmitter, Event, Element, Host, State, Listen, Prop} from "@stencil/core";
-import {PopoverPositions, ZChipType} from "../../../beans";
+import {PopoverPosition, ZChipType} from "../../../beans";
 import {tabletBreakpoint} from "../../../constants/breakpoints";
 
 @Component({
@@ -73,7 +73,7 @@ export class ZFile {
         {this.allowPopover && (
           <z-popover
             open={this.popoverVisible}
-            position={PopoverPositions.AUTO}
+            position={PopoverPosition.AUTO}
             bindTo={this.chip}
           >
             <span class="body-5 tooltip-content">{this.ellipsis.innerText}</span>

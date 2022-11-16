@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {PopoverPositions} from "../../beans";
+import {PopoverPosition} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
@@ -15,7 +15,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   component="z-popover"
   argTypes={{
     "position": {
-      options: Object.values(PopoverPositions),
+      options: Object.values(PopoverPosition),
       control: {type: "select"},
     },
     "--z-popover-theme--surface": {
@@ -39,25 +39,19 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="contextual-menu-like"
     args={{
-      "position": PopoverPositions.RIGHT_BOTTOM,
+      "position": PopoverPosition.RIGHT_BOTTOM,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}
   >
     {(args) => html`
       <div class="popover-container">
-        <z-popover
-          .position=${args.position}
-          bind-to="#icon"
-        >
+        <z-popover .position=${args.position} bind-to="#icon">
           <div class="container">
             <z-button icon="gear"> Impostazioni </z-button>
           </div>
         </z-popover>
-        <z-icon
-          id="icon"
-          name="plus-square-filled"
-        ></z-icon>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
       </div>
       <script>
         var iconTrigger = document.querySelector("#icon");
@@ -78,27 +72,19 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="tooltip-like"
     args={{
-      "position": PopoverPositions.RIGHT,
+      "position": PopoverPosition.RIGHT,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}
   >
     {(args) => html`
       <div class="popover-container popover-container-tooltip">
-        <z-popover
-          .position=${args.position}
-          center="true"
-          show-arrow="true"
-          bind-to="#icon"
-        >
+        <z-popover .position=${args.position} center="true" show-arrow="true" bind-to="#icon">
           <div class="container">
             <z-button icon="gear"> Impostazioni </z-button>
           </div>
         </z-popover>
-        <z-icon
-          id="icon"
-          name="plus-square-filled"
-        ></z-icon>
+        <z-icon id="icon" name="plus-square-filled"></z-icon>
       </div>
       <script>
         document.querySelector("#icon").addEventListener("click", () => {

@@ -137,7 +137,7 @@ export enum InputStatus {
   WARNING = "warning",
 }
 
-export enum PopoverPositions {
+export enum PopoverPosition {
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
@@ -153,38 +153,6 @@ export enum PopoverPositions {
   LEFT_BOTTOM = "left_bottom",
 }
 
-export enum PopoverPosition {
-  AFTER_DOWN = "after-down",
-  AFTER_CENTER = "after-center",
-  AFTER_UP = "after-up",
-  BELOW_RIGHT = "below-right",
-  BELOW_CENTER = "below-center",
-  BELOW_LEFT = "below-left",
-  BEFORE_DOWN = "before-down",
-  BEFORE_CENTER = "before-center",
-  BEFORE_UP = "before-up",
-  ABOVE_RIGHT = "above-right",
-  ABOVE_CENTER = "above-center",
-  ABOVE_LEFT = "above-left",
-}
-
-export enum PopoverBorderRadius {
-  NONE = "none",
-  SMALL = "small",
-  MEDIUM = "medium",
-}
-
-export enum PopoverShadow {
-  SHADOW_1 = "shadow-1",
-  SHADOW_2 = "shadow-2",
-  SHADOW_3 = "shadow-3",
-  SHADOW_4 = "shadow-4",
-  SHADOW_6 = "shadow-6",
-  SHADOW_8 = "shadow-8",
-  SHADOW_12 = "shadow-12",
-  SHADOW_16 = "shadow-16",
-  SHADOW_24 = "shadow-24",
-}
 
 export enum KeyboardKeyCode {
   TAB = 9,

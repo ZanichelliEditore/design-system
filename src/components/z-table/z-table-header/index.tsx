@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
-import {ButtonSize, ButtonVariant, PopoverPositions, Size, SortDirection} from "../../../beans";
+import {ButtonSize, ButtonVariant, PopoverPosition, Size, SortDirection} from "../../../beans";
 import {getElementTree} from "../../../utils/utils";
 @Component({
   tag: "z-table-header",
@@ -140,7 +140,7 @@ export class ZTableHeader {
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement)}
-              position={PopoverPositions.BOTTOM}
+              position={PopoverPosition.BOTTOM}
               center={true}
               bindTo={this.triggerButton}
             >
