@@ -114,7 +114,6 @@
  - [z-file-upload](../../file-upload/z-file-upload)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-pagination](../../z-pagination)
  - [z-table](../../z-table/z-table)
  - [z-table-cell](../../z-table/z-table-cell)
@@ -134,7 +133,6 @@ graph TD;
   z-file-upload --> z-button
   z-modal-login --> z-button
   z-myz-card-dictionary --> z-button
-  z-myz-topbar --> z-button
   z-pagination --> z-button
   z-table --> z-button
   z-table-cell --> z-button

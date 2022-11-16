@@ -63,7 +63,6 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-navigation-tab](../../navigation/tabs/z-navigation-tab)
  - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
@@ -114,7 +113,6 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
-  z-myz-topbar --> z-icon
   z-navigation-tab --> z-icon
   z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon

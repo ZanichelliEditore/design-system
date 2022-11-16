@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1262,44 +1262,6 @@ export namespace Components {
           * underlined style flag
          */
         "underlined": boolean;
-    }
-    interface ZMyzTopbar {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz": boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
     }
     interface ZNavigationTab {
         /**
@@ -2678,12 +2640,6 @@ declare global {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
-    interface HTMLZMyzTopbarElement extends Components.ZMyzTopbar, HTMLStencilElement {
-    }
-    var HTMLZMyzTopbarElement: {
-        prototype: HTMLZMyzTopbarElement;
-        new (): HTMLZMyzTopbarElement;
-    };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
     var HTMLZNavigationTabElement: {
@@ -3018,7 +2974,6 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
-        "z-myz-topbar": HTMLZMyzTopbarElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tab-link": HTMLZNavigationTabLinkElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
@@ -4472,44 +4427,6 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
-    interface ZMyzTopbar {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz"?: boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
     interface ZNavigationTab {
         /**
           * Whether the tab is disabled.
@@ -5471,7 +5388,6 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
-        "z-myz-topbar": ZMyzTopbar;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tab-link": ZNavigationTabLink;
         "z-navigation-tabs": ZNavigationTabs;
@@ -5586,7 +5502,6 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
-            "z-myz-topbar": LocalJSX.ZMyzTopbar & JSXBase.HTMLAttributes<HTMLZMyzTopbarElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tab-link": LocalJSX.ZNavigationTabLink & JSXBase.HTMLAttributes<HTMLZNavigationTabLinkElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
