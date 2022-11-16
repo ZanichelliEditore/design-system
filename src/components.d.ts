@@ -499,32 +499,6 @@ export namespace Components {
          */
         "type": ZFileUploadType;
     }
-    interface ZFooter {
-        /**
-          * Maximum width of footer content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-        /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
-         */
-        "productCreditsLink"?: string;
-        /**
-          * The product name to be displayed on the top panel of the footer
-         */
-        "productName"?: string;
-        /**
-          * The product version to be displayed on the top panel of the footer
-         */
-        "productVersion"?: string;
-        /**
-          * True if the product must display a "Report a problem" button on the top panel of the footer
-         */
-        "showReportAProblemButton"?: boolean;
-    }
     interface ZFooterLink {
         /**
           * link
@@ -2189,10 +2163,6 @@ export interface ZFileUploadCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZFileUploadElement;
 }
-export interface ZFooterCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZFooterElement;
-}
 export interface ZInfoBoxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInfoBoxElement;
@@ -2485,12 +2455,6 @@ declare global {
     var HTMLZFileUploadElement: {
         prototype: HTMLZFileUploadElement;
         new (): HTMLZFileUploadElement;
-    };
-    interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
-    }
-    var HTMLZFooterElement: {
-        prototype: HTMLZFooterElement;
-        new (): HTMLZFooterElement;
     };
     interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
     }
@@ -3017,7 +2981,6 @@ declare global {
         "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
-        "z-footer": HTMLZFooterElement;
         "z-footer-link": HTMLZFooterLinkElement;
         "z-footer-section": HTMLZFooterSectionElement;
         "z-footer-social": HTMLZFooterSocialElement;
@@ -3644,40 +3607,6 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadType;
-    }
-    interface ZFooter {
-        /**
-          * Maximum width of footer content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-        /**
-          * Emitted on credits link click
-         */
-        "onCreditsLinkClick"?: (event: ZFooterCustomEvent<any>) => void;
-        /**
-          * Emitted on report a problem button click
-         */
-        "onReportAProblemButtonClick"?: (event: ZFooterCustomEvent<any>) => void;
-        /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
-         */
-        "productCreditsLink"?: string;
-        /**
-          * The product name to be displayed on the top panel of the footer
-         */
-        "productName"?: string;
-        /**
-          * The product version to be displayed on the top panel of the footer
-         */
-        "productVersion"?: string;
-        /**
-          * True if the product must display a "Report a problem" button on the top panel of the footer
-         */
-        "showReportAProblemButton"?: boolean;
     }
     interface ZFooterLink {
         /**
@@ -5505,7 +5434,6 @@ declare namespace LocalJSX {
         "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
-        "z-footer": ZFooter;
         "z-footer-link": ZFooterLink;
         "z-footer-section": ZFooterSection;
         "z-footer-social": ZFooterSocial;
@@ -5621,7 +5549,6 @@ declare module "@stencil/core" {
             "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
-            "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
             "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
             "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
             "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
