@@ -156,45 +156,6 @@ export namespace Components {
          */
         "variant"?: ButtonVariant;
     }
-    interface ZButtonDeprecated {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSize;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: ButtonType;
-        /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariant;
-    }
     interface ZButtonFilter {
         /**
           * filter id
@@ -2244,12 +2205,6 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
-    interface HTMLZButtonDeprecatedElement extends Components.ZButtonDeprecated, HTMLStencilElement {
-    }
-    var HTMLZButtonDeprecatedElement: {
-        prototype: HTMLZButtonDeprecatedElement;
-        new (): HTMLZButtonDeprecatedElement;
-    };
     interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
     }
     var HTMLZButtonFilterElement: {
@@ -2824,7 +2779,6 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
-        "z-button-deprecated": HTMLZButtonDeprecatedElement;
         "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-card": HTMLZCardElement;
@@ -3073,45 +3027,6 @@ declare namespace LocalJSX {
         "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariant;
-    }
-    interface ZButtonDeprecated {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSize;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: ButtonType;
-        /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
          */
         "variant"?: ButtonVariant;
     }
@@ -5162,7 +5077,6 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
-        "z-button-deprecated": ZButtonDeprecated;
         "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-card": ZCard;
@@ -5272,7 +5186,6 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
             "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
