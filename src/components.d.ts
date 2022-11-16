@@ -401,20 +401,6 @@ export namespace Components {
          */
         "popoverPosition"?: PopoverPositions;
     }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => unknown;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl": string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-    }
     interface ZCoverHero {
         /**
           * Cover hero content position (only for STACKED variant).
@@ -2105,10 +2091,6 @@ export interface ZContextualMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZContextualMenuElement;
 }
-export interface ZCookiebarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZCookiebarElement;
-}
 export interface ZDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZDatePickerElement;
@@ -2375,12 +2357,6 @@ declare global {
     var HTMLZContextualMenuElement: {
         prototype: HTMLZContextualMenuElement;
         new (): HTMLZContextualMenuElement;
-    };
-    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
-    }
-    var HTMLZCookiebarElement: {
-        prototype: HTMLZCookiebarElement;
-        new (): HTMLZCookiebarElement;
     };
     interface HTMLZCoverHeroElement extends Components.ZCoverHero, HTMLStencilElement {
     }
@@ -2930,7 +2906,6 @@ declare global {
         "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
-        "z-cookiebar": HTMLZCookiebarElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
@@ -3448,24 +3423,6 @@ declare namespace LocalJSX {
           * [optional] Sets the position of the popover
          */
         "popoverPosition"?: PopoverPositions;
-    }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => unknown;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl"?: string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * emitted on ACCETTA button click, returns event
-         */
-        "onAccept"?: (event: ZCookiebarCustomEvent<any>) => void;
     }
     interface ZCoverHero {
         /**
@@ -5344,7 +5301,6 @@ declare namespace LocalJSX {
         "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
-        "z-cookiebar": ZCookiebar;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
@@ -5458,7 +5414,6 @@ declare module "@stencil/core" {
             "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
-            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
             "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
