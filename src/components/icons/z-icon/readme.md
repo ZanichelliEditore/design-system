@@ -44,7 +44,6 @@
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
- - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-info-reveal](../../z-info-reveal)
@@ -91,7 +90,6 @@ graph TD;
   z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
-  z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-info-reveal --> z-icon

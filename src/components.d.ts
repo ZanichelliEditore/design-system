@@ -444,32 +444,6 @@ export namespace Components {
          */
         "type": ZFileUploadType;
     }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href": string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name": string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href": string;
-        /**
-          * icon url
-         */
-        "icon": string;
-    }
     interface ZGhostLoading {
     }
     interface ZHeading {
@@ -2146,24 +2120,6 @@ declare global {
         prototype: HTMLZFileUploadElement;
         new (): HTMLZFileUploadElement;
     };
-    interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
-    }
-    var HTMLZFooterLinkElement: {
-        prototype: HTMLZFooterLinkElement;
-        new (): HTMLZFooterLinkElement;
-    };
-    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
-    }
-    var HTMLZFooterSectionElement: {
-        prototype: HTMLZFooterSectionElement;
-        new (): HTMLZFooterSectionElement;
-    };
-    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
-    }
-    var HTMLZFooterSocialElement: {
-        prototype: HTMLZFooterSocialElement;
-        new (): HTMLZFooterSocialElement;
-    };
     interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
     }
     var HTMLZGhostLoadingElement: {
@@ -2632,9 +2588,6 @@ declare global {
         "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
-        "z-footer-link": HTMLZFooterLinkElement;
-        "z-footer-section": HTMLZFooterSectionElement;
-        "z-footer-social": HTMLZFooterSocialElement;
         "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -3193,32 +3146,6 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadType;
-    }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href"?: string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name"?: string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href"?: string;
-        /**
-          * icon url
-         */
-        "icon"?: string;
     }
     interface ZGhostLoading {
     }
@@ -4780,9 +4707,6 @@ declare namespace LocalJSX {
         "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
-        "z-footer-link": ZFooterLink;
-        "z-footer-section": ZFooterSection;
-        "z-footer-social": ZFooterSocial;
         "z-ghost-loading": ZGhostLoading;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -4886,9 +4810,6 @@ declare module "@stencil/core" {
             "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
-            "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
-            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
-            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
