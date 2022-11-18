@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
+import { AlertType, LicenseType, MenuItem as MenuItem1 } from "./beans/index";
 import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -1766,25 +1766,6 @@ export namespace Components {
          */
         "position": PopoverPosition;
     }
-    interface ZTooltipDeprecated {
-        /**
-          * The selector or the element bound with the tooltip.
-         */
-        "bindTo"?: string | HTMLElement;
-        /**
-          * Content text.
-          * @deprecated
-         */
-        "content": string;
-        /**
-          * The open state of the tooltip.
-         */
-        "open": boolean;
-        /**
-          * Tooltip position.
-         */
-        "type": PopoverPosition1;
-    }
     interface ZTypography {
         /**
           * HTML tag to use to wrap slotted content
@@ -1995,10 +1976,6 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
-}
-export interface ZTooltipDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTooltipDeprecatedElement;
 }
 export interface ZUserDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2569,12 +2546,6 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
-    interface HTMLZTooltipDeprecatedElement extends Components.ZTooltipDeprecated, HTMLStencilElement {
-    }
-    var HTMLZTooltipDeprecatedElement: {
-        prototype: HTMLZTooltipDeprecatedElement;
-        new (): HTMLZTooltipDeprecatedElement;
-    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -2688,7 +2659,6 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
-        "z-tooltip-deprecated": HTMLZTooltipDeprecatedElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
@@ -4667,29 +4637,6 @@ declare namespace LocalJSX {
          */
         "position"?: PopoverPosition;
     }
-    interface ZTooltipDeprecated {
-        /**
-          * The selector or the element bound with the tooltip.
-         */
-        "bindTo"?: string | HTMLElement;
-        /**
-          * Content text.
-          * @deprecated
-         */
-        "content"?: string;
-        /**
-          * Position change event.
-         */
-        "onPositionChange"?: (event: ZTooltipDeprecatedCustomEvent<any>) => void;
-        /**
-          * The open state of the tooltip.
-         */
-        "open"?: boolean;
-        /**
-          * Tooltip position.
-         */
-        "type"?: PopoverPosition1;
-    }
     interface ZTypography {
         /**
           * HTML tag to use to wrap slotted content
@@ -4831,7 +4778,6 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
-        "z-tooltip-deprecated": ZTooltipDeprecated;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
@@ -4935,7 +4881,6 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
-            "z-tooltip-deprecated": LocalJSX.ZTooltipDeprecated & JSXBase.HTMLAttributes<HTMLZTooltipDeprecatedElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
