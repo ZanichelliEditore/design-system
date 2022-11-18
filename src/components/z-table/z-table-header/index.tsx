@@ -35,7 +35,7 @@ export class ZTableHeader {
 
   private popover?: HTMLZPopoverElement;
 
-  private triggerButton?: HTMLZButtonDeprecatedElement;
+  private triggerButton?: HTMLZPopoverElement;
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
