@@ -1,33 +1,7 @@
-export type Footer = {
-  zanichelliLinks: FooterGroup[];
-  myzLink: MyzLink;
-  zanichelliAddress: string;
-  social: FooterSocial[];
-  certification: string;
-  bottomLinks: FooterGroupItem[];
-};
-
-export type FooterGroupItem = {
-  label: string;
-  link: string;
-  target?: string;
-};
-
-export type FooterGroup = {
-  title: string;
-  items: FooterGroupItem[];
-};
-
 export type MyzLink = {
   label: string;
   img: string;
   link: string;
-};
-
-export type FooterSocial = {
-  icon: string;
-  link: string;
-  description?: string;
 };
 
 export enum LicenseType {
