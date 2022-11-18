@@ -602,20 +602,6 @@ export namespace Components {
          */
         "value"?: string;
     }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label is attached to
-         */
-        "htmlfor"?: string;
-        /**
-          * the label value
-         */
-        "value": string;
-    }
     interface ZInputMessage {
         /**
           * input helper message
@@ -2199,12 +2185,6 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
-    interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
-    }
-    var HTMLZInputLabelElement: {
-        prototype: HTMLZInputLabelElement;
-        new (): HTMLZInputLabelElement;
-    };
     interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
     }
     var HTMLZInputMessageElement: {
@@ -2644,7 +2624,6 @@ declare global {
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
-        "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
@@ -3369,20 +3348,6 @@ declare namespace LocalJSX {
         "type"?: InputType;
         /**
           * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label is attached to
-         */
-        "htmlfor"?: string;
-        /**
-          * the label value
          */
         "value"?: string;
     }
@@ -4802,7 +4767,6 @@ declare namespace LocalJSX {
         "z-info-box": ZInfoBox;
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
-        "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
         "z-list": ZList;
@@ -4907,7 +4871,6 @@ declare module "@stencil/core" {
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
-            "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
