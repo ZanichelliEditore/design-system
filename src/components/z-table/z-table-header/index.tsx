@@ -35,7 +35,7 @@ export class ZTableHeader {
 
   private popover?: HTMLZPopoverElement;
 
-  private triggerButton?: HTMLZPopoverElement;
+  private triggerButton?: HTMLZButtonElement;
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -130,7 +130,7 @@ export class ZTableHeader {
         {this.showButton && (
           <div class="popover-container">
             <z-button
-              ref={(el) => (this.triggerButton = el as HTMLZPopoverElement)}
+              ref={(el) => (this.triggerButton = el as HTMLZButtonElement)}
               class="contextual-popover-button"
               icon="contextual-menu"
               variant={ButtonVariant.TERTIARY}
