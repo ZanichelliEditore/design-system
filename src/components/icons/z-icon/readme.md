@@ -45,7 +45,6 @@
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
- - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-info-reveal](../../z-info-reveal)
@@ -63,7 +62,6 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-navigation-tab](../../navigation/tabs/z-navigation-tab)
  - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
@@ -73,7 +71,6 @@
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
- - [z-status-tag](../../../deprecated/z-status-tag)
  - [z-table-header](../../z-table/z-table-header)
  - [z-table-row](../../z-table/z-table-row)
  - [z-tag](../../z-tag)
@@ -96,7 +93,6 @@ graph TD;
   z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
-  z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-info-reveal --> z-icon
@@ -114,7 +110,6 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
-  z-myz-topbar --> z-icon
   z-navigation-tab --> z-icon
   z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
@@ -124,7 +119,6 @@ graph TD;
   z-pocket-message --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
-  z-status-tag --> z-icon
   z-table-header --> z-icon
   z-table-row --> z-icon
   z-tag --> z-icon

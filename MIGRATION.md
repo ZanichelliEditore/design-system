@@ -87,7 +87,6 @@ Lista degli Enum e tipi interessati:
 - `ZDatePickerMode`
 - `ZDatePickerPosition`
 - `ZRangePickerMode`
-- `StatusTagStatus`
 - `InfoRevealPosition`
 
 ### ZPanelElem

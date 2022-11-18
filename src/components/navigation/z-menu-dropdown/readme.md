@@ -23,10 +23,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
-
 ### Depends on
 
 - [z-link](../z-link)
@@ -38,7 +34,6 @@ graph TD;
   z-menu-dropdown --> z-link
   z-menu-dropdown --> z-icon
   z-link --> z-icon
-  z-myz-topbar --> z-menu-dropdown
   style z-menu-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                              | Type                                                                      | Default           |
-| -------- | --------- | ---------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
-| `size`   | `size`    | [optional] Sets size of inside elements. | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM` |
+| Property   | Attribute   | Description                                         | Type                                                                      | Default           |
+| ---------- | ----------- | --------------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
+| `listType` | `list-type` | [optional] type of the list marker for each element | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                 | `ListType.NONE`   |
+| `size`     | `size`      | [optional] Sets size of inside elements.            | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM` |
 
 
 ## Dependencies
