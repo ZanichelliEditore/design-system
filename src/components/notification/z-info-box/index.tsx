@@ -30,11 +30,7 @@ export class ZInfoBox {
       <div id={this.boxid}>
         <slot name="content" />
         {this.isclosable && (
-          <z-icon
-            name="multiply"
-            data-action="infoBoxClose"
-            onClick={() => this.emitInfoBoxClose()}
-          />
+          <z-icon name="multiply" data-action="infoBoxClose" onClick={() => this.emitInfoBoxClose()} />
         )}
       </div>
     );

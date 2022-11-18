@@ -46,11 +46,7 @@ export class ZToggleButton {
         disabled={this.isdisabled}
         onClick={() => this.emitToggleClick()}
       >
-        <z-icon
-          name={this.opened ? "chevron-down" : "chevron-up"}
-          width={16}
-          height={16}
-        />
+        <z-icon name={this.opened ? "chevron-down" : "chevron-up"} width={16} height={16} />
         {this.label}
       </button>
     );

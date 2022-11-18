@@ -56,10 +56,7 @@ export class ZButtonFilter {
 
   private renderDynamicPillow(filtername): HTMLButtonElement {
     return (
-      <button
-        class={`container isactive ${this.issmall ? "small" : ""}`}
-        onClick={this.handleRemovingFilterClick}
-      >
+      <button class={`container isactive ${this.issmall ? "small" : ""}`} onClick={this.handleRemovingFilterClick}>
         {this.renderIcon()}
         {this.renderContent(filtername)}
       </button>
@@ -71,14 +68,7 @@ export class ZButtonFilter {
       return null;
     }
 
-    return (
-      <z-icon
-        class="close-icon-container"
-        name="multiply"
-        height={12}
-        width={12}
-      />
-    );
+    return <z-icon class="close-icon-container" name="multiply" height={12} width={12} />;
   }
 
   private renderContent(filtername): HTMLSpanElement {

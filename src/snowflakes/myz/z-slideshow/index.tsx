@@ -118,10 +118,7 @@ export class ZSlideshow {
     return (
       <div id="slides">
         {items.map((item: string, i: number) => (
-          <div
-            id={"slide" + i}
-            class={`slide ${this.currentSlide !== i && "hide"}`}
-          >
+          <div id={"slide" + i} class={`slide ${this.currentSlide !== i && "hide"}`}>
             <img src={item} />
           </div>
         ))}

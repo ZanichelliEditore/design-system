@@ -41,19 +41,9 @@ export class ZChip {
   render(): HTMLButtonElement | HTMLDivElement {
     if (this.interactiveIcon) {
       return (
-        <button
-          class={this.type}
-          disabled={this.disabled}
-          tabindex="0"
-          type="button"
-        >
+        <button class={this.type} disabled={this.disabled} tabindex="0" type="button">
           {this.icon && (
-            <z-icon
-              class="icon-sx"
-              name={this.icon}
-              width={this.getIconSize()}
-              height={this.getIconSize()}
-            />
+            <z-icon class="icon-sx" name={this.icon} width={this.getIconSize()} height={this.getIconSize()} />
           )}
           <slot />
           <z-icon
@@ -69,17 +59,8 @@ export class ZChip {
     }
 
     return (
-      <div
-        class={`${this.type}`}
-        tabindex="0"
-      >
-        {this.icon && (
-          <z-icon
-            name={this.icon}
-            width={this.getIconSize()}
-            height={this.getIconSize()}
-          />
-        )}
+      <div class={`${this.type}`} tabindex="0">
+        {this.icon && <z-icon name={this.icon} width={this.getIconSize()} height={this.getIconSize()} />}
         <slot />
       </div>
     );

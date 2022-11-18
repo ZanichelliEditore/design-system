@@ -166,20 +166,11 @@ export class ZMenu {
         >
           {this.hasHeader && (
             <header class="header">
-              <slot
-                name="header"
-                onSlotchange={this.checkContent}
-              ></slot>
+              <slot name="header" onSlotchange={this.checkContent}></slot>
             </header>
           )}
-          <div
-            class="items"
-            role="menu"
-          >
-            <slot
-              name="item"
-              onSlotchange={this.onItemsChange}
-            ></slot>
+          <div class="items" role="menu">
+            <slot name="item" onSlotchange={this.onItemsChange}></slot>
           </div>
         </div>
       </Host>

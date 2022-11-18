@@ -26,10 +26,7 @@ import "./index";
 
 <Canvas>
   <Story name="ZCarousel-over-arrows">
-    {(args) => html`<z-carousel
-      label=${args.label || ""}
-      arrows-position=${CarouselArrowsPosition.OVER}
-    >
+    {(args) => html`<z-carousel label=${args.label || ""} arrows-position=${CarouselArrowsPosition.OVER}>
       <li tabindex="0">
         <div class="carousel-box"></div>
       </li>

@@ -34,10 +34,7 @@ export const setUseInverseColors = () =>
   (useInverseColors = boolean("Use inverse color combination (useful for light themes)", false));
 import "./index";
 
-<Meta
-  title="Navigation/ZUserDropdown"
-  component="z-user-dropdown"
-/>
+<Meta title="Navigation/ZUserDropdown" component="z-user-dropdown" />
 
 # ZUserDropdown
 
@@ -53,10 +50,7 @@ The component is suitable for both dark and light themes, allowing to modify the
         ? lightBackground
         : darkBackground}; padding: 16px; height: 40px; width: fit-content; border-radius: 8px;"
     >
-      <z-user-dropdown
-        logged=${false}
-        use-inverse-colors=${setUseInverseColors()}
-      />
+      <z-user-dropdown logged=${false} use-inverse-colors=${setUseInverseColors()} />
     </div>`}
   </Story>
   <Story name="ZUserDropdown, user logged">

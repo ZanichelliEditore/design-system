@@ -342,14 +342,8 @@ export class ZSelect {
 
   private renderSelectUl(): HTMLDivElement {
     return (
-      <div
-        class={this.isOpen ? "open" : "closed"}
-        tabindex="-1"
-      >
-        <div
-          class="ul-scroll-wrapper"
-          tabindex="-1"
-        >
+      <div class={this.isOpen ? "open" : "closed"} tabindex="-1">
+        <div class="ul-scroll-wrapper" tabindex="-1">
           <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
@@ -388,10 +382,7 @@ export class ZSelect {
           onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
         >
-          <span
-            class={{selected: !!item.selected}}
-            innerHTML={item.name}
-          />
+          <span class={{selected: !!item.selected}} innerHTML={item.name} />
         </z-list-element>
       );
     });
@@ -416,10 +407,7 @@ export class ZSelect {
           onClickItem={() => this.selectItem(item, true)}
           onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
         >
-          <span
-            class={{selected: !!item.selected}}
-            innerHTML={item.name}
-          />
+          <span class={{selected: !!item.selected}} innerHTML={item.name} />
         </z-list-element>
       );
 
@@ -432,12 +420,7 @@ export class ZSelect {
     return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
-          <z-body
-            class="z-list-group-title"
-            level={3}
-            slot="header-title"
-            variant="semibold"
-          >
+          <z-body class="z-list-group-title" level={3} slot="header-title" variant="semibold">
             {key}
           </z-body>
           {value.map((item) => item)}
@@ -448,14 +431,8 @@ export class ZSelect {
 
   private renderNoSearchResults(): HTMLZListElementElement {
     return (
-      <z-list-element
-        color="blue500"
-        class="no-results"
-      >
-        <z-icon
-          name="multiply-circle"
-          fill="blue500"
-        />
+      <z-list-element color="blue500" class="no-results">
+        <z-icon name="multiply-circle" fill="blue500" />
         {this.noresultslabel}
       </z-list-element>
     );

@@ -57,12 +57,7 @@ export class ZMyzCardDictionary {
           <div class={`content ${this.flipped ? "flipped" : ""}`}>
             <div class="front">
               <z-myz-card-body>
-                <z-myz-card-cover
-                  slot="cover"
-                  titolo={this.name}
-                  img={this.cover}
-                  faded={this.disabled}
-                />
+                <z-myz-card-cover slot="cover" titolo={this.name} img={this.cover} faded={this.disabled} />
               </z-myz-card-body>
               <z-button
                 class={{"hide-info": this.hideinfobtn}}

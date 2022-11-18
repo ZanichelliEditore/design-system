@@ -128,28 +128,11 @@ export class ZModalLogin {
 
   private renderZainoDigitaleButton(): HTMLZButtonElement {
     return (
-      <z-button
-        variant={ButtonVariant.SECONDARY}
-        onClick={() => this.emitZainoDigitaleClick()}
-        class="zainoDigitale"
-      >
+      <z-button variant={ButtonVariant.SECONDARY} onClick={() => this.emitZainoDigitaleClick()} class="zainoDigitale">
         <div class="zd">
-          <svg
-            width="18px"
-            height="24px"
-            viewBox="0 0 18 24"
-          >
-            <g
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <g
-                transform="translate(-313.000000, -329.000000)"
-                fill="#E2001A"
-                fill-rule="nonzero"
-              >
+          <svg width="18px" height="24px" viewBox="0 0 18 24">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-313.000000, -329.000000)" fill="#E2001A" fill-rule="nonzero">
                 <g transform="translate(25.000000, 191.000000)">
                   <g>
                     <g transform="translate(0.000000, 100.000000)">
@@ -173,10 +156,7 @@ export class ZModalLogin {
   render(): HTMLZModalElement {
     return (
       <z-modal modaltitle={this.heading}>
-        <div
-          class="wrapper"
-          slot="modalContent"
-        >
+        <div class="wrapper" slot="modalContent">
           <form method="post">
             <div class="username">
               <slot name="username">
@@ -211,19 +191,13 @@ export class ZModalLogin {
               </slot>
             </div>
 
-            <z-link
-              class="forget"
-              href={this.forgotPasswordUrl}
-            >
+            <z-link class="forget" href={this.forgotPasswordUrl}>
               Password dimenticata?
             </z-link>
 
             <div class="login">
               <slot name="login">
-                <z-button
-                  variant={ButtonVariant.PRIMARY}
-                  onClick={() => this.emitLoginSubmit()}
-                >
+                <z-button variant={ButtonVariant.PRIMARY} onClick={() => this.emitLoginSubmit()}>
                   Accedi
                 </z-button>
               </slot>
@@ -232,20 +206,13 @@ export class ZModalLogin {
 
           <hr />
 
-          <z-body
-            class="signup"
-            level={4}
-            variant="semibold"
-          >
+          <z-body class="signup" level={4} variant="semibold">
             Non hai ancora un account?
           </z-body>
 
           <div class="signup">
             <slot name="signup">
-              <z-button
-                variant={ButtonVariant.SECONDARY}
-                onClick={() => this.emitSignupClick()}
-              >
+              <z-button variant={ButtonVariant.SECONDARY} onClick={() => this.emitSignupClick()}>
                 Registrati
               </z-button>
             </slot>
@@ -253,19 +220,12 @@ export class ZModalLogin {
 
           {!this.externalProviderCheck && (
             <div class="providers">
-              <z-body
-                class="provider"
-                level={5}
-                variant="regular"
-              >
+              <z-body class="provider" level={5} variant="regular">
                 OPPURE ACCEDI CON:
               </z-body>
               <slot name="provider">
                 {this.renderZainoDigitaleButton()}
-                <z-link
-                  icon="informationsource"
-                  href="https://www.zainodigitale.it/#/landing"
-                >
+                <z-link icon="informationsource" href="https://www.zainodigitale.it/#/landing">
                   Cos'è Zaino Digitale?
                 </z-link>
               </slot>

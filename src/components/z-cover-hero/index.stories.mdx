@@ -5,10 +5,7 @@ import {getColorTokens} from "../../utils/storybook-utils";
 import {html} from "lit-html";
 import "./index";
 
-<Meta
-  title="ZCoverHero"
-  component="z-cover-hero"
-/>
+<Meta title="ZCoverHero" component="z-cover-hero" />
 
 # ZCoverHero
 
@@ -52,11 +49,7 @@ import "./index";
           "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
         })}
       >
-        <img
-          slot="cover"
-          src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
-          alt=""
-        />
+        <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
         <div slot="content">
           <div>
             Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
@@ -69,10 +62,7 @@ import "./index";
             <z-button variant="secondary">Secondary</z-button>
           </div>
         </div>
-        <z-info-reveal
-          slot="info-reveal"
-          position="bottom_right"
-        >
+        <z-info-reveal slot="info-reveal" position="bottom_right">
           <span>Lorem ipsum dolor sit amet.</span>
         </z-info-reveal>
       </z-cover-hero>
@@ -99,11 +89,7 @@ import "./index";
           "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
         })}
       >
-        <img
-          slot="cover"
-          src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
-          alt=""
-        />
+        <img slot="cover" src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg" alt="" />
       </z-cover-hero>
     `}
   </Story>

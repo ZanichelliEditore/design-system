@@ -12,11 +12,7 @@ export class ZAriaAlert {
 
   render(): HTMLZAriaAlertElement {
     return (
-      <Host
-        aria-live={this.mode}
-        aria-atomic="true"
-        aria-relevant="additions"
-      >
+      <Host aria-live={this.mode} aria-atomic="true" aria-relevant="additions">
         <slot></slot>
       </Host>
     );

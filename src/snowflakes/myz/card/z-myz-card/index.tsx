@@ -50,10 +50,7 @@ export class ZMyzCardComponent {
 
   render(): HTMLDivElement {
     return (
-      <div
-        class={this.retrieveClass()}
-        tabindex="0"
-      >
+      <div class={this.retrieveClass()} tabindex="0">
         <slot />
       </div>
     );

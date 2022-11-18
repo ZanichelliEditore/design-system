@@ -3,10 +3,7 @@ import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta
-  title="Notification/ZAriaAlert"
-  component="z-aria-alert"
-/>
+<Meta title="Notification/ZAriaAlert" component="z-aria-alert" />
 
 # ZAriaAlert
 
@@ -26,10 +23,7 @@ import "./index";
         Open your ScreenReader, Click on the button and wait 3 seconds, the screenreader will read a message
       </z-body>
       <button onclick="myFunction()">Click to say something</button>
-      <z-aria-alert
-        id="idAlert"
-        mode="${select("mode", ["assertive", "polite"], "polite")}"
-      >
+      <z-aria-alert id="idAlert" mode="${select("mode", ["assertive", "polite"], "polite")}">
         Testo NON nascosto
       </z-aria-alert>
     </div>`}</Story>
@@ -53,10 +47,7 @@ import "./index";
       </z-body>
       <button onclick="myFunction2()">Click to say something but visually hidden</button>
       <z-visually-hidden>
-        <z-aria-alert
-          id="idAlert2"
-          mode="${select("mode", ["assertive", "polite"], "polite")}"
-        >
+        <z-aria-alert id="idAlert2" mode="${select("mode", ["assertive", "polite"], "polite")}">
           Testo qua
         </z-aria-alert>
       </z-visually-hidden>

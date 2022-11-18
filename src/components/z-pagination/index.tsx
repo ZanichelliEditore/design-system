@@ -306,11 +306,7 @@ export class ZPagination {
         {this.renderBackButton()}
 
         {!this.goToPage && (
-          <div
-            class="pages-container"
-            role="navigation"
-            tabIndex={-1}
-          >
+          <div class="pages-container" role="navigation" tabIndex={-1}>
             {pagesChunks.length > 0 &&
               pagesChunks.map((chunk) => <div class="pages-chunk">{chunk.map((page) => this.renderPage(page))}</div>)}
           </div>
@@ -394,11 +390,7 @@ export class ZPagination {
 
           {this.navArrows && this.renderBackButton()}
 
-          <div
-            class="pages-container"
-            role="navigation"
-            tabIndex={-1}
-          >
+          <div class="pages-container" role="navigation" tabIndex={-1}>
             {this.split ? this.renderSplitPages() : this.renderPages()}
           </div>
 

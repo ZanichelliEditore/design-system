@@ -64,24 +64,14 @@ export class ZMenuSection {
 
   render(): HTMLZMenuSectionElement {
     return (
-      <Host
-        role="menu"
-        open={this.open}
-      >
-        <button
-          class="label"
-          aria-pressed={this.open ? "true" : "false"}
-          onClick={this.toggle.bind(this)}
-        >
+      <Host role="menu" open={this.open}>
+        <button class="label" aria-pressed={this.open ? "true" : "false"} onClick={this.toggle.bind(this)}>
           <slot></slot>
           {this.hasContent && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
         {this.open && (
           <div class="items">
-            <slot
-              name="item"
-              onSlotchange={this.checkContent.bind(this)}
-            ></slot>
+            <slot name="item" onSlotchange={this.checkContent.bind(this)}></slot>
           </div>
         )}
       </Host>

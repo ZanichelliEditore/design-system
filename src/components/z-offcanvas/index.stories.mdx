@@ -4,10 +4,7 @@ import {boolean, radios} from "@storybook/addon-knobs";
 import {OffCanvasVariant} from "../../beans";
 import "./index";
 
-<Meta
-  title="ZOffcanvas"
-  component="z-offcanvas"
-/>
+<Meta title="ZOffcanvas" component="z-offcanvas" />
 
 # ZOffcanvas
 
@@ -21,10 +18,7 @@ import "./index";
           .variant="${radios("Variant", {...OffCanvasVariant}, OffCanvasVariant.PUSHCONTENT)}"
           style="height:100vh"
         >
-          <div
-            slot="canvasContent"
-            tabindex="0"
-          >
+          <div slot="canvasContent" tabindex="0">
             <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
               augue. Nullam consectetur rutrum ultrices. Cras eros ex, cursus nec nisi sed, porttitor fringilla metus.
@@ -71,10 +65,7 @@ import "./index";
           .variant="${radios("Variant", {...OffCanvasVariant}, OffCanvasVariant.PUSHCONTENT)}"
           style="height:100vh; flex:1"
         >
-          <div
-            slot="canvasContent"
-            tabindex="0"
-          >
+          <div slot="canvasContent" tabindex="0">
             <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
               augue. Nullam consectetur rutrum ultrices. Cras eros ex, cursus nec nisi sed, porttitor fringilla metus.

@@ -28,12 +28,7 @@ export class ZMyzCardCover {
 
   render(): HTMLImageElement {
     return (
-      <img
-        class={this.faded && "faded"}
-        onError={this.hadleOnImageError.bind(this)}
-        alt={this.titolo}
-        src={this.img}
-      />
+      <img class={this.faded && "faded"} onError={this.hadleOnImageError.bind(this)} alt={this.titolo} src={this.img} />
     );
   }
 }

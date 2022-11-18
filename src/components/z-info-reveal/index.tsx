@@ -80,24 +80,14 @@ export class ZInfoReveal {
   render(): HTMLZInfoRevealElement {
     return (
       <Host open={this.open}>
-        <button
-          class="z-info-reveal-trigger"
-          onClick={this.openInfoBox.bind(this)}
-        >
+        <button class="z-info-reveal-trigger" onClick={this.openInfoBox.bind(this)}>
           {this.label && <span class="z-info-reveal-label">{this.label}</span>}
           <z-icon name={this.icon}></z-icon>
         </button>
         {this.open && (
-          <div
-            class="info-box"
-            onClick={this.next.bind(this)}
-            tabIndex={0}
-          >
+          <div class="info-box" onClick={this.next.bind(this)} tabIndex={0}>
             <slot></slot>
-            <button
-              class="z-info-reveal-close"
-              onClick={this.closeInfoBox.bind(this)}
-            >
+            <button class="z-info-reveal-close" onClick={this.closeInfoBox.bind(this)}>
               <z-icon name="close"></z-icon>
             </button>
           </div>

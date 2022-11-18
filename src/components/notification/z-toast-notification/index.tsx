@@ -221,10 +221,7 @@ export class ZToastNotification {
 
   private renderText(): HTMLDivElement {
     return (
-      <div
-        id="text"
-        ref={(el) => (this.toastText = el as HTMLElement)}
-      >
+      <div id="text" ref={(el) => (this.toastText = el as HTMLElement)}>
         <span class="title">{this.heading}</span>
         <span class="message">{this.message}</span>
       </div>
@@ -291,10 +288,7 @@ export class ZToastNotification {
           "mobile-wrapped": this.isTextLong,
         }}
       >
-        <div
-          id="flex-container"
-          ref={(el) => (this.container = el as HTMLElement)}
-        >
+        <div id="flex-container" ref={(el) => (this.container = el as HTMLElement)}>
           {this.renderText()}
           {this.renderButton()}
         </div>

@@ -3,10 +3,7 @@ import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {boolean, select, text} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta
-  title="Table/ZTable"
-  component="z-table"
-/>
+<Meta title="Table/ZTable" component="z-table" />
 
 # ZTable
 
@@ -86,13 +83,7 @@ import "./index";
       <z-table-body>
         <z-table-row>
           <z-table-cell>
-            <z-popover
-              position="top"
-              open="true"
-              bind-to="#sample-element"
-            >
-              Tooltip di esempio
-            </z-popover>
+            <z-popover position="top" open="true" bind-to="#sample-element"> Tooltip di esempio </z-popover>
             <span id="sample-element">Contenuto 1-1</span>
           </z-table-cell>
           <z-table-cell>
@@ -206,18 +197,10 @@ import "./index";
             </z-table-header>
           </z-table-header-row>
         </z-table-head>
-        <img
-          src="./images/png/zanichelli-error-image.png"
-          slot="error-image"
-          alt="Error"
-        />
+        <img src="./images/png/zanichelli-error-image.png" slot="error-image" alt="Error" />
         <div slot="error-action">
           <z-body level="{4}">
-            <a
-              href="#"
-              target="_blank"
-              >Clicca qui</a
-            >
+            <a href="#" target="_blank">Clicca qui</a>
             per ricaricare la pagina
           </z-body>
         </div>

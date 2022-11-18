@@ -72,15 +72,7 @@ export class ZToggleSwitch {
               checked: this.checked,
             }}
           >
-            <span class="circle">
-              {this.checked && (
-                <z-icon
-                  width={12}
-                  height={12}
-                  name="checkmark"
-                ></z-icon>
-              )}
-            </span>
+            <span class="circle">{this.checked && <z-icon width={12} height={12} name="checkmark"></z-icon>}</span>
           </span>
         </label>
       </Host>

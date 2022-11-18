@@ -106,12 +106,7 @@ export class ZNavigationTab {
 
   render(): HTMLButtonElement {
     return (
-      <button
-        role="tab"
-        disabled={this.disabled}
-        title={this.htmlTitle}
-        onFocus={this.scrollToTab.bind(this)}
-      >
+      <button role="tab" disabled={this.disabled} title={this.htmlTitle} onFocus={this.scrollToTab.bind(this)}>
         {this.icon && this.renderIcon()}
         {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}
       </button>

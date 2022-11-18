@@ -71,11 +71,7 @@ export class ZFile {
     return (
       <Host>
         {this.allowPopover && (
-          <z-popover
-            open={this.popoverVisible}
-            position={PopoverPosition.AUTO}
-            bindTo={this.chip}
-          >
+          <z-popover open={this.popoverVisible} position={PopoverPosition.AUTO} bindTo={this.chip}>
             <span class="body-5 tooltip-content">{this.ellipsis.innerText}</span>
           </z-popover>
         )}
@@ -85,10 +81,7 @@ export class ZFile {
           interactiveIcon="multiply-circled"
           type={ZChipType.DEFAULT}
         >
-          <span
-            ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
-            tabIndex={-1}
-          >
+          <span ref={(el) => (this.ellipsis = el as HTMLSpanElement)} tabIndex={-1}>
             {this.fileName}
           </span>
         </z-chip>

@@ -286,10 +286,7 @@ export class ZListElement {
           {this.renderExpandedContent()}
         </div>
         {this.dividerType === ListDividerType.ELEMENT && (
-          <z-divider
-            color={this.dividerColor}
-            size={this.dividerSize}
-          />
+          <z-divider color={this.dividerColor} size={this.dividerSize} />
         )}
       </Host>
     );

@@ -168,10 +168,7 @@ export class ZMyzCardInfo {
     const {title, year, author, description} = this.cardData;
 
     return (
-      <z-popover
-        position={PopoverPosition.RIGHT}
-        onClick={() => (this.tooltip = false)}
-      >
+      <z-popover position={PopoverPosition.RIGHT} onClick={() => (this.tooltip = false)}>
         {`${title} ${year} ${author} ${description}`}
       </z-popover>
     );
@@ -232,10 +229,7 @@ export class ZMyzCardInfo {
     return (
       <div>
         {this.renderCloseIcon()}
-        <div
-          class="content-wrapper"
-          ref={(el) => (this.contentWrapper = el)}
-        >
+        <div class="content-wrapper" ref={(el) => (this.contentWrapper = el)}>
           {this.renderGeneralSection()}
           {this.renderTooltip()}
           {this.renderOnlineLicenseSection()}

@@ -120,10 +120,7 @@ export class ZTableHeader {
         <div class="container">
           <slot />
           {this.sortable && this.sortDirection !== SortDirection.NONE && (
-            <z-icon
-              name={this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down"}
-              class="arrow"
-            />
+            <z-icon name={this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down"} class="arrow" />
           )}
         </div>
 

@@ -1,28 +1,12 @@
 <!DOCTYPE html>
-<html
-  dir="ltr"
-  lang="en"
->
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/build/web-components-library.css"
-    />
-    <script
-      type="module"
-      src="/build/web-components-library.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="/build/web-components-library.js"
-    ></script>
+    <link rel="stylesheet" type="text/css" href="/build/web-components-library.css" />
+    <script type="module" src="/build/web-components-library.esm.js"></script>
+    <script nomodule src="/build/web-components-library.js"></script>
     <style>
       .main-container {
         height: 500px;
@@ -42,27 +26,11 @@
         targetblank
       >
       </z-logo>
-      <z-link
-        textcolor="white"
-        big
-        icon="support-filled"
-        slot="actions"
-        href="./pages/notification.html"
+      <z-link textcolor="white" big icon="support-filled" slot="actions" href="./pages/notification.html"
         >Notification
       </z-link>
-      <z-link
-        textcolor="white"
-        big
-        icon="shopping-cart-filled"
-        slot="actions"
-        href="#"
-        >Carrello</z-link
-      >
-      <z-user-dropdown
-        userfullname="docente di calabresi per italiani"
-        logged="false"
-        slot="login"
-      ></z-user-dropdown>
+      <z-link textcolor="white" big icon="shopping-cart-filled" slot="actions" href="#">Carrello</z-link>
+      <z-user-dropdown userfullname="docente di calabresi per italiani" logged="false" slot="login"></z-user-dropdown>
       <z-app-switcher slot="app-switcher"></z-app-switcher>
     </z-app-topbar>
     <div class="main-container">
@@ -78,12 +46,7 @@
         >
         </z-file-upload>
         <br />
-        <z-button
-          id="getFilesBtn"
-          variant="secondary"
-          size="small"
-          >get files</z-button
-        >
+        <z-button id="getFilesBtn" variant="secondary" size="small">get files</z-button>
         <!-- <input type="submit" value="INVIA"> -->
         <!--  </form> -->
       </div>

@@ -55,10 +55,7 @@ export let theme = "dark";
 export const setTheme = () => (theme = select("Theme", ["dark", "light"], "dark"));
 import "./index";
 
-<Meta
-  title="Navigation/ZAppTopbar"
-  component="z-app-topbar"
-/>
+<Meta title="Navigation/ZAppTopbar" component="z-app-topbar" />
 
 # ZAppTopbar
 
@@ -80,11 +77,7 @@ The width of the inner content of the topbar can be controlled to have a maximum
         topbar-content=${JSON.stringify(object("Topbar actions", topbarContent))}
         logo-link="https://www.zanichelli.it"
       >
-        <z-user-dropdown
-          slot="login"
-          use-inverse-colors=${theme === "light"}
-          logged=${false}
-        />
+        <z-user-dropdown slot="login" use-inverse-colors=${theme === "light"} logged=${false} />
       </z-app-topbar>
     `}
   </Story>

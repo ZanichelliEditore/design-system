@@ -20,16 +20,9 @@ export class ZMyzCardIcon {
 
   render(): HTMLButtonElement {
     return (
-      <button
-        disabled={this.isdisabled}
-        aria-label={this.ariaLabel}
-      >
+      <button disabled={this.isdisabled} aria-label={this.ariaLabel}>
         <span>
-          <z-icon
-            name={this.icon}
-            width={16}
-            height={16}
-          />
+          <z-icon name={this.icon} width={16} height={16} />
         </span>
       </button>
     );

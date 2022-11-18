@@ -176,28 +176,14 @@ export class ZAppHeader {
   render(): HTMLZAppHeaderElement {
     return (
       <Host menu-length={this.menuLength}>
-        <div
-          class="heading-panel"
-          ref={(el) => (this.container = el)}
-        >
+        <div class="heading-panel" ref={(el) => (this.container = el)}>
           <div class="hero-container">
-            <slot name="hero">
-              {this.hero && (
-                <img
-                  alt=""
-                  src={this.hero}
-                />
-              )}
-            </slot>
+            <slot name="hero">{this.hero && <img alt="" src={this.hero} />}</slot>
           </div>
           <div class="heading-container">
             <div class="heading-title">
               {this.menuLength > 0 && (
-                <button
-                  class="drawer-trigger"
-                  aria-label="Apri menu"
-                  onClick={this.openDrawer}
-                >
+                <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
@@ -209,44 +195,25 @@ export class ZAppHeader {
           </div>
           <div class="menu-container">
             {!this.drawerOpen && this.flow !== "offcanvas" && (
-              <slot
-                name="menu"
-                onSlotchange={() => this.collectMenuElements()}
-              ></slot>
+              <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>
             )}
           </div>
         </div>
         <div class="drawer-container">
-          <div
-            class="drawer-overlay"
-            onClick={this.closeDrawer}
-          ></div>
+          <div class="drawer-overlay" onClick={this.closeDrawer}></div>
           <div class="drawer-panel">
-            <button
-              class="drawer-close"
-              aria-label="Chiudi menu"
-              onClick={this.closeDrawer}
-            >
+            <button class="drawer-close" aria-label="Chiudi menu" onClick={this.closeDrawer}>
               <z-icon name="close"></z-icon>
             </button>
             <div class="drawer-content">
-              {this.drawerOpen && (
-                <slot
-                  name="menu"
-                  onSlotchange={() => this.collectMenuElements()}
-                ></slot>
-              )}
+              {this.drawerOpen && <slot name="menu" onSlotchange={() => this.collectMenuElements()}></slot>}
             </div>
           </div>
         </div>
         {this.stucked && (
           <div class="heading-stucked">
             {this.menuLength > 0 && (
-              <button
-                class="drawer-trigger"
-                aria-label="Apri menu"
-                onClick={this.openDrawer}
-              >
+              <button class="drawer-trigger" aria-label="Apri menu" onClick={this.openDrawer}>
                 <z-icon name="burger-menu"></z-icon>
               </button>
             )}

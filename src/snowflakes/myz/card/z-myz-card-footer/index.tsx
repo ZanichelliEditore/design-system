@@ -90,20 +90,14 @@ export class ZMyzCardFooter {
   render(): HTMLDivElement {
     return (
       <div class={{...(this.retrieveClass() as Record<string, boolean>), wrapper: true}}>
-        <footer
-          class={this.retrieveClass()}
-          onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}
-        >
+        <footer class={this.retrieveClass()} onTransitionEnd={(e: TransitionEvent) => this.footerTransitionHandler(e)}>
           <span class="toggle">
             <slot name="toggle" />
           </span>
           {this.titolo && <p class={{"custom-content": this.customContent}}>{this.titolo}</p>}
           <div class={{"content": true, "custom-content": this.customContent}}>
             <div>
-              <p
-                class="authors"
-                ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}
-              >
+              <p class="authors" ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}>
                 <span title={this.getTitleAuthors()}>
                   <span class="bold">{this.autori}</span>
                 </span>

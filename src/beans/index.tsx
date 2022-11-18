@@ -4,11 +4,6 @@ export type MyzLink = {
   link: string;
 };
 
-export type FooterSocial = {
-  icon: string;
-  link: string;
-  description?: string;
-};
 
 export enum LicenseType {
   REAL = "reale",
@@ -152,7 +147,6 @@ export enum PopoverPosition {
   LEFT_TOP = "left_top",
   LEFT_BOTTOM = "left_bottom",
 }
-
 
 export enum KeyboardKeyCode {
   TAB = 9,

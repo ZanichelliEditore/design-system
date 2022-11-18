@@ -51,11 +51,7 @@ export class ZMessagesPocket {
     return (
       <z-pocket-header pocketid={this.pocketid}>
         {message}
-        <z-icon
-          name={icon}
-          width={14}
-          height={14}
-        />
+        <z-icon name={icon} width={14} height={14} />
       </z-pocket-header>
     );
   }
@@ -73,11 +69,7 @@ export class ZMessagesPocket {
 
   render(): HTMLZPocketElement {
     return (
-      <z-pocket
-        pocketid={this.pocketid}
-        status={this.status}
-        class={this.status}
-      >
+      <z-pocket pocketid={this.pocketid} status={this.status} class={this.status}>
         {this.renderHeader()}
         {this.renderBody()}
       </z-pocket>

@@ -47,24 +47,12 @@ export class ZPanelElem {
 
   private renderIcon(): HTMLZIconElement {
     if (this.isdisabled) {
-      return (
-        <img
-          src={this.imgurl}
-          alt={this.imgalt}
-        />
-      );
+      return <img src={this.imgurl} alt={this.imgalt} />;
     }
 
     return (
-      <a
-        class="elem-icon"
-        href={this.url}
-        target={this.target}
-      >
-        <img
-          src={this.imgurl}
-          alt={this.imgalt}
-        />
+      <a class="elem-icon" href={this.url} target={this.target}>
+        <img src={this.imgurl} alt={this.imgalt} />
       </a>
     );
   }

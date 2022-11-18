@@ -198,18 +198,11 @@ export class ZCombobox {
         role="button"
         tabindex={0}
       >
-        <z-body
-          level={3}
-          component="p"
-        >
+        <z-body level={3} component="p">
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </z-body>
-        <z-icon
-          name="caret-down"
-          width={18}
-          height={18}
-        />
+        <z-icon name="caret-down" width={18} height={18} />
       </div>
     );
   }
@@ -234,10 +227,7 @@ export class ZCombobox {
     }
 
     return (
-      <div
-        class={this.searchValue && "search"}
-        tabindex={-1}
-      >
+      <div class={this.searchValue && "search"} tabindex={-1}>
         {this.renderList(this.renderItemsList)}
         {this.searchValue && this.renderCloseButton()}
       </div>
@@ -279,12 +269,7 @@ export class ZCombobox {
   private renderNoSearchResults(): HTMLUListElement {
     return (
       <ul>
-        <z-myz-list-item
-          id="no-results"
-          text={this.noresultslabel}
-          listitemid="no-results"
-          icon="multiply-circle"
-        />
+        <z-myz-list-item id="no-results" text={this.noresultslabel} listitemid="no-results" icon="multiply-circle" />
       </ul>
     );
   }
@@ -350,11 +335,7 @@ export class ZCombobox {
 
   render(): HTMLDivElement {
     return (
-      <div
-        data-action={`combo-${this.inputid}`}
-        class={{open: this.isopen, fixed: this.isfixed}}
-        id={this.inputid}
-      >
+      <div data-action={`combo-${this.inputid}`} class={{open: this.isopen, fixed: this.isfixed}} id={this.inputid}>
         {this.renderHeader()}
         {this.renderContent()}
       </div>

@@ -24,15 +24,7 @@ import "./index";
       icon: "pdf",
     }}
   >
-    {(args) =>
-      html`
-        <z-chip
-          type=${args.type}
-          icon=${args.icon}
-          >my custom element</z-chip
-        >
-      `
-    }
+    {(args) => html` <z-chip type=${args.type} icon=${args.icon}>my custom element</z-chip> `}
   </Story>
 </Canvas>
 
@@ -48,10 +40,7 @@ import "./index";
   >
     {(args) =>
       html`
-        <z-chip
-          type=${args.type}
-          icon=${args.icon}
-        >
+        <z-chip type=${args.type} icon=${args.icon}>
           <strong>my</strong>
           <span style="margin-left: 4px"> custom element</span>
         </z-chip>

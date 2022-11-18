@@ -197,10 +197,7 @@ export class ZDatePicker {
   private renderSlottedContent(): HTMLDivElement {
     return (
       <div class={`${this.datePickerId}-hidden`}>
-        <input
-          class="hidden-input"
-          data-input
-        ></input>
+        <input class="hidden-input" data-input></input>
         <slot name="toggle"></slot>
       </div>
     );

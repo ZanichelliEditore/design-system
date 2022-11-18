@@ -82,19 +82,12 @@ export class ZButtonSort {
         onClick={() => this.emitButtonSortClick()}
       >
         <label>
-          <span
-            ref={(el) => (this.ellipsis = el as HTMLSpanElement)}
-            class="ellipsis"
-          >
+          <span ref={(el) => (this.ellipsis = el as HTMLSpanElement)} class="ellipsis">
             {!this.sortasc && this.desclabel ? this.desclabel : this.label}
           </span>
           <span class="counter">{this.counter && ` (${this.counter})`}</span>
           <span class="sort">{this.sortasc ? this.sortlabelasc : this.sortlabeldesc}</span>
-          <z-icon
-            name="caret-up-down"
-            width={16}
-            height={16}
-          />
+          <z-icon name="caret-up-down" width={16} height={16} />
         </label>
       </button>
     );

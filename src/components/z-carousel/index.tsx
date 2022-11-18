@@ -236,11 +236,7 @@ export class ZCarousel {
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
               <div class="dots-progress">
                 {this.items.map((_item, key) => (
-                  <button
-                    type="button"
-                    class={{current: this.current === key}}
-                    onClick={() => this.goTo(key)}
-                  >
+                  <button type="button" class={{current: this.current === key}} onClick={() => this.goTo(key)}>
                     <z-icon name={this.current === key ? "white-circle-filled" : "black-circle-filled"} />
                   </button>
                 ))}

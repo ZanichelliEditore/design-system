@@ -76,12 +76,7 @@ export class ZMyzCardAlert {
       <div class={"alert-external-wrapper " + this.retrieveClass()}>
         <z-alert type={this.getAlertType()}>
           <div class="relative-container">
-            <z-icon
-              name={this.iconname}
-              width={18}
-              height={18}
-              class={this.retrieveClass()}
-            ></z-icon>
+            <z-icon name={this.iconname} width={18} height={18} class={this.retrieveClass()}></z-icon>
             <span class="content-text">{this.contenttext}</span>
             {this.actiontext && !!this.actiontext.trim().length && (
               <span

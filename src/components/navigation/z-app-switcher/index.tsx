@@ -29,14 +29,8 @@ export class ZAppSwitcher {
 
   render(): HTMLButtonElement {
     return (
-      <button
-        title="app-switcher"
-        onClick={() => this.emitAppButtonClick()}
-      >
-        <z-icon
-          name="app-switcher"
-          class={this.theme}
-        />
+      <button title="app-switcher" onClick={() => this.emitAppButtonClick()}>
+        <z-icon name="app-switcher" class={this.theme} />
       </button>
     );
   }

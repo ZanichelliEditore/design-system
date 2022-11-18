@@ -63,19 +63,12 @@ export class ZOffcanvas {
   render(): HTMLZOffcanvasElement {
     return (
       <Host>
-        <div
-          class="canvas-container"
-          onAnimationEnd={() => this.handleAnimationEnd()}
-        >
+        <div class="canvas-container" onAnimationEnd={() => this.handleAnimationEnd()}>
           <div class="canvas-content">
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        <div
-          class="canvas-background"
-          data-action="canvasBackground"
-          onClick={() => (this.open = false)}
-        ></div>
+        <div class="canvas-background" data-action="canvasBackground" onClick={() => (this.open = false)}></div>
       </Host>
     );
   }

@@ -36,13 +36,7 @@ import "./index";
       expandable: false,
     }}
   >
-    {(args) =>
-      html`<z-tag
-        icon="gear"
-        expandable=${args.expandable}
-        >${args.text}
-      </z-tag>`
-    }
+    {(args) => html`<z-tag icon="gear" expandable=${args.expandable}>${args.text} </z-tag>`}
   </Story>
 </Canvas>
 

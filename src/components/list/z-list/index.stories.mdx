@@ -26,25 +26,10 @@ import "./index";
   <Story name="z-list-simple">
     {(args) =>
       html`
-        <z-list
-          list-type=${args.listType}
-          size=${args.size}
-        >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 1</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 2</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 3</z-list-element
-          >
+        <z-list list-type=${args.listType} size=${args.size}>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 1</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 2</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 3</z-list-element>
         </z-list>
       `
     }
@@ -61,39 +46,15 @@ import "./index";
       html`<z-list>
         <z-list-group divider-type="header">
           <div slot="header-title">Gruppo 1</div>
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 1</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 2</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 3</z-list-element
-          >
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 1</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 2</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 3</z-list-element>
         </z-list-group>
         <z-list-group divider-type="header">
           <div slot="header-title">Gruppo 2</div>
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 1</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 2</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 3</z-list-element
-          >
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 1</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 2</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 3</z-list-element>
         </z-list-group>
       </z-list> `
     }
@@ -108,39 +69,15 @@ import "./index";
       html`<z-list>
         <z-list-group divider-type="element">
           <div slot="header-title">Gruppo 1</div>
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 1</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 2</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 3</z-list-element
-          >
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 1</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 2</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 3</z-list-element>
         </z-list-group>
         <z-list-group divider-type="element">
           <div slot="header-title">Gruppo 2</div>
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 1</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 2</z-list-element
-          >
-          <z-list-element
-            list-type=${args.listType}
-            size=${args.size}
-            >Elemento 3</z-list-element
-          >
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 1</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 2</z-list-element>
+          <z-list-element list-type=${args.listType} size=${args.size}>Elemento 3</z-list-element>
         </z-list-group>
       </z-list>`
     }
@@ -170,22 +107,13 @@ import "./index";
     {(args) =>
       html`<z-list size="large">
         <z-list-group divider-type="element">
-          <z-list-element
-            expandable
-            align-button="left"
-            expandable-style="accordion"
+          <z-list-element expandable align-button="left" expandable-style="accordion"
             ><span>Elemento 1</span><span slot="inner-content">INNER CONTENT 1 BUTTON LEFT</span></z-list-element
           >
-          <z-list-element
-            expandable
-            align-button="right"
-            expandable-style="menu"
+          <z-list-element expandable align-button="right" expandable-style="menu"
             ><span>Elemento 2</span><span slot="inner-content">INNER CONTENT 2</span></z-list-element
           >
-          <z-list-element
-            expandable
-            align-button="right"
-            expandable-style="menu"
+          <z-list-element expandable align-button="right" expandable-style="menu"
             ><span>Elemento 3</span><span slot="inner-content">INNER CONTENT 3</span></z-list-element
           >
         </z-list-group>

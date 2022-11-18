@@ -70,10 +70,7 @@ export class ZListGroup {
         >
           <slot name="header-title" />
           {this.dividerType === ListDividerType.HEADER && (
-            <z-divider
-              color={this.dividerColor}
-              size={this.dividerSize}
-            />
+            <z-divider color={this.dividerColor} size={this.dividerSize} />
           )}
         </div>
         <slot />

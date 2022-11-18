@@ -42,17 +42,11 @@ export class ZSectionTitle {
       <Host>
         <slot name="secondary-title" />
         {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (
-          <z-divider
-            size={DividerSize.LARGE}
-            color="z-section-title--divider-color"
-          />
+          <z-divider size={DividerSize.LARGE} color="z-section-title--divider-color" />
         )}
         <slot name="primary-title" />
         {!this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (
-          <z-divider
-            size={DividerSize.LARGE}
-            color="z-section-title--divider-color"
-          />
+          <z-divider size={DividerSize.LARGE} color="z-section-title--divider-color" />
         )}
       </Host>
     );

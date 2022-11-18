@@ -287,12 +287,7 @@ export class ZInput {
     }
 
     return (
-      <label
-        class="input-label body-5-sb"
-        id={`${this.htmlid}_label`}
-        htmlFor={this.htmlid}
-        aria-label={this.label}
-      >
+      <label class="input-label body-5-sb" id={`${this.htmlid}_label`} htmlFor={this.htmlid} aria-label={this.label}>
         {this.label}
       </label>
     );
@@ -317,11 +312,7 @@ export class ZInput {
     }
 
     return (
-      <button
-        type="button"
-        class="icon-button input-icon"
-        tabIndex={-1}
-      >
+      <button type="button" class="icon-button input-icon" tabIndex={-1}>
         <z-icon name={this.icon} />
       </button>
     );
@@ -388,10 +379,7 @@ export class ZInput {
             "readonly": attributes.readonly as boolean,
           }}
         >
-          <textarea
-            {...attributes}
-            aria-label={this.ariaLabel || this.label}
-          ></textarea>
+          <textarea {...attributes} aria-label={this.ariaLabel || this.label}></textarea>
         </div>
         {this.renderMessage()}
       </div>
@@ -429,10 +417,7 @@ export class ZInput {
             "before": this.labelPosition === LabelPosition.LEFT,
           }}
         >
-          <z-icon
-            name={this.checked ? "checkbox-checked" : "checkbox"}
-            aria-hidden="true"
-          />
+          <z-icon name={this.checked ? "checkbox-checked" : "checkbox"} aria-hidden="true" />
           {this.label && <span innerHTML={this.label}></span>}
         </label>
       </div>
@@ -464,10 +449,7 @@ export class ZInput {
             "before": this.labelPosition === LabelPosition.LEFT,
           }}
         >
-          <z-icon
-            name={this.checked ? "radio-button-checked" : "radio-button"}
-            aria-hidden="true"
-          />
+          <z-icon name={this.checked ? "radio-button-checked" : "radio-button"} aria-hidden="true" />
           {this.label && <span innerHTML={this.label} />}
         </label>
       </div>

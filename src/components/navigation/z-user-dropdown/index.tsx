@@ -135,19 +135,9 @@ export class ZUserDropdown {
       >
         <div>
           <div class="firstline">
-            <z-icon
-              class={colorClass}
-              name="user-avatar-filled"
-              height={16}
-              width={16}
-            />
+            <z-icon class={colorClass} name="user-avatar-filled" height={16} width={16} />
             {!this.isMobile && <div class={`userfullname ${colorClass}`}>{this.userFullName}</div>}
-            <z-icon
-              class={colorClass}
-              name={`caret-${direction}-filled`}
-              height={16}
-              width={16}
-            />
+            <z-icon class={colorClass} name={`caret-${direction}-filled`} height={16} width={16} />
           </div>
           {!this.isMobile && this.isMenuOpen && <div class={`useremail ${colorClass}`}>{this.userEmail}</div>}
         </div>
@@ -177,10 +167,7 @@ export class ZUserDropdown {
           )}
           {this.linkArray &&
             this.linkArray.map((link) => (
-              <li
-                id={link.id}
-                class={colorClass}
-              >
+              <li id={link.id} class={colorClass}>
                 <z-link
                   textcolor={this.getZLinkTextcolor()}
                   href={link.link}
@@ -204,10 +191,7 @@ export class ZUserDropdown {
 
     return (
       <Host class={colorClass}>
-        <div
-          ref={(el) => (this.divToResize = el as HTMLDivElement)}
-          class={openClass}
-        >
+        <div ref={(el) => (this.divToResize = el as HTMLDivElement)} class={openClass}>
           <div class={`${colorClass} ${openClass}`}>
             {this.logged ? this.renderLoggedButton() : this.renderGuestButton()}
             {this.logged && this.renderDropdownMenu()}

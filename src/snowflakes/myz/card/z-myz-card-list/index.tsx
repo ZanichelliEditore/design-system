@@ -29,12 +29,7 @@ export class ZMyzCardList {
     }
 
     return (
-      <a
-        role="button"
-        onKeyPress={(e: KeyboardEvent) => this.handleSpaceKeyPress(e, url)}
-        href={url}
-        target="_blank"
-      >
+      <a role="button" onKeyPress={(e: KeyboardEvent) => this.handleSpaceKeyPress(e, url)} href={url} target="_blank">
         {value}
       </a>
     );

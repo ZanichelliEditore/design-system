@@ -53,12 +53,7 @@ export class ZAvatar {
         }}
       >
         {this.text && !this.image && <span>{this.text.substring(0, 2)}</span>}
-        {this.image && (
-          <img
-            src={this.image}
-            onError={() => (this.image = "")}
-          />
-        )}
+        {this.image && <img src={this.image} onError={() => (this.image = "")} />}
       </Host>
     );
   }

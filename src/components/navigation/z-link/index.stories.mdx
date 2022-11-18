@@ -3,10 +3,7 @@ import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, number, boolean, select} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta
-  title="Navigation/ZLink"
-  component="z-link"
-/>
+<Meta title="Navigation/ZLink" component="z-link" />
 
 ## How to use
 
@@ -59,9 +56,7 @@ Current available text color is : primary, inverse, black and white. Primary and
 
 <Preview>
   <Story name="z-link inline">
-    {html` <z-body
-      level="1"
-      variant="regular"
+    {html` <z-body level="1" variant="regular"
       >Clicca sul
       <z-link
         href="${text("href", "http://www.zanichelli.it")}"

@@ -70,14 +70,8 @@ export class ZAppTopbar {
           "limited-width": !!this.contentMaxWidth,
         }}
       >
-        <div
-          id="content-container"
-          style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}
-        >
-          <div
-            id="left-panel"
-            class="content-panel"
-          >
+        <div id="content-container" style={this.contentMaxWidth ? {"--mw": `${this.contentMaxWidth}px`} : {}}>
+          <div id="left-panel" class="content-panel">
             <z-logo
               mobileLogo={this.isMobile}
               width={this.isMobile ? 32 : 128}
@@ -88,10 +82,7 @@ export class ZAppTopbar {
             />
             {this.isMobile && this.renderTopbarLinks()}
           </div>
-          <div
-            id="right-panel"
-            class="content-panel"
-          >
+          <div id="right-panel" class="content-panel">
             {!this.isMobile && this.renderTopbarLinks()}
             {this.showAppSwitcher && <z-app-switcher theme={this.theme} />}
             <div id="divider-container">

@@ -3,10 +3,7 @@ import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {boolean} from "@storybook/addon-knobs";
 import "./index";
 
-<Meta
-  title="Navigation/ZMenuSection"
-  component="z-menu-section"
-/>
+<Meta title="Navigation/ZMenuSection" component="z-menu-section" />
 
 # ZMenuSection
 
@@ -15,21 +12,9 @@ import "./index";
     {html`
       <z-menu-section .active=${boolean("active", false)}>
         <h3>Label</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 2</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3</a
-        >
+        <a href="" slot="item">Item 1</a>
+        <a href="" slot="item">Item 2</a>
+        <a href="" slot="item">Item 3</a>
       </z-menu-section>
     `}
   </Story>

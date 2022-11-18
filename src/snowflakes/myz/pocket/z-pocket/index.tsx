@@ -90,10 +90,7 @@ export class ZPocket {
           class={`background ${this.status}`}
           onClick={(e: MouseEvent) => this.handleBackgroundClick(e)}
         />
-        <div
-          id={this.pocketid}
-          class="content-wrapper"
-        >
+        <div id={this.pocketid} class="content-wrapper">
           <div>
             <slot />
           </div>

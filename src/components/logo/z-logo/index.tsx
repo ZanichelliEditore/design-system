@@ -42,15 +42,9 @@ export class ZLogo {
     }
 
     return (
-      <Host
-        style={style}
-        class={{mobile: !!this.mobileLogo}}
-      >
+      <Host style={style} class={{mobile: !!this.mobileLogo}}>
         {this.link ? (
-          <a
-            href={this.link}
-            target={this.targetBlank ? "_blank" : "_self"}
-          >
+          <a href={this.link} target={this.targetBlank ? "_blank" : "_self"}>
             <img alt={this.imageAlt} />
           </a>
         ) : (

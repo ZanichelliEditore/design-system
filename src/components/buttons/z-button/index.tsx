@@ -67,19 +67,8 @@ export class ZButton {
   render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
       return (
-        <a
-          {...this.getAttributes()}
-          aria-label={this.ariaLabel}
-          href={this.href}
-          target={this.target}
-        >
-          {this.icon && (
-            <z-icon
-              name={this.icon}
-              width={16}
-              height={16}
-            />
-          )}
+        <a {...this.getAttributes()} aria-label={this.ariaLabel} href={this.href} target={this.target}>
+          {this.icon && <z-icon name={this.icon} width={16} height={16} />}
           <slot />
         </a>
       );
@@ -93,13 +82,7 @@ export class ZButton {
         type={this.type}
         disabled={this.disabled}
       >
-        {this.icon && (
-          <z-icon
-            name={this.icon}
-            width={16}
-            height={16}
-          />
-        )}
+        {this.icon && <z-icon name={this.icon} width={16} height={16} />}
         <slot />
       </button>
     );

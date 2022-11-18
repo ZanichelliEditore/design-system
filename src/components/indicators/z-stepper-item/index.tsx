@@ -33,10 +33,7 @@ export class ZStepperItem {
   render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
       return (
-        <a
-          href={!this.disabled && this.href}
-          class="stepper-item"
-        >
+        <a href={!this.disabled && this.href} class="stepper-item">
           <div class="indicator">{this.index}</div>
           <span>
             <slot />
@@ -46,10 +43,7 @@ export class ZStepperItem {
     }
 
     return (
-      <button
-        class="stepper-item"
-        disabled={this.disabled}
-      >
+      <button class="stepper-item" disabled={this.disabled}>
         <div class="indicator">{this.index}</div>
         <span>
           <slot />

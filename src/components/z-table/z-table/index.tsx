@@ -124,17 +124,10 @@ export class ZTable {
           <slot name="table-header" />
         </div>
         <z-table-error>
-          <div
-            class="error-content"
-            style={{minHeight}}
-          >
+          <div class="error-content" style={{minHeight}}>
             <slot name="error-image" />
             <div class="text">
-              <z-body
-                class="error-message"
-                level={3}
-                variant="semibold"
-              >
+              <z-body class="error-message" level={3} variant="semibold">
                 {this.errorMessage}
               </z-body>
               <slot name="error-action" />
@@ -155,11 +148,7 @@ export class ZTable {
             <slot name="table-header" />
             <div class={tableContentClass}>
               <slot name="table-body" />
-              <z-table-empty-box
-                class={this.bordered && "bordered"}
-                message={this.message}
-                subtitle={this.subtitle}
-              >
+              <z-table-empty-box class={this.bordered && "bordered"} message={this.message} subtitle={this.subtitle}>
                 {!!this.callToActionLabel && (
                   <z-button
                     slot="cta1"
@@ -192,11 +181,7 @@ export class ZTable {
         <div class={tableClass}>
           <slot name="table-header" />
         </div>
-        <z-table-empty-box
-          class={this.bordered && "bordered"}
-          message={this.message}
-          subtitle={this.subtitle}
-        >
+        <z-table-empty-box class={this.bordered && "bordered"} message={this.message} subtitle={this.subtitle}>
           {!!this.callToActionLabel && (
             <z-button
               slot="cta1"

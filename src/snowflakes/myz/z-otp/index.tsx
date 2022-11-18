@@ -65,10 +65,7 @@ export class ZOtp {
             />
           ))}
         </div>
-        <z-input-message
-          message={this.message}
-          status={this.status}
-        ></z-input-message>
+        <z-input-message message={this.message} status={this.status}></z-input-message>
       </div>
     );
   }

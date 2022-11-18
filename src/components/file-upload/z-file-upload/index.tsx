@@ -152,11 +152,7 @@ export class ZFileUpload {
 
   private renderTitle(): HTMLZHeadingElement {
     return (
-      <z-heading
-        id="title"
-        variant="semibold"
-        level={2}
-      >
+      <z-heading id="title" variant="semibold" level={2}>
         {this.mainTitle}
       </z-heading>
     );
@@ -164,10 +160,7 @@ export class ZFileUpload {
 
   private renderDescription(variant, level): HTMLZBodyElement {
     return (
-      <z-body
-        variant={variant}
-        level={level}
-      >
+      <z-body variant={variant} level={level}>
         {this.description}
       </z-body>
     );
@@ -197,10 +190,7 @@ export class ZFileUpload {
   private renderFileSection(): HTMLElement {
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <z-heading
-          variant="semibold"
-          level={4}
-        >
+        <z-heading variant="semibold" level={4}>
           File appena caricati
         </z-heading>
         <div class="files-wrapper">
@@ -246,11 +236,7 @@ export class ZFileUpload {
   private renderUploadLink(): unknown[] {
     return [
       this.renderInput(),
-      <z-body
-        class="upload-link-text"
-        variant="regular"
-        level={1}
-      >
+      <z-body class="upload-link-text" variant="regular" level={1}>
         Trascinalo qui o{" "}
         <z-body
           tabIndex={0}
@@ -308,10 +294,7 @@ export class ZFileUpload {
           <div class="files">
             {Array.from(this.invalidFiles).map(([key, value]) => {
               return (
-                <z-body
-                  variant="regular"
-                  level={3}
-                >
+                <z-body variant="regular" level={3}>
                   {this.formatErrorString(key, value)}
                 </z-body>
               );
@@ -325,10 +308,7 @@ export class ZFileUpload {
   render(): HTMLZFileUploadElement {
     return (
       <Host>
-        <div
-          tabIndex={0}
-          class={`container ${this.getType()}`}
-        >
+        <div tabIndex={0} class={`container ${this.getType()}`}>
           {this.renderTitle()}
           {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>

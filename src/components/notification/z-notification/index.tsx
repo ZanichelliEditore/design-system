@@ -65,39 +65,20 @@ export class ZNotification {
   render(): HTMLZNotificationElement {
     return (
       <Host>
-        {this.contenticonname && (
-          <z-icon
-            class="status-icon"
-            name={this.contenticonname}
-            width={16}
-            height={16}
-          />
-        )}
+        {this.contenticonname && <z-icon class="status-icon" name={this.contenticonname} width={16} height={16} />}
         <div class="content-container">
           <div class="content-text">
             <slot></slot>
           </div>
           {!!this.actiontext?.trim() && (
-            <button
-              class="action-button"
-              type="button"
-              onClick={this.handleActionButtonClick}
-            >
+            <button class="action-button" type="button" onClick={this.handleActionButtonClick}>
               {this.actiontext}
             </button>
           )}
         </div>
         {this.showclose && (
-          <button
-            class="close-button"
-            type="button"
-            onClick={this.handleCloseButtonClick}
-          >
-            <z-icon
-              name="multiply-circle"
-              width={16}
-              height={16}
-            />
+          <button class="close-button" type="button" onClick={this.handleCloseButtonClick}>
+            <z-icon name="multiply-circle" width={16} height={16} />
           </button>
         )}
       </Host>
