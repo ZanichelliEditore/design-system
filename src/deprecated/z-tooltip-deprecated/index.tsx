@@ -1,5 +1,5 @@
 import {Component, Prop, h, Host, Watch, Element, State, Event, EventEmitter} from "@stencil/core";
-import {PopoverPositions} from "../../beans/index";
+import {PopoverPosition} from "../../beans/index";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
@@ -104,7 +104,7 @@ export class ZTooltipDeprecated {
 
   /** Tooltip position. */
   @Prop({mutable: true})
-  type: PopoverPositions = PopoverPositions.AUTO;
+  type: PopoverPosition = PopoverPosition.AUTO;
 
   /**
    * The open state of the tooltip.
@@ -122,7 +122,7 @@ export class ZTooltipDeprecated {
    * The current position of the tooltip.
    */
   @State()
-  position?: PopoverPositions;
+  position?: PopoverPosition;
 
   /**
    * Position change event.
@@ -135,9 +135,9 @@ export class ZTooltipDeprecated {
   private animationFrameRequestId?: number;
 
   @Watch("type")
-  validateType(newValue: PopoverPositions): void {
-    if (newValue && Object.values(PopoverPositions).every((position) => newValue !== position)) {
-      this.type = PopoverPositions.AUTO;
+  validateType(newValue: PopoverPosition): void {
+    if (newValue && Object.values(PopoverPosition).every((position) => newValue !== position)) {
+      this.type = PopoverPosition.AUTO;
     }
   }
 
@@ -220,29 +220,29 @@ export class ZTooltipDeprecated {
     const availableWidth = availableLeft + availableRight + boundingRect.width;
 
     let position = this.type;
-    if (position === PopoverPositions.AUTO) {
+    if (position === PopoverPosition.AUTO) {
       /**
        * The `AUTO` position tries to place the tooltip in the "safest" area,
        * where there's more space available.
        */
-      const positions: PopoverPositions[] = [];
+      const positions: PopoverPosition[] = [];
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(PopoverPositions.TOP);
+        positions.unshift(PopoverPosition.TOP);
       } else if (availableTop / availableHeight > 0.6) {
-        positions.push(PopoverPositions.TOP);
+        positions.push(PopoverPosition.TOP);
       } else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(PopoverPositions.BOTTOM);
+        positions.unshift(PopoverPosition.BOTTOM);
       } else {
-        positions.push(PopoverPositions.BOTTOM);
+        positions.push(PopoverPosition.BOTTOM);
       }
 
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(PopoverPositions.LEFT);
+        positions.push(PopoverPosition.LEFT);
       } else if (availableLeft / availableWidth < 0.4) {
-        positions.push(PopoverPositions.RIGHT);
+        positions.push(PopoverPosition.RIGHT);
       }
 
-      position = positions.join("_") as PopoverPositions;
+      position = positions.join("_") as PopoverPosition;
     }
 
     const style = this.host.style;
@@ -256,41 +256,41 @@ export class ZTooltipDeprecated {
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
 
     if (
-      position === PopoverPositions.TOP ||
-      position === PopoverPositions.TOP_RIGHT ||
-      position === PopoverPositions.TOP_LEFT
+      position === PopoverPosition.TOP ||
+      position === PopoverPosition.TOP_RIGHT ||
+      position === PopoverPosition.TOP_LEFT
     ) {
       style.top = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
     }
     if (
-      position === PopoverPositions.BOTTOM ||
-      position === PopoverPositions.BOTTOM_RIGHT ||
-      position === PopoverPositions.BOTTOM_LEFT
+      position === PopoverPosition.BOTTOM ||
+      position === PopoverPosition.BOTTOM_RIGHT ||
+      position === PopoverPosition.BOTTOM_LEFT
     ) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.TOP || position === PopoverPositions.BOTTOM) {
+    if (position === PopoverPosition.TOP || position === PopoverPosition.BOTTOM) {
       style.left = `${offsetLeft + boundingRect.width / 2 - this.host.clientWidth / 2}px`;
     }
-    if (position === PopoverPositions.TOP_RIGHT || position === PopoverPositions.BOTTOM_RIGHT) {
+    if (position === PopoverPosition.TOP_RIGHT || position === PopoverPosition.BOTTOM_RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.TOP_LEFT || position === PopoverPositions.BOTTOM_LEFT) {
+    if (position === PopoverPosition.TOP_LEFT || position === PopoverPosition.BOTTOM_LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.RIGHT || position === PopoverPositions.LEFT) {
+    if (position === PopoverPosition.RIGHT || position === PopoverPosition.LEFT) {
       style.top = `${offsetTop + boundingRect.height / 2 - this.host.clientHeight / 2}px`;
       style.bottom = "auto";
     }
-    if (position === PopoverPositions.RIGHT) {
+    if (position === PopoverPosition.RIGHT) {
       style.right = "auto";
       style.left = `${offsetLeft + boundingRect.width}px`;
     }
-    if (position === PopoverPositions.LEFT) {
+    if (position === PopoverPosition.LEFT) {
       style.left = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
     }

@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, radios, boolean} from "@storybook/addon-knobs";
-import {PopoverPositions} from "../../beans/index";
+import {PopoverPosition} from "../../beans/index";
 import "./index.stories.css";
 import "./index";
 
@@ -21,7 +21,7 @@ import "./index";
     {(args) => html`
       <div class="tooltip-container">
         <z-tooltip-deprecated
-          type="${radios("type", PopoverPositions, "top")}"
+          type="${radios("type", PopoverPosition, "top")}"
           open="${boolean("open", true)}"
           bind-to="#icon"
         >
@@ -47,7 +47,7 @@ import "./index";
         <z-tooltip-deprecated
           class="dark"
           bind-to="#icon"
-          type="${radios("type", PopoverPositions, "bottom")}"
+          type="${radios("type", PopoverPosition, "bottom")}"
           open="${boolean("open", true)}"
         >
           <span>Open</span>
@@ -65,7 +65,7 @@ import "./index";
   <Story name="legacy">
     {(args) => html` <z-tooltip-deprecated
       content="${text("content", "Aggiungi libro")}"
-      type="${radios("type", PopoverPositions, "top")}"
+      type="${radios("type", PopoverPosition, "top")}"
     ></z-tooltip-deprecated>`}
   </Story>
 </Preview>
@@ -76,7 +76,7 @@ import "./index";
       <z-tooltip-deprecated
         class="dark"
         content="${text("content", "Aggiungi libro")}"
-        type="${radios("type", PopoverPositions, "top")}"
+        type="${radios("type", PopoverPosition, "top")}"
       ></z-tooltip>
     `}
   </Story>

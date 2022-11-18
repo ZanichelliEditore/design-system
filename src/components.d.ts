@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPosition as PopoverPosition1 } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPosition, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -399,7 +399,7 @@ export namespace Components {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**
@@ -1644,7 +1644,7 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPosition;
         /**
           * Whether to show popover's arrow.
          */
@@ -2073,7 +2073,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPosition;
     }
     interface ZTooltipDeprecated {
         /**
@@ -2092,7 +2092,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "type": PopoverPositions1;
+        "type": PopoverPosition1;
     }
     interface ZTypography {
         /**
@@ -3529,7 +3529,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCookiebar {
         /**
@@ -4950,7 +4950,7 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPosition;
         /**
           * Whether to show popover's arrow.
          */
@@ -5407,7 +5407,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "position"?: PopoverPositions;
+        "position"?: PopoverPosition;
     }
     interface ZTooltipDeprecated {
         /**
@@ -5430,7 +5430,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "type"?: PopoverPositions1;
+        "type"?: PopoverPosition1;
     }
     interface ZTypography {
         /**
