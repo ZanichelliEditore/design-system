@@ -65,7 +65,6 @@
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination](../../z-pagination)
- - [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
@@ -111,7 +110,6 @@ graph TD;
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination --> z-icon
-  z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon

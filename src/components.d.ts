@@ -1237,58 +1237,6 @@ export namespace Components {
          */
         "visiblePages"?: number;
     }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage": number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * pages number
-         */
-        "pages": number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage": number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages": number;
-    }
-    interface ZPaginationPage {
-        /**
-          * aria-label string
-         */
-        "ariaLabel": string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled": boolean;
-        /**
-          * selected status flag
-         */
-        "isselected": boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited": boolean;
-        /**
-          * html id
-         */
-        "pageid": string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
     interface ZPanelElem {
         /**
           * name of slot container (optional)
@@ -1929,10 +1877,6 @@ export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPaginationElement;
 }
-export interface ZPaginationBarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPaginationBarElement;
-}
 export interface ZPocketCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPocketElement;
@@ -2354,18 +2298,6 @@ declare global {
         prototype: HTMLZPaginationElement;
         new (): HTMLZPaginationElement;
     };
-    interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
-    }
-    var HTMLZPaginationBarElement: {
-        prototype: HTMLZPaginationBarElement;
-        new (): HTMLZPaginationBarElement;
-    };
-    interface HTMLZPaginationPageElement extends Components.ZPaginationPage, HTMLStencilElement {
-    }
-    var HTMLZPaginationPageElement: {
-        prototype: HTMLZPaginationPageElement;
-        new (): HTMLZPaginationPageElement;
-    };
     interface HTMLZPanelElemElement extends Components.ZPanelElem, HTMLStencilElement {
     }
     var HTMLZPanelElemElement: {
@@ -2627,8 +2559,6 @@ declare global {
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
-        "z-pagination-bar": HTMLZPaginationBarElement;
-        "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
         "z-pocket": HTMLZPocketElement;
         "z-pocket-body": HTMLZPocketBodyElement;
@@ -4060,70 +3990,6 @@ declare namespace LocalJSX {
          */
         "visiblePages"?: number;
     }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage"?: number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * emitted on adding page to isvisited array, returns page
-         */
-        "onAddPageToHistory"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * emitted on start page change, returns startpage
-         */
-        "onChangeStartPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * emitted on page number click, returns page
-         */
-        "onGoToPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * pages number
-         */
-        "pages"?: number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage"?: number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages"?: number;
-    }
-    interface ZPaginationPage {
-        /**
-          * aria-label string
-         */
-        "ariaLabel"?: string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled"?: boolean;
-        /**
-          * selected status flag
-         */
-        "isselected"?: boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited"?: boolean;
-        /**
-          * html id
-         */
-        "pageid"?: string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
     interface ZPanelElem {
         /**
           * name of slot container (optional)
@@ -4746,8 +4612,6 @@ declare namespace LocalJSX {
         "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
         "z-pagination": ZPagination;
-        "z-pagination-bar": ZPaginationBar;
-        "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
         "z-pocket": ZPocket;
         "z-pocket-body": ZPocketBody;
@@ -4849,8 +4713,6 @@ declare module "@stencil/core" {
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
-            "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
-            "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
