@@ -156,28 +156,6 @@ export namespace Components {
          */
         "variant"?: ButtonVariant;
     }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid": string;
-        /**
-          * filter text content
-         */
-        "filtername": string;
-        /**
-          * add icon to button
-         */
-        "hasicon": boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed": boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-    }
     interface ZButtonSort {
         /**
           * id, should be unique
@@ -1761,10 +1739,6 @@ export interface ZAppSwitcherCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppSwitcherElement;
 }
-export interface ZButtonFilterCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZButtonFilterElement;
-}
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
@@ -1979,12 +1953,6 @@ declare global {
     var HTMLZButtonElement: {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
-    };
-    interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
-    }
-    var HTMLZButtonFilterElement: {
-        prototype: HTMLZButtonFilterElement;
-        new (): HTMLZButtonFilterElement;
     };
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
     }
@@ -2506,7 +2474,6 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
-        "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
@@ -2748,32 +2715,6 @@ declare namespace LocalJSX {
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariant;
-    }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid"?: string;
-        /**
-          * filter text content
-         */
-        "filtername"?: string;
-        /**
-          * add icon to button
-         */
-        "hasicon"?: boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed"?: boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onRemovefilter"?: (event: ZButtonFilterCustomEvent<any>) => void;
     }
     interface ZButtonSort {
         /**
@@ -4559,7 +4500,6 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
-        "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
         "z-card": ZCard;
         "z-carousel": ZCarousel;
@@ -4660,7 +4600,6 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
