@@ -252,16 +252,6 @@ export namespace Components {
          */
         "type"?: ZChipType;
     }
-    interface ZChipDeprecated {
-        /**
-          * Text with bold font weight
-         */
-        "boldtext"?: number;
-        /**
-          * Text with regular font weight
-         */
-        "regulartext"?: string;
-    }
     interface ZCombobox {
         /**
           * check all label (optional)
@@ -1978,12 +1968,6 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
-    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
-    }
-    var HTMLZChipDeprecatedElement: {
-        prototype: HTMLZChipDeprecatedElement;
-        new (): HTMLZChipDeprecatedElement;
-    };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
     var HTMLZComboboxElement: {
@@ -2478,7 +2462,6 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
-        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cover-hero": HTMLZCoverHeroElement;
@@ -2827,16 +2810,6 @@ declare namespace LocalJSX {
           * z-chip size type, can be default, medium or small
          */
         "type"?: ZChipType;
-    }
-    interface ZChipDeprecated {
-        /**
-          * Text with bold font weight
-         */
-        "boldtext"?: number;
-        /**
-          * Text with regular font weight
-         */
-        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -4504,7 +4477,6 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
-        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
         "z-cover-hero": ZCoverHero;
@@ -4604,7 +4576,6 @@ declare module "@stencil/core" {
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
-            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
