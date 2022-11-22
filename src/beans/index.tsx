@@ -147,21 +147,6 @@ export enum PopoverPosition {
   LEFT_BOTTOM = "left_bottom",
 }
 
-// export enum PopoverPosition {
-//   AFTER_DOWN = "after-down",
-//   AFTER_CENTER = "after-center",
-//   AFTER_UP = "after-up",
-//   BELOW_RIGHT = "below-right",
-//   BELOW_CENTER = "below-center",
-//   BELOW_LEFT = "below-left",
-//   BEFORE_DOWN = "before-down",
-//   BEFORE_CENTER = "before-center",
-//   BEFORE_UP = "before-up",
-//   ABOVE_RIGHT = "above-right",
-//   ABOVE_CENTER = "above-center",
-//   ABOVE_LEFT = "above-left",
-// }
-
 export enum KeyboardKeyCode {
   TAB = 9,
   SPACE = 32,
