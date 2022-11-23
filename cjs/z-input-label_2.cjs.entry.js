@@ -251,18 +251,20 @@ const ZSelect = class {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
-    return this.itemsList.map((item, key) => {
-      return (index.h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: index$1.ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, index.h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+    return this.itemsList.map((item, key, array) => {
+      const lastItem = array.length === key + 1;
+      return (index.h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? index$1.ListDividerType.HEADER : index$1.ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, index.h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
     });
   }
   renderSelectGroupItems() {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
-    const newData = this.itemsList.reduce((group, item, index$2) => {
+    const newData = this.itemsList.reduce((group, item, index$2, array) => {
       var _a;
       const { category } = item;
-      const zListItem = (index.h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: index$1.ListDividerType.HEADER, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${index$2}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, index$2) }, index.h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+      const lastItem = array.length === index$2 + 1;
+      const zListItem = (index.h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? index$1.ListDividerType.HEADER : index$1.ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${index$2}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, index$2) }, index.h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
       group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
       group[category].push(zListItem);
       return group;
