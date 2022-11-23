@@ -26,6 +26,11 @@ To be sure the algorithm finds the right container, when calculating the positio
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Tooltip component.
+It is basically a wrapper for the `<z-popover>` component with custom configuration.
+
 ## Properties
 
 | Property   | Attribute  | Description                                         | Type                                                                                                                                                                                                                                                                                                                                                                                  | Default                 |
