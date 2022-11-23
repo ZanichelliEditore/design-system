@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.2](https://github.com/ZanichelliEditore/design-system/compare/v6.3.1...v6.3.2) (2022-11-23)
+
+
+### Bug Fixes
+
+* z-select divider on last item ([7b1b5b4](https://github.com/ZanichelliEditore/design-system/commit/7b1b5b43b2c261a68a65389d7be92f171cb1a5cb))
+
 ### [6.3.1](https://github.com/ZanichelliEditore/design-system/compare/v6.3.0...v6.3.1) (2022-11-15)
 
 ## [6.3.0](https://github.com/ZanichelliEditore/design-system/compare/v6.2.2...v6.3.0) (2022-11-11)
