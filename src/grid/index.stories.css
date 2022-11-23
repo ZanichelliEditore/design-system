@@ -50,8 +50,8 @@
   margin: 0;
 }
 
-h3,
-h2 {
+.grid-story h3,
+.grid-story h2 {
   padding: var(--space-unit);
 }
 
