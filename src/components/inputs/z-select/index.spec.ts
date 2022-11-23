@@ -31,7 +31,7 @@ describe("Suite test ZSelect", () => {
                   >
                     <z-list-element
                       clickable=""
-                      dividertype="element"
+                      dividertype="header"
                       role="option"
                       tabindex="-1"
                       class=""
@@ -87,7 +87,7 @@ describe("Suite test ZSelect", () => {
                     </z-list-element>
                     <z-list-element
                       clickable=""
-                      dividertype="element"
+                      dividertype="header"
                       role="option"
                       tabindex="0"
                       class=""
@@ -145,7 +145,7 @@ describe("Suite test ZSelect", () => {
                   </z-list-element>
                   <z-list-element
                     clickable=""
-                    dividertype="element"
+                    dividertype="header"
                     role="option"
                     tabindex="0"
                     aria-selected=""
@@ -204,7 +204,7 @@ describe("Suite test ZSelect", () => {
                     </z-list-element>
                     <z-list-element
                       clickable=""
-                      dividertype="element"
+                      dividertype="header"
                       role="option"
                       tabindex="-1"
                       class=""
@@ -261,7 +261,7 @@ describe("Suite test ZSelect", () => {
                       </z-list-element>
                     <z-list-element
                         clickable=""
-                        dividertype="element"
+                        dividertype="header"
                         role="option"
                         tabindex="-1"
                         class=""
@@ -317,7 +317,7 @@ describe("Suite test ZSelect", () => {
                     </z-list-element>
                   <z-list-element
                       disabled=""
-                      dividertype="element"
+                      dividertype="header"
                       role="option"
                       tabindex="-1"
                       id="checkid_1"
@@ -372,7 +372,7 @@ describe("Suite test ZSelect", () => {
                   </z-list-element>
                   <z-list-element
                     clickable=""
-                    dividertype="element"
+                    dividertype="header"
                     role="option"
                     tabindex="0"
                     class=""
@@ -404,7 +404,7 @@ describe("Suite test ZSelect", () => {
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list id="checkid" role="listbox" tabindex="0">
-                  <z-list-element clickable="" dividertype="element" id="checkid_0" role="option" tabindex="0">
+                  <z-list-element clickable="" dividertype="header" id="checkid_0" role="option" tabindex="0">
                     <span>
                       SELECT HERE questa
                       <strong>

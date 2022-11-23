@@ -375,12 +375,14 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
-    return this.itemsList.map((item: SelectItem, key) => {
+    return this.itemsList.map((item: SelectItem, key, array) => {
+      const lastItem = array.length === key + 1;
+
       return (
         <z-list-element
           clickable={!item.disabled}
           disabled={item.disabled}
-          dividerType={ListDividerType.ELEMENT}
+          dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
           role="option"
           tabindex={item.disabled || !this.isOpen ? -1 : 0}
           aria-selected={!!item.selected}
@@ -402,13 +404,14 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
-    const newData = this.itemsList.reduce((group, item, index) => {
+    const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
+      const lastItem = array.length === index + 1;
       const zListItem = (
         <z-list-element
           clickable={!item.disabled}
           disabled={item.disabled}
-          dividerType={ListDividerType.HEADER}
+          dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
           role="option"
           tabindex={item.disabled || !this.isOpen ? -1 : 0}
           aria-selected={!!item.selected}
