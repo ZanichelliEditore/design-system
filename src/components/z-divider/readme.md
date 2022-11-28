@@ -18,7 +18,6 @@
 
  - [z-app-topbar](../navigation/z-app-topbar)
  - [z-file-upload](../file-upload/z-file-upload)
- - [z-footer](../footer/z-footer)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
  - [z-section-title](../z-section-title)
@@ -28,7 +27,6 @@
 graph TD;
   z-app-topbar --> z-divider
   z-file-upload --> z-divider
-  z-footer --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider
   z-section-title --> z-divider

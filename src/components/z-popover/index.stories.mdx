@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {PopoverPositions} from "../../beans";
+import {PopoverPosition} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
@@ -15,7 +15,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   component="z-popover"
   argTypes={{
     "position": {
-      options: Object.values(PopoverPositions),
+      options: Object.values(PopoverPosition),
       control: {type: "select"},
     },
     "--z-popover-theme--surface": {
@@ -39,7 +39,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="contextual-menu-like"
     args={{
-      "position": PopoverPositions.RIGHT_BOTTOM,
+      "position": PopoverPosition.RIGHT_BOTTOM,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}
@@ -78,7 +78,7 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="tooltip-like"
     args={{
-      "position": PopoverPositions.RIGHT,
+      "position": PopoverPosition.RIGHT,
       "--z-popover-theme--surface": "var(--color-surface01)",
       "--z-popover-theme--text": "var(--color-text01)",
     }}

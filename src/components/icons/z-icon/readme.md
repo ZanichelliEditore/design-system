@@ -37,20 +37,16 @@
  - [z-app-header](../../navigation/z-app-header)
  - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
- - [z-button-deprecated](../../../deprecated/z-button-deprecated)
- - [z-button-filter](../../../deprecated/z-button-filter)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
  - [z-carousel](../../z-carousel)
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
- - [z-footer-section](../../footer/z-footer-section)
  - [z-icon-package](../z-icon-package)
  - [z-info-box](../../notification/z-info-box)
  - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
- - [z-input-deprecated](../../../deprecated/z-input-deprecated)
  - [z-input-message](../../inputs/z-input-message)
  - [z-link](../../navigation/z-link)
  - [z-list-element](../../list/z-list-element)
@@ -63,17 +59,14 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
  - [z-navigation-tab](../../navigation/tabs/z-navigation-tab)
  - [z-navigation-tab-link](../../navigation/tabs/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/tabs/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination](../../z-pagination)
- - [z-pagination-bar](../../../deprecated/pagination/z-pagination-bar)
  - [z-pocket-message](../../../snowflakes/myz/pocket/z-pocket-message)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
- - [z-status-tag](../../../deprecated/z-status-tag)
  - [z-table-header](../../z-table/z-table-header)
  - [z-table-row](../../z-table/z-table-row)
  - [z-tag](../../z-tag)
@@ -88,20 +81,16 @@ graph TD;
   z-app-header --> z-icon
   z-app-switcher --> z-icon
   z-button --> z-icon
-  z-button-deprecated --> z-icon
-  z-button-filter --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
   z-carousel --> z-icon
   z-chip --> z-icon
   z-combobox --> z-icon
   z-contextual-menu --> z-icon
-  z-footer-section --> z-icon
   z-icon-package --> z-icon
   z-info-box --> z-icon
   z-info-reveal --> z-icon
   z-input --> z-icon
-  z-input-deprecated --> z-icon
   z-input-message --> z-icon
   z-link --> z-icon
   z-list-element --> z-icon
@@ -114,17 +103,14 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
-  z-myz-topbar --> z-icon
   z-navigation-tab --> z-icon
   z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination --> z-icon
-  z-pagination-bar --> z-icon
   z-pocket-message --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
-  z-status-tag --> z-icon
   z-table-header --> z-icon
   z-table-row --> z-icon
   z-tag --> z-icon

@@ -37,15 +37,11 @@
 ### Used by
 
  - [z-app-topbar](../../navigation/z-app-topbar)
- - [z-footer](../../footer/z-footer)
- - [z-myz-topbar](../../../snowflakes/myz/topbar)
 
 ### Graph
 ```mermaid
 graph TD;
   z-app-topbar --> z-logo
-  z-footer --> z-logo
-  z-myz-topbar --> z-logo
   style z-logo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1, PopoverPositions as PopoverPositions1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, HeaderUserData, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverBorderRadius, PopoverPosition, PopoverPositions, PopoverShadow, SelectItem, Size, SkipToContentLink, SortDirection, StatusTagStatus, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType, MenuItem as MenuItem1 } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -156,67 +156,6 @@ export namespace Components {
          */
         "variant"?: ButtonVariant;
     }
-    interface ZButtonDeprecated {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSize;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: ButtonType;
-        /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariant;
-    }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid": string;
-        /**
-          * filter text content
-         */
-        "filtername": string;
-        /**
-          * add icon to button
-         */
-        "hasicon": boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed": boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-    }
     interface ZButtonSort {
         /**
           * id, should be unique
@@ -250,8 +189,6 @@ export namespace Components {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
-    }
-    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -314,16 +251,6 @@ export namespace Components {
           * z-chip size type, can be default, medium or small
          */
         "type"?: ZChipType;
-    }
-    interface ZChipDeprecated {
-        /**
-          * Text with bold font weight
-         */
-        "boldtext"?: number;
-        /**
-          * Text with regular font weight
-         */
-        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -399,21 +326,7 @@ export namespace Components {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
-    }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => unknown;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl": string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCoverHero {
         /**
@@ -498,58 +411,6 @@ export namespace Components {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadType;
-    }
-    interface ZFooter {
-        /**
-          * Maximum width of footer content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-        /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
-         */
-        "productCreditsLink"?: string;
-        /**
-          * The product name to be displayed on the top panel of the footer
-         */
-        "productName"?: string;
-        /**
-          * The product version to be displayed on the top panel of the footer
-         */
-        "productVersion"?: string;
-        /**
-          * True if the product must display a "Report a problem" button on the top panel of the footer
-         */
-        "showReportAProblemButton"?: boolean;
-    }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href": string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name": string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href": string;
-        /**
-          * icon url
-         */
-        "icon": string;
     }
     interface ZGhostLoading {
     }
@@ -708,122 +569,6 @@ export namespace Components {
           * the input value
          */
         "value"?: string;
-    }
-    interface ZInputDeprecated {
-        /**
-          * the input aria-label
-         */
-        "ariaLabel": string;
-        /**
-          * the input has autocomplete option (optional): available for select, input
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * checked: available for checkbox, radio
-         */
-        "checked"?: boolean;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * get the input value
-         */
-        "getValue": () => Promise<string | string[]>;
-        /**
-          * render clear icon when typing (optional): available for text
-         */
-        "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid": string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * render icon (optional): available for text, select
-         */
-        "icon"?: string;
-        /**
-          * get checked status
-         */
-        "isChecked": () => Promise<boolean>;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItem[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * the input label position: available for checkbox, radio
-         */
-        "labelafter"?: boolean;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * the input is required (optional): available for text, password, number, email, textarea, checkbox
-         */
-        "required"?: boolean;
-        /**
-          * set the input value
-         */
-        "setValue": (value: string | string[]) => Promise<void>;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatus;
-        /**
-          * input types
-         */
-        "type": InputType;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
-        /**
-          * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label is attached to
-         */
-        "htmlfor"?: string;
-        /**
-          * the label value
-         */
-        "value": string;
     }
     interface ZInputMessage {
         /**
@@ -1289,44 +1034,6 @@ export namespace Components {
          */
         "underlined": boolean;
     }
-    interface ZMyzTopbar {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz": boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
     interface ZNavigationTab {
         /**
           * Whether the tab is disabled.
@@ -1498,58 +1205,6 @@ export namespace Components {
          */
         "visiblePages"?: number;
     }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage": number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * pages number
-         */
-        "pages": number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage": number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages": number;
-    }
-    interface ZPaginationPage {
-        /**
-          * aria-label string
-         */
-        "ariaLabel": string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled": boolean;
-        /**
-          * selected status flag
-         */
-        "isselected": boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited": boolean;
-        /**
-          * html id
-         */
-        "pageid": string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
     interface ZPanelElem {
         /**
           * name of slot container (optional)
@@ -1644,37 +1299,11 @@ export namespace Components {
         /**
           * Popover position.
          */
-        "position": PopoverPositions;
+        "position": PopoverPosition;
         /**
           * Whether to show popover's arrow.
          */
         "showArrow": boolean;
-    }
-    interface ZPopoverDeprecated {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * [optional] Sets padding for Popover container
-         */
-        "padding"?: string;
-        /**
-          * [optional] Popover position
-         */
-        "position"?: PopoverPosition;
-        /**
-          * [optional] Show or hide arrow
-         */
-        "showArrow"?: boolean;
     }
     interface ZRangePicker {
         /**
@@ -1798,28 +1427,6 @@ export namespace Components {
           * slideshow id
          */
         "slideshowid": string;
-    }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
     }
     interface ZStepper {
     }
@@ -2073,26 +1680,7 @@ export namespace Components {
         /**
           * Tooltip position.
          */
-        "position": PopoverPositions;
-    }
-    interface ZTooltipDeprecated {
-        /**
-          * The selector or the element bound with the tooltip.
-         */
-        "bindTo"?: string | HTMLElement;
-        /**
-          * Content text.
-          * @deprecated
-         */
-        "content": string;
-        /**
-          * The open state of the tooltip.
-         */
-        "open": boolean;
-        /**
-          * Tooltip position.
-         */
-        "type": PopoverPositions1;
+        "position": PopoverPosition;
     }
     interface ZTypography {
         /**
@@ -2141,10 +1729,6 @@ export interface ZAppSwitcherCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppSwitcherElement;
 }
-export interface ZButtonFilterCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZButtonFilterElement;
-}
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
@@ -2169,10 +1753,6 @@ export interface ZContextualMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZContextualMenuElement;
 }
-export interface ZCookiebarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZCookiebarElement;
-}
 export interface ZDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZDatePickerElement;
@@ -2189,10 +1769,6 @@ export interface ZFileUploadCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZFileUploadElement;
 }
-export interface ZFooterCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZFooterElement;
-}
 export interface ZInfoBoxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInfoBoxElement;
@@ -2200,10 +1776,6 @@ export interface ZInfoBoxCustomEvent<T> extends CustomEvent<T> {
 export interface ZInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInputElement;
-}
-export interface ZInputDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZInputDeprecatedElement;
 }
 export interface ZLinkCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2269,10 +1841,6 @@ export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPaginationElement;
 }
-export interface ZPaginationBarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPaginationBarElement;
-}
 export interface ZPocketCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPocketElement;
@@ -2284,10 +1852,6 @@ export interface ZPocketHeaderCustomEvent<T> extends CustomEvent<T> {
 export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPopoverElement;
-}
-export interface ZPopoverDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPopoverDeprecatedElement;
 }
 export interface ZRangePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2320,10 +1884,6 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
-}
-export interface ZTooltipDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTooltipDeprecatedElement;
 }
 export interface ZUserDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2384,29 +1944,11 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
-    interface HTMLZButtonDeprecatedElement extends Components.ZButtonDeprecated, HTMLStencilElement {
-    }
-    var HTMLZButtonDeprecatedElement: {
-        prototype: HTMLZButtonDeprecatedElement;
-        new (): HTMLZButtonDeprecatedElement;
-    };
-    interface HTMLZButtonFilterElement extends Components.ZButtonFilter, HTMLStencilElement {
-    }
-    var HTMLZButtonFilterElement: {
-        prototype: HTMLZButtonFilterElement;
-        new (): HTMLZButtonFilterElement;
-    };
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
     }
     var HTMLZButtonSortElement: {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
-    };
-    interface HTMLZCandybarElement extends Components.ZCandybar, HTMLStencilElement {
-    }
-    var HTMLZCandybarElement: {
-        prototype: HTMLZCandybarElement;
-        new (): HTMLZCandybarElement;
     };
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
@@ -2426,12 +1968,6 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
-    interface HTMLZChipDeprecatedElement extends Components.ZChipDeprecated, HTMLStencilElement {
-    }
-    var HTMLZChipDeprecatedElement: {
-        prototype: HTMLZChipDeprecatedElement;
-        new (): HTMLZChipDeprecatedElement;
-    };
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
     }
     var HTMLZComboboxElement: {
@@ -2443,12 +1979,6 @@ declare global {
     var HTMLZContextualMenuElement: {
         prototype: HTMLZContextualMenuElement;
         new (): HTMLZContextualMenuElement;
-    };
-    interface HTMLZCookiebarElement extends Components.ZCookiebar, HTMLStencilElement {
-    }
-    var HTMLZCookiebarElement: {
-        prototype: HTMLZCookiebarElement;
-        new (): HTMLZCookiebarElement;
     };
     interface HTMLZCoverHeroElement extends Components.ZCoverHero, HTMLStencilElement {
     }
@@ -2485,30 +2015,6 @@ declare global {
     var HTMLZFileUploadElement: {
         prototype: HTMLZFileUploadElement;
         new (): HTMLZFileUploadElement;
-    };
-    interface HTMLZFooterElement extends Components.ZFooter, HTMLStencilElement {
-    }
-    var HTMLZFooterElement: {
-        prototype: HTMLZFooterElement;
-        new (): HTMLZFooterElement;
-    };
-    interface HTMLZFooterLinkElement extends Components.ZFooterLink, HTMLStencilElement {
-    }
-    var HTMLZFooterLinkElement: {
-        prototype: HTMLZFooterLinkElement;
-        new (): HTMLZFooterLinkElement;
-    };
-    interface HTMLZFooterSectionElement extends Components.ZFooterSection, HTMLStencilElement {
-    }
-    var HTMLZFooterSectionElement: {
-        prototype: HTMLZFooterSectionElement;
-        new (): HTMLZFooterSectionElement;
-    };
-    interface HTMLZFooterSocialElement extends Components.ZFooterSocial, HTMLStencilElement {
-    }
-    var HTMLZFooterSocialElement: {
-        prototype: HTMLZFooterSocialElement;
-        new (): HTMLZFooterSocialElement;
     };
     interface HTMLZGhostLoadingElement extends Components.ZGhostLoading, HTMLStencilElement {
     }
@@ -2551,18 +2057,6 @@ declare global {
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
-    };
-    interface HTMLZInputDeprecatedElement extends Components.ZInputDeprecated, HTMLStencilElement {
-    }
-    var HTMLZInputDeprecatedElement: {
-        prototype: HTMLZInputDeprecatedElement;
-        new (): HTMLZInputDeprecatedElement;
-    };
-    interface HTMLZInputLabelElement extends Components.ZInputLabel, HTMLStencilElement {
-    }
-    var HTMLZInputLabelElement: {
-        prototype: HTMLZInputLabelElement;
-        new (): HTMLZInputLabelElement;
     };
     interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
     }
@@ -2714,12 +2208,6 @@ declare global {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
-    interface HTMLZMyzTopbarElement extends Components.ZMyzTopbar, HTMLStencilElement {
-    }
-    var HTMLZMyzTopbarElement: {
-        prototype: HTMLZMyzTopbarElement;
-        new (): HTMLZMyzTopbarElement;
-    };
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
     }
     var HTMLZNavigationTabElement: {
@@ -2762,18 +2250,6 @@ declare global {
         prototype: HTMLZPaginationElement;
         new (): HTMLZPaginationElement;
     };
-    interface HTMLZPaginationBarElement extends Components.ZPaginationBar, HTMLStencilElement {
-    }
-    var HTMLZPaginationBarElement: {
-        prototype: HTMLZPaginationBarElement;
-        new (): HTMLZPaginationBarElement;
-    };
-    interface HTMLZPaginationPageElement extends Components.ZPaginationPage, HTMLStencilElement {
-    }
-    var HTMLZPaginationPageElement: {
-        prototype: HTMLZPaginationPageElement;
-        new (): HTMLZPaginationPageElement;
-    };
     interface HTMLZPanelElemElement extends Components.ZPanelElem, HTMLStencilElement {
     }
     var HTMLZPanelElemElement: {
@@ -2810,12 +2286,6 @@ declare global {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
-    interface HTMLZPopoverDeprecatedElement extends Components.ZPopoverDeprecated, HTMLStencilElement {
-    }
-    var HTMLZPopoverDeprecatedElement: {
-        prototype: HTMLZPopoverDeprecatedElement;
-        new (): HTMLZPopoverDeprecatedElement;
-    };
     interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
     }
     var HTMLZRangePickerElement: {
@@ -2845,12 +2315,6 @@ declare global {
     var HTMLZSlideshowElement: {
         prototype: HTMLZSlideshowElement;
         new (): HTMLZSlideshowElement;
-    };
-    interface HTMLZStatusTagElement extends Components.ZStatusTag, HTMLStencilElement {
-    }
-    var HTMLZStatusTagElement: {
-        prototype: HTMLZStatusTagElement;
-        new (): HTMLZStatusTagElement;
     };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
@@ -2966,12 +2430,6 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
-    interface HTMLZTooltipDeprecatedElement extends Components.ZTooltipDeprecated, HTMLStencilElement {
-    }
-    var HTMLZTooltipDeprecatedElement: {
-        prototype: HTMLZTooltipDeprecatedElement;
-        new (): HTMLZTooltipDeprecatedElement;
-    };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
     var HTMLZTypographyElement: {
@@ -3000,27 +2458,18 @@ declare global {
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
         "z-button": HTMLZButtonElement;
-        "z-button-deprecated": HTMLZButtonDeprecatedElement;
-        "z-button-filter": HTMLZButtonFilterElement;
         "z-button-sort": HTMLZButtonSortElement;
-        "z-candybar": HTMLZCandybarElement;
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
-        "z-chip-deprecated": HTMLZChipDeprecatedElement;
         "z-combobox": HTMLZComboboxElement;
         "z-contextual-menu": HTMLZContextualMenuElement;
-        "z-cookiebar": HTMLZCookiebarElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
         "z-dragdrop-area": HTMLZDragdropAreaElement;
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
-        "z-footer": HTMLZFooterElement;
-        "z-footer-link": HTMLZFooterLinkElement;
-        "z-footer-section": HTMLZFooterSectionElement;
-        "z-footer-social": HTMLZFooterSocialElement;
         "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
@@ -3028,8 +2477,6 @@ declare global {
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
-        "z-input-deprecated": HTMLZInputDeprecatedElement;
-        "z-input-label": HTMLZInputLabelElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
@@ -3055,7 +2502,6 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
-        "z-myz-topbar": HTMLZMyzTopbarElement;
         "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tab-link": HTMLZNavigationTabLinkElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
@@ -3063,21 +2509,17 @@ declare global {
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
-        "z-pagination-bar": HTMLZPaginationBarElement;
-        "z-pagination-page": HTMLZPaginationPageElement;
         "z-panel-elem": HTMLZPanelElemElement;
         "z-pocket": HTMLZPocketElement;
         "z-pocket-body": HTMLZPocketBodyElement;
         "z-pocket-header": HTMLZPocketHeaderElement;
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
-        "z-popover-deprecated": HTMLZPopoverDeprecatedElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
-        "z-status-tag": HTMLZStatusTagElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
@@ -3097,7 +2539,6 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
-        "z-tooltip-deprecated": HTMLZTooltipDeprecatedElement;
         "z-typography": HTMLZTypographyElement;
         "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
@@ -3258,71 +2699,6 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
-    interface ZButtonDeprecated {
-        /**
-          * HTML button disabled attribute.
-         */
-        "disabled"?: boolean;
-        /**
-          * Identifier, should be unique.
-         */
-        "htmlid"?: string;
-        /**
-          * `z-icon` name to use (optional).
-         */
-        "icon"?: string;
-        /**
-          * Reduce button size (deprecated).
-          * @deprecated Use `size` prop.
-         */
-        "issmall"?: boolean;
-        /**
-          * HTML button name attribute.
-         */
-        "name"?: string;
-        /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-         */
-        "size"?: ButtonSize;
-        /**
-          * Spy to render square button.
-         */
-        "square"?: boolean;
-        /**
-          * HTML button type attribute.
-         */
-        "type"?: ButtonType;
-        /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`, `dark-bg`. Defaults to `primary`.
-         */
-        "variant"?: ButtonVariant;
-    }
-    interface ZButtonFilter {
-        /**
-          * filter id
-         */
-        "filterid"?: string;
-        /**
-          * filter text content
-         */
-        "filtername"?: string;
-        /**
-          * add icon to button
-         */
-        "hasicon"?: boolean;
-        /**
-          * disable action on button
-         */
-        "isfixed"?: boolean;
-        /**
-          * reduce button size (optional)
-         */
-        "issmall"?: boolean;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onRemovefilter"?: (event: ZButtonFilterCustomEvent<any>) => void;
-    }
     interface ZButtonSort {
         /**
           * id, should be unique
@@ -3360,8 +2736,6 @@ declare namespace LocalJSX {
           * sort label content (descending) (optional)
          */
         "sortlabeldesc"?: string;
-    }
-    interface ZCandybar {
     }
     interface ZCard {
         /**
@@ -3436,16 +2810,6 @@ declare namespace LocalJSX {
           * z-chip size type, can be default, medium or small
          */
         "type"?: ZChipType;
-    }
-    interface ZChipDeprecated {
-        /**
-          * Text with bold font weight
-         */
-        "boldtext"?: number;
-        /**
-          * Text with regular font weight
-         */
-        "regulartext"?: string;
     }
     interface ZCombobox {
         /**
@@ -3529,25 +2893,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Sets the position of the popover
          */
-        "popoverPosition"?: PopoverPositions;
-    }
-    interface ZCookiebar {
-        /**
-          * callback to handle ok button action (optional)
-         */
-        "callback"?: () => unknown;
-        /**
-          * cookie policy link url
-         */
-        "cookiepolicyurl"?: string;
-        /**
-          * hide cookie bar (optional)
-         */
-        "hide"?: boolean;
-        /**
-          * emitted on ACCETTA button click, returns event
-         */
-        "onAccept"?: (event: ZCookiebarCustomEvent<any>) => void;
+        "popoverPosition"?: PopoverPosition;
     }
     interface ZCoverHero {
         /**
@@ -3644,66 +2990,6 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadType;
-    }
-    interface ZFooter {
-        /**
-          * Maximum width of footer content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * deprecated - JSON stringified data to fill the footer
-         */
-        "data"?: string;
-        /**
-          * Emitted on credits link click
-         */
-        "onCreditsLinkClick"?: (event: ZFooterCustomEvent<any>) => void;
-        /**
-          * Emitted on report a problem button click
-         */
-        "onReportAProblemButtonClick"?: (event: ZFooterCustomEvent<any>) => void;
-        /**
-          * 'undefined' or 'null' means 'don't show Credits', empty string means 'emit creditsLinkClick event', not empty string means 'open the url and emit creditsLinkClick event'
-         */
-        "productCreditsLink"?: string;
-        /**
-          * The product name to be displayed on the top panel of the footer
-         */
-        "productName"?: string;
-        /**
-          * The product version to be displayed on the top panel of the footer
-         */
-        "productVersion"?: string;
-        /**
-          * True if the product must display a "Report a problem" button on the top panel of the footer
-         */
-        "showReportAProblemButton"?: boolean;
-    }
-    interface ZFooterLink {
-        /**
-          * link
-         */
-        "href"?: string;
-    }
-    interface ZFooterSection {
-        /**
-          * section title
-         */
-        "name"?: string;
-    }
-    interface ZFooterSocial {
-        /**
-          * social description
-         */
-        "description"?: string;
-        /**
-          * social link
-         */
-        "href"?: string;
-        /**
-          * icon url
-         */
-        "icon"?: string;
     }
     interface ZGhostLoading {
     }
@@ -3876,130 +3162,6 @@ declare namespace LocalJSX {
         "type"?: InputType;
         /**
           * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputDeprecated {
-        /**
-          * the input aria-label
-         */
-        "ariaLabel"?: string;
-        /**
-          * the input has autocomplete option (optional): available for select, input
-         */
-        "autocomplete"?: boolean | string;
-        /**
-          * checked: available for checkbox, radio
-         */
-        "checked"?: boolean;
-        /**
-          * the input is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * render clear icon when typing (optional): available for text
-         */
-        "hasclearicon"?: boolean;
-        /**
-          * show input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "hasmessage"?: boolean;
-        /**
-          * the id of the input element
-         */
-        "htmlid"?: string;
-        /**
-          * the input html title (optional)
-         */
-        "htmltitle"?: string;
-        /**
-          * render icon (optional): available for text, select
-         */
-        "icon"?: string;
-        /**
-          * items (optional): available for select
-         */
-        "items"?: SelectItem[] | string;
-        /**
-          * the input label
-         */
-        "label"?: string;
-        /**
-          * the input label position: available for checkbox, radio
-         */
-        "labelafter"?: boolean;
-        /**
-          * input helper message (optional): available for text, password, number, email, textarea, select
-         */
-        "message"?: string;
-        /**
-          * multiple options can be selected (optional): available for select
-         */
-        "multiple"?: boolean;
-        /**
-          * the input name
-         */
-        "name"?: string;
-        /**
-          * Emitted on input value change, returns value, keycode, validity
-         */
-        "onInputChange"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
-        /**
-          * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
-         */
-        "onInputCheck"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
-        /**
-          * Emitted on select option selection, returns select id, selected item id (or array of selected items ids if multiple)
-         */
-        "onOptionSelect"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
-        /**
-          * Emitted when user starts typing
-         */
-        "onStartTyping"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
-        /**
-          * Emitted when user stops typing, returns value, validity
-         */
-        "onStopTyping"?: (event: ZInputDeprecatedCustomEvent<any>) => void;
-        /**
-          * the input placeholder (optional)
-         */
-        "placeholder"?: string;
-        /**
-          * the input is readonly
-         */
-        "readonly"?: boolean;
-        /**
-          * the input is required (optional): available for text, password, number, email, textarea, checkbox
-         */
-        "required"?: boolean;
-        /**
-          * the input status (optional): available for text, password, number, email, textarea, select
-         */
-        "status"?: InputStatus;
-        /**
-          * input types
-         */
-        "type"?: InputType;
-        /**
-          * timeout setting before trigger `inputChange` event (optional): available for text, textarea
-         */
-        "typingtimeout"?: number;
-        /**
-          * the input value
-         */
-        "value"?: string;
-    }
-    interface ZInputLabel {
-        /**
-          * the label is disabled
-         */
-        "disabled"?: boolean;
-        /**
-          * the label is attached to
-         */
-        "htmlfor"?: string;
-        /**
-          * the label value
          */
         "value"?: string;
     }
@@ -4543,44 +3705,6 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
-    interface ZMyzTopbar {
-        /**
-          * set current active menu link (optional)
-         */
-        "activeintlinkid"?: string;
-        /**
-          * set current active sub menu link (optional)
-         */
-        "activesublinkid"?: string;
-        /**
-          * data to fill external navigation links
-         */
-        "extlinkdata"?: string | MenuItem[];
-        /**
-          * hide login button if true (optional)
-         */
-        "hideloginbutton"?: boolean;
-        /**
-          * alternative logo title text (optional)
-         */
-        "imagealt"?: string;
-        /**
-          * data to fill internal navigation links
-         */
-        "intlinkdata"?: string | MenuItem[];
-        /**
-          * graphic flag to set myzanichelli style
-         */
-        "ismyz"?: boolean;
-        /**
-          * url to attach to logo (optional)
-         */
-        "logolink"?: string;
-        /**
-          * data to fill user dropdown menu (optional)
-         */
-        "userdata"?: string | HeaderUserData;
-    }
     interface ZNavigationTab {
         /**
           * Whether the tab is disabled.
@@ -4780,70 +3904,6 @@ declare namespace LocalJSX {
          */
         "visiblePages"?: number;
     }
-    interface ZPaginationBar {
-        /**
-          * current displayed page (mutable)
-         */
-        "currentpage"?: number;
-        /**
-          * json stringified history of visited pages (optional)
-         */
-        "historyraw"?: string;
-        /**
-          * array of history of visited pages (mutable, optional)
-         */
-        "listhistoryrow"?: number[];
-        /**
-          * emitted on adding page to isvisited array, returns page
-         */
-        "onAddPageToHistory"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * emitted on start page change, returns startpage
-         */
-        "onChangeStartPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * emitted on page number click, returns page
-         */
-        "onGoToPage"?: (event: ZPaginationBarCustomEvent<any>) => void;
-        /**
-          * pages number
-         */
-        "pages"?: number;
-        /**
-          * initial page (mutable)
-         */
-        "startpage"?: number;
-        /**
-          * number of visible pages
-         */
-        "visiblepages"?: number;
-    }
-    interface ZPaginationPage {
-        /**
-          * aria-label string
-         */
-        "ariaLabel"?: string;
-        /**
-          * disabled status flag
-         */
-        "isdisabled"?: boolean;
-        /**
-          * selected status flag
-         */
-        "isselected"?: boolean;
-        /**
-          * visited status flag
-         */
-        "isvisited"?: boolean;
-        /**
-          * html id
-         */
-        "pageid"?: string;
-        /**
-          * numeric page value (optional)
-         */
-        "value"?: number;
-    }
     interface ZPanelElem {
         /**
           * name of slot container (optional)
@@ -4950,39 +4010,9 @@ declare namespace LocalJSX {
         /**
           * Popover position.
          */
-        "position"?: PopoverPositions;
-        /**
-          * Whether to show popover's arrow.
-         */
-        "showArrow"?: boolean;
-    }
-    interface ZPopoverDeprecated {
-        /**
-          * [optional] Background color token for popover
-         */
-        "backgroundColor"?: string;
-        /**
-          * [optional] Border radius token for popover
-         */
-        "borderRadius"?: PopoverBorderRadius;
-        /**
-          * [optional] Box shadow token for popover
-         */
-        "boxShadow"?: PopoverShadow;
-        /**
-          * Emitted on popover click, returns isVisible state
-         */
-        "onTriggerClick"?: (event: ZPopoverDeprecatedCustomEvent<any>) => void;
-        /**
-          * [optional] Sets padding for Popover container
-         */
-        "padding"?: string;
-        /**
-          * [optional] Popover position
-         */
         "position"?: PopoverPosition;
         /**
-          * [optional] Show or hide arrow
+          * Whether to show popover's arrow.
          */
         "showArrow"?: boolean;
     }
@@ -5104,28 +4134,6 @@ declare namespace LocalJSX {
           * slideshow id
          */
         "slideshowid"?: string;
-    }
-    interface ZStatusTag {
-        /**
-          * [optional] Hide the text and show it on hover
-         */
-        "expandable"?: boolean;
-        /**
-          * [optional] Status tag icon
-         */
-        "icon"?: string;
-        /**
-          * [optional] Status tag color
-         */
-        "status"?: StatusTagStatus;
-        /**
-          * [optional] Status tag text
-         */
-        "text"?: string;
-        /**
-          * [optional] Status tag style
-         */
-        "variant"?: ThemeVariant;
     }
     interface ZStepper {
     }
@@ -5407,30 +4415,7 @@ declare namespace LocalJSX {
         /**
           * Tooltip position.
          */
-        "position"?: PopoverPositions;
-    }
-    interface ZTooltipDeprecated {
-        /**
-          * The selector or the element bound with the tooltip.
-         */
-        "bindTo"?: string | HTMLElement;
-        /**
-          * Content text.
-          * @deprecated
-         */
-        "content"?: string;
-        /**
-          * Position change event.
-         */
-        "onPositionChange"?: (event: ZTooltipDeprecatedCustomEvent<any>) => void;
-        /**
-          * The open state of the tooltip.
-         */
-        "open"?: boolean;
-        /**
-          * Tooltip position.
-         */
-        "type"?: PopoverPositions1;
+        "position"?: PopoverPosition;
     }
     interface ZTypography {
         /**
@@ -5488,27 +4473,18 @@ declare namespace LocalJSX {
         "z-avatar": ZAvatar;
         "z-body": ZBody;
         "z-button": ZButton;
-        "z-button-deprecated": ZButtonDeprecated;
-        "z-button-filter": ZButtonFilter;
         "z-button-sort": ZButtonSort;
-        "z-candybar": ZCandybar;
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
-        "z-chip-deprecated": ZChipDeprecated;
         "z-combobox": ZCombobox;
         "z-contextual-menu": ZContextualMenu;
-        "z-cookiebar": ZCookiebar;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
         "z-dragdrop-area": ZDragdropArea;
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
-        "z-footer": ZFooter;
-        "z-footer-link": ZFooterLink;
-        "z-footer-section": ZFooterSection;
-        "z-footer-social": ZFooterSocial;
         "z-ghost-loading": ZGhostLoading;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
@@ -5516,8 +4492,6 @@ declare namespace LocalJSX {
         "z-info-box": ZInfoBox;
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
-        "z-input-deprecated": ZInputDeprecated;
-        "z-input-label": ZInputLabel;
         "z-input-message": ZInputMessage;
         "z-link": ZLink;
         "z-list": ZList;
@@ -5543,7 +4517,6 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
-        "z-myz-topbar": ZMyzTopbar;
         "z-navigation-tab": ZNavigationTab;
         "z-navigation-tab-link": ZNavigationTabLink;
         "z-navigation-tabs": ZNavigationTabs;
@@ -5551,21 +4524,17 @@ declare namespace LocalJSX {
         "z-offcanvas": ZOffcanvas;
         "z-otp": ZOtp;
         "z-pagination": ZPagination;
-        "z-pagination-bar": ZPaginationBar;
-        "z-pagination-page": ZPaginationPage;
         "z-panel-elem": ZPanelElem;
         "z-pocket": ZPocket;
         "z-pocket-body": ZPocketBody;
         "z-pocket-header": ZPocketHeader;
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
-        "z-popover-deprecated": ZPopoverDeprecated;
         "z-range-picker": ZRangePicker;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
         "z-slideshow": ZSlideshow;
-        "z-status-tag": ZStatusTag;
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
@@ -5585,7 +4554,6 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
-        "z-tooltip-deprecated": ZTooltipDeprecated;
         "z-typography": ZTypography;
         "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
@@ -5604,27 +4572,18 @@ declare module "@stencil/core" {
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-deprecated": LocalJSX.ZButtonDeprecated & JSXBase.HTMLAttributes<HTMLZButtonDeprecatedElement>;
-            "z-button-filter": LocalJSX.ZButtonFilter & JSXBase.HTMLAttributes<HTMLZButtonFilterElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
-            "z-candybar": LocalJSX.ZCandybar & JSXBase.HTMLAttributes<HTMLZCandybarElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
-            "z-chip-deprecated": LocalJSX.ZChipDeprecated & JSXBase.HTMLAttributes<HTMLZChipDeprecatedElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
-            "z-cookiebar": LocalJSX.ZCookiebar & JSXBase.HTMLAttributes<HTMLZCookiebarElement>;
             "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
             "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
-            "z-footer": LocalJSX.ZFooter & JSXBase.HTMLAttributes<HTMLZFooterElement>;
-            "z-footer-link": LocalJSX.ZFooterLink & JSXBase.HTMLAttributes<HTMLZFooterLinkElement>;
-            "z-footer-section": LocalJSX.ZFooterSection & JSXBase.HTMLAttributes<HTMLZFooterSectionElement>;
-            "z-footer-social": LocalJSX.ZFooterSocial & JSXBase.HTMLAttributes<HTMLZFooterSocialElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
@@ -5632,8 +4591,6 @@ declare module "@stencil/core" {
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
-            "z-input-deprecated": LocalJSX.ZInputDeprecated & JSXBase.HTMLAttributes<HTMLZInputDeprecatedElement>;
-            "z-input-label": LocalJSX.ZInputLabel & JSXBase.HTMLAttributes<HTMLZInputLabelElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
@@ -5659,7 +4616,6 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
-            "z-myz-topbar": LocalJSX.ZMyzTopbar & JSXBase.HTMLAttributes<HTMLZMyzTopbarElement>;
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             "z-navigation-tab-link": LocalJSX.ZNavigationTabLink & JSXBase.HTMLAttributes<HTMLZNavigationTabLinkElement>;
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
@@ -5667,21 +4623,17 @@ declare module "@stencil/core" {
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
-            "z-pagination-bar": LocalJSX.ZPaginationBar & JSXBase.HTMLAttributes<HTMLZPaginationBarElement>;
-            "z-pagination-page": LocalJSX.ZPaginationPage & JSXBase.HTMLAttributes<HTMLZPaginationPageElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
-            "z-popover-deprecated": LocalJSX.ZPopoverDeprecated & JSXBase.HTMLAttributes<HTMLZPopoverDeprecatedElement>;
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
-            "z-status-tag": LocalJSX.ZStatusTag & JSXBase.HTMLAttributes<HTMLZStatusTagElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
@@ -5701,7 +4653,6 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
-            "z-tooltip-deprecated": LocalJSX.ZTooltipDeprecated & JSXBase.HTMLAttributes<HTMLZTooltipDeprecatedElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;

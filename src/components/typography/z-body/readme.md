@@ -19,7 +19,6 @@
  - [z-combobox](../../inputs/z-combobox)
  - [z-dragdrop-area](../../file-upload/z-dragdrop-area)
  - [z-file-upload](../../file-upload/z-file-upload)
- - [z-footer](../../footer/z-footer)
  - [z-modal-login](../../modal/z-modal-login)
  - [z-select](../../inputs/z-select)
  - [z-table](../../z-table/z-table)
@@ -36,7 +35,6 @@ graph TD;
   z-combobox --> z-body
   z-dragdrop-area --> z-body
   z-file-upload --> z-body
-  z-footer --> z-body
   z-modal-login --> z-body
   z-select --> z-body
   z-table --> z-body

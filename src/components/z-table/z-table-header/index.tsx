@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop} from "@stencil/core";
-import {ButtonSize, ButtonVariant, PopoverPositions, Size, SortDirection} from "../../../beans";
+import {ButtonSize, ButtonVariant, PopoverPosition, Size, SortDirection} from "../../../beans";
 import {getElementTree} from "../../../utils/utils";
 @Component({
   tag: "z-table-header",
@@ -35,7 +35,7 @@ export class ZTableHeader {
 
   private popover?: HTMLZPopoverElement;
 
-  private triggerButton?: HTMLZButtonDeprecatedElement;
+  private triggerButton?: HTMLZButtonElement;
 
   constructor() {
     this.emitOnSort = this.emitOnSort.bind(this);
@@ -130,7 +130,7 @@ export class ZTableHeader {
         {this.showButton && (
           <div class="popover-container">
             <z-button
-              ref={(el) => (this.triggerButton = el as HTMLZPopoverElement)}
+              ref={(el) => (this.triggerButton = el as HTMLZButtonElement)}
               class="contextual-popover-button"
               icon="contextual-menu"
               variant={ButtonVariant.TERTIARY}
@@ -140,7 +140,7 @@ export class ZTableHeader {
 
             <z-popover
               ref={(el) => (this.popover = el as HTMLZPopoverElement)}
-              position={PopoverPositions.BOTTOM}
+              position={PopoverPosition.BOTTOM}
               center={true}
               bindTo={this.triggerButton}
             >

@@ -1,5 +1,5 @@
 import {Component, Prop, h, Listen} from "@stencil/core";
-import {PopoverPositions} from "../../../beans";
+import {PopoverPosition} from "../../../beans";
 
 /**
  * Tooltip component.
@@ -17,7 +17,7 @@ import {PopoverPositions} from "../../../beans";
 export class ZTooltip {
   /** Tooltip position. */
   @Prop({reflect: true})
-  position: PopoverPositions = PopoverPositions.AUTO;
+  position: PopoverPosition = PopoverPosition.AUTO;
 
   /** Enable tooltip dark mode. */
   @Prop({reflect: true})

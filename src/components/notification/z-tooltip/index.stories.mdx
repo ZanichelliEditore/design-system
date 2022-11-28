@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {PopoverPositions} from "../../../beans";
+import {PopoverPosition} from "../../../beans";
 import {getColorTokens} from "../../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
@@ -17,15 +17,15 @@ On the following Story, the "position" prop can be set only for the original pos
   argTypes={{
     "position": {
       options: [
-        PopoverPositions.AUTO,
-        PopoverPositions.TOP,
-        PopoverPositions.BOTTOM,
-        PopoverPositions.LEFT,
-        PopoverPositions.RIGHT,
-        PopoverPositions.TOP_LEFT,
-        PopoverPositions.TOP_RIGHT,
-        PopoverPositions.BOTTOM_LEFT,
-        PopoverPositions.BOTTOM_RIGHT,
+        PopoverPosition.AUTO,
+        PopoverPosition.TOP,
+        PopoverPosition.BOTTOM,
+        PopoverPosition.LEFT,
+        PopoverPosition.RIGHT,
+        PopoverPosition.TOP_LEFT,
+        PopoverPosition.TOP_RIGHT,
+        PopoverPosition.BOTTOM_LEFT,
+        PopoverPosition.BOTTOM_RIGHT,
       ],
       control: {type: "select"},
     },
@@ -43,7 +43,7 @@ On the following Story, the "position" prop can be set only for the original pos
   <Story
     name="z-tooltip"
     args={{
-      "position": PopoverPositions.LEFT,
+      "position": PopoverPosition.LEFT,
       "dark": false,
       "--z-tooltip-theme--surface": "var(--color-surface01)",
     }}

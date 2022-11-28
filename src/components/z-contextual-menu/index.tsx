@@ -1,5 +1,5 @@
 import {Component, Event, EventEmitter, Prop, h, Host} from "@stencil/core";
-import {PopoverPositions} from "../../beans";
+import {PopoverPosition} from "../../beans";
 
 @Component({
   tag: "z-contextual-menu",
@@ -23,7 +23,7 @@ export class ZContextualMenu {
    * [optional] Sets the position of the popover
    */
   @Prop({reflect: true})
-  popoverPosition?: PopoverPositions = PopoverPositions.BOTTOM_RIGHT;
+  popoverPosition?: PopoverPosition = PopoverPosition.BOTTOM_RIGHT;
 
   private triggerButton?: HTMLButtonElement;
 

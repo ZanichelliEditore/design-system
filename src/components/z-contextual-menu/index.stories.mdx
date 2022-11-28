@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
 import {text, select, boolean} from "@storybook/addon-knobs";
-import {PopoverPositions} from "../../beans";
+import {PopoverPosition} from "../../beans";
 import "./index.stories.css";
 import "./index";
 
@@ -23,7 +23,7 @@ import "./index";
           {"icon": "delete", "text": "Elemento 3", "disabled": "true"}, {"icon": "delete", "text": "Elemento 4"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPositions, "right_bottom")}"
+        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}
@@ -40,7 +40,7 @@ import "./index";
           `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPositions, "right_bottom")}"
+        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}
@@ -57,7 +57,7 @@ import "./index";
           `[{"icon": "share", "text": "ElementoConTestoLungoElementoConTestoLungo"}, {"icon": "delete", "text": "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"}]`
         )}"
         color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPositions, "right_bottom")}"
+        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
       >
       </z-contextual-menu>
     </div>`}

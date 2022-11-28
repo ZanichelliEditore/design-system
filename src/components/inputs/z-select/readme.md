@@ -65,10 +65,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [z-input-deprecated](../../../deprecated/z-input-deprecated)
-
 ### Depends on
 
 - [z-input](../z-input)
@@ -96,7 +92,6 @@ graph TD;
   z-list-element --> z-divider
   z-list-group --> z-divider
   z-body --> z-typography
-  z-input-deprecated --> z-select
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
