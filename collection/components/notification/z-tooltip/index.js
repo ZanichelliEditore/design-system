@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { PopoverPositions } from "../../../beans";
+import { PopoverPosition } from "../../../beans";
 /**
  * Tooltip component.
  * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -11,7 +11,7 @@ import { PopoverPositions } from "../../../beans";
 export class ZTooltip {
   constructor() {
     /** Tooltip position. */
-    this.position = PopoverPositions.AUTO;
+    this.position = PopoverPosition.AUTO;
     /** Enable tooltip dark mode. */
     this.dark = false;
     /**
@@ -43,10 +43,10 @@ export class ZTooltip {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "PopoverPositions",
-          "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
+          "original": "PopoverPosition",
+          "resolved": "PopoverPosition.AUTO | PopoverPosition.BOTTOM | PopoverPosition.BOTTOM_LEFT | PopoverPosition.BOTTOM_RIGHT | PopoverPosition.LEFT | PopoverPosition.LEFT_BOTTOM | PopoverPosition.LEFT_TOP | PopoverPosition.RIGHT | PopoverPosition.RIGHT_BOTTOM | PopoverPosition.RIGHT_TOP | PopoverPosition.TOP | PopoverPosition.TOP_LEFT | PopoverPosition.TOP_RIGHT",
           "references": {
-            "PopoverPositions": {
+            "PopoverPosition": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -60,7 +60,7 @@ export class ZTooltip {
         },
         "attribute": "position",
         "reflect": true,
-        "defaultValue": "PopoverPositions.AUTO"
+        "defaultValue": "PopoverPosition.AUTO"
       },
       "dark": {
         "type": "boolean",

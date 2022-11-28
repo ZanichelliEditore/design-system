@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-f08f7171.js');
+const index$1 = require('./index-fa110f37.js');
 
 const stylesCss = ":host{display:table-cell;border-bottom:var(--border-size-small) solid var(--bg-grey-200);background-color:var(--color-white);font-family:var(--dashboard-font);font-weight:var(--font-rg)}:host>.button-container{display:none}:host:hover>.button-container{display:initial}.button-container{position:absolute;z-index:5;top:8px;right:8px}.button-content{position:relative}.contextual-menu-container{position:absolute;top:calc(100% - var(--space-unit));right:0;display:none}.button-container.visible,.contextual-menu-container.visible{display:initial}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}";
 

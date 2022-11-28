@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-f08f7171.js');
+const index$1 = require('./index-fa110f37.js');
 
 const stylesCss = ":host{position:relative;display:flex;align-items:center;justify-content:center;font-family:var(--font-family-sans);font-weight:var(--font-rg)}button{width:100%;height:100%;padding:0;border:none;background:transparent;cursor:pointer}z-popover{overflow:hidden}.popover-content-container{position:relative;min-width:112px;max-width:280px;background-color:var(--color-surface02);box-shadow:var(--shadow-2);white-space:nowrap}.element-container:hover{color:var(--color-hover-primary);fill:var(--color-hover-primary)}.element-text{overflow:hidden;font-size:14px;text-overflow:ellipsis}.element-container,.disabled-element-container{display:flex;min-height:calc(var(--space-unit) * 4);box-sizing:border-box;align-items:center;padding:calc(var(--space-unit) / 2) var(--space-unit);fill:var(--color-disabled03);gap:var(--space-unit)}.element-container{fill:var(--color-primary01)}.element-icon{display:flex}";
 
@@ -18,7 +18,7 @@ const ZContextualMenu = class {
     /**
      * [optional] Sets the position of the popover
      */
-    this.popoverPosition = index$1.PopoverPositions.BOTTOM_RIGHT;
+    this.popoverPosition = index$1.PopoverPosition.BOTTOM_RIGHT;
   }
   componentWillRender() {
     if (this.elements) {

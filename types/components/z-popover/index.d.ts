@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { PopoverPositions } from "../../beans";
+import { PopoverPosition } from "../../beans";
 /**
  * Popover component.
  *
@@ -10,7 +10,7 @@ import { PopoverPositions } from "../../beans";
  */
 export declare class ZPopover {
   /** Popover position. */
-  position: PopoverPositions;
+  position: PopoverPosition;
   /**
    * The open state of the popover.
    */
@@ -34,7 +34,7 @@ export declare class ZPopover {
   /**
    * The current position of the popover.
    */
-  currentPosition?: PopoverPositions;
+  currentPosition?: PopoverPosition;
   /**
    * Position change event.
    */
@@ -47,7 +47,7 @@ export declare class ZPopover {
   private animationFrameRequestId?;
   closePopoverWithKeyboard(e: KeyboardEvent): void;
   handleOutsideClick(e: MouseEvent): void;
-  validatePosition(newValue: PopoverPositions): void;
+  validatePosition(newValue: PopoverPosition): void;
   /**
    * Setup popover behaviors on opening.
    */

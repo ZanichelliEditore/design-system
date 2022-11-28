@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { PopoverPositions } from "../../beans";
+import { PopoverPosition } from "../../beans";
 export declare class ZContextualMenu {
   /**
    * Elements of ZContextualMenu
@@ -12,7 +12,7 @@ export declare class ZContextualMenu {
   /**
    * [optional] Sets the position of the popover
    */
-  popoverPosition?: PopoverPositions;
+  popoverPosition?: PopoverPosition;
   private triggerButton?;
   private popover?;
   /** remove filter click event, returns filterid */

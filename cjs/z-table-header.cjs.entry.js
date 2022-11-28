@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-f08f7171.js');
-const utils = require('./utils-73ead59e.js');
+const index$1 = require('./index-fa110f37.js');
+const utils = require('./utils-600bad93.js');
 require('./breakpoints-88c4fd6c.js');
 
 const stylesCss = ":host{position:relative;display:table-cell;border-bottom:var(--border-size-medium) solid var(--gray200);background-color:var(--gray50);font-family:var(--dashboard-font);font-weight:var(--font-sb);text-align:start}.container{display:flex;align-items:flex-end}:host(.sortable){cursor:pointer}:host([padding=\"x-small\"]){padding:calc(var(--space-unit) * 0.5)}:host([padding=\"small\"]){padding:calc(var(--space-unit))}:host([padding=\"medium\"]){padding:calc(var(--space-unit) * 2)}:host([padding=\"large\"]){padding:calc(var(--space-unit) * 2.5)}:host([padding=\"special\"]){padding:0}.arrow{padding-left:var(--space-unit);opacity:1}.popover-container{position:absolute;top:var(--space-unit);right:var(--space-unit);display:none}.popover-container z-popover{--z-popover-theme--surface:var(--gray200);position:relative;z-index:1}.popover-container.visible{display:block}:host(:hover) .popover-container{display:block}";
@@ -73,7 +73,7 @@ const ZTableHeader = class {
   render() {
     return (index.h(index.Host, { class: {
         sortable: this.sortable,
-      }, onClick: () => this.handleSort() }, index.h("div", { class: "container" }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirection.NONE && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: "popover-container" }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariant.TERTIARY, size: index$1.ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
+      }, onClick: () => this.handleSort() }, index.h("div", { class: "container" }, index.h("slot", null), this.sortable && this.sortDirection !== index$1.SortDirection.NONE && (index.h("z-icon", { name: this.sortDirection === index$1.SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (index.h("div", { class: "popover-container" }, index.h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: index$1.ButtonVariant.TERTIARY, size: index$1.ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), index.h("z-popover", { ref: (el) => (this.popover = el), position: index$1.PopoverPosition.BOTTOM, center: true, bindTo: this.triggerButton }, index.h("div", null, index.h("slot", { name: "contextual-menu" })))))));
   }
   get host() { return index.getElement(this); }
 };

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-f08f7171.js');
+const index$1 = require('./index-fa110f37.js');
 
 const stylesCss = ":host{--cover-hero-height:auto;--cover-hero-overlay:none;--cover-hero-text-color:var(--color-text-inverse);display:block}:host,*{box-sizing:border-box}:host .content-hero{position:relative;width:100%;height:var(--cover-hero-height);min-height:calc(var(--space-unit) * 30);align-items:baseline;background-color:var(--gray600)}:host .content-container{color:var(--cover-hero-text-color);fill:var(--cover-hero-text-color)}:host .content-hero .cover{position:absolute;z-index:0;width:100%;height:100%}::slotted([slot=\"cover\"]){position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center}::slotted(z-info-reveal){position:absolute;z-index:1;right:var(--grid-margin);bottom:var(--grid-margin)}:host([variant=\"overlay\"]) .content-hero .cover::after{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--cover-hero-overlay);content:\"\"}:host([variant=\"overlay\"]) .content-hero .content-container{position:relative;height:100%;padding:var(--grid-margin)}:host([variant=\"stacked\"]){--cover-hero-text-color:var(--color-text01)}:host([variant=\"stacked\"]) .content-container ::slotted(*){padding:var(--grid-margin) 0}";
 

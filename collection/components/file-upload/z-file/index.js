@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { PopoverPositions, ZChipType } from "../../../beans";
+import { PopoverPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 export class ZFile {
   constructor() {
@@ -30,7 +30,7 @@ export class ZFile {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
-    return (h(Host, null, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPositions.AUTO, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+    return (h(Host, null, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
   }
   static get is() { return "z-file"; }
   static get encapsulation() { return "scoped"; }

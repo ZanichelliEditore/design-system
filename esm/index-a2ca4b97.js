@@ -1912,14 +1912,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-avatar.entry.js').then(processMod, consoleError);
-        case 'z-button-deprecated':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-button-deprecated.entry.js').then(processMod, consoleError);
-        case 'z-button-filter':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-button-filter.entry.js').then(processMod, consoleError);
         case 'z-button-sort':
           return import(
             /* webpackMode: "lazy" */
@@ -1932,10 +1924,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-carousel.entry.js').then(processMod, consoleError);
-        case 'z-chip-deprecated':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-chip-deprecated.entry.js').then(processMod, consoleError);
         case 'z-combobox':
           return import(
             /* webpackMode: "lazy" */
@@ -1944,10 +1932,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-contextual-menu.entry.js').then(processMod, consoleError);
-        case 'z-cookiebar':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-cookiebar.entry.js').then(processMod, consoleError);
         case 'z-cover-hero':
           return import(
             /* webpackMode: "lazy" */
@@ -1964,10 +1948,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-file-upload.entry.js').then(processMod, consoleError);
-        case 'z-footer':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-footer.entry.js').then(processMod, consoleError);
         case 'z-icon-package':
           return import(
             /* webpackMode: "lazy" */
@@ -1980,14 +1960,14 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-info-reveal.entry.js').then(processMod, consoleError);
-        case 'z-input-deprecated':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-input-deprecated.entry.js').then(processMod, consoleError);
         case 'z-menu':
           return import(
             /* webpackMode: "lazy" */
             './z-menu.entry.js').then(processMod, consoleError);
+        case 'z-menu-dropdown':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-menu-dropdown.entry.js').then(processMod, consoleError);
         case 'z-menu-section':
           return import(
             /* webpackMode: "lazy" */
@@ -2028,10 +2008,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-myz-card-list.entry.js').then(processMod, consoleError);
-        case 'z-myz-topbar':
+        case 'z-myz-list':
           return import(
             /* webpackMode: "lazy" */
-            './z-myz-topbar.entry.js').then(processMod, consoleError);
+            './z-myz-list.entry.js').then(processMod, consoleError);
         case 'z-navigation-tab':
           return import(
             /* webpackMode: "lazy" */
@@ -2060,10 +2040,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-pagination.entry.js').then(processMod, consoleError);
-        case 'z-pagination-bar':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-pagination-bar.entry.js').then(processMod, consoleError);
         case 'z-panel-elem':
           return import(
             /* webpackMode: "lazy" */
@@ -2072,10 +2048,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-pocket-message.entry.js').then(processMod, consoleError);
-        case 'z-popover-deprecated':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-popover-deprecated.entry.js').then(processMod, consoleError);
         case 'z-range-picker':
           return import(
             /* webpackMode: "lazy" */
@@ -2084,6 +2056,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-section-title.entry.js').then(processMod, consoleError);
+        case 'z-select':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-select.entry.js').then(processMod, consoleError);
         case 'z-skip-to-content':
           return import(
             /* webpackMode: "lazy" */
@@ -2092,10 +2068,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-slideshow.entry.js').then(processMod, consoleError);
-        case 'z-status-tag':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-status-tag.entry.js').then(processMod, consoleError);
         case 'z-stepper':
           return import(
             /* webpackMode: "lazy" */
@@ -2160,10 +2132,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-tooltip.entry.js').then(processMod, consoleError);
-        case 'z-tooltip-deprecated':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-tooltip-deprecated.entry.js').then(processMod, consoleError);
         case 'z-user-dropdown':
           return import(
             /* webpackMode: "lazy" */
@@ -2176,14 +2144,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-alert.entry.js').then(processMod, consoleError);
-        case 'z-app-switcher':
+        case 'z-app-switcher_2':
           return import(
             /* webpackMode: "lazy" */
-            './z-app-switcher.entry.js').then(processMod, consoleError);
-        case 'z-candybar':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-candybar.entry.js').then(processMod, consoleError);
+            './z-app-switcher_2.entry.js').then(processMod, consoleError);
         case 'z-chip':
           return import(
             /* webpackMode: "lazy" */
@@ -2192,30 +2156,14 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-dragdrop-area_2.entry.js').then(processMod, consoleError);
-        case 'z-footer-link_3':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-footer-link_3.entry.js').then(processMod, consoleError);
         case 'z-ghost-loading':
           return import(
             /* webpackMode: "lazy" */
             './z-ghost-loading.entry.js').then(processMod, consoleError);
-        case 'z-input-label_2':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-input-label_2.entry.js').then(processMod, consoleError);
-        case 'z-menu-dropdown_2':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-menu-dropdown_2.entry.js').then(processMod, consoleError);
         case 'z-myz-card_4':
           return import(
             /* webpackMode: "lazy" */
             './z-myz-card_4.entry.js').then(processMod, consoleError);
-        case 'z-pagination-page':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-pagination-page.entry.js').then(processMod, consoleError);
         case 'z-pocket_3':
           return import(
             /* webpackMode: "lazy" */
@@ -2232,26 +2180,18 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-table-header.entry.js').then(processMod, consoleError);
-        case 'z-modal':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-modal.entry.js').then(processMod, consoleError);
         case 'z-list_3':
           return import(
             /* webpackMode: "lazy" */
             './z-list_3.entry.js').then(processMod, consoleError);
-        case 'z-logo':
+        case 'z-modal':
           return import(
             /* webpackMode: "lazy" */
-            './z-logo.entry.js').then(processMod, consoleError);
+            './z-modal.entry.js').then(processMod, consoleError);
         case 'z-myz-list-item':
           return import(
             /* webpackMode: "lazy" */
             './z-myz-list-item.entry.js').then(processMod, consoleError);
-        case 'z-popover':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-popover.entry.js').then(processMod, consoleError);
         case 'z-input_2':
           return import(
             /* webpackMode: "lazy" */
@@ -2260,6 +2200,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-link.entry.js').then(processMod, consoleError);
+        case 'z-popover':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-popover.entry.js').then(processMod, consoleError);
         case 'z-body_2':
           return import(
             /* webpackMode: "lazy" */

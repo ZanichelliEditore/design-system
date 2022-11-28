@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { ButtonSize, ButtonVariant, PopoverPositions, Size, SortDirection } from "../../../beans";
+import { ButtonSize, ButtonVariant, PopoverPosition, Size, SortDirection } from "../../../beans";
 import { getElementTree } from "../../../utils/utils";
 export class ZTableHeader {
   constructor() {
@@ -63,7 +63,7 @@ export class ZTableHeader {
   render() {
     return (h(Host, { class: {
         sortable: this.sortable,
-      }, onClick: () => this.handleSort() }, h("div", { class: "container" }, h("slot", null), this.sortable && this.sortDirection !== SortDirection.NONE && (h("z-icon", { name: this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: "popover-container" }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariant.TERTIARY, size: ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPositions.BOTTOM, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
+      }, onClick: () => this.handleSort() }, h("div", { class: "container" }, h("slot", null), this.sortable && this.sortDirection !== SortDirection.NONE && (h("z-icon", { name: this.sortDirection === SortDirection.ASC ? "arrow-up" : "arrow-down", class: "arrow" }))), this.showButton && (h("div", { class: "popover-container" }, h("z-button", { ref: (el) => (this.triggerButton = el), class: "contextual-popover-button", icon: "contextual-menu", variant: ButtonVariant.TERTIARY, size: ButtonSize.X_SMALL, onClick: () => this.handleMenuClick() }), h("z-popover", { ref: (el) => (this.popover = el), position: PopoverPosition.BOTTOM, center: true, bindTo: this.triggerButton }, h("div", null, h("slot", { name: "contextual-menu" })))))));
   }
   static get is() { return "z-table-header"; }
   static get encapsulation() { return "shadow"; }

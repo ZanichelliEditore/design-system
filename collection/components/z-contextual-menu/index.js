@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { PopoverPositions } from "../../beans";
+import { PopoverPosition } from "../../beans";
 export class ZContextualMenu {
   constructor() {
     /**
@@ -9,7 +9,7 @@ export class ZContextualMenu {
     /**
      * [optional] Sets the position of the popover
      */
-    this.popoverPosition = PopoverPositions.BOTTOM_RIGHT;
+    this.popoverPosition = PopoverPosition.BOTTOM_RIGHT;
   }
   componentWillRender() {
     if (this.elements) {
@@ -84,10 +84,10 @@ export class ZContextualMenu {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "PopoverPositions",
-          "resolved": "PopoverPositions.AUTO | PopoverPositions.BOTTOM | PopoverPositions.BOTTOM_LEFT | PopoverPositions.BOTTOM_RIGHT | PopoverPositions.LEFT | PopoverPositions.LEFT_BOTTOM | PopoverPositions.LEFT_TOP | PopoverPositions.RIGHT | PopoverPositions.RIGHT_BOTTOM | PopoverPositions.RIGHT_TOP | PopoverPositions.TOP | PopoverPositions.TOP_LEFT | PopoverPositions.TOP_RIGHT",
+          "original": "PopoverPosition",
+          "resolved": "PopoverPosition.AUTO | PopoverPosition.BOTTOM | PopoverPosition.BOTTOM_LEFT | PopoverPosition.BOTTOM_RIGHT | PopoverPosition.LEFT | PopoverPosition.LEFT_BOTTOM | PopoverPosition.LEFT_TOP | PopoverPosition.RIGHT | PopoverPosition.RIGHT_BOTTOM | PopoverPosition.RIGHT_TOP | PopoverPosition.TOP | PopoverPosition.TOP_LEFT | PopoverPosition.TOP_RIGHT",
           "references": {
-            "PopoverPositions": {
+            "PopoverPosition": {
               "location": "import",
               "path": "../../beans"
             }
@@ -101,7 +101,7 @@ export class ZContextualMenu {
         },
         "attribute": "popover-position",
         "reflect": true,
-        "defaultValue": "PopoverPositions.BOTTOM_RIGHT"
+        "defaultValue": "PopoverPosition.BOTTOM_RIGHT"
       }
     };
   }

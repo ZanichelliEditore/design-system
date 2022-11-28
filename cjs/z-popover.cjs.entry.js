@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-f08f7171.js');
-const utils = require('./utils-73ead59e.js');
+const index$1 = require('./index-fa110f37.js');
+const utils = require('./utils-600bad93.js');
 require('./breakpoints-88c4fd6c.js');
 
 const stylesCss = ":host{--z-popover-theme--surface:var(--color-surface01);--z-popover-theme--text:var(--color-text01);--z-popover-padding:0;--z-popover-shadow-filter:drop-shadow(0 1px 2px var(--shadow-color-base));position:relative;display:none;min-width:calc(var(--space-unit) * 8);min-height:calc(var(--space-unit) * 4);align-items:center;justify-content:center;padding:var(--z-popover-padding);background:var(--z-popover-theme--surface);border-radius:var(--border-radius-small);color:var(--z-popover-theme--text);fill:currentcolor;filter:var(--z-popover-shadow-filter);font-family:var(--font-family-sans);text-align:center}:host([open][current-position]),:host([open=\"true\"][current-position]){display:flex}:host([center][current-position=\"top\"]),:host([center][current-position=\"bottom\"]){transform:translateX(-50%)}:host([center][current-position=\"right\"]),:host([center][current-position=\"left\"]){transform:translateY(-50%)}:host([current-position^=\"top\"]){margin:0 0 var(--space-unit)}:host([current-position^=\"bottom\"]){margin:var(--space-unit) 0 0}:host([current-position^=\"left\"]){margin:0 var(--space-unit) 0 0}:host([current-position^=\"right\"]){margin:0 0 0 var(--space-unit)}:host([current-position])::before{--arrow-size:6px;--arrow-edge-offset:calc(100% - var(--space-unit) - (var(--arrow-size) / 2));--arrow-center-x-offset:calc(50% - (var(--arrow-size) / 2));--arrow-center-y-offset:calc(100% - (var(--arrow-size) / 2));position:absolute;display:block;width:var(--arrow-size);height:var(--arrow-size);background:var(--z-popover-theme--surface);content:\"\";transform:rotate(45deg)}:host([show-arrow=\"false\"])::before,:host(:not([show-arrow]))::before{display:none}:host([current-position^=\"top\"])::before{top:var(--arrow-center-y-offset)}:host([current-position^=\"bottom\"])::before{bottom:var(--arrow-center-y-offset)}:host([current-position=\"top\"])::before,:host([current-position=\"bottom\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before,:host([current-position=\"left\"])::before{bottom:var(--arrow-edge-offset)}:host([current-position=\"right\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"top_right\"])::before,:host([current-position=\"bottom_right\"])::before{right:var(--arrow-edge-offset)}:host([current-position=\"top_left\"])::before,:host([current-position=\"bottom_left\"])::before{left:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"left_top\"])::before{top:var(--arrow-edge-offset)}:host([current-position=\"right_top\"])::before,:host([current-position=\"right_bottom\"])::before{right:var(--arrow-center-y-offset)}:host([current-position=\"left_top\"])::before,:host([current-position=\"left_bottom\"])::before{left:var(--arrow-center-y-offset)}:host([current-position=\"right_bottom\"])::before,:host([current-position=\"left_bottom\"])::before{bottom:var(--arrow-edge-offset)}:host([center][current-position=\"top\"])::before,:host([center][current-position=\"bottom\"])::before{right:auto;left:var(--arrow-center-x-offset)}:host([center][current-position=\"right\"])::before,:host([center][current-position=\"left\"])::before{top:var(--arrow-center-x-offset);bottom:auto}::slotted(*){overflow:auto;flex:1 auto}";
@@ -96,7 +96,7 @@ const ZPopover = class {
     this.positionChange = index.createEvent(this, "positionChange", 7);
     this.openChange = index.createEvent(this, "openChange", 7);
     /** Popover position. */
-    this.position = index$1.PopoverPositions.AUTO;
+    this.position = index$1.PopoverPosition.AUTO;
     /**
      * The open state of the popover.
      */
@@ -131,8 +131,8 @@ const ZPopover = class {
     }
   }
   validatePosition(newValue) {
-    if (newValue && !Object.values(index$1.PopoverPositions).includes(newValue)) {
-      this.position = index$1.PopoverPositions.AUTO;
+    if (newValue && !Object.values(index$1.PopoverPosition).includes(newValue)) {
+      this.position = index$1.PopoverPosition.AUTO;
     }
     this.currentPosition = this.position;
     this.positionChange.emit({ position: this.currentPosition });
@@ -198,28 +198,28 @@ const ZPopover = class {
     const availableWidth = availableLeft + availableRight + boundingRect.width;
     let position = this.currentPosition;
     const positions = [];
-    if (this.position === index$1.PopoverPositions.AUTO) {
+    if (this.position === index$1.PopoverPosition.AUTO) {
       /**
        * The `AUTO` position tries to place the popover in the 'safest' area,
        * where there's more space available.
        */
       if (availableLeft / availableWidth > 0.6) {
-        positions.push(index$1.PopoverPositions.LEFT);
+        positions.push(index$1.PopoverPosition.LEFT);
       }
       else if (availableLeft / availableWidth < 0.4) {
-        positions.push(index$1.PopoverPositions.RIGHT);
+        positions.push(index$1.PopoverPosition.RIGHT);
       }
       if (availableTop / availableHeight > 0.9) {
-        positions.unshift(index$1.PopoverPositions.TOP);
+        positions.unshift(index$1.PopoverPosition.TOP);
       }
       else if (availableTop / availableHeight > 0.6) {
-        positions.push(index$1.PopoverPositions.TOP);
+        positions.push(index$1.PopoverPosition.TOP);
       }
       else if (availableTop / availableHeight < 0.1) {
-        positions.unshift(index$1.PopoverPositions.BOTTOM);
+        positions.unshift(index$1.PopoverPosition.BOTTOM);
       }
       else {
-        positions.push(index$1.PopoverPositions.BOTTOM);
+        positions.push(index$1.PopoverPosition.BOTTOM);
       }
       position = positions.join("_");
     }
@@ -231,17 +231,17 @@ const ZPopover = class {
     const offsetLeft = boundingRect.left - relativeBoundingRect.left;
     const offsetModifier = this.center ? 0.5 : 0;
     const sizeModifier = this.center ? 0.5 : 0;
-    if (position === index$1.PopoverPositions.TOP || position === index$1.PopoverPositions.TOP_RIGHT) {
+    if (position === index$1.PopoverPosition.TOP || position === index$1.PopoverPosition.TOP_RIGHT) {
       style.top = "auto";
       style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height}px`;
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableTop}px`;
-      if (position === index$1.PopoverPositions.TOP_RIGHT) {
+      if (position === index$1.PopoverPosition.TOP_RIGHT) {
         style.maxWidth = `${availableRight + boundingRect.width * sizeModifier}px`;
       }
     }
-    else if (position === index$1.PopoverPositions.TOP_LEFT) {
+    else if (position === index$1.PopoverPosition.TOP_LEFT) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = `${offsetBottom + boundingRect.height}px`;
@@ -249,17 +249,17 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableTop}px`;
     }
-    else if (position === index$1.PopoverPositions.BOTTOM || position === index$1.PopoverPositions.BOTTOM_RIGHT) {
+    else if (position === index$1.PopoverPosition.BOTTOM || position === index$1.PopoverPosition.BOTTOM_RIGHT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = "auto";
       style.bottom = "auto";
       style.left = `${offsetLeft + boundingRect.width * offsetModifier}px`;
       style.maxHeight = `${availableBottom}px`;
-      if (position === index$1.PopoverPositions.BOTTOM_RIGHT) {
+      if (position === index$1.PopoverPosition.BOTTOM_RIGHT) {
         style.maxWidth = `${availableRight + boundingRect.width * sizeModifier}px`;
       }
     }
-    else if (position === index$1.PopoverPositions.BOTTOM_LEFT) {
+    else if (position === index$1.PopoverPosition.BOTTOM_LEFT) {
       style.top = `${offsetTop + boundingRect.height}px`;
       style.right = `${offsetRight + boundingRect.width * offsetModifier}px`;
       style.bottom = "auto";
@@ -267,7 +267,7 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom}px`;
     }
-    else if (position === index$1.PopoverPositions.RIGHT || position === index$1.PopoverPositions.RIGHT_BOTTOM) {
+    else if (position === index$1.PopoverPosition.RIGHT || position === index$1.PopoverPosition.RIGHT_BOTTOM) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = "auto";
       style.bottom = "auto";
@@ -275,7 +275,7 @@ const ZPopover = class {
       style.maxWidth = `${availableRight}px`;
       style.maxHeight = `${availableBottom + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.RIGHT_TOP) {
+    else if (position === index$1.PopoverPosition.RIGHT_TOP) {
       style.top = "auto";
       style.right = "auto";
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;
@@ -283,7 +283,7 @@ const ZPopover = class {
       style.maxWidth = `${availableRight}px`;
       style.maxHeight = `${availableTop + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.LEFT || position === index$1.PopoverPositions.LEFT_BOTTOM) {
+    else if (position === index$1.PopoverPosition.LEFT || position === index$1.PopoverPosition.LEFT_BOTTOM) {
       style.top = `${offsetTop + boundingRect.height * offsetModifier}px`;
       style.right = `${offsetRight + boundingRect.width}px`;
       style.bottom = "auto";
@@ -291,7 +291,7 @@ const ZPopover = class {
       style.maxWidth = `${availableLeft}px`;
       style.maxHeight = `${availableBottom + boundingRect.height * sizeModifier}px`;
     }
-    else if (position === index$1.PopoverPositions.LEFT_TOP) {
+    else if (position === index$1.PopoverPosition.LEFT_TOP) {
       style.top = "auto";
       style.right = `${offsetRight + boundingRect.width}px`;
       style.bottom = `${offsetBottom + boundingRect.height * offsetModifier}px`;

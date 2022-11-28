@@ -1,4 +1,4 @@
-import { PopoverPositions } from "../../../beans";
+import { PopoverPosition } from "../../../beans";
 /**
  * Tooltip component.
  * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -9,7 +9,7 @@ import { PopoverPositions } from "../../../beans";
  */
 export declare class ZTooltip {
   /** Tooltip position. */
-  position: PopoverPositions;
+  position: PopoverPosition;
   /** Enable tooltip dark mode. */
   dark: boolean;
   /**

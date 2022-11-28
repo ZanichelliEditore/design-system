@@ -1,29 +1,7 @@
-export declare type Footer = {
-  zanichelliLinks: FooterGroup[];
-  myzLink: MyzLink;
-  zanichelliAddress: string;
-  social: FooterSocial[];
-  certification: string;
-  bottomLinks: FooterGroupItem[];
-};
-export declare type FooterGroupItem = {
-  label: string;
-  link: string;
-  target?: string;
-};
-export declare type FooterGroup = {
-  title: string;
-  items: FooterGroupItem[];
-};
 export declare type MyzLink = {
   label: string;
   img: string;
   link: string;
-};
-export declare type FooterSocial = {
-  icon: string;
-  link: string;
-  description?: string;
 };
 export declare enum LicenseType {
   REAL = "reale",
@@ -135,7 +113,7 @@ export declare enum InputStatus {
   ERROR = "error",
   WARNING = "warning"
 }
-export declare enum PopoverPositions {
+export declare enum PopoverPosition {
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
@@ -149,36 +127,6 @@ export declare enum PopoverPositions {
   RIGHT_BOTTOM = "right_bottom",
   LEFT_TOP = "left_top",
   LEFT_BOTTOM = "left_bottom"
-}
-export declare enum PopoverPosition {
-  AFTER_DOWN = "after-down",
-  AFTER_CENTER = "after-center",
-  AFTER_UP = "after-up",
-  BELOW_RIGHT = "below-right",
-  BELOW_CENTER = "below-center",
-  BELOW_LEFT = "below-left",
-  BEFORE_DOWN = "before-down",
-  BEFORE_CENTER = "before-center",
-  BEFORE_UP = "before-up",
-  ABOVE_RIGHT = "above-right",
-  ABOVE_CENTER = "above-center",
-  ABOVE_LEFT = "above-left"
-}
-export declare enum PopoverBorderRadius {
-  NONE = "none",
-  SMALL = "small",
-  MEDIUM = "medium"
-}
-export declare enum PopoverShadow {
-  SHADOW_1 = "shadow-1",
-  SHADOW_2 = "shadow-2",
-  SHADOW_3 = "shadow-3",
-  SHADOW_4 = "shadow-4",
-  SHADOW_6 = "shadow-6",
-  SHADOW_8 = "shadow-8",
-  SHADOW_12 = "shadow-12",
-  SHADOW_16 = "shadow-16",
-  SHADOW_24 = "shadow-24"
 }
 export declare enum KeyboardKeyCode {
   TAB = 9,
@@ -378,13 +326,6 @@ export declare type SkipToContentLink = {
   href: string;
   ariaLabel?: string;
 };
-export declare enum StatusTagStatus {
-  WARNING = "warning",
-  ERROR = "error",
-  SUCCESS = "success",
-  NEUTRAL = "neutral",
-  DEFAULT = "default"
-}
 export declare enum InfoRevealPosition {
   TOP_RIGHT = "top_right",
   TOP_LEFT = "top_left",
