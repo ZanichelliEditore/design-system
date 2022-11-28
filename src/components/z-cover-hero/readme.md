@@ -3,11 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Cover hero component.
-Component to display a hero image with content.
-
 ## Properties
 
 | Property          | Attribute          | Description                                             | Type                                                              | Default                        |

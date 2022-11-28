@@ -3,10 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Ztag  component.
-
 ## Properties
 
 | Property     | Attribute    | Description                                   | Type      | Default     |

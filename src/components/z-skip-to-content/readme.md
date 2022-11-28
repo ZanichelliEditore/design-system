@@ -3,10 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Component short description.
-
 ## Properties
 
 | Property  | Attribute | Description                          | Type                                      | Default     |

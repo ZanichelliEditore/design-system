@@ -5,10 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-* Anchor navigation component.
-
 ## Properties
 
 | Property         | Attribute         | Description                                                                                                    | Type      | Default |

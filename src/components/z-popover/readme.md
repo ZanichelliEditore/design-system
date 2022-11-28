@@ -26,10 +26,6 @@ To be sure the algorithm finds the right container, when calculating the positio
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Popover component.
-
 ## Properties
 
 | Property    | Attribute    | Description                                                                           | Type                                                                                                                                                                                                                                                                                                                                                                     | Default                |

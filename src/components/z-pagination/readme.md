@@ -3,10 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Pagination bar component.
-
 ## Properties
 
 | Property                  | Attribute       | Description                                                                               | Type      | Default     |

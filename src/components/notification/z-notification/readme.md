@@ -3,10 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Notification bar component.
-
 ## Properties
 
 | Property          | Attribute         | Description                                                                                                                                    | Type                                                                             | Default     |

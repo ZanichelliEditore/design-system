@@ -1,7 +1,5 @@
 # z-carousel
 
-<<<<<<< HEAD
-=======
 Show element in a carousel.
 Elements are passed to carousel using slots. 
 To activate keyboard navigation through elements, use any <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-tabindex-attribute">"tabbable" element</a> or add the attribute `tabindex="0"`.
@@ -9,13 +7,8 @@ To activate keyboard navigation through elements, use any <a href="https://html.
 Progress indicators are only shown in single mode.
 To activate single mode, set the attribute `single` to `true` and set a width to the carousel.
 
->>>>>>> master
 <!-- Auto Generated Below -->
 
-
-## Overview
-
-ZCarousel component.
 
 ## Properties
 

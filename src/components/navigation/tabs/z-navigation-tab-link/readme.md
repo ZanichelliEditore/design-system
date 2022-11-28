@@ -23,10 +23,6 @@
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
-
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                     | Type                                                                         | Default                                |
