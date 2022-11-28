@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.3](https://github.com/ZanichelliEditore/design-system/compare/v6.3.2...v6.3.3) (2022-11-28)
+
+
+### Bug Fixes
+
+* remove deprecated MyZTopbar component ([61e93c7](https://github.com/ZanichelliEditore/design-system/commit/61e93c7bc698769b95af49fa4502052bd02d4430))
+* remove deprecated ZButton component ([4cb5df4](https://github.com/ZanichelliEditore/design-system/commit/4cb5df44ffc62675b6c499272eb58d77920d2533))
+* remove deprecated ZButton component ([92d34e8](https://github.com/ZanichelliEditore/design-system/commit/92d34e8c145a46d4f584d60bb177a0cd18c3e24c))
+* remove deprecated ZButton component ([3fb75a7](https://github.com/ZanichelliEditore/design-system/commit/3fb75a79639b7a0c6af41699158ef79cd5561bc1))
+* remove deprecated ZButtonFilter component ([fb1ca45](https://github.com/ZanichelliEditore/design-system/commit/fb1ca45ad038796144e45cfbd31b5bd548adde92))
+* remove deprecated ZCandybar component ([c4e2bdf](https://github.com/ZanichelliEditore/design-system/commit/c4e2bdf6ec9d77bbc66068d63c8485c671b3a80e))
+* remove deprecated ZChip component ([e28db11](https://github.com/ZanichelliEditore/design-system/commit/e28db11386d1c00b864d0b259595699be19c8433))
+* remove deprecated ZCookiebar component ([05b9d50](https://github.com/ZanichelliEditore/design-system/commit/05b9d50220eaa5bb309f65a13d613c9afe06057c))
+* remove deprecated ZInput component ([6d82455](https://github.com/ZanichelliEditore/design-system/commit/6d8245594416014c93f5a47a18d42be4a0f809c4))
+* remove deprecated ZInputLabel component ([e6303b5](https://github.com/ZanichelliEditore/design-system/commit/e6303b5f4d8b0d4502cb183ebc7ab7a12adc99db))
+* remove deprecated ZPagination component ([96f46fb](https://github.com/ZanichelliEditore/design-system/commit/96f46fb845f8bf5ea197ca7d5dedf103c9d6ca9c))
+* remove deprecated ZPopover component ([39ceb1b](https://github.com/ZanichelliEditore/design-system/commit/39ceb1be2f6926ee0b551b98ac502b32e1fdc666))
+* remove deprecated ZStatusTag component ([a24ffd5](https://github.com/ZanichelliEditore/design-system/commit/a24ffd5404a57bab80f0b5811987e7a0d5428ab5))
+* remove deprecated ZTooltip component ([533f395](https://github.com/ZanichelliEditore/design-system/commit/533f395a01b4fb6a42617fa6941d617c4bc9c276))
+* remove unused enums ([64c6030](https://github.com/ZanichelliEditore/design-system/commit/64c6030fae5173e7ef3c15f1c465674875229058))
+* reomve deprecated ZFooter component ([d2f5a31](https://github.com/ZanichelliEditore/design-system/commit/d2f5a311dd7a0ea7cae0a029b13cf50b6e49f6f1))
+
 ### [6.3.2](https://github.com/ZanichelliEditore/design-system/compare/v6.3.1...v6.3.2) (2022-11-23)
 
 
