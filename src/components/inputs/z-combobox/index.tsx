@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, KeyboardKeyCode} from "../../../beans";
+import {ComboItem, InputType, KeyboardKeyCode, ListDividerType} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 
@@ -68,6 +68,10 @@ export class ZCombobox {
   /** max number of checkable items (0 = unlimited) */
   @Prop()
   maxcheckableitems = 0;
+
+  /** group items by category */
+  @Prop()
+  hasGroupItems?: boolean;
 
   @State()
   searchValue: string;
@@ -148,7 +152,6 @@ export class ZCombobox {
     if (!value) {
       return this.closeFilterItems();
     }
-
     this.searchValue = value;
 
     this.resetRenderItemsList();
@@ -238,7 +241,7 @@ export class ZCombobox {
         class={this.searchValue && "search"}
         tabindex={-1}
       >
-        {this.renderList(this.renderItemsList)}
+        {!this.hasGroupItems ? this.renderList(this.renderItemsList) : this.renderGroups(this.renderItemsList)}
         {this.searchValue && this.renderCloseButton()}
       </div>
     );
@@ -274,6 +277,59 @@ export class ZCombobox {
         })}
       </ul>
     );
+  }
+
+  private renderGroups(items: ComboItem[]): HTMLUListElement {
+    if (!items) {
+      return;
+    }
+    if (!items.length && this.searchValue) {
+      return this.renderNoSearchResults();
+    }
+
+    const newData = items.reduce((group, item, index) => {
+      const {category} = item;
+      const zListItem = (
+        <z-myz-list-item
+          id={item.id}
+          listitemid={item.id}
+          action={`combo-li-${this.inputid}`}
+          underlined={index !== items.length - 1}
+        >
+          <z-input
+            type={InputType.CHECKBOX}
+            checked={item.checked}
+            htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
+            label={item.name}
+            disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
+          />
+        </z-myz-list-item>
+      );
+
+      group[category] = group[category] ?? [];
+      group[category].push(zListItem);
+
+      return group;
+    }, {});
+
+    const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+      return (
+        // TODO check if correct import
+        <z-list-group divider-type={ListDividerType.ELEMENT}>
+          <z-body
+            class="z-list-group-title"
+            level={3}
+            slot="header-title"
+            variant="semibold"
+          >
+            {key}
+          </z-body>
+          {value.map((item) => item)}
+        </z-list-group>
+      );
+    });
+
+    return <ul>{listGroups}</ul>;
   }
 
   private renderNoSearchResults(): HTMLUListElement {

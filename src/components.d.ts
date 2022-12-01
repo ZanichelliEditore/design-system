@@ -262,6 +262,10 @@ export namespace Components {
          */
         "closesearchtext"?: string;
         /**
+          * group items by category
+         */
+        "hasGroupItems"?: boolean;
+        /**
           * show "check all" checkbox (optional)
          */
         "hascheckall"?: boolean;
@@ -2820,6 +2824,10 @@ declare namespace LocalJSX {
           * close combobox list text
          */
         "closesearchtext"?: string;
+        /**
+          * group items by category
+         */
+        "hasGroupItems"?: boolean;
         /**
           * show "check all" checkbox (optional)
          */

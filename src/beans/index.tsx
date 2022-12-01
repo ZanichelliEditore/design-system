@@ -91,6 +91,7 @@ export type ComboItem = {
   id: string;
   name: string;
   checked: boolean;
+  category?: string;
 };
 
 export enum ButtonVariant {

@@ -34,6 +34,7 @@
 | ------------------- | ------------------- | --------------------------------------------- | ----------------------- | --------------------- |
 | `checkalltext`      | `checkalltext`      | check all label (optional)                    | `string`                | `"Seleziona tutti"`   |
 | `closesearchtext`   | `closesearchtext`   | close combobox list text                      | `string`                | `"Chiudi"`            |
+| `hasGroupItems`     | `has-group-items`   | group items by category                       | `boolean`               | `undefined`           |
 | `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)          | `boolean`               | `false`               |
 | `hassearch`         | `hassearch`         | show search input flag (optional)             | `boolean`               | `false`               |
 | `inputid`           | `inputid`           | input unique id                               | `string`                | `undefined`           |
@@ -64,6 +65,7 @@
 - [z-icon](../../icons/z-icon)
 - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
 - [z-input](../z-input)
+- [z-list-group](../../list/z-list-group)
 
 ### Graph
 ```mermaid
@@ -72,11 +74,13 @@ graph TD;
   z-combobox --> z-icon
   z-combobox --> z-myz-list-item
   z-combobox --> z-input
+  z-combobox --> z-list-group
   z-body --> z-typography
   z-myz-list-item --> z-icon
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
+  z-list-group --> z-divider
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
