@@ -314,7 +314,6 @@ export class ZCombobox {
 
     const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
       return (
-        // TODO check if correct import
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <z-body
             class="z-list-group-title"
