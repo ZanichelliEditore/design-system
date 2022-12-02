@@ -8,32 +8,144 @@ import "./index";
 <Meta
   title="Inputs/ZCombobox"
   component="z-combobox"
+  argTypes={{
+    items: {
+      control: {type: "object"},
+      defaultValue: [
+        {id: "item_1", name: "First item", checked: false, category: "Gruppo 1"},
+        {id: "item_2", name: "Second item", checked: false, category: "Gruppo 1"},
+        {id: "item_3", name: "Other item", checked: false, category: "Gruppo 2"},
+        {id: "item_4", name: "Last item", checked: false, category: "Gruppo 3"},
+      ],
+    },
+    checkalltext: {
+      control: {type: "text"},
+      defaultValue: "Select all",
+    },
+    closesearchtext: {
+      control: {type: "text"},
+      defaultValue: "Close",
+    },
+    hascheckall: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    hassearch: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    inputid: {
+      control: {type: "text"},
+      defaultValue: "combo_1",
+    },
+    isfixed: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    isopen: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    label: {
+      control: {type: "text"},
+      defaultValue: "Combobox Label",
+    },
+    maxcheckableitems: {
+      control: {type: "number"},
+      defaultValue: 4,
+    },
+    hasgroupitems: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    noresultslabel: {
+      control: {type: "text"},
+      defaultValue: "No items",
+    },
+    searchlabel: {
+      control: {type: "text"},
+      defaultValue: "Search Label",
+    },
+    searchplaceholder: {
+      control: {type: "text"},
+      defaultValue: "Search Placeholder",
+    },
+    searchtitle: {
+      control: {type: "text"},
+      defaultValue: "Search Title",
+    },
+    uncheckalltext: {
+      control: {type: "text"},
+      defaultValue: "Uncheck All",
+    },
+  }}
 />
 
 # ZCombobox
 
-<Preview>
+<Canvas>
   <Story name="z-combobox">
-    {html` <z-combobox
-      checkalltext="${text("checkalltext", "Select all")}"
-      closesearchtext="${text("closesearchtext", "Close")}"
-      hascheckall="${boolean("hascheckall", true)}"
-      hassearch="${boolean("hassearch", true)}"
-      inputid="${text("inputid", "combo_1")}"
-      isfixed="${boolean("isfixed", true)}"
-      isopen="${boolean("isopen", true)}"
-      items='[{"id":"item_1","name":"First item","checked":false},{"id":"item_2","name":"Second item","checked":true},{"id":"item_3","name":"Other item","checked":false},{"id":"item_4","name":"Last item","checked":true}]'
-      label="${text("label", "Combobox Label")}"
-      maxcheckableitems="${number("maxcheckableitems", 4)}"
-      noresultslabel="${text("noresultslabel", "No items")}"
-      searchlabel="${text("searchlabel", "Search Label")}"
-      searchplaceholder="${text("searchplaceholder", "Search Placeholder")}"
-      searchtitle="${text("searchtitle", "Search Title")}"
-      uncheckalltext="${text("uncheckalltext", "Uncheck All")}"
-    />`}
+    {(args) =>
+      html` <z-combobox
+        checkalltext=${args.checkalltext}
+        closesearchtext=${args.closesearchtext}
+        hascheckall=${args.hascheckall}
+        hassearch=${args.hassearch}
+        inputid=${args.inputid}
+        isfixed=${args.isfixed}
+        isopen=${args.isopen}
+        items=${JSON.stringify(args.items)}
+        label=${args.label}
+        maxcheckableitems=${args.maxcheckableitems}
+        hasgroupitems=${args.hasgroupitems}
+        noresultslabel=${args.noresultslabel}
+        searchlabel=${args.searchlabel}
+        searchplaceholder=${args.searchplaceholder}
+        searchtitle=${args.searchtitle}
+        uncheckalltext=${args.uncheckalltext}
+      />`
+    }
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
+# ZCombobox with groups
+
+<Canvas>
+  <Story
+    name="z-combobox with groups"
+    args={{
+      items: [
+        {id: "item_1", name: "First item", checked: false, category: "Gruppo 1"},
+        {id: "item_2", name: "Second item", checked: false, category: "Gruppo 1"},
+        {id: "item_3", name: "Other item", checked: false, category: "Gruppo 2"},
+        {id: "item_5", name: "And another item", checked: false, category: "Gruppo 3"},
+        {id: "item_6", name: "And another one", checked: false, category: "Gruppo 3"},
+        {id: "item_7", name: "Last item", checked: false, category: "Gruppo 4"},
+      ],
+      hasgroupitems: true,
+    }}
+  >
+    {(args) =>
+      html` <z-combobox
+        checkalltext=${args.checkalltext}
+        closesearchtext=${args.closesearchtext}
+        hascheckall=${args.hascheckall}
+        hassearch=${args.hassearch}
+        inputid=${args.inputid}
+        isfixed=${args.isfixed}
+        isopen=${args.isopen}
+        items=${JSON.stringify(args.items)}
+        label=${args.label}
+        maxcheckableitems=${args.maxcheckableitems}
+        hasgroupitems=${args.hasgroupitems}
+        noresultslabel=${args.noresultslabel}
+        searchlabel=${args.searchlabel}
+        searchplaceholder=${args.searchplaceholder}
+        searchtitle=${args.searchtitle}
+        uncheckalltext=${args.uncheckalltext}
+      />`
+    }
+  </Story>
+</Canvas>
 
 <Props of="z-combobox" />

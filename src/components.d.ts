@@ -262,13 +262,13 @@ export namespace Components {
          */
         "closesearchtext"?: string;
         /**
-          * group items by category
-         */
-        "hasGroupItems"?: boolean;
-        /**
           * show "check all" checkbox (optional)
          */
         "hascheckall"?: boolean;
+        /**
+          * group items by category
+         */
+        "hasgroupitems"?: boolean;
         /**
           * show search input flag (optional)
          */
@@ -2825,13 +2825,13 @@ declare namespace LocalJSX {
          */
         "closesearchtext"?: string;
         /**
-          * group items by category
-         */
-        "hasGroupItems"?: boolean;
-        /**
           * show "check all" checkbox (optional)
          */
         "hascheckall"?: boolean;
+        /**
+          * group items by category
+         */
+        "hasgroupitems"?: boolean;
         /**
           * show search input flag (optional)
          */
