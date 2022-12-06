@@ -16,7 +16,7 @@ export class ZButton {
 
   /** defines a string value that labels an interactive element, used for accessibility. */
   @Prop({reflect: true})
-  ariaLabel: string = "";
+  ariaLabel = "";
 
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()

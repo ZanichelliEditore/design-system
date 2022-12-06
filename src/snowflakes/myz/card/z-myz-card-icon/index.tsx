@@ -16,7 +16,7 @@ export class ZMyzCardIcon {
 
   /** description of the icon*/
   @Prop()
-  ariaLabel: string = "";
+  ariaLabel = "";
 
   render(): HTMLButtonElement {
     return (
