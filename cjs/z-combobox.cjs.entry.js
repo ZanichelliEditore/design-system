@@ -127,6 +127,9 @@ const ZCombobox = class {
     }
     return (index.h("div", { class: this.searchValue && "search", tabindex: -1 }, this.renderList(this.renderItemsList), this.searchValue && this.renderCloseButton()));
   }
+  renderItem(item, index$2, length) {
+    return (index.h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: index$2 !== length - 1 }, index.h("z-input", { type: index$1.InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter })));
+  }
   renderList(items) {
     if (!items) {
       return;
@@ -134,9 +137,26 @@ const ZCombobox = class {
     if (!items.length && this.searchValue) {
       return this.renderNoSearchResults();
     }
+    if (this.hasgroupitems) {
+      return this.renderGroups(this.itemsList);
+    }
     return (index.h("ul", null, items.map((item, i) => {
-      return (index.h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i !== items.length - 1 }, index.h("z-input", { type: index$1.InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter })));
+      return this.renderItem(item, i, items.length);
     })));
+  }
+  renderGroups(items) {
+    const newData = items.reduce((group, item, index) => {
+      var _a;
+      const { category } = item;
+      const zListItem = this.renderItem(item, index, items.length);
+      group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
+      group[category].push(zListItem);
+      return group;
+    }, {});
+    const listGroups = Object.entries(newData).map(([key, value]) => {
+      return (index.h("z-list-group", { "divider-type": index$1.ListDividerType.ELEMENT }, index.h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
+    });
+    return index.h("ul", null, listGroups);
   }
   renderNoSearchResults() {
     return (index.h("ul", null, index.h("z-myz-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));

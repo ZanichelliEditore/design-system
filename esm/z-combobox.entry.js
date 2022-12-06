@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h } from './index-a2ca4b97.js';
-import { I as InputType, K as KeyboardKeyCode } from './index-968a240f.js';
+import { I as InputType, K as KeyboardKeyCode, k as ListDividerType } from './index-968a240f.js';
 import { h as handleKeyboardSubmit } from './utils-ccb4d66f.js';
 import './breakpoints-c386984e.js';
 
@@ -123,6 +123,9 @@ const ZCombobox = class {
     }
     return (h("div", { class: this.searchValue && "search", tabindex: -1 }, this.renderList(this.renderItemsList), this.searchValue && this.renderCloseButton()));
   }
+  renderItem(item, index, length) {
+    return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: index !== length - 1 }, h("z-input", { type: InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter })));
+  }
   renderList(items) {
     if (!items) {
       return;
@@ -130,9 +133,26 @@ const ZCombobox = class {
     if (!items.length && this.searchValue) {
       return this.renderNoSearchResults();
     }
+    if (this.hasgroupitems) {
+      return this.renderGroups(this.itemsList);
+    }
     return (h("ul", null, items.map((item, i) => {
-      return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: i !== items.length - 1 }, h("z-input", { type: InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter })));
+      return this.renderItem(item, i, items.length);
     })));
+  }
+  renderGroups(items) {
+    const newData = items.reduce((group, item, index) => {
+      var _a;
+      const { category } = item;
+      const zListItem = this.renderItem(item, index, items.length);
+      group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
+      group[category].push(zListItem);
+      return group;
+    }, {});
+    const listGroups = Object.entries(newData).map(([key, value]) => {
+      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
+    });
+    return h("ul", null, listGroups);
   }
   renderNoSearchResults() {
     return (h("ul", null, h("z-myz-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));

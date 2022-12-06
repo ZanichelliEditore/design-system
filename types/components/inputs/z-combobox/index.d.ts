@@ -31,6 +31,8 @@ export declare class ZCombobox {
   uncheckalltext?: string;
   /** max number of checkable items (0 = unlimited) */
   maxcheckableitems: number;
+  /** group items by category */
+  hasgroupitems?: boolean;
   searchValue: string;
   selectedCounter: number;
   renderItemsList: ComboItem[];
@@ -52,7 +54,9 @@ export declare class ZCombobox {
   private renderHeader;
   private renderContent;
   private renderItems;
+  private renderItem;
   private renderList;
+  private renderGroups;
   private renderNoSearchResults;
   private renderCloseButton;
   private renderSearchInput;

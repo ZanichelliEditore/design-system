@@ -62,6 +62,7 @@ export declare class ZSelect {
   private scrollToLetter;
   private renderInput;
   private renderSelectUl;
+  private renderItem;
   private renderSelectUlItems;
   private renderSelectGroupItems;
   private renderNoSearchResults;

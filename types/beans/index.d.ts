@@ -79,6 +79,7 @@ export declare type ComboItem = {
   id: string;
   name: string;
   checked: boolean;
+  category?: string;
 };
 export declare enum ButtonVariant {
   PRIMARY = "primary",
