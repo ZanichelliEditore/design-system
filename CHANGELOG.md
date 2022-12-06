@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.5.0](https://github.com/ZanichelliEditore/design-system/compare/v6.4.0...v6.5.0) (2022-12-06)
+
+
+### Features
+
+* add dark-default theme ([49ed9da](https://github.com/ZanichelliEditore/design-system/commit/49ed9daab124f3f5934c0ab737bad51183526d37))
+
 ## [6.4.0](https://github.com/ZanichelliEditore/design-system/compare/v6.3.4...v6.4.0) (2022-12-06)
 
 
