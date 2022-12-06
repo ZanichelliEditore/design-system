@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/ZanichelliEditore/design-system/compare/v6.3.4...v6.4.0) (2022-12-06)
+
+
+### Features
+
+* added groups to z-combobox ([4a98d92](https://github.com/ZanichelliEditore/design-system/commit/4a98d92ea515315806924e480680257f7b5d95b8))
+
 ### [6.3.4](https://github.com/ZanichelliEditore/design-system/compare/v6.3.3...v6.3.4) (2022-12-01)
 
 
