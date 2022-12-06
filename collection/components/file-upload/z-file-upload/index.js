@@ -47,8 +47,9 @@ export class ZFileUpload {
     return this.files;
   }
   getType() {
-    if (getDevice() !== Device.DESKTOP)
+    if (getDevice() !== Device.DESKTOP) {
       return ZFileUploadType.DEFAULT;
+    }
     return this.type;
   }
   handleAccessibility() {

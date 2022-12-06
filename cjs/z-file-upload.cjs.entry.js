@@ -57,8 +57,9 @@ const ZFileUpload = class {
     return this.files;
   }
   getType() {
-    if (utils.getDevice() !== index$1.Device.DESKTOP)
+    if (utils.getDevice() !== index$1.Device.DESKTOP) {
       return index$1.ZFileUploadType.DEFAULT;
+    }
     return this.type;
   }
   handleAccessibility() {
