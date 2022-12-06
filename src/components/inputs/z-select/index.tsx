@@ -363,10 +363,31 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
-            {this.hasGroupItems ? this.renderSelectGroupItems() : this.renderSelectUlItems()}
+            {this.renderSelectUlItems()}
           </z-list>
         </div>
       </div>
+    );
+  }
+
+  private renderItem(item: SelectItem, key: number, lastItem: boolean): HTMLZListElementElement {
+    return (
+      <z-list-element
+        clickable={!item.disabled}
+        disabled={item.disabled}
+        dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
+        role="option"
+        tabindex={item.disabled || !this.isOpen ? -1 : 0}
+        aria-selected={!!item.selected}
+        id={`${this.htmlid}_${key}`}
+        onClickItem={() => this.selectItem(item, true)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+      >
+        <span
+          class={{selected: !!item.selected}}
+          innerHTML={item.name}
+        />
+      </z-list-element>
     );
   }
 
@@ -375,56 +396,22 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
+    if (this.hasGroupItems) {
+      return this.renderSelectGroupItems();
+    }
+
     return this.itemsList.map((item: SelectItem, key, array) => {
       const lastItem = array.length === key + 1;
 
-      return (
-        <z-list-element
-          clickable={!item.disabled}
-          disabled={item.disabled}
-          dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
-          role="option"
-          tabindex={item.disabled || !this.isOpen ? -1 : 0}
-          aria-selected={!!item.selected}
-          id={`${this.htmlid}_${key}`}
-          onClickItem={() => this.selectItem(item, true)}
-          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
-        >
-          <span
-            class={{selected: !!item.selected}}
-            innerHTML={item.name}
-          />
-        </z-list-element>
-      );
+      return this.renderItem(item, key, lastItem);
     });
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
-    if (!this.itemsList.length) {
-      return this.renderNoSearchResults();
-    }
-
     const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
       const lastItem = array.length === index + 1;
-      const zListItem = (
-        <z-list-element
-          clickable={!item.disabled}
-          disabled={item.disabled}
-          dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
-          role="option"
-          tabindex={item.disabled || !this.isOpen ? -1 : 0}
-          aria-selected={!!item.selected}
-          id={`${this.htmlid}_${index}`}
-          onClickItem={() => this.selectItem(item, true)}
-          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
-        >
-          <span
-            class={{selected: !!item.selected}}
-            innerHTML={item.name}
-          />
-        </z-list-element>
-      );
+      const zListItem = this.renderItem(item, index, lastItem);
 
       group[category] = group[category] ?? [];
       group[category].push(zListItem);

@@ -1,7 +1,8 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, KeyboardKeyCode} from "../../../beans";
+import {ComboItem, InputType, KeyboardKeyCode, ListDividerType} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
+import {ZMyzListItem} from "../../../snowflakes/myz/list/z-myz-list-item";
 
 @Component({
   tag: "z-combobox",
@@ -68,6 +69,10 @@ export class ZCombobox {
   /** max number of checkable items (0 = unlimited) */
   @Prop()
   maxcheckableitems = 0;
+
+  /** group items by category */
+  @Prop()
+  hasgroupitems?: boolean;
 
   @State()
   searchValue: string;
@@ -148,7 +153,6 @@ export class ZCombobox {
     if (!value) {
       return this.closeFilterItems();
     }
-
     this.searchValue = value;
 
     this.resetRenderItemsList();
@@ -244,6 +248,25 @@ export class ZCombobox {
     );
   }
 
+  private renderItem(item: ComboItem, index: number, length: number): ZMyzListItem {
+    return (
+      <z-myz-list-item
+        id={item.id}
+        listitemid={item.id}
+        action={`combo-li-${this.inputid}`}
+        underlined={index !== length - 1}
+      >
+        <z-input
+          type={InputType.CHECKBOX}
+          checked={item.checked}
+          htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
+          label={item.name}
+          disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
+        />
+      </z-myz-list-item>
+    );
+  }
+
   private renderList(items: ComboItem[]): HTMLUListElement {
     if (!items) {
       return;
@@ -252,28 +275,47 @@ export class ZCombobox {
       return this.renderNoSearchResults();
     }
 
+    if (this.hasgroupitems) {
+      return this.renderGroups(this.itemsList);
+    }
+
     return (
       <ul>
         {items.map((item, i) => {
-          return (
-            <z-myz-list-item
-              id={item.id}
-              listitemid={item.id}
-              action={`combo-li-${this.inputid}`}
-              underlined={i !== items.length - 1}
-            >
-              <z-input
-                type={InputType.CHECKBOX}
-                checked={item.checked}
-                htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
-                label={item.name}
-                disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
-              />
-            </z-myz-list-item>
-          );
+          return this.renderItem(item, i, items.length);
         })}
       </ul>
     );
+  }
+
+  private renderGroups(items: ComboItem[]): HTMLUListElement {
+    const newData = items.reduce((group, item, index) => {
+      const {category} = item;
+      const zListItem = this.renderItem(item, index, items.length);
+
+      group[category] = group[category] ?? [];
+      group[category].push(zListItem);
+
+      return group;
+    }, {});
+
+    const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+      return (
+        <z-list-group divider-type={ListDividerType.ELEMENT}>
+          <z-body
+            class="z-list-group-title"
+            level={3}
+            slot="header-title"
+            variant="semibold"
+          >
+            {key}
+          </z-body>
+          {value.map((item) => item)}
+        </z-list-group>
+      );
+    });
+
+    return <ul>{listGroups}</ul>;
   }
 
   private renderNoSearchResults(): HTMLUListElement {
