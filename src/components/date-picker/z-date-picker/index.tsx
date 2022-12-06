@@ -20,7 +20,7 @@ export class ZDatePicker {
 
   /** z-input aria label */
   @Prop()
-  ariaLabel: string = "";
+  ariaLabel = "";
 
   /** z-input label */
   @Prop()

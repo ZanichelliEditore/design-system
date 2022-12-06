@@ -30,7 +30,7 @@ export class ZInput {
 
   /** the input aria-label */
   @Prop()
-  ariaLabel: string = "";
+  ariaLabel = "";
 
   /** the input value */
   @Prop({mutable: true})

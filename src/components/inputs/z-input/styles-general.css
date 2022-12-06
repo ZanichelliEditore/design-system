@@ -21,7 +21,7 @@ textarea,
   border: var(--border-size-small) solid var(--color-surface04);
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
-  color: var(--color-text02);
+  color: var(--color-text01);
   fill: var(--color-icon02);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
@@ -37,7 +37,7 @@ input:focus:focus-visible,
 
 input:focus:focus-visible,
 textarea:focus:focus-visible {
-  color: var(--color-primary01);
+  color: var(--color-primary02);
 }
 
 /* FILLED */
