@@ -44,6 +44,7 @@ export class ZOffcanvas {
 
   private handleOpenStatus(): void {
     if (this.open) {
+      this.hostElement.style.opacity = "0";
       this.hostElement.style.display = "flex";
     } else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
       this.hostElement.style.display = "none";
@@ -60,12 +61,19 @@ export class ZOffcanvas {
     }
   }
 
+  private handleAnimationStart(): void {
+    if (this.hostElement.hasAttribute("open")) {
+      this.hostElement.style.opacity = "1";
+    }
+  }
+
   render(): HTMLZOffcanvasElement {
     return (
       <Host>
         <div
           class="canvas-container"
           onAnimationEnd={() => this.handleAnimationEnd()}
+          onAnimationStart={() => this.handleAnimationStart()}
         >
           <div class="canvas-content">
             <slot name="canvasContent"></slot>
