@@ -194,7 +194,6 @@ Type: `Promise<boolean>`
 
  - [z-combobox](../z-combobox)
  - [z-date-picker](../../date-picker/z-date-picker)
- - [z-modal-login](../../modal/z-modal-login)
  - [z-pagination](../../z-pagination)
  - [z-range-picker](../../date-picker/z-range-picker)
  - [z-select](../z-select)
@@ -212,7 +211,6 @@ graph TD;
   z-input-message --> z-icon
   z-combobox --> z-input
   z-date-picker --> z-input
-  z-modal-login --> z-input
   z-pagination --> z-input
   z-range-picker --> z-input
   z-select --> z-input

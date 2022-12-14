@@ -818,28 +818,6 @@ export namespace Components {
          */
         "modaltitle"?: string;
     }
-    interface ZModalLogin {
-        /**
-          * Forgot Password Url
-         */
-        "forgotPasswordUrl": string;
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Password helper message
-         */
-        "pwdmessage"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatus;
-    }
     interface ZMyzCard {
         /**
           * graphic variant (optional)
@@ -1801,10 +1779,6 @@ export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZModalElement;
 }
-export interface ZModalLoginCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZModalLoginElement;
-}
 export interface ZMyzCardAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMyzCardAlertElement;
@@ -2127,12 +2101,6 @@ declare global {
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
-    };
-    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
-    }
-    var HTMLZModalLoginElement: {
-        prototype: HTMLZModalLoginElement;
-        new (): HTMLZModalLoginElement;
     };
     interface HTMLZMyzCardElement extends Components.ZMyzCard, HTMLStencilElement {
     }
@@ -2492,7 +2460,6 @@ declare global {
         "z-menu-section": HTMLZMenuSectionElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
-        "z-modal-login": HTMLZModalLoginElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
         "z-myz-card-body": HTMLZMyzCardBodyElement;
@@ -3456,44 +3423,6 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
-    }
-    interface ZModalLogin {
-        /**
-          * Forgot Password Url
-         */
-        "forgotPasswordUrl"?: string;
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Emitted on login submit
-         */
-        "onLoginSubmit"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on signup button click
-         */
-        "onSignupClick"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on status update
-         */
-        "onStatusUpdate"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on zaino digitale button click
-         */
-        "onZainoDigitaleClick"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Password helper message
-         */
-        "pwdmessage"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatus;
     }
     interface ZMyzCard {
         /**
@@ -4511,7 +4440,6 @@ declare namespace LocalJSX {
         "z-menu-section": ZMenuSection;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
-        "z-modal-login": ZModalLogin;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
         "z-myz-card-body": ZMyzCardBody;
@@ -4610,7 +4538,6 @@ declare module "@stencil/core" {
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
-            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
             "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
