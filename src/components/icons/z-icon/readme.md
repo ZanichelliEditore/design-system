@@ -73,7 +73,6 @@
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)
- - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
@@ -117,7 +116,6 @@ graph TD;
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
-  z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

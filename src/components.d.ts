@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType, MenuItem } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem as MenuItem1, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1656,28 +1656,6 @@ export namespace Components {
          */
         "variant": "regular" | "semibold" | "light";
     }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menuContent"?: string | MenuItem1[];
-        /**
-          * if inner components colors are inverted, or not, default false
-         */
-        "useInverseColors"?: boolean;
-        /**
-          * user email
-         */
-        "userEmail"?: string;
-        /**
-          * user full name
-         */
-        "userFullName"?: string;
-    }
     interface ZVisuallyHidden {
     }
 }
@@ -1840,10 +1818,6 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
-}
-export interface ZUserDropdownCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZUserDropdownElement;
 }
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
@@ -2380,12 +2354,6 @@ declare global {
         prototype: HTMLZTypographyElement;
         new (): HTMLZTypographyElement;
     };
-    interface HTMLZUserDropdownElement extends Components.ZUserDropdown, HTMLStencilElement {
-    }
-    var HTMLZUserDropdownElement: {
-        prototype: HTMLZUserDropdownElement;
-        new (): HTMLZUserDropdownElement;
-    };
     interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
     }
     var HTMLZVisuallyHiddenElement: {
@@ -2482,7 +2450,6 @@ declare global {
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
-        "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
@@ -4317,36 +4284,6 @@ declare namespace LocalJSX {
          */
         "variant"?: "regular" | "semibold" | "light";
     }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menuContent"?: string | MenuItem1[];
-        /**
-          * Emitted on dropdown menu zlink click, returns event
-         */
-        "onDropdownMenuLinkClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
-        /**
-          * Emitted on enter or user Button click, returns isMenuOpen (bool)
-         */
-        "onUserButtonClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
-        /**
-          * if inner components colors are inverted, or not, default false
-         */
-        "useInverseColors"?: boolean;
-        /**
-          * user email
-         */
-        "userEmail"?: string;
-        /**
-          * user full name
-         */
-        "userFullName"?: string;
-    }
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -4439,7 +4376,6 @@ declare namespace LocalJSX {
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
-        "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -4536,7 +4472,6 @@ declare module "@stencil/core" {
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
-            "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
