@@ -49,7 +49,6 @@
 
 ### Used by
 
- - [z-app-topbar](../z-app-topbar)
  - [z-menu-dropdown](../z-menu-dropdown)
  - [z-panel-elem](../../panel/z-panel-elem)
  - [z-skip-to-content](../../z-skip-to-content)
@@ -63,7 +62,6 @@
 ```mermaid
 graph TD;
   z-link --> z-icon
-  z-app-topbar --> z-link
   z-menu-dropdown --> z-link
   z-panel-elem --> z-link
   z-skip-to-content --> z-link

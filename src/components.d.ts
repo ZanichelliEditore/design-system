@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType, MenuItem } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem as MenuItem1, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -49,28 +49,6 @@ export namespace Components {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariant;
-    }
-    interface ZAppTopbar {
-        /**
-          * maximum width of topbar content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * link URL used by z-logo
-         */
-        "logoLink"?: string;
-        /**
-          * add app-switcher
-         */
-        "showAppSwitcher": boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-        /**
-          * JSON string or MenuItem array to define topbar links
-         */
-        "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
         /**
@@ -774,7 +752,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent": string | MenuItem1[];
+        "menucontent": string | MenuItem[];
         /**
           * user name text
          */
@@ -1686,7 +1664,7 @@ export namespace Components {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menuContent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem1[];
         /**
           * if inner components colors are inverted, or not, default false
          */
@@ -1891,12 +1869,6 @@ declare global {
     var HTMLZAppSwitcherElement: {
         prototype: HTMLZAppSwitcherElement;
         new (): HTMLZAppSwitcherElement;
-    };
-    interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
-    }
-    var HTMLZAppTopbarElement: {
-        prototype: HTMLZAppTopbarElement;
-        new (): HTMLZAppTopbarElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2425,7 +2397,6 @@ declare global {
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
-        "z-app-topbar": HTMLZAppTopbarElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
@@ -2563,28 +2534,6 @@ declare namespace LocalJSX {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariant;
-    }
-    interface ZAppTopbar {
-        /**
-          * maximum width of topbar content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * link URL used by z-logo
-         */
-        "logoLink"?: string;
-        /**
-          * add app-switcher
-         */
-        "showAppSwitcher"?: boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-        /**
-          * JSON string or MenuItem array to define topbar links
-         */
-        "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
         /**
@@ -3360,7 +3309,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menucontent"?: string | MenuItem1[];
+        "menucontent"?: string | MenuItem[];
         /**
           * user name text
          */
@@ -4376,7 +4325,7 @@ declare namespace LocalJSX {
         /**
           * Json stringified or array to fill menu dropdown
          */
-        "menuContent"?: string | MenuItem[];
+        "menuContent"?: string | MenuItem1[];
         /**
           * Emitted on dropdown menu zlink click, returns event
          */
@@ -4405,7 +4354,6 @@ declare namespace LocalJSX {
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
-        "z-app-topbar": ZAppTopbar;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
@@ -4503,7 +4451,6 @@ declare module "@stencil/core" {
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
-            "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;

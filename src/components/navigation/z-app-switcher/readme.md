@@ -19,10 +19,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-app-topbar](../z-app-topbar)
-
 ### Depends on
 
 - [z-icon](../../icons/z-icon)
@@ -31,7 +27,6 @@
 ```mermaid
 graph TD;
   z-app-switcher --> z-icon
-  z-app-topbar --> z-app-switcher
   style z-app-switcher fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

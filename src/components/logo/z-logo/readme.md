@@ -32,19 +32,6 @@
 | `width`       | `width`        | image width                                                      | `number`  | `undefined` |
 
 
-## Dependencies
-
-### Used by
-
- - [z-app-topbar](../../navigation/z-app-topbar)
-
-### Graph
-```mermaid
-graph TD;
-  z-app-topbar --> z-logo
-  style z-logo fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
