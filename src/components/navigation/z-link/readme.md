@@ -49,12 +49,8 @@
 
 ### Used by
 
- - [z-app-topbar](../z-app-topbar)
- - [z-menu-dropdown](../z-menu-dropdown)
- - [z-modal-login](../../modal/z-modal-login)
  - [z-panel-elem](../../panel/z-panel-elem)
  - [z-skip-to-content](../../z-skip-to-content)
- - [z-user-dropdown](../z-user-dropdown)
 
 ### Depends on
 
@@ -64,12 +60,8 @@
 ```mermaid
 graph TD;
   z-link --> z-icon
-  z-app-topbar --> z-link
-  z-menu-dropdown --> z-link
-  z-modal-login --> z-link
   z-panel-elem --> z-link
   z-skip-to-content --> z-link
-  z-user-dropdown --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

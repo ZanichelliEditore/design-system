@@ -51,7 +51,6 @@
  - [z-link](../../navigation/z-link)
  - [z-list-element](../../list/z-list-element)
  - [z-menu](../../navigation/z-menu)
- - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
  - [z-messages-pocket](../../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../../modal/z-modal)
@@ -73,7 +72,6 @@
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)
- - [z-user-dropdown](../../navigation/z-user-dropdown)
 
 ### Graph
 ```mermaid
@@ -95,7 +93,6 @@ graph TD;
   z-link --> z-icon
   z-list-element --> z-icon
   z-menu --> z-icon
-  z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
   z-messages-pocket --> z-icon
   z-modal --> z-icon
@@ -117,7 +114,6 @@ graph TD;
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
-  z-user-dropdown --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

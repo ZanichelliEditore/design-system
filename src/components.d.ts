@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem as MenuItem1 } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, MenuItem, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AlertType, LicenseType } from "./beans/index";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -49,28 +49,6 @@ export namespace Components {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariant;
-    }
-    interface ZAppTopbar {
-        /**
-          * maximum width of topbar content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * link URL used by z-logo
-         */
-        "logoLink"?: string;
-        /**
-          * add app-switcher
-         */
-        "showAppSwitcher": boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-        /**
-          * JSON string or MenuItem array to define topbar links
-         */
-        "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
         /**
@@ -766,20 +744,6 @@ export namespace Components {
          */
         "open": boolean;
     }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid": string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent": string | MenuItem1[];
-        /**
-          * user name text
-         */
-        "nomeutente": string;
-    }
     interface ZMenuSection {
         /**
           * Active state
@@ -817,28 +781,6 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
-    }
-    interface ZModalLogin {
-        /**
-          * Forgot Password Url
-         */
-        "forgotPasswordUrl": string;
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Password helper message
-         */
-        "pwdmessage"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatus;
     }
     interface ZMyzCard {
         /**
@@ -1700,28 +1642,6 @@ export namespace Components {
          */
         "variant": "regular" | "semibold" | "light";
     }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menuContent"?: string | MenuItem[];
-        /**
-          * if inner components colors are inverted, or not, default false
-         */
-        "useInverseColors"?: boolean;
-        /**
-          * user email
-         */
-        "userEmail"?: string;
-        /**
-          * user full name
-         */
-        "userFullName"?: string;
-    }
     interface ZVisuallyHidden {
     }
 }
@@ -1800,10 +1720,6 @@ export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
 export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZModalElement;
-}
-export interface ZModalLoginCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZModalLoginElement;
 }
 export interface ZMyzCardAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1889,10 +1805,6 @@ export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
 }
-export interface ZUserDropdownCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZUserDropdownElement;
-}
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
@@ -1917,12 +1829,6 @@ declare global {
     var HTMLZAppSwitcherElement: {
         prototype: HTMLZAppSwitcherElement;
         new (): HTMLZAppSwitcherElement;
-    };
-    interface HTMLZAppTopbarElement extends Components.ZAppTopbar, HTMLStencilElement {
-    }
-    var HTMLZAppTopbarElement: {
-        prototype: HTMLZAppTopbarElement;
-        new (): HTMLZAppTopbarElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2104,12 +2010,6 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
-    interface HTMLZMenuDropdownElement extends Components.ZMenuDropdown, HTMLStencilElement {
-    }
-    var HTMLZMenuDropdownElement: {
-        prototype: HTMLZMenuDropdownElement;
-        new (): HTMLZMenuDropdownElement;
-    };
     interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
     }
     var HTMLZMenuSectionElement: {
@@ -2127,12 +2027,6 @@ declare global {
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
-    };
-    interface HTMLZModalLoginElement extends Components.ZModalLogin, HTMLStencilElement {
-    }
-    var HTMLZModalLoginElement: {
-        prototype: HTMLZModalLoginElement;
-        new (): HTMLZModalLoginElement;
     };
     interface HTMLZMyzCardElement extends Components.ZMyzCard, HTMLStencilElement {
     }
@@ -2440,12 +2334,6 @@ declare global {
         prototype: HTMLZTypographyElement;
         new (): HTMLZTypographyElement;
     };
-    interface HTMLZUserDropdownElement extends Components.ZUserDropdown, HTMLStencilElement {
-    }
-    var HTMLZUserDropdownElement: {
-        prototype: HTMLZUserDropdownElement;
-        new (): HTMLZUserDropdownElement;
-    };
     interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
     }
     var HTMLZVisuallyHiddenElement: {
@@ -2457,7 +2345,6 @@ declare global {
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
         "z-app-switcher": HTMLZAppSwitcherElement;
-        "z-app-topbar": HTMLZAppTopbarElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
@@ -2488,11 +2375,9 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
-        "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-menu-section": HTMLZMenuSectionElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
-        "z-modal-login": HTMLZModalLoginElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
         "z-myz-card-body": HTMLZMyzCardBodyElement;
@@ -2544,7 +2429,6 @@ declare global {
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-typography": HTMLZTypographyElement;
-        "z-user-dropdown": HTMLZUserDropdownElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
@@ -2596,28 +2480,6 @@ declare namespace LocalJSX {
           * theme variant, default 'dark'
          */
         "theme"?: ThemeVariant;
-    }
-    interface ZAppTopbar {
-        /**
-          * maximum width of topbar content
-         */
-        "contentMaxWidth"?: number;
-        /**
-          * link URL used by z-logo
-         */
-        "logoLink"?: string;
-        /**
-          * add app-switcher
-         */
-        "showAppSwitcher"?: boolean;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-        /**
-          * JSON string or MenuItem array to define topbar links
-         */
-        "topbarContent"?: string | MenuItem[];
     }
     interface ZAriaAlert {
         /**
@@ -3385,20 +3247,6 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid"?: string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent"?: string | MenuItem1[];
-        /**
-          * user name text
-         */
-        "nomeutente"?: string;
-    }
     interface ZMenuSection {
         /**
           * Active state
@@ -3456,44 +3304,6 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
-    }
-    interface ZModalLogin {
-        /**
-          * Forgot Password Url
-         */
-        "forgotPasswordUrl"?: string;
-        /**
-          * Login modal title
-         */
-        "heading"?: string;
-        /**
-          * Username helper message
-         */
-        "message"?: string;
-        /**
-          * Emitted on login submit
-         */
-        "onLoginSubmit"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on signup button click
-         */
-        "onSignupClick"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on status update
-         */
-        "onStatusUpdate"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Emitted on zaino digitale button click
-         */
-        "onZainoDigitaleClick"?: (event: ZModalLoginCustomEvent<any>) => void;
-        /**
-          * Password helper message
-         */
-        "pwdmessage"?: string;
-        /**
-          * Username/password input status
-         */
-        "status"?: InputStatus;
     }
     interface ZMyzCard {
         /**
@@ -4439,36 +4249,6 @@ declare namespace LocalJSX {
          */
         "variant"?: "regular" | "semibold" | "light";
     }
-    interface ZUserDropdown {
-        /**
-          * logged status flag
-         */
-        "logged"?: boolean;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menuContent"?: string | MenuItem[];
-        /**
-          * Emitted on dropdown menu zlink click, returns event
-         */
-        "onDropdownMenuLinkClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
-        /**
-          * Emitted on enter or user Button click, returns isMenuOpen (bool)
-         */
-        "onUserButtonClick"?: (event: ZUserDropdownCustomEvent<any>) => void;
-        /**
-          * if inner components colors are inverted, or not, default false
-         */
-        "useInverseColors"?: boolean;
-        /**
-          * user email
-         */
-        "userEmail"?: string;
-        /**
-          * user full name
-         */
-        "userFullName"?: string;
-    }
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -4476,7 +4256,6 @@ declare namespace LocalJSX {
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
         "z-app-switcher": ZAppSwitcher;
-        "z-app-topbar": ZAppTopbar;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
@@ -4507,11 +4286,9 @@ declare namespace LocalJSX {
         "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
-        "z-menu-dropdown": ZMenuDropdown;
         "z-menu-section": ZMenuSection;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
-        "z-modal-login": ZModalLogin;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
         "z-myz-card-body": ZMyzCardBody;
@@ -4563,7 +4340,6 @@ declare namespace LocalJSX {
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-typography": ZTypography;
-        "z-user-dropdown": ZUserDropdown;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -4575,7 +4351,6 @@ declare module "@stencil/core" {
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
-            "z-app-topbar": LocalJSX.ZAppTopbar & JSXBase.HTMLAttributes<HTMLZAppTopbarElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
@@ -4606,11 +4381,9 @@ declare module "@stencil/core" {
             "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
-            "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
-            "z-modal-login": LocalJSX.ZModalLogin & JSXBase.HTMLAttributes<HTMLZModalLoginElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
             "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
@@ -4662,7 +4435,6 @@ declare module "@stencil/core" {
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
-            "z-user-dropdown": LocalJSX.ZUserDropdown & JSXBase.HTMLAttributes<HTMLZUserDropdownElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
