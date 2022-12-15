@@ -51,7 +51,6 @@
  - [z-link](../../navigation/z-link)
  - [z-list-element](../../list/z-list-element)
  - [z-menu](../../navigation/z-menu)
- - [z-menu-dropdown](../../navigation/z-menu-dropdown)
  - [z-menu-section](../../navigation/z-menu-section)
  - [z-messages-pocket](../../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../../modal/z-modal)
@@ -94,7 +93,6 @@ graph TD;
   z-link --> z-icon
   z-list-element --> z-icon
   z-menu --> z-icon
-  z-menu-dropdown --> z-icon
   z-menu-section --> z-icon
   z-messages-pocket --> z-icon
   z-modal --> z-icon

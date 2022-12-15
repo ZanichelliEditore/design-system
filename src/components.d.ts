@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType, MenuItem } from "./beans/index";
+import { AlertType, LicenseType } from "./beans/index";
 import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
@@ -743,20 +743,6 @@ export namespace Components {
           * @default false
          */
         "open": boolean;
-    }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid": string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent": string | MenuItem[];
-        /**
-          * user name text
-         */
-        "nomeutente": string;
     }
     interface ZMenuSection {
         /**
@@ -2024,12 +2010,6 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
-    interface HTMLZMenuDropdownElement extends Components.ZMenuDropdown, HTMLStencilElement {
-    }
-    var HTMLZMenuDropdownElement: {
-        prototype: HTMLZMenuDropdownElement;
-        new (): HTMLZMenuDropdownElement;
-    };
     interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
     }
     var HTMLZMenuSectionElement: {
@@ -2395,7 +2375,6 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
-        "z-menu-dropdown": HTMLZMenuDropdownElement;
         "z-menu-section": HTMLZMenuSectionElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
@@ -3267,20 +3246,6 @@ declare namespace LocalJSX {
           * @default false
          */
         "open"?: boolean;
-    }
-    interface ZMenuDropdown {
-        /**
-          * unique button id
-         */
-        "buttonid"?: string;
-        /**
-          * Json stringified or array to fill menu dropdown
-         */
-        "menucontent"?: string | MenuItem[];
-        /**
-          * user name text
-         */
-        "nomeutente"?: string;
     }
     interface ZMenuSection {
         /**
@@ -4321,7 +4286,6 @@ declare namespace LocalJSX {
         "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
-        "z-menu-dropdown": ZMenuDropdown;
         "z-menu-section": ZMenuSection;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
@@ -4417,7 +4381,6 @@ declare module "@stencil/core" {
             "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
-            "z-menu-dropdown": LocalJSX.ZMenuDropdown & JSXBase.HTMLAttributes<HTMLZMenuDropdownElement>;
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
