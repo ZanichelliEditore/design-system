@@ -25,6 +25,7 @@ export class ZOffcanvas {
   }
   handleOpenStatus() {
     if (this.open) {
+      this.hostElement.style.opacity = "0";
       this.hostElement.style.display = "flex";
     }
     else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
@@ -41,8 +42,13 @@ export class ZOffcanvas {
       document.body.style.overflowX = "initial";
     }
   }
+  handleAnimationStart() {
+    if (this.hostElement.hasAttribute("open")) {
+      this.hostElement.style.opacity = "1";
+    }
+  }
   render() {
-    return (h(Host, null, h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))), h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
+    return (h(Host, null, h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd(), onAnimationStart: () => this.handleAnimationStart() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))), h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
   }
   static get is() { return "z-offcanvas"; }
   static get encapsulation() { return "scoped"; }

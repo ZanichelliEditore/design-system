@@ -30,9 +30,9 @@ const ZTableRow = class {
   }
   render() {
     return (index.h(index.Host, { role: "row", expanded: this.expanded, onClick: (event) => {
-        const contextualMenuClick = event.target.nodeName === "Z-CONTEXTUAL-MENU";
+        const preventExpand = event.target.classList.contains("prevent-expand");
         const isExpandable = this.expandedType === index$1.ZTableRowExpandedType.EXPANDABLE;
-        if (isExpandable && !contextualMenuClick) {
+        if (isExpandable && !preventExpand) {
           this.handleExpand();
         }
       } }, this.expandedType !== index$1.ZTableRowExpandedType.NONE && this.renderExpandButton(), index.h("slot", null)));

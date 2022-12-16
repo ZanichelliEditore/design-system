@@ -31,6 +31,7 @@ const ZOffcanvas = class {
   }
   handleOpenStatus() {
     if (this.open) {
+      this.hostElement.style.opacity = "0";
       this.hostElement.style.display = "flex";
     }
     else if (this.variant === index$1.OffCanvasVariant.PUSHCONTENT) {
@@ -47,8 +48,13 @@ const ZOffcanvas = class {
       document.body.style.overflowX = "initial";
     }
   }
+  handleAnimationStart() {
+    if (this.hostElement.hasAttribute("open")) {
+      this.hostElement.style.opacity = "1";
+    }
+  }
   render() {
-    return (index.h(index.Host, null, index.h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd() }, index.h("div", { class: "canvas-content" }, index.h("slot", { name: "canvasContent" }))), index.h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
+    return (index.h(index.Host, null, index.h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd(), onAnimationStart: () => this.handleAnimationStart() }, index.h("div", { class: "canvas-content" }, index.h("slot", { name: "canvasContent" }))), index.h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
   }
   get hostElement() { return index.getElement(this); }
   static get watchers() { return {

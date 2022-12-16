@@ -21,5 +21,6 @@ export declare class ZOffcanvas {
   onOpenChanged(): void;
   private handleOpenStatus;
   private handleAnimationEnd;
+  private handleAnimationStart;
   render(): HTMLZOffcanvasElement;
 }
