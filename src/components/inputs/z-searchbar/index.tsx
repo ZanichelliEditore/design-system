@@ -1,6 +1,6 @@
 import {Component, Event, EventEmitter, h, Host, Prop, State, Watch} from "@stencil/core";
 import {ListDividerType, SearchbarItem} from "../../../beans";
-import {randomId} from "../../../utils/utils";
+import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 
 @Component({
   tag: "z-searchbar",
@@ -48,19 +48,21 @@ export class ZSearchbar {
 
   /** Emitted on search submit, return search string */
   @Event()
-  seachSubmit: EventEmitter;
+  searchSubmit: EventEmitter;
 
-  // private emitSearchSubmit(search: string): void {
-  //   this.searchSubmit.emit(search);
-  // }
+  private emitSearchSubmit(): void {
+    console.log("emitSearchSubmit", this.searchString);
+    this.searchSubmit.emit(this.searchString);
+  }
 
   /** Emitted on search typing, return search string */
   @Event()
   searchTyping: EventEmitter;
 
-  // private emitSearchTyping(search: string): void {
-  //   this.searchTyping.emit(search);
-  // }
+  private emitSearchTyping(search: string): void {
+    console.log("emitSearchTyping", search);
+    this.searchTyping.emit(search);
+  }
 
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
@@ -71,6 +73,11 @@ export class ZSearchbar {
     this.resultsItemsList = this.getResultsItemsList();
   }
 
+  @Watch("searchString")
+  watchSearchString(): void {
+    this.emitSearchTyping(this.searchString);
+  }
+
   private getResultsItemsList(): SearchbarItem[] | undefined {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
   }
@@ -79,11 +86,22 @@ export class ZSearchbar {
     return !!(this.resultsCount && this.searchString && this.resultsItemsList?.length);
   }
 
+  private handleStopTyping(e: CustomEvent): void {
+    e.stopPropagation();
+    if (e.detail.value.length >= this.autocompleteMinChars) {
+      this.searchString = e.detail.value.length;
+    } else if (this.searchString) {
+      this.searchString = "";
+    }
+  }
+
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
         message={false}
         placeholder={this.placeholder}
+        onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
+        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.emitSearchSubmit())}
       />
     );
   }
@@ -91,7 +109,7 @@ export class ZSearchbar {
   private renderButton(): null | HTMLZButtonElement {
     if (this.preventSubmit) return null;
 
-    return <z-button>CERCA</z-button>;
+    return <z-button onClick={() => this.emitSearchSubmit()}>CERCA</z-button>;
   }
 
   private renderResults(): HTMLDivElement | null {
@@ -150,7 +168,7 @@ export class ZSearchbar {
         tabindex={0}
         dividerType={ListDividerType.ELEMENT}
         id={`list-item-${this.id}-search`}
-        // onClickItem={() => }
+        onClickItem={() => this.emitSearchSubmit()}
       >
         <span class="item item-search">
           <z-icon

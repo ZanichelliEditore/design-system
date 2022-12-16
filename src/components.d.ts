@@ -4111,7 +4111,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on search submit, return search string
          */
-        "onSeachSubmit"?: (event: ZSearchbarCustomEvent<any>) => void;
+        "onSearchSubmit"?: (event: ZSearchbarCustomEvent<any>) => void;
         /**
           * Emitted on search typing, return search string
          */
