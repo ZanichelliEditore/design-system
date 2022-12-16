@@ -25,7 +25,7 @@ export class ZSearchbar {
   autocompleteMinChars?: number = 3;
 
   /** Number of results shown - default all */
-  @Prop()
+  @Prop({mutable: true})
   resultsCount?: number;
 
   /** Truncate results to single row */
@@ -41,7 +41,7 @@ export class ZSearchbar {
   resultsItems?: SearchbarItem[] | string;
 
   @State()
-  searchString: string = "sdsadsa";
+  searchString: string = "";
 
   private id: string = randomId();
   private resultsItemsList: SearchbarItem[] | undefined = null;
@@ -75,6 +75,10 @@ export class ZSearchbar {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
   }
 
+  private hasShowAllResultsLink(): boolean {
+    return !!(this.resultsCount && this.searchString && this.resultsItemsList?.length);
+  }
+
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
@@ -102,24 +106,27 @@ export class ZSearchbar {
           id={`list-${this.id}`}
         >
           {this.renderSearchHelper()}
-          {this.resultsItemsList.map((item: SearchbarItem, key, array) => {
-            const lastItem = array.length === key + 1;
+          {this.resultsItemsList
+            .map((item: SearchbarItem, key, array) => {
+              const divider = key + 1 < array.length || this.hasShowAllResultsLink();
 
-            return this.renderResultsItem(item, key, lastItem);
-          })}
+              return this.renderResultsItem(item, key, divider);
+            })
+            .slice(0, this.resultsCount)}
+          {this.renderShowAllResults()}
         </z-list>
       </div>
     );
   }
 
-  private renderResultsItem(item: SearchbarItem, key: number, lastItem: boolean): HTMLZListElementElement {
+  private renderResultsItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
     return (
       <z-list-element
         role="option"
         tabindex={0}
-        dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
+        dividerType={divider ? ListDividerType.ELEMENT : undefined}
         id={`list-item-${this.id}-${key}`}
-        // onClickItem={() => }
+        onClickItem={() => (window.location.href = item.link)}
       >
         <span class={{item: true, ellipsis: this.resultsEllipsis}}>
           {item?.icon && (
@@ -151,6 +158,23 @@ export class ZSearchbar {
             name="left-magnifying-glass"
           />
           <span class="item-label">{this.searchHelperLabel.replace("{searchString}", this.searchString)}</span>
+        </span>
+      </z-list-element>
+    );
+  }
+
+  private renderShowAllResults(): HTMLZListElement | null {
+    if (!this.hasShowAllResultsLink()) return null;
+
+    return (
+      <z-list-element
+        role="option"
+        tabindex={0}
+        id={`list-item-${this.id}-show-all`}
+        onClickItem={() => (this.resultsCount = undefined)}
+      >
+        <span class="item-show-all">
+          <z-link>Vedi tutti i risultati</z-link>
         </span>
       </z-list-element>
     );

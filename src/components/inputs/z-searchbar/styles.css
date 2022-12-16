@@ -1,3 +1,5 @@
+/* TODO: handle absolute search results */
+
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -33,6 +35,25 @@
   border-top: none;
   margin-top: -1px;
   padding: 0 calc(var(--space-unit) * 1.5);
+  max-height: 540px;
+  overflow: auto;
+  scrollbar-color: var(--color-primary01) transparent;
+}
+
+:host > div > div.results::-webkit-scrollbar {
+  width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
+  border-radius: var(--border-radius);
+}
+
+:host > div > div.results::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+:host > div > div.results::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--color-primary01);
+  border-radius: var(--border-radius);
 }
 
 :host > div > div.results .item {
