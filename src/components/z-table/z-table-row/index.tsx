@@ -51,10 +51,10 @@ export class ZTableRow {
         role="row"
         expanded={this.expanded}
         onClick={(event) => {
-          const contextualMenuClick = event.target.nodeName === "Z-CONTEXTUAL-MENU";
+          const preventExpand = event.target.classList.contains("prevent-expand");
           const isExpandable = this.expandedType === ZTableRowExpandedType.EXPANDABLE;
 
-          if (isExpandable && !contextualMenuClick) {
+          if (isExpandable && !preventExpand) {
             this.handleExpand();
           }
         }}
