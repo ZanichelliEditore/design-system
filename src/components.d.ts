@@ -1337,13 +1337,17 @@ export namespace Components {
     }
     interface ZSearchbar {
         /**
+          * Show autocomplete results
+         */
+        "autocomplete"?: boolean;
+        /**
           * Minimun number of characters to dispatch typing event
          */
         "autocompleteMinChars"?: number;
         /**
-          * Show autocomplete results
+          * Search input placeholder
          */
-        "automplete"?: boolean;
+        "placeholder"?: string;
         /**
           * Show simple input without submit button
          */
@@ -1359,7 +1363,7 @@ export namespace Components {
         /**
           * Autocomplete results items
          */
-        "resultsItems"?: SearchbarItem[];
+        "resultsItems"?: SearchbarItem[] | string;
     }
     interface ZSectionTitle {
         /**
@@ -4093,21 +4097,25 @@ declare namespace LocalJSX {
     }
     interface ZSearchbar {
         /**
+          * Show autocomplete results
+         */
+        "autocomplete"?: boolean;
+        /**
           * Minimun number of characters to dispatch typing event
          */
         "autocompleteMinChars"?: number;
-        /**
-          * Show autocomplete results
-         */
-        "automplete"?: boolean;
         /**
           * Emitted on search submit, return search string
          */
         "onSeachSubmit"?: (event: ZSearchbarCustomEvent<any>) => void;
         /**
-          * Emitted when user stops typing, return search string
+          * Emitted on search typing, return search string
          */
         "onSearchTyping"?: (event: ZSearchbarCustomEvent<any>) => void;
+        /**
+          * Search input placeholder
+         */
+        "placeholder"?: string;
         /**
           * Show simple input without submit button
          */
@@ -4123,7 +4131,7 @@ declare namespace LocalJSX {
         /**
           * Autocomplete results items
          */
-        "resultsItems"?: SearchbarItem[];
+        "resultsItems"?: SearchbarItem[] | string;
     }
     interface ZSectionTitle {
         /**
