@@ -1364,6 +1364,10 @@ export namespace Components {
           * Autocomplete results items
          */
         "resultsItems"?: SearchbarItem[] | string;
+        /**
+          * Search helper text
+         */
+        "searchHelperLabel"?: string;
     }
     interface ZSectionTitle {
         /**
@@ -4132,6 +4136,10 @@ declare namespace LocalJSX {
           * Autocomplete results items
          */
         "resultsItems"?: SearchbarItem[] | string;
+        /**
+          * Search helper text
+         */
+        "searchHelperLabel"?: string;
     }
     interface ZSectionTitle {
         /**

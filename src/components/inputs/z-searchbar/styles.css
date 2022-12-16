@@ -60,6 +60,15 @@
   padding: 2px 0;
 }
 
+:host > div > div.results .item.item-search {
+  --z-icon-height: 16px;
+  --z-icon-width: 16px;
+}
+
+:host > div > div.results .item.item-search > z-icon {
+  margin-right: var(--space-unit);
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host > div > div.results .item {
@@ -67,6 +76,11 @@
     --z-icon-width: 12px;
     font-size: 16px;
     line-height: 24px;
+  }
+
+  :host > div > div.results .item.item-search {
+    --z-icon-height: 18px;
+    --z-icon-width: 18px;
   }
 
   :host > div > div.results .item.ellipsis > span.item-label {
