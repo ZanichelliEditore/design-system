@@ -1,20 +1,24 @@
-/* TODO: handle absolute search results */
-
 :host {
+  display: inline-block;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  position: relative;
+  z-index: 5;
+  height: 44px;
+  width: inherit;
+
+  background: grey;
+  margin: 20px 0;
 }
 
 :host > div {
-  display: inline-block;
-  width: inherit;
   display: grid;
   gap: 0 calc(var(--space-unit) * 2);
   grid-template-columns: auto;
   grid-template-rows: auto;
-
-  background: grey;
-  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
 }
 
 :host > div.has-submit {

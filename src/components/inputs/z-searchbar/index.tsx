@@ -83,16 +83,38 @@ export class ZSearchbar {
   }
 
   private hasShowAllResultsLink(): boolean {
+    console.log(this.resultsCount, this.searchString, this.resultsItemsList?.length);
     return !!(this.resultsCount && this.searchString && this.resultsItemsList?.length);
+  }
+
+  private getGroupedItems(items: SearchbarItem[]): any | any[] {
+    let groupedItems = {};
+    items.forEach((item) => {
+      let key = `${item?.category}${item?.subcategory}`;
+      groupedItems[key] = groupedItems[key] ?? {
+        category: item?.category,
+        subcategory: item?.subcategory,
+        items: [],
+      };
+      groupedItems[key]["items"].push(item);
+    });
+
+    return groupedItems;
   }
 
   private handleStopTyping(e: CustomEvent): void {
     e.stopPropagation();
     if (e.detail.value.length >= this.autocompleteMinChars) {
-      this.searchString = e.detail.value.length;
+      this.searchString = e.detail.value;
     } else if (this.searchString) {
       this.searchString = "";
     }
+  }
+
+  private handleSubmit(): void {
+    if (this.preventSubmit) return;
+
+    this.emitSearchSubmit();
   }
 
   private renderInput(): HTMLZInputElement {
@@ -101,7 +123,7 @@ export class ZSearchbar {
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.emitSearchSubmit())}
+        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.handleSubmit())}
       />
     );
   }
@@ -109,12 +131,14 @@ export class ZSearchbar {
   private renderButton(): null | HTMLZButtonElement {
     if (this.preventSubmit) return null;
 
-    return <z-button onClick={() => this.emitSearchSubmit()}>CERCA</z-button>;
+    return <z-button onClick={() => this.handleSubmit()}>CERCA</z-button>;
   }
 
   private renderResults(): HTMLDivElement | null {
-    if (!this.autocomplete) return null;
+    if (!this.autocomplete || this.searchString.length < this.autocompleteMinChars) return null;
     if (!this.resultsItemsList || !this.resultsItemsList?.length) return null;
+
+    // TODO: handle outside click
 
     return (
       <div class="results">
@@ -124,16 +148,64 @@ export class ZSearchbar {
           id={`list-${this.id}`}
         >
           {this.renderSearchHelper()}
-          {this.resultsItemsList
+          {/* {this.resultsItemsList
             .map((item: SearchbarItem, key, array) => {
               const divider = key + 1 < array.length || this.hasShowAllResultsLink();
 
               return this.renderResultsItem(item, key, divider);
             })
-            .slice(0, this.resultsCount)}
+            .slice(0, this.resultsCount)} */}
+          {this.renderResultsGroupedItems()}
+
           {this.renderShowAllResults()}
         </z-list>
       </div>
+    );
+  }
+
+  private renderResultsGroupedItems() {
+    const groupedItems = this.getGroupedItems(this.resultsItemsList);
+    let counter = 0;
+
+    const listGroups = [];
+    Object.values(groupedItems).forEach((groupItem: any) => {
+      let elems = [];
+      groupItem.items.forEach((item: SearchbarItem, key) => {
+        if (!this.resultsCount || counter < this.resultsCount) {
+          // TODO: check divider
+          elems.push(this.renderResultsItem(item, key, true));
+        }
+        counter++;
+      });
+
+      if (elems.length) {
+        listGroups.push(
+          <z-list-group divider-type={ListDividerType.ELEMENT}>
+            <z-body
+              class="z-list-group-title"
+              level={3}
+              slot="header-title"
+              variant="semibold"
+            >
+              {(!this.resultsCount || counter < this.resultsCount) && this.renderCategoryHeading(groupItem)}
+            </z-body>
+            {elems}
+          </z-list-group>
+        );
+      }
+    });
+
+    return listGroups;
+  }
+
+  private renderCategoryHeading(groupItem: any) {
+    if (!groupItem.category) return;
+    return (
+      <span style={{color: "red"}}>
+        {groupItem.category}
+        <br />
+        {groupItem.subcategory}
+      </span>
     );
   }
 
