@@ -51,7 +51,7 @@ export class ZSearchbar {
 
   /** Emitted on search submit, return search string */
   @Event()
-  searchSubmit: EventEmitter;
+  searchSubmit: EventEmitter<string>;
 
   private emitSearchSubmit(): void {
     console.log("emitSearchSubmit", this.searchString);
@@ -60,11 +60,20 @@ export class ZSearchbar {
 
   /** Emitted on search typing, return search string */
   @Event()
-  searchTyping: EventEmitter;
+  searchTyping: EventEmitter<string>;
 
   private emitSearchTyping(search: string): void {
     console.log("emitSearchTyping", search);
     this.searchTyping.emit(search);
+  }
+
+  /** Emitted on search result click, return item */
+  @Event()
+  searchItemClick: EventEmitter<SearchbarItem>;
+
+  private emitSearchItemClick(item: SearchbarItem): void {
+    console.log("emitSearchItemClick", item);
+    this.searchItemClick.emit(item);
   }
 
   componentWillLoad() {
@@ -126,6 +135,11 @@ export class ZSearchbar {
     if (this.preventSubmit) return;
 
     this.emitSearchSubmit();
+  }
+
+  private handleItemClick(item: SearchbarItem): void {
+    this.emitSearchItemClick(item);
+    window.location.href = item.link;
   }
 
   private renderInput(): HTMLZInputElement {
@@ -203,7 +217,7 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
-        onClickItem={() => (window.location.href = item.link)}
+        onClickItem={() => this.handleItemClick(item)}
       >
         <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
           {item?.icon && (

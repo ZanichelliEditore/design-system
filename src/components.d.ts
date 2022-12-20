@@ -4109,13 +4109,17 @@ declare namespace LocalJSX {
          */
         "autocompleteMinChars"?: number;
         /**
+          * Emitted on search result click, return item
+         */
+        "onSearchItemClick"?: (event: ZSearchbarCustomEvent<SearchbarItem>) => void;
+        /**
           * Emitted on search submit, return search string
          */
-        "onSearchSubmit"?: (event: ZSearchbarCustomEvent<any>) => void;
+        "onSearchSubmit"?: (event: ZSearchbarCustomEvent<string>) => void;
         /**
           * Emitted on search typing, return search string
          */
-        "onSearchTyping"?: (event: ZSearchbarCustomEvent<any>) => void;
+        "onSearchTyping"?: (event: ZSearchbarCustomEvent<string>) => void;
         /**
           * Search input placeholder
          */
