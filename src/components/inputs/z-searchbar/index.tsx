@@ -212,10 +212,19 @@ export class ZSearchbar {
               name={item.icon}
             />
           )}
-          <span class="item-label">{item.label}</span>
+          <span
+            class="item-label"
+            innerHTML={this.renderItemLabel(item.label)}
+          />
         </span>
       </z-list-element>
     );
+  }
+
+  private renderItemLabel(label: string): string {
+    if (!this.searchString) return label;
+
+    return label.replace(new RegExp(this.searchString, "gmi"), (found) => `<mark>${found}</mark>`);
   }
 
   private renderResultsItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {

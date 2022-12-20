@@ -103,6 +103,10 @@
   overflow: hidden;
 }
 
+:host > div > div.results .item > span.item-label > mark {
+  background: var(--color-primary03);
+}
+
 :host > div > div.results .item.has-category {
   padding-left: calc(var(--space-unit) * 3);
 }
