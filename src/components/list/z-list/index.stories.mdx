@@ -10,13 +10,15 @@ import "./index";
     size: {
       control: {type: "select"},
       options: Object.values(ListSize),
-      defaultValue: ListSize.MEDIUM,
     },
     listType: {
       control: {type: "select"},
       options: Object.values(ListType),
-      defaultValue: ListType.NONE,
     },
+  }}
+  args={{
+    size: ListSize.MEDIUM,
+    listType: ListType.NONE
   }}
 />
 

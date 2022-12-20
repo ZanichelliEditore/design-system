@@ -10,27 +10,29 @@ import "./index";
     size: {
       control: {type: "select"},
       options: Object.values(ListSize),
-      defaultValue: ListSize.SMALL,
     },
     dividerType: {
       control: {type: "select"},
       options: Object.values(ListDividerType),
-      defaultValue: ListDividerType.HEADER,
     },
     dividerSize: {
       control: {type: "select"},
       options: Object.values(DividerSize),
-      defaultValue: DividerSize.SMALL,
     },
     dividerColor: {
       control: {type: "text"},
-      defaultValue: "gray200",
     },
     listType: {
       control: {type: "select"},
       options: Object.values(ListType),
-      defaultValue: ListType.NONE,
     },
+  }}
+  argTypes={{
+    size: ListSize.SMALL,
+    dividerType: ListDividerType.HEADER,
+    dividerSize: DividerSize.SMALL,
+    dividerColor: "gray200",
+    listType: ListType.NONE,
   }}
 />
 

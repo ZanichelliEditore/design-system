@@ -11,83 +11,85 @@ import "./index";
   argTypes={{
     items: {
       control: {type: "object"},
-      defaultValue: [
-        {
-          id: "item_1",
-          name: "first item",
-          selected: false,
-        },
-        {
-          id: "item_2",
-          name: "second item",
-          selected: true,
-        },
-        {
-          id: "item_3",
-          name: "disabled item",
-          selected: false,
-          disabled: true,
-        },
-        {
-          id: "item_4",
-          name: "fourth item",
-          selected: false,
-        },
-      ],
     },
     label: {
       control: {type: "text"},
-      defaultValue: "this is the label",
     },
     ariaLabel: {
       control: {type: "text"},
-      defaultValue: "",
     },
     placeholder: {
       control: {type: "text"},
-      defaultValue: "select placeholder",
     },
     name: {
       control: {type: "text"},
-      defaultValue: "",
     },
     status: {
       control: {type: "select"},
       options: ["-", ...Object.values(InputStatus)],
-      defaultValue: "-",
     },
     message: {
       control: {type: "text"},
-      defaultValue: "helper text",
     },
     disabled: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     readonly: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     htmlid: {
       control: {type: "text"},
-      defaultValue: "",
     },
     htmltitle: {
       control: {type: "text"},
-      defaultValue: "",
     },
     autocomplete: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     noresultslabel: {
       control: {type: "text"},
-      defaultValue: "Nessun risultato",
     },
     hasListGroups: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
+  }}
+  args={{
+    items: [
+      {
+        id: "item_1",
+        name: "first item",
+        selected: false,
+      },
+      {
+        id: "item_2",
+        name: "second item",
+        selected: true,
+      },
+      {
+        id: "item_3",
+        name: "disabled item",
+        selected: false,
+        disabled: true,
+      },
+      {
+        id: "item_4",
+        name: "fourth item",
+        selected: false,
+      },
+    ],
+    label: "this is the label",
+    ariaLabel: "",
+    placeholder: "select placeholder",
+    name: "",
+    status: "-",
+    message: "helper text",
+    disabled: false,
+    readonly: false,
+    htmlid: "",
+    htmltitle: "",
+    autocomplete: false,
+    noresultslabel: "Nessun risultato",
+    hasListGroups: false
   }}
 />
 
