@@ -1345,6 +1345,10 @@ export namespace Components {
          */
         "autocompleteMinChars"?: number;
         /**
+          * the id of the searchbar element
+         */
+        "htmlid": string;
+        /**
           * Search input placeholder
          */
         "placeholder"?: string;
@@ -4108,6 +4112,10 @@ declare namespace LocalJSX {
           * Minimun number of characters to dispatch typing event
          */
         "autocompleteMinChars"?: number;
+        /**
+          * the id of the searchbar element
+         */
+        "htmlid"?: string;
         /**
           * Emitted on search result click, return item
          */

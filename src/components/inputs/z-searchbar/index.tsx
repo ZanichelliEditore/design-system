@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, h, Prop, State, Watch} from "@stencil/core";
+import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
 import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 
@@ -8,6 +8,10 @@ import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
   shadow: true,
 })
 export class ZSearchbar {
+  /** the id of the searchbar element */
+  @Prop({reflect: true})
+  htmlid: string = `searchbar-${randomId()}`;
+
   /** Show simple input without submit button */
   @Prop()
   preventSubmit?: boolean = false;
@@ -46,7 +50,9 @@ export class ZSearchbar {
   @State()
   currResultsCount: number = 0;
 
-  private id: string = randomId();
+  @State()
+  showResults: boolean = false;
+
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
   /** Emitted on search submit, return search string */
@@ -76,11 +82,6 @@ export class ZSearchbar {
     this.searchItemClick.emit(item);
   }
 
-  componentWillLoad() {
-    this.resultsItemsList = this.getResultsItemsList();
-    this.currResultsCount = this.resultsCount;
-  }
-
   @Watch("resultsItems")
   watchItems(): void {
     this.resultsItemsList = this.getResultsItemsList();
@@ -95,6 +96,16 @@ export class ZSearchbar {
   watchSearchString(): void {
     this.emitSearchTyping(this.searchString);
     if (!this.searchString) this.currResultsCount = this.resultsCount;
+  }
+
+  @Listen("click", {target: "document"})
+  clickListener(e: MouseEvent): void {
+    this.handleOutsideClick(e);
+  }
+
+  componentWillLoad() {
+    this.resultsItemsList = this.getResultsItemsList();
+    this.currResultsCount = this.resultsCount;
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {
@@ -142,6 +153,23 @@ export class ZSearchbar {
     window.location.href = item.link;
   }
 
+  private handleOutsideClick(e: MouseEvent): void {
+    const cp = e.composedPath();
+
+    const searchbar = cp.find((elem: HTMLElement) => elem.nodeName === "Z-SEARCHBAR");
+    if (!searchbar || (searchbar as HTMLZSearchbarElement).htmlid !== this.htmlid) {
+      this.showResults = false;
+      return;
+    }
+
+    if (cp.find((elem: HTMLElement) => elem?.nodeName === "Z-INPUT" || elem?.classList?.contains("results"))) {
+      this.showResults = true;
+      return;
+    }
+
+    this.showResults = false;
+  }
+
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
@@ -160,17 +188,15 @@ export class ZSearchbar {
   }
 
   private renderResults(): HTMLDivElement | null {
+    if (!this.showResults) return null;
     if (!this.autocomplete || this.searchString.length < this.autocompleteMinChars) return null;
     if (!this.resultsItemsList || !this.resultsItemsList?.length) return null;
-
-    // TODO: handle outside click
 
     return (
       <div class="results">
         <z-list
           role="listbox"
-          tabindex={0}
-          id={`list-${this.id}`}
+          id={`list-${this.htmlid}`}
         >
           {this.renderSearchHelper()}
           {this.renderResultsItems()}
@@ -213,7 +239,7 @@ export class ZSearchbar {
   private renderResultsItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
     return (
       <z-list-element
-        id={`list-item-${this.id}-${key}`}
+        id={`list-item-${this.htmlid}-${key}`}
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
@@ -262,7 +288,7 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={ListDividerType.ELEMENT}
-        id={`list-item-${this.id}-search`}
+        id={`list-item-${this.htmlid}-search`}
         onClickItem={() => this.emitSearchSubmit()}
       >
         <span class="item item-search">
@@ -283,7 +309,7 @@ export class ZSearchbar {
       <z-list-element
         role="option"
         tabindex={0}
-        id={`list-item-${this.id}-show-all`}
+        id={`list-item-${this.htmlid}-show-all`}
         onClickItem={() => (this.currResultsCount = 0)}
       >
         <span class="item-show-all">
@@ -295,11 +321,16 @@ export class ZSearchbar {
 
   render(): HTMLZSearchbarElement {
     return (
-      <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
-        {this.renderInput()}
-        {this.renderButton()}
-        {this.renderResults()}
-      </div>
+      <Host
+        onFocus={() => (this.showResults = true)}
+        onClick={(e) => this.handleOutsideClick(e)}
+      >
+        <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
+          {this.renderInput()}
+          {this.renderResults()}
+          {this.renderButton()}
+        </div>
+      </Host>
     );
   }
 }

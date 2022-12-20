@@ -6,9 +6,6 @@
   z-index: 5;
   height: 44px;
   width: inherit;
-
-  background: grey;
-  margin: 20px 0;
 }
 
 :host > div {
@@ -30,10 +27,19 @@
 }
 
 :host > div > z-input {
+  grid-column: 1;
+  grid-row: 1;
   width: 100%;
 }
 
+:host > div > z-button {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 :host > div > div.results {
+  grid-column: 1;
+  grid-row: 2;
   background: var(--color-surface01);
   border: var(--border-size-small) solid var(--color-surface03);
   border-top: none;
@@ -81,6 +87,14 @@
   color: var(--color-text01);
   text-transform: uppercase;
   margin-top: 8px;
+}
+
+:host > div > div.results z-list-element {
+  display: block;
+}
+
+:host > div > div.results z-list-element:focus {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host > div > div.results .item {
