@@ -416,3 +416,13 @@ export type SearchbarItem = {
   category?: string;
   subcategory?: string;
 };
+
+export type SearchbarGroupedItem = {
+  [key: string]: SearchbarGroup;
+};
+
+export type SearchbarGroup = {
+  items: SearchbarItem[];
+  category?: string;
+  subcategory?: string;
+};

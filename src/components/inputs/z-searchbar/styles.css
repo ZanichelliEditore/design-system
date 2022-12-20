@@ -1,5 +1,5 @@
 :host {
-  display: inline-block;
+  display: block;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   position: relative;
@@ -38,7 +38,8 @@
   border: var(--border-size-small) solid var(--color-surface03);
   border-top: none;
   margin-top: -1px;
-  padding: 0 calc(var(--space-unit) * 1.5);
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  padding-bottom: 0;
   max-height: 540px;
   overflow: auto;
   scrollbar-color: var(--color-primary01) transparent;
@@ -58,6 +59,28 @@
   width: 10px;
   background-color: var(--color-primary01);
   border-radius: var(--border-radius);
+}
+
+:host > div > div.results .category-heading {
+  display: block;
+  font-weight: var(--font-rg);
+  font-size: 14px;
+  line-height: 16px;
+}
+
+:host > div > div.results .category-heading > * {
+  display: block;
+}
+
+:host > div > div.results span.category-heading > span.category {
+  color: var(--color-text05);
+  font-style: italic;
+}
+
+:host > div > div.results span.category-heading > span.subcategory {
+  color: var(--color-text01);
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
 :host > div > div.results .item {
@@ -80,6 +103,10 @@
   overflow: hidden;
 }
 
+:host > div > div.results .item.has-category {
+  padding-left: calc(var(--space-unit) * 3);
+}
+
 :host > div > div.results .item > z-icon.item-icon {
   margin-right: calc(var(--space-unit) * 1.5);
   padding: 2px 0;
@@ -94,8 +121,18 @@
   margin-right: var(--space-unit);
 }
 
+:host > div > div.results .item-show-all {
+  display: block;
+  text-align: center;
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+  :host > div > div.results .category-heading {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   :host > div > div.results .item {
     --z-icon-height: 12px;
     --z-icon-width: 12px;

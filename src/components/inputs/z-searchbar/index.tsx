@@ -1,5 +1,5 @@
-import {Component, Event, EventEmitter, h, Host, Prop, State, Watch} from "@stencil/core";
-import {ListDividerType, SearchbarItem} from "../../../beans";
+import {Component, Event, EventEmitter, h, Prop, State, Watch} from "@stencil/core";
+import {ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
 import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 
 @Component({
@@ -43,6 +43,9 @@ export class ZSearchbar {
   @State()
   searchString: string = "";
 
+  @State()
+  currResultsCount: number = 0;
+
   private id: string = randomId();
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
@@ -66,6 +69,7 @@ export class ZSearchbar {
 
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
+    this.currResultsCount = this.resultsCount;
   }
 
   @Watch("resultsItems")
@@ -73,23 +77,24 @@ export class ZSearchbar {
     this.resultsItemsList = this.getResultsItemsList();
   }
 
+  @Watch("resultsCount")
+  watchResultsCount(): void {
+    this.currResultsCount = this.resultsCount;
+  }
+
   @Watch("searchString")
   watchSearchString(): void {
     this.emitSearchTyping(this.searchString);
+    if (!this.searchString) this.currResultsCount = this.resultsCount;
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
   }
 
-  private hasShowAllResultsLink(): boolean {
-    console.log(this.resultsCount, this.searchString, this.resultsItemsList?.length);
-    return !!(this.resultsCount && this.searchString && this.resultsItemsList?.length);
-  }
-
-  private getGroupedItems(items: SearchbarItem[]): any | any[] {
+  private getGroupedItems(items: SearchbarItem[]): SearchbarGroupedItem {
     let groupedItems = {};
-    items.forEach((item) => {
+    items.forEach((item: SearchbarItem) => {
       let key = `${item?.category}${item?.subcategory}`;
       groupedItems[key] = groupedItems[key] ?? {
         category: item?.category,
@@ -100,6 +105,12 @@ export class ZSearchbar {
     });
 
     return groupedItems;
+  }
+
+  private checkResultsCount(counter: number): boolean {
+    if (!this.currResultsCount) return true;
+    if (counter < this.currResultsCount) return true;
+    return false;
   }
 
   private handleStopTyping(e: CustomEvent): void {
@@ -128,7 +139,7 @@ export class ZSearchbar {
     );
   }
 
-  private renderButton(): null | HTMLZButtonElement {
+  private renderButton(): HTMLZButtonElement | null {
     if (this.preventSubmit) return null;
 
     return <z-button onClick={() => this.handleSubmit()}>CERCA</z-button>;
@@ -148,77 +159,53 @@ export class ZSearchbar {
           id={`list-${this.id}`}
         >
           {this.renderSearchHelper()}
-          {/* {this.resultsItemsList
-            .map((item: SearchbarItem, key, array) => {
-              const divider = key + 1 < array.length || this.hasShowAllResultsLink();
-
-              return this.renderResultsItem(item, key, divider);
-            })
-            .slice(0, this.resultsCount)} */}
-          {this.renderResultsGroupedItems()}
-
+          {this.renderResultsItems()}
           {this.renderShowAllResults()}
         </z-list>
       </div>
     );
   }
 
-  private renderResultsGroupedItems() {
+  private renderResultsItems(): HTMLZListGroupElement[] {
     const groupedItems = this.getGroupedItems(this.resultsItemsList);
-    let counter = 0;
+    const listGroups: HTMLZListGroupElement[] = [];
+    let counter: number = 0;
 
-    const listGroups = [];
-    Object.values(groupedItems).forEach((groupItem: any) => {
-      let elems = [];
-      groupItem.items.forEach((item: SearchbarItem, key) => {
-        if (!this.resultsCount || counter < this.resultsCount) {
-          // TODO: check divider
-          elems.push(this.renderResultsItem(item, key, true));
+    Object.values(groupedItems).forEach((groupItem: SearchbarGroup, index: number, array) => {
+      if (this.checkResultsCount(counter)) {
+        let listGroupsElements: HTMLZListElement[] = [];
+        groupItem.items.forEach((item: SearchbarItem, subindex: number, subarray) => {
+          if (this.checkResultsCount(counter)) {
+            const isLast = index === array.length - 1 && subindex === subarray.length - 1;
+            listGroupsElements.push(this.renderResultsItem(item, subindex, !isLast));
+          }
+          counter++;
+        });
+
+        if (listGroupsElements.length) {
+          listGroups.push(
+            <z-list-group divider-type={ListDividerType.ELEMENT}>
+              {this.renderResultsItemCategory(groupItem)}
+              {listGroupsElements}
+            </z-list-group>
+          );
         }
-        counter++;
-      });
-
-      if (elems.length) {
-        listGroups.push(
-          <z-list-group divider-type={ListDividerType.ELEMENT}>
-            <z-body
-              class="z-list-group-title"
-              level={3}
-              slot="header-title"
-              variant="semibold"
-            >
-              {(!this.resultsCount || counter < this.resultsCount) && this.renderCategoryHeading(groupItem)}
-            </z-body>
-            {elems}
-          </z-list-group>
-        );
       }
     });
 
     return listGroups;
   }
 
-  private renderCategoryHeading(groupItem: any) {
-    if (!groupItem.category) return;
-    return (
-      <span style={{color: "red"}}>
-        {groupItem.category}
-        <br />
-        {groupItem.subcategory}
-      </span>
-    );
-  }
-
   private renderResultsItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
     return (
       <z-list-element
+        id={`list-item-${this.id}-${key}`}
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
-        id={`list-item-${this.id}-${key}`}
         onClickItem={() => (window.location.href = item.link)}
       >
-        <span class={{item: true, ellipsis: this.resultsEllipsis}}>
+        <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
           {item?.icon && (
             <z-icon
               class="item-icon"
@@ -228,6 +215,19 @@ export class ZSearchbar {
           <span class="item-label">{item.label}</span>
         </span>
       </z-list-element>
+    );
+  }
+
+  private renderResultsItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {
+    if (!groupItem?.category) return null;
+    return (
+      <span
+        class="category-heading"
+        slot="header-title"
+      >
+        <span class="category">{groupItem.category}</span>
+        {groupItem?.subcategory && <span class="subcategory">{groupItem.subcategory}</span>}
+      </span>
     );
   }
 
@@ -254,14 +254,14 @@ export class ZSearchbar {
   }
 
   private renderShowAllResults(): HTMLZListElement | null {
-    if (!this.hasShowAllResultsLink()) return null;
+    if (!this.currResultsCount || !this.searchString || !this.resultsItemsList?.length) return null;
 
     return (
       <z-list-element
         role="option"
         tabindex={0}
         id={`list-item-${this.id}-show-all`}
-        onClickItem={() => (this.resultsCount = undefined)}
+        onClickItem={() => (this.currResultsCount = 0)}
       >
         <span class="item-show-all">
           <z-link>Vedi tutti i risultati</z-link>
@@ -272,13 +272,11 @@ export class ZSearchbar {
 
   render(): HTMLZSearchbarElement {
     return (
-      <Host>
-        <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
-          {this.renderInput()}
-          {this.renderButton()}
-          {this.renderResults()}
-        </div>
-      </Host>
+      <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
+        {this.renderInput()}
+        {this.renderButton()}
+        {this.renderResults()}
+      </div>
     );
   }
 }
