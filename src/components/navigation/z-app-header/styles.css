@@ -1,4 +1,5 @@
 :host {
+  --app-header-content-max-width: 100%;
   --app-header-height: auto;
   --app-header-typography-1-size: 24px;
   --app-header-typography-2-size: 28px;
@@ -38,7 +39,7 @@
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
 
   /**
-   * Variable to set stucked header and drawer's top offset. Useful when something is absolutely positioned above the header.
+   * Variable to set stuck header and drawer's top offset. Useful when something is absolutely positioned above the header.
    */
   --app-header-top-offset: 48px;
   --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
@@ -46,13 +47,13 @@
   /* Variable to customize header background color. */
   --app-header-bg: var(--color-white);
 
-  /* Variable to customize stucked header background color. */
+  /* Variable to customize stuck header background color. */
   --app-header-stucked-bg: var(--color-white);
 
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--gray800);
 
-  /* Variable to customize stucked header's text and icon color. */
+  /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--gray800);
 
   display: block;
@@ -68,13 +69,15 @@
   position: relative;
   display: flex;
   width: 100%;
+  max-width: var(--app-header-content-max-width);
   height: var(--app-header-height);
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
   align-items: baseline;
   justify-content: flex-start;
-  padding: calc(var(--space-unit) * 2) var(--grid-mobile-margin);
+  padding: var(--grid-margin);
+  margin: 0 auto;
   background: var(--app-header-bg);
 }
 
@@ -93,25 +96,29 @@
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 1.5));
 }
 
-.heading-stucked {
+.heading-stuck {
   position: fixed;
   z-index: 20;
   top: var(--app-header-top-offset);
   left: 0;
-  display: flex;
   width: 100%;
   max-width: 100%;
-  flex-direction: row;
-  padding: var(--space-unit) var(--grid-mobile-margin);
-  animation: slide-stucked-heading-in 250ms ease-out;
+  animation: slide-stuck-heading-in 250ms ease-out;
   background: var(--app-header-stucked-bg);
   box-shadow: var(--shadow-2);
   color: var(--app-header-stucked-text-color);
 }
 
-.heading-stucked .heading-title,
-.heading-stucked .heading-title > *,
-.heading-stucked .heading-title ::slotted([slot="stucked-title"]) {
+.heading-stuck-content {
+  display: flex;
+  max-width: var(--app-header-content-max-width);
+  padding: var(--space-unit) var(--grid-margin);
+  margin: 0 auto;
+}
+
+.heading-stuck .heading-title,
+.heading-stuck .heading-title > *,
+.heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
   display: block;
   overflow: hidden;
   line-height: 1.2;
@@ -119,7 +126,7 @@
   white-space: nowrap;
 }
 
-.heading-stucked .heading-title > *,
+.heading-stuck .heading-title > *,
 ::slotted([slot="title"]),
 ::slotted([slot="stucked-title"]) {
   margin: 0;
@@ -342,16 +349,7 @@
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
-  .heading-panel {
-    padding: calc(var(--space-unit) * 3) var(--grid-tablet-margin);
-  }
-
-  .heading-stucked {
-    padding-right: var(--grid-tablet-margin);
-    padding-left: var(--grid-tablet-margin);
-  }
-
+@media (min-width: 768px) {
   :host(:not([flow="offcanvas"])) .heading-subtitle {
     padding-left: 0;
   }
@@ -379,19 +377,13 @@
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
-  .heading-panel,
-  .heading-stucked {
-    padding-right: var(--grid-desktop-margin);
-    padding-left: var(--grid-desktop-margin);
-  }
-
+@media (min-width: 1152px) {
   :host(:not([flow="stack"])) .heading-panel {
     flex-flow: row wrap;
   }
 
   ::slotted([slot="title"]) {
-    margin-right: var(--grid-desktop-gutter);
+    margin-right: var(--grid-gutter);
     font-size: var(--app-header-typography-7-size);
     letter-spacing: var(--app-header-typography-7-tracking);
   }
@@ -406,15 +398,8 @@
 }
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
-  .heading-panel,
-  .heading-stucked {
-    padding-right: var(--grid-wide-margin);
-    padding-left: var(--grid-wide-margin);
-  }
-
+@media (min-width: 1366px) {
   ::slotted([slot="title"]) {
-    margin-right: var(--grid-wide-gutter);
     font-size: var(--app-header-typography-9-size);
     letter-spacing: var(--app-header-typography-9-tracking);
   }
@@ -424,7 +409,7 @@
   }
 }
 
-@keyframes slide-stucked-heading-in {
+@keyframes slide-stuck-heading-in {
   0% {
     transform: translate3d(0, -100%, 0);
   }
