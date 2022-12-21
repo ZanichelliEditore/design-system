@@ -16,18 +16,18 @@
 
 ## Events
 
-| Event      | Description                                            | Type               |
-| ---------- | ------------------------------------------------------ | ------------------ |
-| `sticking` | Emitted when the `stucked` state of the header changes | `CustomEvent<any>` |
+| Event      | Description                                          | Type               |
+| ---------- | ---------------------------------------------------- | ------------------ |
+| `sticking` | Emitted when the `stuck` state of the header changes | `CustomEvent<any>` |
 
 
 ## Slots
 
-| Slot              | Description                                                                      |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `"stucked-title"` | Title for the stucked header. By default it uses the text from the `title` slot. |
-| `"subtitle"`      |                                                                                  |
-| `"title"`         |                                                                                  |
+| Slot              | Description                                                                    |
+| ----------------- | ------------------------------------------------------------------------------ |
+| `"stucked-title"` | Title for the stuck header. By default it uses the text from the `title` slot. |
+| `"subtitle"`      | Slot for the subtitle. It will not appear in stuck header.                     |
+| `"title"`         | Slot for the main title                                                        |
 
 
 ## Dependencies

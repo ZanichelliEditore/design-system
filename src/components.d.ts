@@ -2459,7 +2459,7 @@ declare namespace LocalJSX {
          */
         "hero"?: string;
         /**
-          * Emitted when the `stucked` state of the header changes
+          * Emitted when the `stuck` state of the header changes
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
