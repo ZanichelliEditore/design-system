@@ -39,6 +39,7 @@ export declare class ZCombobox {
   private itemsList;
   private inputType;
   watchItems(): void;
+  watchSearchValue(): void;
   inputCheckListener(e: CustomEvent): void;
   /** Emitted when value is checked/unchecked. Returns id, items. */
   comboboxChange: EventEmitter;
@@ -46,6 +47,7 @@ export declare class ZCombobox {
   constructor();
   componentWillLoad(): void;
   componentWillRender(): void;
+  private updateRenderItemsList;
   private resetRenderItemsList;
   private filterItems;
   private checkAll;

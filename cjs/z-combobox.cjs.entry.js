@@ -40,12 +40,10 @@ const ZCombobox = class {
   watchItems() {
     this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
-    if (this.searchValue) {
-      this.filterItems(this.searchValue);
-    }
-    else {
-      this.resetRenderItemsList();
-    }
+    this.updateRenderItemsList();
+  }
+  watchSearchValue() {
+    this.filterItems(this.searchValue);
   }
   inputCheckListener(e) {
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
@@ -58,7 +56,7 @@ const ZCombobox = class {
       }
       return item;
     });
-    this.resetRenderItemsList();
+    this.updateRenderItemsList();
     this.emitComboboxChange();
   }
   emitComboboxChange() {
@@ -69,8 +67,13 @@ const ZCombobox = class {
   }
   componentWillRender() {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
+  }
+  updateRenderItemsList() {
     if (this.searchValue) {
       this.filterItems(this.searchValue);
+    }
+    else {
+      this.resetRenderItemsList();
     }
   }
   resetRenderItemsList() {
@@ -84,7 +87,6 @@ const ZCombobox = class {
     if (!value) {
       return this.closeFilterItems();
     }
-    this.searchValue = value;
     this.resetRenderItemsList();
     this.renderItemsList = this.renderItemsList.filter((item) => {
       const start = item.name.toUpperCase().indexOf(value.toUpperCase());
@@ -172,7 +174,7 @@ const ZCombobox = class {
         if (e.detail.keycode === 27) {
           return this.closeFilterItems();
         }
-        this.filterItems(e.detail.value);
+        this.searchValue = e.detail.value;
       } }));
   }
   renderCheckAll() {
@@ -186,7 +188,8 @@ const ZCombobox = class {
     return (index.h("div", { "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed }, id: this.inputid }, this.renderHeader(), this.renderContent()));
   }
   static get watchers() { return {
-    "items": ["watchItems"]
+    "items": ["watchItems"],
+    "searchValue": ["watchSearchValue"]
   }; }
 };
 ZCombobox.style = stylesCss;

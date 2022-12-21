@@ -30,12 +30,10 @@ export class ZCombobox {
   watchItems() {
     this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
-    if (this.searchValue) {
-      this.filterItems(this.searchValue);
-    }
-    else {
-      this.resetRenderItemsList();
-    }
+    this.updateRenderItemsList();
+  }
+  watchSearchValue() {
+    this.filterItems(this.searchValue);
   }
   inputCheckListener(e) {
     const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
@@ -48,7 +46,7 @@ export class ZCombobox {
       }
       return item;
     });
-    this.resetRenderItemsList();
+    this.updateRenderItemsList();
     this.emitComboboxChange();
   }
   emitComboboxChange() {
@@ -59,8 +57,13 @@ export class ZCombobox {
   }
   componentWillRender() {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
+  }
+  updateRenderItemsList() {
     if (this.searchValue) {
       this.filterItems(this.searchValue);
+    }
+    else {
+      this.resetRenderItemsList();
     }
   }
   resetRenderItemsList() {
@@ -74,7 +77,6 @@ export class ZCombobox {
     if (!value) {
       return this.closeFilterItems();
     }
-    this.searchValue = value;
     this.resetRenderItemsList();
     this.renderItemsList = this.renderItemsList.filter((item) => {
       const start = item.name.toUpperCase().indexOf(value.toUpperCase());
@@ -162,7 +164,7 @@ export class ZCombobox {
         if (e.detail.keycode === 27) {
           return this.closeFilterItems();
         }
-        this.filterItems(e.detail.value);
+        this.searchValue = e.detail.value;
       } }));
   }
   renderCheckAll() {
@@ -506,6 +508,9 @@ export class ZCombobox {
     return [{
         "propName": "items",
         "methodName": "watchItems"
+      }, {
+        "propName": "searchValue",
+        "methodName": "watchSearchValue"
       }];
   }
   static get listeners() {
