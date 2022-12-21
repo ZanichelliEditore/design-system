@@ -44,6 +44,10 @@ export class ZSearchbar {
   @Prop()
   resultsItems?: SearchbarItem[] | string;
 
+  /** Sort autocomplete results items */
+  @Prop()
+  sortResultsItems?: boolean = false;
+
   @State()
   searchString: string = "";
 
@@ -60,7 +64,6 @@ export class ZSearchbar {
   searchSubmit: EventEmitter<string>;
 
   private emitSearchSubmit(): void {
-    console.log("emitSearchSubmit", this.searchString);
     this.searchSubmit.emit(this.searchString);
   }
 
@@ -69,7 +72,6 @@ export class ZSearchbar {
   searchTyping: EventEmitter<string>;
 
   private emitSearchTyping(search: string): void {
-    console.log("emitSearchTyping", search);
     this.searchTyping.emit(search);
   }
 
@@ -78,7 +80,6 @@ export class ZSearchbar {
   searchItemClick: EventEmitter<SearchbarItem>;
 
   private emitSearchItemClick(item: SearchbarItem): void {
-    console.log("emitSearchItemClick", item);
     this.searchItemClick.emit(item);
   }
 
@@ -124,7 +125,25 @@ export class ZSearchbar {
       groupedItems[key]["items"].push(item);
     });
 
-    return groupedItems;
+    if (this.sortResultsItems) {
+      return Object.keys(groupedItems)
+        .sort()
+        .reduce((obj, key) => {
+          obj[key] = {
+            ...groupedItems[key],
+            items: groupedItems[key]["items"].sort((a: SearchbarItem, b: SearchbarItem) => {
+              const nameA = a.label.toUpperCase();
+              const nameB = b.label.toUpperCase();
+              if (nameA < nameB) return -1;
+              if (nameA > nameB) return 1;
+              return 0;
+            }),
+          };
+          return obj;
+        }, {});
+    } else {
+      return groupedItems;
+    }
   }
 
   private checkResultsCount(counter: number): boolean {
@@ -296,7 +315,10 @@ export class ZSearchbar {
             class="search-icon"
             name="left-magnifying-glass"
           />
-          <span class="item-label">{this.searchHelperLabel.replace("{searchString}", this.searchString)}</span>
+          <span
+            class="item-label"
+            innerHTML={this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`)}
+          />
         </span>
       </z-list-element>
     );

@@ -1372,6 +1372,10 @@ export namespace Components {
           * Search helper text
          */
         "searchHelperLabel"?: string;
+        /**
+          * Sort autocomplete results items
+         */
+        "sortResultsItems"?: boolean;
     }
     interface ZSectionTitle {
         /**
@@ -4152,6 +4156,10 @@ declare namespace LocalJSX {
           * Search helper text
          */
         "searchHelperLabel"?: string;
+        /**
+          * Sort autocomplete results items
+         */
+        "sortResultsItems"?: boolean;
     }
     interface ZSectionTitle {
         /**

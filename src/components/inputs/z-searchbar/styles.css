@@ -103,7 +103,7 @@
   font-size: 14px;
   line-height: 16px;
   color: var(--color-text01);
-  fill: var(--color-text01);
+  fill: var(--color-icon02);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -113,8 +113,9 @@
 }
 
 :host > div > div.results .item.ellipsis > span.item-label {
-  height: 16px;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 :host > div > div.results .item > span.item-label > mark {
