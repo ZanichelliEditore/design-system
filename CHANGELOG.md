@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.6.0](https://github.com/ZanichelliEditore/design-system/compare/v6.5.2...v6.6.0) (2022-12-21)
+
+
+### Features
+
+* add max width to z-app-header; use controls in stories instead of knobs ([8564465](https://github.com/ZanichelliEditore/design-system/commit/85644654e1e5d609786fe489d11d07ae24e570a0))
+
 ### [6.5.2](https://github.com/ZanichelliEditore/design-system/compare/v6.5.1...v6.5.2) (2022-12-21)
 
 
