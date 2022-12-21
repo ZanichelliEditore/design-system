@@ -13,7 +13,7 @@ import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 export class ZSearchbar {
   /** the id of the searchbar element */
   @Prop({reflect: true})
-  htmlid: string = `searchbar-${randomId()}`;
+  htmlid = `searchbar-${randomId()}`;
 
   /** Show simple input without submit button */
   @Prop()
@@ -32,7 +32,7 @@ export class ZSearchbar {
   autocompleteMinChars?: number = 3;
 
   /** Number of results shown - default all */
-  @Prop({mutable: true})
+  @Prop()
   resultsCount?: number;
 
   /** Truncate results to single row */
@@ -52,13 +52,13 @@ export class ZSearchbar {
   sortResultsItems?: boolean = false;
 
   @State()
-  searchString: string = "";
+  searchString = "";
 
   @State()
-  currResultsCount: number = 0;
+  currResultsCount = 0;
 
   @State()
-  showResults: boolean = false;
+  showResults = false;
 
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
@@ -99,7 +99,9 @@ export class ZSearchbar {
   @Watch("searchString")
   watchSearchString(): void {
     this.emitSearchTyping(this.searchString);
-    if (!this.searchString) this.currResultsCount = this.resultsCount;
+    if (!this.searchString) {
+      this.currResultsCount = this.resultsCount;
+    }
   }
 
   @Listen("click", {target: "document"})
@@ -107,7 +109,7 @@ export class ZSearchbar {
     this.handleOutsideClick(e);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
   }
@@ -117,9 +119,9 @@ export class ZSearchbar {
   }
 
   private getGroupedItems(items: SearchbarItem[]): SearchbarGroupedItem {
-    let groupedItems = {};
+    const groupedItems = {};
     items.forEach((item: SearchbarItem) => {
-      let key = `${item?.category}${item?.subcategory}`;
+      const key = `${item?.category}${item?.subcategory}`;
       groupedItems[key] = groupedItems[key] ?? {
         category: item?.category,
         subcategory: item?.subcategory,
@@ -137,21 +139,32 @@ export class ZSearchbar {
             items: groupedItems[key]["items"].sort((a: SearchbarItem, b: SearchbarItem) => {
               const nameA = a.label.toUpperCase();
               const nameB = b.label.toUpperCase();
-              if (nameA < nameB) return -1;
-              if (nameA > nameB) return 1;
+              if (nameA < nameB) {
+                return -1;
+              }
+              if (nameA > nameB) {
+                return 1;
+              }
+
               return 0;
             }),
           };
+
           return obj;
         }, {});
-    } else {
-      return groupedItems;
     }
+
+    return groupedItems;
   }
 
   private checkResultsCount(counter: number): boolean {
-    if (!this.currResultsCount) return true;
-    if (counter < this.currResultsCount) return true;
+    if (!this.currResultsCount) {
+      return true;
+    }
+    if (counter < this.currResultsCount) {
+      return true;
+    }
+
     return false;
   }
 
@@ -165,7 +178,9 @@ export class ZSearchbar {
   }
 
   private handleSubmit(): void {
-    if (this.preventSubmit) return;
+    if (this.preventSubmit) {
+      return;
+    }
 
     this.emitSearchSubmit();
   }
@@ -181,11 +196,13 @@ export class ZSearchbar {
     const searchbar = cp.find((elem: HTMLElement) => elem.nodeName === "Z-SEARCHBAR");
     if (!searchbar || (searchbar as HTMLZSearchbarElement).htmlid !== this.htmlid) {
       this.showResults = false;
+
       return;
     }
 
     if (cp.find((elem: HTMLElement) => elem?.nodeName === "Z-INPUT" || elem?.classList?.contains("results"))) {
       this.showResults = true;
+
       return;
     }
 
@@ -204,15 +221,23 @@ export class ZSearchbar {
   }
 
   private renderButton(): HTMLZButtonElement | null {
-    if (this.preventSubmit) return null;
+    if (this.preventSubmit) {
+      return null;
+    }
 
     return <z-button onClick={() => this.handleSubmit()}>CERCA</z-button>;
   }
 
   private renderResults(): HTMLDivElement | null {
-    if (!this.showResults) return null;
-    if (!this.autocomplete || this.searchString.length < this.autocompleteMinChars) return null;
-    if (!this.resultsItemsList || !this.resultsItemsList?.length) return null;
+    if (!this.showResults) {
+      return null;
+    }
+    if (!this.autocomplete || this.searchString.length < this.autocompleteMinChars) {
+      return null;
+    }
+    if (!this.resultsItemsList || !this.resultsItemsList?.length) {
+      return null;
+    }
 
     return (
       <div class="results">
@@ -231,11 +256,11 @@ export class ZSearchbar {
   private renderResultsItems(): HTMLZListGroupElement[] {
     const groupedItems = this.getGroupedItems(this.resultsItemsList);
     const listGroups: HTMLZListGroupElement[] = [];
-    let counter: number = 0;
+    let counter = 0;
 
     Object.values(groupedItems).forEach((groupItem: SearchbarGroup, index: number, array) => {
       if (this.checkResultsCount(counter)) {
-        let listGroupsElements: HTMLZListElement[] = [];
+        const listGroupsElements: HTMLZListElement[] = [];
         groupItem.items.forEach((item: SearchbarItem, subindex: number, subarray) => {
           if (this.checkResultsCount(counter)) {
             const isLast = index === array.length - 1 && subindex === subarray.length - 1;
@@ -285,13 +310,18 @@ export class ZSearchbar {
   }
 
   private renderItemLabel(label: string): string {
-    if (!this.searchString) return label;
+    if (!this.searchString) {
+      return label;
+    }
 
     return label.replace(new RegExp(this.searchString, "gmi"), (found) => `<mark>${found}</mark>`);
   }
 
   private renderResultsItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {
-    if (!groupItem?.category) return null;
+    if (!groupItem?.category) {
+      return null;
+    }
+
     return (
       <span
         class="category-heading"
@@ -304,7 +334,9 @@ export class ZSearchbar {
   }
 
   private renderSearchHelper(): HTMLZListElement | null {
-    if (!this.autocomplete || this.preventSubmit || !this.searchString) return null;
+    if (!this.autocomplete || this.preventSubmit || !this.searchString) {
+      return null;
+    }
 
     return (
       <z-list-element
@@ -334,8 +366,9 @@ export class ZSearchbar {
       !this.searchString ||
       !this.resultsItemsList?.length ||
       this.currResultsCount >= this.resultsItemsList?.length
-    )
+    ) {
       return null;
+    }
 
     return (
       <z-list-element

@@ -1,21 +1,21 @@
 :host {
-  display: block;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
   position: relative;
   z-index: 5;
-  height: 44px;
+  display: block;
   width: inherit;
+  height: 44px;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 :host > div {
+  position: absolute;
+  z-index: 10;
   display: grid;
+  width: 100%;
   gap: 0 calc(var(--space-unit) * 2);
   grid-template-columns: auto;
   grid-template-rows: auto;
-  position: absolute;
-  z-index: 10;
-  width: 100%;
 }
 
 :host > div.has-submit {
@@ -27,9 +27,9 @@
 }
 
 :host > div > z-input {
+  width: 100%;
   grid-column: 1;
   grid-row: 1;
-  width: 100%;
 }
 
 :host > div > z-button {
@@ -38,16 +38,16 @@
 }
 
 :host > div > div.results {
-  grid-column: 1;
-  grid-row: 2;
-  background: var(--color-surface01);
+  overflow: auto;
+  max-height: var(--z-searchbar-results-height, 540px);
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  padding-bottom: 0;
   border: var(--border-size-small) solid var(--color-surface03);
   border-top: none;
   margin-top: -1px;
-  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
-  padding-bottom: 0;
-  max-height: var(--z-searchbar-results-height, 540px);
-  overflow: auto;
+  background: var(--color-surface01);
+  grid-column: 1;
+  grid-row: 2;
   scrollbar-color: var(--color-primary01) transparent;
 }
 
@@ -69,8 +69,8 @@
 
 :host > div > div.results .category-heading {
   display: block;
-  font-weight: var(--font-rg);
   font-size: 14px;
+  font-weight: var(--font-rg);
   line-height: 16px;
 }
 
@@ -84,9 +84,9 @@
 }
 
 :host > div > div.results span.category-heading > span.subcategory {
+  margin-top: 8px;
   color: var(--color-text01);
   text-transform: uppercase;
-  margin-top: 8px;
 }
 
 :host > div > div.results z-list-element {
@@ -100,22 +100,22 @@
 :host > div > div.results .item {
   --z-icon-height: 12px;
   --z-icon-width: 12px;
-  font-size: 14px;
-  line-height: 16px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: stretch;
+  align-items: flex-start;
+  justify-content: flex-start;
   color: var(--color-text01);
   fill: var(--color-icon02);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 :host > div > div.results .item.ellipsis > span.item-label {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 :host > div > div.results .item > span.item-label > mark {
@@ -127,8 +127,8 @@
 }
 
 :host > div > div.results .item > z-icon.item-icon {
-  margin-right: calc(var(--space-unit) * 1.5);
   padding: 2px 0;
+  margin-right: calc(var(--space-unit) * 1.5);
 }
 
 :host > div > div.results .item.item-search {
@@ -155,6 +155,7 @@
   :host > div > div.results .item {
     --z-icon-height: 12px;
     --z-icon-width: 12px;
+
     font-size: 16px;
     line-height: 24px;
   }
@@ -178,8 +179,4 @@
   :host > div > div.results .item {
     cursor: pointer;
   }
-}
-
-/* Wide breakpoint */
-@media (min-width: 1366px) {
 }
