@@ -8,31 +8,31 @@ import "./index";
   title="Inputs/ZSearchbar"
   component="z-searchbar"
   argTypes={{
-    preventSubmit: {
+    "preventSubmit": {
       control: {type: "boolean"},
       defaultValue: false,
     },
-    autocomplete: {
+    "autocomplete": {
       control: {type: "boolean"},
       defaultValue: false,
     },
-    autocompleteMinChars: {
+    "autocompleteMinChars": {
       control: {type: "number"},
       defaultValue: 3,
     },
-    resultsCount: {
+    "resultsCount": {
       control: {type: "number"},
       defaultValue: "",
     },
-    resultsEllipsis: {
+    "resultsEllipsis": {
       control: {type: "boolean"},
       defaultValue: true,
     },
-    searchHelperLabel: {
+    "searchHelperLabel": {
       control: {type: "text"},
       defaultValue: "Cerca {searchString}",
     },
-    resultsItems: {
+    "resultsItems": {
       control: {type: "object"},
       defaultValue: [
         {
@@ -53,17 +53,21 @@ import "./index";
         },
       ],
     },
-    sortResultsItems: {
+    "sortResultsItems": {
       control: {type: "boolean"},
       defaultValue: false,
     },
-    htmlid: {
+    "htmlid": {
       control: {type: "text"},
       defaultValue: "myId",
     },
-    placeholder: {
+    "placeholder": {
       control: {type: "text"},
       defaultValue: "my placeholder",
+    },
+    "--z-searchbar-results-height": {
+      control: {type: "text"},
+      defaultValue: "",
     },
   }}
 />
@@ -85,6 +89,7 @@ import "./index";
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
+          style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
         ></z-searchbar>
       `
     }
@@ -141,6 +146,7 @@ import "./index";
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
+          style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
         ></z-searchbar>
       `
     }
@@ -216,6 +222,7 @@ import "./index";
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
+          style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
         ></z-searchbar>
       `
     }

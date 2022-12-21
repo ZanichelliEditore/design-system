@@ -46,7 +46,7 @@
   margin-top: -1px;
   padding: var(--space-unit) calc(var(--space-unit) * 1.5);
   padding-bottom: 0;
-  max-height: 540px;
+  max-height: var(--z-searchbar-results-height, 540px);
   overflow: auto;
   scrollbar-color: var(--color-primary01) transparent;
 }

@@ -2,6 +2,9 @@ import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} fro
 import {ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
 import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 
+/**
+ * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+ */
 @Component({
   tag: "z-searchbar",
   styleUrl: "styles.css",
@@ -273,6 +276,7 @@ export class ZSearchbar {
           )}
           <span
             class="item-label"
+            title={item.label}
             innerHTML={this.renderItemLabel(item.label)}
           />
         </span>
@@ -325,7 +329,13 @@ export class ZSearchbar {
   }
 
   private renderShowAllResults(): HTMLZListElement | null {
-    if (!this.currResultsCount || !this.searchString || !this.resultsItemsList?.length) return null;
+    if (
+      !this.currResultsCount ||
+      !this.searchString ||
+      !this.resultsItemsList?.length ||
+      this.currResultsCount >= this.resultsItemsList?.length
+    )
+      return null;
 
     return (
       <z-list-element
