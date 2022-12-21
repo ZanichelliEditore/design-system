@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.6.0](https://github.com/ZanichelliEditore/design-system/compare/v6.5.2...v6.6.0) (2022-12-21)
+
+
+### Features
+
+* add max width to z-app-header; use controls in stories instead of knobs ([8564465](https://github.com/ZanichelliEditore/design-system/commit/85644654e1e5d609786fe489d11d07ae24e570a0))
+
+### [6.5.2](https://github.com/ZanichelliEditore/design-system/compare/v6.5.1...v6.5.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* avoid render loop ([d3c2983](https://github.com/ZanichelliEditore/design-system/commit/d3c2983165c2a5ae7699ed6b00c2b5d6a0d6355d))
+
+### [6.5.1](https://github.com/ZanichelliEditore/design-system/compare/v6.5.0...v6.5.1) (2022-12-16)
+
+
+### Bug Fixes
+
+* avoid double rendering on open ([71ed4de](https://github.com/ZanichelliEditore/design-system/commit/71ed4de5758e93bfcb25085f8bf70634070262b1))
+* force autocomplete input background color ([a2260f1](https://github.com/ZanichelliEditore/design-system/commit/a2260f1a9abf2b605336f0e5ceca64c78148a45a))
+* remove components from code ([61067fa](https://github.com/ZanichelliEditore/design-system/commit/61067faddbace4164f5db3b2b59f688cb6d4bc93))
+* remove topbar integration in z-app-header story ([14125f6](https://github.com/ZanichelliEditore/design-system/commit/14125f655b5d737ccbd5d542307af0f68e4277ea))
+* remove ZAppTopBar ([7ad5063](https://github.com/ZanichelliEditore/design-system/commit/7ad506341a8677b49be67939e55d18d6fc6e6ed1))
+* remove ZMenuDropdown ([ef0e4a9](https://github.com/ZanichelliEditore/design-system/commit/ef0e4a912337323cae1a928a442d2e84e380313d))
+* remove ZModalLogin ([d29d659](https://github.com/ZanichelliEditore/design-system/commit/d29d659f191bb7e613947de99075193c7f60bad5))
+* remove ZUserDropdown ([af137f2](https://github.com/ZanichelliEditore/design-system/commit/af137f220c71d2f68c086d71572ab514432019fe))
+* z-offcanvas fix test ([0d12aea](https://github.com/ZanichelliEditore/design-system/commit/0d12aeac9d558ee0a8d747f9818b23c542fbb654))
+
 ## [6.5.0](https://github.com/ZanichelliEditore/design-system/compare/v6.4.0...v6.5.0) (2022-12-06)
 
 

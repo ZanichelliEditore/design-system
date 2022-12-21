@@ -111,9 +111,9 @@
  - [z-anchor-navigation](../../z-anchor-navigation)
  - [z-carousel](../../z-carousel)
  - [z-file-upload](../../file-upload/z-file-upload)
- - [z-modal-login](../../modal/z-modal-login)
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../../z-pagination)
+ - [z-searchbar](../../inputs/z-searchbar)
  - [z-table](../../z-table/z-table)
  - [z-table-cell](../../z-table/z-table-cell)
  - [z-table-header](../../z-table/z-table-header)
@@ -129,9 +129,9 @@ graph TD;
   z-anchor-navigation --> z-button
   z-carousel --> z-button
   z-file-upload --> z-button
-  z-modal-login --> z-button
   z-myz-card-dictionary --> z-button
   z-pagination --> z-button
+  z-searchbar --> z-button
   z-table --> z-button
   z-table-cell --> z-button
   z-table-header --> z-button

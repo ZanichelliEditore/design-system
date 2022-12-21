@@ -1,46 +1,50 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {select, boolean, text} from "@storybook/addon-knobs";
-import "./index.stories.css";
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Navigation/ZAppHeader"
   component="z-app-header"
+  argTypes={{
+    "--app-header-content-max-width": {
+      control: {type: "text"},
+    },
+  }}
+  args={{
+    "--app-header-content-max-width": "100%",
+  }}
 />
 
 # ZAppHeader
 
-[Abstract](https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/0c0f3a4b-c77f-421b-857a-40df36455ea1/commits/bd0e05fd10cb1dcb25b30a0cce7aa900f90d9329/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/4E523230-5E7F-4CA2-A228-9670D60C3030?collectionId=98002816-a2d9-48f1-880a-2e6854ac2181&collectionLayerId=c9df3f28-2ff5-40fb-9dca-846f3af1090e&mode=design)
-
-<Preview>
+<Canvas>
   <Story name="Title">
-    {html`<z-app-header>
+    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Applicazione</h1>
     </z-app-header>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-app-header" />
+<ArgsTable of="z-app-header" />
 
 ---
 
 ### With payoff
 
-<Preview>
+<Canvas>
   <Story name="Subtitle">
-    {html`<z-app-header>
+    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
     </z-app-header>`}
   </Story>
-</Preview>
+</Canvas>
 
 ### With menu
 
-<Preview>
+<Canvas>
   <Story name="Menu">
-    {html`<z-app-header>
+    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
       <z-menu
@@ -146,7 +150,7 @@ import "./index";
     </z-app-header>`}
   </Story>
   <Story name="Long title">
-    {html`<z-app-header>
+    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Applicazione con nome veramente lungo che fa andare il menu a capo</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
       <z-menu
@@ -293,7 +297,7 @@ import "./index";
     </z-app-header>`}
   </Story>
   <Story name="(Very) Long menu">
-    {html`<z-app-header>
+    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
       <z-menu
@@ -628,7 +632,10 @@ import "./index";
     </z-app-header>`}
   </Story>
   <Story name="Offcanvas menu">
-    {html`<z-app-header flow="offcanvas">
+    {(args) => html`<z-app-header
+      flow="offcanvas"
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
       <z-menu slot="menu">
@@ -941,16 +948,187 @@ import "./index";
       </z-menu>
     </z-app-header>`}
   </Story>
-</Preview>
+</Canvas>
+
+### Stuck header
+
+<Story
+  name="Stuck"
+  decorators={[
+    (Story) => html`
+      Scroll to see <code>stuck</code> prop in action.
+      <div style="height: 3000px">${Story()}</div>
+    `,
+  ]}
+>
+  {(args) => html`<z-app-header
+    stuck
+    style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
+  >
+    <h1 slot="title">Applicazione</h1>
+    <h2 slot="subtitle">Payoff dell'applicazione</h2>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+      <z-menu-section slot="item">
+        <h3>Item 3</h3>
+        <a
+          href=""
+          slot="item"
+          >Item 3.1</a
+        >
+        <a
+          href=""
+          slot="item"
+          >Item 3.2</a
+        >
+      </z-menu-section>
+    </z-menu>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+      <z-menu-section slot="item">
+        <h3>Item 3</h3>
+        <a
+          href=""
+          slot="item"
+          >Item 3.1</a
+        >
+        <a
+          href=""
+          slot="item"
+          >Item 3.2</a
+        >
+      </z-menu-section>
+    </z-menu>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+      <z-menu-section slot="item">
+        <h3>Item 3</h3>
+        <a
+          href=""
+          slot="item"
+          >Item 3.1</a
+        >
+        <a
+          href=""
+          slot="item"
+          >Item 3.2</a
+        >
+      </z-menu-section>
+    </z-menu>
+  </z-app-header>`}
+</Story>
+
+### Max width
+
+<Story
+  name="Max width"
+  args={{
+    "--app-header-content-max-width": "1366px",
+  }}
+  decorators={[
+    (Story) => html`
+      Scroll to see max width also in stuck header.
+      <div style="height: 3000px">${Story()}</div>
+    `,
+  ]}
+>
+  {(args) => html`<z-app-header
+    stuck
+    style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0;"
+  >
+    <h1 slot="title">Applicazione</h1>
+    <h2 slot="subtitle">Payoff dell'applicazione</h2>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+    </z-menu>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+    </z-menu>
+    <z-menu slot="menu">
+      <h3>Menu label</h3>
+      <a
+        href=""
+        slot="item"
+        >Item 1</a
+      >
+      <a
+        href=""
+        slot="item"
+        >Item 2</a
+      >
+    </z-menu>
+  </z-app-header>`}
+</Story>
 
 ### Hero
 
-<Preview>
-  <Story name="Hero">
-    {html`<z-app-header
+<Canvas>
+  <Story
+    name="Hero"
+    argTypes={{
+      flow: {
+        control: {type: "inline-radio"},
+        options: ["auto", "stack", "offcanvas"],
+      },
+    }}
+    args={{
+      flow: "auto",
+    }}
+  >
+    {(args) => html`<z-app-header
       overlay
-      style="--app-header-height: 400px;"
-      flow="${select("Flow", ["auto", "stack", "offcanvas"], "auto")}"
+      style="--app-header-height: 400px; --app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+      flow=${args.flow}
     >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
@@ -1102,452 +1280,4 @@ import "./index";
       </z-menu>
     </z-app-header>`}
   </Story>
-</Preview>
-
-### Topbar integreation
-
-<Preview>
-  <Story name="With topbar">
-    {html`
-      <div id="z-app-header-with-topbar-wrapper">
-        <z-app-topbar>
-          <z-logo
-            slot="logo"
-            width="138"
-            height="36"
-            image-alt="zanichelli-logo"
-            link="https://www.zanichelli.it"
-            target-blank
-          ></z-logo>
-          <z-app-switcher slot="app-switcher"></z-app-switcher>
-        </z-app-topbar>
-        <z-app-header
-          .stuck=${boolean("Stuck", true)}
-          .flow=${select("Flow", ["auto", "stack", "offcanvas"], "auto")}
-          style="--app-header-bg: ${text("Background color", "var(--color-white)")}; --app-header-text-color: ${text(
-            "Text color",
-            "var(--gray800)"
-          )}"
-        >
-          <h1 slot="title">Applicazione</h1>
-          <h2 slot="subtitle">Payoff dell'applicazione</h2>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-          <z-menu slot="menu">
-            <h3>Menu label</h3>
-            <a
-              href=""
-              slot="item"
-              >Item 1</a
-            >
-            <a
-              href=""
-              slot="item"
-              >Item 2</a
-            >
-            <z-menu-section slot="item">
-              <h3>Item 3</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 3.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 3.2</a
-              >
-            </z-menu-section>
-            <z-menu-section slot="item">
-              <h3>Item 4</h3>
-              <a
-                href=""
-                slot="item"
-                >Item 4.1</a
-              >
-              <a
-                href=""
-                slot="item"
-                >Item 4.2</a
-              >
-            </z-menu-section>
-            <a
-              href=""
-              slot="item"
-              >Item 5</a
-            >
-          </z-menu>
-        </z-app-header>
-        <div class="content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum
-          </p>
-        </div>
-      </div>
-    `}
-  </Story>
-</Preview>
+</Canvas>

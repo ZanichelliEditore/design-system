@@ -12,94 +12,96 @@ import "./index";
     type: {
       control: {type: "inline-radio"},
       options: Object.values(InputType),
-      defaultValue: "text",
     },
     label: {
       control: {type: "text"},
-      defaultValue: "this is the input label",
     },
     ariaLabel: {
       control: {type: "text"},
-      defaultValue: "",
     },
     labelPosition: {
       control: {type: "inline-radio"},
       options: Object.values(LabelPosition),
-      defaultValue: LabelPosition.RIGHT,
     },
     placeholder: {
       control: {type: "text"},
-      defaultValue: "input placeholder text",
     },
     value: {
       control: {type: "text"},
-      defaultValue: "",
     },
     name: {
       control: {type: "text"},
-      defaultValue: "",
     },
     status: {
       control: {type: "inline-radio"},
       options: ["default", ...Object.values(InputStatus)],
-      defaultValue: "default",
     },
     message: {
       control: {type: "text"},
-      defaultValue: "helper text",
     },
     icon: {
       control: {type: "text"},
-      defaultValue: "",
     },
     disabled: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     readonly: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     required: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     checked: {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     hasclearicon: {
       control: {type: "boolean"},
-      defaultValue: true,
     },
     htmlid: {
       control: {type: "text"},
-      defaultValue: "input-id",
     },
     htmltitle: {
       control: {type: "text"},
-      defaultValue: "",
     },
     autocomplete: {
       control: {type: "text"},
-      defaultValue: "",
     },
     min: {
       control: {type: "number"},
-      defaultValue: 1,
     },
     max: {
       control: {type: "number"},
-      defaultValue: 10,
     },
     step: {
       control: {type: "number"},
-      defaultValue: 1,
     },
     pattern: {
       control: {type: "text"},
-      defaultValue: "",
     },
+  }}
+  args={{
+    type: "text",
+    label: "this is the input label",
+    ariaLabel: "",
+    labelPosition: LabelPosition.RIGHT,
+    placeholder: "input placeholder text",
+    value: "",
+    name: "",
+    status: "default",
+    message: "helper text",
+    icon: "",
+    disabled: false,
+    readonly: false,
+    required: false,
+    checked: false,
+    hasclearicon: true,
+    htmlid: "input-id",
+    htmltitle: "",
+    autocomplete: "",
+    min: 1,
+    max: 10,
+    step: 1,
+    pattern: "",
   }}
 />
 
@@ -213,8 +215,10 @@ import "./index";
     argTypes={{
       type: {
         options: ["textarea"],
-        defaultValue: "textarea",
       },
+    }}
+    args={{
+      type: "textarea",
     }}
   >
     {(args) =>
@@ -259,8 +263,10 @@ import "./index";
     argTypes={{
       type: {
         options: ["checkbox"],
-        defaultValue: "checkbox",
       },
+    }}
+    args={{
+      type: "checkbox",
     }}
   >
     {(args) =>
@@ -304,8 +310,10 @@ import "./index";
     argTypes={{
       type: {
         options: ["radio"],
-        defaultValue: "radio",
       },
+    }}
+    args={{
+      type: "radio",
     }}
   >
     {(args) =>
@@ -337,23 +345,12 @@ import "./index";
     argTypes={{
       type: {
         options: ["number"],
-        defaultValue: "number",
       },
-      min: {
-        defaultValue: 1,
-      },
-      max: {
-        defaultValue: 10,
-      },
-      step: {
-        defaultValue: 1,
-      },
-      value: {
-        defaultValue: "1",
-      },
-      hasclearicon: {
-        defaultValue: false,
-      },
+    }}
+    args={{
+      type: "number",
+      value: "1",
+      hasclearicon: false,
     }}
   >
     {(args) =>
