@@ -4,4 +4,222 @@ import "./index";
 
 ## Stories
 
+<Meta
+  title="Inputs/ZSearchbar"
+  component="z-searchbar"
+  argTypes={{
+    preventSubmit: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    autocomplete: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    autocompleteMinChars: {
+      control: {type: "number"},
+      defaultValue: 3,
+    },
+    resultsCount: {
+      control: {type: "number"},
+      defaultValue: "",
+    },
+    resultsEllipsis: {
+      control: {type: "boolean"},
+      defaultValue: true,
+    },
+    searchHelperLabel: {
+      control: {type: "text"},
+      defaultValue: "Cerca {searchString}",
+    },
+    resultsItems: {
+      control: {type: "object"},
+      defaultValue: [
+        {
+          label: "first item",
+          link: "https://item_1.example.com",
+        },
+        {
+          label: "second item",
+          link: "https://item_2.example.com",
+        },
+        {
+          label: "third item",
+          link: "https://item_3.example.com",
+        },
+        {
+          label: "fourth item",
+          link: "https://item_4.example.com",
+        },
+      ],
+    },
+    sortResultsItems: {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
+    htmlid: {
+      control: {type: "text"},
+      defaultValue: "myId",
+    },
+    placeholder: {
+      control: {type: "text"},
+      defaultValue: "my placeholder",
+    },
+  }}
+/>
+
+# ZSearchbar
+
+<Canvas>
+  <Story name="z-searchbar">
+    {(args) =>
+      html`
+        <z-searchbar
+          prevent-submit=${args.preventSubmit}
+          autocomplete=${args.autocomplete}
+          autocomplete-min-chars=${args.autocompleteMinChars}
+          results-count=${args.resultsCount}
+          results-ellipsis=${args.resultsEllipsis}
+          search-helper-label=${args.searchHelperLabel}
+          results-items=${JSON.stringify(args.resultsItems)}
+          sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          placeholder=${args.placeholder}
+          htmlid=${args.htmlid}
+        ></z-searchbar>
+      `
+    }
+  </Story>
+</Canvas>
+
+# ZSearchbar - simple search
+
+<Canvas>
+  <Story
+    name="z-searchbar - simple search"
+    parameters={{
+      controls: {
+        include: ["placeholder", "htmlid"],
+      },
+    }}
+    argTypes={{
+      htmlid: {defaultValue: "myIdSimple"},
+    }}
+  >
+    {(args) =>
+      html`
+        <z-searchbar
+          prevent-submit="false"
+          autcomplete="false"
+          placeholder=${args.placeholder}
+          htmlid=${args.htmlid}
+        ></z-searchbar>
+      `
+    }
+  </Story>
+</Canvas>
+
+# ZSearchbar - autocomplete
+
+<Canvas>
+  <Story
+    name="z-searchbar - autocomplete"
+    argTypes={{
+      autocomplete: {defaultValue: true},
+      htmlid: {defaultValue: "myIdAutocomplete"},
+    }}
+  >
+    {(args) =>
+      html`
+        <z-searchbar
+          prevent-submit=${args.preventSubmit}
+          autocomplete=${args.autocomplete}
+          autocomplete-min-chars=${args.autocompleteMinChars}
+          results-count=${args.resultsCount}
+          results-ellipsis=${args.resultsEllipsis}
+          search-helper-label=${args.searchHelperLabel}
+          results-items=${JSON.stringify(args.resultsItems)}
+          sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          placeholder=${args.placeholder}
+          htmlid=${args.htmlid}
+        ></z-searchbar>
+      `
+    }
+  </Story>
+</Canvas>
+
+# ZSearchbar - autocomplete with complex items
+
+<Canvas>
+  <Story
+    name="z-searchbar - autocomplete with complex items"
+    argTypes={{
+      autocomplete: {defaultValue: true},
+      htmlid: {defaultValue: "myIdGroupedAutocomplete"},
+      resultsItems: {
+        defaultValue: [
+          {
+            label: "first item",
+            link: "https://item_1.example.com",
+            icon: "download",
+            category: "Category A",
+            subcategory: "Subcategory A1",
+          },
+          {
+            label: "second item",
+            link: "https://item_2.example.com",
+            icon: "collezioni",
+            category: "Category B",
+            subcategory: "Subcategory B1",
+          },
+          {
+            label: "third item",
+            link: "https://item_3.example.com",
+            icon: "dictonary",
+            category: "Category A",
+            subcategory: "Subcategory A2",
+          },
+          {
+            label: "fourth item",
+            link: "https://item_4.example.com",
+            icon: "exercises-online",
+            category: "Category A",
+            subcategory: "Subcategory A1",
+          },
+          {
+            label: "fifth item",
+            link: "https://item_5.example.com",
+            icon: "interactives-maps",
+            category: "Category A",
+            subcategory: "Subcategory A1",
+          },
+          {
+            label: "sixth item",
+            link: "https://item_6.example.com",
+            icon: "textual-analysis",
+            category: "Category B",
+            subcategory: "Subcategory B1",
+          },
+        ],
+      },
+    }}
+  >
+    {(args) =>
+      html`
+        <z-searchbar
+          prevent-submit=${args.preventSubmit}
+          autocomplete=${args.autocomplete}
+          autocomplete-min-chars=${args.autocompleteMinChars}
+          results-count=${args.resultsCount}
+          results-ellipsis=${args.resultsEllipsis}
+          search-helper-label=${args.searchHelperLabel}
+          results-items=${JSON.stringify(args.resultsItems)}
+          sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          placeholder=${args.placeholder}
+          htmlid=${args.htmlid}
+        ></z-searchbar>
+      `
+    }
+  </Story>
+</Canvas>
+
 <ArgsTable of="z-searchbar" />
