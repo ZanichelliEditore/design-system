@@ -1,5 +1,5 @@
 import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
-import {ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
+import {ButtonVariant, ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
 import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
 
 /**
@@ -225,17 +225,24 @@ export class ZSearchbar {
       return null;
     }
 
-    return <z-button onClick={() => this.handleSubmit()}>CERCA</z-button>;
+    return (
+      <z-button
+        variant={ButtonVariant.PRIMARY}
+        onClick={() => this.handleSubmit()}
+      >
+        CERCA
+      </z-button>
+    );
   }
 
   private renderResults(): HTMLDivElement | null {
-    if (!this.showResults) {
-      return null;
-    }
-    if (!this.autocomplete || this.searchString.length < this.autocompleteMinChars) {
-      return null;
-    }
-    if (!this.resultsItemsList || !this.resultsItemsList?.length) {
+    if (
+      !this.showResults ||
+      !this.autocomplete ||
+      this.searchString.length < this.autocompleteMinChars ||
+      !this.resultsItemsList ||
+      !this.resultsItemsList?.length
+    ) {
       return null;
     }
 
