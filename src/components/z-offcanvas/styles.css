@@ -128,6 +128,11 @@
   overflow-x: hidden;
 }
 
+:host([variant="overlay"]) > .canvas-container > .canvas-content {
+  padding: 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) 0 0;
+}
+
 .canvas-container .canvas-content::-webkit-scrollbar {
   width: 10px;
   background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
