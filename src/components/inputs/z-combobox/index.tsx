@@ -91,11 +91,12 @@ export class ZCombobox {
   watchItems(): void {
     this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
-    if (this.searchValue) {
-      this.filterItems(this.searchValue);
-    } else {
-      this.resetRenderItemsList();
-    }
+    this.updateRenderItemsList();
+  }
+
+  @Watch("searchValue")
+  watchSearchValue(): void {
+    this.filterItems(this.searchValue);
   }
 
   @Listen("inputCheck")
@@ -113,7 +114,7 @@ export class ZCombobox {
 
       return item;
     });
-    this.resetRenderItemsList();
+    this.updateRenderItemsList();
     this.emitComboboxChange();
   }
 
@@ -136,8 +137,13 @@ export class ZCombobox {
 
   componentWillRender(): void {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
+  }
+
+  private updateRenderItemsList(): void {
     if (this.searchValue) {
       this.filterItems(this.searchValue);
+    } else {
+      this.resetRenderItemsList();
     }
   }
 
@@ -153,7 +159,6 @@ export class ZCombobox {
     if (!value) {
       return this.closeFilterItems();
     }
-    this.searchValue = value;
 
     this.resetRenderItemsList();
     this.renderItemsList = this.renderItemsList.filter((item) => {
@@ -364,7 +369,7 @@ export class ZCombobox {
           if (e.detail.keycode === 27) {
             return this.closeFilterItems();
           }
-          this.filterItems(e.detail.value);
+          this.searchValue = e.detail.value;
         }}
       />
     );
