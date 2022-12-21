@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.5.2](https://github.com/ZanichelliEditore/design-system/compare/v6.5.1...v6.5.2) (2022-12-21)
+
+
+### Bug Fixes
+
+* avoid render loop ([d3c2983](https://github.com/ZanichelliEditore/design-system/commit/d3c2983165c2a5ae7699ed6b00c2b5d6a0d6355d))
+
 ### [6.5.1](https://github.com/ZanichelliEditore/design-system/compare/v6.5.0...v6.5.1) (2022-12-16)
 
 
