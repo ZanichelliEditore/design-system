@@ -46,6 +46,9 @@ export class ZOffcanvas {
     if (this.open) {
       this.hostElement.style.opacity = "0";
       this.hostElement.style.display = "flex";
+      if (this.variant === OffCanvasVariant.OVERLAY) {
+        document.body.style.overflowY = "hidden";
+      }
     } else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "hidden";
@@ -58,6 +61,7 @@ export class ZOffcanvas {
     } else if (this.variant === OffCanvasVariant.OVERLAY) {
       this.hostElement.style.display = "none";
       document.body.style.overflowX = "initial";
+      document.body.style.overflowY = "initial";
     }
   }
 
