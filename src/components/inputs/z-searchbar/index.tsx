@@ -19,6 +19,10 @@ export class ZSearchbar {
   @Prop()
   preventSubmit?: boolean = false;
 
+  /** Input search string */
+  @Prop()
+  value?: string;
+
   /** Search input placeholder */
   @Prop()
   placeholder?: string;
@@ -96,6 +100,11 @@ export class ZSearchbar {
     this.currResultsCount = this.resultsCount;
   }
 
+  @Watch("value")
+  watchValue(): void {
+    this.handleInput(this.value);
+  }
+
   @Watch("searchString")
   watchSearchString(): void {
     this.emitSearchTyping(this.searchString);
@@ -112,6 +121,7 @@ export class ZSearchbar {
   componentWillLoad(): void {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
+    this.handleInput(this.value);
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {
@@ -170,8 +180,12 @@ export class ZSearchbar {
 
   private handleStopTyping(e: CustomEvent): void {
     e.stopPropagation();
-    if (e.detail.value.length >= this.autocompleteMinChars) {
-      this.searchString = e.detail.value;
+    this.handleInput(e.detail.value);
+  }
+
+  private handleInput(value?: string): void {
+    if (value?.length >= this.autocompleteMinChars) {
+      this.searchString = value;
     } else if (this.searchString) {
       this.searchString = "";
     }
@@ -187,7 +201,9 @@ export class ZSearchbar {
 
   private handleItemClick(item: SearchbarItem): void {
     this.emitSearchItemClick(item);
-    window.location.href = item.link;
+    if (item?.link) {
+      window.location.href = item.link;
+    }
   }
 
   private handleOutsideClick(e: MouseEvent): void {
@@ -216,6 +232,7 @@ export class ZSearchbar {
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
         onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.handleSubmit())}
+        value={this.value}
       />
     );
   }
@@ -239,9 +256,10 @@ export class ZSearchbar {
     if (
       !this.showResults ||
       !this.autocomplete ||
+      !this.searchString ||
       this.searchString.length < this.autocompleteMinChars ||
       !this.resultsItemsList ||
-      !this.resultsItemsList?.length
+      !this.resultsItemsList.length
     ) {
       return null;
     }

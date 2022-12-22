@@ -34,24 +34,7 @@ import "./index";
     },
     "resultsItems": {
       control: {type: "object"},
-      defaultValue: [
-        {
-          label: "first item",
-          link: "https://item_1.example.com",
-        },
-        {
-          label: "second item",
-          link: "https://item_2.example.com",
-        },
-        {
-          label: "third item",
-          link: "https://item_3.example.com",
-        },
-        {
-          label: "fourth item",
-          link: "https://item_4.example.com",
-        },
-      ],
+      defaultValue: [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
     },
     "sortResultsItems": {
       control: {type: "boolean"},
@@ -64,6 +47,10 @@ import "./index";
     "placeholder": {
       control: {type: "text"},
       defaultValue: "my placeholder",
+    },
+    "value": {
+      control: {type: "text"},
+      defaultValue: "",
     },
     "--z-searchbar-results-height": {
       control: {type: "text"},
@@ -87,6 +74,7 @@ import "./index";
           search-helper-label=${args.searchHelperLabel}
           results-items=${JSON.stringify(args.resultsItems)}
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
@@ -103,7 +91,7 @@ import "./index";
     name="z-searchbar - simple search"
     parameters={{
       controls: {
-        include: ["placeholder", "htmlid"],
+        include: ["value", "placeholder", "htmlid"],
       },
     }}
     argTypes={{
@@ -115,6 +103,7 @@ import "./index";
         <z-searchbar
           prevent-submit="false"
           autcomplete="false"
+          value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
         ></z-searchbar>
@@ -144,6 +133,7 @@ import "./index";
           search-helper-label=${args.searchHelperLabel}
           results-items=${JSON.stringify(args.resultsItems)}
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
@@ -220,6 +210,7 @@ import "./index";
           search-helper-label=${args.searchHelperLabel}
           results-items=${JSON.stringify(args.resultsItems)}
           sort-results-items=${JSON.stringify(args.sortResultsItems)}
+          value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"

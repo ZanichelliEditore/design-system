@@ -1318,6 +1318,10 @@ export namespace Components {
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
+        /**
+          * Input search string
+         */
+        "value"?: string;
     }
     interface ZSectionTitle {
         /**
@@ -3970,6 +3974,10 @@ declare namespace LocalJSX {
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
+        /**
+          * Input search string
+         */
+        "value"?: string;
     }
     interface ZSectionTitle {
         /**

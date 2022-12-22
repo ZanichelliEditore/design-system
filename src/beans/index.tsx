@@ -411,7 +411,8 @@ export enum CarouselProgressMode {
 
 export type SearchbarItem = {
   label: string;
-  link: string;
+  id?: string;
+  link?: string;
   icon?: string;
   category?: string;
   subcategory?: string;
