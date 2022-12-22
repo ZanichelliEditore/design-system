@@ -1,9 +1,53 @@
 import { h, Host } from "@stencil/core";
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 /**
- * @slot title
- * @slot subtitle
- * @slot stucked-title - Title for the stucked header. By default it uses the text from the `title` slot.
+ * @slot title - Slot for the main title
+ * @slot subtitle - Slot for the subtitle. It will not appear in stuck header.
+ * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
+ * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+ * @cssprop --app-header-height - Defaults to `auto`.
+ * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+ * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+ * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+ * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+ * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+ * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+ * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+ * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+ * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+ * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+ * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+ * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+ * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+ * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+ * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+ * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+ * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+ * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+ * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+ * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+ * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+ * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+ * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+ * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+ * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+ * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+ * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+ * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+ * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+ * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+ * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+ * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+ * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+ * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+ * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+ * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+ * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+ * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+ * @cssprop --app-header-bg - Header background color. Defaults to `--color-white`.
+ * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-white`.
+ * @cssprop --app-header-text-color - Text color. Defaults to `--gray800`.
+ * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--gray800`.
  */
 export class ZAppHeader {
   constructor() {
@@ -33,12 +77,12 @@ export class ZAppHeader {
      */
     this.drawerOpen = false;
     /**
-     * The stucked state of the bar.
+     * The stuck state of the bar.
      */
-    this.stucked = false;
+    this._stuck = false;
     this.observer = SUPPORT_INTERSECTION_OBSERVER &&
       new IntersectionObserver(([entry]) => {
-        this.stucked = !entry.isIntersecting;
+        this._stuck = !entry.isIntersecting;
       }, {
         threshold: 0.5,
       });
@@ -47,7 +91,7 @@ export class ZAppHeader {
     this.collectMenuElements.bind(this);
   }
   emitStickingEvent() {
-    this.sticking.emit(this.stucked);
+    this.sticking.emit(this._stuck);
   }
   componentDidLoad() {
     this.collectMenuElements();
@@ -86,12 +130,12 @@ export class ZAppHeader {
     }
   }
   disableStuckMode() {
-    this.stucked = false;
+    this._stuck = false;
     if (this.observer) {
       this.observer.unobserve(this.container);
     }
   }
-  onStucked() {
+  onStuck() {
     const scrollParent = this.scrollParent;
     if (!scrollParent) {
       return;
@@ -109,7 +153,7 @@ export class ZAppHeader {
     }
   }
   render() {
-    return (h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero })))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() })))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() }))))), this.stucked && (h("div", { class: "heading-stucked" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title))))));
+    return (h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero })))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() })))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() }))))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)))))));
   }
   openDrawer() {
     this.drawerOpen = true;
@@ -224,7 +268,7 @@ export class ZAppHeader {
   }
   static get states() {
     return {
-      "stucked": {},
+      "_stuck": {},
       "menuLength": {}
     };
   }
@@ -237,7 +281,7 @@ export class ZAppHeader {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": "Emitted when the `stucked` state of the header changes"
+          "text": "Emitted when the `stuck` state of the header changes"
         },
         "complexType": {
           "original": "any",
@@ -252,8 +296,8 @@ export class ZAppHeader {
         "propName": "stuck",
         "methodName": "onStuckMode"
       }, {
-        "propName": "stucked",
-        "methodName": "onStucked"
+        "propName": "_stuck",
+        "methodName": "onStuck"
       }, {
         "propName": "drawerOpen",
         "methodName": "setMenuFloatingMode"
