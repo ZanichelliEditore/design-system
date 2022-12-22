@@ -297,6 +297,7 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
+        clickable
         onClickItem={() => this.handleItemClick(item)}
       >
         <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
@@ -350,6 +351,7 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={ListDividerType.ELEMENT}
+        clickable
         id={`list-item-${this.htmlid}-search`}
         onClickItem={() => this.emitSearchSubmit()}
       >
@@ -381,6 +383,7 @@ export class ZSearchbar {
       <z-list-element
         role="option"
         tabindex={0}
+        clickable
         id={`list-item-${this.htmlid}-show-all`}
         onClickItem={() => (this.currResultsCount = 0)}
       >
