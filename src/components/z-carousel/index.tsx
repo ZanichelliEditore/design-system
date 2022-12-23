@@ -215,7 +215,7 @@ export class ZCarousel {
               />
             )}
             <ul class="z-carousel-items-container">
-              <slot onSlotchange={() => (this.items = Array.from(this.itemsContainer.querySelectorAll("li")))} />
+              <slot />
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
