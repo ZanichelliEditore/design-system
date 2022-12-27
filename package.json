@@ -32,7 +32,7 @@
     "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook",
     "ts-check": "tsc --noEmit",
     "lint.eslint": "eslint ./src",
-    "lint.stylelint": "stylelint 'src/**/*.css'",
+    "lint.stylelint": "stylelint \"src/**/*.css\"",
     "lint-fix.eslint": "yarn lint.eslint --fix",
     "lint-fix.stylelint": "yarn lint.stylelint --fix",
     "prepare": "husky install"

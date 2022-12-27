@@ -50,6 +50,12 @@ export class ZCarousel {
   @State()
   highlightedIndicator: number;
 
+  @State()
+  canNavigatePrev: boolean;
+
+  @State()
+  canNavigateNext: boolean;
+
   /** Reference for the items container element. */
   private itemsContainer: HTMLUListElement;
 
@@ -71,19 +77,6 @@ export class ZCarousel {
   @Watch("single")
   onSingleModeChange(): void {
     if (this.single && !this.intersectionObserver) {
-      this.setIntersectionObserver();
-    }
-  }
-
-  componentDidLoad(): void {
-    this.itemsContainer = this.hostElement.querySelector(".z-carousel-items-container");
-    if (!this.itemsContainer) {
-      return;
-    }
-
-    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
-
-    if (this.single) {
       this.setIntersectionObserver();
     }
   }
@@ -159,6 +152,20 @@ export class ZCarousel {
   }
 
   /**
+   * Check if navigation buttons can be enabled or not and set local states.
+   */
+  private checkNavigationValidity(): void {
+    if (this.single) {
+      this.canNavigatePrev = this.current > 1;
+      this.canNavigateNext = this.current < this.items.length - 1;
+    }
+
+    this.canNavigatePrev = this.itemsContainer.scrollLeft > 0;
+    this.canNavigateNext =
+      this.itemsContainer.scrollLeft < this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth;
+  }
+
+  /**
    * Check if footer can be rendered.
    */
   private canShowFooter(): boolean {
@@ -184,6 +191,22 @@ export class ZCarousel {
       left: this.items[index].offsetLeft,
       behavior: "smooth",
     });
+  }
+
+  componentDidLoad(): void {
+    this.itemsContainer = this.hostElement.querySelector(".z-carousel-items-container");
+    if (!this.itemsContainer) {
+      return;
+    }
+
+    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
+
+    if (this.single) {
+      this.setIntersectionObserver();
+    }
+
+    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.checkNavigationValidity();
   }
 
   render(): HTMLZCarouselElement {
@@ -212,6 +235,7 @@ export class ZCarousel {
                 data-direction="prev"
                 icon="chevron-left"
                 onClick={this.onPrev.bind(this)}
+                disabled={!this.canNavigatePrev}
               />
             )}
             <ul class="z-carousel-items-container">
@@ -223,6 +247,7 @@ export class ZCarousel {
                 data-direction="next"
                 icon="chevron-right"
                 onClick={this.onNext.bind(this)}
+                disabled={!this.canNavigateNext}
               />
             )}
           </div>
@@ -236,6 +261,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-left-filled"
                 onClick={this.onPrev.bind(this)}
+                disabled={!this.canNavigatePrev}
               />
             )}
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
@@ -264,6 +290,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-right-filled"
                 onClick={this.onNext.bind(this)}
+                disabled={!this.canNavigateNext}
               />
             )}
           </div>
