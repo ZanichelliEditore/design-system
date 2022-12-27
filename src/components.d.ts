@@ -432,8 +432,6 @@ export namespace Components {
          */
         "width"?: number;
     }
-    interface ZIconPackage {
-    }
     interface ZInfoBox {
         /**
           * info box unique id
@@ -1944,12 +1942,6 @@ declare global {
         prototype: HTMLZIconElement;
         new (): HTMLZIconElement;
     };
-    interface HTMLZIconPackageElement extends Components.ZIconPackage, HTMLStencilElement {
-    }
-    var HTMLZIconPackageElement: {
-        prototype: HTMLZIconPackageElement;
-        new (): HTMLZIconPackageElement;
-    };
     interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
     }
     var HTMLZInfoBoxElement: {
@@ -2364,7 +2356,6 @@ declare global {
         "z-ghost-loading": HTMLZGhostLoadingElement;
         "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
-        "z-icon-package": HTMLZIconPackageElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
@@ -2898,8 +2889,6 @@ declare namespace LocalJSX {
           * icon width (optional)
          */
         "width"?: number;
-    }
-    interface ZIconPackage {
     }
     interface ZInfoBox {
         /**
@@ -4275,7 +4264,6 @@ declare namespace LocalJSX {
         "z-ghost-loading": ZGhostLoading;
         "z-heading": ZHeading;
         "z-icon": ZIcon;
-        "z-icon-package": ZIconPackage;
         "z-info-box": ZInfoBox;
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
@@ -4370,7 +4358,6 @@ declare module "@stencil/core" {
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
-            "z-icon-package": LocalJSX.ZIconPackage & JSXBase.HTMLAttributes<HTMLZIconPackageElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
