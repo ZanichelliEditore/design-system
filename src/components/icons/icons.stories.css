@@ -31,6 +31,18 @@
   font-size: 12px;
 }
 
+.icons-container .icon-box z-icon {
+  transition: scale 200ms ease-in-out;
+}
+
+.icons-container .icon-box:hover {
+  -webkit-text-stroke: medium;
+}
+
+.icons-container .icon-box:hover z-icon {
+  scale: 1.8;
+}
+
 @media (min-width: 768px) {
   .icons-container .icon-box {
     width: 25%;
