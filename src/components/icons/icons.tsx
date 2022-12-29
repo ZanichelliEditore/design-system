@@ -1277,7 +1277,6 @@ export const LEGACY_ICONS = {
   "right-white-index-filled": ICONS["index-right-filled"],
   "spade-black-suit-filled": ICONS["suit-spade-filled"],
   "strike-through-text-filled": ICONS["strikethrough-text-filled"],
-  "textual-analysis-filled": ICONS[""],
   "up-white-index-filled": ICONS["index-up-filled"],
   "white-circle-filled": ICONS["circle-white-filled"],
   "white-diamond-filled": ICONS["diamond-white-filled"],
