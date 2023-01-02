@@ -168,10 +168,7 @@ export class ZSearchbar {
   }
 
   private checkResultsCount(counter: number): boolean {
-    if (!this.currResultsCount) {
-      return true;
-    }
-    if (counter < this.currResultsCount) {
+    if (!this.currResultsCount || counter < this.currResultsCount) {
       return true;
     }
 
@@ -271,14 +268,14 @@ export class ZSearchbar {
           id={`list-${this.htmlid}`}
         >
           {this.renderSearchHelper()}
-          {this.renderResultsItems()}
+          {this.renderItems()}
           {this.renderShowAllResults()}
         </z-list>
       </div>
     );
   }
 
-  private renderResultsItems(): HTMLZListGroupElement[] {
+  private renderItems(): HTMLZListGroupElement[] {
     const groupedItems = this.getGroupedItems(this.resultsItemsList);
     const listGroups: HTMLZListGroupElement[] = [];
     let counter = 0;
@@ -289,7 +286,7 @@ export class ZSearchbar {
         groupItem.items.forEach((item: SearchbarItem, subindex: number, subarray) => {
           if (this.checkResultsCount(counter)) {
             const isLast = index === array.length - 1 && subindex === subarray.length - 1;
-            listGroupsElements.push(this.renderResultsItem(item, subindex, !isLast));
+            listGroupsElements.push(this.renderItem(item, subindex, !isLast));
           }
           counter++;
         });
@@ -297,7 +294,7 @@ export class ZSearchbar {
         if (listGroupsElements.length) {
           listGroups.push(
             <z-list-group divider-type={ListDividerType.ELEMENT}>
-              {this.renderResultsItemCategory(groupItem)}
+              {this.renderItemCategory(groupItem)}
               {listGroupsElements}
             </z-list-group>
           );
@@ -308,7 +305,7 @@ export class ZSearchbar {
     return listGroups;
   }
 
-  private renderResultsItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
+  private renderItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
     return (
       <z-list-element
         id={`list-item-${this.htmlid}-${key}`}
@@ -343,7 +340,7 @@ export class ZSearchbar {
     return label.replace(new RegExp(this.searchString, "gmi"), (found) => `<mark>${found}</mark>`);
   }
 
-  private renderResultsItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {
+  private renderItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {
     if (!groupItem?.category) {
       return null;
     }
