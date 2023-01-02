@@ -32,7 +32,7 @@
     "build-storybook": "yarn build && build-storybook --config-dir .storybook . --output-dir storybook",
     "ts-check": "tsc --noEmit",
     "lint.eslint": "eslint ./src",
-    "lint.stylelint": "stylelint 'src/**/*.css'",
+    "lint.stylelint": "stylelint \"src/**/*.css\"",
     "lint-fix.eslint": "yarn lint.eslint --fix",
     "lint-fix.stylelint": "yarn lint.stylelint --fix",
     "prepare": "husky install"
@@ -74,7 +74,7 @@
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.1",
-    "storybook-addon-stencil": "^0.1.13",
+    "storybook-addon-stencil": "^0.1.14",
     "stylelint": "^14.9.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",

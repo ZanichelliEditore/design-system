@@ -46,13 +46,23 @@ export class ZCarousel {
   @State()
   items: HTMLLIElement[];
 
+  /** Index of the indicator to highlight. */
+  @State()
+  highlightedIndicator: number;
+
+  @State()
+  canNavigatePrev: boolean;
+
+  @State()
+  canNavigateNext: boolean;
+
   /** Reference for the items container element. */
   private itemsContainer: HTMLUListElement;
 
   /** Observer that handles current index change when scrolling on single mode. */
   private intersectionObserver: IntersectionObserver;
 
-  /** Flag indicating the items container is scrolling programmatically towards the stored index. */
+  /** Flag indicating the items container is about to scroll programmatically towards the stored index. */
   private scrollingTo: number = null;
 
   /** Emitted on index change and only in `single` mode. */
@@ -61,11 +71,6 @@ export class ZCarousel {
 
   @Watch("current")
   onIndexChange(): void {
-    this.scrollingTo = this.current;
-    this.itemsContainer.scroll({
-      left: this.items[this.current].offsetLeft,
-      behavior: "smooth",
-    });
     this.indexChange.emit({currentItem: this.current});
   }
 
@@ -76,21 +81,10 @@ export class ZCarousel {
     }
   }
 
-  componentDidLoad(): void {
-    this.itemsContainer = this.hostElement.querySelector(".z-carousel-items-container");
-    if (!this.itemsContainer) {
-      return;
-    }
-
-    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
-
-    if (this.single) {
-      this.setIntersectionObserver();
-    }
-  }
-
   /**
-   * Set an intersection observer to show the current index to the indicator when scrolling.
+   * Set an intersection observer to:
+   * - highlight the indicator of the intersecting item during scroll
+   * - set the current item to the last intersecting item
    */
   private setIntersectionObserver(): void {
     this.intersectionObserver = new window.IntersectionObserver(
@@ -101,15 +95,16 @@ export class ZCarousel {
         }
 
         const entryIndex = this.items.findIndex((item) => item === entry.target);
+        this.highlightedIndicator = entryIndex;
 
         /* skip setting the current item if intersection has been triggered by a programmatic scroll
-        (the scroll in `onIndexChange`) */
+        (@see `goTo` function) and the final index has not been reached */
         if (this.scrollingTo !== null && entryIndex !== this.scrollingTo) {
           return;
         }
 
-        this.current = entryIndex;
         this.scrollingTo = null;
+        this.current = entryIndex;
       },
       {
         root: this.itemsContainer,
@@ -122,7 +117,7 @@ export class ZCarousel {
 
   private onPrev(): void {
     if (this.single) {
-      this.current = Math.max(0, this.current - 1);
+      this.goTo(Math.max(0, this.current - 1));
 
       return;
     }
@@ -140,7 +135,7 @@ export class ZCarousel {
 
   private onNext(): void {
     if (this.single) {
-      this.current = Math.min(this.current + 1, this.items.length - 1);
+      this.goTo(Math.min(this.current + 1, this.items.length - 1));
 
       return;
     }
@@ -157,8 +152,21 @@ export class ZCarousel {
   }
 
   /**
+   * Check if navigation buttons can be enabled or not and set local states.
+   */
+  private checkNavigationValidity(): void {
+    if (this.single) {
+      this.canNavigatePrev = this.current > 1;
+      this.canNavigateNext = this.current < this.items.length - 1;
+    }
+
+    this.canNavigatePrev = this.itemsContainer.scrollLeft > 0;
+    this.canNavigateNext =
+      this.itemsContainer.scrollLeft < this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth;
+  }
+
+  /**
    * Check if footer can be rendered.
-   * @returns {boolean}
    */
   private canShowFooter(): boolean {
     return (
@@ -171,14 +179,34 @@ export class ZCarousel {
   /**
    * Set current item to passed index.
    * @param {number} index Index to set
-   * @returns {void}
    */
   private goTo(index): void {
     if (this.current === index) {
       return;
     }
 
-    this.current = index;
+    this.scrollingTo = index;
+    // the scroll will trigger the IntersectionObserver and set the current item
+    this.itemsContainer.scroll({
+      left: this.items[index].offsetLeft,
+      behavior: "smooth",
+    });
+  }
+
+  componentDidLoad(): void {
+    this.itemsContainer = this.hostElement.querySelector(".z-carousel-items-container");
+    if (!this.itemsContainer) {
+      return;
+    }
+
+    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
+
+    if (this.single) {
+      this.setIntersectionObserver();
+    }
+
+    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.checkNavigationValidity();
   }
 
   render(): HTMLZCarouselElement {
@@ -207,6 +235,7 @@ export class ZCarousel {
                 data-direction="prev"
                 icon="chevron-left"
                 onClick={this.onPrev.bind(this)}
+                disabled={!this.canNavigatePrev}
               />
             )}
             <ul class="z-carousel-items-container">
@@ -218,6 +247,7 @@ export class ZCarousel {
                 data-direction="next"
                 icon="chevron-right"
                 onClick={this.onNext.bind(this)}
+                disabled={!this.canNavigateNext}
               />
             )}
           </div>
@@ -231,6 +261,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-left-filled"
                 onClick={this.onPrev.bind(this)}
+                disabled={!this.canNavigatePrev}
               />
             )}
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
@@ -238,19 +269,19 @@ export class ZCarousel {
                 {this.items.map((_item, key) => (
                   <button
                     type="button"
-                    class={{current: this.current === key}}
+                    class={{current: this.highlightedIndicator === key}}
                     onClick={() => this.goTo(key)}
                   >
-                    <z-icon name={this.current === key ? "white-circle-filled" : "black-circle-filled"} />
+                    <z-icon name={this.highlightedIndicator === key ? "white-circle-filled" : "black-circle-filled"} />
                   </button>
                 ))}
               </div>
             )}
             {this.progressMode === CarouselProgressMode.NUMBERS && this.single && this.items && (
-              <div class="numbers-progress">
-                <span class="interactive-3 current">{this.current + 1}</span>
-                <span class="interactive-3">di</span>
-                <span class="interactive-3">{this.items.length}</span>
+              <div class="numbers-progress interactive-3">
+                <span class="current">{this.current + 1}</span>
+                <span>di</span>
+                <span>{this.items.length}</span>
               </div>
             )}
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
@@ -259,6 +290,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-right-filled"
                 onClick={this.onNext.bind(this)}
+                disabled={!this.canNavigateNext}
               />
             )}
           </div>

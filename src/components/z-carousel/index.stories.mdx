@@ -18,17 +18,23 @@ import "./index";
       options: Object.values(CarouselProgressMode),
       control: {type: "select"},
     },
-    zCarouselGutter: {control: "number", min: 0},
   }}
 />
 
 # ZCarousel
 
 <Canvas>
-  <Story name="ZCarousel-over-arrows">
+  <Story
+    name="With arrows over"
+    args={{
+      "label": "",
+      "--z-carousel-gutter": "8px",
+    }}
+  >
     {(args) => html`<z-carousel
-      label=${args.label || ""}
+      label=${args.label}
       arrows-position=${CarouselArrowsPosition.OVER}
+      style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -63,7 +69,7 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-single-bottom-arrows"
+    name="Single mode with arrows at the bottom"
     parameters={{
       layout: "centered",
     }}
@@ -77,7 +83,6 @@ import "./index";
       label=${args.label}
       arrows-position=${CarouselArrowsPosition.BOTTOM}
       progress-mode=${args.progressMode}
-      style="width: 200px; height: 200px;"
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -112,7 +117,7 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-single-over-arrows"
+    name="Single mode with arrows over"
     parameters={{
       layout: "centered",
     }}
@@ -126,7 +131,6 @@ import "./index";
       label=${args.label}
       arrows-position=${CarouselArrowsPosition.OVER}
       progress-mode=${args.progressMode}
-      style="width: 200px; height: 200px;"
     >
       <li tabindex="0">
         <div class="carousel-box"></div>
@@ -161,12 +165,16 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-with-elements-loading"
+    name="Loading items"
     args={{
-      label: "Carousel title",
+      "label": "Carousel title",
+      "--z-carousel-gutter": "8px",
     }}
   >
-    {(args) => html`<z-carousel label=${args.label}>
+    {(args) => html`<z-carousel
+      label=${args.label}
+      style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
+    >
       <li>
         <div class="carousel-box-loading">
           <z-ghost-loading></z-ghost-loading>
@@ -208,7 +216,7 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZCarousel-ghost-loading"
+    name="Ghost loading"
     args={{
       label: "Carousel title",
       isLoading: true,

@@ -23,21 +23,21 @@ z-carousel .loading-items-container {
   display: none;
 }
 
-.z-carousel-container {
+z-carousel .z-carousel-container {
   display: flex;
   flex-direction: column;
 }
 
-.z-carousel-wrapper {
+z-carousel .z-carousel-wrapper {
   position: relative;
 }
 
-.z-carousel-title {
+z-carousel .z-carousel-title {
   margin-bottom: var(--space-unit);
   color: var(--gray800);
 }
 
-.z-carousel-items-container {
+z-carousel .z-carousel-items-container {
   display: flex;
   max-width: 100%;
   flex-direction: row;
@@ -53,11 +53,11 @@ z-carousel .loading-items-container {
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.z-carousel-items-container::-webkit-scrollbar {
+z-carousel .z-carousel-items-container::-webkit-scrollbar {
   display: none;
 }
 
-.z-carousel-items-container > *:not(:last-child) {
+z-carousel .z-carousel-items-container > *:not(:last-child) {
   margin-right: var(--z-carousel-gutter);
 }
 
@@ -66,7 +66,7 @@ z-carousel[single] .z-carousel-items-container > *:not(:last-child) {
   margin-right: 0;
 }
 
-.z-carousel-items-container > li {
+z-carousel .z-carousel-items-container > li {
   scroll-snap-align: center;
 }
 
@@ -83,7 +83,7 @@ z-button[data-direction="next"] {
   right: 0;
 }
 
-.z-carousel-footer {
+z-carousel .z-carousel-footer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -91,14 +91,14 @@ z-button[data-direction="next"] {
   margin-top: var(--space-unit);
 }
 
-.z-carousel-footer .number-progress,
-.z-carousel-footer .dots-progress {
+z-carousel .z-carousel-footer .numbers-progress,
+z-carousel .z-carousel-footer .dots-progress {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.z-carousel-footer .dots-progress button {
+z-carousel .z-carousel-footer .dots-progress button {
   display: flex;
   align-items: center;
   padding: 0;
@@ -107,26 +107,23 @@ z-button[data-direction="next"] {
   background-color: transparent;
 }
 
-.z-carousel-footer .dots-progress button:not(.current) {
+z-carousel .z-carousel-footer .dots-progress button:not(.current) {
   cursor: pointer;
 }
 
-.z-carousel-footer .numbers-progress {
+z-carousel .z-carousel-footer .numbers-progress {
   margin: 0 calc(var(--space-unit) / 2);
+  column-gap: calc(var(--space-unit) / 2);
 }
 
-.z-carousel-footer .numbers-progress > * {
-  margin-right: calc(var(--space-unit) / 2);
-}
-
-.z-carousel-footer .numbers-progress .current {
+z-carousel .z-carousel-footer .numbers-progress .current {
   font-weight: var(--font-sb);
 }
 
-.z-carousel-footer .dots-progress button.current z-icon {
+z-carousel .z-carousel-footer .dots-progress button.current z-icon {
   fill: var(--gray800);
 }
 
-.z-carousel-footer .dots-progress button:not(.current) z-icon {
+z-carousel .z-carousel-footer .dots-progress button:not(.current) z-icon {
   fill: var(--gray200);
 }
