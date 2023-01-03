@@ -1284,3 +1284,7 @@ export const LEGACY_ICONS = {
 };
 
 Object.assign(ICONS, LEGACY_ICONS);
+
+// Temporary override the burger menu icon with text with the one without text
+ICONS["burger-menu"] = ICONS["burger-menu-mobile"];
+ICONS["burger-menu-filled"] = ICONS["burger-menu-mobile-filled"];

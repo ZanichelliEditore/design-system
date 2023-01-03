@@ -5,6 +5,12 @@
 }
 
 .icons-list summary {
+  position: sticky;
+  top: 0;
+  padding: var(--space-unit) 0;
+  border-bottom: 1px solid var(--gray200);
+  margin-bottom: var(--space-unit);
+  background: white;
   cursor: pointer;
   font-weight: var(--font-sb);
 }
