@@ -1970,10 +1970,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-file-upload.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-icon-package.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-icon-package.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-info-box.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */

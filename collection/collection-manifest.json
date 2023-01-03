@@ -12,7 +12,6 @@
     "./components/file-upload/z-file/index.js",
     "./components/file-upload/z-file-upload/index.js",
     "./components/icons/z-icon/index.js",
-    "./components/icons/z-icon-package/index.js",
     "./components/indicators/z-stepper/index.js",
     "./components/indicators/z-stepper-item/index.js",
     "./components/inputs/z-input/index.js",

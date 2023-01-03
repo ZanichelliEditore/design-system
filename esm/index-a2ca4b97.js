@@ -1948,10 +1948,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-file-upload.entry.js').then(processMod, consoleError);
-        case 'z-icon-package':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-icon-package.entry.js').then(processMod, consoleError);
         case 'z-info-box':
           return import(
             /* webpackMode: "lazy" */

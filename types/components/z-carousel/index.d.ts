@@ -23,33 +23,41 @@ export declare class ZCarousel {
   current: number;
   /** Items on the slider. */
   items: HTMLLIElement[];
+  /** Index of the indicator to highlight. */
+  highlightedIndicator: number;
+  canNavigatePrev: boolean;
+  canNavigateNext: boolean;
   /** Reference for the items container element. */
   private itemsContainer;
   /** Observer that handles current index change when scrolling on single mode. */
   private intersectionObserver;
-  /** Flag indicating the items container is scrolling programmatically towards the stored index. */
+  /** Flag indicating the items container is about to scroll programmatically towards the stored index. */
   private scrollingTo;
   /** Emitted on index change and only in `single` mode. */
   indexChange: EventEmitter;
   onIndexChange(): void;
   onSingleModeChange(): void;
-  componentDidLoad(): void;
   /**
-   * Set an intersection observer to show the current index to the indicator when scrolling.
+   * Set an intersection observer to:
+   * - highlight the indicator of the intersecting item during scroll
+   * - set the current item to the last intersecting item
    */
   private setIntersectionObserver;
   private onPrev;
   private onNext;
   /**
+   * Check if navigation buttons can be enabled or not and set local states.
+   */
+  private checkNavigationValidity;
+  /**
    * Check if footer can be rendered.
-   * @returns {boolean}
    */
   private canShowFooter;
   /**
    * Set current item to passed index.
    * @param {number} index Index to set
-   * @returns {void}
    */
   private goTo;
+  componentDidLoad(): void;
   render(): HTMLZCarouselElement;
 }
