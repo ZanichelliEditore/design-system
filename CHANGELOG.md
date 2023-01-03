@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.2](https://github.com/ZanichelliEditore/design-system/compare/v6.6.1...v6.6.2) (2023-01-03)
+
+
+### Bug Fixes
+
+* temp override of burger menu icon; enhance iconset story style ([df37933](https://github.com/ZanichelliEditore/design-system/commit/df37933d4e673bc820cdbc5b988f4e2b554fd4c2))
+
 ### [6.6.1](https://github.com/ZanichelliEditore/design-system/compare/v6.6.0...v6.6.1) (2023-01-03)
 
 
