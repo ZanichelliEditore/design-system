@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.1](https://github.com/ZanichelliEditore/design-system/compare/v6.6.0...v6.6.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* scrolling glitch; improve indicator highlighting ([c823e51](https://github.com/ZanichelliEditore/design-system/commit/c823e515d58a1c49f0cb627c82a0554eda581e03))
+
 ## [6.6.0](https://github.com/ZanichelliEditore/design-system/compare/v6.5.2...v6.6.0) (2022-12-21)
 
 
