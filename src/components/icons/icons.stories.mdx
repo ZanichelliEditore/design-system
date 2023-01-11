@@ -1,0 +1,38 @@
+import {html} from "lit-html";
+import {Meta, Story, Canvas} from "@storybook/addon-docs";
+import {STROKE_ICONS, FILLED_ICONS, BUTTON_ICONS, LEGACY_ICONS} from "./icons";
+import "./icons.stories.css";
+
+# Iconset
+
+<Meta title="Icons/Iconset" />
+
+<Canvas>
+  <Story name="Icons list">
+    {() => html`<div class="icons-list">
+      ${[STROKE_ICONS, FILLED_ICONS, BUTTON_ICONS, LEGACY_ICONS].map(
+        (iconsGroup, index) => html`
+          <details open>
+            <summary>
+              ${["Stroke icons", "Filled icons", "Button icons", "Legacy icon names"][index]} - (${
+          Object.keys(iconsGroup).length
+        })
+            </summary>
+            <ol class="icons-container">
+              ${Object.keys(iconsGroup)
+                .sort()
+                .map(
+                  (iconName) => html`
+                    <li class="icon-box">
+                      <z-icon name=${iconName}></z-icon>
+                      <div class="icon-name">${iconName}</div>
+                    </li>
+                  `
+                )}
+            </div>
+          </details>
+        `
+      )}
+    </div>`}
+  </Story>
+</Canvas>
