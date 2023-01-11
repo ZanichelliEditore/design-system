@@ -181,11 +181,7 @@ describe("Suite test ZSearchbar", () => {
   });
 });
 
-const getItems = () => [
-  {label: "item 1", link: "https://my.zanichelli.it", icon: "download"},
-  {label: "item 2", link: "https://www.zanichelli.it"},
-  {label: "item 3", link: "https://classivirtuali.zanichelli.it"},
-];
+const getItems = () => [{label: "item 1", icon: "download"}, {label: "item 2"}, {label: "item 3"}];
 
 const resultsItems = () => `
   <z-list-group divider-type="element">

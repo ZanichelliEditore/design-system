@@ -196,13 +196,6 @@ export class ZSearchbar {
     this.emitSearchSubmit();
   }
 
-  private handleItemClick(item: SearchbarItem): void {
-    this.emitSearchItemClick(item);
-    if (item?.link) {
-      window.location.href = item.link;
-    }
-  }
-
   private handleOutsideClick(e: MouseEvent): void {
     const cp = e.composedPath();
 
@@ -313,7 +306,7 @@ export class ZSearchbar {
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
         clickable
-        onClickItem={() => this.handleItemClick(item)}
+        onClickItem={() => this.emitSearchItemClick(item)}
       >
         <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
           {item?.icon && (

@@ -19,15 +19,16 @@
 | `resultsItems`         | `results-items`          | Autocomplete results items                            | `SearchbarItem[] \| string` | `undefined`                 |
 | `searchHelperLabel`    | `search-helper-label`    | Search helper text                                    | `string`                    | `"Cerca {searchString}"`    |
 | `sortResultsItems`     | `sort-results-items`     | Sort autocomplete results items                       | `boolean`                   | `false`                     |
+| `value`                | `value`                  | Input search string                                   | `string`                    | `undefined`                 |
 
 
 ## Events
 
-| Event             | Description                                    | Type                                                                                                    |
-| ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; link: string; icon?: string; category?: string; subcategory?: string; }>` |
-| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                   |
-| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                   |
+| Event             | Description                                    | Type                                                                                                   |
+| ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; id?: string; icon?: string; category?: string; subcategory?: string; }>` |
+| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                  |
+| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                  |
 
 
 ## Dependencies
