@@ -82,11 +82,13 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                ${resultsItems()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  ${resultsItems()}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>
@@ -118,25 +120,27 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                <z-list-group divider-type="element">
-                  <z-list-element
-                    id="list-item-my-id-0"
-                    role="option"
-                    tabindex="0"
-                    dividerType="element"
-                    clickable
-                  >
-                    <span class="item ellipsis">
-                      <z-icon class="item-icon" name="download"></z-icon>
-                      <span class="item-label" title="item 1"><mark>item</mark> 1</span>
-                    </span>
-                  </z-list-element>
-                </z-list-group>
-                ${showAllResults()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  <z-list-group divider-type="element">
+                    <z-list-element
+                      id="list-item-my-id-0"
+                      role="option"
+                      tabindex="0"
+                      dividerType="element"
+                      clickable
+                    >
+                      <span class="item ellipsis">
+                        <z-icon class="item-icon" name="download"></z-icon>
+                        <span class="item-label" title="item 1"><mark>item</mark> 1</span>
+                      </span>
+                    </z-list-element>
+                  </z-list-group>
+                  ${showAllResults()}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>
@@ -167,11 +171,13 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                ${resultsItems()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  ${resultsItems()}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>

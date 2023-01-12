@@ -255,15 +255,17 @@ export class ZSearchbar {
     }
 
     return (
-      <div class="results">
-        <z-list
-          role="listbox"
-          id={`list-${this.htmlid}`}
-        >
-          {this.renderSearchHelper()}
-          {this.renderItems()}
-          {this.renderShowAllResults()}
-        </z-list>
+      <div class="results-wrapper">
+        <div class="results">
+          <z-list
+            role="listbox"
+            id={`list-${this.htmlid}`}
+          >
+            {this.renderSearchHelper()}
+            {this.renderItems()}
+            {this.renderShowAllResults()}
+          </z-list>
+        </div>
       </div>
     );
   }
