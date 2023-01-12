@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./components/typography/z-typography/index";
 export namespace Components {
@@ -1275,6 +1275,52 @@ export namespace Components {
          */
         "secondLabel"?: string;
     }
+    interface ZSearchbar {
+        /**
+          * Show autocomplete results
+         */
+        "autocomplete"?: boolean;
+        /**
+          * Minimun number of characters to dispatch typing event
+         */
+        "autocompleteMinChars"?: number;
+        /**
+          * the id of the searchbar element
+         */
+        "htmlid": string;
+        /**
+          * Search input placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Show simple input without submit button
+         */
+        "preventSubmit"?: boolean;
+        /**
+          * Number of results shown - default all
+         */
+        "resultsCount"?: number;
+        /**
+          * Truncate results to single row
+         */
+        "resultsEllipsis"?: boolean;
+        /**
+          * Autocomplete results items
+         */
+        "resultsItems"?: SearchbarItem[] | string;
+        /**
+          * Search helper text
+         */
+        "searchHelperLabel"?: string;
+        /**
+          * Sort autocomplete results items
+         */
+        "sortResultsItems"?: boolean;
+        /**
+          * Input search string
+         */
+        "value"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -1775,6 +1821,10 @@ export interface ZRangePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZRangePickerElement;
 }
+export interface ZSearchbarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZSearchbarElement;
+}
 export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZSelectElement;
@@ -2182,6 +2232,12 @@ declare global {
         prototype: HTMLZRangePickerElement;
         new (): HTMLZRangePickerElement;
     };
+    interface HTMLZSearchbarElement extends Components.ZSearchbar, HTMLStencilElement {
+    }
+    var HTMLZSearchbarElement: {
+        prototype: HTMLZSearchbarElement;
+        new (): HTMLZSearchbarElement;
+    };
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
@@ -2396,6 +2452,7 @@ declare global {
         "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
+        "z-searchbar": HTMLZSearchbarElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
@@ -3853,6 +3910,64 @@ declare namespace LocalJSX {
          */
         "secondLabel"?: string;
     }
+    interface ZSearchbar {
+        /**
+          * Show autocomplete results
+         */
+        "autocomplete"?: boolean;
+        /**
+          * Minimun number of characters to dispatch typing event
+         */
+        "autocompleteMinChars"?: number;
+        /**
+          * the id of the searchbar element
+         */
+        "htmlid"?: string;
+        /**
+          * Emitted on search result click, return item
+         */
+        "onSearchItemClick"?: (event: ZSearchbarCustomEvent<SearchbarItem>) => void;
+        /**
+          * Emitted on search submit, return search string
+         */
+        "onSearchSubmit"?: (event: ZSearchbarCustomEvent<string>) => void;
+        /**
+          * Emitted on search typing, return search string
+         */
+        "onSearchTyping"?: (event: ZSearchbarCustomEvent<string>) => void;
+        /**
+          * Search input placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Show simple input without submit button
+         */
+        "preventSubmit"?: boolean;
+        /**
+          * Number of results shown - default all
+         */
+        "resultsCount"?: number;
+        /**
+          * Truncate results to single row
+         */
+        "resultsEllipsis"?: boolean;
+        /**
+          * Autocomplete results items
+         */
+        "resultsItems"?: SearchbarItem[] | string;
+        /**
+          * Search helper text
+         */
+        "searchHelperLabel"?: string;
+        /**
+          * Sort autocomplete results items
+         */
+        "sortResultsItems"?: boolean;
+        /**
+          * Input search string
+         */
+        "value"?: string;
+    }
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -4304,6 +4419,7 @@ declare namespace LocalJSX {
         "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
         "z-range-picker": ZRangePicker;
+        "z-searchbar": ZSearchbar;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
         "z-skip-to-content": ZSkipToContent;
@@ -4398,6 +4514,7 @@ declare module "@stencil/core" {
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
+            "z-searchbar": LocalJSX.ZSearchbar & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;

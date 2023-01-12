@@ -18,6 +18,7 @@
     "./snowflakes/myz/list/z-myz-list-item/index.js",
     "./components/inputs/z-combobox/index.js",
     "./components/inputs/z-input-message/index.js",
+    "./components/inputs/z-searchbar/index.js",
     "./components/inputs/z-select/index.js",
     "./components/list/z-list/index.js",
     "./components/list/z-list-element/index.js",
