@@ -50,6 +50,7 @@
 ### Used by
 
  - [z-panel-elem](../../panel/z-panel-elem)
+ - [z-searchbar](../../inputs/z-searchbar)
  - [z-skip-to-content](../../z-skip-to-content)
 
 ### Depends on
@@ -61,6 +62,7 @@
 graph TD;
   z-link --> z-icon
   z-panel-elem --> z-link
+  z-searchbar --> z-link
   z-skip-to-content --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```

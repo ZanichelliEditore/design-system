@@ -196,6 +196,7 @@ Type: `Promise<boolean>`
  - [z-date-picker](../../date-picker/z-date-picker)
  - [z-pagination](../../z-pagination)
  - [z-range-picker](../../date-picker/z-range-picker)
+ - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
 
 ### Depends on
@@ -213,6 +214,7 @@ graph TD;
   z-date-picker --> z-input
   z-pagination --> z-input
   z-range-picker --> z-input
+  z-searchbar --> z-input
   z-select --> z-input
   style z-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -408,3 +408,21 @@ export enum CarouselProgressMode {
   DOTS = "dots",
   NUMBERS = "numbers",
 }
+
+export type SearchbarItem = {
+  label: string;
+  id?: string;
+  icon?: string;
+  category?: string;
+  subcategory?: string;
+};
+
+export type SearchbarGroupedItem = {
+  [key: string]: SearchbarGroup;
+};
+
+export type SearchbarGroup = {
+  items: SearchbarItem[];
+  category?: string;
+  subcategory?: string;
+};
