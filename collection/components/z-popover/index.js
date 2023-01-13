@@ -1,6 +1,5 @@
 import { h } from "@stencil/core";
 import { PopoverPosition, KeyboardCode } from "../../beans";
-import { getElementTree } from "../../utils/utils";
 const DOCUMENT_ELEMENT = document.documentElement;
 function getParentElement(element) {
   if (element.parentNode.host) {
@@ -116,13 +115,22 @@ export class ZPopover {
       this.open = false;
     }
   }
+  /**
+   * Close the popover when clicking outside of its content.
+   * Stop event propagation if the click was fired by popover's trigger element,
+   * to prevent close and reopen glitches.
+   * @param {MouseEvent} e
+   */
   handleOutsideClick(e) {
-    if (!this.closable) {
+    if (!this.closable || !this.open) {
       return;
     }
-    const tree = getElementTree(e.target);
-    const parent = tree.find((elem) => elem.nodeName.toLowerCase() === "z-popover");
-    if (!parent) {
+    if (!e.composedPath().includes(this.host)) {
+      const target = e.target;
+      const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
+      if (triggerElemClicked) {
+        e.stopPropagation();
+      }
       this.open = false;
       this.positionChange.emit({ position: this.currentPosition });
     }

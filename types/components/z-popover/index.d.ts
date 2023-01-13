@@ -46,6 +46,12 @@ export declare class ZPopover {
   host: HTMLZPopoverElement;
   private animationFrameRequestId?;
   closePopoverWithKeyboard(e: KeyboardEvent): void;
+  /**
+   * Close the popover when clicking outside of its content.
+   * Stop event propagation if the click was fired by popover's trigger element,
+   * to prevent close and reopen glitches.
+   * @param {MouseEvent} e
+   */
   handleOutsideClick(e: MouseEvent): void;
   validatePosition(newValue: PopoverPosition): void;
   /**
