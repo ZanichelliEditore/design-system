@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.5](https://github.com/ZanichelliEditore/design-system/compare/v6.6.4...v6.6.5) (2023-01-13)
+
+
+### Bug Fixes
+
+* fix z-carousel arrow icons ([02c9cdc](https://github.com/ZanichelliEditore/design-system/commit/02c9cdc57a49134607e09bfcfdb72504ab3b9617))
+
 ### [6.6.4](https://github.com/ZanichelliEditore/design-system/compare/v6.6.3...v6.6.4) (2023-01-13)
 
 
