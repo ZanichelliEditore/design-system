@@ -259,7 +259,7 @@ export class ZCarousel {
               <z-button
                 size={ButtonSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
-                icon="arrow-left-filled"
+                icon="arrow-simple-left-filled"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.canNavigatePrev}
               />
@@ -288,7 +288,7 @@ export class ZCarousel {
               <z-button
                 size={ButtonSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
-                icon="arrow-right-filled"
+                icon="arrow-simple-right-filled"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.canNavigateNext}
               />
