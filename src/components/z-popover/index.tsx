@@ -1,6 +1,5 @@
 import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
 import {PopoverPosition, KeyboardCode} from "../../beans";
-import {getElementTree} from "../../utils/utils";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
@@ -177,16 +176,26 @@ export class ZPopover {
     }
   }
 
+  /**
+   * Close the popover when clicking outside of its content.
+   * Stop event propagation if the click was fired by popover's trigger element,
+   * to prevent close and reopen glitches.
+   * @param {MouseEvent} e
+   */
   @Listen("click", {target: "body", capture: true})
   handleOutsideClick(e: MouseEvent): void {
-    if (!this.closable) {
+    if (!this.closable || !this.open) {
       return;
     }
 
-    const tree = getElementTree(e.target as Element);
-    const parent = tree.find((elem: Element) => elem.nodeName.toLowerCase() === "z-popover");
+    if (!e.composedPath().includes(this.host)) {
+      const target = e.target as HTMLElement;
+      const triggerElemClicked =
+        this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
+      if (triggerElemClicked) {
+        e.stopPropagation();
+      }
 
-    if (!parent) {
       this.open = false;
       this.positionChange.emit({position: this.currentPosition});
     }
