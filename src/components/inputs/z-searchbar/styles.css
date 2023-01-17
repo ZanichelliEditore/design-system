@@ -124,7 +124,8 @@
   white-space: nowrap;
 }
 
-:host > div > div.results-wrapper > div.results .item > span.item-label > mark {
+:host > div > div.results-wrapper > div.results .item > span.item-label > mark,
+:host > div > div.results-wrapper > div.results .item > span.item-label > * > mark {
   background: var(--color-primary03);
 }
 
