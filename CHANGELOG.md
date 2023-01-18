@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.6](https://github.com/ZanichelliEditore/design-system/compare/v6.6.5...v6.6.6) (2023-01-18)
+
+
+### Bug Fixes
+
+* block page scroll for overlay variant ([e4441de](https://github.com/ZanichelliEditore/design-system/commit/e4441de6e09abb795b9ce00db9802dbf723795f6))
+* z-offcanvas - remove margin bottom to avoid visually truncating content ([f9e58fc](https://github.com/ZanichelliEditore/design-system/commit/f9e58fc210a48f65adf724996c9dd7e9a6dd501f))
+
 ### [6.6.5](https://github.com/ZanichelliEditore/design-system/compare/v6.6.4...v6.6.5) (2023-01-13)
 
 
