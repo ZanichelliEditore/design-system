@@ -55,6 +55,7 @@ export declare class ZSearchbar {
   private renderInput;
   private renderButton;
   private renderResults;
+  private renderResultsList;
   private renderItems;
   private renderItem;
   private renderItemLabel;

@@ -143,13 +143,23 @@ export class ZSearchbar {
       !this.autocomplete ||
       !this.searchString ||
       this.searchString.length < this.autocompleteMinChars ||
-      !this.resultsItemsList ||
-      !this.resultsItemsList.length) {
+      !this.resultsItemsList) {
       return null;
     }
-    return (h("div", { class: "results" }, h("z-list", { role: "listbox", id: `list-${this.htmlid}` }, this.renderSearchHelper(), this.renderItems(), this.renderShowAllResults())));
+    return (h("div", { class: "results-wrapper" }, h("div", { class: "results" }, this.renderResultsList())));
+  }
+  renderResultsList() {
+    var _a, _b;
+    if (this.preventSubmit && !((_a = this.resultsItemsList) === null || _a === void 0 ? void 0 : _a.length)) {
+      return (h("span", { class: "item item-no-results" }, "La tua ricerca ", h("b", null, this.searchString), " non ha generato risultati.", h("br", null), h("br", null), "Alcuni suggerimenti:", h("ul", null, h("li", null, "Verifica di aver scritto correttamente"), h("li", null, "Prova una diversa chiave di ricerca"), h("li", null, "Prova una ricerca pi\u00F9 generica"))));
+    }
+    return (h("z-list", { role: "listbox", id: `list-${this.htmlid}` }, this.renderSearchHelper(!!((_b = this.resultsItemsList) === null || _b === void 0 ? void 0 : _b.length)), this.renderItems(), this.renderShowAllResults()));
   }
   renderItems() {
+    var _a;
+    if (!((_a = this.resultsItemsList) === null || _a === void 0 ? void 0 : _a.length)) {
+      return [];
+    }
     const groupedItems = this.getGroupedItems(this.resultsItemsList);
     const listGroups = [];
     let counter = 0;
@@ -185,11 +195,11 @@ export class ZSearchbar {
     }
     return (h("span", { class: "category-heading", slot: "header-title" }, h("span", { class: "category" }, groupItem.category), (groupItem === null || groupItem === void 0 ? void 0 : groupItem.subcategory) && h("span", { class: "subcategory" }, groupItem.subcategory)));
   }
-  renderSearchHelper() {
+  renderSearchHelper(hasDivider = true) {
     if (!this.autocomplete || this.preventSubmit || !this.searchString) {
       return null;
     }
-    return (h("z-list-element", { role: "option", tabindex: 0, dividerType: ListDividerType.ELEMENT, clickable: true, id: `list-item-${this.htmlid}-search`, onClickItem: () => this.emitSearchSubmit() }, h("span", { class: "item item-search" }, h("z-icon", { class: "search-icon", name: "left-magnifying-glass" }), h("span", { class: "item-label", innerHTML: this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`) }))));
+    return (h("z-list-element", { role: "option", tabindex: 0, dividerType: hasDivider ? ListDividerType.ELEMENT : undefined, clickable: true, id: `list-item-${this.htmlid}-search`, onClickItem: () => this.emitSearchSubmit() }, h("span", { class: "item item-search" }, h("z-icon", { class: "search-icon", name: "left-magnifying-glass" }), h("span", { class: "item-label", innerHTML: this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`) }))));
   }
   renderShowAllResults() {
     var _a, _b;
