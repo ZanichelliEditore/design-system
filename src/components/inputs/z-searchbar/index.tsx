@@ -248,27 +248,52 @@ export class ZSearchbar {
       !this.autocomplete ||
       !this.searchString ||
       this.searchString.length < this.autocompleteMinChars ||
-      !this.resultsItemsList ||
-      !this.resultsItemsList.length
+      !this.resultsItemsList
     ) {
       return null;
     }
 
     return (
-      <div class="results">
-        <z-list
-          role="listbox"
-          id={`list-${this.htmlid}`}
-        >
-          {this.renderSearchHelper()}
-          {this.renderItems()}
-          {this.renderShowAllResults()}
-        </z-list>
+      <div class="results-wrapper">
+        <div class="results">{this.renderResultsList()}</div>
       </div>
     );
   }
 
+  private renderResultsList(): HTMLZListElement | HTMLSpanElement {
+    if (this.preventSubmit && !this.resultsItemsList?.length) {
+      return (
+        <span class="item item-no-results">
+          La tua ricerca <b>{this.searchString}</b> non ha generato risultati.
+          <br />
+          <br />
+          Alcuni suggerimenti:
+          <ul>
+            <li>Verifica di aver scritto correttamente</li>
+            <li>Prova una diversa chiave di ricerca</li>
+            <li>Prova una ricerca più generica</li>
+          </ul>
+        </span>
+      );
+    }
+
+    return (
+      <z-list
+        role="listbox"
+        id={`list-${this.htmlid}`}
+      >
+        {this.renderSearchHelper(!!this.resultsItemsList?.length)}
+        {this.renderItems()}
+        {this.renderShowAllResults()}
+      </z-list>
+    );
+  }
+
   private renderItems(): HTMLZListGroupElement[] {
+    if (!this.resultsItemsList?.length) {
+      return [];
+    }
+
     const groupedItems = this.getGroupedItems(this.resultsItemsList);
     const listGroups: HTMLZListGroupElement[] = [];
     let counter = 0;
@@ -349,7 +374,7 @@ export class ZSearchbar {
     );
   }
 
-  private renderSearchHelper(): HTMLZListElement | null {
+  private renderSearchHelper(hasDivider = true): HTMLZListElement | null {
     if (!this.autocomplete || this.preventSubmit || !this.searchString) {
       return null;
     }
@@ -358,7 +383,7 @@ export class ZSearchbar {
       <z-list-element
         role="option"
         tabindex={0}
-        dividerType={ListDividerType.ELEMENT}
+        dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
         clickable
         id={`list-item-${this.htmlid}-search`}
         onClickItem={() => this.emitSearchSubmit()}

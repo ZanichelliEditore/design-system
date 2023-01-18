@@ -82,11 +82,13 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                ${resultsItems()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  ${resultsItems()}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>
@@ -118,25 +120,27 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                <z-list-group divider-type="element">
-                  <z-list-element
-                    id="list-item-my-id-0"
-                    role="option"
-                    tabindex="0"
-                    dividerType="element"
-                    clickable
-                  >
-                    <span class="item ellipsis">
-                      <z-icon class="item-icon" name="download"></z-icon>
-                      <span class="item-label" title="item 1"><mark>item</mark> 1</span>
-                    </span>
-                  </z-list-element>
-                </z-list-group>
-                ${showAllResults()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  <z-list-group divider-type="element">
+                    <z-list-element
+                      id="list-item-my-id-0"
+                      role="option"
+                      tabindex="0"
+                      dividerType="element"
+                      clickable
+                    >
+                      <span class="item ellipsis">
+                        <z-icon class="item-icon" name="download"></z-icon>
+                        <span class="item-label" title="item 1"><mark>item</mark> 1</span>
+                      </span>
+                    </z-list-element>
+                  </z-list-group>
+                  ${showAllResults()}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>
@@ -167,11 +171,93 @@ describe("Suite test ZSearchbar", () => {
         <mock:shadow-root>
           <div class="has-submit has-results">
             <z-input></z-input>
-            <div class="results">
-              <z-list role="listbox" id="list-my-id">
-                ${searchHelper()}
-                ${resultsItems()}
-              </z-list>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper()}
+                  ${resultsItems()}
+                </z-list>
+              </div>
+            </div>
+            <z-button variant="primary">CERCA</z-button>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
+
+  it("Autocomplete searchbar without search and no results - with input search", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar
+        htmlid="my-id"
+        autocomplete="true"
+        prevent-submit="true"
+        results-items='[]'
+      ></z-searchbar>`,
+    });
+    page.rootInstance.searchString = "item";
+    page.rootInstance.showResults = true;
+    page.rootInstance.currResultsCount = 0;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <z-searchbar
+        htmlid="my-id"
+        autocomplete="true"
+        prevent-submit="true"
+        results-items='[]'
+      >
+        <mock:shadow-root>
+          <div class="has-results">
+            <z-input></z-input>
+            <div class="results-wrapper">
+              <div class="results">
+                <span class="item item-no-results">
+                  La tua ricerca <b>item</b> non ha generato risultati.
+                  <br /><br />
+                  Alcuni suggerimenti:
+                  <ul>
+                    <li>Verifica di aver scritto correttamente</li>
+                    <li>Prova una diversa chiave di ricerca</li>
+                    <li>Prova una ricerca più generica</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
+
+  it("Autocomplete searchbar with search and no results - with input search", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar
+        htmlid="my-id"
+        autocomplete="true"
+        results-items='[]'
+      ></z-searchbar>`,
+    });
+    page.rootInstance.searchString = "item";
+    page.rootInstance.showResults = true;
+    page.rootInstance.currResultsCount = 0;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <z-searchbar
+        htmlid="my-id"
+        autocomplete="true"
+        results-items='[]'
+      >
+        <mock:shadow-root>
+          <div class="has-submit has-results">
+            <z-input></z-input>
+            <div class="results-wrapper">
+              <div class="results">
+                <z-list role="listbox" id="list-my-id">
+                  ${searchHelper(false)}
+                </z-list>
+              </div>
             </div>
             <z-button variant="primary">CERCA</z-button>
           </div>
@@ -220,11 +306,11 @@ const resultsItems = () => `
     </z-list-element>
   </z-list-group>`;
 
-const searchHelper = () => `
+const searchHelper = (divider: boolean = true) => `
   <z-list-element
     role="option"
     tabindex="0"
-    dividerType="element"
+    ${divider ? `dividerType="element"` : ``}
     id="list-item-my-id-search"
     clickable
   >
