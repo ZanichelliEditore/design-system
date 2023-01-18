@@ -193,6 +193,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         prevent-submit="true"
+        results-items='[]'
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -204,6 +205,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         prevent-submit="true"
+        results-items='[]'
       >
         <mock:shadow-root>
           <div class="has-results">
@@ -234,6 +236,7 @@ describe("Suite test ZSearchbar", () => {
       html: `<z-searchbar
         htmlid="my-id"
         autocomplete="true"
+        results-items='[]'
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -244,6 +247,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar
         htmlid="my-id"
         autocomplete="true"
+        results-items='[]'
       >
         <mock:shadow-root>
           <div class="has-submit has-results">

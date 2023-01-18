@@ -247,7 +247,8 @@ export class ZSearchbar {
       !this.showResults ||
       !this.autocomplete ||
       !this.searchString ||
-      this.searchString.length < this.autocompleteMinChars
+      this.searchString.length < this.autocompleteMinChars ||
+      !this.resultsItemsList
     ) {
       return null;
     }
