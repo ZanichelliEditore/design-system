@@ -53,7 +53,7 @@
   overflow: auto;
   max-height: var(--z-searchbar-results-height, 540px);
   padding: var(--space-unit) calc(var(--space-unit) * 1.5);
-  padding-bottom: 0;
+  padding-bottom: calc(var(--space-unit) / 2);
   scrollbar-color: var(--color-primary01) transparent;
 }
 
@@ -152,6 +152,13 @@
   text-align: center;
 }
 
+:host > div > div.results-wrapper > div.results .item-no-results {
+  display: block;
+  font-size: var(--font-size-2);
+  font-style: italic;
+  line-height: var(--font-size-5);
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host > div > div.results-wrapper > div.results .category-heading {
@@ -189,5 +196,11 @@
 @media (min-width: 1152px) {
   :host > div > div.results-wrapper > div.results .item {
     cursor: pointer;
+  }
+
+  :host > div > div.results-wrapper > div.results .item-no-results {
+    cursor: default;
+    font-size: var(--font-size-3);
+    line-height: var(--font-size-6);
   }
 }
