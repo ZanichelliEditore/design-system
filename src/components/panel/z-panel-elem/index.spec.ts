@@ -127,8 +127,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_blank">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_blank">
               <img src="exampleImgUrl" />
             </a>
           </div>
@@ -151,8 +151,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgurl="exampleImgUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_self">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleImgUrl" />
             </a>
           </div>
@@ -175,8 +175,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgalt="exampleDesc" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_blank">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_blank">
               <img alt="exampleDesc" />
             </a>
           </div>
@@ -199,8 +199,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgalt="exampleDesc" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_self">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img alt="exampleDesc" />
             </a>
           </div>
@@ -223,8 +223,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_self">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleUrl" />
             </a>
           </div>
@@ -250,8 +250,8 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
-            <a aria-hidden="true" class="elem-icon" href="http://www.google.it" target="_self">
+          <div aria-hidden="true" class="panel-elem-icon">
+            <a class="elem-icon" href="http://www.google.it" target="_self">
               <img src="exampleUrl" />
             </a>
           </div>
@@ -281,7 +281,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem isdisabled imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
+          <div aria-hidden="true" class="panel-elem-icon">
               <img src="exampleImgUrl" />
           </div>
           <div class="panel-elem-link">
@@ -303,7 +303,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" target="_self">
         <mock:shadow-root>
           <div class="panel-elem-container">
-          <div class="panel-elem-icon">
+          <div aria-hidden="true" class="panel-elem-icon">
               <img alt="exampleAlt" />
           </div>
           <div class="panel-elem-link">
