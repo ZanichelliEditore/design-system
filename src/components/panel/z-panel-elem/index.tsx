@@ -58,6 +58,7 @@ export class ZPanelElem {
     return (
       <a
         class="elem-icon"
+        aria-hidden="true"
         href={this.url}
         target={this.target}
       >
