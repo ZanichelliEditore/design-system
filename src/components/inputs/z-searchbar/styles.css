@@ -159,6 +159,11 @@
   line-height: var(--font-size-5);
 }
 
+:host > div > div.results-wrapper > div.results .item-no-results > ul {
+  padding-left: calc(var(--space-unit) * 2);
+  margin: var(--space-unit);
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host > div > div.results-wrapper > div.results .category-heading {

@@ -264,14 +264,14 @@ export class ZSearchbar {
     if (this.preventSubmit && !this.resultsItemsList?.length) {
       return (
         <span class="item item-no-results">
-          La tua ricerca <b>{this.searchString}</b> non ha generato risultati.
+          Non abbiamo trovato risultati per <b>{this.searchString}</b>
           <br />
           <br />
-          Alcuni suggerimenti:
+          Cosa puoi fare?
           <ul>
-            <li>Verifica di aver scritto correttamente</li>
-            <li>Prova una diversa chiave di ricerca</li>
-            <li>Prova una ricerca più generica</li>
+            <li>Verificare di aver scritto bene</li>
+            <li>Provare a cercare un'altra parola</li>
+            <li>Provare a cercare qualcosa di più generico</li>
           </ul>
         </span>
       );
