@@ -74,7 +74,14 @@ export class ZPanelElem {
 
     return (
       <div class="panel-elem-container">
-        {(this.imgurl || this.imgalt) && <div class="panel-elem-icon">{this.renderIcon()}</div>}
+        {(this.imgurl || this.imgalt) && (
+          <div
+            aria-hidden="true"
+            class="panel-elem-icon"
+          >
+            {this.renderIcon()}
+          </div>
+        )}
         <div class="panel-elem-link">
           <z-link
             href={this.url}
