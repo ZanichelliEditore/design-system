@@ -22,7 +22,7 @@ const ZPanelElem = class {
   }
   render() {
     const elemId = this.elemid ? this.elemid : "";
-    return (index.h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && index.h("div", { class: "panel-elem-icon" }, this.renderIcon()), index.h("div", { class: "panel-elem-link" }, index.h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descrSlotName && (index.h("div", { class: "panel-elem-desc body-long-01" }, index.h("slot", { name: this.descrSlotName })))));
+    return (index.h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (index.h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, this.renderIcon())), index.h("div", { class: "panel-elem-link" }, index.h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descrSlotName && (index.h("div", { class: "panel-elem-desc body-long-01" }, index.h("slot", { name: this.descrSlotName })))));
   }
 };
 ZPanelElem.style = stylesCss;

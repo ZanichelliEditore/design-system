@@ -18,7 +18,7 @@ const ZPanelElem = class {
   }
   render() {
     const elemId = this.elemid ? this.elemid : "";
-    return (h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && h("div", { class: "panel-elem-icon" }, this.renderIcon()), h("div", { class: "panel-elem-link" }, h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc body-long-01" }, h("slot", { name: this.descrSlotName })))));
+    return (h("div", { class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, this.renderIcon())), h("div", { class: "panel-elem-link" }, h("z-link", { href: this.url, icon: this.linkicon, isdisabled: this.isdisabled, target: this.target, htmlid: elemId + "link_id" }, this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc body-long-01" }, h("slot", { name: this.descrSlotName })))));
   }
 };
 ZPanelElem.style = stylesCss;

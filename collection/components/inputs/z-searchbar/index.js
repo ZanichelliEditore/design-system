@@ -151,7 +151,7 @@ export class ZSearchbar {
   renderResultsList() {
     var _a, _b;
     if (this.preventSubmit && !((_a = this.resultsItemsList) === null || _a === void 0 ? void 0 : _a.length)) {
-      return (h("span", { class: "item item-no-results" }, "La tua ricerca ", h("b", null, this.searchString), " non ha generato risultati.", h("br", null), h("br", null), "Alcuni suggerimenti:", h("ul", null, h("li", null, "Verifica di aver scritto correttamente"), h("li", null, "Prova una diversa chiave di ricerca"), h("li", null, "Prova una ricerca pi\u00F9 generica"))));
+      return (h("span", { class: "item item-no-results" }, "Non abbiamo trovato risultati per ", h("b", null, this.searchString), h("br", null), h("br", null), "Cosa puoi fare?", h("ul", null, h("li", null, "Verificare di aver scritto bene"), h("li", null, "Provare a cercare un'altra parola"), h("li", null, "Provare a cercare qualcosa di pi\u00F9 generico"))));
     }
     return (h("z-list", { role: "listbox", id: `list-${this.htmlid}` }, this.renderSearchHelper(!!((_b = this.resultsItemsList) === null || _b === void 0 ? void 0 : _b.length)), this.renderItems(), this.renderShowAllResults()));
   }
