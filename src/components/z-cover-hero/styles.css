@@ -1,5 +1,6 @@
 :host {
   --cover-hero-height: auto;
+  --cover-hero-min-height: calc(var(--space-unit) * 30);
   --cover-hero-overlay: none;
   --cover-hero-text-color: var(--color-text-inverse);
 
@@ -15,7 +16,7 @@
   position: relative;
   width: 100%;
   height: var(--cover-hero-height);
-  min-height: calc(var(--space-unit) * 30);
+  min-height: var(--cover-hero-min-height);
   align-items: baseline;
   background-color: var(--gray600);
 }
