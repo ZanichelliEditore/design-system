@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.6.9](https://github.com/ZanichelliEditore/design-system/compare/v6.6.8...v6.6.9) (2023-01-23)
+
 ### [6.6.8](https://github.com/ZanichelliEditore/design-system/compare/v6.6.7...v6.6.8) (2023-01-20)
 
 
