@@ -22,6 +22,10 @@ export class ZCombobox {
   @Prop()
   label: string;
 
+  /** the combobox is disabled */
+  @Prop({reflect: true})
+  disabled?: boolean = false;
+
   /** show search input flag (optional) */
   @Prop()
   hassearch?: boolean = false;
@@ -399,11 +403,11 @@ export class ZCombobox {
     return (
       <div
         data-action={`combo-${this.inputid}`}
-        class={{open: this.isopen, fixed: this.isfixed}}
+        class={{open: this.isopen, fixed: this.isfixed, disabled: this.disabled}}
         id={this.inputid}
       >
         {this.renderHeader()}
-        {this.renderContent()}
+        {!this.disabled && this.renderContent()}
       </div>
     );
   }

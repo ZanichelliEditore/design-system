@@ -18,6 +18,9 @@ import "./index";
     closesearchtext: {
       control: {type: "text"},
     },
+    disabled: {
+      control: {type: "boolean"},
+    },
     hascheckall: {
       control: {type: "boolean"},
     },
@@ -67,6 +70,7 @@ import "./index";
     ],
     checkalltext: "Select all",
     closesearchtext: "Close",
+    disabled: false,
     hascheckall: true,
     hassearch: true,
     inputid: "combo_1",
@@ -91,6 +95,7 @@ import "./index";
       html` <z-combobox
         checkalltext=${args.checkalltext}
         closesearchtext=${args.closesearchtext}
+        disabled=${args.disabled}
         hascheckall=${args.hascheckall}
         hassearch=${args.hassearch}
         inputid=${args.inputid}
@@ -131,6 +136,40 @@ import "./index";
       html` <z-combobox
         checkalltext=${args.checkalltext}
         closesearchtext=${args.closesearchtext}
+        disabled=${args.disabled}
+        hascheckall=${args.hascheckall}
+        hassearch=${args.hassearch}
+        inputid=${args.inputid}
+        isfixed=${args.isfixed}
+        isopen=${args.isopen}
+        items=${JSON.stringify(args.items)}
+        label=${args.label}
+        maxcheckableitems=${args.maxcheckableitems}
+        hasgroupitems=${args.hasgroupitems}
+        noresultslabel=${args.noresultslabel}
+        searchlabel=${args.searchlabel}
+        searchplaceholder=${args.searchplaceholder}
+        searchtitle=${args.searchtitle}
+        uncheckalltext=${args.uncheckalltext}
+      />`
+    }
+  </Story>
+</Canvas>
+
+# ZCombobox disabled
+
+<Canvas>
+  <Story
+    name="z-combobox disabled"
+    args={{
+      disabled: true,
+    }}
+  >
+    {(args) =>
+      html` <z-combobox
+        checkalltext=${args.checkalltext}
+        closesearchtext=${args.closesearchtext}
+        disabled=${args.disabled}
         hascheckall=${args.hascheckall}
         hassearch=${args.hassearch}
         inputid=${args.inputid}
