@@ -54,12 +54,13 @@ export class ZMyzCardHeader {
   render(): HTMLElement {
     return (
       <header class={this.retrieveClass()}>
-        <h2
+        <span
+          class="card-title"
           ref={(el) => (this.ellipsis = el as HTMLElement)}
           title={this.getTitle()}
         >
           {this.titolo}
-        </h2>
+        </span>
         <slot name="icon" />
       </header>
     );
