@@ -40,7 +40,7 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message tabindex="0" aria-label="message" message="message" status="success">
+      <z-input-message tabindex="0" aria-label="message" message="message" status="success" role="alert">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
           <span>message</span>

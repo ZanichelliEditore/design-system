@@ -1,4 +1,4 @@
-import {Component, Prop, Watch, h, Host} from "@stencil/core";
+import {Component, Prop, Watch, State, h, Host} from "@stencil/core";
 import {InputStatus} from "../../../beans";
 
 @Component({
@@ -21,11 +21,13 @@ export class ZInputMessage {
     warning: "exclamation-circle",
   };
 
-  private statusRole = {};
+  @State()
+  statusRole = {};
 
   @Watch("message")
+  @Watch("status")
   onMessageChange(): void {
-    this.statusRole = this.message != "" ? {role: "alert"} : {};
+    this.statusRole = this.message && this.status ? {role: "alert"} : {};
   }
 
   componentDidLoad(): void {
