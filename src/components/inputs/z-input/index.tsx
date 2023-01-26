@@ -253,10 +253,12 @@ export class ZInput {
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
+    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
+      ...ariaLabel,
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -272,7 +274,6 @@ export class ZInput {
           <input
             type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
-            aria-label={this.ariaLabel}
           />
           {this.renderIcons()}
         </div>
@@ -376,6 +377,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
 
     return (
       <div class="text-wrapper">
@@ -389,7 +391,7 @@ export class ZInput {
         >
           <textarea
             {...attributes}
-            aria-label={this.ariaLabel}
+            {...ariaLabel}
           ></textarea>
         </div>
         {this.renderMessage()}

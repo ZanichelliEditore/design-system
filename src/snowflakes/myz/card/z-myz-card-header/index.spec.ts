@@ -13,7 +13,7 @@ describe("Suite test ZMyzCardHeader", () => {
     <z-myz-card-header titolo="titolo">
       <mock:shadow-root>
         <header>
-          <h2>titolo</h2>
+          <span class="card-title">titolo</span>
           <slot name="icon" />
         </header>
       </mock:shadow-root>

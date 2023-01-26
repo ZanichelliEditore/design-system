@@ -31,9 +31,30 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label'>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input aria-label="label" class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <span class="icons-wrapper">
+                <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
+                  <z-icon name="multiply"></z-icon>
+                </button>
+              </span>
+            </div>
+          </div>
+      </z-input>
+    `);
+  });
+
+  it("Test render ZInput senza attributo label", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' aria-label='label'></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' aria-label='label'>
+          <div class="text-wrapper">
+            <div>
+              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
@@ -53,9 +74,9 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' disabled>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper"></span>
             </div>
           </div>
@@ -71,9 +92,9 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' value='value' label='label' readonly>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper"></span>
             </div>
           </div>
@@ -89,9 +110,9 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' message='helper message'>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
@@ -112,9 +133,9 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type='text' htmlid='test' placeholder='placeholder' value='value' label='label' status='success' message='success message'>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" aria-label="label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <input class="filled input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon name="multiply"></z-icon>
