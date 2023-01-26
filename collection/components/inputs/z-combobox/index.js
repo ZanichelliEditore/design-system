@@ -3,6 +3,8 @@ import { InputType, KeyboardKeyCode, ListDividerType } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 export class ZCombobox {
   constructor() {
+    /** the combobox is disabled */
+    this.disabled = false;
     /** show search input flag (optional) */
     this.hassearch = false;
     /** no result text message */
@@ -175,7 +177,7 @@ export class ZCombobox {
     return (h("div", { class: "check-all-wrapper" }, h("z-input", { type: InputType.CHECKBOX, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length })));
   }
   render() {
-    return (h("div", { "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed }, id: this.inputid }, this.renderHeader(), this.renderContent()));
+    return (h("div", { "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
   }
   static get is() { return "z-combobox"; }
   static get encapsulation() { return "shadow"; }
@@ -246,6 +248,24 @@ export class ZCombobox {
         },
         "attribute": "label",
         "reflect": false
+      },
+      "disabled": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the combobox is disabled"
+        },
+        "attribute": "disabled",
+        "reflect": true,
+        "defaultValue": "false"
       },
       "hassearch": {
         "type": "boolean",

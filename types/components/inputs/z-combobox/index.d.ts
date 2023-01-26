@@ -7,6 +7,8 @@ export declare class ZCombobox {
   items: ComboItem[] | string;
   /** label text */
   label: string;
+  /** the combobox is disabled */
+  disabled?: boolean;
   /** show search input flag (optional) */
   hassearch?: boolean;
   /** search input label text (optional) */

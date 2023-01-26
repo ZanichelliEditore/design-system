@@ -48,6 +48,23 @@
   border-radius: var(border-radius-small) var(border-radius-small) 0 0;
 }
 
+:host > div.disabled {
+  pointer-events: none;
+}
+
+:host > div.disabled .header {
+  border-color: var(--color-disabled01);
+  fill: var(--color-disabled01);
+}
+
+:host > div.disabled .header > z-body {
+  color: var(--text-grey-700);
+}
+
+:host > div.disabled .header > z-icon:last-child {
+  fill: var(--color-disabled01);
+}
+
 :host > div.open > .header > z-icon {
   fill: var(--text-grey-800);
   transform: rotate(180deg);
