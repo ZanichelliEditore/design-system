@@ -22,6 +22,25 @@ describe("Suite test ZCombobox", () => {
     `);
   });
 
+  it("Test render ZCombobox disabilitata", async () => {
+    const page = await newSpecPage({
+      components: [ZCombobox],
+      html: `<z-combobox items='[]' disabled='true'></z-combobox>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-combobox disabled='' items='[]'>
+        <mock:shadow-root>
+          <div class="disabled" data-action="combo-undefined">
+            <div class="header" role="button" tabindex="0">
+            <z-body component="p" level="3"><span></span></z-body>
+              <z-icon name="caret-down" width="18" height="18" />
+            </div>
+          </div>
+        </mock:shadow-root>
+      </z-combobox>
+    `);
+  });
+
   it("Test render ZCombobox chiusa con attributi", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
