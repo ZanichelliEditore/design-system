@@ -272,7 +272,7 @@ export class ZInput {
           <input
             type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
-            aria-label={this.ariaLabel || this.label}
+            aria-label={this.ariaLabel}
           />
           {this.renderIcons()}
         </div>
@@ -291,7 +291,6 @@ export class ZInput {
         class="input-label body-5-sb"
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
-        aria-label={this.label}
       >
         {this.label}
       </label>
@@ -390,7 +389,7 @@ export class ZInput {
         >
           <textarea
             {...attributes}
-            aria-label={this.ariaLabel || this.label}
+            aria-label={this.ariaLabel}
           ></textarea>
         </div>
         {this.renderMessage()}
