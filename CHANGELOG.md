@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.7.0](https://github.com/ZanichelliEditore/design-system/compare/v6.6.9...v6.7.0) (2023-01-26)
+
+
+### Features
+
+* **laze-156:** add disable style ([c715820](https://github.com/ZanichelliEditore/design-system/commit/c7158200c3482f63e797ccabdb0c5bd0aa96ae5b))
+
 ### [6.6.9](https://github.com/ZanichelliEditore/design-system/compare/v6.6.8...v6.6.9) (2023-01-23)
 
 ### [6.6.8](https://github.com/ZanichelliEditore/design-system/compare/v6.6.7...v6.6.8) (2023-01-20)
