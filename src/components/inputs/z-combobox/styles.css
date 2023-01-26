@@ -13,12 +13,17 @@
   min-height: 42px;
   align-items: center;
   justify-content: space-between;
-  padding: 0 calc(var(--space-unit) * 2);
+  padding: 0 calc(var(--space-unit) * 1.5);
   border: var(--border-size-small) solid var(--bg-grey-700);
   margin: 0;
   background-color: var(--bg-white);
   border-radius: var(--border-radius-small);
   cursor: pointer;
+}
+
+:host > div > .header:hover {
+  outline: var(--border-size-medium) solid var(--color-surface04);
+  outline-offset: -2px;
 }
 
 :host > div > .header:focus:focus-visible {
@@ -45,7 +50,7 @@
 
 :host > div.open > .header {
   border: var(--border-size-small) solid var(--blue500);
-  border-radius: var(border-radius-small) var(border-radius-small) 0 0;
+  border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
 }
 
 :host > div.open > .header > z-icon {
@@ -138,5 +143,7 @@
 
 :host > div.open > div.open-combo-data > div.check-all-wrapper {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
+  border-bottom: 1px solid var(--bg-grey-800);
+  margin-bottom: var(--space-unit);
   text-align: left;
 }

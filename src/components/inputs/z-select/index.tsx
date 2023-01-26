@@ -67,6 +67,10 @@ export class ZSelect {
   @Prop()
   hasGroupItems?: boolean;
 
+  /** When fixed, it occupies space and pushes down next elements. */
+  @Prop()
+  isfixed?: boolean = false;
+
   @State()
   isOpen = false;
 
@@ -347,7 +351,10 @@ export class ZSelect {
         tabindex="-1"
       >
         <div
-          class="ul-scroll-wrapper"
+          class={{
+            "ul-scroll-wrapper": true,
+            "fixed": this.isfixed,
+          }}
           tabindex="-1"
         >
           <z-list

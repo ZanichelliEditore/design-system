@@ -112,10 +112,6 @@ textarea::placeholder {
   color: var(--color-text05);
 }
 
-:placeholder {
-  color: var(--color-text05);
-}
-
 /* LABEL */
 label.input-label {
   display: block;

@@ -52,6 +52,9 @@ import "./index";
     hasListGroups: {
       control: {type: "boolean"},
     },
+    isFixed: {
+      control: {type: "boolean"},
+    },
   }}
   args={{
     items: [
@@ -90,6 +93,7 @@ import "./index";
     autocomplete: false,
     noresultslabel: "Nessun risultato",
     hasListGroups: false,
+    isFixed: false,
   }}
 />
 
@@ -113,6 +117,7 @@ import "./index";
           readonly=${args.readonly}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+          isfixed=${args.isFixed}
         ></z-select>
       `
     }
@@ -185,6 +190,7 @@ import "./index";
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
           has-group-items=${args.hasListGroups}
+          is-fixed==${args.isFixed}
         ></z-select>
       `
     }
