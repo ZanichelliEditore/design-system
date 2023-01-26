@@ -421,4 +421,60 @@ describe("Suite test ZSelect", () => {
         </z-select>
     `);
   });
+
+  it("Test render ZSelect fixed", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" placeholder="select here" label="fixed without groups" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]' isfixed="true"> </z-select>`,
+    });
+    page.rootInstance.isOpen = true;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-select htmlid="checkid" placeholder="select here" label="fixed without groups" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]' isfixed="true">
+            <div class="select-wrapper">
+              <z-input
+                label="fixed without groups"
+                id="checkid_input"
+                htmlid="checkid_input"
+                placeholder="select here"
+                icon="caret-up"
+                readonly=""
+                aria-label=""
+                autocomplete="off"
+              ></z-input>
+              <div class="open" tabindex="-1">
+                <div class="fixed ul-scroll-wrapper" tabindex="-1">
+                  <z-list
+                    role="listbox"
+                    tabindex="0"
+                    id="checkid"
+                  >
+                    <z-list-element
+                      clickable=""
+                      dividertype="element"
+                      role="option"
+                      tabindex="0"
+                      class=""
+                      id="checkid_0"
+                    >
+                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                    </z-list-element>
+                    <z-list-element
+                      clickable=""
+                      dividertype="header"
+                      role="option"
+                      tabindex="0"
+                      class=""
+                      id="checkid_1"
+                    >
+                      <span>primo elemento</span>
+                    </z-list-element>
+                  </z-list>
+                </div>
+              </div>
+              <z-input-message></z-input-message>
+            </div>
+        </z-select>
+      `);
+  });
 });
