@@ -25,7 +25,7 @@ export class ZInputMessage {
 
   @Watch("message")
   onMessageChange(): void {
-    this.statusRole = {role: "alert"};
+    this.statusRole = this.message != "" ? {role: "alert"} : {};
   }
 
   componentDidLoad(): void {
