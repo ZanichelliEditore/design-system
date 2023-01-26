@@ -10,9 +10,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon>
+      <z-icon aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="" viewBox="0 0 1000 1000" id="">
+          <svg fill="" viewBox="0 0 1000 1000" id="">
             <polygon></polygon>
           </svg>
         </mock:shadow-root>
@@ -26,9 +26,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon name="download" iconid="zicon"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="download" iconid="zicon">
+      <z-icon name="download" iconid="zicon" aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="" viewBox="0 0 1000 1000" id="zicon">
+          <svg fill="" viewBox="0 0 1000 1000" id="zicon">
             <path d="${ICONS["download"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -42,9 +42,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon name="download" iconid="zicon" width="10" height="10"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="download" iconid="zicon" width="10" height="10">
+      <z-icon name="download" iconid="zicon" width="10" height="10"  aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="" viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
+          <svg fill="" viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
             <path d="${ICONS["download"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -58,9 +58,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon name="chevron-down" iconid="zicon"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="chevron-down" iconid="zicon">
+      <z-icon name="chevron-down" iconid="zicon" aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="" viewBox="0 0 1000 1000" id="zicon">
+          <svg fill="" viewBox="0 0 1000 1000" id="zicon">
             <path d="${ICONS["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -74,9 +74,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon name="chevron-down" iconid="zicon" width="10" height="10">
+      <z-icon name="chevron-down" iconid="zicon" width="10" height="10" aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="" viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
+          <svg fill="" viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
             <path d="${ICONS["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>
@@ -90,9 +90,9 @@ describe("Suite test ZIcon", () => {
       html: `<z-icon fill="color-primary01"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon fill="color-primary01">
+      <z-icon fill="color-primary01" aria-hidden="true">
         <mock:shadow-root>
-          <svg aria-hidden="true" fill="var(--color-primary01)" viewBox="0 0 1000 1000" id="">
+          <svg  fill="var(--color-primary01)" viewBox="0 0 1000 1000" id="">
             <polygon></polygon>
           </svg>
         </mock:shadow-root>
