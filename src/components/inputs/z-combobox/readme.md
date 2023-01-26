@@ -34,6 +34,7 @@
 | ------------------- | ------------------- | --------------------------------------------- | ----------------------- | --------------------- |
 | `checkalltext`      | `checkalltext`      | check all label (optional)                    | `string`                | `"Seleziona tutti"`   |
 | `closesearchtext`   | `closesearchtext`   | close combobox list text                      | `string`                | `"Chiudi"`            |
+| `disabled`          | `disabled`          | the combobox is disabled                      | `boolean`               | `false`               |
 | `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)          | `boolean`               | `false`               |
 | `hasgroupitems`     | `hasgroupitems`     | group items by category                       | `boolean`               | `undefined`           |
 | `hassearch`         | `hassearch`         | show search input flag (optional)             | `boolean`               | `false`               |
