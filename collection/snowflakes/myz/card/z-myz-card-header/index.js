@@ -27,7 +27,7 @@ export class ZMyzCardHeader {
     };
   }
   render() {
-    return (h("header", { class: this.retrieveClass() }, h("h2", { ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { name: "icon" })));
+    return (h("header", { class: this.retrieveClass() }, h("span", { class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { name: "icon" })));
   }
   static get is() { return "z-myz-card-header"; }
   static get encapsulation() { return "shadow"; }

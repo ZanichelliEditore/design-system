@@ -141,20 +141,21 @@ const ZInput = class {
     };
   }
   renderInputText(type = InputType.TEXT) {
-    const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
+    const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
+    const attr = Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel);
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, { "has-icon": true });
     }
     if (this.hasclearicon && type != InputType.NUMBER) {
       Object.assign(attr.class, { "has-clear-icon": true });
     }
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type }, attr)), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
     if (!this.label) {
       return;
     }
-    return (h("label", { class: "input-label body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid, "aria-label": this.label }, this.label));
+    return (h("label", { class: "input-label body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid }, this.label));
   }
   renderIcons() {
     return (h("span", { class: "icons-wrapper" }, this.renderResetIcon(), this.renderIcon()));
@@ -187,7 +188,8 @@ const ZInput = class {
   /* START textarea */
   renderTextarea() {
     const attributes = this.getTextAttributes();
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, { "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
+    const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -238,10 +240,21 @@ const ZInputMessage = class {
       error: "multiply-circled",
       warning: "exclamation-circle",
     };
+    this.statusRole = {};
+  }
+  onMessageChange() {
+    this.statusRole = this.message && this.status ? { role: "alert" } : {};
+  }
+  componentWillLoad() {
+    this.onMessageChange();
   }
   render() {
-    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 }, this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { innerHTML: this.message })));
+    return (h(Host, Object.assign({}, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { innerHTML: this.message })));
   }
+  static get watchers() { return {
+    "message": ["onMessageChange"],
+    "status": ["onMessageChange"]
+  }; }
 };
 ZInputMessage.style = stylesCss;
 

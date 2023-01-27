@@ -132,20 +132,21 @@ export class ZInput {
     };
   }
   renderInputText(type = InputType.TEXT) {
-    const attr = Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type));
+    const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
+    const attr = Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel);
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, { "has-icon": true });
     }
     if (this.hasclearicon && type != InputType.NUMBER) {
       Object.assign(attr.class, { "has-clear-icon": true });
     }
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type }, attr, { "aria-label": this.ariaLabel || this.label })), this.renderIcons()), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", null, h("input", Object.assign({ type: type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type }, attr)), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
     if (!this.label) {
       return;
     }
-    return (h("label", { class: "input-label body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid, "aria-label": this.label }, this.label));
+    return (h("label", { class: "input-label body-5-sb", id: `${this.htmlid}_label`, htmlFor: this.htmlid }, this.label));
   }
   renderIcons() {
     return (h("span", { class: "icons-wrapper" }, this.renderResetIcon(), this.renderIcon()));
@@ -178,7 +179,8 @@ export class ZInput {
   /* START textarea */
   renderTextarea() {
     const attributes = this.getTextAttributes();
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, { "aria-label": this.ariaLabel || this.label }))), this.renderMessage()));
+    const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {

@@ -144,7 +144,7 @@ const ZIcon = class {
     return index.h("polygon", { points: icons.ICONS[this.name] });
   }
   render() {
-    return (index.h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons.ICONS[this.name])));
+    return (index.h(index.Host, { "aria-hidden": "true" }, index.h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(icons.ICONS[this.name]))));
   }
 };
 ZIcon.style = stylesCss;

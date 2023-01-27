@@ -6,9 +6,16 @@ export class ZInputMessage {
       error: "multiply-circled",
       warning: "exclamation-circle",
     };
+    this.statusRole = {};
+  }
+  onMessageChange() {
+    this.statusRole = this.message && this.status ? { role: "alert" } : {};
+  }
+  componentWillLoad() {
+    this.onMessageChange();
   }
   render() {
-    return (h(Host, { role: "alert", "aria-label": this.message, tabindex: this.message ? 0 : -1 }, this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { innerHTML: this.message })));
+    return (h(Host, Object.assign({}, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { innerHTML: this.message })));
   }
   static get is() { return "z-input-message"; }
   static get encapsulation() { return "shadow"; }
@@ -64,5 +71,19 @@ export class ZInputMessage {
         "reflect": true
       }
     };
+  }
+  static get states() {
+    return {
+      "statusRole": {}
+    };
+  }
+  static get watchers() {
+    return [{
+        "propName": "message",
+        "methodName": "onMessageChange"
+      }, {
+        "propName": "status",
+        "methodName": "onMessageChange"
+      }];
   }
 }

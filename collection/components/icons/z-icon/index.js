@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { ICONS } from "../icons";
 export class ZIcon {
   selectPathOrPolygon(iconValue) {
@@ -8,7 +8,7 @@ export class ZIcon {
     return h("polygon", { points: ICONS[this.name] });
   }
   render() {
-    return (h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(ICONS[this.name])));
+    return (h(Host, { "aria-hidden": "true" }, h("svg", { viewBox: "0 0 1000 1000", width: this.width, height: this.height, id: this.iconid, fill: this.fill ? `var(--${this.fill})` : "" }, this.selectPathOrPolygon(ICONS[this.name]))));
   }
   static get is() { return "z-icon"; }
   static get encapsulation() { return "shadow"; }

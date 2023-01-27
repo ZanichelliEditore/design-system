@@ -5,5 +5,8 @@ export declare class ZInputMessage {
   /** input status (optional) */
   status?: InputStatus;
   private statusIcons;
+  statusRole: {};
+  onMessageChange(): void;
+  componentWillLoad(): void;
   render(): HTMLZInputMessageElement;
 }
