@@ -30,7 +30,7 @@ export class ZInputMessage {
     this.statusRole = this.message && this.status ? {role: "alert"} : {};
   }
 
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     this.onMessageChange();
   }
 
