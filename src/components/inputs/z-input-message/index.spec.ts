@@ -6,11 +6,11 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - empty", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" aria-label=""></z-input-message>`,
+      html: `<z-input-message aria-label=""></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message role="alert" tabindex="-1" aria-label="">
+      <z-input-message aria-label="">
         <mock:shadow-root>
           <span></span>
         </mock:shadow-root>
@@ -21,11 +21,11 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message"></z-input-message>`,
+      html: `<z-input-message tabindex="0" aria-label="message" message="message"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message role="alert" tabindex="0" aria-label="message" message="message">
+      <z-input-message tabindex="0" aria-label="message" message="message">
         <mock:shadow-root>
           <span>message</span>
         </mock:shadow-root>
@@ -36,11 +36,11 @@ describe("Suite test ZInputMessage", () => {
   it("Test render ZInputMessage - with status/message", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message role="alert" tabindex="0" aria-label="message" message="message" status="success"></z-input-message>`,
+      html: `<z-input-message tabindex="0" aria-label="message" message="message" status="success"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message role="alert" tabindex="0" aria-label="message" message="message" status="success">
+      <z-input-message tabindex="0" aria-label="message" message="message" status="success" role="alert">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
           <span>message</span>

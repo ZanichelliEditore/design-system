@@ -18,7 +18,7 @@ header.temp {
   background-color: var(--accent-lighter);
 }
 
-h2 {
+.card-title {
   overflow: hidden;
   height: calc(var(--space-unit) * 2);
   padding: calc(var(--space-unit) * 2);
