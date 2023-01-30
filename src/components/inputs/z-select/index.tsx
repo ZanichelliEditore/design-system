@@ -306,6 +306,10 @@ export class ZSelect {
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
+        class={{
+          "type-select": this.isOpen,
+          "cursor-select": true,
+        }}
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}

@@ -29,8 +29,12 @@ textarea,
   outline: none;
 }
 
+:host.cursor-select input {
+  cursor: pointer;
+}
+
 /* FOCUS */
-input:focus:focus-visible,
+:host:not(.type-select) input:focus:focus-visible,
 .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
@@ -38,6 +42,11 @@ input:focus:focus-visible,
 input:focus:focus-visible,
 textarea:focus:focus-visible {
   color: var(--color-primary02);
+}
+
+:host.type-select input {
+  border: var(--border-size-small) solid var(--blue500);
+  cursor: pointer;
 }
 
 /* FILLED */
@@ -72,7 +81,7 @@ input:hover,
 }
 
 /* READONLY */
-input[readonly],
+:host:not(.type-select) input[readonly],
 .readonly {
   border-color: var(--color-disabled01);
   fill: var(--color-disabled01);
