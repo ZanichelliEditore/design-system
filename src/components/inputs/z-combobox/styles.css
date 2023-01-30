@@ -160,7 +160,7 @@
 
 :host > div.open > div.open-combo-data > div.check-all-wrapper {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
-  border-bottom: 1px solid var(--bg-grey-800);
+  border-bottom: var(--border-size-small) solid var(--gray800);
   margin-bottom: var(--space-unit);
   text-align: left;
 }
