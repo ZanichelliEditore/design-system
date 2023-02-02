@@ -455,7 +455,8 @@ export class ZSelect {
     const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
       const lastItem = array.length === index + 1;
-      const zListItem = this.renderItem(item, index, lastItem);
+      const itemKey = this.hasResetIcon ? index + 1 : index;
+      const zListItem = this.renderItem(item, itemKey, lastItem);
 
       group[category] = group[category] ?? [];
       group[category].push(zListItem);
