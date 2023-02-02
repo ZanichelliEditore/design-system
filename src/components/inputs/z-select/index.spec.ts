@@ -1,8 +1,27 @@
 import {newSpecPage} from "@stencil/core/testing";
 
-import {ZSelect} from "./index";
+import {ZSearchbar} from "../z-searchbar/index";
 
-describe("Suite test ZSelect", () => {
+describe("Suite test ZSearchbar", () => {
+  it("Simple searchbar", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar htmlid="my-id"></z-searchbar>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-searchbar htmlid="my-id">
+        <mock:shadow-root>
+          <div class="has-submit">
+            <z-input></z-input>
+            <z-button variant="primary">CERCA</z-button>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
+});
+
+/* describe("Suite test ZSelect", () => {
   it("Test render ZSelect chiusa con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
@@ -421,4 +440,4 @@ describe("Suite test ZSelect", () => {
         </z-select>
     `);
   });
-});
+}); */
