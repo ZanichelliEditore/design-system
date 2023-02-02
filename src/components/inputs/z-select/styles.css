@@ -87,6 +87,19 @@
   color: var(--gray800);
 }
 
+.reset-item {
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
+}
+
+.reset-item.reset-item-padding {
+  margin-left: (var(--space-unit) * 1.5);
+}
+
+.reset-item > z-icon {
+  margin-right: var(--space-unit);
+}
+
 .reset-item.hide {
   display: none;
 }

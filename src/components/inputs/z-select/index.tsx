@@ -67,6 +67,10 @@ export class ZSelect {
   @Prop()
   hasGroupItems?: boolean;
 
+  /** */
+  @Prop()
+  resetItem?: string;
+
   @State()
   isOpen = false;
 
@@ -77,8 +81,6 @@ export class ZSelect {
   searchString: null | string;
 
   private itemsList: SelectItem[] = [];
-
-  private hasResetIcon: boolean;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -128,9 +130,19 @@ export class ZSelect {
     });
   }
 
+  /** Emitted on select option selection, returns select id, selected item id */
+  @Event()
+  resetSelect: EventEmitter;
+
+  private emitResetSelect(): void {
+    this.optionSelect.emit({
+      id: this.htmlid,
+      selected: "reset",
+    });
+  }
+
   componentWillLoad(): void {
     this.watchItems();
-    this.hasResetIcon = !!this.element.querySelector("[slot=reset-item]");
   }
 
   componentWillRender(): void {
@@ -214,7 +226,7 @@ export class ZSelect {
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
-    const showResetIcon = this.hasResetIcon && !!this.selectedItem;
+    const showResetIcon = this.resetItem && !!this.selectedItem;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCode)) {
       return;
@@ -229,7 +241,7 @@ export class ZSelect {
 
     let index: number;
 
-    if (this.hasResetIcon) {
+    if (this.resetItem) {
       if (e.key === KeyboardCode.ARROW_DOWN) {
         index = key + 1 === this.itemsList.length + 1 ? +!showResetIcon : key + 1;
       } else if (e.key === KeyboardCode.ARROW_UP) {
@@ -237,7 +249,7 @@ export class ZSelect {
       }
     }
 
-    if (!this.hasResetIcon) {
+    if (!this.resetItem) {
       if (e.key === KeyboardCode.ARROW_DOWN) {
         index = key + 1 === this.itemsList.length ? 0 : key + 1;
       } else if (e.key === KeyboardCode.ARROW_UP) {
@@ -342,7 +354,7 @@ export class ZSelect {
         onKeyDown={(e: KeyboardEvent) => {
           return this.arrowsSelectNav(
             e,
-            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : this.hasResetIcon ? 0 : -1
+            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : this.resetItem ? 0 : -1
           );
         }}
         onInputChange={(e: CustomEvent) => {
@@ -381,7 +393,7 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
-            {this.renderResetItem()}
+            {this.resetItem && this.renderResetItem()}
             {this.renderSelectUlItems()}
           </z-list>
         </div>
@@ -393,22 +405,26 @@ export class ZSelect {
     return (
       <z-list-element
         class={{
-          "hide": !this.selectedItem || !this.hasResetIcon,
+          "hide": !this.selectedItem || !this.resetItem,
           "reset-item": true,
+          "reset-item-padding": !this.hasGroupItems,
         }}
         clickable={true}
         disabled={false}
-        dividerType={ListDividerType.HEADER}
+        dividerType={ListDividerType.ELEMENT}
         role="option"
         tabindex="0"
         aria-selected="false"
-        id={`${this.htmlid}_${this.hasResetIcon ? "0" : "none"}`}
-        onClickItem={() => (this.selectedItem = null)}
+        id={`${this.htmlid}_${this.resetItem ? "0" : "none"}`}
+        onClickItem={() => {
+          this.selectedItem = null;
+          this.searchString = null;
+          this.emitResetSelect();
+        }}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
       >
-        <div>
-          <slot name="reset-item"></slot>
-        </div>
+        <z-icon name="multiply-circled" />
+        {this.resetItem}
       </z-list-element>
     );
   }
@@ -445,7 +461,7 @@ export class ZSelect {
 
     return this.itemsList.map((item: SelectItem, key, array) => {
       const lastItem = array.length === key + 1;
-      const itemKey = this.hasResetIcon ? key + 1 : key;
+      const itemKey = this.resetItem ? key + 1 : key;
 
       return this.renderItem(item, itemKey, lastItem);
     });
@@ -455,7 +471,7 @@ export class ZSelect {
     const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
       const lastItem = array.length === index + 1;
-      const itemKey = this.hasResetIcon ? index + 1 : index;
+      const itemKey = this.resetItem ? index + 1 : index;
       const zListItem = this.renderItem(item, itemKey, lastItem);
 
       group[category] = group[category] ?? [];
