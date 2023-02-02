@@ -135,7 +135,7 @@ export class ZSelect {
   resetSelect: EventEmitter;
 
   private emitResetSelect(): void {
-    this.optionSelect.emit({
+    this.resetSelect.emit({
       id: this.htmlid,
       selected: "reset",
     });
