@@ -86,3 +86,7 @@
 .z-list-group-title {
   color: var(--gray800);
 }
+
+.reset-item.hide {
+  display: none;
+}

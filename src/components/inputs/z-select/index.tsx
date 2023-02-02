@@ -78,6 +78,8 @@ export class ZSelect {
 
   private itemsList: SelectItem[] = [];
 
+  private hasResetIcon: boolean;
+
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -128,6 +130,7 @@ export class ZSelect {
 
   componentWillLoad(): void {
     this.watchItems();
+    this.hasResetIcon = !!this.element.querySelector("[slot=reset-item]");
   }
 
   componentWillRender(): void {
@@ -211,6 +214,7 @@ export class ZSelect {
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
+    const showResetIcon = this.hasResetIcon && !!this.selectedItem;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCode)) {
       return;
@@ -224,10 +228,21 @@ export class ZSelect {
     }
 
     let index: number;
-    if (e.key === KeyboardCode.ARROW_DOWN) {
-      index = key + 1 === this.itemsList.length ? 0 : key + 1;
-    } else if (e.key === KeyboardCode.ARROW_UP) {
-      index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+
+    if (this.hasResetIcon) {
+      if (e.key === KeyboardCode.ARROW_DOWN) {
+        index = key + 1 === this.itemsList.length + 1 ? +!showResetIcon : key + 1;
+      } else if (e.key === KeyboardCode.ARROW_UP) {
+        index = key <= +!showResetIcon ? this.itemsList.length : key - 1;
+      }
+    }
+
+    if (!this.hasResetIcon) {
+      if (e.key === KeyboardCode.ARROW_DOWN) {
+        index = key + 1 === this.itemsList.length ? 0 : key + 1;
+      } else if (e.key === KeyboardCode.ARROW_UP) {
+        index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+      }
     }
 
     this.focusSelectItem(index);
@@ -325,7 +340,10 @@ export class ZSelect {
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
         onKeyDown={(e: KeyboardEvent) => {
-          return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1);
+          return this.arrowsSelectNav(
+            e,
+            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : this.hasResetIcon ? 0 : -1
+          );
         }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
@@ -363,10 +381,35 @@ export class ZSelect {
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
+            {this.renderResetItem()}
             {this.renderSelectUlItems()}
           </z-list>
         </div>
       </div>
+    );
+  }
+
+  private renderResetItem(): HTMLZListElementElement {
+    return (
+      <z-list-element
+        class={{
+          "hide": !this.selectedItem || !this.hasResetIcon,
+          "reset-item": true,
+        }}
+        clickable={true}
+        disabled={false}
+        dividerType={ListDividerType.HEADER}
+        role="option"
+        tabindex="0"
+        aria-selected="false"
+        id={`${this.htmlid}_${this.hasResetIcon ? "0" : "none"}`}
+        onClickItem={() => (this.selectedItem = null)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
+      >
+        <div>
+          <slot name="reset-item"></slot>
+        </div>
+      </z-list-element>
     );
   }
 
@@ -402,8 +445,9 @@ export class ZSelect {
 
     return this.itemsList.map((item: SelectItem, key, array) => {
       const lastItem = array.length === key + 1;
+      const itemKey = this.hasResetIcon ? key + 1 : key;
 
-      return this.renderItem(item, key, lastItem);
+      return this.renderItem(item, itemKey, lastItem);
     });
   }
 
