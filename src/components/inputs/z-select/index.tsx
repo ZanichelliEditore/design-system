@@ -307,7 +307,7 @@ export class ZSelect {
     return (
       <z-input
         class={{
-          "type-select": this.isOpen,
+          "active-select": this.isOpen,
           "cursor-select": true,
         }}
         id={`${this.htmlid}_input`}

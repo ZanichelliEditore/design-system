@@ -26,8 +26,11 @@
   outline-offset: -2px;
 }
 
-:host > div > .header:focus:focus-visible {
-  border: var(--border-size-small) solid var(--blue500);
+:host > div.open > div.header:focus:focus-visible {
+  box-shadow: none;
+}
+
+:host > div > div.header:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }

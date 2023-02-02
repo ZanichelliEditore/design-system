@@ -34,7 +34,7 @@ textarea,
 }
 
 /* FOCUS */
-:host:not(.type-select) input:focus:focus-visible,
+:host:not(.active-select) :not(.cursor-select) input:focus:focus-visible,
 .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
@@ -44,9 +44,17 @@ textarea:focus:focus-visible {
   color: var(--color-primary02);
 }
 
-:host.type-select input {
+:host.active-select input {
   border: var(--border-size-small) solid var(--blue500);
-  cursor: pointer;
+}
+
+:host.cursor-select input:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host.cursor-select input[readonly]:focus:focus-visible {
+  box-shadow: none;
+  pointer-events: none;
 }
 
 /* FILLED */
@@ -81,7 +89,7 @@ input:hover,
 }
 
 /* READONLY */
-:host:not(.type-select) input[readonly],
+:host:not(.active-select) input[readonly],
 .readonly {
   border-color: var(--color-disabled01);
   fill: var(--color-disabled01);
