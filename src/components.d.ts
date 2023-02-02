@@ -4034,7 +4034,7 @@ declare namespace LocalJSX {
          */
         "onOptionSelect"?: (event: ZSelectCustomEvent<any>) => void;
         /**
-          * Emitted on select option selection, returns select id, selected item id
+          * Emitted on reset selected item, returns select id, selected item id
          */
         "onResetSelect"?: (event: ZSelectCustomEvent<any>) => void;
         /**

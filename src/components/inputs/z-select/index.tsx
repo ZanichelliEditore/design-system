@@ -130,7 +130,7 @@ export class ZSelect {
     });
   }
 
-  /** Emitted on select option selection, returns select id, selected item id */
+  /** Emitted on reset selected item, returns select id, selected item id */
   @Event()
   resetSelect: EventEmitter;
 
@@ -407,7 +407,7 @@ export class ZSelect {
         class={{
           "hide": !this.selectedItem || !this.resetItem,
           "reset-item": true,
-          "reset-item-padding": !this.hasGroupItems,
+          "reset-item-margin": this.hasGroupItems,
         }}
         clickable={true}
         disabled={false}

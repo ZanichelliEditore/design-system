@@ -92,7 +92,7 @@
   fill: var(--color-primary01);
 }
 
-.reset-item.reset-item-padding {
+.reset-item.reset-item-margin {
   margin-left: (var(--space-unit) * 1.5);
 }
 
