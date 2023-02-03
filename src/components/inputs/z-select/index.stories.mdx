@@ -52,7 +52,10 @@ import "./index";
     hasListGroups: {
       control: {type: "boolean"},
     },
-    isFixed: {
+    resetItem: {
+      control: {type: "text"},
+    },
+    isfixed: {
       control: {type: "boolean"},
     },
   }}
@@ -93,6 +96,7 @@ import "./index";
     autocomplete: false,
     noresultslabel: "Nessun risultato",
     hasListGroups: false,
+    resetItem: "",
     isfixed: false,
   }}
 />
@@ -117,6 +121,7 @@ import "./index";
           readonly=${args.readonly}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+          reset-item=${args.resetItem}
           isfixed=${args.isfixed}
         ></z-select>
       `
@@ -190,6 +195,7 @@ import "./index";
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
           has-group-items=${args.hasListGroups}
+          reset-item=${args.resetItem}
           isfixed=${args.isfixed}
         ></z-select>
       `
