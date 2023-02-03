@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.8.1](https://github.com/ZanichelliEditore/design-system/compare/v6.8.0...v6.8.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* z-searchbar add escape characters to handle nested regex ([4a61709](https://github.com/ZanichelliEditore/design-system/commit/4a6170949b9073d9d045c8a26f94cd9a82038576))
+
 ## [6.8.0](https://github.com/ZanichelliEditore/design-system/compare/v6.6.9...v6.8.0) (2023-01-27)
 
 
