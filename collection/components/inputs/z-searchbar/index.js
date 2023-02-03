@@ -187,7 +187,7 @@ export class ZSearchbar {
     if (!this.searchString) {
       return label;
     }
-    return label.replace(new RegExp(this.searchString, "gmi"), (found) => `<mark>${found}</mark>`);
+    return label.replace(new RegExp(this.searchString.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gmi"), (found) => `<mark>${found}</mark>`);
   }
   renderItemCategory(groupItem) {
     if (!(groupItem === null || groupItem === void 0 ? void 0 : groupItem.category)) {

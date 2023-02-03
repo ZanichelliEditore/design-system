@@ -30,6 +30,8 @@ export declare class ZSelect {
   noresultslabel?: string;
   /** */
   hasGroupItems?: boolean;
+  /** */
+  resetItem?: string;
   isOpen: boolean;
   selectedItem: null | SelectItem;
   searchString: null | string;
@@ -45,6 +47,9 @@ export declare class ZSelect {
   /** Emitted on select option selection, returns select id, selected item id */
   optionSelect: EventEmitter;
   private emitOptionSelect;
+  /** Emitted on reset selected item, returns select id, selected item id */
+  resetSelect: EventEmitter;
+  private emitResetSelect;
   componentWillLoad(): void;
   componentWillRender(): void;
   private getInitialItemsArray;
@@ -62,6 +67,7 @@ export declare class ZSelect {
   private scrollToLetter;
   private renderInput;
   private renderSelectUl;
+  private renderResetItem;
   private renderItem;
   private renderSelectUlItems;
   private renderSelectGroupItems;

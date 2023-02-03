@@ -53,6 +53,11 @@ export class ZSelect {
       selected: this.getSelectedValue(),
     });
   }
+  emitResetSelect() {
+    this.resetSelect.emit({
+      id: this.htmlid,
+    });
+  }
   componentWillLoad() {
     this.watchItems();
   }
@@ -123,6 +128,7 @@ export class ZSelect {
     }
   }
   arrowsSelectNav(e, key) {
+    const showResetIcon = this.resetItem && !!this.selectedItem;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (!arrows.includes(e.key)) {
       return;
@@ -133,11 +139,21 @@ export class ZSelect {
       this.toggleSelectUl();
     }
     let index;
-    if (e.key === KeyboardCode.ARROW_DOWN) {
-      index = key + 1 === this.itemsList.length ? 0 : key + 1;
+    if (this.resetItem) {
+      if (e.key === KeyboardCode.ARROW_DOWN) {
+        index = key + 1 === this.itemsList.length + 1 ? +!showResetIcon : key + 1;
+      }
+      else if (e.key === KeyboardCode.ARROW_UP) {
+        index = key <= +!showResetIcon ? this.itemsList.length : key - 1;
+      }
     }
-    else if (e.key === KeyboardCode.ARROW_UP) {
-      index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+    if (!this.resetItem) {
+      if (e.key === KeyboardCode.ARROW_DOWN) {
+        index = key + 1 === this.itemsList.length ? 0 : key + 1;
+      }
+      else if (e.key === KeyboardCode.ARROW_UP) {
+        index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+      }
     }
     this.focusSelectItem(index);
   }
@@ -204,7 +220,7 @@ export class ZSelect {
         }
         handleKeyboardSubmit(e, this.toggleSelectUl);
       }, onKeyDown: (e) => {
-        return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : -1);
+        return this.arrowsSelectNav(e, this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : this.resetItem ? 0 : -1);
       }, onInputChange: (e) => {
         this.handleInputChange(e);
       }, onKeyPress: (e) => {
@@ -221,10 +237,24 @@ export class ZSelect {
         readonly: this.readonly,
         filled: !!this.selectedItem,
         [`input-${this.status}`]: !this.isOpen && !!this.status,
-      } }, this.renderSelectUlItems()))));
+      } }, this.resetItem && this.renderResetItem(), this.renderSelectUlItems()))));
+  }
+  renderResetItem() {
+    return (h("z-list-element", { class: {
+        "hide": !this.selectedItem || !this.resetItem,
+        "reset-item": true,
+        "reset-item-margin": !this.hasGroupItems,
+      }, clickable: true, disabled: false, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: "0", "aria-selected": "false", id: `${this.htmlid}_${this.resetItem ? "0" : "none"}`, onClickItem: () => {
+        this.selectedItem = null;
+        this.searchString = null;
+        this.emitResetSelect();
+      }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
   }
   renderItem(item, key, lastItem) {
-    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: { selected: !!item.selected }, innerHTML: item.name })));
+    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
+        "selected": !!item.selected,
+        "list-element-content": true,
+      }, innerHTML: item.name })));
   }
   renderSelectUlItems() {
     if (!this.itemsList.length) {
@@ -235,7 +265,8 @@ export class ZSelect {
     }
     return this.itemsList.map((item, key, array) => {
       const lastItem = array.length === key + 1;
-      return this.renderItem(item, key, lastItem);
+      const itemKey = this.resetItem ? key + 1 : key;
+      return this.renderItem(item, itemKey, lastItem);
     });
   }
   renderSelectGroupItems() {
@@ -243,7 +274,8 @@ export class ZSelect {
       var _a;
       const { category } = item;
       const lastItem = array.length === index + 1;
-      const zListItem = this.renderItem(item, index, lastItem);
+      const itemKey = this.resetItem ? index + 1 : index;
+      const zListItem = this.renderItem(item, itemKey, lastItem);
       group[category] = (_a = group[category]) !== null && _a !== void 0 ? _a : [];
       group[category].push(zListItem);
       return group;
@@ -532,6 +564,23 @@ export class ZSelect {
         },
         "attribute": "has-group-items",
         "reflect": false
+      },
+      "resetItem": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "reset-item",
+        "reflect": false
       }
     };
   }
@@ -552,6 +601,21 @@ export class ZSelect {
         "docs": {
           "tags": [],
           "text": "Emitted on select option selection, returns select id, selected item id"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }, {
+        "method": "resetSelect",
+        "name": "resetSelect",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Emitted on reset selected item, returns select id, selected item id"
         },
         "complexType": {
           "original": "any",
