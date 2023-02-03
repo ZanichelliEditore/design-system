@@ -22,7 +22,7 @@
 }
 
 :host > div > .header:hover {
-  outline: var(--border-size-medium) solid var(--color-surface04);
+  outline: var(--border-size-medium) solid var(--gray700);
   outline-offset: -2px;
 }
 

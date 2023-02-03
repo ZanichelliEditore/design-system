@@ -308,7 +308,7 @@ export class ZSelect {
       <z-input
         class={{
           "active-select": this.isOpen,
-          "cursor-select": true,
+          "cursor-select": !this.autocomplete,
         }}
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_input`}
