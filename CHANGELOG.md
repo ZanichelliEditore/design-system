@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.9.0](https://github.com/ZanichelliEditore/design-system/compare/v6.8.1...v6.9.0) (2023-02-03)
+
+
+### Features
+
+* **laze-156:** add reset slot to z-select ([8847d98](https://github.com/ZanichelliEditore/design-system/commit/8847d987d0db34787de066adc6d67ff8574f5122))
+* **laze-156:** fix ([34275bb](https://github.com/ZanichelliEditore/design-system/commit/34275bb5b609c4efbf35739bde343eafa0cd0ea6))
+* **laze-156:** fix ([6248f56](https://github.com/ZanichelliEditore/design-system/commit/6248f560df332cc74e7ff3c470dc51139049eb16))
+* **laze-156:** fix group-items keyboard navigation ([b8d3778](https://github.com/ZanichelliEditore/design-system/commit/b8d37788873aa05f539978128520cab0362de39e))
+* **laze-156:** fix style ([ca1f63c](https://github.com/ZanichelliEditore/design-system/commit/ca1f63c986283d8fd5e034291ba64147850077e1))
+
 ### [6.8.1](https://github.com/ZanichelliEditore/design-system/compare/v6.8.0...v6.8.1) (2023-02-03)
 
 
