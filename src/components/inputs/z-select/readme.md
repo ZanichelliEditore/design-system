@@ -29,7 +29,7 @@
 | Event          | Description                                                             | Type               |
 | -------------- | ----------------------------------------------------------------------- | ------------------ |
 | `optionSelect` | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
-| `resetSelect`  | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
+| `resetSelect`  | Emitted on reset selected item, returns select id, selected item id     | `CustomEvent<any>` |
 
 
 ## Methods

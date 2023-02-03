@@ -406,7 +406,7 @@ export class ZSelect {
         class={{
           "hide": !this.selectedItem || !this.resetItem,
           "reset-item": true,
-          "reset-item-margin": this.hasGroupItems,
+          "reset-item-margin": !this.hasGroupItems,
         }}
         clickable={true}
         disabled={false}
@@ -422,8 +422,10 @@ export class ZSelect {
         }}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
       >
-        <z-icon name="multiply-circled" />
-        {this.resetItem}
+        <div class="reset-item-content">
+          <z-icon name="multiply-circled" />
+          <span>{this.resetItem}</span>
+        </div>
       </z-list-element>
     );
   }
@@ -442,7 +444,10 @@ export class ZSelect {
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
         <span
-          class={{selected: !!item.selected}}
+          class={{
+            "selected": !!item.selected,
+            "list-element-content": true,
+          }}
           innerHTML={item.name}
         />
       </z-list-element>
