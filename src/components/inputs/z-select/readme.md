@@ -20,6 +20,7 @@
 | `noresultslabel` | `noresultslabel`  | no result text message                                                         | `string`                                                          | `"Nessun risultato"` |
 | `placeholder`    | `placeholder`     | the input placeholder (optional)                                               | `string`                                                          | `undefined`          |
 | `readonly`       | `readonly`        | the input is readonly                                                          | `boolean`                                                         | `false`              |
+| `resetItem`      | `reset-item`      |                                                                                | `string`                                                          | `undefined`          |
 | `status`         | `status`          | the input status (optional)                                                    | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
 
 
@@ -28,6 +29,7 @@
 | Event          | Description                                                             | Type               |
 | -------------- | ----------------------------------------------------------------------- | ------------------ |
 | `optionSelect` | Emitted on select option selection, returns select id, selected item id | `CustomEvent<any>` |
+| `resetSelect`  | Emitted on reset selected item, returns select id, selected item id     | `CustomEvent<any>` |
 
 
 ## Methods
@@ -70,9 +72,9 @@ Type: `Promise<void>`
 - [z-input](../z-input)
 - [z-list](../../list/z-list)
 - [z-list-element](../../list/z-list-element)
+- [z-icon](../../icons/z-icon)
 - [z-list-group](../../list/z-list-group)
 - [z-body](../../typography/z-body)
-- [z-icon](../../icons/z-icon)
 - [z-input-message](../z-input-message)
 
 ### Graph
@@ -81,9 +83,9 @@ graph TD;
   z-select --> z-input
   z-select --> z-list
   z-select --> z-list-element
+  z-select --> z-icon
   z-select --> z-list-group
   z-select --> z-body
-  z-select --> z-icon
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
