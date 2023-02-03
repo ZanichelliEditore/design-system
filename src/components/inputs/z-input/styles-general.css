@@ -34,7 +34,7 @@ textarea,
 }
 
 /* FOCUS */
-:host:not(.active-select) :not(.cursor-select) input:focus:focus-visible,
+:host:not(.active-select) input:focus:focus-visible,
 .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
@@ -52,7 +52,7 @@ textarea:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host.cursor-select input[readonly]:focus:focus-visible {
+:host input[readonly]:focus:focus-visible {
   box-shadow: none;
   pointer-events: none;
 }
