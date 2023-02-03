@@ -38,7 +38,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_0"
                     >
-                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                      <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                   </z-list>
                 </div>
@@ -85,7 +85,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_0"
                     >
-                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                      <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                     <z-list-element
                       clickable=""
@@ -95,7 +95,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_1"
                     >
-                      <span>primo elemento</span>
+                      <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
@@ -144,7 +144,7 @@ describe("Suite test ZSelect", () => {
                     class=""
                     id="checkid_0"
                   >
-                    <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                    <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                   </z-list-element>
                   <z-list-element
                     clickable=""
@@ -155,7 +155,7 @@ describe("Suite test ZSelect", () => {
                     class=""
                     id="checkid_1"
                   >
-                    <span class="selected">primo elemento</span>
+                    <span class="list-element-content selected">primo elemento</span>
                   </z-list-element>
                 </z-list>
               </div>
@@ -204,7 +204,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_0"
                     >
-                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                      <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                     <z-list-element
                       clickable=""
@@ -214,7 +214,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_1"
                     >
-                      <span>primo elemento</span>
+                      <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
@@ -262,7 +262,7 @@ describe("Suite test ZSelect", () => {
                         class=""
                         id="checkid_0"
                       >
-                        <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                        <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                       </z-list-element>
                     <z-list-element
                         clickable=""
@@ -272,7 +272,7 @@ describe("Suite test ZSelect", () => {
                         class=""
                         id="checkid_1"
                       >
-                        <span>primo elemento</span>
+                        <span class="list-element-content">primo elemento</span>
                       </z-list-element>
                     </z-list>
                   </div>
@@ -319,7 +319,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_0"
                     >
-                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                      <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                   <z-list-element
                       disabled=""
@@ -328,7 +328,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="-1"
                       id="checkid_1"
                     >
-                      <span>primo elemento</span>
+                      <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
@@ -375,7 +375,7 @@ describe("Suite test ZSelect", () => {
                     class=""
                     id="checkid_0"
                   >
-                    <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                    <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                   </z-list-element>
                   <z-list-element
                     clickable=""
@@ -385,7 +385,7 @@ describe("Suite test ZSelect", () => {
                     class=""
                     id="checkid_1"
                   >
-                    <span>primo elemento</span>
+                    <span class="list-element-content">primo elemento</span>
                   </z-list-element>
                 </z-list>
               </div>
@@ -412,12 +412,48 @@ describe("Suite test ZSelect", () => {
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list id="checkid" role="listbox" tabindex="0">
                   <z-list-element clickable="" dividertype="header" id="checkid_0" role="option" tabindex="0">
-                    <span>
+                    <span class="list-element-content">
                       SELECT HERE questa
                       <strong>
                         opzione
                       </strong>
                       con etichetta lunga lunghissima
+                    </span>
+                  </z-list-element>
+                </z-list>
+              </div>
+            </div>
+            <z-input-message></z-input-message>
+          </div>
+        </z-select>
+    `);
+  });
+
+  it("Test render ZSelect aperta con reset item", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" placeholder="select here" reset-item="Pulisci selezione" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":true}]'></z-select>`,
+    });
+    page.rootInstance.isOpen = true;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <z-select autocomplete="true" htmlid="checkid" items="[{&quot;id&quot;:&quot;item_0&quot;,&quot;name&quot;:&quot;SELECT HERE questa opzione con etichetta lunga lunghissima&quot;,&quot;selected&quot;:true}]" label="default" placeholder="select here" reset-item="Pulisci selezione">
+          <div class="select-wrapper">
+            <z-input aria-label="" autocomplete="off" class="active-select" hasclearicon="" htmlid="checkid_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
+            <div class="open" tabindex="-1">
+              <div class="ul-scroll-wrapper" tabindex="-1">
+                <z-list aria-activedescendant="item_0" class="filled" id="checkid" role="listbox" tabindex="0">
+                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" id="checkid_0" role="option" tabindex="0">
+                    <div class="reset-item-content">
+                      <z-icon name="multiply-circled"></z-icon>
+                      <span>
+                        Pulisci selezione
+                      </span>
+                    </div>
+                  </z-list-element>
+                  <z-list-element aria-selected="" clickable="" dividertype="header" id="checkid_1" role="option" tabindex="0">
+                    <span class="list-element-content selected">
+                      SELECT HERE questa opzione con etichetta lunga lunghissima
                     </span>
                   </z-list-element>
                 </z-list>
@@ -465,7 +501,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_0"
                     >
-                      <span>SELECT HERE questa opzione con etichetta lunga lunghissima</span>
+                      <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                     <z-list-element
                       clickable=""
@@ -475,7 +511,7 @@ describe("Suite test ZSelect", () => {
                       class=""
                       id="checkid_1"
                     >
-                      <span>primo elemento</span>
+                      <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>

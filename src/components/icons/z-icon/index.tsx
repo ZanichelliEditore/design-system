@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, Prop, Host, h} from "@stencil/core";
 import {ICONS} from "../icons";
 
 @Component({
@@ -37,15 +37,17 @@ export class ZIcon {
 
   render(): SVGElement {
     return (
-      <svg
-        viewBox="0 0 1000 1000"
-        width={this.width}
-        height={this.height}
-        id={this.iconid}
-        fill={this.fill ? `var(--${this.fill})` : ""}
-      >
-        {this.selectPathOrPolygon(ICONS[this.name])}
-      </svg>
+      <Host aria-hidden="true">
+        <svg
+          viewBox="0 0 1000 1000"
+          width={this.width}
+          height={this.height}
+          id={this.iconid}
+          fill={this.fill ? `var(--${this.fill})` : ""}
+        >
+          {this.selectPathOrPolygon(ICONS[this.name])}
+        </svg>
+      </Host>
     );
   }
 }

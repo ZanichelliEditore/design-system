@@ -355,7 +355,10 @@ export class ZSearchbar {
       return label;
     }
 
-    return label.replace(new RegExp(this.searchString, "gmi"), (found) => `<mark>${found}</mark>`);
+    return label.replace(
+      new RegExp(this.searchString.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gmi"),
+      (found) => `<mark>${found}</mark>`
+    );
   }
 
   private renderItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {

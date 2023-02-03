@@ -1397,6 +1397,7 @@ export namespace Components {
           * the input is readonly
          */
         "readonly"?: boolean;
+        "resetItem"?: string;
         /**
           * set the input value
          */
@@ -4041,6 +4042,10 @@ declare namespace LocalJSX {
          */
         "onOptionSelect"?: (event: ZSelectCustomEvent<any>) => void;
         /**
+          * Emitted on reset selected item, returns select id, selected item id
+         */
+        "onResetSelect"?: (event: ZSelectCustomEvent<any>) => void;
+        /**
           * the input placeholder (optional)
          */
         "placeholder"?: string;
@@ -4048,6 +4053,7 @@ declare namespace LocalJSX {
           * the input is readonly
          */
         "readonly"?: boolean;
+        "resetItem"?: string;
         /**
           * the input status (optional)
          */
