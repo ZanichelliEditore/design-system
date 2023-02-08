@@ -67,6 +67,10 @@ export class ZSelect {
   @Prop()
   hasGroupItems?: boolean;
 
+  /** When fixed, it occupies space and pushes down next elements. */
+  @Prop()
+  isfixed?: boolean = false;
+
   /** */
   @Prop()
   resetItem?: string;
@@ -328,6 +332,10 @@ export class ZSelect {
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
+        class={{
+          "active-select": this.isOpen,
+          "cursor-select": !this.autocomplete,
+        }}
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_input`}
         placeholder={this.placeholder}
@@ -376,7 +384,10 @@ export class ZSelect {
         tabindex="-1"
       >
         <div
-          class="ul-scroll-wrapper"
+          class={{
+            "ul-scroll-wrapper": true,
+            "fixed": this.isfixed,
+          }}
           tabindex="-1"
         >
           <z-list

@@ -1366,6 +1366,10 @@ export namespace Components {
          */
         "htmltitle"?: string;
         /**
+          * When fixed, it occupies space and pushes down next elements.
+         */
+        "isfixed"?: boolean;
+        /**
           * the input select options
          */
         "items": SelectItem[] | string;
@@ -4009,6 +4013,10 @@ declare namespace LocalJSX {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        /**
+          * When fixed, it occupies space and pushes down next elements.
+         */
+        "isfixed"?: boolean;
         /**
           * the input select options
          */
