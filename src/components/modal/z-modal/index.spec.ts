@@ -1,4 +1,5 @@
 import {newSpecPage} from "@stencil/core/testing";
+
 import {ZModal} from "./index";
 
 describe("Suite test ZModal", () => {
@@ -9,19 +10,20 @@ describe("Suite test ZModal", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-modal>
+      <z-modal aria-modal="true" role="dialog" tabindex="0">
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
             <div class="modal-content">
               <slot name="modalContent"></slot>
+              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
@@ -36,9 +38,9 @@ describe("Suite test ZModal", () => {
       html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale"></z-modal>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
+      <z-modal aria-modal="true" role="dialog" tabindex="0" modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
-          <div class="modal-container" id="modal" role="dialog">
+          <div class="modal-container" id="modal">
             <header>
               <div>
                 <h1>title</h1>
@@ -52,6 +54,7 @@ describe("Suite test ZModal", () => {
             </header>
             <div class="modal-content">
               <slot name="modalContent"></slot>
+              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
@@ -67,19 +70,20 @@ describe("Suite test ZModal", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-modal>
+      <z-modal aria-modal="true" role="dialog" tabindex="0">
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
             <div class="modal-content">
               <slot name="modalContent"></slot>
+              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
@@ -95,19 +99,20 @@ describe("Suite test ZModal", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-modal>
+      <z-modal aria-modal="true" role="dialog" tabindex="0">
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
             <div class="modal-content">
               <slot name="modalContent"></slot>
+              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>

@@ -1,4 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import {KeyboardCode} from "../../../beans";
 
 /**
  * @slot modalContent - set the content of the modal
@@ -24,7 +25,11 @@ export class ZModal {
 
   /** aria-label for close button (optional) */
   @Prop()
-  closeButtonLabel?: string = "close modal";
+  closeButtonLabel?: string = "chiudi modale";
+
+  /** modal role: "dialog" or "alertdialog" (optional, default is "dialog") */
+  @Prop({reflect: true})
+  role?: "dialog" | "alertdialog" = "dialog";
 
   /** emitted on close button click, returns modalid */
   @Event()
@@ -46,17 +51,56 @@ export class ZModal {
   @Event()
   modalBackgroundClick: EventEmitter;
 
+  private modalEnd: HTMLSpanElement;
+
+  private closeButton: HTMLButtonElement;
+
+  private shift = false;
+
   private emitBackgroundClick(): void {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 
+  private handleForwardNav(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.TAB || this.shift) {
+      return;
+    }
+    if (e.target === this.modalEnd) {
+      this.closeButton?.focus();
+    }
+  }
+
+  private handleBackwardsNav(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.TAB || !this.shift) {
+      return;
+    }
+    if (e.target === this.closeButton) {
+      this.modalEnd.focus();
+    }
+  }
+
   render(): HTMLZModalElement {
     return (
-      <Host>
+      <Host
+        aria-modal="true"
+        tabindex={0}
+        onKeyUp={(e: KeyboardEvent) => {
+          if (e.code === KeyboardCode.ESC) {
+            this.emitModalClose();
+            e.stopPropagation();
+          }
+        }}
+      >
         <div
           class="modal-container"
           id={this.modalid}
-          role="dialog"
+          onKeyDown={(e: KeyboardEvent) => {
+            this.shift = !!e.shiftKey;
+            this.handleBackwardsNav(e);
+          }}
+          onKeyUp={(e: KeyboardEvent) => {
+            this.handleForwardNav(e);
+          }}
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
@@ -67,6 +111,7 @@ export class ZModal {
               <button
                 aria-label={this.closeButtonLabel}
                 onClick={this.emitModalClose.bind(this)}
+                ref={(el) => (this.closeButton = el as HTMLButtonElement)}
               >
                 <z-icon name="multiply-circle-filled"></z-icon>
               </button>
@@ -74,6 +119,11 @@ export class ZModal {
           </header>
           <div class="modal-content">
             <slot name="modalContent"></slot>
+            <span
+              tabindex={0}
+              class="modal-end"
+              ref={(el) => (this.modalEnd = el as HTMLSpanElement)}
+            />
           </div>
         </div>
         <div

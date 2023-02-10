@@ -15,12 +15,13 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                            | Type     | Default         |
-| ------------------ | -------------------- | -------------------------------------- | -------- | --------------- |
-| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional) | `string` | `"close modal"` |
-| `modalid`          | `modalid`            | unique id                              | `string` | `undefined`     |
-| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                    | `string` | `undefined`     |
-| `modaltitle`       | `modaltitle`         | title text (optional)                  | `string` | `undefined`     |
+| Property           | Attribute            | Description                                                           | Type                        | Default           |
+| ------------------ | -------------------- | --------------------------------------------------------------------- | --------------------------- | ----------------- |
+| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                                | `string`                    | `"chiudi modale"` |
+| `modalid`          | `modalid`            | unique id                                                             | `string`                    | `undefined`       |
+| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                                   | `string`                    | `undefined`       |
+| `modaltitle`       | `modaltitle`         | title text (optional)                                                 | `string`                    | `undefined`       |
+| `role`             | `role`               | modal role: "dialog" or "alertdialog" (optional, default is "dialog") | `"alertdialog" \| "dialog"` | `"dialog"`        |
 
 
 ## Events

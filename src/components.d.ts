@@ -783,6 +783,10 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
+        /**
+          * modal role: "dialog" or "alertdialog" (optional, default is "dialog")
+         */
+        "role"?: "dialog" | "alertdialog";
     }
     interface ZMyzCard {
         /**
@@ -3363,6 +3367,10 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
+        /**
+          * modal role: "dialog" or "alertdialog" (optional, default is "dialog")
+         */
+        "role"?: "dialog" | "alertdialog";
     }
     interface ZMyzCard {
         /**
