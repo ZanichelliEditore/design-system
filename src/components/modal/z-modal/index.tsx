@@ -1,4 +1,4 @@
-import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Host, Method} from "@stencil/core";
 import {KeyboardCode} from "../../../beans";
 
 /**
@@ -27,9 +27,17 @@ export class ZModal {
   @Prop()
   closeButtonLabel?: string = "chiudi modale";
 
-  /** modal role: "dialog" or "alertdialog" (optional, default is "dialog") */
-  @Prop({reflect: true})
-  role?: "dialog" | "alertdialog" = "dialog";
+  /** add role "alertdialog" to dialog (optional, default is false) */
+  @Prop()
+  alertdialog?: boolean = false;
+
+  private dialog: HTMLDialogElement;
+
+  private modalEnd: HTMLSpanElement;
+
+  private closeButton: HTMLButtonElement;
+
+  private shift = false;
 
   /** emitted on close button click, returns modalid */
   @Event()
@@ -51,14 +59,32 @@ export class ZModal {
   @Event()
   modalBackgroundClick: EventEmitter;
 
-  private modalEnd: HTMLSpanElement;
-
-  private closeButton: HTMLButtonElement;
-
-  private shift = false;
-
   private emitBackgroundClick(): void {
     this.modalBackgroundClick.emit({modalid: this.modalid});
+  }
+
+  /** open modal */
+  @Method()
+  async openModal(): Promise<void> {
+    this.open();
+  }
+
+  /** close modal */
+  @Method()
+  async closeModal(): Promise<void> {
+    this.close();
+  }
+
+  componentDidLoad(): void {
+    this.open();
+  }
+
+  private open(): void {
+    this.dialog?.showModal();
+  }
+
+  private close(): void {
+    this.dialog?.close();
   }
 
   private handleForwardNav(e: KeyboardEvent): void {
@@ -81,19 +107,13 @@ export class ZModal {
 
   render(): HTMLZModalElement {
     return (
-      <Host
-        aria-modal="true"
-        tabindex={0}
-        onKeyUp={(e: KeyboardEvent) => {
-          if (e.code === KeyboardCode.ESC) {
-            this.emitModalClose();
-            e.stopPropagation();
-          }
-        }}
-      >
-        <div
-          class="modal-container"
-          id={this.modalid}
+      <Host>
+        <dialog
+          aria-labelledby="modal-title"
+          aria-describedby="modal-content"
+          role={this.alertdialog ? "alertdialog" : undefined}
+          ref={(el) => (this.dialog = el as HTMLDialogElement)}
+          onClose={() => this.emitModalClose()}
           onKeyDown={(e: KeyboardEvent) => {
             this.shift = !!e.shiftKey;
             this.handleBackwardsNav(e);
@@ -102,36 +122,47 @@ export class ZModal {
             this.handleForwardNav(e);
           }}
         >
-          <header onClick={this.emitModalHeaderActive.bind(this)}>
-            <div>
-              {this.modaltitle && <h1>{this.modaltitle}</h1>}
-              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+          <div
+            class="modal-container"
+            id={this.modalid}
+          >
+            <header onClick={this.emitModalHeaderActive.bind(this)}>
+              <div>
+                {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
+                {this.modalsubtitle && <h2 id="modal-subtitle">{this.modalsubtitle}</h2>}
+              </div>
+              <slot name="modalCloseButton">
+                <button
+                  aria-label={this.closeButtonLabel}
+                  onClick={() => this.close()}
+                  ref={(el) => (this.closeButton = el)}
+                >
+                  <z-icon name="multiply-circle-filled"></z-icon>
+                </button>
+              </slot>
+            </header>
+            <div
+              class="modal-content"
+              id="modal-content"
+            >
+              <slot name="modalContent"></slot>
+              <span
+                tabindex={0}
+                class="modal-end"
+                ref={(el) => (this.modalEnd = el)}
+              />
             </div>
-            <slot name="modalCloseButton">
-              <button
-                aria-label={this.closeButtonLabel}
-                onClick={this.emitModalClose.bind(this)}
-                ref={(el) => (this.closeButton = el as HTMLButtonElement)}
-              >
-                <z-icon name="multiply-circle-filled"></z-icon>
-              </button>
-            </slot>
-          </header>
-          <div class="modal-content">
-            <slot name="modalContent"></slot>
-            <span
-              tabindex={0}
-              class="modal-end"
-              ref={(el) => (this.modalEnd = el as HTMLSpanElement)}
-            />
           </div>
-        </div>
-        <div
-          class="modal-background"
-          data-action="modalBackground"
-          data-modal={this.modalid}
-          onClick={this.emitBackgroundClick.bind(this)}
-        ></div>
+          <div
+            class="modal-background"
+            data-action="modalBackground"
+            data-modal={this.modalid}
+            onClick={() => {
+              this.emitBackgroundClick();
+              this.close();
+            }}
+          ></div>
+        </dialog>
       </Host>
     );
   }

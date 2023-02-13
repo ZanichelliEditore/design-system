@@ -768,9 +768,17 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
+        /**
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
+        /**
+          * close modal
+         */
+        "closeModal": () => Promise<void>;
         /**
           * unique id
          */
@@ -784,9 +792,9 @@ export namespace Components {
          */
         "modaltitle"?: string;
         /**
-          * modal role: "dialog" or "alertdialog" (optional, default is "dialog")
+          * open modal
          */
-        "role"?: "dialog" | "alertdialog";
+        "openModal": () => Promise<void>;
     }
     interface ZMyzCard {
         /**
@@ -3340,6 +3348,10 @@ declare namespace LocalJSX {
     }
     interface ZModal {
         /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
+        /**
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
@@ -3367,10 +3379,6 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
-        /**
-          * modal role: "dialog" or "alertdialog" (optional, default is "dialog")
-         */
-        "role"?: "dialog" | "alertdialog";
     }
     interface ZMyzCard {
         /**

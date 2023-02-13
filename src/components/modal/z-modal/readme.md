@@ -15,13 +15,13 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                                                           | Type                        | Default           |
-| ------------------ | -------------------- | --------------------------------------------------------------------- | --------------------------- | ----------------- |
-| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                                | `string`                    | `"chiudi modale"` |
-| `modalid`          | `modalid`            | unique id                                                             | `string`                    | `undefined`       |
-| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                                   | `string`                    | `undefined`       |
-| `modaltitle`       | `modaltitle`         | title text (optional)                                                 | `string`                    | `undefined`       |
-| `role`             | `role`               | modal role: "dialog" or "alertdialog" (optional, default is "dialog") | `"alertdialog" \| "dialog"` | `"dialog"`        |
+| Property           | Attribute            | Description                                                   | Type      | Default           |
+| ------------------ | -------------------- | ------------------------------------------------------------- | --------- | ----------------- |
+| `alertdialog`      | `alertdialog`        | add role "alertdialog" to dialog (optional, default is false) | `boolean` | `false`           |
+| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                        | `string`  | `"chiudi modale"` |
+| `modalid`          | `modalid`            | unique id                                                     | `string`  | `undefined`       |
+| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                           | `string`  | `undefined`       |
+| `modaltitle`       | `modaltitle`         | title text (optional)                                         | `string`  | `undefined`       |
 
 
 ## Events
@@ -31,6 +31,29 @@
 | `modalBackgroundClick` | emitted on background click, returns modalid   | `CustomEvent<any>` |
 | `modalClose`           | emitted on close button click, returns modalid | `CustomEvent<any>` |
 | `modalHeaderActive`    | emitted on modal header click, returns modalid | `CustomEvent<any>` |
+
+
+## Methods
+
+### `closeModal() => Promise<void>`
+
+close modal
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `openModal() => Promise<void>`
+
+open modal
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Slots
