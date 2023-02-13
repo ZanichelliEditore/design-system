@@ -15,9 +15,9 @@ describe("Suite test ZDragdropArea", () => {
        <div class="dragdrop" tabindex="0">
          <div class="dragover-container">
            <div class="dragover-message">
-             <z-body level="2" variant="semibold">
+             <span class="body-2-sb">
                Rilascia i file in questa area per allegarli.
-             </z-body>
+             </span>
            </div>
           </div>
           <slot></slot>
@@ -43,9 +43,9 @@ describe("Suite test ZDragdropArea", () => {
        <div class="dragdrop" tabindex="0">
          <div class="dragover-container">
            <div class="dragover-message">
-             <z-body level="2" variant="semibold">
+             <span class="body-2-sb">
                Rilascia i file in questa area per allegarli.
-             </z-body>
+             </span>
            </div>
          </div>
          <slot></slot>
