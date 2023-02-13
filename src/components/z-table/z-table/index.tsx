@@ -130,13 +130,7 @@ export class ZTable {
           >
             <slot name="error-image" />
             <div class="text">
-              <z-body
-                class="error-message"
-                level={3}
-                variant="semibold"
-              >
-                {this.errorMessage}
-              </z-body>
+              <span class="body-3-sb error-message">{this.errorMessage}</span>
               <slot name="error-action" />
             </div>
           </div>
