@@ -498,14 +498,12 @@ export class ZSelect {
     return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
-          <z-body
-            class="z-list-group-title"
-            level={3}
+          <span
+            class="body-3-sb z-list-group-title"
             slot="header-title"
-            variant="semibold"
           >
             {key}
-          </z-body>
+          </span>
           {value.map((item) => item)}
         </z-list-group>
       );
