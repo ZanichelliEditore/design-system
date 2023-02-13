@@ -11,7 +11,7 @@ describe("ZTableEmptyBox", () => {
 
     expect(page.root).toEqualHtml(`
       <z-table-empty-box>
-        <z-body level="3" variant="semibold">Siamo spiacenti, al momento non sono presenti dati da visualizzare.</z-body><br />
+        <span class="body-3-sb">Siamo spiacenti, al momento non sono presenti dati da visualizzare.</span><br />
       </z-table-empty-box>
     `);
   });
@@ -24,8 +24,8 @@ describe("ZTableEmptyBox", () => {
 
     expect(page.root).toEqualHtml(`
       <z-table-empty-box message="Custom message" subtitle="Custom subtitle">
-        <z-body level="3" variant="semibold">Custom message</z-body><br />
-        <z-body level="4" variant="regular">Custom subtitle</z-body>
+        <span class="body-3-sb">Custom message</span><br />
+        <span class="body-4">Custom subtitle</span>
       </z-table-empty-box>
     `);
   });
@@ -41,7 +41,7 @@ describe("ZTableEmptyBox", () => {
 
     expect(page.root).toEqualHtml(`
       <z-table-empty-box>
-        <z-body level="3" variant="semibold">Siamo spiacenti, al momento non sono presenti dati da visualizzare.</z-body><br />
+        <span class="body-3-sb">Siamo spiacenti, al momento non sono presenti dati da visualizzare.</span><br />
         <div class="cta has-2-cta">
           <z-button slot="cta1">CTA 1</z-button>
           <z-button slot="cta2">CTA 2</z-button>

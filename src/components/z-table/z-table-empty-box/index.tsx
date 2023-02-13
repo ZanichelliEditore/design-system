@@ -30,21 +30,9 @@ export class ZTableEmptyBox {
   render(): HTMLZTableEmptyBoxElement {
     return (
       <Host>
-        <z-body
-          level={3}
-          variant={"semibold"}
-        >
-          {this.message}
-        </z-body>
+        <span class="body-3-sb">{this.message}</span>
         <br />
-        {!!this.subtitle && (
-          <z-body
-            level={4}
-            variant={"regular"}
-          >
-            {this.subtitle}
-          </z-body>
-        )}
+        {!!this.subtitle && <span class="body-4">{this.subtitle}</span>}
         {(!!this.hasCta1Slot || !!this.hasCta2Slot) && (
           <div
             class={{
