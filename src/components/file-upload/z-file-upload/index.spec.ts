@@ -21,12 +21,12 @@ describe("Suite test ZFileUpload", () => {
          <z-heading id="title" level="2" variant="semibold">
            Allega un file
          </z-heading>
-         <z-body level="3" variant="semibold">
+         <span class="body-3-sb">
            Vuoi allegare un file per chiarire meglio la tua richiesta?
-         </z-body>
-         <z-body level="3">
+         </span>
+         <span class="body-3">
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
-         </z-body>
+         </span>
          <section class="files-container hidden">
           <z-heading level="4" variant="semibold">
             File appena caricati
@@ -74,20 +74,20 @@ describe("Suite test ZFileUpload", () => {
          </section>
          <z-dragdrop-area>
            <div class="text-container">
-             <z-body level="1" variant="regular">
+             <span class="body-1">
                Vuoi allegare un file per chiarire meglio la tua richiesta?
-             </z-body>
+             </span>
              <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
-             <z-body class="upload-link-text" level="1" variant="regular">
+             <span class="body-1 upload-link-text">
                Trascinalo qui o
-               <z-body class="upload-link" level="1" tabindex="0" variant="semibold">
+               <span class="body-1-sb upload-link" tabindex="0">
                  caricalo
-               </z-body>
+               </span>
                dal tuo computer
-             </z-body>
-             <z-body level="3">
+             </span>
+             <span class="body-3">
                Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
-             </z-body>
+             </span>
            </div>
          </z-dragdrop-area>
        </div>
