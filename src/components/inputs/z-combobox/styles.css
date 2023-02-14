@@ -35,13 +35,13 @@
   outline: none;
 }
 
-:host > div > .header > z-body {
+:host > div > .header > p.body-3 {
   padding: var(--space-unit) 0;
   margin: 0;
   color: var(--text-grey-800);
 }
 
-:host > div > .header > z-body > span {
+:host > div > .header > p.body-3 > span {
   font-weight: var(--font-sb);
 }
 
@@ -65,7 +65,7 @@
   fill: var(--color-disabled01);
 }
 
-:host > div.disabled .header > z-body {
+:host > div.disabled .header > p.body-3 {
   color: var(--text-grey-700);
 }
 
