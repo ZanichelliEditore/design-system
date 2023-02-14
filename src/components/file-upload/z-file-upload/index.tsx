@@ -154,13 +154,12 @@ export class ZFileUpload {
 
   private renderTitle(): HTMLZHeadingElement {
     return (
-      <z-heading
+      <h2
+        class="heading-2-sb"
         id="title"
-        variant="semibold"
-        level={2}
       >
         {this.mainTitle}
-      </z-heading>
+      </h2>
     );
   }
 
@@ -192,12 +191,7 @@ export class ZFileUpload {
   private renderFileSection(): HTMLElement {
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <z-heading
-          variant="semibold"
-          level={4}
-        >
-          File appena caricati
-        </z-heading>
+        <h4 class="heading-4-sb">File appena caricati</h4>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
