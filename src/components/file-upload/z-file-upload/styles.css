@@ -28,7 +28,7 @@
   margin: auto;
 }
 
-:host .text-container z-body {
+:host .text-container .body-1 {
   text-align: center;
 }
 
