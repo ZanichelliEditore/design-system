@@ -59,7 +59,7 @@ input#file-elem {
   display: none;
 }
 
-:host > .container > .files-container > z-heading {
+:host > .container > .files-container > .heading-4-sb {
   display: inline-block;
   margin: calc(var(--space-unit) * 3) 0;
 }
