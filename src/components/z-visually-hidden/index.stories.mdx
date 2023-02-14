@@ -11,11 +11,11 @@ import "./index";
 
 <Preview>
   <Story name="ZVisuallyHidden-sample">
-    {html`<z-heading level="2">ZVisuallyHidden</z-heading
-      ><z-body>
+    {html`<h2 class="heading-2">ZVisuallyHidden</h2>
+      <span>
         This component visually hide an element while still allowing it to be exposed to assistive technologies (such as
-        screen readers). </z-body
-      ><z-body>
+        screen readers). </span
+      ><span>
         There are real world situations where visually hiding content may be appropriate:
         <ul>
           <li>Hide visually the text of <code> ZAriaAlert </code></li>
@@ -27,7 +27,7 @@ import "./index";
             Hide visually an <code> h1 </code> because could be redundant for a sighted user but could be usefull for
             navigation through ScreenReader rotor
           </li>
-        </ul> </z-body
+        </ul> </span
       ><z-visually-hidden><div>Hello</div></z-visually-hidden>`}
   </Story>
 </Preview>
