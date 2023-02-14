@@ -59,9 +59,7 @@ Current available text color is : primary, inverse, black and white. Primary and
 
 <Preview>
   <Story name="z-link inline">
-    {html` <z-body
-      level="1"
-      variant="regular"
+    {html` <span class="body-1"
       >Clicca sul
       <z-link
         href="${text("href", "http://www.zanichelli.it")}"
@@ -73,7 +71,7 @@ Current available text color is : primary, inverse, black and white. Primary and
         isactive="${boolean("isactive", false)}"
         underline="true"
         >z-link</z-link
-      >.</z-body
+      >.</span
     >`}
   </Story>
 </Preview>
