@@ -14,15 +14,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-combobox](../../inputs/z-combobox)
- - [z-dragdrop-area](../../file-upload/z-dragdrop-area)
- - [z-file-upload](../../file-upload/z-file-upload)
- - [z-select](../../inputs/z-select)
- - [z-table](../../z-table/z-table)
- - [z-table-empty-box](../../z-table/z-table-empty-box)
-
 ### Depends on
 
 - [z-typography](../z-typography)
@@ -31,12 +22,6 @@
 ```mermaid
 graph TD;
   z-body --> z-typography
-  z-combobox --> z-body
-  z-dragdrop-area --> z-body
-  z-file-upload --> z-body
-  z-select --> z-body
-  z-table --> z-body
-  z-table-empty-box --> z-body
   style z-body fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
