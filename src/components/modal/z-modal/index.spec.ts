@@ -32,7 +32,6 @@ describe("Suite test ZModal", () => {
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
-              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
@@ -65,7 +64,6 @@ describe("Suite test ZModal", () => {
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
-              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
@@ -96,7 +94,6 @@ describe("Suite test ZModal", () => {
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
-              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
@@ -127,7 +124,6 @@ describe("Suite test ZModal", () => {
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
-              <span class="modal-end" tabindex="0"></span>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>

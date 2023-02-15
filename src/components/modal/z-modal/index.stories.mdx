@@ -1,6 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
 import "./index";
+import "./index.stories.css";
 
 ## Stories
 
@@ -31,6 +32,19 @@ import "./index";
     closeButtonLabel: "chiudi modale",
     alertdialog: false,
   }}
+  decorators={[
+    (Story) => html`
+      <script>
+        function openZModal() {
+          document.querySelector("z-modal").open();
+        }
+        function closeZModal() {
+          document.querySelector("z-modal").close();
+        }
+      </script>
+      ${Story()}
+    `,
+  ]}
 />
 
 # ZModal
@@ -51,20 +65,10 @@ import "./index";
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           <br />
-          <button class="close-modal-${args.modalid}">custom closing button</button>
+          <z-button onclick="closeZModal()">close</z-button>
         </div>
       </z-modal>
-      <div>
-        <button class="open-modal-${args.modalid}">apri modale</button>
-      </div>
-      <script>
-        document.querySelector(".open-modal-${args.modalid}").addEventListener("click", () => {
-          document.querySelector("[modalid='${args.modalid}").openModal();
-        });
-        document.querySelector(".close-modal-${args.modalid}").addEventListener("click", () => {
-          document.querySelector("[modalid='${args.modalid}").closeModal();
-        });
-      </script>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
 </Canvas>
@@ -183,14 +187,7 @@ import "./index";
           Quare attende, quaeso. Quod cum dixissent, ille contra.
         </div>
       </z-modal>
-      <div>
-        <button class="open-modal-${args.modalid}">apri modale</button>
-      </div>
-      <script>
-        document.querySelector(".open-modal-${args.modalid}").addEventListener("click", () => {
-          document.querySelector("[modalid='${args.modalid}").openModal();
-        });
-      </script>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
 </Canvas>
@@ -208,26 +205,18 @@ import "./index";
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
       >
-        <div slot="modalContent">Contenuto dello <b>slot</b></div>
+        <div slot="modalContent">
+          <div>Contenuto dello <b>slot</b></div>
+        </div>
         <button
           slot="modalCloseButton"
           aria-label="close"
-          class="close-modal-${args.modalid}"
+          onclick="closeZModal()"
         >
           X
         </button>
       </z-modal>
-      <div>
-        <button class="open-modal-${args.modalid}">apri modale</button>
-      </div>
-      <script>
-        document.querySelector(".open-modal-${args.modalid}").addEventListener("click", () => {
-          document.querySelector("[modalid='${args.modalid}").openModal();
-        });
-        document.querySelector(".close-modal-${args.modalid}").addEventListener("click", () => {
-          document.querySelector("[modalid='${args.modalid}").closeModal();
-        });
-      </script>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
 </Canvas>

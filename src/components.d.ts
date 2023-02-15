@@ -772,13 +772,13 @@ export namespace Components {
          */
         "alertdialog"?: boolean;
         /**
-          * aria-label for close button (optional)
-         */
-        "closeButtonLabel"?: string;
-        /**
           * close modal
          */
-        "closeModal": () => Promise<void>;
+        "close": () => Promise<void>;
+        /**
+          * aria-label for close button (optional)
+         */
+        "closeButtonLabel": string;
         /**
           * unique id
          */
@@ -794,7 +794,7 @@ export namespace Components {
         /**
           * open modal
          */
-        "openModal": () => Promise<void>;
+        "open": () => Promise<void>;
     }
     interface ZMyzCard {
         /**
