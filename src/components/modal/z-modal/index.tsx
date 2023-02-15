@@ -2,7 +2,7 @@ import {Component, Prop, h, Event, EventEmitter, Method, Element, Listen} from "
 import {KeyboardCode} from "../../../beans";
 
 const FOCUSABLE_ELEMENTS_SELECTOR =
-  ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""] [tabindex="-1"])';
+  ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 
 /**
  * @slot modalCloseButton - accept custom close button
@@ -80,14 +80,16 @@ export class ZModal {
 
   /**
    * Get a list of focusable elements in the dialog.
-   * The list is built on the assumption that the elements inside shadow root are placed ALL before the `modalContent` slot.
+   * Remove elements with `display: none` from the list, because they're not focusable.
+   *
+   * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
    * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
    */
   private get focusableElements(): HTMLElement[] {
     return [
       ...Array.from(this.host.shadowRoot.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
       ...Array.from(this.host.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
-    ];
+    ].filter((element) => getComputedStyle(element).display !== "none");
   }
 
   @Listen("keydown")
@@ -97,23 +99,18 @@ export class ZModal {
     }
 
     const focusableElements = this.focusableElements;
-    // shift + tab was pressed and current active element is first focusable elements
-    if (
-      e.shiftKey &&
-      (this.host.shadowRoot.activeElement == focusableElements[0] ||
-        this.host.ownerDocument.activeElement == focusableElements[0])
-    ) {
+    const shadowActiveElement = this.host.shadowRoot.activeElement;
+    const activeElement = this.host.ownerDocument.activeElement;
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
+      // shift + tab was pressed and current active element is the first focusable element
       e.preventDefault();
-      // give the focus to the last focusable element
-      focusableElements[focusableElements.length - 1].focus();
-    } else if (
-      !e.shiftKey &&
-      (this.host.shadowRoot.activeElement == focusableElements[focusableElements.length - 1] ||
-        this.host.ownerDocument.activeElement == focusableElements[focusableElements.length - 1])
-    ) {
+      lastFocusableElement.focus();
+    } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
+      // shift + tab was pressed and current active element is the first focusable element
       e.preventDefault();
-      // give the focus to the first focusable element
-      focusableElements[0].focus();
+      firstFocusableElement.focus();
     }
   }
 
