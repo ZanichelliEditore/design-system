@@ -5,7 +5,11 @@
 
 :host > dialog {
   padding: 0;
-  border: none !important;
+  border: none;
+}
+
+:host > dialog::backdrop {
+  display: none;
 }
 
 .modal-background {
