@@ -35,7 +35,7 @@
 
 ## Methods
 
-### `closeModal() => Promise<void>`
+### `close() => Promise<void>`
 
 close modal
 
@@ -45,7 +45,7 @@ Type: `Promise<void>`
 
 
 
-### `openModal() => Promise<void>`
+### `open() => Promise<void>`
 
 open modal
 

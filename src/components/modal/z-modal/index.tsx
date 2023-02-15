@@ -75,7 +75,6 @@ export class ZModal {
   /** close modal */
   @Method()
   async close(): Promise<void> {
-    this.emitModalClose();
     this.dialog?.close();
   }
 
@@ -108,8 +107,9 @@ export class ZModal {
       // give the focus to the last focusable element
       focusableElements[focusableElements.length - 1].focus();
     } else if (
-      this.host.shadowRoot.activeElement == focusableElements[focusableElements.length - 1] ||
-      this.host.ownerDocument.activeElement == focusableElements[focusableElements.length - 1]
+      !e.shiftKey &&
+      (this.host.shadowRoot.activeElement == focusableElements[focusableElements.length - 1] ||
+        this.host.ownerDocument.activeElement == focusableElements[focusableElements.length - 1])
     ) {
       e.preventDefault();
       // give the focus to the first focusable element
