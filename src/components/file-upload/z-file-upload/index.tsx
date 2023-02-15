@@ -48,7 +48,7 @@ export class ZFileUpload {
 
   private errorModal: HTMLZModalElement;
 
-  private uploadLink: HTMLZBodyElement;
+  private uploadLink: HTMLSpanElement;
 
   private inputAttributes = {
     type: "file",
@@ -154,28 +154,20 @@ export class ZFileUpload {
 
   private renderTitle(): HTMLZHeadingElement {
     return (
-      <z-heading
+      <h2
+        class="heading-2-sb"
         id="title"
-        variant="semibold"
-        level={2}
       >
         {this.mainTitle}
-      </z-heading>
+      </h2>
     );
   }
 
-  private renderDescription(variant, level): HTMLZBodyElement {
-    return (
-      <z-body
-        variant={variant}
-        level={level}
-      >
-        {this.description}
-      </z-body>
-    );
+  private renderDescription(cssClass): HTMLElement {
+    return <span class={cssClass}>{this.description}</span>;
   }
 
-  private renderAllowedFileExtensions(): HTMLZBodyElement {
+  private renderAllowedFileExtensions(): HTMLElement {
     let fileFormatString = "";
     let fileWeightString = "";
 
@@ -193,18 +185,13 @@ export class ZFileUpload {
 
     const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
 
-    return <z-body level={3}>{fileFormatString || fileWeightString ? finalString : null}</z-body>;
+    return <span class="body-3">{fileFormatString || fileWeightString ? finalString : null}</span>;
   }
 
   private renderFileSection(): HTMLElement {
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <z-heading
-          variant="semibold"
-          level={4}
-        >
-          File appena caricati
-        </z-heading>
+        <h4 class="heading-4-sb">File appena caricati</h4>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
@@ -248,15 +235,11 @@ export class ZFileUpload {
   private renderUploadLink(): unknown[] {
     return [
       this.renderInput(),
-      <z-body
-        class="upload-link-text"
-        variant="regular"
-        level={1}
-      >
+      <span class="body-1 upload-link-text">
         Trascinalo qui o{" "}
-        <z-body
+        <span
           tabIndex={0}
-          class="upload-link"
+          class="body-1-sb upload-link"
           onClick={() => this.input.click()}
           onKeyPress={(e) => {
             if (e.code == "Space" || e.code == "Enter") {
@@ -264,20 +247,18 @@ export class ZFileUpload {
               this.input.click();
             }
           }}
-          variant="semibold"
-          level={1}
           ref={(val) => (this.uploadLink = val)}
         >
           caricalo
-        </z-body>{" "}
+        </span>{" "}
         dal tuo computer
-      </z-body>,
+      </span>,
     ];
   }
 
   private renderDefaultMode(): unknown[] {
     return [
-      this.renderDescription("semibold", 3),
+      this.renderDescription("body-3-sb"),
       this.renderAllowedFileExtensions(),
       this.renderFileSection(),
       this.renderUploadButton(),
@@ -289,7 +270,7 @@ export class ZFileUpload {
       this.renderFileSection(),
       <z-dragdrop-area>
         <div class="text-container">
-          {this.renderDescription("regular", 1)}
+          {this.renderDescription("body-1")}
           {this.renderUploadLink()}
           {this.renderAllowedFileExtensions()}
         </div>
@@ -309,14 +290,7 @@ export class ZFileUpload {
         <div class="modal-wrapper">
           <div class="files">
             {Array.from(this.invalidFiles).map(([key, value]) => {
-              return (
-                <z-body
-                  variant="regular"
-                  level={3}
-                >
-                  {this.formatErrorString(key, value)}
-                </z-body>
-              );
+              return <span class="body-3">{this.formatErrorString(key, value)}</span>;
             })}
           </div>
         </div>

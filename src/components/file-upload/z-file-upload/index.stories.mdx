@@ -40,10 +40,11 @@ import "./index";
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
     }}
   >
-    {(args) => html`<z-heading level="4"
-        >This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
-        using it!</z-heading
-      ><br />
+    {(args) => html`<h4 class="heading-4">
+        This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
+        using it!
+      </h4>
+      <br />
       <z-file-upload
         type="default"
         description="${args.description}"
@@ -80,7 +81,7 @@ import "./index";
     }}
   >
     {(args) => html`
-    <z-heading level="4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</z-heading><br>
+    <h4 class="heading-4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</h4><br>
     <z-file-upload type="dragdrop"
                          file-max-size="${args.fileMaxSize}"
                          description="${args.description}"

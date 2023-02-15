@@ -75,7 +75,6 @@ Type: `Promise<void>`
 - [z-list-element](../../list/z-list-element)
 - [z-icon](../../icons/z-icon)
 - [z-list-group](../../list/z-list-group)
-- [z-body](../../typography/z-body)
 - [z-input-message](../z-input-message)
 
 ### Graph
@@ -86,7 +85,6 @@ graph TD;
   z-select --> z-list-element
   z-select --> z-icon
   z-select --> z-list-group
-  z-select --> z-body
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message
@@ -94,7 +92,6 @@ graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-list-group --> z-divider
-  z-body --> z-typography
   style z-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

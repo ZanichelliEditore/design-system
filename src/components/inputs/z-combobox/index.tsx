@@ -211,13 +211,10 @@ export class ZCombobox {
         role="button"
         tabindex={0}
       >
-        <z-body
-          level={3}
-          component="p"
-        >
+        <p class="body-3">
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
-        </z-body>
+        </p>
         <z-icon
           name="caret-down"
           width={18}
@@ -311,14 +308,12 @@ export class ZCombobox {
     const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
-          <z-body
-            class="z-list-group-title"
-            level={3}
+          <span
+            class="body-3-sb z-list-group-title"
             slot="header-title"
-            variant="semibold"
           >
             {key}
-          </z-body>
+          </span>
           {value.map((item) => item)}
         </z-list-group>
       );

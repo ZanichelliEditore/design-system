@@ -16,9 +16,9 @@ describe("Suite test ZTable", () => {
       <div class="error-content" style="min-height: auto;">
         <img slot="error-image" src="./assets/images/png/zanichelli-error-image.png">
         <div class="text">
-          <z-body class="error-message" level="3" variant="semibold">
+          <span class="body-3-sb error-message">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
-          </z-body>
+          </span>
         </div>
       </div>
     </z-table-error>
@@ -35,9 +35,9 @@ describe("Suite test ZTable", () => {
     <z-table-error>
       <div class="error-content" style="min-height: auto;">
         <div class="text">
-          <z-body class="error-message" level="3" variant="semibold">
+          <span class="body-3-sb error-message">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
-          </z-body>
+          </span>
         </div>
       </div>
     </z-table-error>
@@ -72,9 +72,9 @@ describe("Suite test ZTable", () => {
     <z-table-error>
       <div class="error-content" style="min-height: auto;">
         <div class="text">
-          <z-body class="error-message" level="3" variant="semibold">
+          <span class="body-3-sb error-message">
             Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto
-          </z-body>
+          </span>
         </div>
       </div>
     </z-table-error>

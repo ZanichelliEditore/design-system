@@ -18,19 +18,19 @@ describe("Suite test ZFileUpload", () => {
     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="default" variant="primary">
       <mock:shadow-root>
        <div class="container default" tabindex="0">
-         <z-heading id="title" level="2" variant="semibold">
+         <h2 class="heading-2-sb" id="title">
            Allega un file
-         </z-heading>
-         <z-body level="3" variant="semibold">
+         </h2>
+         <span class="body-3-sb">
            Vuoi allegare un file per chiarire meglio la tua richiesta?
-         </z-body>
-         <z-body level="3">
+         </span>
+         <span class="body-3">
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
-         </z-body>
+         </span>
          <section class="files-container hidden">
-          <z-heading level="4" variant="semibold">
+          <h4 class="heading-4-sb">
             File appena caricati
-          </z-heading>
+          </h4>
           <div class="files-wrapper">
             <slot name="files"></slot>
           </div>
@@ -60,13 +60,13 @@ describe("Suite test ZFileUpload", () => {
       .toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
        <mock:shadow-root>
        <div class="container dragdrop" tabindex="0">
-         <z-heading id="title" level="2" variant="semibold">
+         <h2 class="heading-2-sb" id="title">
            Allega un file
-         </z-heading>
+         </h2>
          <section class="files-container hidden">
-          <z-heading level="4" variant="semibold">
+          <h4 class="heading-4-sb">
             File appena caricati
-          </z-heading>
+          </h4>
           <div class="files-wrapper">
             <slot name="files"></slot>
           </div>
@@ -74,20 +74,20 @@ describe("Suite test ZFileUpload", () => {
          </section>
          <z-dragdrop-area>
            <div class="text-container">
-             <z-body level="1" variant="regular">
+             <span class="body-1">
                Vuoi allegare un file per chiarire meglio la tua richiesta?
-             </z-body>
+             </span>
              <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
-             <z-body class="upload-link-text" level="1" variant="regular">
+             <span class="body-1 upload-link-text">
                Trascinalo qui o
-               <z-body class="upload-link" level="1" tabindex="0" variant="semibold">
+               <span class="body-1-sb upload-link" tabindex="0">
                  caricalo
-               </z-body>
+               </span>
                dal tuo computer
-             </z-body>
-             <z-body level="3">
+             </span>
+             <span class="body-3">
                Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
-             </z-body>
+             </span>
            </div>
          </z-dragdrop-area>
        </div>
