@@ -768,9 +768,17 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
+        /**
+          * close modal
+         */
+        "close": () => Promise<void>;
+        /**
           * aria-label for close button (optional)
          */
-        "closeButtonLabel"?: string;
+        "closeButtonLabel": string;
         /**
           * unique id
          */
@@ -783,6 +791,10 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
+        /**
+          * open modal
+         */
+        "open": () => Promise<void>;
     }
     interface ZMyzCard {
         /**
@@ -3335,6 +3347,10 @@ declare namespace LocalJSX {
         "status"?: PocketStatus;
     }
     interface ZModal {
+        /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
         /**
           * aria-label for close button (optional)
          */

@@ -1,8 +1,12 @@
-import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter, Method, Element, Listen} from "@stencil/core";
+import {KeyboardCode} from "../../../beans";
+
+const FOCUSABLE_ELEMENTS_SELECTOR =
+  ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 
 /**
- * @slot modalContent - set the content of the modal
  * @slot modalCloseButton - accept custom close button
+ * @slot modalContent - set the content of the modal
  */
 @Component({
   tag: "z-modal",
@@ -24,7 +28,15 @@ export class ZModal {
 
   /** aria-label for close button (optional) */
   @Prop()
-  closeButtonLabel?: string = "close modal";
+  closeButtonLabel = "chiudi modale";
+
+  /** add role "alertdialog" to dialog (optional, default is false) */
+  @Prop()
+  alertdialog?: boolean = false;
+
+  private dialog: HTMLDialogElement;
+
+  @Element() host: HTMLZModalElement;
 
   /** emitted on close button click, returns modalid */
   @Event()
@@ -50,39 +62,104 @@ export class ZModal {
     this.modalBackgroundClick.emit({modalid: this.modalid});
   }
 
+  componentDidLoad(): void {
+    this.open();
+  }
+
+  /** open modal */
+  @Method()
+  async open(): Promise<void> {
+    this.dialog?.showModal();
+  }
+
+  /** close modal */
+  @Method()
+  async close(): Promise<void> {
+    this.dialog?.close();
+  }
+
+  /**
+   * Get a list of focusable elements in the dialog.
+   * Remove elements with `display: none` from the list, because they're not focusable.
+   *
+   * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
+   * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
+   */
+  private get focusableElements(): HTMLElement[] {
+    return [
+      ...Array.from(this.host.shadowRoot.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
+      ...Array.from(this.host.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
+    ].filter((element) => getComputedStyle(element).display !== "none");
+  }
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.TAB) {
+      return;
+    }
+
+    const focusableElements = this.focusableElements;
+    const shadowActiveElement = this.host.shadowRoot.activeElement;
+    const activeElement = this.host.ownerDocument.activeElement;
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
+      // shift + tab was pressed and current active element is the first focusable element
+      e.preventDefault();
+      lastFocusableElement.focus();
+    } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
+      // shift + tab was pressed and current active element is the first focusable element
+      e.preventDefault();
+      firstFocusableElement.focus();
+    }
+  }
+
   render(): HTMLZModalElement {
     return (
-      <Host>
+      <dialog
+        aria-labelledby="modal-title"
+        aria-describedby="modal-content"
+        role={this.alertdialog ? "alertdialog" : undefined}
+        ref={(el) => (this.dialog = el as HTMLDialogElement)}
+        onClose={() => this.emitModalClose()}
+      >
         <div
           class="modal-container"
           id={this.modalid}
-          role="dialog"
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
-              {this.modaltitle && <h1>{this.modaltitle}</h1>}
-              {this.modalsubtitle && <h2>{this.modalsubtitle}</h2>}
+              {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
+              {this.modalsubtitle && <h2 id="modal-subtitle">{this.modalsubtitle}</h2>}
             </div>
             <slot name="modalCloseButton">
               <button
                 aria-label={this.closeButtonLabel}
-                onClick={this.emitModalClose.bind(this)}
+                onClick={() => this.close()}
               >
                 <z-icon name="multiply-circle-filled"></z-icon>
               </button>
             </slot>
           </header>
-          <div class="modal-content">
+
+          <div
+            class="modal-content"
+            id="modal-content"
+          >
             <slot name="modalContent"></slot>
           </div>
         </div>
+
         <div
           class="modal-background"
           data-action="modalBackground"
           data-modal={this.modalid}
-          onClick={this.emitBackgroundClick.bind(this)}
+          onClick={() => {
+            this.emitBackgroundClick();
+            this.close();
+          }}
         ></div>
-      </Host>
+      </dialog>
     );
   }
 }

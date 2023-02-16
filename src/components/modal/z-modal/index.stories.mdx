@@ -1,36 +1,90 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text} from "@storybook/addon-knobs";
+import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
 import "./index";
+import "./index.stories.css";
 
 ## Stories
 
 <Meta
   title="Modal/ZModal"
   component="z-modal"
+  argTypes={{
+    modalid: {
+      control: {type: "text"},
+    },
+    modaltitle: {
+      control: {type: "text"},
+    },
+    modalsubtitle: {
+      control: {type: "text"},
+    },
+    closeButtonLabel: {
+      control: {type: "text"},
+    },
+    alertdialog: {
+      control: {type: "boolean"},
+    },
+  }}
+  args={{
+    modalid: "my-modal",
+    modaltitle: "My modal title",
+    modalsubtitle: "My modal subtitle",
+    closeButtonLabel: "chiudi modale",
+    alertdialog: false,
+  }}
+  decorators={[
+    (Story) => html`
+      <script>
+        function openZModal() {
+          document.querySelector("z-modal").open();
+        }
+        function closeZModal() {
+          document.querySelector("z-modal").close();
+        }
+      </script>
+      ${Story()}
+    `,
+  ]}
 />
 
 # ZModal
 
-<Preview>
-  <Story name="z-modal short text">
-    {html`
+<Canvas>
+  <Story
+    name="Short text"
+    args={{modalid: "my-modal-short"}}
+  >
+    {(args) => html`
       <z-modal
-        modaltitle="${text("modaltitle", "Modal title")}"
-        modalsubtitle="${text("modalsubtitle", "Modal subtitle")}"
+        modalid=${args.modalid}
+        modaltitle=${args.modaltitle}
+        modalsubtitle=${args.modalsubtitle}
+        close-button-label=${args.closeButtonLabel}
+        alertdialog=${args.alertdialog}
       >
-        <div slot="modalContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div slot="modalContent">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <br />
+          <z-button onclick="closeZModal()">close</z-button>
+        </div>
       </z-modal>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="z-modal long text">
-    {html`
+<Canvas>
+  <Story
+    name="Long text"
+    args={{modalid: "my-modal-long"}}
+  >
+    {(args) => html`
       <z-modal
-        modaltitle="${text("modaltitle", "Modal title")}"
-        modalsubtitle="${text("modalsubtitle", "Modal subtitle")}"
+        modalid=${args.modalid}
+        modaltitle=${args.modaltitle}
+        modalsubtitle=${args.modalsubtitle}
+        close-button-label=${args.closeButtonLabel}
+        alertdialog=${args.alertdialog}
       >
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -133,24 +187,38 @@ import "./index";
           Quare attende, quaeso. Quod cum dixissent, ille contra.
         </div>
       </z-modal>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="z-modal with slotted content button">
-    {html`
-      <z-modal>
-        <div slot="modalContent">Contenuto dello <b>slot</b></div>
+<Canvas>
+  <Story
+    name="Slotted close button"
+    args={{modalid: "my-modal-slotted-close"}}
+  >
+    {(args) => html`
+      <z-modal
+        modalid=${args.modalid}
+        modaltitle=${args.modaltitle}
+        modalsubtitle=${args.modalsubtitle}
+        close-button-label=${args.closeButtonLabel}
+        alertdialog=${args.alertdialog}
+      >
+        <div slot="modalContent">
+          <div>Contenuto dello <b>slot</b></div>
+        </div>
         <button
           slot="modalCloseButton"
           aria-label="close"
+          onclick="closeZModal()"
         >
           X
         </button>
       </z-modal>
+      <z-button onclick="openZModal()">apri modale</z-button>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-modal" />
+<ArgsTable of="z-modal" />

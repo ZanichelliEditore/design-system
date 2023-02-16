@@ -1,7 +1,16 @@
+import {MockHTMLElement} from "@stencil/core/mock-doc";
 import {newSpecPage} from "@stencil/core/testing";
+
 import {ZModal} from "./index";
 
 describe("Suite test ZModal", () => {
+  beforeAll(() => {
+    // INFO: https://github.com/jsdom/jsdom/issues/3294
+    MockHTMLElement.prototype.show = jest.fn();
+    MockHTMLElement.prototype.showModal = jest.fn();
+    MockHTMLElement.prototype.close = jest.fn();
+  });
+
   it("Test render empty ZModal", async () => {
     const page = await newSpecPage({
       components: [ZModal],
@@ -11,20 +20,22 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
+        </dialog>
         </mock:shadow-root>
       </z-modal>
     `);
@@ -38,11 +49,12 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
-          <div class="modal-container" id="modal" role="dialog">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+          <div class="modal-container" id="modal">
             <header>
               <div>
-                <h1>title</h1>
-                <h2>subtitle</h2>
+                <h1 id="modal-title">title</h1>
+                <h2 id="modal-subtitle">subtitle</h2>
               </div>
               <slot name="modalCloseButton">
                 <button aria-label="chiudi modale">
@@ -50,11 +62,12 @@ describe("Suite test ZModal", () => {
                 </button>
               </slot>
             </header>
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
+        </dialog>
         </mock:shadow-root>
       </z-modal>
     `);
@@ -69,20 +82,22 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
+        </dialog>
         </mock:shadow-root>
         <div slot="modalContent">Contenuto dello <b>slot</b></div>
       </z-modal>
@@ -97,20 +112,22 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-          <div class="modal-container" role="dialog">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+          <div class="modal-container">
             <header>
               <div></div>
               <slot name="modalCloseButton">
-                <button aria-label="close modal">
+                <button aria-label="chiudi modale">
                   <z-icon name="multiply-circle-filled"></z-icon>
                 </button>
               </slot>
             </header>
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
           <div class="modal-background" data-action="modalBackground"></div>
+        </dialog>
         </mock:shadow-root>
         <div slot="modalContent">Contenuto dello <b>slot</b></div>
         <button aria-label="close" slot="modalCloseButton">X</button>
