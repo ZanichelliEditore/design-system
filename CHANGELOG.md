@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.9.1](https://github.com/ZanichelliEditore/design-system/compare/v6.9.0...v6.9.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* backward navigation and event handling ([522034f](https://github.com/ZanichelliEditore/design-system/commit/522034fa15126044d68cd0039de9392792d86dc8))
+* fix selector for focusable elements and exclude the ones with `display:none` from the list ([4c3ecea](https://github.com/ZanichelliEditore/design-system/commit/4c3ecea8321c8e58bbebae9a000d47332711a410))
+* move deprecated components in /deprecated ([db4abc5](https://github.com/ZanichelliEditore/design-system/commit/db4abc5c6438388a8295e7ed6f0368d10514ef40))
+* storybook theme remove deprecated z-body ([27676fb](https://github.com/ZanichelliEditore/design-system/commit/27676fb575a5c19b0c712438c7b6a66add437fff))
+* tests ([83cc070](https://github.com/ZanichelliEditore/design-system/commit/83cc07064e5474548bf97ec4af41c6b6c63d094e))
+* update readme files ([5439863](https://github.com/ZanichelliEditore/design-system/commit/543986342cb76508fce3d1ed4de3b9a0711dca93))
+* z-aria-alert remove deprecated z-body ([684b4c7](https://github.com/ZanichelliEditore/design-system/commit/684b4c7118e1209f7b97675dcf24875963a0ce2c))
+* z-aria-alert remove deprecated z-heading ([1110022](https://github.com/ZanichelliEditore/design-system/commit/11100224985df0bf84a175bb4b3d26d993d11f9f))
+* z-combobox remove deprecated z-body ([555f811](https://github.com/ZanichelliEditore/design-system/commit/555f8116691f929c25a687aa1d003f07e0b2cee5))
+* z-combobox remove deprecated z-body ([c035d51](https://github.com/ZanichelliEditore/design-system/commit/c035d51a4b71d24a90553668b03a49f2ad88d96c))
+* z-dragdrop-area remove deprecated z-body ([872089f](https://github.com/ZanichelliEditore/design-system/commit/872089f607e18b34a22f51983636ff420f7d3e0c))
+* z-file-upload remove deprecated z-body ([b80499e](https://github.com/ZanichelliEditore/design-system/commit/b80499e2a0d4e96c02ceb435b5815d0a6996fb31))
+* z-file-upload remove deprecated z-body ([591a2c3](https://github.com/ZanichelliEditore/design-system/commit/591a2c398307f316038ad08c9ed63488d5983e59))
+* z-file-upload remove deprecated z-heading ([630f117](https://github.com/ZanichelliEditore/design-system/commit/630f11733be70d4055658e61e21dd50786beaa46))
+* z-file-upload remove deprecated z-heading ([b06fc08](https://github.com/ZanichelliEditore/design-system/commit/b06fc08adfa613fd9ef14b2a8dfe97eb29ce1a1b))
+* z-link remove deprecated z-body ([90ea129](https://github.com/ZanichelliEditore/design-system/commit/90ea129f3916000f0a42641e28b63182cdc57418))
+* z-select remove deprecated z-body ([adf0634](https://github.com/ZanichelliEditore/design-system/commit/adf06342e3cbec4704e69f1350e775cb7ed4cfc5))
+* z-select storybook ([b104486](https://github.com/ZanichelliEditore/design-system/commit/b104486e1ec3d6b5c55464adb0906389b61b725c))
+* z-table remove deprecated z-body ([854d77b](https://github.com/ZanichelliEditore/design-system/commit/854d77b68b883616e1ea6df5989161762589b86c))
+* z-table remove deprecated z-body ([dd38529](https://github.com/ZanichelliEditore/design-system/commit/dd385295fcbc8365a7a3f812fad7b8e388463842))
+* z-table-empty-box remove deprecated z-body ([893124a](https://github.com/ZanichelliEditore/design-system/commit/893124a9e0886e8290310c8defedcbbbc688df4c))
+* z-visually-hidden remove deprecated z-body and z-heading ([8b80431](https://github.com/ZanichelliEditore/design-system/commit/8b804311080dd762d10b7fc26245228922989a6b))
+
 ## [6.9.0](https://github.com/ZanichelliEditore/design-system/compare/v6.8.1...v6.9.0) (2023-02-03)
 
 
