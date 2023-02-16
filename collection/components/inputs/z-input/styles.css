@@ -29,8 +29,12 @@ textarea,
   outline: none;
 }
 
+:host.cursor-select input {
+  cursor: pointer;
+}
+
 /* FOCUS */
-input:focus:focus-visible,
+:host:not(.active-select) input:focus:focus-visible,
 .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
@@ -38,6 +42,19 @@ input:focus:focus-visible,
 input:focus:focus-visible,
 textarea:focus:focus-visible {
   color: var(--color-primary02);
+}
+
+:host.active-select input {
+  border: var(--border-size-small) solid var(--blue500);
+}
+
+:host.cursor-select input:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host input[readonly]:focus:focus-visible {
+  box-shadow: none;
+  pointer-events: none;
 }
 
 /* FILLED */
@@ -72,7 +89,7 @@ input:hover,
 }
 
 /* READONLY */
-input[readonly],
+:host:not(.active-select) input[readonly],
 .readonly {
   border-color: var(--color-disabled01);
   fill: var(--color-disabled01);
@@ -109,10 +126,6 @@ textarea::placeholder {
 }
 
 ::placeholder {
-  color: var(--color-text05);
-}
-
-:placeholder {
   color: var(--color-text05);
 }
 

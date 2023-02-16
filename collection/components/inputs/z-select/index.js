@@ -17,6 +17,8 @@ export class ZSelect {
     this.autocomplete = false;
     /** no result text message */
     this.noresultslabel = "Nessun risultato";
+    /** When fixed, it occupies space and pushes down next elements. */
+    this.isfixed = false;
     this.isOpen = false;
     this.selectedItem = null;
     this.itemsList = [];
@@ -212,7 +214,10 @@ export class ZSelect {
     }
   }
   renderInput() {
-    return (h("z-input", { id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
+    return (h("z-input", { class: {
+        "active-select": this.isOpen,
+        "cursor-select": !this.autocomplete,
+      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -232,7 +237,10 @@ export class ZSelect {
   }
   renderSelectUl() {
     var _a;
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: "ul-scroll-wrapper", tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: {
+        "ul-scroll-wrapper": true,
+        "fixed": this.isfixed,
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -281,7 +289,7 @@ export class ZSelect {
       return group;
     }, {});
     return Object.entries(newData).map(([key, value]) => {
-      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
+      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("span", { class: "body-3-sb z-list-group-title", slot: "header-title" }, key), value.map((item) => item)));
     });
   }
   renderNoSearchResults() {
@@ -564,6 +572,24 @@ export class ZSelect {
         },
         "attribute": "has-group-items",
         "reflect": false
+      },
+      "isfixed": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "When fixed, it occupies space and pushes down next elements."
+        },
+        "attribute": "isfixed",
+        "reflect": false,
+        "defaultValue": "false"
       },
       "resetItem": {
         "type": "string",

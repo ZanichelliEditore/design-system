@@ -50,7 +50,7 @@ const ZTable = class {
   }
   renderError(tableClass) {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-    return (index.h(index.Host, null, index.h("div", { class: tableClass }, index.h("slot", { name: "table-header" })), index.h("z-table-error", null, index.h("div", { class: "error-content", style: { minHeight } }, index.h("slot", { name: "error-image" }), index.h("div", { class: "text" }, index.h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage), index.h("slot", { name: "error-action" }))))));
+    return (index.h(index.Host, null, index.h("div", { class: tableClass }, index.h("slot", { name: "table-header" })), index.h("z-table-error", null, index.h("div", { class: "error-content", style: { minHeight } }, index.h("slot", { name: "error-image" }), index.h("div", { class: "text" }, index.h("span", { class: "body-3-sb error-message" }, this.errorMessage), index.h("slot", { name: "error-action" }))))));
   }
   renderEmpty(tableClass) {
     const buttonSize = this.isMobile ? index$1.ButtonSize.SMALL : index$1.ButtonSize.BIG;

@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 import { AlertType, LicenseType } from "./beans/index";
 import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
-import { ZTypographyLevels } from "./components/typography/z-typography/index";
+import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
     interface ZAlert {
         /**
@@ -768,9 +768,17 @@ export namespace Components {
     }
     interface ZModal {
         /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
+        /**
+          * close modal
+         */
+        "close": () => Promise<void>;
+        /**
           * aria-label for close button (optional)
          */
-        "closeButtonLabel"?: string;
+        "closeButtonLabel": string;
         /**
           * unique id
          */
@@ -783,6 +791,10 @@ export namespace Components {
           * title text (optional)
          */
         "modaltitle"?: string;
+        /**
+          * open modal
+         */
+        "open": () => Promise<void>;
     }
     interface ZMyzCard {
         /**
@@ -1365,6 +1377,10 @@ export namespace Components {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        /**
+          * When fixed, it occupies space and pushes down next elements.
+         */
+        "isfixed"?: boolean;
         /**
           * the input select options
          */
@@ -3332,6 +3348,10 @@ declare namespace LocalJSX {
     }
     interface ZModal {
         /**
+          * add role "alertdialog" to dialog (optional, default is false)
+         */
+        "alertdialog"?: boolean;
+        /**
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
@@ -4009,6 +4029,10 @@ declare namespace LocalJSX {
           * the input html title (optional)
          */
         "htmltitle"?: string;
+        /**
+          * When fixed, it occupies space and pushes down next elements.
+         */
+        "isfixed"?: boolean;
         /**
           * the input select options
          */

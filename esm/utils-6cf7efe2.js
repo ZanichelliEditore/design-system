@@ -88,4 +88,4 @@ function colorFromId(id) {
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }
 
-export { getClickedElement as a, boolean as b, colorFromId as c, getDevice as d, convertJson as e, getElementTree as g, handleKeyboardSubmit as h, randomId as r };
+export { getElementTree as a, boolean as b, colorFromId as c, getClickedElement as d, convertJson as e, getDevice as g, handleKeyboardSubmit as h, randomId as r };

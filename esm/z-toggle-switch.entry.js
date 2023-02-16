@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, H as Host } from './index-a2ca4b97.js';
-import { r as randomId } from './utils-5445d989.js';
+import { r as randomId } from './utils-6cf7efe2.js';
 import { j as LabelPosition } from './index-968a240f.js';
 import './breakpoints-c386984e.js';
 

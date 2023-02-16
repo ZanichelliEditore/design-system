@@ -4,7 +4,7 @@ export class ZDragdropArea {
     this.fileDropped.emit(files);
   }
   renderOnDragOverMessage() {
-    return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("z-body", { variant: "semibold", level: 2 }, "Rilascia i file in questa area per allegarli."))));
+    return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, "Rilascia i file in questa area per allegarli."))));
   }
   render() {
     return (h("div", { tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {

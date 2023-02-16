@@ -107,7 +107,7 @@ export class ZCombobox {
         if (ev.keyCode === KeyboardKeyCode.SPACE) {
           ev.preventDefault();
         }
-      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 }, h("z-body", { level: 3, component: "p" }, this.label, h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), h("z-icon", { name: "caret-down", width: 18, height: 18 })));
+      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 }, h("p", { class: "body-3" }, this.label, h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), h("z-icon", { name: "caret-down", width: 18, height: 18 })));
   }
   renderContent() {
     if (!this.isopen) {
@@ -148,7 +148,7 @@ export class ZCombobox {
       return group;
     }, {});
     const listGroups = Object.entries(newData).map(([key, value]) => {
-      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("z-body", { class: "z-list-group-title", level: 3, slot: "header-title", variant: "semibold" }, key), value.map((item) => item)));
+      return (h("z-list-group", { "divider-type": ListDividerType.ELEMENT }, h("span", { class: "body-3-sb z-list-group-title", slot: "header-title" }, key), value.map((item) => item)));
     });
     return h("ul", null, listGroups);
   }

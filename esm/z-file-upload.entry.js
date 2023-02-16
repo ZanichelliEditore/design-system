@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-a2ca4b97.js';
 import { v as ZFileUploadType, o as Device, D as DividerSize } from './index-968a240f.js';
-import { d as getDevice } from './utils-5445d989.js';
+import { g as getDevice } from './utils-6cf7efe2.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss = ":host{color:var(--color-text01);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.container{display:flex;flex-direction:column}:host .modal-wrapper{display:flex;align-items:center;justify-content:center}:host .modal-wrapper>.files-wrapper{display:flex;flex-direction:column;margin:calc(var(--space-unit) * 4);gap:var(--space-unit)}:host .text-container{display:flex;flex-direction:column;margin:auto}:host .text-container z-body{text-align:center}:host .text-container .upload-link{color:var(--color-link-primary);cursor:pointer}:host .text-container .upload-link-text{margin-bottom:var(--space-unit)}input#file-elem{display:none}#title{display:inline-block;margin-bottom:var(--space-unit)}:host>.container>z-button{display:inline-block;margin-top:calc(var(--space-unit) * 3)}:host>.container>.files-container.hidden{display:none}:host>.container>.files-container>z-heading{display:inline-block;margin:calc(var(--space-unit) * 3) 0}:host>.container>.files-container>.files-wrapper{display:flex;flex-wrap:wrap;column-gap:calc(var(--space-unit) * 2);row-gap:calc(var(--space-unit) * 2)}:host>.container>.files-container>z-divider{margin-top:calc(var(--space-unit) * 3);margin-bottom:0}@media only screen and (min-width: 768px){:host>.container>z-button{align-self:flex-start}}";
+const stylesCss = ":host{color:var(--color-text01);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.container{display:flex;flex-direction:column}:host .modal-wrapper{display:flex;align-items:center;justify-content:center}:host .modal-wrapper>.files-wrapper{display:flex;flex-direction:column;margin:calc(var(--space-unit) * 4);gap:var(--space-unit)}:host .text-container{display:flex;flex-direction:column;margin:auto}:host .text-container .body-1{text-align:center}:host .text-container .upload-link{color:var(--color-link-primary);cursor:pointer}:host .text-container .upload-link-text{margin-bottom:var(--space-unit)}input#file-elem{display:none}#title{display:inline-block;margin-bottom:var(--space-unit)}:host>.container>z-button{display:inline-block;margin-top:calc(var(--space-unit) * 3)}:host>.container>.files-container.hidden{display:none}:host>.container>.files-container>.heading-4-sb{display:inline-block;margin:calc(var(--space-unit) * 3) 0}:host>.container>.files-container>.files-wrapper{display:flex;flex-wrap:wrap;column-gap:calc(var(--space-unit) * 2);row-gap:calc(var(--space-unit) * 2)}:host>.container>.files-container>z-divider{margin-top:calc(var(--space-unit) * 3);margin-bottom:0}@media only screen and (min-width: 768px){:host>.container>z-button{align-self:flex-start}}";
 
 const ZFileUpload = class {
   constructor(hostRef) {
@@ -98,10 +98,10 @@ const ZFileUpload = class {
     return errors;
   }
   renderTitle() {
-    return (h("z-heading", { id: "title", variant: "semibold", level: 2 }, this.mainTitle));
+    return (h("h2", { class: "heading-2-sb", id: "title" }, this.mainTitle));
   }
-  renderDescription(variant, level) {
-    return (h("z-body", { variant: variant, level: level }, this.description));
+  renderDescription(cssClass) {
+    return h("span", { class: cssClass }, this.description);
   }
   renderAllowedFileExtensions() {
     let fileFormatString = "";
@@ -117,10 +117,10 @@ const ZFileUpload = class {
       fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`;
     }
     const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
-    return h("z-body", { level: 3 }, fileFormatString || fileWeightString ? finalString : null);
+    return h("span", { class: "body-3" }, fileFormatString || fileWeightString ? finalString : null);
   }
   renderFileSection() {
-    return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("z-heading", { variant: "semibold", level: 4 }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
+    return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("h4", { class: "heading-4-sb" }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
   }
   renderInput() {
     return (h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));
@@ -139,17 +139,17 @@ const ZFileUpload = class {
   renderUploadLink() {
     return [
       this.renderInput(),
-      h("z-body", { class: "upload-link-text", variant: "regular", level: 1 }, "Trascinalo qui o", " ", h("z-body", { tabIndex: 0, class: "upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
+      h("span", { class: "body-1 upload-link-text" }, "Trascinalo qui o", " ", h("span", { tabIndex: 0, class: "body-1-sb upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
           if (e.code == "Space" || e.code == "Enter") {
             e.preventDefault();
             this.input.click();
           }
-        }, variant: "semibold", level: 1, ref: (val) => (this.uploadLink = val) }, "caricalo"), " ", "dal tuo computer"),
+        }, ref: (val) => (this.uploadLink = val) }, "caricalo"), " ", "dal tuo computer"),
     ];
   }
   renderDefaultMode() {
     return [
-      this.renderDescription("semibold", 3),
+      this.renderDescription("body-3-sb"),
       this.renderAllowedFileExtensions(),
       this.renderFileSection(),
       this.renderUploadButton(),
@@ -158,7 +158,7 @@ const ZFileUpload = class {
   renderDragDropMode() {
     return [
       this.renderFileSection(),
-      h("z-dragdrop-area", null, h("div", { class: "text-container" }, this.renderDescription("regular", 1), this.renderUploadLink(), this.renderAllowedFileExtensions())),
+      h("z-dragdrop-area", null, h("div", { class: "text-container" }, this.renderDescription("body-1"), this.renderUploadLink(), this.renderAllowedFileExtensions())),
     ];
   }
   formatErrorString(key, value) {
@@ -168,7 +168,7 @@ const ZFileUpload = class {
   }
   handleErrorModalContent() {
     return (h("div", { slot: "modalContent" }, h("div", { class: "modal-wrapper" }, h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
-      return (h("z-body", { variant: "regular", level: 3 }, this.formatErrorString(key, value)));
+      return h("span", { class: "body-3" }, this.formatErrorString(key, value));
     })))));
   }
   render() {

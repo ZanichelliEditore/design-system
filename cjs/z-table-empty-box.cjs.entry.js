@@ -19,7 +19,7 @@ const ZTableEmptyBox = class {
     this.hasCta2Slot = !!this.hostElement.querySelector('[slot="cta2"]');
   }
   render() {
-    return (index.h(index.Host, null, index.h("z-body", { level: 3, variant: "semibold" }, this.message), index.h("br", null), !!this.subtitle && (index.h("z-body", { level: 4, variant: "regular" }, this.subtitle)), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (index.h("div", { class: {
+    return (index.h(index.Host, null, index.h("span", { class: "body-3-sb" }, this.message), index.h("br", null), !!this.subtitle && index.h("span", { class: "body-4" }, this.subtitle), (!!this.hasCta1Slot || !!this.hasCta2Slot) && (index.h("div", { class: {
         "cta": true,
         "has-2-cta": !!this.hasCta1Slot && !!this.hasCta2Slot,
       } }, index.h("slot", { name: "cta1" }), index.h("slot", { name: "cta2" })))));

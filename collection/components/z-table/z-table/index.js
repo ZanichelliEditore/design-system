@@ -44,7 +44,7 @@ export class ZTable {
   }
   renderError(tableClass) {
     const minHeight = this.lines ? `calc(40px * ${this.lines})` : "auto";
-    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-table-error", null, h("div", { class: "error-content", style: { minHeight } }, h("slot", { name: "error-image" }), h("div", { class: "text" }, h("z-body", { class: "error-message", level: 3, variant: "semibold" }, this.errorMessage), h("slot", { name: "error-action" }))))));
+    return (h(Host, null, h("div", { class: tableClass }, h("slot", { name: "table-header" })), h("z-table-error", null, h("div", { class: "error-content", style: { minHeight } }, h("slot", { name: "error-image" }), h("div", { class: "text" }, h("span", { class: "body-3-sb error-message" }, this.errorMessage), h("slot", { name: "error-action" }))))));
   }
   renderEmpty(tableClass) {
     const buttonSize = this.isMobile ? ButtonSize.SMALL : ButtonSize.BIG;

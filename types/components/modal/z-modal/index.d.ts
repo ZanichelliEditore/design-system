@@ -1,7 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 /**
- * @slot modalContent - set the content of the modal
  * @slot modalCloseButton - accept custom close button
+ * @slot modalContent - set the content of the modal
  */
 export declare class ZModal {
   /** unique id */
@@ -11,7 +11,11 @@ export declare class ZModal {
   /** subtitle (optional) */
   modalsubtitle?: string;
   /** aria-label for close button (optional) */
-  closeButtonLabel?: string;
+  closeButtonLabel: string;
+  /** add role "alertdialog" to dialog (optional, default is false) */
+  alertdialog?: boolean;
+  private dialog;
+  host: HTMLZModalElement;
   /** emitted on close button click, returns modalid */
   modalClose: EventEmitter;
   private emitModalClose;
@@ -21,5 +25,19 @@ export declare class ZModal {
   /** emitted on background click, returns modalid */
   modalBackgroundClick: EventEmitter;
   private emitBackgroundClick;
+  componentDidLoad(): void;
+  /** open modal */
+  open(): Promise<void>;
+  /** close modal */
+  close(): Promise<void>;
+  /**
+   * Get a list of focusable elements in the dialog.
+   * Remove elements with `display: none` from the list, because they're not focusable.
+   *
+   * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
+   * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
+   */
+  private get focusableElements();
+  handleKeyDown(e: KeyboardEvent): void;
   render(): HTMLZModalElement;
 }

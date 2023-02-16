@@ -30,6 +30,8 @@ export declare class ZSelect {
   noresultslabel?: string;
   /** */
   hasGroupItems?: boolean;
+  /** When fixed, it occupies space and pushes down next elements. */
+  isfixed?: boolean;
   /** */
   resetItem?: string;
   isOpen: boolean;

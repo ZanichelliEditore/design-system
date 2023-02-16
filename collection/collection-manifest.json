@@ -1,6 +1,6 @@
 {
   "entries": [
-    "./components/typography/z-typography/index.js",
+    "./deprecated/typography/z-typography/index.js",
     "./components/buttons/z-button/index.js",
     "./components/buttons/z-button-sort/index.js",
     "./components/buttons/z-chip/index.js",
@@ -39,8 +39,6 @@
     "./components/notification/z-toast-notification/index.js",
     "./components/notification/z-tooltip/index.js",
     "./components/panel/z-panel-elem/index.js",
-    "./components/typography/z-body/index.js",
-    "./components/typography/z-heading/index.js",
     "./components/z-anchor-navigation/index.js",
     "./components/z-aria-alert/index.js",
     "./components/z-avatar/index.js",
@@ -69,6 +67,8 @@
     "./components/z-table/z-table-sticky-footer/index.js",
     "./components/z-tag/index.js",
     "./components/z-visually-hidden/index.js",
+    "./deprecated/typography/z-body/index.js",
+    "./deprecated/typography/z-heading/index.js",
     "./snowflakes/myz/card/z-myz-card/index.js",
     "./snowflakes/myz/card/z-myz-card-alert/index.js",
     "./snowflakes/myz/card/z-myz-card-body/index.js",
