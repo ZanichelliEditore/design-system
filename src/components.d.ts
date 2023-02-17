@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -537,6 +537,10 @@ export namespace Components {
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
          */
         "required"?: boolean;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
         /**
           * the input status (optional): available for text, password, number, email, textarea
          */
@@ -1414,6 +1418,10 @@ export namespace Components {
           * set the input value
          */
         "setValue": (value: string | string[]) => Promise<void>;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
         /**
           * the input status (optional)
          */
@@ -3090,6 +3098,10 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * the input status (optional): available for text, password, number, email, textarea
          */
         "status"?: InputStatus;
@@ -4070,6 +4082,10 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         "resetItem"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
         /**
           * the input status (optional)
          */

@@ -9,7 +9,7 @@ describe("Suite test ZInput - textarea", () => {
       html: `<z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label">
+      <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" size="big">
         <div class="text-wrapper">
           <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
           <div class="textarea-wrapper filled">
@@ -26,7 +26,7 @@ describe("Suite test ZInput - textarea", () => {
       html: `<z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly>
+      <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly size="big">
         <div class="text-wrapper">
           <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
           <div class="textarea-wrapper filled readonly">
@@ -43,13 +43,13 @@ describe("Suite test ZInput - textarea", () => {
       html: `<z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" status="error" message="error message" value="value"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" status="error" message="error message" value="value">
+      <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" size="big" status="error" message="error message" value="value">
         <div class="text-wrapper">
           <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
           <div class="textarea-wrapper filled input-error">
             <textarea class="filled input-error" id="test" placeholder="placeholder" value="value"></textarea>
           </div>
-          <z-input-message message="error message" status="error"></z-input-message>
+          <z-input-message class="big" message="error message" status="error"></z-input-message>
         </div>
       </z-input>
     `);

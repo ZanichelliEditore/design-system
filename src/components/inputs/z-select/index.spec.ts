@@ -22,6 +22,7 @@ describe("Suite test ZSelect", () => {
                 icon="caret-down"
                 aria-label=""
                 autocomplete="off"
+                size="big"
               ></z-input>
               <div class="closed" tabindex="-1">
                 <div class="ul-scroll-wrapper" tabindex="-1">
@@ -29,6 +30,7 @@ describe("Suite test ZSelect", () => {
                     role="listbox"
                     tabindex="-1"
                     id="checkid"
+                    size="medium"
                   >
                     <z-list-element
                       clickable=""
@@ -37,13 +39,14 @@ describe("Suite test ZSelect", () => {
                       tabindex="-1"
                       class=""
                       id="checkid_0"
+                      size="medium"
                     >
                       <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
                   </z-list>
                 </div>
               </div>
-              <z-input-message></z-input-message>
+              <z-input-message class="big"></z-input-message>
             </div>
         </z-select>
       `);
@@ -69,6 +72,7 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 aria-label=""
                 autocomplete="off"
+                size="big"
               ></z-input>
               <div class="open" tabindex="-1">
                 <div class="ul-scroll-wrapper" tabindex="-1">
@@ -76,6 +80,7 @@ describe("Suite test ZSelect", () => {
                     role="listbox"
                     tabindex="0"
                     id="checkid"
+                    size="medium"
                   >
                     <z-list-element
                       clickable=""
@@ -84,6 +89,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="0"
                       class=""
                       id="checkid_0"
+                      size="medium"
                     >
                       <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
@@ -94,13 +100,14 @@ describe("Suite test ZSelect", () => {
                       tabindex="0"
                       class=""
                       id="checkid_1"
+                      size="medium"
                     >
                       <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
               </div>
-              <z-input-message></z-input-message>
+              <z-input-message class="big"></z-input-message>
             </div>
         </z-select>
       `);
@@ -126,6 +133,7 @@ describe("Suite test ZSelect", () => {
               readonly=""
               aria-label=""
               autocomplete="off"
+              size="big"
             ></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
@@ -135,6 +143,7 @@ describe("Suite test ZSelect", () => {
                   id="checkid"
                   aria-activedescendant="item_1"
                   class="filled"
+                  size="medium"
                 >
                   <z-list-element
                     clickable=""
@@ -143,6 +152,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     class=""
                     id="checkid_0"
+                    size="medium"
                   >
                     <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                   </z-list-element>
@@ -154,13 +164,14 @@ describe("Suite test ZSelect", () => {
                     aria-selected=""
                     class=""
                     id="checkid_1"
+                    size="medium"
                   >
                     <span class="list-element-content selected">primo elemento</span>
                   </z-list-element>
                 </z-list>
               </div>
             </div>
-            <z-input-message></z-input-message>
+            <z-input-message class="big"></z-input-message>
           </div>
       </z-select>
     `);
@@ -187,6 +198,7 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 aria-label=""
                 autocomplete="off"
+                size="big"
               ></z-input>
               <div class="closed" tabindex="-1">
                 <div class="ul-scroll-wrapper" tabindex="-1">
@@ -195,6 +207,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="-1"
                     id="checkid"
                     class="disabled readonly"
+                    size="medium"
                   >
                     <z-list-element
                       clickable=""
@@ -203,6 +216,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="-1"
                       class=""
                       id="checkid_0"
+                      size="medium"
                     >
                       <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
@@ -213,13 +227,14 @@ describe("Suite test ZSelect", () => {
                       tabindex="-1"
                       class=""
                       id="checkid_1"
+                      size="medium"
                     >
                       <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
               </div>
-              <z-input-message></z-input-message>
+              <z-input-message class="big"></z-input-message>
             </div>
         </z-select>
       `);
@@ -245,6 +260,7 @@ describe("Suite test ZSelect", () => {
                   icon="caret-down"
                   status="success"
                   autocomplete="off"
+                  size="big"
                 ></z-input>
                 <div class="closed" tabindex="-1">
                   <div class="ul-scroll-wrapper" tabindex="-1">
@@ -253,6 +269,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="-1"
                       id="checkid"
                       class="input-success"
+                      size="medium"
                     >
                       <z-list-element
                         clickable=""
@@ -261,6 +278,7 @@ describe("Suite test ZSelect", () => {
                         tabindex="-1"
                         class=""
                         id="checkid_0"
+                        size="medium"
                       >
                         <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                       </z-list-element>
@@ -271,13 +289,14 @@ describe("Suite test ZSelect", () => {
                         tabindex="-1"
                         class=""
                         id="checkid_1"
+                        size="medium"
                       >
                         <span class="list-element-content">primo elemento</span>
                       </z-list-element>
                     </z-list>
                   </div>
                 </div>
-                <z-input-message status="success" message="message message"></z-input-message>
+                <z-input-message class="big" status="success" message="message message"></z-input-message>
               </div>
           </z-select>
         `);
@@ -303,6 +322,7 @@ describe("Suite test ZSelect", () => {
                 icon="caret-up"
                 readonly=""
                 autocomplete="off"
+                size="big"
               ></z-input>
               <div class="open" tabindex="-1">
                 <div class="ul-scroll-wrapper" tabindex="-1">
@@ -310,6 +330,7 @@ describe("Suite test ZSelect", () => {
                     role="listbox"
                     tabindex="0"
                     id="checkid"
+                    size="medium"
                   >
                     <z-list-element
                       clickable=""
@@ -318,6 +339,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="0"
                       class=""
                       id="checkid_0"
+                      size="medium"
                     >
                       <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
@@ -327,13 +349,14 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="-1"
                       id="checkid_1"
+                      size="medium"
                     >
                       <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
               </div>
-              <z-input-message></z-input-message>
+              <z-input-message class="big"></z-input-message>
             </div>
         </z-select>
       `);
@@ -359,6 +382,7 @@ describe("Suite test ZSelect", () => {
               hasclearicon=""
               aria-label=""
               autocomplete="off"
+              size="big"
             ></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
@@ -366,6 +390,7 @@ describe("Suite test ZSelect", () => {
                   role="listbox"
                   tabindex="0"
                   id="checkid"
+                  size="medium"
                 >
                   <z-list-element
                     clickable=""
@@ -374,6 +399,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     class=""
                     id="checkid_0"
+                    size="medium"
                   >
                     <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                   </z-list-element>
@@ -384,13 +410,14 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     class=""
                     id="checkid_1"
+                    size="medium"
                   >
                     <span class="list-element-content">primo elemento</span>
                   </z-list-element>
                 </z-list>
               </div>
             </div>
-            <z-input-message></z-input-message>
+            <z-input-message class="big"></z-input-message>
           </div>
       </z-select>
     `);
@@ -407,11 +434,11 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
         <div class="select-wrapper">
-            <z-input class="active-select" autocomplete="off" aria-label="" label="default" hasclearicon="" htmlid="checkid_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
+            <z-input class="active-select" autocomplete="off" aria-label="" label="default" hasclearicon="" size="big" htmlid="checkid_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
-                <z-list id="checkid" role="listbox" tabindex="0">
-                  <z-list-element clickable="" dividertype="header" id="checkid_0" role="option" tabindex="0">
+                <z-list id="checkid" role="listbox" tabindex="0" size="medium">
+                  <z-list-element clickable="" dividertype="header" id="checkid_0" role="option" size="medium" tabindex="0">
                     <span class="list-element-content">
                       SELECT HERE questa
                       <strong>
@@ -423,7 +450,7 @@ describe("Suite test ZSelect", () => {
                 </z-list>
               </div>
             </div>
-            <z-input-message></z-input-message>
+            <z-input-message class="big"></z-input-message>
           </div>
         </z-select>
     `);
@@ -439,11 +466,11 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select autocomplete="true" htmlid="checkid" items="[{&quot;id&quot;:&quot;item_0&quot;,&quot;name&quot;:&quot;SELECT HERE questa opzione con etichetta lunga lunghissima&quot;,&quot;selected&quot;:true}]" label="default" placeholder="select here" reset-item="Pulisci selezione">
           <div class="select-wrapper">
-            <z-input aria-label="" autocomplete="off" class="active-select" hasclearicon="" htmlid="checkid_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
+            <z-input aria-label="" autocomplete="off" class="active-select" hasclearicon="" size="big" htmlid="checkid_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
-                <z-list aria-activedescendant="item_0" class="filled" id="checkid" role="listbox" tabindex="0">
-                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" id="checkid_0" role="option" tabindex="0">
+                <z-list aria-activedescendant="item_0" class="filled" id="checkid" role="listbox" size="medium" tabindex="0">
+                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_0" role="option" tabindex="0">
                     <div class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
                       <span>
@@ -451,7 +478,7 @@ describe("Suite test ZSelect", () => {
                       </span>
                     </div>
                   </z-list-element>
-                  <z-list-element aria-selected="" clickable="" dividertype="header" id="checkid_1" role="option" tabindex="0">
+                  <z-list-element aria-selected="" clickable="" dividertype="header" id="checkid_1" role="option" size="medium" tabindex="0">
                     <span class="list-element-content selected">
                       SELECT HERE questa opzione con etichetta lunga lunghissima
                     </span>
@@ -459,7 +486,7 @@ describe("Suite test ZSelect", () => {
                 </z-list>
               </div>
             </div>
-            <z-input-message></z-input-message>
+            <z-input-message class="big"></z-input-message>
           </div>
         </z-select>
     `);
@@ -485,6 +512,7 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 aria-label=""
                 autocomplete="off"
+                size="big"
               ></z-input>
               <div class="open" tabindex="-1">
                 <div class="fixed ul-scroll-wrapper" tabindex="-1">
@@ -492,6 +520,7 @@ describe("Suite test ZSelect", () => {
                     role="listbox"
                     tabindex="0"
                     id="checkid"
+                    size="medium"
                   >
                     <z-list-element
                       clickable=""
@@ -500,6 +529,7 @@ describe("Suite test ZSelect", () => {
                       tabindex="0"
                       class=""
                       id="checkid_0"
+                      size="medium"
                     >
                       <span class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</span>
                     </z-list-element>
@@ -510,13 +540,14 @@ describe("Suite test ZSelect", () => {
                       tabindex="0"
                       class=""
                       id="checkid_1"
+                      size="medium"
                     >
                       <span class="list-element-content">primo elemento</span>
                     </z-list-element>
                   </z-list>
                 </div>
               </div>
-              <z-input-message></z-input-message>
+              <z-input-message class="big"></z-input-message>
             </div>
         </z-select>
       `);
