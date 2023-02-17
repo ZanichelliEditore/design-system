@@ -29,6 +29,15 @@ textarea,
   outline: none;
 }
 
+:host([size="small"]) input,
+:host([size="small"]) textarea,
+:host([size="small"]) .textarea-wrapper,
+:host([size="x-small"]) input,
+:host([size="x-small"]) textarea,
+:host([size="x-small"]) .textarea-wrapper {
+  font-size: var(--font-size-2);
+}
+
 :host.cursor-select input {
   cursor: pointer;
 }

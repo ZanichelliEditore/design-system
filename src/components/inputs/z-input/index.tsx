@@ -1,6 +1,6 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
-import {JSXBase} from "@stencil/core/internal";
-import {InputType, LabelPosition, InputStatus} from "../../../beans";
+import {Host, JSXBase} from "@stencil/core/internal";
+import {InputType, LabelPosition, InputStatus, ControlSize} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
@@ -99,6 +99,10 @@ export class ZInput {
   /** pattern value (optional): available for tel, text, search, url, email, password*/
   @Prop()
   pattern?: string;
+
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  @Prop({reflect: true})
+  size?: ControlSize = ControlSize.BIG;
 
   @State()
   isTyping = false;
@@ -322,7 +326,10 @@ export class ZInput {
         class="icon-button input-icon"
         tabIndex={-1}
       >
-        <z-icon name={this.icon} />
+        <z-icon
+          name={this.icon}
+          class={this.size}
+        />
       </button>
     );
   }
@@ -339,7 +346,10 @@ export class ZInput {
         aria-label="cancella il contenuto dell'input"
         onClick={() => this.emitInputChange("")}
       >
-        <z-icon name="multiply" />
+        <z-icon
+          name="multiply"
+          class={this.size}
+        />
       </button>
     );
   }
@@ -353,7 +363,10 @@ export class ZInput {
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
-        <z-icon name={this.passwordHidden ? "view-filled" : "view-off-filled"} />
+        <z-icon
+          name={this.passwordHidden ? "view-filled" : "view-off-filled"}
+          class={this.size}
+        />
       </button>
     );
   }
@@ -367,6 +380,7 @@ export class ZInput {
       <z-input-message
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
+        class={this.size}
       />
     );
   }
@@ -433,6 +447,7 @@ export class ZInput {
           <z-icon
             name={this.checked ? "checkbox-checked" : "checkbox"}
             aria-hidden="true"
+            class={this.size}
           />
           {this.label && <span innerHTML={this.label}></span>}
         </label>
@@ -468,6 +483,7 @@ export class ZInput {
           <z-icon
             name={this.checked ? "radio-button-checked" : "radio-button"}
             aria-hidden="true"
+            class={this.size}
           />
           {this.label && <span innerHTML={this.label} />}
         </label>
@@ -477,15 +493,21 @@ export class ZInput {
   /* END radio */
 
   render(): HTMLInputElement | HTMLDivElement {
+    let input;
     switch (this.type) {
       case InputType.TEXTAREA:
-        return this.renderTextarea();
+        input = this.renderTextarea();
+        break;
       case InputType.CHECKBOX:
-        return this.renderCheckbox();
+        input = this.renderCheckbox();
+        break;
       case InputType.RADIO:
-        return this.renderRadio();
+        input = this.renderRadio();
+        break;
       default:
-        return this.renderInputText(this.type);
+        input = this.renderInputText(this.type);
     }
+
+    return <Host>{input}</Host>;
   }
 }
