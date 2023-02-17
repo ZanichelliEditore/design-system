@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
-import {SelectItem, ListDividerType, KeyboardCode, InputStatus} from "../../../beans";
+import {SelectItem, ListDividerType, KeyboardCode, InputStatus, ControlSize, ListSize} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
 @Component({
@@ -74,6 +74,10 @@ export class ZSelect {
   /** */
   @Prop()
   resetItem?: string;
+
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  @Prop()
+  size?: ControlSize = ControlSize.BIG;
 
   @State()
   isOpen = false;
@@ -349,6 +353,7 @@ export class ZSelect {
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
         autocomplete="off"
+        size={this.size}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
@@ -396,6 +401,7 @@ export class ZSelect {
             id={this.htmlid}
             aria-activedescendant={this.selectedItem?.id}
             aria-multiselectable={false}
+            size={this.listSizeType()}
             class={{
               disabled: this.disabled,
               readonly: this.readonly,
@@ -426,6 +432,7 @@ export class ZSelect {
         tabindex="0"
         aria-selected="false"
         id={`${this.htmlid}_${this.resetItem ? "0" : "none"}`}
+        size={this.listSizeType()}
         onClickItem={() => {
           this.selectedItem = null;
           this.searchString = null;
@@ -451,6 +458,7 @@ export class ZSelect {
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
         aria-selected={!!item.selected}
         id={`${this.htmlid}_${key}`}
+        size={this.listSizeType()}
         onClickItem={() => this.selectItem(item, true)}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
@@ -463,6 +471,14 @@ export class ZSelect {
         />
       </z-list-element>
     );
+  }
+
+  private listSizeType(): ListSize {
+    if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
+      return ListSize.SMALL;
+    }
+
+    return ListSize.MEDIUM;
   }
 
   private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
@@ -515,6 +531,7 @@ export class ZSelect {
       <z-list-element
         color="blue500"
         class="no-results"
+        size={this.listSizeType()}
       >
         <z-icon
           name="multiply-circle"
@@ -534,6 +551,7 @@ export class ZSelect {
       <z-input-message
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
+        class={this.size}
       />
     );
   }
