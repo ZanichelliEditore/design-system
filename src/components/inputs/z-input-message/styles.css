@@ -1,7 +1,7 @@
 :host {
   display: flex;
   min-height: calc(var(--space-unit) * 2.5);
-  align-items: center;
+  align-items: start;
   margin-top: var(--space-unit);
   color: var(--color-text05);
   fill: currentcolor;
@@ -36,10 +36,13 @@
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
   --z-icon-right-margin: var(--space-unit);
+
+  margin-top: calc(var(--space-unit) * 0.25);
 }
 
 :host(.small) > z-icon,
 :host(.x-small) > z-icon {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
 }
