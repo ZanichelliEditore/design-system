@@ -89,6 +89,20 @@
   margin-right: var(--space-unit);
 }
 
+:host([size="small"]) .radio-wrapper .radio-label.after > span,
+:host([size="small"]) .checkbox-wrapper .checkbox-label.after > span,
+:host([size="x-small"]) .radio-wrapper .radio-label.after > span,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label.after > span {
+  margin-left: calc(var(--space-unit) * 0.5);
+}
+
+:host([size="small"]) .radio-wrapper .radio-label.before > span,
+:host([size="small"]) .checkbox-wrapper .checkbox-label.before > span,
+:host([size="x-small"]) .radio-wrapper .radio-label.before > span,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label.before > span {
+  margin-right: calc(var(--space-unit) * 0.5);
+}
+
 /* focus */
 .radio-wrapper > input:focus:focus-visible + .radio-label > z-icon,
 .checkbox-wrapper > input:focus:focus-visible + .checkbox-label > z-icon {
