@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
-import {InputType, InputStatus, LabelPosition} from "../../../beans";
+import {InputType, InputStatus, LabelPosition, ControlSize} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -28,6 +28,10 @@ import "./index";
     },
     value: {
       control: {type: "text"},
+    },
+    size: {
+      control: {type: "inline-radio"},
+      options: Object.values(ControlSize),
     },
     name: {
       control: {type: "text"},
@@ -86,6 +90,7 @@ import "./index";
     labelPosition: LabelPosition.RIGHT,
     placeholder: "input placeholder text",
     value: "",
+    size: "big",
     name: "",
     status: "default",
     message: "helper text",
@@ -134,6 +139,7 @@ import "./index";
           max=${args.max}
           step=${args.step}
           pattern=${args.pattern}
+          size=${args.size}
         ></z-input>
       `
     }
@@ -159,6 +165,7 @@ import "./index";
           "htmlid",
           "htmltitle",
           "autocomplete",
+          "size",
         ],
       },
     }}
@@ -187,6 +194,7 @@ import "./index";
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
           autocomplete=${args.autocomplete}
+          size=${args.size}
         ></z-input>
       `
     }
@@ -257,6 +265,7 @@ import "./index";
           "checked",
           "htmlid",
           "htmltitle",
+          "size",
         ],
       },
     }}
@@ -283,6 +292,7 @@ import "./index";
           checked=${args.checked}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+          size=${args.size}
         ></z-input>
       `
     }
@@ -304,6 +314,7 @@ import "./index";
           "checked",
           "htmlid",
           "htmltitle",
+          "size",
         ],
       },
     }}
@@ -331,6 +342,7 @@ import "./index";
           checked=${args.checked}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+          size=${args.size}
         ></z-input>
       `
     }
