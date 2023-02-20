@@ -7,6 +7,11 @@
   font-weight: var(--font-rg);
 }
 
+:host([size="small"]),
+:host([size="x-small"]) {
+  font-size: var(--font-size-2);
+}
+
 .select-wrapper > z-input {
   width: 100%;
 }
@@ -76,6 +81,10 @@
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-content {
   display: block;
+  padding: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 1.5);
+}
+
+:host([size="x-small"]) .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-content {
   padding: 0 calc(var(--space-unit) * 1.5);
 }
 

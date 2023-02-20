@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ListDividerType, KeyboardCode } from "../../../beans";
+import { ListDividerType, KeyboardCode, ControlSize, ListSize } from "../../../beans";
 import { randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean } from "../../../utils/utils";
 export class ZSelect {
   constructor() {
@@ -19,6 +19,8 @@ export class ZSelect {
     this.noresultslabel = "Nessun risultato";
     /** When fixed, it occupies space and pushes down next elements. */
     this.isfixed = false;
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ControlSize.BIG;
     this.isOpen = false;
     this.selectedItem = null;
     this.itemsList = [];
@@ -217,7 +219,7 @@ export class ZSelect {
     return (h("z-input", { class: {
         "active-select": this.isOpen,
         "cursor-select": !this.autocomplete,
-      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
+      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", size: this.size, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -240,7 +242,7 @@ export class ZSelect {
     return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -252,17 +254,23 @@ export class ZSelect {
         "hide": !this.selectedItem || !this.resetItem,
         "reset-item": true,
         "reset-item-margin": !this.hasGroupItems,
-      }, clickable: true, disabled: false, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: "0", "aria-selected": "false", id: `${this.htmlid}_${this.resetItem ? "0" : "none"}`, onClickItem: () => {
+      }, clickable: true, disabled: false, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: "0", "aria-selected": "false", id: `${this.htmlid}_${this.resetItem ? "0" : "none"}`, size: this.listSizeType(), onClickItem: () => {
         this.selectedItem = null;
         this.searchString = null;
         this.emitResetSelect();
       }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
   }
   renderItem(item, key, lastItem) {
-    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
+    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
         "selected": !!item.selected,
         "list-element-content": true,
       }, innerHTML: item.name })));
+  }
+  listSizeType() {
+    if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
+      return ListSize.SMALL;
+    }
+    return ListSize.MEDIUM;
   }
   renderSelectUlItems() {
     if (!this.itemsList.length) {
@@ -293,13 +301,13 @@ export class ZSelect {
     });
   }
   renderNoSearchResults() {
-    return (h("z-list-element", { color: "blue500", class: "no-results" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
+    return (h("z-list-element", { color: "blue500", class: "no-results", size: this.listSizeType() }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
   }
   renderMessage() {
     if (boolean(this.message) === false) {
       return;
     }
-    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
+    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
   }
   render() {
     return (h("div", { class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
@@ -607,6 +615,29 @@ export class ZSelect {
         },
         "attribute": "reset-item",
         "reflect": false
+      },
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ControlSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
+          "references": {
+            "ControlSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Available sizes: `big`, `small` and `x-small`. Defaults to `big`."
+        },
+        "attribute": "size",
+        "reflect": false,
+        "defaultValue": "ControlSize.BIG"
       }
     };
   }

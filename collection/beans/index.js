@@ -41,6 +41,7 @@ export var ButtonSize;
   ButtonSize["SMALL"] = "small";
   ButtonSize["X_SMALL"] = "x-small";
 })(ButtonSize || (ButtonSize = {}));
+export { ButtonSize as ControlSize };
 export var InputType;
 (function (InputType) {
   InputType["TEXT"] = "text";

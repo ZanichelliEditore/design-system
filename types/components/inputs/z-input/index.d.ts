@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { InputType, LabelPosition, InputStatus } from "../../../beans";
+import { InputType, LabelPosition, InputStatus, ControlSize } from "../../../beans";
 export declare class ZInput {
   hostElement: HTMLZInputElement;
   /** the id of the input element */
@@ -46,6 +46,8 @@ export declare class ZInput {
   step?: number;
   /** pattern value (optional): available for tel, text, search, url, email, password*/
   pattern?: string;
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  size?: ControlSize;
   isTyping: boolean;
   passwordHidden: boolean;
   private timer;

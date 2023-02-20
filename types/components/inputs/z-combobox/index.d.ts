@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ComboItem } from "../../../beans";
+import { ComboItem, ControlSize } from "../../../beans";
 export declare class ZCombobox {
   /** input unique id */
   inputid: string;
@@ -35,6 +35,8 @@ export declare class ZCombobox {
   maxcheckableitems: number;
   /** group items by category */
   hasgroupitems?: boolean;
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  size?: ControlSize;
   searchValue: string;
   selectedCounter: number;
   renderItemsList: ComboItem[];

@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, g as getElement } from './index-a2ca4b97.js';
-import { e as KeyboardCode, k as ListDividerType } from './index-968a240f.js';
+import { c as ButtonSize, e as KeyboardCode, k as ListDividerType, g as ListSize } from './index-968a240f.js';
 import { r as randomId, b as boolean, a as getElementTree, h as handleKeyboardSubmit, d as getClickedElement } from './utils-6cf7efe2.js';
 import './breakpoints-c386984e.js';
 
-const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.fixed.sc-z-select{position:static}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-content.sc-z-select{display:block;padding:0 calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-content.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.z-list-group-title.sc-z-select{color:var(--gray800)}.reset-item.sc-z-select{color:var(--color-primary01);fill:var(--color-primary01)}.reset-item-content.sc-z-select{display:flex;align-items:center}.reset-item.reset-item-margin.sc-z-select .reset-item-content.sc-z-select{margin-left:calc(var(--space-unit))}.reset-item.sc-z-select .reset-item-content.sc-z-select>z-icon.sc-z-select{margin-right:var(--space-unit)}.reset-item.hide.sc-z-select{display:none}";
+const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-text02);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}[size=\"small\"].sc-z-select-h,[size=\"x-small\"].sc-z-select-h{font-size:var(--font-size-2)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.fixed.sc-z-select{position:static}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-content.sc-z-select{display:block;padding:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 1.5)}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-content.sc-z-select{padding:0 calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-content.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.z-list-group-title.sc-z-select{color:var(--gray800)}.reset-item.sc-z-select{color:var(--color-primary01);fill:var(--color-primary01)}.reset-item-content.sc-z-select{display:flex;align-items:center}.reset-item.reset-item-margin.sc-z-select .reset-item-content.sc-z-select{margin-left:calc(var(--space-unit))}.reset-item.sc-z-select .reset-item-content.sc-z-select>z-icon.sc-z-select{margin-right:var(--space-unit)}.reset-item.hide.sc-z-select{display:none}";
 
 const ZSelect = class {
   constructor(hostRef) {
@@ -26,6 +26,8 @@ const ZSelect = class {
     this.noresultslabel = "Nessun risultato";
     /** When fixed, it occupies space and pushes down next elements. */
     this.isfixed = false;
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ButtonSize.BIG;
     this.isOpen = false;
     this.selectedItem = null;
     this.itemsList = [];
@@ -224,7 +226,7 @@ const ZSelect = class {
     return (h("z-input", { class: {
         "active-select": this.isOpen,
         "cursor-select": !this.autocomplete,
-      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", onClick: (e) => {
+      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", size: this.size, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -247,7 +249,7 @@ const ZSelect = class {
     return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -259,17 +261,23 @@ const ZSelect = class {
         "hide": !this.selectedItem || !this.resetItem,
         "reset-item": true,
         "reset-item-margin": !this.hasGroupItems,
-      }, clickable: true, disabled: false, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: "0", "aria-selected": "false", id: `${this.htmlid}_${this.resetItem ? "0" : "none"}`, onClickItem: () => {
+      }, clickable: true, disabled: false, dividerType: ListDividerType.ELEMENT, role: "option", tabindex: "0", "aria-selected": "false", id: `${this.htmlid}_${this.resetItem ? "0" : "none"}`, size: this.listSizeType(), onClickItem: () => {
         this.selectedItem = null;
         this.searchString = null;
         this.emitResetSelect();
       }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
   }
   renderItem(item, key, lastItem) {
-    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
+    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
         "selected": !!item.selected,
         "list-element-content": true,
       }, innerHTML: item.name })));
+  }
+  listSizeType() {
+    if (this.size === ButtonSize.SMALL || this.size === ButtonSize.X_SMALL) {
+      return ListSize.SMALL;
+    }
+    return ListSize.MEDIUM;
   }
   renderSelectUlItems() {
     if (!this.itemsList.length) {
@@ -300,13 +308,13 @@ const ZSelect = class {
     });
   }
   renderNoSearchResults() {
-    return (h("z-list-element", { color: "blue500", class: "no-results" }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
+    return (h("z-list-element", { color: "blue500", class: "no-results", size: this.listSizeType() }, h("z-icon", { name: "multiply-circle", fill: "blue500" }), this.noresultslabel));
   }
   renderMessage() {
     if (boolean(this.message) === false) {
       return;
     }
-    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
+    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
   }
   render() {
     return (h("div", { class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));

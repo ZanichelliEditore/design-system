@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
-import { InputType, LabelPosition } from "../../../beans";
+import { Host } from "@stencil/core/internal";
+import { InputType, LabelPosition, ControlSize } from "../../../beans";
 import { boolean, randomId } from "../../../utils/utils";
 export class ZInput {
   constructor() {
@@ -21,6 +22,8 @@ export class ZInput {
     this.labelPosition = LabelPosition.RIGHT;
     /** render clear icon when typing (optional): available for text */
     this.hasclearicon = true;
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ControlSize.BIG;
     this.isTyping = false;
     this.passwordHidden = true;
     this.typingtimeout = 300;
@@ -158,22 +161,22 @@ export class ZInput {
     if (!this.icon) {
       return;
     }
-    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon })));
+    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon, class: this.size })));
   }
   renderResetIcon() {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputType.NUMBER) {
       return;
     }
-    return (h("button", { type: "button", class: "icon-button reset-icon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply" })));
+    return (h("button", { type: "button", class: "icon-button reset-icon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply", class: this.size })));
   }
   renderShowHidePassword() {
-    return (h("button", { type: "button", class: "icon-button toggle-password-icon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled" })));
+    return (h("button", { type: "button", class: "icon-button toggle-password-icon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled", class: this.size })));
   }
   renderMessage() {
     if (boolean(this.message) === false) {
       return;
     }
-    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status }));
+    return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
   }
   /* END text/password/email/number */
   /* START textarea */
@@ -193,7 +196,7 @@ export class ZInput {
         "checkbox-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
-      } }, h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true" }), this.label && h("span", { innerHTML: this.label }))));
+      } }, h("z-icon", { name: this.checked ? "checkbox-checked" : "checkbox", "aria-hidden": "true", class: this.size }), this.label && h("span", { innerHTML: this.label }))));
   }
   /* END checkbox */
   /* START radio */
@@ -202,20 +205,25 @@ export class ZInput {
         "radio-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
-      } }, h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true" }), this.label && h("span", { innerHTML: this.label }))));
+      } }, h("z-icon", { name: this.checked ? "radio-button-checked" : "radio-button", "aria-hidden": "true", class: this.size }), this.label && h("span", { innerHTML: this.label }))));
   }
   /* END radio */
   render() {
+    let input;
     switch (this.type) {
       case InputType.TEXTAREA:
-        return this.renderTextarea();
+        input = this.renderTextarea();
+        break;
       case InputType.CHECKBOX:
-        return this.renderCheckbox();
+        input = this.renderCheckbox();
+        break;
       case InputType.RADIO:
-        return this.renderRadio();
+        input = this.renderRadio();
+        break;
       default:
-        return this.renderInputText(this.type);
+        input = this.renderInputText(this.type);
     }
+    return h(Host, null, input);
   }
   static get is() { return "z-input"; }
   static get encapsulation() { return "scoped"; }
@@ -628,6 +636,29 @@ export class ZInput {
         },
         "attribute": "pattern",
         "reflect": false
+      },
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ControlSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
+          "references": {
+            "ControlSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Available sizes: `big`, `small` and `x-small`. Defaults to `big`."
+        },
+        "attribute": "size",
+        "reflect": true,
+        "defaultValue": "ControlSize.BIG"
       }
     };
   }

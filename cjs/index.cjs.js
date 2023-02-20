@@ -58,6 +58,12 @@ Object.defineProperty(exports, 'CarouselProgressMode', {
     return index.CarouselProgressMode;
   }
 });
+Object.defineProperty(exports, 'ControlSize', {
+  enumerable: true,
+  get: function () {
+    return index.ButtonSize;
+  }
+});
 Object.defineProperty(exports, 'CoverHeroContentPosition', {
   enumerable: true,
   get: function () {

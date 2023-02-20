@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { InputType, KeyboardKeyCode, ListDividerType } from "../../../beans";
+import { InputType, KeyboardKeyCode, ListDividerType, ControlSize } from "../../../beans";
 import { handleKeyboardSubmit } from "../../../utils/utils";
 export class ZCombobox {
   constructor() {
@@ -23,6 +23,8 @@ export class ZCombobox {
     this.uncheckalltext = "Deseleziona tutti";
     /** max number of checkable items (0 = unlimited) */
     this.maxcheckableitems = 0;
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ControlSize.BIG;
     this.renderItemsList = []; // used for render only
     this.itemsList = [];
     this.inputType = InputType.TEXT;
@@ -107,7 +109,7 @@ export class ZCombobox {
         if (ev.keyCode === KeyboardKeyCode.SPACE) {
           ev.preventDefault();
         }
-      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 }, h("p", { class: "body-3" }, this.label, h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), h("z-icon", { name: "caret-down", width: 18, height: 18 })));
+      }, onKeyUp: (ev) => handleKeyboardSubmit(ev, this.toggleComboBox), role: "button", tabindex: 0 }, h("p", { class: "body-3" }, this.label, h("span", null, this.selectedCounter > 0 && ` (${this.selectedCounter})`)), h("z-icon", { name: "caret-down", class: this.size })));
   }
   renderContent() {
     if (!this.isopen) {
@@ -122,7 +124,7 @@ export class ZCombobox {
     return (h("div", { class: this.searchValue && "search", tabindex: -1 }, this.renderList(this.renderItemsList), this.searchValue && this.renderCloseButton()));
   }
   renderItem(item, index, length) {
-    return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: index !== length - 1 }, h("z-input", { type: InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter })));
+    return (h("z-myz-list-item", { id: item.id, listitemid: item.id, action: `combo-li-${this.inputid}`, underlined: index !== length - 1, class: this.size }, h("z-input", { type: InputType.CHECKBOX, checked: item.checked, htmlid: `combo-checkbox-${this.inputid}-${item.id}`, label: item.name, disabled: !item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter, size: this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size })));
   }
   renderList(items) {
     if (!items) {
@@ -153,7 +155,7 @@ export class ZCombobox {
     return h("ul", null, listGroups);
   }
   renderNoSearchResults() {
-    return (h("ul", null, h("z-myz-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle" })));
+    return (h("ul", null, h("z-myz-list-item", { id: "no-results", text: this.noresultslabel, listitemid: "no-results", icon: "multiply-circle", class: this.size })));
   }
   renderCloseButton() {
     return (h("div", null, h("a", { onClick: () => this.closeFilterItems(), onKeyUp: (e) => handleKeyboardSubmit(e, this.closeFilterItems), role: "button", tabindex: 0 }, this.closesearchtext)));
@@ -162,7 +164,7 @@ export class ZCombobox {
     if (!this.isopen) {
       return;
     }
-    return (h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, message: false, onInputChange: (e) => {
+    return (h("z-input", { htmlid: `${this.inputid}_search`, label: this.searchlabel, placeholder: this.searchplaceholder, htmltitle: this.searchtitle, type: this.inputType, value: this.searchValue, message: false, size: this.size, onInputChange: (e) => {
         if (e.detail.keycode === 27) {
           return this.closeFilterItems();
         }
@@ -174,7 +176,7 @@ export class ZCombobox {
       return;
     }
     const allChecked = this.selectedCounter === this.itemsList.length;
-    return (h("div", { class: "check-all-wrapper" }, h("z-input", { type: InputType.CHECKBOX, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length })));
+    return (h("div", { class: "check-all-wrapper" }, h("z-input", { type: InputType.CHECKBOX, checked: allChecked, htmlid: `combo-checkbox-${this.inputid}-check-all`, label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length, size: this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size })));
   }
   render() {
     return (h("div", { "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
@@ -496,6 +498,29 @@ export class ZCombobox {
         },
         "attribute": "hasgroupitems",
         "reflect": false
+      },
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ControlSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
+          "references": {
+            "ControlSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Available sizes: `big`, `small` and `x-small`. Defaults to `big`."
+        },
+        "attribute": "size",
+        "reflect": false,
+        "defaultValue": "ControlSize.BIG"
       }
     };
   }

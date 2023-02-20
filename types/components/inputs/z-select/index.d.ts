@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { SelectItem, InputStatus } from "../../../beans";
+import { SelectItem, InputStatus, ControlSize } from "../../../beans";
 export declare class ZSelect {
   element: HTMLZSelectElement;
   /** the id of the input element */
@@ -34,6 +34,8 @@ export declare class ZSelect {
   isfixed?: boolean;
   /** */
   resetItem?: string;
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  size?: ControlSize;
   isOpen: boolean;
   selectedItem: null | SelectItem;
   searchString: null | string;
@@ -71,6 +73,7 @@ export declare class ZSelect {
   private renderSelectUl;
   private renderResetItem;
   private renderItem;
+  private listSizeType;
   private renderSelectUlItems;
   private renderSelectGroupItems;
   private renderNoSearchResults;
