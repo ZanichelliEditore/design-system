@@ -296,6 +296,10 @@ export namespace Components {
          */
         "searchtitle"?: string;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
@@ -2823,6 +2827,10 @@ declare namespace LocalJSX {
           * search input title text (optional)
          */
         "searchtitle"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
         /**
           * uncheck all label (optional)
          */

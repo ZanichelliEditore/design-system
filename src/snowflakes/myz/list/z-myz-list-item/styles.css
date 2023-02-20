@@ -18,6 +18,25 @@
   line-height: 14px;
 }
 
+:host(.small) li > span {
+  padding: calc(var(--space-unit) * 1.5) 0;
+  font-size: var(--font-size-2);
+}
+
+:host(.x-small) li > span {
+  padding: var(--space-unit) 0;
+  font-size: var(--font-size-2);
+}
+
+:host(.small) li > span > z-icon,
+:host(.x-small) li > span > z-icon {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
+
+  padding: 0;
+}
+
 :host li > span.border {
   border-bottom: 2px solid var(--bg-grey-200);
 }
