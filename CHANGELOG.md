@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.10.0](https://github.com/ZanichelliEditore/design-system/compare/v6.9.1...v6.10.0) (2023-02-20)
+
+
+### Features
+
+* add checkbox, radio margin ([133b9ff](https://github.com/ZanichelliEditore/design-system/commit/133b9ff09b50645ea51d47e4bebdd9da0c4d8846))
+* add ControlSize enum ([cb4033f](https://github.com/ZanichelliEditore/design-system/commit/cb4033f08be6efa46dcc5a2b5c97240de7b3b379))
+* add z-combobox small, x-small ([2602a5d](https://github.com/ZanichelliEditore/design-system/commit/2602a5d9bfd0f9b9ba5a30def0e7b8ad1fc2b732))
+* update storybook ([a63e8e5](https://github.com/ZanichelliEditore/design-system/commit/a63e8e5cf47fd319f1138f602f3d0584e2303f71))
+* update tests ([faaf18e](https://github.com/ZanichelliEditore/design-system/commit/faaf18e15eea1a5bdf66768adaca5bbce90005ea))
+* update z-input storybook ([78b5fe9](https://github.com/ZanichelliEditore/design-system/commit/78b5fe9cae03fbf5bae4dcdd1987456700366883))
+* update z-input types ([11c932a](https://github.com/ZanichelliEditore/design-system/commit/11c932ab0b9a9268fdfcfa74996b03d23b69bfe4))
+* update z-input-message ([a1a9e62](https://github.com/ZanichelliEditore/design-system/commit/a1a9e62b82ca56fb98a68589575eae7cb9a9434c))
+* update z-select ([e649dca](https://github.com/ZanichelliEditore/design-system/commit/e649dcad81e761c9b2733709292b32bbf5d56c4b))
+* z-input-message styles ([f16aafe](https://github.com/ZanichelliEditore/design-system/commit/f16aafeab4d8cd35ecdcfd614d055d3f0a44aa94))
+
+
+### Bug Fixes
+
+* update z-combobox readme ([2d17ffe](https://github.com/ZanichelliEditore/design-system/commit/2d17ffe306fccebe149aa71b668005ad9183acab))
+
 ### [6.9.1](https://github.com/ZanichelliEditore/design-system/compare/v6.9.0...v6.9.1) (2023-02-16)
 
 
