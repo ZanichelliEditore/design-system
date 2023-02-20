@@ -108,6 +108,18 @@ import "./index";
     step: 1,
     pattern: "",
   }}
+  decorators={[
+    (Story) => html`
+      <style>
+        span,
+        p {
+          font-size: inherit;
+          letter-spacing: initial;
+        }
+      </style>
+      ${Story()}
+    `,
+  ]}
 />
 
 # ZInput
@@ -217,6 +229,7 @@ import "./index";
           "required",
           "htmlid",
           "htmltitle",
+          "size",
         ],
       },
     }}
@@ -245,6 +258,7 @@ import "./index";
           required=${args.required}
           htmlid=${args.htmlid}
           htmltitle=${args.htmltitle}
+          size=${args.size}
         ></z-input>
       `
     }
