@@ -47,6 +47,28 @@
   fill: inherit;
 }
 
+:host([size="small"]) .radio-wrapper .radio-label z-icon,
+:host([size="small"]) .checkbox-wrapper .checkbox-label z-icon {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+}
+
+:host([size="small"]) .radio-wrapper .radio-label,
+:host([size="small"]) .checkbox-wrapper .checkbox-label {
+  font-size: var(--font-size-2);
+}
+
+:host([size="x-small"]) .radio-wrapper .radio-label z-icon,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label z-icon {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+}
+
+:host([size="x-small"]) .radio-wrapper .radio-label,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label {
+  font-size: var(--font-size-1);
+}
+
 .radio-wrapper .radio-label.after,
 .checkbox-wrapper .checkbox-label.after {
   flex-direction: row;
@@ -65,6 +87,20 @@
 .radio-wrapper .radio-label.before > span,
 .checkbox-wrapper .checkbox-label.before > span {
   margin-right: var(--space-unit);
+}
+
+:host([size="small"]) .radio-wrapper .radio-label.after > span,
+:host([size="small"]) .checkbox-wrapper .checkbox-label.after > span,
+:host([size="x-small"]) .radio-wrapper .radio-label.after > span,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label.after > span {
+  margin-left: calc(var(--space-unit) * 0.5);
+}
+
+:host([size="small"]) .radio-wrapper .radio-label.before > span,
+:host([size="small"]) .checkbox-wrapper .checkbox-label.before > span,
+:host([size="x-small"]) .radio-wrapper .radio-label.before > span,
+:host([size="x-small"]) .checkbox-wrapper .checkbox-label.before > span {
+  margin-right: calc(var(--space-unit) * 0.5);
 }
 
 /* focus */

@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, KeyboardKeyCode, ListDividerType} from "../../../beans";
+import {ComboItem, InputType, KeyboardKeyCode, ListDividerType, ControlSize} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 import {ZMyzListItem} from "../../../snowflakes/myz/list/z-myz-list-item";
@@ -77,6 +77,10 @@ export class ZCombobox {
   /** group items by category */
   @Prop()
   hasgroupitems?: boolean;
+
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  @Prop()
+  size?: ControlSize = ControlSize.BIG;
 
   @State()
   searchValue: string;
@@ -217,8 +221,7 @@ export class ZCombobox {
         </p>
         <z-icon
           name="caret-down"
-          width={18}
-          height={18}
+          class={this.size}
         />
       </div>
     );
@@ -261,6 +264,7 @@ export class ZCombobox {
         listitemid={item.id}
         action={`combo-li-${this.inputid}`}
         underlined={index !== length - 1}
+        class={this.size}
       >
         <z-input
           type={InputType.CHECKBOX}
@@ -268,6 +272,7 @@ export class ZCombobox {
           htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
           label={item.name}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
+          size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
         />
       </z-myz-list-item>
     );
@@ -330,6 +335,7 @@ export class ZCombobox {
           text={this.noresultslabel}
           listitemid="no-results"
           icon="multiply-circle"
+          class={this.size}
         />
       </ul>
     );
@@ -364,6 +370,7 @@ export class ZCombobox {
         type={this.inputType}
         value={this.searchValue}
         message={false}
+        size={this.size}
         onInputChange={(e: CustomEvent) => {
           if (e.detail.keycode === 27) {
             return this.closeFilterItems();
@@ -389,6 +396,7 @@ export class ZCombobox {
           htmlid={`combo-checkbox-${this.inputid}-check-all`}
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
+          size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
         />
       </div>
     );

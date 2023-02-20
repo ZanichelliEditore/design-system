@@ -10,6 +10,12 @@
   letter-spacing: 0.16px;
 }
 
+:host(.small),
+:host(.x-small) {
+  margin-top: calc(var(--space-unit) * 0.5);
+  font-size: var(--font-size-1);
+}
+
 :host([status="success"]) {
   color: var(--color-text-success);
 }
@@ -30,4 +36,13 @@
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
   --z-icon-right-margin: var(--space-unit);
+
+  margin-top: calc(var(--space-unit) * 0.25);
+}
+
+:host(.small) > z-icon,
+:host(.x-small) > z-icon {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
 }

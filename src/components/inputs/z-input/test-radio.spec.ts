@@ -9,12 +9,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio">
+      <z-input htmlid="radioid" type="radio" size="big">
 
           <div class="radio-wrapper">
             <input id="radioid" type="radio" />
             <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true"></z-icon>
+              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -28,12 +28,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio" name="name" value="value" label="radio label"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio" name="name" value="value" label="radio label">
+      <z-input htmlid="radioid" type="radio" name="name" value="value" label="radio label" size="big">
 
           <div class="radio-wrapper">
             <input id="radioid" type="radio" name="name" value="value" />
             <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true"></z-icon>
+              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
               <span>radio label</span>
             </label>
           </div>
@@ -48,12 +48,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio" checked></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio" checked>
+      <z-input htmlid="radioid" type="radio" checked size="big">
 
           <div class="radio-wrapper">
             <input id="radioid" type="radio" checked />
             <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button-checked" aria-hidden="true"></z-icon>
+              <z-icon name="radio-button-checked" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -67,12 +67,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio" label-position="left"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio" label-position="left">
+      <z-input htmlid="radioid" type="radio" label-position="left" size="big">
 
           <div class="radio-wrapper">
             <input id="radioid" type="radio" />
             <label htmlFor="radioid" class="radio-label before">
-              <z-icon name="radio-button" aria-hidden="true"></z-icon>
+              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -86,12 +86,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio" disabled></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="radioid" type="radio" disabled>
+      <z-input htmlid="radioid" type="radio" disabled size="big">
 
           <div class="radio-wrapper">
             <input id="radioid" type="radio" disabled />
             <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true"></z-icon>
+              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -105,12 +105,12 @@ describe("Suite test ZInput - radio", () => {
       html: `<z-input htmlid="radioid" type="radio" readonly></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="radioid" type="radio" readonly>
+        <z-input htmlid="radioid" type="radio" readonly size="big">
 
             <div class="radio-wrapper">
               <input id="radioid" type="radio" readonly />
               <label htmlFor="radioid" class="radio-label after">
-                <z-icon name="radio-button" aria-hidden="true"></z-icon>
+                <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
               </label>
             </div>
 

@@ -113,6 +113,8 @@ export enum ButtonSize {
   X_SMALL = "x-small",
 }
 
+export {ButtonSize as ControlSize};
+
 export enum InputType {
   TEXT = "text",
   PASSWORD = "password",

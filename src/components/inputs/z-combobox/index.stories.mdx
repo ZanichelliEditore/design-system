@@ -1,6 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, ArgsTable} from "@storybook/addon-docs";
-import {text, boolean, number} from "@storybook/addon-knobs";
+import {text, boolean, number, radio} from "@storybook/addon-knobs";
+import {ControlSize} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -60,6 +61,10 @@ import "./index";
     uncheckalltext: {
       control: {type: "text"},
     },
+    size: {
+      control: {type: "inline-radio"},
+      options: Object.values(ControlSize),
+    },
   }}
   args={{
     items: [
@@ -84,6 +89,7 @@ import "./index";
     searchplaceholder: "Search Placeholder",
     searchtitle: "Search Title",
     uncheckalltext: "Uncheck All",
+    size: "big",
   }}
 />
 
@@ -110,6 +116,7 @@ import "./index";
         searchplaceholder=${args.searchplaceholder}
         searchtitle=${args.searchtitle}
         uncheckalltext=${args.uncheckalltext}
+        size=${args.size}
       />`
     }
   </Story>
@@ -151,6 +158,7 @@ import "./index";
         searchplaceholder=${args.searchplaceholder}
         searchtitle=${args.searchtitle}
         uncheckalltext=${args.uncheckalltext}
+        size=${args.size}
       />`
     }
   </Story>
@@ -184,6 +192,7 @@ import "./index";
         searchplaceholder=${args.searchplaceholder}
         searchtitle=${args.searchtitle}
         uncheckalltext=${args.uncheckalltext}
+        size=${args.size}
       />`
     }
   </Story>

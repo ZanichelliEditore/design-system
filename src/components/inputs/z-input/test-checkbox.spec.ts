@@ -9,12 +9,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox">
+      <z-input htmlid="checkid" type="checkbox" size="big">
 
           <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" />
             <label htmlFor="checkid" class="checkbox-label after">
-              <z-icon name="checkbox" aria-hidden="true"></z-icon>
+              <z-icon name="checkbox" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -28,12 +28,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value">
+      <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value" size="big">
 
           <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" name="name" value="value" />
             <label htmlFor="checkid" class="checkbox-label after">
-              <z-icon name="checkbox" aria-hidden="true"></z-icon>
+              <z-icon name="checkbox" aria-hidden="true" class="big"></z-icon>
               <span>checkbox label</span>
             </label>
           </div>
@@ -48,12 +48,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox" checked></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" checked>
+      <z-input htmlid="checkid" type="checkbox" checked size="big">
 
           <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" checked />
             <label htmlFor="checkid" class="checkbox-label after">
-              <z-icon name="checkbox-checked" aria-hidden="true"></z-icon>
+              <z-icon name="checkbox-checked" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -67,12 +67,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox" label-position="left"></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" label-position="left">
+      <z-input htmlid="checkid" type="checkbox" label-position="left" size="big">
 
           <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" />
             <label htmlFor="checkid" class="checkbox-label before">
-              <z-icon name="checkbox" aria-hidden="true"></z-icon>
+              <z-icon name="checkbox" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -86,12 +86,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox" disabled></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-input htmlid="checkid" type="checkbox" disabled>
+      <z-input htmlid="checkid" type="checkbox" disabled size="big">
 
           <div class="checkbox-wrapper">
             <input id="checkid" type="checkbox" disabled />
             <label htmlFor="checkid" class="checkbox-label after">
-              <z-icon name="checkbox" aria-hidden="true"></z-icon>
+              <z-icon name="checkbox" aria-hidden="true" class="big"></z-icon>
             </label>
           </div>
 
@@ -105,12 +105,12 @@ describe("Suite test ZInput - checkbox", () => {
       html: `<z-input htmlid="checkid" type="checkbox" readonly></z-input>`,
     });
     expect(page.root).toEqualHtml(`
-        <z-input htmlid="checkid" type="checkbox" readonly>
+        <z-input htmlid="checkid" type="checkbox" readonly size="big">
 
             <div class="checkbox-wrapper">
               <input id="checkid" type="checkbox" readonly />
               <label htmlFor="checkid" class="checkbox-label after">
-                <z-icon name="checkbox" aria-hidden="true"></z-icon>
+                <z-icon class="big" name="checkbox" aria-hidden="true"></z-icon>
               </label>
             </div>
 
