@@ -1,6 +1,6 @@
 import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {ButtonVariant, ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
-import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
+import {handleEnterKeydSubmit, randomId} from "../../../utils/utils";
 
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -66,12 +66,14 @@ export class ZSearchbar {
 
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
+  private inputRef: HTMLZInputElement;
+
   /** Emitted on search submit, return search string */
   @Event()
   searchSubmit: EventEmitter<string>;
 
   private emitSearchSubmit(): void {
-    this.searchSubmit.emit(this.searchString);
+    this.searchSubmit.emit(this.inputRef.value);
   }
 
   /** Emitted on search typing, return search string */
@@ -218,13 +220,23 @@ export class ZSearchbar {
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
+        ref={(val) => {
+          this.inputRef = val;
+          this.searchString = this.inputRef.value;
+        }}
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.handleSubmit())}
+        onKeyUp={(e: KeyboardEvent) =>
+          !this.checkSubmitDisabled() && handleEnterKeydSubmit(e, () => this.handleSubmit())
+        }
         value={this.value}
       />
     );
+  }
+
+  private checkSubmitDisabled(): boolean {
+    return this.inputRef?.value?.length < this.autocompleteMinChars;
   }
 
   private renderButton(): HTMLZButtonElement | null {
@@ -234,6 +246,7 @@ export class ZSearchbar {
 
     return (
       <z-button
+        disabled={this.checkSubmitDisabled()}
         variant={ButtonVariant.PRIMARY}
         onClick={() => this.handleSubmit()}
       >
