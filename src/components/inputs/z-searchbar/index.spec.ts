@@ -6,10 +6,10 @@ describe("Suite test ZSearchbar", () => {
   it("Simple searchbar", async () => {
     const page = await newSpecPage({
       components: [ZSearchbar],
-      html: `<z-searchbar htmlid="my-id"></z-searchbar>`,
+      html: `<z-searchbar htmlid="my-id" show-search-button="true"></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-searchbar htmlid="my-id">
+      <z-searchbar htmlid="my-id" show-search-button="true">
         <mock:shadow-root>
           <div class="has-submit">
             <z-input></z-input>
@@ -43,6 +43,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       ></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
@@ -50,6 +51,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
@@ -68,6 +70,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -78,6 +81,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
@@ -105,6 +109,7 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         results-count="1"
+        show-search-button="true"
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -116,6 +121,7 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         results-count="1"
+        show-search-button="true"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
@@ -156,6 +162,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -167,6 +174,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
+        show-search-button="true"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
@@ -237,6 +245,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='[]'
+        show-search-button="true"
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -248,6 +257,7 @@ describe("Suite test ZSearchbar", () => {
         htmlid="my-id"
         autocomplete="true"
         results-items='[]'
+        show-search-button="true"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">

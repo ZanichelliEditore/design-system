@@ -15,7 +15,7 @@ export class ZSearchbar {
   @Prop({reflect: true})
   htmlid = `searchbar-${randomId()}`;
 
-  /** Show simple input without submit button */
+  /** Prevent submit action */
   @Prop()
   preventSubmit?: boolean = false;
 
@@ -54,6 +54,10 @@ export class ZSearchbar {
   /** Sort autocomplete results items */
   @Prop()
   sortResultsItems?: boolean = false;
+
+  /** Show submit button */
+  @Prop()
+  showSearchButton?: boolean = false;
 
   @State()
   searchString = "";
@@ -222,31 +226,24 @@ export class ZSearchbar {
       <z-input
         ref={(val) => {
           this.inputRef = val;
-          this.searchString = this.inputRef.value;
         }}
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) =>
-          !this.checkSubmitDisabled() && handleEnterKeydSubmit(e, () => this.handleSubmit())
-        }
+        onKeyUp={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.handleSubmit())}
         value={this.value}
       />
     );
   }
 
-  private checkSubmitDisabled(): boolean {
-    return this.inputRef?.value?.length < this.autocompleteMinChars;
-  }
-
   private renderButton(): HTMLZButtonElement | null {
-    if (this.preventSubmit) {
+    if (!this.showSearchButton) {
       return null;
     }
 
     return (
       <z-button
-        disabled={this.checkSubmitDisabled()}
+        disabled={this.preventSubmit}
         variant={ButtonVariant.PRIMARY}
         onClick={() => this.handleSubmit()}
       >
@@ -449,7 +446,7 @@ export class ZSearchbar {
         onFocus={() => (this.showResults = true)}
         onClick={(e) => this.handleOutsideClick(e)}
       >
-        <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
+        <div class={{"has-submit": this.showSearchButton, "has-results": this.autocomplete}}>
           {this.renderInput()}
           {this.renderResults()}
           {this.renderButton()}
