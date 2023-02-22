@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.10.1](https://github.com/ZanichelliEditore/design-system/compare/v6.10.0...v6.10.1) (2023-02-22)
+
+
+### Bug Fixes
+
+* fixed submit on space, wrong search value on submit and enabling search button ([6e0687f](https://github.com/ZanichelliEditore/design-system/commit/6e0687f4d5f547358778ea25b27aee322cfcea52))
+* fixed tests and added prop to show submit button ([d1f8c1b](https://github.com/ZanichelliEditore/design-system/commit/d1f8c1baaf166e5f133860139fafb1d5fad11c38))
+
 ## [6.10.0](https://github.com/ZanichelliEditore/design-system/compare/v6.9.1...v6.10.0) (2023-02-20)
 
 
