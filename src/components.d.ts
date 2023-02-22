@@ -320,11 +320,11 @@ export namespace Components {
     }
     interface ZCoverHero {
         /**
-          * Cover hero content position (only for STACKED variant).
+          * Cover hero content position (only for `STACKED` variant).
          */
         "contentPosition": CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
+          * Cover hero variant. Can be one `OVERLAY` or `STACKED`.
          */
         "variant": CoverHeroVariant;
     }
@@ -2860,11 +2860,11 @@ declare namespace LocalJSX {
     }
     interface ZCoverHero {
         /**
-          * Cover hero content position (only for STACKED variant).
+          * Cover hero content position (only for `STACKED` variant).
          */
         "contentPosition"?: CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
+          * Cover hero variant. Can be one `OVERLAY` or `STACKED`.
          */
         "variant"?: CoverHeroVariant;
     }

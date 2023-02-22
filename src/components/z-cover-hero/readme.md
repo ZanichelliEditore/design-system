@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                             | Type                                                              | Default                        |
-| ----------------- | ------------------ | ------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ |
-| `contentPosition` | `content-position` | Cover hero content position (only for STACKED variant). | `CoverHeroContentPosition.BOTTOM \| CoverHeroContentPosition.TOP` | `CoverHeroContentPosition.TOP` |
-| `variant`         | `variant`          | Cover hero variant. Can be one of "OVERLAY", "STACKED". | `CoverHeroVariant.OVERLAY \| CoverHeroVariant.STACKED`            | `CoverHeroVariant.OVERLAY`     |
+| Property          | Attribute          | Description                                               | Type                                                              | Default                        |
+| ----------------- | ------------------ | --------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ |
+| `contentPosition` | `content-position` | Cover hero content position (only for `STACKED` variant). | `CoverHeroContentPosition.BOTTOM \| CoverHeroContentPosition.TOP` | `CoverHeroContentPosition.TOP` |
+| `variant`         | `variant`          | Cover hero variant. Can be one `OVERLAY` or `STACKED`.    | `CoverHeroVariant.OVERLAY \| CoverHeroVariant.STACKED`            | `CoverHeroVariant.OVERLAY`     |
 
 
 ## Slots
