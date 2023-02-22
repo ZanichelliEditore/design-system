@@ -1,6 +1,6 @@
 import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {ButtonVariant, ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
-import {handleKeyboardSubmit, randomId} from "../../../utils/utils";
+import {handleEnterKeydSubmit, randomId} from "../../../utils/utils";
 
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -15,7 +15,7 @@ export class ZSearchbar {
   @Prop({reflect: true})
   htmlid = `searchbar-${randomId()}`;
 
-  /** Show simple input without submit button */
+  /** Prevent submit action */
   @Prop()
   preventSubmit?: boolean = false;
 
@@ -55,6 +55,10 @@ export class ZSearchbar {
   @Prop()
   sortResultsItems?: boolean = false;
 
+  /** Show submit button */
+  @Prop()
+  showSearchButton?: boolean = false;
+
   @State()
   searchString = "";
 
@@ -66,12 +70,14 @@ export class ZSearchbar {
 
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
+  private inputRef: HTMLZInputElement;
+
   /** Emitted on search submit, return search string */
   @Event()
   searchSubmit: EventEmitter<string>;
 
   private emitSearchSubmit(): void {
-    this.searchSubmit.emit(this.searchString);
+    this.searchSubmit.emit(this.inputRef.value);
   }
 
   /** Emitted on search typing, return search string */
@@ -218,22 +224,26 @@ export class ZSearchbar {
   private renderInput(): HTMLZInputElement {
     return (
       <z-input
+        ref={(val) => {
+          this.inputRef = val;
+        }}
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, () => this.handleSubmit())}
+        onKeyUp={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.handleSubmit())}
         value={this.value}
       />
     );
   }
 
   private renderButton(): HTMLZButtonElement | null {
-    if (this.preventSubmit) {
+    if (!this.showSearchButton) {
       return null;
     }
 
     return (
       <z-button
+        disabled={this.preventSubmit}
         variant={ButtonVariant.PRIMARY}
         onClick={() => this.handleSubmit()}
       >
@@ -436,7 +446,7 @@ export class ZSearchbar {
         onFocus={() => (this.showResults = true)}
         onClick={(e) => this.handleOutsideClick(e)}
       >
-        <div class={{"has-submit": !this.preventSubmit, "has-results": this.autocomplete}}>
+        <div class={{"has-submit": this.showSearchButton, "has-results": this.autocomplete}}>
           {this.renderInput()}
           {this.renderResults()}
           {this.renderButton()}

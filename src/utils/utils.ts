@@ -47,6 +47,14 @@ export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => v
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function handleEnterKeydSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
+  if (ev.code === KeyboardCode.ENTER) {
+    ev.preventDefault();
+    callback(...args);
+  }
+}
+
 export function getClickedElement(elem: null | Element = null): null | Element {
   if (!elem) {
     elem = document.activeElement;

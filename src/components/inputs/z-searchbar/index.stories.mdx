@@ -12,6 +12,10 @@ import "./index";
       control: {type: "boolean"},
       defaultValue: false,
     },
+    "showSearchButton": {
+      control: {type: "boolean"},
+      defaultValue: false,
+    },
     "autocomplete": {
       control: {type: "boolean"},
       defaultValue: false,
@@ -67,6 +71,7 @@ import "./index";
       html`
         <z-searchbar
           prevent-submit=${args.preventSubmit}
+          show-search-button=${args.showSearchButton}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
