@@ -10,7 +10,6 @@ import "./index";
   argTypes={{
     "preventSubmit": {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     "showSearchButton": {
       control: {type: "boolean"},
@@ -18,48 +17,51 @@ import "./index";
     },
     "autocomplete": {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     "autocompleteMinChars": {
       control: {type: "number"},
-      defaultValue: 3,
     },
     "resultsCount": {
       control: {type: "number"},
-      defaultValue: "",
     },
     "resultsEllipsis": {
       control: {type: "boolean"},
-      defaultValue: true,
     },
     "searchHelperLabel": {
       control: {type: "text"},
-      defaultValue: "Cerca {searchString}",
     },
     "resultsItems": {
       control: {type: "object"},
-      defaultValue: [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
     },
     "sortResultsItems": {
       control: {type: "boolean"},
-      defaultValue: false,
     },
     "htmlid": {
       control: {type: "text"},
-      defaultValue: "myId",
     },
     "placeholder": {
       control: {type: "text"},
-      defaultValue: "my placeholder",
     },
     "value": {
       control: {type: "text"},
-      defaultValue: "",
     },
     "--z-searchbar-results-height": {
       control: {type: "text"},
-      defaultValue: "",
     },
+  }}
+  args={{
+    "preventSubmit": false,
+    "autocomplete": false,
+    "autocompleteMinChars": 3,
+    "resultsCount": "",
+    "resultsEllipsis": true,
+    "searchHelperLabel": "Cerca {searchString}",
+    "resultsItems": [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
+    "sortResultsItems": false,
+    "htmlid": "myId",
+    "placeholder": "my placeholder",
+    "value": "",
+    "--z-searchbar-results-height": "",
   }}
 />
 
@@ -99,8 +101,8 @@ import "./index";
         include: ["value", "placeholder", "htmlid"],
       },
     }}
-    argTypes={{
-      htmlid: {defaultValue: "myIdSimple"},
+    args={{
+      htmlid: "myIdSimple",
     }}
   >
     {(args) =>
@@ -122,9 +124,9 @@ import "./index";
 <Canvas>
   <Story
     name="z-searchbar - autocomplete"
-    argTypes={{
-      autocomplete: {defaultValue: true},
-      htmlid: {defaultValue: "myIdAutocomplete"},
+    args={{
+      autocomplete: true,
+      htmlid: "myIdAutocomplete",
     }}
   >
     {(args) =>
@@ -153,49 +155,47 @@ import "./index";
 <Canvas>
   <Story
     name="z-searchbar - autocomplete with complex items"
-    argTypes={{
-      autocomplete: {defaultValue: true},
-      htmlid: {defaultValue: "myIdGroupedAutocomplete"},
-      resultsItems: {
-        defaultValue: [
-          {
-            label: "first item",
-            icon: "download",
-            category: "Category A",
-            subcategory: "Subcategory A1",
-          },
-          {
-            label: "second item",
-            icon: "collezioni",
-            category: "Category B",
-            subcategory: "Subcategory B1",
-          },
-          {
-            label: "third item",
-            icon: "dictonary",
-            category: "Category A",
-            subcategory: "Subcategory A2",
-          },
-          {
-            label: "fourth item",
-            icon: "exercises-online",
-            category: "Category A",
-            subcategory: "Subcategory A1",
-          },
-          {
-            label: "fifth item",
-            icon: "interactives-maps",
-            category: "Category A",
-            subcategory: "Subcategory A1",
-          },
-          {
-            label: "sixth item",
-            icon: "textual-analysis",
-            category: "Category B",
-            subcategory: "Subcategory B1",
-          },
-        ],
-      },
+    args={{
+      autocomplete: true,
+      htmlid: "myIdGroupedAutocomplete",
+      resultsItems: [
+        {
+          label: "first item",
+          icon: "download",
+          category: "Category A",
+          subcategory: "Subcategory A1",
+        },
+        {
+          label: "second item",
+          icon: "collezioni",
+          category: "Category B",
+          subcategory: "Subcategory B1",
+        },
+        {
+          label: "third item",
+          icon: "dictonary",
+          category: "Category A",
+          subcategory: "Subcategory A2",
+        },
+        {
+          label: "fourth item",
+          icon: "exercises-online",
+          category: "Category A",
+          subcategory: "Subcategory A1",
+        },
+        {
+          label: "fifth item",
+          icon: "interactives-maps",
+          category: "Category A",
+          subcategory: "Subcategory A1",
+        },
+        {
+          label: "sixth item",
+          icon: "textual-analysis",
+          category: "Category B",
+          subcategory: "Subcategory B1",
+        },
+      ],
     }}
   >
     {(args) =>

@@ -1,4 +1,5 @@
 import {withKnobs} from "@storybook/addon-knobs";
+import theme from "./theme";
 import "../src/global.css";
 import dedent from "ts-dedent";
 
@@ -40,6 +41,7 @@ export const parameters = {
     ],
   },
   docs: {
+    theme,
     // fix wrong indentation due to the story template string (html`...`)
     transformSource: (input) => dedent(input),
   },
