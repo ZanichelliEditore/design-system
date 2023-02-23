@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
-const index$1 = require('./index-fa110f37.js');
+const index$1 = require('./index-132f3901.js');
 
 const stylesCss = ":host{font-family:var(--dashboard-font);font-weight:var(--font-rg)}button{display:flex;align-content:center;justify-content:center;padding:0;border:none;background-color:transparent}button>z-icon{color:var(--bg-white);fill:currentcolor}button>z-icon.light{color:var(--bg-grey-900);fill:currentcolor}";
 

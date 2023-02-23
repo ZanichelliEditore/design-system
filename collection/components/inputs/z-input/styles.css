@@ -63,7 +63,6 @@ textarea:focus:focus-visible {
 
 :host input[readonly]:focus:focus-visible {
   box-shadow: none;
-  pointer-events: none;
 }
 
 /* FILLED */

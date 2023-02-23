@@ -92,6 +92,9 @@ export declare enum ButtonType {
   RESET = "reset",
   BUTTON = "button"
 }
+/**
+ * @deprecated Use ControlSize instead
+ */
 export declare enum ButtonSize {
   BIG = "big",
   SMALL = "small",

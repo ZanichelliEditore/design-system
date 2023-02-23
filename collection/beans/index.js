@@ -35,6 +35,9 @@ export var ButtonType;
   ButtonType["RESET"] = "reset";
   ButtonType["BUTTON"] = "button";
 })(ButtonType || (ButtonType = {}));
+/**
+ * @deprecated Use ControlSize instead
+ */
 export var ButtonSize;
 (function (ButtonSize) {
   ButtonSize["BIG"] = "big";
