@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.10.2](https://github.com/ZanichelliEditore/design-system/compare/v6.10.1...v6.10.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* restored pointer events on z-input ([66f5fb4](https://github.com/ZanichelliEditore/design-system/commit/66f5fb49d19d0f651ee2dd982cfd0fda45501e42))
+* z-modal mobile style ([299867b](https://github.com/ZanichelliEditore/design-system/commit/299867b4cf2335110709fa62846b706cd3418634))
+* z-modal mobile style ([59c2bd7](https://github.com/ZanichelliEditore/design-system/commit/59c2bd79c62528c1f766ca01efc89ff5458b5abc))
+
 ### [6.10.1](https://github.com/ZanichelliEditore/design-system/compare/v6.10.0...v6.10.1) (2023-02-22)
 
 
