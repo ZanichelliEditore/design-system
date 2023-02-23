@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-e3299e0a.js');
 const index$1 = require('./index-fa110f37.js');
-const utils = require('./utils-600bad93.js');
+const utils = require('./utils-4cf6a5ac.js');
 require('./breakpoints-88c4fd6c.js');
 
 const stylesCss = ":host{position:relative;z-index:5;display:block;width:inherit;height:44px;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>div{position:absolute;z-index:10;display:grid;width:100%;gap:0 calc(var(--space-unit) * 2);grid-template-columns:auto;grid-template-rows:auto}:host>div.has-submit{grid-template-columns:auto min-content}:host>div.has-results{grid-template-rows:auto auto}:host>div>z-input{width:100%;grid-column:1;grid-row:1}:host>div>z-button{grid-column:2;grid-row:1}:host>div>div.results-wrapper{overflow:auto;padding:calc(var(--space-unit) / 4);padding-bottom:calc(var(--space-unit) / 4);border:var(--border-size-small) solid var(--color-surface03);border-top:none;margin-top:-1px;background:var(--color-surface01);grid-column:1;grid-row:2}:host>div>div.results-wrapper>div.results{overflow:auto;max-height:var(--z-searchbar-results-height, 540px);padding:var(--space-unit) calc(var(--space-unit) * 1.5);padding-bottom:calc(var(--space-unit) / 2);scrollbar-color:var(--color-primary01) transparent}:host>div>div.results-wrapper>div.results::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}:host>div>div.results-wrapper>div.results::-webkit-scrollbar-track{background-color:transparent}:host>div>div.results-wrapper>div.results::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}:host>div>div.results-wrapper>div.results .category-heading{display:block;font-size:var(--font-size-2);font-weight:var(--font-rg);line-height:var(--font-size-3)}:host>div>div.results-wrapper>div.results .category-heading>*{display:block}:host>div>div.results-wrapper>div.results span.category-heading>span.category{color:var(--color-text05);font-style:italic}:host>div>div.results-wrapper>div.results span.category-heading>span.subcategory{margin-top:8px;color:var(--color-text01);text-transform:uppercase}:host>div>div.results-wrapper>div.results z-list-element{display:block}:host>div>div.results-wrapper>div.results z-list-element:focus{box-shadow:var(--shadow-focus-primary)}:host>div>div.results-wrapper>div.results .item{--z-icon-height:12px;--z-icon-width:12px;display:flex;flex-flow:row nowrap;align-content:stretch;align-items:flex-start;justify-content:flex-start;color:var(--color-text01);fill:var(--color-icon02);font-size:var(--font-size-2);line-height:var(--font-size-3)}:host>div>div.results-wrapper>div.results .item.ellipsis>span.item-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}:host>div>div.results-wrapper>div.results .item>span.item-label>mark,:host>div>div.results-wrapper>div.results .item>span.item-label>*>mark{background:var(--color-primary03)}:host>div>div.results-wrapper>div.results .item.has-category{padding-left:calc(var(--space-unit) * 3)}:host>div>div.results-wrapper>div.results .item>z-icon.item-icon{padding:2px 0;margin-right:calc(var(--space-unit) * 1.5)}:host>div>div.results-wrapper>div.results .item.item-search{--z-icon-height:16px;--z-icon-width:16px}:host>div>div.results-wrapper>div.results .item.item-search>z-icon{margin-right:var(--space-unit)}:host>div>div.results-wrapper>div.results .item-show-all{display:block;text-align:center}:host>div>div.results-wrapper>div.results .item-no-results{display:block;font-size:var(--font-size-2);font-style:italic;line-height:var(--font-size-5)}:host>div>div.results-wrapper>div.results .item-no-results>ul{padding-left:calc(var(--space-unit) * 2);margin:var(--space-unit)}@media (min-width: 768px){:host>div>div.results-wrapper>div.results .category-heading{font-size:var(--font-size-3);line-height:var(--font-size-6)}:host>div>div.results-wrapper>div.results .item{--z-icon-height:12px;--z-icon-width:12px;font-size:var(--font-size-3);line-height:var(--font-size-6)}:host>div>div.results-wrapper>div.results .item.item-search{--z-icon-height:18px;--z-icon-width:18px}:host>div>div.results-wrapper>div.results .item.item-search>z-icon{margin-top:calc(var(--space-unit) / 4)}:host>div>div.results-wrapper>div.results .item.ellipsis>span.item-label{height:24px}:host>div>div.results-wrapper>div.results .item>z-icon.item-icon{padding:6px 0}}@media (min-width: 1152px){:host>div>div.results-wrapper>div.results .item{cursor:pointer}:host>div>div.results-wrapper>div.results .item-no-results{cursor:default;font-size:var(--font-size-3);line-height:var(--font-size-6)}}";
@@ -17,7 +17,7 @@ const ZSearchbar = class {
     this.searchItemClick = index.createEvent(this, "searchItemClick", 7);
     /** the id of the searchbar element */
     this.htmlid = `searchbar-${utils.randomId()}`;
-    /** Show simple input without submit button */
+    /** Prevent submit action */
     this.preventSubmit = false;
     /** Show autocomplete results */
     this.autocomplete = false;
@@ -29,13 +29,15 @@ const ZSearchbar = class {
     this.searchHelperLabel = "Cerca {searchString}";
     /** Sort autocomplete results items */
     this.sortResultsItems = false;
+    /** Show submit button */
+    this.showSearchButton = false;
     this.searchString = "";
     this.currResultsCount = 0;
     this.showResults = false;
     this.resultsItemsList = null;
   }
   emitSearchSubmit() {
-    this.searchSubmit.emit(this.searchString);
+    this.searchSubmit.emit(this.inputRef.value);
   }
   emitSearchTyping(search) {
     this.searchTyping.emit(search);
@@ -139,13 +141,15 @@ const ZSearchbar = class {
     this.showResults = false;
   }
   renderInput() {
-    return (index.h("z-input", { message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => utils.handleKeyboardSubmit(e, () => this.handleSubmit()), value: this.value }));
+    return (index.h("z-input", { ref: (val) => {
+        this.inputRef = val;
+      }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => utils.handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value }));
   }
   renderButton() {
-    if (this.preventSubmit) {
+    if (!this.showSearchButton) {
       return null;
     }
-    return (index.h("z-button", { variant: index$1.ButtonVariant.PRIMARY, onClick: () => this.handleSubmit() }, "CERCA"));
+    return (index.h("z-button", { disabled: this.preventSubmit, variant: index$1.ButtonVariant.PRIMARY, onClick: () => this.handleSubmit() }, "CERCA"));
   }
   renderResults() {
     if (!this.showResults ||
@@ -221,7 +225,7 @@ const ZSearchbar = class {
     return (index.h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0) }, index.h("span", { class: "item-show-all" }, index.h("z-link", null, "Vedi tutti i risultati"))));
   }
   render() {
-    return (index.h(index.Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e) }, index.h("div", { class: { "has-submit": !this.preventSubmit, "has-results": this.autocomplete } }, this.renderInput(), this.renderResults(), this.renderButton())));
+    return (index.h(index.Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e) }, index.h("div", { class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, this.renderInput(), this.renderResults(), this.renderButton())));
   }
   static get watchers() { return {
     "resultsItems": ["watchItems"],

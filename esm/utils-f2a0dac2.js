@@ -1,7 +1,5 @@
-'use strict';
-
-const index = require('./index-fa110f37.js');
-const breakpoints = require('./breakpoints-88c4fd6c.js');
+import { e as KeyboardCode, o as Device } from './index-968a240f.js';
+import { t as tabletBreakpoint, m as mobileBreakpoint } from './breakpoints-c386984e.js';
 
 /**
  * Return boolean value for passed value if a boolean corresponding value is found
@@ -32,7 +30,14 @@ function randomId() {
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function handleKeyboardSubmit(ev, callback, ...args) {
-  if (ev.code === index.KeyboardCode.ENTER || ev.code === index.KeyboardCode.SPACE) {
+  if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
+    ev.preventDefault();
+    callback(...args);
+  }
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function handleEnterKeydSubmit(ev, callback, ...args) {
+  if (ev.code === KeyboardCode.ENTER) {
     ev.preventDefault();
     callback(...args);
   }
@@ -61,12 +66,12 @@ function getElementTree(elem, tree = []) {
 }
 function getDevice() {
   switch (true) {
-    case window.innerWidth <= breakpoints.mobileBreakpoint:
-      return index.Device.MOBILE;
-    case window.innerWidth <= breakpoints.tabletBreakpoint:
-      return index.Device.TABLET;
+    case window.innerWidth <= mobileBreakpoint:
+      return Device.MOBILE;
+    case window.innerWidth <= tabletBreakpoint:
+      return Device.TABLET;
     default:
-      return index.Device.DESKTOP;
+      return Device.DESKTOP;
   }
 }
 function convertJson(data) {
@@ -90,11 +95,4 @@ function colorFromId(id) {
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }
 
-exports.boolean = boolean;
-exports.colorFromId = colorFromId;
-exports.convertJson = convertJson;
-exports.getClickedElement = getClickedElement;
-exports.getDevice = getDevice;
-exports.getElementTree = getElementTree;
-exports.handleKeyboardSubmit = handleKeyboardSubmit;
-exports.randomId = randomId;
+export { handleEnterKeydSubmit as a, boolean as b, colorFromId as c, getElementTree as d, getClickedElement as e, convertJson as f, getDevice as g, handleKeyboardSubmit as h, randomId as r };

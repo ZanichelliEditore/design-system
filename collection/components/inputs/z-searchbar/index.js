@@ -1,6 +1,6 @@
 import { h, Host } from "@stencil/core";
 import { ButtonVariant, ListDividerType } from "../../../beans";
-import { handleKeyboardSubmit, randomId } from "../../../utils/utils";
+import { handleEnterKeydSubmit, randomId } from "../../../utils/utils";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
  */
@@ -8,7 +8,7 @@ export class ZSearchbar {
   constructor() {
     /** the id of the searchbar element */
     this.htmlid = `searchbar-${randomId()}`;
-    /** Show simple input without submit button */
+    /** Prevent submit action */
     this.preventSubmit = false;
     /** Show autocomplete results */
     this.autocomplete = false;
@@ -20,13 +20,15 @@ export class ZSearchbar {
     this.searchHelperLabel = "Cerca {searchString}";
     /** Sort autocomplete results items */
     this.sortResultsItems = false;
+    /** Show submit button */
+    this.showSearchButton = false;
     this.searchString = "";
     this.currResultsCount = 0;
     this.showResults = false;
     this.resultsItemsList = null;
   }
   emitSearchSubmit() {
-    this.searchSubmit.emit(this.searchString);
+    this.searchSubmit.emit(this.inputRef.value);
   }
   emitSearchTyping(search) {
     this.searchTyping.emit(search);
@@ -130,13 +132,15 @@ export class ZSearchbar {
     this.showResults = false;
   }
   renderInput() {
-    return (h("z-input", { message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleKeyboardSubmit(e, () => this.handleSubmit()), value: this.value }));
+    return (h("z-input", { ref: (val) => {
+        this.inputRef = val;
+      }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value }));
   }
   renderButton() {
-    if (this.preventSubmit) {
+    if (!this.showSearchButton) {
       return null;
     }
-    return (h("z-button", { variant: ButtonVariant.PRIMARY, onClick: () => this.handleSubmit() }, "CERCA"));
+    return (h("z-button", { disabled: this.preventSubmit, variant: ButtonVariant.PRIMARY, onClick: () => this.handleSubmit() }, "CERCA"));
   }
   renderResults() {
     if (!this.showResults ||
@@ -212,7 +216,7 @@ export class ZSearchbar {
     return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0) }, h("span", { class: "item-show-all" }, h("z-link", null, "Vedi tutti i risultati"))));
   }
   render() {
-    return (h(Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e) }, h("div", { class: { "has-submit": !this.preventSubmit, "has-results": this.autocomplete } }, this.renderInput(), this.renderResults(), this.renderButton())));
+    return (h(Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e) }, h("div", { class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, this.renderInput(), this.renderResults(), this.renderButton())));
   }
   static get is() { return "z-searchbar"; }
   static get encapsulation() { return "shadow"; }
@@ -258,7 +262,7 @@ export class ZSearchbar {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": "Show simple input without submit button"
+          "text": "Prevent submit action"
         },
         "attribute": "prevent-submit",
         "reflect": false,
@@ -424,6 +428,24 @@ export class ZSearchbar {
           "text": "Sort autocomplete results items"
         },
         "attribute": "sort-results-items",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "showSearchButton": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Show submit button"
+        },
+        "attribute": "show-search-button",
         "reflect": false,
         "defaultValue": "false"
       }

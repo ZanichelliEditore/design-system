@@ -1317,7 +1317,7 @@ export namespace Components {
          */
         "placeholder"?: string;
         /**
-          * Show simple input without submit button
+          * Prevent submit action
          */
         "preventSubmit"?: boolean;
         /**
@@ -1336,6 +1336,10 @@ export namespace Components {
           * Search helper text
          */
         "searchHelperLabel"?: string;
+        /**
+          * Show submit button
+         */
+        "showSearchButton"?: boolean;
         /**
           * Sort autocomplete results items
          */
@@ -3989,7 +3993,7 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
-          * Show simple input without submit button
+          * Prevent submit action
          */
         "preventSubmit"?: boolean;
         /**
@@ -4008,6 +4012,10 @@ declare namespace LocalJSX {
           * Search helper text
          */
         "searchHelperLabel"?: string;
+        /**
+          * Show submit button
+         */
+        "showSearchButton"?: boolean;
         /**
           * Sort autocomplete results items
          */

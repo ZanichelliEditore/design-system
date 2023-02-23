@@ -6,7 +6,7 @@ import { SearchbarItem } from "../../../beans";
 export declare class ZSearchbar {
   /** the id of the searchbar element */
   htmlid: string;
-  /** Show simple input without submit button */
+  /** Prevent submit action */
   preventSubmit?: boolean;
   /** Input search string */
   value?: string;
@@ -26,10 +26,13 @@ export declare class ZSearchbar {
   resultsItems?: SearchbarItem[] | string;
   /** Sort autocomplete results items */
   sortResultsItems?: boolean;
+  /** Show submit button */
+  showSearchButton?: boolean;
   searchString: string;
   currResultsCount: number;
   showResults: boolean;
   private resultsItemsList;
+  private inputRef;
   /** Emitted on search submit, return search string */
   searchSubmit: EventEmitter<string>;
   private emitSearchSubmit;

@@ -9,6 +9,7 @@ export declare function boolean(value: string | number | boolean): boolean | str
 export declare function retrieveAsset(assetName: string): string;
 export declare function randomId(): string;
 export declare function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args: any[]) => void, ...args: any[]): void;
+export declare function handleEnterKeydSubmit(ev: KeyboardEvent, callback: (...args: any[]) => void, ...args: any[]): void;
 export declare function getClickedElement(elem?: null | Element): null | Element;
 export declare function getElementTree(elem: Element, tree?: Element[]): null | Element[];
 export declare function getSiblings(elem: HTMLElement): ChildNode[];
