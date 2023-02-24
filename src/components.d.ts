@@ -324,7 +324,7 @@ export namespace Components {
          */
         "contentPosition": CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one `OVERLAY` or `STACKED`.
+          * Cover hero variant. Can be `OVERLAY` or `STACKED`.
          */
         "variant": CoverHeroVariant;
     }
@@ -2864,7 +2864,7 @@ declare namespace LocalJSX {
          */
         "contentPosition"?: CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one `OVERLAY` or `STACKED`.
+          * Cover hero variant. Can be `OVERLAY` or `STACKED`.
          */
         "variant"?: CoverHeroVariant;
     }

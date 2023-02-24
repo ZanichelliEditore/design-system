@@ -22,7 +22,7 @@ export class ZCoverHero {
 
   /**
    * Cover hero variant.
-   * Can be one `OVERLAY` or `STACKED`.
+   * Can be `OVERLAY` or `STACKED`.
    */
   @Prop({reflect: true})
   variant: CoverHeroVariant = CoverHeroVariant.OVERLAY;
