@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.11.0](https://github.com/ZanichelliEditore/design-system/compare/v6.10.2...v6.11.0) (2023-02-27)
+
+
+### Features
+
+* **add-new-icons:** add new icons ([762b0b7](https://github.com/ZanichelliEditore/design-system/commit/762b0b702331ecfd8f7a5d092fc0778c22bb9dc6))
+
 ### [6.10.2](https://github.com/ZanichelliEditore/design-system/compare/v6.10.1...v6.10.2) (2023-02-23)
 
 
