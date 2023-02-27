@@ -50,6 +50,7 @@ export declare const STROKE_ICONS: {
   atom: string;
   back: string;
   "back-top": string;
+  "barrage-questions": string;
   biology: string;
   "black-diamond": string;
   blockquote: string;
@@ -109,6 +110,7 @@ export declare const STROKE_ICONS: {
   dictonary: string;
   document: string;
   download: string;
+  "drag-drop": string;
   edit: string;
   email: string;
   english: string;
@@ -124,7 +126,10 @@ export declare const STROKE_ICONS: {
   favorites: string;
   feed: string;
   "file-zip": string;
+  "fill-blanks": string;
+  "fill-choice": string;
   "film-frames": string;
+  "find-error": string;
   "fit-height-view": string;
   "fit-width-view": string;
   folder: string;
@@ -184,6 +189,7 @@ export declare const STROKE_ICONS: {
   minus: string;
   "minus-circled": string;
   "minus-square": string;
+  "multiple-choice": string;
   multiply: string;
   "multiply-circled": string;
   "multiply-square": string;
@@ -195,6 +201,7 @@ export declare const STROKE_ICONS: {
   "notification-off": string;
   "numbered-list": string;
   "nutritional-sciences": string;
+  "open-answer": string;
   pause: string;
   pdf: string;
   "pen-thickness": string;
@@ -265,6 +272,7 @@ export declare const STROKE_ICONS: {
   thumbnail: string;
   timeline: string;
   "timer-clock": string;
+  "true-false": string;
   "u-circle": string;
   "u-square": string;
   "underlined-text": string;
@@ -334,6 +342,7 @@ export declare const FILLED_ICONS: {
   "atom-filled": string;
   "back-filled": string;
   "back-top-filled": string;
+  "barrage-questions-filled": string;
   "biology-filled": string;
   "black-diamond-filled": string;
   "blockquote-filled": string;
@@ -393,6 +402,7 @@ export declare const FILLED_ICONS: {
   "dictonary-filled": string;
   "document-filled": string;
   "download-filled": string;
+  "drag-drop-filled": string;
   "edit-filled": string;
   "email-filled": string;
   "english-filled": string;
@@ -408,7 +418,10 @@ export declare const FILLED_ICONS: {
   "favorites-filled": string;
   "feed-filled": string;
   "file-zip-filled": string;
+  "fill-blanks-filled": string;
+  "fill-choice-filled": string;
   "film-frames-filled": string;
+  "find-error-filled": string;
   "fit-height-view-filled": string;
   "fitt-width-view-filled": string;
   "folder-filled": string;
@@ -468,6 +481,7 @@ export declare const FILLED_ICONS: {
   "minus-circled-filled": string;
   "minus-filled": string;
   "minus-square-filled": string;
+  "multiple-choice-filled": string;
   "multiply-circled-filled": string;
   "multiply-filled": string;
   "multiply-square-filled": string;
@@ -479,6 +493,7 @@ export declare const FILLED_ICONS: {
   "notification-off-filled": string;
   "numbered-list-filled": string;
   "nutritional-sciences-filled": string;
+  "open-answer-filled": string;
   "pause-filled": string;
   "pdf-filled": string;
   "pen-thickness-filled": string;
@@ -549,6 +564,7 @@ export declare const FILLED_ICONS: {
   "thumbnail-filled": string;
   "timeline-filled": string;
   "timer-clock-filled": string;
+  "true-false-filled": string;
   "u-circle-filled": string;
   "u-square-filled": string;
   "underlined-text-filled": string;
@@ -586,6 +602,7 @@ export declare const BUTTON_ICONS: {
   "geogebra-button": string;
   "go-page-button": string;
   "headphone-button": string;
+  "image-button": string;
   "interactives-maps-button": string;
   "lecture-button": string;
   "link-button": string;
@@ -616,6 +633,7 @@ export declare const ICONS: {
   "geogebra-button": string;
   "go-page-button": string;
   "headphone-button": string;
+  "image-button": string;
   "interactives-maps-button": string;
   "lecture-button": string;
   "link-button": string;
@@ -676,6 +694,7 @@ export declare const ICONS: {
   "atom-filled": string;
   "back-filled": string;
   "back-top-filled": string;
+  "barrage-questions-filled": string;
   "biology-filled": string;
   "black-diamond-filled": string;
   "blockquote-filled": string;
@@ -735,6 +754,7 @@ export declare const ICONS: {
   "dictonary-filled": string;
   "document-filled": string;
   "download-filled": string;
+  "drag-drop-filled": string;
   "edit-filled": string;
   "email-filled": string;
   "english-filled": string;
@@ -750,7 +770,10 @@ export declare const ICONS: {
   "favorites-filled": string;
   "feed-filled": string;
   "file-zip-filled": string;
+  "fill-blanks-filled": string;
+  "fill-choice-filled": string;
   "film-frames-filled": string;
+  "find-error-filled": string;
   "fit-height-view-filled": string;
   "fitt-width-view-filled": string;
   "folder-filled": string;
@@ -810,6 +833,7 @@ export declare const ICONS: {
   "minus-circled-filled": string;
   "minus-filled": string;
   "minus-square-filled": string;
+  "multiple-choice-filled": string;
   "multiply-circled-filled": string;
   "multiply-filled": string;
   "multiply-square-filled": string;
@@ -821,6 +845,7 @@ export declare const ICONS: {
   "notification-off-filled": string;
   "numbered-list-filled": string;
   "nutritional-sciences-filled": string;
+  "open-answer-filled": string;
   "pause-filled": string;
   "pdf-filled": string;
   "pen-thickness-filled": string;
@@ -891,6 +916,7 @@ export declare const ICONS: {
   "thumbnail-filled": string;
   "timeline-filled": string;
   "timer-clock-filled": string;
+  "true-false-filled": string;
   "u-circle-filled": string;
   "u-square-filled": string;
   "underlined-text-filled": string;
@@ -955,6 +981,7 @@ export declare const ICONS: {
   atom: string;
   back: string;
   "back-top": string;
+  "barrage-questions": string;
   biology: string;
   "black-diamond": string;
   blockquote: string;
@@ -1014,6 +1041,7 @@ export declare const ICONS: {
   dictonary: string;
   document: string;
   download: string;
+  "drag-drop": string;
   edit: string;
   email: string;
   english: string;
@@ -1029,7 +1057,10 @@ export declare const ICONS: {
   favorites: string;
   feed: string;
   "file-zip": string;
+  "fill-blanks": string;
+  "fill-choice": string;
   "film-frames": string;
+  "find-error": string;
   "fit-height-view": string;
   "fit-width-view": string;
   folder: string;
@@ -1089,6 +1120,7 @@ export declare const ICONS: {
   minus: string;
   "minus-circled": string;
   "minus-square": string;
+  "multiple-choice": string;
   multiply: string;
   "multiply-circled": string;
   "multiply-square": string;
@@ -1100,6 +1132,7 @@ export declare const ICONS: {
   "notification-off": string;
   "numbered-list": string;
   "nutritional-sciences": string;
+  "open-answer": string;
   pause: string;
   pdf: string;
   "pen-thickness": string;
@@ -1170,6 +1203,7 @@ export declare const ICONS: {
   thumbnail: string;
   timeline: string;
   "timer-clock": string;
+  "true-false": string;
   "u-circle": string;
   "u-square": string;
   "underlined-text": string;
