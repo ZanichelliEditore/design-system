@@ -95,9 +95,11 @@ import "./index.stories.css";
     {(args) => html`
       <div class="z-cover-hero-story-container z-cover-hero-auto-ratio">
         <z-cover-hero
-          variant="overlay"
+          variant=${args.variant}
+          .contentPosition=${args.contentPosition}
           style=${styleMap({
             "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
+            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
             "--cover-hero-aspect-ratio": `${args["--cover-hero-aspect-ratio"]}`,
           })}
         >
