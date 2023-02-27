@@ -116,7 +116,11 @@ export enum ButtonSize {
   X_SMALL = "x-small",
 }
 
-export {ButtonSize as ControlSize};
+export enum ControlSize {
+  BIG = "big",
+  SMALL = "small",
+  X_SMALL = "x-small",
+}
 
 export enum InputType {
   TEXT = "text",

@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {ButtonVariant, ButtonType, ButtonSize} from "../../../beans";
+import {ButtonVariant, ButtonType, ButtonSize, ControlSize} from "../../../beans";
 
 /**
  * @slot - button label
@@ -52,7 +52,7 @@ export class ZButton {
 
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({reflect: true})
-  size?: ButtonSize = ButtonSize.BIG;
+  size?: ButtonSize | ControlSize = ControlSize.BIG;
 
   private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {

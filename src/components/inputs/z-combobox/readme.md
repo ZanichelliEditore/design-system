@@ -30,26 +30,26 @@
 
 ## Properties
 
-| Property            | Attribute           | Description                                                       | Type                                                       | Default               |
-| ------------------- | ------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------- | --------------------- |
-| `checkalltext`      | `checkalltext`      | check all label (optional)                                        | `string`                                                   | `"Seleziona tutti"`   |
-| `closesearchtext`   | `closesearchtext`   | close combobox list text                                          | `string`                                                   | `"Chiudi"`            |
-| `disabled`          | `disabled`          | the combobox is disabled                                          | `boolean`                                                  | `false`               |
-| `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)                              | `boolean`                                                  | `false`               |
-| `hasgroupitems`     | `hasgroupitems`     | group items by category                                           | `boolean`                                                  | `undefined`           |
-| `hassearch`         | `hassearch`         | show search input flag (optional)                                 | `boolean`                                                  | `false`               |
-| `inputid`           | `inputid`           | input unique id                                                   | `string`                                                   | `undefined`           |
-| `isfixed`           | `isfixed`           | fixed style flag                                                  | `boolean`                                                  | `false`               |
-| `isopen`            | `isopen`            | toggle combo list opening flag                                    | `boolean`                                                  | `false`               |
-| `items`             | `items`             | list items array                                                  | `ComboItem[] \| string`                                    | `undefined`           |
-| `label`             | `label`             | label text                                                        | `string`                                                   | `undefined`           |
-| `maxcheckableitems` | `maxcheckableitems` | max number of checkable items (0 = unlimited)                     | `number`                                                   | `0`                   |
-| `noresultslabel`    | `noresultslabel`    | no result text message                                            | `string`                                                   | `"Nessun risultato"`  |
-| `searchlabel`       | `searchlabel`       | search input label text (optional)                                | `string`                                                   | `undefined`           |
-| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional)                          | `string`                                                   | `undefined`           |
-| `searchtitle`       | `searchtitle`       | search input title text (optional)                                | `string`                                                   | `undefined`           |
-| `size`              | `size`              | Available sizes: `big`, `small` and `x-small`. Defaults to `big`. | `ButtonSize.BIG \| ButtonSize.SMALL \| ButtonSize.X_SMALL` | `ControlSize.BIG`     |
-| `uncheckalltext`    | `uncheckalltext`    | uncheck all label (optional)                                      | `string`                                                   | `"Deseleziona tutti"` |
+| Property            | Attribute           | Description                                                       | Type                                                          | Default               |
+| ------------------- | ------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------- | --------------------- |
+| `checkalltext`      | `checkalltext`      | check all label (optional)                                        | `string`                                                      | `"Seleziona tutti"`   |
+| `closesearchtext`   | `closesearchtext`   | close combobox list text                                          | `string`                                                      | `"Chiudi"`            |
+| `disabled`          | `disabled`          | the combobox is disabled                                          | `boolean`                                                     | `false`               |
+| `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)                              | `boolean`                                                     | `false`               |
+| `hasgroupitems`     | `hasgroupitems`     | group items by category                                           | `boolean`                                                     | `undefined`           |
+| `hassearch`         | `hassearch`         | show search input flag (optional)                                 | `boolean`                                                     | `false`               |
+| `inputid`           | `inputid`           | input unique id                                                   | `string`                                                      | `undefined`           |
+| `isfixed`           | `isfixed`           | fixed style flag                                                  | `boolean`                                                     | `false`               |
+| `isopen`            | `isopen`            | toggle combo list opening flag                                    | `boolean`                                                     | `false`               |
+| `items`             | `items`             | list items array                                                  | `ComboItem[] \| string`                                       | `undefined`           |
+| `label`             | `label`             | label text                                                        | `string`                                                      | `undefined`           |
+| `maxcheckableitems` | `maxcheckableitems` | max number of checkable items (0 = unlimited)                     | `number`                                                      | `0`                   |
+| `noresultslabel`    | `noresultslabel`    | no result text message                                            | `string`                                                      | `"Nessun risultato"`  |
+| `searchlabel`       | `searchlabel`       | search input label text (optional)                                | `string`                                                      | `undefined`           |
+| `searchplaceholder` | `searchplaceholder` | search input placeholder text (optional)                          | `string`                                                      | `undefined`           |
+| `searchtitle`       | `searchtitle`       | search input title text (optional)                                | `string`                                                      | `undefined`           |
+| `size`              | `size`              | Available sizes: `big`, `small` and `x-small`. Defaults to `big`. | `ControlSize.BIG \| ControlSize.SMALL \| ControlSize.X_SMALL` | `ControlSize.BIG`     |
+| `uncheckalltext`    | `uncheckalltext`    | uncheck all label (optional)                                      | `string`                                                      | `"Deseleziona tutti"` |
 
 
 ## Events

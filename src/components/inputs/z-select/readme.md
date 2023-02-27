@@ -22,7 +22,7 @@
 | `placeholder`    | `placeholder`     | the input placeholder (optional)                                               | `string`                                                          | `undefined`          |
 | `readonly`       | `readonly`        | the input is readonly                                                          | `boolean`                                                         | `false`              |
 | `resetItem`      | `reset-item`      |                                                                                | `string`                                                          | `undefined`          |
-| `size`           | `size`            | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.              | `ButtonSize.BIG \| ButtonSize.SMALL \| ButtonSize.X_SMALL`        | `ControlSize.BIG`    |
+| `size`           | `size`            | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.              | `ControlSize.BIG \| ControlSize.SMALL \| ControlSize.X_SMALL`     | `ControlSize.BIG`    |
 | `status`         | `status`          | the input status (optional)                                                    | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
 
 
