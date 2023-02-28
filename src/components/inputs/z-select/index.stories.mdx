@@ -104,6 +104,18 @@ import "./index";
     resetItem: "",
     isfixed: false,
   }}
+  decorators={[
+    (Story) => html`
+      <style>
+        span,
+        p {
+          font-size: inherit;
+          letter-spacing: initial;
+        }
+      </style>
+      ${Story()}
+    `,
+  ]}
 />
 
 # ZSelect
