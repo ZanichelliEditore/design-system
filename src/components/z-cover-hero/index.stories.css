@@ -13,3 +13,7 @@
   width: 600px;
   max-width: 100%;
 }
+
+.z-cover-hero-story-container z-cover-hero .buttons {
+  margin-top: calc(var(--space-unit) * 2);
+}

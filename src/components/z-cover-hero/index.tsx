@@ -21,17 +21,25 @@ export class ZCoverHero {
   @Element() host: HTMLZCoverHeroElement;
 
   /**
-   * Cover hero variant.
-   * Can be `OVERLAY` or `STACKED`.
+   * Cover hero variant. Can be `OVERLAY` or `STACKED`.
    */
   @Prop({reflect: true})
   variant: CoverHeroVariant = CoverHeroVariant.OVERLAY;
 
   /**
-   * Cover hero content position (only for `STACKED` variant).
+   * Vertical content position (for `STACKED` variant).
    */
   @Prop({reflect: true})
   contentPosition: CoverHeroContentPosition = CoverHeroContentPosition.TOP;
+
+  /**
+   * Whether to keep the image aspect ratio.
+   * If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size;
+   * instead, the height of the component follows the content's one.
+   * Note: it may be necessary to set a min and/or max height to the component.
+   */
+  @Prop({reflect: true})
+  preserveAspectRatio = true;
 
   /**
    * Store the intrinsic aspect ratio of the slotted image when loaded,

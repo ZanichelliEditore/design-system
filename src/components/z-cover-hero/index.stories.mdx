@@ -19,6 +19,9 @@ import "./index.stories.css";
       control: {type: "inline-radio"},
       options: Object.values(CoverHeroContentPosition),
     },
+    "preserveAspectRatio": {
+      control: {type: "boolean"},
+    },
     "--cover-hero-text-color": {
       control: {type: "select"},
       options: getColorTokens(),
@@ -28,12 +31,15 @@ import "./index.stories.css";
       control: {type: "text"},
     },
     "--cover-hero-aspect-ratio": {
+      if: {arg: "preserveAspectRatio", eq: true},
       control: {type: "text"},
     },
   }}
   args={{
     "variant": CoverHeroVariant.OVERLAY,
     "contentPosition": CoverHeroContentPosition.TOP,
+    "preserveAspectRatio": true,
+    "--cover-hero-aspect-ratio": "",
     "--cover-hero-overlay": "linear-gradient(270deg, #0000 0%, #000000e6 100%)",
   }}
 />
@@ -41,15 +47,13 @@ import "./index.stories.css";
 # ZCoverHero
 
 <Canvas>
-  <Story
-    name="Custom aspect ratio"
-    args={{"--cover-hero-aspect-ratio": "16/8"}}
-  >
+  <Story name="Default">
     {(args) => html`
       <div class="z-cover-hero-story-container">
         <z-cover-hero
           .contentPosition=${args.contentPosition}
           .variant=${args.variant}
+          .preserveAspectRatio=${args.preserveAspectRatio}
           style=${styleMap({
             "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
             "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
@@ -68,7 +72,58 @@ import "./index.stories.css";
               ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur.
             </div>
-            <div style="margin-top: 16px;">
+            <div class="buttons">
+              <z-button variant="primary">Primary</z-button>
+              <z-button variant="secondary">Secondary</z-button>
+            </div>
+          </div>
+          <z-info-reveal
+            slot="info-reveal"
+            position="bottom_right"
+          >
+            <span>Lorem ipsum dolor sit amet.</span>
+          </z-info-reveal>
+        </z-cover-hero>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+### ZCoverHero with custom aspect ratio
+
+<Canvas>
+  <Story
+    name="Custom aspect ratio"
+    argTypes={{
+      variant: {control: false},
+      preserveAspectRatio: {control: false},
+    }}
+    args={{
+      "--cover-hero-aspect-ratio": "16/8",
+    }}
+  >
+    {(args) => html`
+      <div class="z-cover-hero-story-container">
+        <z-cover-hero
+          style=${styleMap({
+            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
+            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
+            "--cover-hero-aspect-ratio": `${args["--cover-hero-aspect-ratio"]}`,
+          })}
+        >
+          <img
+            slot="cover"
+            src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+          />
+          <div slot="content">
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex
+              ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </div>
+            <div class="buttons">
               <z-button variant="primary">Primary</z-button>
               <z-button variant="secondary">Secondary</z-button>
             </div>
@@ -90,13 +145,15 @@ import "./index.stories.css";
 <Canvas>
   <Story
     name="Auto aspect ratio"
+    argTypes={{
+      variant: {control: false},
+      preserveAspectRatio: {control: false},
+    }}
     args={{"--cover-hero-aspect-ratio": ""}}
   >
     {(args) => html`
       <div class="z-cover-hero-story-container z-cover-hero-auto-ratio">
         <z-cover-hero
-          variant=${args.variant}
-          .contentPosition=${args.contentPosition}
           style=${styleMap({
             "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
             "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
@@ -115,11 +172,102 @@ import "./index.stories.css";
               ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur.
             </div>
-            <div style="margin-top: 16px;">
+            <div class="buttons">
               <z-button variant="primary">Primary</z-button>
               <z-button variant="secondary">Secondary</z-button>
             </div>
           </div>
+        </z-cover-hero>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+### ZCoverHero without preserving aspect ratio
+
+<Canvas>
+  <Story
+    name="Without preserving aspect ratio"
+    argTypes={{
+      "variant": {control: false},
+      "preserveAspectRatio": {control: false},
+      "--cover-hero-aspect-ratio": {control: false},
+    }}
+    args={{
+      textContent:
+        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    }}
+  >
+    {(args) => html`
+      <div class="z-cover-hero-story-container">
+        <z-cover-hero
+          .preserveAspectRatio=${false}
+          style=${styleMap({
+            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
+            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
+          })}
+        >
+          <img
+            slot="cover"
+            src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+          />
+          <div slot="content">
+            <div>${args.textContent}</div>
+            <div class="buttons">
+              <z-button variant="primary">Primary</z-button>
+              <z-button variant="secondary">Secondary</z-button>
+            </div>
+          </div>
+        </z-cover-hero>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+### ZCoverHero stacked variant
+
+<Canvas>
+  <Story
+    name="Stacked variant"
+    argTypes={{
+      "variant": {control: false},
+      "preserveAspectRatio": {control: false},
+      "--cover-hero-aspect-ratio": {control: false},
+      "--cover-hero-text-color": {control: false},
+    }}
+    args={{variant: CoverHeroVariant.STACKED}}
+  >
+    {(args) => html`
+      <div class="z-cover-hero-story-container">
+        <z-cover-hero
+          .contentPosition=${args.contentPosition}
+          .preserveAspectRatio=${args.preserveAspectRatio}
+          .variant=${args.variant}
+        >
+          <img
+            slot="cover"
+            src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+          />
+          <div slot="content">
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex
+              ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </div>
+            <div class="buttons">
+              <z-button variant="primary">Primary</z-button>
+              <z-button variant="secondary">Secondary</z-button>
+            </div>
+          </div>
+          <z-info-reveal
+            slot="info-reveal"
+            position="bottom_right"
+          >
+            <span>Lorem ipsum dolor sit amet.</span>
+          </z-info-reveal>
         </z-cover-hero>
       </div>
     `}

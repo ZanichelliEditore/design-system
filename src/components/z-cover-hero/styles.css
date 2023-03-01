@@ -16,7 +16,6 @@
   position: relative;
   width: 100%;
   align-items: baseline;
-  background-color: var(--gray600);
 }
 
 :host .content-container {
@@ -28,6 +27,7 @@
   position: relative;
   width: 100%;
   padding-top: calc(100% / (var(--cover-hero-aspect-ratio, var(--image-aspect-ratio, 16/9))));
+  background-color: var(--gray600);
 }
 
 ::slotted([slot="cover"]) {
@@ -48,6 +48,19 @@
 }
 
 /* Variant overlay */
+:host([variant="overlay"]:not([preserve-aspect-ratio=""], [preserve-aspect-ratio="true"])) .main-container {
+  height: 100%;
+}
+
+:host([variant="overlay"]:not([preserve-aspect-ratio=""], [preserve-aspect-ratio="true"]))
+  .main-container
+  .cover-container {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  padding: 0;
+}
+
 :host([variant="overlay"]) .main-container .cover-container::after {
   position: absolute;
   top: 0;
@@ -58,11 +71,16 @@
   content: "";
 }
 
-:host([variant="overlay"]) .main-container .content-container {
+:host([variant="overlay"]:is([preserve-aspect-ratio=""], [preserve-aspect-ratio="true"]))
+  .main-container
+  .content-container {
   position: absolute;
+  inset: 0;
+}
+
+:host([variant="overlay"]) .main-container .content-container {
   height: 100%;
   padding: var(--grid-margin);
-  inset: 0;
 }
 
 /* Variant stacked */
