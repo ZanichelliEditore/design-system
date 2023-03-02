@@ -1,4 +1,4 @@
-import { ButtonVariant, ButtonType, ButtonSize } from "../../../beans";
+import { ButtonVariant, ButtonType, ButtonSize, ControlSize } from "../../../beans";
 /**
  * @slot - button label
  */
@@ -23,7 +23,7 @@ export declare class ZButton {
   /** `z-icon` name to use (optional). */
   icon?: string;
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-  size?: ButtonSize;
+  size?: ButtonSize | ControlSize;
   private getAttributes;
   render(): HTMLAnchorElement | HTMLButtonElement;
 }

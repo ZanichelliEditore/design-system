@@ -1922,10 +1922,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-anchor-navigation.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-app-switcher.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-app-switcher.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-aria-alert.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */

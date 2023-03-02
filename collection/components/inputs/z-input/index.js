@@ -642,7 +642,7 @@ export class ZInput {
         "mutable": false,
         "complexType": {
           "original": "ControlSize",
-          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
+          "resolved": "ControlSize.BIG | ControlSize.SMALL | ControlSize.X_SMALL",
           "references": {
             "ControlSize": {
               "location": "import",

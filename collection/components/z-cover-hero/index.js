@@ -7,22 +7,38 @@ import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
  * @slot cover - slot for the cover image.
  * @slot content - slot for the content.
  * @slot info-reveal - slot for the info reveal.
- * @cssprop --cover-hero-height - height of the cover hero. Default: `auto`.
- * @cssprop --cover-hero-min-height - min height of the cover hero content. Default: 240px.
- * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS background property).
+ * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
  * @cssprop --cover-hero-text-color - color of the text.
+ * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
  */
 export class ZCoverHero {
   constructor() {
     /**
-     * Cover hero variant.
-     * Can be one of "OVERLAY", "STACKED".
+     * Cover hero variant. Can be `OVERLAY` or `STACKED`.
      */
     this.variant = CoverHeroVariant.OVERLAY;
     /**
-     * Cover hero content position (only for STACKED variant).
+     * Vertical content position (for `STACKED` variant).
      */
     this.contentPosition = CoverHeroContentPosition.TOP;
+    /**
+     * Whether to keep the image aspect ratio.
+     * If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size;
+     * instead, the height of the component follows the content's one.
+     * Note: it may be necessary to set a min and/or max height to the component.
+     */
+    this.preserveAspectRatio = true;
+  }
+  /**
+   * Store the intrinsic aspect ratio of the slotted image when loaded,
+   * to have a default when `--cover-hero-aspect-ratio` is not set.
+   * @param target The event target
+   */
+  onImgLoad({ target }) {
+    if (target instanceof Image && target.closest("[slot=cover]")) {
+      const ratio = target.naturalWidth / target.naturalHeight;
+      this.host.style.setProperty("--image-aspect-ratio", ratio.toString());
+    }
   }
   /**
    * Template for the content.
@@ -33,7 +49,7 @@ export class ZCoverHero {
   render() {
     return (h(Host, null, this.variant === CoverHeroVariant.STACKED &&
       this.contentPosition === CoverHeroContentPosition.TOP &&
-      this.renderContent(), h("div", { class: "content-hero" }, h("div", { class: "cover" }, h("slot", { name: "cover" })), h("slot", { name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), this.variant === CoverHeroVariant.STACKED &&
+      this.renderContent(), h("div", { class: "main-container" }, h("div", { class: "cover-container" }, h("slot", { name: "cover" })), h("slot", { name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), this.variant === CoverHeroVariant.STACKED &&
       this.contentPosition === CoverHeroContentPosition.BOTTOM &&
       this.renderContent()));
   }
@@ -68,7 +84,7 @@ export class ZCoverHero {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "Cover hero variant.\nCan be one of \"OVERLAY\", \"STACKED\"."
+          "text": "Cover hero variant. Can be `OVERLAY` or `STACKED`."
         },
         "attribute": "variant",
         "reflect": true,
@@ -91,13 +107,40 @@ export class ZCoverHero {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "Cover hero content position (only for STACKED variant)."
+          "text": "Vertical content position (for `STACKED` variant)."
         },
         "attribute": "content-position",
         "reflect": true,
         "defaultValue": "CoverHeroContentPosition.TOP"
+      },
+      "preserveAspectRatio": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether to keep the image aspect ratio.\nIf set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size;\ninstead, the height of the component follows the content's one.\nNote: it may be necessary to set a min and/or max height to the component."
+        },
+        "attribute": "preserve-aspect-ratio",
+        "reflect": true,
+        "defaultValue": "true"
       }
     };
   }
-  static get elementRef() { return "el"; }
+  static get elementRef() { return "host"; }
+  static get listeners() {
+    return [{
+        "name": "load",
+        "method": "onImgLoad",
+        "target": undefined,
+        "capture": true,
+        "passive": false
+      }];
+  }
 }

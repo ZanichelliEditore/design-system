@@ -1900,10 +1900,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-anchor-navigation.entry.js').then(processMod, consoleError);
-        case 'z-app-switcher':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-app-switcher.entry.js').then(processMod, consoleError);
         case 'z-aria-alert':
           return import(
             /* webpackMode: "lazy" */

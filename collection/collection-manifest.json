@@ -31,7 +31,6 @@
     "./components/navigation/tabs/z-navigation-tabs/index.js",
     "./components/navigation/z-menu/index.js",
     "./components/navigation/z-app-header/index.js",
-    "./components/navigation/z-app-switcher/index.js",
     "./components/navigation/z-link/index.js",
     "./components/navigation/z-menu-section/index.js",
     "./components/notification/z-info-box/index.js",

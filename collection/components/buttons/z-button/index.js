@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ButtonVariant, ButtonType, ButtonSize } from "../../../beans";
+import { ButtonVariant, ButtonType, ControlSize } from "../../../beans";
 /**
  * @slot - button label
  */
@@ -14,7 +14,7 @@ export class ZButton {
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
     this.variant = ButtonVariant.PRIMARY;
     /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-    this.size = ButtonSize.BIG;
+    this.size = ControlSize.BIG;
   }
   getAttributes() {
     return {
@@ -216,10 +216,14 @@ export class ZButton {
         "type": "string",
         "mutable": false,
         "complexType": {
-          "original": "ButtonSize",
-          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL",
+          "original": "ButtonSize | ControlSize",
+          "resolved": "ButtonSize.BIG | ButtonSize.SMALL | ButtonSize.X_SMALL | ControlSize.BIG | ControlSize.SMALL | ControlSize.X_SMALL",
           "references": {
             "ButtonSize": {
+              "location": "import",
+              "path": "../../../beans"
+            },
+            "ControlSize": {
               "location": "import",
               "path": "../../../beans"
             }
@@ -233,7 +237,7 @@ export class ZButton {
         },
         "attribute": "size",
         "reflect": true,
-        "defaultValue": "ButtonSize.BIG"
+        "defaultValue": "ControlSize.BIG"
       }
     };
   }

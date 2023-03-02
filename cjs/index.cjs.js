@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-c80a4ef9.js');
-const index = require('./index-132f3901.js');
+const utils = require('./utils-305151da.js');
+const index = require('./index-7a9a8430.js');
 require('./breakpoints-88c4fd6c.js');
 
 const UTILS = {
@@ -61,7 +61,7 @@ Object.defineProperty(exports, 'CarouselProgressMode', {
 Object.defineProperty(exports, 'ControlSize', {
   enumerable: true,
   get: function () {
-    return index.ButtonSize;
+    return index.ControlSize;
   }
 });
 Object.defineProperty(exports, 'CoverHeroContentPosition', {

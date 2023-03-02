@@ -100,7 +100,11 @@ export declare enum ButtonSize {
   SMALL = "small",
   X_SMALL = "x-small"
 }
-export { ButtonSize as ControlSize };
+export declare enum ControlSize {
+  BIG = "big",
+  SMALL = "small",
+  X_SMALL = "x-small"
+}
 export declare enum InputType {
   TEXT = "text",
   PASSWORD = "password",
