@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/ZanichelliEditore/design-system/compare/v6.11.0...v7.0.0) (2023-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* handle custom and auto aspect ratio; remove height and min-height cssprops
+
+### Features
+
+* add a prop to choose whether to preserve or not the image aspect ratio ([af61da4](https://github.com/ZanichelliEditore/design-system/commit/af61da4c5dfa363b30761e19e8dae3e52d0589fb))
+* handle custom and auto aspect ratio; remove height and min-height cssprops ([8027297](https://github.com/ZanichelliEditore/design-system/commit/8027297555a56358805c1956fc8897064bb455f9))
+
+
+### Bug Fixes
+
+* args for component in stories ([a2b9389](https://github.com/ZanichelliEditore/design-system/commit/a2b93896130edbb872bc877ceaa8bd4064a39d3f))
+* prop doc typo ([dc3c386](https://github.com/ZanichelliEditore/design-system/commit/dc3c386262237cde2ac3c1eb3fc6f3dd6fd5fbbe))
+
 ## [6.11.0](https://github.com/ZanichelliEditore/design-system/compare/v6.10.2...v6.11.0) (2023-02-27)
 
 
