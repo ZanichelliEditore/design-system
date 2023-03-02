@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v7.0.0](#v700)
+  - [ZCoverHero](#zcoverhero)
+    - [Rimozione della prop CSS `--cover-hero-height`](#rimozione-della-prop-css---cover-hero-height)
+    - [Rimozione della prop CSS `--cover-hero-min-height`](#rimozione-della-prop-css---cover-hero-min-height)
 - [v6.0.0](#v600)
   - [Enum e Types](#enum-e-types)
   - [ZPanelElem](#zpanelelem)
@@ -39,6 +43,20 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v7.0.0
+
+### ZCoverHero
+
+Il componente è stato rifattorizzato per gestire l'aspect ratio dell'immagine slottata. Questa può essere configurata tramite la prop CSS `--cover-hero-aspect-ratio`. Di default la prop non ha nessun valore e se non viene impostata, il componente usa l'aspect ratio intrinseco dell'immagine.
+
+#### Rimozione della prop CSS `--cover-hero-height`
+
+Con l'introduzione della gestione dell'aspect ratio, questa prop è diventata inutile
+
+#### Rimozione della prop CSS `--cover-hero-min-height`
+
+Con l'introduzione della gestione dell'aspect ratio, questa prop è diventata inutile
 
 ## v6.0.0
 

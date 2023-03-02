@@ -314,11 +314,15 @@ export namespace Components {
     }
     interface ZCoverHero {
         /**
-          * Cover hero content position (only for STACKED variant).
+          * Vertical content position (for `STACKED` variant).
          */
         "contentPosition": CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
+          * Whether to keep the image aspect ratio. If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size; instead, the height of the component follows the content's one. Note: it may be necessary to set a min and/or max height to the component.
+         */
+        "preserveAspectRatio": boolean;
+        /**
+          * Cover hero variant. Can be `OVERLAY` or `STACKED`.
          */
         "variant": CoverHeroVariant;
     }
@@ -2833,11 +2837,15 @@ declare namespace LocalJSX {
     }
     interface ZCoverHero {
         /**
-          * Cover hero content position (only for STACKED variant).
+          * Vertical content position (for `STACKED` variant).
          */
         "contentPosition"?: CoverHeroContentPosition;
         /**
-          * Cover hero variant. Can be one of "OVERLAY", "STACKED".
+          * Whether to keep the image aspect ratio. If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size; instead, the height of the component follows the content's one. Note: it may be necessary to set a min and/or max height to the component.
+         */
+        "preserveAspectRatio"?: boolean;
+        /**
+          * Cover hero variant. Can be `OVERLAY` or `STACKED`.
          */
         "variant"?: CoverHeroVariant;
     }

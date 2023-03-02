@@ -17,13 +17,13 @@ export default create({
   fontCode: "'IBM Plex Mono', monospace",
 
   // Text colors
-  textColor: "black",
+  textColor: "#3D3D3D",
   textInverseColor: "#fff",
 
   // Toolbar default and active colors
   barTextColor: "#3D3D3D",
-  barSelectedColor: "#000",
-  barBg: "#e6e6e6",
+  barSelectedColor: "#0056c1",
+  barBg: "#fff",
 
   // Form colors
   inputBg: "#fff",
