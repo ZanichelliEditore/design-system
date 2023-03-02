@@ -44,12 +44,6 @@ export namespace Components {
          */
         "stuck": boolean;
     }
-    interface ZAppSwitcher {
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-    }
     interface ZAriaAlert {
         /**
           * Aria live mode
@@ -120,7 +114,7 @@ export namespace Components {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSize;
+        "size"?: ButtonSize | ControlSize;
         /**
           * HTML a target attribute.
          */
@@ -1730,10 +1724,6 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
-export interface ZAppSwitcherCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZAppSwitcherElement;
-}
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
@@ -1908,12 +1898,6 @@ declare global {
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
         new (): HTMLZAppHeaderElement;
-    };
-    interface HTMLZAppSwitcherElement extends Components.ZAppSwitcher, HTMLStencilElement {
-    }
-    var HTMLZAppSwitcherElement: {
-        prototype: HTMLZAppSwitcherElement;
-        new (): HTMLZAppSwitcherElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2429,7 +2413,6 @@ declare global {
         "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
-        "z-app-switcher": HTMLZAppSwitcherElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
@@ -2556,16 +2539,6 @@ declare namespace LocalJSX {
          */
         "stuck"?: boolean;
     }
-    interface ZAppSwitcher {
-        /**
-          * emitted on app button icon click, returns open/closed state
-         */
-        "onAppButtonClick"?: (event: ZAppSwitcherCustomEvent<any>) => void;
-        /**
-          * theme variant, default 'dark'
-         */
-        "theme"?: ThemeVariant;
-    }
     interface ZAriaAlert {
         /**
           * Aria live mode
@@ -2636,7 +2609,7 @@ declare namespace LocalJSX {
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
-        "size"?: ButtonSize;
+        "size"?: ButtonSize | ControlSize;
         /**
           * HTML a target attribute.
          */
@@ -4429,7 +4402,6 @@ declare namespace LocalJSX {
         "z-alert": ZAlert;
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
-        "z-app-switcher": ZAppSwitcher;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
@@ -4524,7 +4496,6 @@ declare module "@stencil/core" {
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
-            "z-app-switcher": LocalJSX.ZAppSwitcher & JSXBase.HTMLAttributes<HTMLZAppSwitcherElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;

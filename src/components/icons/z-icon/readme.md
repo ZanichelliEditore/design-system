@@ -35,7 +35,6 @@
 ### Used by
 
  - [z-app-header](../../navigation/z-app-header)
- - [z-app-switcher](../../navigation/z-app-switcher)
  - [z-button](../../buttons/z-button)
  - [z-button-sort](../../buttons/z-button-sort)
  - [z-card](../../z-card)
@@ -77,7 +76,6 @@
 ```mermaid
 graph TD;
   z-app-header --> z-icon
-  z-app-switcher --> z-icon
   z-button --> z-icon
   z-button-sort --> z-icon
   z-card --> z-icon
