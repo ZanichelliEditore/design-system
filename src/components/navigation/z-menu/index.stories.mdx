@@ -1,21 +1,28 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Navigation/ZMenu"
   component="z-menu"
+  argTypes={{
+    active: {type: "boolean"},
+    floating: {type: "boolean"},
+  }}
+  args={{
+    active: false,
+    floating: true,
+  }}
 />
 
 # ZMenu
 
-<Preview>
+<Canvas>
   <Story name="ZMenu - floating content layout">
-    {html`
+    {(args) => html`
       <z-menu
-        .active=${boolean("active", false)}
-        .floating=${boolean("floating", true)}
+        .active=${args.active}
+        .floating=${args.floating}
       >
         <h3>Menu label</h3>
         <a
@@ -63,10 +70,10 @@ import "./index";
     `}
   </Story>
   <Story name="ZMenu with header">
-    {html`
+    {(args) => html`
       <z-menu
-        .floating=${boolean("floating", true)}
-        .active=${boolean("active", false)}
+        .active=${args.active}
+        .floating=${args.floating}
       >
         <img
           slot="header"
@@ -105,9 +112,12 @@ import "./index";
       </z-menu>
     `}
   </Story>
-  <Story name="ZMenu active without items">
-    {html`
-      <z-menu .active=${boolean("active", true)}>
+  <Story
+    name="ZMenu active without items"
+    args={{active: true}}
+  >
+    {(args) => html`
+      <z-menu .active=${args.active}>
         <a
           href="https://cataas.com/cat/gif"
           target="_blank"
@@ -116,6 +126,6 @@ import "./index";
       </z-menu>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-menu" />
+<ArgsTable of="z-menu" />

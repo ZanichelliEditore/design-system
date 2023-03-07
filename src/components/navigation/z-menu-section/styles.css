@@ -23,10 +23,13 @@
   font-weight: var(--font-rg);
 }
 
-:host([active]) .label,
-:host([open]) .label,
+:host(:is([active], [open])) .label,
 .label:hover {
   border-color: var(--color-secondary01);
+}
+
+:is(:host(:is([active], [open])) .label, .label:hover) ::slotted(*) {
+  font-weight: var(--font-bd);
 }
 
 .label {
@@ -88,4 +91,5 @@
 
 .items > ::slotted([slot="item"]:hover) {
   color: var(--color-secondary01);
+  font-weight: var(--font-bd);
 }

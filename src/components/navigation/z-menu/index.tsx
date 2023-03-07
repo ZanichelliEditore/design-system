@@ -20,15 +20,11 @@ export class ZMenu {
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
    * stacked beneath it otherwise.
-   * @default false
    */
   @Prop({reflect: true})
   floating? = false;
 
-  /**
-   * The opening state of the menu.
-   * @default false
-   */
+  /** The opening state of the menu. */
   @Prop({mutable: true, reflect: true})
   open = false;
 
@@ -42,6 +38,7 @@ export class ZMenu {
 
   private content: HTMLElement;
 
+  /** Animation frame request id. */
   private raf: number;
 
   /** The menu has been opened. */
@@ -61,8 +58,8 @@ export class ZMenu {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  @Listen("click", {target: "document"})
   /** Close the floating list when a click is performed outside of this Element. */
+  @Listen("click", {target: "document"})
   handleClick(ev: MouseEvent): void {
     if (!this.floating || !this.open || this.hostElement.contains(ev.target as Element)) {
       return;
@@ -85,11 +82,17 @@ export class ZMenu {
   constructor() {
     this.toggle = this.toggle.bind(this);
     this.checkContent = this.checkContent.bind(this);
+    this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
   }
 
   componentWillLoad(): void {
     this.checkContent();
+  }
+
+  protected onLabelSlotChange(ev: Event): void {
+    const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
+    labelElement.dataset.text = labelElement?.innerText || null;
   }
 
   /**
@@ -114,17 +117,21 @@ export class ZMenu {
    * Check if some content slot is set.
    */
   private checkContent(): void {
-    this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
+    this.hasHeader = !!this.hostElement.querySelectorAll("[slot=header]").length;
+    this.hasContent = !!this.hostElement.querySelectorAll("[slot=item]").length || this.hasHeader;
   }
 
   /**
    * Set `menuitem` role to all menu items.
+   * Set the item's inner text to the `data-text` attribute (this is for using bold text avoiding layout shifts).
    */
   private onItemsChange(): void {
     this.checkContent();
-    const items = this.hostElement.querySelectorAll('[slot="item"]');
-    items?.forEach((item) => item.setAttribute("role", "menuitem"));
+    const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
+    items.forEach((item) => {
+      item.setAttribute("role", "menuitem");
+      item.dataset.text = item.innerText;
+    });
   }
 
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
@@ -137,7 +144,7 @@ export class ZMenu {
           onClick={this.toggle}
         >
           <div class="menu-label-content">
-            <slot></slot>
+            <slot onSlotchange={this.onLabelSlotChange}></slot>
             <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
           </div>
         </button>
@@ -147,7 +154,7 @@ export class ZMenu {
     return (
       <div class="menu-label">
         <div class="menu-label-content">
-          <slot></slot>
+          <slot onSlotchange={this.onLabelSlotChange}></slot>
         </div>
       </div>
     );
@@ -157,31 +164,32 @@ export class ZMenu {
     return (
       <Host>
         {this.renderMenuLabel()}
-        <div
-          class="content"
-          ref={(el) => {
-            this.content = el;
-          }}
-          hidden={!this.open}
-        >
-          {this.hasHeader && (
-            <header class="header">
-              <slot
-                name="header"
-                onSlotchange={this.checkContent}
-              ></slot>
-            </header>
-          )}
+
+        {this.hasContent && (
           <div
-            class="items"
-            role="menu"
+            class="content"
+            ref={(el) => (this.content = el)}
           >
-            <slot
-              name="item"
-              onSlotchange={this.onItemsChange}
-            ></slot>
+            {this.hasHeader && (
+              <header class="header">
+                <slot
+                  name="header"
+                  onSlotchange={this.checkContent}
+                ></slot>
+              </header>
+            )}
+
+            <div
+              class="items"
+              role="menu"
+            >
+              <slot
+                name="item"
+                onSlotchange={this.onItemsChange}
+              ></slot>
+            </div>
           </div>
-        </div>
+        )}
       </Host>
     );
   }

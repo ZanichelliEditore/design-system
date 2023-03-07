@@ -11,11 +11,11 @@
 }
 
 ::slotted(a) {
-  color: var(--color-text01);
   text-decoration: none;
 }
 
 ::slotted(*) {
+  color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -45,38 +45,83 @@ button.menu-label {
 }
 
 .menu-label .menu-label-content {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: var(--space-unit) 0;
-  border-bottom: var(--border-size-large) solid var(--color-surface05);
 }
 
-:host([active]) .menu-label-content,
-:host([open]) .menu-label-content,
-.menu-label:hover .menu-label-content,
-.menu-label:focus-within .menu-label-content {
-  border-color: var(--color-secondary01);
+::slotted([data-text]) {
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.menu-label ::slotted(*) {
+/* Trick to prevent layout shifts on font-weight changes.
+The trick is to put an hidden copy of the text already set to bold,
+so the needed space is correctly calculated before any hover/active state changes the
+font-weight of the real text.
+The hidden text has an height of 0px so it can expand the width without changing the height
+when placed below the real text using `flex-direction: column`. */
+::slotted([data-text])::after {
+  overflow: hidden;
+  height: 0;
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  font-weight: var(--font-bd);
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+}
+
+@media speech {
+  ::slotted([data-text])::after {
+    display: none;
+  }
+}
+
+.menu-label .menu-label-content ::slotted(*) {
+  display: inline-flex;
   width: 100%;
   margin: 0;
   appearance: none;
   font-size: var(--font-size-5);
+  font-weight: inherit;
   line-height: 1.2;
   outline: none;
 }
 
-.menu-label z-icon {
-  margin-left: calc(var(--space-unit) * 4);
+.menu-label .menu-label-content ::slotted(*),
+.menu-label .menu-label-content z-icon {
+  padding: var(--space-unit) 0;
+}
+
+.menu-label .menu-label-content z-icon {
+  padding-left: calc(var(--space-unit) * 1.5);
   fill: currentcolor;
+}
+
+:host(:is([active], [open])) .menu-label-content,
+.menu-label .menu-label-content:hover,
+.menu-label:focus-within .menu-label-content {
+  font-weight: var(--font-bd);
+}
+
+:host(:is([active], [open])) .menu-label-content::after,
+.menu-label .menu-label-content:hover::after,
+.menu-label:focus-within .menu-label-content::after {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: var(--border-size-large);
+  background-color: var(--color-secondary01);
+  content: "";
+  pointer-events: none;
 }
 
 .content {
   background: var(--color-surface01);
 }
 
-.content[hidden] {
+:host(:not([open])) .content {
   display: none;
 }
 
@@ -123,7 +168,6 @@ button.menu-label {
 }
 
 .items > ::slotted([slot="item"]) {
-  display: inline-flex;
   width: 100%;
   margin: 0;
   font-size: var(--font-size-3);
@@ -143,4 +187,5 @@ button.menu-label {
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:active) {
   border-color: var(--color-secondary01);
+  font-weight: var(--font-bd);
 }
