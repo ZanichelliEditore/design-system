@@ -31,6 +31,14 @@
   }
 }
 
+:host([open]) {
+  display: flex;
+}
+
+:host(:not([open])) {
+  display: none;
+}
+
 :host([open]) > .canvas-container {
   animation-duration: 0.4s;
   animation-name: enter-right;

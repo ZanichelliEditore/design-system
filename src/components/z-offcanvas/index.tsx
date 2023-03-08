@@ -32,27 +32,15 @@ export class ZOffcanvas {
   @Event()
   canvasOpenStatusChanged: EventEmitter;
 
-  componentWillLoad(): void {
-    this.handleOpenStatus();
-  }
-
   @Watch("open")
   onOpenChanged(): void {
-    this.handleOpenStatus();
+    this.handleOverflowProperty();
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
-  private handleOpenStatus(): void {
-    if (this.open) {
-      this.hostElement.style.opacity = "0";
-      this.hostElement.style.display = "flex";
-      if (this.variant === OffCanvasVariant.OVERLAY) {
-        document.body.style.overflowY = "hidden";
-      }
-    } else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "hidden";
-    }
+  private handleOverflowProperty(): void {
+    const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
+    document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
   private handleAnimationEnd(): void {
