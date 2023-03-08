@@ -50,12 +50,36 @@ button.menu-label {
   align-items: center;
 }
 
-::slotted([data-text]) {
-  display: inline-flex;
-  flex-direction: column;
+:host(:is([active], [open])) .menu-label-content,
+.menu-label .menu-label-content:hover,
+.menu-label:focus-within .menu-label-content {
+  font-weight: var(--font-bd);
 }
 
-/* Trick to prevent layout shifts on font-weight changes.
+:host(:is([active], [open], [vertical-context])) .menu-label .menu-label-content::after,
+.menu-label .menu-label-content:hover::after,
+.menu-label:focus-within .menu-label-content::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  content: "";
+  pointer-events: none;
+}
+
+:host([vertical-context]) .menu-label-content::after {
+  height: var(--border-size-small);
+  background-color: var(--color-surface03);
+}
+
+:host(:is([active], [open])) .menu-label .menu-label-content::after,
+.menu-label .menu-label-content:hover::after,
+.menu-label:focus-within .menu-label-content::after {
+  height: var(--border-size-large);
+  background-color: var(--color-secondary01);
+}
+
+/* Prevents layout shifts on font-weight changes.
 The trick is to put an hidden copy of the text already set to bold,
 so the needed space is correctly calculated before any hover/active state changes the
 font-weight of the real text.
@@ -78,6 +102,11 @@ when placed below the real text using `flex-direction: column`. */
   }
 }
 
+::slotted([data-text]) {
+  display: inline-flex;
+  flex-direction: column;
+}
+
 .menu-label .menu-label-content ::slotted(*) {
   display: inline-flex;
   width: 100%;
@@ -95,26 +124,8 @@ when placed below the real text using `flex-direction: column`. */
 }
 
 .menu-label .menu-label-content z-icon {
-  padding-left: calc(var(--space-unit) * 1.5);
-  fill: currentcolor;
-}
-
-:host(:is([active], [open])) .menu-label-content,
-.menu-label .menu-label-content:hover,
-.menu-label:focus-within .menu-label-content {
-  font-weight: var(--font-bd);
-}
-
-:host(:is([active], [open])) .menu-label-content::after,
-.menu-label .menu-label-content:hover::after,
-.menu-label:focus-within .menu-label-content::after {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: var(--border-size-large);
-  background-color: var(--color-secondary01);
-  content: "";
-  pointer-events: none;
+  margin-left: calc(var(--space-unit) * 1.5);
+  fill: var(--color-icon02);
 }
 
 .content {

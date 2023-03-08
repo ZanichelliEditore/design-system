@@ -12,6 +12,8 @@ import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, 
   shadow: true,
 })
 export class ZMenu {
+  @Element() hostElement: HTMLZMenuElement;
+
   /** Flag to set the active status of the menu. */
   @Prop({reflect: true})
   active?: boolean;
@@ -28,13 +30,18 @@ export class ZMenu {
   @Prop({mutable: true, reflect: true})
   open = false;
 
+  /**
+   * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas).
+   * A small border is placed under it as a separator from other elements.
+   */
+  @Prop({reflect: true})
+  verticalContext = false;
+
   @State()
   hasHeader: boolean;
 
   @State()
   hasContent: boolean;
-
-  @Element() hostElement: HTMLZMenuElement;
 
   private content: HTMLElement;
 
@@ -90,7 +97,11 @@ export class ZMenu {
     this.checkContent();
   }
 
-  protected onLabelSlotChange(ev: Event): void {
+  /**
+   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+   * @param ev Slotchange event
+   */
+  private onLabelSlotChange(ev: Event): void {
     const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
     labelElement.dataset.text = labelElement?.innerText || null;
   }

@@ -8,10 +8,12 @@ import "./index";
   argTypes={{
     active: {type: "boolean"},
     floating: {type: "boolean"},
+    verticalContext: {type: "boolean"},
   }}
   args={{
     active: false,
     floating: true,
+    verticalContext: false,
   }}
 />
 
@@ -23,6 +25,7 @@ import "./index";
       <z-menu
         .active=${args.active}
         .floating=${args.floating}
+        .verticalContext=${args.verticalContext}
       >
         <h3>Menu label</h3>
         <a
@@ -69,11 +72,15 @@ import "./index";
       </z-menu>
     `}
   </Story>
+</Canvas>
+
+<Canvas>
   <Story name="ZMenu with header">
     {(args) => html`
       <z-menu
         .active=${args.active}
         .floating=${args.floating}
+        .verticalContext=${args.verticalContext}
       >
         <img
           slot="header"
@@ -112,12 +119,21 @@ import "./index";
       </z-menu>
     `}
   </Story>
+</Canvas>
+
+<Canvas>
   <Story
     name="ZMenu active without items"
+    argTypes={{
+      floating: {control: false},
+    }}
     args={{active: true}}
   >
     {(args) => html`
-      <z-menu .active=${args.active}>
+      <z-menu
+        .active=${args.active}
+        .verticalContext=${args.verticalContext}
+      >
         <a
           href="https://cataas.com/cat/gif"
           target="_blank"
