@@ -12,7 +12,7 @@ describe("Suite test ZOffcanvas", () => {
     });
 
     expect(page.root).toEqualHtml(`
-			<z-offcanvas open="" transitiondirection="left" variant="pushcontent" style="opacity: 0; display: flex;">
+			<z-offcanvas open="" transitiondirection="left" variant="pushcontent">
 
 				<div class="canvas-container">
 					<div class="canvas-content">
