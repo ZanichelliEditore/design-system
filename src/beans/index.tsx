@@ -435,3 +435,13 @@ export type SearchbarGroup = {
   category?: string;
   subcategory?: string;
 };
+
+export type BreadcrumbPath = {
+  name: string;
+  path: string;
+};
+
+export enum BreadcrumbPathType {
+  SEMIBOLD = "semibold",
+  UNDERLINED = "underlined",
+}

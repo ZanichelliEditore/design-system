@@ -31,5 +31,28 @@
         <h1 slot="title">Albe test app</h1>
       </z-app-header>
     </header>
+    <z-breadcrumb
+      paths='[{"name": "Primo path", "path": "/path1"}, {"name": "Secondo path", "path": "/path2"}]'
+      wrapper="span"
+      type="semibold"
+    ></z-breadcrumb>
+
+    <z-breadcrumb
+      paths='[{"name": "Primo path", "path": "/path1"}, {"name": "Secondo path", "path": "/path2"}]'
+      wrapper="span"
+      type="underlined"
+    ></z-breadcrumb>
+
+    <z-breadcrumb type="semibold">
+      <div slot="breadcrumb-content">
+        <div><z-link href="/path1"> Prova</z-link></div>
+      </div>
+    </z-breadcrumb>
+
+    <z-breadcrumb type="underlined">
+      <div slot="breadcrumb-content">
+        <div><z-link href="/path1"> Prova</z-link></div>
+      </div>
+    </z-breadcrumb>
   </body>
 </html>

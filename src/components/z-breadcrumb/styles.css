@@ -1,0 +1,28 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+:host > z-link {
+  --font-size-link: var(--font-size-2);
+}
+
+:host([type="semibold"]) > z-link {
+  --font-weight-link: var(--font-sb);
+}
+
+::slotted([slot="breadcrumb-content"]) {
+  --font-size-link: var(--font-size-2);
+
+  font-size: 14px;
+}
+
+:host([type="semibold"]) ::slotted([slot="breadcrumb-content"]) {
+  --font-weight-link: var(--font-sb);
+
+  font-weight: bold;
+}
+
+:host(:not([type="semibold"])) ::slotted([slot="breadcrumb-content"]) {
+  text-decoration: underline;
+}
