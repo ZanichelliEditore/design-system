@@ -67,11 +67,11 @@ export class ZSearchbar {
   showSearchButton?: boolean = false;
 
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-  @Prop({reflect: true})
+  @Prop()
   size?: ControlSize = ControlSize.BIG;
 
   /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
-  @Prop({reflect: true})
+  @Prop()
   variant?: ButtonVariant = ButtonVariant.PRIMARY;
 
   @State()
