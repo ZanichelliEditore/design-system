@@ -1339,6 +1339,10 @@ export namespace Components {
          */
         "showSearchButton"?: boolean;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
@@ -1346,6 +1350,10 @@ export namespace Components {
           * Input search string
          */
         "value"?: string;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariant;
     }
     interface ZSectionTitle {
         /**
@@ -3998,6 +4006,10 @@ declare namespace LocalJSX {
          */
         "showSearchButton"?: boolean;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
@@ -4005,6 +4017,10 @@ declare namespace LocalJSX {
           * Input search string
          */
         "value"?: string;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariant;
     }
     interface ZSectionTitle {
         /**

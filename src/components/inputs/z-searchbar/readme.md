@@ -7,20 +7,22 @@
 
 ## Properties
 
-| Property               | Attribute                | Description                                           | Type                        | Default                     |
-| ---------------------- | ------------------------ | ----------------------------------------------------- | --------------------------- | --------------------------- |
-| `autocomplete`         | `autocomplete`           | Show autocomplete results                             | `boolean`                   | `false`                     |
-| `autocompleteMinChars` | `autocomplete-min-chars` | Minimun number of characters to dispatch typing event | `number`                    | `3`                         |
-| `htmlid`               | `htmlid`                 | the id of the searchbar element                       | `string`                    | ``searchbar-${randomId()}`` |
-| `placeholder`          | `placeholder`            | Search input placeholder                              | `string`                    | `undefined`                 |
-| `preventSubmit`        | `prevent-submit`         | Prevent submit action                                 | `boolean`                   | `false`                     |
-| `resultsCount`         | `results-count`          | Number of results shown - default all                 | `number`                    | `undefined`                 |
-| `resultsEllipsis`      | `results-ellipsis`       | Truncate results to single row                        | `boolean`                   | `true`                      |
-| `resultsItems`         | `results-items`          | Autocomplete results items                            | `SearchbarItem[] \| string` | `undefined`                 |
-| `searchHelperLabel`    | `search-helper-label`    | Search helper text                                    | `string`                    | `"Cerca {searchString}"`    |
-| `showSearchButton`     | `show-search-button`     | Show submit button                                    | `boolean`                   | `false`                     |
-| `sortResultsItems`     | `sort-results-items`     | Sort autocomplete results items                       | `boolean`                   | `false`                     |
-| `value`                | `value`                  | Input search string                                   | `string`                    | `undefined`                 |
+| Property               | Attribute                | Description                                                                   | Type                                                                                                  | Default                     |
+| ---------------------- | ------------------------ | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------- |
+| `autocomplete`         | `autocomplete`           | Show autocomplete results                                                     | `boolean`                                                                                             | `false`                     |
+| `autocompleteMinChars` | `autocomplete-min-chars` | Minimun number of characters to dispatch typing event                         | `number`                                                                                              | `3`                         |
+| `htmlid`               | `htmlid`                 | the id of the searchbar element                                               | `string`                                                                                              | ``searchbar-${randomId()}`` |
+| `placeholder`          | `placeholder`            | Search input placeholder                                                      | `string`                                                                                              | `undefined`                 |
+| `preventSubmit`        | `prevent-submit`         | Prevent submit action                                                         | `boolean`                                                                                             | `false`                     |
+| `resultsCount`         | `results-count`          | Number of results shown - default all                                         | `number`                                                                                              | `undefined`                 |
+| `resultsEllipsis`      | `results-ellipsis`       | Truncate results to single row                                                | `boolean`                                                                                             | `true`                      |
+| `resultsItems`         | `results-items`          | Autocomplete results items                                                    | `SearchbarItem[] \| string`                                                                           | `undefined`                 |
+| `searchHelperLabel`    | `search-helper-label`    | Search helper text                                                            | `string`                                                                                              | `"Cerca {searchString}"`    |
+| `showSearchButton`     | `show-search-button`     | Show submit button                                                            | `boolean`                                                                                             | `false`                     |
+| `size`                 | `size`                   | Available sizes: `big`, `small` and `x-small`. Defaults to `big`.             | `ControlSize.BIG \| ControlSize.SMALL \| ControlSize.X_SMALL`                                         | `ControlSize.BIG`           |
+| `sortResultsItems`     | `sort-results-items`     | Sort autocomplete results items                                               | `boolean`                                                                                             | `false`                     |
+| `value`                | `value`                  | Input search string                                                           | `string`                                                                                              | `undefined`                 |
+| `variant`              | `variant`                | Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. | `ButtonVariant.DARK_BG \| ButtonVariant.PRIMARY \| ButtonVariant.SECONDARY \| ButtonVariant.TERTIARY` | `ButtonVariant.PRIMARY`     |
 
 
 ## Events
