@@ -43,39 +43,29 @@ export class ZOffcanvas {
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
-  private handleAnimationEnd(): void {
-    if (this.hostElement.hasAttribute("open")) {
-      (this.hostElement.querySelector(`.canvas-content`) as HTMLElement).focus();
-    } else if (this.variant === OffCanvasVariant.OVERLAY) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "initial";
-      document.body.style.overflowY = "initial";
-    }
-  }
-
-  private handleAnimationStart(): void {
-    if (this.hostElement.hasAttribute("open")) {
-      this.hostElement.style.opacity = "1";
-    }
-  }
-
   render(): HTMLZOffcanvasElement {
     return (
-      <Host>
+      <Host transitiondirection={this.transitiondirection}>
         <div
-          class="canvas-container"
-          onAnimationEnd={() => this.handleAnimationEnd()}
-          onAnimationStart={() => this.handleAnimationStart()}
+          role="presentation"
+          class={{
+            "canvas-container": true,
+          }}
         >
-          <div class="canvas-content">
+          <div
+            role="presentation"
+            class="canvas-content"
+          >
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        <div
-          class="canvas-background"
-          data-action="canvasBackground"
-          onClick={() => (this.open = false)}
-        ></div>
+        {this.variant == OffCanvasVariant.OVERLAY && (
+          <div
+            class="canvas-background"
+            data-action="canvasBackground"
+            onClick={() => (this.open = false)}
+          ></div>
+        )}
       </Host>
     );
   }
