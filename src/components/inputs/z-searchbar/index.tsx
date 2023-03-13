@@ -70,6 +70,10 @@ export class ZSearchbar {
   @Prop({reflect: true})
   size?: ControlSize = ControlSize.BIG;
 
+  /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+  @Prop({reflect: true})
+  variant?: ButtonVariant = ButtonVariant.PRIMARY;
+
   @State()
   searchString = "";
 
@@ -256,7 +260,7 @@ export class ZSearchbar {
     return (
       <z-button
         disabled={this.preventSubmit}
-        variant={ButtonVariant.PRIMARY}
+        variant={this.variant}
         size={this.size}
         onClick={() => this.handleSubmit()}
       >
