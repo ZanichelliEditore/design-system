@@ -2,7 +2,7 @@ import {newSpecPage} from "@stencil/core/testing";
 
 import {ZOffcanvas} from "./index";
 
-describe("Suite test ZOffcanvas", () => {
+describe("Suite test ZOffcanvas push content", () => {
   it("Test render ZOffcanvas", async () => {
     const page = await newSpecPage({
       components: [ZOffcanvas],
@@ -14,12 +14,11 @@ describe("Suite test ZOffcanvas", () => {
     expect(page.root).toEqualHtml(`
 			<z-offcanvas open="" transitiondirection="left" variant="pushcontent">
 
-				<div class="canvas-container">
-					<div class="canvas-content">
+				<div class="canvas-container" role="presentation">
+					<div class="canvas-content" role="presentation">
 						<div slot="canvasContent"></div>
 					</div>
 					</div>
-				<div class="canvas-background" data-action="canvasBackground"></div>
       </z-offcanvas>
     `);
   });
