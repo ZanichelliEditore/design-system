@@ -438,7 +438,7 @@ export type SearchbarGroup = {
 
 export type BreadcrumbPath = {
   name: string;
-  path: string;
+  path?: string;
 };
 
 export enum BreadcrumbPathType {

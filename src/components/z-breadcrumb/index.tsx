@@ -47,20 +47,27 @@ export class ZBreadcrumb {
       return <slot name="breadcrumb-content" />;
     }
 
-    const lastPath = this.pathsList[this.pathsList.length - 1];
+    const filteredPath = this.pathsList.filter((item) => !!item.path);
+    const lastPath = filteredPath[filteredPath.length - 1];
 
     return (
-      <z-link
-        href={lastPath.path}
-        textcolor="primary"
-        iconposition="left"
-        htmlid="1"
-        htmltabindex={1}
-        underline={this.type === BreadcrumbPathType.UNDERLINED}
-        icon="chevron-left"
-      >
-        <span>{lastPath.name}</span>
-      </z-link>
+      <nav>
+        <ol>
+          <li>
+            <z-link
+              href={lastPath.path}
+              textcolor="primary"
+              iconposition="left"
+              htmlid="1"
+              htmltabindex={1}
+              underline={this.type === BreadcrumbPathType.UNDERLINED}
+              icon="chevron-left"
+            >
+              <span>{lastPath.name}</span>
+            </z-link>
+          </li>
+        </ol>
+      </nav>
     );
   }
 

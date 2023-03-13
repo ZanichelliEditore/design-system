@@ -3,11 +3,17 @@
   font-weight: var(--font-rg);
 }
 
-:host > z-link {
+ol {
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+:host z-link {
   --font-size-link: var(--font-size-2);
 }
 
-:host([type="semibold"]) > z-link {
+:host([type="semibold"]) z-link {
   --font-weight-link: var(--font-sb);
 }
 
