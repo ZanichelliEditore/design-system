@@ -1,5 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {ControlSize} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -47,6 +48,10 @@ import "./index";
     "--z-searchbar-results-height": {
       control: {type: "text"},
     },
+    "size": {
+      control: {type: "inline-radio"},
+      options: Object.values(ControlSize),
+    },
   }}
   args={{
     "preventSubmit": false,
@@ -62,6 +67,7 @@ import "./index";
     "placeholder": "my placeholder",
     "value": "",
     "--z-searchbar-results-height": "",
+    "size": ControlSize.BIG,
   }}
 />
 
@@ -85,6 +91,7 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
         ></z-searchbar>
       `
     }
@@ -98,7 +105,7 @@ import "./index";
     name="z-searchbar - simple search"
     parameters={{
       controls: {
-        include: ["value", "placeholder", "htmlid"],
+        include: ["value", "placeholder", "htmlid", "size"],
       },
     }}
     args={{
@@ -113,6 +120,7 @@ import "./index";
           value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
+          size=${args.size}
         ></z-searchbar>
       `
     }
@@ -144,6 +152,7 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
         ></z-searchbar>
       `
     }
@@ -213,6 +222,7 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
         ></z-searchbar>
       `
     }

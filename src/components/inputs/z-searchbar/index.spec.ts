@@ -9,11 +9,11 @@ describe("Suite test ZSearchbar", () => {
       html: `<z-searchbar htmlid="my-id" show-search-button="true"></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-searchbar htmlid="my-id" show-search-button="true">
+      <z-searchbar htmlid="my-id" show-search-button="true" size="big">
         <mock:shadow-root>
           <div class="has-submit">
-            <z-input></z-input>
-            <z-button variant="primary">CERCA</z-button>
+            <z-input size="big"></z-input>
+            <z-button size="big" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -26,10 +26,10 @@ describe("Suite test ZSearchbar", () => {
       html: `<z-searchbar htmlid="my-id" autocomplete="true" prevent-submit="true"></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-searchbar htmlid="my-id" autocomplete="true" prevent-submit="true">
+      <z-searchbar htmlid="my-id" autocomplete="true" prevent-submit="true" size="big">
         <mock:shadow-root>
           <div class="has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -52,11 +52,12 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         show-search-button="true"
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
-            <z-input></z-input>
-            <z-button variant="primary">CERCA</z-button>
+            <z-input size="big"></z-input>
+            <z-button size="big" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -82,10 +83,11 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         show-search-button="true"
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -94,7 +96,7 @@ describe("Suite test ZSearchbar", () => {
                 </z-list>
               </div>
             </div>
-            <z-button variant="primary">CERCA</z-button>
+            <z-button size="big" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -122,10 +124,11 @@ describe("Suite test ZSearchbar", () => {
         results-items='${JSON.stringify(getItems())}'
         results-count="1"
         show-search-button="true"
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -148,7 +151,7 @@ describe("Suite test ZSearchbar", () => {
                 </z-list>
               </div>
             </div>
-            <z-button variant="primary">CERCA</z-button>
+            <z-button size="big" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -175,10 +178,11 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         show-search-button="true"
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -187,7 +191,7 @@ describe("Suite test ZSearchbar", () => {
                 </z-list>
               </div>
             </div>
-            <z-button variant="primary">CERCA</z-button>
+            <z-button size="big" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -214,10 +218,11 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         prevent-submit="true"
         results-items='[]'
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <span class="item item-no-results">
@@ -258,10 +263,11 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='[]'
         show-search-button="true"
+        size="big"
       >
         <mock:shadow-root>
           <div class="has-submit has-results">
-            <z-input></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -269,7 +275,41 @@ describe("Suite test ZSearchbar", () => {
                 </z-list>
               </div>
             </div>
-            <z-button variant="primary">CERCA</z-button>
+            <z-button size="big" variant="primary">CERCA</z-button>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
+
+  it("Simple searchbar small", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar htmlid="my-id" show-search-button="true" size="small"></z-searchbar>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-searchbar htmlid="my-id" show-search-button="true" size="small">
+        <mock:shadow-root>
+          <div class="has-submit">
+            <z-input size="small"></z-input>
+            <z-button size="small" variant="primary">CERCA</z-button>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
+
+  it("Simple searchbar x-small", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar htmlid="my-id" show-search-button="true" size="x-small"></z-searchbar>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-searchbar htmlid="my-id" show-search-button="true" size="x-small">
+        <mock:shadow-root>
+          <div class="has-submit">
+            <z-input size="x-small"></z-input>
+            <z-button size="x-small" variant="primary">CERCA</z-button>
           </div>
         </mock:shadow-root>
       </z-searchbar>
