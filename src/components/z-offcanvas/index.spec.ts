@@ -27,7 +27,7 @@ describe("Suite test ZOffcanvas variant overlay", () => {
   it("Test render ZOffcanvas", async () => {
     const page = await newSpecPage({
       components: [ZOffcanvas],
-      html: `<z-offcanvas open variant="overlay">
+      html: `<z-offcanvas open skipanimationonload="false" variant="overlay">
               <div slot="canvasContent"></div>
             </z-offcanvas>`,
     });
@@ -49,7 +49,7 @@ describe("Suite test ZOffcanvas variant pushcontent with skipanimationonload", (
   it("Test render ZOffcanvas", async () => {
     const page = await newSpecPage({
       components: [ZOffcanvas],
-      html: `<z-offcanvas open skipanimationonload>
+      html: `<z-offcanvas open skipanimationonload="true">
               <div slot="canvasContent"></div>
             </z-offcanvas>`,
     });
