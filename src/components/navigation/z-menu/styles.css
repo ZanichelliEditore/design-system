@@ -18,6 +18,7 @@
   color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  letter-spacing: 0.02em;
 }
 
 .menu-label {
@@ -56,6 +57,13 @@ button.menu-label {
   font-weight: var(--font-bd);
 }
 
+:host(:is([active], [open])) .menu-label-content ::slotted(*),
+.menu-label .menu-label-content:hover ::slotted(*),
+.menu-label:focus-within .menu-label-content ::slotted(*) {
+  letter-spacing: normal;
+}
+
+/* border */
 :host(:is([active], [open], [vertical-context])) .menu-label .menu-label-content::after,
 .menu-label .menu-label-content:hover::after,
 .menu-label:focus-within .menu-label-content::after {
@@ -91,6 +99,7 @@ when placed below the real text using `flex-direction: column`. */
   content: attr(data-text);
   content: attr(data-text) / "";
   font-weight: var(--font-bd);
+  letter-spacing: normal;
   pointer-events: none;
   user-select: none;
   visibility: hidden;

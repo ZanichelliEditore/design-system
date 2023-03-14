@@ -6,6 +6,7 @@ import {RESET} from "@storybook/addon-knobs";
 // just add the Zanichelli Design System theme
 addons.setConfig({
   theme,
+  enableShortcuts: false,
 });
 
 // Workaround to fix a bug with `addon-knobs` after updating to version 6.x
