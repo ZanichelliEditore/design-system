@@ -30,7 +30,7 @@ export class ZOffcanvas {
 
   /** allows you to skip the entry animation on page load, to be used with the open prop at true */
   @Prop()
-  skipanimationonload: boolean = false;
+  skipanimationonload: boolean;
 
   /** emitted when open prop changes */
   @Event()
@@ -38,8 +38,8 @@ export class ZOffcanvas {
 
   @Watch("open")
   onOpenChanged(): void {
-    if (this.open && this.hostElement.hasAttribute("skipAnimationOnLoad")) {
-      this.hostElement.removeAttribute("skipAnimationOnLoad");
+    if (!this.open && this.hostElement.hasAttribute("skipanimationonload")) {
+      this.hostElement.removeAttribute("skipanimationonload");
     }
 
     this.handleOverflowProperty();
@@ -51,9 +51,18 @@ export class ZOffcanvas {
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
+  componentWillRender(): void {
+    if (this.hostElement.getAttributeNode("skipanimationonload").value == "false") {
+      this.hostElement.removeAttribute("skipanimationonload");
+    }
+  }
+
   render(): HTMLZOffcanvasElement {
     return (
-      <Host transitiondirection={this.transitiondirection}>
+      <Host
+        transitiondirection={this.transitiondirection}
+        skipanimationonload={this.skipanimationonload}
+      >
         <div
           role="presentation"
           class={{
