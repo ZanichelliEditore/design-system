@@ -113,7 +113,7 @@
     min-height: calc(var(--space-unit) * 40);
   }
 
-  :host(:not([variant="overlay"])[open]) {
+  :host(:not([variant="overlay"])[open]:not([skipAnimationOnLoad])) {
     width: auto;
     animation: grow 0.4s ease-out;
   }
@@ -151,11 +151,11 @@
   }
 }
 
-:host([open][transitiondirection="left"]) > .canvas-container {
+:host([open][transitiondirection="left"]:not([skipAnimationOnLoad])) > .canvas-container {
   animation: enter-right 0.4s ease-out;
 }
 
-:host([open][transitiondirection="right"]) > .canvas-container {
+:host([open][transitiondirection="right"]:not([skipAnimationOnLoad])) > .canvas-container {
   animation: enter-left 0.4s ease-out;
 }
 

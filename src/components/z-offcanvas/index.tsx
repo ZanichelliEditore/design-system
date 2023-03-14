@@ -28,12 +28,20 @@ export class ZOffcanvas {
   @Prop({reflect: true})
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
+  /** allows you to skip the entry animation on page load, to be used with the open prop at true */
+  @Prop()
+  skipanimationonload: boolean;
+
   /** emitted when open prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
 
   @Watch("open")
   onOpenChanged(): void {
+    if (this.open && this.hostElement.hasAttribute("skipAnimationOnLoad")) {
+      this.hostElement.removeAttribute("skipAnimationOnLoad");
+    }
+
     this.handleOverflowProperty();
     this.canvasOpenStatusChanged.emit(this.open);
   }
