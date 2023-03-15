@@ -309,6 +309,23 @@ describe("Suite test ZSearchbar", () => {
       </z-searchbar>
     `);
   });
+
+  it("Simple searchbar only icon button", async () => {
+    const page = await newSpecPage({
+      components: [ZSearchbar],
+      html: `<z-searchbar htmlid="my-id" show-search-button="true" search-button-icon-only="true"></z-searchbar>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-searchbar htmlid="my-id" show-search-button="true" search-button-icon-only="true">
+        <mock:shadow-root>
+          <div class="has-submit">
+            <z-input size="big"></z-input>
+            <z-button icon="search" size="big" variant="primary"></z-button>
+          </div>
+        </mock:shadow-root>
+      </z-searchbar>
+    `);
+  });
 });
 
 const getItems = () => [{label: "item 1", icon: "download"}, {label: "item 2"}, {label: "item 3"}];

@@ -15,6 +15,9 @@ import "./index";
     "showSearchButton": {
       control: {type: "boolean"},
     },
+    "searchButtonIconOnly": {
+      control: {type: "boolean"},
+    },
     "autocomplete": {
       control: {type: "boolean"},
     },
@@ -60,6 +63,7 @@ import "./index";
   args={{
     "preventSubmit": false,
     "showSearchButton": false,
+    "searchButtonIconOnly": false,
     "autocomplete": false,
     "autocompleteMinChars": 3,
     "resultsCount": "",
@@ -85,6 +89,7 @@ import "./index";
         <z-searchbar
           prevent-submit=${args.preventSubmit}
           show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
@@ -123,6 +128,7 @@ import "./index";
         <z-searchbar
           prevent-submit="false"
           show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autcomplete="false"
           value=${args.value}
           placeholder=${args.placeholder}
@@ -143,6 +149,7 @@ import "./index";
       autocomplete: true,
       htmlid: "myIdAutocomplete",
       showSearchButton: false,
+      searchButtonIconOnly: false,
     }}
   >
     {(args) =>
@@ -150,6 +157,7 @@ import "./index";
         <z-searchbar
           prevent-submit=${args.preventSubmit}
           show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
@@ -178,6 +186,7 @@ import "./index";
       autocomplete: true,
       htmlid: "myIdGroupedAutocomplete",
       showSearchButton: false,
+      searchButtonIconOnly: false,
       resultsItems: [
         {
           label: "first item",
@@ -223,6 +232,7 @@ import "./index";
         <z-searchbar
           prevent-submit=${args.preventSubmit}
           show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
