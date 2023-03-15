@@ -1331,6 +1331,10 @@ export namespace Components {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
+          * Set button icon without label
+         */
+        "searchButtonIconOnly"?: boolean;
+        /**
           * Search helper text
          */
         "searchHelperLabel"?: string;
@@ -3997,6 +4001,10 @@ declare namespace LocalJSX {
           * Autocomplete results items
          */
         "resultsItems"?: SearchbarItem[] | string;
+        /**
+          * Set button icon without label
+         */
+        "searchButtonIconOnly"?: boolean;
         /**
           * Search helper text
          */
