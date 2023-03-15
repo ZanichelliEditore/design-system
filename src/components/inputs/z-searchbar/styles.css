@@ -209,3 +209,26 @@
     line-height: var(--font-size-6);
   }
 }
+
+:host([size="small"]) > div > div.results-wrapper > div.results .item,
+:host([size="x-small"]) > div > div.results-wrapper > div.results .item,
+:host([size="small"]) > div > div.results-wrapper > div.results .category-heading,
+:host([size="x-small"]) > div > div.results-wrapper > div.results .category-heading {
+  font-size: var(--font-size-2);
+}
+
+:host([size="small"]) > div > div.results-wrapper > div.results .item:not(.has-category),
+:host([size="x-small"]) > div > div.results-wrapper > div.results .item:not(.has-category) {
+  --z-icon-height: 16px;
+  --z-icon-width: 16px;
+}
+
+:host([size="small"])::part(list-item-container) {
+  min-height: calc(var(--space-unit) * 4.5);
+  padding: 0;
+}
+
+:host([size="x-small"])::part(list-item-container) {
+  min-height: calc(var(--space-unit) * 4);
+  padding: 0;
+}
