@@ -18,7 +18,10 @@
   color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  letter-spacing: 0.02em;
+
+  /* increasing the letter spacing of the regular text helps reduce
+  the size difference between regular and bold text */
+  letter-spacing: 0.36px;
 }
 
 .menu-label {
@@ -94,7 +97,6 @@ font-weight of the real text.
 The hidden text has an height of 0px so it can expand the width without changing the height
 when placed below the real text using `flex-direction: column`. */
 ::slotted([data-text])::after {
-  overflow: hidden;
   height: 0;
   content: attr(data-text);
   content: attr(data-text) / "";

@@ -103,7 +103,7 @@ export class ZMenu {
    */
   private onLabelSlotChange(ev: Event): void {
     const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
-    labelElement.dataset.text = labelElement?.innerText || null;
+    labelElement.dataset.text = labelElement?.textContent;
   }
 
   /**
@@ -141,7 +141,7 @@ export class ZMenu {
     const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
     items.forEach((item) => {
       item.setAttribute("role", "menuitem");
-      item.dataset.text = item.innerText;
+      item.dataset.text = item.textContent;
     });
   }
 
