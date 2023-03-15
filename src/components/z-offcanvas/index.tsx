@@ -30,7 +30,7 @@ export class ZOffcanvas {
 
   /** allows you to skip the entry animation on page load, to be used with the open prop at true */
   @Prop()
-  skipanimationonload: boolean = false;
+  skipanimationonload = false;
 
   /** emitted when open prop changes */
   @Event()

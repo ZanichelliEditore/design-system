@@ -35,7 +35,14 @@ import "./index";
 
 <Canvas>
   <Story name="ZOffcanvas">
-    {(args) => html`<div style="background-color: lightblue">
+    {(args) => html`
+    <style>
+      #offcanvas-story-container {
+        height: 100vh;
+        background-color: lightblue;
+      }
+    </style>
+    <div id="offcanvas-story-container">
       <z-offcanvas .variant=${args.variant} .open=${args.open} .transitiondirection=${args.transitiondirection}  .skipanimationonload=${args.skipanimationonload} =>
         <div slot="canvasContent">
           <span>

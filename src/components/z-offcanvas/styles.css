@@ -51,7 +51,7 @@
   z-index: 1010;
 }
 
-:host([open][variant="overlay"]) .canvas-background {
+:host([variant="overlay"]) .canvas-background {
   position: absolute;
   left: 0;
   width: 100%;
@@ -167,4 +167,9 @@
 :host(:not([open])[variant="overlay"][transitiondirection="left"]) > .canvas-container {
   transform: translateX(100%);
   transition: visibility 0.4s ease-out, transform 0.4s ease-out;
+}
+
+:host(:not([open])[variant="overlay"]) .canvas-background {
+  transition: visibility 0.4s ease-out;
+  visibility: hidden;
 }
