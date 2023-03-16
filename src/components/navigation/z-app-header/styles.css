@@ -38,9 +38,8 @@
   --app-header-typography-11-tracking: calc(-2.2 / 1em);
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
 
-  /**
-   * Variable to set stuck header and drawer's top offset. Useful when something is absolutely positioned above the header.
-   */
+  /* Variable to set stuck header and drawer's top offset.
+  Useful when something is absolutely positioned above the header. */
   --app-header-top-offset: 48px;
   --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 
