@@ -1,7 +1,8 @@
 import { h, Host } from "@stencil/core";
 /**
- * @slot - Menu section label
- * @slot item - Single entry of the section. Can be slotted multiple times to insert items.
+ * A component to create submenus inside the ZMenu.
+ * @slot - Label of the menu section.
+ * @slot item - Single entry of the section. Set the same slot name to different items to put many of them. Add the `active` attribute to a slotted item to highlight it.
  */
 export class ZMenuSection {
   toggle() {
@@ -23,13 +24,21 @@ export class ZMenuSection {
    * Check if some content slot is set.
    */
   checkContent() {
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
+    this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+  }
+  /**
+   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+   * @param ev Slotchange event
+   */
+  onLabelSlotChange(ev) {
+    const labelElement = ev.target.assignedElements()[0];
+    labelElement.dataset.text = (labelElement === null || labelElement === void 0 ? void 0 : labelElement.innerText) || null;
   }
   componentWillLoad() {
     this.checkContent();
   }
   render() {
-    return (h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", null), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
+    return (h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
   }
   static get is() { return "z-menu-section"; }
   static get encapsulation() { return "shadow"; }

@@ -68,8 +68,6 @@ export class ZAppHeader {
      * - auto: the menu bar is positioned near the title
      * - stack: the menu bar is positioned below the title
      * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-     *
-     * **Optional**
      */
     this.flow = "auto";
     /**
@@ -88,10 +86,16 @@ export class ZAppHeader {
       });
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
-    this.collectMenuElements.bind(this);
+    this.collectMenuElements = this.collectMenuElements.bind(this);
   }
   emitStickingEvent() {
     this.sticking.emit(this._stuck);
+  }
+  openDrawer() {
+    this.drawerOpen = true;
+  }
+  closeDrawer() {
+    this.drawerOpen = false;
   }
   componentDidLoad() {
     this.collectMenuElements();
@@ -147,19 +151,14 @@ export class ZAppHeader {
       return;
     }
     const elements = this.menuElements;
-    for (let i = 0, len = elements.length; i < len; i++) {
-      elements[i].open = false;
-      elements[i].floating = !this.drawerOpen;
-    }
+    elements.forEach((element) => {
+      element.open = false;
+      element.floating = !this.drawerOpen;
+      element.verticalContext = this.drawerOpen;
+    });
   }
   render() {
-    return (h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero })))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() })))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && (h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() }))))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)))))));
-  }
-  openDrawer() {
-    this.drawerOpen = true;
-  }
-  closeDrawer() {
-    this.drawerOpen = false;
+    return (h(Host, { "menu-length": this.menuLength }, h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero })))), h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" })), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))), h("div", { class: "drawer-container" }, h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), h("div", { class: "drawer-panel" }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content" }, this.drawerOpen && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements }))))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)))))));
   }
   static get is() { return "z-app-header"; }
   static get encapsulation() { return "shadow"; }
@@ -240,7 +239,7 @@ export class ZAppHeader {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "Control menu bar position in the header.\n- auto: the menu bar is positioned near the title\n- stack: the menu bar is positioned below the title\n- offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu\n\n**Optional**"
+          "text": "Control menu bar position in the header.\n- auto: the menu bar is positioned near the title\n- stack: the menu bar is positioned below the title\n- offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu"
         },
         "attribute": "flow",
         "reflect": true,

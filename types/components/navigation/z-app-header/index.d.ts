@@ -73,8 +73,6 @@ export declare class ZAppHeader {
    * - auto: the menu bar is positioned near the title
    * - stack: the menu bar is positioned below the title
    * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-   *
-   * **Optional**
    */
   flow: "auto" | "stack" | "offcanvas";
   /**
@@ -97,6 +95,8 @@ export declare class ZAppHeader {
   private container?;
   private menuElements?;
   private observer?;
+  private openDrawer;
+  private closeDrawer;
   constructor();
   componentDidLoad(): void;
   private get title();
@@ -108,6 +108,4 @@ export declare class ZAppHeader {
   onStuck(): void;
   setMenuFloatingMode(): void;
   render(): HTMLZAppHeaderElement;
-  private openDrawer;
-  private closeDrawer;
 }

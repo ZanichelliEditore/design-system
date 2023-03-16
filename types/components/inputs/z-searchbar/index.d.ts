@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { SearchbarItem } from "../../../beans";
+import { ButtonVariant, SearchbarItem, ControlSize } from "../../../beans";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
  */
@@ -28,6 +28,12 @@ export declare class ZSearchbar {
   sortResultsItems?: boolean;
   /** Show submit button */
   showSearchButton?: boolean;
+  /** Set button icon without label*/
+  searchButtonIconOnly?: boolean;
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  size?: ControlSize;
+  /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+  variant?: ButtonVariant;
   searchString: string;
   currResultsCount: number;
   showResults: boolean;

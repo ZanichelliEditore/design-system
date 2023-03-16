@@ -5,24 +5,26 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
  */
 export declare class ZMenu {
+  hostElement: HTMLZMenuElement;
   /** Flag to set the active status of the menu. */
   active?: boolean;
   /**
    * Flag to set the display mode of the list.
    * If true, the list will be absolutely positioned under the menu label,
    * stacked beneath it otherwise.
-   * @default false
    */
   floating?: boolean;
-  /**
-   * The opening state of the menu.
-   * @default false
-   */
+  /** The opening state of the menu. */
   open: boolean;
+  /**
+   * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas).
+   * A small border is placed under it as a separator from other elements.
+   */
+  verticalContext: boolean;
   hasHeader: boolean;
   hasContent: boolean;
-  hostElement: HTMLZMenuElement;
   private content;
+  /** Animation frame request id. */
   private raf;
   /** The menu has been opened. */
   opened: EventEmitter;
@@ -35,6 +37,11 @@ export declare class ZMenu {
   constructor();
   componentWillLoad(): void;
   /**
+   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+   * @param ev Slotchange event
+   */
+  private onLabelSlotChange;
+  /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
@@ -45,6 +52,7 @@ export declare class ZMenu {
   private checkContent;
   /**
    * Set `menuitem` role to all menu items.
+   * Set the item's inner text to the `data-text` attribute (this is for using bold text avoiding layout shifts).
    */
   private onItemsChange;
   private renderMenuLabel;

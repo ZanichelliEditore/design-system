@@ -10,16 +10,18 @@ export class ZMenu {
      * Flag to set the display mode of the list.
      * If true, the list will be absolutely positioned under the menu label,
      * stacked beneath it otherwise.
-     * @default false
      */
     this.floating = false;
-    /**
-     * The opening state of the menu.
-     * @default false
-     */
+    /** The opening state of the menu. */
     this.open = false;
+    /**
+     * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas).
+     * A small border is placed under it as a separator from other elements.
+     */
+    this.verticalContext = false;
     this.toggle = this.toggle.bind(this);
     this.checkContent = this.checkContent.bind(this);
+    this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
   }
   toggle() {
@@ -50,6 +52,14 @@ export class ZMenu {
     this.checkContent();
   }
   /**
+   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+   * @param ev Slotchange event
+   */
+  onLabelSlotChange(ev) {
+    const labelElement = ev.target.assignedElements()[0];
+    labelElement.dataset.text = labelElement === null || labelElement === void 0 ? void 0 : labelElement.textContent;
+  }
+  /**
    * Correctly set position of the floating menu in order to prevent overflow.
    * @param live Should run the method on every refresh frame.
    */
@@ -70,27 +80,29 @@ export class ZMenu {
    * Check if some content slot is set.
    */
   checkContent() {
-    this.hasHeader = !!this.hostElement.querySelectorAll('[slot="header"]').length;
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length || this.hasHeader;
+    this.hasHeader = !!this.hostElement.querySelectorAll("[slot=header]").length;
+    this.hasContent = !!this.hostElement.querySelectorAll("[slot=item]").length || this.hasHeader;
   }
   /**
    * Set `menuitem` role to all menu items.
+   * Set the item's inner text to the `data-text` attribute (this is for using bold text avoiding layout shifts).
    */
   onItemsChange() {
     this.checkContent();
-    const items = this.hostElement.querySelectorAll('[slot="item"]');
-    items === null || items === void 0 ? void 0 : items.forEach((item) => item.setAttribute("role", "menuitem"));
+    const items = this.hostElement.querySelectorAll("[slot=item]");
+    items.forEach((item) => {
+      item.setAttribute("role", "menuitem");
+      item.dataset.text = item.textContent;
+    });
   }
   renderMenuLabel() {
     if (this.hasContent) {
-      return (h("button", { class: "menu-label", "aria-expanded": this.open ? "true" : "false", "aria-label": this.open ? "Chiudi menù" : "Apri menù", onClick: this.toggle }, h("div", { class: "menu-label-content" }, h("slot", null), h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" }))));
+      return (h("button", { class: "menu-label", "aria-expanded": this.open ? "true" : "false", "aria-label": this.open ? "Chiudi menù" : "Apri menù", onClick: this.toggle }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }), h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" }))));
     }
-    return (h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", null))));
+    return (h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }))));
   }
   render() {
-    return (h(Host, null, this.renderMenuLabel(), h("div", { class: "content", ref: (el) => {
-        this.content = el;
-      }, hidden: !this.open }, this.hasHeader && (h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent }))), h("div", { class: "items", role: "menu" }, h("slot", { name: "item", onSlotchange: this.onItemsChange })))));
+    return (h(Host, null, this.renderMenuLabel(), this.hasContent && (h("div", { class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent }))), h("div", { class: "items", role: "menu" }, h("slot", { name: "item", onSlotchange: this.onItemsChange }))))));
   }
   static get is() { return "z-menu"; }
   static get encapsulation() { return "shadow"; }
@@ -134,10 +146,7 @@ export class ZMenu {
         "required": false,
         "optional": true,
         "docs": {
-          "tags": [{
-              "name": "default",
-              "text": "false"
-            }],
+          "tags": [],
           "text": "Flag to set the display mode of the list.\nIf true, the list will be absolutely positioned under the menu label,\nstacked beneath it otherwise."
         },
         "attribute": "floating",
@@ -155,13 +164,28 @@ export class ZMenu {
         "required": false,
         "optional": false,
         "docs": {
-          "tags": [{
-              "name": "default",
-              "text": "false"
-            }],
+          "tags": [],
           "text": "The opening state of the menu."
         },
         "attribute": "open",
+        "reflect": true,
+        "defaultValue": "false"
+      },
+      "verticalContext": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas).\nA small border is placed under it as a separator from other elements."
+        },
+        "attribute": "vertical-context",
         "reflect": true,
         "defaultValue": "false"
       }

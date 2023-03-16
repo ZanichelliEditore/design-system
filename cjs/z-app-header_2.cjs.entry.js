@@ -29,8 +29,6 @@ const ZAppHeader = class {
      * - auto: the menu bar is positioned near the title
      * - stack: the menu bar is positioned below the title
      * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-     *
-     * **Optional**
      */
     this.flow = "auto";
     /**
@@ -49,10 +47,16 @@ const ZAppHeader = class {
       });
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
-    this.collectMenuElements.bind(this);
+    this.collectMenuElements = this.collectMenuElements.bind(this);
   }
   emitStickingEvent() {
     this.sticking.emit(this._stuck);
+  }
+  openDrawer() {
+    this.drawerOpen = true;
+  }
+  closeDrawer() {
+    this.drawerOpen = false;
   }
   componentDidLoad() {
     this.collectMenuElements();
@@ -108,19 +112,14 @@ const ZAppHeader = class {
       return;
     }
     const elements = this.menuElements;
-    for (let i = 0, len = elements.length; i < len; i++) {
-      elements[i].open = false;
-      elements[i].floating = !this.drawerOpen;
-    }
+    elements.forEach((element) => {
+      element.open = false;
+      element.floating = !this.drawerOpen;
+      element.verticalContext = this.drawerOpen;
+    });
   }
   render() {
-    return (index.h(index.Host, { "menu-length": this.menuLength }, index.h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, index.h("div", { class: "hero-container" }, index.h("slot", { name: "hero" }, this.hero && (index.h("img", { alt: "", src: this.hero })))), index.h("div", { class: "heading-container" }, index.h("div", { class: "heading-title" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("slot", { name: "title" })), index.h("div", { class: "heading-subtitle" }, index.h("slot", { name: "subtitle" }))), index.h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (index.h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() })))), index.h("div", { class: "drawer-container" }, index.h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), index.h("div", { class: "drawer-panel" }, index.h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, index.h("z-icon", { name: "close" })), index.h("div", { class: "drawer-content" }, this.drawerOpen && (index.h("slot", { name: "menu", onSlotchange: () => this.collectMenuElements() }))))), this._stuck && (index.h("div", { class: "heading-stuck" }, index.h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("div", { class: "heading-title" }, index.h("slot", { name: "stucked-title" }, this.title)))))));
-  }
-  openDrawer() {
-    this.drawerOpen = true;
-  }
-  closeDrawer() {
-    this.drawerOpen = false;
+    return (index.h(index.Host, { "menu-length": this.menuLength }, index.h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, index.h("div", { class: "hero-container" }, index.h("slot", { name: "hero" }, this.hero && (index.h("img", { alt: "", src: this.hero })))), index.h("div", { class: "heading-container" }, index.h("div", { class: "heading-title" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("slot", { name: "title" })), index.h("div", { class: "heading-subtitle" }, index.h("slot", { name: "subtitle" }))), index.h("div", { class: "menu-container" }, !this.drawerOpen && this.flow !== "offcanvas" && (index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))), index.h("div", { class: "drawer-container" }, index.h("div", { class: "drawer-overlay", onClick: this.closeDrawer }), index.h("div", { class: "drawer-panel" }, index.h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer }, index.h("z-icon", { name: "close" })), index.h("div", { class: "drawer-content" }, this.drawerOpen && (index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements }))))), this._stuck && (index.h("div", { class: "heading-stuck" }, index.h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("div", { class: "heading-title" }, index.h("slot", { name: "stucked-title" }, this.title)))))));
   }
   get hostElement() { return index.getElement(this); }
   static get watchers() { return {

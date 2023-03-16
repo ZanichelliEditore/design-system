@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { ButtonVariant, ListDividerType } from "../../../beans";
+import { ButtonVariant, ListDividerType, ControlSize, } from "../../../beans";
 import { handleEnterKeydSubmit, randomId } from "../../../utils/utils";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -22,6 +22,12 @@ export class ZSearchbar {
     this.sortResultsItems = false;
     /** Show submit button */
     this.showSearchButton = false;
+    /** Set button icon without label*/
+    this.searchButtonIconOnly = false;
+    /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+    this.size = ControlSize.BIG;
+    /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+    this.variant = ButtonVariant.PRIMARY;
     this.searchString = "";
     this.currResultsCount = 0;
     this.showResults = false;
@@ -134,13 +140,16 @@ export class ZSearchbar {
   renderInput() {
     return (h("z-input", { ref: (val) => {
         this.inputRef = val;
-      }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value }));
+      }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value, size: this.size }));
   }
   renderButton() {
     if (!this.showSearchButton) {
       return null;
     }
-    return (h("z-button", { disabled: this.preventSubmit, variant: ButtonVariant.PRIMARY, onClick: () => this.handleSubmit() }, "CERCA"));
+    const iconProp = this.searchButtonIconOnly ? { icon: "search" } : null;
+    const buttonLabel = this.searchButtonIconOnly ? "" : "CERCA";
+    const defaultProps = Object.assign({ disabled: this.preventSubmit, variant: this.variant, size: this.size, onClick: () => this.handleSubmit() }, iconProp);
+    return h("z-button", Object.assign({}, defaultProps), buttonLabel);
   }
   renderResults() {
     if (!this.showResults ||
@@ -448,6 +457,70 @@ export class ZSearchbar {
         "attribute": "show-search-button",
         "reflect": false,
         "defaultValue": "false"
+      },
+      "searchButtonIconOnly": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set button icon without label"
+        },
+        "attribute": "search-button-icon-only",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ControlSize",
+          "resolved": "ControlSize.BIG | ControlSize.SMALL | ControlSize.X_SMALL",
+          "references": {
+            "ControlSize": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Available sizes: `big`, `small` and `x-small`. Defaults to `big`."
+        },
+        "attribute": "size",
+        "reflect": false,
+        "defaultValue": "ControlSize.BIG"
+      },
+      "variant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "ButtonVariant",
+          "resolved": "ButtonVariant.DARK_BG | ButtonVariant.PRIMARY | ButtonVariant.SECONDARY | ButtonVariant.TERTIARY",
+          "references": {
+            "ButtonVariant": {
+              "location": "import",
+              "path": "../../../beans"
+            }
+          }
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`."
+        },
+        "attribute": "variant",
+        "reflect": false,
+        "defaultValue": "ButtonVariant.PRIMARY"
       }
     };
   }
