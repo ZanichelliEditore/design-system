@@ -139,7 +139,7 @@ export class ZModal {
     }
   }
 
-  private preventEscape(e: KeyboardEvent): void {
+  private handleEscape(e: KeyboardEvent): void {
     if (this.closable) return;
     e.preventDefault();
   }
@@ -153,7 +153,7 @@ export class ZModal {
         ref={(el) => (this.dialog = el as HTMLDialogElement)}
         onClose={() => this.emitModalClose()}
         // @ts-ignore
-        onCancel={(e) => this.preventEscape(e)}
+        onCancel={(e) => this.handleEscape(e)}
       >
         <div
           class="modal-container"
