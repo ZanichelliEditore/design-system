@@ -14,6 +14,8 @@ export declare class ZModal {
   closeButtonLabel: string;
   /** add role "alertdialog" to dialog (optional, default is false) */
   alertdialog?: boolean;
+  /** if true, the modal is closable (optional, default is true) */
+  closable?: boolean;
   private dialog;
   host: HTMLZModalElement;
   /** emitted on close button click, returns modalid */
@@ -39,5 +41,7 @@ export declare class ZModal {
    */
   private get focusableElements();
   handleKeyDown(e: KeyboardEvent): void;
+  private closeButtonSlot;
+  private handleEscape;
   render(): HTMLZModalElement;
 }

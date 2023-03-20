@@ -48,15 +48,21 @@ const ZModal = class {
     this.closeButtonLabel = "chiudi modale";
     /** add role "alertdialog" to dialog (optional, default is false) */
     this.alertdialog = false;
+    /** if true, the modal is closable (optional, default is true) */
+    this.closable = true;
   }
   emitModalClose() {
-    this.modalClose.emit({ modalid: this.modalid });
+    if (this.closable) {
+      this.modalClose.emit({ modalid: this.modalid });
+    }
   }
   emitModalHeaderActive() {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
   emitBackgroundClick() {
-    this.modalBackgroundClick.emit({ modalid: this.modalid });
+    if (this.closable) {
+      this.modalBackgroundClick.emit({ modalid: this.modalid });
+    }
   }
   componentDidLoad() {
     this.open();
@@ -69,7 +75,9 @@ const ZModal = class {
   /** close modal */
   async close() {
     var _a;
-    (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+    if (this.closable) {
+      (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+    }
   }
   /**
    * Get a list of focusable elements in the dialog.
@@ -104,8 +112,20 @@ const ZModal = class {
       firstFocusableElement.focus();
     }
   }
+  closeButtonSlot() {
+    if (this.closable) {
+      return (index.h("slot", { name: "modalCloseButton" }, index.h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, index.h("z-icon", { name: "multiply-circle-filled" }))));
+    }
+  }
+  handleEscape(e) {
+    if (this.closable)
+      return;
+    e.preventDefault();
+  }
   render() {
-    return (index.h("dialog", { "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose() }, index.h("div", { class: "modal-container", id: this.modalid }, index.h("header", { onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", null, this.modaltitle && index.h("h1", { id: "modal-title" }, this.modaltitle), this.modalsubtitle && index.h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), index.h("slot", { name: "modalCloseButton" }, index.h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, index.h("z-icon", { name: "multiply-circle-filled" })))), index.h("div", { class: "modal-content", id: "modal-content" }, index.h("slot", { name: "modalContent" }))), index.h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
+    return (index.h("dialog", { "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(),
+      // @ts-ignore
+      onCancel: (e) => this.handleEscape(e) }, index.h("div", { class: "modal-container", id: this.modalid }, index.h("header", { onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", null, this.modaltitle && index.h("h1", { id: "modal-title" }, this.modaltitle), this.modalsubtitle && index.h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), this.closeButtonSlot()), index.h("div", { class: "modal-content", id: "modal-content" }, index.h("slot", { name: "modalContent" }))), index.h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
         this.emitBackgroundClick();
         this.close();
       } })));

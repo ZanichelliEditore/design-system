@@ -11,15 +11,21 @@ export class ZModal {
     this.closeButtonLabel = "chiudi modale";
     /** add role "alertdialog" to dialog (optional, default is false) */
     this.alertdialog = false;
+    /** if true, the modal is closable (optional, default is true) */
+    this.closable = true;
   }
   emitModalClose() {
-    this.modalClose.emit({ modalid: this.modalid });
+    if (this.closable) {
+      this.modalClose.emit({ modalid: this.modalid });
+    }
   }
   emitModalHeaderActive() {
     this.modalHeaderActive.emit({ modalid: this.modalid });
   }
   emitBackgroundClick() {
-    this.modalBackgroundClick.emit({ modalid: this.modalid });
+    if (this.closable) {
+      this.modalBackgroundClick.emit({ modalid: this.modalid });
+    }
   }
   componentDidLoad() {
     this.open();
@@ -32,7 +38,9 @@ export class ZModal {
   /** close modal */
   async close() {
     var _a;
-    (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+    if (this.closable) {
+      (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+    }
   }
   /**
    * Get a list of focusable elements in the dialog.
@@ -67,8 +75,20 @@ export class ZModal {
       firstFocusableElement.focus();
     }
   }
+  closeButtonSlot() {
+    if (this.closable) {
+      return (h("slot", { name: "modalCloseButton" }, h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, h("z-icon", { name: "multiply-circle-filled" }))));
+    }
+  }
+  handleEscape(e) {
+    if (this.closable)
+      return;
+    e.preventDefault();
+  }
   render() {
-    return (h("dialog", { "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose() }, h("div", { class: "modal-container", id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), h("slot", { name: "modalCloseButton" }, h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, h("z-icon", { name: "multiply-circle-filled" })))), h("div", { class: "modal-content", id: "modal-content" }, h("slot", { name: "modalContent" }))), h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
+    return (h("dialog", { "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(),
+      // @ts-ignore
+      onCancel: (e) => this.handleEscape(e) }, h("div", { class: "modal-container", id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), this.closeButtonSlot()), h("div", { class: "modal-content", id: "modal-content" }, h("slot", { name: "modalContent" }))), h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
         this.emitBackgroundClick();
         this.close();
       } })));
@@ -173,6 +193,24 @@ export class ZModal {
         "attribute": "alertdialog",
         "reflect": false,
         "defaultValue": "false"
+      },
+      "closable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "if true, the modal is closable (optional, default is true)"
+        },
+        "attribute": "closable",
+        "reflect": false,
+        "defaultValue": "true"
       }
     };
   }
