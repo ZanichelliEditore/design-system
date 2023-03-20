@@ -780,6 +780,10 @@ export namespace Components {
          */
         "alertdialog"?: boolean;
         /**
+          * if true, the modal is closable (optional, default is true)
+         */
+        "closable"?: boolean;
+        /**
           * close modal
          */
         "close": () => Promise<void>;
@@ -3372,6 +3376,10 @@ declare namespace LocalJSX {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
+        /**
+          * if true, the modal is closable (optional, default is true)
+         */
+        "closable"?: boolean;
         /**
           * aria-label for close button (optional)
          */
