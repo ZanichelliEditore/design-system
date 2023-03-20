@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/ZanichelliEditore/design-system/compare/v7.1.0...v7.1.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* add closable prop ([e491089](https://github.com/ZanichelliEditore/design-system/commit/e491089d1758eefb806b9f47c76f4f3415e17bc4))
+* update method name ([0b9f7bb](https://github.com/ZanichelliEditore/design-system/commit/0b9f7bb3ff76fa964a120674a0f33a522880f614))
+* update Storybook ([d844737](https://github.com/ZanichelliEditore/design-system/commit/d84473751622caeb9d88337c865787e708fe3760))
+
 ## [7.1.0](https://github.com/ZanichelliEditore/design-system/compare/v7.0.0...v7.1.0) (2023-03-16)
 
 
