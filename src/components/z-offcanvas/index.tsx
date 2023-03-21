@@ -42,7 +42,7 @@ export class ZOffcanvas {
       this.hostElement.removeAttribute("skipanimationonload");
     }
 
-    this.handleOverflowProperty();
+    if (this.open) this.handleOverflowProperty();
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
@@ -51,12 +51,17 @@ export class ZOffcanvas {
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
+  private handledTransitionEnd(): void {
+    this.handleOverflowProperty();
+  }
+
   render(): HTMLZOffcanvasElement {
     return (
       <Host>
         <div
           role="presentation"
           class="canvas-container"
+          onTransitionEnd={() => this.handledTransitionEnd()}
         >
           <div
             role="presentation"
