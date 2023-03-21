@@ -19,17 +19,13 @@
   background: var(--color-surface01);
 }
 
+:host([variant="pushcontent"]) {
+  display: none;
+}
+
 :host([open]) {
   display: flex;
   visibility: visible;
-}
-
-:host([open][variant="pushcontent"]) {
-  display: flex;
-}
-
-:host([variant="pushcontent"]) {
-  display: none;
 }
 
 :host([variant="overlay"]) {
@@ -151,7 +147,7 @@
   }
 }
 
-:host([open][transitiondirection="left"]:not([skipAnimationOnLoad])) > .canvas-container {
+:host([open][variant="overlay"][transitiondirection="left"]:not([skipAnimationOnLoad])) > .canvas-container {
   animation: enter-right 0.4s ease-out;
 }
 

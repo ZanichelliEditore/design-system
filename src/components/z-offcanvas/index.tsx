@@ -51,26 +51,12 @@ export class ZOffcanvas {
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
-  componentWillRender(): void {
-    if (
-      this.hostElement.hasAttribute("skipanimationonload") &&
-      this.hostElement.getAttribute("skipanimationonload").valueOf() == "false"
-    ) {
-      this.hostElement.removeAttribute("skipanimationonload");
-    }
-  }
-
   render(): HTMLZOffcanvasElement {
     return (
-      <Host
-        transitiondirection={this.transitiondirection}
-        skipanimationonload={this.skipanimationonload}
-      >
+      <Host>
         <div
           role="presentation"
-          class={{
-            "canvas-container": true,
-          }}
+          class="canvas-container"
         >
           <div
             role="presentation"
