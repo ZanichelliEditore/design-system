@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
@@ -9,7 +9,7 @@ import "./index";
 
 # ZTableExpandedRow
 
-<Preview>
+<Canvas>
   <Story name="ZTableExpandedRow-all-expanded">
     {html`<style>
         .expanded-row-content {
@@ -176,9 +176,9 @@ import "./index";
         </z-table-sticky-footer>
       </z-table>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-table-expanded-row" />
+<ArgsTable of="z-table-expanded-row" />
 
 ## How to use
 

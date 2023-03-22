@@ -1,27 +1,27 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Myz/MyzCard/ZMyzCardIcon"
   component="z-myz-card-icon"
+  args={{
+    icon: "book-minus",
+    isdisabled: true,
+    ariaLabel: "test label",
+  }}
 />
 
 # ZMyzCardIcon
 
-<Preview>
-  <Story name="z-myz-card-icon">
-    {html` <z-myz-card-icon
-      icon="${text("icon", "book-minus")}"
-      isdisabled="${boolean("isdisabled", true)}"
-      aria-label="${text("ariaLabel", "test label")}"
+<Canvas>
+  <Story name="ZMyzCardIcon">
+    {(args) => html`<z-myz-card-icon
+      icon=${args.icon}
+      isdisabled=${args.isdisabled}
+      .ariaLabel=${args.ariaLabel}
     />`}
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
-
-<Props of="z-myz-card-icon" />
+<ArgsTable of="z-myz-card-icon" />

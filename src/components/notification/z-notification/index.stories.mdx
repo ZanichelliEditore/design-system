@@ -1,6 +1,5 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {text, boolean, select} from "@storybook/addon-knobs";
 import {NotificationType} from "../../../beans";
 import "./index";
 import "./index.stories.css";
@@ -9,30 +8,24 @@ import "./index.stories.css";
   title="Notification/ZNotification"
   component="z-notification"
   argTypes={{
-    contenticonname: {control: {type: "text"}},
-    actiontext: {control: {type: "text"}},
-    showclose: {control: {type: "boolean"}},
-    sticky: {control: {type: "boolean"}},
     type: {
       control: {type: "inline-radio"},
       options: Object.values(NotificationType),
     },
+  }}
+  args={{
+    contenticonname: "checkmark-circle-filled",
+    actiontext: "Annulla",
+    showclose: false,
+    sticky: false,
+    type: NotificationType.SUCCESS,
   }}
 />
 
 # ZNotification
 
 <Canvas>
-  <Story
-    name="ZNotification"
-    args={{
-      contenticonname: "checkmark-circle-filled",
-      actiontext: "Annulla",
-      showclose: false,
-      sticky: false,
-      type: NotificationType.SUCCESS,
-    }}
-  >
+  <Story name="ZNotification">
     {(args) => html`
       <z-notification
         .contenticonname=${args.contenticonname}
@@ -47,19 +40,10 @@ import "./index.stories.css";
   </Story>
 </Canvas>
 
-## ZNotification - Long text
+## Long text
 
 <Canvas>
-  <Story
-    name="ZNotification with long text"
-    args={{
-      contenticonname: "checkmark-circle-filled",
-      actiontext: "Annulla",
-      showclose: false,
-      sticky: false,
-      type: NotificationType.SUCCESS,
-    }}
-  >
+  <Story name="With long text">
     {(args) => html`
       <z-notification
         .contenticonname=${args.contenticonname}
@@ -77,18 +61,14 @@ import "./index.stories.css";
   </Story>
 </Canvas>
 
-## ZNotification - Banner variant
+## Banner variant
 
 To use the banner variant, you need to set the `sticky` property to `true`.
 
 <Canvas>
   <Story
-    name="Banner ZNotification"
+    name="Banner variant"
     args={{
-      contenticonname: "checkmark-circle-filled",
-      actiontext: "Annulla",
-      showclose: false,
-      type: NotificationType.SUCCESS,
       notificationText: "Questo è il testo della notifica",
     }}
     parameters={{
@@ -148,18 +128,14 @@ To use the banner variant, you need to set the `sticky` property to `true`.
   </Story>
 </Canvas>
 
-## ZNotification - Inline variant
+## Inline variant
 
 To use the banner variant, you need to set the `sticky` property to `false`.
 
 <Canvas>
   <Story
-    name="Inline ZNotification"
+    name="Inline variant"
     args={{
-      contenticonname: "checkmark-circle-filled",
-      actiontext: "Annulla",
-      showclose: false,
-      type: NotificationType.SUCCESS,
       notificationText: "Questo è il testo della notifica",
     }}
     parameters={{

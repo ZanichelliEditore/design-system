@@ -1,6 +1,6 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, select, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {getColorTokens} from "../../utils/storybook-utils";
 import {PopoverPosition} from "../../beans";
 import "./index.stories.css";
 import "./index";
@@ -8,78 +8,110 @@ import "./index";
 <Meta
   title="ZContextualMenu"
   component="contextual-menu"
+  argTypes={{
+    color: {
+      options: getColorTokens().map((token) => token.replace("--", "")),
+      control: {type: "select"},
+    },
+    popoverPosition: {
+      options: Object.values(PopoverPosition),
+      control: {type: "select"},
+    },
+  }}
+  args={{
+    color: "color-primary01",
+  }}
 />
 
 # ZContextualMenu
 
-<Preview>
-  <Story name="ZContextualMenu with icons">
-    {html`<div class="ctx-menu-popover-container">
+## With icons
+
+<Canvas>
+  <Story
+    name="With icons"
+    args={{
+      elements: [
+        {icon: "share", text: "Elemento 1"},
+        {icon: "delete", text: "Elemento 2"},
+        {icon: "delete", text: "Elemento 3", disabled: "true"},
+        {icon: "delete", text: "Elemento 4"},
+      ],
+    }}
+  >
+    {(args) => html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-1"
-        elements="${text(
-          "elements",
-          `[{"icon": "share", "text": "Elemento 1"}, {"icon": "delete", "text": "Elemento 2"},
-          {"icon": "delete", "text": "Elemento 3", "disabled": "true"}, {"icon": "delete", "text": "Elemento 4"}]`
-        )}"
-        color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
+        elements="${JSON.stringify(args.elements)}"
+        color="${args.color}"
+        .popoverPosition="${args.popoverPosition}"
       >
       </z-contextual-menu>
     </div>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZContextualMenu without icons">
-    {html`<div class="ctx-menu-popover-container">
+## No icons
+
+<Canvas>
+  <Story
+    name="No icons"
+    args={{
+      elements: [
+        {text: "Elemento 1"},
+        {text: "Elemento 2"},
+        {text: "Elemento 4", disabled: "true"},
+        {text: "Elemento 3"},
+      ],
+    }}
+  >
+    {(args) => html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-2"
-        elements="${text(
-          "elements",
-          `[{ "text": "Elemento 1"}, { "text": "Elemento 2"}, { "text": "Elemento 4", "disabled": "true"}, { "text": "Elemento 3"}]`
-        )}"
-        color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
+        elements="${JSON.stringify(args.elements)}"
+        color="${args.color}"
+        .popoverPosition="${args.popoverPosition}"
       >
       </z-contextual-menu>
     </div>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZContextualMenu with icons and long text">
-    {html`<div class="ctx-menu-popover-container">
+## With icons and long text
+
+<Canvas>
+  <Story
+    name="With icons and long text"
+    args={{
+      elements: [
+        {icon: "share", text: "ElementoConTestoLungoElementoConTestoLungo"},
+        {icon: "delete", text: "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"},
+      ],
+    }}
+  >
+    {(args) => html`<div class="ctx-menu-popover-container">
       <z-contextual-menu
         id="contextual-menu-1"
-        elements="${text(
-          "elements",
-          `[{"icon": "share", "text": "ElementoConTestoLungoElementoConTestoLungo"}, {"icon": "delete", "text": "ElementoConTestoLungo ElementoConTestoLungo ElementoConTestoLungo"}]`
-        )}"
-        color="${text("color", "color-primary01")}"
-        .popoverPosition="${select("popover-position", PopoverPosition, "right_bottom")}"
+        elements="${JSON.stringify(args.elements)}"
+        color="${args.color}"
+        .popoverPosition="${args.popoverPosition}"
       >
       </z-contextual-menu>
     </div>`}
   </Story>
-</Preview>
-
-<Props of="z-contextual-menu" />
+</Canvas>
 
 ## How to use
 
-### elements prop
+### `elements` prop
 
-This component receives a prop _elements_ which consists of an array of objects with two attributes:
+This component receives a prop `elements` which is an array of objects with two attributes:
 
-- icon (optional): the icon of the list element;
-- text: the text of the list element;
-- icon (optional): the icon of the list element;
-- disabled (optional): used to determine if the list element is disabled:
+- `text`: the text of the list element;
+- `icon` (optional): the icon of the list element;
+- `disabled` (optional): used to determine if the list element is disabled:
 
-#### N.B.
-
-In order to pass this property correctly, the array must be converted into a string
+> **N.B.** In order to pass this property correctly, the array must be converted to string.
 
 The icons are shown only if all the elements have valued this attribute
 
@@ -88,3 +120,5 @@ The icons are shown only if all the elements have valued this attribute
 This component also have an Event that manages the behaviour of the z-contextual-menu items.
 The callback function receives the index of the clicked item and must handle all the z-contextual-menu items
 using - for example - a switch statement.
+
+<ArgsTable of="z-contextual-menu" />
