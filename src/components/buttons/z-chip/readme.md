@@ -7,6 +7,7 @@
 
 | Property          | Attribute          | Description                                       | Type                                                       | Default             |
 | ----------------- | ------------------ | ------------------------------------------------- | ---------------------------------------------------------- | ------------------- |
+| `ariaLabel`       | `aria-label`       | z-chip aria-label string                          | `string`                                                   | `undefined`         |
 | `disabled`        | `disabled`         | set z-chip as disabled                            | `boolean`                                                  | `false`             |
 | `icon`            | `icon`             | Non interactive icon                              | `string`                                                   | `undefined`         |
 | `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |

@@ -11,7 +11,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="default">
-          <div class="default" tabindex="0"></div>
+          <div class="default"></div>
       </z-chip>
     `);
   });
@@ -24,7 +24,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="medium">
-          <div class="medium" tabindex="0">text</div>
+          <div class="medium">text</div>
       </z-chip>
     `);
   });
@@ -37,7 +37,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" type="default">
-          <div class="default" tabindex="0">
+          <div class="default">
             <z-icon height="14" name="pdf" width="14"></z-icon>
             text
           </div>
@@ -53,10 +53,12 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="" interactive-icon="multiply-circled" type="default">
-          <button class="default" tabindex="0" type="button">
+          <div class="default z-chip-container">
             text
-            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
-          </button>
+            <button tabindex="0" type="button">
+              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
+            </button
+          </div>
       </z-chip>
     `);
   });
@@ -69,11 +71,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="default">
-          <button class="default" tabindex="0" type="button">
+          <div class="default z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
-          </button>
+            <button tabindex="0" type="button">
+              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
+            </button
+          </div>
       </z-chip>
     `);
   });
@@ -86,11 +90,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default">
-          <button class="default" tabindex="0" disabled type="button">
+        <div aria-disabled="" class="default z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <z-icon height="14" name="multiply-circled" tabindex="-1" width="14"></z-icon>
-          </button>
+            <button disabled="" tabindex="-1" type="button">
+              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
+            </button
+        </div>
       </z-chip>
     `);
   });
@@ -103,11 +109,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="small">
-          <button class="small" tabindex="0" type="button">
+         <div class="small z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <z-icon height="14" name="multiply-circled" tabindex="0" width="14"></z-icon>
-          </button>
+            <button tabindex="0" type="button">
+            <z-icon height="14" name="multiply-circled" width="14"></z-icon>
+            </button
+          </div>
       </z-chip>
     `);
   });

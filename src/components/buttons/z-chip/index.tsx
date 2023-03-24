@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element, Event, EventEmitter} from "@stencil/core";
 import {Device, ZChipType} from "../../../beans";
-import {getDevice, handleKeyboardSubmit} from "../../../utils/utils";
+import {getDevice} from "../../../utils/utils";
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
@@ -26,6 +26,10 @@ export class ZChip {
   @Prop({reflect: true})
   disabled?: boolean = false;
 
+  /** z-chip aria-label string */
+  @Prop()
+  ariaLabel?: string;
+
   /** click on interactive icon */
   @Event()
   interactiveIconClick: EventEmitter;
@@ -41,11 +45,9 @@ export class ZChip {
   render(): HTMLButtonElement | HTMLDivElement {
     if (this.interactiveIcon) {
       return (
-        <button
-          class={this.type}
-          disabled={this.disabled}
-          tabindex="0"
-          type="button"
+        <div
+          class={`z-chip-container ${this.type}`}
+          aria-disabled={this.disabled}
         >
           {this.icon && (
             <z-icon
@@ -56,23 +58,28 @@ export class ZChip {
             />
           )}
           <slot />
-          <z-icon
+          <button
+            type="button"
             tabIndex={this.disabled ? -1 : 0}
             onClick={() => this.emitinteractiveIconClick()}
-            onKeyUp={(e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this))}
-            name={this.interactiveIcon}
-            width={this.getIconSize()}
-            height={this.getIconSize()}
-          />
-        </button>
+            onKeyUp={() => {
+              () => this.emitinteractiveIconClick();
+            }}
+            aria-label={this.ariaLabel}
+            disabled={this.disabled}
+          >
+            <z-icon
+              name={this.interactiveIcon}
+              width={this.getIconSize()}
+              height={this.getIconSize()}
+            />
+          </button>
+        </div>
       );
     }
 
     return (
-      <div
-        class={`${this.type}`}
-        tabindex="0"
-      >
+      <div class={`${this.type}`}>
         {this.icon && (
           <z-icon
             name={this.icon}
