@@ -183,7 +183,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 :host([variant="shadow"][clickable]:focus:focus-visible),
 :host([clickable][showshadow]:focus:focus-visible) {
-  box-shadow: var(--shadow-4);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([variant="shadow"][clickable]:active),
