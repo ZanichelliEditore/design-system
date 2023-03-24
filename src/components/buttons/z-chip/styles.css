@@ -24,8 +24,8 @@
 :host > .z-chip-container > button {
   padding: 0;
   border: none;
-  background-color: transparent;
   margin-left: var(--space-unit);
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -53,8 +53,8 @@
 }
 
 :host > .z-chip-container > button:focus:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
   border-radius: 100%;
+  box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
