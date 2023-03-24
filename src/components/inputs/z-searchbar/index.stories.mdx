@@ -1,5 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {ControlSize, ButtonVariant} from "../../../beans";
 import "./index";
 
 ## Stories
@@ -12,6 +13,9 @@ import "./index";
       control: {type: "boolean"},
     },
     "showSearchButton": {
+      control: {type: "boolean"},
+    },
+    "searchButtonIconOnly": {
       control: {type: "boolean"},
     },
     "autocomplete": {
@@ -47,10 +51,19 @@ import "./index";
     "--z-searchbar-results-height": {
       control: {type: "text"},
     },
+    "size": {
+      control: {type: "inline-radio"},
+      options: Object.values(ControlSize),
+    },
+    "variant": {
+      control: {type: "inline-radio"},
+      options: Object.values(ButtonVariant),
+    },
   }}
   args={{
     "preventSubmit": false,
     "showSearchButton": false,
+    "searchButtonIconOnly": false,
     "autocomplete": false,
     "autocompleteMinChars": 3,
     "resultsCount": "",
@@ -62,6 +75,8 @@ import "./index";
     "placeholder": "my placeholder",
     "value": "",
     "--z-searchbar-results-height": "",
+    "size": ControlSize.BIG,
+    "variant": ButtonVariant.PRIMARY,
   }}
 />
 
@@ -74,6 +89,7 @@ import "./index";
         <z-searchbar
           prevent-submit=${args.preventSubmit}
           show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
@@ -85,6 +101,8 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
+          variant=${args.variant}
         ></z-searchbar>
       `
     }
@@ -98,7 +116,7 @@ import "./index";
     name="z-searchbar - simple search"
     parameters={{
       controls: {
-        include: ["value", "placeholder", "htmlid"],
+        include: ["value", "placeholder", "htmlid", "size"],
       },
     }}
     args={{
@@ -109,10 +127,13 @@ import "./index";
       html`
         <z-searchbar
           prevent-submit="false"
+          show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autcomplete="false"
           value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
+          size=${args.size}
         ></z-searchbar>
       `
     }
@@ -127,12 +148,16 @@ import "./index";
     args={{
       autocomplete: true,
       htmlid: "myIdAutocomplete",
+      showSearchButton: false,
+      searchButtonIconOnly: false,
     }}
   >
     {(args) =>
       html`
         <z-searchbar
           prevent-submit=${args.preventSubmit}
+          show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
@@ -144,6 +169,8 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
+          variant=${args.variant}
         ></z-searchbar>
       `
     }
@@ -158,6 +185,8 @@ import "./index";
     args={{
       autocomplete: true,
       htmlid: "myIdGroupedAutocomplete",
+      showSearchButton: false,
+      searchButtonIconOnly: false,
       resultsItems: [
         {
           label: "first item",
@@ -202,6 +231,8 @@ import "./index";
       html`
         <z-searchbar
           prevent-submit=${args.preventSubmit}
+          show-search-button=${args.showSearchButton}
+          search-button-icon-only=${args.searchButtonIconOnly}
           autocomplete=${args.autocomplete}
           autocomplete-min-chars=${args.autocompleteMinChars}
           results-count=${args.resultsCount}
@@ -213,6 +244,8 @@ import "./index";
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
           style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          size=${args.size}
+          variant=${args.variant}
         ></z-searchbar>
       `
     }

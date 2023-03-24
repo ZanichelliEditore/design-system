@@ -23,10 +23,13 @@
   font-weight: var(--font-rg);
 }
 
-:host([active]) .label,
-:host([open]) .label,
+:host(:is([active], [open])) .label,
 .label:hover {
   border-color: var(--color-secondary01);
+}
+
+:is(:host(:is([active], [open])) .label, .label:hover) ::slotted(*) {
+  font-weight: var(--font-bd);
 }
 
 .label {
@@ -43,6 +46,34 @@
   text-align: left;
 }
 
+::slotted([data-text]) {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/* Trick to prevent layout shifts on font-weight changes.
+The trick is to put an hidden copy of the text already set to bold,
+so the needed space is correctly calculated before any hover/active state changes the
+font-weight of the real text.
+The hidden text has an height of 0px so it can expand the width without changing the height
+when placed below the real text using `flex-direction: column`. */
+::slotted([data-text])::after {
+  overflow: hidden;
+  height: 0;
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  font-weight: var(--font-bd);
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+}
+
+@media speech {
+  ::slotted([data-text])::after {
+    display: none;
+  }
+}
+
 .label ::slotted(*) {
   width: 100%;
   margin: 0;
@@ -57,7 +88,7 @@
 
 .label z-icon {
   margin-left: calc(var(--space-unit) * 4);
-  fill: currentcolor;
+  fill: var(--color-icon02);
 }
 
 .items {
@@ -86,6 +117,8 @@
   color: var(--color-secondary01);
 }
 
-.items > ::slotted([slot="item"]:hover) {
+.items > ::slotted([slot="item"]:hover),
+.items > ::slotted([slot="item"][active]) {
   color: var(--color-secondary01);
+  font-weight: var(--font-bd);
 }

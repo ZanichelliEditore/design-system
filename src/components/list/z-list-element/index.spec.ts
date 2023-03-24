@@ -12,7 +12,7 @@ describe("Suite test ZListElement", () => {
     expect(page.root).toEqualHtml(`
     <z-list-element align-button="left" color="none" list-element-position="0" list-type="none" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="container" id="z-list-element-id-undefined" tabindex="-1" style="color: var(--none);">
+          <div class="container" id="z-list-element-id-undefined" part="list-item-container"  tabindex="-1" style="color: var(--none);">
             <div class="z-list-element-container">
               <slot></slot>
             </div>
@@ -34,7 +34,7 @@ describe("Suite test ZListElement", () => {
     expect(page.root).toEqualHtml(`
       <z-list-element align-button="left" color="none" list-element-position="0" list-type="none" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="container" id="z-list-element-id-undefined" tabindex="-1" style="color: var(--none);">
+          <div class="container" id="z-list-element-id-undefined" part="list-item-container" tabindex="-1" style="color: var(--none);">
             <div class="z-list-element-container">
               <z-icon name="plus-circled"></z-icon>
               <slot></slot>
@@ -66,7 +66,7 @@ describe("Suite test ZListElement", () => {
     expect(page.root).toEqualHtml(`
       <z-list-element align-button="left" color="none" list-element-position="0" list-type="none" aria-expanded="" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="container" id="z-list-element-id-undefined" tabindex="-1" style="color: var(--none);">
+          <div class="container" id="z-list-element-id-undefined" part="list-item-container"  tabindex="-1" style="color: var(--none);">
             <div class="z-list-element-container">
               <z-icon name="minus-circled"></z-icon>
               <slot></slot>
@@ -95,7 +95,7 @@ describe("Suite test ZListElement", () => {
     expect(page.root).toEqualHtml(`
       <z-list-element align-button="left" color="none" list-element-position="0" list-type="none" expandable="" expandable-style="menu" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="container" id="z-list-element-id-undefined" tabindex="-1" style="color: var(--none);">
+          <div class="container" id="z-list-element-id-undefined" part="list-item-container" tabindex="-1" style="color: var(--none);">
             <div class="z-list-element-container">
               <z-icon name="chevron-down"></z-icon>
               <slot></slot>
@@ -124,7 +124,7 @@ describe("Suite test ZListElement", () => {
     expect(page.root).toEqualHtml(`
       <z-list-element align-button="right" color="none" list-element-position="0" list-type="none" expandable="" role="listitem" size="medium" tabindex="0">
         <mock:shadow-root>
-          <div class="container" id="z-list-element-id-undefined" tabindex="-1" style="color: var(--none);">
+          <div class="container" id="z-list-element-id-undefined" part="list-item-container"  tabindex="-1" style="color: var(--none);">
             <div class="z-list-element-container">
               <z-icon name="plus-circled"></z-icon>
               <slot></slot>

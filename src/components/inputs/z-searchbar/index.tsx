@@ -1,5 +1,12 @@
 import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
-import {ButtonVariant, ListDividerType, SearchbarGroup, SearchbarGroupedItem, SearchbarItem} from "../../../beans";
+import {
+  ButtonVariant,
+  ListDividerType,
+  SearchbarGroup,
+  SearchbarGroupedItem,
+  SearchbarItem,
+  ControlSize,
+} from "../../../beans";
 import {handleEnterKeydSubmit, randomId} from "../../../utils/utils";
 
 /**
@@ -58,6 +65,18 @@ export class ZSearchbar {
   /** Show submit button */
   @Prop()
   showSearchButton?: boolean = false;
+
+  /** Set button icon without label*/
+  @Prop()
+  searchButtonIconOnly?: boolean = false;
+
+  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  @Prop()
+  size?: ControlSize = ControlSize.BIG;
+
+  /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+  @Prop()
+  variant?: ButtonVariant = ButtonVariant.PRIMARY;
 
   @State()
   searchString = "";
@@ -232,6 +251,7 @@ export class ZSearchbar {
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
         onKeyUp={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.handleSubmit())}
         value={this.value}
+        size={this.size}
       />
     );
   }
@@ -241,15 +261,17 @@ export class ZSearchbar {
       return null;
     }
 
-    return (
-      <z-button
-        disabled={this.preventSubmit}
-        variant={ButtonVariant.PRIMARY}
-        onClick={() => this.handleSubmit()}
-      >
-        CERCA
-      </z-button>
-    );
+    const iconProp = this.searchButtonIconOnly ? {icon: "search"} : null;
+    const buttonLabel = this.searchButtonIconOnly ? "" : "CERCA";
+    const defaultProps = {
+      disabled: this.preventSubmit,
+      variant: this.variant,
+      size: this.size,
+      onClick: () => this.handleSubmit(),
+      ...iconProp,
+    };
+
+    return <z-button {...defaultProps}>{buttonLabel}</z-button>;
   }
 
   private renderResults(): HTMLDivElement | null {

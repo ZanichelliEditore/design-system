@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/ZanichelliEditore/design-system/compare/v7.1.0...v7.1.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* add closable prop ([e491089](https://github.com/ZanichelliEditore/design-system/commit/e491089d1758eefb806b9f47c76f4f3415e17bc4))
+* update method name ([0b9f7bb](https://github.com/ZanichelliEditore/design-system/commit/0b9f7bb3ff76fa964a120674a0f33a522880f614))
+* update Storybook ([d844737](https://github.com/ZanichelliEditore/design-system/commit/d84473751622caeb9d88337c865787e708fe3760))
+
+## [7.1.0](https://github.com/ZanichelliEditore/design-system/compare/v7.0.0...v7.1.0) (2023-03-16)
+
+
+### Features
+
+* add `verticalContext` prop to z-menu and adapt z-app-header to use it ([e462f9f](https://github.com/ZanichelliEditore/design-system/commit/e462f9f96a2e664346fcf1e9304a61da563856dc))
+* add z-searchbar button variants ([e34444c](https://github.com/ZanichelliEditore/design-system/commit/e34444c8606a9a8e647baa42c7ac9d2e20b81109))
+* add z-searchbar small, x-small ([4b747c3](https://github.com/ZanichelliEditore/design-system/commit/4b747c3e5d00583c600bb5f8ac8065bbdca92240))
+* adjust z-list-element size in z-searchbox variants ([cf42003](https://github.com/ZanichelliEditore/design-system/commit/cf420034e11b3dcf998c8d701ca8d8615ea1555f))
+* removed reflect:true in size and variant props ([634ae2b](https://github.com/ZanichelliEditore/design-system/commit/634ae2b19f0fe097610cb215533be0fd5a1eeee1))
+* update readme ([0bc67c4](https://github.com/ZanichelliEditore/design-system/commit/0bc67c44101628c35e7409996ca54aa83b2253b0))
+* z-searchbar added searchButtonIconOnly prop to show icon only  button ([4d8db87](https://github.com/ZanichelliEditore/design-system/commit/4d8db873cbe19c9aa783a8d3777d6846f5f20796))
+* z-searchbar update readme ([7f5a3e4](https://github.com/ZanichelliEditore/design-system/commit/7f5a3e49084d584ef136d2b104bb559278fba7ab))
+
+
+### Bug Fixes
+
+* fix text clone retrieval and letter spacing of regular text ([f957cf4](https://github.com/ZanichelliEditore/design-system/commit/f957cf4de3d4a23644036fffd6ec09802ee66838))
+* normal text size for long labels ([0834251](https://github.com/ZanichelliEditore/design-system/commit/08342512517579e3eb1f21b6d8f046bff1cbc781))
+
 ## [7.0.0](https://github.com/ZanichelliEditore/design-system/compare/v6.11.0...v7.0.0) (2023-03-02)
 
 
