@@ -43,6 +43,12 @@ export class ZChip {
   }
 
   render(): HTMLButtonElement | HTMLDivElement {
+    const tabindex = this.disabled
+      ? {}
+      : {
+          tabIndex: 0,
+        };
+
     if (this.interactiveIcon) {
       return (
         <div
@@ -60,7 +66,7 @@ export class ZChip {
           <slot />
           <button
             type="button"
-            tabIndex={this.disabled ? -1 : 0}
+            {...tabindex}
             onClick={() => this.emitinteractiveIconClick()}
             onKeyUp={() => {
               () => this.emitinteractiveIconClick();
