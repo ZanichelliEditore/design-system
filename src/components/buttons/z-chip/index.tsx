@@ -28,7 +28,7 @@ export class ZChip {
 
   /** z-chip aria-label string */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel = "";
 
   /** click on interactive icon */
   @Event()

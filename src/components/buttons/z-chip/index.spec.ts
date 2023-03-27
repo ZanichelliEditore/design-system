@@ -55,7 +55,7 @@ describe("Suite test ZChip", () => {
       <z-chip icon="" interactive-icon="multiply-circled" type="default">
           <div class="default z-chip-container">
             text
-            <button tabindex="0" type="button">
+            <button aria-label="" tabindex="0" type="button">
               <z-icon height="14" name="multiply-circled" width="14"></z-icon>
             </button
           </div>
@@ -74,7 +74,7 @@ describe("Suite test ZChip", () => {
           <div class="default z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <button tabindex="0" type="button">
+            <button aria-label="" tabindex="0" type="button">
               <z-icon height="14" name="multiply-circled" width="14"></z-icon>
             </button
           </div>
@@ -93,7 +93,7 @@ describe("Suite test ZChip", () => {
         <div aria-disabled="" class="default z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <button disabled="" tabindex="-1" type="button">
+            <button aria-label="" disabled="" tabindex="-1" type="button">
               <z-icon height="14" name="multiply-circled" width="14"></z-icon>
             </button
         </div>
@@ -112,7 +112,7 @@ describe("Suite test ZChip", () => {
          <div class="small z-chip-container">
             <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
             text
-            <button tabindex="0" type="button">
+            <button aria-label="" tabindex="0" type="button">
             <z-icon height="14" name="multiply-circled" width="14"></z-icon>
             </button
           </div>

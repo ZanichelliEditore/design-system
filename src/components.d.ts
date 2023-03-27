@@ -210,7 +210,7 @@ export namespace Components {
         /**
           * z-chip aria-label string
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * set z-chip as disabled
          */
