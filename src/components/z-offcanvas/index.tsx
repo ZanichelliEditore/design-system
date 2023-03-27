@@ -29,7 +29,7 @@ export class ZOffcanvas {
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
   /** allows you to skip the entry animation on page load, to be used with the open prop at true */
-  @Prop()
+  @Prop({reflect: true})
   skipanimationonload = false;
 
   /** emitted when open prop changes */

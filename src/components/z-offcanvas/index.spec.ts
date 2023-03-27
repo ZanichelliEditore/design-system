@@ -55,7 +55,7 @@ describe("Suite test ZOffcanvas variant pushcontent with skipanimationonload", (
     });
 
     expect(page.root).toEqualHtml(`
-			<z-offcanvas open="" skipanimationonload="true" transitiondirection="left" variant="pushcontent">
+			<z-offcanvas open="" skipanimationonload="" transitiondirection="left" variant="pushcontent">
 				<div class="canvas-container" role="presentation">
 					<div class="canvas-content" role="presentation">
 						<div slot="canvasContent"></div>

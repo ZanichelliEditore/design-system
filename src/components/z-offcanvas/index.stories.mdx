@@ -15,6 +15,9 @@ import "./index";
     open: {
       control: {type: "boolean"},
     },
+    skipanimationonload: {
+      control: {type: "boolean"},
+    },
   }}
 />
 
@@ -38,7 +41,7 @@ import "./index";
       }
     </style>
     <div id="offcanvas-story-container">
-      <z-offcanvas .variant=${args.variant} .open=${args.open} .transitiondirection=${args.transitiondirection} =>
+      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
@@ -94,7 +97,7 @@ import "./index";
       }
     </style>
     <div id="offcanvas-story-container" style="display: flex; flex-direction: row-reverse;">
-      <z-offcanvas .variant=${args.variant} .open=${args.open} .transitiondirection=${args.transitiondirection} =>
+      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
