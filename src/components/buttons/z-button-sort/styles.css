@@ -27,7 +27,7 @@ button:hover {
 
 button:focus {
   border-color: var(--myz-blue);
-  box-shadow: 0 0 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-focus-primary);
   color: var(--myz-blue);
   fill: var(--myz-blue);
 }
