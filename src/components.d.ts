@@ -208,6 +208,10 @@ export namespace Components {
     }
     interface ZChip {
         /**
+          * z-chip aria-label string
+         */
+        "ariaLabel": string;
+        /**
           * set z-chip as disabled
          */
         "disabled"?: boolean;
@@ -2736,6 +2740,10 @@ declare namespace LocalJSX {
         "single"?: boolean;
     }
     interface ZChip {
+        /**
+          * z-chip aria-label string
+         */
+        "ariaLabel"?: string;
         /**
           * set z-chip as disabled
          */
