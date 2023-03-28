@@ -9,12 +9,12 @@ on:
 jobs:
   setup:
     name: Setup
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: 16
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
       - uses: actions/cache@v2
@@ -28,12 +28,12 @@ jobs:
     name: Run prettier
     needs:
       - setup
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: 16
       - uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -47,13 +47,13 @@ jobs:
     name: Run eslint
     needs:
       - setup
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: 16
       - uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -67,13 +67,13 @@ jobs:
     name: Stylelint
     needs:
       - setup
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: 16
       - uses: actions/cache@v2
         id: yarn-cache
         with:
