@@ -84,7 +84,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@zanichelli/albe-design-tokens": "^0.2.22",
+    "@zanichelli/albe-design-tokens": "^0.2.23",
     "flatpickr": "^4.6.13",
     "hammerjs": "^2.0.8"
   },
