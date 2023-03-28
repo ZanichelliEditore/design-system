@@ -1,27 +1,27 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Myz/MyzCard/ZMyzCardHeader"
   component="z-myz-card-header"
+  args={{
+    cardtype: "reale",
+    faded: false,
+    titolo: "Card Header",
+  }}
 />
 
 # ZMyzCardHeader
 
-<Preview>
-  <Story name="z-myz-card-header">
-    {html` <z-myz-card-header
-      cardtype="${text("cardtype", "reale")}"
-      faded="${boolean("faded", false)}"
-      titolo="${text("titolo", "Card Header")}"
+<Canvas>
+  <Story name="ZMyzCardHeader">
+    {(args) => html` <z-myz-card-header
+      cardtype="${args.cardtype}"
+      faded="${args.faded}"
+      titolo="${args.titolo}"
     />`}
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
-
-<Props of="z-myz-card-header" />
+<ArgsTable of="z-myz-card-header" />

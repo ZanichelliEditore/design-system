@@ -1,19 +1,21 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Myz/Pocket/ZPocketHeader"
   component="z-pocket-header"
+  args={{
+    pocketid: "my-pocket",
+  }}
 />
 
 # ZPocketHeader
 
-<Preview>
-  <Story name="z-pocket-header">
-    {html`<z-pocket-header pocketid="${text("pocketid", "my-pocket")}"> ZPocketHeader Content </z-pocket-header>`}
+<Canvas>
+  <Story name="ZPocketHeader">
+    {(args) => html`<z-pocket-header pocketid="${args.pocketid}"> ZPocketHeader Content </z-pocket-header>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-pocket-header" />
+<ArgsTable of="z-pocket-header" />

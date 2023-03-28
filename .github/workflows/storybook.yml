@@ -11,12 +11,12 @@ jobs:
   # BUILD THE STORYBOOK AND DEPLOY STORYBOOK TO GITHUB PAGES
   build-deploy:
     name: Build and deploy storybook
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
       - name: Build Storybook

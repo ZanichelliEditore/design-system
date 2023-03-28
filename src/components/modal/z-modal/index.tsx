@@ -140,7 +140,9 @@ export class ZModal {
   }
 
   private handleEscape(e: KeyboardEvent): void {
-    if (this.closable) return;
+    if (this.closable) {
+      return;
+    }
     e.preventDefault();
   }
 

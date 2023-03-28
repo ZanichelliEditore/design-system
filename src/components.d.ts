@@ -134,7 +134,7 @@ export namespace Components {
          */
         "buttonid": string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -1657,7 +1657,7 @@ export namespace Components {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }
@@ -2651,7 +2651,7 @@ declare namespace LocalJSX {
          */
         "buttonid"?: string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -2667,7 +2667,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * sorting direction click event, returns buttonid and sortAsc
+          * sorting direction click event, returns `buttonid` and `sortAsc`
          */
         "onButtonSortClick"?: (event: ZButtonSortCustomEvent<any>) => void;
         /**
@@ -4350,7 +4350,7 @@ declare namespace LocalJSX {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }

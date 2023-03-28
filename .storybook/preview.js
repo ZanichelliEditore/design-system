@@ -1,4 +1,3 @@
-import {withKnobs} from "@storybook/addon-knobs";
 import theme from "./theme";
 import "../src/global.css";
 import dedent from "ts-dedent";
@@ -46,5 +45,3 @@ export const parameters = {
     transformSource: (input) => dedent(input),
   },
 };
-
-export const decorators = [withKnobs];

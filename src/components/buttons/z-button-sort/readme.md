@@ -42,7 +42,7 @@
 | Property        | Attribute       | Description                                | Type      | Default     |
 | --------------- | --------------- | ------------------------------------------ | --------- | ----------- |
 | `buttonid`      | `buttonid`      | id, should be unique                       | `string`  | `undefined` |
-| `counter`       | `counter`       | occurrencies counter (optional)            | `number`  | `undefined` |
+| `counter`       | `counter`       | occurrences counter (optional)             | `number`  | `undefined` |
 | `desclabel`     | `desclabel`     | label content (descending)                 | `string`  | `undefined` |
 | `isselected`    | `isselected`    | selected flag (optional)                   | `boolean` | `false`     |
 | `label`         | `label`         | label content (ascending)                  | `string`  | `undefined` |
@@ -53,9 +53,9 @@
 
 ## Events
 
-| Event             | Description                                                 | Type               |
-| ----------------- | ----------------------------------------------------------- | ------------------ |
-| `buttonSortClick` | sorting direction click event, returns buttonid and sortAsc | `CustomEvent<any>` |
+| Event             | Description                                                     | Type               |
+| ----------------- | --------------------------------------------------------------- | ------------------ |
+| `buttonSortClick` | sorting direction click event, returns `buttonid` and `sortAsc` | `CustomEvent<any>` |
 
 
 ## Dependencies

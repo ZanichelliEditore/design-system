@@ -1,24 +1,35 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {boolean, radios} from "@storybook/addon-knobs";
-import {OffCanvasVariant} from "../../beans";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {OffCanvasVariant, TransitionDirection} from "../../beans";
 import "./index";
 
 <Meta
   title="ZOffcanvas"
   component="z-offcanvas"
+  argTypes={{
+    variant: {
+      control: {type: "inline-radio"},
+      options: Object.values(OffCanvasVariant),
+    },
+  }}
+  args={{
+    open: true,
+    variant: OffCanvasVariant.PUSHCONTENT,
+  }}
 />
 
 # ZOffcanvas
 
-<Preview>
-  <Story name="ZOffcanvas (enters left)">
-    {html`
-      <div style="background-color: lightblue">
+## Left
+
+<Canvas>
+  <Story name="Left">
+    {(args) => html`
+      <div style="background-color: var(--blue50)">
         <z-offcanvas
           transitiondirection="right"
-          .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariant}, OffCanvasVariant.PUSHCONTENT)}"
+          open="${args.open}"
+          variant="${args.variant}"
           style="height:100vh"
         >
           <div
@@ -60,15 +71,17 @@ import "./index";
       </div>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZOffcanvas (enters right)">
-    {html`
-      <div style="display:flex; justify-content:end; background-color: lightblue">
+## Right
+
+<Canvas>
+  <Story name="Right">
+    {(args) => html`
+      <div style="display:flex; justify-content:end; background-color: var(--blue50)">
         <z-offcanvas
-          .open="${boolean("Open canvas", true)}"
-          .variant="${radios("Variant", {...OffCanvasVariant}, OffCanvasVariant.PUSHCONTENT)}"
+          open="${args.open}"
+          variant="${args.variant}"
           style="height:100vh; flex:1"
         >
           <div
@@ -110,6 +123,6 @@ import "./index";
       </div>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-offcanvas" />
+<ArgsTable of="z-offcanvas" />

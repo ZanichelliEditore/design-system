@@ -1,36 +1,48 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, select} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Myz/Pocket/ZMessagesPocket"
   component="z-messages-pocket"
+  argTypes={{
+    status: {
+      control: {type: "select"},
+      options: ["preview", "open", "closed"],
+    },
+  }}
+  args={{
+    pocketid: "my-pocket",
+    messages: "3",
+    status: "preview",
+  }}
 />
 
 # ZMessagesPocket
 
-<Preview>
-  <Story name="z-messages-pocket">
-    {html`<z-messages-pocket
-      pocketid="${text("pocketid", "my-pocket")}"
-      messages="${text("messages", "3")}"
-      status="${select("status", {preview: "preview", open: "open", closed: "closed"}, "preview")}"
-    >
-      <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
-        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
-      </z-pocket-message>
-      <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
-        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
-      </z-pocket-message>
-      <z-pocket-message>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
-        dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
-      </z-pocket-message>
-    </z-messages-pocket>`}
+<Canvas>
+  <Story name="ZMessagesPocket">
+    {(args) => html`
+      <z-messages-pocket
+        pocketid="${args.pocketid}"
+        messages="${args.messages}"
+        status="${args.status}"
+      >
+        <z-pocket-message>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+          dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        </z-pocket-message>
+        <z-pocket-message>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+          dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        </z-pocket-message>
+        <z-pocket-message>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum convallis ex, eu faucibus velit
+          dignissim in. Quisque at risus accumsan, auctor enim a, varius tortor. Donec egestas sodales mi at imperdiet.
+        </z-pocket-message>
+      </z-messages-pocket>
+    `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-messages-pocket" />
+<ArgsTable of="z-messages-pocket" />
