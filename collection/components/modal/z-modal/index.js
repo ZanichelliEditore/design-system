@@ -81,8 +81,9 @@ export class ZModal {
     }
   }
   handleEscape(e) {
-    if (this.closable)
+    if (this.closable) {
       return;
+    }
     e.preventDefault();
   }
   render() {

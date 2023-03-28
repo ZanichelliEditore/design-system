@@ -6,7 +6,7 @@ export declare class ZButtonSort {
   label: string;
   /** label content (descending) */
   desclabel?: string;
-  /** occurrencies counter (optional) */
+  /** occurrences counter (optional) */
   counter?: number;
   /** sort label content (ascending) (optional) */
   sortlabelasc?: string;
@@ -18,7 +18,7 @@ export declare class ZButtonSort {
   sortasc?: boolean;
   allowTooltip: boolean;
   private ellipsis?;
-  /** sorting direction click event, returns buttonid and sortAsc */
+  /** sorting direction click event, returns `buttonid` and `sortAsc` */
   buttonSortClick: EventEmitter;
   private emitButtonSortClick;
   componentDidLoad(): void;

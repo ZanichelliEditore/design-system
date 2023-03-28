@@ -115,7 +115,7 @@ export class ZButtonSort {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": "occurrencies counter (optional)"
+          "text": "occurrences counter (optional)"
         },
         "attribute": "counter",
         "reflect": false
@@ -208,7 +208,7 @@ export class ZButtonSort {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": "sorting direction click event, returns buttonid and sortAsc"
+          "text": "sorting direction click event, returns `buttonid` and `sortAsc`"
         },
         "complexType": {
           "original": "any",

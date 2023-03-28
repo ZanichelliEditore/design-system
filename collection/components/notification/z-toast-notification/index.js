@@ -295,7 +295,7 @@ export class ZToastNotification {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": "toast notification type:  dark, light, accent, error, success, warning"
+          "text": "toast notification type: dark, light, accent, error, success, warning"
         },
         "attribute": "type",
         "reflect": false

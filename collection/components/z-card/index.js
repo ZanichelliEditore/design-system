@@ -1,5 +1,14 @@
 import { h, Host } from "@stencil/core";
 import { CardVariant } from "../../beans";
+/**
+ * ZCard component.
+ * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
+ * @cssprop --z-card--border-color - Default: `var(--gray200)`
+ * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
+ * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
+ * @cssprop --z-card--text-border-radius - Default: `none`
+ * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+ */
 export class ZCard {
   constructor() {
     /** Enable click interactions on the card. Default: false */

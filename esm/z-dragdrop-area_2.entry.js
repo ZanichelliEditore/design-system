@@ -114,8 +114,9 @@ const ZModal = class {
     }
   }
   handleEscape(e) {
-    if (this.closable)
+    if (this.closable) {
       return;
+    }
     e.preventDefault();
   }
   render() {

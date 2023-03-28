@@ -12,7 +12,7 @@ export declare class ZToastNotification {
   autoclose?: number;
   /** toast notification autoclose can be paused */
   pauseonfocusloss?: boolean;
-  /** toast notification type:  dark, light, accent, error, success, warning*/
+  /** toast notification type: dark, light, accent, error, success, warning */
   type?: ToastNotification;
   /** toast notification can be draggable*/
   isdraggable?: boolean;
