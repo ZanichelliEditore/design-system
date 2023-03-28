@@ -97,11 +97,11 @@
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
-  :host([open][transitiondirection="left"]:not([skipAnimationOnLoad])) > .canvas-container {
+  :host([open][transitiondirection="left"]:not(.skip-animation)) > .canvas-container {
     animation: enter-right 0.4s ease-out;
   }
 
-  :host([open][transitiondirection="right"]:not([skipAnimationOnLoad])) > .canvas-container {
+  :host([open][transitiondirection="right"]:not(.skip-animation)) > .canvas-container {
     animation: enter-left 0.4s ease-out;
   }
 }
@@ -120,7 +120,7 @@
     min-height: calc(var(--space-unit) * 40);
   }
 
-  :host(:not([variant="overlay"])[open]:not([skipAnimationOnLoad])) {
+  :host(:not([variant="overlay"])[open]:not(.skip-animation)) {
     width: auto;
     animation: grow 0.4s ease-out;
   }
@@ -158,11 +158,11 @@
   }
 }
 
-:host([open][variant="overlay"][transitiondirection="left"]:not([skipAnimationOnLoad])) > .canvas-container {
+:host([open][variant="overlay"][transitiondirection="left"]:not(.skip-animation)) > .canvas-container {
   animation: enter-right 0.4s ease-out;
 }
 
-:host([open][transitiondirection="right"]:not([skipAnimationOnLoad])) > .canvas-container {
+:host([open][transitiondirection="right"]:not(.skip-animation)) > .canvas-container {
   animation: enter-left 0.4s ease-out;
 }
 

@@ -40,7 +40,7 @@ import "./index";
         background-color: lightblue;
       }
     </style>
-    <div id="offcanvas-story-container">
+    <div id="offcanvas-story-container" style="display: flex;">
       <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
@@ -75,6 +75,13 @@ import "./index";
             </span>
         </div>
       </z-offcanvas>
+      <div style="display: flex; flex-wrap: wrap">
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+      </div>
     </div>`}
   </Story>
 </Canvas>
@@ -96,7 +103,14 @@ import "./index";
         background-color: lightblue;
       }
     </style>
-    <div id="offcanvas-story-container" style="display: flex; flex-direction: row-reverse;">
+    <div id="offcanvas-story-container" style="display: flex; justify-content: end;">
+      <div style="display: flex; flex-wrap: wrap">
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+      </div>
       <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
