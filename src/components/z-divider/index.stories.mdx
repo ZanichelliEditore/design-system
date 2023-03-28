@@ -1,6 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {DividerSize, DividerOrientation} from "../../beans";
+import {getColorTokens} from "../../utils/storybook-utils";
 import "./index";
 
 <Meta
@@ -14,6 +15,10 @@ import "./index";
     orientation: {
       control: {type: "select"},
       options: Object.values(DividerOrientation),
+    },
+    color: {
+      control: {type: "select"},
+      options: getColorTokens().map((token) => token.replace("--", "")),
     },
   }}
   args={{
