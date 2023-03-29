@@ -44,6 +44,7 @@ export class ZToggleButton {
           "avoid-clicks": this.avoidclick,
         }}
         disabled={this.isdisabled}
+        aria-expanded={this.opened ? "true" : "false"}
         onClick={() => this.emitToggleClick()}
       >
         <z-icon
