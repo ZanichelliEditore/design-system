@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/ZanichelliEditore/design-system/compare/v7.1.1...v7.1.2) (2023-03-29)
+
+
+### Bug Fixes
+
+* aria-label default empty error ([214163f](https://github.com/ZanichelliEditore/design-system/commit/214163f19fa4e95c455b482c7789977a057305cc))
+* enhance z-chip a11y ([3b04558](https://github.com/ZanichelliEditore/design-system/commit/3b04558b080d9ac1b839e16a3a4c99d8667c6945))
+* enhance z-chip a11y, fix properties-order ([bbbc9e4](https://github.com/ZanichelliEditore/design-system/commit/bbbc9e4b95bf8b9f41c1660f8c27f190efbdf1eb))
+* remove tabindex fomr button ([44c3c86](https://github.com/ZanichelliEditore/design-system/commit/44c3c86b11c50aef0b7d30b304a6fd5f1bd237b1))
+* remove tabindex in disabled button ([b6e9ac8](https://github.com/ZanichelliEditore/design-system/commit/b6e9ac896fa6c2b161b74835acb2be12a269874f))
+* update focus box-shadow ([5061893](https://github.com/ZanichelliEditore/design-system/commit/5061893c2c1609bba7350b9708b6e45090dd895e))
+* update tokens ([360a6c3](https://github.com/ZanichelliEditore/design-system/commit/360a6c30c3b9f3dd8ee285187cea4bf8fdc16f5a))
+
 ### [7.1.1](https://github.com/ZanichelliEditore/design-system/compare/v7.1.0...v7.1.1) (2023-03-20)
 
 
