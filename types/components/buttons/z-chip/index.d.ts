@@ -10,6 +10,8 @@ export declare class ZChip {
   interactiveIcon?: string;
   /** set z-chip as disabled  */
   disabled?: boolean;
+  /** z-chip aria-label string */
+  ariaLabel: string;
   /** click on interactive icon */
   interactiveIconClick: EventEmitter;
   private emitinteractiveIconClick;

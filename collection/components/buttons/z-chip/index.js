@@ -1,12 +1,14 @@
 import { h } from "@stencil/core";
 import { Device, ZChipType } from "../../../beans";
-import { getDevice, handleKeyboardSubmit } from "../../../utils/utils";
+import { getDevice } from "../../../utils/utils";
 export class ZChip {
   constructor() {
     /** z-chip size type, can be default, medium or small */
     this.type = ZChipType.DEFAULT;
     /** set z-chip as disabled  */
     this.disabled = false;
+    /** z-chip aria-label string */
+    this.ariaLabel = "";
   }
   emitinteractiveIconClick() {
     this.interactiveIconClick.emit();
@@ -16,9 +18,11 @@ export class ZChip {
   }
   render() {
     if (this.interactiveIcon) {
-      return (h("button", { class: this.type, disabled: this.disabled, tabindex: "0", type: "button" }, this.icon && (h("z-icon", { class: "icon-sx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null), h("z-icon", { tabIndex: this.disabled ? -1 : 0, onClick: () => this.emitinteractiveIconClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.emitinteractiveIconClick.bind(this)), name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() })));
+      return (h("div", { class: `z-chip-container ${this.type}`, "aria-disabled": this.disabled }, this.icon && (h("z-icon", { class: "icon-sx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null), h("button", { type: "button", onClick: () => this.emitinteractiveIconClick(), onKeyUp: () => {
+          () => this.emitinteractiveIconClick();
+        }, "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() }))));
     }
-    return (h("div", { class: `${this.type}`, tabindex: "0" }, this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null)));
+    return (h("div", { class: `${this.type}` }, this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null)));
   }
   static get is() { return "z-chip"; }
   static get encapsulation() { return "scoped"; }
@@ -108,6 +112,24 @@ export class ZChip {
         "attribute": "disabled",
         "reflect": true,
         "defaultValue": "false"
+      },
+      "ariaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "z-chip aria-label string"
+        },
+        "attribute": "aria-label",
+        "reflect": false,
+        "defaultValue": "\"\""
       }
     };
   }
