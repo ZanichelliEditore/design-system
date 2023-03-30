@@ -38,7 +38,7 @@ export class ZOffcanvas {
 
   @Watch("open")
   onOpenChanged(): void {
-    if (!this.open && this.skipanimationonload == true) {
+    if (!this.open && this.skipanimationonload) {
       this.skipanimationonload = false;
     }
 
@@ -59,7 +59,7 @@ export class ZOffcanvas {
 
   render(): HTMLZOffcanvasElement {
     return (
-      <Host class={this.skipanimationonload && "skip-animation"}>
+      <Host class={{"skip-animation": this.skipanimationonload}}>
         <div
           role="presentation"
           class="canvas-container"
