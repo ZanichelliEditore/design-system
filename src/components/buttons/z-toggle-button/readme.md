@@ -27,6 +27,7 @@
 
 | Property     | Attribute    | Description                     | Type      | Default     |
 | ------------ | ------------ | ------------------------------- | --------- | ----------- |
+| `arialabel`  | `arialabel`  |                                 | `string`  | `undefined` |
 | `avoidclick` | `avoidclick` | avoidclick status flag          | `boolean` | `undefined` |
 | `isdisabled` | `isdisabled` | disabled status flag (optional) | `boolean` | `false`     |
 | `label`      | `label`      | label text                      | `string`  | `undefined` |

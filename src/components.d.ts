@@ -1676,6 +1676,7 @@ export namespace Components {
         "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
+        "arialabel"?: string;
         /**
           * avoidclick status flag
          */
@@ -4373,6 +4374,7 @@ declare namespace LocalJSX {
         "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
+        "arialabel"?: string;
         /**
           * avoidclick status flag
          */

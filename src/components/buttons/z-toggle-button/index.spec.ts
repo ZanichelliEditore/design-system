@@ -120,4 +120,21 @@ describe("Suite test ZToggleButton", () => {
     await page.waitForChanges();
     expect(page.rootInstance.opened).toEqual(false);
   });
+
+  it("Test render ZToggleButton con arialabel", async () => {
+    const page = await newSpecPage({
+      components: [ZToggleButton],
+      html: `<z-toggle-button arialabel="aria label"></z-toggle-button>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-toggle-button arialabel="aria label">
+        <mock:shadow-root>
+          <button aria-expanded="false" aria-label="aria label" tabindex="0">
+            <z-icon height="16" name="chevron-up" width="16"></z-icon>
+          </button>
+        </mock:shadow-root>
+      </z-toggle-button>
+    `);
+  });
 });
