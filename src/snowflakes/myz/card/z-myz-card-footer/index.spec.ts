@@ -29,7 +29,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   </p>
                   <p class="year-isbn">
                     <span class="isbn">
-                      <span><span aria-description="ISBN" class="bold">
+                      <span><span aria-description="ISBN edizione cartacea" class="bold">
                         123456
                       </span> (ed. cartacea)</span>
                     </span>
@@ -72,7 +72,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   </p>
                   <p class="year-isbn">
                     <span class="isbn">
-                      <span><span aria-description="ISBN" class="bold"></span> (ed. cartacea)</span>
+                      <span><span aria-description="ISBN edizione cartacea" class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -108,7 +108,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   </p>
                   <p class="year-isbn">
                     <span class="isbn">
-                      <span><span aria-description="ISBN" class="bold"></span> (ed. cartacea)</span>
+                      <span><span aria-description="ISBN edizione cartacea" class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -150,7 +150,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   </p>
                   <p class="year-isbn">
                     <span class="isbn">
-                      <span><span aria-description="ISBN" class="bold"></span> (ed. cartacea)</span>
+                      <span><span aria-description="ISBN edizione cartacea" class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>
@@ -190,7 +190,7 @@ describe("Suite test ZMyzCardFooter", () => {
                   </p>
                   <p class="year-isbn">
                     <span class="isbn">
-                      <span><span aria-description="ISBN" class="bold"></span> (ed. cartacea)</span>
+                      <span><span aria-description="ISBN edizione cartacea" class="bold"></span> (ed. cartacea)</span>
                     </span>
                   </p>
                 </div>

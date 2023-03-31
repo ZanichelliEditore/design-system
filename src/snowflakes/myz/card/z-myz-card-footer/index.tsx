@@ -131,7 +131,7 @@ export class ZMyzCardFooter {
                 <span class="isbn">
                   <span>
                     <span
-                      aria-description="ISBN"
+                      aria-description="ISBN edizione cartacea"
                       class="bold"
                     >
                       {this.isbn}
