@@ -1,7 +1,8 @@
-import {Component, Element, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch} from "@stencil/core";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
+ * @method setSkipAanimationOnLoad - set skipAnimation
  */
 @Component({
   tag: "z-offcanvas",
@@ -28,66 +29,63 @@ export class ZOffcanvas {
   @Prop({reflect: true})
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
+  /** manages the skip for the entry animation*/
+  @State()
+  skipanimationonload = false;
+
   /** emitted when open prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
 
-  componentWillLoad(): void {
-    this.handleOpenStatus();
+  /** this method allows you to skip the page loading animation, to be used with the prop set to true */
+  @Method()
+  async setSkipAanimationOnLoad(value: boolean): Promise<void> {
+    this.skipanimationonload = value;
   }
 
   @Watch("open")
   onOpenChanged(): void {
-    this.handleOpenStatus();
+    if (!this.open && this.skipanimationonload) {
+      this.skipanimationonload = false;
+    }
+
+    if (this.open) {
+      this.handleOverflowProperty();
+    }
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
-  private handleOpenStatus(): void {
-    if (this.open) {
-      this.hostElement.style.opacity = "0";
-      this.hostElement.style.display = "flex";
-      if (this.variant === OffCanvasVariant.OVERLAY) {
-        document.body.style.overflowY = "hidden";
-      }
-    } else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "hidden";
-    }
+  private handleOverflowProperty(): void {
+    const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
+    document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
-  private handleAnimationEnd(): void {
-    if (this.hostElement.hasAttribute("open")) {
-      (this.hostElement.querySelector(`.canvas-content`) as HTMLElement).focus();
-    } else if (this.variant === OffCanvasVariant.OVERLAY) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "initial";
-      document.body.style.overflowY = "initial";
-    }
-  }
-
-  private handleAnimationStart(): void {
-    if (this.hostElement.hasAttribute("open")) {
-      this.hostElement.style.opacity = "1";
-    }
+  private handledTransitionEnd(): void {
+    this.handleOverflowProperty();
   }
 
   render(): HTMLZOffcanvasElement {
     return (
-      <Host>
+      <Host class={{"skip-animation": this.skipanimationonload}}>
         <div
+          role="presentation"
           class="canvas-container"
-          onAnimationEnd={() => this.handleAnimationEnd()}
-          onAnimationStart={() => this.handleAnimationStart()}
+          onTransitionEnd={() => this.handledTransitionEnd()}
         >
-          <div class="canvas-content">
+          <div
+            role="presentation"
+            class="canvas-content"
+          >
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        <div
-          class="canvas-background"
-          data-action="canvasBackground"
-          onClick={() => (this.open = false)}
-        ></div>
+        {this.variant == OffCanvasVariant.OVERLAY && (
+          <div
+            class="canvas-background"
+            data-action="canvasBackground"
+            onClick={() => (this.open = false)}
+          ></div>
+        )}
       </Host>
     );
   }
