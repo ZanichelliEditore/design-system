@@ -2,6 +2,7 @@ import {Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, W
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
+ * @method setSkipAanimationOnLoad - set skipAnimation
  */
 @Component({
   tag: "z-offcanvas",
