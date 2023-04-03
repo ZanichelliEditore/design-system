@@ -19,6 +19,15 @@ import "./index";
       control: {type: "boolean"},
     },
   }}
+  decorators={[
+    (Story) => html`
+      <script>
+        let offcanvas = document.querySelector("z-offcanvas");
+        if (offcanvas) offcanvas.setSkipAanimationOnLoad(true);
+      </script>
+      ${Story()}
+    `,
+  ]}
 />
 
 # ZOffcanvas
@@ -30,7 +39,6 @@ import "./index";
       variant: OffCanvasVariant.PUSHCONTENT,
       transitiondirection: TransitionDirection.RIGHT,
       open: true,
-      skipanimationonload: true,
     }}
   >
     {(args) => html`
@@ -41,7 +49,7 @@ import "./index";
       }
     </style>
     <div id="offcanvas-story-container" style="display: flex;">
-      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
+      <z-offcanvas .variant=${args.variant} .open=${args.open} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac

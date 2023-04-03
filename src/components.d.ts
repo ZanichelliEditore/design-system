@@ -1117,9 +1117,9 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * allows you to skip the entry animation on page load, to be used with the open prop at true
+          * get checked status
          */
-        "skipanimationonload": boolean;
+        "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
@@ -3761,10 +3761,6 @@ declare namespace LocalJSX {
           * open component. Default: false
          */
         "open"?: boolean;
-        /**
-          * allows you to skip the entry animation on page load, to be used with the open prop at true
-         */
-        "skipanimationonload"?: boolean;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */

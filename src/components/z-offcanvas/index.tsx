@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch} from "@stencil/core";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
@@ -25,7 +25,7 @@ export class ZOffcanvas {
   open = false;
 
   /** allows you to skip the entry animation on page load, to be used with the open prop at true */
-  @Prop({mutable: true})
+  @State()
   skipanimationonload = false;
 
   /** open content transitioning in a specified direction left | right. Default: left */
@@ -35,6 +35,12 @@ export class ZOffcanvas {
   /** emitted when open prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
+
+  /** set skipAnimation */
+  @Method()
+  async setSkipAanimationOnLoad(value: boolean): Promise<void> {
+    this.skipanimationonload = value;
+  }
 
   @Watch("open")
   onOpenChanged(): void {
