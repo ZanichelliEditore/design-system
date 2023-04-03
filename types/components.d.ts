@@ -1121,6 +1121,10 @@ export namespace Components {
          */
         "open": boolean;
         /**
+          * this method allows you to skip the page loading animation, to be used with the prop set to true
+         */
+        "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
+        /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;

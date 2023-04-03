@@ -2,6 +2,7 @@ import { h, Host } from "@stencil/core";
 import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
  * @slot canvasContent - set the content of the canvas
+ * @method setSkipAanimationOnLoad - set skipAnimation
  */
 export class ZOffcanvas {
   constructor() {
@@ -15,44 +16,31 @@ export class ZOffcanvas {
     this.open = false;
     /** open content transitioning in a specified direction left | right. Default: left */
     this.transitiondirection = TransitionDirection.LEFT;
+    /** manages the skip for the entry animation*/
+    this.skipanimationonload = false;
   }
-  componentWillLoad() {
-    this.handleOpenStatus();
+  /** this method allows you to skip the page loading animation, to be used with the prop set to true */
+  async setSkipAanimationOnLoad(value) {
+    this.skipanimationonload = value;
   }
   onOpenChanged() {
-    this.handleOpenStatus();
+    if (!this.open && this.skipanimationonload) {
+      this.skipanimationonload = false;
+    }
+    if (this.open) {
+      this.handleOverflowProperty();
+    }
     this.canvasOpenStatusChanged.emit(this.open);
   }
-  handleOpenStatus() {
-    if (this.open) {
-      this.hostElement.style.opacity = "0";
-      this.hostElement.style.display = "flex";
-      if (this.variant === OffCanvasVariant.OVERLAY) {
-        document.body.style.overflowY = "hidden";
-      }
-    }
-    else if (this.variant === OffCanvasVariant.PUSHCONTENT) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "hidden";
-    }
+  handleOverflowProperty() {
+    const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
+    document.body.style[overflow] = this.open ? "hidden" : "";
   }
-  handleAnimationEnd() {
-    if (this.hostElement.hasAttribute("open")) {
-      this.hostElement.querySelector(`.canvas-content`).focus();
-    }
-    else if (this.variant === OffCanvasVariant.OVERLAY) {
-      this.hostElement.style.display = "none";
-      document.body.style.overflowX = "initial";
-      document.body.style.overflowY = "initial";
-    }
-  }
-  handleAnimationStart() {
-    if (this.hostElement.hasAttribute("open")) {
-      this.hostElement.style.opacity = "1";
-    }
+  handledTransitionEnd() {
+    this.handleOverflowProperty();
   }
   render() {
-    return (h(Host, null, h("div", { class: "canvas-container", onAnimationEnd: () => this.handleAnimationEnd(), onAnimationStart: () => this.handleAnimationStart() }, h("div", { class: "canvas-content" }, h("slot", { name: "canvasContent" }))), h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) })));
+    return (h(Host, { class: { "skip-animation": this.skipanimationonload } }, h("div", { role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handledTransitionEnd() }, h("div", { role: "presentation", class: "canvas-content" }, h("slot", { name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
   }
   static get is() { return "z-offcanvas"; }
   static get encapsulation() { return "scoped"; }
@@ -134,6 +122,11 @@ export class ZOffcanvas {
       }
     };
   }
+  static get states() {
+    return {
+      "skipanimationonload": {}
+    };
+  }
   static get events() {
     return [{
         "method": "canvasOpenStatusChanged",
@@ -151,6 +144,29 @@ export class ZOffcanvas {
           "references": {}
         }
       }];
+  }
+  static get methods() {
+    return {
+      "setSkipAanimationOnLoad": {
+        "complexType": {
+          "signature": "(value: boolean) => Promise<void>",
+          "parameters": [{
+              "tags": [],
+              "text": ""
+            }],
+          "references": {
+            "Promise": {
+              "location": "global"
+            }
+          },
+          "return": "Promise<void>"
+        },
+        "docs": {
+          "text": "this method allows you to skip the page loading animation, to be used with the prop set to true",
+          "tags": []
+        }
+      }
+    };
   }
   static get elementRef() { return "hostElement"; }
   static get watchers() {
