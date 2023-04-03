@@ -14,6 +14,8 @@ const ZToggleButton = class {
     this.isdisabled = false;
     /** open by default (optional) */
     this.opened = false;
+    /**  aria-label for the button */
+    this.ariaLabel = "";
   }
   emitToggleClick() {
     if (this.isdisabled) {
@@ -26,7 +28,7 @@ const ZToggleButton = class {
     return (index.h("button", { tabindex: this.avoidclick ? "-1" : "0", class: {
         "isopen": this.opened,
         "avoid-clicks": this.avoidclick,
-      }, disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, index.h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+      }, disabled: this.isdisabled, "aria-expanded": this.opened ? "true" : "false", "aria-label": this.ariaLabel, onClick: () => this.emitToggleClick() }, index.h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
   }
 };
 ZToggleButton.style = stylesCss;

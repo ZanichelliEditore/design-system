@@ -5,6 +5,8 @@ export class ZToggleButton {
     this.isdisabled = false;
     /** open by default (optional) */
     this.opened = false;
+    /**  aria-label for the button */
+    this.ariaLabel = "";
   }
   emitToggleClick() {
     if (this.isdisabled) {
@@ -17,7 +19,7 @@ export class ZToggleButton {
     return (h("button", { tabindex: this.avoidclick ? "-1" : "0", class: {
         "isopen": this.opened,
         "avoid-clicks": this.avoidclick,
-      }, disabled: this.isdisabled, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+      }, disabled: this.isdisabled, "aria-expanded": this.opened ? "true" : "false", "aria-label": this.ariaLabel, onClick: () => this.emitToggleClick() }, h("z-icon", { name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
   }
   static get is() { return "z-toggle-button"; }
   static get encapsulation() { return "shadow"; }
@@ -102,6 +104,24 @@ export class ZToggleButton {
         "attribute": "opened",
         "reflect": false,
         "defaultValue": "false"
+      },
+      "ariaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "aria-label for the button"
+        },
+        "attribute": "aria-label",
+        "reflect": false,
+        "defaultValue": "\"\""
       }
     };
   }

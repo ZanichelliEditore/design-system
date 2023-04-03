@@ -19,6 +19,14 @@ const ZMyzCardFooter = class {
   }
   handleToggle() {
     this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      const firstElem = this.getFirstListItem();
+      if (firstElem) {
+        requestAnimationFrame(() => {
+          firstElem.focus();
+        });
+      }
+    }
   }
   getTitleAuthors() {
     return this.allowTooltipAuthors ? this.autori : "";
@@ -48,9 +56,13 @@ const ZMyzCardFooter = class {
       this.elementsEllipsis();
     }
   }
-  render() {
-    return (index.h("div", { class: Object.assign(Object.assign({}, this.retrieveClass()), { wrapper: true }) }, index.h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, index.h("span", { class: "toggle" }, index.h("slot", { name: "toggle" })), this.titolo && index.h("p", { class: { "custom-content": this.customContent } }, this.titolo), index.h("div", { class: { "content": true, "custom-content": this.customContent } }, index.h("div", null, index.h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) }, index.h("span", { title: this.getTitleAuthors() }, index.h("span", { class: "bold" }, this.autori))), index.h("p", { class: "year-isbn" }, index.h("span", { class: "isbn" }, index.h("span", null, index.h("span", { class: "bold" }, this.isbn), " (ed. cartacea)")))), index.h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, index.h("slot", { name: "list" })))), this.customContent && index.h("slot", { name: "content" })));
+  getFirstListItem() {
+    return this.host.querySelector("[slot=list] > li a");
   }
+  render() {
+    return (index.h("div", { class: Object.assign(Object.assign({}, this.retrieveClass()), { wrapper: true }) }, index.h("footer", { class: this.retrieveClass(), onTransitionEnd: (e) => this.footerTransitionHandler(e) }, index.h("span", { class: "toggle" }, index.h("slot", { name: "toggle" })), this.titolo && index.h("p", { class: { "custom-content": this.customContent } }, this.titolo), index.h("div", { class: { "content": true, "custom-content": this.customContent } }, index.h("div", null, index.h("p", { class: "authors", ref: (el) => (this.ellipsisAuthors = el) }, index.h("span", { title: this.getTitleAuthors() }, index.h("span", { "aria-description": "Autori", class: "bold" }, this.autori))), index.h("p", { class: "year-isbn" }, index.h("span", { class: "isbn" }, index.h("span", null, index.h("span", { "aria-description": "ISBN edizione cartacea", class: "bold" }, this.isbn), " ", "(ed. cartacea)")))), index.h("div", { class: `slot-handler ${this.isOpen ? "visible" : "hidden"}` }, index.h("slot", { name: "list" })))), this.customContent && index.h("slot", { name: "content" })));
+  }
+  get host() { return index.getElement(this); }
 };
 ZMyzCardFooter.style = stylesCss;
 

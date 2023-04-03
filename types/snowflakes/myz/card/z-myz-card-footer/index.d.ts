@@ -4,6 +4,7 @@ import { LicenseType } from "../../../../beans/index";
  * @slot list - card resources list slot
  */
 export declare class ZMyzCardFooter {
+  host: HTMLZMyzCardFooterElement;
   /** volume title */
   titolo: string;
   /** authors name text */
@@ -28,5 +29,6 @@ export declare class ZMyzCardFooter {
   private elementAuthorsHasEllipsis;
   private retrieveClass;
   private footerTransitionHandler;
+  private getFirstListItem;
   render(): HTMLDivElement;
 }

@@ -8,6 +8,8 @@ export declare class ZToggleButton {
   avoidclick: boolean;
   /** open by default (optional) */
   opened?: boolean;
+  /**  aria-label for the button */
+  ariaLabel: string;
   /** emitted on toggle button click, returns isOpen */
   toggleClick: EventEmitter;
   private emitToggleClick;
