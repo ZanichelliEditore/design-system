@@ -104,7 +104,13 @@ In the Story below, the tooltip is opened hovering the button.
         button.addEventListener("mouseover", () => {
           tooltip.open = true;
         });
+        button.addEventListener("focusin", () => {
+          tooltip.open = true;
+        });
         button.addEventListener("mouseout", () => {
+          tooltip.open = false;
+        });
+        button.addEventListener("focusout", () => {
           tooltip.open = false;
         });
         button.onclick = () => {
