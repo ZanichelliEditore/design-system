@@ -11,6 +11,18 @@ header {
   border-radius: var(--border-radius) var(--border-radius) var(--border-no-radius) var(--border-no-radius);
 }
 
+slot[name="aria-heading"]::slotted(*) {
+  position: absolute;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 none !important;
+  margin: -1px !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+}
+
 header.real,
 header.trial,
 header.temp {
