@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/ZanichelliEditore/design-system/compare/v7.1.3...v7.3.0) (2023-04-03)
+
+
+### Features
+
+* add animation mobile ([318cc2e](https://github.com/ZanichelliEditore/design-system/commit/318cc2ed104759dd57bfa3a7b67392f743e55101))
+* add onTransitionEnd to fix the scrollbar behavior on different systems ([815d690](https://github.com/ZanichelliEditore/design-system/commit/815d6900e706c2b584f99ad26570370455f84b21))
+* added builded file ([1d80f63](https://github.com/ZanichelliEditore/design-system/commit/1d80f63dfdf84ea67d646161aa0632d48aa85bb4))
+* added description methodsetSkipAanimationOnLoad in the documentation storybook ([5725401](https://github.com/ZanichelliEditore/design-system/commit/5725401701f607dba1fffdcb87cee5974d9e419b))
+* added new prop skipanimationonload ([ecfc5fc](https://github.com/ZanichelliEditore/design-system/commit/ecfc5fc8c5c8bcfe047cc4b4f2587efe5be33b83))
+* added new stories ([ba4c0ae](https://github.com/ZanichelliEditore/design-system/commit/ba4c0aee9a682abda3e45d704f1094e68a53eedc))
+* added new stories ad fixes test ([cd943d1](https://github.com/ZanichelliEditore/design-system/commit/cd943d11f93914cc0a6b38205cca86ac72bc2537))
+* change description ([8b5f3ad](https://github.com/ZanichelliEditore/design-system/commit/8b5f3ad876cfab4c911e4864865656533af71006))
+* change skipAanimationOnLoad to state, and create method setSkipAanimationOnLoad ([ec45907](https://github.com/ZanichelliEditore/design-system/commit/ec45907fd302de96ddca077f80a2d3309b838137))
+* fix and added tests overlay variant and skipanimationonload prop ([8dadd00](https://github.com/ZanichelliEditore/design-system/commit/8dadd00949796e67029e6dff66d4cdece3b33835))
+* fix default value skipanimationonload ([f2cd7f6](https://github.com/ZanichelliEditore/design-system/commit/f2cd7f69074b3487b6410b19669bcb95c6c8ff18))
+* fix from PR ([5568e41](https://github.com/ZanichelliEditore/design-system/commit/5568e418db75dc62405a48dd4d74f449cbb4fdc0))
+* fix from PR ([e004c6d](https://github.com/ZanichelliEditore/design-system/commit/e004c6d414a159ab1a7bf8f57c6edb12c62a9a46))
+* fix offcanvas test ([ce70b7e](https://github.com/ZanichelliEditore/design-system/commit/ce70b7e43342133d9396b99faaabf2208f7fcad9))
+* fix overlay transition and story ([4098a29](https://github.com/ZanichelliEditore/design-system/commit/4098a290188caee4398c3b537bf3bd7119ca5a60))
+* fix skipanimationonload and added stories with controls ([e4d36bb](https://github.com/ZanichelliEditore/design-system/commit/e4d36bbbeb04c0ae8c577bdc13bfb351f902ee99))
+* fix test ([3a5d9d2](https://github.com/ZanichelliEditore/design-system/commit/3a5d9d2e25a4b3e3a4e4b92e9f642a1a1a311e55))
+* fixed get attribute with valueOf() ([3d4e1e9](https://github.com/ZanichelliEditore/design-system/commit/3d4e1e9a32e00338cbf24acc1b5fcecdf3da8dd2))
+* fixed skiponloadanimation with class and fix tests and stories ([9e57589](https://github.com/ZanichelliEditore/design-system/commit/9e5758989dd171e27ad0daef46717b17bb3f49a1))
+* fixed test and stories ([2203b45](https://github.com/ZanichelliEditore/design-system/commit/2203b45f6126aadce06c61d065401069eeabe76f))
+* new animation exit and remove animation start-end event ([2259861](https://github.com/ZanichelliEditore/design-system/commit/2259861ae2c12a9bf054e796e0addbc8547abbd6))
+* refactor open/close and added handleOverflowProperty ([9cc93ce](https://github.com/ZanichelliEditore/design-system/commit/9cc93ced1cb69f12a005356b5b94bff9d67c7c79))
+
 ## [7.2.0](https://github.com/ZanichelliEditore/design-system/compare/v7.1.3...v7.2.0) (2023-04-03)
 
 
