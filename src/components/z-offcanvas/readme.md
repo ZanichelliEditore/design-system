@@ -30,7 +30,7 @@
 
 ### `setSkipAanimationOnLoad(value: boolean) => Promise<void>`
 
-set skipAnimation
+this method allows you to skip the page loading animation, to be used with the prop set to true
 
 #### Returns
 

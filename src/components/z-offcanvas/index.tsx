@@ -25,19 +25,19 @@ export class ZOffcanvas {
   @Prop({reflect: true, mutable: true})
   open = false;
 
-  /** allows you to skip the entry animation on page load, to be used with the open prop at true */
-  @State()
-  skipanimationonload = false;
-
   /** open content transitioning in a specified direction left | right. Default: left */
   @Prop({reflect: true})
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
+
+  /** manages the skip for the entry animation*/
+  @State()
+  skipanimationonload = false;
 
   /** emitted when open prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
 
-  /** set skipAnimation */
+  /** this method allows you to skip the page loading animation, to be used with the prop set to true */
   @Method()
   async setSkipAanimationOnLoad(value: boolean): Promise<void> {
     this.skipanimationonload = value;
