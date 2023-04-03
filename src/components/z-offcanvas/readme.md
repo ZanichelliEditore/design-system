@@ -30,7 +30,7 @@
 
 ### `setSkipAanimationOnLoad(value: boolean) => Promise<void>`
 
-get checked status
+set skipAnimation
 
 #### Returns
 

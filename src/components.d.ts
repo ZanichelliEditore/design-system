@@ -1117,7 +1117,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * get checked status
+          * set skipAnimation
          */
         "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
         /**
