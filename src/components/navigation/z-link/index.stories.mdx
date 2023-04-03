@@ -1,11 +1,34 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, number, boolean, select} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
+
+# ZLink
 
 <Meta
   title="Navigation/ZLink"
   component="z-link"
+  argTypes={{
+    textcolor: {
+      control: {type: "select"},
+      options: ["primary", "inverse", "black", "white"],
+    },
+    iconposition: {
+      control: {type: "select"},
+      options: ["left", "right"],
+    },
+  }}
+  args={{
+    href: "http://www.zanichelli.it",
+    target: "_blank",
+    textcolor: "primary",
+    icon: "download",
+    iconposition: "left",
+    htmlid: 1,
+    htmltabindex: 1,
+    isdisabled: false,
+    isactive: false,
+    underline: false,
+  }}
 />
 
 ## How to use
@@ -14,66 +37,67 @@ Icon dimension is calculated using the link font size multiplied by 1.125. To ch
 
 Current available text color is : primary, inverse, black and white. Primary and Inverse use the theming values from design-tokens; Black and White has fixed colors.
 
-# ZLink primary
+## Primary
 
-<Preview>
-  <Story name="z-link primary">
-    {html` <z-link
-      href="${text("href", "http://www.zanichelli.it")}"
-      target="${text("target", "_blank")}"
-      textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
-      icon="${text("icon", "download")}"
-      iconposition="${select("iconposition", ["left", "right"], "left")}"
-      htmlid="${number("htmlid", 1)}"
-      htmltabindex="${number("htmltabindex", 1)}"
-      isdisabled="${boolean("isdisabled", false)}"
-      isactive="${boolean("isactive", false)}"
-      underline="${boolean("underline", false)}"
+<Canvas>
+  <Story name="Primary">
+    {(args) => html`<z-link
+      href="${args.href}"
+      target="${args.target}"
+      textcolor="${args.textcolor}"
+      icon="${args.icon}"
+      iconposition="${args.iconposition}"
+      htmlid="${args.htmlid}"
+      htmltabindex="${args.htmltabindex}"
+      isdisabled="${args.isdisabled}"
+      isactive="${args.isactive}"
+      underline="${args.underline}"
       >z-link</z-link
     >`}
   </Story>
-</Preview>
+</Canvas>
 
-# Zlink inverse
+## Inverse
 
-<Preview>
-  <Story name="z-link inverse">
-    {html` <z-link
-      style="background-color:black"
-      href="${text("href", "http://www.zanichelli.it")}"
-      target="${text("target", "_blank")}"
-      textcolor="inverse"
-      icon="${text("icon", "download")}"
-      iconposition="${select("iconposition", ["left", "right"], "left")}"
-      htmlid="${number("htmlid", 1)}"
-      htmltabindex="${number("htmltabindex", 1)}"
-      isdisabled="${boolean("isdisabled", false)}"
-      isactive="${boolean("isactive", false)}"
-      underline="${boolean("underline", false)}"
-      >z-link</z-link
-    >`}
-  </Story>
-</Preview>
-
-# Zlink inline without icon
-
-<Preview>
-  <Story name="z-link inline">
-    {html` <span class="body-1"
-      >Clicca sul
+<Canvas>
+  <Story name="Inverse">
+    {(args) => html`<span style="display: inline-flex; padding: var(--space-unit); background: var(--gray900);">
       <z-link
-        href="${text("href", "http://www.zanichelli.it")}"
-        target="${text("target", "_blank")}"
-        textcolor="${select("textcolor", ["primary", "inverse", "black", "white"], "primary")}"
-        htmlid="${number("htmlid", 1)}"
-        htmltabindex="${number("htmltabindex", 1)}"
-        isdisabled="${boolean("isdisabled", false)}"
-        isactive="${boolean("isactive", false)}"
+        href="${args.href}"
+        target="${args.target}"
+        textcolor="inverse"
+        icon="${args.icon}"
+        iconposition="${args.iconposition}"
+        htmlid="${args.htmlid}"
+        htmltabindex="${args.htmltabindex}"
+        isdisabled="${args.isdisabled}"
+        isactive="${args.isactive}"
+        underline="${args.underline}"
+        >z-link</z-link
+      >
+    </span>`}
+  </Story>
+</Canvas>
+
+## Inline without icon
+
+<Canvas>
+  <Story name="Inline without icon">
+    {(args) => html`<span class="body-1"
+      >Clicca sullo
+      <z-link
+        href="${args.href}"
+        target="${args.target}"
+        textcolor="${args.textcolor}"
+        htmlid="${args.htmlid}"
+        htmltabindex="${args.htmltabindex}"
+        isdisabled="${args.isdisabled}"
+        isactive="${args.isactive}"
         underline="true"
         >z-link</z-link
       >.</span
     >`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-link" />
+<ArgsTable of="z-link" />

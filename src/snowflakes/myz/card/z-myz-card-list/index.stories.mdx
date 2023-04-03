@@ -1,8 +1,6 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Myz/MyzCard/ZMyzCardList"
@@ -11,14 +9,12 @@ import "./index";
 
 # ZMyzCardList
 
-<Preview>
+<Canvas>
   <Story name="z-myz-card-list">
     {html` <z-myz-card-list
       listdata='[{"isLink":true,"value":"Leggi sul browser","url":"https://booktab.it/"},{"isLink":true,"value":"Sito e risorse del libro","url":"http://online.scuola.zanichelli.it/curtisinvitoblu/"},{"isLink":false,"value":"Programmazione"},{"isLink":false,"value":"Prove di verifica"},{"isLink":true,"value":"ZTE","url":"https://zte.zanichelli.it/"}]'
     />`}
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
-
-<Props of="z-myz-card-list" />
+<ArgsTable of="z-myz-card-list" />

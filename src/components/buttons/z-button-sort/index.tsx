@@ -18,7 +18,7 @@ export class ZButtonSort {
   @Prop()
   desclabel?: string;
 
-  /** occurrencies counter (optional) */
+  /** occurrences counter (optional) */
   @Prop()
   counter?: number;
 
@@ -43,7 +43,7 @@ export class ZButtonSort {
 
   private ellipsis?: HTMLSpanElement;
 
-  /** sorting direction click event, returns buttonid and sortAsc */
+  /** sorting direction click event, returns `buttonid` and `sortAsc` */
   @Event()
   buttonSortClick: EventEmitter;
 

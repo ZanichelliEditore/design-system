@@ -1,4 +1,4 @@
-:host > button {
+:host > .z-chip-container {
   display: inline-flex;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
@@ -12,46 +12,53 @@
   font-weight: var(--font-sb);
 }
 
-:host > button:not(:disabled) > z-icon:last-child:hover {
+:host > .z-chip-container:not([aria-disabled]) button > z-icon:last-child:hover {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
 
-:host > button:hover:not(:disabled) > z-icon:first-child {
+:host > .z-chip-container:hover:not([aria-disabled]) > z-icon:first-child {
   fill: var(--color-icon02);
 }
 
-:host > button > z-icon.icon-sx {
+:host > .z-chip-container > button {
+  padding: 0;
+  border: none;
+  margin-left: var(--space-unit);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+:host > .z-chip-container > z-icon.icon-sx {
   margin-right: calc(var(--space-unit) / 2);
 }
 
-:host > button > z-icon:last-child {
-  margin-left: var(--space-unit);
-  cursor: pointer;
+:host > .z-chip-container > button > z-icon:last-child {
   fill: var(--color-primary01);
 }
 
-:host > button:disabled,
-:host > button:disabled > z-icon {
+:host > .z-chip-container[aria-disabled],
+:host > .z-chip-container[aria-disabled] > z-icon,
+:host > .z-chip-container[aria-disabled] > button > z-icon {
   color: var(--color-disabled03);
   fill: var(--color-disabled03);
 }
 
-:host > button:disabled > z-icon {
+:host > .z-chip-container[aria-disabled] > button > z-icon {
   cursor: auto;
 }
 
-:host > button:disabled {
+:host > .z-chip-container[aria-disabled] {
   border: var(--border-size-small) solid var(--color-disabled01);
 }
 
-:host > button:focus:focus-visible,
-:host > div:focus:focus-visible {
+:host > .z-chip-container > button:focus:focus-visible {
+  border-radius: 100%;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-:host > button:hover:not(:disabled):active:hover > z-icon:last-child {
+:host > button:hover:not(:disabled):active:hover > button > z-icon:last-child {
   color: var(--color-primary01);
   fill: var(--color-primary01);
 }
@@ -76,21 +83,21 @@
 }
 
 /* :host type */
-:host > button.default,
+:host > .z-chip-container.default,
 :host > div.default {
   min-height: 44px;
   border-radius: 22px;
   line-height: 44px;
 }
 
-:host > button.medium,
+:host > .z-chip-container.medium,
 :host > div.medium {
   min-height: 40px;
   border-radius: 22px;
   line-height: 40px;
 }
 
-:host > button.small,
+:host > .z-chip-container.small,
 :host > div.small {
   min-height: 36px;
   border-radius: 22px;
@@ -99,7 +106,7 @@
 
 /* Desktop breakpoint */
 @media only screen and (min-width: 1152px) {
-  :host > button {
+  :host > .z-chip-container {
     font-size: 12px;
   }
 
@@ -108,21 +115,21 @@
   }
 
   /* :host type */
-  :host > button.default,
+  :host > .z-chip-container.default,
   :host > div.default {
     min-height: 32px;
     border-radius: 16px;
     line-height: 32px;
   }
 
-  :host > button.medium,
+  :host > .z-chip-container.medium,
   :host > div.medium {
     min-height: 28px;
     border-radius: 16px;
     line-height: 28px;
   }
 
-  :host > button.small,
+  :host > .z-chip-container.small,
   :host > div.small {
     min-height: 24px;
     border-radius: 16px;

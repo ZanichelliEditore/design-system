@@ -41,7 +41,7 @@ button:hover > span {
 button:focus > span {
   background: var(--color-surface01);
   border-radius: var(--border-radius);
-  box-shadow: 0 0 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 button:active > span {

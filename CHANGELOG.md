@@ -2,28 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [7.2.0](https://github.com/ZanichelliEditore/design-system/compare/v7.1.1...v7.2.0) (2023-04-03)
+### [7.1.3](https://github.com/ZanichelliEditore/design-system/compare/v7.1.2...v7.1.3) (2023-04-03)
+
+### [7.1.2](https://github.com/ZanichelliEditore/design-system/compare/v7.1.1...v7.1.2) (2023-03-29)
 
 
-### Features
+### Bug Fixes
 
-* add animation mobile ([318cc2e](https://github.com/ZanichelliEditore/design-system/commit/318cc2ed104759dd57bfa3a7b67392f743e55101))
-* add onTransitionEnd to fix the scrollbar behavior on different systems ([815d690](https://github.com/ZanichelliEditore/design-system/commit/815d6900e706c2b584f99ad26570370455f84b21))
-* added new prop skipanimationonload ([ecfc5fc](https://github.com/ZanichelliEditore/design-system/commit/ecfc5fc8c5c8bcfe047cc4b4f2587efe5be33b83))
-* added new stories ([ba4c0ae](https://github.com/ZanichelliEditore/design-system/commit/ba4c0aee9a682abda3e45d704f1094e68a53eedc))
-* fix and added tests overlay variant and skipanimationonload prop ([8dadd00](https://github.com/ZanichelliEditore/design-system/commit/8dadd00949796e67029e6dff66d4cdece3b33835))
-* fix default value skipanimationonload ([f2cd7f6](https://github.com/ZanichelliEditore/design-system/commit/f2cd7f69074b3487b6410b19669bcb95c6c8ff18))
-* fix from PR ([5568e41](https://github.com/ZanichelliEditore/design-system/commit/5568e418db75dc62405a48dd4d74f449cbb4fdc0))
-* fix from PR ([e004c6d](https://github.com/ZanichelliEditore/design-system/commit/e004c6d414a159ab1a7bf8f57c6edb12c62a9a46))
-* fix offcanvas test ([ce70b7e](https://github.com/ZanichelliEditore/design-system/commit/ce70b7e43342133d9396b99faaabf2208f7fcad9))
-* fix overlay transition and story ([4098a29](https://github.com/ZanichelliEditore/design-system/commit/4098a290188caee4398c3b537bf3bd7119ca5a60))
-* fix skipanimationonload and added stories with controls ([e4d36bb](https://github.com/ZanichelliEditore/design-system/commit/e4d36bbbeb04c0ae8c577bdc13bfb351f902ee99))
-* fix test ([3a5d9d2](https://github.com/ZanichelliEditore/design-system/commit/3a5d9d2e25a4b3e3a4e4b92e9f642a1a1a311e55))
-* fixed get attribute with valueOf() ([3d4e1e9](https://github.com/ZanichelliEditore/design-system/commit/3d4e1e9a32e00338cbf24acc1b5fcecdf3da8dd2))
-* fixed skiponloadanimation with class and fix tests and stories ([9e57589](https://github.com/ZanichelliEditore/design-system/commit/9e5758989dd171e27ad0daef46717b17bb3f49a1))
-* fixed test and stories ([2203b45](https://github.com/ZanichelliEditore/design-system/commit/2203b45f6126aadce06c61d065401069eeabe76f))
-* new animation exit and remove animation start-end event ([2259861](https://github.com/ZanichelliEditore/design-system/commit/2259861ae2c12a9bf054e796e0addbc8547abbd6))
-* refactor open/close and added handleOverflowProperty ([9cc93ce](https://github.com/ZanichelliEditore/design-system/commit/9cc93ced1cb69f12a005356b5b94bff9d67c7c79))
+* aria-label default empty error ([214163f](https://github.com/ZanichelliEditore/design-system/commit/214163f19fa4e95c455b482c7789977a057305cc))
+* enhance z-chip a11y ([3b04558](https://github.com/ZanichelliEditore/design-system/commit/3b04558b080d9ac1b839e16a3a4c99d8667c6945))
+* enhance z-chip a11y, fix properties-order ([bbbc9e4](https://github.com/ZanichelliEditore/design-system/commit/bbbc9e4b95bf8b9f41c1660f8c27f190efbdf1eb))
+* remove tabindex fomr button ([44c3c86](https://github.com/ZanichelliEditore/design-system/commit/44c3c86b11c50aef0b7d30b304a6fd5f1bd237b1))
+* remove tabindex in disabled button ([b6e9ac8](https://github.com/ZanichelliEditore/design-system/commit/b6e9ac896fa6c2b161b74835acb2be12a269874f))
+* update focus box-shadow ([5061893](https://github.com/ZanichelliEditore/design-system/commit/5061893c2c1609bba7350b9708b6e45090dd895e))
+* update tokens ([360a6c3](https://github.com/ZanichelliEditore/design-system/commit/360a6c30c3b9f3dd8ee285187cea4bf8fdc16f5a))
 
 ### [7.1.1](https://github.com/ZanichelliEditore/design-system/compare/v7.1.0...v7.1.1) (2023-03-20)
 

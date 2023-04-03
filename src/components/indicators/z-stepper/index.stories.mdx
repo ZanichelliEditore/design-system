@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
@@ -9,7 +9,7 @@ import "./index";
 
 # ZStepper
 
-<Preview>
+<Canvas>
   <Story name="Initial">
     {html`<z-stepper>
       <z-stepper-item
@@ -26,9 +26,9 @@ import "./index";
       ></z-stepper-item>
     </z-stepper>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name="Completed">
     {html`<z-stepper>
       <z-stepper-item index="1">I tuoi dati</z-stepper-item>
@@ -40,4 +40,4 @@ import "./index";
       >
     </z-stepper>`}
   </Story>
-</Preview>
+</Canvas>

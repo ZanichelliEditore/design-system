@@ -1,25 +1,45 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, select} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {DividerSize, DividerOrientation} from "../../beans";
+import {getColorTokens} from "../../utils/storybook-utils";
 import "./index";
 
 <Meta
   title="ZDivider"
   component="z-divider"
+  argTypes={{
+    size: {
+      control: {type: "select"},
+      options: Object.values(DividerSize),
+    },
+    orientation: {
+      control: {type: "select"},
+      options: Object.values(DividerOrientation),
+    },
+    color: {
+      control: {type: "select"},
+      options: getColorTokens().map((token) => token.replace("--", "")),
+    },
+  }}
+  args={{
+    size: DividerSize.SMALL,
+    color: "gray200",
+    orientation: DividerOrientation.HORIZONTAL,
+  }}
 />
 
 # ZDivider
 
-<Preview>
+<Canvas>
   <Story name="ZDivider">
-    {html`<div style="height: 300px; padding: 24px">
+    {(args) => html`<div style="height: 300px; padding: 24px">
       <z-divider
-        size="${select("size", ["small", "medium", "large"], "small")}"
-        color="${text("color token", "gray200")}"
-        orientation="${select("orientation", ["horizontal", "vertical"], "horizontal")}"
+        size="${args.size}"
+        color="${args.color}"
+        orientation="${args.orientation}"
       ></z-divider>
     </div>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-divider" />
+<ArgsTable of="z-divider" />

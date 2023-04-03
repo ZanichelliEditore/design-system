@@ -1,42 +1,56 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean, number} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Buttons/ZButtonSort"
   component="z-button-sort"
+  args={{
+    label: "sort",
+    counter: 3,
+    desclabel: "label DESC",
+    sortlabelasc: "1-9",
+    sortlabeldesc: "9-1",
+    isselected: true,
+    sortasc: true,
+  }}
 />
 
 # ZButtonSort
 
-<Preview>
+<Canvas>
   <Story name="z-button-sort">
-    {html` <z-button-sort
-      label="${text("label", "sort")}"
-      counter="${number("counter", 3)}"
-      desclabel="${text("desclabel", "label DESC")}"
-      sortlabelasc="${text("sortlabelasc", "1-9")}"
-      sortlabeldesc="${text("sortlabeldesc", "9-1")}"
-      isselected="${boolean("isselected", true)}"
-      sortasc="${boolean("sortasc", true)}"
+    {(args) => html`<z-button-sort
+      label="${args.label}"
+      counter="${args.counter}"
+      desclabel="${args.desclabel}"
+      sortlabelasc="${args.sortlabelasc}"
+      sortlabeldesc="${args.sortlabeldesc}"
+      isselected="${args.isselected}"
+      sortasc="${args.sortasc}"
     ></z-button-sort>`}
   </Story>
-  <Story name="z-button-sort ellipsis">
-    {html` <z-button-sort
-      label="${text("label", "Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più")}"
-      counter="${number("counter", 3)}"
-      desclabel="${text("desclabel", "label DESC")}"
-      sortlabelasc="${text("sortlabelasc", "1-9")}"
-      sortlabeldesc="${text("sortlabeldesc", "9-1")}"
-      isselected="${boolean("isselected", true)}"
-      sortasc="${boolean("sortasc", true)}"
+</Canvas>
+
+## ZButtonSort ellipsis
+
+<Canvas>
+  <Story
+    name="z-button-sort ellipsis"
+    args={{
+      label: "Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più",
+    }}
+  >
+    {(args) => html`<z-button-sort
+      label="${args.label}"
+      counter="${args.counter}"
+      desclabel="${args.desclabel}"
+      sortlabelasc="${args.sortlabelasc}"
+      sortlabeldesc="${args.sortlabeldesc}"
+      isselected="${args.isselected}"
+      sortasc="${args.sortasc}"
     ></z-button-sort>`}
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
-
-<Props of="z-button-sort" />
+<ArgsTable of="z-button-sort" />

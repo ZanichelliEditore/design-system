@@ -32,7 +32,7 @@ export class ZToastNotification {
   @Prop()
   pauseonfocusloss?: boolean = true;
 
-  /** toast notification type:  dark, light, accent, error, success, warning*/
+  /** toast notification type: dark, light, accent, error, success, warning */
   @Prop()
   type?: ToastNotification;
 

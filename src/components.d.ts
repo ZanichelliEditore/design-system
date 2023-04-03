@@ -134,7 +134,7 @@ export namespace Components {
          */
         "buttonid": string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -207,6 +207,10 @@ export namespace Components {
         "single": boolean;
     }
     interface ZChip {
+        /**
+          * z-chip aria-label string
+         */
+        "ariaLabel": string;
         /**
           * set z-chip as disabled
          */
@@ -1661,7 +1665,7 @@ export namespace Components {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }
@@ -1676,6 +1680,10 @@ export namespace Components {
         "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
+        /**
+          * aria-label for the button
+         */
+        "ariaLabel": string;
         /**
           * avoidclick status flag
          */
@@ -2655,7 +2663,7 @@ declare namespace LocalJSX {
          */
         "buttonid"?: string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -2671,7 +2679,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * sorting direction click event, returns buttonid and sortAsc
+          * sorting direction click event, returns `buttonid` and `sortAsc`
          */
         "onButtonSortClick"?: (event: ZButtonSortCustomEvent<any>) => void;
         /**
@@ -2740,6 +2748,10 @@ declare namespace LocalJSX {
         "single"?: boolean;
     }
     interface ZChip {
+        /**
+          * z-chip aria-label string
+         */
+        "ariaLabel"?: string;
         /**
           * set z-chip as disabled
          */
@@ -4354,7 +4366,7 @@ declare namespace LocalJSX {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }
@@ -4369,6 +4381,10 @@ declare namespace LocalJSX {
         "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
+        /**
+          * aria-label for the button
+         */
+        "ariaLabel"?: string;
         /**
           * avoidclick status flag
          */

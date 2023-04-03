@@ -18,8 +18,8 @@ function getRootCssProperties() {
  * @example ```
  * argTypes={{
  *  "--z-component--background-color": {
+ *    control: { type: "select" },
  *    options: getColorTokens(),
- *    control: { type: "select" }
  *  }
  * }}```
  *
