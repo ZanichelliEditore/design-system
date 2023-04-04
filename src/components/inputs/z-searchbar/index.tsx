@@ -127,7 +127,7 @@ export class ZSearchbar {
 
   @Watch("value")
   watchValue(): void {
-    this.handleInput(this.value);
+    this.searchString = this.value;
   }
 
   @Watch("searchString")
@@ -138,15 +138,10 @@ export class ZSearchbar {
     }
   }
 
-  @Listen("click", {target: "document"})
-  clickListener(e: MouseEvent): void {
-    this.handleOutsideClick(e);
-  }
-
   componentWillLoad(): void {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.handleInput(this.value);
+    this.searchString = this.value;
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {
@@ -202,15 +197,7 @@ export class ZSearchbar {
 
   private handleStopTyping(e: CustomEvent): void {
     e.stopPropagation();
-    this.handleInput(e.detail.value);
-  }
-
-  private handleInput(value?: string): void {
-    if (value?.length >= this.autocompleteMinChars) {
-      this.searchString = value;
-    } else if (this.searchString) {
-      this.searchString = "";
-    }
+    this.searchString = e.detail.value;
   }
 
   private handleSubmit(): void {
@@ -221,6 +208,7 @@ export class ZSearchbar {
     this.emitSearchSubmit();
   }
 
+  @Listen("click", {target: "document"})
   private handleOutsideClick(e: MouseEvent): void {
     const cp = e.composedPath();
 

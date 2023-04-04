@@ -37,6 +37,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-app-header](../../navigation/z-app-header)
+
 ### Depends on
 
 - [z-input](../z-input)
@@ -65,6 +69,7 @@ graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-link --> z-icon
+  z-app-header --> z-searchbar
   style z-searchbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

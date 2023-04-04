@@ -1,4 +1,5 @@
-import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
+import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen} from "@stencil/core";
+import {ButtonVariant, ControlSize} from "../../../beans";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -46,10 +47,10 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
- * @cssprop --app-header-bg - Header background color. Defaults to `--color-white`.
- * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-white`.
- * @cssprop --app-header-text-color - Text color. Defaults to `--gray800`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--gray800`.
+ * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01.
+ * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+ * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
  */
 @Component({
   tag: "z-app-header",
@@ -62,15 +63,13 @@ export class ZAppHeader {
   /**
    * Stuck mode for the header.
    * You can programmatically set it using an IntersectionObserver.
-   * **Optional**
    */
   @Prop({reflect: true})
   stuck = false;
 
   /**
    * Set the hero image source for the header.
-   * You can also use a slot="hero" node for advanced customisation.
-   * **Optional**
+   * You can also use a slot="hero" node for advanced customization.
    */
   @Prop()
   hero: string;
@@ -78,7 +77,6 @@ export class ZAppHeader {
   /**
    * Should place an overlay over the hero image.
    * Useful for legibility purpose.
-   * **Optional**
    */
   @Prop({reflect: true})
   overlay = false;
@@ -99,10 +97,35 @@ export class ZAppHeader {
   drawerOpen = false;
 
   /**
+   * Enable the search bar.
+   */
+  @Prop({reflect: true})
+  enableSearch = false;
+
+  /**
+   * Placeholder text for the search bar.
+   */
+  @Prop()
+  searchPlaceholder = "Cerca";
+
+  /**
+   * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+   */
+  @Prop()
+  searchLink: string;
+
+  /**
    * The stuck state of the bar.
    */
   @State()
   private _stuck = false;
+
+  /**
+   * Current viewport.
+   * Used to change the aspect of the search button (icon only) on mobile and tablet.
+   */
+  @State()
+  private currentViewport: "mobile" | "tablet" | "desktop" = "mobile";
 
   /**
    * Current count of menu items.
@@ -116,9 +139,11 @@ export class ZAppHeader {
   @Event()
   sticking: EventEmitter;
 
-  private emitStickingEvent(): void {
-    this.sticking.emit(this._stuck);
-  }
+  /**
+   * Emitted when the search button from the sticky header is clicked.
+   */
+  @Event()
+  searchSubmit: EventEmitter;
 
   private container?: HTMLDivElement;
 
@@ -152,6 +177,7 @@ export class ZAppHeader {
   componentDidLoad(): void {
     this.collectMenuElements();
     this.onStuckMode();
+    this.evaluateViewport();
   }
 
   private get title(): string {
@@ -176,6 +202,17 @@ export class ZAppHeader {
     const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
+  }
+
+  @Listen("resize", {target: "window", passive: true})
+  evaluateViewport(): void {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      this.currentViewport = "mobile";
+    } else if (window.matchMedia("(min-width: 768px) and (max-width: 1151px)")) {
+      this.currentViewport = "tablet";
+    } else {
+      this.currentViewport = "desktop";
+    }
   }
 
   @Watch("stuck")
@@ -207,7 +244,7 @@ export class ZAppHeader {
       return;
     }
 
-    this.emitStickingEvent();
+    this.sticking.emit(this._stuck);
   }
 
   @Watch("drawerOpen")
@@ -262,14 +299,29 @@ export class ZAppHeader {
           </div>
 
           <div class="menu-container">
-            {!this.drawerOpen && this.flow !== "offcanvas" && (
+            {!this.drawerOpen && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && (
               <slot
                 name="menu"
                 onSlotchange={this.collectMenuElements}
               ></slot>
             )}
+
+            {this.enableSearch && (
+              <z-searchbar
+                placeholder={this.searchPlaceholder}
+                showSearchButton={true}
+                searchButtonIconOnly={this.currentViewport !== "desktop"}
+                size={ControlSize.X_SMALL}
+                variant={ButtonVariant.SECONDARY}
+                preventSubmit={true}
+                onSearchTyping={(e) => {
+                  e.target.preventSubmit = e.detail?.length < 3;
+                }}
+              ></z-searchbar>
+            )}
           </div>
         </div>
+
         <div class="drawer-container">
           <div
             class="drawer-overlay"
@@ -308,9 +360,19 @@ export class ZAppHeader {
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
+
               <div class="heading-title">
                 <slot name="stucked-title">{this.title}</slot>
               </div>
+
+              {this.enableSearch && (
+                <z-button
+                  variant={ButtonVariant.SECONDARY}
+                  icon="search"
+                  size={ControlSize.X_SMALL}
+                  onClick={() => this.searchSubmit.emit()}
+                ></z-button>
+              )}
             </div>
           </div>
         )}

@@ -28,19 +28,31 @@ export namespace Components {
          */
         "drawerOpen": boolean;
         /**
+          * Enable the search bar.
+         */
+        "enableSearch": boolean;
+        /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow": "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customization.
          */
         "hero": string;
         /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
          */
         "overlay": boolean;
         /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+          * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+         */
+        "searchLink": string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck": boolean;
     }
@@ -2557,23 +2569,39 @@ declare namespace LocalJSX {
          */
         "drawerOpen"?: boolean;
         /**
+          * Enable the search bar.
+         */
+        "enableSearch"?: boolean;
+        /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customization.
          */
         "hero"?: string;
+        /**
+          * Emitted when the search button from the sticky header is clicked.
+         */
+        "onSearchSubmit"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
           * Emitted when the `stuck` state of the header changes
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
          */
         "overlay"?: boolean;
         /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+          * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+         */
+        "searchLink"?: string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck"?: boolean;
     }
