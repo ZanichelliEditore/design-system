@@ -88,6 +88,14 @@ export namespace Components {
     }
     interface ZBreadcrumb {
         /**
+          * Sets the url to link the homepage
+         */
+        "homepageUrl": string;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow": number;
+        /**
           * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
@@ -2603,6 +2611,14 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZBreadcrumb {
+        /**
+          * Sets the url to link the homepage
+         */
+        "homepageUrl"?: string;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow"?: number;
         /**
           * [optional] Path elements
          */
