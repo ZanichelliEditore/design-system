@@ -10,23 +10,21 @@ ol {
   list-style-type: none;
 }
 
-:host z-link {
-  --font-size-link: var(--font-size-2);
+:host a {
+  color: var(--color-link-primary);
+  font-size: 14px;
+  text-decoration: none;
 }
 
-:host([type="semibold"]) z-link {
-  --font-weight-link: var(--font-sb);
+:host([type="semibold"]) a {
+  font-weight: bold;
 }
 
 ::slotted([slot="breadcrumb-content"]) {
-  --font-size-link: var(--font-size-2);
-
   font-size: 14px;
 }
 
 :host([type="semibold"]) ::slotted([slot="breadcrumb-content"]) {
-  --font-weight-link: var(--font-sb);
-
   font-weight: bold;
 }
 
@@ -34,12 +32,37 @@ ol {
   text-decoration: underline;
 }
 
+:host z-icon {
+  --z-icon-width: 10px;
+  --z-icon-height: 10px;
+
+  padding: 8px;
+  vertical-align: initial;
+}
+
+:host .hidden-elements-arrow {
+  padding-left: 0;
+}
+
 #dots {
+  color: var(--color-link-primary);
   cursor: pointer;
 }
 
-ul {
-  width: 300px;
-  height: 400px;
-  background-color: red;
+:host .popover-content a {
+  font-weight: normal;
+}
+
+.popover-content {
+  max-width: 302px;
+  text-align: left;
+}
+
+.popover-container > div {
+  display: flex;
+  align-items: center;
+}
+
+:host z-tooltip {
+  --z-popover-theme--surface: var(--color-surface02);
 }

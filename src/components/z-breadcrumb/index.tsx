@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Host, Listen, Element} from "@stencil/core";
-import {BreadcrumbPath, BreadcrumbPathType} from "../../beans";
+import {BreadcrumbPath, BreadcrumbPathType, ListDividerType, ListSize, PopoverPosition} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 
 /**
@@ -46,11 +46,17 @@ export class ZBreadcrumb {
 
   private collapsedElements: BreadcrumbPath[];
 
-  private collapsedElementsRef: HTMLZPopoverElement;
+  private collapsedElementsRef: HTMLZTooltipElement;
+
+  private triggerButton: HTMLLIElement;
 
   componentWillLoad(): void {
     this.pathsList = this.getPathsItemsList();
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+  }
+
+  componentDidLoad(): void {
+    this.collapsedElementsRef.bindTo = this.triggerButton;
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
@@ -69,17 +75,12 @@ export class ZBreadcrumb {
       <nav>
         <ol>
           <li>
-            <z-link
-              href={lastPath.path}
-              textcolor="primary"
-              iconposition="left"
-              htmlid="1"
-              htmltabindex={1}
-              underline={this.type === BreadcrumbPathType.UNDERLINED}
-              icon="chevron-left"
-            >
-              <span>{lastPath.name}</span>
-            </z-link>
+            <z-icon
+              class="hidden-elements-arrow"
+              name="chevron-right"
+              fill="color-disabled03"
+            />
+            <a href={lastPath.path}>{lastPath.name}</a>
           </li>
         </ol>
       </nav>
@@ -88,37 +89,30 @@ export class ZBreadcrumb {
 
   private renderBreadcrumb(): HTMLElement {
     if (this.pathsList.length > this.maxNodesToShow) {
-      this.pathsList = this.pathsList.slice(-2);
-      this.collapsedElements = this.pathsList.slice(0, this.maxNodesToShow - 2);
+      this.collapsedElements = this.pathsList.splice(0, this.maxNodesToShow - 1);
     }
 
     return (
       <nav>
         <ol>
           <li>
-            <z-link
-              href={this.homepageUrl}
-              textcolor="primary"
-              iconposition="left"
-              htmlid="1"
-              htmltabindex={1}
-              icon="home"
-            />
+            <a href={this.homepageUrl}>
+              <z-icon
+                name="home"
+                fill="color-link-primary"
+                height={16}
+                width={16}
+              />
+            </a>
           </li>
           {this.collapsedElements ? this.renderCollapsedElements() : ""}
           {this.pathsList.map((item) => (
             <li>
-              <z-link
-                href={item.path}
-                textcolor="primary"
-                iconposition="left"
-                htmlid="1"
-                htmltabindex={1}
-                underline={this.type === BreadcrumbPathType.UNDERLINED}
-                icon="chevron-right"
-              >
-                <span>{item.name}</span>
-              </z-link>
+              <z-icon
+                name="chevron-right"
+                fill="color-disabled03"
+              />
+              <a href={item.path}>{item.name}</a>
             </li>
           ))}
         </ol>
@@ -126,47 +120,57 @@ export class ZBreadcrumb {
     );
   }
 
+  private togglePopover(): void {
+    if (!this.collapsedElementsRef.open) {
+      this.collapsedElementsRef.open = true;
+    }
+  }
+
   private renderCollapsedElements(): HTMLLIElement {
     return (
-      <li class="popover-container">
-        <z-popover
-          ref={(val) => (this.collapsedElementsRef = val)}
-          bind-to="#dots"
+      <div>
+        <z-tooltip
+          ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
+          bind-to={this.triggerButton}
           open={this.popoverOpen}
-        >
-          <ul
-            class="container"
-            style={{position: "relative"}}
-          >
-            {this.collapsedElements.map((item) => (
-              <li>
-                <z-link
-                  href={item.path}
-                  textcolor="primary"
-                  iconposition="left"
-                  htmlid="1"
-                  htmltabindex={1}
-                  underline={this.type === BreadcrumbPathType.UNDERLINED}
-                >
-                  <span>{item.name}</span>
-                </z-link>
-              </li>
-            ))}
-          </ul>
-        </z-popover>
-        <span
-          id="dots"
-          onClick={() => {
-            if (this.collapsedElementsRef.open) {
-              this.popoverOpen = false;
-            } else {
-              this.popoverOpen = true;
-            }
+          position={PopoverPosition.BOTTOM_RIGHT}
+          style={{
+            "--z-tooltip-theme--surface": "var(--color-surface02)",
           }}
         >
-          ...
-        </span>
-      </li>
+          <div class="popover-content">
+            <z-list>
+              <z-list-group dividerType={ListDividerType.ELEMENT}>
+                {this.collapsedElements.map((item) => (
+                  <z-list-element size={ListSize.SMALL}>
+                    <a href={item.path}>{item.name}</a>
+                  </z-list-element>
+                ))}
+              </z-list-group>
+            </z-list>
+          </div>
+        </z-tooltip>
+        <li
+          class="popover-container"
+          ref={(el) => (this.triggerButton = el as HTMLLIElement)}
+        >
+          <div>
+            <z-icon
+              class="hidden-elements-arrow"
+              name="chevron-right"
+              fill="color-disabled03"
+            />
+            <span
+              id="dots"
+              onClick={() => {
+                this.togglePopover();
+              }}
+            >
+              ...
+            </span>
+          </div>
+        </li>
+      </div>
     );
   }
 
