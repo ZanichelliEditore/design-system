@@ -189,19 +189,15 @@ export class ZBreadcrumb {
             </z-list>
           </div>
         </z-tooltip>
-        <div
-          class="popover-container"
+        <span
           ref={(el) => (this.triggerButton = el as HTMLDivElement)}
+          id="dots"
+          onClick={() => {
+            this.togglePopover();
+          }}
         >
-          <span
-            id="dots"
-            onClick={() => {
-              this.togglePopover();
-            }}
-          >
-            ...
-          </span>
-        </div>
+          ...
+        </span>
       </li>
     );
   }

@@ -49,6 +49,7 @@ z-icon {
 }
 
 #dots {
+  display: inline-block;
   color: var(--color-link-primary);
   cursor: pointer;
 }
@@ -60,10 +61,6 @@ z-icon {
 .popover-content {
   max-width: 302px;
   text-align: left;
-}
-
-.popover-container {
-  display: inline-block;
 }
 
 z-tooltip {
