@@ -9,8 +9,8 @@ export const parameters = {
         type: "mobile",
         name: "mobile",
         styles: {
-          width: "320px",
-          height: "480px",
+          width: "375px",
+          height: "667px",
         },
       },
       {

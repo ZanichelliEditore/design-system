@@ -109,10 +109,12 @@ export class ZAppHeader {
   searchPlaceholder = "Cerca";
 
   /**
-   * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+   * Url to the search page.
+   * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
+   * The link will also appear on the sticky header.
    */
   @Prop()
-  searchLink: string;
+  searchPageUrl: string;
 
   /**
    * The stuck state of the bar.
@@ -138,12 +140,6 @@ export class ZAppHeader {
    */
   @Event()
   sticking: EventEmitter;
-
-  /**
-   * Emitted when the search button from the sticky header is clicked.
-   */
-  @Event()
-  searchSubmit: EventEmitter;
 
   private container?: HTMLDivElement;
 
@@ -261,6 +257,22 @@ export class ZAppHeader {
     });
   }
 
+  private renderSearchLinkButton(): HTMLZButtonElement | null {
+    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
+      return null;
+    }
+
+    return (
+      <z-button
+        class="search-page-button"
+        variant={ButtonVariant.SECONDARY}
+        href={this.searchPageUrl}
+        icon="search"
+        size={ControlSize.X_SMALL}
+      ></z-button>
+    );
+  }
+
   render(): HTMLZAppHeaderElement {
     return (
       <Host menu-length={this.menuLength}>
@@ -268,16 +280,16 @@ export class ZAppHeader {
           class="heading-panel"
           ref={(el) => (this.container = el)}
         >
-          <div class="hero-container">
-            <slot name="hero">
-              {this.hero && (
+          {this.hero && (
+            <div class="hero-container">
+              <slot name="hero">
                 <img
                   alt=""
                   src={this.hero}
                 />
-              )}
-            </slot>
-          </div>
+              </slot>
+            </div>
+          )}
 
           <div class="heading-container">
             <div class="heading-title">
@@ -290,7 +302,10 @@ export class ZAppHeader {
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
+
               <slot name="title"></slot>
+
+              {this.renderSearchLinkButton()}
             </div>
 
             <div class="heading-subtitle">
@@ -299,14 +314,16 @@ export class ZAppHeader {
           </div>
 
           <div class="menu-container">
-            {!this.drawerOpen && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && (
-              <slot
-                name="menu"
-                onSlotchange={this.collectMenuElements}
-              ></slot>
+            {!this.drawerOpen && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && this.menuLength > 0 && (
+              <nav>
+                <slot
+                  name="menu"
+                  onSlotchange={this.collectMenuElements}
+                ></slot>
+              </nav>
             )}
 
-            {this.enableSearch && (
+            {this.enableSearch && !this.searchPageUrl && (
               <z-searchbar
                 placeholder={this.searchPlaceholder}
                 showSearchButton={true}
@@ -365,14 +382,7 @@ export class ZAppHeader {
                 <slot name="stucked-title">{this.title}</slot>
               </div>
 
-              {this.enableSearch && (
-                <z-button
-                  variant={ButtonVariant.SECONDARY}
-                  icon="search"
-                  size={ControlSize.X_SMALL}
-                  onClick={() => this.searchSubmit.emit()}
-                ></z-button>
-              )}
+              {this.renderSearchLinkButton()}
             </div>
           </div>
         )}

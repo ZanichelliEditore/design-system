@@ -52,6 +52,20 @@
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--color-text01);
 
+  /* Variable to customize the title's font size.
+  NOTE: Only use one of the exported `--app-header-typography-*-size` as a value. */
+  --app-header-title-font-size: var(--app-header-typography-3-size);
+
+  /* Variable to customize the title's line-height.
+  NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value
+  and use the same level as the one of the font size. */
+  --app-header-title-lineheight: var(--app-header-typography-3-lineheight);
+
+  /* Variable to customize the title's letter-spacing.
+  NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value
+  and use the same level as the one of the font size. */
+  --app-header-title-letter-spacing: var(--app-header-typography-3-tracking);
+
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-text01);
 
@@ -74,27 +88,90 @@
   flex-grow: 0;
   flex-shrink: 0;
   align-items: baseline;
-  justify-content: flex-start;
   padding: var(--grid-margin);
   margin: 0 auto;
   background: var(--app-header-bg);
-  row-gap: calc(var(--space-unit) * 2);
+  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
 }
 
 :host(:empty) .heading-panel {
   padding: 0;
 }
 
+.heading-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 100%;
+  flex: 1 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .heading-title {
   display: flex;
   max-width: 100%;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   column-gap: calc(var(--space-unit) * 2);
+}
+
+::slotted([slot="title"]),
+.heading-stuck .heading-title > *,
+::slotted([slot="stucked-title"]) {
+  margin: 0;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: var(--font-bd);
+}
+
+::slotted([slot="title"]) {
+  font-size: var(--app-header-title-font-size);
+  letter-spacing: var(--app-header-title-letter-spacing);
+  line-height: var(--app-header-title-lineheight);
+}
+
+.heading-stuck .heading-title > *,
+::slotted([slot="stucked-title"]) {
+  font-size: var(--app-header-typography-3-size);
+  letter-spacing: var(--app-header-typography-3-tracking);
+  line-height: var(--app-header-typography-3-lineheight);
 }
 
 :host(:not([menu-length="0"])) .heading-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
+}
+
+::slotted([slot="subtitle"]) {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.menu-container:empty {
+  display: none;
+}
+
+.menu-container {
+  display: flex;
+  flex: 1 auto;
+  flex-flow: row wrap;
+}
+
+.menu-container ::slotted([open]) {
+  position: relative;
+  z-index: 3;
+}
+
+z-searchbar {
+  display: flex;
+  width: auto;
+  min-width: calc(var(--space-unit) * 32);
+  flex: 1 auto;
+  align-items: center;
+  margin-left: auto;
 }
 
 .heading-stuck {
@@ -119,66 +196,15 @@
   column-gap: calc(var(--space-unit) * 2);
 }
 
-.heading-stuck .heading-title,
 .heading-stuck .heading-title > *,
 .heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
   display: block;
   overflow: hidden;
-  line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.heading-stuck .heading-title > *,
-::slotted([slot="title"]),
-::slotted([slot="stucked-title"]) {
-  margin: 0;
-  font-family: "IBM Plex Serif", serif;
-  font-size: var(--app-header-typography-3-size);
-  font-weight: var(--font-bd);
-  letter-spacing: var(--app-header-typography-3-tracking);
-  line-height: var(--app-header-typography-3-lineheight);
-}
-
 .heading-stuck-content z-button {
-  margin-left: auto;
-}
-
-::slotted([slot="subtitle"]) {
-  margin: 0;
-  font-family: var(--font-family-sans);
-  font-size: 20px;
-  font-style: italic;
-  font-weight: 500;
-  line-height: 26px;
-}
-
-.heading-container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  max-width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-right: auto;
-}
-
-.menu-container {
-  display: flex;
-  width: 100%;
-  flex-flow: row wrap;
-}
-
-.menu-container ::slotted([open]) {
-  position: relative;
-  z-index: 3;
-}
-
-z-searchbar {
-  display: flex;
-  flex: 1 auto;
-  align-items: center;
   margin-left: auto;
 }
 
@@ -198,6 +224,18 @@ z-searchbar {
   --z-icon-height: var(--app-header-drawer-trigger-size);
 
   fill: currentcolor;
+}
+
+/* Simulate the height of the first line of text,
+to correctly align drawer icon and search page button with the title */
+.heading-container :is(.drawer-trigger, z-button.search-page-button) {
+  display: flex;
+  height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
+  align-items: center;
+}
+
+.heading-container z-button.search-page-button {
+  margin-left: auto;
 }
 
 .drawer-container {
@@ -357,8 +395,24 @@ z-searchbar {
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+  :host {
+    --app-header-title-font-size: var(--app-header-typography-6-size);
+    --app-header-title-lineheight: var(--app-header-typography-6-lineheight);
+    --app-header-title-letter-spacing: var(--app-header-typography-6-tracking);
+  }
+
   .heading-panel {
+    flex-flow: row wrap;
+    align-items: center;
     padding-bottom: calc(var(--space-unit) * 2);
+  }
+
+  .heading-container {
+    margin-right: auto;
+  }
+
+  :host(:not([menu-length="0"])) .heading-container {
+    width: 100%;
   }
 
   :host(:not([flow="offcanvas"])) .heading-subtitle {
@@ -367,33 +421,43 @@ z-searchbar {
 
   :host(:not([flow="offcanvas"])) .menu-container {
     align-items: center;
-    gap: calc(var(--space-unit) / 2) calc(var(--space-unit) * 5);
   }
 
-  z-searchbar {
-    width: auto;
-    min-width: calc(var(--space-unit) * 32);
+  :host([menu-length="0"]) .menu-container:not(:empty) {
+    height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
+  }
+
+  .menu-container nav {
+    display: flex;
+    flex: 1 auto;
+    flex-wrap: wrap;
+  }
+
+  :host(:not([flow="offcanvas"])) .menu-container,
+  .menu-container nav {
+    gap: calc(var(--space-unit) / 2) calc(var(--space-unit) * 5);
   }
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
     display: none;
   }
-
-  ::slotted([slot="title"]) {
-    font-size: var(--app-header-typography-6-size);
-    letter-spacing: var(--app-header-typography-6-tracking);
-    line-height: var(--app-header-typography-6-lineheight);
-  }
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host(:not([flow="stack"])) .heading-panel {
-    flex-flow: row wrap;
+  :host {
+    --app-header-title-font-size: var(--app-header-typography-7-size);
+    --app-header-title-lineheight: var(--app-header-typography-7-lineheight);
+    --app-header-title-letter-spacing: var(--app-header-typography-7-tracking);
   }
 
   .heading-panel {
+    justify-content: flex-start;
     padding-bottom: calc(var(--space-unit) * 3);
+  }
+
+  :host(:not([flow="stack"])) .heading-panel {
+    flex-flow: row wrap;
   }
 
   :host(:not([flow="offcanvas"], [menu-length="0"])) .heading-panel {
@@ -402,18 +466,15 @@ z-searchbar {
 
   ::slotted([slot="title"]) {
     margin-right: var(--grid-gutter);
-    font-size: var(--app-header-typography-7-size);
-    letter-spacing: var(--app-header-typography-7-tracking);
-    line-height: var(--app-header-typography-7-lineheight);
   }
 }
 
 /* Wide breakpoint */
 @media (min-width: 1366px) {
-  ::slotted([slot="title"]) {
-    font-size: var(--app-header-typography-9-size);
-    letter-spacing: var(--app-header-typography-9-tracking);
-    line-height: var(--app-header-typography-9-lineheight);
+  :host {
+    --app-header-title-font-size: var(--app-header-typography-9-size);
+    --app-header-title-lineheight: var(--app-header-typography-9-lineheight);
+    --app-header-title-letter-spacing: var(--app-header-typography-9-tracking);
   }
 }
 

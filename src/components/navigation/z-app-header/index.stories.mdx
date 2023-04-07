@@ -17,6 +17,7 @@ import "./index.stories.css";
   args={{
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
+    "searchPageUrl": "",
   }}
 />
 
@@ -24,7 +25,11 @@ import "./index.stories.css";
 
 <Canvas>
   <Story name="Title">
-    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
+    {(args) => html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
       <h1 slot="title">Applicazione</h1>
     </z-app-header>`}
   </Story>
@@ -38,7 +43,11 @@ import "./index.stories.css";
 
 <Canvas>
   <Story name="Subtitle">
-    {(args) => html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
+    {(args) => html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
     </z-app-header>`}
@@ -51,57 +60,11 @@ import "./index.stories.css";
   <Story name="Menu">
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      <z-menu
-        slot="menu"
-        floating
-      >
-        <h3>Menu label</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 2</a
-        >
-        <z-menu-section slot="item">
-          <h3>Item 3</h3>
-          <a
-            href=""
-            slot="item"
-            >Item 3.1</a
-          >
-          <a
-            href=""
-            slot="item"
-            >Item 3.2</a
-          >
-        </z-menu-section>
-        <z-menu-section slot="item">
-          <h3>Item 4</h3>
-          <a
-            href=""
-            slot="item"
-            >Item 4.1</a
-          >
-          <a
-            href=""
-            slot="item"
-            >Item 4.2</a
-          >
-        </z-menu-section>
-        <a
-          href=""
-          slot="item"
-          >Item 5</a
-        >
-      </z-menu>
       <z-menu
         slot="menu"
         floating
@@ -160,6 +123,7 @@ import "./index.stories.css";
   <Story name="Long title">
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione con nome veramente lungo che fa andare il menu a capo</h1>
@@ -310,6 +274,7 @@ import "./index.stories.css";
   <Story name="(Very) Long menu">
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
@@ -649,6 +614,7 @@ import "./index.stories.css";
     {(args) => html`<z-app-header
       flow="offcanvas"
       .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
@@ -979,6 +945,7 @@ import "./index.stories.css";
   {(args) => html`<z-app-header
     stuck
     .enableSearch=${args.enableSearch}
+    .searchPageUrl=${args.searchPageUrl}
     style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
   >
     <h1 slot="title">Applicazione</h1>
@@ -1081,6 +1048,7 @@ import "./index.stories.css";
   {(args) => html`<z-app-header
     stuck
     .enableSearch=${args.enableSearch}
+    .searchPageUrl=${args.searchPageUrl}
     style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0;"
   >
     <h1 slot="title">Applicazione</h1>
@@ -1146,6 +1114,7 @@ import "./index.stories.css";
     {(args) => html`<z-app-header
       .overlay=${args.overlay}
       .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
       style="--app-header-height: 400px; --app-header-content-max-width: ${args["--app-header-content-max-width"]}"
       flow=${args.flow}
     >
