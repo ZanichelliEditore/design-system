@@ -164,6 +164,7 @@
 }
 
 z-searchbar {
+  z-index: 0;
   display: flex;
   width: auto;
   min-width: calc(var(--space-unit) * 32);
@@ -425,15 +426,8 @@ to correctly align drawer icon and search page button with the title */
     height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
   }
 
-  :host(:not([flow="offcanvas"])) .menu-container,
-  .menu-container nav {
-    gap: calc(var(--space-unit) / 2) calc(var(--space-unit) * 5);
-  }
-
-  .menu-container nav {
-    display: flex;
-    flex: 1 auto;
-    flex-wrap: wrap;
+  :host(:not([flow="offcanvas"])) .menu-container {
+    gap: var(--space-unit) calc(var(--space-unit) * 5);
   }
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
@@ -469,10 +463,6 @@ to correctly align drawer icon and search page button with the title */
   .heading-container,
   .menu-container {
     width: auto;
-  }
-
-  .menu-container nav {
-    flex: initial;
   }
 
   z-searchbar {

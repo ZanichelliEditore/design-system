@@ -333,12 +333,10 @@ export class ZAppHeader {
           {(this.canShowMenu || this.canShowSearchbar) && (
             <div class="menu-container">
               {this.canShowMenu && (
-                <nav>
-                  <slot
-                    name="menu"
-                    onSlotchange={this.collectMenuElements}
-                  ></slot>
-                </nav>
+                <slot
+                  name="menu"
+                  onSlotchange={this.collectMenuElements}
+                ></slot>
               )}
 
               {this.canShowSearchbar && (
