@@ -1,15 +1,20 @@
-import {Component, Prop, h, State, Host, Listen, Element} from "@stencil/core";
-import {BreadcrumbPath, BreadcrumbPathType, ListDividerType, ListSize, PopoverPosition} from "../../beans";
+import {Component, Prop, h, State, Host, Listen, Element, Event} from "@stencil/core";
+import {
+  BreadcrumbHomepageVariant,
+  BreadcrumbPath,
+  BreadcrumbPathStyle,
+  ListDividerType,
+  ListSize,
+  PopoverPosition,
+} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
+import {EventEmitter} from "puppeteer";
 
-/**
- * ZBreadcrumb component.
- * @slot breadcrumbContent - used to pass elements instead of paths prop
- */
 @Component({
   tag: "z-breadcrumb",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZBreadcrumb {
   @Element() hostElement: HTMLZBreadcrumbElement;
@@ -20,7 +25,11 @@ export class ZBreadcrumb {
 
   /** [optional] Sets the path style */
   @Prop({reflect: true})
-  type?: BreadcrumbPathType = BreadcrumbPathType.UNDERLINED;
+  pathStyle?: BreadcrumbPathStyle = BreadcrumbPathStyle.UNDERLINED;
+
+  /** */
+  @Prop()
+  homepageVariant?: BreadcrumbHomepageVariant = BreadcrumbHomepageVariant.ICON;
 
   /** [optional] Sets max number of element to show */
   @Prop()
@@ -30,12 +39,20 @@ export class ZBreadcrumb {
   @Prop()
   homepageUrl: string;
 
+  /** */
+  @Prop()
+  preventFollowUrl = false;
+
   /** Handle mobile */
   @State()
   isMobile: boolean;
 
   @State()
   popoverOpen = false;
+
+  /** */
+  @Event()
+  clickOnNode: EventEmitter;
 
   @Listen("resize", {target: "window"})
   handleResize(): void {
@@ -48,7 +65,7 @@ export class ZBreadcrumb {
 
   private collapsedElementsRef: HTMLZTooltipElement;
 
-  private triggerButton: HTMLLIElement;
+  private triggerButton: HTMLDivElement;
 
   componentWillLoad(): void {
     this.pathsList = this.getPathsItemsList();
@@ -64,26 +81,59 @@ export class ZBreadcrumb {
   }
 
   private renderMobileBreadcrumb(): HTMLDivElement {
-    if (!this.pathsList) {
-      return <slot name="breadcrumb-content" />;
-    }
-
     const filteredPath = this.pathsList.filter((item) => !!item.path);
     const lastPath = filteredPath[filteredPath.length - 1];
 
     return (
-      <nav>
-        <ol>
-          <li>
-            <z-icon
-              class="hidden-elements-arrow"
-              name="chevron-right"
-              fill="color-disabled03"
-            />
-            <a href={lastPath.path}>{lastPath.name}</a>
-          </li>
-        </ol>
+      <nav aria-label="Breadcrumb">
+        <ol>{this.renderNode(lastPath)}</ol>
       </nav>
+    );
+  }
+
+  private renderHomepageNode(): HTMLLIElement {
+    return (
+      <li>
+        <a
+          id="homepage"
+          href={this.homepageUrl}
+          onClick={(e) => {
+            if (this.preventFollowUrl) {
+              e.preventDefault();
+              this.clickOnNode.emit(this.homepageUrl);
+            }
+          }}
+        >
+          {this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (
+            <z-icon
+              name="home"
+              fill="color-link-primary"
+              height={16}
+              width={16}
+            />
+          ) : (
+            "Home"
+          )}
+        </a>
+      </li>
+    );
+  }
+
+  private renderNode(item): HTMLLIElement {
+    return (
+      <li>
+        <a
+          href={item.path}
+          onClick={(e) => {
+            if (this.preventFollowUrl) {
+              e.preventDefault();
+              this.clickOnNode.emit(item.path);
+            }
+          }}
+        >
+          {item.name}
+        </a>
+      </li>
     );
   }
 
@@ -93,28 +143,11 @@ export class ZBreadcrumb {
     }
 
     return (
-      <nav>
+      <nav aria-label="Breadcrumb">
         <ol>
-          <li>
-            <a href={this.homepageUrl}>
-              <z-icon
-                name="home"
-                fill="color-link-primary"
-                height={16}
-                width={16}
-              />
-            </a>
-          </li>
+          {this.renderHomepageNode()}
           {this.collapsedElements ? this.renderCollapsedElements() : ""}
-          {this.pathsList.map((item) => (
-            <li>
-              <z-icon
-                name="chevron-right"
-                fill="color-disabled03"
-              />
-              <a href={item.path}>{item.name}</a>
-            </li>
-          ))}
+          {this.pathsList.map((item) => this.renderNode(item))}
         </ol>
       </nav>
     );
@@ -128,7 +161,10 @@ export class ZBreadcrumb {
 
   private renderCollapsedElements(): HTMLLIElement {
     return (
-      <div>
+      <li
+        aria-label="Clicca per mostrare nodi nascosti"
+        tabIndex={0}
+      >
         <z-tooltip
           ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
           bind-to={this.triggerButton}
@@ -140,9 +176,12 @@ export class ZBreadcrumb {
         >
           <div class="popover-content">
             <z-list>
-              <z-list-group dividerType={ListDividerType.ELEMENT}>
+              <z-list-group
+                dividerType={ListDividerType.ELEMENT}
+                size={ListSize.SMALL}
+              >
                 {this.collapsedElements.map((item) => (
-                  <z-list-element size={ListSize.SMALL}>
+                  <z-list-element>
                     <a href={item.path}>{item.name}</a>
                   </z-list-element>
                 ))}
@@ -150,39 +189,24 @@ export class ZBreadcrumb {
             </z-list>
           </div>
         </z-tooltip>
-        <li
+        <div
           class="popover-container"
-          ref={(el) => (this.triggerButton = el as HTMLLIElement)}
+          ref={(el) => (this.triggerButton = el as HTMLDivElement)}
         >
-          <div>
-            <z-icon
-              class="hidden-elements-arrow"
-              name="chevron-right"
-              fill="color-disabled03"
-            />
-            <span
-              id="dots"
-              onClick={() => {
-                this.togglePopover();
-              }}
-            >
-              ...
-            </span>
-          </div>
-        </li>
-      </div>
+          <span
+            id="dots"
+            onClick={() => {
+              this.togglePopover();
+            }}
+          >
+            ...
+          </span>
+        </div>
+      </li>
     );
   }
 
   render(): HTMLZBreadcrumbElement {
-    return (
-      <Host
-        class={{
-          semibold: this.type === BreadcrumbPathType.SEMIBOLD,
-        }}
-      >
-        {this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
-      </Host>
-    );
+    return <Host>{this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}</Host>;
   }
 }
