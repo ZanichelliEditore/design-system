@@ -465,6 +465,20 @@ to correctly align drawer icon and search page button with the title */
   ::slotted([slot="title"]) {
     margin-right: var(--grid-gutter);
   }
+
+  .heading-container,
+  .menu-container {
+    width: auto;
+  }
+
+  .menu-container nav {
+    flex: initial;
+  }
+
+  z-searchbar {
+    min-width: calc(var(--space-unit) * 45);
+    flex: initial;
+  }
 }
 
 /* Wide breakpoint */

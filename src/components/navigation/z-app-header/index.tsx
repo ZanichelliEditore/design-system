@@ -164,9 +164,9 @@ export class ZAppHeader {
 
   @Listen("resize", {target: "window", passive: true})
   evaluateViewport(): void {
-    if (window.matchMedia("(max-width: 767px)").matches) {
+    if (window.innerWidth < 768) {
       this.currentViewport = "mobile";
-    } else if (window.matchMedia("(min-width: 768px) and (max-width: 1151px)")) {
+    } else if (window.innerWidth >= 768 && window.innerWidth < 1152) {
       this.currentViewport = "tablet";
     } else {
       this.currentViewport = "desktop";
@@ -216,11 +216,20 @@ export class ZAppHeader {
   }
 
   private get canShowMenu(): boolean {
-    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile";
+    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
   }
 
   private get canShowSearchbar(): boolean {
-    return this.enableSearch && !this.searchPageUrl;
+    if (!this.enableSearch) {
+      return false;
+    }
+
+    // Always show the searchbar on desktop, even if a searchPageUrl is set
+    if (this.searchPageUrl) {
+      return this.currentViewport === "desktop";
+    }
+
+    return true;
   }
 
   private openDrawer(): void {
@@ -393,6 +402,20 @@ export class ZAppHeader {
               </div>
 
               {this.renderSearchLinkButton()}
+
+              {this.canShowSearchbar && this.currentViewport === "desktop" && (
+                <z-searchbar
+                  placeholder={this.searchPlaceholder}
+                  showSearchButton={true}
+                  searchButtonIconOnly={false}
+                  size={ControlSize.X_SMALL}
+                  variant={ButtonVariant.SECONDARY}
+                  preventSubmit={true}
+                  onSearchTyping={(e) => {
+                    e.target.preventSubmit = e.detail?.length < 3;
+                  }}
+                ></z-searchbar>
+              )}
             </div>
           </div>
         )}
