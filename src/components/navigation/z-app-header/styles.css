@@ -102,6 +102,7 @@
   position: relative;
   z-index: 1;
   display: flex;
+  width: 100%;
   max-width: 100%;
   flex: 1 auto;
   flex-direction: column;
@@ -150,12 +151,9 @@
   line-height: 26px;
 }
 
-.menu-container:empty {
-  display: none;
-}
-
 .menu-container {
   display: flex;
+  width: 100%;
   flex: 1 auto;
   flex-flow: row wrap;
 }
@@ -411,15 +409,15 @@ to correctly align drawer icon and search page button with the title */
     margin-right: auto;
   }
 
-  :host(:not([menu-length="0"])) .heading-container {
-    width: 100%;
+  :host([flow="offcanvas"]) :is(.heading-container, .menu-container) {
+    width: auto;
   }
 
   :host(:not([flow="offcanvas"])) .heading-subtitle {
     padding-left: 0;
   }
 
-  :host(:not([flow="offcanvas"])) .menu-container {
+  .menu-container {
     align-items: center;
   }
 
@@ -427,15 +425,15 @@ to correctly align drawer icon and search page button with the title */
     height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
   }
 
+  :host(:not([flow="offcanvas"])) .menu-container,
+  .menu-container nav {
+    gap: calc(var(--space-unit) / 2) calc(var(--space-unit) * 5);
+  }
+
   .menu-container nav {
     display: flex;
     flex: 1 auto;
     flex-wrap: wrap;
-  }
-
-  :host(:not([flow="offcanvas"])) .menu-container,
-  .menu-container nav {
-    gap: calc(var(--space-unit) / 2) calc(var(--space-unit) * 5);
   }
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
