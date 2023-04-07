@@ -156,48 +156,10 @@ export class ZAppHeader {
       }
     );
 
-  private openDrawer(): void {
-    this.drawerOpen = true;
-  }
-
-  private closeDrawer(): void {
-    this.drawerOpen = false;
-  }
-
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.collectMenuElements = this.collectMenuElements.bind(this);
-  }
-
-  componentDidLoad(): void {
-    this.collectMenuElements();
-    this.onStuckMode();
-    this.evaluateViewport();
-  }
-
-  private get title(): string {
-    const titleElement = this.hostElement.querySelector('[slot="title"]');
-    if (titleElement === null) {
-      return "";
-    }
-
-    return titleElement.textContent.trim();
-  }
-
-  private get scrollParent(): Window | Element {
-    const parent = this.hostElement.offsetParent;
-    if (parent === document.body || parent === document.documentElement) {
-      return window;
-    }
-
-    return parent;
-  }
-
-  private collectMenuElements(): void {
-    const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
-    this.menuLength = menuElements.length;
-    this.setMenuFloatingMode();
   }
 
   @Listen("resize", {target: "window", passive: true})
@@ -208,28 +170,6 @@ export class ZAppHeader {
       this.currentViewport = "tablet";
     } else {
       this.currentViewport = "desktop";
-    }
-  }
-
-  @Watch("stuck")
-  onStuckMode(): void {
-    if (this.stuck) {
-      this.enableStuckObserver();
-    } else {
-      this.disableStuckMode();
-    }
-  }
-
-  private enableStuckObserver(): void {
-    if (this.observer) {
-      this.observer.observe(this.container);
-    }
-  }
-
-  private disableStuckMode(): void {
-    this._stuck = false;
-    if (this.observer) {
-      this.observer.unobserve(this.container);
     }
   }
 
@@ -257,6 +197,68 @@ export class ZAppHeader {
     });
   }
 
+  private get title(): string {
+    const titleElement = this.hostElement.querySelector('[slot="title"]');
+    if (titleElement === null) {
+      return "";
+    }
+
+    return titleElement.textContent.trim();
+  }
+
+  private get scrollParent(): Window | Element {
+    const parent = this.hostElement.offsetParent;
+    if (parent === document.body || parent === document.documentElement) {
+      return window;
+    }
+
+    return parent;
+  }
+
+  private get canShowMenu(): boolean {
+    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile";
+  }
+
+  private get canShowSearchbar(): boolean {
+    return this.enableSearch && !this.searchPageUrl;
+  }
+
+  private openDrawer(): void {
+    this.drawerOpen = true;
+  }
+
+  private closeDrawer(): void {
+    this.drawerOpen = false;
+  }
+
+  private collectMenuElements(): void {
+    const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
+    this.menuLength = menuElements.length;
+    this.setMenuFloatingMode();
+  }
+
+  private enableStuckObserver(): void {
+    if (this.observer) {
+      this.observer.observe(this.container);
+    }
+  }
+
+  private disableStuckMode(): void {
+    this._stuck = false;
+    if (this.observer) {
+      this.observer.unobserve(this.container);
+    }
+  }
+
+  @Watch("stuck")
+  onStuckMode(): void {
+    if (this.stuck) {
+      this.enableStuckObserver();
+    } else {
+      this.disableStuckMode();
+    }
+  }
+
   private renderSearchLinkButton(): HTMLZButtonElement | null {
     if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
       return null;
@@ -271,6 +273,12 @@ export class ZAppHeader {
         size={ControlSize.X_SMALL}
       ></z-button>
     );
+  }
+
+  componentDidLoad(): void {
+    this.collectMenuElements();
+    this.onStuckMode();
+    this.evaluateViewport();
   }
 
   render(): HTMLZAppHeaderElement {
@@ -313,30 +321,32 @@ export class ZAppHeader {
             </div>
           </div>
 
-          <div class="menu-container">
-            {!this.drawerOpen && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && this.menuLength > 0 && (
-              <nav>
-                <slot
-                  name="menu"
-                  onSlotchange={this.collectMenuElements}
-                ></slot>
-              </nav>
-            )}
+          {(this.canShowMenu || this.canShowSearchbar) && (
+            <div class="menu-container">
+              {this.canShowMenu && (
+                <nav>
+                  <slot
+                    name="menu"
+                    onSlotchange={this.collectMenuElements}
+                  ></slot>
+                </nav>
+              )}
 
-            {this.enableSearch && !this.searchPageUrl && (
-              <z-searchbar
-                placeholder={this.searchPlaceholder}
-                showSearchButton={true}
-                searchButtonIconOnly={this.currentViewport !== "desktop"}
-                size={ControlSize.X_SMALL}
-                variant={ButtonVariant.SECONDARY}
-                preventSubmit={true}
-                onSearchTyping={(e) => {
-                  e.target.preventSubmit = e.detail?.length < 3;
-                }}
-              ></z-searchbar>
-            )}
-          </div>
+              {this.canShowSearchbar && (
+                <z-searchbar
+                  placeholder={this.searchPlaceholder}
+                  showSearchButton={true}
+                  searchButtonIconOnly={this.currentViewport !== "desktop"}
+                  size={ControlSize.X_SMALL}
+                  variant={ButtonVariant.SECONDARY}
+                  preventSubmit={true}
+                  onSearchTyping={(e) => {
+                    e.target.preventSubmit = e.detail?.length < 3;
+                  }}
+                ></z-searchbar>
+              )}
+            </div>
+          )}
         </div>
 
         <div class="drawer-container">

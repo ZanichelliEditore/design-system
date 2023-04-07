@@ -409,7 +409,7 @@ to correctly align drawer icon and search page button with the title */
     margin-right: auto;
   }
 
-  :host([flow="offcanvas"]) :is(.heading-container, .menu-container) {
+  :host(:is([flow="offcanvas"], [menu-length="0"])) :is(.heading-container, .menu-container) {
     width: auto;
   }
 
