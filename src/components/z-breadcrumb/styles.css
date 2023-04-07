@@ -5,43 +5,47 @@
 
 ol {
   display: flex;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-:host a {
+ol > li:not(:last-child, :first-child) {
+  margin-right: 8px;
+}
+
+/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
+ol > li + li::before {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  color: var(--color-disabled03);
+  content: "\203A";
+}
+
+a {
   color: var(--color-link-primary);
   font-size: 14px;
   text-decoration: none;
 }
 
-:host([type="semibold"]) a {
-  font-weight: bold;
+a#homepage {
+  display: list-item;
 }
 
-::slotted([slot="breadcrumb-content"]) {
-  font-size: 14px;
-}
-
-:host([type="semibold"]) ::slotted([slot="breadcrumb-content"]) {
-  font-weight: bold;
-}
-
-:host(:not([type="semibold"])) ::slotted([slot="breadcrumb-content"]) {
+:host[path-style="underline"] a {
   text-decoration: underline;
 }
 
-:host z-icon {
+:host[path-style="semibold"] a {
+  font-weight: bold;
+}
+
+z-icon {
   --z-icon-width: 10px;
   --z-icon-height: 10px;
 
-  padding: 8px;
-  vertical-align: initial;
-}
-
-:host .hidden-elements-arrow {
-  padding-left: 0;
+  margin-right: 8px;
 }
 
 #dots {
@@ -49,7 +53,7 @@ ol {
   cursor: pointer;
 }
 
-:host .popover-content a {
+.popover-content a {
   font-weight: normal;
 }
 
@@ -58,11 +62,10 @@ ol {
   text-align: left;
 }
 
-.popover-container > div {
-  display: flex;
-  align-items: center;
+.popover-container {
+  display: inline-block;
 }
 
-:host z-tooltip {
+z-tooltip {
   --z-popover-theme--surface: var(--color-surface02);
 }

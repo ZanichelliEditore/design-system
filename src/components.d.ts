@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbPath, BreadcrumbPathType, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -91,18 +91,20 @@ export namespace Components {
           * Sets the url to link the homepage
          */
         "homepageUrl": string;
+        "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
          */
         "maxNodesToShow": number;
         /**
+          * [optional] Sets the path style
+         */
+        "pathStyle"?: BreadcrumbPathStyle;
+        /**
           * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
-        /**
-          * [optional] Sets the path style
-         */
-        "type"?: BreadcrumbPathType;
+        "preventFollowUrl": boolean;
     }
     interface ZButton {
         /**
@@ -1746,6 +1748,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBreadcrumbElement;
+}
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
@@ -2615,18 +2621,21 @@ declare namespace LocalJSX {
           * Sets the url to link the homepage
          */
         "homepageUrl"?: string;
+        "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
          */
         "maxNodesToShow"?: number;
+        "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        /**
+          * [optional] Sets the path style
+         */
+        "pathStyle"?: BreadcrumbPathStyle;
         /**
           * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
-        /**
-          * [optional] Sets the path style
-         */
-        "type"?: BreadcrumbPathType;
+        "preventFollowUrl"?: boolean;
     }
     interface ZButton {
         /**
