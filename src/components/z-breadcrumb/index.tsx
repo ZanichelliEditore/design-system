@@ -3,12 +3,14 @@ import {
   BreadcrumbHomepageVariant,
   BreadcrumbPath,
   BreadcrumbPathStyle,
+  KeyboardCode,
   ListDividerType,
   ListSize,
   PopoverPosition,
 } from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 import {EventEmitter} from "puppeteer";
+import {handleKeyboardSubmit} from "../../utils/utils";
 
 @Component({
   tag: "z-breadcrumb",
@@ -47,9 +49,6 @@ export class ZBreadcrumb {
   @State()
   isMobile: boolean;
 
-  @State()
-  popoverOpen = false;
-
   /** */
   @Event()
   clickOnNode: EventEmitter;
@@ -65,7 +64,11 @@ export class ZBreadcrumb {
 
   private collapsedElementsRef: HTMLZTooltipElement;
 
-  private triggerButton: HTMLDivElement;
+  private triggerButton: HTMLButtonElement;
+
+  private currentIndex = 0;
+
+  private anchorElements;
 
   componentWillLoad(): void {
     this.pathsList = this.getPathsItemsList();
@@ -74,6 +77,7 @@ export class ZBreadcrumb {
 
   componentDidLoad(): void {
     this.collapsedElementsRef.bindTo = this.triggerButton;
+    this.anchorElements = this.hostElement.querySelectorAll("z-list-group a");
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
@@ -146,7 +150,7 @@ export class ZBreadcrumb {
       <nav aria-label="Breadcrumb">
         <ol>
           {this.renderHomepageNode()}
-          {this.collapsedElements ? this.renderCollapsedElements() : ""}
+          {this.collapsedElements ? this.renderOverflowMenu() : ""}
           {this.pathsList.map((item) => this.renderNode(item))}
         </ol>
       </nav>
@@ -159,16 +163,18 @@ export class ZBreadcrumb {
     }
   }
 
-  private renderCollapsedElements(): HTMLLIElement {
+  private renderOverflowMenu(): HTMLLIElement {
     return (
       <li
-        aria-label="Clicca per mostrare nodi nascosti"
-        tabIndex={0}
+        aria-label="Mostra più breadcrumb"
+        onKeyDown={(e) => {
+          handleKeyboardSubmit(e, this.togglePopover.bind(this));
+          setTimeout(() => [...this.anchorElements][0].focus(), 100);
+        }}
       >
         <z-tooltip
           ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
           bind-to={this.triggerButton}
-          open={this.popoverOpen}
           position={PopoverPosition.BOTTOM_RIGHT}
           style={{
             "--z-tooltip-theme--surface": "var(--color-surface02)",
@@ -182,22 +188,46 @@ export class ZBreadcrumb {
               >
                 {this.collapsedElements.map((item) => (
                   <z-list-element>
-                    <a href={item.path}>{item.name}</a>
+                    <a
+                      href={item.path}
+                      onKeyDown={(e) => {
+                        const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+                        if (arrows.includes(e.key as KeyboardCode)) {
+                          e.preventDefault();
+                          e.stopPropagation();
+
+                          if (e.key === KeyboardCode.ARROW_DOWN) {
+                            this.currentIndex =
+                              [...this.anchorElements].length === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
+                            console.log("down", this.currentIndex);
+                          }
+                          if (e.key === KeyboardCode.ARROW_UP) {
+                            this.currentIndex =
+                              this.currentIndex <= 0 ? [...this.anchorElements].length - 1 : this.currentIndex - 1;
+                            console.log("up", this.currentIndex);
+                          }
+
+                          [...this.anchorElements][this.currentIndex].focus();
+                        }
+                      }}
+                    >
+                      {item.name}
+                    </a>
                   </z-list-element>
                 ))}
               </z-list-group>
             </z-list>
           </div>
         </z-tooltip>
-        <span
-          ref={(el) => (this.triggerButton = el as HTMLDivElement)}
+        <button
+          ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
           id="dots"
           onClick={() => {
             this.togglePopover();
           }}
         >
           ...
-        </span>
+        </button>
       </li>
     );
   }

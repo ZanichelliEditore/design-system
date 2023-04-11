@@ -3,6 +3,19 @@
   font-weight: var(--font-rg);
 }
 
+:host button {
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+:host a:focus,
+:host button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: 0;
+}
+
 ol {
   display: flex;
   padding: 0;
@@ -10,7 +23,7 @@ ol {
   list-style-type: none;
 }
 
-ol > li:not(:last-child, :first-child) {
+ol > li:not(:last-child) {
   margin-right: 8px;
 }
 
@@ -29,10 +42,6 @@ a {
   text-decoration: none;
 }
 
-a#homepage {
-  display: list-item;
-}
-
 :host[path-style="underline"] a {
   text-decoration: underline;
 }
@@ -44,8 +53,6 @@ a#homepage {
 z-icon {
   --z-icon-width: 10px;
   --z-icon-height: 10px;
-
-  margin-right: 8px;
 }
 
 #dots {
