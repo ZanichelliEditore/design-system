@@ -29,30 +29,24 @@ On the following Story, the "position" prop can be set only for the original pos
       ],
       control: {type: "select"},
     },
-    "dark": {
-      control: {type: "boolean"},
-    },
     "--z-tooltip-theme--surface": {
       options: getColorTokens(),
       control: {type: "select"},
     },
   }}
+  args={{
+    "dark": false,
+    "--z-tooltip-theme--surface": "--color-surface01",
+    "position": PopoverPosition.LEFT,
+  }}
 />
 
 <Canvas>
-  <Story
-    name="z-tooltip"
-    args={{
-      "position": PopoverPosition.LEFT,
-      "dark": false,
-      "--z-tooltip-theme--surface": "var(--color-surface01)",
-    }}
-  >
+  <Story name="z-tooltip">
     {(args) => html`
       <div class="tooltip-container">
         <z-button
           id="trigger"
-          size="small"
           icon="plus-filled"
         ></z-button>
         <z-tooltip
@@ -76,6 +70,62 @@ On the following Story, the "position" prop can be set only for the original pos
             document.querySelector("z-tooltip").open = true;
           }
         });
+      </script>
+    `}
+  </Story>
+</Canvas>
+
+## Autoclose off
+
+When `closable` property is set to `false`, you can open the tooltip on hover and still click things outside without closing it.
+In the Story below, the tooltip is opened hovering the button.
+
+<Canvas>
+  <Story name="Autoclose off">
+    {(args) => html`
+      <div class="tooltip-container">
+        <z-button
+          id="info-button"
+          icon="arrow-clockwise-up-left"
+        ></z-button>
+        <z-tooltip
+          .position="${args.position}"
+          .dark="${args.dark}"
+          closable="false"
+          bind-to="#info-button"
+          style="--z-tooltip-theme--surface: var(${args["--z-tooltip-theme--surface"]})"
+        >
+          <span class="tooltip-info-text">Clicca per fare girare la freccia</span>
+        </z-tooltip>
+      </div>
+      <script>
+        button = document.querySelector("#info-button");
+        tooltip = document.querySelector("z-tooltip");
+        button.addEventListener("mouseover", () => {
+          tooltip.open = true;
+        });
+        button.addEventListener("focusin", () => {
+          tooltip.open = true;
+        });
+        button.addEventListener("mouseout", () => {
+          tooltip.open = false;
+        });
+        button.addEventListener("focusout", () => {
+          tooltip.open = false;
+        });
+        button.onclick = () => {
+          switch (button.icon) {
+            case "arrow-clockwise-up-left":
+              button.icon = "arrow-clockwise-up-right";
+              break;
+            case "arrow-clockwise-up-right":
+              button.icon = "arrow-clockwise-down-right";
+              break;
+            case "arrow-clockwise-down-right":
+              button.icon = "arrow-clockwise-up-left";
+              break;
+          }
+        };
       </script>
     `}
   </Story>
