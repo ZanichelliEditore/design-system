@@ -67,6 +67,7 @@ z-icon {
 
 .popover-content {
   max-width: 302px;
+  padding: 0 8px;
   text-align: left;
 }
 

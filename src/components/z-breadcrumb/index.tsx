@@ -190,11 +190,17 @@ export class ZBreadcrumb {
                   <z-list-element>
                     <a
                       href={item.path}
+                      onClick={(e) => {
+                        if (this.preventFollowUrl) {
+                          e.preventDefault();
+                          this.clickOnNode.emit(item.path);
+                        }
+                      }}
                       onKeyDown={(e) => {
+                        e.stopPropagation();
                         const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
                         if (arrows.includes(e.key as KeyboardCode)) {
                           e.preventDefault();
-                          e.stopPropagation();
 
                           if (e.key === KeyboardCode.ARROW_DOWN) {
                             this.currentIndex =
