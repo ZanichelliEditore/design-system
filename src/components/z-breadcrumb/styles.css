@@ -73,4 +73,5 @@ z-icon {
 
 z-tooltip {
   --z-popover-theme--surface: var(--color-surface02);
+  --z-tooltip-theme--surface: var(--color-surface02);
 }

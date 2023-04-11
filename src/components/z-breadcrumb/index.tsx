@@ -128,12 +128,7 @@ export class ZBreadcrumb {
       <li>
         <a
           href={item.path}
-          onClick={(e) => {
-            if (this.preventFollowUrl) {
-              e.preventDefault();
-              this.clickOnNode.emit(item.path);
-            }
-          }}
+          onClick={(e) => this.handlePreventFollowUrl(e, item)}
         >
           {item.name}
         </a>
@@ -163,6 +158,32 @@ export class ZBreadcrumb {
     }
   }
 
+  private handlePreventFollowUrl(e: MouseEvent, item): void {
+    if (this.preventFollowUrl) {
+      e.preventDefault();
+      this.clickOnNode.emit(item.path);
+    }
+  }
+
+  private handleOverflowAccessibility(e: KeyboardEvent): void {
+    e.stopPropagation();
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+    if (arrows.includes(e.key as KeyboardCode)) {
+      e.preventDefault();
+
+      if (e.key === KeyboardCode.ARROW_DOWN) {
+        this.currentIndex = [...this.anchorElements].length === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
+        console.log("down", this.currentIndex);
+      }
+      if (e.key === KeyboardCode.ARROW_UP) {
+        this.currentIndex = this.currentIndex <= 0 ? [...this.anchorElements].length - 1 : this.currentIndex - 1;
+        console.log("up", this.currentIndex);
+      }
+
+      [...this.anchorElements][this.currentIndex].focus();
+    }
+  }
+
   private renderOverflowMenu(): HTMLLIElement {
     return (
       <li
@@ -176,9 +197,6 @@ export class ZBreadcrumb {
           ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
           bind-to={this.triggerButton}
           position={PopoverPosition.BOTTOM_RIGHT}
-          style={{
-            "--z-tooltip-theme--surface": "var(--color-surface02)",
-          }}
         >
           <div class="popover-content">
             <z-list>
@@ -190,32 +208,8 @@ export class ZBreadcrumb {
                   <z-list-element>
                     <a
                       href={item.path}
-                      onClick={(e) => {
-                        if (this.preventFollowUrl) {
-                          e.preventDefault();
-                          this.clickOnNode.emit(item.path);
-                        }
-                      }}
-                      onKeyDown={(e) => {
-                        e.stopPropagation();
-                        const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
-                        if (arrows.includes(e.key as KeyboardCode)) {
-                          e.preventDefault();
-
-                          if (e.key === KeyboardCode.ARROW_DOWN) {
-                            this.currentIndex =
-                              [...this.anchorElements].length === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
-                            console.log("down", this.currentIndex);
-                          }
-                          if (e.key === KeyboardCode.ARROW_UP) {
-                            this.currentIndex =
-                              this.currentIndex <= 0 ? [...this.anchorElements].length - 1 : this.currentIndex - 1;
-                            console.log("up", this.currentIndex);
-                          }
-
-                          [...this.anchorElements][this.currentIndex].focus();
-                        }
-                      }}
+                      onClick={(e) => this.handlePreventFollowUrl(e, item)}
+                      onKeyDown={(e) => this.handleOverflowAccessibility(e)}
                     >
                       {item.name}
                     </a>
