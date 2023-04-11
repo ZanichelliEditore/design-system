@@ -1,5 +1,5 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {BreadcrumbPathType} from "../../beans";
+import {BreadcrumbHomepageVariant, BreadcrumbPathStyle} from "../../beans";
 import {html} from "lit-html";
 import "./index";
 
@@ -10,9 +10,19 @@ import "./index";
     paths: {
       control: {type: "object"},
     },
-    type: {
-      options: Object.values(BreadcrumbPathType),
+    pathStyle: {
+      options: Object.values(BreadcrumbPathStyle),
       control: {type: "select"},
+    },
+    homepageVariant: {
+      options: Object.values(BreadcrumbHomepageVariant),
+      control: {type: "select"},
+    },
+    homepageUrl: {
+      control: {type: "text"},
+    },
+    maxNodesToShow: {
+      control: {type: "number"},
     },
   }}
 />
@@ -23,43 +33,27 @@ import "./index";
   <Story
     name="breadcrumb with paths"
     args={{
-      type: "semibold",
+      pathStyle: BreadcrumbPathStyle.SEMIBOLD,
       paths: [
         {name: "Path 1", path: "/path1"},
         {name: "Path 2", path: "/path2"},
         {name: "Path 3", path: "/path3"},
+        {name: "Path 4", path: "/path4"},
+        {name: "Path 5", path: "/path5"},
+        {name: "Path 6", path: "/path6"},
       ],
+      homepageUrl: "/home",
+      homepageVariant: BreadcrumbHomepageVariant.ICON,
+      maxNodesToShow: 5,
     }}
   >
     {(args) => html`<z-breadcrumb
-      type=${args.type}
+      path-style=${args.pathStyle}
       paths=${JSON.stringify(args.paths)}
+      homepage-url=${args.homepageUrl}
+      homepage-variant=${args.homepageVariant}
+      max-nodes-to-show=${args.maxNodesToShow}
     ></z-breadcrumb>`}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name="breadcrumb with slot"
-    args={{
-      type: "semibold",
-    }}
-  >
-    {(args) =>
-      html`<z-breadcrumb type=${args.type}
-        ><div slot="breadcrumb-content">
-          <z-link
-            href="/path1"
-            textcolor="primary"
-            iconposition="left"
-            htmlid="1"
-            htmltabindex="1"
-            icon="chevron-left"
-            >Path 1</z-link
-          >
-        </div></z-breadcrumb
-      >`
-    }
   </Story>
 </Canvas>
 

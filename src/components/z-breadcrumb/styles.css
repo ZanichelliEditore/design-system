@@ -42,7 +42,7 @@ a {
   text-decoration: none;
 }
 
-:host[path-style="underline"] a {
+:host[path-style="underlined"] a {
   text-decoration: underline;
 }
 
