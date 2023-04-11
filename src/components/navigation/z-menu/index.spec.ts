@@ -20,11 +20,6 @@ describe("Suite test ZMenu", () => {
               <slot></slot>
             </div>
           </div>
-          <div class="content" hidden="">
-            <div class="items" role="menu">
-              <slot name="item"></slot>
-            </div>
-          </div>
         </mock:shadow-root>
         <h3>Menu label</h3>
     </z-menu>`);
@@ -50,7 +45,7 @@ describe("Suite test ZMenu", () => {
               <z-icon name="chevron-down"></z-icon>
             </div>
           </button>
-          <div class="content" hidden="">
+          <div class="content">
             <div class="items" role="menu">
               <slot name="item"></slot>
             </div>
@@ -86,7 +81,7 @@ describe("Suite test ZMenu", () => {
               <z-icon name="chevron-down"></z-icon>
             </div>
           </button>
-          <div class="content" hidden="">
+          <div class="content">
             <div class="items" role="menu">
               <slot name="item"></slot>
             </div>

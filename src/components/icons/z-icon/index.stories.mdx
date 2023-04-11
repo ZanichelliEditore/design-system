@@ -1,26 +1,36 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, number} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {getColorTokens} from "../../../utils/storybook-utils";
 import "./index";
-
-## Stories
 
 <Meta
   title="Icons/ZIcon"
   component="z-icon"
+  argTypes={{
+    fill: {
+      options: getColorTokens().map((token) => token.replace("--", "")),
+      control: {type: "select"},
+    },
+  }}
+  args={{
+    name: "download",
+    height: 24,
+    width: 24,
+    fill: "color-primary01",
+  }}
 />
 
 # ZIcon
 
-<Preview>
+<Canvas>
   <Story name="z-icon">
-    {html` <z-icon
-      name="${text("name", "download")}"
-      height="${number("height", "24")}"
-      width="${number("width", "24")}"
-      fill="${text("fill", "color-primary01")}"
+    {(args) => html`<z-icon
+      name="${args.name}"
+      height="${args.height}"
+      width="${args.width}"
+      fill="${args.fill}"
     ></z-icon>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-icon" />
+<ArgsTable of="z-icon" />

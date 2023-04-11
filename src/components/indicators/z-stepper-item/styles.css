@@ -78,7 +78,7 @@
 }
 
 :host(:not([disabled]):focus-within) .indicator {
-  box-shadow: 0 0 2px 2px var(--accent-dark);
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([disabled]) .indicator {

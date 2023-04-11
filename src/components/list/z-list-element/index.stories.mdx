@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -9,6 +9,7 @@ import {
   ListSize,
   ListType,
 } from "../../../beans";
+import {getColorTokens} from "../../../utils/storybook-utils";
 import "./index";
 
 <Meta
@@ -16,51 +17,35 @@ import "./index";
   component="z-list-element"
   argTypes={{
     alignButton: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(ExpandableListButtonAlign),
     },
-    clickable: {
-      control: {type: "boolean"},
-    },
     dividerColor: {
-      control: {type: "text"},
+      control: {type: "select"},
+      options: getColorTokens().map((token) => token.replace("--", "")),
     },
     dividerType: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(ListDividerType),
     },
     dividerSize: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(DividerSize),
     },
-    expandable: {
-      control: {type: "boolean"},
-    },
     expandableStyle: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(ExpandableListStyle),
     },
-    listElementId: {
-      control: {type: "text"},
-    },
     size: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(ListSize),
     },
     color: {
-      control: {type: "text"},
-    },
-    disabled: {
-      control: {type: "boolean"},
-    },
-    isContextualMenu: {
-      control: {type: "boolean"},
-    },
-    listElementPosition: {
-      control: {type: "text"},
+      control: {type: "select"},
+      options: getColorTokens().map((token) => token.replace("--", "")),
     },
     listType: {
-      control: {type: "select"},
+      control: {type: "inline-radio"},
       options: Object.values(ListType),
     },
   }}
@@ -74,7 +59,7 @@ import "./index";
     expandableStyle: ExpandableListStyle.ACCORDION,
     listElementId: "0",
     size: ListSize.MEDIUM,
-    color: "none",
+    color: "color-text01",
     disabled: true,
     isContextualMenu: false,
     listElementPosition: "0",

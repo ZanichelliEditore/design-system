@@ -1,7 +1,7 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {boolean, select} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
+import {Size} from "../../../beans";
 
 <Meta
   title="Table/ZTableHeader"
@@ -10,58 +10,71 @@ import "./index";
 
 # ZTableHeader
 
-<Preview>
-  <Story name="ZTableHeader-sample">
-    {html`<z-table bordered="true">
-      <z-table-head>
-        <z-table-row>
-          <z-table-header
-            column-id="col-1"
-            sortable="${boolean("sortable", false)}"
-            show-button="${boolean("showButton", false)}"
-            padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
-          >
-            <span>Titolo 1</span>
-          </z-table-header>
-          <z-table-header
-            column-id="col-2"
-            sortable="false"
-            show-button="${boolean("showButton", false)}"
-            padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
-          >
-            <span>Titolo 2</span>
-          </z-table-header>
-          <z-table-header
-            column-id="col-3"
-            sortable="${boolean("sortable", false)}"
-            show-button="${boolean("showButton", false)}"
-            padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
-          >
-            <span>Titolo 3</span>
-          </z-table-header>
-          <z-table-header
-            column-id="col-4"
-            sortable="${boolean("sortable", false)}"
-            show-button="${boolean("showButton", false)}"
-            padding="${select("padding", ["x-small", "small", "medium", "large", "special"], "medium")}"
-          >
-            <span>Titolo 4</span>
-          </z-table-header>
-        </z-table-row>
-      </z-table-head>
-      <z-table-body>
-        <z-table-row>
-          <z-table-cell>Valore</z-table-cell>
-          <z-table-cell>Valore</z-table-cell>
-          <z-table-cell>Valore</z-table-cell>
-          <z-table-cell>Valore</z-table-cell>
-        </z-table-row>
-      </z-table-body>
-    </z-table>`}
+<Canvas>
+  <Story
+    name="ZTableHeader"
+    argTypes={{
+      padding: {
+        control: {type: "select"},
+        options: Object.values(Size),
+      },
+    }}
+    args={{
+      sortable: false,
+      showButton: false,
+      padding: "medium",
+    }}
+  >
+    {(args) => html`
+      <z-table bordered="true">
+        <z-table-head>
+          <z-table-row>
+            <z-table-header
+              column-id="col-1"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 1</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-2"
+              sortable="false"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-3"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 3</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-4"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 4</span>
+            </z-table-header>
+          </z-table-row>
+        </z-table-head>
+        <z-table-body>
+          <z-table-row>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+          </z-table-row>
+        </z-table-body>
+      </z-table>
+    `}
   </Story>
-</Preview>
-
-<Props of="z-table-header" />
+</Canvas>
 
 ## Callback for sorting
 
@@ -72,3 +85,5 @@ Pass **onSort** prop as a function that accepts an object structured like this:
 ## Note
 
 **columnId** prop is mandatory for sortable header otherwise there will be an error.
+
+<ArgsTable of="z-table-header" />

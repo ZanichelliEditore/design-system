@@ -1,30 +1,33 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Myz/MyzCard/ZMyzCardFooter"
   component="z-myz-card-footer"
+  args={{
+    autori: "Authors",
+    cardtype: "reale",
+    faded: false,
+    isbn: "97-88-80-8620-710",
+    titolo: "title",
+    opened: false,
+  }}
 />
 
 # ZMyzCardFooter
 
-<Preview>
-  <Story name="z-myz-card-footer">
-    {html` <z-myz-card-footer
-      autori="${text("autori", "Authors")}"
-      cardtype="${text("cardtype", "reale")}"
-      faded="${boolean("faded", false)}"
-      isbn="${text("isbn", "97-88-80-8620-710")}"
-      titolo="${text("titolo", "title")}"
-      opened="${boolean("opened", false)}"
+<Canvas>
+  <Story name="ZMyzCardFooter">
+    {(args) => html`<z-myz-card-footer
+      autori="${args.autori}"
+      cardtype="${args.cardtype}"
+      faded="${args.faded}"
+      isbn="${args.isbn}"
+      titolo="${args.titolo}"
+      opened="${args.opened}"
     />`}
   </Story>
-</Preview>
+</Canvas>
 
-{" "}
-
-<Props of="z-myz-card-footer" />
+<ArgsTable of="z-myz-card-footer" />

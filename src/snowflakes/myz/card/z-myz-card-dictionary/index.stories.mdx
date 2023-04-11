@@ -1,25 +1,32 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Myz/MyzCard/ZMyzCardDictionary"
   component="z-myz-card-dictionary"
+  args={{
+    name: "Lo Zingarelli",
+    cover: "https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg",
+    disabled: false,
+    hideinfobtn: false,
+    flipped: false,
+    flipbuttonlabel: "info",
+  }}
 />
 
 # ZMyzCardDictionary
 
-<Preview>
+<Canvas>
   <Story name="card-default">
-    {html`
+    {(args) => html`
       <z-myz-card-dictionary
-        name="${text("name", "Lo Zingarelli")}"
-        cover="${text("cover", "https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg")}"
-        disabled="${boolean("disabled", false)}"
-        hideinfobtn="${boolean("hideinfobtn", false)}"
-        flipped="${boolean("flipped", false)}"
-        flipbuttonlabel="${text("flipbuttonlabel", "info")}"
+        name="${args.name}"
+        cover="${args.cover}"
+        disabled="${args.disabled}"
+        hideinfobtn="${args.hideinfobtn}"
+        flipped="${args.flipped}"
+        flipbuttonlabel="${args.flipbuttonlabel}"
       >
         <z-myz-card-footer-sections>
           <div slot="top">Vocabolario della lingua italiana</div>
@@ -40,15 +47,20 @@ import "./index";
       </z-myz-card-dictionary>
     `}
   </Story>
-  <Story name="card-flipped">
-    {html`
+  <Story
+    name="card-flipped"
+    args={{
+      flipped: true,
+    }}
+  >
+    {(args) => html`
       <z-myz-card-dictionary
-        name="${text("name", "Lo Zingarelli")}"
-        cover="${text("cover", "https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg")}"
-        disabled="${boolean("disabled", false)}"
-        hideinfobtn="${boolean("hideinfobtn", false)}"
-        flipped="${boolean("flipped", true)}"
-        flipbuttonlabel="${text("flipbuttonlabel", "info")}"
+        name="${args.name}"
+        cover="${args.cover}"
+        disabled="${args.disabled}"
+        hideinfobtn="${args.hideinfobtn}"
+        flipped="${args.flipped}"
+        flipbuttonlabel="${args.flipbuttonlabel}"
       >
         <z-myz-card-footer-sections>
           <div slot="top">Vocabolario della lingua italiana</div>
@@ -73,15 +85,20 @@ import "./index";
       </z-myz-card-dictionary>
     `}
   </Story>
-  <Story name="card-no-info-button">
-    {html`
+  <Story
+    name="card-no-info-button"
+    args={{
+      hideinfobtn: true,
+    }}
+  >
+    {(args) => html`
       <z-myz-card-dictionary
-        name="${text("name", "Lo Zingarelli")}"
-        cover="${text("cover", "https://staticmy.zanichelli.it/catalogo/assets/m40004.9788808194121.jpg")}"
-        disabled="${boolean("disabled", false)}"
-        hideinfobtn="${boolean("hideinfobtn", true)}"
-        flipped="${boolean("flipped", false)}"
-        flipbuttonlabel="${text("flipbuttonlabel", "info")}"
+        name="${args.name}"
+        cover="${args.cover}"
+        disabled="${args.disabled}"
+        hideinfobtn="${args.hideinfobtn}"
+        flipped="${args.flipped}"
+        flipbuttonlabel="${args.flipbuttonlabel}"
       >
         <z-myz-card-footer-sections>
           <div slot="top">Vocabolario della lingua italiana</div>
@@ -106,6 +123,6 @@ import "./index";
       </z-myz-card-dictionary>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-myz-card-dictionary" />
+<ArgsTable of="z-myz-card-dictionary" />

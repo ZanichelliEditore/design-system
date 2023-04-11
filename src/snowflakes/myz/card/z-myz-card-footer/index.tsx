@@ -1,4 +1,4 @@
-import {Component, Prop, h, State, Listen} from "@stencil/core";
+import {Element, Component, Prop, h, State, Listen} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {LicenseType} from "../../../../beans/index";
 
@@ -12,6 +12,8 @@ import {LicenseType} from "../../../../beans/index";
   shadow: true,
 })
 export class ZMyzCardFooter {
+  @Element() host: HTMLZMyzCardFooterElement;
+
   /** volume title */
   @Prop()
   titolo: string;
@@ -51,6 +53,14 @@ export class ZMyzCardFooter {
   @Listen("toggleClick")
   handleToggle(): void {
     this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      const firstElem = this.getFirstListItem();
+      if (firstElem) {
+        requestAnimationFrame(() => {
+          firstElem.focus();
+        });
+      }
+    }
   }
 
   private getTitleAuthors(): string {
@@ -87,6 +97,10 @@ export class ZMyzCardFooter {
     }
   }
 
+  private getFirstListItem(): HTMLElement {
+    return this.host.querySelector("[slot=list] > li a");
+  }
+
   render(): HTMLDivElement {
     return (
       <div class={{...(this.retrieveClass() as Record<string, boolean>), wrapper: true}}>
@@ -105,13 +119,24 @@ export class ZMyzCardFooter {
                 ref={(el) => (this.ellipsisAuthors = el as HTMLElement)}
               >
                 <span title={this.getTitleAuthors()}>
-                  <span class="bold">{this.autori}</span>
+                  <span
+                    aria-description="Autori"
+                    class="bold"
+                  >
+                    {this.autori}
+                  </span>
                 </span>
               </p>
               <p class="year-isbn">
                 <span class="isbn">
                   <span>
-                    <span class="bold">{this.isbn}</span> (ed. cartacea)
+                    <span
+                      aria-description="ISBN edizione cartacea"
+                      class="bold"
+                    >
+                      {this.isbn}
+                    </span>{" "}
+                    (ed. cartacea)
                   </span>
                 </span>
               </p>

@@ -26,6 +26,19 @@
 | `canvasOpenStatusChanged` | emitted when open prop changes | `CustomEvent<any>` |
 
 
+## Methods
+
+### `setSkipAanimationOnLoad(value: boolean) => Promise<void>`
+
+this method allows you to skip the page loading animation, to be used with the prop set to true
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot              | Description                   |

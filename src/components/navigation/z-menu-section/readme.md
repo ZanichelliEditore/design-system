@@ -20,10 +20,10 @@
 
 ## Slots
 
-| Slot     | Description                                                                 |
-| -------- | --------------------------------------------------------------------------- |
-|          | Menu section label                                                          |
-| `"item"` | Single entry of the section. Can be slotted multiple times to insert items. |
+| Slot     | Description                                                                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|          | Label of the menu section.                                                                                                                                |
+| `"item"` | Single entry of the section. Set the same slot name to different items to put many of them. Add the `active` attribute to a slotted item to highlight it. |
 
 
 ## Dependencies

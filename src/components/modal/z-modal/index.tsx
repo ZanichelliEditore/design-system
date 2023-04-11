@@ -34,6 +34,10 @@ export class ZModal {
   @Prop()
   alertdialog?: boolean = false;
 
+  /** if true, the modal is closable (optional, default is true) */
+  @Prop()
+  closable?: boolean = true;
+
   private dialog: HTMLDialogElement;
 
   @Element() host: HTMLZModalElement;
@@ -43,7 +47,9 @@ export class ZModal {
   modalClose: EventEmitter;
 
   private emitModalClose(): void {
-    this.modalClose.emit({modalid: this.modalid});
+    if (this.closable) {
+      this.modalClose.emit({modalid: this.modalid});
+    }
   }
 
   /** emitted on modal header click, returns modalid */
@@ -59,7 +65,9 @@ export class ZModal {
   modalBackgroundClick: EventEmitter;
 
   private emitBackgroundClick(): void {
-    this.modalBackgroundClick.emit({modalid: this.modalid});
+    if (this.closable) {
+      this.modalBackgroundClick.emit({modalid: this.modalid});
+    }
   }
 
   componentDidLoad(): void {
@@ -75,7 +83,9 @@ export class ZModal {
   /** close modal */
   @Method()
   async close(): Promise<void> {
-    this.dialog?.close();
+    if (this.closable) {
+      this.dialog?.close();
+    }
   }
 
   /**
@@ -114,6 +124,28 @@ export class ZModal {
     }
   }
 
+  private closeButtonSlot(): HTMLElement | void {
+    if (this.closable) {
+      return (
+        <slot name="modalCloseButton">
+          <button
+            aria-label={this.closeButtonLabel}
+            onClick={() => this.close()}
+          >
+            <z-icon name="multiply-circle-filled"></z-icon>
+          </button>
+        </slot>
+      );
+    }
+  }
+
+  private handleEscape(e: KeyboardEvent): void {
+    if (this.closable) {
+      return;
+    }
+    e.preventDefault();
+  }
+
   render(): HTMLZModalElement {
     return (
       <dialog
@@ -122,6 +154,8 @@ export class ZModal {
         role={this.alertdialog ? "alertdialog" : undefined}
         ref={(el) => (this.dialog = el as HTMLDialogElement)}
         onClose={() => this.emitModalClose()}
+        // @ts-ignore
+        onCancel={(e) => this.handleEscape(e)}
       >
         <div
           class="modal-container"
@@ -132,14 +166,7 @@ export class ZModal {
               {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
               {this.modalsubtitle && <h2 id="modal-subtitle">{this.modalsubtitle}</h2>}
             </div>
-            <slot name="modalCloseButton">
-              <button
-                aria-label={this.closeButtonLabel}
-                onClick={() => this.close()}
-              >
-                <z-icon name="multiply-circle-filled"></z-icon>
-              </button>
-            </slot>
+            {this.closeButtonSlot()}
           </header>
 
           <div

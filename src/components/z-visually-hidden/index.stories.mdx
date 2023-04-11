@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
@@ -9,7 +9,7 @@ import "./index";
 
 # ZVisuallyHidden
 
-<Preview>
+<Canvas>
   <Story name="ZVisuallyHidden-sample">
     {html`<h2 class="heading-2">ZVisuallyHidden</h2>
       <span>
@@ -30,6 +30,6 @@ import "./index";
         </ul> </span
       ><z-visually-hidden><div>Hello</div></z-visually-hidden>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-visually-hidden" />
+<ArgsTable of="z-visually-hidden" />

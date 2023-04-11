@@ -1,26 +1,31 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
-
-## Stories
 
 <Meta
   title="Buttons/ZToggleButton"
   component="z-toggle-button"
+  args={{
+    label: "Toggle",
+    ariaLabel: "",
+    avoidClick: false,
+    isdisabled: false,
+    opened: false,
+  }}
 />
 
 # ZToggleButton
 
-<Preview>
+<Canvas>
   <Story name="z-toggle-button">
-    {html` <z-toggle-button
-      label="${text("label", "Toggle")}"
-      avoidClick="${boolean("avoidClick", true)}"
-      isdisabled="${boolean("isdisabled", true)}"
-      opened="${boolean("opened", false)}"
+    {(args) => html`<z-toggle-button
+      label="${args.label}"
+      aria-label="${args.ariaLabel}"
+      avoidClick="${args.avoidClick}"
+      isdisabled="${args.isdisabled}"
+      opened="${args.opened}"
     ></z-toggle-button>`}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-toggle-button" />
+<ArgsTable of="z-toggle-button" />
