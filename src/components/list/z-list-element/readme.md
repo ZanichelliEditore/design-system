@@ -31,6 +31,13 @@
 | `clickItem`       | remove filter click event, returns filterid | `CustomEvent<any>`    |
 
 
+## Shadow Parts
+
+| Part                    | Description |
+| ----------------------- | ----------- |
+| `"list-item-container"` |             |
+
+
 ## Dependencies
 
 ### Used by

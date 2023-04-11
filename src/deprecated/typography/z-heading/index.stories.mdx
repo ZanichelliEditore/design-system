@@ -1,5 +1,5 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
@@ -11,7 +11,7 @@ import "./index";
 
 ## This component is deprecated and will be removed from the library starting June 1st 2022, please use delta-share typography.css style instead.
 
-<Preview>
+<Canvas>
   <Story name="h1">
     {html`
       <z-heading
@@ -88,6 +88,6 @@ import "./index";
       >
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-heading" />
+<ArgsTable of="z-heading" />

@@ -1,19 +1,22 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Navigation/ZMenuSection"
   component="z-menu-section"
+  argTypes={{active: {type: "boolean"}}}
+  args={{active: false}}
 />
 
 # ZMenuSection
 
-<Preview>
-  <Story name="ZMenuSection">
-    {html`
-      <z-menu-section .active=${boolean("active", false)}>
+## With items
+
+<Canvas>
+  <Story name="With items">
+    {(args) => html`
+      <z-menu-section .active=${args.active}>
         <h3>Label</h3>
         <a
           href=""
@@ -28,18 +31,24 @@ import "./index";
         <a
           href=""
           slot="item"
-          >Item 3</a
+          active
+          >Item 3 - active</a
         >
       </z-menu-section>
     `}
   </Story>
-  <Story name="ZMenuSection without items">
-    {html`
-      <z-menu-section .active=${boolean("active", false)}>
+</Canvas>
+
+## Without items
+
+<Canvas>
+  <Story name="Without items">
+    {(args) => html`
+      <z-menu-section .active=${args.active}>
         <h3>Label</h3>
       </z-menu-section>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-menu-section" />
+<ArgsTable of="z-menu-section" />

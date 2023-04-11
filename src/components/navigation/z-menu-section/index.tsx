@@ -1,16 +1,18 @@
 import {Component, h, Prop, State, Event, EventEmitter, Element, Listen, Host} from "@stencil/core";
 
 /**
- * @slot - Menu section label
- * @slot item - Single entry of the section. Can be slotted multiple times to insert items.
+ * A component to create submenus inside the ZMenu.
+ * @slot - Label of the menu section.
+ * @slot item - Single entry of the section. Set the same slot name to different items to put many of them. Add the `active` attribute to a slotted item to highlight it.
  */
-
 @Component({
   tag: "z-menu-section",
   styleUrl: "styles.css",
   shadow: true,
 })
 export class ZMenuSection {
+  @Element() hostElement: HTMLZMenuSectionElement;
+
   /** Active state */
   @Prop({reflect: true})
   active?: boolean;
@@ -20,8 +22,6 @@ export class ZMenuSection {
 
   @State()
   hasContent: boolean;
-
-  @Element() hostElement: HTMLZMenuSectionElement;
 
   /** The section has been opened. */
   @Event()
@@ -40,8 +40,8 @@ export class ZMenuSection {
     this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  @Listen("click", {target: "document"})
   /** Close the list when a click is performed outside of this Element. */
+  @Listen("click", {target: "document"})
   handleClick(ev: MouseEvent): void {
     if (!this.open || this.hostElement.contains(ev.target as Node)) {
       return;
@@ -55,7 +55,16 @@ export class ZMenuSection {
    * Check if some content slot is set.
    */
   private checkContent(): void {
-    this.hasContent = !!this.hostElement.querySelectorAll('[slot="item"]').length;
+    this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+  }
+
+  /**
+   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+   * @param ev Slotchange event
+   */
+  private onLabelSlotChange(ev: Event): void {
+    const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
+    labelElement.dataset.text = labelElement?.innerText || null;
   }
 
   componentWillLoad(): void {
@@ -73,7 +82,7 @@ export class ZMenuSection {
           aria-pressed={this.open ? "true" : "false"}
           onClick={this.toggle.bind(this)}
         >
-          <slot></slot>
+          <slot onSlotchange={this.onLabelSlotChange.bind(this)}></slot>
           {this.hasContent && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
         {this.open && (

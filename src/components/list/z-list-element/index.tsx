@@ -278,6 +278,7 @@ export class ZListElement {
           style={{color: `var(--${this.color})`}}
           tabindex={this.isContextualMenu ? "0" : "-1"}
           id={`z-list-element-id-${this.listElementId}`}
+          part="list-item-container"
         >
           <div class="z-list-element-container">
             {this.renderExpandableButton()}

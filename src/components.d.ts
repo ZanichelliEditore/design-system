@@ -28,7 +28,7 @@ export namespace Components {
          */
         "drawerOpen": boolean;
         /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow": "auto" | "stack" | "offcanvas";
         /**
@@ -154,7 +154,7 @@ export namespace Components {
          */
         "buttonid": string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -227,6 +227,10 @@ export namespace Components {
         "single": boolean;
     }
     interface ZChip {
+        /**
+          * z-chip aria-label string
+         */
+        "ariaLabel": string;
         /**
           * set z-chip as disabled
          */
@@ -763,14 +767,16 @@ export namespace Components {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
          */
         "floating"?: boolean;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open": boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext": boolean;
     }
     interface ZMenuSection {
         /**
@@ -797,6 +803,10 @@ export namespace Components {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
+        /**
+          * if true, the modal is closable (optional, default is true)
+         */
+        "closable"?: boolean;
         /**
           * close modal
          */
@@ -1131,6 +1141,10 @@ export namespace Components {
          */
         "open": boolean;
         /**
+          * this method allows you to skip the page loading animation, to be used with the prop set to true
+         */
+        "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
+        /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;
@@ -1351,6 +1365,10 @@ export namespace Components {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
+          * Set button icon without label
+         */
+        "searchButtonIconOnly"?: boolean;
+        /**
           * Search helper text
          */
         "searchHelperLabel"?: string;
@@ -1359,6 +1377,10 @@ export namespace Components {
          */
         "showSearchButton"?: boolean;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
@@ -1366,6 +1388,10 @@ export namespace Components {
           * Input search string
          */
         "value"?: string;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariant;
     }
     interface ZSectionTitle {
         /**
@@ -1659,7 +1685,7 @@ export namespace Components {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }
@@ -1674,6 +1700,10 @@ export namespace Components {
         "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
+        /**
+          * aria-label for the button
+         */
+        "ariaLabel": string;
         /**
           * avoidclick status flag
          */
@@ -2554,7 +2584,7 @@ declare namespace LocalJSX {
          */
         "drawerOpen"?: boolean;
         /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu  **Optional**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
@@ -2685,7 +2715,7 @@ declare namespace LocalJSX {
          */
         "buttonid"?: string;
         /**
-          * occurrencies counter (optional)
+          * occurrences counter (optional)
          */
         "counter"?: number;
         /**
@@ -2701,7 +2731,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * sorting direction click event, returns buttonid and sortAsc
+          * sorting direction click event, returns `buttonid` and `sortAsc`
          */
         "onButtonSortClick"?: (event: ZButtonSortCustomEvent<any>) => void;
         /**
@@ -2770,6 +2800,10 @@ declare namespace LocalJSX {
         "single"?: boolean;
     }
     interface ZChip {
+        /**
+          * z-chip aria-label string
+         */
+        "ariaLabel"?: string;
         /**
           * set z-chip as disabled
          */
@@ -3358,7 +3392,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
          */
         "floating"?: boolean;
         /**
@@ -3371,9 +3404,12 @@ declare namespace LocalJSX {
         "onOpened"?: (event: ZMenuCustomEvent<any>) => void;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open"?: boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext"?: boolean;
     }
     interface ZMenuSection {
         /**
@@ -3408,6 +3444,10 @@ declare namespace LocalJSX {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
+        /**
+          * if true, the modal is closable (optional, default is true)
+         */
+        "closable"?: boolean;
         /**
           * aria-label for close button (optional)
          */
@@ -4042,6 +4082,10 @@ declare namespace LocalJSX {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
+          * Set button icon without label
+         */
+        "searchButtonIconOnly"?: boolean;
+        /**
           * Search helper text
          */
         "searchHelperLabel"?: string;
@@ -4050,6 +4094,10 @@ declare namespace LocalJSX {
          */
         "showSearchButton"?: boolean;
         /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+         */
+        "size"?: ControlSize;
+        /**
           * Sort autocomplete results items
          */
         "sortResultsItems"?: boolean;
@@ -4057,6 +4105,10 @@ declare namespace LocalJSX {
           * Input search string
          */
         "value"?: string;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+         */
+        "variant"?: ButtonVariant;
     }
     interface ZSectionTitle {
         /**
@@ -4366,7 +4418,7 @@ declare namespace LocalJSX {
          */
         "transition"?: ToastNotificationTransition;
         /**
-          * toast notification type:  dark, light, accent, error, success, warning
+          * toast notification type: dark, light, accent, error, success, warning
          */
         "type"?: ToastNotification;
     }
@@ -4381,6 +4433,10 @@ declare namespace LocalJSX {
         "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
+        /**
+          * aria-label for the button
+         */
+        "ariaLabel"?: string;
         /**
           * avoidclick status flag
          */

@@ -13,13 +13,13 @@
   background-color: var(--gray50);
 }
 
-.grid-story .grid {
+.grid-story .z-grid {
   position: relative;
   background-color: var(--gray100);
   gap: var(--space-unit);
 }
 
-.grid-story .grid .ghost-grid {
+.grid-story .z-grid .ghost-grid {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,12 +30,12 @@
   opacity: 0.3;
 }
 
-.grid-story .grid .ghost-grid > div {
+.grid-story .z-grid .ghost-grid > div {
   height: 100%;
   border: 1px dashed #000;
 }
 
-.grid-story .grid > div {
+.grid-story .z-grid > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,23 +56,23 @@
 }
 
 @media (max-width: 767px) {
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(1),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(2),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(3),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(4),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(5),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(6),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(7),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(8) {
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(1),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(2),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(3),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(4),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(5),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(6),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(7),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(8) {
     display: none;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1151px) {
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(1),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(2),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(3),
-  .grid-story .grid .ghost-grid:not(.ghost-row) > div:nth-child(4) {
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(1),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(2),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(3),
+  .grid-story .z-grid .ghost-grid:not(.ghost-row) > div:nth-child(4) {
     display: none;
   }
 }

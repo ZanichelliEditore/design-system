@@ -1,5 +1,4 @@
 import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {ZMenu} from "../z-menu";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -89,8 +88,6 @@ export class ZAppHeader {
    * - auto: the menu bar is positioned near the title
    * - stack: the menu bar is positioned below the title
    * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-   *
-   * **Optional**
    */
   @Prop({reflect: true})
   flow: "auto" | "stack" | "offcanvas" = "auto";
@@ -138,10 +135,18 @@ export class ZAppHeader {
       }
     );
 
+  private openDrawer(): void {
+    this.drawerOpen = true;
+  }
+
+  private closeDrawer(): void {
+    this.drawerOpen = false;
+  }
+
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
-    this.collectMenuElements.bind(this);
+    this.collectMenuElements = this.collectMenuElements.bind(this);
   }
 
   componentDidLoad(): void {
@@ -201,6 +206,7 @@ export class ZAppHeader {
     if (!scrollParent) {
       return;
     }
+
     this.emitStickingEvent();
   }
 
@@ -211,10 +217,11 @@ export class ZAppHeader {
     }
 
     const elements = this.menuElements;
-    for (let i = 0, len = elements.length; i < len; i++) {
-      (elements[i] as unknown as ZMenu).open = false;
-      (elements[i] as unknown as ZMenu).floating = !this.drawerOpen;
-    }
+    elements.forEach((element) => {
+      (element as HTMLZMenuElement).open = false;
+      (element as HTMLZMenuElement).floating = !this.drawerOpen;
+      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+    });
   }
 
   render(): HTMLZAppHeaderElement {
@@ -258,7 +265,7 @@ export class ZAppHeader {
             {!this.drawerOpen && this.flow !== "offcanvas" && (
               <slot
                 name="menu"
-                onSlotchange={() => this.collectMenuElements()}
+                onSlotchange={this.collectMenuElements}
               ></slot>
             )}
           </div>
@@ -282,12 +289,13 @@ export class ZAppHeader {
               {this.drawerOpen && (
                 <slot
                   name="menu"
-                  onSlotchange={() => this.collectMenuElements()}
+                  onSlotchange={this.collectMenuElements}
                 ></slot>
               )}
             </div>
           </div>
         </div>
+
         {this._stuck && (
           <div class="heading-stuck">
             <div class="heading-stuck-content">
@@ -308,13 +316,5 @@ export class ZAppHeader {
         )}
       </Host>
     );
-  }
-
-  private openDrawer(): void {
-    this.drawerOpen = true;
-  }
-
-  private closeDrawer(): void {
-    this.drawerOpen = false;
   }
 }

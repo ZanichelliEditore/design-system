@@ -9,10 +9,13 @@
   top: 0;
   padding: var(--space-unit) 0;
   border-bottom: 1px solid var(--gray200);
-  margin-bottom: var(--space-unit);
   background: white;
   cursor: pointer;
   font-weight: var(--font-sb);
+}
+
+.icons-list summary::marker {
+  margin-right: var(--space-unit);
 }
 
 .icons-container {
@@ -31,21 +34,20 @@
   display: flex;
   width: 50%;
   box-sizing: border-box;
+  flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
   padding: var(--space-unit);
   column-gap: calc(var(--space-unit) * 2);
   font-size: 12px;
 }
 
 .icons-container .icon-box z-icon {
-  transition: scale 200ms ease-in-out;
+  transition: scale 100ms ease-in-out;
 }
 
-.icons-container .icon-box:hover {
-  -webkit-text-stroke: medium;
-}
-
-.icons-container .icon-box:hover z-icon {
+.icons-container .icon-box z-icon:hover,
+.icons-container .icon-box .icon-name:hover ~ z-icon {
   scale: 1.8;
 }
 

@@ -1,24 +1,41 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {text, boolean, select, radios} from "@storybook/addon-knobs";
+import {styleMap} from "lit-html/directives/style-map.js";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {CardVariant} from "../../beans";
 import "./index";
+import "./index.stories.css";
 
 <Meta
   title="ZCard"
   component="z-card"
+  argTypes={{
+    variant: {
+      control: {type: "inline-radio"},
+      options: ["default", ...Object.values(CardVariant)],
+      labels: {
+        default: null,
+      },
+    },
+  }}
+  args={{
+    variant: "default",
+    clickable: false,
+    showshadow: false,
+  }}
 />
 
 # ZCard
 
-<Preview>
-  <Story name="ZCard with image">
-    {html`
+## With image
+
+<Canvas>
+  <Story name="With image">
+    {(args) => html`
       <z-card
-        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
-        .clickable="${boolean("Clickable", false)}"
-        .showshadow="${boolean("Show shadow", false)}"
-        style="width: 356px;"
+        class="demo-card"
+        .variant="${args.variant}"
+        .clickable="${args.clickable}"
+        .showshadow="${args.showshadow}"
       >
         <img
           slot="cover"
@@ -48,17 +65,24 @@ import "./index";
       </z-card>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCard with image and icon">
-    {html`
+## With image and icon
+
+<Canvas>
+  <Story
+    name="With image and icon"
+    args={{
+      coverIcon: "play-filled",
+    }}
+  >
+    {(args) => html`
       <z-card
-        cover-icon="play-filled"
-        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
-        .clickable="${boolean("Clickable", false)}"
-        .showshadow="${boolean("Show shadow", false)}"
-        style="width: 356px;"
+        class="demo-card"
+        cover-icon="${args.coverIcon}"
+        .variant="${args.variant}"
+        .clickable="${args.clickable}"
+        .showshadow="${args.showshadow}"
       >
         <img
           slot="cover"
@@ -88,16 +112,24 @@ import "./index";
       </z-card>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCard color cover">
-    {html`
+## Color cover
+
+<Canvas>
+  <Story
+    name="Color cover"
+    args={{
+      "--z-card--color-cover-background": "var(--yellow500)",
+    }}
+  >
+    {(args) => html`
       <z-card
-        .variant="${radios("Variant", {default: "", ...CardVariant}, "")}"
-        .clickable="${boolean("Clickable", false)}"
-        .showshadow="${boolean("Show shadow", false)}"
-        style="--z-card--color-cover-background: orange; width: 356px;"
+        class="demo-card"
+        .variant="${args.variant}"
+        .clickable="${args.clickable}"
+        .showshadow="${args.showshadow}"
+        style="--z-card--color-cover-background: ${args["--z-card--color-cover-background"]};"
       >
         <h2
           class="body-5"
@@ -123,75 +155,108 @@ import "./index";
       </z-card>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
-  <Story name="ZCard text">
-    {html`
-      <div style="display: flex">
-        <z-card
-          variant="text"
-          .clickable="${boolean("Clickable", false)}"
-          .showshadow="${boolean("Show shadow", false)}"
-          style="--z-card--text-background: var(--color-primary01); color: white; --z-card--text-border-radius: 4px; width: 263px; margin-right: 20px"
+## Text
+
+<Canvas>
+  <Story
+    name="Text variant - primary background"
+    args={{
+      "--z-card--text-border-radius": "4px",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant"],
+      },
+    }}
+  >
+    {(args) => html`
+      <z-card
+        class="text-variant-card"
+        variant="text"
+        .clickable="${args.clickable}"
+        .showshadow="${args.showshadow}"
+        style=${styleMap({
+          "--z-card--text-background": "var(--color-primary01)",
+          "--z-card--text-border-radius": `${args["--z-card--text-border-radius"]}`,
+          "color": "var(--color-text-inverse)",
+        })}
+      >
+        <h2
+          class="body-5"
+          slot="metadata"
         >
-          <h2
-            class="body-5"
-            slot="metadata"
-          >
-            metadata
-          </h2>
-          <h3 slot="title">Card Title</h3>
-          <p
-            class="body-3"
-            slot="text"
-          >
-            Some description for the content of the card.
-          </p>
-          <z-icon
-            name="share"
-            slot="action"
-            fill="color-surface01"
-          ></z-icon>
-          <z-icon
-            name="delete"
-            slot="action"
-            fill="color-surface01"
-          ></z-icon>
-        </z-card>
-        <z-card
-          variant="text"
-          .clickable="${boolean("Clickable", false)}"
-          .showshadow="${boolean("Show shadow", false)}"
-          style="--z-card--text-background: white; --z-card--text-border: 2px solid black; width: 263px;"
+          metadata
+        </h2>
+        <h3 slot="title">Card Title</h3>
+        <p
+          class="body-3"
+          slot="text"
         >
-          <h2
-            class="body-5"
-            slot="metadata"
-          >
-            metadata
-          </h2>
-          <h3 slot="title">Card Title</h3>
-          <p
-            class="body-3"
-            slot="text"
-          >
-            Some description for the content of the card.
-          </p>
-          <z-icon
-            name="share"
-            slot="action"
-            fill="color-primary01"
-          ></z-icon>
-          <z-icon
-            name="delete"
-            slot="action"
-            fill="color-primary01"
-          ></z-icon>
-        </z-card>
-      </div>
+          Some description for the content of the card.
+        </p>
+        <z-icon
+          name="share"
+          slot="action"
+          fill="color-surface01"
+        ></z-icon>
+        <z-icon
+          name="delete"
+          slot="action"
+          fill="color-surface01"
+        ></z-icon>
+      </z-card>
     `}
   </Story>
-</Preview>
+  <Story
+    name="Text variant - white background and bordered"
+    args={{
+      "--z-card--text-border": "2px solid var(--gray800)",
+      "--z-card--text-border-radius": "4px",
+    }}
+    parameters={{
+      controls: {
+        exclude: ["variant"],
+      },
+    }}
+  >
+    {(args) => html`<z-card
+      class="text-variant-card"
+      variant="text"
+      .clickable="${args.clickable}"
+      .showshadow="${args.showshadow}"
+      style=${styleMap({
+        "--z-card--text-background": `var(--color-white)`,
+        "--z-card--text-border": `${args["--z-card--text-border"]}`,
+        "--z-card--text-border-radius": `${args["--z-card--text-border-radius"]}`,
+      })}
+    >
+      <h2
+        class="body-5"
+        slot="metadata"
+      >
+        metadata
+      </h2>
+      <h3 slot="title">Card Title</h3>
+      <p
+        class="body-3"
+        slot="text"
+      >
+        Some description for the content of the card.
+      </p>
+      <z-icon
+        name="share"
+        slot="action"
+        fill="color-primary01"
+      ></z-icon>
+      <z-icon
+        name="delete"
+        slot="action"
+        fill="color-primary01"
+      ></z-icon>
+    </z-card>`}
+  </Story>
+</Canvas>
 
-<Props of="z-card" />
+<ArgsTable of="z-card" />

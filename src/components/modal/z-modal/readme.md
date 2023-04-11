@@ -18,6 +18,7 @@
 | Property           | Attribute            | Description                                                   | Type      | Default           |
 | ------------------ | -------------------- | ------------------------------------------------------------- | --------- | ----------------- |
 | `alertdialog`      | `alertdialog`        | add role "alertdialog" to dialog (optional, default is false) | `boolean` | `false`           |
+| `closable`         | `closable`           | if true, the modal is closable (optional, default is true)    | `boolean` | `true`            |
 | `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                        | `string`  | `"chiudi modale"` |
 | `modalid`          | `modalid`            | unique id                                                     | `string`  | `undefined`       |
 | `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                           | `string`  | `undefined`       |

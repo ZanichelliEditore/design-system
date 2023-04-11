@@ -1,9 +1,7 @@
 import {html} from "lit-html";
-import {Meta, Canvas, Story, Preview, Props, ArgsTable} from "@storybook/addon-docs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 import "./index.stories.css";
-
-## Stories
 
 <Meta
   title="Modal/ZModal"
@@ -24,6 +22,9 @@ import "./index.stories.css";
     alertdialog: {
       control: {type: "boolean"},
     },
+    closable: {
+      control: {type: "boolean"},
+    },
   }}
   args={{
     modalid: "my-modal",
@@ -31,6 +32,7 @@ import "./index.stories.css";
     modalsubtitle: "My modal subtitle",
     closeButtonLabel: "chiudi modale",
     alertdialog: false,
+    closable: true,
   }}
   decorators={[
     (Story) => html`
@@ -61,6 +63,7 @@ import "./index.stories.css";
         modalsubtitle=${args.modalsubtitle}
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
+        closable=${args.closable}
       >
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -85,6 +88,7 @@ import "./index.stories.css";
         modalsubtitle=${args.modalsubtitle}
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
+        closable=${args.closable}
       >
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -204,6 +208,7 @@ import "./index.stories.css";
         modalsubtitle=${args.modalsubtitle}
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
+        closable=${args.closable}
       >
         <div slot="modalContent">
           <div>Contenuto dello <b>slot</b></div>

@@ -152,7 +152,6 @@ You need to [manually create the GitHub release](https://github.com/ZanichelliEd
 - [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
 - [@storybook/addon-a11y](https://www.npmjs.com/package/@storybook/addon-a11y)
 - [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
-- [@storybook/addon-knobs](https://www.npmjs.com/package/@storybook/addon-knobs)
 - [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
 
 ### Start Storybook:

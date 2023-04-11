@@ -1,21 +1,31 @@
 import {html} from "lit-html";
-import {Meta, Story, Preview, Props} from "@storybook/addon-docs";
-import {boolean} from "@storybook/addon-knobs";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 
 <Meta
   title="Navigation/ZMenu"
   component="z-menu"
+  argTypes={{
+    active: {type: "boolean"},
+    floating: {type: "boolean"},
+    verticalContext: {type: "boolean"},
+  }}
+  args={{
+    active: false,
+    floating: true,
+    verticalContext: false,
+  }}
 />
 
 # ZMenu
 
-<Preview>
+<Canvas>
   <Story name="ZMenu - floating content layout">
-    {html`
+    {(args) => html`
       <z-menu
-        .active=${boolean("active", false)}
-        .floating=${boolean("floating", true)}
+        .active=${args.active}
+        .floating=${args.floating}
+        .verticalContext=${args.verticalContext}
       >
         <h3>Menu label</h3>
         <a
@@ -62,11 +72,15 @@ import "./index";
       </z-menu>
     `}
   </Story>
+</Canvas>
+
+<Canvas>
   <Story name="ZMenu with header">
-    {html`
+    {(args) => html`
       <z-menu
-        .floating=${boolean("floating", true)}
-        .active=${boolean("active", false)}
+        .active=${args.active}
+        .floating=${args.floating}
+        .verticalContext=${args.verticalContext}
       >
         <img
           slot="header"
@@ -105,9 +119,21 @@ import "./index";
       </z-menu>
     `}
   </Story>
-  <Story name="ZMenu active without items">
-    {html`
-      <z-menu .active=${boolean("active", true)}>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="ZMenu active without items"
+    argTypes={{
+      floating: {control: false},
+    }}
+    args={{active: true}}
+  >
+    {(args) => html`
+      <z-menu
+        .active=${args.active}
+        .verticalContext=${args.verticalContext}
+      >
         <a
           href="https://cataas.com/cat/gif"
           target="_blank"
@@ -116,6 +142,6 @@ import "./index";
       </z-menu>
     `}
   </Story>
-</Preview>
+</Canvas>
 
-<Props of="z-menu" />
+<ArgsTable of="z-menu" />

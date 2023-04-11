@@ -22,6 +22,10 @@ export class ZToggleButton {
   @Prop({mutable: true})
   opened?: boolean = false;
 
+  /**  aria-label for the button */
+  @Prop()
+  ariaLabel = "";
+
   /** emitted on toggle button click, returns isOpen */
   @Event()
   toggleClick: EventEmitter;
@@ -44,6 +48,8 @@ export class ZToggleButton {
           "avoid-clicks": this.avoidclick,
         }}
         disabled={this.isdisabled}
+        aria-expanded={this.opened ? "true" : "false"}
+        aria-label={this.ariaLabel}
         onClick={() => this.emitToggleClick()}
       >
         <z-icon
