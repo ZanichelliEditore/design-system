@@ -13,18 +13,30 @@ import "./index.stories.css";
     "--app-header-content-max-width": {
       control: {type: "text"},
     },
+    "flow": {
+      control: {type: "inline-radio"},
+      options: ["auto", "stack", "offcanvas"],
+    },
   }}
   args={{
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
+    "flow": "auto",
   }}
 />
 
 # ZAppHeader
 
 <Canvas>
-  <Story name="Title">
+  <Story
+    name="Title"
+    parameters={{
+      controls: {
+        exclude: ["flow"],
+      },
+    }}
+  >
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
@@ -42,7 +54,14 @@ import "./index.stories.css";
 ### With payoff
 
 <Canvas>
-  <Story name="Subtitle">
+  <Story
+    name="Subtitle"
+    parameters={{
+      controls: {
+        exclude: ["flow"],
+      },
+    }}
+  >
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
@@ -59,6 +78,7 @@ import "./index.stories.css";
 <Canvas>
   <Story name="Menu">
     {(args) => html`<z-app-header
+      flow=${args.flow}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
@@ -122,6 +142,7 @@ import "./index.stories.css";
   </Story>
   <Story name="Long title">
     {(args) => html`<z-app-header
+      flow=${args.flow}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
@@ -275,6 +296,7 @@ import "./index.stories.css";
     {(args) => html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      flow=${args.flow}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
@@ -610,7 +632,14 @@ import "./index.stories.css";
       </z-menu>
     </z-app-header>`}
   </Story>
-  <Story name="Offcanvas menu">
+  <Story
+    name="Offcanvas menu"
+    parameters={{
+      controls: {
+        exclude: ["flow"],
+      },
+    }}
+  >
     {(args) => html`<z-app-header
       flow="offcanvas"
       .enableSearch=${args.enableSearch}
@@ -944,6 +973,7 @@ import "./index.stories.css";
 >
   {(args) => html`<z-app-header
     stuck
+    .flow=${args.flow}
     .enableSearch=${args.enableSearch}
     .searchPageUrl=${args.searchPageUrl}
     style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
@@ -1047,6 +1077,7 @@ import "./index.stories.css";
 >
   {(args) => html`<z-app-header
     stuck
+    .flow=${args.flow}
     .enableSearch=${args.enableSearch}
     .searchPageUrl=${args.searchPageUrl}
     style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0;"
@@ -1099,32 +1130,30 @@ import "./index.stories.css";
 
 <Canvas>
   <Story
-    name="Hero"
-    argTypes={{
-      flow: {
-        control: {type: "inline-radio"},
-        options: ["auto", "stack", "offcanvas"],
-      },
-    }}
+    name="Cover hero with slotted image"
     args={{
-      flow: "auto",
       overlay: true,
+      hero: "",
     }}
   >
     {(args) => html`<z-app-header
+      id="hero"
       .overlay=${args.overlay}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
-      style="--app-header-height: 400px; --app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+      .hero=${args.hero}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
       flow=${args.flow}
     >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      <img
-        slot="hero"
-        src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
-        alt=""
-      />
+      ${args.hero
+        ? ""
+        : html`<img
+            slot="hero"
+            src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
+            alt=""
+          />`}
       <z-menu
         slot="menu"
         floating

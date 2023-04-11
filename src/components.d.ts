@@ -36,7 +36,7 @@ export namespace Components {
          */
         "flow": "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customization.
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
          */
         "hero": string;
         /**
@@ -2577,7 +2577,7 @@ declare namespace LocalJSX {
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customization.
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
          */
         "hero"?: string;
         /**

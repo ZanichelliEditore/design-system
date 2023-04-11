@@ -69,7 +69,7 @@ export class ZAppHeader {
 
   /**
    * Set the hero image source for the header.
-   * You can also use a slot="hero" node for advanced customization.
+   * You can also use a [slot="hero"] node for advanced customization.
    */
   @Prop()
   hero: string;
@@ -232,6 +232,10 @@ export class ZAppHeader {
     return true;
   }
 
+  private get hasHero(): boolean {
+    return this.hero !== undefined || this.hostElement.querySelector('[slot="hero"]') !== null;
+  }
+
   private openDrawer(): void {
     this.drawerOpen = true;
   }
@@ -292,22 +296,25 @@ export class ZAppHeader {
 
   render(): HTMLZAppHeaderElement {
     return (
-      <Host menu-length={this.menuLength}>
+      <Host
+        menu-length={this.menuLength}
+        hero={this.hasHero}
+      >
+        <div class="hero-container">
+          <slot name="hero">
+            {this.hero && (
+              <img
+                alt=""
+                src={this.hero}
+              />
+            )}
+          </slot>
+        </div>
+
         <div
           class="heading-panel"
           ref={(el) => (this.container = el)}
         >
-          {this.hero && (
-            <div class="hero-container">
-              <slot name="hero">
-                <img
-                  alt=""
-                  src={this.hero}
-                />
-              </slot>
-            </div>
-          )}
-
           <div class="heading-container">
             <div class="heading-title">
               {this.menuLength > 0 && (

@@ -1,6 +1,4 @@
 :host {
-  --app-header-content-max-width: 100%;
-  --app-header-height: auto;
   --app-header-typography-1-size: 24px;
   --app-header-typography-2-size: 28px;
   --app-header-typography-3-size: 32px;
@@ -37,6 +35,8 @@
   --app-header-typography-10-tracking: calc(-2 / 1em);
   --app-header-typography-11-tracking: calc(-2.2 / 1em);
   --app-header-typography-12-tracking: calc(-2.4 / 1em);
+  --app-header-content-max-width: 100%;
+  --app-header-height: auto;
 
   /* Variable to set stuck header and drawer's top offset.
   Useful when something is absolutely positioned above the header. */
@@ -69,7 +69,9 @@
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-text01);
 
+  position: relative;
   display: block;
+  height: var(--app-header-height);
   color: var(--app-header-text-color);
 }
 
@@ -83,7 +85,6 @@
   display: flex;
   width: 100%;
   max-width: var(--app-header-content-max-width);
-  height: var(--app-header-height);
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
@@ -92,6 +93,10 @@
   margin: 0 auto;
   background: var(--app-header-bg);
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
+}
+
+:host([hero]) .heading-panel {
+  background-color: transparent;
 }
 
 :host(:empty) .heading-panel {
@@ -341,6 +346,7 @@ to correctly align drawer icon and search page button with the title */
   }
 
   .menu-container {
+    flex: initial;
     align-items: center;
   }
 
