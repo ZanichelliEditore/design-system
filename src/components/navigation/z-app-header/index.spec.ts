@@ -22,16 +22,11 @@ describe("Suite test ZAppHeader", () => {
               </div>
             </div>
           </div>
-          <div class="drawer-container">
-            <div class="drawer-overlay"></div>
-              <div class="drawer-panel">
-                <button aria-label="Chiudi menu" class="drawer-close">
-                  <z-icon name="close"></z-icon>
-                </button>
-                <div class="drawer-content"></div>
-              </div>
-            </div>
-          </div>
+          <z-offcanvas transitiondirection="right" variant="overlay">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+              <z-icon name="close"></z-icon>
+            </button>
+          </z-offcanvas>
         </mock:shadow-root>
       </z-app-header>
     `);
@@ -58,16 +53,11 @@ describe("Suite test ZAppHeader", () => {
               </div>
             </div>
           </div>
-          <div class="drawer-container">
-            <div class="drawer-overlay"></div>
-              <div class="drawer-panel">
-                <button aria-label="Chiudi menu" class="drawer-close">
-                  <z-icon name="close"></z-icon>
-                </button>
-                <div class="drawer-content"></div>
-              </div>
-            </div>
-          </div>
+          <z-offcanvas transitiondirection="right" variant="overlay">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+              <z-icon name="close"></z-icon>
+            </button>
+          </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
       </z-app-header>
@@ -97,16 +87,11 @@ describe("Suite test ZAppHeader", () => {
             </div>
           </div>
         </div>
-        <div class="drawer-container">
-          <div class="drawer-overlay"></div>
-            <div class="drawer-panel">
-              <button aria-label="Chiudi menu" class="drawer-close">
-                <z-icon name="close"></z-icon>
-              </button>
-              <div class="drawer-content"></div>
-            </div>
-          </div>
-        </div>
+        <z-offcanvas transitiondirection="right" variant="overlay">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+              <z-icon name="close"></z-icon>
+            </button>
+          </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
         <h2 slot="subtitle">Sottotitolo di test</h2>
@@ -135,15 +120,11 @@ describe("Suite test ZAppHeader", () => {
               </div>
             </div>
           </div>
-          <div class="drawer-container">
-            <div class="drawer-overlay"></div>
-              <div class="drawer-panel">
-                <button aria-label="Chiudi menu" class="drawer-close">
-                  <z-icon name="close"></z-icon>
-                </button>
-                <div class="drawer-content"></div>
-            </div>
-          </div>
+          <z-offcanvas transitiondirection="right" variant="overlay">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+              <z-icon name="close"></z-icon>
+            </button>
+          </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
       </z-app-header>

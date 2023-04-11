@@ -12,39 +12,40 @@
 
 ## Properties
 
-| Property              | Attribute             | Description                                                                            | Type                                                       | Default                        |
-| --------------------- | --------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------ |
-| `open`                | `open`                | open component. Default: false                                                         | `boolean`                                                  | `false`                        |
-| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left       | `TransitionDirection.LEFT \| TransitionDirection.RIGHT`    | `TransitionDirection.LEFT`     |
-| `variant`             | `variant`             | Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent | `OffCanvasVariant.OVERLAY \| OffCanvasVariant.PUSHCONTENT` | `OffCanvasVariant.PUSHCONTENT` |
+| Property              | Attribute             | Description                                                                                               | Type                                                       | Default                        |
+| --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------ |
+| `open`                | `open`                | Whether the offcanvas is open. Default: false                                                             | `boolean`                                                  | `false`                        |
+| `skipLoadAnimation`   | `skip-load-animation` | Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`. | `boolean`                                                  | `false`                        |
+| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left                          | `TransitionDirection.LEFT \| TransitionDirection.RIGHT`    | `TransitionDirection.LEFT`     |
+| `variant`             | `variant`             | Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent                    | `OffCanvasVariant.OVERLAY \| OffCanvasVariant.PUSHCONTENT` | `OffCanvasVariant.PUSHCONTENT` |
 
 
 ## Events
 
-| Event                     | Description                    | Type               |
-| ------------------------- | ------------------------------ | ------------------ |
-| `canvasOpenStatusChanged` | emitted when open prop changes | `CustomEvent<any>` |
-
-
-## Methods
-
-### `setSkipAanimationOnLoad(value: boolean) => Promise<void>`
-
-this method allows you to skip the page loading animation, to be used with the prop set to true
-
-#### Returns
-
-Type: `Promise<void>`
-
-
+| Event                     | Description                      | Type               |
+| ------------------------- | -------------------------------- | ------------------ |
+| `canvasOpenStatusChanged` | emitted when `open` prop changes | `CustomEvent<any>` |
 
 
 ## Slots
 
-| Slot              | Description                   |
-| ----------------- | ----------------------------- |
-| `"canvasContent"` | set the content of the canvas |
+| Slot              | Description                |
+| ----------------- | -------------------------- |
+| `"canvasContent"` | Slot for the main content. |
 
+
+## Dependencies
+
+### Used by
+
+ - [z-app-header](../navigation/z-app-header)
+
+### Graph
+```mermaid
+graph TD;
+  z-app-header --> z-offcanvas
+  style z-offcanvas fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -44,9 +44,9 @@ export namespace Components {
          */
         "overlay": boolean;
         /**
-          * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
-        "searchLink": string;
+        "searchPageUrl": string;
         /**
           * Placeholder text for the search bar.
          */
@@ -1129,19 +1129,19 @@ export namespace Components {
     }
     interface ZOffcanvas {
         /**
-          * open component. Default: false
+          * Whether the offcanvas is open. Default: false
          */
         "open": boolean;
         /**
-          * this method allows you to skip the page loading animation, to be used with the prop set to true
+          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
          */
-        "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
+        "skipLoadAnimation": boolean;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
          */
         "variant"?: OffCanvasVariant;
     }
@@ -2581,10 +2581,6 @@ declare namespace LocalJSX {
          */
         "hero"?: string;
         /**
-          * Emitted when the search button from the sticky header is clicked.
-         */
-        "onSearchSubmit"?: (event: ZAppHeaderCustomEvent<any>) => void;
-        /**
           * Emitted when the `stuck` state of the header changes
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
@@ -2593,9 +2589,9 @@ declare namespace LocalJSX {
          */
         "overlay"?: boolean;
         /**
-          * Url to the search page. When set, a link-button will be shown on mobile and tablet.
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
-        "searchLink"?: string;
+        "searchPageUrl"?: string;
         /**
           * Placeholder text for the search bar.
          */
@@ -3798,19 +3794,23 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
-          * emitted when open prop changes
+          * emitted when `open` prop changes
          */
         "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
         /**
-          * open component. Default: false
+          * Whether the offcanvas is open. Default: false
          */
         "open"?: boolean;
+        /**
+          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
+         */
+        "skipLoadAnimation"?: boolean;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
          */
         "variant"?: OffCanvasVariant;
     }

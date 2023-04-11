@@ -1,5 +1,5 @@
 import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen} from "@stencil/core";
-import {ButtonVariant, ControlSize} from "../../../beans";
+import {ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection} from "../../../beans";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -356,31 +356,33 @@ export class ZAppHeader {
           )}
         </div>
 
-        <div class="drawer-container">
-          <div
-            class="drawer-overlay"
+        <z-offcanvas
+          variant={OffCanvasVariant.OVERLAY}
+          transitiondirection={TransitionDirection.RIGHT}
+          open={this.drawerOpen}
+          onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
+        >
+          <button
+            class="drawer-close"
+            aria-label="Chiudi menu"
             onClick={this.closeDrawer}
-          ></div>
+            slot="canvasContent"
+          >
+            <z-icon name="close"></z-icon>
+          </button>
 
-          <div class="drawer-panel">
-            <button
-              class="drawer-close"
-              aria-label="Chiudi menu"
-              onClick={this.closeDrawer}
+          {this.drawerOpen && (
+            <div
+              class="drawer-content"
+              slot="canvasContent"
             >
-              <z-icon name="close"></z-icon>
-            </button>
-
-            <div class="drawer-content">
-              {this.drawerOpen && (
-                <slot
-                  name="menu"
-                  onSlotchange={this.collectMenuElements}
-                ></slot>
-              )}
+              <slot
+                name="menu"
+                onSlotchange={this.collectMenuElements}
+              ></slot>
             </div>
-          </div>
-        </div>
+          )}
+        </z-offcanvas>
 
         {this._stuck && (
           <div class="heading-stuck">
