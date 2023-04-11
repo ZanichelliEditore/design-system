@@ -372,12 +372,23 @@ to correctly align drawer icon and search page button with the title */
   }
 
   .heading-panel {
+    flex-flow: row wrap;
     justify-content: flex-start;
     padding-bottom: calc(var(--space-unit) * 3);
   }
 
-  :host(:not([flow="stack"])) .heading-panel {
-    flex-flow: row wrap;
+  .heading-container,
+  .menu-container {
+    width: auto;
+  }
+
+  :host([flow="stack"]) .heading-panel {
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  :host([flow="stack"]) .menu-container {
+    width: 100%;
   }
 
   :host(:not([flow="offcanvas"], [menu-length="0"])) .heading-panel {
@@ -386,11 +397,6 @@ to correctly align drawer icon and search page button with the title */
 
   ::slotted([slot="title"]) {
     margin-right: var(--grid-gutter);
-  }
-
-  .heading-container,
-  .menu-container {
-    width: auto;
   }
 
   z-searchbar {
