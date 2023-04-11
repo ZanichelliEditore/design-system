@@ -49,6 +49,9 @@ export class ZBreadcrumb {
   @State()
   isMobile: boolean;
 
+  @State()
+  tooltipOpen = false;
+
   /** */
   @Event()
   clickOnNode: EventEmitter;
@@ -127,6 +130,7 @@ export class ZBreadcrumb {
     return (
       <li>
         <a
+          aria-current={item.path ? undefined : "page"}
           href={item.path}
           onClick={(e) => this.handlePreventFollowUrl(e, item)}
         >
@@ -173,11 +177,9 @@ export class ZBreadcrumb {
 
       if (e.key === KeyboardCode.ARROW_DOWN) {
         this.currentIndex = [...this.anchorElements].length === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
-        console.log("down", this.currentIndex);
       }
       if (e.key === KeyboardCode.ARROW_UP) {
         this.currentIndex = this.currentIndex <= 0 ? [...this.anchorElements].length - 1 : this.currentIndex - 1;
-        console.log("up", this.currentIndex);
       }
 
       [...this.anchorElements][this.currentIndex].focus();
@@ -220,6 +222,8 @@ export class ZBreadcrumb {
           </div>
         </z-tooltip>
         <button
+          aria-haspopup="true"
+          aria-expanded={this.tooltipOpen ? "true" : undefined}
           ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
           id="dots"
           onClick={() => {
