@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.2](https://github.com/ZanichelliEditore/design-system/compare/v7.3.1...v7.3.2) (2023-04-11)
+
+
+### Bug Fixes
+
+* reflect popover's `closable` prop on tooltip component; fix text color on dark mode ([aeebfc4](https://github.com/ZanichelliEditore/design-system/commit/aeebfc4c771226cd677c0778f2fde06947987c10))
+
 ### [7.3.1](https://github.com/ZanichelliEditore/design-system/compare/v7.3.0...v7.3.1) (2023-04-07)
 
 ## [7.3.0](https://github.com/ZanichelliEditore/design-system/compare/v7.1.3...v7.3.0) (2023-04-03)
