@@ -4,9 +4,9 @@ import { PopoverPosition } from "../../../beans";
  * Tooltip component.
  * It is basically a wrapper for the `<z-popover>` component with custom configuration.
  *
- * @cssprop --z-popover-theme--surface - background color of the popover.
- * @cssprop --z-popover-theme--text - foreground color of the popover.
- * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover.
+ * @cssprop --z-tooltip-theme--surface - background color of the popover.
+ * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+ * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
  */
 export class ZTooltip {
   constructor() {
@@ -18,12 +18,18 @@ export class ZTooltip {
      * The open state of the tooltip.
      */
     this.open = false;
+    /**
+     * Reflects `closable` prop of the popover.
+     * "If true, the popover can be closed by clicking outside of it or pressing the escape key.
+     * Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+     */
+    this.closable = true;
   }
   onPopoverOpenChange() {
     this.open = this.popover.open;
   }
   render() {
-    return (h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, center: true, showArrow: true }, h("slot", null)));
+    return (h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", null)));
   }
   static get is() { return "z-tooltip"; }
   static get encapsulation() { return "shadow"; }
@@ -118,6 +124,24 @@ export class ZTooltip {
         },
         "attribute": "bind-to",
         "reflect": false
+      },
+      "closable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Reflects `closable` prop of the popover.\n\"If true, the popover can be closed by clicking outside of it or pressing the escape key.\nOtherwise, it will be closed only programmatically (by setting `open` to `false`).\""
+        },
+        "attribute": "closable",
+        "reflect": false,
+        "defaultValue": "true"
       }
     };
   }

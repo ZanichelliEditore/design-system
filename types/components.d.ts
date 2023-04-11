@@ -1269,7 +1269,7 @@ export namespace Components {
          */
         "center": boolean;
         /**
-          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable": boolean;
         /**
@@ -1724,6 +1724,10 @@ export namespace Components {
           * The selector or the element bound with the tooltip.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+         */
+        "closable": boolean;
         /**
           * Enable tooltip dark mode.
          */
@@ -3930,7 +3934,7 @@ declare namespace LocalJSX {
          */
         "center"?: boolean;
         /**
-          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable"?: boolean;
         /**
@@ -4433,6 +4437,10 @@ declare namespace LocalJSX {
           * The selector or the element bound with the tooltip.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+         */
+        "closable"?: boolean;
         /**
           * Enable tooltip dark mode.
          */

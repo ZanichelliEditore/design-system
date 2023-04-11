@@ -106,7 +106,8 @@ export class ZPopover {
      */
     this.center = false;
     /**
-     * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+     * If true, the popover can be closed by clicking outside of it or pressing the escape key.
+     * Otherwise, it will be closed only programmatically (by setting `open` to `false`).
      */
     this.closable = true;
   }
@@ -438,7 +439,7 @@ export class ZPopover {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "Whether the popover should be closed when the user clicks outside of it or hit \"ESC\"."
+          "text": "If true, the popover can be closed by clicking outside of it or pressing the escape key.\nOtherwise, it will be closed only programmatically (by setting `open` to `false`)."
         },
         "attribute": "closable",
         "reflect": false,
