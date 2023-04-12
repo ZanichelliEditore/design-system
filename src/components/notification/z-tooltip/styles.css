@@ -6,6 +6,7 @@
 
 :host([dark]) z-popover {
   --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
 }
 
 z-popover {
