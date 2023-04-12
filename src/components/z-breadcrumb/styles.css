@@ -28,7 +28,7 @@ ol {
 }
 
 ol > li:not(:last-child) {
-  margin-right: 8px;
+  margin-right: var(--space-unit);
 }
 
 /* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
@@ -50,7 +50,7 @@ ol.mobile-breadcrumb > li::before {
 
 a {
   color: var(--color-link-primary);
-  font-size: 14px;
+  font-size: var(--font-size-2);
   text-decoration: none;
 }
 
@@ -59,7 +59,7 @@ a {
 }
 
 :host[path-style="semibold"] a {
-  font-weight: bold;
+  font-weight: var(--font-sb);
 }
 
 z-icon {
@@ -75,12 +75,12 @@ button.dots {
 
 .tooltip-content {
   max-width: 302px;
-  padding: 4px 8px;
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
   text-align: left;
 }
 
 .tooltip-content a {
-  font-weight: normal;
+  font-weight: var(--font-rg);
   text-decoration: none;
 }
 
