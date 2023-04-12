@@ -2,6 +2,7 @@ import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {BreadcrumbHomepageVariant, BreadcrumbPathStyle} from "../../beans";
 import {html} from "lit-html";
 import "./index";
+import "./style.stories.css";
 
 <Meta
   title="ZBreadcrumb"
@@ -47,13 +48,15 @@ import "./index";
       maxNodesToShow: 5,
     }}
   >
-    {(args) => html`<z-breadcrumb
-      path-style=${args.pathStyle}
-      paths=${JSON.stringify(args.paths)}
-      homepage-url=${args.homepageUrl}
-      homepage-variant=${args.homepageVariant}
-      max-nodes-to-show=${args.maxNodesToShow}
-    ></z-breadcrumb>`}
+    {(args) => html`<div class="container">
+      <z-breadcrumb
+        path-style=${args.pathStyle}
+        paths=${JSON.stringify(args.paths)}
+        homepage-url=${args.homepageUrl}
+        homepage-variant=${args.homepageVariant}
+        max-nodes-to-show=${args.maxNodesToShow}
+      ></z-breadcrumb>
+    </div>`}
   </Story>
 </Canvas>
 

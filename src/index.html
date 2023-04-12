@@ -31,11 +31,12 @@
         <h1 slot="title">Albe test app</h1>
       </z-app-header>
     </header>
-    <div style="width: 300px; padding: 20px">
+    <div style="padding: 20px">
       <z-breadcrumb
         homepage-url="https://www.zanichelli.it"
         paths='[{"name": "Primo path", "path": "/path1"}, {"name": "Secondo path", "path": "/path2"}, {"name": "Terzo path", "path": "/path3"}, {"name": "Quarto path", "path": "/path4"}, {"name": "Quinto path", "path": "/path5"}, {"name": "Sesto path", "path": "/path6"}]'
         path-style="semibold"
+        prevent-follow-url="true"
       ></z-breadcrumb>
     </div>
     <div>
@@ -130,6 +131,9 @@
         tortor, non euismod felis sodales vel. Vivamus laoreet arcu sed tellus consequat pretium.
       </p>
     </div>
+    <script>
+      document.querySelector("z-breadcrumb").addEventListener("clickOnNode", (e) => console.log(e));
+    </script>
 
     <!--     <z-breadcrumb
       paths='[{"name": "Primo path", "path": "/path1"}, {"name": "Secondo path", "path": "/path2"}, {"name": "Terzo path", "path": "/path3"}, {"name": "Quarto path", "path": "/path4"}, {"name": "Quinto path", "path": "/path5"}, {"name": "Sesto path", "path": "/path6"}]'

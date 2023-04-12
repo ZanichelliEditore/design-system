@@ -19,6 +19,10 @@ import {handleKeyboardSubmit} from "../../utils/utils";
   scoped: true,
 })
 export class ZBreadcrumb {
+  /*Accessibility references */
+  /*Overflow-menu: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/ */
+  /*Breadcrumb: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/ */
+
   @Element() hostElement: HTMLZBreadcrumbElement;
 
   /** [optional] Path elements */
@@ -29,7 +33,7 @@ export class ZBreadcrumb {
   @Prop({reflect: true})
   pathStyle?: BreadcrumbPathStyle = BreadcrumbPathStyle.UNDERLINED;
 
-  /** */
+  /** Variant of first node*/
   @Prop()
   homepageVariant?: BreadcrumbHomepageVariant = BreadcrumbHomepageVariant.ICON;
 
@@ -41,7 +45,7 @@ export class ZBreadcrumb {
   @Prop()
   homepageUrl: string;
 
-  /** */
+  /**  Controls the behaviour on <a> tag click/enter*/
   @Prop()
   preventFollowUrl = false;
 
@@ -52,7 +56,7 @@ export class ZBreadcrumb {
   @State()
   tooltipOpen = false;
 
-  /** */
+  /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
   clickOnNode: EventEmitter;
 
@@ -79,8 +83,13 @@ export class ZBreadcrumb {
   }
 
   componentDidLoad(): void {
-    this.collapsedElementsRef.bindTo = this.triggerButton;
-    this.anchorElements = this.hostElement.querySelectorAll("z-list-group a");
+    if (this.collapsedElementsRef) {
+      this.collapsedElementsRef.bindTo = this.triggerButton;
+      this.hostElement
+        .querySelector("nav > ol > li:nth-child(2) > z-tooltip")
+        .shadowRoot.querySelector("z-popover").style.padding = "0";
+      this.anchorElements = this.hostElement.querySelectorAll("z-list-group a");
+    }
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
@@ -93,7 +102,7 @@ export class ZBreadcrumb {
 
     return (
       <nav aria-label="Breadcrumb">
-        <ol>{this.renderNode(lastPath)}</ol>
+        <ol class="mobile-breadcrumb">{this.renderNode(lastPath)}</ol>
       </nav>
     );
   }
@@ -102,7 +111,7 @@ export class ZBreadcrumb {
     return (
       <li>
         <a
-          id="homepage"
+          class="homepage"
           href={this.homepageUrl}
           onClick={(e) => {
             if (this.preventFollowUrl) {
@@ -169,7 +178,7 @@ export class ZBreadcrumb {
     }
   }
 
-  private handleOverflowAccessibility(e: KeyboardEvent): void {
+  private handleOverflowMenuAccessibility(e: KeyboardEvent): void {
     e.stopPropagation();
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (arrows.includes(e.key as KeyboardCode)) {
@@ -184,23 +193,21 @@ export class ZBreadcrumb {
 
       [...this.anchorElements][this.currentIndex].focus();
     }
+
+    if (e.key === KeyboardCode.ESC) {
+      this.triggerButton.focus();
+    }
   }
 
   private renderOverflowMenu(): HTMLLIElement {
     return (
-      <li
-        aria-label="Mostra più breadcrumb"
-        onKeyDown={(e) => {
-          handleKeyboardSubmit(e, this.togglePopover.bind(this));
-          setTimeout(() => [...this.anchorElements][0].focus(), 100);
-        }}
-      >
+      <li>
         <z-tooltip
           ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
           bind-to={this.triggerButton}
           position={PopoverPosition.BOTTOM_RIGHT}
         >
-          <div class="popover-content">
+          <div class="tooltip-content">
             <z-list>
               <z-list-group
                 dividerType={ListDividerType.ELEMENT}
@@ -211,7 +218,7 @@ export class ZBreadcrumb {
                     <a
                       href={item.path}
                       onClick={(e) => this.handlePreventFollowUrl(e, item)}
-                      onKeyDown={(e) => this.handleOverflowAccessibility(e)}
+                      onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
                     >
                       {item.name}
                     </a>
@@ -222,12 +229,17 @@ export class ZBreadcrumb {
           </div>
         </z-tooltip>
         <button
+          aria-label="Mostra più breadcrumb"
           aria-haspopup="true"
           aria-expanded={this.tooltipOpen ? "true" : undefined}
           ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
-          id="dots"
+          class="dots"
           onClick={() => {
             this.togglePopover();
+          }}
+          onKeyDown={(e) => {
+            handleKeyboardSubmit(e, this.togglePopover.bind(this));
+            setTimeout(() => [...this.anchorElements][0].focus(), 100);
           }}
         >
           ...

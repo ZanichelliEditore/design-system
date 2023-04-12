@@ -16,6 +16,10 @@
   outline: 0;
 }
 
+a.homepage {
+  display: list-item;
+}
+
 ol {
   display: flex;
   padding: 0;
@@ -28,12 +32,20 @@ ol > li:not(:last-child) {
 }
 
 /* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
-ol > li + li::before {
+ol > li + li::before,
+ol.mobile-breadcrumb > li::before {
   display: inline-block;
   width: 10px;
   height: 10px;
   color: var(--color-disabled03);
+}
+
+ol > li + li::before {
   content: "\203A";
+}
+
+ol.mobile-breadcrumb > li::before {
+  content: "\2039";
 }
 
 a {
@@ -55,23 +67,23 @@ z-icon {
   --z-icon-height: 10px;
 }
 
-#dots {
+button.dots {
   display: inline-block;
   color: var(--color-link-primary);
   cursor: pointer;
 }
 
-.popover-content a {
-  font-weight: normal;
+.tooltip-content {
+  max-width: 302px;
+  padding: 4px 8px;
+  text-align: left;
 }
 
-.popover-content {
-  max-width: 302px;
-  padding: 0 8px;
-  text-align: left;
+.tooltip-content a {
+  font-weight: normal;
+  text-decoration: none;
 }
 
 z-tooltip {
   --z-popover-theme--surface: var(--color-surface02);
-  --z-tooltip-theme--surface: var(--color-surface02);
 }

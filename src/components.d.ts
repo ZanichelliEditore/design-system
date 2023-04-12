@@ -91,6 +91,9 @@ export namespace Components {
           * Sets the url to link the homepage
          */
         "homepageUrl": string;
+        /**
+          * Variant of first node
+         */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
@@ -104,6 +107,9 @@ export namespace Components {
           * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
+        /**
+          * Controls the behaviour on <a> tag click/enter
+         */
         "preventFollowUrl": boolean;
     }
     interface ZButton {
@@ -2651,11 +2657,17 @@ declare namespace LocalJSX {
           * Sets the url to link the homepage
          */
         "homepageUrl"?: string;
+        /**
+          * Variant of first node
+         */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
          */
         "maxNodesToShow"?: number;
+        /**
+          * Emitted when preventFollowUrl=true to handle page transition
+         */
         "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
         /**
           * [optional] Sets the path style
@@ -2665,6 +2677,9 @@ declare namespace LocalJSX {
           * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
+        /**
+          * Controls the behaviour on <a> tag click/enter
+         */
         "preventFollowUrl"?: boolean;
     }
     interface ZButton {
