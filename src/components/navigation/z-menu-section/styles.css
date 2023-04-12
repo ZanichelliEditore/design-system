@@ -29,6 +29,7 @@
 }
 
 :host(:is([active], [open])) .label ::slotted(*),
+.label:focus:focus-visible ::slotted(*),
 .label:hover ::slotted(*) {
   font-weight: var(--font-bd);
 }
@@ -37,7 +38,7 @@
   display: flex;
   width: 100%;
   align-items: center;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
   border: 0;
   border-bottom: var(--border-size-small) solid var(--color-surface05);
   margin: 0;
@@ -96,21 +97,17 @@ when placed below the real text using `flex-direction: column`. */
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding: calc(var(--space-unit) * 0.5);
-  padding-bottom: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) / 2);
+  padding-bottom: calc(var(--space-unit) * 1.5);
 }
 
 .items > ::slotted([slot="item"]) {
   display: inline-flex;
-  padding: calc(var(--space-unit) * 0.5);
+  padding: calc(var(--space-unit) / 2);
   margin: 0;
   font-size: var(--font-size-2);
   line-height: 1.4;
   outline: none;
-}
-
-.items > ::slotted([slot="item"]:last-child) {
-  padding-bottom: 0;
 }
 
 .items > ::slotted([slot="item"]:focus:focus-visible) {
@@ -119,6 +116,7 @@ when placed below the real text using `flex-direction: column`. */
 }
 
 .items > ::slotted([slot="item"]:hover),
+.items > ::slotted([slot="item"]:focus:focus-visible),
 .items > ::slotted([slot="item"][active]) {
   color: var(--color-secondary01);
   font-weight: var(--font-bd);
