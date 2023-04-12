@@ -25,6 +25,9 @@ import "./style.stories.css";
     maxNodesToShow: {
       control: {type: "number"},
     },
+    overflowMenuItemRows: {
+      control: {type: "number"},
+    },
   }}
 />
 
@@ -36,7 +39,7 @@ import "./style.stories.css";
     args={{
       pathStyle: BreadcrumbPathStyle.SEMIBOLD,
       paths: [
-        {name: "Path 1", path: "/path1"},
+        {name: "Path 1", path: "https://www.zanichelli.it"},
         {name: "Path 2", path: "/path2"},
         {name: "Path 3", path: "/path3"},
         {name: "Path 4", path: "/path4"},
@@ -52,9 +55,9 @@ import "./style.stories.css";
       <z-breadcrumb
         path-style=${args.pathStyle}
         paths=${JSON.stringify(args.paths)}
-        homepage-url=${args.homepageUrl}
         homepage-variant=${args.homepageVariant}
         max-nodes-to-show=${args.maxNodesToShow}
+        overflow-menu-item-rows=${args.overflowMenuItemRows}
       ></z-breadcrumb>
     </div>`}
   </Story>

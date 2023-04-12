@@ -88,10 +88,6 @@ export namespace Components {
     }
     interface ZBreadcrumb {
         /**
-          * Sets the url to link the homepage
-         */
-        "homepageUrl": string;
-        /**
           * Variant of first node
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
@@ -99,6 +95,7 @@ export namespace Components {
           * [optional] Sets max number of element to show
          */
         "maxNodesToShow": number;
+        "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */
@@ -2654,10 +2651,6 @@ declare namespace LocalJSX {
     }
     interface ZBreadcrumb {
         /**
-          * Sets the url to link the homepage
-         */
-        "homepageUrl"?: string;
-        /**
           * Variant of first node
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
@@ -2669,6 +2662,7 @@ declare namespace LocalJSX {
           * Emitted when preventFollowUrl=true to handle page transition
          */
         "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */

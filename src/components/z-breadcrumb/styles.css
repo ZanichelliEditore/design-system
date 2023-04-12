@@ -1,6 +1,8 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --line-clamp: 1;
 }
 
 :host button {
@@ -16,8 +18,23 @@
   outline: 0;
 }
 
+a {
+  color: var(--color-link-primary);
+  font-size: var(--font-size-2);
+  text-decoration: none;
+}
+
 a.homepage {
   display: list-item;
+}
+
+a.text-ellipsis {
+  display: box !important;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp);
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 ol {
@@ -48,17 +65,13 @@ ol.mobile-breadcrumb > li::before {
   content: "\2039";
 }
 
-a {
-  color: var(--color-link-primary);
-  font-size: var(--font-size-2);
-  text-decoration: none;
-}
-
-:host[path-style="underlined"] a {
+:host[path-style="underlined"] a,
+:host[path-style="underlined"] button {
   text-decoration: underline;
 }
 
-:host[path-style="semibold"] a {
+:host[path-style="semibold"] a,
+:host[path-style="semibold"] button {
   font-weight: var(--font-sb);
 }
 

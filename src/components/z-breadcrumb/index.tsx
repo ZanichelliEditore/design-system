@@ -22,6 +22,7 @@ export class ZBreadcrumb {
   /*Accessibility references */
   /*Overflow-menu: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/ */
   /*Breadcrumb: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/ */
+  /*Focus on multiline link: https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html */
 
   @Element() hostElement: HTMLZBreadcrumbElement;
 
@@ -41,20 +42,20 @@ export class ZBreadcrumb {
   @Prop()
   maxNodesToShow = 5;
 
-  /** Sets the url to link the homepage */
-  @Prop()
-  homepageUrl: string;
-
   /**  Controls the behaviour on <a> tag click/enter*/
   @Prop()
   preventFollowUrl = false;
+
+  /** */
+  @Prop()
+  overflowMenuItemRows?: number;
 
   /** Handle mobile */
   @State()
   isMobile: boolean;
 
-  @State()
-  tooltipOpen = false;
+  /*   @State()
+  tooltipOpen = false; */
 
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
@@ -107,18 +108,13 @@ export class ZBreadcrumb {
     );
   }
 
-  private renderHomepageNode(): HTMLLIElement {
+  private renderHomepageNode(item): HTMLLIElement {
     return (
       <li>
         <a
           class="homepage"
-          href={this.homepageUrl}
-          onClick={(e) => {
-            if (this.preventFollowUrl) {
-              e.preventDefault();
-              this.clickOnNode.emit(this.homepageUrl);
-            }
-          }}
+          href={item.path}
+          onClick={(e) => this.handlePreventFollowUrl(e, item)}
         >
           {this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (
             <z-icon
@@ -150,14 +146,17 @@ export class ZBreadcrumb {
   }
 
   private renderBreadcrumb(): HTMLElement {
-    if (this.pathsList.length > this.maxNodesToShow) {
-      this.collapsedElements = this.pathsList.splice(0, this.maxNodesToShow - 1);
+    const totalLenght = this.pathsList.length;
+    const homepageNode = this.pathsList.shift();
+
+    if (totalLenght > this.maxNodesToShow) {
+      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
     }
 
     return (
       <nav aria-label="Breadcrumb">
         <ol>
-          {this.renderHomepageNode()}
+          {this.renderHomepageNode(homepageNode)}
           {this.collapsedElements ? this.renderOverflowMenu() : ""}
           {this.pathsList.map((item) => this.renderNode(item))}
         </ol>
@@ -214,8 +213,9 @@ export class ZBreadcrumb {
                 size={ListSize.SMALL}
               >
                 {this.collapsedElements.map((item) => (
-                  <z-list-element>
+                  <z-list-element clickable>
                     <a
+                      class={{"text-ellipsis": !!this.overflowMenuItemRows}}
                       href={item.path}
                       onClick={(e) => this.handlePreventFollowUrl(e, item)}
                       onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
@@ -231,7 +231,7 @@ export class ZBreadcrumb {
         <button
           aria-label="Mostra più breadcrumb"
           aria-haspopup="true"
-          aria-expanded={this.tooltipOpen ? "true" : undefined}
+          /* aria-expanded={this.tooltipOpen ? "true" : undefined} */
           ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
           class="dots"
           onClick={() => {
@@ -249,6 +249,10 @@ export class ZBreadcrumb {
   }
 
   render(): HTMLZBreadcrumbElement {
-    return <Host>{this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}</Host>;
+    return (
+      <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
+        {this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
+      </Host>
+    );
   }
 }
