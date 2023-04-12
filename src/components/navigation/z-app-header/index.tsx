@@ -232,8 +232,11 @@ export class ZAppHeader {
     return true;
   }
 
+  /**
+   * Whether the header has a hero image, either as a prop or as a slot.
+   */
   private get hasHero(): boolean {
-    return this.hero !== undefined || this.hostElement.querySelector('[slot="hero"]') !== null;
+    return this.hero !== undefined || this.hostElement.querySelector("[slot=hero]") !== null;
   }
 
   private openDrawer(): void {
@@ -296,20 +299,19 @@ export class ZAppHeader {
 
   render(): HTMLZAppHeaderElement {
     return (
-      <Host
-        menu-length={this.menuLength}
-        hero={this.hasHero}
-      >
-        <div class="hero-container">
-          <slot name="hero">
-            {this.hero && (
-              <img
-                alt=""
-                src={this.hero}
-              />
-            )}
-          </slot>
-        </div>
+      <Host menu-length={this.menuLength}>
+        {this.hasHero && (
+          <div class="hero-container">
+            <slot name="hero">
+              {this.hero && (
+                <img
+                  alt=""
+                  src={this.hero}
+                />
+              )}
+            </slot>
+          </div>
+        )}
 
         <div
           class="heading-panel"

@@ -95,8 +95,8 @@
   gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
 }
 
-:host([hero]) .heading-panel {
-  background-color: transparent;
+.hero-container + .heading-panel {
+  background: transparent;
 }
 
 :host(:empty) .heading-panel {
