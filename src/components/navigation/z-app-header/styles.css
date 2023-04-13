@@ -394,10 +394,6 @@ to correctly align drawer icon and search page button with the title */
     row-gap: calc(var(--space-unit) * 3);
   }
 
-  ::slotted([slot="title"]) {
-    margin-right: var(--grid-gutter);
-  }
-
   z-searchbar {
     min-width: calc(var(--space-unit) * 45);
     flex: initial;
