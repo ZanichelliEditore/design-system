@@ -25,8 +25,12 @@ a {
   text-decoration: none;
 }
 
-a.homepage {
+a.homepage-icon {
   display: list-item;
+}
+
+a.homepage-text {
+  display: initial;
 }
 
 a.text-ellipsis {

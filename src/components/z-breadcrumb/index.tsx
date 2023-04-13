@@ -26,9 +26,9 @@ export class ZBreadcrumb {
 
   @Element() hostElement: HTMLZBreadcrumbElement;
 
-  /** [optional] Path elements */
+  /** Path elements */
   @Prop()
-  paths?: BreadcrumbPath[] | string;
+  paths: BreadcrumbPath[] | string;
 
   /** [optional] Sets the path style */
   @Prop({reflect: true})
@@ -100,7 +100,7 @@ export class ZBreadcrumb {
   componentDidRender(): void {
     if (this.collapsedElementsRef) {
       this.collapsedElementsRef.bindTo = this.triggerButton;
-      this.anchorElements = this.hostElement.querySelectorAll("z-list-group a");
+      this.anchorElements = Array.from(this.hostElement.querySelectorAll("z-list-group a"));
     }
   }
 
@@ -123,7 +123,10 @@ export class ZBreadcrumb {
     return (
       <li>
         <a
-          class="homepage"
+          class={{
+            "homepage-icon": this.homepageVariant === BreadcrumbHomepageVariant.ICON,
+            "homepage-text": this.homepageVariant === BreadcrumbHomepageVariant.TEXT,
+          }}
           href={item.path}
           onClick={(e) => this.handlePreventFollowUrl(e, item)}
         >
@@ -182,6 +185,7 @@ export class ZBreadcrumb {
   }
 
   private handleOverflowMenuAccessibility(e: KeyboardEvent): void {
+    const anchorElementsLenght = this.anchorElements.length;
     if (e.key === KeyboardCode.TAB) {
       e.preventDefault();
 
@@ -193,13 +197,13 @@ export class ZBreadcrumb {
       e.preventDefault();
 
       if (e.key === KeyboardCode.ARROW_DOWN) {
-        this.currentIndex = [...this.anchorElements].length === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
+        this.currentIndex = anchorElementsLenght === this.currentIndex + 1 ? 0 : this.currentIndex + 1;
       }
       if (e.key === KeyboardCode.ARROW_UP) {
-        this.currentIndex = this.currentIndex <= 0 ? [...this.anchorElements].length - 1 : this.currentIndex - 1;
+        this.currentIndex = this.currentIndex <= 0 ? anchorElementsLenght - 1 : this.currentIndex - 1;
       }
 
-      [...this.anchorElements][this.currentIndex].focus();
+      this.anchorElements[this.currentIndex].focus();
     }
 
     if (e.key === KeyboardCode.ESC) {
@@ -249,9 +253,8 @@ export class ZBreadcrumb {
           }}
           onKeyDown={(e) => {
             handleKeyboardSubmit(e, this.togglePopover.bind(this));
-            console.log([...this.anchorElements][0]);
             setTimeout(() => {
-              [...this.anchorElements][0].focus();
+              this.anchorElements[0].focus();
             }, 100);
           }}
         >

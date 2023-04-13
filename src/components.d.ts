@@ -101,9 +101,9 @@ export namespace Components {
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * [optional] Path elements
+          * Path elements
          */
-        "paths"?: BreadcrumbPath[] | string;
+        "paths": BreadcrumbPath[] | string;
         /**
           * Controls the behaviour on <a> tag click/enter
          */
@@ -2672,7 +2672,7 @@ declare namespace LocalJSX {
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * [optional] Path elements
+          * Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
         /**
