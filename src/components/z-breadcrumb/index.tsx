@@ -48,7 +48,7 @@ export class ZBreadcrumb {
 
   /** */
   @Prop()
-  overflowMenuItemRows?: number;
+  overflowMenuItemRows? = 0;
 
   /** Handle mobile */
   @State()
@@ -70,25 +70,36 @@ export class ZBreadcrumb {
 
   private collapsedElements: BreadcrumbPath[];
 
-  private collapsedElementsRef: HTMLZTooltipElement;
+  private collapsedElementsRef: HTMLZPopoverElement;
 
   private triggerButton: HTMLButtonElement;
 
   private currentIndex = 0;
 
+  private homepageNode: BreadcrumbPath;
+
+  private totalLenght: number;
+
   private anchorElements;
 
   componentWillLoad(): void {
-    this.pathsList = this.getPathsItemsList();
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  componentDidLoad(): void {
+  componentWillRender(): void {
+    this.pathsList = this.getPathsItemsList();
+    this.totalLenght = this.pathsList.length;
+    this.homepageNode = this.pathsList.shift();
+    if (this.totalLenght > this.maxNodesToShow) {
+      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
+    } else {
+      this.collapsedElements = null;
+    }
+  }
+
+  componentDidRender(): void {
     if (this.collapsedElementsRef) {
       this.collapsedElementsRef.bindTo = this.triggerButton;
-      this.hostElement
-        .querySelector("nav > ol > li:nth-child(2) > z-tooltip")
-        .shadowRoot.querySelector("z-popover").style.padding = "0";
       this.anchorElements = this.hostElement.querySelectorAll("z-list-group a");
     }
   }
@@ -146,17 +157,10 @@ export class ZBreadcrumb {
   }
 
   private renderBreadcrumb(): HTMLElement {
-    const totalLenght = this.pathsList.length;
-    const homepageNode = this.pathsList.shift();
-
-    if (totalLenght > this.maxNodesToShow) {
-      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
-    }
-
     return (
       <nav aria-label="Breadcrumb">
         <ol>
-          {this.renderHomepageNode(homepageNode)}
+          {this.renderHomepageNode(this.homepageNode)}
           {this.collapsedElements ? this.renderOverflowMenu() : ""}
           {this.pathsList.map((item) => this.renderNode(item))}
         </ol>
@@ -178,6 +182,11 @@ export class ZBreadcrumb {
   }
 
   private handleOverflowMenuAccessibility(e: KeyboardEvent): void {
+    if (e.key === KeyboardCode.TAB) {
+      e.preventDefault();
+
+      return;
+    }
     e.stopPropagation();
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (arrows.includes(e.key as KeyboardCode)) {
@@ -201,12 +210,13 @@ export class ZBreadcrumb {
   private renderOverflowMenu(): HTMLLIElement {
     return (
       <li>
-        <z-tooltip
-          ref={(val) => (this.collapsedElementsRef = val as HTMLZTooltipElement)}
+        <z-popover
+          ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
           bind-to={this.triggerButton}
           position={PopoverPosition.BOTTOM_RIGHT}
+          showArrow
         >
-          <div class="tooltip-content">
+          <div class="popover-content">
             <z-list>
               <z-list-group
                 dividerType={ListDividerType.ELEMENT}
@@ -215,7 +225,7 @@ export class ZBreadcrumb {
                 {this.collapsedElements.map((item) => (
                   <z-list-element clickable>
                     <a
-                      class={{"text-ellipsis": !!this.overflowMenuItemRows}}
+                      class="text-ellipsis"
                       href={item.path}
                       onClick={(e) => this.handlePreventFollowUrl(e, item)}
                       onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
@@ -227,7 +237,7 @@ export class ZBreadcrumb {
               </z-list-group>
             </z-list>
           </div>
-        </z-tooltip>
+        </z-popover>
         <button
           aria-label="Mostra più breadcrumb"
           aria-haspopup="true"
@@ -239,7 +249,10 @@ export class ZBreadcrumb {
           }}
           onKeyDown={(e) => {
             handleKeyboardSubmit(e, this.togglePopover.bind(this));
-            setTimeout(() => [...this.anchorElements][0].focus(), 100);
+            console.log([...this.anchorElements][0]);
+            setTimeout(() => {
+              [...this.anchorElements][0].focus();
+            }, 100);
           }}
         >
           ...

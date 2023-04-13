@@ -87,17 +87,18 @@ button.dots {
   cursor: pointer;
 }
 
-.tooltip-content {
+.popover-content {
   max-width: 302px;
   padding: calc(var(--space-unit) / 2) var(--space-unit);
   text-align: left;
 }
 
-.tooltip-content a {
+.popover-content a {
   font-weight: var(--font-rg);
   text-decoration: none;
 }
 
-z-tooltip {
+z-popover {
   --z-popover-theme--surface: var(--color-surface02);
+  --z-popover-padding: 0;
 }

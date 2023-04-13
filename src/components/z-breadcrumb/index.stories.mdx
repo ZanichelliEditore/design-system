@@ -19,9 +19,6 @@ import "./style.stories.css";
       options: Object.values(BreadcrumbHomepageVariant),
       control: {type: "select"},
     },
-    homepageUrl: {
-      control: {type: "text"},
-    },
     maxNodesToShow: {
       control: {type: "number"},
     },
@@ -46,7 +43,6 @@ import "./style.stories.css";
         {name: "Path 5", path: "/path5"},
         {name: "Path 6", path: "/path6"},
       ],
-      homepageUrl: "/home",
       homepageVariant: BreadcrumbHomepageVariant.ICON,
       maxNodesToShow: 5,
     }}
