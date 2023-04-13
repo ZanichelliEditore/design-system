@@ -56,14 +56,12 @@ graph TD;
   z-searchbar --> z-list-group
   z-searchbar --> z-list-element
   z-searchbar --> z-icon
-  z-searchbar --> z-link
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
   z-list-group --> z-divider
   z-list-element --> z-icon
   z-list-element --> z-divider
-  z-link --> z-icon
   style z-app-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
