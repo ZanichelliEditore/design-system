@@ -442,10 +442,9 @@ export class ZSearchbar {
         clickable
         id={`list-item-${this.htmlid}-show-all`}
         onClickItem={() => (this.currResultsCount = 0)}
+        color="color-primary01"
       >
-        <span class="item-show-all">
-          <z-link>Vedi tutti i risultati</z-link>
-        </span>
+        <div class="item-show-all">Vedi tutti i risultati</div>
       </z-list-element>
     );
   }
@@ -455,12 +454,13 @@ export class ZSearchbar {
       <Host
         onFocus={() => (this.showResults = true)}
         onClick={(e) => this.handleOutsideClick(e)}
+        class={{"has-submit": this.showSearchButton, "has-results": this.autocomplete}}
       >
-        <div class={{"has-submit": this.showSearchButton, "has-results": this.autocomplete}}>
+        <div class="input-container">
           {this.renderInput()}
           {this.renderResults()}
-          {this.renderButton()}
         </div>
+        {this.renderButton()}
       </Host>
     );
   }

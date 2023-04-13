@@ -372,7 +372,6 @@ to correctly align drawer icon and search page button with the title */
   }
 
   .heading-panel {
-    flex-flow: row wrap;
     justify-content: flex-start;
     padding-bottom: calc(var(--space-unit) * 3);
   }
