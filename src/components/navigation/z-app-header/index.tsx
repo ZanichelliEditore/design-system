@@ -1,4 +1,5 @@
-import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
+import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen} from "@stencil/core";
+import {ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection} from "../../../beans";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -6,8 +7,6 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot title - Slot for the main title
  * @slot subtitle - Slot for the subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
- * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
  * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
  * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -44,12 +43,23 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
  * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
  * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+ * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+ * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
- * @cssprop --app-header-bg - Header background color. Defaults to `--color-white`.
- * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-white`.
- * @cssprop --app-header-text-color - Text color. Defaults to `--gray800`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--gray800`.
+ * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+ * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+ * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+ * Defaults to `--app-header-typography-3-size`.
+ * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+ * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+ * Defaults to `--app-header-typography-3-lineheight`.
+ * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+ * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+ * Defaults to `--app-header-typography-3-tracking`.
+ * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
  */
 @Component({
   tag: "z-app-header",
@@ -62,15 +72,13 @@ export class ZAppHeader {
   /**
    * Stuck mode for the header.
    * You can programmatically set it using an IntersectionObserver.
-   * **Optional**
    */
   @Prop({reflect: true})
   stuck = false;
 
   /**
    * Set the hero image source for the header.
-   * You can also use a slot="hero" node for advanced customisation.
-   * **Optional**
+   * You can also use a [slot="hero"] node for advanced customization.
    */
   @Prop()
   hero: string;
@@ -78,7 +86,6 @@ export class ZAppHeader {
   /**
    * Should place an overlay over the hero image.
    * Useful for legibility purpose.
-   * **Optional**
    */
   @Prop({reflect: true})
   overlay = false;
@@ -99,10 +106,37 @@ export class ZAppHeader {
   drawerOpen = false;
 
   /**
+   * Enable the search bar.
+   */
+  @Prop({reflect: true})
+  enableSearch = false;
+
+  /**
+   * Placeholder text for the search bar.
+   */
+  @Prop()
+  searchPlaceholder = "Cerca";
+
+  /**
+   * Url to the search page.
+   * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
+   * The link will also appear on the sticky header.
+   */
+  @Prop()
+  searchPageUrl: string;
+
+  /**
    * The stuck state of the bar.
    */
   @State()
   private _stuck = false;
+
+  /**
+   * Current viewport.
+   * Used to change the aspect of the search button (icon only) on mobile and tablet.
+   */
+  @State()
+  private currentViewport: "mobile" | "tablet" | "desktop" = "mobile";
 
   /**
    * Current count of menu items.
@@ -115,10 +149,6 @@ export class ZAppHeader {
    */
   @Event()
   sticking: EventEmitter;
-
-  private emitStickingEvent(): void {
-    this.sticking.emit(this._stuck);
-  }
 
   private container?: HTMLDivElement;
 
@@ -135,23 +165,45 @@ export class ZAppHeader {
       }
     );
 
-  private openDrawer(): void {
-    this.drawerOpen = true;
-  }
-
-  private closeDrawer(): void {
-    this.drawerOpen = false;
-  }
-
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.collectMenuElements = this.collectMenuElements.bind(this);
   }
 
-  componentDidLoad(): void {
-    this.collectMenuElements();
-    this.onStuckMode();
+  @Listen("resize", {target: "window", passive: true})
+  evaluateViewport(): void {
+    if (window.innerWidth < 768) {
+      this.currentViewport = "mobile";
+    } else if (window.innerWidth >= 768 && window.innerWidth < 1152) {
+      this.currentViewport = "tablet";
+    } else {
+      this.currentViewport = "desktop";
+    }
+  }
+
+  @Watch("_stuck")
+  onStuck(): void {
+    const scrollParent = this.scrollParent;
+    if (!scrollParent) {
+      return;
+    }
+
+    this.sticking.emit(this._stuck);
+  }
+
+  @Watch("drawerOpen")
+  setMenuFloatingMode(): void {
+    if (this.menuElements.length === 0) {
+      return;
+    }
+
+    const elements = this.menuElements;
+    elements.forEach((element) => {
+      (element as HTMLZMenuElement).open = false;
+      (element as HTMLZMenuElement).floating = !this.drawerOpen;
+      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+    });
   }
 
   private get title(): string {
@@ -172,19 +224,42 @@ export class ZAppHeader {
     return parent;
   }
 
+  private get canShowMenu(): boolean {
+    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
+  }
+
+  private get canShowSearchbar(): boolean {
+    if (!this.enableSearch) {
+      return false;
+    }
+
+    // Always show the searchbar on desktop, even if a searchPageUrl is set
+    if (this.searchPageUrl) {
+      return this.currentViewport === "desktop";
+    }
+
+    return true;
+  }
+
+  /**
+   * Whether the header has a hero image, either as a prop or as a slot.
+   */
+  private get hasHero(): boolean {
+    return this.hero !== undefined || this.hostElement.querySelector("[slot=hero]") !== null;
+  }
+
+  private openDrawer(): void {
+    this.drawerOpen = true;
+  }
+
+  private closeDrawer(): void {
+    this.drawerOpen = false;
+  }
+
   private collectMenuElements(): void {
     const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
-  }
-
-  @Watch("stuck")
-  onStuckMode(): void {
-    if (this.stuck) {
-      this.enableStuckObserver();
-    } else {
-      this.disableStuckMode();
-    }
   }
 
   private enableStuckObserver(): void {
@@ -200,37 +275,41 @@ export class ZAppHeader {
     }
   }
 
-  @Watch("_stuck")
-  onStuck(): void {
-    const scrollParent = this.scrollParent;
-    if (!scrollParent) {
-      return;
+  @Watch("stuck")
+  onStuckMode(): void {
+    if (this.stuck) {
+      this.enableStuckObserver();
+    } else {
+      this.disableStuckMode();
     }
-
-    this.emitStickingEvent();
   }
 
-  @Watch("drawerOpen")
-  setMenuFloatingMode(): void {
-    if (this.menuElements.length === 0) {
-      return;
+  private renderSearchLinkButton(): HTMLZButtonElement | null {
+    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
+      return null;
     }
 
-    const elements = this.menuElements;
-    elements.forEach((element) => {
-      (element as HTMLZMenuElement).open = false;
-      (element as HTMLZMenuElement).floating = !this.drawerOpen;
-      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
-    });
+    return (
+      <z-button
+        class="search-page-button"
+        variant={ButtonVariant.SECONDARY}
+        href={this.searchPageUrl}
+        icon="search"
+        size={ControlSize.X_SMALL}
+      ></z-button>
+    );
+  }
+
+  componentDidLoad(): void {
+    this.collectMenuElements();
+    this.onStuckMode();
+    this.evaluateViewport();
   }
 
   render(): HTMLZAppHeaderElement {
     return (
       <Host menu-length={this.menuLength}>
-        <div
-          class="heading-panel"
-          ref={(el) => (this.container = el)}
-        >
+        {this.hasHero && (
           <div class="hero-container">
             <slot name="hero">
               {this.hero && (
@@ -241,7 +320,12 @@ export class ZAppHeader {
               )}
             </slot>
           </div>
+        )}
 
+        <div
+          class="heading-panel"
+          ref={(el) => (this.container = el)}
+        >
           <div class="heading-container">
             <div class="heading-title">
               {this.menuLength > 0 && (
@@ -253,7 +337,10 @@ export class ZAppHeader {
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
+
               <slot name="title"></slot>
+
+              {this.renderSearchLinkButton()}
             </div>
 
             <div class="heading-subtitle">
@@ -261,40 +348,59 @@ export class ZAppHeader {
             </div>
           </div>
 
-          <div class="menu-container">
-            {!this.drawerOpen && this.flow !== "offcanvas" && (
-              <slot
-                name="menu"
-                onSlotchange={this.collectMenuElements}
-              ></slot>
-            )}
-          </div>
-        </div>
-        <div class="drawer-container">
-          <div
-            class="drawer-overlay"
-            onClick={this.closeDrawer}
-          ></div>
-
-          <div class="drawer-panel">
-            <button
-              class="drawer-close"
-              aria-label="Chiudi menu"
-              onClick={this.closeDrawer}
-            >
-              <z-icon name="close"></z-icon>
-            </button>
-
-            <div class="drawer-content">
-              {this.drawerOpen && (
+          {(this.canShowMenu || this.canShowSearchbar) && (
+            <div class="menu-container">
+              {this.canShowMenu && (
                 <slot
                   name="menu"
                   onSlotchange={this.collectMenuElements}
                 ></slot>
               )}
+
+              {this.canShowSearchbar && (
+                <z-searchbar
+                  placeholder={this.searchPlaceholder}
+                  showSearchButton={true}
+                  searchButtonIconOnly={this.currentViewport !== "desktop"}
+                  size={ControlSize.X_SMALL}
+                  variant={ButtonVariant.SECONDARY}
+                  preventSubmit={true}
+                  onSearchTyping={(e) => {
+                    e.target.preventSubmit = e.detail?.length < 3;
+                  }}
+                ></z-searchbar>
+              )}
             </div>
-          </div>
+          )}
         </div>
+
+        <z-offcanvas
+          variant={OffCanvasVariant.OVERLAY}
+          transitiondirection={TransitionDirection.RIGHT}
+          open={this.drawerOpen}
+          onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
+        >
+          <button
+            class="drawer-close"
+            aria-label="Chiudi menu"
+            onClick={this.closeDrawer}
+            slot="canvasContent"
+          >
+            <z-icon name="close"></z-icon>
+          </button>
+
+          {this.drawerOpen && (
+            <div
+              class="drawer-content"
+              slot="canvasContent"
+            >
+              <slot
+                name="menu"
+                onSlotchange={this.collectMenuElements}
+              ></slot>
+            </div>
+          )}
+        </z-offcanvas>
 
         {this._stuck && (
           <div class="heading-stuck">
@@ -308,9 +414,26 @@ export class ZAppHeader {
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
+
               <div class="heading-title">
                 <slot name="stucked-title">{this.title}</slot>
               </div>
+
+              {this.renderSearchLinkButton()}
+
+              {this.canShowSearchbar && this.currentViewport === "desktop" && (
+                <z-searchbar
+                  placeholder={this.searchPlaceholder}
+                  showSearchButton={true}
+                  searchButtonIconOnly={false}
+                  size={ControlSize.X_SMALL}
+                  variant={ButtonVariant.SECONDARY}
+                  preventSubmit={true}
+                  onSearchTyping={(e) => {
+                    e.target.preventSubmit = e.detail?.length < 3;
+                  }}
+                ></z-searchbar>
+              )}
             </div>
           </div>
         )}

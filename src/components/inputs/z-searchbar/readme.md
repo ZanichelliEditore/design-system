@@ -37,6 +37,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [z-app-header](../../navigation/z-app-header)
+
 ### Depends on
 
 - [z-input](../z-input)
@@ -45,7 +49,6 @@
 - [z-list-group](../../list/z-list-group)
 - [z-list-element](../../list/z-list-element)
 - [z-icon](../../icons/z-icon)
-- [z-link](../../navigation/z-link)
 
 ### Graph
 ```mermaid
@@ -56,7 +59,6 @@ graph TD;
   z-searchbar --> z-list-group
   z-searchbar --> z-list-element
   z-searchbar --> z-icon
-  z-searchbar --> z-link
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
@@ -64,7 +66,7 @@ graph TD;
   z-list-group --> z-divider
   z-list-element --> z-icon
   z-list-element --> z-divider
-  z-link --> z-icon
+  z-app-header --> z-searchbar
   style z-searchbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

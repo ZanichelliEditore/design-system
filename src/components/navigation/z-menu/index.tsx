@@ -4,8 +4,8 @@ import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, 
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
+ * @cssprop --z-menu-label-color - Color of the label's text.
  */
-
 @Component({
   tag: "z-menu",
   styleUrl: "styles.css",
