@@ -54,8 +54,8 @@ export class ZBreadcrumb {
   @State()
   isMobile: boolean;
 
-  /*   @State()
-  tooltipOpen = false; */
+  @State()
+  popoverOpen = false;
 
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
@@ -219,6 +219,7 @@ export class ZBreadcrumb {
           bind-to={this.triggerButton}
           position={PopoverPosition.BOTTOM_RIGHT}
           showArrow
+          onOpenChange={(e) => (this.popoverOpen = e.detail.open)}
         >
           <div class="popover-content">
             <z-list>
@@ -245,7 +246,7 @@ export class ZBreadcrumb {
         <button
           aria-label="Mostra più breadcrumb"
           aria-haspopup="true"
-          /* aria-expanded={this.tooltipOpen ? "true" : undefined} */
+          aria-expanded={this.popoverOpen ? "true" : undefined}
           ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
           class="dots"
           onClick={() => {
