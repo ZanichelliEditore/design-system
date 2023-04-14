@@ -1,34 +1,108 @@
+/* stylelint-disable value-no-vendor-prefix */
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --line-clamp: 1;
+}
+
+:host button {
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+:host a:focus,
+:host button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: 0;
+}
+
+a {
+  color: var(--color-link-primary);
+  font-size: var(--font-size-2);
+  text-decoration: none;
+}
+
+a.homepage-icon {
+  display: list-item;
+}
+
+a.homepage-text {
+  display: initial;
+}
+
+a.text-ellipsis {
+  display: -webkit-box !important;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp);
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 ol {
-  padding-left: 0;
+  display: flex;
+  padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-:host z-link {
-  --font-size-link: var(--font-size-2);
+ol > li:not(:last-child) {
+  margin-right: var(--space-unit);
 }
 
-:host([type="semibold"]) z-link {
-  --font-weight-link: var(--font-sb);
+/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
+ol > li + li::before,
+ol.mobile-breadcrumb > li::before {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  color: var(--color-disabled03);
 }
 
-::slotted([slot="breadcrumb-content"]) {
-  --font-size-link: var(--font-size-2);
-
-  font-size: 14px;
+ol > li + li::before {
+  content: "\203A";
 }
 
-:host([type="semibold"]) ::slotted([slot="breadcrumb-content"]) {
-  --font-weight-link: var(--font-sb);
-
-  font-weight: bold;
+ol.mobile-breadcrumb > li::before {
+  content: "\2039";
 }
 
-:host(:not([type="semibold"])) ::slotted([slot="breadcrumb-content"]) {
+:host[path-style="underlined"] a,
+:host[path-style="underlined"] button {
   text-decoration: underline;
+}
+
+:host[path-style="semibold"] a,
+:host[path-style="semibold"] button {
+  font-weight: var(--font-sb);
+}
+
+z-icon {
+  --z-icon-width: 10px;
+  --z-icon-height: 10px;
+}
+
+button.dots {
+  display: inline-block;
+  color: var(--color-link-primary);
+  cursor: pointer;
+}
+
+.popover-content {
+  max-width: 302px;
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  text-align: left;
+}
+
+.popover-content a {
+  font-weight: var(--font-rg);
+  text-decoration: none;
+}
+
+z-popover {
+  --z-popover-theme--surface: var(--color-surface02);
+  --z-popover-padding: 0;
 }

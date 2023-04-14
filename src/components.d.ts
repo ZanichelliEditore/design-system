@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbPath, BreadcrumbPathType, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -88,13 +88,26 @@ export namespace Components {
     }
     interface ZBreadcrumb {
         /**
-          * [optional] Path elements
+          * Variant of first node
          */
-        "paths"?: BreadcrumbPath[] | string;
+        "homepageVariant"?: BreadcrumbHomepageVariant;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow": number;
+        "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */
-        "type"?: BreadcrumbPathType;
+        "pathStyle"?: BreadcrumbPathStyle;
+        /**
+          * Path elements
+         */
+        "paths": BreadcrumbPath[] | string;
+        /**
+          * Controls the behaviour on <a> tag click/enter
+         */
+        "preventFollowUrl": boolean;
     }
     interface ZButton {
         /**
@@ -1279,7 +1292,7 @@ export namespace Components {
          */
         "center": boolean;
         /**
-          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable": boolean;
         /**
@@ -1735,6 +1748,10 @@ export namespace Components {
          */
         "bindTo"?: string | HTMLElement;
         /**
+          * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+         */
+        "closable": boolean;
+        /**
           * Enable tooltip dark mode.
          */
         "dark": boolean;
@@ -1767,6 +1784,10 @@ export namespace Components {
 export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
+}
+export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBreadcrumbElement;
 }
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2634,13 +2655,30 @@ declare namespace LocalJSX {
     }
     interface ZBreadcrumb {
         /**
-          * [optional] Path elements
+          * Variant of first node
          */
-        "paths"?: BreadcrumbPath[] | string;
+        "homepageVariant"?: BreadcrumbHomepageVariant;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow"?: number;
+        /**
+          * Emitted when preventFollowUrl=true to handle page transition
+         */
+        "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */
-        "type"?: BreadcrumbPathType;
+        "pathStyle"?: BreadcrumbPathStyle;
+        /**
+          * Path elements
+         */
+        "paths"?: BreadcrumbPath[] | string;
+        /**
+          * Controls the behaviour on <a> tag click/enter
+         */
+        "preventFollowUrl"?: boolean;
     }
     interface ZButton {
         /**
@@ -3957,7 +3995,7 @@ declare namespace LocalJSX {
          */
         "center"?: boolean;
         /**
-          * Whether the popover should be closed when the user clicks outside of it or hit "ESC".
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable"?: boolean;
         /**
@@ -4460,6 +4498,10 @@ declare namespace LocalJSX {
           * The selector or the element bound with the tooltip.
          */
         "bindTo"?: string | HTMLElement;
+        /**
+          * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+         */
+        "closable"?: boolean;
         /**
           * Enable tooltip dark mode.
          */

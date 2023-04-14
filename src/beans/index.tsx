@@ -441,7 +441,12 @@ export type BreadcrumbPath = {
   path?: string;
 };
 
-export enum BreadcrumbPathType {
+export enum BreadcrumbPathStyle {
   SEMIBOLD = "semibold",
   UNDERLINED = "underlined",
+}
+
+export enum BreadcrumbHomepageVariant {
+  TEXT = "text",
+  ICON = "icon",
 }

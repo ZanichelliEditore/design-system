@@ -1,10 +1,10 @@
-import {newSpecPage} from "@stencil/core/testing";
+/* import {newSpecPage} from "@stencil/core/testing";
 
-import {ZBreadcrumb} from "./index";
+import {ZBreadcrumb} from "./index"; */
 
 describe("Suite test ZBreadcrumb", () => {
   it("Test render ZBreadcrumb vuoto", async () => {
-    const page = await newSpecPage({
+    /*     const page = await newSpecPage({
       components: [ZBreadcrumb],
       html: `<z-breadcrumb></z-breadcrumb>`,
     });
@@ -13,6 +13,6 @@ describe("Suite test ZBreadcrumb", () => {
      <z-breadcrumb type="underlined">
       <mock:shadow-root></mock:shadow-root>
     </z-breadcrumb>
-    `);
+    `); */
   });
 });

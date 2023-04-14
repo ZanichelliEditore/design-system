@@ -5,9 +5,9 @@ import {PopoverPosition} from "../../../beans";
  * Tooltip component.
  * It is basically a wrapper for the `<z-popover>` component with custom configuration.
  *
- * @cssprop --z-popover-theme--surface - background color of the popover.
- * @cssprop --z-popover-theme--text - foreground color of the popover.
- * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover.
+ * @cssprop --z-tooltip-theme--surface - background color of the popover.
+ * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+ * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
  */
 @Component({
   tag: "z-tooltip",
@@ -35,6 +35,14 @@ export class ZTooltip {
   @Prop()
   bindTo?: string | HTMLElement;
 
+  /**
+   * Reflects `closable` prop of the popover.
+   * "If true, the popover can be closed by clicking outside of it or pressing the escape key.
+   * Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+   */
+  @Prop()
+  closable = true;
+
   private popover: HTMLZPopoverElement;
 
   @Listen("openChange")
@@ -49,6 +57,7 @@ export class ZTooltip {
         bindTo={this.bindTo}
         open={this.open}
         position={this.position}
+        closable={this.closable}
         center
         showArrow
       >
