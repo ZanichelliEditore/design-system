@@ -90,7 +90,7 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "yarn build"
+      "prerelease": "yarn && yarn build"
     }
   },
   "peerDependencies": {
