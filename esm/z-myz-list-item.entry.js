@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h } from './index-a2ca4b97.js';
-import { h as handleKeyboardSubmit } from './utils-970ac457.js';
+import { a as handleKeyboardSubmit } from './utils-a52a81ba.js';
 import './index-e36ec4a4.js';
 import './breakpoints-c386984e.js';
 

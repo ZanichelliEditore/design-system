@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { d as getElementTree, h as handleKeyboardSubmit } from './utils-970ac457.js';
+import { d as getElementTree, a as handleKeyboardSubmit } from './utils-a52a81ba.js';
 import { T as ThemeVariant } from './index-e36ec4a4.js';
 import './breakpoints-c386984e.js';
 

@@ -8,6 +8,8 @@
   position: relative;
   display: inline-flex;
   flex-direction: column;
+
+  --z-menu-label-color: var(--color-text01);
 }
 
 ::slotted(a) {
@@ -18,10 +20,6 @@
   color: var(--color-text01);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-
-  /* increasing the letter spacing of the regular text helps reduce
-  the size difference between regular and bold text */
-  letter-spacing: 0.36px;
 }
 
 .menu-label {
@@ -55,13 +53,11 @@ button.menu-label {
 }
 
 :host(:is([active], [open])) .menu-label-content,
-.menu-label .menu-label-content:hover,
 .menu-label:focus-within .menu-label-content {
   font-weight: var(--font-bd);
 }
 
 :host(:is([active], [open])) .menu-label-content ::slotted(*),
-.menu-label .menu-label-content:hover ::slotted(*),
 .menu-label:focus-within .menu-label-content ::slotted(*) {
   letter-spacing: normal;
 }
@@ -123,8 +119,11 @@ when placed below the real text using `flex-direction: column`. */
   width: 100%;
   margin: 0;
   appearance: none;
+  color: var(--z-menu-label-color);
+  font-family: var(--font-family-sans);
   font-size: var(--font-size-5);
   font-weight: inherit;
+  letter-spacing: 0.36px; /* increasing the letter spacing of the regular text helps reduce the size difference between regular and bold text */
   line-height: 1.2;
   outline: none;
 }
@@ -136,7 +135,7 @@ when placed below the real text using `flex-direction: column`. */
 
 .menu-label .menu-label-content z-icon {
   margin-left: calc(var(--space-unit) * 1.5);
-  fill: var(--color-icon02);
+  fill: currentcolor;
 }
 
 .content {
@@ -207,6 +206,7 @@ when placed below the real text using `flex-direction: column`. */
 }
 
 .items > ::slotted([slot="item"]:hover),
+.items > ::slotted([slot="item"]:focus:focus-visible),
 .items > ::slotted([slot="item"]:active) {
   border-color: var(--color-secondary01);
   font-weight: var(--font-bd);

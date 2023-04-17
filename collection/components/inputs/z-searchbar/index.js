@@ -49,7 +49,7 @@ export class ZSearchbar {
     this.currResultsCount = this.resultsCount;
   }
   watchValue() {
-    this.handleInput(this.value);
+    this.searchString = this.value;
   }
   watchSearchString() {
     this.emitSearchTyping(this.searchString);
@@ -57,13 +57,10 @@ export class ZSearchbar {
       this.currResultsCount = this.resultsCount;
     }
   }
-  clickListener(e) {
-    this.handleOutsideClick(e);
-  }
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.handleInput(this.value);
+    this.searchString = this.value;
   }
   getResultsItemsList() {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
@@ -108,15 +105,7 @@ export class ZSearchbar {
   }
   handleStopTyping(e) {
     e.stopPropagation();
-    this.handleInput(e.detail.value);
-  }
-  handleInput(value) {
-    if ((value === null || value === void 0 ? void 0 : value.length) >= this.autocompleteMinChars) {
-      this.searchString = value;
-    }
-    else if (this.searchString) {
-      this.searchString = "";
-    }
+    this.searchString = e.detail.value;
   }
   handleSubmit() {
     if (this.preventSubmit) {
@@ -222,10 +211,10 @@ export class ZSearchbar {
       this.currResultsCount >= ((_b = this.resultsItemsList) === null || _b === void 0 ? void 0 : _b.length)) {
       return null;
     }
-    return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0) }, h("span", { class: "item-show-all" }, h("z-link", null, "Vedi tutti i risultati"))));
+    return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
   }
   render() {
-    return (h(Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e) }, h("div", { class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, this.renderInput(), this.renderResults(), this.renderButton())));
+    return (h(Host, { onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
   }
   static get is() { return "z-searchbar"; }
   static get encapsulation() { return "shadow"; }
@@ -602,7 +591,7 @@ export class ZSearchbar {
   static get listeners() {
     return [{
         "name": "click",
-        "method": "clickListener",
+        "method": "handleOutsideClick",
         "target": "document",
         "capture": false,
         "passive": false

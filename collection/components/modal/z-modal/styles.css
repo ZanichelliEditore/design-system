@@ -20,6 +20,19 @@
   display: none;
 }
 
+/* polyfill style  */
+:host > dialog + .backdrop {
+  display: none;
+}
+
+:host > dialog:not([open]) {
+  display: none;
+}
+
+:host > dialog[open] {
+  display: block;
+}
+
 .modal-container {
   z-index: 1010;
   display: flex;

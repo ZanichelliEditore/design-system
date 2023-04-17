@@ -3,8 +3,6 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @slot title - Slot for the main title
  * @slot subtitle - Slot for the subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
- * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
  * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
  * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -41,31 +39,39 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
  * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
  * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+ * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+ * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
- * @cssprop --app-header-bg - Header background color. Defaults to `--color-white`.
- * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-white`.
- * @cssprop --app-header-text-color - Text color. Defaults to `--gray800`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--gray800`.
+ * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+ * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+ * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+ * Defaults to `--app-header-typography-3-size`.
+ * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+ * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+ * Defaults to `--app-header-typography-3-lineheight`.
+ * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+ * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+ * Defaults to `--app-header-typography-3-tracking`.
+ * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
  */
 export declare class ZAppHeader {
   hostElement: HTMLZAppHeaderElement;
   /**
    * Stuck mode for the header.
    * You can programmatically set it using an IntersectionObserver.
-   * **Optional**
    */
   stuck: boolean;
   /**
    * Set the hero image source for the header.
-   * You can also use a slot="hero" node for advanced customisation.
-   * **Optional**
+   * You can also use a [slot="hero"] node for advanced customization.
    */
   hero: string;
   /**
    * Should place an overlay over the hero image.
    * Useful for legibility purpose.
-   * **Optional**
    */
   overlay: boolean;
   /**
@@ -80,9 +86,28 @@ export declare class ZAppHeader {
    */
   drawerOpen: boolean;
   /**
+   * Enable the search bar.
+   */
+  enableSearch: boolean;
+  /**
+   * Placeholder text for the search bar.
+   */
+  searchPlaceholder: string;
+  /**
+   * Url to the search page.
+   * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
+   * The link will also appear on the sticky header.
+   */
+  searchPageUrl: string;
+  /**
    * The stuck state of the bar.
    */
   private _stuck;
+  /**
+   * Current viewport.
+   * Used to change the aspect of the search button (icon only) on mobile and tablet.
+   */
+  private currentViewport;
   /**
    * Current count of menu items.
    */
@@ -91,21 +116,28 @@ export declare class ZAppHeader {
    * Emitted when the `stuck` state of the header changes
    */
   sticking: EventEmitter;
-  private emitStickingEvent;
   private container?;
   private menuElements?;
   private observer?;
-  private openDrawer;
-  private closeDrawer;
   constructor();
-  componentDidLoad(): void;
-  private get title();
-  private get scrollParent();
-  private collectMenuElements;
-  onStuckMode(): void;
-  private enableStuckObserver;
-  private disableStuckMode;
+  evaluateViewport(): void;
   onStuck(): void;
   setMenuFloatingMode(): void;
+  private get title();
+  private get scrollParent();
+  private get canShowMenu();
+  private get canShowSearchbar();
+  /**
+   * Whether the header has a hero image, either as a prop or as a slot.
+   */
+  private get hasHero();
+  private openDrawer;
+  private closeDrawer;
+  private collectMenuElements;
+  private enableStuckObserver;
+  private disableStuckMode;
+  onStuckMode(): void;
+  private renderSearchLinkButton;
+  componentDidLoad(): void;
   render(): HTMLZAppHeaderElement;
 }

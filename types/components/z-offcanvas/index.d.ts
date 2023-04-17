@@ -1,29 +1,27 @@
 import { EventEmitter } from "../../stencil-public-runtime";
 import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
- * @slot canvasContent - set the content of the canvas
- * @method setSkipAanimationOnLoad - set skipAnimation
+ * @slot canvasContent - Slot for the main content.
  */
 export declare class ZOffcanvas {
-  hostElement: HTMLZOffcanvasElement;
   /**
    * Offcanvas variant.
-   * Can be one of "overlay", "pushcontent"
+   * Can be one `overlay` or `pushcontent`.
    * Default variant: pushcontent
    */
   variant?: OffCanvasVariant;
-  /** open component. Default: false */
+  /** Whether the offcanvas is open. Default: false */
   open: boolean;
   /** open content transitioning in a specified direction left | right. Default: left */
   transitiondirection?: TransitionDirection;
-  /** manages the skip for the entry animation*/
-  skipanimationonload: boolean;
-  /** emitted when open prop changes */
+  /**
+   * Whether to skip the initial animation.
+   * Useful when the initial value of the `open` prop is set to `true`.
+   */
+  skipLoadAnimation: boolean;
+  /** emitted when `open` prop changes */
   canvasOpenStatusChanged: EventEmitter;
-  /** this method allows you to skip the page loading animation, to be used with the prop set to true */
-  setSkipAanimationOnLoad(value: boolean): Promise<void>;
   onOpenChanged(): void;
-  private handleOverflowProperty;
-  private handledTransitionEnd;
+  private handlePageOverflow;
   render(): HTMLZOffcanvasElement;
 }

@@ -1914,10 +1914,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
       }
       switch(bundleId) {
         
-        case 'z-app-header_2.cjs':
+        case 'z-app-header_11.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
-            './z-app-header_2.cjs.entry.js')); }).then(processMod, consoleError);
+            './z-app-header_11.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-anchor-navigation.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2046,10 +2046,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-notification.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-offcanvas.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-offcanvas.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-otp.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2070,10 +2066,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-range-picker.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-searchbar.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-searchbar.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-section-title.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2194,6 +2186,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-table-header.cjs.entry.js')); }).then(processMod, consoleError);
+        case 'z-link.cjs':
+          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
+            /* webpackMode: "lazy" */
+            './z-link.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-myz-list-item.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2202,30 +2198,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-typography.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-link.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-link.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-list_3.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-list_3.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-input_2.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-input_2.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-popover.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-popover.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-divider.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-divider.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-button.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-button.cjs.entry.js')); }).then(processMod, consoleError);
       }
     }
     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(

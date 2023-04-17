@@ -1,4 +1,5 @@
 import { h } from "@stencil/core";
+import dialogPolyfill from "dialog-polyfill";
 import { KeyboardCode } from "../../../beans";
 const FOCUSABLE_ELEMENTS_SELECTOR = ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 /**
@@ -28,7 +29,13 @@ export class ZModal {
     }
   }
   componentDidLoad() {
-    this.open();
+    if (typeof HTMLDialogElement !== "function") {
+      dialogPolyfill.registerDialog(this.dialog);
+      this.dialog.setAttribute("open", "true");
+    }
+    else {
+      this.open();
+    }
   }
   /** open modal */
   async open() {

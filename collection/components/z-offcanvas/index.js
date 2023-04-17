@@ -1,46 +1,41 @@
 import { h, Host } from "@stencil/core";
 import { OffCanvasVariant, TransitionDirection } from "../../beans";
 /**
- * @slot canvasContent - set the content of the canvas
- * @method setSkipAanimationOnLoad - set skipAnimation
+ * @slot canvasContent - Slot for the main content.
  */
 export class ZOffcanvas {
   constructor() {
     /**
      * Offcanvas variant.
-     * Can be one of "overlay", "pushcontent"
+     * Can be one `overlay` or `pushcontent`.
      * Default variant: pushcontent
      */
     this.variant = OffCanvasVariant.PUSHCONTENT;
-    /** open component. Default: false */
+    /** Whether the offcanvas is open. Default: false */
     this.open = false;
     /** open content transitioning in a specified direction left | right. Default: left */
     this.transitiondirection = TransitionDirection.LEFT;
-    /** manages the skip for the entry animation*/
-    this.skipanimationonload = false;
-  }
-  /** this method allows you to skip the page loading animation, to be used with the prop set to true */
-  async setSkipAanimationOnLoad(value) {
-    this.skipanimationonload = value;
+    /**
+     * Whether to skip the initial animation.
+     * Useful when the initial value of the `open` prop is set to `true`.
+     */
+    this.skipLoadAnimation = false;
   }
   onOpenChanged() {
-    if (!this.open && this.skipanimationonload) {
-      this.skipanimationonload = false;
+    if (!this.open && this.skipLoadAnimation) {
+      this.skipLoadAnimation = false;
     }
     if (this.open) {
-      this.handleOverflowProperty();
+      this.handlePageOverflow();
     }
     this.canvasOpenStatusChanged.emit(this.open);
   }
-  handleOverflowProperty() {
+  handlePageOverflow() {
     const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
-  handledTransitionEnd() {
-    this.handleOverflowProperty();
-  }
   render() {
-    return (h(Host, { class: { "skip-animation": this.skipanimationonload } }, h("div", { role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handledTransitionEnd() }, h("div", { role: "presentation", class: "canvas-content" }, h("slot", { name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
+    return (h(Host, { class: { "skip-animation": this.skipLoadAnimation } }, h("div", { role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { role: "presentation", class: "canvas-content" }, h("slot", { name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
   }
   static get is() { return "z-offcanvas"; }
   static get encapsulation() { return "scoped"; }
@@ -73,7 +68,7 @@ export class ZOffcanvas {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": "Offcanvas variant.\nCan be one of \"overlay\", \"pushcontent\"\nDefault variant: pushcontent"
+          "text": "Offcanvas variant.\nCan be one `overlay` or `pushcontent`.\nDefault variant: pushcontent"
         },
         "attribute": "variant",
         "reflect": true,
@@ -91,7 +86,7 @@ export class ZOffcanvas {
         "optional": false,
         "docs": {
           "tags": [],
-          "text": "open component. Default: false"
+          "text": "Whether the offcanvas is open. Default: false"
         },
         "attribute": "open",
         "reflect": true,
@@ -119,12 +114,25 @@ export class ZOffcanvas {
         "attribute": "transitiondirection",
         "reflect": true,
         "defaultValue": "TransitionDirection.LEFT"
+      },
+      "skipLoadAnimation": {
+        "type": "boolean",
+        "mutable": true,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Whether to skip the initial animation.\nUseful when the initial value of the `open` prop is set to `true`."
+        },
+        "attribute": "skip-load-animation",
+        "reflect": false,
+        "defaultValue": "false"
       }
-    };
-  }
-  static get states() {
-    return {
-      "skipanimationonload": {}
     };
   }
   static get events() {
@@ -136,7 +144,7 @@ export class ZOffcanvas {
         "composed": true,
         "docs": {
           "tags": [],
-          "text": "emitted when open prop changes"
+          "text": "emitted when `open` prop changes"
         },
         "complexType": {
           "original": "any",
@@ -145,30 +153,6 @@ export class ZOffcanvas {
         }
       }];
   }
-  static get methods() {
-    return {
-      "setSkipAanimationOnLoad": {
-        "complexType": {
-          "signature": "(value: boolean) => Promise<void>",
-          "parameters": [{
-              "tags": [],
-              "text": ""
-            }],
-          "references": {
-            "Promise": {
-              "location": "global"
-            }
-          },
-          "return": "Promise<void>"
-        },
-        "docs": {
-          "text": "this method allows you to skip the page loading animation, to be used with the prop set to true",
-          "tags": []
-        }
-      }
-    };
-  }
-  static get elementRef() { return "hostElement"; }
   static get watchers() {
     return [{
         "propName": "open",

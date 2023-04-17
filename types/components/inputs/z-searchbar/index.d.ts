@@ -52,13 +52,11 @@ export declare class ZSearchbar {
   watchResultsCount(): void;
   watchValue(): void;
   watchSearchString(): void;
-  clickListener(e: MouseEvent): void;
   componentWillLoad(): void;
   private getResultsItemsList;
   private getGroupedItems;
   private checkResultsCount;
   private handleStopTyping;
-  private handleInput;
   private handleSubmit;
   private handleOutsideClick;
   private renderInput;
