@@ -66,6 +66,13 @@ export class ZBreadcrumb {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
+  @Listen("load", {target: "window"})
+  handleLoaded(): void {
+    setTimeout(() => {
+      console.log("A", this.measureText("Settimo path"));
+    }, 300);
+  }
+
   private pathsList: BreadcrumbPath[];
 
   private collapsedElements: BreadcrumbPath[];
@@ -95,6 +102,14 @@ export class ZBreadcrumb {
     } else {
       this.collapsedElements = null;
     }
+
+    /*     
+    console.log("A", this.measureText("Sesto path"));
+    console.log("A", this.measureText("Quinto path"));
+    console.log("A", this.measureText("Quarto path"));
+    console.log("A", this.measureText("Terzo path"));
+    console.log("A", this.measureText("Secondo path"));
+    console.log("A", this.measureText("Primo path")); */
   }
 
   componentDidRender(): void {
@@ -149,6 +164,7 @@ export class ZBreadcrumb {
     return (
       <li>
         <a
+          class="visible-node"
           aria-current={item.path ? undefined : "page"}
           href={item.path}
           onClick={(e) => this.handlePreventFollowUrl(e, item)}
@@ -265,7 +281,42 @@ export class ZBreadcrumb {
     );
   }
 
+  private measureText(text): number {
+    const path = document.createElement("div");
+
+    document.body.appendChild(path);
+
+    path.style.fontSize = "14px";
+    path.style.fontFamily = "IBM Plex Sans";
+    path.style.fontWeight = "600";
+
+    path.style.position = "absolute";
+    //path.style.left = "-1000";
+    //path.style.top = "-1000";
+
+    path.textContent = text;
+
+    const lResultWidth = path.getBoundingClientRect().width;
+
+    //document.body.removeChild(path);
+    //path = null;
+
+    console.log("STYLE", {path});
+
+    return lResultWidth;
+  }
+
+  private ellipsis(): void {
+    const containerWidth = Number(this.hostElement.closest("div").style.width.replace("px", ""));
+    //console.log("x", containerWidth);
+
+    const firstVisibleNode = this.hostElement.querySelectorAll(".visible-node");
+    //console.log("LI", firstVisibleNode);
+  }
+
   render(): HTMLZBreadcrumbElement {
+    this.ellipsis();
+
     return (
       <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
         {this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
