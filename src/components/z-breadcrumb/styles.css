@@ -6,7 +6,7 @@
   --line-clamp: 1;
 }
 
-:host button {
+button {
   padding: 0;
   border: none;
   margin: 0;
@@ -19,21 +19,21 @@
   outline: 0;
 }
 
-a {
+:host a {
   color: var(--color-link-primary);
   font-size: var(--font-size-2);
   text-decoration: none;
 }
 
-a.homepage-icon {
+:host a.homepage-icon {
   display: list-item;
 }
 
-a.homepage-text {
+:host a.homepage-text {
   display: initial;
 }
 
-a.text-ellipsis {
+:host a.text-ellipsis {
   display: -webkit-box !important;
   overflow: hidden;
   -webkit-box-orient: vertical;
@@ -42,67 +42,67 @@ a.text-ellipsis {
   white-space: normal;
 }
 
-ol {
+:host ol {
   display: flex;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-ol > li:not(:last-child) {
+:host ol > li:not(:last-child) {
   margin-right: var(--space-unit);
 }
 
 /* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
-ol > li + li::before,
-ol.mobile-breadcrumb > li::before {
+:host ol > li + li::before,
+:host ol.mobile-breadcrumb > li::before {
   display: inline-block;
   width: 10px;
   height: 10px;
   color: var(--color-disabled03);
 }
 
-ol > li + li::before {
+:host ol > li + li::before {
   content: "\203A";
 }
 
-ol.mobile-breadcrumb > li::before {
+:host ol.mobile-breadcrumb > li::before {
   content: "\2039";
 }
 
-:host[path-style="underlined"] a,
-:host[path-style="underlined"] button {
+nav.underlined > ol > li a,
+nav.underlined > ol > li button {
   text-decoration: underline;
 }
 
-:host[path-style="semibold"] a,
-:host[path-style="semibold"] button {
+nav.semibold > ol > li a,
+nav.semibold > ol > li button {
   font-weight: var(--font-sb);
 }
 
-z-icon {
+:host z-icon {
   --z-icon-width: 10px;
   --z-icon-height: 10px;
 }
 
-button.dots {
+:host button.dots {
   display: inline-block;
   color: var(--color-link-primary);
   cursor: pointer;
 }
 
-.popover-content {
+:host .popover-content {
   max-width: 302px;
   padding: calc(var(--space-unit) / 2) var(--space-unit);
   text-align: left;
 }
 
-.popover-content a {
+:host .popover-content a {
   font-weight: var(--font-rg);
   text-decoration: none;
 }
 
-z-popover {
+:host z-popover {
   --z-popover-theme--surface: var(--color-surface02);
   --z-popover-padding: 0;
 }

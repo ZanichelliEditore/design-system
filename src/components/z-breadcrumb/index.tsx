@@ -15,8 +15,7 @@ import {handleKeyboardSubmit} from "../../utils/utils";
 @Component({
   tag: "z-breadcrumb",
   styleUrl: "styles.css",
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class ZBreadcrumb {
   /*Accessibility references */
@@ -115,11 +114,20 @@ export class ZBreadcrumb {
   componentDidRender(): void {
     if (this.collapsedElementsRef) {
       this.collapsedElementsRef.bindTo = this.triggerButton;
-      this.anchorElements = Array.from(this.hostElement.querySelectorAll("z-list-group a"));
+      this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
+    if (!this.paths) {
+      return Array.from(this.hostElement.children).map((item: HTMLAnchorElement) => {
+        return {
+          name: item.textContent,
+          path: item.href,
+        };
+      });
+    }
+
     return typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
   }
 
@@ -177,7 +185,13 @@ export class ZBreadcrumb {
 
   private renderBreadcrumb(): HTMLElement {
     return (
-      <nav aria-label="Breadcrumb">
+      <nav
+        aria-label="Breadcrumb"
+        class={{
+          underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
+          semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
+        }}
+      >
         <ol>
           {this.renderHomepageNode(this.homepageNode)}
           {this.collapsedElements ? this.renderOverflowMenu() : ""}

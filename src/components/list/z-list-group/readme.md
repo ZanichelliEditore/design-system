@@ -18,6 +18,7 @@
 
 ### Used by
 
+ - [z-breadcrumb](../../z-breadcrumb)
  - [z-combobox](../../inputs/z-combobox)
  - [z-contextual-menu](../../z-contextual-menu)
  - [z-searchbar](../../inputs/z-searchbar)
@@ -31,6 +32,7 @@
 ```mermaid
 graph TD;
   z-list-group --> z-divider
+  z-breadcrumb --> z-list-group
   z-combobox --> z-list-group
   z-contextual-menu --> z-list-group
   z-searchbar --> z-list-group

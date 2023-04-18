@@ -59,4 +59,50 @@ import "./style.stories.css";
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story
+    name="breadcrumb with slots"
+    args={{
+      pathStyle: BreadcrumbPathStyle.SEMIBOLD,
+      homepageVariant: BreadcrumbHomepageVariant.ICON,
+      maxNodesToShow: 5,
+    }}
+  >
+    {(args) => html`<div class="container">
+      <z-breadcrumb
+        path-style=${args.pathStyle}
+        homepage-variant=${args.homepageVariant}
+        max-nodes-to-show=${args.maxNodesToShow}
+        overflow-menu-item-rows=${args.overflowMenuItemRows}
+      >
+        <a href="./link1">link1</a>
+        <a href="./link2">link2</a>
+        <a href="./link3">link3</a>
+        <a href="./link4">link4</a>
+        <a href="./link5">link5</a>
+        <a href="./link6">link6</a>
+        <a href="./link7">link7</a>
+      </z-breadcrumb>
+    </div>`}
+  </Story>
+</Canvas>
+
 <ArgsTable of="z-breadcrumb" />
+
+## ZBreadcrumb with inner content for SEO purposes
+
+As the crawlers flatten the light dom and the shadow dom, it is important to move all the relevant SEO content in the light DOM, to not affect indexability.
+
+### Usage
+
+For this use case, you can omit paths prop and pass as component's children a number of anchor tags.
+The component will handle the logic for generating the proper markup inside the shadow dom.
+
+```html
+<z-breadcrumb>
+  <a href="./link1">link1</a>
+  <a href="./link2">link2</a>
+  <a href="./link3">link3</a>
+  <a href="./link4">link4</a>
+</z-breadcrumb>
+```
