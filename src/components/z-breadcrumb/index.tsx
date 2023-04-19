@@ -56,6 +56,9 @@ export class ZBreadcrumb {
   @State()
   popoverOpen = false;
 
+  @State()
+  collapsedElements: BreadcrumbPath[];
+
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
   clickOnNode: EventEmitter;
@@ -74,7 +77,7 @@ export class ZBreadcrumb {
 
   private pathsList: BreadcrumbPath[];
 
-  private collapsedElements: BreadcrumbPath[];
+  // private collapsedElements: BreadcrumbPath[];
 
   private collapsedElementsRef: HTMLZPopoverElement;
 
@@ -116,6 +119,40 @@ export class ZBreadcrumb {
       this.collapsedElementsRef.bindTo = this.triggerButton;
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
+
+    /* prendiamo tutte le lunghezze dei nodi e le sommiamo
+ se somma > larghezza contenitore
+    tolgo caratteri
+  
+  
+*/
+
+    Array.from(this.hostElement.shadowRoot.querySelectorAll<HTMLElement>("ol > li:not(:first-child)"))
+      .map((item) => item.offsetWidth)
+      .forEach((item, index) => {
+        console.log(
+          index,
+          this.pathsList[index],
+          this.totalLenght,
+          item,
+          this.hostElement.parentElement.offsetWidth / this.totalLenght
+        );
+        /*         if (!stop && item > this.hostElement.parentElement.offsetWidth / this.totalLenght) {
+          console.log("entro");
+          collapsedElementsAux.push(this.pathsList[index]);
+          this.pathsList.splice(index, 0);
+          this.totalLenght -= 1;
+          array.splice(index, 0);
+          const initialValue = 0;
+          if (sumWithInitial <= this.hostElement.parentElement.offsetWidth) {
+            console.log("lenght", collapsedElementsAux.length);
+            stop = true;
+            if (collapsedElementsAux.length === 1) {
+              // metto ellipsis solo a quell'elemento
+            }
+          }
+        } */
+      });
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
@@ -320,16 +357,16 @@ export class ZBreadcrumb {
     return lResultWidth;
   }
 
-  private ellipsis(): void {
+  /*   private ellipsis(): void {
     const containerWidth = Number(this.hostElement.closest("div").style.width.replace("px", ""));
     //console.log("x", containerWidth);
 
     const firstVisibleNode = this.hostElement.querySelectorAll(".visible-node");
     //console.log("LI", firstVisibleNode);
-  }
+  } */
 
   render(): HTMLZBreadcrumbElement {
-    this.ellipsis();
+    /* this.ellipsis(); */
 
     return (
       <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
