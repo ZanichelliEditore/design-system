@@ -79,7 +79,7 @@ export class ZSearchbar {
   variant?: ButtonVariant = ButtonVariant.PRIMARY;
 
   @State()
-  searchString = "";
+  searchString = this.value;
 
   @State()
   currResultsCount = 0;
@@ -141,7 +141,6 @@ export class ZSearchbar {
   componentWillLoad(): void {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.searchString = this.value;
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {

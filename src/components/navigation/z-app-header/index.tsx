@@ -366,7 +366,7 @@ export class ZAppHeader {
                   variant={ButtonVariant.SECONDARY}
                   preventSubmit={true}
                   onSearchTyping={(e) => {
-                    e.target.preventSubmit = e.detail?.length < 3;
+                    e.target.preventSubmit = !e.detail || e.detail.length < 3;
                   }}
                 ></z-searchbar>
               )}
