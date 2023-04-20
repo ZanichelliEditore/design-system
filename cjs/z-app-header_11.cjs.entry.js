@@ -168,8 +168,7 @@ const ZAppHeader = class {
   }
   render() {
     return (index.h(index.Host, { "menu-length": this.menuLength }, this.hasHero && (index.h("div", { class: "hero-container" }, index.h("slot", { name: "hero" }, this.hero && (index.h("img", { alt: "", src: this.hero }))))), index.h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, index.h("div", { class: "heading-container" }, index.h("div", { class: "heading-title" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("slot", { name: "title" }), this.renderSearchLinkButton()), index.h("div", { class: "heading-subtitle" }, index.h("slot", { name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (index.h("div", { class: "menu-container" }, this.canShowMenu && (index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && (index.h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: this.currentViewport !== "desktop", size: index$1.ControlSize.X_SMALL, variant: index$1.ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
-        var _a;
-        e.target.preventSubmit = ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.length) < 3;
+        e.target.preventSubmit = !e.detail || e.detail.length < 3;
       } }))))), index.h("z-offcanvas", { variant: index$1.OffCanvasVariant.OVERLAY, transitiondirection: index$1.TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, index.h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent" }, index.h("z-icon", { name: "close" })), this.drawerOpen && (index.h("div", { class: "drawer-content", slot: "canvasContent" }, index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))), this._stuck && (index.h("div", { class: "heading-stuck" }, index.h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("div", { class: "heading-title" }, index.h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && (index.h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: false, size: index$1.ControlSize.X_SMALL, variant: index$1.ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
         var _a;
         e.target.preventSubmit = ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.length) < 3;
@@ -842,7 +841,7 @@ const ZSearchbar = class {
     this.size = index$1.ControlSize.BIG;
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
     this.variant = index$1.ButtonVariant.PRIMARY;
-    this.searchString = "";
+    this.searchString = this.value;
     this.currResultsCount = 0;
     this.showResults = false;
     this.resultsItemsList = null;
@@ -874,7 +873,6 @@ const ZSearchbar = class {
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.searchString = this.value;
   }
   getResultsItemsList() {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;

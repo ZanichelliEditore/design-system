@@ -28,7 +28,7 @@ export class ZSearchbar {
     this.size = ControlSize.BIG;
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
     this.variant = ButtonVariant.PRIMARY;
-    this.searchString = "";
+    this.searchString = this.value;
     this.currResultsCount = 0;
     this.showResults = false;
     this.resultsItemsList = null;
@@ -60,7 +60,6 @@ export class ZSearchbar {
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.searchString = this.value;
   }
   getResultsItemsList() {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;

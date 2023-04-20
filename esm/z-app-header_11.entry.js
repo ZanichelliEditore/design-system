@@ -164,8 +164,7 @@ const ZAppHeader = class {
   }
   render() {
     return (h(Host, { "menu-length": this.menuLength }, this.hasHero && (h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero }))))), h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" }), this.renderSearchLinkButton()), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (h("div", { class: "menu-container" }, this.canShowMenu && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && (h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: this.currentViewport !== "desktop", size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
-        var _a;
-        e.target.preventSubmit = ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.length) < 3;
+        e.target.preventSubmit = !e.detail || e.detail.length < 3;
       } }))))), h("z-offcanvas", { variant: OffCanvasVariant.OVERLAY, transitiondirection: TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent" }, h("z-icon", { name: "close" })), this.drawerOpen && (h("div", { class: "drawer-content", slot: "canvasContent" }, h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && (h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: false, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
         var _a;
         e.target.preventSubmit = ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.length) < 3;
@@ -838,7 +837,7 @@ const ZSearchbar = class {
     this.size = ControlSize.BIG;
     /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
     this.variant = ButtonVariant.PRIMARY;
-    this.searchString = "";
+    this.searchString = this.value;
     this.currResultsCount = 0;
     this.showResults = false;
     this.resultsItemsList = null;
@@ -870,7 +869,6 @@ const ZSearchbar = class {
   componentWillLoad() {
     this.resultsItemsList = this.getResultsItemsList();
     this.currResultsCount = this.resultsCount;
-    this.searchString = this.value;
   }
   getResultsItemsList() {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
