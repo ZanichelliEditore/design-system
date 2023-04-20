@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.4](https://github.com/ZanichelliEditore/design-system/compare/v7.3.3...v7.3.4) (2023-04-20)
+
+
+### Bug Fixes
+
+* improve searchbar initial value; header search button disable check ([8744b5f](https://github.com/ZanichelliEditore/design-system/commit/8744b5f58f5c5b3c6ab456d49511bbbda4292230))
+
 ### [7.3.3](https://github.com/ZanichelliEditore/design-system/compare/v7.3.2...v7.3.3) (2023-04-17)
 
 
