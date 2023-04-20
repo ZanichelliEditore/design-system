@@ -54,10 +54,7 @@ export class ZBreadcrumb {
   isMobile: boolean;
 
   @State()
-  popoverOpen = false;
-
-  @State()
-  collapsedElements: BreadcrumbPath[];
+  visibleItems: number;
 
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
@@ -68,20 +65,15 @@ export class ZBreadcrumb {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @Listen("load", {target: "window"})
-  handleLoaded(): void {
-    setTimeout(() => {
-      console.log("A", this.measureText("Settimo path"));
-    }, 300);
-  }
-
   private pathsList: BreadcrumbPath[];
 
-  // private collapsedElements: BreadcrumbPath[];
+  private collapsedElements: BreadcrumbPath[];
 
   private collapsedElementsRef: HTMLZPopoverElement;
 
   private triggerButton: HTMLButtonElement;
+
+  private wrapElement: HTMLElement;
 
   private currentIndex = 0;
 
@@ -91,27 +83,33 @@ export class ZBreadcrumb {
 
   private anchorElements;
 
+  private containerEllipsis = false;
+
   componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.pathsList = this.getPathsItemsList();
+    this.totalLenght = this.pathsList.length;
+    this.visibleItems = this.totalLenght - 1;
+    this.homepageNode = this.pathsList.shift();
+    this.collapsedElements = [];
   }
 
   componentWillRender(): void {
-    this.pathsList = this.getPathsItemsList();
-    this.totalLenght = this.pathsList.length;
-    this.homepageNode = this.pathsList.shift();
-    if (this.totalLenght > this.maxNodesToShow) {
-      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
-    } else {
-      this.collapsedElements = null;
+    if (this.wrapElement) {
+      if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+        if (this.visibleItems === 1) {
+          this.containerEllipsis = true;
+        } else {
+          const removedEl = this.pathsList.splice(0, 1);
+          this.collapsedElements.push(removedEl[0]);
+          this.visibleItems--;
+        }
+      }
     }
 
-    /*     
-    console.log("A", this.measureText("Sesto path"));
-    console.log("A", this.measureText("Quinto path"));
-    console.log("A", this.measureText("Quarto path"));
-    console.log("A", this.measureText("Terzo path"));
-    console.log("A", this.measureText("Secondo path"));
-    console.log("A", this.measureText("Primo path")); */
+    if (this.totalLenght > this.maxNodesToShow) {
+      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
+    }
   }
 
   componentDidRender(): void {
@@ -120,39 +118,17 @@ export class ZBreadcrumb {
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
-    /* prendiamo tutte le lunghezze dei nodi e le sommiamo
- se somma > larghezza contenitore
-    tolgo caratteri
-  
-  
-*/
-
-    Array.from(this.hostElement.shadowRoot.querySelectorAll<HTMLElement>("ol > li:not(:first-child)"))
-      .map((item) => item.offsetWidth)
-      .forEach((item, index) => {
-        console.log(
-          index,
-          this.pathsList[index],
-          this.totalLenght,
-          item,
-          this.hostElement.parentElement.offsetWidth / this.totalLenght
-        );
-        /*         if (!stop && item > this.hostElement.parentElement.offsetWidth / this.totalLenght) {
-          console.log("entro");
-          collapsedElementsAux.push(this.pathsList[index]);
-          this.pathsList.splice(index, 0);
-          this.totalLenght -= 1;
-          array.splice(index, 0);
-          const initialValue = 0;
-          if (sumWithInitial <= this.hostElement.parentElement.offsetWidth) {
-            console.log("lenght", collapsedElementsAux.length);
-            stop = true;
-            if (collapsedElementsAux.length === 1) {
-              // metto ellipsis solo a quell'elemento
-            }
-          }
-        } */
-      });
+    if (this.wrapElement) {
+      if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+        if (this.visibleItems === 1) {
+          this.containerEllipsis = true;
+        } else {
+          const removedEl = this.pathsList.splice(0, 1);
+          this.collapsedElements.push(removedEl[0]);
+          this.visibleItems--;
+        }
+      }
+    }
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
@@ -209,7 +185,7 @@ export class ZBreadcrumb {
     return (
       <li>
         <a
-          class="visible-node"
+          class={{"visible-node": true, "last-text-ellipsis": this.containerEllipsis}}
           aria-current={item.path ? undefined : "page"}
           href={item.path}
           onClick={(e) => this.handlePreventFollowUrl(e, item)}
@@ -223,6 +199,7 @@ export class ZBreadcrumb {
   private renderBreadcrumb(): HTMLElement {
     return (
       <nav
+        ref={(val) => (this.wrapElement = val)}
         aria-label="Breadcrumb"
         class={{
           underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
@@ -279,95 +256,60 @@ export class ZBreadcrumb {
   }
 
   private renderOverflowMenu(): HTMLLIElement {
-    return (
-      <li>
-        <z-popover
-          ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
-          bind-to={this.triggerButton}
-          position={PopoverPosition.BOTTOM_RIGHT}
-          showArrow
-          onOpenChange={(e) => (this.popoverOpen = e.detail.open)}
-        >
-          <div class="popover-content">
-            <z-list>
-              <z-list-group
-                dividerType={ListDividerType.ELEMENT}
-                size={ListSize.SMALL}
-              >
-                {this.collapsedElements.map((item) => (
-                  <z-list-element clickable>
-                    <a
-                      class="text-ellipsis"
-                      href={item.path}
-                      onClick={(e) => this.handlePreventFollowUrl(e, item)}
-                      onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
-                    >
-                      {item.name}
-                    </a>
-                  </z-list-element>
-                ))}
-              </z-list-group>
-            </z-list>
-          </div>
-        </z-popover>
-        <button
-          aria-label="Mostra più breadcrumb"
-          aria-haspopup="true"
-          aria-expanded={this.popoverOpen ? "true" : undefined}
-          ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
-          class="dots"
-          onClick={() => {
-            this.togglePopover();
-          }}
-          onKeyDown={(e) => {
-            handleKeyboardSubmit(e, this.togglePopover.bind(this));
-            setTimeout(() => {
-              this.anchorElements[0].focus();
-            }, 100);
-          }}
-        >
-          ...
-        </button>
-      </li>
-    );
+    if (this.collapsedElements.length) {
+      return (
+        <li>
+          <z-popover
+            ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
+            bind-to={this.triggerButton}
+            position={PopoverPosition.BOTTOM_RIGHT}
+            showArrow
+          >
+            <div class="popover-content">
+              <z-list>
+                <z-list-group
+                  dividerType={ListDividerType.ELEMENT}
+                  size={ListSize.SMALL}
+                >
+                  {this.collapsedElements.map((item) => (
+                    <z-list-element clickable>
+                      <a
+                        class="text-ellipsis"
+                        href={item.path}
+                        onClick={(e) => this.handlePreventFollowUrl(e, item)}
+                        onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
+                      >
+                        {item.name}
+                      </a>
+                    </z-list-element>
+                  ))}
+                </z-list-group>
+              </z-list>
+            </div>
+          </z-popover>
+          <button
+            aria-label="Mostra più breadcrumb"
+            aria-haspopup="true"
+            ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
+            class="dots"
+            onClick={() => {
+              this.togglePopover();
+            }}
+            onKeyDown={(e) => {
+              handleKeyboardSubmit(e, this.togglePopover.bind(this));
+              setTimeout(() => {
+                this.anchorElements[0].focus();
+              }, 100);
+            }}
+          >
+            ...
+          </button>
+        </li>
+      );
+    }
   }
-
-  private measureText(text): number {
-    const path = document.createElement("div");
-
-    document.body.appendChild(path);
-
-    path.style.fontSize = "14px";
-    path.style.fontFamily = "IBM Plex Sans";
-    path.style.fontWeight = "600";
-
-    path.style.position = "absolute";
-    //path.style.left = "-1000";
-    //path.style.top = "-1000";
-
-    path.textContent = text;
-
-    const lResultWidth = path.getBoundingClientRect().width;
-
-    //document.body.removeChild(path);
-    //path = null;
-
-    console.log("STYLE", {path});
-
-    return lResultWidth;
-  }
-
-  /*   private ellipsis(): void {
-    const containerWidth = Number(this.hostElement.closest("div").style.width.replace("px", ""));
-    //console.log("x", containerWidth);
-
-    const firstVisibleNode = this.hostElement.querySelectorAll(".visible-node");
-    //console.log("LI", firstVisibleNode);
-  } */
 
   render(): HTMLZBreadcrumbElement {
-    /* this.ellipsis(); */
-
     return (
       <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
         {this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
