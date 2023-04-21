@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.4](https://github.com/ZanichelliEditore/design-system/compare/v7.3.3...v7.3.4) (2023-04-20)
+
+
+### Bug Fixes
+
+* improve searchbar initial value; header search button disable check ([8744b5f](https://github.com/ZanichelliEditore/design-system/commit/8744b5f58f5c5b3c6ab456d49511bbbda4292230))
+
+### [7.3.3](https://github.com/ZanichelliEditore/design-system/compare/v7.3.2...v7.3.3) (2023-04-17)
+
+
+### Bug Fixes
+
+* add dialog polyfill for old browsers ([659a030](https://github.com/ZanichelliEditore/design-system/commit/659a03032b54972e1c7745a8764a98e433cefbf3))
+* cover hero ([6d3f6bd](https://github.com/ZanichelliEditore/design-system/commit/6d3f6bd41e9d4caaa7a2daf59b922f5fce2fc170))
+* menu items focus highlight; menu labels style on hover ([1d9b440](https://github.com/ZanichelliEditore/design-system/commit/1d9b4401f4424131b8b25003dc0f1b33a5c309fe))
+* restore yarn.lock ([219632c](https://github.com/ZanichelliEditore/design-system/commit/219632ca433376f5d2dca1dec94d7472397fa2fc))
+* stacked flow ([a017cf5](https://github.com/ZanichelliEditore/design-system/commit/a017cf575f161628fde5ea824f0af584ff961508))
+* tests; do not render menu container when it would be empty ([ca5e834](https://github.com/ZanichelliEditore/design-system/commit/ca5e834510ff0026961d3f5e2fadfbe015343f40))
+
 ### [7.3.2](https://github.com/ZanichelliEditore/design-system/compare/v7.3.1...v7.3.2) (2023-04-11)
 
 

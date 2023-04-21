@@ -20,7 +20,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
               <div></div>
@@ -49,7 +49,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container" id="modal">
             <header>
               <div>
@@ -82,7 +82,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
               <div></div>
@@ -112,7 +112,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
               <div></div>
