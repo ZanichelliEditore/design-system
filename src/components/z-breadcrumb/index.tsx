@@ -53,8 +53,8 @@ export class ZBreadcrumb {
   @State()
   isMobile: boolean;
 
-  @State()
-  visibleItems: number;
+  /*   @State()
+  visibleItems: number; */
 
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
@@ -65,7 +65,8 @@ export class ZBreadcrumb {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  private pathsList: BreadcrumbPath[];
+  @State()
+  pathsList: BreadcrumbPath[];
 
   private collapsedElements: BreadcrumbPath[];
 
@@ -89,13 +90,12 @@ export class ZBreadcrumb {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
     this.pathsList = this.getPathsItemsList();
     this.totalLenght = this.pathsList.length;
-    this.visibleItems = this.totalLenght - 1;
     this.homepageNode = this.pathsList.shift();
     this.collapsedElements = [];
   }
 
   componentWillRender(): void {
-    if (this.wrapElement) {
+    /*     if (this.wrapElement) {
       if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
         if (this.visibleItems === 1) {
           this.containerEllipsis = true;
@@ -105,7 +105,7 @@ export class ZBreadcrumb {
           this.visibleItems--;
         }
       }
-    }
+    } */
 
     if (this.totalLenght > this.maxNodesToShow) {
       this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
@@ -120,15 +120,36 @@ export class ZBreadcrumb {
 
     if (this.wrapElement) {
       if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
-        if (this.visibleItems === 1) {
-          this.containerEllipsis = true;
-        } else {
-          const removedEl = this.pathsList.splice(0, 1);
-          this.collapsedElements.push(removedEl[0]);
-          this.visibleItems--;
+        if (this.pathsList[0].name.length > 20) {
+          const truncatedString = this.truncateWithEllipsis(this.pathsList[0].name, 20, null);
+          this.pathsList[0].name = truncatedString;
+          this.pathsList = [...this.pathsList];
+
+          return;
         }
+
+        const removedEl = this.pathsList.splice(0, 1);
+        this.collapsedElements.push(removedEl[0]);
       }
     }
+  }
+
+  //if nchar > 20
+  //truncatechar
+  //else rimuovo
+
+  private truncateWithEllipsis(str, length, ending): string {
+    if (length == null) {
+      length = 100;
+    }
+    if (ending == null) {
+      ending = "...";
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    }
+
+    return str;
   }
 
   private getPathsItemsList(): BreadcrumbPath[] | undefined {
