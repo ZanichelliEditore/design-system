@@ -66,6 +66,7 @@ export class ZBreadcrumb {
   @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.checkEllipsisOrOverflowMenu();
   }
 
   private pathsList: BreadcrumbPath[];
@@ -96,7 +97,7 @@ export class ZBreadcrumb {
     this.totalLenght = this.pathsList.length;
     this.homepageNode = this.pathsList.shift();
     this.visibleItems = this.pathsList.length;
-    this.pathListCopy = [...this.pathsList];
+    this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
     this.collapsedElements = [];
   }
 
@@ -112,6 +113,10 @@ export class ZBreadcrumb {
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
+    this.checkEllipsisOrOverflowMenu();
+  }
+
+  private checkEllipsisOrOverflowMenu(): void {
     if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
       if (this.pathsList[0].name.length > 30) {
         console.log(this.pathsList, this.pathListCopy);
