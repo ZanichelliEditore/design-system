@@ -439,6 +439,7 @@ export type SearchbarGroup = {
 export type BreadcrumbPath = {
   name: string;
   path?: string;
+  hasTooltip?: boolean;
 };
 
 export enum BreadcrumbPathStyle {

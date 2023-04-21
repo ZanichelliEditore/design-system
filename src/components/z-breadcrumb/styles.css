@@ -14,11 +14,14 @@ button {
 }
 
 nav {
-  overflow: hidden;
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding-left: 4px;
+  overflow-x: hidden;
 }
 
 li {
-  /* border: 1px solid red; */
   display: flex;
 }
 
@@ -48,15 +51,6 @@ li {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--line-clamp);
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-
-:host a.last-text-ellipsis {
-  display: -webkit-box !important;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   text-overflow: ellipsis;
   white-space: normal;
 }

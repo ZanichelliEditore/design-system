@@ -59,6 +59,9 @@ export class ZBreadcrumb {
   @State()
   truncateCounter = 0;
 
+  @State()
+  popoverEllipsisOpen = false;
+
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
   clickOnNode: EventEmitter;
@@ -71,11 +74,15 @@ export class ZBreadcrumb {
 
   private pathsList: BreadcrumbPath[];
 
+  private pathListCopy: BreadcrumbPath[];
+
   private collapsedElements: BreadcrumbPath[];
 
   private collapsedElementsRef: HTMLZPopoverElement;
 
   private triggerButton: HTMLButtonElement;
+
+  private triggerEllipsis: HTMLAnchorElement;
 
   private wrapElement: HTMLElement;
 
@@ -87,9 +94,7 @@ export class ZBreadcrumb {
 
   private anchorElements;
 
-  private containerEllipsis = false;
-
-  private pathListCopy: BreadcrumbPath[];
+  private currentEllipsisText: string;
 
   componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
@@ -119,12 +124,12 @@ export class ZBreadcrumb {
   private checkEllipsisOrOverflowMenu(): void {
     if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
       if (this.pathsList[0].name.length > 30) {
-        console.log(this.pathsList, this.pathListCopy);
         const truncatedString = this.truncateWithEllipsis(this.pathsList[0].name, 30, null);
+        this.currentEllipsisText = this.pathsList[0].name;
         this.pathsList[0].name = truncatedString;
+        this.pathsList[0].hasTooltip = true;
         this.truncateCounter++;
       } else {
-        console.log(this.pathsList, this.pathListCopy);
         this.collapsedElements.push(this.pathListCopy[0]);
         this.pathsList.splice(0, 1);
         this.pathListCopy.splice(0, 1);
@@ -200,11 +205,32 @@ export class ZBreadcrumb {
   private renderNode(item): HTMLLIElement {
     return (
       <li>
+        {item.hasTooltip && (
+          <z-popover
+            bind-to={this.triggerEllipsis}
+            open={this.popoverEllipsisOpen}
+            position={PopoverPosition.BOTTOM_RIGHT}
+            closable={false}
+            showArrow
+          >
+            <span class="tooltip-content">{this.currentEllipsisText}</span>
+          </z-popover>
+        )}
         <a
-          class={{"visible-node": true, "last-text-ellipsis": this.containerEllipsis}}
+          ref={(val) => (this.triggerEllipsis = val)}
           aria-current={item.path ? undefined : "page"}
           href={item.path}
           onClick={(e) => this.handlePreventFollowUrl(e, item)}
+          onMouseOver={() => {
+            if (item.hasTooltip) {
+              this.popoverEllipsisOpen = true;
+            }
+          }}
+          onMouseLeave={() => {
+            if (item.hasTooltip) {
+              this.popoverEllipsisOpen = false;
+            }
+          }}
         >
           {item.name}
         </a>
