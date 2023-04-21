@@ -53,8 +53,11 @@ export class ZBreadcrumb {
   @State()
   isMobile: boolean;
 
-  /*   @State()
-  visibleItems: number; */
+  @State()
+  visibleItems: number;
+
+  @State()
+  truncateCounter = 0;
 
   /** Emitted when preventFollowUrl=true to handle page transition*/
   @Event()
@@ -65,8 +68,7 @@ export class ZBreadcrumb {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
   }
 
-  @State()
-  pathsList: BreadcrumbPath[];
+  private pathsList: BreadcrumbPath[];
 
   private collapsedElements: BreadcrumbPath[];
 
@@ -86,27 +88,19 @@ export class ZBreadcrumb {
 
   private containerEllipsis = false;
 
+  private pathListCopy: BreadcrumbPath[];
+
   componentWillLoad(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
     this.pathsList = this.getPathsItemsList();
     this.totalLenght = this.pathsList.length;
     this.homepageNode = this.pathsList.shift();
+    this.visibleItems = this.pathsList.length;
+    this.pathListCopy = [...this.pathsList];
     this.collapsedElements = [];
   }
 
   componentWillRender(): void {
-    /*     if (this.wrapElement) {
-      if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
-        if (this.visibleItems === 1) {
-          this.containerEllipsis = true;
-        } else {
-          const removedEl = this.pathsList.splice(0, 1);
-          this.collapsedElements.push(removedEl[0]);
-          this.visibleItems--;
-        }
-      }
-    } */
-
     if (this.totalLenght > this.maxNodesToShow) {
       this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
     }
@@ -118,25 +112,21 @@ export class ZBreadcrumb {
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
-    if (this.wrapElement) {
-      if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
-        if (this.pathsList[0].name.length > 20) {
-          const truncatedString = this.truncateWithEllipsis(this.pathsList[0].name, 20, null);
-          this.pathsList[0].name = truncatedString;
-          this.pathsList = [...this.pathsList];
-
-          return;
-        }
-
-        const removedEl = this.pathsList.splice(0, 1);
-        this.collapsedElements.push(removedEl[0]);
+    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+      if (this.pathsList[0].name.length > 30) {
+        console.log(this.pathsList, this.pathListCopy);
+        const truncatedString = this.truncateWithEllipsis(this.pathsList[0].name, 30, null);
+        this.pathsList[0].name = truncatedString;
+        this.truncateCounter++;
+      } else {
+        console.log(this.pathsList, this.pathListCopy);
+        this.collapsedElements.push(this.pathListCopy[0]);
+        this.pathsList.splice(0, 1);
+        this.pathListCopy.splice(0, 1);
+        this.visibleItems--;
       }
     }
   }
-
-  //if nchar > 20
-  //truncatechar
-  //else rimuovo
 
   private truncateWithEllipsis(str, length, ending): string {
     if (length == null) {
