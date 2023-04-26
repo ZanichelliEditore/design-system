@@ -214,7 +214,13 @@ export class ZBreadcrumb {
     const lastPath = filteredPath[filteredPath.length - 1];
 
     return (
-      <nav aria-label="Breadcrumb">
+      <nav
+        aria-label="Breadcrumb"
+        class={{
+          underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
+          semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
+        }}
+      >
         <ol>{this.renderNode(lastPath, true)}</ol>
       </nav>
     );

@@ -23,6 +23,7 @@ nav {
 
 li {
   display: flex;
+  align-items: baseline;
 }
 
 :host a:focus,
@@ -77,6 +78,8 @@ nav.semibold > ol > li button {
 }
 
 :host z-icon {
+  margin-right: var(--space-unit);
+
   --z-icon-width: 10px;
   --z-icon-height: 10px;
 }
