@@ -66,24 +66,6 @@ li {
   margin-right: var(--space-unit);
 }
 
-/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
-:host ol > li + li::before,
-:host ol.mobile-breadcrumb > li::before {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  flex: 1;
-  color: var(--color-disabled03);
-}
-
-:host ol > li + li::before {
-  content: "\203A";
-}
-
-:host ol.mobile-breadcrumb > li::before {
-  content: "\2039";
-}
-
 nav.underlined > ol > li a,
 nav.underlined > ol > li button {
   text-decoration: underline;
@@ -119,4 +101,16 @@ nav.semibold > ol > li button {
 :host z-popover {
   --z-popover-theme--surface: var(--color-surface02);
   --z-popover-padding: 0;
+}
+
+@media (min-width: 768px) {
+  /* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
+  :host ol > li + li::before {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    flex: 1;
+    color: var(--color-disabled03);
+    content: "\203A";
+  }
 }

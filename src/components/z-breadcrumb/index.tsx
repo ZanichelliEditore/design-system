@@ -1,4 +1,4 @@
-import {Component, Prop, h, State, Host, Listen, Element, Event} from "@stencil/core";
+import {Component, Prop, h, State, Host, Listen, Element, Event, Watch} from "@stencil/core";
 import {
   BreadcrumbHomepageVariant,
   BreadcrumbPath,
@@ -49,27 +49,40 @@ export class ZBreadcrumb {
   @Prop()
   overflowMenuItemRows? = 0;
 
+  /** Sets the maximun number of chars per single node*/
+  @Prop()
+  truncateChar = 30;
+
   /** Handle mobile */
   @State()
   isMobile: boolean;
 
   @State()
-  visibleItems: number;
-
-  @State()
-  truncateCounter = 0;
+  hasOverflow = false;
 
   @State()
   popoverEllipsisOpen = false;
 
-  /** Emitted when preventFollowUrl=true to handle page transition*/
+  /** Emitted when preventFollowUrl=true to handle custom page transition*/
   @Event()
   clickOnNode: EventEmitter;
 
   @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.checkEllipsisOrOverflowMenu();
+    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+      this.hasOverflow = true;
+    }
+    if (!this.isMobile && this.hasOverflow) {
+      this.checkEllipsisOrOverflowMenu();
+      this.hasOverflow = false;
+    }
+  }
+  // eslint-disable-next-line lines-between-class-members
+  @Watch("paths")
+  @Watch("maxNodesToShow")
+  handlePropChange(): void {
+    this.initializeBreadcrumb();
   }
 
   private pathsList: BreadcrumbPath[];
@@ -96,54 +109,76 @@ export class ZBreadcrumb {
 
   private currentEllipsisText: string;
 
-  private accumulator: BreadcrumbPath[];
+  private truncatePosition = null;
 
   componentWillLoad(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.pathsList = this.getPathsItemsList();
-    this.totalLenght = this.pathsList.length;
-    this.homepageNode = this.pathsList.shift();
-    this.visibleItems = this.pathsList.length;
-    this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
-    this.collapsedElements = [];
-    this.accumulator = [];
+    this.initializeBreadcrumb();
   }
 
   componentWillRender(): void {
-    if (this.totalLenght > this.maxNodesToShow) {
-      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
+    if (this.hasOverflow) {
+      this.checkEllipsisOrOverflowMenu();
+      this.hasOverflow = false;
     }
   }
 
   componentDidRender(): void {
     if (this.collapsedElementsRef) {
-      this.collapsedElementsRef.bindTo = this.triggerButton;
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
-    this.checkEllipsisOrOverflowMenu();
+    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+      this.hasOverflow = true;
+    }
+  }
+
+  private initializeBreadcrumb(): void {
+    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.pathsList = this.getPathsItemsList();
+    this.totalLenght = this.pathsList.length;
+    this.homepageNode = this.pathsList.shift();
+    this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
+    this.collapsedElements = [];
+    if (this.totalLenght > this.maxNodesToShow) {
+      this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
+    }
   }
 
   private checkEllipsisOrOverflowMenu(): void {
-    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
-      for (let i = 0; i < this.pathsList.length; i++) {
-        this.accumulator.push(this.pathListCopy[i]);
-        if (this.pathsList[i].name.length > 30) {
-          console.log(i);
-          const truncatedString = this.truncateWithEllipsis(this.pathsList[0].name, 30, null);
-          this.currentEllipsisText = this.pathsList[0].name;
+    for (let i = 0; i < this.pathsList.length; i++) {
+      if (this.pathsList[i].name.length > this.truncateChar) {
+        if (this.truncatePosition !== null) {
+          if (this.truncatePosition > 0) {
+            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
+            arrayToPush.forEach((item) => {
+              this.collapsedElements.push(item);
+            });
+            this.pathsList.splice(0, this.truncatePosition);
+            this.truncatePosition = 0;
+
+            return;
+          }
+          if (this.truncatePosition === 0) {
+            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
+            arrayToPush.forEach((item) => {
+              this.collapsedElements.push(item);
+            });
+            this.pathsList.splice(0, this.truncatePosition + 1);
+            this.truncatePosition = null;
+
+            return;
+          }
+        }
+        if (i !== this.pathsList.length - 1) {
+          const truncatedString = this.truncateWithEllipsis(this.pathsList[i].name, this.truncateChar, null);
+          this.currentEllipsisText = this.pathsList[i].name;
           this.pathsList[i].name = truncatedString;
           this.pathsList[i].hasTooltip = true;
-          this.truncateCounter++;
+          this.truncatePosition = i;
 
           return;
         }
       }
-
-      this.collapsedElements.concat(this.accumulator);
-      this.pathsList.splice(0, this.accumulator.length);
-      this.pathListCopy.splice(0, this.accumulator.length);
-      this.visibleItems--;
     }
   }
 
@@ -180,7 +215,7 @@ export class ZBreadcrumb {
 
     return (
       <nav aria-label="Breadcrumb">
-        <ol class="mobile-breadcrumb">{this.renderNode(lastPath)}</ol>
+        <ol>{this.renderNode(lastPath, true)}</ol>
       </nav>
     );
   }
@@ -211,7 +246,7 @@ export class ZBreadcrumb {
     );
   }
 
-  private renderNode(item): HTMLLIElement {
+  private renderNode(item, mobile?): HTMLLIElement {
     return (
       <li>
         {item.hasTooltip && (
@@ -225,6 +260,7 @@ export class ZBreadcrumb {
             <span class="tooltip-content">{this.currentEllipsisText}</span>
           </z-popover>
         )}
+        {mobile && <z-icon name="chevron-left"></z-icon>}
         <a
           ref={(val) => (this.triggerEllipsis = val)}
           aria-current={item.path ? undefined : "page"}
@@ -314,6 +350,7 @@ export class ZBreadcrumb {
             ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
             bind-to={this.triggerButton}
             position={PopoverPosition.BOTTOM_RIGHT}
+            closable={true}
             showArrow
           >
             <div class="popover-content">

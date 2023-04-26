@@ -120,6 +120,10 @@ export namespace Components {
           * Controls the behaviour on <a> tag click/enter
          */
         "preventFollowUrl": boolean;
+        /**
+          * Sets the maximun number of chars per single node
+         */
+        "truncateChar": number;
     }
     interface ZButton {
         /**
@@ -2687,7 +2691,7 @@ declare namespace LocalJSX {
          */
         "maxNodesToShow"?: number;
         /**
-          * Emitted when preventFollowUrl=true to handle page transition
+          * Emitted when preventFollowUrl=true to handle custom page transition
          */
         "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
         "overflowMenuItemRows"?: number;
@@ -2703,6 +2707,10 @@ declare namespace LocalJSX {
           * Controls the behaviour on <a> tag click/enter
          */
         "preventFollowUrl"?: boolean;
+        /**
+          * Sets the maximun number of chars per single node
+         */
+        "truncateChar"?: number;
     }
     interface ZButton {
         /**
