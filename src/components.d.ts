@@ -100,30 +100,33 @@ export namespace Components {
     }
     interface ZBreadcrumb {
         /**
-          * Variant of first node
+          * [optional] Variant of first node
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
          */
-        "maxNodesToShow": number;
+        "maxNodesToShow"?: number;
+        /**
+          * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
+         */
         "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * Path elements
+          * [optional] Path elements
          */
-        "paths": BreadcrumbPath[] | string;
+        "paths"?: BreadcrumbPath[] | string;
         /**
-          * Controls the behaviour on <a> tag click/enter
+          * [optional] Controls the behaviour on <a> tag click/enter
          */
-        "preventFollowUrl": boolean;
+        "preventFollowUrl"?: boolean;
         /**
-          * Sets the maximun number of chars per single node
+          * [optional] Sets the maximun number of chars per single node
          */
-        "truncateChar": number;
+        "truncateChar"?: number;
     }
     interface ZButton {
         /**
@@ -2683,7 +2686,7 @@ declare namespace LocalJSX {
     }
     interface ZBreadcrumb {
         /**
-          * Variant of first node
+          * [optional] Variant of first node
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
@@ -2694,21 +2697,24 @@ declare namespace LocalJSX {
           * Emitted when preventFollowUrl=true to handle custom page transition
          */
         "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        /**
+          * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
+         */
         "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * Path elements
+          * [optional] Path elements
          */
         "paths"?: BreadcrumbPath[] | string;
         /**
-          * Controls the behaviour on <a> tag click/enter
+          * [optional] Controls the behaviour on <a> tag click/enter
          */
         "preventFollowUrl"?: boolean;
         /**
-          * Sets the maximun number of chars per single node
+          * [optional] Sets the maximun number of chars per single node
          */
         "truncateChar"?: number;
     }

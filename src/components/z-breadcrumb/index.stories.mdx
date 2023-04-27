@@ -22,7 +22,13 @@ import "./style.stories.css";
     maxNodesToShow: {
       control: {type: "number"},
     },
+    preventFollowUrl: {
+      control: {type: "boolean"},
+    },
     overflowMenuItemRows: {
+      control: {type: "number"},
+    },
+    truncateChar: {
       control: {type: "number"},
     },
   }}
@@ -44,6 +50,9 @@ import "./style.stories.css";
       ],
       homepageVariant: BreadcrumbHomepageVariant.ICON,
       maxNodesToShow: 5,
+      preventFollowUrl: false,
+      overflowMenuItemRows: 0,
+      truncateChar: 30,
     }}
   >
     {(args) => html`<div class="container">
@@ -52,7 +61,9 @@ import "./style.stories.css";
         paths=${JSON.stringify(args.paths)}
         homepage-variant=${args.homepageVariant}
         max-nodes-to-show=${args.maxNodesToShow}
+        prevent-follow-url=${args.preventFollowUrl}
         overflow-menu-item-rows=${args.overflowMenuItemRows}
+        truncate-char=${args.truncateChar}
       ></z-breadcrumb>
     </div>`}
   </Story>

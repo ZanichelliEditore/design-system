@@ -18,52 +18,53 @@ import {handleKeyboardSubmit} from "../../utils/utils";
   shadow: true,
 })
 export class ZBreadcrumb {
-  /*Accessibility references */
-  /*Overflow-menu: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/ */
-  /*Breadcrumb: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/ */
-  /*Focus on multiline link: https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html */
+  /* Accessibility references */
+  /* Overflow-menu: https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/ */
+  /* Breadcrumb: https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/ */
+  /* Focus on multiline link: https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html */
 
   @Element() hostElement: HTMLZBreadcrumbElement;
 
-  /** Path elements */
+  /** [optional] Path elements */
   @Prop()
-  paths: BreadcrumbPath[] | string;
+  paths?: BreadcrumbPath[] | string;
 
   /** [optional] Sets the path style */
   @Prop({reflect: true})
   pathStyle?: BreadcrumbPathStyle = BreadcrumbPathStyle.UNDERLINED;
 
-  /** Variant of first node*/
+  /** [optional] Variant of first node */
   @Prop()
   homepageVariant?: BreadcrumbHomepageVariant = BreadcrumbHomepageVariant.ICON;
 
   /** [optional] Sets max number of element to show */
   @Prop()
-  maxNodesToShow = 5;
+  maxNodesToShow? = 5;
 
-  /**  Controls the behaviour on <a> tag click/enter*/
+  /** [optional] Controls the behaviour on <a> tag click/enter */
   @Prop()
-  preventFollowUrl = false;
+  preventFollowUrl? = false;
 
-  /** */
+  /** [optional] Sets max number of row for each path inside the popover. Zero equals unlimited */
   @Prop()
   overflowMenuItemRows? = 0;
 
-  /** Sets the maximun number of chars per single node*/
+  /** [optional] Sets the maximun number of chars per single node */
   @Prop()
-  truncateChar = 30;
+  truncateChar? = 30;
 
   /** Handle mobile */
   @State()
   isMobile: boolean;
 
+  /** Detect whether the length of the nodes shown exceeds the container length */
   @State()
   hasOverflow = false;
 
   @State()
   popoverEllipsisOpen = false;
 
-  /** Emitted when preventFollowUrl=true to handle custom page transition*/
+  /** Emitted when preventFollowUrl=true to handle custom page transition */
   @Event()
   clickOnNode: EventEmitter;
 
