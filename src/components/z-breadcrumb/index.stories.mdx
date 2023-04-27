@@ -22,7 +22,13 @@ import "./style.stories.css";
     maxNodesToShow: {
       control: {type: "number"},
     },
+    preventFollowUrl: {
+      control: {type: "boolean"},
+    },
     overflowMenuItemRows: {
+      control: {type: "number"},
+    },
+    truncateChar: {
       control: {type: "number"},
     },
   }}
@@ -32,19 +38,21 @@ import "./style.stories.css";
 
 <Canvas>
   <Story
-    name="breadcrumb with paths"
+    name="Breadcrumb"
     args={{
       pathStyle: BreadcrumbPathStyle.SEMIBOLD,
       paths: [
         {name: "Path 1", path: "https://www.zanichelli.it"},
-        {name: "Path 2", path: "/path2"},
-        {name: "Path 3", path: "/path3"},
-        {name: "Path 4", path: "/path4"},
-        {name: "Path 5", path: "/path5"},
-        {name: "Path 6", path: "/path6"},
+        {name: "Lingua inglese - Scuola secondaria di primo grado", path: "/path2"},
+        {name: "Lingua Inglese - Lessico e funzioni linguistiche e comunicative", path: "/path3"},
+        {name: "Il tempo libero e i luoghi del tempo libero", path: "/path4"},
+        {name: "Chiedere di e descrivere le proprie vacanze", path: "/path5"},
       ],
       homepageVariant: BreadcrumbHomepageVariant.ICON,
       maxNodesToShow: 5,
+      preventFollowUrl: false,
+      overflowMenuItemRows: 0,
+      truncateChar: 30,
     }}
   >
     {(args) => html`<div class="container">
@@ -53,10 +61,31 @@ import "./style.stories.css";
         paths=${JSON.stringify(args.paths)}
         homepage-variant=${args.homepageVariant}
         max-nodes-to-show=${args.maxNodesToShow}
+        prevent-follow-url=${args.preventFollowUrl}
         overflow-menu-item-rows=${args.overflowMenuItemRows}
+        truncate-char=${args.truncateChar}
       ></z-breadcrumb>
     </div>`}
   </Story>
 </Canvas>
 
 <ArgsTable of="z-breadcrumb" />
+
+## ZBreadcrumb with inner content for SEO purposes
+
+As the crawlers flatten the light dom and the shadow dom, it is important to move all the relevant SEO content in the light DOM, to not affect indexability.
+
+### Usage
+
+For this use case, you can omit paths prop and pass as component's children a number of anchor tags.
+The component will handle the logic for generating the proper markup inside the shadow dom.
+No slot is rendered inside the latter.
+
+```html
+<z-breadcrumb>
+  <a href="./link1">link1</a>
+  <a href="./link2">link2</a>
+  <a href="./link3">link3</a>
+  <a href="./link4">link4</a>
+</z-breadcrumb>
+```
