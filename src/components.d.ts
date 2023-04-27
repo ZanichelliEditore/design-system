@@ -28,19 +28,31 @@ export namespace Components {
          */
         "drawerOpen": boolean;
         /**
+          * Enable the search bar.
+         */
+        "enableSearch": boolean;
+        /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow": "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
          */
         "hero": string;
         /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
          */
         "overlay": boolean;
         /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl": string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck": boolean;
     }
@@ -1140,19 +1152,19 @@ export namespace Components {
     }
     interface ZOffcanvas {
         /**
-          * open component. Default: false
+          * Whether the offcanvas is open. Default: false
          */
         "open": boolean;
         /**
-          * this method allows you to skip the page loading animation, to be used with the prop set to true
+          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
          */
-        "setSkipAanimationOnLoad": (value: boolean) => Promise<void>;
+        "skipLoadAnimation": boolean;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
          */
         "variant"?: OffCanvasVariant;
     }
@@ -2591,11 +2603,15 @@ declare namespace LocalJSX {
          */
         "drawerOpen"?: boolean;
         /**
+          * Enable the search bar.
+         */
+        "enableSearch"?: boolean;
+        /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a slot="hero" node for advanced customisation. **Optional**
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
          */
         "hero"?: string;
         /**
@@ -2603,11 +2619,19 @@ declare namespace LocalJSX {
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
-          * Should place an overlay over the hero image. Useful for legibility purpose. **Optional**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
          */
         "overlay"?: boolean;
         /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver. **Optional**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl"?: string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck"?: boolean;
     }
@@ -3831,19 +3855,23 @@ declare namespace LocalJSX {
     }
     interface ZOffcanvas {
         /**
-          * emitted when open prop changes
+          * emitted when `open` prop changes
          */
         "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
         /**
-          * open component. Default: false
+          * Whether the offcanvas is open. Default: false
          */
         "open"?: boolean;
+        /**
+          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
+         */
+        "skipLoadAnimation"?: boolean;
         /**
           * open content transitioning in a specified direction left | right. Default: left
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one of "overlay", "pushcontent" Default variant: pushcontent
+          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
          */
         "variant"?: OffCanvasVariant;
     }

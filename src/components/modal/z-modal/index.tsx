@@ -1,4 +1,5 @@
 import {Component, Prop, h, Event, EventEmitter, Method, Element, Listen} from "@stencil/core";
+import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../../beans";
 
 const FOCUSABLE_ELEMENTS_SELECTOR =
@@ -71,7 +72,12 @@ export class ZModal {
   }
 
   componentDidLoad(): void {
-    this.open();
+    if (typeof HTMLDialogElement !== "function") {
+      dialogPolyfill.registerDialog(this.dialog);
+      this.dialog.setAttribute("open", "true");
+    } else {
+      this.open();
+    }
   }
 
   /** open modal */

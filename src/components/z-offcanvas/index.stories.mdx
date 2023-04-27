@@ -1,20 +1,28 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {styleMap} from "lit-html/directives/style-map.js";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 import {html} from "lit-html";
 import "./index";
+import "./index.stories.css";
 
 <Meta
   title="ZOffcanvas"
   component="z-offcanvas"
+  parameters={{
+    layout: "fullscreen",
+  }}
   argTypes={{
     variant: {
       control: {type: "inline-radio"},
       options: Object.values(OffCanvasVariant),
     },
-    open: {
-      control: {type: "boolean"},
+    transitiondirection: {
+      control: {type: "inline-radio"},
+      options: Object.values(TransitionDirection),
     },
+  }}
+  args={{
+    variant: OffCanvasVariant.PUSHCONTENT,
+    open: true,
   }}
 />
 
@@ -24,19 +32,11 @@ import "./index";
   <Story
     name="ZOffcanvas enter-right"
     args={{
-      variant: OffCanvasVariant.PUSHCONTENT,
       transitiondirection: TransitionDirection.RIGHT,
-      open: true,
     }}
   >
     {(args) => html`
-    <style>
-      #offcanvas-story-container {
-        height: 100vh;
-        background-color: lightblue;
-      }
-    </style>
-    <div id="offcanvas-story-container" style="display: flex;">
+    <div id="offcanvas-story-container">
       <z-offcanvas .variant=${args.variant} .open=${args.open} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
@@ -71,12 +71,12 @@ import "./index";
             </span>
         </div>
       </z-offcanvas>
-      <div style="display: flex; flex-wrap: wrap">
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+      <div id="offcanvas-boxes-container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>`}
   </Story>
@@ -86,27 +86,19 @@ import "./index";
   <Story
     name="ZOffcanvas enter-left"
     args={{
-      variant: OffCanvasVariant.PUSHCONTENT,
       transitiondirection: TransitionDirection.LEFT,
-      open: true,
     }}
   >
     {(args) => html`
-    <style>
-      #offcanvas-story-container {
-        height: 100vh;
-        background-color: lightblue;
-      }
-    </style>
-    <div id="offcanvas-story-container" style="display: flex; justify-content: end;">
-      <div style="display: flex; flex-wrap: wrap">
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+    <div id="offcanvas-story-container" class="offcanvas-left">
+      <div id="offcanvas-boxes-container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
+      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipLoadAnimation=${args.skipLoadAnimation} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
@@ -146,33 +138,22 @@ import "./index";
 
 <Canvas>
   <Story
-    name="ZOffcanvas skipanimationonload"
+    name="ZOffcanvas skipLoadAnimation"
     args={{
-      variant: OffCanvasVariant.PUSHCONTENT,
       transitiondirection: TransitionDirection.LEFT,
-      open: true,
+      skipLoadAnimation: true,
     }}
   >
     {(args) => html`
-    <style>
-      #offcanvas-story-container {
-        height: 100vh;
-        background-color: lightblue;
-      }
-    </style>
-    <script>
-      let offcanvas = document.querySelector("z-offcanvas");
-      if (offcanvas) offcanvas.setSkipAanimationOnLoad(true);
-    </script>
-    <div id="offcanvas-story-container" style="display: flex; justify-content: end;">
-      <div style="display: flex; flex-wrap: wrap">
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
-        <div style="margin: 20px; width: 150px; height: 150px; background-color: orange"></div>
+    <div id="offcanvas-story-container" class="offcanvas-left">
+      <div id="offcanvas-boxes-container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipanimationonload=${args.skipanimationonload} .transitiondirection=${args.transitiondirection} =>
+      <z-offcanvas .variant=${args.variant} .open=${args.open} .skipLoadAnimation=${args.skipLoadAnimation} .transitiondirection=${args.transitiondirection} =>
         <div slot="canvasContent">
           <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna ac urna aliquet lacinia eu ac
@@ -211,6 +192,3 @@ import "./index";
 </Canvas>
 
 <ArgsTable of="z-offcanvas" />
-
-if you need exists this method <b>setSkipAanimationOnLoad</b> it allows you to skip the offcanvas animation on page load, to be
-used with the prop "open" to true.
