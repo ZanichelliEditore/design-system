@@ -123,7 +123,7 @@ const ZAppHeader = class {
    * Whether the header has a hero image, either as a prop or as a slot.
    */
   get hasHero() {
-    return this.hero !== undefined || this.hostElement.querySelector("[slot=hero]") !== null;
+    return !!this.hero || this.hostElement.querySelector("[slot=hero]") !== null;
   }
   openDrawer() {
     this.drawerOpen = true;
