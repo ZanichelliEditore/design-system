@@ -245,7 +245,7 @@ export class ZAppHeader {
    * Whether the header has a hero image, either as a prop or as a slot.
    */
   private get hasHero(): boolean {
-    return this.hero !== undefined || this.hostElement.querySelector("[slot=hero]") !== null;
+    return !!this.hero || this.hostElement.querySelector("[slot=hero]") !== null;
   }
 
   private openDrawer(): void {
