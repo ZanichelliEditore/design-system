@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.5](https://github.com/ZanichelliEditore/design-system/compare/v7.3.4...v7.3.5) (2023-05-03)
+
+
+### Bug Fixes
+
+* app header hero check ([6bf1231](https://github.com/ZanichelliEditore/design-system/commit/6bf123113bf5c69767b3227aebebfb2ae8657237))
+
 ### [7.3.4](https://github.com/ZanichelliEditore/design-system/compare/v7.3.3...v7.3.4) (2023-04-20)
 
 
