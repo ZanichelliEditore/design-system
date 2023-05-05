@@ -188,7 +188,7 @@ export class ZBreadcrumb {
       length = 100;
     }
     if (ending == null) {
-      ending = "...";
+      ending = "&mldr;";
     }
     if (str.length > length) {
       return str.substring(0, length - ending.length) + ending;
@@ -197,7 +197,7 @@ export class ZBreadcrumb {
     return str;
   }
 
-  private getPathsItemsList(): BreadcrumbPath[] | undefined {
+  private getPathsItemsList(): BreadcrumbPath[] {
     if (!this.paths) {
       return Array.from(this.hostElement.children).map((item: HTMLAnchorElement) => {
         return {
@@ -283,9 +283,8 @@ export class ZBreadcrumb {
               this.popoverEllipsisOpen = false;
             }
           }}
-        >
-          {item.name}
-        </a>
+          innerHTML={item.name}
+        />
       </li>
     );
   }

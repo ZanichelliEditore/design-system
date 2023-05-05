@@ -17,7 +17,7 @@ nav {
   display: flex;
   height: 30px;
   align-items: center;
-  padding-left: 4px;
+  padding-left: calc(var(--space-unit) / 2);
   overflow-x: hidden;
 }
 
