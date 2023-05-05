@@ -161,9 +161,7 @@ export class ZBreadcrumb {
           }
           if (this.truncatePosition === 0) {
             const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
-            arrayToPush.forEach((item) => {
-              this.collapsedElements.push(item);
-            });
+            this.collapsedElements.push(...arrayToPush);
             this.pathsList.splice(0, this.truncatePosition + 1);
             this.truncatePosition = null;
 
@@ -203,11 +201,16 @@ export class ZBreadcrumb {
         return {
           name: item.textContent,
           path: item.href,
+          hasTooltip: false,
         };
       });
     }
 
-    return typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
+    const ret = typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
+
+    return ret.map((item) => {
+      return {...item, hasTooltip: false};
+    });
   }
 
   private renderMobileBreadcrumb(): HTMLDivElement {
