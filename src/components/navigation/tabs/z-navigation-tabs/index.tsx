@@ -160,7 +160,6 @@ export class ZNavigationTabs {
           "interactive-1": this.size !== NavigationTabsSize.SMALL,
         }}
         scrollable={this.canNavigate}
-        role="tablist"
       >
         {this.canNavigate && (
           <button
