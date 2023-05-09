@@ -111,6 +111,8 @@ export class ZNavigationTab {
         disabled={this.disabled}
         title={this.htmlTitle}
         onFocus={this.scrollToTab.bind(this)}
+        aria-selected={this.selected ? "true" : "false"}
+        tabindex={this.selected ? "0" : "-1"}
       >
         {this.icon && this.renderIcon()}
         {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}
