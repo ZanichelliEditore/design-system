@@ -146,48 +146,51 @@ export class ZBreadcrumb {
   }
 
   private checkEllipsisOrOverflowMenu(): void {
-    for (let i = 0; i < this.pathsList.length; i++) {
-      if (this.pathsList[i].name.length > this.truncateChar) {
-        if (this.truncatePosition !== null) {
-          if (this.truncatePosition > 0) {
-            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
-            arrayToPush.forEach((item) => {
-              this.collapsedElements.push(item);
-            });
-            this.pathsList.splice(0, this.truncatePosition);
-            this.truncatePosition = 0;
+    if (this.pathListCopy.length > 0) {
+      for (let i = 0; i < this.pathsList.length; i++) {
+        if (this.pathsList[i].text.length > this.truncateChar) {
+          if (this.truncatePosition !== null) {
+            if (this.truncatePosition > 0) {
+              const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
+              arrayToPush.forEach((item) => {
+                this.collapsedElements.push(item);
+              });
+              this.pathsList.splice(0, this.truncatePosition);
+              this.truncatePosition = 0;
+
+              return;
+            }
+            if (this.truncatePosition === 0) {
+              const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
+              this.collapsedElements.push(...arrayToPush);
+              this.pathsList.splice(0, this.truncatePosition + 1);
+              this.truncatePosition = null;
+
+              return;
+            }
+          }
+          if (i !== this.pathsList.length - 1) {
+            const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
+            this.currentEllipsisText = this.pathsList[i].text;
+            this.pathsList[i].text = truncatedString;
+            this.pathsList[i].hasTooltip = true;
+            this.truncatePosition = i;
 
             return;
           }
-          if (this.truncatePosition === 0) {
-            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
-            this.collapsedElements.push(...arrayToPush);
-            this.pathsList.splice(0, this.truncatePosition + 1);
-            this.truncatePosition = null;
-
-            return;
-          }
-        }
-        if (i !== this.pathsList.length - 1) {
-          const truncatedString = this.truncateWithEllipsis(this.pathsList[i].name, this.truncateChar, null);
-          this.currentEllipsisText = this.pathsList[i].name;
-          this.pathsList[i].name = truncatedString;
-          this.pathsList[i].hasTooltip = true;
-          this.truncatePosition = i;
-
-          return;
         }
       }
     }
   }
 
-  private truncateWithEllipsis(str, length, ending): string {
+  private truncateWithEllipsis(str: string, length: number): string {
+    const ending = "&mldr;";
+    console.log("AA", ending.length);
+
     if (length == null) {
       length = 100;
     }
-    if (ending == null) {
-      ending = "&mldr;";
-    }
+
     if (str.length > length) {
       return str.substring(0, length - ending.length) + ending;
     }
@@ -199,7 +202,7 @@ export class ZBreadcrumb {
     if (!this.paths) {
       return Array.from(this.hostElement.children).map((item: HTMLAnchorElement) => {
         return {
-          name: item.textContent,
+          text: item.textContent,
           path: item.href,
           hasTooltip: false,
         };
@@ -256,7 +259,7 @@ export class ZBreadcrumb {
     );
   }
 
-  private renderNode(item, mobile?): HTMLLIElement {
+  private renderNode(item, mobile): HTMLLIElement {
     return (
       <li>
         {item.hasTooltip && (
@@ -286,7 +289,7 @@ export class ZBreadcrumb {
               this.popoverEllipsisOpen = false;
             }
           }}
-          innerHTML={item.name}
+          innerHTML={item.text}
         />
       </li>
     );
@@ -305,7 +308,7 @@ export class ZBreadcrumb {
         <ol>
           {this.renderHomepageNode(this.homepageNode)}
           {this.collapsedElements ? this.renderOverflowMenu() : ""}
-          {this.pathsList.map((item) => this.renderNode(item))}
+          {this.pathsList.map((item) => this.renderNode(item, false))}
         </ol>
       </nav>
     );
@@ -376,7 +379,7 @@ export class ZBreadcrumb {
                         onClick={(e) => this.handlePreventFollowUrl(e, item)}
                         onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
                       >
-                        {item.name}
+                        {item.text}
                       </a>
                     </z-list-element>
                   ))}

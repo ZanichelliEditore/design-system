@@ -6,11 +6,11 @@ describe("Suite test ZBreadcrumb", () => {
   it("Test render ZBreadcrumb with path prop", async () => {
     const page = await newSpecPage({
       components: [ZBreadcrumb],
-      html: `<z-breadcrumb paths='[{"name": "Primo path", "path": "/path1"}, {"name": "Secondo path", "path": "/path2"}, {"name": "Terzo path", "path": "/path3"}]'></z-breadcrumb>`,
+      html: `<z-breadcrumb paths='[{"text": "Primo path", "path": "/path1"}, {"text": "Secondo path", "path": "/path2"}, {"text": "Terzo path", "path": "/path3"}]'></z-breadcrumb>`,
     });
 
     expect(page.root)
-      .toEqualHtml(`<z-breadcrumb path-style="underlined" paths="[{&quot;name&quot;: &quot;Primo path&quot;, &quot;path&quot;: &quot;/path1&quot;}, {&quot;name&quot;: &quot;Secondo path&quot;, &quot;path&quot;: &quot;/path2&quot;}, {&quot;name&quot;: &quot;Terzo path&quot;, &quot;path&quot;: &quot;/path3&quot;}]" style="--line-clamp: 0;">
+      .toEqualHtml(`<z-breadcrumb path-style="underlined" paths="[{&quot;text&quot;: &quot;Primo path&quot;, &quot;path&quot;: &quot;/path1&quot;}, {&quot;text&quot;: &quot;Secondo path&quot;, &quot;path&quot;: &quot;/path2&quot;}, {&quot;text&quot;: &quot;Terzo path&quot;, &quot;path&quot;: &quot;/path3&quot;}]" style="--line-clamp: 0;">
       <mock:shadow-root>
         <nav aria-label="Breadcrumb" class="underlined">
           <ol>

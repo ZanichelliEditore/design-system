@@ -3,7 +3,7 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
-  --line-clamp: 1;
+  --line-clamp: 0;
 }
 
 button {
