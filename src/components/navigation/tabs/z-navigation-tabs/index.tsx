@@ -41,6 +41,12 @@ export class ZNavigationTabs {
   @State()
   canNavigateNext: boolean;
 
+  /**
+   * tab focus index.
+   */
+  @State()
+  tabFocus: number;
+
   @Element() host: HTMLZNavigationTabsElement;
 
   private tabsNav: HTMLElement;
@@ -146,6 +152,41 @@ export class ZNavigationTabs {
     });
   }
 
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  @Listen("keydown")
+  private navigateThroughTabs(e: KeyboardEvent): void {
+    const children = Array.from(this.host.children);
+    children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      // Move right
+      if (e.key === "ArrowRight") {
+        this.tabFocus++;
+        if (this.tabFocus >= children.length) {
+          this.tabFocus = 0;
+        }
+        // Move left
+      } else if (e.key === "ArrowLeft") {
+        this.tabFocus--;
+        if (this.tabFocus < 0) {
+          this.tabFocus = children.length - 1;
+        }
+      }
+      //ignore disabled tabs
+      if (children[this.tabFocus].querySelector('[role="tab"]').hasAttribute("disabled")) {
+        this.navigateThroughTabs(e);
+      } else {
+        children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "0");
+        (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
+      }
+    }
+  }
+
+  componentWillLoad(): void {
+    this.tabFocus = 0;
+  }
+
   componentDidRender(): void {
     this.setChildrenSize();
     this.setChildrenOrientation();
@@ -188,6 +229,9 @@ export class ZNavigationTabs {
           <button
             class="navigation-button"
             onClick={this.navigateForward.bind(this)}
+            onKeyDown={(e: KeyboardEvent) => {
+              this.navigateThroughTabs(e);
+            }}
             tabindex="-1"
             disabled={!this.canNavigateNext}
           >
