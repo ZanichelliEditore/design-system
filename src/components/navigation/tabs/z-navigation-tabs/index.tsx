@@ -156,18 +156,29 @@ export class ZNavigationTabs {
    * move focus though tabs using keyboad arrows.
    */
   @Listen("keydown")
-  private navigateThroughTabs(e: KeyboardEvent): void {
-    const children = Array.from(this.host.children);
-    children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-      // Move right
-      if (e.key === "ArrowRight") {
+  private navigateThroughTabs(e: KeyboardEvent): void | boolean {
+    if (!this.isArrowNavigation(e)) {
+      return true;
+    }
+
+    if (this.isArrowNavigation(e)) {
+      e.preventDefault();
+      const children = Array.from(this.host.children);
+      children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
+      // Move forward
+      if (
+        (e.key === "ArrowRight" && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+        (e.key === "ArrowDown" && this.orientation == NavigationTabsOrientation.VERTICAL)
+      ) {
         this.tabFocus++;
         if (this.tabFocus >= children.length) {
           this.tabFocus = 0;
         }
-        // Move left
-      } else if (e.key === "ArrowLeft") {
+        // Move backward
+      } else if (
+        (e.key === "ArrowLeft" && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+        (e.key === "ArrowUp" && this.orientation == NavigationTabsOrientation.VERTICAL)
+      ) {
         this.tabFocus--;
         if (this.tabFocus < 0) {
           this.tabFocus = children.length - 1;
@@ -181,6 +192,13 @@ export class ZNavigationTabs {
         (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
       }
     }
+  }
+
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  private isArrowNavigation(e: KeyboardEvent): boolean {
+    return e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown";
   }
 
   componentWillLoad(): void {
