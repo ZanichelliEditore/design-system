@@ -1024,6 +1024,10 @@ export namespace Components {
     }
     interface ZNavigationTab {
         /**
+          * set aria-controls attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's id. When an element with the tabpanel role has focus, or a child of it has focus, that indicates that the connected element with the tab role is the active tab in a tablist.
+         */
+        "ariaControls"?: string;
+        /**
           * Whether the tab is disabled.
          */
         "disabled"?: boolean;
@@ -1051,8 +1055,16 @@ export namespace Components {
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size": NavigationTabsSize;
+        /**
+          * set id attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's attribute  aria-labelledby.
+         */
+        "tabId"?: string;
     }
     interface ZNavigationTabLink {
+        /**
+          * set aria-controls attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's id. When an element with the tabpanel role has focus, or a child of it has focus, that indicates that the connected element with the tab role is the active tab in a tablist.
+         */
+        "ariaControls"?: string;
         /**
           * Whether the tab is disabled.
          */
@@ -1086,11 +1098,19 @@ export namespace Components {
          */
         "size": NavigationTabsSize;
         /**
+          * set id attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's attribute  aria-labelledby.
+         */
+        "tabId"?: string;
+        /**
           * Html `target` attribute for the anchor element.
          */
         "target": string;
     }
     interface ZNavigationTabs {
+        /**
+          * Set aria-label attribute in tablist role.
+         */
+        "ariaLabel"?: string;
         /**
           * Navigation tabs orientation.
          */
@@ -3673,6 +3693,10 @@ declare namespace LocalJSX {
     }
     interface ZNavigationTab {
         /**
+          * set aria-controls attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's id. When an element with the tabpanel role has focus, or a child of it has focus, that indicates that the connected element with the tab role is the active tab in a tablist.
+         */
+        "ariaControls"?: string;
+        /**
           * Whether the tab is disabled.
          */
         "disabled"?: boolean;
@@ -3704,8 +3728,16 @@ declare namespace LocalJSX {
           * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
          */
         "size"?: NavigationTabsSize;
+        /**
+          * set id attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's attribute  aria-labelledby.
+         */
+        "tabId"?: string;
     }
     interface ZNavigationTabLink {
+        /**
+          * set aria-controls attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's id. When an element with the tabpanel role has focus, or a child of it has focus, that indicates that the connected element with the tab role is the active tab in a tablist.
+         */
+        "ariaControls"?: string;
         /**
           * Whether the tab is disabled.
          */
@@ -3743,11 +3775,19 @@ declare namespace LocalJSX {
          */
         "size"?: NavigationTabsSize;
         /**
+          * set id attribute to tab property identifying a corresponding tabpanel (that has a tabpanel role) by that element's attribute  aria-labelledby.
+         */
+        "tabId"?: string;
+        /**
           * Html `target` attribute for the anchor element.
          */
         "target"?: string;
     }
     interface ZNavigationTabs {
+        /**
+          * Set aria-label attribute in tablist role.
+         */
+        "ariaLabel"?: string;
         /**
           * Navigation tabs orientation.
          */

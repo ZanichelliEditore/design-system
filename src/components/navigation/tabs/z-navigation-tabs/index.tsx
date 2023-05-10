@@ -12,6 +12,12 @@ import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
 })
 export class ZNavigationTabs {
   /**
+   * Set aria-label attribute in tablist role.
+   */
+  @Prop()
+  ariaLabel?: string;
+
+  /**
    * Navigation tabs orientation.
    */
   @Prop({reflect: true})
@@ -237,6 +243,7 @@ export class ZNavigationTabs {
 
         <nav
           role="tablist"
+          aria-label={this.ariaLabel}
           ref={(el) => (this.tabsNav = el ?? this.tabsNav)}
           onScroll={this.checkScrollEnabled.bind(this)}
         >

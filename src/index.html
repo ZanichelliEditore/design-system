@@ -30,6 +30,41 @@
       <z-app-header>
         <h1 slot="title">Albe test app</h1>
       </z-app-header>
+
+      <z-navigation-tabs
+        orientation="${args.orientation}"
+        size="${args.size}"
+        ariaLabel="test label"
+      >
+        <z-navigation-tab
+          icon="house"
+          label="Home"
+        ></z-navigation-tab>
+        <z-navigation-tab
+          icon="map"
+          label="Maps"
+        ></z-navigation-tab>
+        <z-navigation-tab
+          icon="download"
+          label="Download"
+          disabled
+        ></z-navigation-tab>
+        <z-navigation-tab
+          icon="user-avatar"
+          label="Users"
+        ></z-navigation-tab>
+        <z-navigation-tab
+          icon="artist"
+          label="Artisti"
+        ></z-navigation-tab>
+        <z-navigation-tab-link
+          href="https://www.google.com"
+          icon="arrow-quad-north-east"
+          label="External link"
+          target="_blank"
+          htmlTitle="Go to Google"
+        ></z-navigation-tab-link>
+      </z-navigation-tabs>
     </header>
   </body>
 </html>

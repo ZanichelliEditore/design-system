@@ -11,6 +11,22 @@ import {ICONS} from "../../../icons/icons";
 })
 export class ZNavigationTabLink {
   /**
+   * set aria-controls attribute to tab property identifying a corresponding tabpanel
+   * (that has a tabpanel role) by that element's id.
+   * When an element with the tabpanel role has focus, or a child of it has focus,
+   * that indicates that the connected element with the tab role is the active tab in a tablist.
+   */
+  @Prop()
+  ariaControls?: string = "";
+
+  /**
+   * set id attribute to tab property identifying a corresponding tabpanel
+   * (that has a tabpanel role) by that element's attribute  aria-labelledby.
+   */
+  @Prop()
+  tabId?: string = "";
+
+  /**
    * Whether the tab is selected.
    */
   @Prop({mutable: true, reflect: true})
@@ -118,11 +134,13 @@ export class ZNavigationTabLink {
     return (
       <a
         role="tab"
+        id={this.tabId}
         href={!this.disabled && this.href}
         title={this.htmlTitle}
         target={this.target}
         onFocus={this.scrollToTab.bind(this)}
         aria-selected={this.selected ? "true" : "false"}
+        aria-controls={this.ariaControls}
       >
         {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
