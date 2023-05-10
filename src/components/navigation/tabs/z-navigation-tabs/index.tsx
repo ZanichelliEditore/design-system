@@ -130,9 +130,11 @@ export class ZNavigationTabs {
   onTabSelected(event: CustomEvent): void {
     const tab = event.target;
     const children = Array.from(this.host.children);
-    children.forEach((child) => {
+    children.forEach((child, i) => {
       if (child !== tab) {
         child.removeAttribute("selected");
+      } else {
+        this.tabFocus = i;
       }
     });
   }
@@ -207,6 +209,16 @@ export class ZNavigationTabs {
     return e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown";
   }
 
+  private setTabindex(): void {
+    const children = Array.from(this.host.children);
+    if (children.length > 0) {
+      children.forEach((child, i) => {
+        child.hasAttribute("aria-selected") && (this.tabFocus = i);
+      });
+      children[this.tabFocus].querySelector('[role="tab"]')?.setAttribute("tabindex", "0");
+    }
+  }
+
   componentWillLoad(): void {
     this.tabFocus = 0;
   }
@@ -215,6 +227,7 @@ export class ZNavigationTabs {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
+    this.setTabindex();
   }
 
   render(): HTMLZNavigationTabsElement {

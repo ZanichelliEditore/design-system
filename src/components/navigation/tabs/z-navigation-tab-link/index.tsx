@@ -141,6 +141,7 @@ export class ZNavigationTabLink {
         onFocus={this.scrollToTab.bind(this)}
         aria-selected={this.selected ? "true" : "false"}
         aria-controls={this.ariaControls}
+        tabindex={this.selected ? "0" : "-1"}
       >
         {this.icon && this.renderIcon()}
         {this.orientation === "horizontal" && this.label}
