@@ -47,6 +47,10 @@ li {
   display: initial;
 }
 
+:host a.missing-path {
+  color: var(--color-text01);
+}
+
 :host a.text-ellipsis {
   display: -webkit-box !important;
   overflow: hidden;
@@ -67,12 +71,12 @@ li {
   margin-right: var(--space-unit);
 }
 
-nav.underlined > ol > li a,
+nav.underlined > ol > li a:not(.missing-path),
 nav.underlined > ol > li button {
   text-decoration: underline;
 }
 
-nav.semibold > ol > li a,
+nav.semibold > ol > li a:not(.missing-path),
 nav.semibold > ol > li button {
   font-weight: var(--font-sb);
 }

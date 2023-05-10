@@ -71,12 +71,16 @@ export class ZBreadcrumb {
   @Listen("resize", {target: "window"})
   handleResize(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+    if (this.wrapElement && this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
       this.hasOverflow = true;
     }
     if (!this.isMobile && this.hasOverflow) {
       this.checkEllipsisOrOverflowMenu();
       this.hasOverflow = false;
+    }
+
+    if (this.isMobile) {
+      this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
     }
   }
   // eslint-disable-next-line lines-between-class-members
@@ -90,7 +94,7 @@ export class ZBreadcrumb {
 
   private pathListCopy: BreadcrumbPath[];
 
-  private collapsedElements: BreadcrumbPath[];
+  private collapsedElements: BreadcrumbPath[] = [];
 
   private collapsedElementsRef: HTMLZPopoverElement;
 
@@ -135,7 +139,11 @@ export class ZBreadcrumb {
 
   private initializeBreadcrumb(): void {
     this.isMobile = window.innerWidth <= mobileBreakpoint;
-    this.pathsList = this.getPathsItemsList();
+    if (this.isMobile) {
+      this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
+    } else {
+      this.pathsList = this.getPathsItemsList();
+    }
     this.totalLenght = this.pathsList.length;
     this.homepageNode = this.pathsList.shift();
     this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
@@ -185,14 +193,9 @@ export class ZBreadcrumb {
 
   private truncateWithEllipsis(str: string, length: number): string {
     const ending = "&mldr;";
-    console.log("AA", ending.length);
-
-    if (length == null) {
-      length = 100;
-    }
 
     if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
+      return str.substring(0, length - 1) + ending;
     }
 
     return str;
@@ -217,8 +220,7 @@ export class ZBreadcrumb {
   }
 
   private renderMobileBreadcrumb(): HTMLDivElement {
-    const filteredPath = this.pathsList.filter((item) => !!item.path);
-    const lastPath = filteredPath[filteredPath.length - 1];
+    const lastPath = this.pathsList[this.pathsList.length - 1];
 
     return (
       <nav
@@ -275,6 +277,9 @@ export class ZBreadcrumb {
         )}
         {mobile && <z-icon name="chevron-left"></z-icon>}
         <a
+          class={{
+            "missing-path": !item.path,
+          }}
           ref={(val) => (this.triggerEllipsis = val)}
           aria-current={item.path ? undefined : "page"}
           href={item.path}
@@ -307,7 +312,7 @@ export class ZBreadcrumb {
       >
         <ol>
           {this.renderHomepageNode(this.homepageNode)}
-          {this.collapsedElements ? this.renderOverflowMenu() : ""}
+          {this.collapsedElements.length ? this.renderOverflowMenu() : ""}
           {this.pathsList.map((item) => this.renderNode(item, false))}
         </ol>
       </nav>

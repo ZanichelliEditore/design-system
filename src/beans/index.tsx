@@ -437,7 +437,7 @@ export type SearchbarGroup = {
 };
 
 export type BreadcrumbPath = {
-  text: string;
+  text?: string;
   path?: string;
   hasTooltip?: boolean;
 };
