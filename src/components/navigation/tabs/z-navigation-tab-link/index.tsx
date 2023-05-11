@@ -17,7 +17,7 @@ export class ZNavigationTabLink {
    * that indicates that the connected element with the tab role is the active tab in a tablist.
    */
   @Prop()
-  ariaControls?: string = "";
+  ariaControls?: string;
 
   /**
    * set id attribute to tab property identifying a corresponding tabpanel

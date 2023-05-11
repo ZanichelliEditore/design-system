@@ -17,7 +17,7 @@ export class ZNavigationTab {
    * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
    */
   @Prop()
-  ariaControls?: string = "";
+  ariaControls?: string;
 
   /**
    * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
