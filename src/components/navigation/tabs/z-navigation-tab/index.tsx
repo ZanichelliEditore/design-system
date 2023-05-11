@@ -12,16 +12,16 @@ import {ICONS} from "../../../icons/icons";
 export class ZNavigationTab {
   /**
    * set aria-controls attribute to tab property identifying a corresponding tabpanel
-   * (that has a tabpanel role) by that element's id.
-   * When an element with the tabpanel role has focus, or a child of it has focus,
-   * that indicates that the connected element with the tab role is the active tab in a tablist.
+   * the aria-controls attribute refers to the id of the HTML element that has role="tabpanel"
+   * and that contains the actual content of this tab.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
    */
   @Prop()
   ariaControls?: string = "";
 
   /**
-   * set id attribute to tab property identifying a corresponding tabpanel
-   * (that has a tabpanel role) by that element's attribute  aria-labelledby.
+   * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
    */
   @Prop()
   tabId?: string = "";
