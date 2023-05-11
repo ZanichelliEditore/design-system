@@ -24,7 +24,7 @@ export class ZNavigationTab {
    * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
    */
   @Prop()
-  tabId?: string = "";
+  tabId?: string;
 
   /**
    * Whether the tab is selected.

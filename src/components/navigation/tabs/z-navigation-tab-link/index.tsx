@@ -24,7 +24,7 @@ export class ZNavigationTabLink {
    * (that has a tabpanel role) by that element's attribute  aria-labelledby.
    */
   @Prop()
-  tabId?: string = "";
+  tabId?: string;
 
   /**
    * Whether the tab is selected.
