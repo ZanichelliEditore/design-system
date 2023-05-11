@@ -169,36 +169,34 @@ export class ZNavigationTabs {
       return true;
     }
 
-    if (this.isArrowNavigation(e)) {
-      e.preventDefault();
-      const children = Array.from(this.host.children);
-      children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
-      // Move forward
-      if (
-        (e.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
-        (e.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
-      ) {
-        this.tabFocus++;
-        if (this.tabFocus >= children.length) {
-          this.tabFocus = 0;
-        }
-        // Move backward
-      } else if (
-        (e.key === NavigationTabsKeyboardEvents.LEFT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
-        (e.key === NavigationTabsKeyboardEvents.UP && this.orientation == NavigationTabsOrientation.VERTICAL)
-      ) {
-        this.tabFocus--;
-        if (this.tabFocus < 0) {
-          this.tabFocus = children.length - 1;
-        }
+    e.preventDefault();
+    const children = Array.from(this.host.children);
+    children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
+    // Move forward
+    if (
+      (e.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+      (e.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
+    ) {
+      this.tabFocus++;
+      if (this.tabFocus >= children.length) {
+        this.tabFocus = 0;
       }
-      //ignore disabled tabs
-      if (children[this.tabFocus].querySelector('[role="tab"]').hasAttribute("disabled")) {
-        this.navigateThroughTabs(e);
-      } else {
-        children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "0");
-        (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
+      // Move backward
+    } else if (
+      (e.key === NavigationTabsKeyboardEvents.LEFT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+      (e.key === NavigationTabsKeyboardEvents.UP && this.orientation == NavigationTabsOrientation.VERTICAL)
+    ) {
+      this.tabFocus--;
+      if (this.tabFocus < 0) {
+        this.tabFocus = children.length - 1;
       }
+    }
+    //ignore disabled tabs
+    if (children[this.tabFocus].querySelector('[role="tab"]').hasAttribute("disabled")) {
+      this.navigateThroughTabs(e);
+    } else {
+      children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "0");
+      (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
     }
   }
 
