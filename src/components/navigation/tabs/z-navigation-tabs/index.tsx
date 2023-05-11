@@ -1,5 +1,5 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
-import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
+import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../../beans";
 
 /**
  * Navigation tabs component.
@@ -175,8 +175,8 @@ export class ZNavigationTabs {
       children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
       // Move forward
       if (
-        (e.key === "ArrowRight" && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
-        (e.key === "ArrowDown" && this.orientation == NavigationTabsOrientation.VERTICAL)
+        (e.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+        (e.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
       ) {
         this.tabFocus++;
         if (this.tabFocus >= children.length) {
@@ -184,8 +184,8 @@ export class ZNavigationTabs {
         }
         // Move backward
       } else if (
-        (e.key === "ArrowLeft" && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
-        (e.key === "ArrowUp" && this.orientation == NavigationTabsOrientation.VERTICAL)
+        (e.key === NavigationTabsKeyboardEvents.LEFT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+        (e.key === NavigationTabsKeyboardEvents.UP && this.orientation == NavigationTabsOrientation.VERTICAL)
       ) {
         this.tabFocus--;
         if (this.tabFocus < 0) {
@@ -206,7 +206,7 @@ export class ZNavigationTabs {
    * move focus though tabs using keyboad arrows.
    */
   private isArrowNavigation(e: KeyboardEvent): boolean {
-    return e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown";
+    return !!Object.keys(NavigationTabsKeyboardEvents).find((key) => NavigationTabsKeyboardEvents[key] === e.key);
   }
 
   private setTabindex(): void {
