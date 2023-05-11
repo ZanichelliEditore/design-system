@@ -1,5 +1,5 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
-import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
+import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../../beans";
 
 /**
  * Navigation tabs component.
@@ -11,6 +11,12 @@ import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans";
   shadow: true,
 })
 export class ZNavigationTabs {
+  /**
+   * Set aria-label attribute in tablist role.
+   */
+  @Prop()
+  ariaLabel?: string;
+
   /**
    * Navigation tabs orientation.
    */
@@ -40,6 +46,12 @@ export class ZNavigationTabs {
    */
   @State()
   canNavigateNext: boolean;
+
+  /**
+   * tab focus index.
+   */
+  @State()
+  tabFocus: number;
 
   @Element() host: HTMLZNavigationTabsElement;
 
@@ -118,9 +130,11 @@ export class ZNavigationTabs {
   onTabSelected(event: CustomEvent): void {
     const tab = event.target;
     const children = Array.from(this.host.children);
-    children.forEach((child) => {
+    children.forEach((child, i) => {
       if (child !== tab) {
         child.removeAttribute("selected");
+      } else {
+        this.tabFocus = i;
       }
     });
   }
@@ -146,10 +160,72 @@ export class ZNavigationTabs {
     });
   }
 
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  @Listen("keydown")
+  private navigateThroughTabs(e: KeyboardEvent): void | boolean {
+    if (!this.isArrowNavigation(e)) {
+      return true;
+    }
+
+    e.preventDefault();
+    const children = Array.from(this.host.children);
+    children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
+    // Move forward
+    if (
+      (e.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+      (e.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
+    ) {
+      this.tabFocus++;
+      if (this.tabFocus >= children.length) {
+        this.tabFocus = 0;
+      }
+      // Move backward
+    } else if (
+      (e.key === NavigationTabsKeyboardEvents.LEFT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
+      (e.key === NavigationTabsKeyboardEvents.UP && this.orientation == NavigationTabsOrientation.VERTICAL)
+    ) {
+      this.tabFocus--;
+      if (this.tabFocus < 0) {
+        this.tabFocus = children.length - 1;
+      }
+    }
+    //ignore disabled tabs
+    if (children[this.tabFocus].querySelector('[role="tab"]').hasAttribute("disabled")) {
+      this.navigateThroughTabs(e);
+    } else {
+      children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "0");
+      (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
+    }
+  }
+
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  private isArrowNavigation(e: KeyboardEvent): boolean {
+    return !!Object.keys(NavigationTabsKeyboardEvents).find((key) => NavigationTabsKeyboardEvents[key] === e.key);
+  }
+
+  private setTabindex(): void {
+    const children = Array.from(this.host.children);
+    if (children.length > 0) {
+      children.forEach((child, i) => {
+        child.hasAttribute("aria-selected") && (this.tabFocus = i);
+      });
+      children[this.tabFocus].querySelector('[role="tab"]')?.setAttribute("tabindex", "0");
+    }
+  }
+
+  componentWillLoad(): void {
+    this.tabFocus = 0;
+  }
+
   componentDidRender(): void {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
+    this.setTabindex();
   }
 
   render(): HTMLZNavigationTabsElement {
@@ -178,6 +254,7 @@ export class ZNavigationTabs {
 
         <nav
           role="tablist"
+          aria-label={this.ariaLabel}
           ref={(el) => (this.tabsNav = el ?? this.tabsNav)}
           onScroll={this.checkScrollEnabled.bind(this)}
         >
@@ -188,6 +265,9 @@ export class ZNavigationTabs {
           <button
             class="navigation-button"
             onClick={this.navigateForward.bind(this)}
+            onKeyDown={(e: KeyboardEvent) => {
+              this.navigateThroughTabs(e);
+            }}
             tabindex="-1"
             disabled={!this.canNavigateNext}
           >

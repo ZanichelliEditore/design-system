@@ -11,6 +11,22 @@ import {ICONS} from "../../../icons/icons";
 })
 export class ZNavigationTab {
   /**
+   * set aria-controls attribute to tab property identifying a corresponding tabpanel
+   * the aria-controls attribute refers to the id of the HTML element that has role="tabpanel"
+   * and that contains the actual content of this tab.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+   */
+  @Prop()
+  ariaControls?: string;
+
+  /**
+   * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+   */
+  @Prop()
+  tabId?: string;
+
+  /**
    * Whether the tab is selected.
    */
   @Prop({mutable: true, reflect: true})
@@ -108,9 +124,13 @@ export class ZNavigationTab {
     return (
       <button
         role="tab"
+        id={this.tabId}
         disabled={this.disabled}
         title={this.htmlTitle}
         onFocus={this.scrollToTab.bind(this)}
+        aria-selected={this.selected ? "true" : "false"}
+        aria-controls={this.ariaControls}
+        tabindex={this.selected ? "0" : "-1"}
       >
         {this.icon && this.renderIcon()}
         {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}

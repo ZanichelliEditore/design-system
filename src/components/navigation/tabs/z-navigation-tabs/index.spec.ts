@@ -73,7 +73,7 @@ describe("Suite test ZNavigationTabs", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-navigation-tabs class="interactive-1" size="big" orientation="vertical">
+      <z-navigation-tabs class="interactive-1" size="big" orientation="vertical" >
         <mock:shadow-root>
           <nav role="tablist">
             <slot></slot>

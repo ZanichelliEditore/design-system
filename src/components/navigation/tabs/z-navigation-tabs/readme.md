@@ -5,10 +5,11 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                  | Type                                                                         | Default                                |
-| ------------- | ------------- | ---------------------------- | ---------------------------------------------------------------------------- | -------------------------------------- |
-| `orientation` | `orientation` | Navigation tabs orientation. | `NavigationTabsOrientation.HORIZONTAL \| NavigationTabsOrientation.VERTICAL` | `NavigationTabsOrientation.HORIZONTAL` |
-| `size`        | `size`        | Navigation tabs size.        | `NavigationTabsSize.BIG \| NavigationTabsSize.SMALL`                         | `NavigationTabsSize.BIG`               |
+| Property      | Attribute     | Description                               | Type                                                                         | Default                                |
+| ------------- | ------------- | ----------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------- |
+| `ariaLabel`   | `aria-label`  | Set aria-label attribute in tablist role. | `string`                                                                     | `undefined`                            |
+| `orientation` | `orientation` | Navigation tabs orientation.              | `NavigationTabsOrientation.HORIZONTAL \| NavigationTabsOrientation.VERTICAL` | `NavigationTabsOrientation.HORIZONTAL` |
+| `size`        | `size`        | Navigation tabs size.                     | `NavigationTabsSize.BIG \| NavigationTabsSize.SMALL`                         | `NavigationTabsSize.BIG`               |
 
 
 ## Slots
