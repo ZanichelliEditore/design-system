@@ -1,5 +1,10 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host} from "@stencil/core";
-import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../../beans";
+import {
+  NavigationTabsSize,
+  NavigationTabsOrientation,
+  NavigationTabsKeyboardEvents,
+  KeyboardCode,
+} from "../../../../beans";
 
 /**
  * Navigation tabs component.
@@ -165,12 +170,26 @@ export class ZNavigationTabs {
    */
   @Listen("keydown")
   private navigateThroughTabs(e: KeyboardEvent): void | boolean {
+    const children = Array.from(this.host.children);
+
+    if (e.key === KeyboardCode.TAB) {
+      children.forEach((child, i) => {
+        if (
+          child.hasAttribute("selected") &&
+          (e.target as HTMLButtonElement)?.offsetParent?.nodeName === "Z-NAVIGATION-TABS"
+        ) {
+          this.tabFocus = i;
+        }
+      });
+
+      return;
+    }
+
     if (!this.isArrowNavigation(e)) {
       return true;
     }
 
     e.preventDefault();
-    const children = Array.from(this.host.children);
     children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
     // Move forward
     if (
@@ -212,6 +231,7 @@ export class ZNavigationTabs {
     if (children.length > 0) {
       children.forEach((child, i) => {
         child.hasAttribute("aria-selected") && (this.tabFocus = i);
+        child.querySelector('[role="tab"]')?.setAttribute("tabindex", "-1");
       });
       children[this.tabFocus].querySelector('[role="tab"]')?.setAttribute("tabindex", "0");
     }
