@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.6](https://github.com/ZanichelliEditore/design-system/compare/v7.3.5...v7.3.6) (2023-05-15)
+
+
+### Bug Fixes
+
+* focus on active tab by default ([0ba73d0](https://github.com/ZanichelliEditore/design-system/commit/0ba73d046106389b02f6be5d980036e5aabf0b27))
+
 ### [7.3.5](https://github.com/ZanichelliEditore/design-system/compare/v7.3.4...v7.3.5) (2023-05-03)
 
 
