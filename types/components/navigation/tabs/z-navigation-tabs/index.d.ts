@@ -5,6 +5,10 @@ import { NavigationTabsSize, NavigationTabsOrientation } from "../../../../beans
  */
 export declare class ZNavigationTabs {
   /**
+   * Set aria-label attribute in tablist role.
+   */
+  ariaLabel?: string;
+  /**
    * Navigation tabs orientation.
    */
   orientation?: NavigationTabsOrientation;
@@ -24,6 +28,10 @@ export declare class ZNavigationTabs {
    * Whether forward navigation is enabled.
    */
   canNavigateNext: boolean;
+  /**
+   * tab focus index.
+   */
+  tabFocus: number;
   host: HTMLZNavigationTabsElement;
   private tabsNav;
   /**
@@ -65,6 +73,16 @@ export declare class ZNavigationTabs {
    * Scroll the navigation bar half of its size forward.
    */
   private navigateForward;
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  private navigateThroughTabs;
+  /**
+   * move focus though tabs using keyboad arrows.
+   */
+  private isArrowNavigation;
+  private setTabindex;
+  componentWillLoad(): void;
   componentDidRender(): void;
   render(): HTMLZNavigationTabsElement;
 }

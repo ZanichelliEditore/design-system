@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-305151da.js');
-const index = require('./index-7a9a8430.js');
+const utils = require('./utils-b447f1da.js');
+const index = require('./index-2dfdb7e2.js');
 require('./breakpoints-88c4fd6c.js');
 
 const UTILS = {
@@ -164,6 +164,12 @@ Object.defineProperty(exports, 'ListType', {
   enumerable: true,
   get: function () {
     return index.ListType;
+  }
+});
+Object.defineProperty(exports, 'NavigationTabsKeyboardEvents', {
+  enumerable: true,
+  get: function () {
+    return index.NavigationTabsKeyboardEvents;
   }
 });
 Object.defineProperty(exports, 'NavigationTabsOrientation', {

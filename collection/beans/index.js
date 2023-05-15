@@ -22,6 +22,13 @@ export var NavigationTabsSize;
   NavigationTabsSize["BIG"] = "big";
   NavigationTabsSize["SMALL"] = "small";
 })(NavigationTabsSize || (NavigationTabsSize = {}));
+export var NavigationTabsKeyboardEvents;
+(function (NavigationTabsKeyboardEvents) {
+  NavigationTabsKeyboardEvents["LEFT"] = "ArrowLeft";
+  NavigationTabsKeyboardEvents["RIGHT"] = "ArrowRight";
+  NavigationTabsKeyboardEvents["UP"] = "ArrowUp";
+  NavigationTabsKeyboardEvents["DOWN"] = "ArrowDown";
+})(NavigationTabsKeyboardEvents || (NavigationTabsKeyboardEvents = {}));
 export var ButtonVariant;
 (function (ButtonVariant) {
   ButtonVariant["PRIMARY"] = "primary";

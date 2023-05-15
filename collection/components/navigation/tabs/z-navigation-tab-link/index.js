@@ -54,7 +54,7 @@ export class ZNavigationTabLink {
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h("a", { role: "tab", href: !this.disabled && this.href, title: this.htmlTitle, target: this.target, onFocus: this.scrollToTab.bind(this) }, this.icon && this.renderIcon(), this.orientation === "horizontal" && this.label));
+    return (h("a", { role: "tab", id: this.tabId, href: !this.disabled && this.href, title: this.htmlTitle, target: this.target, onFocus: this.scrollToTab.bind(this), "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls, tabindex: this.selected ? "0" : "-1" }, this.icon && this.renderIcon(), this.orientation === "horizontal" && this.label));
   }
   static get is() { return "z-navigation-tab-link"; }
   static get originalStyleUrls() {
@@ -69,6 +69,40 @@ export class ZNavigationTabLink {
   }
   static get properties() {
     return {
+      "ariaControls": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set aria-controls attribute to tab property identifying a corresponding tabpanel\n(that has a tabpanel role) by that element's id.\nWhen an element with the tabpanel role has focus, or a child of it has focus,\nthat indicates that the connected element with the tab role is the active tab in a tablist."
+        },
+        "attribute": "aria-controls",
+        "reflect": false
+      },
+      "tabId": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set id attribute to tab property identifying a corresponding tabpanel\n(that has a tabpanel role) by that element's attribute  aria-labelledby."
+        },
+        "attribute": "tab-id",
+        "reflect": false
+      },
       "selected": {
         "type": "boolean",
         "mutable": true,

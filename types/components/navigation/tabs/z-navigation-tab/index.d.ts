@@ -4,6 +4,18 @@ import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans
  */
 export declare class ZNavigationTab {
   /**
+   * set aria-controls attribute to tab property identifying a corresponding tabpanel
+   * the aria-controls attribute refers to the id of the HTML element that has role="tabpanel"
+   * and that contains the actual content of this tab.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+   */
+  ariaControls?: string;
+  /**
+   * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
+   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+   */
+  tabId?: string;
+  /**
    * Whether the tab is selected.
    */
   selected?: boolean;

@@ -56,7 +56,7 @@ export class ZNavigationTab {
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h("button", { role: "tab", disabled: this.disabled, title: this.htmlTitle, onFocus: this.scrollToTab.bind(this) }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label));
+    return (h("button", { role: "tab", id: this.tabId, disabled: this.disabled, title: this.htmlTitle, onFocus: this.scrollToTab.bind(this), "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls, tabindex: this.selected ? "0" : "-1" }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label));
   }
   static get is() { return "z-navigation-tab"; }
   static get originalStyleUrls() {
@@ -71,6 +71,40 @@ export class ZNavigationTab {
   }
   static get properties() {
     return {
+      "ariaControls": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set aria-controls attribute to tab property identifying a corresponding tabpanel\nthe aria-controls attribute refers to the id of the HTML element that has role=\"tabpanel\"\nand that contains the actual content of this tab.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls"
+        },
+        "attribute": "aria-controls",
+        "reflect": false
+      },
+      "tabId": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role"
+        },
+        "attribute": "tab-id",
+        "reflect": false
+      },
       "selected": {
         "type": "boolean",
         "mutable": true,

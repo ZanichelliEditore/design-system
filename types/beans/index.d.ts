@@ -68,6 +68,12 @@ export declare enum NavigationTabsSize {
   BIG = "big",
   SMALL = "small"
 }
+export declare enum NavigationTabsKeyboardEvents {
+  LEFT = "ArrowLeft",
+  RIGHT = "ArrowRight",
+  UP = "ArrowUp",
+  DOWN = "ArrowDown"
+}
 export declare type HeaderUserData = {
   islogged: boolean;
   id?: number;
