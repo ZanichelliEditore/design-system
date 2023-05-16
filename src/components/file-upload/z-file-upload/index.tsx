@@ -103,7 +103,7 @@ export class ZFileUpload {
   }
 
   private getType(): ZFileUploadType {
-    if (getDevice() !== Device.DESKTOP) {
+    if (getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE) {
       return ZFileUploadType.DEFAULT;
     }
 

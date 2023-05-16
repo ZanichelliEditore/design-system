@@ -39,7 +39,7 @@ export class ZChip {
   }
 
   private getIconSize(): number {
-    return getDevice() !== Device.DESKTOP ? 22 : 14;
+    return getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE ? 22 : 14;
   }
 
   render(): HTMLButtonElement | HTMLDivElement {
