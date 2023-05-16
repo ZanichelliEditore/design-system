@@ -286,7 +286,6 @@ export class ZBreadcrumb {
             <span class="tooltip-content">{this.currentEllipsisText}</span>
           </z-popover>
         )}
-        {mobile && <z-icon name="chevron-left"></z-icon>}
         <a
           class={{
             "missing-path": !item.path,
@@ -306,7 +305,9 @@ export class ZBreadcrumb {
               this.popoverEllipsisOpen = false;
             }
           }}
-          innerHTML={item.text}
+          innerHTML={
+            mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon> ${item.text}` : item.text
+          }
         />
       </li>
     );

@@ -85,8 +85,8 @@ nav.semibold > ol > li button {
 :host z-icon {
   margin-right: var(--space-unit);
 
-  --z-icon-width: 10px;
-  --z-icon-height: 10px;
+  --z-icon-width: 12px;
+  --z-icon-height: 12px;
 }
 
 :host button.dots {
