@@ -273,6 +273,7 @@ export enum Device {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
+  DESKTOP_WIDE = "desktop-wide",
 }
 
 export type DictionaryData = {

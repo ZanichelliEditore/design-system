@@ -3,14 +3,14 @@ import {
   BreadcrumbHomepageVariant,
   BreadcrumbPath,
   BreadcrumbPathStyle,
+  Device,
   KeyboardCode,
   ListDividerType,
   ListSize,
   PopoverPosition,
 } from "../../beans";
-import {mobileBreakpoint} from "../../constants/breakpoints";
 import {EventEmitter} from "puppeteer";
-import {handleKeyboardSubmit} from "../../utils/utils";
+import {getDevice, handleKeyboardSubmit} from "../../utils/utils";
 
 @Component({
   tag: "z-breadcrumb",
@@ -55,7 +55,7 @@ export class ZBreadcrumb {
 
   /** Handle mobile */
   @State()
-  isMobile: boolean;
+  viewPortWidth: Device;
 
   /** Detect whether the length of the nodes shown exceeds the container length */
   @State()
@@ -70,24 +70,35 @@ export class ZBreadcrumb {
 
   @Listen("resize", {target: "window"})
   handleResize(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
-    if (this.wrapElement && this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+    this.viewPortWidth = getDevice();
+    if (
+      this.viewPortWidth !== Device.MOBILE &&
+      this.wrapElement &&
+      this.wrapElement.scrollWidth > this.wrapElement.clientWidth
+    ) {
       this.hasOverflow = true;
-    }
-    if (!this.isMobile && this.hasOverflow) {
-      this.checkEllipsisOrOverflowMenu();
-      this.hasOverflow = false;
-    }
-
-    if (this.isMobile) {
-      this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
     }
   }
   // eslint-disable-next-line lines-between-class-members
   @Watch("paths")
   @Watch("maxNodesToShow")
   handlePropChange(): void {
-    this.initializeBreadcrumb();
+    this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+  }
+
+  @Watch("viewPortWidth")
+  handleResizeUp(newValue: Device, oldValue: Device): void {
+    if (
+      newValue === Device.MOBILE ||
+      (oldValue === Device.MOBILE && newValue === Device.TABLET) ||
+      (oldValue === Device.MOBILE && newValue === Device.DESKTOP) ||
+      (oldValue === Device.MOBILE && newValue === Device.DESKTOP_WIDE) ||
+      (oldValue === Device.TABLET && newValue === Device.DESKTOP) ||
+      (oldValue === Device.TABLET && newValue === Device.DESKTOP_WIDE) ||
+      (oldValue === Device.DESKTOP && newValue === Device.DESKTOP_WIDE)
+    ) {
+      this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+    }
   }
 
   private pathsList: BreadcrumbPath[];
@@ -117,11 +128,12 @@ export class ZBreadcrumb {
   private truncatePosition = null;
 
   componentWillLoad(): void {
-    this.initializeBreadcrumb();
+    this.viewPortWidth = getDevice();
+    this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
   }
 
   componentWillRender(): void {
-    if (this.hasOverflow) {
+    if (this.viewPortWidth !== Device.MOBILE && this.hasOverflow) {
       this.checkEllipsisOrOverflowMenu();
       this.hasOverflow = false;
     }
@@ -132,14 +144,13 @@ export class ZBreadcrumb {
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
-    if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+    if (this.viewPortWidth !== Device.MOBILE && this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
       this.hasOverflow = true;
     }
   }
 
-  private initializeBreadcrumb(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
-    if (this.isMobile) {
+  private initializeBreadcrumb(isMobile: boolean): void {
+    if (isMobile) {
       this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
     } else {
       this.pathsList = this.getPathsItemsList();
@@ -279,6 +290,7 @@ export class ZBreadcrumb {
         <a
           class={{
             "missing-path": !item.path,
+            "text-ellipsis": mobile,
           }}
           ref={(val) => (this.triggerEllipsis = val)}
           aria-current={item.path ? undefined : "page"}
@@ -417,7 +429,7 @@ export class ZBreadcrumb {
   render(): HTMLZBreadcrumbElement {
     return (
       <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
-        {this.isMobile ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
+        {this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
       </Host>
     );
   }
