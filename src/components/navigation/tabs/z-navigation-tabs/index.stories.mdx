@@ -22,6 +22,9 @@ import "./index.stories.css";
         options: Object.values(NavigationTabsOrientation),
       },
     },
+    ariaLabel: {
+      control: {type: "text"},
+    },
   }}
 />
 
@@ -33,6 +36,7 @@ import "./index.stories.css";
     args={{
       orientation: NavigationTabsOrientation.HORIZONTAL,
       size: NavigationTabsSize.BIG,
+      ariaLabel: "",
     }}
     parameters={{
       controls: {
@@ -44,14 +48,17 @@ import "./index.stories.css";
       <z-navigation-tabs
         orientation=${args.orientation}
         size=${args.size}
+        aria-label=${args.ariaLabel}
       >
         <z-navigation-tab
           icon="house"
           label="Home"
+          aria-controls="id pannello1"
         ></z-navigation-tab>
         <z-navigation-tab
           icon="map"
           label="Maps"
+          aria-controls="id pannello2"
         ></z-navigation-tab>
         <z-navigation-tab
           icon="download"
@@ -86,6 +93,7 @@ import "./index.stories.css";
     args={{
       orientation: NavigationTabsOrientation.VERTICAL,
       size: NavigationTabsSize.BIG,
+      ariaLabel: "",
     }}
     parameters={{
       controls: {
@@ -94,7 +102,10 @@ import "./index.stories.css";
     }}
   >
     {(args) => html`
-      <z-navigation-tabs orientation=${args.orientation}>
+      <z-navigation-tabs
+        orientation=${args.orientation}
+        aria-label=${args.ariaLabel}
+      >
         <z-navigation-tab
           icon="house"
           label="Home"

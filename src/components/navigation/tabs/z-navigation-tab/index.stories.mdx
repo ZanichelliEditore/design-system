@@ -34,6 +34,12 @@ import "./index";
     label: {
       control: {type: "text"},
     },
+    ariaControls: {
+      control: {type: "text"},
+    },
+    tabId: {
+      control: {type: "text"},
+    },
   }}
 />
 
@@ -48,6 +54,8 @@ import "./index";
       htmlTitle: "Download stuff",
       icon: "download",
       label: "Download",
+      ariaControls: "id-pannello",
+      tabId: "label-pannello",
     }}
   >
     {(args) => html`
@@ -59,6 +67,8 @@ import "./index";
         .htmlTitle=${args.htmlTitle}
         .icon=${args.icon}
         .label=${args.label}
+        aria-controls=${args.ariaControls}
+        tab-id=${args.tabId}
       ></z-navigation-tab>
     `}
   </Story>
