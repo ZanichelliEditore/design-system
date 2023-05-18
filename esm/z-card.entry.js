@@ -14,7 +14,7 @@ const ZCard = class {
   }
   onClick(ev) {
     // Do nothing for clicks on actions.
-    if (ev.target.getAttribute("slot") === "action") {
+    if (ev.target.closest("[slot=action]")) {
       return;
     }
     if (!this.clickable) {

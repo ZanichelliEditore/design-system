@@ -1024,7 +1024,7 @@ export namespace Components {
     }
     interface ZNavigationTab {
         /**
-          * set aria-controls attribute to tab property identifying a corresponding tabpanel the aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab. ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+          * The aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab. ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
          */
         "ariaControls"?: string;
         /**
@@ -3693,7 +3693,7 @@ declare namespace LocalJSX {
     }
     interface ZNavigationTab {
         /**
-          * set aria-controls attribute to tab property identifying a corresponding tabpanel the aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab. ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+          * The aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab. ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
          */
         "ariaControls"?: string;
         /**

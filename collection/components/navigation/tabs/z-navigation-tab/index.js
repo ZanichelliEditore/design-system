@@ -83,7 +83,7 @@ export class ZNavigationTab {
         "optional": true,
         "docs": {
           "tags": [],
-          "text": "set aria-controls attribute to tab property identifying a corresponding tabpanel\nthe aria-controls attribute refers to the id of the HTML element that has role=\"tabpanel\"\nand that contains the actual content of this tab.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls"
+          "text": "The aria-controls attribute refers to the id of the HTML element that has role=\"tabpanel\" and that contains the actual content of this tab.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls"
         },
         "attribute": "aria-controls",
         "reflect": false
