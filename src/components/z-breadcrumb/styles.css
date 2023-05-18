@@ -106,9 +106,20 @@ nav.semibold > ol > li button {
   text-decoration: none;
 }
 
-:host z-popover {
+:host .hidden-paths-popover {
   --z-popover-theme--surface: var(--color-surface02);
   --z-popover-padding: 0;
+}
+
+:host .full-path-tooltip {
+  --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
+  --z-popover-padding: 0;
+}
+
+:host .tooltip-content {
+  padding: 0 var(--space-unit);
+  font-size: var(--font-size-2);
 }
 
 @media (min-width: 768px) {

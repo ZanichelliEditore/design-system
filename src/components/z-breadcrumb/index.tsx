@@ -277,9 +277,10 @@ export class ZBreadcrumb {
       <li>
         {item.hasTooltip && (
           <z-popover
+            class="full-path-tooltip"
             bind-to={this.triggerEllipsis}
             open={this.popoverEllipsisOpen}
-            position={PopoverPosition.BOTTOM_RIGHT}
+            position={PopoverPosition.BOTTOM}
             closable={false}
             showArrow
           >
@@ -377,6 +378,7 @@ export class ZBreadcrumb {
       return (
         <li>
           <z-popover
+            class="hidden-paths-popover"
             ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
             bind-to={this.triggerButton}
             position={PopoverPosition.BOTTOM_RIGHT}
