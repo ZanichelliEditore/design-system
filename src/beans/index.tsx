@@ -280,6 +280,7 @@ export enum Device {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
+  DESKTOP_WIDE = "desktop-wide",
 }
 
 export type DictionaryData = {
@@ -442,3 +443,19 @@ export type SearchbarGroup = {
   category?: string;
   subcategory?: string;
 };
+
+export type BreadcrumbPath = {
+  text?: string;
+  path?: string;
+  hasTooltip?: boolean;
+};
+
+export enum BreadcrumbPathStyle {
+  SEMIBOLD = "semibold",
+  UNDERLINED = "underlined",
+}
+
+export enum BreadcrumbHomepageVariant {
+  TEXT = "text",
+  ICON = "icon",
+}

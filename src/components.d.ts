@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -97,6 +97,36 @@ export namespace Components {
           * Font weight variant
          */
         "variant": "regular" | "semibold";
+    }
+    interface ZBreadcrumb {
+        /**
+          * [optional] Variant of first node
+         */
+        "homepageVariant"?: BreadcrumbHomepageVariant;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow"?: number;
+        /**
+          * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
+         */
+        "overflowMenuItemRows"?: number;
+        /**
+          * [optional] Sets the path style
+         */
+        "pathStyle"?: BreadcrumbPathStyle;
+        /**
+          * [optional] Path elements, the first of which is the home path
+         */
+        "paths"?: BreadcrumbPath[] | string;
+        /**
+          * [optional] Controls the behaviour on <a> tag click/enter
+         */
+        "preventFollowUrl"?: boolean;
+        /**
+          * [optional] Sets the maximun number of chars per single node
+         */
+        "truncateChar"?: number;
     }
     interface ZButton {
         /**
@@ -1794,6 +1824,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBreadcrumbElement;
+}
 export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
@@ -1986,6 +2020,12 @@ declare global {
     var HTMLZBodyElement: {
         prototype: HTMLZBodyElement;
         new (): HTMLZBodyElement;
+    };
+    interface HTMLZBreadcrumbElement extends Components.ZBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLZBreadcrumbElement: {
+        prototype: HTMLZBreadcrumbElement;
+        new (): HTMLZBreadcrumbElement;
     };
     interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
     }
@@ -2486,6 +2526,7 @@ declare global {
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
+        "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
         "z-button-sort": HTMLZButtonSortElement;
         "z-card": HTMLZCardElement;
@@ -2662,6 +2703,40 @@ declare namespace LocalJSX {
           * Font weight variant
          */
         "variant"?: "regular" | "semibold";
+    }
+    interface ZBreadcrumb {
+        /**
+          * [optional] Variant of first node
+         */
+        "homepageVariant"?: BreadcrumbHomepageVariant;
+        /**
+          * [optional] Sets max number of element to show
+         */
+        "maxNodesToShow"?: number;
+        /**
+          * Emitted when preventFollowUrl=true to handle custom page transition
+         */
+        "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        /**
+          * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
+         */
+        "overflowMenuItemRows"?: number;
+        /**
+          * [optional] Sets the path style
+         */
+        "pathStyle"?: BreadcrumbPathStyle;
+        /**
+          * [optional] Path elements, the first of which is the home path
+         */
+        "paths"?: BreadcrumbPath[] | string;
+        /**
+          * [optional] Controls the behaviour on <a> tag click/enter
+         */
+        "preventFollowUrl"?: boolean;
+        /**
+          * [optional] Sets the maximun number of chars per single node
+         */
+        "truncateChar"?: number;
     }
     interface ZButton {
         /**
@@ -4545,6 +4620,7 @@ declare namespace LocalJSX {
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
+        "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
         "z-button-sort": ZButtonSort;
         "z-card": ZCard;
@@ -4639,6 +4715,7 @@ declare module "@stencil/core" {
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
+            "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
