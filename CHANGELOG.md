@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.4.0](https://github.com/ZanichelliEditore/design-system/compare/v7.3.7...v7.4.0) (2023-05-18)
+
+
+### Features
+
+* accessibility ([5a16707](https://github.com/ZanichelliEditore/design-system/commit/5a16707304e2b357108e17efd1aa796259253268))
+* added aria label ([d7b268b](https://github.com/ZanichelliEditore/design-system/commit/d7b268bb6002b9ad5055e6c941a4c4d9b14d347f))
+* added event to emit clicked url ([d85d9aa](https://github.com/ZanichelliEditore/design-system/commit/d85d9aabd32b5728f942f5ca3f088462a179f186))
+* added tooltip on ellpised node ([d34f39b](https://github.com/ZanichelliEditore/design-system/commit/d34f39b7ee19814142ef613fb54da66183765ae5))
+* correctly handling deep copy of array ([616c0c6](https://github.com/ZanichelliEditore/design-system/commit/616c0c6dd5e146facf5b1adb81720244e016478f))
+* css refactor ([840baee](https://github.com/ZanichelliEditore/design-system/commit/840baeeb3a5360117fbd548b71a4bfee7ccd048c))
+* handling accessibility ([a1dc29c](https://github.com/ZanichelliEditore/design-system/commit/a1dc29c4c907efd452e4b9505104e1d58fc475b5))
+* handling ellipsis ([569c7a1](https://github.com/ZanichelliEditore/design-system/commit/569c7a127e1989b371e78c0a3caf9fa4cccc3fe2))
+* handling ellipsis of a single node ([6664138](https://github.com/ZanichelliEditore/design-system/commit/6664138bbeb01623d332e009566ad309e9693193))
+* handling subsequent ellipsis ([637cdeb](https://github.com/ZanichelliEditore/design-system/commit/637cdeb696ea209d51e6cd47ed989724384cd64e))
+* handling total space ([22e6254](https://github.com/ZanichelliEditore/design-system/commit/22e62540a8fa4f19df8c6f1a06e347d6616e242e))
+* homepage variant bean ([4f4aa63](https://github.com/ZanichelliEditore/design-system/commit/4f4aa630373e26a0ec7e9e1f1dafa7dfb1366fb9))
+* if paths prop is missing, use element content to retrieve data ([94d0902](https://github.com/ZanichelliEditore/design-system/commit/94d09021d18aff6373e997ac936fdfa221da2483))
+* **laze-204:** create breadcrumb component for mobile device ([a5598d0](https://github.com/ZanichelliEditore/design-system/commit/a5598d06179d58b553f51c8b64a05ce49d9dfdb4))
+* refactor chevron for accessibility purpose ([9643af2](https://github.com/ZanichelliEditore/design-system/commit/9643af27a6e7e589ee345646df7485e444c1a527))
+* refactoring ([064dff7](https://github.com/ZanichelliEditore/design-system/commit/064dff7c7086862b7224f5fffee71e26fd9fdf7b))
+* refactoring and storybook ([4c8dc92](https://github.com/ZanichelliEditore/design-system/commit/4c8dc923b95632d1517761e0481886302bca38c7))
+* storybook ([25ffc37](https://github.com/ZanichelliEditore/design-system/commit/25ffc37e9fdfb2a1e68259f47a585f07b82a4e6d))
+* various fix + storybook ([afd3c55](https://github.com/ZanichelliEditore/design-system/commit/afd3c557fc4e3e608affd24f3c88e36c75a0a7f1))
+* wip building breadcrumb items ([6b1c8bc](https://github.com/ZanichelliEditore/design-system/commit/6b1c8bcbbdad91bc68ea7bb71ccd8f6ac1680fd6))
+* wip ellipsis ([57423b1](https://github.com/ZanichelliEditore/design-system/commit/57423b108a37bf3588b18ac0e20b63c9cd1e9534))
+* wip handle ellipsis ([2ede1cc](https://github.com/ZanichelliEditore/design-system/commit/2ede1cca052e8e085078719a8ead44879c92a6e8))
+* **z-breadcrumb-ellipsis:** add test and docs ([0fae1f6](https://github.com/ZanichelliEditore/design-system/commit/0fae1f676a357042438634d1da366f19ddfa1088))
+* **z-breadcrumb-ellipsis:** first commit ([154e84e](https://github.com/ZanichelliEditore/design-system/commit/154e84ee7a0fba161253e082d07c141625fe4a3f))
+* **z-breadcrumb-ellipsis:** fix style ([a39a657](https://github.com/ZanichelliEditore/design-system/commit/a39a657b244b00ae370ddc3d97035998ca22b4ab))
+* **z-breadcrumb-mobile:** fix for pr ([ff1f14f](https://github.com/ZanichelliEditore/design-system/commit/ff1f14ffb48c8d8bdf8a880651e347a0bfd31706))
+* **z-breadcrumb-shows-items:** add aria-expanded ([27b8562](https://github.com/ZanichelliEditore/design-system/commit/27b85624ee142cfae9102697d3b3018d6dc0c357))
+* **z-breadcrumb-shows-items:** add stories and fix style ([85ec254](https://github.com/ZanichelliEditore/design-system/commit/85ec25493156cf56cb3b36ac19e914c05f6bfe2c))
+* **z-breadcrumb-shows-items:** add tokens ([309efcd](https://github.com/ZanichelliEditore/design-system/commit/309efcdd8e8b2327f717e759ac0d80063821db19))
+* **z-breadcrumb-shows-items:** add z-tooltip ([f571fc2](https://github.com/ZanichelliEditore/design-system/commit/f571fc240f945f62deb72722444cb27d518587b0))
+* **z-breadcrumb:** add doc ([d2633ad](https://github.com/ZanichelliEditore/design-system/commit/d2633ad164897e2c94b9945b4cddcd66860f76c4))
+* **z-breadcrumb:** fix for pr ([5bd5a49](https://github.com/ZanichelliEditore/design-system/commit/5bd5a498233ee34de9bab87f4fc7b6e1fe53e1ff))
+* **z-breadcrumb:** fix for pr ([cd6c2c5](https://github.com/ZanichelliEditore/design-system/commit/cd6c2c56587256ba54fb9e246a912d9d43926c78))
+* **z-breadcrumb:** fix for pr ([8a47818](https://github.com/ZanichelliEditore/design-system/commit/8a47818035b67dcf8168ec11b503d06dde5c064c))
+* **z-breadcrumb:** fix for pr ([d65a8b1](https://github.com/ZanichelliEditore/design-system/commit/d65a8b19a7610bb002ce284c27a0d417e70a7b3e))
+* **z-breadcrumb:** minor graphic fix ([f12e870](https://github.com/ZanichelliEditore/design-system/commit/f12e8707af93c371decc16699bd3ea58af0368fb))
+
+
+### Bug Fixes
+
+* chevron is clickable when in mobile ([6606fb3](https://github.com/ZanichelliEditore/design-system/commit/6606fb315ff6cd3e25b723f940775327af2c2634))
+* fixed infinite loop in mobile when breadcrumb has overflow ([39626e7](https://github.com/ZanichelliEditore/design-system/commit/39626e7f38cb266881c8377f33d063e29a53c8ce))
+* pr fixes ([14b7cb7](https://github.com/ZanichelliEditore/design-system/commit/14b7cb72ed20c41475eaa18aeda6ac940b0066b8))
+* stylelint madness ([2287a55](https://github.com/ZanichelliEditore/design-system/commit/2287a55e548739a05e8457e178b815e3824b8645))
+* tests ([0839e3d](https://github.com/ZanichelliEditore/design-system/commit/0839e3d3a837e3063bc0999d164012764c1b0f89))
+* various fixes based on designer review ([cdc46e1](https://github.com/ZanichelliEditore/design-system/commit/cdc46e15e92e6da28bbfab6084336928e394b5e5))
+
 ### [7.3.7](https://github.com/ZanichelliEditore/design-system/compare/v7.3.6...v7.3.7) (2023-05-18)
 
 
