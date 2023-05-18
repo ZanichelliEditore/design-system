@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.7](https://github.com/ZanichelliEditore/design-system/compare/v7.3.6...v7.3.7) (2023-05-18)
+
+
+### Bug Fixes
+
+* readme prop doc ([45b1195](https://github.com/ZanichelliEditore/design-system/commit/45b11956edb533c4db5db868ca98d7fe6400ebc2))
+* skip click event emission also for children of a slotted `action` ([8613362](https://github.com/ZanichelliEditore/design-system/commit/861336243106d9b7121683f8a9540df9068afc71))
+* storybook props ([15e3b97](https://github.com/ZanichelliEditore/design-system/commit/15e3b9705c62c0ce6ed88ab08ccc33b58e9a936e))
+
 ### [7.3.6](https://github.com/ZanichelliEditore/design-system/compare/v7.3.5...v7.3.6) (2023-05-15)
 
 
