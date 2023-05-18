@@ -1,5 +1,5 @@
 import { KeyboardCode, Device } from "../beans/index";
-import { mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
+import { desktopBreakpoint, mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
   return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");
 }
@@ -87,8 +87,10 @@ export function getDevice() {
       return Device.MOBILE;
     case window.innerWidth <= tabletBreakpoint:
       return Device.TABLET;
-    default:
+    case window.innerWidth <= desktopBreakpoint:
       return Device.DESKTOP;
+    default:
+      return Device.DESKTOP_WIDE;
   }
 }
 export function convertJson(data) {

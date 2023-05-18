@@ -1914,10 +1914,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
       }
       switch(bundleId) {
         
-        case 'z-app-header_11.cjs':
+        case 'z-app-header_13.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
-            './z-app-header_11.cjs.entry.js')); }).then(processMod, consoleError);
+            './z-app-header_13.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-anchor-navigation.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2198,10 +2198,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-typography.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-popover.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-popover.cjs.entry.js')); }).then(processMod, consoleError);
       }
     }
     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(

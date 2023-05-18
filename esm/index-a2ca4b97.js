@@ -1892,10 +1892,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
       }
       switch(bundleId) {
         
-        case 'z-app-header_11':
+        case 'z-app-header_13':
           return import(
             /* webpackMode: "lazy" */
-            './z-app-header_11.entry.js').then(processMod, consoleError);
+            './z-app-header_13.entry.js').then(processMod, consoleError);
         case 'z-anchor-navigation':
           return import(
             /* webpackMode: "lazy" */
@@ -2176,10 +2176,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-typography.entry.js').then(processMod, consoleError);
-        case 'z-popover':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-popover.entry.js').then(processMod, consoleError);
       }
     }
     return import(

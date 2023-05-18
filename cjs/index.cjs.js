@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-b447f1da.js');
-const index = require('./index-2dfdb7e2.js');
-require('./breakpoints-88c4fd6c.js');
+const utils = require('./utils-38f8555a.js');
+const index = require('./index-b7c319f2.js');
+require('./breakpoints-ebe1a437.js');
 
 const UTILS = {
   colorFromId: utils.colorFromId,
@@ -20,6 +20,18 @@ Object.defineProperty(exports, 'AvatarSize', {
   enumerable: true,
   get: function () {
     return index.AvatarSize;
+  }
+});
+Object.defineProperty(exports, 'BreadcrumbHomepageVariant', {
+  enumerable: true,
+  get: function () {
+    return index.BreadcrumbHomepageVariant;
+  }
+});
+Object.defineProperty(exports, 'BreadcrumbPathStyle', {
+  enumerable: true,
+  get: function () {
+    return index.BreadcrumbPathStyle;
   }
 });
 Object.defineProperty(exports, 'ButtonSize', {

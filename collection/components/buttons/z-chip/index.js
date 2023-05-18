@@ -14,7 +14,7 @@ export class ZChip {
     this.interactiveIconClick.emit();
   }
   getIconSize() {
-    return getDevice() !== Device.DESKTOP ? 22 : 14;
+    return getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE ? 22 : 14;
   }
   render() {
     if (this.interactiveIcon) {

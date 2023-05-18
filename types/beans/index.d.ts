@@ -241,7 +241,8 @@ export declare enum AlertType {
 export declare enum Device {
   MOBILE = "mobile",
   TABLET = "tablet",
-  DESKTOP = "desktop"
+  DESKTOP = "desktop",
+  DESKTOP_WIDE = "desktop-wide"
 }
 export declare type DictionaryData = {
   author: string;
@@ -378,3 +379,16 @@ export declare type SearchbarGroup = {
   category?: string;
   subcategory?: string;
 };
+export declare type BreadcrumbPath = {
+  text?: string;
+  path?: string;
+  hasTooltip?: boolean;
+};
+export declare enum BreadcrumbPathStyle {
+  SEMIBOLD = "semibold",
+  UNDERLINED = "underlined"
+}
+export declare enum BreadcrumbHomepageVariant {
+  TEXT = "text",
+  ICON = "icon"
+}

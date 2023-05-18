@@ -201,6 +201,7 @@ export var Device;
   Device["MOBILE"] = "mobile";
   Device["TABLET"] = "tablet";
   Device["DESKTOP"] = "desktop";
+  Device["DESKTOP_WIDE"] = "desktop-wide";
 })(Device || (Device = {}));
 export var PocketStatus;
 (function (PocketStatus) {
@@ -323,3 +324,13 @@ export var CarouselProgressMode;
   CarouselProgressMode["DOTS"] = "dots";
   CarouselProgressMode["NUMBERS"] = "numbers";
 })(CarouselProgressMode || (CarouselProgressMode = {}));
+export var BreadcrumbPathStyle;
+(function (BreadcrumbPathStyle) {
+  BreadcrumbPathStyle["SEMIBOLD"] = "semibold";
+  BreadcrumbPathStyle["UNDERLINED"] = "underlined";
+})(BreadcrumbPathStyle || (BreadcrumbPathStyle = {}));
+export var BreadcrumbHomepageVariant;
+(function (BreadcrumbHomepageVariant) {
+  BreadcrumbHomepageVariant["TEXT"] = "text";
+  BreadcrumbHomepageVariant["ICON"] = "icon";
+})(BreadcrumbHomepageVariant || (BreadcrumbHomepageVariant = {}));
