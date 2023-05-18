@@ -116,7 +116,7 @@ export namespace Components {
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * [optional] Path elements
+          * [optional] Path elements, the first of which is the home path
          */
         "paths"?: BreadcrumbPath[] | string;
         /**
@@ -2706,7 +2706,7 @@ declare namespace LocalJSX {
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
-          * [optional] Path elements
+          * [optional] Path elements, the first of which is the home path
          */
         "paths"?: BreadcrumbPath[] | string;
         /**

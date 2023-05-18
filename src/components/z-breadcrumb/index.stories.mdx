@@ -42,7 +42,7 @@ import "./style.stories.css";
     args={{
       pathStyle: BreadcrumbPathStyle.SEMIBOLD,
       paths: [
-        {text: "Path 1", path: "https://www.zanichelli.it"},
+        {path: "https://www.zanichelli.it"},
         {text: "Lingua inglese - Scuola secondaria di primo grado", path: "/path2"},
         {text: "Lingua Inglese - Lessico e funzioni linguistiche e comunicative", path: "/path3"},
         {text: "Il tempo libero e i luoghi del tempo libero", path: "/path4"},
@@ -71,6 +71,12 @@ import "./style.stories.css";
 
 <ArgsTable of="z-breadcrumb" />
 
+## ZBreadcrumb with path prop valued
+
+### Usage
+
+The first element of the array will be used as a home link and it will have a default value which cannot be overwritten ("Home" text or an icon) so don't value the field "text" of the first object of the array because it will be overwritten.
+
 ## ZBreadcrumb with inner content for SEO purposes
 
 As the crawlers flatten the light dom and the shadow dom, it is important to move all the relevant SEO content in the light DOM, to not affect indexability.
@@ -80,12 +86,13 @@ As the crawlers flatten the light dom and the shadow dom, it is important to mov
 For this use case, you can omit paths prop and pass as component's children a number of anchor tags.
 The component will handle the logic for generating the proper markup inside the shadow dom.
 No slot is rendered inside the latter.
+Like the other use case, don't pass a custom label to the first child because it will be overwritten by the default home value.
 
 ```html
 <z-breadcrumb>
+  <a href="./home_link"><a>
   <a href="./link1">link1</a>
   <a href="./link2">link2</a>
   <a href="./link3">link3</a>
-  <a href="./link4">link4</a>
 </z-breadcrumb>
 ```

@@ -25,7 +25,7 @@ export class ZBreadcrumb {
 
   @Element() hostElement: HTMLZBreadcrumbElement;
 
-  /** [optional] Path elements */
+  /** [optional] Path elements, the first of which is the home path */
   @Prop()
   paths?: BreadcrumbPath[] | string;
 
