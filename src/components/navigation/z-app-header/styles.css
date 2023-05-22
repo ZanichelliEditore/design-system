@@ -163,6 +163,11 @@
   flex-flow: row wrap;
 }
 
+:host([menu-length="0"]:not([enable-search])) .menu-container,
+.menu-container:empty {
+  display: none;
+}
+
 .menu-container ::slotted([open]) {
   position: relative;
   z-index: 3;
