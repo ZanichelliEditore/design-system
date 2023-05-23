@@ -1,6 +1,6 @@
 import { r as registerInstance, c as createEvent, h, g as getElement } from './index-a2ca4b97.js';
 import { r as PocketStatus } from './index-7e4df1be.js';
-import { h as handleKeyboardSubmit } from './utils-b7bdd1bf.js';
+import { a as handleKeyboardSubmit } from './utils-825aed23.js';
 import { h as hammer } from './hammer-c3266b17.js';
 import './breakpoints-9b81eb1b.js';
 import './_commonjsHelpers-9943807e.js';

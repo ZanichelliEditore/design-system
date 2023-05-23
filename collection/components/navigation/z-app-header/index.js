@@ -153,7 +153,7 @@ export class ZAppHeader {
     return parent;
   }
   get canShowMenu() {
-    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
+    return this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
   }
   get canShowSearchbar() {
     if (!this.enableSearch) {

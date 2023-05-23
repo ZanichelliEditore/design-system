@@ -97,4 +97,4 @@ function colorFromId(id) {
   return `${prefix}${color.toString().padStart(2, "0")}`;
 }
 
-export { handleEnterKeydSubmit as a, boolean as b, colorFromId as c, getElementTree as d, getClickedElement as e, convertJson as f, getDevice as g, handleKeyboardSubmit as h, randomId as r };
+export { handleKeyboardSubmit as a, boolean as b, colorFromId as c, getElementTree as d, getClickedElement as e, convertJson as f, getDevice as g, handleEnterKeydSubmit as h, randomId as r };
