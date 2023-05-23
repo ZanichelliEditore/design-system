@@ -46,8 +46,8 @@ export const parameters = {
   },
   options: {
     storySort: {
-        method: 'alphabetical',
-        locales: 'en-US',
-    }
+      method: "alphabetical",
+      locales: "en-US",
+    },
   },
 };
