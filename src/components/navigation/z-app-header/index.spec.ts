@@ -21,6 +21,9 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="subtitle"></slot>
               </div>
             </div>
+            <div class="menu-container">
+              <slot name="menu"></slot>
+            </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
@@ -51,6 +54,9 @@ describe("Suite test ZAppHeader", () => {
               <div class="heading-subtitle">
                 <slot name="subtitle"></slot>
               </div>
+            </div>
+            <div class="menu-container">
+              <slot name="menu"></slot>
             </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">
@@ -85,6 +91,9 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="subtitle"></slot>
               </div>
             </div>
+            <div class="menu-container">
+              <slot name="menu"></slot>
+            </div>
           </div>
         </div>
         <z-offcanvas transitiondirection="right" variant="overlay">
@@ -118,6 +127,9 @@ describe("Suite test ZAppHeader", () => {
               <div class="heading-subtitle">
                 <slot name="subtitle"></slot>
               </div>
+            </div>
+            <div class="menu-container">
+              <slot name="menu"></slot>
             </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">

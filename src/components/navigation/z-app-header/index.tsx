@@ -225,7 +225,7 @@ export class ZAppHeader {
   }
 
   private get canShowMenu(): boolean {
-    return this.menuLength > 0 && this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
+    return this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
   }
 
   private get canShowSearchbar(): boolean {

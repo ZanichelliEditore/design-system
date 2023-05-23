@@ -7,21 +7,22 @@
 
 ## Properties
 
-| Property               | Attribute                 | Description                                   | Type                                                               | Default                          |
-| ---------------------- | ------------------------- | --------------------------------------------- | ------------------------------------------------------------------ | -------------------------------- |
-| `homepageVariant`      | `homepage-variant`        | Variant of first node                         | `BreadcrumbHomepageVariant.ICON \| BreadcrumbHomepageVariant.TEXT` | `BreadcrumbHomepageVariant.ICON` |
-| `maxNodesToShow`       | `max-nodes-to-show`       | [optional] Sets max number of element to show | `number`                                                           | `5`                              |
-| `overflowMenuItemRows` | `overflow-menu-item-rows` |                                               | `number`                                                           | `0`                              |
-| `pathStyle`            | `path-style`              | [optional] Sets the path style                | `BreadcrumbPathStyle.SEMIBOLD \| BreadcrumbPathStyle.UNDERLINED`   | `BreadcrumbPathStyle.UNDERLINED` |
-| `paths`                | `paths`                   | Path elements                                 | `BreadcrumbPath[] \| string`                                       | `undefined`                      |
-| `preventFollowUrl`     | `prevent-follow-url`      | Controls the behaviour on <a> tag click/enter | `boolean`                                                          | `false`                          |
+| Property               | Attribute                 | Description                                                                               | Type                                                               | Default                          |
+| ---------------------- | ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------- |
+| `homepageVariant`      | `homepage-variant`        | [optional] Variant of first node                                                          | `BreadcrumbHomepageVariant.ICON \| BreadcrumbHomepageVariant.TEXT` | `BreadcrumbHomepageVariant.ICON` |
+| `maxNodesToShow`       | `max-nodes-to-show`       | [optional] Sets max number of element to show                                             | `number`                                                           | `5`                              |
+| `overflowMenuItemRows` | `overflow-menu-item-rows` | [optional] Sets max number of row for each path inside the popover. Zero equals unlimited | `number`                                                           | `0`                              |
+| `pathStyle`            | `path-style`              | [optional] Sets the path style                                                            | `BreadcrumbPathStyle.SEMIBOLD \| BreadcrumbPathStyle.UNDERLINED`   | `BreadcrumbPathStyle.UNDERLINED` |
+| `paths`                | `paths`                   | [optional] Path elements, the first of which is the home path                             | `BreadcrumbPath[] \| string`                                       | `undefined`                      |
+| `preventFollowUrl`     | `prevent-follow-url`      | [optional] Controls the behaviour on <a> tag click/enter                                  | `boolean`                                                          | `false`                          |
+| `truncateChar`         | `truncate-char`           | [optional] Sets the maximun number of chars per single node                               | `number`                                                           | `30`                             |
 
 
 ## Events
 
-| Event         | Description                                                  | Type               |
-| ------------- | ------------------------------------------------------------ | ------------------ |
-| `clickOnNode` | Emitted when preventFollowUrl=true to handle page transition | `CustomEvent<any>` |
+| Event         | Description                                                         | Type               |
+| ------------- | ------------------------------------------------------------------- | ------------------ |
+| `clickOnNode` | Emitted when preventFollowUrl=true to handle custom page transition | `CustomEvent<any>` |
 
 
 ## Dependencies
