@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.4.1](https://github.com/ZanichelliEditore/design-system/compare/v7.4.0...v7.4.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* don't skip rendering of the menu slot when the menu is initially empty ([127438c](https://github.com/ZanichelliEditore/design-system/commit/127438c4704ffe3bc415f2b5f856ce5fa30f6eb7))
+
 ## [7.4.0](https://github.com/ZanichelliEditore/design-system/compare/v7.3.7...v7.4.0) (2023-05-18)
 
 
