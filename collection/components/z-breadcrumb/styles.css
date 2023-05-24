@@ -46,6 +46,8 @@ li {
 
 :host a.homepage-text {
   display: initial;
+  margin-top: calc(var(--space-unit) / 4);
+  margin-right: var(--space-unit);
 }
 
 :host a.missing-path {
@@ -68,7 +70,7 @@ li {
   list-style-type: none;
 }
 
-:host ol > li:not(:last-child) {
+:host ol > li:not(:first-child, :last-child) {
   margin-right: var(--space-unit);
 }
 
@@ -129,6 +131,7 @@ nav.semibold > ol > li button {
     width: 10px;
     height: 10px;
     flex: 1;
+    margin-right: 2px;
     color: var(--color-disabled03);
     content: "\203A";
   }
