@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.4.2](https://github.com/ZanichelliEditore/design-system/compare/v7.4.1...v7.4.2) (2023-05-24)
+
+
+### Bug Fixes
+
+* css spacing fixes on z-breadcrumb and font weight on z-section title ([e40a638](https://github.com/ZanichelliEditore/design-system/commit/e40a6386cfe4ba1ca9d84d8296a0c2392aac2a7c))
+
 ### [7.4.1](https://github.com/ZanichelliEditore/design-system/compare/v7.4.0...v7.4.1) (2023-05-23)
 
 
