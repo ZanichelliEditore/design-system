@@ -44,4 +44,10 @@ export const parameters = {
     // fix wrong indentation due to the story template string (html`...`)
     transformSource: (input) => dedent(input),
   },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      locales: "en-US",
+    },
+  },
 };
