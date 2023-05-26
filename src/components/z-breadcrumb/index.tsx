@@ -5,7 +5,6 @@ import {
   BreadcrumbPathStyle,
   Device,
   KeyboardCode,
-  ListDividerType,
   ListSize,
   PopoverPosition,
 } from "../../beans";
