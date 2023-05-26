@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { BreadcrumbHomepageVariant, BreadcrumbPathStyle, Device, KeyboardCode, ListDividerType, ListSize, PopoverPosition, } from "../../beans";
+import { BreadcrumbHomepageVariant, BreadcrumbPathStyle, Device, KeyboardCode, ListSize, PopoverPosition, } from "../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../utils/utils";
 export class ZBreadcrumb {
   constructor() {
@@ -120,18 +120,12 @@ export class ZBreadcrumb {
     return str;
   }
   getPathsItemsList() {
-    if (!this.paths) {
-      return Array.from(this.hostElement.children).map((item) => {
-        return {
-          text: item.textContent,
-          path: item.href,
-          hasTooltip: false,
-        };
-      });
-    }
-    const ret = typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
-    return ret.map((item) => {
-      return Object.assign(Object.assign({}, item), { hasTooltip: false });
+    return Array.from(this.hostElement.children).map((item) => {
+      return {
+        text: item.textContent,
+        path: item.href,
+        hasTooltip: false,
+      };
     });
   }
   renderMobileBreadcrumb() {
@@ -148,7 +142,7 @@ export class ZBreadcrumb {
       }, href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item) }, this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (h("z-icon", { name: "home", fill: "color-link-primary", height: 16, width: 16 })) : ("Home"))));
   }
   renderNode(item, mobile) {
-    return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
+    return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
         "missing-path": !item.path,
         "text-ellipsis": mobile,
       }, ref: (val) => (this.triggerEllipsis = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
@@ -202,7 +196,9 @@ export class ZBreadcrumb {
   }
   renderOverflowMenu() {
     if (this.collapsedElements.length) {
-      return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { dividerType: ListDividerType.ELEMENT, size: ListSize.SMALL }, this.collapsedElements.map((item) => (h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)))))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
+      return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
+        return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
+      }))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
           this.togglePopover();
         }, onKeyDown: (e) => {
           handleKeyboardSubmit(e, this.togglePopover.bind(this));
@@ -213,7 +209,7 @@ export class ZBreadcrumb {
     }
   }
   render() {
-    return (h(Host, { style: { "--line-clamp": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
+    return (h(Host, { style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
   }
   static get is() { return "z-breadcrumb"; }
   static get encapsulation() { return "shadow"; }
@@ -229,28 +225,6 @@ export class ZBreadcrumb {
   }
   static get properties() {
     return {
-      "paths": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "BreadcrumbPath[] | string",
-          "resolved": "BreadcrumbPath[] | string",
-          "references": {
-            "BreadcrumbPath": {
-              "location": "import",
-              "path": "../../beans"
-            }
-          }
-        },
-        "required": false,
-        "optional": true,
-        "docs": {
-          "tags": [],
-          "text": "[optional] Path elements, the first of which is the home path"
-        },
-        "attribute": "paths",
-        "reflect": false
-      },
       "pathStyle": {
         "type": "string",
         "mutable": false,
@@ -399,9 +373,6 @@ export class ZBreadcrumb {
   static get elementRef() { return "hostElement"; }
   static get watchers() {
     return [{
-        "propName": "paths",
-        "methodName": "handlePropChange"
-      }, {
         "propName": "maxNodesToShow",
         "methodName": "handlePropChange"
       }, {

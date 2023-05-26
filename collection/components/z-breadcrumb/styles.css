@@ -97,13 +97,13 @@ nav.semibold > ol > li button {
   cursor: pointer;
 }
 
-:host .popover-content {
+:host .hidden-paths-popover .popover-content {
   max-width: 302px;
   padding: calc(var(--space-unit) / 2) var(--space-unit);
   text-align: left;
 }
 
-:host .popover-content a {
+:host .hidden-paths-popover .popover-content a {
   font-weight: var(--font-rg);
   text-decoration: none;
 }
@@ -111,6 +111,11 @@ nav.semibold > ol > li button {
 :host .hidden-paths-popover {
   --z-popover-theme--surface: var(--color-surface02);
   --z-popover-padding: 0;
+}
+
+:host .hidden-paths-popover::before,
+.full-path-tooltip::before {
+  --arrow-edge-offset: calc(100% - (var(--space-unit) * 2.55));
 }
 
 :host .full-path-tooltip {

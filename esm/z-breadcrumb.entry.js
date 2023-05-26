@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { W as BreadcrumbPathStyle, X as BreadcrumbHomepageVariant, q as Device, P as PopoverPosition, g as KeyboardCode, m as ListDividerType, i as ListSize } from './index-7e4df1be.js';
+import { W as BreadcrumbPathStyle, X as BreadcrumbHomepageVariant, q as Device, P as PopoverPosition, g as KeyboardCode, i as ListSize } from './index-7e4df1be.js';
 import { g as getDevice, a as handleKeyboardSubmit } from './utils-825aed23.js';
 import './breakpoints-9b81eb1b.js';
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--line-clamp-popover:0;--line-clamp-mobile:1}button{padding:0;border:none;margin:0;background-color:transparent}nav{display:flex;height:30px;align-items:center;padding-left:calc(var(--space-unit) / 2);overflow-x:hidden}li{display:flex;align-items:baseline}:host a:focus,:host button:focus{box-shadow:var(--shadow-focus-primary);outline:0}:host a{color:var(--color-link-primary);font-size:var(--font-size-2);text-decoration:none;white-space:nowrap}:host a.homepage-icon{display:list-item}:host a.homepage-text{display:initial;margin-top:calc(var(--space-unit) / 4);margin-right:var(--space-unit)}:host a.missing-path{color:var(--color-text01)}:host a.text-ellipsis{display:-webkit-box !important;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);text-overflow:ellipsis;white-space:normal}:host ol{display:flex;padding:0;margin:0;list-style-type:none}:host ol>li:not(:first-child,:last-child){margin-right:var(--space-unit)}nav.underlined>ol>li a:not(.missing-path),nav.underlined>ol>li button{text-decoration:underline}nav.semibold>ol>li a:not(.missing-path),nav.semibold>ol>li button{font-weight:var(--font-sb)}:host z-icon{margin-right:var(--space-unit);--z-icon-width:12px;--z-icon-height:12px}:host button.dots{display:inline-block;color:var(--color-link-primary);cursor:pointer}:host .popover-content{max-width:302px;padding:calc(var(--space-unit) / 2) var(--space-unit);text-align:left}:host .popover-content a{font-weight:var(--font-rg);text-decoration:none}:host .hidden-paths-popover{--z-popover-theme--surface:var(--color-surface02);--z-popover-padding:0}:host .full-path-tooltip{--z-popover-theme--surface:var(--color-surface05);--z-popover-theme--text:var(--color-text-inverse);--z-popover-padding:0}:host .tooltip-content{padding:0 var(--space-unit);font-size:var(--font-size-2)}@media (min-width: 768px){:host ol>li+li::before{display:inline-block;width:10px;height:10px;flex:1;margin-right:2px;color:var(--color-disabled03);content:\"\\203A\"}:host a.text-ellipsis{-webkit-line-clamp:var(--line-clamp-popover)}}";
+const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--line-clamp-popover:0;--line-clamp-mobile:1}button{padding:0;border:none;margin:0;background-color:transparent}nav{display:flex;height:30px;align-items:center;padding-left:calc(var(--space-unit) / 2);overflow-x:hidden}li{display:flex;align-items:baseline}:host a:focus,:host button:focus{box-shadow:var(--shadow-focus-primary);outline:0}:host a{color:var(--color-link-primary);font-size:var(--font-size-2);text-decoration:none;white-space:nowrap}:host a.homepage-icon{display:list-item}:host a.homepage-text{display:initial;margin-top:calc(var(--space-unit) / 4);margin-right:var(--space-unit)}:host a.missing-path{color:var(--color-text01)}:host a.text-ellipsis{display:-webkit-box !important;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);text-overflow:ellipsis;white-space:normal}:host ol{display:flex;padding:0;margin:0;list-style-type:none}:host ol>li:not(:first-child,:last-child){margin-right:var(--space-unit)}nav.underlined>ol>li a:not(.missing-path),nav.underlined>ol>li button{text-decoration:underline}nav.semibold>ol>li a:not(.missing-path),nav.semibold>ol>li button{font-weight:var(--font-sb)}:host z-icon{margin-right:var(--space-unit);--z-icon-width:12px;--z-icon-height:12px}:host button.dots{display:inline-block;color:var(--color-link-primary);cursor:pointer}:host .hidden-paths-popover .popover-content{max-width:302px;padding:calc(var(--space-unit) / 2) var(--space-unit);text-align:left}:host .hidden-paths-popover .popover-content a{font-weight:var(--font-rg);text-decoration:none}:host .hidden-paths-popover{--z-popover-theme--surface:var(--color-surface02);--z-popover-padding:0}:host .hidden-paths-popover::before,.full-path-tooltip::before{--arrow-edge-offset:calc(100% - (var(--space-unit) * 2.55))}:host .full-path-tooltip{--z-popover-theme--surface:var(--color-surface05);--z-popover-theme--text:var(--color-text-inverse);--z-popover-padding:0}:host .tooltip-content{padding:0 var(--space-unit);font-size:var(--font-size-2)}@media (min-width: 768px){:host ol>li+li::before{display:inline-block;width:10px;height:10px;flex:1;margin-right:2px;color:var(--color-disabled03);content:\"\\203A\"}:host a.text-ellipsis{-webkit-line-clamp:var(--line-clamp-popover)}}";
 
 const ZBreadcrumb = class {
   constructor(hostRef) {
@@ -126,18 +126,12 @@ const ZBreadcrumb = class {
     return str;
   }
   getPathsItemsList() {
-    if (!this.paths) {
-      return Array.from(this.hostElement.children).map((item) => {
-        return {
-          text: item.textContent,
-          path: item.href,
-          hasTooltip: false,
-        };
-      });
-    }
-    const ret = typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
-    return ret.map((item) => {
-      return Object.assign(Object.assign({}, item), { hasTooltip: false });
+    return Array.from(this.hostElement.children).map((item) => {
+      return {
+        text: item.textContent,
+        path: item.href,
+        hasTooltip: false,
+      };
     });
   }
   renderMobileBreadcrumb() {
@@ -154,7 +148,7 @@ const ZBreadcrumb = class {
       }, href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item) }, this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (h("z-icon", { name: "home", fill: "color-link-primary", height: 16, width: 16 })) : ("Home"))));
   }
   renderNode(item, mobile) {
-    return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
+    return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
         "missing-path": !item.path,
         "text-ellipsis": mobile,
       }, ref: (val) => (this.triggerEllipsis = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
@@ -208,7 +202,9 @@ const ZBreadcrumb = class {
   }
   renderOverflowMenu() {
     if (this.collapsedElements.length) {
-      return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { dividerType: ListDividerType.ELEMENT, size: ListSize.SMALL }, this.collapsedElements.map((item) => (h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)))))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
+      return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
+        return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
+      }))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
           this.togglePopover();
         }, onKeyDown: (e) => {
           handleKeyboardSubmit(e, this.togglePopover.bind(this));
@@ -219,11 +215,10 @@ const ZBreadcrumb = class {
     }
   }
   render() {
-    return (h(Host, { style: { "--line-clamp": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
+    return (h(Host, { style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
   }
   get hostElement() { return getElement(this); }
   static get watchers() { return {
-    "paths": ["handlePropChange"],
     "maxNodesToShow": ["handlePropChange"],
     "viewPortWidth": ["handleResizeUp"]
   }; }

@@ -1,9 +1,7 @@
-import { BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, Device } from "../../beans";
+import { BreadcrumbHomepageVariant, BreadcrumbPathStyle, Device } from "../../beans";
 import { EventEmitter } from "puppeteer";
 export declare class ZBreadcrumb {
   hostElement: HTMLZBreadcrumbElement;
-  /** [optional] Path elements, the first of which is the home path */
-  paths?: BreadcrumbPath[] | string;
   /** [optional] Sets the path style */
   pathStyle?: BreadcrumbPathStyle;
   /** [optional] Variant of first node */
