@@ -25,10 +25,6 @@ export class ZBreadcrumb {
 
   @Element() hostElement: HTMLZBreadcrumbElement;
 
-  /** [optional] Path elements, the first of which is the home path */
-  @Prop()
-  paths?: BreadcrumbPath[] | string;
-
   /** [optional] Sets the path style */
   @Prop({reflect: true})
   pathStyle?: BreadcrumbPathStyle = BreadcrumbPathStyle.UNDERLINED;
@@ -80,7 +76,6 @@ export class ZBreadcrumb {
     }
   }
   // eslint-disable-next-line lines-between-class-members
-  @Watch("paths")
   @Watch("maxNodesToShow")
   handlePropChange(): void {
     this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
@@ -213,20 +208,12 @@ export class ZBreadcrumb {
   }
 
   private getPathsItemsList(): BreadcrumbPath[] {
-    if (!this.paths) {
-      return Array.from(this.hostElement.children).map((item: HTMLAnchorElement) => {
-        return {
-          text: item.textContent,
-          path: item.href,
-          hasTooltip: false,
-        };
-      });
-    }
-
-    const ret = typeof this.paths === "string" ? JSON.parse(this.paths) : this.paths;
-
-    return ret.map((item) => {
-      return {...item, hasTooltip: false};
+    return Array.from(this.hostElement.children).map((item: HTMLAnchorElement) => {
+      return {
+        text: item.textContent,
+        path: item.href,
+        hasTooltip: false,
+      };
     });
   }
 
@@ -280,7 +267,7 @@ export class ZBreadcrumb {
             class="full-path-tooltip"
             bind-to={this.triggerEllipsis}
             open={this.popoverEllipsisOpen}
-            position={PopoverPosition.BOTTOM}
+            position={PopoverPosition.BOTTOM_RIGHT}
             closable={false}
             showArrow
           >
@@ -387,22 +374,24 @@ export class ZBreadcrumb {
           >
             <div class="popover-content">
               <z-list>
-                <z-list-group
-                  dividerType={ListDividerType.ELEMENT}
-                  size={ListSize.SMALL}
-                >
-                  {this.collapsedElements.map((item) => (
-                    <z-list-element clickable>
-                      <a
-                        class="text-ellipsis"
-                        href={item.path}
-                        onClick={(e) => this.handlePreventFollowUrl(e, item)}
-                        onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
-                      >
-                        {item.text}
-                      </a>
-                    </z-list-element>
-                  ))}
+                <z-list-group size={ListSize.SMALL}>
+                  {this.collapsedElements.map((item, index, array) => {
+                    return (
+                      <div>
+                        <z-list-element clickable>
+                          <a
+                            class="text-ellipsis"
+                            href={item.path}
+                            onClick={(e) => this.handlePreventFollowUrl(e, item)}
+                            onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
+                          >
+                            {item.text}
+                          </a>
+                        </z-list-element>
+                        {index < array.length - 1 && <z-divider color="color-surface03"></z-divider>}
+                      </div>
+                    );
+                  })}
                 </z-list-group>
               </z-list>
             </div>
@@ -431,7 +420,7 @@ export class ZBreadcrumb {
 
   render(): HTMLZBreadcrumbElement {
     return (
-      <Host style={{"--line-clamp": `${this.overflowMenuItemRows}`}}>
+      <Host style={{"--line-clamp-popover": `${this.overflowMenuItemRows}`}}>
         {this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
       </Host>
     );
