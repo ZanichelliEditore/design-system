@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.4.3](https://github.com/ZanichelliEditore/design-system/compare/v7.4.2...v7.4.3) (2023-05-26)
+
+
+### Bug Fixes
+
+* removed unused type ([4d70ea3](https://github.com/ZanichelliEditore/design-system/commit/4d70ea3279b03059dd757146645e5d5c88873450))
+* tests ([6144622](https://github.com/ZanichelliEditore/design-system/commit/61446227bbc90b98e461b571cbe37b27b6568ce3))
+* various fix on z-breadcrumb ([fb99248](https://github.com/ZanichelliEditore/design-system/commit/fb99248b80c89212ace853bfdd777906ba54a94f))
+
 ### [7.4.2](https://github.com/ZanichelliEditore/design-system/compare/v7.4.1...v7.4.2) (2023-05-24)
 
 
