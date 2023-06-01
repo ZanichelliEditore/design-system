@@ -1,4 +1,4 @@
-import {Component, Listen, Prop, State, h} from "@stencil/core";
+import {Component, Element, Listen, Prop, State, h} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 
@@ -11,6 +11,9 @@ import {mobileBreakpoint} from "../../constants/breakpoints";
   shadow: true,
 })
 export class ZBookCard {
+  @Element()
+  hostElement: HTMLZBookCardElement;
+
   /**
    * Property description.
    */
@@ -18,10 +21,21 @@ export class ZBookCard {
   variant: BookCardVariant;
   @Prop()
   cover: string;
+  @Prop()
+  operaTitle: string;
+  @Prop()
+  volumeTitle?: string;
+  @Prop()
+  authors?: string;
+  @Prop()
+  isbn?: string;
+  @Prop()
+  ribbon?: string;
 
   @State()
   isMobile: boolean = false;
-
+  @State()
+  hasResources: boolean = false;
   @State()
   showResources: boolean = false;
 
@@ -33,6 +47,15 @@ export class ZBookCard {
 
   componentWillLoad(): void {
     this.handleResize();
+  }
+
+  componentWillRender(): void {
+    this.handleResources();
+  }
+
+  handleResources(): void {
+    if (this.variant !== BookCardVariant.EXPANDED || !this.isMobile) return;
+    this.hasResources = this.hostElement.querySelectorAll("[slot=resources]")?.length > 0;
   }
 
   renderCard(): JSX.Element {
@@ -51,8 +74,19 @@ export class ZBookCard {
       <div class="wrapper">
         {this.renderCover()}
         <div class="content">
-          <div class="top">top</div>
-          <div class="bottom">{this.renderResources()}</div>
+          <div class="top">
+            <div class="info">
+              <div class="left">
+                {this.renderAuthors()}
+                {this.renderOperaTitle()}
+                {this.renderVolumeTitle()}
+                {this.renderIsbn()}
+              </div>
+              <div class="right">{this.renderHeaderCtaSlot()}</div>
+            </div>
+            {this.renderTagsSlot()}
+          </div>
+          <div class="bottom">{this.renderResourcesSlot()}</div>
         </div>
       </div>
     );
@@ -61,30 +95,85 @@ export class ZBookCard {
   renderMobileExpandedCard(): JSX.Element {
     return (
       <div class="wrapper">
-        <div class="header">header</div>
-        {this.renderCover()}
-        <div class="content">content</div>
-        <div class={`footer ${this.showResources ? "open" : "closed"}`}>
-          {this.showResources && this.renderResources()}
-          {/* TODO: handle accessibility on click */}
-          <button onClick={() => (this.showResources = !this.showResources)}>resources</button>
+        <div class="header">
+          {this.renderOperaTitle()}
+          {this.renderHeaderCtaSlot()}
         </div>
+        {this.renderCover()}
+        <div class="content">
+          {this.renderTagsSlot()}
+          {this.renderAuthors()}
+          {this.renderVolumeTitle()}
+          {this.renderIsbn()}
+        </div>
+        {this.hasResources && (
+          <div class={`footer ${this.showResources ? "open" : "close"}`}>
+            {this.showResources && this.renderResourcesSlot()}
+            {this.renderShowResources()}
+          </div>
+        )}
       </div>
     );
   }
 
   renderCover(): JSX.Element {
-    // TODO: check ribbon prop + compact
     return (
       <div class="cover">
-        <div class="ribbon">ribbooooon</div>
+        {this.ribbon && this.variant !== BookCardVariant.COMPACT && <div class="ribbon">{this.ribbon}</div>}
         <img src={this.cover} />
       </div>
     );
   }
 
-  renderResources(): JSX.Element {
-    return <div class="resources">resources</div>;
+  renderOperaTitle(): JSX.Element {
+    return <div class="title">{this.operaTitle}</div>;
+  }
+
+  renderVolumeTitle(): null | JSX.Element {
+    return this.volumeTitle ? <div class="subtitle">{this.volumeTitle}</div> : null;
+  }
+
+  renderAuthors(): null | JSX.Element {
+    return this.authors ? <div class="authors">{this.authors}</div> : null;
+  }
+
+  renderIsbn(): null | JSX.Element {
+    if (!this.isbn) return null;
+    return (
+      <div class="isbn">
+        <span class="code">{this.isbn}</span>
+        <span class="label"> (ed. cartacea)</span>
+      </div>
+    );
+  }
+
+  renderShowResources(): null | JSX.Element {
+    //  TODO: handle accessibility on click
+    return (
+      <button
+        class="show-resources"
+        onClick={() => (this.showResources = !this.showResources)}
+      >
+        <span>{this.showResources ? "Chiudi" : "Vedi tutto"}</span>
+        <z-icon name={this.showResources ? "chevron-up" : "chevron-down"} />
+      </button>
+    );
+  }
+
+  renderTagsSlot(): JSX.Element {
+    return (
+      <div class="tags">
+        <slot name="tags" />
+      </div>
+    );
+  }
+
+  renderHeaderCtaSlot(): JSX.Element {
+    return <slot name="header-cta" />;
+  }
+
+  renderResourcesSlot(): JSX.Element {
+    return <slot name="resources" />;
   }
 
   render(): HTMLZBookCardElement {

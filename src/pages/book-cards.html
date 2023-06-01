@@ -26,19 +26,84 @@
   </head>
 
   <body style="margin: 0; padding: 16px; background-color: #aaa">
-    <div style="display: grid; gap: 16px">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
       <z-book-card
+        id="card"
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-      ></z-book-card>
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+      >
+        <z-icon
+          slot="header-cta"
+          name="star-empty"
+        ></z-icon>
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+        <div slot="resources">EBOOK</div>
+        <div slot="resources">RISORSA</div>
+      </z-book-card>
+
       <z-book-card
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-      ></z-book-card>
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-tag slot="tags">UN TAG</z-tag>
+        <z-tag slot="tags">DUE TAG</z-tag>
+        <z-tag slot="tags">TRE TAG</z-tag>
+        <z-tag slot="tags">QUATTRO TAG</z-tag>
+        <z-tag slot="tags">CINQUE TAG</z-tag>
+        <z-tag slot="tags">SEI TAG</z-tag>
+        <z-tag slot="tags">SETTE TAG</z-tag>
+        <z-tag slot="tags">OTTO TAG</z-tag>
+        <z-tag slot="tags">NOVE TAG</z-tag>
+        <z-tag slot="tags">DIECI TAG</z-tag>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+        <div slot="resources">RISORSA</div>
+      </z-book-card>
+
       <z-book-card
         variant="expanded"
         cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        opera-title="lo Zingarelli 2024"
       ></z-book-card>
     </div>
+
+    <!-- <script>
+      const card = document.getElementById("card");
+      if (card) {
+        const resource = document.createElement("DIV");
+        resource.setAttribute("slot", "resources");
+        setTimeout(() => {
+          console.log("appending resource");
+          card.appendChild(resource);
+        }, 2000);
+        setTimeout(() => {
+          console.log("appending resource");
+          card.appendChild(resource);
+        }, 6000);
+        setTimeout(() => {
+          console.log("changing title");
+          card.setAttribute("opera-title", "new title");
+        }, 4000);
+      }
+    </script> -->
   </body>
 </html>
