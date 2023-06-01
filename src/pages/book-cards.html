@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script
+      type="module"
+      src="/build/web-components-library.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="/build/web-components-library.js"
+    ></script>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background-color: #aaa">
+    <div style="display: grid; gap: 16px">
+      <z-book-card
+        variant="expanded"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+      ></z-book-card>
+      <z-book-card
+        variant="expanded"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+      ></z-book-card>
+      <z-book-card
+        variant="expanded"
+        cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+      ></z-book-card>
+    </div>
+  </body>
+</html>

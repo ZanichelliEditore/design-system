@@ -459,3 +459,9 @@ export enum BreadcrumbHomepageVariant {
   TEXT = "text",
   ICON = "icon",
 }
+
+export enum BookCardVariant {
+  EXPANDED = "expanded",
+  COMPACT = "compact",
+  SEARCH = "search",
+}

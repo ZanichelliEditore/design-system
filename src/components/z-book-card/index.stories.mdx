@@ -1,0 +1,15 @@
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {html} from "lit-html";
+import "./index";
+
+<Meta title="ZBookCard" component="z-book-card" />
+
+# ZBookCard
+
+<Canvas>
+  <Story name="ZBookCard-sample" args={{/* args object */}}>
+    {(args) => html`<z-book-card></z-book-card>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-book-card" />
