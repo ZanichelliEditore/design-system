@@ -99,16 +99,37 @@ export namespace Components {
         "variant": "regular" | "semibold";
     }
     interface ZBookCard {
+        /**
+          * [optional] Authors
+         */
         "authors"?: string;
+        /**
+          * Cover URL
+         */
         "cover": string;
+        /**
+          * [optional] Main ISBN
+         */
         "isbn"?: string;
+        /**
+          * Card main title
+         */
         "operaTitle": string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
         "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label
+         */
         "ribbon"?: string;
         /**
-          * Property description.
+          * Card variant: expanded, compact, search
          */
         "variant": BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
         "volumeTitle"?: string;
     }
     interface ZBreadcrumb {
@@ -2721,16 +2742,37 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZBookCard {
+        /**
+          * [optional] Authors
+         */
         "authors"?: string;
+        /**
+          * Cover URL
+         */
         "cover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
         "isbn"?: string;
+        /**
+          * Card main title
+         */
         "operaTitle"?: string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
         "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label
+         */
         "ribbon"?: string;
         /**
-          * Property description.
+          * Card variant: expanded, compact, search
          */
         "variant"?: BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
         "volumeTitle"?: string;
     }
     interface ZBreadcrumb {

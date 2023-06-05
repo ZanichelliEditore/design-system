@@ -4,7 +4,11 @@ import {mobileBreakpoint} from "../../constants/breakpoints";
 import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
- * Component short description.
+ * @slot resources - books resources
+ * @slot header-cta - header CTA (e.g. bookmark icon)
+ * @slot tags - card tags
+ * @cssprop --ribbon-background-color - ribbon backgrund color
+ * @cssprop --ribbon-shadow-color - ribbon shadow color
  */
 @Component({
   tag: "z-book-card",
@@ -16,22 +20,50 @@ export class ZBookCard {
   hostElement: HTMLZBookCardElement;
 
   /**
-   * Property description.
+   * Card variant: expanded, compact, search
    */
   @Prop()
   variant: BookCardVariant;
+
+  /**
+   * Cover URL
+   */
   @Prop()
   cover: string;
+
+  /**
+   * Card main title
+   */
   @Prop()
   operaTitle: string;
+
+  /**
+   * [optional] Card subtitle
+   */
   @Prop()
   volumeTitle?: string;
+
+  /**
+   * [optional] Authors
+   */
   @Prop()
   authors?: string;
+
+  /**
+   * [optional] Main ISBN
+   */
   @Prop()
   isbn?: string;
+
+  /**
+   * [optional] Ribbon label
+   */
   @Prop()
   ribbon?: string;
+
+  /**
+   * [optional] [accessibility] Card title HTML tag
+   */
   @Prop()
   operaTitleTag?: string;
 
