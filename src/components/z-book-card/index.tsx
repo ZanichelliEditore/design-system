@@ -1,6 +1,7 @@
 import {Component, Element, Listen, Prop, State, h} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
+import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
  * Component short description.
@@ -31,6 +32,8 @@ export class ZBookCard {
   isbn?: string;
   @Prop()
   ribbon?: string;
+  @Prop()
+  operaTitleTag?: string;
 
   @State()
   isMobile: boolean = false;
@@ -39,6 +42,10 @@ export class ZBookCard {
   @State()
   showResources: boolean = false;
 
+  private id: string;
+  private moveFocusToResources: boolean = false;
+  private resourcesWrapper: HTMLDivElement;
+
   @Listen("resize", {target: "window"})
   @Listen("orientationchange", {target: "window"})
   handleResize(): void {
@@ -46,6 +53,7 @@ export class ZBookCard {
   }
 
   componentWillLoad(): void {
+    this.id = `id-${randomId()}`;
     this.handleResize();
   }
 
@@ -53,9 +61,21 @@ export class ZBookCard {
     this.handleResources();
   }
 
+  componentDidRender(): void {
+    if (this.moveFocusToResources) {
+      this.resourcesWrapper.focus();
+      this.moveFocusToResources = false;
+    }
+  }
+
   handleResources(): void {
     if (this.variant !== BookCardVariant.EXPANDED || !this.isMobile) return;
     this.hasResources = this.hostElement.querySelectorAll("[slot=resources]")?.length > 0;
+  }
+
+  toggleResources(): void {
+    this.showResources = !this.showResources;
+    if (this.showResources) this.moveFocusToResources = true;
   }
 
   renderCard(): JSX.Element {
@@ -108,7 +128,7 @@ export class ZBookCard {
         </div>
         {this.hasResources && (
           <div class={`footer ${this.showResources ? "open" : "close"}`}>
-            {this.showResources && this.renderResourcesSlot()}
+            {this.renderResourcesSlot()}
             {this.renderShowResources()}
           </div>
         )}
@@ -126,7 +146,16 @@ export class ZBookCard {
   }
 
   renderOperaTitle(): JSX.Element {
-    return <div class="title">{this.operaTitle}</div>;
+    const title = this.operaTitleTag
+      ? `<${this.operaTitleTag}>${this.operaTitle}</${this.operaTitleTag}>`
+      : this.operaTitle;
+
+    return (
+      <div
+        class="title"
+        innerHTML={title}
+      />
+    );
   }
 
   renderVolumeTitle(): null | JSX.Element {
@@ -134,29 +163,47 @@ export class ZBookCard {
   }
 
   renderAuthors(): null | JSX.Element {
-    return this.authors ? <div class="authors">{this.authors}</div> : null;
+    return this.authors ? (
+      <div
+        class="authors"
+        aria-description="Autori"
+      >
+        {this.authors}
+      </div>
+    ) : null;
   }
 
   renderIsbn(): null | JSX.Element {
     if (!this.isbn) return null;
     return (
       <div class="isbn">
-        <span class="code">{this.isbn}</span>
+        <span
+          class="code"
+          aria-description="ISBN edizione cartacea"
+        >
+          {this.isbn}
+        </span>
         <span class="label"> (ed. cartacea)</span>
       </div>
     );
   }
 
   renderShowResources(): null | JSX.Element {
-    //  TODO: handle accessibility on click
     return (
-      <button
+      <z-link
+        icon={this.showResources ? "chevron-up" : "chevron-down"}
+        iconposition="right"
+        role="button"
         class="show-resources"
-        onClick={() => (this.showResources = !this.showResources)}
+        aria-label={`Risorse del libro ${this.operaTitle}`}
+        aria-expanded={this.showResources.toString()}
+        aria-haspopup="menu"
+        aria-controls={`resources-${this.id}`}
+        onClick={() => this.toggleResources()}
+        onKeyUp={(e) => handleEnterKeydSubmit(e, this.toggleResources.bind(this))}
       >
-        <span>{this.showResources ? "Chiudi" : "Vedi tutto"}</span>
-        <z-icon name={this.showResources ? "chevron-up" : "chevron-down"} />
-      </button>
+        {this.showResources ? "Chiudi" : "Vedi tutto"}
+      </z-link>
     );
   }
 
@@ -173,7 +220,16 @@ export class ZBookCard {
   }
 
   renderResourcesSlot(): JSX.Element {
-    return <slot name="resources" />;
+    return (
+      <div
+        id={`resources-${this.id}`}
+        class="resources"
+        tabIndex={this.showResources ? 0 : -1}
+        ref={(el) => (this.resourcesWrapper = el as HTMLDivElement)}
+      >
+        <slot name="resources" />
+      </div>
+    );
   }
 
   render(): HTMLZBookCardElement {

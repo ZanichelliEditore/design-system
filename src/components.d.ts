@@ -99,11 +99,17 @@ export namespace Components {
         "variant": "regular" | "semibold";
     }
     interface ZBookCard {
+        "authors"?: string;
         "cover": string;
+        "isbn"?: string;
+        "operaTitle": string;
+        "operaTitleTag"?: string;
+        "ribbon"?: string;
         /**
           * Property description.
          */
         "variant": BookCardVariant;
+        "volumeTitle"?: string;
     }
     interface ZBreadcrumb {
         /**
@@ -2715,11 +2721,17 @@ declare namespace LocalJSX {
         "variant"?: "regular" | "semibold";
     }
     interface ZBookCard {
+        "authors"?: string;
         "cover"?: string;
+        "isbn"?: string;
+        "operaTitle"?: string;
+        "operaTitleTag"?: string;
+        "ribbon"?: string;
         /**
           * Property description.
          */
         "variant"?: BookCardVariant;
+        "volumeTitle"?: string;
     }
     interface ZBreadcrumb {
         /**
