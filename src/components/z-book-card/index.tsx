@@ -7,8 +7,8 @@ import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
  * @slot resources - books resources
  * @slot header-cta - header CTA (e.g. bookmark icon)
  * @slot tags - card tags
- * @cssprop --ribbon-background-color - ribbon backgrund color
- * @cssprop --ribbon-shadow-color - ribbon shadow color
+ * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+ * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
  */
 @Component({
   tag: "z-book-card",
@@ -16,8 +16,7 @@ import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
   shadow: true,
 })
 export class ZBookCard {
-  @Element()
-  hostElement: HTMLZBookCardElement;
+  @Element() hostElement: HTMLZBookCardElement;
 
   /**
    * Card variant: expanded, compact, search
@@ -68,14 +67,18 @@ export class ZBookCard {
   operaTitleTag?: string;
 
   @State()
-  isMobile: boolean = false;
+  isMobile = false;
+
   @State()
-  hasResources: boolean = false;
+  hasResources = false;
+
   @State()
-  showResources: boolean = false;
+  showResources = false;
 
   private id: string;
-  private moveFocusToResources: boolean = false;
+
+  private moveFocusToResources = false;
+
   private resourcesWrapper: HTMLDivElement;
 
   @Listen("resize", {target: "window"})
@@ -100,17 +103,21 @@ export class ZBookCard {
     }
   }
 
-  handleResources(): void {
-    if (this.variant !== BookCardVariant.EXPANDED || !this.isMobile) return;
+  private handleResources(): void {
+    if (this.variant !== BookCardVariant.EXPANDED || !this.isMobile) {
+      return;
+    }
     this.hasResources = this.hostElement.querySelectorAll("[slot=resources]")?.length > 0;
   }
 
-  toggleResources(): void {
+  private toggleResources(): void {
     this.showResources = !this.showResources;
-    if (this.showResources) this.moveFocusToResources = true;
+    if (this.showResources) {
+      this.moveFocusToResources = true;
+    }
   }
 
-  renderCard(): JSX.Element {
+  private renderCard(): JSX.Element {
     switch (this.variant) {
       case BookCardVariant.EXPANDED:
         return this.isMobile ? this.renderMobileExpandedCard() : this.renderExpandedCard();
@@ -121,7 +128,7 @@ export class ZBookCard {
     }
   }
 
-  renderExpandedCard(): JSX.Element {
+  private renderExpandedCard(): JSX.Element {
     return (
       <div class="wrapper">
         {this.renderCover()}
@@ -144,7 +151,7 @@ export class ZBookCard {
     );
   }
 
-  renderMobileExpandedCard(): JSX.Element {
+  private renderMobileExpandedCard(): JSX.Element {
     return (
       <div class="wrapper">
         <div class="header">
@@ -168,7 +175,7 @@ export class ZBookCard {
     );
   }
 
-  renderCover(): JSX.Element {
+  private renderCover(): JSX.Element {
     return (
       <div class="cover">
         {this.ribbon && this.variant !== BookCardVariant.COMPACT && <div class="ribbon">{this.ribbon}</div>}
@@ -177,7 +184,7 @@ export class ZBookCard {
     );
   }
 
-  renderOperaTitle(): JSX.Element {
+  private renderOperaTitle(): JSX.Element {
     const title = this.operaTitleTag
       ? `<${this.operaTitleTag}>${this.operaTitle}</${this.operaTitleTag}>`
       : this.operaTitle;
@@ -190,11 +197,11 @@ export class ZBookCard {
     );
   }
 
-  renderVolumeTitle(): null | JSX.Element {
+  private renderVolumeTitle(): null | JSX.Element {
     return this.volumeTitle ? <div class="subtitle">{this.volumeTitle}</div> : null;
   }
 
-  renderAuthors(): null | JSX.Element {
+  private renderAuthors(): null | JSX.Element {
     return this.authors ? (
       <div
         class="authors"
@@ -205,8 +212,11 @@ export class ZBookCard {
     ) : null;
   }
 
-  renderIsbn(): null | JSX.Element {
-    if (!this.isbn) return null;
+  private renderIsbn(): null | JSX.Element {
+    if (!this.isbn) {
+      return null;
+    }
+
     return (
       <div class="isbn">
         <span
@@ -220,7 +230,7 @@ export class ZBookCard {
     );
   }
 
-  renderShowResources(): null | JSX.Element {
+  private renderShowResources(): null | JSX.Element {
     return (
       <z-link
         icon={this.showResources ? "chevron-up" : "chevron-down"}
@@ -239,7 +249,7 @@ export class ZBookCard {
     );
   }
 
-  renderTagsSlot(): JSX.Element {
+  private renderTagsSlot(): JSX.Element {
     return (
       <div class="tags">
         <slot name="tags" />
@@ -247,11 +257,11 @@ export class ZBookCard {
     );
   }
 
-  renderHeaderCtaSlot(): JSX.Element {
+  private renderHeaderCtaSlot(): JSX.Element {
     return <slot name="header-cta" />;
   }
 
-  renderResourcesSlot(): JSX.Element {
+  private renderResourcesSlot(): JSX.Element {
     return (
       <div
         id={`resources-${this.id}`}
