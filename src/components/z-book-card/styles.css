@@ -101,8 +101,7 @@
   justify-content: flex-start;
   align-items: stretch;
   align-content: stretch;
-  gap: calc(var(--space-unit) / 2);
-  max-height: 32px;
+  white-space: nowrap;
   overflow: hidden;
 }
 
@@ -270,10 +269,6 @@
   :host > article.expanded div.content div.bottom {
     padding: calc(var(--space-unit) * 2);
     padding-bottom: 0;
-  }
-
-  :host div.tags {
-    max-height: 26px;
   }
 }
 
