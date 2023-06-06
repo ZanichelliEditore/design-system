@@ -1,7 +1,7 @@
 /* COMMON STYLES */
 
 :host {
-  --z-book-card-ribbon-background-color: var(--avatar-C08); /* stylelint-disable-line custom-property-pattern */
+  --z-book-card-ribbon-background-color: var(--avatar-C08);
   --z-book-card-ribbon-shadow-color: var(--green950);
 
   display: block;
