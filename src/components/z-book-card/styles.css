@@ -1,3 +1,5 @@
+/* stylelint-disable value-no-vendor-prefix */
+
 /* COMMON STYLES */
 
 :host {
@@ -97,11 +99,12 @@
 :host div.tags {
   display: flex;
   overflow: hidden;
+  max-height: 32px;
   flex-flow: row wrap;
   align-content: stretch;
   align-items: stretch;
   justify-content: flex-start;
-  white-space: nowrap;
+  gap: calc(var(--space-unit) / 2);
 }
 
 :host ::slotted([slot="tags"]) {
@@ -152,7 +155,7 @@
 :host > article.expanded .title,
 :host > article.expanded .subtitle,
 :host > article.expanded .authors {
-  display: box;
+  display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
