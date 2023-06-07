@@ -36,9 +36,10 @@
 :host div.cover div.ribbon {
   position: absolute;
   top: calc(var(--space-unit) * 2);
-  display: block;
+  display: flex;
   height: calc(var(--space-unit) * 4);
   box-sizing: border-box;
+  align-items: center;
   padding: 0 calc(var(--space-unit) * 2);
   border: var(--border-size-medium) solid var(--color-surface01);
   margin-left: calc(var(--space-unit) * -2);
@@ -47,7 +48,7 @@
   color: var(--color-text04);
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
-  line-height: calc(var(--space-unit) * 3);
+  line-height: initial;
 }
 
 :host div.cover div.ribbon::before {
@@ -88,7 +89,7 @@
 
 :host div.isbn {
   color: var(--color-text01);
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
   line-height: 1.33;
 }
 
@@ -112,10 +113,11 @@
 }
 
 :host ::slotted([slot="header-cta"]) {
-  --z-icon-width: 22px;
-  --z-icon-height: 22px;
+  --z-icon-width: 20px;
+  --z-icon-height: 20px;
 
-  padding: calc(var(--space-unit) / 2);
+  padding: var(--space-unit);
+  cursor: pointer;
   fill: var(--color-icon01);
 }
 

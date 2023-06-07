@@ -178,7 +178,11 @@ export class ZBookCard {
   private renderCover(): JSX.Element {
     return (
       <div class="cover">
-        {this.ribbon && this.variant !== BookCardVariant.COMPACT && <div class="ribbon">{this.ribbon}</div>}
+        {this.ribbon && this.variant !== BookCardVariant.COMPACT && (
+          <div class="ribbon">
+            <span>{this.ribbon}</span>
+          </div>
+        )}
         <img src={this.cover} />
       </div>
     );

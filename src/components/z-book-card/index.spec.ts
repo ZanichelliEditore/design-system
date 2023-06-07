@@ -72,7 +72,7 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <div class="ribbon">ADOTTATO</div>
+              <div class="ribbon"><span>ADOTTATO</span></div>
               <img src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
             </div>
             <div class="content">
@@ -190,7 +190,7 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <div class="ribbon">ADOTTATO</div>
+                <div class="ribbon"><span>ADOTTATO</span></div>
                 <img src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
               </div>
               <div class="content">
