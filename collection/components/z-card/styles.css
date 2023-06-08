@@ -9,6 +9,7 @@ respecting the grid indications of the design. */
   --z-card--text-background: var(--color-surface01);
   --z-card--text-border-radius: none;
   --z-card--text-border: none;
+  --z-card--text-padding: calc(var(--space-unit) * 2) var(--space-unit);
 
   position: relative;
   display: flex;
@@ -145,7 +146,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 :host([variant="text"]) > .content {
-  padding: calc(var(--space-unit) * 2) var(--space-unit);
+  padding: var(--z-card--text-padding);
 }
 
 :host([variant="border"]) .actions,
