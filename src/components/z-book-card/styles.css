@@ -1,0 +1,281 @@
+/* stylelint-disable value-no-vendor-prefix */
+
+/* COMMON STYLES */
+
+:host {
+  --z-book-card-ribbon-background-color: var(--avatar-C08);
+  --z-book-card-ribbon-shadow-color: var(--green950);
+
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+}
+
+:host > article {
+  box-sizing: border-box;
+  border: var(--border-size-medium) solid var(--color-surface03);
+  background-color: var(--color-surface01);
+  border-radius: var(--border-radius);
+}
+
+:host div.cover {
+  position: relative;
+  display: flex;
+}
+
+:host div.cover img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  align-self: flex-end;
+}
+
+:host div.cover div.ribbon {
+  position: absolute;
+  top: calc(var(--space-unit) * 2);
+  display: flex;
+  height: calc(var(--space-unit) * 4);
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 calc(var(--space-unit) * 2);
+  border: var(--border-size-medium) solid var(--color-surface01);
+  margin-left: calc(var(--space-unit) * -2);
+  background: var(--z-book-card-ribbon-background-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  color: var(--color-text04);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-sb);
+  line-height: initial;
+}
+
+:host div.cover div.ribbon::before {
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 10px solid var(--z-book-card-ribbon-shadow-color);
+  border-left: 14px solid transparent;
+  content: "";
+}
+
+:host div.title {
+  color: var(--color-text01);
+  font-size: var(--font-size-4);
+  font-weight: var(--font-sb);
+  line-height: 1.5;
+}
+
+:host div.title * {
+  all: unset;
+}
+
+:host div.subtitle {
+  color: var(--color-text01);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-rg);
+  line-height: 1.4;
+}
+
+:host div.authors {
+  color: var(--color-text01);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-rg);
+  line-height: 1.33;
+}
+
+:host div.isbn {
+  color: var(--color-text01);
+  font-size: var(--font-size-2);
+  line-height: 1.33;
+}
+
+:host div.isbn > .code {
+  font-weight: var(--font-sb);
+}
+
+:host div.tags {
+  display: flex;
+  overflow: hidden;
+  max-height: 32px;
+  flex-flow: row wrap;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: calc(var(--space-unit) / 2);
+}
+
+:host ::slotted([slot="tags"]) {
+  margin-bottom: var(--space-unit);
+}
+
+:host ::slotted([slot="header-cta"]) {
+  --z-icon-width: 20px;
+  --z-icon-height: 20px;
+
+  padding: var(--space-unit);
+  cursor: pointer;
+  fill: var(--color-icon01);
+}
+
+/* EXPANDED STYLES */
+
+:host > article.expanded {
+  width: 100%;
+  min-width: 328px;
+  padding: calc(var(--space-unit) * 2);
+  padding-bottom: 0;
+}
+
+:host > article.expanded div.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: stretch;
+  align-items: top;
+  justify-content: space-between;
+  margin-bottom: calc(var(--space-unit) * 1.5);
+  white-space: nowrap;
+}
+
+:host > article.expanded div.cover {
+  border: var(--border-size-small) solid var(--color-surface03);
+  border-radius: var(--border-radius);
+  line-height: 0;
+}
+
+:host > article.expanded div.cover img {
+  width: 100%;
+}
+
+:host > article.expanded div.content {
+  margin: var(--space-unit) 0;
+}
+
+:host > article.expanded .title,
+:host > article.expanded .subtitle,
+:host > article.expanded .authors {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: initial;
+}
+
+:host > article.expanded div.footer {
+  border-top: var(--border-size-small) solid var(--color-surface03);
+  margin-bottom: calc(var(--space-unit) * 1.5);
+}
+
+:host > article.expanded div.footer.open {
+  padding-top: calc(var(--space-unit) * 1.5);
+}
+
+:host > article.expanded div.footer.open div.resources {
+  display: initial;
+}
+
+:host > article.expanded div.footer.close div.resources {
+  display: none;
+}
+
+:host > article.expanded z-link.show-resources {
+  --font-size-link: var(--font-size-2);
+  --font-weight-link: var(--font-sb);
+
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-unit);
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  :host {
+    width: initial;
+    max-width: initial;
+  }
+
+  /* EXPANDED STYLES */
+
+  :host > article.expanded {
+    width: 635px;
+    min-width: initial;
+    max-width: initial;
+    height: 360px;
+    padding: 0;
+  }
+
+  :host > article.expanded div.wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  :host > article.expanded div.cover {
+    width: 262px;
+    height: 356px;
+    border: 0;
+    background: var(--color-surface01);
+    border-radius: 0;
+  }
+
+  :host > article.expanded div.cover img {
+    width: auto;
+  }
+
+  :host > article.expanded div.cover div.ribbon::before {
+    border-left: 12px solid transparent;
+  }
+
+  :host > article.expanded div.content {
+    display: flex;
+    overflow: hidden;
+    width: 369px;
+    height: 356px;
+    flex-flow: column nowrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 0;
+    background: var(--color-surface01);
+  }
+
+  :host > article.expanded div.content div.top {
+    padding: calc(var(--space-unit) * 2);
+    padding-bottom: 0;
+  }
+
+  :host > article.expanded div.content div.top div.info {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: calc(var(--space-unit) / 2);
+  }
+
+  :host > article.expanded div.content div.top div.info > div.left {
+    width: 100%;
+  }
+
+  :host > article.expanded div.content div.bottom {
+    padding: calc(var(--space-unit) * 2);
+    padding-bottom: 0;
+  }
+}
+
+/* Desktop breakpoint
+@media (min-width: 1152px) {}
+*/
+
+/* Wide breakpoint
+@media (min-width: 1366px) {}
+*/

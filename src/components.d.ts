@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -97,6 +97,40 @@ export namespace Components {
           * Font weight variant
          */
         "variant": "regular" | "semibold";
+    }
+    interface ZBookCard {
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
+          * Cover URL
+         */
+        "cover": string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * Card main title
+         */
+        "operaTitle": string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label
+         */
+        "ribbon"?: string;
+        /**
+          * Card variant: expanded, compact, search
+         */
+        "variant": BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
+        "volumeTitle"?: string;
     }
     interface ZBreadcrumb {
         /**
@@ -2017,6 +2051,12 @@ declare global {
         prototype: HTMLZBodyElement;
         new (): HTMLZBodyElement;
     };
+    interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
+    }
+    var HTMLZBookCardElement: {
+        prototype: HTMLZBookCardElement;
+        new (): HTMLZBookCardElement;
+    };
     interface HTMLZBreadcrumbElement extends Components.ZBreadcrumb, HTMLStencilElement {
     }
     var HTMLZBreadcrumbElement: {
@@ -2522,6 +2562,7 @@ declare global {
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-body": HTMLZBodyElement;
+        "z-book-card": HTMLZBookCardElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -2699,6 +2740,40 @@ declare namespace LocalJSX {
           * Font weight variant
          */
         "variant"?: "regular" | "semibold";
+    }
+    interface ZBookCard {
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
+          * Cover URL
+         */
+        "cover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * Card main title
+         */
+        "operaTitle"?: string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label
+         */
+        "ribbon"?: string;
+        /**
+          * Card variant: expanded, compact, search
+         */
+        "variant"?: BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
+        "volumeTitle"?: string;
     }
     interface ZBreadcrumb {
         /**
@@ -4612,6 +4687,7 @@ declare namespace LocalJSX {
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-body": ZBody;
+        "z-book-card": ZBookCard;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
         "z-button-sort": ZButtonSort;
@@ -4707,6 +4783,7 @@ declare module "@stencil/core" {
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
+            "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;

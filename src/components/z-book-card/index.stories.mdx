@@ -1,0 +1,135 @@
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import {BookCardVariant} from "../../beans";
+import "./index";
+
+<Meta
+  title="ZBookCard"
+  component="z-book-card"
+  argTypes={{
+    variant: {
+      control: {type: "inline-radio"},
+      options: Object.values(BookCardVariant),
+    },
+    cover: {
+      control: {type: "text"},
+    },
+    operaTitle: {
+      control: {type: "text"},
+    },
+    volumeTitle: {
+      control: {type: "text"},
+    },
+    authors: {
+      control: {type: "text"},
+    },
+    isbn: {
+      control: {type: "text"},
+    },
+    ribbon: {
+      control: {type: "text"},
+    },
+    operaTitleTag: {
+      control: {type: "text"},
+    },
+  }}
+  args={{
+    variant: "expanded",
+    cover: "https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg",
+    operaTitle: "Matematica.azzurro",
+    volumeTitle: "Volume 3 con Tutor",
+    authors: "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
+    isbn: "9788808930552",
+    ribbon: "ADOTTATO",
+    operaTitleTag: "h1",
+  }}
+/>
+
+# ZBookCard
+
+<Canvas>
+  <Story name="All props">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        opera-title-tag=${args.operaTitleTag}
+      ></z-book-card>`
+    }
+  </Story>
+  <Story name="Slotted tags">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+      </z-book-card>`
+    }
+  </Story>
+  <Story name="Slotted resources">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-link
+          slot="resources"
+          icon="arrow-quad-north-east"
+          style="width:100%; margin-bottom: 16px;"
+          >Resource link mock</z-link
+        >
+        <z-button
+          slot="resources"
+          variant="secondary"
+          size="x-small"
+          style="width:100%; margin-bottom: 16px;"
+          >Resource CTA mock</z-button
+        >
+      </z-book-card>`
+    }
+  </Story>
+  <Story name="Slotted header CTA">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+        ></z-icon>
+      </z-book-card>`
+    }
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-book-card" />
