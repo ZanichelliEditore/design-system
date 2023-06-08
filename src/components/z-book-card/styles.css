@@ -136,7 +136,7 @@
   align-content: stretch;
   align-items: top;
   justify-content: space-between;
-  margin-bottom: calc(var(--space-unit) * 1.5);
+  margin-bottom: var(--space-unit);
   white-space: nowrap;
 }
 
