@@ -9,6 +9,7 @@ import {CardVariant} from "../../beans";
  * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
  * @cssprop --z-card--text-border-radius - Default: `none`
  * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+ * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
  */
 @Component({
   tag: "z-card",
