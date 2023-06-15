@@ -208,11 +208,11 @@ export namespace Components {
         /**
           * Enable style when hover. Default: false.
          */
-        "showHover": boolean;
+        "showhover": boolean;
         /**
           * Enable shadow. Default: false.
          */
-        "showShadow": boolean;
+        "showshadow": boolean;
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
@@ -2814,11 +2814,11 @@ declare namespace LocalJSX {
         /**
           * Enable style when hover. Default: false.
          */
-        "showHover"?: boolean;
+        "showhover"?: boolean;
         /**
           * Enable shadow. Default: false.
          */
-        "showShadow"?: boolean;
+        "showshadow"?: boolean;
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
