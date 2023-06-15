@@ -154,18 +154,18 @@ describe("Suite test ZCard", () => {
   it("Test ZCard clickable click", async () => {
     const page = await newSpecPage({
       components: [ZCard],
-      html: `<z-card clickable>
+      html: `<z-card>
         <h2 class="body-5" slot="metadata">metadata</h2>
-        <h3 slot="title">Card title</h3>
+        <button id="btn" slot="title">Card title</button>
         <p class="body-3" slot="text">Description</p>
       </z-card>`,
     });
 
-    const card = page.body.querySelector("z-card");
-    const cardClickedCallback = jest.fn();
-    page.doc.addEventListener("cardClicked", cardClickedCallback);
-    card.click();
+    const btn = page.body.querySelector("#btn") as HTMLButtonElement;
+    const buttonClickedCallback = jest.fn();
+    page.doc.addEventListener("click", buttonClickedCallback);
+    btn.click();
 
-    expect(cardClickedCallback).toHaveBeenCalled();
+    expect(buttonClickedCallback).toHaveBeenCalled();
   });
 });

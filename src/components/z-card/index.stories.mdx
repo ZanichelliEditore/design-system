@@ -19,8 +19,8 @@ import "./index.stories.css";
   }}
   args={{
     variant: "default",
-    clickable: false,
-    showshadow: false,
+    showShadow: false,
+    showHover: false,
   }}
 />
 
@@ -34,34 +34,34 @@ import "./index.stories.css";
       <z-card
         class="demo-card"
         .variant="${args.variant}"
-        .clickable="${args.clickable}"
-        .showshadow="${args.showshadow}"
+        .showShadow="${args.showShadow}"
+        .showHover="${args.showHover}"
       >
         <img
           slot="cover"
           src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg"
         />
-        <h2
+        <span
           class="body-5"
           slot="metadata"
         >
           metadata
-        </h2>
-        <h3 slot="title">Card title</h3>
+        </span>
+        <a
+          href="https://google.it"
+          target="_blank"
+          slot="title"
+        >
+          <h3>Card title</h3>
+        </a>
         <p
           class="body-3"
           slot="text"
         >
           Some description for the content of the card.
         </p>
-        <z-icon
-          name="share"
-          slot="action"
-        ></z-icon>
-        <z-icon
-          name="delete"
-          slot="action"
-        ></z-icon>
+        <button slot="action"><z-icon name="share"></z-icon></button>
+        <button slot="action"><z-icon name="delete"></z-icon></button>
       </z-card>
     `}
   </Story>
@@ -81,7 +81,6 @@ import "./index.stories.css";
         class="demo-card"
         cover-icon="${args.coverIcon}"
         .variant="${args.variant}"
-        .clickable="${args.clickable}"
         .showshadow="${args.showshadow}"
       >
         <img
@@ -94,21 +93,21 @@ import "./index.stories.css";
         >
           metadata
         </h2>
-        <h3 slot="title">Card title</h3>
+        <a
+          href="https://google.it"
+          target="_blank"
+          slot="title"
+        >
+          <h3>Card title</h3>
+        </a>
         <p
           class="body-3"
           slot="text"
         >
           Some description for the content of the card.
         </p>
-        <z-icon
-          name="share"
-          slot="action"
-        ></z-icon>
-        <z-icon
-          name="delete"
-          slot="action"
-        ></z-icon>
+        <button slot="action"><z-icon name="share"></z-icon></button>
+        <button slot="action"><z-icon name="delete"></z-icon></button>
       </z-card>
     `}
   </Story>
@@ -127,7 +126,6 @@ import "./index.stories.css";
       <z-card
         class="demo-card"
         .variant="${args.variant}"
-        .clickable="${args.clickable}"
         .showshadow="${args.showshadow}"
         style="--z-card--color-cover-background: ${args["--z-card--color-cover-background"]};"
       >
@@ -137,21 +135,21 @@ import "./index.stories.css";
         >
           metadata
         </h2>
-        <h3 slot="title">Card title</h3>
+        <a
+          href="https://google.it"
+          target="_blank"
+          slot="title"
+        >
+          <h3>Card title</h3>
+        </a>
         <p
           class="body-3"
           slot="text"
         >
           Some description for the content of the card.
         </p>
-        <z-icon
-          name="share"
-          slot="action"
-        ></z-icon>
-        <z-icon
-          name="delete"
-          slot="action"
-        ></z-icon>
+        <button slot="action"><z-icon name="share"></z-icon></button>
+        <button slot="action"><z-icon name="delete"></z-icon></button>
       </z-card>
     `}
   </Story>
@@ -175,7 +173,6 @@ import "./index.stories.css";
       <z-card
         class="text-variant-card"
         variant="text"
-        .clickable="${args.clickable}"
         .showshadow="${args.showshadow}"
         style=${styleMap({
           "--z-card--text-background": "var(--color-primary01)",
@@ -189,23 +186,31 @@ import "./index.stories.css";
         >
           metadata
         </h2>
-        <h3 slot="title">Card Title</h3>
+        <a
+          href="https://google.it"
+          target="_blank"
+          slot="title"
+        >
+          <h3>Card title</h3>
+        </a>
         <p
           class="body-3"
           slot="text"
         >
           Some description for the content of the card.
         </p>
-        <z-icon
-          name="share"
-          slot="action"
-          fill="color-surface01"
-        ></z-icon>
-        <z-icon
-          name="delete"
-          slot="action"
-          fill="color-surface01"
-        ></z-icon>
+        <button slot="action">
+          <z-icon
+            name="share"
+            fill="color-surface01"
+          ></z-icon>
+        </button>
+        <button slot="action">
+          <z-icon
+            name="delete"
+            fill="color-surface01"
+          ></z-icon>
+        </button>
       </z-card>
     `}
   </Story>
@@ -225,7 +230,6 @@ import "./index.stories.css";
     {(args) => html`<z-card
       class="text-variant-card"
       variant="text"
-      .clickable="${args.clickable}"
       .showshadow="${args.showshadow}"
       style=${styleMap({
         "--z-card--text-background": `var(--color-white)`,
@@ -240,24 +244,78 @@ import "./index.stories.css";
       >
         metadata
       </h2>
-      <h3 slot="title">Card Title</h3>
+      <a
+        href="https://google.it"
+        target="_blank"
+        slot="title"
+      >
+        <h3>Card title</h3>
+      </a>
       <p
         class="body-3"
         slot="text"
       >
         Some description for the content of the card.
       </p>
-      <z-icon
-        name="share"
-        slot="action"
-        fill="color-primary01"
-      ></z-icon>
-      <z-icon
-        name="delete"
-        slot="action"
-        fill="color-primary01"
-      ></z-icon>
+      <button slot="action">
+        <z-icon
+          name="share"
+          fill="color-primary01"
+        ></z-icon>
+      </button>
+      <button slot="action">
+        <z-icon
+          name="delete"
+          fill="color-primary01"
+        ></z-icon>
+      </button>
     </z-card>`}
+  </Story>
+</Canvas>
+
+## With image, trigger event on click
+
+<Canvas>
+  <Story name="With image and click">
+    {(args) => html`
+      <script>
+        document.getElementById("btn-card").addEventListener("click", (e) => {
+          // emit event, do stuff
+          alert("Click on card");
+        });
+      </script>
+      <z-card
+        class="demo-card"
+        .variant="${args.variant}"
+        .showShadow="${args.showShadow}"
+        .showHover="${args.showHover}"
+      >
+        <img
+          slot="cover"
+          src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg"
+        />
+        <span
+          class="body-5"
+          slot="metadata"
+        >
+          metadata
+        </span>
+        <button
+          id="btn-card"
+          slot="title"
+        >
+          <h3>Card title</h3>
+        </button>
+        <p
+          class="body-3"
+          slot="text"
+        >
+          Some description for the content of the card.
+        </p>
+        <button slot="action"><z-icon name="share"></z-icon></button>
+        <button slot="action"><z-icon name="delete"></z-icon></button>
+      </z-card>
+    `}
   </Story>
 </Canvas>
 
