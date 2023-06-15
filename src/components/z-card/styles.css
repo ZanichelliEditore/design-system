@@ -141,7 +141,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border-radius: var(--z-card--text-border-radius);
 }
 
-:host([show-shadow]) > .content,
+:host([showshadow]) > .content,
 :host([variant="border"]) > .content,
 :host([variant="shadow"]) > .content {
   height: 100%;
@@ -162,36 +162,36 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border: var(--border-size-small) solid var(--z-card--border-color);
 }
 
-:host([variant="border"][show-hover]:hover) > .content {
+:host([variant="border"][showhover]:hover) > .content {
   background: var(--color-background);
 }
 
-:host([variant="border"][show-hover]:focus:focus-visible) {
+:host([variant="border"][showhover]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant="border"][show-hover]:active) {
+:host([variant="border"][showhover]:active) {
   border-color: transparent;
 }
 
 /* Shadow */
 :host([variant="shadow"]),
-:host([show-shadow]) {
+:host([showshadow]) {
   box-shadow: var(--shadow-2);
 }
 
-:host([variant="shadow"][show-hover]:hover),
-:host([show-hover][show-shadow]:hover) {
+:host([variant="shadow"][showhover]:hover),
+:host([showhover][showshadow]:hover) {
   box-shadow: var(--shadow-4);
 }
 
-:host([variant="shadow"][show-hover]:focus:focus-visible),
-:host([show-hover][show-shadow]:focus:focus-visible) {
+:host([variant="shadow"][showhover]:focus:focus-visible),
+:host([showhover][showshadow]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant="shadow"][show-hover]:active),
-:host([show-hover][show-shadow]:active) {
+:host([variant="shadow"][showhover]:active),
+:host([showhover][showshadow]:active) {
   box-shadow: none;
 }
 
