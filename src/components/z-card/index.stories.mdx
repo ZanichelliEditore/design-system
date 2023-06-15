@@ -82,6 +82,7 @@ import "./index.stories.css";
         cover-icon="${args.coverIcon}"
         .variant="${args.variant}"
         .showshadow="${args.showshadow}"
+        .showhover="${args.showhover}"
       >
         <img
           slot="cover"
@@ -127,6 +128,7 @@ import "./index.stories.css";
         class="demo-card"
         .variant="${args.variant}"
         .showshadow="${args.showshadow}"
+        .showhover="${args.showhover}"
         style="--z-card--color-cover-background: ${args["--z-card--color-cover-background"]};"
       >
         <h2
@@ -174,6 +176,7 @@ import "./index.stories.css";
         class="text-variant-card"
         variant="text"
         .showshadow="${args.showshadow}"
+        .showhover="${args.showhover}"
         style=${styleMap({
           "--z-card--text-background": "var(--color-primary01)",
           "--z-card--text-border-radius": `${args["--z-card--text-border-radius"]}`,
@@ -231,6 +234,7 @@ import "./index.stories.css";
       class="text-variant-card"
       variant="text"
       .showshadow="${args.showshadow}"
+      .showhover="${args.showhover}"
       style=${styleMap({
         "--z-card--text-background": `var(--color-white)`,
         "--z-card--text-border": `${args["--z-card--text-border"]}`,
