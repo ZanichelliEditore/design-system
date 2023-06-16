@@ -183,7 +183,10 @@ export class ZBookCard {
             <span>{this.ribbon}</span>
           </div>
         )}
-        <img src={this.cover} />
+        <img
+          src={this.cover}
+          aria-hidden="true"
+        />
       </div>
     );
   }

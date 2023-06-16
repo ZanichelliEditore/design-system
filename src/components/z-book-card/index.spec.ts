@@ -14,7 +14,7 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <img />
+              <img aria-hidden="true" />
             </div>
             <div class="content">
               <div class="top">
@@ -73,7 +73,7 @@ describe("Suite test ZBookCard", () => {
           <div class="wrapper">
             <div class="cover">
               <div class="ribbon"><span>ADOTTATO</span></div>
-              <img src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+              <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
             </div>
             <div class="content">
               <div class="top">
@@ -123,7 +123,7 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <img />
+              <img aria-hidden="true" />
             </div>
             <div class="content">
               <div class="top">
@@ -191,7 +191,7 @@ describe("Suite test ZBookCard", () => {
               </div>
               <div class="cover">
                 <div class="ribbon"><span>ADOTTATO</span></div>
-                <img src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
               </div>
               <div class="content">
                 <div class="tags">
@@ -230,7 +230,7 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img />
+                <img aria-hidden="true" />
               </div>
               <div class="content">
                 <div class="tags">
@@ -280,7 +280,7 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img />
+                <img aria-hidden="true" />
               </div>
               <div class="content">
                 <div class="tags">
