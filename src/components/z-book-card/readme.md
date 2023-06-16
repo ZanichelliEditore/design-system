@@ -11,6 +11,7 @@
 | --------------- | ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------- | ----------- |
 | `authors`       | `authors`         | [optional] Authors                             | `string`                                                                        | `undefined` |
 | `cover`         | `cover`           | Cover URL                                      | `string`                                                                        | `undefined` |
+| `fallbackCover` | `fallback-cover`  | [optional] Fallback cover URL                  | `string`                                                                        | `undefined` |
 | `isbn`          | `isbn`            | [optional] Main ISBN                           | `string`                                                                        | `undefined` |
 | `operaTitle`    | `opera-title`     | Card main title                                | `string`                                                                        | `undefined` |
 | `operaTitleTag` | `opera-title-tag` | [optional] [accessibility] Card title HTML tag | `string`                                                                        | `undefined` |

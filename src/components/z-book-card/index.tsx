@@ -61,6 +61,12 @@ export class ZBookCard {
   ribbon?: string;
 
   /**
+   * [optional] Fallback cover URL
+   */
+  @Prop()
+  fallbackCover?: string;
+
+  /**
    * [optional] [accessibility] Card title HTML tag
    */
   @Prop()
@@ -185,6 +191,11 @@ export class ZBookCard {
         )}
         <img
           src={this.cover}
+          onError={() => {
+            if (this.fallbackCover) {
+              this.cover = this.fallbackCover;
+            }
+          }}
           aria-hidden="true"
         />
       </div>

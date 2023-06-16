@@ -108,6 +108,10 @@ export namespace Components {
          */
         "cover": string;
         /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
           * [optional] Main ISBN
          */
         "isbn"?: string;
@@ -2750,6 +2754,10 @@ declare namespace LocalJSX {
           * Cover URL
          */
         "cover"?: string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
         /**
           * [optional] Main ISBN
          */
