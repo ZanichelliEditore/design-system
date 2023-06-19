@@ -25,6 +25,7 @@
 | Slot           | Description                     |
 | -------------- | ------------------------------- |
 | `"header-cta"` | header CTA (e.g. bookmark icon) |
+| `"lazeta-cta"` | laZ ebook cta button            |
 | `"resources"`  | books resources                 |
 | `"tags"`       | card tags                       |
 

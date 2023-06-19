@@ -7,6 +7,7 @@ import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
  * @slot resources - books resources
  * @slot header-cta - header CTA (e.g. bookmark icon)
  * @slot tags - card tags
+ * @slot lazeta-cta - laZ ebook cta button
  * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
  * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
  */
@@ -130,7 +131,7 @@ export class ZBookCard {
       case BookCardVariant.COMPACT:
         return <div />;
       case BookCardVariant.SEARCH:
-        return <div />;
+        return this.renderSearchCard();
     }
   }
 
@@ -177,6 +178,27 @@ export class ZBookCard {
             {this.renderShowResources()}
           </div>
         )}
+      </div>
+    );
+  }
+
+  private renderSearchCard(): JSX.Element {
+    return (
+      <div class="wrapper-container">
+        <div class="wrapper">
+          <div class="header">
+            {this.renderOperaTitle()}
+            {this.renderHeaderCtaSlot()}
+          </div>
+          {this.renderCover()}
+          <div class="content">
+            {this.renderTagsSlot()}
+            {this.renderAuthors()}
+            {this.renderVolumeTitle()}
+            {this.renderIsbn()}
+          </div>
+        </div>
+        {this.renderLaZetaButtonSlot()}
       </div>
     );
   }
@@ -288,6 +310,14 @@ export class ZBookCard {
         ref={(el) => (this.resourcesWrapper = el as HTMLDivElement)}
       >
         <slot name="resources" />
+      </div>
+    );
+  }
+
+  private renderLaZetaButtonSlot(): JSX.Element {
+    return (
+      <div class="action-container">
+        <slot name="lazeta-cta" />
       </div>
     );
   }

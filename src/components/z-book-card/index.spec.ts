@@ -309,4 +309,152 @@ describe("Suite test ZBookCard", () => {
       </z-book-card>
     `);
   });
+
+  it("Test render ZBookCard - SEARCH - empty", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card variant="search"></z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card variant="search">
+        <mock:shadow-root>
+          <article class="search">
+          <div class="wrapper-container">
+            <div class="wrapper">
+              <div class="header">
+              <div class="title"></div>
+                <slot name="header-cta"></slot>
+              </div>
+              <div class="cover">
+                <img aria-hidden="true" />
+              </div>
+              <div class="content">
+                <div class="tags">
+                  <slot name="tags"></slot>
+                </div>
+              </div>
+            </div>
+            <div class="action-container">
+                <slot name="lazeta-cta"></slot>
+              </div>
+          </div>
+          </article>
+        </mock:shadow-root>
+      </z-book-card>
+    `);
+  });
+
+  it("Test render ZBookCard - SEARCH - with props", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card
+        variant="search"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      ></z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
+        <mock:shadow-root>
+          <article class="search">
+          <div class="wrapper-container">
+            <div class="wrapper">
+              <div class="header">
+                <div class="title">
+                  <h1>Matematica.azzurro</h1>
+                </div>
+                <slot name="header-cta"></slot>
+              </div>
+              <div class="cover">
+                <div class="ribbon">
+                  <span>ADOTTATO</span>
+                </div>
+                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"/>
+              </div>
+              <div class="content">
+                <div class="tags">
+                  <slot name="tags"></slot>
+                </div>
+                <div aria-description="Autori" class="authors">
+                  Massimo Bergamini, Anna Trifone, Graziella Barozzi
+                </div>
+                <div class="subtitle">
+                  Volume 3 con Tutor
+                </div>
+                <div class="isbn">
+                  <span aria-description="ISBN edizione cartacea" class="code">
+                    9788808930552
+                  </span>
+                  <span class="label">
+                  (ed. cartacea)
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="action-container">
+                <slot name="lazeta-cta"></slot>
+              </div>
+          </div>
+          </article>
+        </mock:shadow-root>
+      </z-book-card>
+    `);
+  });
+
+  it("Test render ZBookCard - SEARCH - with slots", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card variant="search">
+        <z-icon slot="header-cta" name="star-empty"></z-icon>
+        <z-tag slot="tags">EDI</z-tag>
+        <div slot="lazeta-cta">
+          <z-button href="http://dizionari.zanichelli.it" target="_blank" variant="secondary" size="small">
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-book-card variant="search">
+        <mock:shadow-root>
+          <article class="search">
+          <div class="wrapper-container">
+            <div class="wrapper">
+              <div class="header">
+                <div class="title"></div>
+                <slot name="header-cta"></slot>
+              </div>
+              <div class="cover">
+                <img aria-hidden="true" />
+              </div>
+              <div class="content">
+                <div class="tags">
+                  <slot name="tags"></slot>
+                </div>
+              </div>
+            </div>
+            <div class="action-container">
+                <slot name="lazeta-cta"></slot>
+            </div>
+          </div>
+          </article>
+        </mock:shadow-root>
+        <z-icon name="star-empty" slot="header-cta"></z-icon>
+        <z-tag slot="tags">
+          EDI
+        </z-tag>
+        <div slot="lazeta-cta">
+          <z-button href="http://dizionari.zanichelli.it" size="small" target="_blank" variant="secondary">
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>
+    `);
+  });
 });

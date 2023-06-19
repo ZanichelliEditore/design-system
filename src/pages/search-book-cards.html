@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script
+      type="module"
+      src="/build/web-components-library.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="/build/web-components-library.js"
+    ></script>
+    <style>
+      .resources-mock {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 64px 40px 40px;
+        column-gap: 16px;
+      }
+      .resource-mock {
+        border-top: 1px solid var(--color-surface03);
+      }
+      .resource:nth-child(2),
+      .resource:nth-child(3) {
+        border-top: 0;
+      }
+      .ebook-mock {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        border-bottom: 1px solid var(--color-surface03);
+      }
+      .ebook-mock-wrap {
+        border-left: 8px solid var(--color-primary01);
+        border-radius: 4px 0px 0px 4px;
+        padding-left: 8px;
+        line-height: 14px;
+        height: 56px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+      .ebook-mock a {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+        font-size: var(--font-size-2);
+        font-weight: var(--font-sb);
+        color: var(--color-primary01);
+      }
+      .ebook-mock img.laz-ebook {
+        height: 20px;
+      }
+      .ebook-mock span.laz-description {
+        display: block;
+        font-size: var(--font-size-1);
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 16px; background-color: #aaa">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <z-book-card
+        variant="search"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <z-icon
+          slot="header-cta"
+          name="star-empty"
+        ></z-icon>
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+        <div
+          class="resources-mock"
+          slot="resources"
+        >
+          <div class="resource ebook-mock">
+            <div class="ebook-mock-wrap">
+              <a tabindex="0"
+                >Leggi l'ebook su
+                <img
+                  class="laz-ebook"
+                  src="https://staticmy.zanichelli.it/dashboard/images/laZEbook.svg"
+              /></a>
+              <span class="laz-description">Online e offline<br />anche in versione liquida con lettura immersiva</span>
+            </div>
+          </div>
+          <div class="resource resource-mock"><z-link>MOCK 1</z-link></div>
+          <div class="resource resource-mock"><z-link>MOCK 2</z-link></div>
+          <div class="resource resource-mock"><button>MOCK 3</button></div>
+          <div class="resource resource-mock"><z-link>MOCK 4</z-link></div>
+        </div>
+        <div slot="lazeta-cta">
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="small"
+          >
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="search"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+          role="button"
+          tabindex="0"
+        ></z-icon>
+        <z-tag
+          slot="tags"
+          tabindex="0"
+          >UN TAG TABBABILE</z-tag
+        >
+        <z-tag slot="tags">DUE TAG</z-tag>
+        <z-tag slot="tags">TRE TAG</z-tag>
+        <z-tag slot="tags">QUATTRO TAG</z-tag>
+        <z-tag slot="tags">CINQUE TAG</z-tag>
+
+        <div slot="resources">
+          <div class="">MOCK 1</div>
+          <div class="">MOCK 2</div>
+          <div class="">MOCK 3</div>
+        </div>
+        <div slot="lazeta-cta">
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="small"
+          >
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="search"
+        cover="fail.jpg"
+        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        opera-title="lo Zingarelli 2024"
+      >
+      </z-book-card>
+    </div>
+  </body>
+</html>
