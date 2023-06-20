@@ -112,7 +112,7 @@
 }
 
 .modal-container .modal-content::-webkit-scrollbar {
-  width: 10px;
+  width: 14px;
   background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
@@ -122,9 +122,10 @@
 }
 
 .modal-container .modal-content::-webkit-scrollbar-thumb {
-  width: 10px;
+  width: 14px;
+  border-right: 4px solid transparent;
+  background-clip: padding-box;
   background-color: var(--color-primary01);
-  border-radius: var(--border-radius);
 }
 
 .modal-container .modal-content::-webkit-scrollbar-thumb:hover {
