@@ -36,7 +36,7 @@ import "./index";
     },
   }}
   args={{
-    variant: "expanded",
+    variant: "search",
     cover: "https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg",
     operaTitle: "Matematica.azzurro",
     volumeTitle: "Volume 3 con Tutor",
@@ -54,7 +54,7 @@ import "./index";
   <Story name="Search variant">
     {(args) =>
       html`<z-book-card
-        variant="search"
+        variant=${args.variant}
         cover=${args.cover}
         opera-title=${args.operaTitle}
         volume-title=${args.volumeTitle}
