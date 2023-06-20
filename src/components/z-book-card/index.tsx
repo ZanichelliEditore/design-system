@@ -4,10 +4,10 @@ import {mobileBreakpoint} from "../../constants/breakpoints";
 import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
- * @slot resources - books resources
+ * @slot resources - books resources (extended variant only)
  * @slot header-cta - header CTA (e.g. bookmark icon)
  * @slot tags - card tags
- * @slot lazeta-cta - laZ ebook cta button
+ * @slot footer-cta - footer cta button (search variant only)
  * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
  * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
  */
@@ -198,7 +198,7 @@ export class ZBookCard {
             {this.renderIsbn()}
           </div>
         </div>
-        {this.renderLaZetaButtonSlot()}
+        {this.renderFooterCtaSlot()}
       </div>
     );
   }
@@ -314,10 +314,10 @@ export class ZBookCard {
     );
   }
 
-  private renderLaZetaButtonSlot(): JSX.Element {
+  private renderFooterCtaSlot(): JSX.Element {
     return (
       <div class="action-container">
-        <slot name="lazeta-cta" />
+        <slot name="footer-cta" />
       </div>
     );
   }

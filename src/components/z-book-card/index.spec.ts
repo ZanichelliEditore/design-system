@@ -335,7 +335,7 @@ describe("Suite test ZBookCard", () => {
               </div>
             </div>
             <div class="action-container">
-                <slot name="lazeta-cta"></slot>
+                <slot name="footer-cta"></slot>
               </div>
           </div>
           </article>
@@ -397,7 +397,7 @@ describe("Suite test ZBookCard", () => {
               </div>
             </div>
             <div class="action-container">
-                <slot name="lazeta-cta"></slot>
+                <slot name="footer-cta"></slot>
               </div>
           </div>
           </article>
@@ -412,7 +412,7 @@ describe("Suite test ZBookCard", () => {
       html: `<z-book-card variant="search">
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
-        <div slot="lazeta-cta">
+        <div slot="footer-cta">
           <z-button href="http://dizionari.zanichelli.it" target="_blank" variant="secondary" size="small">
             Leggi il libro online
           </z-button>
@@ -440,7 +440,7 @@ describe("Suite test ZBookCard", () => {
               </div>
             </div>
             <div class="action-container">
-                <slot name="lazeta-cta"></slot>
+                <slot name="footer-cta"></slot>
             </div>
           </div>
           </article>
@@ -449,7 +449,7 @@ describe("Suite test ZBookCard", () => {
         <z-tag slot="tags">
           EDI
         </z-tag>
-        <div slot="lazeta-cta">
+        <div slot="footer-cta">
           <z-button href="http://dizionari.zanichelli.it" size="small" target="_blank" variant="secondary">
             Leggi il libro online
           </z-button>
