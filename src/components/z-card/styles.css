@@ -130,9 +130,12 @@ Unfortunately the `aspect-ratio` property is still experimental */
   margin-right: calc(var(--space-unit) * 2);
 }
 
-:host(:not([variant])[clickable]:focus:focus-visible) {
-  padding: calc(var(--space-unit) * 0.5);
+:host([clickable]) ::slotted([slot="title"]:focus:focus-visible)::before {
   box-shadow: var(--shadow-focus-primary);
+}
+
+:host([clickable]) ::slotted([slot="title"]:focus:focus-visible) {
+  outline: none;
 }
 
 :host([variant="text"]) {
@@ -141,7 +144,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border-radius: var(--z-card--text-border-radius);
 }
 
-:host([showshadow]) > .content,
+:host([show-shadow]) > .content,
 :host([variant="border"]) > .content,
 :host([variant="shadow"]) > .content {
   height: 100%;
@@ -162,36 +165,36 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border: var(--border-size-small) solid var(--z-card--border-color);
 }
 
-:host([variant="border"][showhover]:hover) > .content {
+:host([variant="border"][clickable]:hover) > .content {
   background: var(--color-background);
 }
 
-:host([variant="border"][showhover]:focus:focus-visible) {
+:host([variant="border"][clickable]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant="border"][showhover]:active) {
+:host([variant="border"][clickable]:active) {
   border-color: transparent;
 }
 
 /* Shadow */
 :host([variant="shadow"]),
-:host([showshadow]) {
+:host([show-shadow]) {
   box-shadow: var(--shadow-2);
 }
 
-:host([variant="shadow"][showhover]:hover),
-:host([showhover][showshadow]:hover) {
+:host([variant="shadow"][clickable]:hover),
+:host([clickable][show-shadow]:hover) {
   box-shadow: var(--shadow-4);
 }
 
-:host([variant="shadow"][showhover]:focus:focus-visible),
-:host([showhover][showshadow]:focus:focus-visible) {
+:host([variant="shadow"][clickable]:focus:focus-visible),
+:host([clickable][show-shadow]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([variant="shadow"][showhover]:active),
-:host([showhover][showshadow]:active) {
+:host([variant="shadow"][clickable]:active),
+:host([clickable][show-shadow]:active) {
   box-shadow: none;
 }
 

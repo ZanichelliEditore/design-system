@@ -10,17 +10,19 @@ import "./index.stories.css";
   component="z-card"
   argTypes={{
     variant: {
-      control: {type: "inline-radio"},
-      options: ["default", ...Object.values(CardVariant)],
-      labels: {
-        default: null,
+      control: {
+        type: "inline-radio",
+        labels: {
+          null: "default",
+        },
       },
+      options: [null, ...Object.values(CardVariant)],
     },
   }}
   args={{
-    variant: "default",
-    showshadow: false,
-    showhover: false,
+    variant: null,
+    showShadow: false,
+    clickable: false,
   }}
 />
 
@@ -34,8 +36,8 @@ import "./index.stories.css";
       <z-card
         class="demo-card"
         .variant="${args.variant}"
-        .showshadow="${args.showshadow}"
-        .showhover="${args.showhover}"
+        .showShadow="${args.showShadow}"
+        .clickable="${args.clickable}"
       >
         <img
           slot="cover"
@@ -52,7 +54,7 @@ import "./index.stories.css";
           target="_blank"
           slot="title"
         >
-          <h3>Card title</h3>
+          <span>Card title</span>
         </a>
         <p
           class="body-3"
@@ -81,8 +83,8 @@ import "./index.stories.css";
         class="demo-card"
         cover-icon="${args.coverIcon}"
         .variant="${args.variant}"
-        .showshadow="${args.showshadow}"
-        .showhover="${args.showhover}"
+        .showShadow="${args.showShadow}"
+        .clickable="${args.clickable}"
       >
         <img
           slot="cover"
@@ -99,7 +101,7 @@ import "./index.stories.css";
           target="_blank"
           slot="title"
         >
-          <h3>Card title</h3>
+          <span>Card title</span>
         </a>
         <p
           class="body-3"
@@ -127,8 +129,8 @@ import "./index.stories.css";
       <z-card
         class="demo-card"
         .variant="${args.variant}"
-        .showshadow="${args.showshadow}"
-        .showhover="${args.showhover}"
+        .showShadow="${args.showShadow}"
+        .clickable="${args.clickable}"
         style="--z-card--color-cover-background: ${args["--z-card--color-cover-background"]};"
       >
         <h2
@@ -142,7 +144,7 @@ import "./index.stories.css";
           target="_blank"
           slot="title"
         >
-          <h3>Card title</h3>
+          <span>Card title</span>
         </a>
         <p
           class="body-3"
@@ -175,8 +177,8 @@ import "./index.stories.css";
       <z-card
         class="text-variant-card"
         variant="text"
-        .showshadow="${args.showshadow}"
-        .showhover="${args.showhover}"
+        .showShadow="${args.showShadow}"
+        .clickable="${args.clickable}"
         style=${styleMap({
           "--z-card--text-background": "var(--color-primary01)",
           "--z-card--text-border-radius": `${args["--z-card--text-border-radius"]}`,
@@ -194,7 +196,7 @@ import "./index.stories.css";
           target="_blank"
           slot="title"
         >
-          <h3>Card title</h3>
+          <span>Card title</span>
         </a>
         <p
           class="body-3"
@@ -233,8 +235,8 @@ import "./index.stories.css";
     {(args) => html`<z-card
       class="text-variant-card"
       variant="text"
-      .showshadow="${args.showshadow}"
-      .showhover="${args.showhover}"
+      .showShadow="${args.showShadow}"
+      .clickable="${args.clickable}"
       style=${styleMap({
         "--z-card--text-background": `var(--color-white)`,
         "--z-card--text-border": `${args["--z-card--text-border"]}`,
@@ -253,7 +255,7 @@ import "./index.stories.css";
         target="_blank"
         slot="title"
       >
-        <h3>Card title</h3>
+        <span>Card title</span>
       </a>
       <p
         class="body-3"
@@ -291,8 +293,8 @@ import "./index.stories.css";
       <z-card
         class="demo-card"
         .variant="${args.variant}"
-        .showshadow="${args.showshadow}"
-        .showhover="${args.showhover}"
+        .showShadow="${args.showShadow}"
+        .clickable="${args.clickable}"
       >
         <img
           slot="cover"
@@ -308,7 +310,7 @@ import "./index.stories.css";
           id="btn-card"
           slot="title"
         >
-          <h3>Card title</h3>
+          <span>Card title</span>
         </button>
         <p
           class="body-3"

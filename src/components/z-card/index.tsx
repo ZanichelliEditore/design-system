@@ -31,11 +31,11 @@ export class ZCard {
 
   /** Enable shadow. Default: false. */
   @Prop({reflect: true})
-  showshadow = false;
+  showShadow = false;
 
-  /** Enable style when hover. Default: false. */
+  /** Enable 'clickable' style like hover and focus style. */
   @Prop({reflect: true})
-  showhover = false;
+  clickable = false;
 
   @Element() host: HTMLZCardElement;
 

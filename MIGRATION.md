@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v8.0.0](#v800)
+  - [Z-Card] (#zcard)
+    - [Rimozione gestione click tramite property `clickable`](#rimozione-gestione-click-tramite-property-clickable)
+    - [Uso dello slot title come slot principale](#uso-dello-slot-title-come-slot-principale)
 - [v7.0.0](#v700)
   - [ZCoverHero](#zcoverhero)
     - [Rimozione della prop CSS `--cover-hero-height`](#rimozione-della-prop-css---cover-hero-height)
@@ -43,6 +47,20 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v8.0.0
+
+### ZCard
+
+Il componente è stato rifattorizzato per migliorare l'accessibilità, mantenendo gli stili pregressi e l'intera area della card come cliccabile.
+
+#### Rimozione gestione click tramite property clickable
+
+La property permane soltanto per gestire gli stili della card.
+
+#### Uso dello slot title come slot principale
+
+Lo slot `title` va usato come slot principale al quale passare un tag interattivo come un'àncora o un bottone, in caso di necessità di avere una card cliccabile.
 
 ## v7.0.0
 
