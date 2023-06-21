@@ -23,12 +23,13 @@ describe("Suite test ZModal", () => {
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
-              <div></div>
-              <slot name="modalCloseButton">
-                <button aria-label="chiudi modale">
-                  <z-icon name="multiply-circle-filled"></z-icon>
-                </button>
-              </slot>
+              <div>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
+              </div>
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
@@ -54,13 +55,13 @@ describe("Suite test ZModal", () => {
             <header>
               <div>
                 <h1 id="modal-title">title</h1>
-                <h2 id="modal-subtitle">subtitle</h2>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
               </div>
-              <slot name="modalCloseButton">
-                <button aria-label="chiudi modale">
-                  <z-icon name="multiply-circle-filled"></z-icon>
-                </button>
-              </slot>
+              <h2 id="modal-subtitle">subtitle</h2>
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
@@ -85,12 +86,13 @@ describe("Suite test ZModal", () => {
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
-              <div></div>
-              <slot name="modalCloseButton">
-                <button aria-label="chiudi modale">
-                  <z-icon name="multiply-circle-filled"></z-icon>
-                </button>
-              </slot>
+              <div>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
+              </div>
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
@@ -115,12 +117,13 @@ describe("Suite test ZModal", () => {
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container">
             <header>
-              <div></div>
-              <slot name="modalCloseButton">
-                <button aria-label="chiudi modale">
-                  <z-icon name="multiply-circle-filled"></z-icon>
-                </button>
-              </slot>
+              <div>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
+              </div>
             </header>
             <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
