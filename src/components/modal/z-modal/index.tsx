@@ -169,7 +169,7 @@ export class ZModal {
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
-              <div>{this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}</div>
+              {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
               {this.closeButtonSlot()}
             </div>
             {this.modalsubtitle && <h2 id="modal-subtitle">{this.modalsubtitle}</h2>}

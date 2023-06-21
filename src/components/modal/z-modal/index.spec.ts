@@ -24,7 +24,6 @@ describe("Suite test ZModal", () => {
           <div class="modal-container">
             <header>
               <div>
-                <div></div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
                     <z-icon name="multiply-circle-filled"></z-icon>
@@ -55,9 +54,7 @@ describe("Suite test ZModal", () => {
           <div class="modal-container" id="modal">
             <header>
               <div>
-                <div>
-                  <h1 id="modal-title">title</h1>
-                </div>
+                <h1 id="modal-title">title</h1>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
                     <z-icon name="multiply-circle-filled"></z-icon>
@@ -90,7 +87,6 @@ describe("Suite test ZModal", () => {
           <div class="modal-container">
             <header>
               <div>
-                <div></div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
                     <z-icon name="multiply-circle-filled"></z-icon>
@@ -122,7 +118,6 @@ describe("Suite test ZModal", () => {
           <div class="modal-container">
             <header>
               <div>
-                <div></div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
                     <z-icon name="multiply-circle-filled"></z-icon>

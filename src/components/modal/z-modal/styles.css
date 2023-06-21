@@ -92,7 +92,7 @@
   line-height: 1.5;
 }
 
-.modal-container > header > div > div *:empty {
+.modal-container > header > div > h1 *:empty {
   display: none;
 }
 
