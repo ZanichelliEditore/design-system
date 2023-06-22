@@ -37,6 +37,7 @@
   position: absolute;
   top: calc(var(--space-unit) * 2);
   display: flex;
+  max-width: 100%;
   height: calc(var(--space-unit) * 4);
   box-sizing: border-box;
   align-items: center;
@@ -49,6 +50,13 @@
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
   line-height: initial;
+}
+
+:host div.cover div.ribbon span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: nowrap;
 }
 
 :host div.cover div.ribbon::before {
@@ -88,9 +96,13 @@
 }
 
 :host div.isbn {
+  overflow: hidden;
   color: var(--color-text01);
   font-size: var(--font-size-2);
   line-height: 1.33;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: nowrap;
 }
 
 :host div.isbn > .code {
