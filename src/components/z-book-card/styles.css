@@ -233,7 +233,7 @@
   white-space: nowrap;
 }
 
-:host > article.search div.cover img {
+:host > article.search div.cover {
   height: 314px;
 }
 
