@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.5.0](https://github.com/ZanichelliEditore/design-system/compare/v7.4.3...v7.5.0) (2023-06-08)
+
+
+### Features
+
+* added css var for padding in z-card text version ([3409631](https://github.com/ZanichelliEditore/design-system/commit/34096314da6318bb874d6d1508869c843063af33))
+
+
+### Bug Fixes
+
+* fixed story ([8f98cab](https://github.com/ZanichelliEditore/design-system/commit/8f98cabdeb2cff5ac40c4d27ad45c0e0c1beec20))
+
 ### [7.4.3](https://github.com/ZanichelliEditore/design-system/compare/v7.4.2...v7.4.3) (2023-05-26)
 
 

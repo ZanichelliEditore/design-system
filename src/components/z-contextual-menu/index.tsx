@@ -27,7 +27,7 @@ export class ZContextualMenu {
 
   private triggerButton?: HTMLButtonElement;
 
-  private popover?: HTMLZPopoverElement;
+  private popoverEl?: HTMLZPopoverElement;
 
   /** remove filter click event, returns filterid */
   @Event({
@@ -47,7 +47,7 @@ export class ZContextualMenu {
   }
 
   componentDidLoad(): void {
-    this.popover.bindTo = this.triggerButton;
+    this.popoverEl.bindTo = this.triggerButton;
   }
 
   private showIcon(): boolean {
@@ -55,8 +55,8 @@ export class ZContextualMenu {
   }
 
   private togglePopover(): void {
-    if (!this.popover.open) {
-      this.popover.open = true;
+    if (!this.popoverEl.open) {
+      this.popoverEl.open = true;
     }
   }
 
@@ -65,7 +65,7 @@ export class ZContextualMenu {
       <Host>
         <button
           ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
-          aria-label={this.popover?.open ? "chiudi menu contestuale" : "apri menu contestuale"}
+          aria-label={this.popoverEl?.open ? "chiudi menu contestuale" : "apri menu contestuale"}
           onClick={() => this.togglePopover()}
         >
           <z-icon
@@ -74,7 +74,7 @@ export class ZContextualMenu {
           />
         </button>
         <z-popover
-          ref={(el) => (this.popover = el as HTMLZPopoverElement)}
+          ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
           position={this.popoverPosition}
         >
           <div class="popover-content-container">
