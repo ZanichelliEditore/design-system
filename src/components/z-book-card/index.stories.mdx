@@ -146,6 +146,36 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+  <Story name="Slotted footer CTA">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        fallback-cover=${args.fallbackCover}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+        ></z-icon>
+        <div slot="footer-cta">
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="x-small"
+          >
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>`
+    }
+  </Story>
   <Story
     name="Search variant"
     argTypes={searchArgTypes}
