@@ -4,7 +4,7 @@
   min-width: 128px;
   box-sizing: border-box;
   align-items: center;
-  padding: var(--z-table--cell-padding, calc(var(--space-unit) * 2));
+  padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
   border-bottom: 1px solid var(--color-surface03);
   font-weight: var(--font-sb);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
@@ -20,5 +20,5 @@
 }
 
 :host([stuck]) {
-  box-shadow: 2px 0 4px -2px var(--shadow-color-base);
+  box-shadow: 8px 0 16px -4px var(--shadow-color-base);
 }

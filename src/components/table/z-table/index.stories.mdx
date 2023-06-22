@@ -10,8 +10,6 @@ import "./index";
 
 # ZTable
 
-> Note that if you use a clickable item as a child element of z-tr with `expandable` set to true, you need to set a "prevent-expand" class on that item, in order to prevent unxepected row expansion.
-
 <Canvas>
   <Story
     name="ZTable"
@@ -24,12 +22,11 @@ import "./index";
       .bordered=${args.bordered}
       style=${styleMap({
         "--z-table--cells-padding": args["--z-table--cells-padding"],
-        "height": "400px",
       })}
     >
-      <z-thead sticky>
+      <z-thead>
         <z-tr>
-          <z-th sticky>Titolo</z-th>
+          <z-th>Titolo</z-th>
           <z-th>Titolo</z-th>
           <z-th>Titolo</z-th>
           <z-th>Titolo</z-th>
@@ -41,17 +38,7 @@ import "./index";
       </z-thead>
       <z-tbody>
         <z-tr>
-          <z-td sticky>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
-        </z-tr>
-        <z-tr>
-          <z-td sticky>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -61,7 +48,100 @@ import "./index";
           <z-td>Contenuto cella</z-td>
         </z-tr>
         <z-tr>
-          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+      </z-tbody>
+      <z-tfoot>
+        <z-tr>
+          <z-td colspan="8">Table footer</z-td>
+        </z-tr>
+      </z-tfoot>
+    </z-table>`}
+  </Story>
+</Canvas>
+
+## Expandable rows
+
+Just set `expandable` prop on the `z-tr` element to make it expandable.
+
+If you put a clickable item as a child cell of a z-tr with `expandable` set to `true`, you need to set a "prevent-expand" class on that item, in order to prevent unwanted row expansions.
+
+<Canvas>
+  <Story
+    name="Expandable rows"
+    args={{
+      "bordered": true,
+      "--z-table--cells-padding": "16px",
+    }}
+  >
+    {(args) => html`<z-table
+      .bordered=${args.bordered}
+      style=${styleMap({
+        "--z-table--cells-padding": args["--z-table--cells-padding"],
+      })}
+    >
+      <z-thead>
+        <z-tr>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+        </z-tr>
+      </z-thead>
+      <z-tbody>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -71,7 +151,153 @@ import "./index";
           <z-td>Contenuto cella</z-td>
         </z-tr>
         <z-tr expandable>
-          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>
+            <span>Contenuto cella</span>
+            <z-button
+              class="prevent-expand"
+              onclick="alert('button clicked without expanding the row')"
+              icon="plus"
+              size="x-small"
+            ></z-button
+          ></z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto espanso</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr expandable>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto espanso</z-td>
+        </z-tr>
+      </z-tbody>
+      <z-tfoot>
+        <z-tr>
+          <z-td colspan="8">Table footer</z-td>
+        </z-tr>
+      </z-tfoot>
+    </z-table>`}
+  </Story>
+</Canvas>
+
+## Sticky
+
+To make a column sticky, you need to set the `sticky` prop on the `z-th` and/or `z-td` elements of the same column.
+For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoot` element.
+
+<Canvas>
+  <Story
+    name="Sticky"
+    args={{
+      "bordered": true,
+      "--z-table--cells-padding": "16px",
+      "stickyHeader": true,
+      "stickyFooter": true,
+      "stickFirstColumn": true,
+    }}
+  >
+    {(args) => html`<z-table
+      .bordered=${args.bordered}
+      style=${styleMap({
+        "--z-table--cells-padding": args["--z-table--cells-padding"],
+        "height": "400px",
+      })}
+    >
+      <z-thead .sticky=${args.stickyHeader}>
+        <z-tr>
+          <z-th .sticky=${args.stickFirstColumn}>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+        </z-tr>
+      </z-thead>
+      <z-tbody>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr expandable>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -90,7 +316,7 @@ import "./index";
           <z-td>Contenuto espanso</z-td>
         </z-tr>
         <z-tr expandable>
-          <z-td sticky>Contenuto cella</z-td>
+          <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -101,9 +327,9 @@ import "./index";
           <z-td>Contenuto espanso</z-td>
         </z-tr>
       </z-tbody>
-      <z-tfoot sticky>
+      <z-tfoot .sticky=${args.stickyFooter}>
         <z-tr>
-          <z-td colspan="8">This is a sticky footer</z-td>
+          <z-td colspan="8">Table footer</z-td>
         </z-tr>
       </z-tfoot>
     </z-table>`}

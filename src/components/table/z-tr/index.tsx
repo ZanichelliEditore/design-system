@@ -19,6 +19,9 @@ export class ZTr {
    * Use a `z-td` as the last cell of the row for the additional content.
    * It will show a button to expand/collapse the row.
    * The last cell will be hidden until the button or row is clicked.
+   *
+   * If some element inside the expandable row contains the `prevent-expand` css class,
+   * the row will not expand by clicking that element.
    */
   @Prop({reflect: true})
   expandable = false;

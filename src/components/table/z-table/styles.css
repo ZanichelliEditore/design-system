@@ -1,5 +1,5 @@
 :host {
-  --z-table--cell-padding: calc(var(--space-unit) * 2);
+  --z-table--cells-padding: calc(var(--space-unit) * 2);
 
   position: relative;
   display: block;
@@ -9,7 +9,7 @@
 }
 
 :host([expandable]) {
-  --z-table--expand-button-size: calc(var(--z-table--cell-padding) + 16px);
+  --z-table--expand-button-size: 40px;
 }
 
 :host([bordered]) {
