@@ -1,0 +1,21 @@
+:host {
+  --z-table--cell-padding: calc(var(--space-unit) * 2);
+
+  position: relative;
+  display: block;
+  overflow: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+:host([expandable]) {
+  --z-table--expand-button-size: calc(var(--z-table--cell-padding) + 16px);
+}
+
+:host([bordered]) {
+  --z-table--cell-left-border: 1px solid var(--color-surface03);
+}
+
+.table {
+  min-width: fit-content;
+}

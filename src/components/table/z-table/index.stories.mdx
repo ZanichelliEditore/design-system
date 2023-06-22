@@ -1,0 +1,113 @@
+import {html} from "lit-html";
+import {styleMap} from "lit-html/directives/style-map.js";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import "./index";
+
+<Meta
+  title="ZTable"
+  component="z-table"
+/>
+
+# ZTable
+
+> Note that if you use a clickable item as a child element of z-tr with `expandable` set to true, you need to set a "prevent-expand" class on that item, in order to prevent unxepected row expansion.
+
+<Canvas>
+  <Story
+    name="ZTable"
+    args={{
+      "bordered": true,
+      "--z-table--cells-padding": "16px",
+    }}
+  >
+    {(args) => html`<z-table
+      .bordered=${args.bordered}
+      style=${styleMap({
+        "--z-table--cells-padding": args["--z-table--cells-padding"],
+        "height": "400px",
+      })}
+    >
+      <z-thead sticky>
+        <z-tr>
+          <z-th sticky>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+          <z-th>Titolo</z-th>
+        </z-tr>
+      </z-thead>
+      <z-tbody>
+        <z-tr>
+          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr expandable>
+          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>
+            <span>Contenuto cella</span>
+            <z-button
+              class="prevent-expand"
+              onclick="alert('button clicked')"
+              icon="plus"
+              size="x-small"
+            ></z-button
+          ></z-td>
+          <z-td>Contenuto espanso</z-td>
+        </z-tr>
+        <z-tr expandable>
+          <z-td sticky>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto espanso</z-td>
+        </z-tr>
+      </z-tbody>
+      <z-tfoot sticky>
+        <z-tr>
+          <z-td colspan="8">This is a sticky footer</z-td>
+        </z-tr>
+      </z-tfoot>
+    </z-table>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-table" />

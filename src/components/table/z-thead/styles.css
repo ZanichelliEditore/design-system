@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--color-surface02);
+}
+
+:host([sticky]) {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  box-shadow: 0 2px 4px -2px var(--shadow-color-base);
+}

@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  min-width: 128px;
+  box-sizing: border-box;
+  align-items: center;
+  padding: var(--z-table--cell-padding, calc(var(--space-unit) * 2));
+  border-bottom: 1px solid var(--color-surface03);
+  background-color: var(--color-surface01);
+  gap: calc(var(--space-unit) * 2) var(--space-unit);
+}
+
+:host([sticky]) {
+  position: sticky;
+  top: 0;
+  right: -1px;
+  left: -1px;
+}
+
+:host([stuck]) {
+  box-shadow: 2px 0 4px -2px var(--shadow-color-base);
+}

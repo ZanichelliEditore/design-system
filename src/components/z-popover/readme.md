@@ -54,7 +54,6 @@ To be sure the algorithm finds the right container, when calculating the positio
  - [z-contextual-menu](../z-contextual-menu)
  - [z-file](../file-upload/z-file)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
- - [z-table-header](../z-table/z-table-header)
  - [z-tooltip](../notification/z-tooltip)
 
 ### Graph
@@ -64,7 +63,6 @@ graph TD;
   z-contextual-menu --> z-popover
   z-file --> z-popover
   z-myz-card-info --> z-popover
-  z-table-header --> z-popover
   z-tooltip --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

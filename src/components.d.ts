@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, Size, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -1559,125 +1559,9 @@ export namespace Components {
     }
     interface ZTable {
         /**
-          * Sets table with border
+          * Whether the table cells should show a border between them.
          */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    interface ZTableBody {
-    }
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": Size;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan": number;
-    }
-    interface ZTableFooter {
-    }
-    interface ZTableHead {
-    }
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId": string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: SortDirection;
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": Size;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection": SortDirection;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType": ZTableRowExpandedType;
-    }
-    interface ZTableStickyFooter {
+        "bordered": boolean;
     }
     interface ZTag {
         /**
@@ -1688,6 +1572,40 @@ export namespace Components {
           * [optional] Tag icon
          */
         "icon"?: string;
+    }
+    interface ZTbody {
+    }
+    interface ZTd {
+        /**
+          * Number of columns that the cell should span.
+         */
+        "colspan": number;
+        /**
+          * Whether the cell should stick.
+         */
+        "sticky": boolean;
+    }
+    interface ZTfoot {
+        /**
+          * If true, the footer will be stuck to the bottom of the table.
+         */
+        "sticky": boolean;
+    }
+    interface ZTh {
+        /**
+          * Number of columns that the cell should span.
+         */
+        "colspan": number;
+        /**
+          * Whether the cell should stick.
+         */
+        "sticky": boolean;
+    }
+    interface ZThead {
+        /**
+          * If true, the header will be stuck to the top of the table.
+         */
+        "sticky": boolean;
     }
     interface ZToastNotification {
         /**
@@ -1798,6 +1716,12 @@ export namespace Components {
           * Tooltip position.
          */
         "position": PopoverPosition;
+    }
+    interface ZTr {
+        /**
+          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.
+         */
+        "expandable": boolean;
     }
     interface ZTypography {
         /**
@@ -1956,13 +1880,9 @@ export interface ZTableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTableElement;
 }
-export interface ZTableHeaderCustomEvent<T> extends CustomEvent<T> {
+export interface ZTdCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLZTableHeaderElement;
-}
-export interface ZTableRowCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableRowElement;
+    target: HTMLZTdElement;
 }
 export interface ZToastNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1975,6 +1895,10 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
+}
+export interface ZTrCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTrElement;
 }
 declare global {
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
@@ -2403,71 +2327,41 @@ declare global {
         prototype: HTMLZTableElement;
         new (): HTMLZTableElement;
     };
-    interface HTMLZTableBodyElement extends Components.ZTableBody, HTMLStencilElement {
-    }
-    var HTMLZTableBodyElement: {
-        prototype: HTMLZTableBodyElement;
-        new (): HTMLZTableBodyElement;
-    };
-    interface HTMLZTableCellElement extends Components.ZTableCell, HTMLStencilElement {
-    }
-    var HTMLZTableCellElement: {
-        prototype: HTMLZTableCellElement;
-        new (): HTMLZTableCellElement;
-    };
-    interface HTMLZTableEmptyBoxElement extends Components.ZTableEmptyBox, HTMLStencilElement {
-    }
-    var HTMLZTableEmptyBoxElement: {
-        prototype: HTMLZTableEmptyBoxElement;
-        new (): HTMLZTableEmptyBoxElement;
-    };
-    interface HTMLZTableExpandedRowElement extends Components.ZTableExpandedRow, HTMLStencilElement {
-    }
-    var HTMLZTableExpandedRowElement: {
-        prototype: HTMLZTableExpandedRowElement;
-        new (): HTMLZTableExpandedRowElement;
-    };
-    interface HTMLZTableFooterElement extends Components.ZTableFooter, HTMLStencilElement {
-    }
-    var HTMLZTableFooterElement: {
-        prototype: HTMLZTableFooterElement;
-        new (): HTMLZTableFooterElement;
-    };
-    interface HTMLZTableHeadElement extends Components.ZTableHead, HTMLStencilElement {
-    }
-    var HTMLZTableHeadElement: {
-        prototype: HTMLZTableHeadElement;
-        new (): HTMLZTableHeadElement;
-    };
-    interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
-    }
-    var HTMLZTableHeaderElement: {
-        prototype: HTMLZTableHeaderElement;
-        new (): HTMLZTableHeaderElement;
-    };
-    interface HTMLZTableHeaderRowElement extends Components.ZTableHeaderRow, HTMLStencilElement {
-    }
-    var HTMLZTableHeaderRowElement: {
-        prototype: HTMLZTableHeaderRowElement;
-        new (): HTMLZTableHeaderRowElement;
-    };
-    interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
-    }
-    var HTMLZTableRowElement: {
-        prototype: HTMLZTableRowElement;
-        new (): HTMLZTableRowElement;
-    };
-    interface HTMLZTableStickyFooterElement extends Components.ZTableStickyFooter, HTMLStencilElement {
-    }
-    var HTMLZTableStickyFooterElement: {
-        prototype: HTMLZTableStickyFooterElement;
-        new (): HTMLZTableStickyFooterElement;
-    };
     interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
     }
     var HTMLZTagElement: {
         prototype: HTMLZTagElement;
         new (): HTMLZTagElement;
+    };
+    interface HTMLZTbodyElement extends Components.ZTbody, HTMLStencilElement {
+    }
+    var HTMLZTbodyElement: {
+        prototype: HTMLZTbodyElement;
+        new (): HTMLZTbodyElement;
+    };
+    interface HTMLZTdElement extends Components.ZTd, HTMLStencilElement {
+    }
+    var HTMLZTdElement: {
+        prototype: HTMLZTdElement;
+        new (): HTMLZTdElement;
+    };
+    interface HTMLZTfootElement extends Components.ZTfoot, HTMLStencilElement {
+    }
+    var HTMLZTfootElement: {
+        prototype: HTMLZTfootElement;
+        new (): HTMLZTfootElement;
+    };
+    interface HTMLZThElement extends Components.ZTh, HTMLStencilElement {
+    }
+    var HTMLZThElement: {
+        prototype: HTMLZThElement;
+        new (): HTMLZThElement;
+    };
+    interface HTMLZTheadElement extends Components.ZThead, HTMLStencilElement {
+    }
+    var HTMLZTheadElement: {
+        prototype: HTMLZTheadElement;
+        new (): HTMLZTheadElement;
     };
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
     }
@@ -2498,6 +2392,12 @@ declare global {
     var HTMLZTooltipElement: {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
+    };
+    interface HTMLZTrElement extends Components.ZTr, HTMLStencilElement {
+    }
+    var HTMLZTrElement: {
+        prototype: HTMLZTrElement;
+        new (): HTMLZTrElement;
     };
     interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
     }
@@ -2583,22 +2483,18 @@ declare global {
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
-        "z-table-body": HTMLZTableBodyElement;
-        "z-table-cell": HTMLZTableCellElement;
-        "z-table-empty-box": HTMLZTableEmptyBoxElement;
-        "z-table-expanded-row": HTMLZTableExpandedRowElement;
-        "z-table-footer": HTMLZTableFooterElement;
-        "z-table-head": HTMLZTableHeadElement;
-        "z-table-header": HTMLZTableHeaderElement;
-        "z-table-header-row": HTMLZTableHeaderRowElement;
-        "z-table-row": HTMLZTableRowElement;
-        "z-table-sticky-footer": HTMLZTableStickyFooterElement;
         "z-tag": HTMLZTagElement;
+        "z-tbody": HTMLZTbodyElement;
+        "z-td": HTMLZTdElement;
+        "z-tfoot": HTMLZTfootElement;
+        "z-th": HTMLZThElement;
+        "z-thead": HTMLZTheadElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
+        "z-tr": HTMLZTrElement;
         "z-typography": HTMLZTypographyElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
@@ -4313,141 +4209,13 @@ declare namespace LocalJSX {
     }
     interface ZTable {
         /**
-          * Sets table with border
+          * Whether the table cells should show a border between them.
          */
         "bordered"?: boolean;
         /**
-          * Sets call to action label
+          * Table emits its own resize event when it changes size, using a ResizeObserver. This is convenient for sticky cells that needs to update styles when stuck.
          */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * remove call to action event
-         */
-        "onCallToAction"?: (event: ZTableCustomEvent<any>) => void;
-        /**
-          * remove call to action event
-         */
-        "onCallToActionTwo"?: (event: ZTableCustomEvent<any>) => void;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    interface ZTableBody {
-    }
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: Size;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan"?: number;
-    }
-    interface ZTableFooter {
-    }
-    interface ZTableHead {
-    }
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId"?: string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: SortDirection;
-        /**
-          * [Optional] callback for sorting
-         */
-        "onSort"?: (event: ZTableHeaderCustomEvent<any>) => void;
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: Size;
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection"?: SortDirection;
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType"?: ZTableRowExpandedType;
-        /**
-          * Row has been expanded
-         */
-        "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
-    }
-    interface ZTableStickyFooter {
+        "onTableResize"?: (event: ZTableCustomEvent<ZTable>) => void;
     }
     interface ZTag {
         /**
@@ -4458,6 +4226,44 @@ declare namespace LocalJSX {
           * [optional] Tag icon
          */
         "icon"?: string;
+    }
+    interface ZTbody {
+    }
+    interface ZTd {
+        /**
+          * Number of columns that the cell should span.
+         */
+        "colspan"?: number;
+        /**
+          * Emitted when the value of the `colspan` changes.
+         */
+        "onColspanChange"?: (event: ZTdCustomEvent<number>) => void;
+        /**
+          * Whether the cell should stick.
+         */
+        "sticky"?: boolean;
+    }
+    interface ZTfoot {
+        /**
+          * If true, the footer will be stuck to the bottom of the table.
+         */
+        "sticky"?: boolean;
+    }
+    interface ZTh {
+        /**
+          * Number of columns that the cell should span.
+         */
+        "colspan"?: number;
+        /**
+          * Whether the cell should stick.
+         */
+        "sticky"?: boolean;
+    }
+    interface ZThead {
+        /**
+          * If true, the header will be stuck to the top of the table.
+         */
+        "sticky"?: boolean;
     }
     interface ZToastNotification {
         /**
@@ -4581,6 +4387,16 @@ declare namespace LocalJSX {
          */
         "position"?: PopoverPosition;
     }
+    interface ZTr {
+        /**
+          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.
+         */
+        "expandable"?: boolean;
+        /**
+          * Row has been expanded
+         */
+        "onExpand"?: (event: ZTrCustomEvent<any>) => void;
+    }
     interface ZTypography {
         /**
           * HTML tag to use to wrap slotted content
@@ -4669,22 +4485,18 @@ declare namespace LocalJSX {
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
-        "z-table-body": ZTableBody;
-        "z-table-cell": ZTableCell;
-        "z-table-empty-box": ZTableEmptyBox;
-        "z-table-expanded-row": ZTableExpandedRow;
-        "z-table-footer": ZTableFooter;
-        "z-table-head": ZTableHead;
-        "z-table-header": ZTableHeader;
-        "z-table-header-row": ZTableHeaderRow;
-        "z-table-row": ZTableRow;
-        "z-table-sticky-footer": ZTableStickyFooter;
         "z-tag": ZTag;
+        "z-tbody": ZTbody;
+        "z-td": ZTd;
+        "z-tfoot": ZTfoot;
+        "z-th": ZTh;
+        "z-thead": ZThead;
         "z-toast-notification": ZToastNotification;
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
+        "z-tr": ZTr;
         "z-typography": ZTypography;
         "z-visually-hidden": ZVisuallyHidden;
     }
@@ -4764,22 +4576,18 @@ declare module "@stencil/core" {
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
-            "z-table-body": LocalJSX.ZTableBody & JSXBase.HTMLAttributes<HTMLZTableBodyElement>;
-            "z-table-cell": LocalJSX.ZTableCell & JSXBase.HTMLAttributes<HTMLZTableCellElement>;
-            "z-table-empty-box": LocalJSX.ZTableEmptyBox & JSXBase.HTMLAttributes<HTMLZTableEmptyBoxElement>;
-            "z-table-expanded-row": LocalJSX.ZTableExpandedRow & JSXBase.HTMLAttributes<HTMLZTableExpandedRowElement>;
-            "z-table-footer": LocalJSX.ZTableFooter & JSXBase.HTMLAttributes<HTMLZTableFooterElement>;
-            "z-table-head": LocalJSX.ZTableHead & JSXBase.HTMLAttributes<HTMLZTableHeadElement>;
-            "z-table-header": LocalJSX.ZTableHeader & JSXBase.HTMLAttributes<HTMLZTableHeaderElement>;
-            "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
-            "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
-            "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
             "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
+            "z-tbody": LocalJSX.ZTbody & JSXBase.HTMLAttributes<HTMLZTbodyElement>;
+            "z-td": LocalJSX.ZTd & JSXBase.HTMLAttributes<HTMLZTdElement>;
+            "z-tfoot": LocalJSX.ZTfoot & JSXBase.HTMLAttributes<HTMLZTfootElement>;
+            "z-th": LocalJSX.ZTh & JSXBase.HTMLAttributes<HTMLZThElement>;
+            "z-thead": LocalJSX.ZThead & JSXBase.HTMLAttributes<HTMLZTheadElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
             "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }

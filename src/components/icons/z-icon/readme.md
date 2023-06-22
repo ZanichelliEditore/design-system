@@ -66,12 +66,11 @@
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
- - [z-table-header](../../z-table/z-table-header)
- - [z-table-row](../../z-table/z-table-row)
  - [z-tag](../../z-tag)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)
+ - [z-tr](../../table/z-tr)
 
 ### Graph
 ```mermaid
@@ -108,12 +107,11 @@ graph TD;
   z-searchbar --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
-  z-table-header --> z-icon
-  z-table-row --> z-icon
   z-tag --> z-icon
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
+  z-tr --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
