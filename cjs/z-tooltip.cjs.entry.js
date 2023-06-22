@@ -26,10 +26,10 @@ const ZTooltip = class {
     this.closable = true;
   }
   onPopoverOpenChange() {
-    this.open = this.popover.open;
+    this.open = this.popoverEl.open;
   }
   render() {
-    return (index.h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, index.h("slot", null)));
+    return (index.h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, index.h("slot", null)));
   }
 };
 ZTooltip.style = stylesCss;

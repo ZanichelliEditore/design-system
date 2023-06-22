@@ -14,7 +14,7 @@ export declare class ZContextualMenu {
    */
   popoverPosition?: PopoverPosition;
   private triggerButton?;
-  private popover?;
+  private popoverEl?;
   /** remove filter click event, returns filterid */
   clickContextualMenu: EventEmitter;
   private jsonElements;

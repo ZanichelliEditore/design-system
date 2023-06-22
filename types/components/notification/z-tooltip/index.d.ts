@@ -26,7 +26,7 @@ export declare class ZTooltip {
    * Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
    */
   closable: boolean;
-  private popover;
+  private popoverEl;
   onPopoverOpenChange(): void;
   render(): HTMLZPopoverElement;
 }

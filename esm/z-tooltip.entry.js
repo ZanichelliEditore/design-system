@@ -22,10 +22,10 @@ const ZTooltip = class {
     this.closable = true;
   }
   onPopoverOpenChange() {
-    this.open = this.popover.open;
+    this.open = this.popoverEl.open;
   }
   render() {
-    return (h("z-popover", { ref: (el) => (this.popover = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", null)));
+    return (h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", null)));
   }
 };
 ZTooltip.style = stylesCss;
