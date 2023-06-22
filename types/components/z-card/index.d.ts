@@ -1,4 +1,3 @@
-import { EventEmitter } from "../../stencil-public-runtime";
 import { CardVariant } from "../../beans";
 /**
  * ZCard component.
@@ -19,18 +18,12 @@ export declare class ZCard {
   variant: CardVariant;
   /** Name of the icon to place over the image cover */
   coverIcon: string;
-  /** Enable click interactions on the card. Default: false */
-  clickable: boolean;
   /** Enable shadow. Default: false. */
-  showshadow: boolean;
+  showShadow: boolean;
+  /** Enable 'clickable' style like hover and focus style. */
+  clickable: boolean;
   host: HTMLZCardElement;
   hasCoverImage: boolean;
-  /**
-   * Card click event.
-   * Fired only if `clickable` is true.
-   */
-  cardClicked: EventEmitter;
-  onClick(ev: MouseEvent): void;
   componentWillLoad(): void;
   /**
    * Template for a card without image cover.

@@ -12,22 +12,10 @@ import { CardVariant } from "../../beans";
  */
 export class ZCard {
   constructor() {
-    /** Enable click interactions on the card. Default: false */
-    this.clickable = false;
     /** Enable shadow. Default: false. */
-    this.showshadow = false;
-  }
-  onClick(ev) {
-    // Do nothing for clicks on actions.
-    if (ev.target.closest("[slot=action]")) {
-      return;
-    }
-    if (!this.clickable) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      return;
-    }
-    this.cardClicked.emit();
+    this.showShadow = false;
+    /** Enable 'clickable' style like hover and focus style. */
+    this.clickable = false;
   }
   componentWillLoad() {
     this.hasCoverImage = this.host.querySelector('[slot="cover"]') !== null;
@@ -113,25 +101,7 @@ export class ZCard {
         "attribute": "cover-icon",
         "reflect": false
       },
-      "clickable": {
-        "type": "boolean",
-        "mutable": false,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Enable click interactions on the card. Default: false"
-        },
-        "attribute": "clickable",
-        "reflect": true,
-        "defaultValue": "false"
-      },
-      "showshadow": {
+      "showShadow": {
         "type": "boolean",
         "mutable": false,
         "complexType": {
@@ -145,7 +115,25 @@ export class ZCard {
           "tags": [],
           "text": "Enable shadow. Default: false."
         },
-        "attribute": "showshadow",
+        "attribute": "show-shadow",
+        "reflect": true,
+        "defaultValue": "false"
+      },
+      "clickable": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Enable 'clickable' style like hover and focus style."
+        },
+        "attribute": "clickable",
         "reflect": true,
         "defaultValue": "false"
       }
@@ -156,32 +144,5 @@ export class ZCard {
       "hasCoverImage": {}
     };
   }
-  static get events() {
-    return [{
-        "method": "cardClicked",
-        "name": "cardClicked",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "Card click event.\nFired only if `clickable` is true."
-        },
-        "complexType": {
-          "original": "any",
-          "resolved": "any",
-          "references": {}
-        }
-      }];
-  }
   static get elementRef() { return "host"; }
-  static get listeners() {
-    return [{
-        "name": "click",
-        "method": "onClick",
-        "target": undefined,
-        "capture": false,
-        "passive": false
-      }];
-  }
 }

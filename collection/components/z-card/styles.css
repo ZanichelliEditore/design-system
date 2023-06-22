@@ -87,9 +87,14 @@ Unfortunately the `aspect-ratio` property is still experimental */
   margin-bottom: var(--space-unit);
 }
 
-::slotted([slot="text"]),
-::slotted([slot="actions"]) {
-  margin: 0;
+::slotted([slot="title"])::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
 }
 
 ::slotted([slot="metadata"]:not(:last-child)) {
@@ -100,36 +105,37 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 ::slotted([slot="title"]) {
   margin: 0;
+  color: inherit;
+  font-size: inherit;
   font-weight: var(--font-sb);
   -webkit-line-clamp: 2;
+  text-decoration: none;
 }
 
 ::slotted([slot="text"]) {
+  margin: 0;
   -webkit-line-clamp: 3;
 }
 
 .actions {
+  position: relative;
+  z-index: 2;
   display: flex;
+  width: fit-content;
   flex-direction: row;
   align-items: center;
 }
 
 ::slotted([slot="action"]:not(:last-child)) {
-  margin-right: calc(var(--space-unit) * 1.5);
+  margin-right: calc(var(--space-unit) * 2);
 }
 
-/* VARIANTS */
-:host([clickable]) {
-  cursor: pointer;
-}
-
-:host([clickable]:focus:focus-visible) {
-  outline: none;
-}
-
-:host(:not([variant])[clickable]:focus:focus-visible) {
-  padding: calc(var(--space-unit) * 0.5);
+:host([clickable]) ::slotted([slot="title"]:focus:focus-visible)::before {
   box-shadow: var(--shadow-focus-primary);
+}
+
+:host([clickable]) ::slotted([slot="title"]:focus:focus-visible) {
+  outline: none;
 }
 
 :host([variant="text"]) {
@@ -138,7 +144,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border-radius: var(--z-card--text-border-radius);
 }
 
-:host([showshadow]) > .content,
+:host([show-shadow]) > .content,
 :host([variant="border"]) > .content,
 :host([variant="shadow"]) > .content {
   height: 100%;
@@ -173,22 +179,22 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 /* Shadow */
 :host([variant="shadow"]),
-:host([showshadow]) {
+:host([show-shadow]) {
   box-shadow: var(--shadow-2);
 }
 
 :host([variant="shadow"][clickable]:hover),
-:host([clickable][showshadow]:hover) {
+:host([clickable][show-shadow]:hover) {
   box-shadow: var(--shadow-4);
 }
 
 :host([variant="shadow"][clickable]:focus:focus-visible),
-:host([clickable][showshadow]:focus:focus-visible) {
+:host([clickable][show-shadow]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
 }
 
 :host([variant="shadow"][clickable]:active),
-:host([clickable][showshadow]:active) {
+:host([clickable][show-shadow]:active) {
   box-shadow: none;
 }
 

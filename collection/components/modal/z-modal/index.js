@@ -96,7 +96,7 @@ export class ZModal {
   render() {
     return (h("dialog", { "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(),
       // @ts-ignore
-      onCancel: (e) => this.handleEscape(e) }, h("div", { class: "modal-container", id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), this.closeButtonSlot()), h("div", { class: "modal-content", id: "modal-content" }, h("slot", { name: "modalContent" }))), h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
+      onCancel: (e) => this.handleEscape(e) }, h("div", { class: "modal-container", id: this.modalid }, h("header", { onClick: this.emitModalHeaderActive.bind(this) }, h("div", null, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), h("div", { class: "modal-content", id: "modal-content" }, h("slot", { name: "modalContent" }))), h("div", { class: "modal-background", "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
         this.emitBackgroundClick();
         this.close();
       } })));
