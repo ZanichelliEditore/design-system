@@ -121,6 +121,18 @@
   fill: var(--color-icon01);
 }
 
+:host > article.expanded div.content,
+:host > article.search div.content {
+  margin: var(--space-unit) 0;
+}
+
+:host > article.expanded div.cover,
+:host > article.search div.cover {
+  border: var(--border-size-small) solid var(--color-surface03);
+  border-radius: var(--border-radius);
+  line-height: 0;
+}
+
 /* EXPANDED STYLES */
 
 :host > article.expanded {
@@ -140,18 +152,8 @@
   white-space: nowrap;
 }
 
-:host > article.expanded div.cover {
-  border: var(--border-size-small) solid var(--color-surface03);
-  border-radius: var(--border-radius);
-  line-height: 0;
-}
-
 :host > article.expanded div.cover img {
   width: 100%;
-}
-
-:host > article.expanded div.content {
-  margin: var(--space-unit) 0;
 }
 
 :host > article.expanded .title,
@@ -192,6 +194,60 @@
   align-items: center;
   justify-content: center;
   padding-top: var(--space-unit);
+}
+
+/* SEARCH STYLES */
+
+:host > article.search {
+  width: 262px;
+  height: 536px;
+  padding: calc(var(--space-unit) * 2);
+  padding-bottom: 0;
+}
+
+:host > article.search .wrapper-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+:host > article.search .wrapper-container .wrapper {
+  height: 451px;
+}
+
+:host > article.search .wrapper-container .action-container {
+  padding-bottom: calc(var(--space-unit) * 2);
+  margin: auto;
+  margin-bottom: 0;
+}
+
+:host > article.search div.header {
+  display: flex;
+  height: 24px;
+  flex-flow: row nowrap;
+  align-content: stretch;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: calc(var(--space-unit) * 1.5);
+  white-space: nowrap;
+}
+
+:host > article.search div.cover {
+  height: 314px;
+}
+
+:host > article.search div.title {
+  font-size: var(--font-size-3);
+}
+
+:host > article.search .title,
+:host > article.search .subtitle,
+:host > article.search .authors {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: nowrap;
 }
 
 /* Tablet breakpoint */

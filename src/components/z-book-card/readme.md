@@ -22,11 +22,12 @@
 
 ## Slots
 
-| Slot           | Description                     |
-| -------------- | ------------------------------- |
-| `"header-cta"` | header CTA (e.g. bookmark icon) |
-| `"resources"`  | books resources                 |
-| `"tags"`       | card tags                       |
+| Slot           | Description                             |
+| -------------- | --------------------------------------- |
+| `"footer-cta"` | footer cta button (search variant only) |
+| `"header-cta"` | header CTA (e.g. bookmark icon)         |
+| `"resources"`  | books resources (extended variant only) |
+| `"tags"`       | card tags                               |
 
 
 ## Dependencies

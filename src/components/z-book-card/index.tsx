@@ -4,9 +4,10 @@ import {mobileBreakpoint} from "../../constants/breakpoints";
 import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
- * @slot resources - books resources
+ * @slot resources - books resources (extended variant only)
  * @slot header-cta - header CTA (e.g. bookmark icon)
  * @slot tags - card tags
+ * @slot footer-cta - footer cta button (search variant only)
  * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
  * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
  */
@@ -130,7 +131,7 @@ export class ZBookCard {
       case BookCardVariant.COMPACT:
         return <div />;
       case BookCardVariant.SEARCH:
-        return <div />;
+        return this.renderSearchCard();
     }
   }
 
@@ -177,6 +178,27 @@ export class ZBookCard {
             {this.renderShowResources()}
           </div>
         )}
+      </div>
+    );
+  }
+
+  private renderSearchCard(): JSX.Element {
+    return (
+      <div class="wrapper-container">
+        <div class="wrapper">
+          <div class="header">
+            {this.renderOperaTitle()}
+            {this.renderHeaderCtaSlot()}
+          </div>
+          {this.renderCover()}
+          <div class="content">
+            {this.renderTagsSlot()}
+            {this.renderAuthors()}
+            {this.renderVolumeTitle()}
+            {this.renderIsbn()}
+          </div>
+        </div>
+        {this.renderFooterCtaSlot()}
       </div>
     );
   }
@@ -288,6 +310,14 @@ export class ZBookCard {
         ref={(el) => (this.resourcesWrapper = el as HTMLDivElement)}
       >
         <slot name="resources" />
+      </div>
+    );
+  }
+
+  private renderFooterCtaSlot(): JSX.Element {
+    return (
+      <div class="action-container">
+        <slot name="footer-cta" />
       </div>
     );
   }

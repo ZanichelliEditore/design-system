@@ -2,51 +2,59 @@ import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {BookCardVariant} from "../../beans";
 import "./index";
+const defaultArgs = {
+  variant: "expanded",
+  cover: "https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg",
+  operaTitle: "Matematica.azzurro",
+  volumeTitle: "Volume 3 con Tutor",
+  authors: "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
+  isbn: "9788808930552",
+  ribbon: "ADOTTATO",
+  fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
+  operaTitleTag: "h1",
+};
+const defaultArgTypes = {
+  variant: {
+    control: {type: "inline-radio"},
+    options: Object.values(BookCardVariant),
+  },
+  cover: {
+    control: {type: "text"},
+  },
+  operaTitle: {
+    control: {type: "text"},
+  },
+  volumeTitle: {
+    control: {type: "text"},
+  },
+  authors: {
+    control: {type: "text"},
+  },
+  isbn: {
+    control: {type: "text"},
+  },
+  ribbon: {
+    control: {type: "text"},
+  },
+  fallbackCover: {
+    control: {type: "text"},
+  },
+  operaTitleTag: {
+    control: {type: "text"},
+  },
+};
+const searchArgTypes = {
+  ...defaultArgTypes,
+  variant: {
+    table: {disable: true},
+  },
+};
 
 <Meta
   title="ZBookCard"
   component="z-book-card"
-  argTypes={{
-    variant: {
-      control: {type: "inline-radio"},
-      options: Object.values(BookCardVariant),
-    },
-    cover: {
-      control: {type: "text"},
-    },
-    operaTitle: {
-      control: {type: "text"},
-    },
-    volumeTitle: {
-      control: {type: "text"},
-    },
-    authors: {
-      control: {type: "text"},
-    },
-    isbn: {
-      control: {type: "text"},
-    },
-    ribbon: {
-      control: {type: "text"},
-    },
-    fallbackCover: {
-      control: {type: "text"},
-    },
-    operaTitleTag: {
-      control: {type: "text"},
-    },
-  }}
-  args={{
-    variant: "expanded",
-    cover: "https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg",
-    operaTitle: "Matematica.azzurro",
-    volumeTitle: "Volume 3 con Tutor",
-    authors: "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
-    isbn: "9788808930552",
-    ribbon: "ADOTTATO",
-    fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
-    operaTitleTag: "h1",
-  }}
+  argTypes={defaultArgTypes}
+  args={defaultArgs}
 />
 
 # ZBookCard
@@ -135,6 +143,75 @@ import "./index";
           name="star-empty"
           slot="header-cta"
         ></z-icon>
+      </z-book-card>`
+    }
+  </Story>
+  <Story name="Slotted footer CTA">
+    {(args) =>
+      html`<z-book-card
+        variant=${args.variant}
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        fallback-cover=${args.fallbackCover}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+        ></z-icon>
+        <div slot="footer-cta">
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="x-small"
+          >
+            Leggi il libro online
+          </z-button>
+        </div>
+      </z-book-card>`
+    }
+  </Story>
+  <Story
+    name="Search variant"
+    argTypes={searchArgTypes}
+  >
+    {(args) =>
+      html`<z-book-card
+        variant="search"
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        fallback-cover=${args.fallbackCover}
+        opera-title-tag=${args.operaTitleTag}
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+        ></z-icon>
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+        <div slot="footer-cta">
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="x-small"
+          >
+            Leggi il libro online
+          </z-button>
+        </div>
       </z-book-card>`
     }
   </Story>
