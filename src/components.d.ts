@@ -202,13 +202,13 @@ export namespace Components {
     }
     interface ZCard {
         /**
-          * Enable click interactions on the card. Default: false
-         */
-        "clickable": boolean;
-        /**
           * Name of the icon to place over the image cover
          */
         "coverIcon": string;
+        /**
+          * Enable style when hover. Default: false.
+         */
+        "showhover": boolean;
         /**
           * Enable shadow. Default: false.
          */
@@ -1828,10 +1828,6 @@ export interface ZButtonSortCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZButtonSortElement;
 }
-export interface ZCardCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZCardElement;
-}
 export interface ZCarouselCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZCarouselElement;
@@ -2812,17 +2808,13 @@ declare namespace LocalJSX {
     }
     interface ZCard {
         /**
-          * Enable click interactions on the card. Default: false
-         */
-        "clickable"?: boolean;
-        /**
           * Name of the icon to place over the image cover
          */
         "coverIcon"?: string;
         /**
-          * Card click event. Fired only if `clickable` is true.
+          * Enable style when hover. Default: false.
          */
-        "onCardClicked"?: (event: ZCardCustomEvent<any>) => void;
+        "showhover"?: boolean;
         /**
           * Enable shadow. Default: false.
          */

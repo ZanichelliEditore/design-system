@@ -1,17 +1,17 @@
-span,
-p {
+.themes-story span,
+.themes-story p {
   font-size: 16px;
   letter-spacing: 0.3px;
 }
 
-.theme-list {
+.themes-story .theme-list {
   display: flex;
   width: 400px;
   flex-direction: column;
   padding: 0;
 }
 
-.theme-list > li {
+.themes-story .theme-list > li {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,11 +19,11 @@ p {
   border-bottom: 1px solid var(--gray200);
 }
 
-.theme-list > li > code {
+.themes-story .theme-list > li > code {
   margin-right: 8px;
 }
 
-.theme-list > li > span {
+.themes-story .theme-list > li > span {
   display: inline-block;
   width: 100px;
   height: 20px;
