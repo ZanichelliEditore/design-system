@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/ZanichelliEditore/design-system/compare/v7.5.0...v8.0.0) (2023-06-22)
+
+
+### Bug Fixes
+
+* build ([590c02a](https://github.com/ZanichelliEditore/design-system/commit/590c02ae0e827671a4d16bb80b55625d5e1e38dc))
+* camelCase ([f1f193a](https://github.com/ZanichelliEditore/design-system/commit/f1f193ad9330d9409a909bc8a6ec9228fc7c58cf))
+* popover reference name ([abc66e5](https://github.com/ZanichelliEditore/design-system/commit/abc66e53a5335b52fe5dcbfc60b5159ec6551ec4))
+* styles and migration guide ([726da49](https://github.com/ZanichelliEditore/design-system/commit/726da49fe4462ce485d162576fd2445e22a270df))
+* tests ([43246ce](https://github.com/ZanichelliEditore/design-system/commit/43246ce34e92cd7cf99da5780fb0d6d71ac43da7))
+
 ## [7.5.0](https://github.com/ZanichelliEditore/design-system/compare/v7.4.3...v7.5.0) (2023-06-08)
 
 
