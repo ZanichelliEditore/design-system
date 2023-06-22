@@ -202,17 +202,17 @@ export namespace Components {
     }
     interface ZCard {
         /**
+          * Enable 'clickable' style like hover and focus style.
+         */
+        "clickable": boolean;
+        /**
           * Name of the icon to place over the image cover
          */
         "coverIcon": string;
         /**
-          * Enable style when hover. Default: false.
-         */
-        "showhover": boolean;
-        /**
           * Enable shadow. Default: false.
          */
-        "showshadow": boolean;
+        "showShadow": boolean;
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
@@ -2808,17 +2808,17 @@ declare namespace LocalJSX {
     }
     interface ZCard {
         /**
+          * Enable 'clickable' style like hover and focus style.
+         */
+        "clickable"?: boolean;
+        /**
           * Name of the icon to place over the image cover
          */
         "coverIcon"?: string;
         /**
-          * Enable style when hover. Default: false.
-         */
-        "showhover"?: boolean;
-        /**
           * Enable shadow. Default: false.
          */
-        "showshadow"?: boolean;
+        "showShadow"?: boolean;
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
