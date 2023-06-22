@@ -43,17 +43,17 @@ export class ZTooltip {
   @Prop()
   closable = true;
 
-  private popover: HTMLZPopoverElement;
+  private popoverEl: HTMLZPopoverElement;
 
   @Listen("openChange")
   onPopoverOpenChange(): void {
-    this.open = this.popover.open;
+    this.open = this.popoverEl.open;
   }
 
   render(): HTMLZPopoverElement {
     return (
       <z-popover
-        ref={(el) => (this.popover = el as HTMLZPopoverElement)}
+        ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
         bindTo={this.bindTo}
         open={this.open}
         position={this.position}
