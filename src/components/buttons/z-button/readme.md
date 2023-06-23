@@ -115,6 +115,9 @@
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../../z-pagination)
  - [z-searchbar](../../inputs/z-searchbar)
+ - [z-table-cell](../../../deprecated/z-table-deprecated/z-table-cell)
+ - [z-table-deprecated](../../../deprecated/z-table-deprecated/z-table-deprecated)
+ - [z-table-header](../../../deprecated/z-table-deprecated/z-table-header)
  - [z-td](../../table/z-td)
  - [z-th](../../table/z-th)
 
@@ -133,6 +136,9 @@ graph TD;
   z-myz-card-dictionary --> z-button
   z-pagination --> z-button
   z-searchbar --> z-button
+  z-table-cell --> z-button
+  z-table-deprecated --> z-button
+  z-table-header --> z-button
   z-td --> z-button
   z-th --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px

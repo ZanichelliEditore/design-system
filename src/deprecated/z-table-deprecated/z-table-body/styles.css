@@ -1,0 +1,9 @@
+:host {
+  display: table-row-group;
+  font-family: var(--dashboard-font);
+  font-weight: var(--font-rg);
+}
+
+:host > z-table-row[expanded] + z-table-expanded-row {
+  display: table-row;
+}

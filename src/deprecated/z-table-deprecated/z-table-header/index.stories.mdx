@@ -1,0 +1,92 @@
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import "./index";
+
+<Meta
+  title="ZTableHeader"
+  component="z-table-header"
+/>
+
+# ZTableHeader
+
+## This component is deprecated and will be removed from the library on September 4th 2023, please use the new `z-table` and the related components instead (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`, `z-th`, `z-td`).
+
+### If you were using `Size` and `SortDirection` enums, use instead the string values directly (`"x-small"`, `"small"`, `"medium"`, `"large"`, `"special"`, `"asc"`, `"desc"`, `"none"`).
+
+<Canvas>
+  <Story
+    name="ZTableHeader"
+    argTypes={{
+      padding: {
+        control: {type: "select"},
+        options: ["x-small", "small", "medium", "large", "special"],
+      },
+    }}
+    args={{
+      sortable: false,
+      showButton: false,
+      padding: "medium",
+    }}
+  >
+    {(args) => html`
+      <z-table bordered="true">
+        <z-table-head>
+          <z-table-row>
+            <z-table-header
+              column-id="col-1"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 1</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-2"
+              sortable="false"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-3"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 3</span>
+            </z-table-header>
+            <z-table-header
+              column-id="col-4"
+              sortable="${args.sortable}"
+              show-button="${args.showButton}"
+              padding="${args.padding}"
+            >
+              <span>Titolo 4</span>
+            </z-table-header>
+          </z-table-row>
+        </z-table-head>
+        <z-table-body>
+          <z-table-row>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+            <z-table-cell>Valore</z-table-cell>
+          </z-table-row>
+        </z-table-body>
+      </z-table>
+    `}
+  </Story>
+</Canvas>
+
+## Callback for sorting
+
+Pass **onSort** prop as a function that accepts an object structured like this:
+
+> { sortingOrientation: "asc" }
+
+## Note
+
+**columnId** prop is mandatory for sortable header otherwise there will be an error.
+
+<ArgsTable of="z-table-header" />

@@ -228,14 +228,6 @@ export enum ListSize {
   X_LARGE = "x-large",
 }
 
-export enum Size {
-  X_SMALL = "x-small",
-  SMALL = "small",
-  MEDIUM = "medium",
-  LARGE = "large",
-  SPECIAL = "special",
-}
-
 export enum ExpandableListStyle {
   ACCORDION = "accordion",
   MENU = "menu",

@@ -66,6 +66,8 @@
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
+ - [z-table-header](../../../deprecated/z-table-deprecated/z-table-header)
+ - [z-table-row](../../../deprecated/z-table-deprecated/z-table-row)
  - [z-tag](../../z-tag)
  - [z-th](../../table/z-th)
  - [z-toast-notification](../../notification/z-toast-notification)
@@ -108,6 +110,8 @@ graph TD;
   z-searchbar --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
+  z-table-header --> z-icon
+  z-table-row --> z-icon
   z-tag --> z-icon
   z-th --> z-icon
   z-toast-notification --> z-icon
