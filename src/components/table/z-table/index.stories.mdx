@@ -133,7 +133,10 @@ If you put a clickable item as a child cell of a z-tr with `expandable` set to `
         <z-tr>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div></z-td
+          >
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -240,7 +243,10 @@ For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoo
           <z-td .sticky=${args.stickFirstColumn}>Contenuto cella 1</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div></z-td
+          >
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
@@ -332,6 +338,74 @@ For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoo
           <z-td colspan="8">Table footer</z-td>
         </z-tr>
       </z-tfoot>
+    </z-table>`}
+  </Story>
+</Canvas>
+
+## Cells with contextual menu
+
+Enable `showMenu` prop on z-td or z-th to show a contextual menu button on the cell. The content of the menu must be placed using the slot `contextual-menu`.
+
+<Canvas>
+  <Story name="Cells with contextual menu">
+    {() => html`<z-table
+      bordered
+      style=${styleMap({
+        "--z-table--cells-padding": "16px",
+      })}
+    >
+      <z-thead>
+        <z-tr>
+          <z-th>Titolo</z-th>
+          <z-th show-menu>
+            <div>Heading con menu</div>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-th>
+          <z-th>Titolo</z-th>
+        </z-tr>
+      </z-thead>
+      <z-tbody>
+        <z-tr>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div>Contenuto cella con menu 2</div>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+          <z-td>
+            <span>Contenuto cella</span>
+          </z-td>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+        </z-tr>
+        <z-tr>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+          <z-td>
+            <span>Contenuto cella</span>
+          </z-td>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+        </z-tr>
+        <z-tr>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+          <z-td>
+            <span>Contenuto cella</span>
+          </z-td>
+          <z-td show-menu>
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-td>
+        </z-tr>
+      </z-tbody>
     </z-table>`}
   </Story>
 </Canvas>

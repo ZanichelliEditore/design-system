@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   display: flex;
   min-width: 128px;
   box-sizing: border-box;
@@ -11,11 +12,27 @@
 
 :host([sticky]) {
   position: sticky;
+  z-index: 1;
   top: 0;
-  right: -1px;
-  left: -1px;
+  left: 0;
 }
 
 :host([stuck]) {
   box-shadow: 8px 0 16px -4px var(--shadow-color-base);
+}
+
+/* Leave the space for the menu button */
+:host([show-menu]) ::slotted(:not([slot="contextual-menu"]):nth-last-child(2)) {
+  margin-right: calc(var(--space-unit) * 4);
+}
+
+.z-td--menu-container {
+  position: absolute;
+  z-index: 1;
+  top: var(--space-unit);
+  right: var(--space-unit);
+}
+
+:host(:not(:hover, [menu-open])) .z-td--menu-container {
+  display: none;
 }

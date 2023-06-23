@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {ButtonVariant, ControlSize} from "../../../beans";
 
 @Component({
   tag: "z-td",
@@ -21,12 +22,29 @@ export class ZTd {
   sticky = false;
 
   /**
+   * Enables the contextual menu.
+   * If true, a contextual menu button will be shown on hover.
+   */
+  @Prop({reflect: true})
+  showMenu = false;
+
+  /**
    * Whether the cell is currently stuck.
    */
   @State()
   stuck = false;
 
+  /**
+   * Store the open state of the menu.
+   */
+  @State()
+  isMenuOpen = false;
+
   private ownerTable?: HTMLZTableElement;
+
+  private menuTrigger: HTMLZButtonElement;
+
+  private popoverEl: HTMLZPopoverElement;
 
   /**
    * Emitted when the value of the `colspan` changes.
@@ -101,8 +119,27 @@ export class ZTd {
       <Host
         role="cell"
         stuck={this.stuck}
+        menu-open={this.isMenuOpen}
       >
         <slot></slot>
+        {this.showMenu && (
+          <div class="z-td--menu-container prevent-expand">
+            <z-button
+              variant={ButtonVariant.TERTIARY}
+              icon="contextual-menu"
+              size={ControlSize.X_SMALL}
+              ref={(el) => (this.menuTrigger = el as HTMLZButtonElement)}
+              onClick={() => (this.popoverEl.open = !this.popoverEl.open)}
+            />
+            <z-popover
+              ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
+              bindTo={this.menuTrigger}
+              onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
+            >
+              <slot name="contextual-menu"></slot>
+            </z-popover>
+          </div>
+        )}
       </Host>
     );
   }

@@ -2,8 +2,6 @@
   /* number of columns of the row. will be set in component's ts code */
   --columns: 1;
 
-  position: sticky;
-  left: 0;
   display: grid;
   min-width: max-content;
   box-sizing: border-box;
