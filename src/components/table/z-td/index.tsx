@@ -1,6 +1,10 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize} from "../../../beans";
 
+/**
+ * ZTd component.
+ * @slot - ZTd content.
+ */
 @Component({
   tag: "z-td",
   styleUrl: "styles.css",
@@ -55,6 +59,9 @@ export class ZTd {
   })
   colspanChange: EventEmitter<number>;
 
+  /**
+   * Set stuck state based on the table scroll position.
+   */
   protected onTableScroll(): void {
     const table = this.ownerTable;
     if (!table) {

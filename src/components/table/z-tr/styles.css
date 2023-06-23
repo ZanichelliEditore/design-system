@@ -38,19 +38,19 @@
   box-shadow: 0 4px 4px -2px var(--shadow-color-base);
 }
 
-:host([expanded]) .z-tr-expand-button-container,
+:host([expanded]) .z-tr--expand-button-container,
 :host([expanded]) ::slotted(*) {
   background-color: var(--color-surface02);
 }
 
-.z-tr-expand-button-container {
+.z-tr--expand-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--color-surface03);
 }
 
-.z-tr-expand-button-container button {
+.z-tr--expand-button-container button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,12 @@
   visibility: var(--show-expandable-button, hidden);
 }
 
-.z-tr-expand-button-container button z-icon {
+.z-tr--expand-button-container button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+.z-tr--expand-button-container button z-icon {
   --z-icon-width: 16px;
   --z-icon-height: 16px;
 }

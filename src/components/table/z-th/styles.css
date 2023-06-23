@@ -22,9 +22,34 @@
   box-shadow: 8px 0 16px -4px var(--shadow-color-base);
 }
 
+:host([sortable]) {
+  cursor: pointer;
+}
+
 /* Leave the space for the menu button */
-:host([show-menu]) ::slotted(:not([slot="contextual-menu"]):nth-last-child(2)) {
+:host([show-menu])::after {
+  display: inline-block;
+  height: 100%;
   margin-right: calc(var(--space-unit) * 4);
+  background: transparent;
+  content: "";
+  user-select: none;
+}
+
+.z-th--sort-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  margin-top: auto;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.z-th--sort-button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 .z-th--menu-container {
@@ -34,6 +59,7 @@
   right: var(--space-unit);
 }
 
-:host(:not(:hover, [menu-open])) .z-th--menu-container {
-  display: none;
+:host(:not(:hover, [menu-open])) .z-th--menu-container:not(:focus-within) {
+  opacity: 0;
+  pointer-events: none;
 }

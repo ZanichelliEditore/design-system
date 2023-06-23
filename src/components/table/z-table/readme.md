@@ -21,9 +21,9 @@
 
 ## Slots
 
-| Slot | Description                                      |
-| ---- | ------------------------------------------------ |
-|      | Table content (z-thead, z-tbody, z-tfoot, z-tr). |
+| Slot | Description                                              |
+| ---- | -------------------------------------------------------- |
+|      | Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`). |
 
 
 ----------------------------------------------

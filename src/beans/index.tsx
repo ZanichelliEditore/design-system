@@ -213,7 +213,6 @@ export enum DividerOrientation {
 export enum SortDirection {
   ASC = "asc",
   DESC = "desc",
-  NONE = "none",
 }
 
 export enum AvatarSize {

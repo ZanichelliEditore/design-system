@@ -67,6 +67,7 @@
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
  - [z-tag](../../z-tag)
+ - [z-th](../../table/z-th)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)
@@ -108,6 +109,7 @@ graph TD;
   z-select --> z-icon
   z-slideshow --> z-icon
   z-tag --> z-icon
+  z-th --> z-icon
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon

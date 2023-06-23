@@ -22,8 +22,13 @@
 }
 
 /* Leave the space for the menu button */
-:host([show-menu]) ::slotted(:not([slot="contextual-menu"]):nth-last-child(2)) {
+:host([show-menu])::after {
+  display: inline-block;
+  height: 100%;
   margin-right: calc(var(--space-unit) * 4);
+  background: transparent;
+  content: "";
+  user-select: none;
 }
 
 .z-td--menu-container {

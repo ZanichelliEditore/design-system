@@ -5,6 +5,9 @@ import "../z-th/index";
 
 /**
  * ZTr component.
+ * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+ * to prevent the row from expanding.
+ * @slot - ZTr content (`z-td` or `z-th`).
  */
 @Component({
   tag: "z-tr",
@@ -86,7 +89,7 @@ export class ZTr {
         onClick={this.onRowClick.bind(this)}
         expanded={this.expanded}
       >
-        <div class="z-tr-expand-button-container">
+        <div class="z-tr--expand-button-container">
           {this.expandable && (
             <button
               aria-expanded={this.expanded ? "true" : "false"}

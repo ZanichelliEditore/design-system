@@ -2,23 +2,24 @@ import {html} from "lit-html";
 import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
+import "./index.stories.css";
+import {SortDirection} from "../../../beans";
 
 <Meta
   title="ZTable"
   component="z-table"
+  args={{
+    "bordered": true,
+    "--z-table--cells-padding": "16px",
+  }}
 />
 
 # ZTable
 
 <Canvas>
-  <Story
-    name="ZTable"
-    args={{
-      "bordered": true,
-      "--z-table--cells-padding": "16px",
-    }}
-  >
+  <Story name="ZTable">
     {(args) => html`<z-table
+      class="z-table-demo"
       .bordered=${args.bordered}
       style=${styleMap({
         "--z-table--cells-padding": args["--z-table--cells-padding"],
@@ -26,14 +27,14 @@ import "./index";
     >
       <z-thead>
         <z-tr>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
+          <z-th>Titolo colonna</z-th>
         </z-tr>
       </z-thead>
       <z-tbody>
@@ -104,14 +105,9 @@ Just set `expandable` prop on the `z-tr` element to make it expandable.
 If you put a clickable item as a child cell of a z-tr with `expandable` set to `true`, you need to set a "prevent-expand" class on that item, in order to prevent unwanted row expansions.
 
 <Canvas>
-  <Story
-    name="Expandable rows"
-    args={{
-      "bordered": true,
-      "--z-table--cells-padding": "16px",
-    }}
-  >
+  <Story name="Expandable rows">
     {(args) => html`<z-table
+      class="z-table-demo"
       .bordered=${args.bordered}
       style=${styleMap({
         "--z-table--cells-padding": args["--z-table--cells-padding"],
@@ -119,14 +115,14 @@ If you put a clickable item as a child cell of a z-tr with `expandable` set to `
     >
       <z-thead>
         <z-tr>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
+          <z-th>Colonna 1</z-th>
+          <z-th>Colonna 2</z-th>
+          <z-th>Colonna 3</z-th>
+          <z-th>Colonna 4</z-th>
+          <z-th>Colonna 5</z-th>
+          <z-th>Colonna 6</z-th>
+          <z-th>Colonna 7</z-th>
+          <z-th>Colonna 8</z-th>
         </z-tr>
       </z-thead>
       <z-tbody>
@@ -212,14 +208,13 @@ For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoo
   <Story
     name="Sticky"
     args={{
-      "bordered": true,
-      "--z-table--cells-padding": "16px",
-      "stickyHeader": true,
-      "stickyFooter": true,
-      "stickFirstColumn": true,
+      stickyHeader: true,
+      stickyFooter: true,
+      stickFirstColumn: true,
     }}
   >
     {(args) => html`<z-table
+      class="z-table-demo"
       .bordered=${args.bordered}
       style=${styleMap({
         "--z-table--cells-padding": args["--z-table--cells-padding"],
@@ -228,14 +223,14 @@ For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoo
     >
       <z-thead .sticky=${args.stickyHeader}>
         <z-tr>
-          <z-th .sticky=${args.stickFirstColumn}>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
-          <z-th>Titolo</z-th>
+          <z-th .sticky=${args.stickFirstColumn}>Colonna 1</z-th>
+          <z-th>Colonna 2</z-th>
+          <z-th>Colonna 3</z-th>
+          <z-th>Colonna 4</z-th>
+          <z-th>Colonna 5</z-th>
+          <z-th>Colonna 6</z-th>
+          <z-th>Colonna 7</z-th>
+          <z-th>Colonna 8</z-th>
         </z-tr>
       </z-thead>
       <z-tbody>
@@ -348,62 +343,104 @@ Enable `showMenu` prop on z-td or z-th to show a contextual menu button on the c
 
 <Canvas>
   <Story name="Cells with contextual menu">
-    {() => html`<z-table
-      bordered
+    {(args) => html`<z-table
+      class="z-table-demo"
+      .bordered=${args.bordered}
       style=${styleMap({
-        "--z-table--cells-padding": "16px",
+        "--z-table--cells-padding": args["--z-table--cells-padding"],
       })}
     >
       <z-thead>
         <z-tr>
-          <z-th>Titolo</z-th>
+          <z-th>Colonna 1</z-th>
           <z-th show-menu>
-            <div>Heading con menu</div>
+            Heading con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-th>
-          <z-th>Titolo</z-th>
+          <z-th>Colonna 2</z-th>
         </z-tr>
       </z-thead>
       <z-tbody>
         <z-tr>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
-            <div>Contenuto cella con menu 2</div>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
-          <z-td>
-            <span>Contenuto cella</span>
-          </z-td>
+          <z-td>Contenuto cella</z-td>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
         </z-tr>
         <z-tr>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
-          <z-td>
-            <span>Contenuto cella</span>
-          </z-td>
+          <z-td>Contenuto cella</z-td>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
         </z-tr>
         <z-tr>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
-          <z-td>
-            <span>Contenuto cella</span>
-          </z-td>
+          <z-td>Contenuto cella</z-td>
           <z-td show-menu>
-            <span>Contenuto cella con menu</span>
+            Contenuto cella con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-td>
+        </z-tr>
+      </z-tbody>
+    </z-table>`}
+  </Story>
+</Canvas>
+
+## Sort action
+
+Set the `sortDirection` prop to `SortDirection.ASC` or `SortDirection.DESC` to enable sorting and show the sort button.
+Clicking the button will fire the `sort` event with the `sortDirection` as detail.
+
+<Canvas>
+  <Story name="Sort action">
+    {(args) => html`<z-table
+      class="z-table-demo"
+      .bordered=${args.bordered}
+      style=${styleMap({
+        "--z-table--cells-padding": args["--z-table--cells-padding"],
+      })}
+    >
+      <z-thead>
+        <z-tr>
+          <z-th>Colonna 1</z-th>
+          <z-th
+            .sortDirection=${SortDirection.ASC}
+            show-menu
+          >
+            Colonna 2 con menu e sorting
+            <div slot="contextual-menu">Contenuto del popover</div>
+          </z-th>
+          <z-th .sortDirection=${SortDirection.DESC}>Colonna 3 con sorting</z-th>
+        </z-tr>
+      </z-thead>
+      <z-tbody>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+        </z-tr>
+        <z-tr>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
+          <z-td>Contenuto cella</z-td>
         </z-tr>
       </z-tbody>
     </z-table>`}

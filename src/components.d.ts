@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -1581,6 +1581,10 @@ export namespace Components {
          */
         "colspan": number;
         /**
+          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+         */
+        "showMenu": boolean;
+        /**
           * Whether the cell should stick.
          */
         "sticky": boolean;
@@ -1596,6 +1600,14 @@ export namespace Components {
           * Number of columns that the cell should span.
          */
         "colspan": number;
+        /**
+          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+         */
+        "showMenu": boolean;
+        /**
+          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+         */
+        "sortDirection"?: SortDirection;
         /**
           * Whether the cell should stick.
          */
@@ -1719,7 +1731,7 @@ export namespace Components {
     }
     interface ZTr {
         /**
-          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.
+          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
          */
         "expandable": boolean;
     }
@@ -1883,6 +1895,10 @@ export interface ZTableCustomEvent<T> extends CustomEvent<T> {
 export interface ZTdCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTdElement;
+}
+export interface ZThCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZThElement;
 }
 export interface ZToastNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -4239,6 +4255,10 @@ declare namespace LocalJSX {
          */
         "onColspanChange"?: (event: ZTdCustomEvent<number>) => void;
         /**
+          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+         */
+        "showMenu"?: boolean;
+        /**
           * Whether the cell should stick.
          */
         "sticky"?: boolean;
@@ -4254,6 +4274,18 @@ declare namespace LocalJSX {
           * Number of columns that the cell should span.
          */
         "colspan"?: number;
+        /**
+          * Sort event fired when the user clicks on the sort button. The sorting logic must be implemented by the app. You can set an `id` on the `z-th` to easly identify the column in the event listener.
+         */
+        "onSort"?: (event: ZThCustomEvent<any>) => void;
+        /**
+          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+         */
+        "showMenu"?: boolean;
+        /**
+          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+         */
+        "sortDirection"?: SortDirection;
         /**
           * Whether the cell should stick.
          */
@@ -4389,7 +4421,7 @@ declare namespace LocalJSX {
     }
     interface ZTr {
         /**
-          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.
+          * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
          */
         "expandable"?: boolean;
         /**

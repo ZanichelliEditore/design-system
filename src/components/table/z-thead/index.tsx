@@ -2,6 +2,7 @@ import {Component, Host, Prop, h} from "@stencil/core";
 
 /**
  * ZThead component.
+ * @slot - ZThead content (`z-tr`).
  */
 @Component({
   tag: "z-thead",

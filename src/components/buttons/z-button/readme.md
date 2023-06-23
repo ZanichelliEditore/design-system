@@ -115,6 +115,8 @@
  - [z-myz-card-dictionary](../../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../../z-pagination)
  - [z-searchbar](../../inputs/z-searchbar)
+ - [z-td](../../table/z-td)
+ - [z-th](../../table/z-th)
 
 ### Depends on
 
@@ -131,6 +133,8 @@ graph TD;
   z-myz-card-dictionary --> z-button
   z-pagination --> z-button
   z-searchbar --> z-button
+  z-td --> z-button
+  z-th --> z-button
   style z-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

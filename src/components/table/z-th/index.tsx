@@ -1,8 +1,10 @@
-import {Component, Element, Host, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize} from "../../../beans";
+import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {ButtonVariant, ControlSize, SortDirection} from "../../../beans";
 
 /**
  * ZTh component.
+ * @slot - ZTh content.
+ * @slot contextual-menu - Contextual menu content. Only visible when `showMenu` is true.
  */
 @Component({
   tag: "z-th",
@@ -32,6 +34,13 @@ export class ZTh {
   sticky = false;
 
   /**
+   * Current sorting direction.
+   * Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+   */
+  @Prop({mutable: true})
+  sortDirection?: SortDirection;
+
+  /**
    * Whether the cell is currently stuck.
    */
   @State()
@@ -43,12 +52,34 @@ export class ZTh {
   @State()
   isMenuOpen = false;
 
+  /**
+   * Sort event fired when the user clicks on the sort button.
+   * The sorting logic must be implemented by the app.
+   * You can set an `id` on the `z-th` to easly identify the column in the event listener.
+   */
+  @Event()
+  private sort: EventEmitter;
+
   private ownerTable?: HTMLZTableElement;
 
   private menuTrigger: HTMLZButtonElement;
 
   private popoverEl: HTMLZPopoverElement;
 
+  /**
+   * Get the value to set to the `aria-sort` attribute based on the current sort direction.
+   */
+  private get ariaSortDirection(): string {
+    if (!this.sortDirection) {
+      return null;
+    }
+
+    return this.sortDirection === SortDirection.ASC ? "ascending" : "descending";
+  }
+
+  /**
+   * Set stuck state based on the table scroll position.
+   */
   protected onTableScroll(): void {
     const table = this.ownerTable;
     if (!table) {
@@ -59,6 +90,21 @@ export class ZTh {
     const boundingClientRect = this.host.getBoundingClientRect();
     const tableRight = tableBoundingClientRect.right - (table.offsetWidth - table.clientWidth) + 2;
     this.stuck = boundingClientRect.left === tableBoundingClientRect.left || boundingClientRect.right === tableRight;
+  }
+
+  /**
+   * Handle the click on the sort button.
+   * @fires sort
+   */
+  private handleSort(): void {
+    if (!this.sortDirection) {
+      return;
+    }
+
+    this.sortDirection = this.sortDirection === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC;
+    this.sort.emit({
+      sortDirection: this.sortDirection,
+    });
   }
 
   @Watch("colspan")
@@ -112,10 +158,24 @@ export class ZTh {
         role="columnheader"
         stuck={this.stuck}
         menu-open={this.isMenuOpen}
+        aria-sort={this.ariaSortDirection}
       >
         <slot></slot>
+        {this.sortDirection && (
+          <button
+            class="z-th--sort-button"
+            type="button"
+            onClick={this.handleSort.bind(this)}
+          >
+            <z-icon
+              name={this.sortDirection === SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down"}
+              width={14}
+              height={14}
+            />
+          </button>
+        )}
         {this.showMenu && (
-          <div class="z-th--menu-container prevent-expand">
+          <div class="z-th--menu-container">
             <z-button
               variant={ButtonVariant.TERTIARY}
               icon="contextual-menu"

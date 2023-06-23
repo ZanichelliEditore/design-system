@@ -6,7 +6,7 @@ import "../z-tfoot/index";
 
 /**
  * ZTable component.
- * @slot - Table content (z-thead, z-tbody, z-tfoot, z-tr).
+ * @slot - Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`).
  * @cssprop --z-table--cells-padding - Padding of the cells.
  */
 @Component({

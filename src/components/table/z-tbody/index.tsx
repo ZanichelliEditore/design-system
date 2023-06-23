@@ -2,6 +2,7 @@ import {Component, Host, h} from "@stencil/core";
 
 /**
  * ZTbody component.
+ * @slot - ZTbody content (`z-tr`).
  */
 @Component({
   tag: "z-tbody",

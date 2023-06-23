@@ -1,7 +1,8 @@
 import {Component, Host, Prop, h} from "@stencil/core";
 
 /**
- * TFoot component.
+ * ZTFoot component.
+ * @slot - ZTFoot content (`z-tr`).
  */
 @Component({
   tag: "z-tfoot",
