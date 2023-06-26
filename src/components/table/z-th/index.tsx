@@ -41,12 +41,6 @@ export class ZTh {
   sortDirection?: SortDirection;
 
   /**
-   * Whether the cell is currently stuck.
-   */
-  @State()
-  stuck = false;
-
-  /**
    * Store the open state of the menu.
    */
   @State()
@@ -59,8 +53,6 @@ export class ZTh {
    */
   @Event()
   private sort: EventEmitter;
-
-  private ownerTable?: HTMLZTableElement;
 
   private menuTrigger: HTMLZButtonElement;
 
@@ -75,21 +67,6 @@ export class ZTh {
     }
 
     return this.sortDirection === SortDirection.ASC ? "ascending" : "descending";
-  }
-
-  /**
-   * Set stuck state based on the table scroll position.
-   */
-  protected onTableScroll(): void {
-    const table = this.ownerTable;
-    if (!table) {
-      return;
-    }
-
-    const tableBoundingClientRect = table.getBoundingClientRect();
-    const boundingClientRect = this.host.getBoundingClientRect();
-    const tableRight = tableBoundingClientRect.right - (table.offsetWidth - table.clientWidth) + 2;
-    this.stuck = boundingClientRect.left === tableBoundingClientRect.left || boundingClientRect.right === tableRight;
   }
 
   /**
@@ -116,47 +93,14 @@ export class ZTh {
     }
   }
 
-  @Watch("sticky")
-  protected updateSticky(): void {
-    const table = this.ownerTable;
-    if (!table) {
-      this.stuck = false;
-
-      return;
-    }
-
-    table.removeEventListener("scroll", this.onTableScroll);
-    table.removeEventListener("tableResize", this.onTableScroll);
-
-    if (this.sticky) {
-      table.addEventListener("scroll", this.onTableScroll, {capture: true, passive: true});
-      table.addEventListener("tableResize", this.onTableScroll, {capture: true, passive: true});
-      this.onTableScroll();
-    } else {
-      this.stuck = false;
-    }
-  }
-
-  connectedCallback(): void {
-    this.ownerTable = this.host.closest("z-table");
-    this.updateSticky();
-  }
-
-  disconnectedCallback(): void {
-    this.updateSticky();
-    this.ownerTable = undefined;
-  }
-
   componentWillLoad(): void {
     this.updateColspan();
-    this.updateSticky();
   }
 
   render(): HTMLZThElement {
     return (
       <Host
         role="columnheader"
-        stuck={this.stuck}
         menu-open={this.isMenuOpen}
         aria-sort={this.ariaSortDirection}
       >

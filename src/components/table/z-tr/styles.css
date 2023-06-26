@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+.z-tr--expand-button-container,
+::slotted(*) {
+  border-bottom: var(--z-table--cells-bottom-border-size, var(--border-size-small)) solid var(--color-surface03);
+}
+
+::slotted(*:not(:last-child)) {
+  border-right: var(--z-table--cell-left-border, none);
+}
+
 :host([expandable]) {
   --show-expandable-button: visible;
 
@@ -21,6 +30,10 @@
 
 :host([expandable]) ::slotted(*) {
   grid-row: 1;
+}
+
+:host([expandable]) ::slotted(:nth-last-child(2)) {
+  border-right: none;
 }
 
 :host([expandable]) ::slotted(*:last-child) {
@@ -47,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--color-surface03);
+  background-color: var(--z-table--cells-background, var(--color-surface01));
 }
 
 .z-tr--expand-button-container button {
@@ -71,8 +84,4 @@
 .z-tr--expand-button-container button z-icon {
   --z-icon-width: 16px;
   --z-icon-height: 16px;
-}
-
-::slotted(*:not(:first-child)) {
-  border-left: var(--z-table--cell-left-border, none);
 }

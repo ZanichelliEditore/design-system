@@ -5,7 +5,7 @@
   box-sizing: border-box;
   align-items: center;
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
-  border-bottom: 1px solid var(--color-surface03);
+  background-color: var(--color-surface02);
   font-weight: var(--font-sb);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
 }
@@ -16,10 +16,7 @@
   top: 0;
   left: 0;
   background-color: var(--color-surface02);
-}
-
-:host([stuck]) {
-  box-shadow: 8px 0 16px -4px var(--shadow-color-base);
+  box-shadow: 8px 0 16px -8px var(--shadow-color-base);
 }
 
 :host([sortable]) {

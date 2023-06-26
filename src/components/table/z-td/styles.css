@@ -5,7 +5,6 @@
   box-sizing: border-box;
   align-items: center;
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
-  border-bottom: 1px solid var(--color-surface03);
   background-color: var(--color-surface01);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
 }
@@ -15,10 +14,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-}
-
-:host([stuck]) {
-  box-shadow: 8px 0 16px -4px var(--shadow-color-base);
+  box-shadow: 8px 0 16px -8px var(--shadow-color-base);
 }
 
 /* Leave the space for the menu button */

@@ -6,6 +6,7 @@
   overflow: auto;
   max-width: 100%;
   box-sizing: border-box;
+  background-color: var(--color-surface01);
 }
 
 :host([expandable]) {
@@ -17,5 +18,5 @@
 }
 
 .table {
-  min-width: fit-content;
+  min-width: max-content;
 }
