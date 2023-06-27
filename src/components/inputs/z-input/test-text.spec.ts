@@ -16,7 +16,11 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <div>
               <input id="id" class="has-clear-icon" type="text" />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+               <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                <z-icon class="big" name="multiply"></z-icon>
+               </button>
+             </span>
             </div>
           </div>
       </z-input>
@@ -33,7 +37,11 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <div>
               <input id="id" class="has-clear-icon" type="text" />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="small" name="multiply"></z-icon>
+                </button>
+              </span>
             </div>
           </div>
       </z-input>
@@ -50,7 +58,11 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <div>
               <input id="id" class="has-clear-icon" type="text" />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="x-small" name="multiply"></z-icon>
+                </button>
+              </span>
             </div>
           </div>
       </z-input>
@@ -111,7 +123,11 @@ describe("Suite test ZInput - text", () => {
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+               <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                 <z-icon class="big" name="multiply"></z-icon>
+               </button>
+              </span>
             </div>
           </div>
       </z-input>
@@ -129,7 +145,11 @@ describe("Suite test ZInput - text", () => {
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                   <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
             </div>
           </div>
       </z-input>
@@ -205,6 +225,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="has-clear-icon has-icon" type="password" />
               <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
                 <button type="button" class="icon-button toggle-password-icon" aria-label="mostra password">
                   <z-icon class="big" name="view-filled"></z-icon>
                 </button>
@@ -228,6 +251,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="has-clear-icon has-icon" type="text" />
               <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
                 <button type="button" class="icon-button toggle-password-icon" aria-label="nascondi password">
                   <z-icon class="big" name="view-off-filled"></z-icon>
                 </button>
@@ -274,7 +300,11 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <div>
               <input id="id" class="filled" type="text" value="value" />
-              <span class="icons-wrapper"></span>
+              <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
             </div>
             <z-input-message class="big"></z-input-message>
           </div>
@@ -295,6 +325,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="has-icon has-clear-icon" type="text" />
               <span class="icons-wrapper">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
                 <button type="button" class="icon-button input-icon" tabindex="-1">
                   <z-icon class="big" name="pdf"></z-icon>
                 </button>
@@ -316,7 +349,11 @@ describe("Suite test ZInput - text", () => {
         <div class="text-wrapper">
           <div>
             <input id="test" max="10" min="1" step="2" type="number">
-            <span class="icons-wrapper"></span>
+            <span class="icons-wrapper">
+              <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                <z-icon class="big" name="multiply"></z-icon>
+              </button>
+            </span>
           </div>
         </div>
       </z-input>
