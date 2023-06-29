@@ -1,5 +1,4 @@
-# z-tabella
-
+# z-table
 
 
 <!-- Auto Generated Below -->
