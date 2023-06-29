@@ -40,28 +40,37 @@ export class ZTable {
   @Event()
   tableResize: EventEmitter<ZTable>;
 
+  private resizeObserver: ResizeObserver;
+
+  private expandableMutationObserver: MutationObserver;
+
   /**
    * Setup table:
    * - create the resize observer for resize event
    * - create mutation observer for expandable attribute
    */
   componentWillLoad(): void {
-    const resizeObserver = new ResizeObserver(() => {
+    this.resizeObserver = new ResizeObserver(() => {
       this.tableResize.emit(this);
     });
 
-    resizeObserver.observe(this.host);
+    this.resizeObserver.observe(this.host);
 
-    const mutationObserver = new MutationObserver(() => {
+    this.expandableMutationObserver = new MutationObserver(() => {
       this.updateExpandable();
     });
-    mutationObserver.observe(this.host, {
+    this.expandableMutationObserver.observe(this.host, {
       childList: true,
       subtree: true,
       attributes: true,
       attributeFilter: ["expandable"],
       attributeOldValue: false,
     });
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver.disconnect();
+    this.expandableMutationObserver.disconnect();
   }
 
   render(): HTMLZTableElement {
