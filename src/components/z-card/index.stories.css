@@ -6,15 +6,15 @@ z-card.demo-card {
   width: 264px;
 }
 
-z-card button[slot="action"],
-z-card button[slot="title"] {
+z-card:is(.demo-card, .text-variant-card) button[slot="action"],
+z-card:is(.demo-card, .text-variant-card) button[slot="title"] {
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
 }
 
-z-card:is(.demo-card, .text-variant-card) span {
+z-card:is(.demo-card, .text-variant-card) [slot="title"] {
   width: fit-content;
   padding: 0;
   margin: 0;
@@ -24,4 +24,8 @@ z-card:is(.demo-card, .text-variant-card) span {
   font-weight: var(--font-sb);
   -webkit-line-clamp: 2;
   text-decoration: none;
+}
+
+z-card #btn-card {
+  text-align: left;
 }
