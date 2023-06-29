@@ -341,15 +341,18 @@
   }
 }
 
-/* Desktop breakpoint*/
+/* Desktop breakpoint */
+
 @media (min-width: 1152px) {
   :host {
     width: 100%;
     max-width: initial;
   }
+
   :host > article.expanded {
     width: 635px;
   }
+
   :host > article.expanded div.content {
     width: 369px;
   }
