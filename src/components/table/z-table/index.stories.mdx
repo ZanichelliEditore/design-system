@@ -447,4 +447,13 @@ Clicking the button will fire the `sort` event with the `sortDirection` as detai
   </Story>
 </Canvas>
 
+## Accessibility
+
+The `ZTable` and its related components comes with a set of roles and ARIA attributes to help screen readers to understand the table structure and its content. The roles are mainly used to identify the table parts, since they are not the native HTML table elements. The ARIA attributes used are the following:
+
+- [`aria-sort`](https://www.w3.org/TR/wai-aria-1.1/#aria-sort) to identify the sorting direction of a column when sorting is enabled
+- [`aria-expanded`](https://www.w3.org/TR/wai-aria-1.1/#aria-expanded) to identify if a row is expanded or not when expandable rows are enabled. The attribute is set on the button that expands the row, as explained in the [docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
+- [`aria-controls`](https://www.w3.org/TR/wai-aria-1.1/#aria-controls) is used on the expandable row button to identify the content that is controlled by the button itself, as explained in the [docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls). Maybe the `aria-owns` attribute were more appropriate, but it is not supported on MacOS and iOS with VoiceOver, so we used `aria-controls` instead.
+- (`aria-label`)[https://www.w3.org/TR/wai-aria-1.1/#aria-label] is used on the expandable row button to provide a label for the button, since the button doesn't have any text content.
+
 <ArgsTable of="z-table" />

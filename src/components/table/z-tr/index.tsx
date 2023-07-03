@@ -93,7 +93,6 @@ export class ZTr {
           {this.expandable && (
             <button
               aria-expanded={this.expanded ? "true" : "false"}
-              aria-pressed={this.expanded ? "true" : "false"}
               aria-label={this.expanded ? "Comprimi riga" : "Espandi riga"}
               aria-controls={this.expandableContentId}
               type="button"
