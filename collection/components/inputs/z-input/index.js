@@ -164,10 +164,11 @@ export class ZInput {
     return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon, class: this.size })));
   }
   renderResetIcon() {
+    let hidden = false;
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputType.NUMBER) {
-      return;
+      hidden = true;
     }
-    return (h("button", { type: "button", class: "icon-button reset-icon", "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply", class: this.size })));
+    return (h("button", { type: "button", class: `icon-button reset-icon ${hidden ? "hidden" : ""}`, "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, h("z-icon", { name: "multiply", class: this.size })));
   }
   renderShowHidePassword() {
     return (h("button", { type: "button", class: "icon-button toggle-password-icon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled", class: this.size })));

@@ -207,6 +207,10 @@ label.input-label {
   margin-left: calc(var(--space-unit) * 0.5);
 }
 
+.text-wrapper .icons-wrapper > button.icon-button.hidden {
+  display: none;
+}
+
 .text-wrapper .icons-wrapper > button.icon-button.reset-icon,
 .text-wrapper .icons-wrapper > button.icon-button.toggle-password-icon {
   cursor: pointer;
