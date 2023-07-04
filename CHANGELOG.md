@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/ZanichelliEditore/design-system/compare/v8.0.0...v8.0.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* hide the button in order to avoid safari autocomplete problem ([f86e6d8](https://github.com/ZanichelliEditore/design-system/commit/f86e6d8de73019f930ab67151af9639a84770ee1))
+* z-card stories ([3325ade](https://github.com/ZanichelliEditore/design-system/commit/3325adefcf323e918e9a012c7c3fa4dd479e5af9))
+
 ## [8.0.0](https://github.com/ZanichelliEditore/design-system/compare/v7.5.0...v8.0.0) (2023-06-22)
 
 
