@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, SortDirection} from "../../../beans";
+import {ButtonVariant, ControlSize, SortDirection, VisibilityCondition} from "../../../../beans";
 
 /**
  * ZTh component.
@@ -22,10 +22,11 @@ export class ZTh {
 
   /**
    * Enables the contextual menu.
-   * If true, a contextual menu button will be shown on hover.
+   * Can be set to "hover" or "always" to show the button only on cell hover or always.
+   * Set a nullish value to hide the menu button.
    */
   @Prop({reflect: true})
-  showMenu = false;
+  showMenu: VisibilityCondition = null;
 
   /**
    * Whether the cell should stick.
@@ -119,7 +120,7 @@ export class ZTh {
           </button>
         )}
         {this.showMenu && (
-          <div class="z-th--menu-container">
+          <div class="cell--menu-container">
             <z-button
               variant={ButtonVariant.TERTIARY}
               icon="contextual-menu"

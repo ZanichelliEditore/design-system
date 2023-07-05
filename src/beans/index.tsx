@@ -450,3 +450,8 @@ export enum BreadcrumbHomepageVariant {
   TEXT = "text",
   ICON = "icon",
 }
+
+export enum VisibilityCondition {
+  HOVER = "hover",
+  ALWAYS = "always",
+}

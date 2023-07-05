@@ -69,7 +69,7 @@
  - [z-table-header](../../../deprecated/z-table-deprecated/z-table-header)
  - [z-table-row](../../../deprecated/z-table-deprecated/z-table-row)
  - [z-tag](../../z-tag)
- - [z-th](../../table/z-th)
+ - [z-th](../../table/cells/z-th)
  - [z-toast-notification](../../notification/z-toast-notification)
  - [z-toggle-button](../../buttons/z-toggle-button)
  - [z-toggle-switch](../../buttons/z-toggle-switch)

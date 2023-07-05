@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AvatarSize, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
@@ -1703,9 +1703,9 @@ export namespace Components {
          */
         "colspan": number;
         /**
-          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+          * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
-        "showMenu": boolean;
+        "showMenu": VisibilityCondition;
         /**
           * Whether the cell should stick.
          */
@@ -1723,9 +1723,9 @@ export namespace Components {
          */
         "colspan": number;
         /**
-          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+          * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
-        "showMenu": boolean;
+        "showMenu": VisibilityCondition;
         /**
           * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
          */
@@ -4604,9 +4604,9 @@ declare namespace LocalJSX {
          */
         "onColspanChange"?: (event: ZTdCustomEvent<number>) => void;
         /**
-          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+          * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
-        "showMenu"?: boolean;
+        "showMenu"?: VisibilityCondition;
         /**
           * Whether the cell should stick.
          */
@@ -4628,9 +4628,9 @@ declare namespace LocalJSX {
          */
         "onSort"?: (event: ZThCustomEvent<any>) => void;
         /**
-          * Enables the contextual menu. If true, a contextual menu button will be shown on hover.
+          * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
-        "showMenu"?: boolean;
+        "showMenu"?: VisibilityCondition;
         /**
           * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
          */

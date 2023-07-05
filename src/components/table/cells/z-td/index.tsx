@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize} from "../../../beans";
+import {ButtonVariant, ControlSize, VisibilityCondition} from "../../../../beans";
 
 /**
  * ZTd component.
@@ -27,10 +27,11 @@ export class ZTd {
 
   /**
    * Enables the contextual menu.
-   * If true, a contextual menu button will be shown on hover.
+   * Can be set to "hover" or "always" to show the button only on cell hover or always.
+   * Set a nullish value to hide the menu button.
    */
   @Prop({reflect: true})
-  showMenu = false;
+  showMenu: VisibilityCondition = null;
 
   /**
    * Store the open state of the menu.
@@ -74,7 +75,7 @@ export class ZTd {
       >
         <slot></slot>
         {this.showMenu && (
-          <div class="z-td--menu-container prevent-expand">
+          <div class="cell--menu-container prevent-expand">
             <z-button
               variant={ButtonVariant.TERTIARY}
               icon="contextual-menu"

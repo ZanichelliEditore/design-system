@@ -1,7 +1,7 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
-import "../z-td/index";
-import "../z-th/index";
+import "../cells/z-td/index";
+import "../cells/z-th/index";
 
 /**
  * ZTr component.

@@ -118,8 +118,8 @@
  - [z-table-cell](../../../deprecated/z-table-deprecated/z-table-cell)
  - [z-table-deprecated](../../../deprecated/z-table-deprecated/z-table-deprecated)
  - [z-table-header](../../../deprecated/z-table-deprecated/z-table-header)
- - [z-td](../../table/z-td)
- - [z-th](../../table/z-th)
+ - [z-td](../../table/cells/z-td)
+ - [z-th](../../table/cells/z-th)
 
 ### Depends on
 

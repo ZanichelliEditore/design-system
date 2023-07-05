@@ -55,8 +55,8 @@ To be sure the algorithm finds the right container, when calculating the positio
  - [z-file](../file-upload/z-file)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-table-header](../../deprecated/z-table-deprecated/z-table-header)
- - [z-td](../table/z-td)
- - [z-th](../table/z-th)
+ - [z-td](../table/cells/z-td)
+ - [z-th](../table/cells/z-th)
  - [z-tooltip](../notification/z-tooltip)
 
 ### Graph
