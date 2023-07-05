@@ -1,0 +1,1 @@
+export{Z as z_table_sticky_footer}from"./p-f6a7b40e.js";import"./p-d17ebc2f.js";

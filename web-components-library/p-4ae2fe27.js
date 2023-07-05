@@ -1,0 +1,1 @@
+import{r as o,h as r,g as t}from"./p-d17ebc2f.js";const e=class{constructor(r){o(this,r)}componentWillRender(){this.host.setAttribute("role","rowgroup")}render(){return r("slot",null)}get host(){return t(this)}};e.style=".sc-z-table-footer-h{display:table-footer-group;font-family:var(--dashboard-font);font-weight:var(--font-rg)}";export{e as Z}

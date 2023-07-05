@@ -2080,6 +2080,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-table-body.entry.js').then(processMod, consoleError);
+        case 'z-table-deprecated':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-table-deprecated.entry.js').then(processMod, consoleError);
         case 'z-table-expanded-row':
           return import(
             /* webpackMode: "lazy" */
@@ -2108,6 +2112,26 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-tag.entry.js').then(processMod, consoleError);
+        case 'z-tbody':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-tbody.entry.js').then(processMod, consoleError);
+        case 'z-td':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-td.entry.js').then(processMod, consoleError);
+        case 'z-tfoot':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-tfoot.entry.js').then(processMod, consoleError);
+        case 'z-th':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-th.entry.js').then(processMod, consoleError);
+        case 'z-thead':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-thead.entry.js').then(processMod, consoleError);
         case 'z-toast-notification':
           return import(
             /* webpackMode: "lazy" */
@@ -2128,6 +2152,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-tooltip.entry.js').then(processMod, consoleError);
+        case 'z-tr':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-tr.entry.js').then(processMod, consoleError);
         case 'z-visually-hidden':
           return import(
             /* webpackMode: "lazy" */

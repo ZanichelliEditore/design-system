@@ -134,7 +134,6 @@ export var SortDirection;
 (function (SortDirection) {
   SortDirection["ASC"] = "asc";
   SortDirection["DESC"] = "desc";
-  SortDirection["NONE"] = "none";
 })(SortDirection || (SortDirection = {}));
 export var AvatarSize;
 (function (AvatarSize) {
@@ -149,14 +148,6 @@ export var ListSize;
   ListSize["LARGE"] = "large";
   ListSize["X_LARGE"] = "x-large";
 })(ListSize || (ListSize = {}));
-export var Size;
-(function (Size) {
-  Size["X_SMALL"] = "x-small";
-  Size["SMALL"] = "small";
-  Size["MEDIUM"] = "medium";
-  Size["LARGE"] = "large";
-  Size["SPECIAL"] = "special";
-})(Size || (Size = {}));
 export var ExpandableListStyle;
 (function (ExpandableListStyle) {
   ExpandableListStyle["ACCORDION"] = "accordion";
@@ -334,3 +325,8 @@ export var BreadcrumbHomepageVariant;
   BreadcrumbHomepageVariant["TEXT"] = "text";
   BreadcrumbHomepageVariant["ICON"] = "icon";
 })(BreadcrumbHomepageVariant || (BreadcrumbHomepageVariant = {}));
+export var VisibilityCondition;
+(function (VisibilityCondition) {
+  VisibilityCondition["HOVER"] = "hover";
+  VisibilityCondition["ALWAYS"] = "always";
+})(VisibilityCondition || (VisibilityCondition = {}));

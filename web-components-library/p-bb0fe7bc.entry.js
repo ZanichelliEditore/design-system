@@ -1,1 +1,0 @@
-import{r as o,h as t}from"./p-d17ebc2f.js";const a=class{constructor(t){o(this,t)}render(){return t("td",{colSpan:this.colSpan},t("div",{class:"content-container"},t("slot",null)))}};a.style=":host{display:none;background-color:var(--gray50)}:host>td>div.content-container{margin-bottom:calc(var(--space-unit) / 2);box-shadow:var(--shadow-2)}";export{a as z_table_expanded_row}

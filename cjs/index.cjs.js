@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-38f8555a.js');
-const index = require('./index-b7c319f2.js');
+const utils = require('./utils-aa00c0cc.js');
+const index = require('./index-4e1850d7.js');
 require('./breakpoints-ebe1a437.js');
 
 const UTILS = {
@@ -220,12 +220,6 @@ Object.defineProperty(exports, 'PopoverPosition', {
     return index.PopoverPosition;
   }
 });
-Object.defineProperty(exports, 'Size', {
-  enumerable: true,
-  get: function () {
-    return index.Size;
-  }
-});
 Object.defineProperty(exports, 'SortDirection', {
   enumerable: true,
   get: function () {
@@ -260,6 +254,12 @@ Object.defineProperty(exports, 'TransitionDirection', {
   enumerable: true,
   get: function () {
     return index.TransitionDirection;
+  }
+});
+Object.defineProperty(exports, 'VisibilityCondition', {
+  enumerable: true,
+  get: function () {
+    return index.VisibilityCondition;
   }
 });
 Object.defineProperty(exports, 'ZAriaAlertMode', {
