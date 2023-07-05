@@ -335,14 +335,15 @@ export class ZInput {
   }
 
   private renderResetIcon(): HTMLButtonElement {
+    let hidden = false;
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == InputType.NUMBER) {
-      return;
+      hidden = true;
     }
 
     return (
       <button
         type="button"
-        class="icon-button reset-icon"
+        class={`icon-button reset-icon ${hidden ? "hidden" : ""}`}
         aria-label="cancella il contenuto dell'input"
         onClick={() => this.emitInputChange("")}
       >
