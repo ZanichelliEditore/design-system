@@ -213,7 +213,6 @@ export enum DividerOrientation {
 export enum SortDirection {
   ASC = "asc",
   DESC = "desc",
-  NONE = "none",
 }
 
 export enum AvatarSize {
@@ -227,14 +226,6 @@ export enum ListSize {
   MEDIUM = "medium",
   LARGE = "large",
   X_LARGE = "x-large",
-}
-
-export enum Size {
-  X_SMALL = "x-small",
-  SMALL = "small",
-  MEDIUM = "medium",
-  LARGE = "large",
-  SPECIAL = "special",
 }
 
 export enum ExpandableListStyle {
@@ -458,4 +449,9 @@ export enum BreadcrumbPathStyle {
 export enum BreadcrumbHomepageVariant {
   TEXT = "text",
   ICON = "icon",
+}
+
+export enum VisibilityCondition {
+  HOVER = "hover",
+  ALWAYS = "always",
 }

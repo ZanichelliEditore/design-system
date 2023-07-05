@@ -1,0 +1,30 @@
+@import "../z-table-cells.css";
+
+:host {
+  background-color: var(--color-surface02);
+  font-weight: var(--font-sb);
+}
+
+/* :host([sticky]) {
+  background-color: var(--color-surface02);
+} */
+
+:host([sortable]) {
+  cursor: pointer;
+}
+
+.z-th--sort-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  margin-top: auto;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.z-th--sort-button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}

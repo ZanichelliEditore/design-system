@@ -1,0 +1,379 @@
+import {html} from "lit-html";
+import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
+import "./index";
+
+<Meta
+  title="ZTableDeprecated"
+  component="z-table-deprecated"
+/>
+
+# ZTableDeprecated
+
+## ⚠️ This component is deprecated and will be removed from the library on October 9th, please use the new `z-table` and the related components instead (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`, `z-th`, `z-td`).
+
+### If you were using `Size` and `SortDirection` enums (here or in the related components), use instead the string values directly (`"x-small"`, `"small"`, `"medium"`, `"large"`, `"special"`, `"asc"`, `"desc"`, `"none"`).
+
+<Canvas>
+  <Story
+    name="ZTable"
+    args={{
+      bordered: true,
+      columnSticky: false,
+      headerSticky: false,
+    }}
+  >
+    {(args) => html`<z-table-deprecated
+      bordered="${args.bordered}"
+      column-sticky="${args.columnSticky}"
+      header-sticky="${args.headerSticky}"
+    >
+      <z-table-head>
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 2</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 3</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 4</span>
+          </z-table-header>
+        </z-table-header-row>
+      </z-table-head>
+      <z-table-body>
+        <z-table-row>
+          <z-table-cell>
+            <z-popover
+              position="top"
+              open="true"
+              bind-to="#sample-element"
+            >
+              Tooltip di esempio
+            </z-popover>
+            <span id="sample-element">Contenuto 1-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 1-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 2-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 2-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 3-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 3-4</span>
+          </z-table-cell>
+        </z-table-row>
+        <z-table-row>
+          <z-table-cell>
+            <span>Contenuto 4-1</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-2</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-3</span>
+          </z-table-cell>
+          <z-table-cell>
+            <span>Contenuto 4-4</span>
+          </z-table-cell>
+        </z-table-row>
+      </z-table-body>
+      <z-table-sticky-footer slot="sticky-footer">
+        <span>This is a sticky footer</span>
+      </z-table-sticky-footer>
+    </z-table-deprecated>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Padding"
+    argTypes={{
+      padding: {
+        control: {type: "select"},
+        options: ["x-small", "small", "medium", "large", "special"],
+      },
+    }}
+    args={{
+      padding: "medium",
+    }}
+  >
+    {(args) => html`
+      <z-table-deprecated bordered="true">
+        <z-table-body>
+          <z-table-head>
+            <z-table-header-row>
+              <z-table-header padding="${args.padding}">
+                <span>Titolo 1</span>
+              </z-table-header>
+              <z-table-header padding="${args.padding}">
+                <span>Titolo 2</span>
+              </z-table-header>
+            </z-table-header-row>
+          </z-table-head>
+          <z-table-row>
+            <z-table-cell padding="${args.padding}">
+              <span>1-1</span>
+            </z-table-cell>
+            <z-table-cell padding="${args.padding}">
+              <span>1-2</span>
+            </z-table-cell>
+          </z-table-row>
+          <z-table-row>
+            <z-table-cell padding="${args.padding}">
+              <span>2-1</span>
+            </z-table-cell>
+            <z-table-cell padding="${args.padding}">
+              <span>2-2</span>
+            </z-table-cell>
+          </z-table-row>
+        </z-table-body>
+      </z-table-deprecated>
+    `}
+  </Story>
+</Canvas>
+
+## Error no header
+
+<Canvas>
+  <Story
+    name="Error no header"
+    args={{
+      lines: 6,
+      errorMessage: "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto",
+    }}
+  >
+    {(args) => html`
+      <z-table-deprecated
+        error="true"
+        lines="${args.lines}"
+        error-message="${args.errorMessage}"
+      >
+      </z-table-deprecated>
+      <p>Altro contenuto</p>
+    `}
+  </Story>
+</Canvas>
+
+## Error
+
+<Canvas>
+  <Story
+    name="Error"
+    args={{
+      lines: 6,
+      errorMessage: "Siamo spiacenti, non siamo riusciti a caricare il contenuto richiesto",
+    }}
+  >
+    {(args) => html`
+      <z-table-deprecated
+        bordered="true"
+        error="true"
+        lines="${args.lines}"
+        error-message="${args.errorMessage}"
+      >
+        <z-table-head slot="table-header">
+          <z-table-header-row>
+            <z-table-header>
+              <span>Titolo 1</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo 2</span>
+            </z-table-header>
+            <z-table-header>
+              <span>Titolo last</span>
+            </z-table-header>
+          </z-table-header-row>
+        </z-table-head>
+        <img
+          src="./images/png/zanichelli-error-image.png"
+          slot="error-image"
+          alt="Error"
+        />
+        <div slot="error-action">
+          <span class="body-4">
+            <a
+              href="#"
+              target="_blank"
+              >Clicca qui</a
+            >
+            per ricaricare la pagina
+          </span>
+        </div>
+      </z-table-deprecated>
+      <p>Altro contenuto</p>
+    `}
+  </Story>
+</Canvas>
+
+## Empty without header
+
+<Canvas>
+  <Story
+    name="Empty without header"
+    args={{
+      bordered: false,
+      callToActionLabel: "Action 1",
+      callToActionTwoLabel: "Action 2",
+      message: "Siamo spiacenti, al momento non sono presenti dati da visualizzare",
+      subtitle: "Eventuale testo",
+    }}
+  >
+    {(args) => html`<z-table-deprecated
+      bordered="${args.bordered}"
+      .callToActionLabel="${args.callToActionLabel}"
+      .callToActionTwoLabel="${args.callToActionTwoLabel}"
+      empty="true"
+      message="${args.message}"
+      subtitle="${args.subtitle}"
+    >
+    </z-table-deprecated>`}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Empty"
+    args={{
+      bordered: true,
+      callToActionLabel: "Action 1",
+      callToActionTwoLabel: "Action 2",
+      message: "Siamo spiacenti, al momento non sono presenti dati da visualizzare",
+      subtitle: "Eventuale testo",
+    }}
+  >
+    {(args) => html`<z-table-deprecated
+      bordered="${args.bordered}"
+      .callToActionLabel="${args.callToActionLabel}"
+      .callToActionTwoLabel="${args.callToActionTwoLabel}"
+      message="${args.message}"
+      subtitle="${args.subtitle}"
+      empty="true"
+    >
+      <z-table-head slot="table-header">
+        <z-table-header-row>
+          <z-table-header>
+            <span>Titolo 1</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 2</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 3</span>
+          </z-table-header>
+          <z-table-header>
+            <span>Titolo 4</span>
+          </z-table-header>
+        </z-table-header-row>
+      </z-table-head>
+    </z-table-deprecated>`}
+  </Story>
+</Canvas>
+
+## Empty with header column
+
+<Canvas>
+  <Story
+    name="Empty with header column"
+    args={{
+      bordered: false,
+      callToActionLabel: "Action 1",
+      callToActionTwoLabel: "Action 2",
+      message: "Siamo spiacenti, al momento non sono presenti dati da visualizzare",
+      subtitle: "Eventuale testo",
+    }}
+  >
+    {(args) => html`<div style="background-color: var(--gray200); padding: 16px">
+      <z-table-deprecated
+        bordered="${args.bordered}"
+        .callToActionLabel="${args.callToActionLabel}"
+        .callToActionTwoLabel="${args.callToActionTwoLabel}"
+        message="${args.message}"
+        subtitle="${args.subtitle}"
+        empty="true"
+      >
+        <z-table-head slot="table-header">
+          <z-table-header-row>
+            <z-table-header>
+              <span>Titolo 1</span>
+            </z-table-header>
+          </z-table-header-row>
+        </z-table-head>
+        <z-table-body slot="table-body">
+          <z-table-row>
+            <z-table-cell>
+              <z-avatar
+                text="AS"
+                size="medium"
+                background-color="avatar-C13"
+                style="color: var(--color-text-inverse)"
+              ></z-avatar>
+              <span>Contenuto 1-3</span>
+            </z-table-cell>
+          </z-table-row>
+          <z-table-row>
+            <z-table-cell>
+              <z-avatar
+                text="AS"
+                size="medium"
+                background-color="avatar-C14"
+                style="color: var(--color-text-inverse)"
+              ></z-avatar>
+              <span>Contenuto 1-4</span>
+            </z-table-cell>
+          </z-table-row>
+        </z-table-body>
+      </z-table-deprecated>
+    </div>`}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-table-deprecated" />
