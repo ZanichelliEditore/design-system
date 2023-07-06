@@ -18,7 +18,6 @@ const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);po
 const ZTable = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
-    this.tableResize = index.createEvent(this, "tableResize", 7);
     /**
      * Whether the table cells should show a border between them.
      */
@@ -37,10 +36,6 @@ const ZTable = class {
    * - create mutation observer for expandable attribute
    */
   componentWillLoad() {
-    this.resizeObserver = new ResizeObserver(() => {
-      this.tableResize.emit(this);
-    });
-    this.resizeObserver.observe(this.host);
     this.expandableMutationObserver = new MutationObserver(() => {
       this.updateExpandable();
     });
@@ -53,7 +48,6 @@ const ZTable = class {
     });
   }
   disconnectedCallback() {
-    this.resizeObserver.disconnect();
     this.expandableMutationObserver.disconnect();
   }
   render() {

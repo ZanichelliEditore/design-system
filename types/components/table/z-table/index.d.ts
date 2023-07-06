@@ -1,4 +1,3 @@
-import { EventEmitter } from "../../../stencil-public-runtime";
 import "../z-thead/index";
 import "../z-tbody/index";
 import "../z-tr/index";
@@ -19,12 +18,6 @@ export declare class ZTable {
    */
   expandable: boolean;
   private updateExpandable;
-  /**
-   * Table emits its own resize event when it changes size, using a ResizeObserver.
-   * This is convenient for sticky cells that needs to update styles when stuck.
-   */
-  tableResize: EventEmitter<ZTable>;
-  private resizeObserver;
   private expandableMutationObserver;
   /**
    * Setup table:

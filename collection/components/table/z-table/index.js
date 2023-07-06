@@ -28,10 +28,6 @@ export class ZTable {
    * - create mutation observer for expandable attribute
    */
   componentWillLoad() {
-    this.resizeObserver = new ResizeObserver(() => {
-      this.tableResize.emit(this);
-    });
-    this.resizeObserver.observe(this.host);
     this.expandableMutationObserver = new MutationObserver(() => {
       this.updateExpandable();
     });
@@ -44,7 +40,6 @@ export class ZTable {
     });
   }
   disconnectedCallback() {
-    this.resizeObserver.disconnect();
     this.expandableMutationObserver.disconnect();
   }
   render() {
@@ -88,28 +83,6 @@ export class ZTable {
     return {
       "expandable": {}
     };
-  }
-  static get events() {
-    return [{
-        "method": "tableResize",
-        "name": "tableResize",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "Table emits its own resize event when it changes size, using a ResizeObserver.\nThis is convenient for sticky cells that needs to update styles when stuck."
-        },
-        "complexType": {
-          "original": "ZTable",
-          "resolved": "ZTable",
-          "references": {
-            "ZTable": {
-              "location": "global"
-            }
-          }
-        }
-      }];
   }
   static get elementRef() { return "host"; }
 }

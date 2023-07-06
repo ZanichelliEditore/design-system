@@ -2010,10 +2010,6 @@ export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZSelectElement;
 }
-export interface ZTableCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableElement;
-}
 export interface ZTableDeprecatedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTableDeprecatedElement;
@@ -4439,10 +4435,6 @@ declare namespace LocalJSX {
           * Whether the table cells should show a border between them.
          */
         "bordered"?: boolean;
-        /**
-          * Table emits its own resize event when it changes size, using a ResizeObserver. This is convenient for sticky cells that needs to update styles when stuck.
-         */
-        "onTableResize"?: (event: ZTableCustomEvent<ZTable>) => void;
     }
     interface ZTableBody {
     }
