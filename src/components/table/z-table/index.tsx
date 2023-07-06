@@ -36,9 +36,7 @@ export class ZTable {
   private expandableMutationObserver: MutationObserver;
 
   /**
-   * Setup table:
-   * - create the resize observer for resize event
-   * - create mutation observer for expandable attribute
+   * Setup the table creating a mutation observer for the expandable attribute.
    */
   componentWillLoad(): void {
     this.expandableMutationObserver = new MutationObserver(() => {
