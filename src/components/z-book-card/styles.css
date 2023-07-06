@@ -22,6 +22,7 @@
   border: var(--border-size-medium) solid var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: var(--border-radius);
+  max-width: 100%;
 }
 
 :host div.cover {
