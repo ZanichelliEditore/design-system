@@ -13,7 +13,8 @@
           "./node_modules/@zanichelli/albe-design-tokens/dist/themes/default.css"
         ]
       }
-    ]
+    ],
+    "value-no-vendor-prefix": null
   },
   "plugins": ["stylelint-value-no-unknown-custom-properties"]
 }

@@ -13,6 +13,7 @@ const defaultArgs = {
   "borderless": false,
   "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
   "operaTitleTag": "h1",
+  "theme": "",
   "--z-book-card-ribbon-background-color": "var(--avatar-C08)",
   "--z-book-card-ribbon-shadow-color": "var(--green950)",
   "--z-book-card-compact-width": "262px",
@@ -48,6 +49,9 @@ const defaultArgTypes = {
     control: {type: "text"},
   },
   "operaTitleTag": {
+    control: {type: "text"},
+  },
+  "theme": {
     control: {type: "text"},
   },
   "--z-book-card-ribbon-background-color": {
@@ -93,6 +97,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-ribbon-background-color: ${args[
           "--z-book-card-ribbon-background-color"
         ]}; --z-book-card-ribbon-shadow-color: ${args[
@@ -116,6 +121,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-ribbon-background-color: ${args[
           "--z-book-card-ribbon-background-color"
         ]}; --z-book-card-ribbon-shadow-color: ${args[
@@ -146,6 +152,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-ribbon-background-color: ${args[
           "--z-book-card-ribbon-background-color"
         ]}; --z-book-card-ribbon-shadow-color: ${args[
@@ -183,6 +190,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-ribbon-background-color: ${args[
           "--z-book-card-ribbon-background-color"
         ]}; --z-book-card-ribbon-shadow-color: ${args[
@@ -211,6 +219,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-ribbon-background-color: ${args[
           "--z-book-card-ribbon-background-color"
         ]}; --z-book-card-ribbon-shadow-color: ${args["--z-book-card-ribbon-shadow-color"]};"
@@ -236,7 +245,7 @@ const searchArgTypes = {
     name="Expanded variant"
     parameters={{
       controls: {
-        exclude: ["borderless", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
       },
     }}
   >
@@ -287,7 +296,7 @@ const searchArgTypes = {
     argTypes={searchArgTypes}
     parameters={{
       controls: {
-        exclude: ["borderless", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
       },
     }}
   >
@@ -346,6 +355,7 @@ const searchArgTypes = {
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
         style="--z-book-card-compact-width: ${args[
           "--z-book-card-compact-width"
         ]}; --z-book-card-compact-height: ${args["--z-book-card-compact-height"]};"
