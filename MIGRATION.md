@@ -9,8 +9,12 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v9.0.0](#v900)
+  - [ZTable](#ztable)
+    - [Rimozione del valore `none` dell'enum `SortDirection`](#rimozione-del-valore-none-dellenum-sortdirection)
+    - [Rimozione dell'enum `Size`](#rimozione-dellenum-size)
 - [v8.0.0](#v800)
-  - [Z-Card](#zcard)
+  - [ZCard](#zcard)
     - [Rimozione gestione click tramite property `clickable`](#rimozione-gestione-click-tramite-property-clickable)
     - [Uso dello slot title come slot principale](#uso-dello-slot-title-come-slot-principale)
     - [Rename della prop `showshadow` in `showShadow`](#rename-della-prop-showshadow-in-showShadow)
@@ -49,6 +53,24 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
+## v9.0.0
+
+### ZTable
+
+Il componente `z-table` è stato rifattorizzato per migliorarne l'accessibilità e la flessibilità dopo il passaggio da snowflake a componente ufficiale della libreria.
+Tutti i sottocomponenti sono stati deprecati in favore di un numero ridotto di sottocomponenti e nomi più in linea con gli elementi nativi (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`, `z-th`, `z-td`).
+Fare riferimento alla documentazione su Storybook per capire come utilizzarli e vedere gli esempi con tutte le funzionalità.
+
+Per continuare a usare la vecchia tabella, modificare `z-table` in `z-table-deprecated` e implementare le modifiche descritte nei paragrafi relativi a [Rimozione del valore `none` dell'enum `SortDirection`](#rimozione-del-valore-none-dellenum-sortdirection) e [Rimozione dell'enum `Size`](#rimozione-dellenum-size).
+
+#### Rimozione del valore `none` dell'enum `SortDirection`
+
+Il valore `none` è stato rimosso dall'enum `SortDirection` in quanto non più necessario. Per continuare a usare i vecchi componenti che usavano questo enum, sostituire l'uso dell'enum passando il valore come stringa `"none"` alla prop `sortDirection`.
+
+#### Rimozione dell'enum `Size`
+
+L'enum `Size` è stato rimosso poiché usato solo da componenti deprecati. Per continuare a usare i vecchi componenti che usavano questo enum, sostituire l'uso dell'enum passando i valori come stringa alla prop `padding`.
+
 ## v8.0.0
 
 ### ZCard
@@ -65,7 +87,7 @@ Lo slot `title` va usato come slot principale al quale passare un tag interattiv
 
 #### Rename della prop `showshadow` in `showShadow`
 
-La prop `showshadow` è stata rinominata in `showShadow` per essere in linea con il code style del DS. Le app dovranno usare quindi `showShadow` o `show-shadow` come attributo HTML.
+La prop `showshadow` è stata rinominata in `showShadow` per essere in linea con il code style del DS. Le app dovranno usare quindi `showShadow` o `show-shadow` come attributo HTML.
 
 ## v7.0.0
 
