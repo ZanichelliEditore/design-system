@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/ZanichelliEditore/design-system/compare/v8.0.1...v9.0.0) (2023-07-05)
+
+
+### Features
+
+* menu button of cells can now be displayed always instead of only on hover ([c132e93](https://github.com/ZanichelliEditore/design-system/commit/c132e937e2551d579ff30cf01ab345667b009ff0))
+
+
+### Bug Fixes
+
+* some style and stories ([906f5c8](https://github.com/ZanichelliEditore/design-system/commit/906f5c86c703633d52e4185d4009a30521f59dce))
+
 ### [8.0.1](https://github.com/ZanichelliEditore/design-system/compare/v8.0.0...v8.0.1) (2023-07-04)
 
 

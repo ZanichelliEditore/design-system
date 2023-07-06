@@ -135,7 +135,7 @@ yarn release
 If you want to select a version or the update type, you can use the `--release-as` flag:
 
 ```
-yarn release --release-as path
+yarn release --release-as minor
 yarn release --release-as 1.1.0
 ```
 
@@ -150,7 +150,7 @@ You need to [manually create the GitHub release](https://github.com/ZanichelliEd
 #### Plugins
 
 - [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
-- [@storybook/addon-a11y](https://www.npmjs.com/package/@storybook/addon-a11y)
+- [@storybook/addon-controls](https://www.npmjs.com/package/@storybook/addon-controls)
 - [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
 - [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
 
