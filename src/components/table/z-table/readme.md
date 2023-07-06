@@ -11,13 +11,6 @@
 | `bordered` | `bordered` | Whether the table cells should show a border between them. | `boolean` | `false` |
 
 
-## Events
-
-| Event         | Description                                                                                                                                                | Type                  |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `tableResize` | Table emits its own resize event when it changes size, using a ResizeObserver. This is convenient for sticky cells that needs to update styles when stuck. | `CustomEvent<ZTable>` |
-
-
 ## Slots
 
 | Slot | Description                                              |

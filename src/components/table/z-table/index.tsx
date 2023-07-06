@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, State, h} from "@stencil/core";
+import {Component, Element, Host, Prop, State, h} from "@stencil/core";
 import "../z-thead/index";
 import "../z-tbody/index";
 import "../z-tr/index";
@@ -33,15 +33,6 @@ export class ZTable {
     this.expandable = this.host.querySelectorAll("z-tr[expandable]").length > 0;
   }
 
-  /**
-   * Table emits its own resize event when it changes size, using a ResizeObserver.
-   * This is convenient for sticky cells that needs to update styles when stuck.
-   */
-  @Event()
-  tableResize: EventEmitter<ZTable>;
-
-  private resizeObserver: ResizeObserver;
-
   private expandableMutationObserver: MutationObserver;
 
   /**
@@ -50,12 +41,6 @@ export class ZTable {
    * - create mutation observer for expandable attribute
    */
   componentWillLoad(): void {
-    this.resizeObserver = new ResizeObserver(() => {
-      this.tableResize.emit(this);
-    });
-
-    this.resizeObserver.observe(this.host);
-
     this.expandableMutationObserver = new MutationObserver(() => {
       this.updateExpandable();
     });
@@ -69,7 +54,6 @@ export class ZTable {
   }
 
   disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
     this.expandableMutationObserver.disconnect();
   }
 
