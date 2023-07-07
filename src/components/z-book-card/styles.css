@@ -4,7 +4,7 @@
   --z-book-card-ribbon-background-color: var(--avatar-C08);
   --z-book-card-ribbon-shadow-color: var(--green950);
   --z-book-card-compact-width: 262px;
-  --z-book-card-compact-height: 600px;
+  --z-book-card-compact-height: 568px;
 
   display: block;
   width: 100%;
@@ -276,7 +276,7 @@
 
 :host > article.compact div.cover {
   width: calc(var(--z-book-card-compact-width) - 4px);
-  height: calc(var(--z-book-card-compact-width) * 1.4);
+  height: calc(var(--z-book-card-compact-width) * 1.36);
   box-sizing: border-box;
   border-color: transparent;
   border-bottom-color: var(--color-surface03);
