@@ -457,4 +457,111 @@ describe("Suite test ZBookCard", () => {
       </z-book-card>
     `);
   });
+
+  it("Test render ZBookCard - COMPACT - empty", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card variant="compact"></z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card variant="compact">
+        <mock:shadow-root>
+          <article class="compact">
+            <div class="wrapper">
+              <div class="cover">
+                <img aria-hidden="true" />
+              </div>
+              <div class="content">
+                <div class="title"></div>
+              </div>
+              <div class="action-container">
+                <slot name="footer-cta"></slot>
+              </div>
+            </div>
+          </article>
+        </mock:shadow-root>
+      </z-book-card>
+    `);
+  });
+
+  it("Test render ZBookCard - COMPACT - with props", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card
+              variant="compact"
+              cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+              opera-title="Matematica.azzurro"
+              volume-title="Volume 3 con Tutor"
+              authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+              isbn="9788808930552"
+              opera-title-tag="h1"
+              borderless="true"
+      ></z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card
+        variant="compact"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        opera-title-tag="h1"
+        borderless="true"
+      >
+        <mock:shadow-root>
+          <article class="compact borderless">
+            <div class="wrapper">
+              <div class="cover">
+                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+              </div>
+              <div class="content">
+                <div class="authors" aria-description="Autori">Massimo Bergamini, Anna Trifone, Graziella Barozzi</div>
+                <div class="title"><h1>Matematica.azzurro</h1></div>
+                <div class="subtitle">Volume 3 con Tutor</div>
+                <div class="isbn">
+                  <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                  <span class="label"> (ed. cartacea)</span>
+                </div>
+              </div>
+              <div class="action-container">
+                <slot name="footer-cta"></slot>
+              </div>
+            </div>
+          </article>
+        </mock:shadow-root>
+      </z-book-card>
+    `);
+  });
+
+  it("Test render ZBookCard - COMPACT - with slots", async () => {
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card variant="compact">
+        <z-button slot="footer-cta">cta 1</z-button>
+        <z-button slot="footer-cta">cta 2</z-button>
+      </z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card variant="compact">
+        <mock:shadow-root>
+          <article class="compact">
+            <div class="wrapper">
+              <div class="cover">
+                <img aria-hidden="true" />
+              </div>
+              <div class="content">
+                <div class="title"></div>
+              </div>
+              <div class="action-container">
+                <slot name="footer-cta"></slot>
+              </div>
+            </div>
+          </article>
+        </mock:shadow-root>
+        <z-button slot="footer-cta">cta 1</z-button>
+        <z-button slot="footer-cta">cta 2</z-button>
+      </z-book-card>
+    `);
+  });
 });

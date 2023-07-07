@@ -3,43 +3,67 @@ import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {BookCardVariant} from "../../beans";
 import "./index";
 const defaultArgs = {
-  variant: "expanded",
-  cover: "https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg",
-  operaTitle: "Matematica.azzurro",
-  volumeTitle: "Volume 3 con Tutor",
-  authors: "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
-  isbn: "9788808930552",
-  ribbon: "ADOTTATO",
-  fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
-  operaTitleTag: "h1",
+  "variant": "expanded",
+  "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
+  "operaTitle": "Matematica.azzurro",
+  "volumeTitle": "Volume 3 con Tutor",
+  "authors": "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
+  "isbn": "9788808930552",
+  "ribbon": "ADOTTATO",
+  "borderless": false,
+  "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
+  "operaTitleTag": "h1",
+  "theme": "",
+  "--z-book-card-ribbon-background-color": "var(--avatar-C08)",
+  "--z-book-card-ribbon-shadow-color": "var(--green950)",
+  "--z-book-card-compact-width": "262px",
+  "--z-book-card-compact-height": "600px",
 };
 const defaultArgTypes = {
-  variant: {
+  "variant": {
     control: {type: "inline-radio"},
     options: Object.values(BookCardVariant),
   },
-  cover: {
+  "cover": {
     control: {type: "text"},
   },
-  operaTitle: {
+  "operaTitle": {
     control: {type: "text"},
   },
-  volumeTitle: {
+  "volumeTitle": {
     control: {type: "text"},
   },
-  authors: {
+  "authors": {
     control: {type: "text"},
   },
-  isbn: {
+  "isbn": {
     control: {type: "text"},
   },
-  ribbon: {
+  "ribbon": {
     control: {type: "text"},
   },
-  fallbackCover: {
+  "borderless": {
+    control: {type: "boolean"},
+  },
+  "fallbackCover": {
     control: {type: "text"},
   },
-  operaTitleTag: {
+  "operaTitleTag": {
+    control: {type: "text"},
+  },
+  "theme": {
+    control: {type: "text"},
+  },
+  "--z-book-card-ribbon-background-color": {
+    control: {type: "text"},
+  },
+  "--z-book-card-ribbon-shadow-color": {
+    control: {type: "text"},
+  },
+  "--z-book-card-compact-width": {
+    control: {type: "text"},
+  },
+  "--z-book-card-compact-height": {
     control: {type: "text"},
   },
 };
@@ -70,8 +94,17 @@ const searchArgTypes = {
         authors=${args.authors}
         isbn=${args.isbn}
         ribbon=${args.ribbon}
+        borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args[
+          "--z-book-card-ribbon-shadow-color"
+        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
+          "--z-book-card-compact-height"
+        ]};"
       ></z-book-card>`
     }
   </Story>
@@ -85,8 +118,17 @@ const searchArgTypes = {
         authors=${args.authors}
         isbn=${args.isbn}
         ribbon=${args.ribbon}
+        borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args[
+          "--z-book-card-ribbon-shadow-color"
+        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
+          "--z-book-card-compact-height"
+        ]};"
       >
         <z-tag
           slot="tags"
@@ -107,8 +149,17 @@ const searchArgTypes = {
         authors=${args.authors}
         isbn=${args.isbn}
         ribbon=${args.ribbon}
+        borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args[
+          "--z-book-card-ribbon-shadow-color"
+        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
+          "--z-book-card-compact-height"
+        ]};"
       >
         <z-link
           slot="resources"
@@ -136,8 +187,17 @@ const searchArgTypes = {
         authors=${args.authors}
         isbn=${args.isbn}
         ribbon=${args.ribbon}
+        borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args[
+          "--z-book-card-ribbon-shadow-color"
+        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
+          "--z-book-card-compact-height"
+        ]};"
       >
         <z-icon
           name="star-empty"
@@ -156,8 +216,13 @@ const searchArgTypes = {
         authors=${args.authors}
         isbn=${args.isbn}
         ribbon=${args.ribbon}
+        borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args["--z-book-card-ribbon-shadow-color"]};"
       >
         <z-icon
           name="star-empty"
@@ -177,8 +242,63 @@ const searchArgTypes = {
     }
   </Story>
   <Story
+    name="Expanded variant"
+    parameters={{
+      controls: {
+        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+      },
+    }}
+  >
+    {(args) =>
+      html`<z-book-card
+        variant="expanded"
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        ribbon=${args.ribbon}
+        fallback-cover=${args.fallbackCover}
+        opera-title-tag=${args.operaTitleTag}
+        style="--z-book-card-ribbon-background-color: ${args[
+          "--z-book-card-ribbon-background-color"
+        ]}; --z-book-card-ribbon-shadow-color: ${args["--z-book-card-ribbon-shadow-color"]};"
+      >
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+        <z-link
+          slot="resources"
+          icon="arrow-quad-north-east"
+          style="width:100%; margin-bottom: 16px;"
+          >Resource link mock</z-link
+        >
+        <z-button
+          slot="resources"
+          variant="secondary"
+          size="x-small"
+          style="width:100%; margin-bottom: 16px;"
+          >Resource CTA mock</z-button
+        >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+          tabindex="0"
+        ></z-icon>
+      </z-book-card>`
+    }
+  </Story>
+  <Story
     name="Search variant"
     argTypes={searchArgTypes}
+    parameters={{
+      controls: {
+        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+      },
+    }}
   >
     {(args) =>
       html`<z-book-card
@@ -211,6 +331,62 @@ const searchArgTypes = {
           >
             Leggi il libro online
           </z-button>
+        </div>
+      </z-book-card>`
+    }
+  </Story>
+  <Story
+    name="Compact variant"
+    argTypes={searchArgTypes}
+    parameters={{
+      controls: {
+        exclude: ["ribbon", "--z-book-card-ribbon-background-color", "--z-book-card-ribbon-shadow-color"],
+      },
+    }}
+  >
+    {(args) =>
+      html`<z-book-card
+        variant="compact"
+        cover=${args.cover}
+        opera-title=${args.operaTitle}
+        volume-title=${args.volumeTitle}
+        authors=${args.authors}
+        isbn=${args.isbn}
+        borderless=${args.borderless}
+        fallback-cover=${args.fallbackCover}
+        opera-title-tag=${args.operaTitleTag}
+        class=${args.theme}
+        style="--z-book-card-compact-width: ${args[
+          "--z-book-card-compact-width"
+        ]}; --z-book-card-compact-height: ${args["--z-book-card-compact-height"]};"
+      >
+        <z-icon
+          name="star-empty"
+          slot="header-cta"
+        ></z-icon>
+        <z-tag
+          slot="tags"
+          style="--z-tag-bg: var(--avatar-C18)"
+          >EDI</z-tag
+        >
+        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
+        <div
+          slot="footer-cta"
+          style="display:flex; gap:8px;"
+        >
+          <z-button
+            href="http://dizionari.zanichelli.it"
+            target="_blank"
+            variant="secondary"
+            size="x-small"
+          >
+            Call to action
+          </z-button>
+          <z-button
+            icon="arrow-quad-north-east"
+            variant="secondary"
+            size="x-small"
+          ></z-button>
         </div>
       </z-book-card>`
     }

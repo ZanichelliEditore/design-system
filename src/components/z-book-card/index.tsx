@@ -5,11 +5,13 @@ import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
  * @slot resources - books resources (extended variant only)
- * @slot header-cta - header CTA (e.g. bookmark icon)
- * @slot tags - card tags
- * @slot footer-cta - footer cta button (search variant only)
+ * @slot header-cta - header CTA (e.g. bookmark icon - extended and search variant only)
+ * @slot tags - card tags (extended and search variant only)
+ * @slot footer-cta - footer cta button (search and compact variant only)
  * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
  * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+ * @cssprop --z-book-card-compact-width - compact card custom width
+ * @cssprop --z-book-card-compact-height - compact card custom height
  */
 @Component({
   tag: "z-book-card",
@@ -56,10 +58,16 @@ export class ZBookCard {
   isbn?: string;
 
   /**
-   * [optional] Ribbon label
+   * [optional] Ribbon label - expanded and search variant only
    */
   @Prop()
   ribbon?: string;
+
+  /**
+   * [optional] Borderless card - compact variant only
+   */
+  @Prop()
+  borderless?: boolean;
 
   /**
    * [optional] Fallback cover URL
@@ -129,7 +137,7 @@ export class ZBookCard {
       case BookCardVariant.EXPANDED:
         return this.isMobile ? this.renderMobileExpandedCard() : this.renderExpandedCard();
       case BookCardVariant.COMPACT:
-        return <div />;
+        return this.renderCompactCard();
       case BookCardVariant.SEARCH:
         return this.renderSearchCard();
     }
@@ -197,6 +205,21 @@ export class ZBookCard {
             {this.renderVolumeTitle()}
             {this.renderIsbn()}
           </div>
+        </div>
+        {this.renderFooterCtaSlot()}
+      </div>
+    );
+  }
+
+  private renderCompactCard(): JSX.Element {
+    return (
+      <div class="wrapper">
+        {this.renderCover()}
+        <div class="content">
+          {this.renderAuthors()}
+          {this.renderOperaTitle()}
+          {this.renderVolumeTitle()}
+          {this.renderIsbn()}
         </div>
         {this.renderFooterCtaSlot()}
       </div>
@@ -323,6 +346,6 @@ export class ZBookCard {
   }
 
   render(): HTMLZBookCardElement {
-    return <article class={`${this.variant}`}>{this.renderCard()}</article>;
+    return <article class={`${this.variant} ${this.borderless ? "borderless" : ""}`}>{this.renderCard()}</article>;
   }
 }

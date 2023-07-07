@@ -104,6 +104,10 @@ export namespace Components {
          */
         "authors"?: string;
         /**
+          * [optional] Borderless card - compact variant only
+         */
+        "borderless"?: boolean;
+        /**
           * Cover URL
          */
         "cover": string;
@@ -124,7 +128,7 @@ export namespace Components {
          */
         "operaTitleTag"?: string;
         /**
-          * [optional] Ribbon label
+          * [optional] Ribbon label - expanded and search variant only
          */
         "ribbon"?: string;
         /**
@@ -2866,6 +2870,10 @@ declare namespace LocalJSX {
          */
         "authors"?: string;
         /**
+          * [optional] Borderless card - compact variant only
+         */
+        "borderless"?: boolean;
+        /**
           * Cover URL
          */
         "cover"?: string;
@@ -2886,7 +2894,7 @@ declare namespace LocalJSX {
          */
         "operaTitleTag"?: string;
         /**
-          * [optional] Ribbon label
+          * [optional] Ribbon label - expanded and search variant only
          */
         "ribbon"?: string;
         /**

@@ -70,12 +70,21 @@
         font-size: var(--font-size-1);
         margin-top: 4px;
       }
+
+      .footer-cta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footer-cta z-icon {
+        fill: var(--color-primary01);
+      }
     </style>
   </head>
 
   <body style="margin: 0; padding: 16px; background-color: #aaa">
     <h2>Extended Variant</h2>
-
     <div style="display: flex; flex-wrap: wrap; gap: 16px">
       <z-book-card
         variant="expanded"
@@ -158,8 +167,9 @@
       >
       </z-book-card>
     </div>
+
+    <h2>Search Variant</h2>
     <div>
-      <h2>Search Variant</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 16px">
         <z-book-card
           variant="search"
@@ -264,6 +274,322 @@
         >
         </z-book-card>
       </div>
+    </div>
+
+    <h2>Compact Variant</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <z-book-card
+        variant="compact"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        cover="fail.jpg"
+        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        opera-title="lo Zingarelli 2024"
+      >
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; background: var(--color-white)">
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        cover="fail.jpg"
+        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        opera-title="lo Zingarelli 2024"
+      >
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; background: var(--gray800)">
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        class="theme-dark"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        class="theme-dark"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        class="theme-dark"
+        cover="fail.jpg"
+        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        opera-title="lo Zingarelli 2024"
+      >
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        class="theme-dark"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        ribbon="ADOTTATO"
+        opera-title-tag="h1"
+      >
+        <div
+          slot="footer-cta"
+          class="footer-cta"
+        >
+          <z-button
+            variant="secondary"
+            size="x-small"
+            >CALL TO ACTION
+          </z-button>
+          <z-icon
+            name="arrow-quad-north-east"
+            width="24"
+            height="24"
+            tabindex="0"
+          ></z-icon>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="compact"
+        borderless="true"
+        class="theme-dark"
+        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
+        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+      >
+        <z-button
+          slot="footer-cta"
+          variant="secondary"
+          size="x-small"
+          >CALL TO ACTION
+        </z-button>
+      </z-book-card>
     </div>
   </body>
 </html>

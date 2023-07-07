@@ -1,19 +1,21 @@
-/* stylelint-disable value-no-vendor-prefix */
-
 /* COMMON STYLES */
 
 :host {
   --z-book-card-ribbon-background-color: var(--avatar-C08);
   --z-book-card-ribbon-shadow-color: var(--green950);
+  --z-book-card-compact-width: 262px;
+  --z-book-card-compact-height: 568px;
 
   display: block;
   width: 100%;
   max-width: 360px;
+  border-radius: var(--border-radius);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
 :host > article {
+  max-width: 100%;
   box-sizing: border-box;
   border: var(--border-size-medium) solid var(--color-surface03);
   background-color: var(--color-surface01);
@@ -23,6 +25,9 @@
 :host div.cover {
   position: relative;
   display: flex;
+  border: var(--border-size-small) solid var(--color-surface03);
+  border-radius: var(--border-radius);
+  line-height: 0;
 }
 
 :host div.cover img {
@@ -70,8 +75,13 @@
   content: "";
 }
 
+:host > article div.content {
+  margin: var(--space-unit) 0;
+  border-radius: var(--border-radius);
+}
+
 :host div.title {
-  color: var(--color-text01);
+  color: var(--color-text02);
   font-size: var(--font-size-4);
   font-weight: var(--font-sb);
   line-height: 1.5;
@@ -82,14 +92,14 @@
 }
 
 :host div.subtitle {
-  color: var(--color-text01);
+  color: var(--color-text02);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   line-height: 1.4;
 }
 
 :host div.authors {
-  color: var(--color-text01);
+  color: var(--color-text02);
   font-size: var(--font-size-1);
   font-weight: var(--font-rg);
   line-height: 1.33;
@@ -97,7 +107,7 @@
 
 :host div.isbn {
   overflow: hidden;
-  color: var(--color-text01);
+  color: var(--color-text02);
   font-size: var(--font-size-2);
   line-height: 1.33;
   text-overflow: ellipsis;
@@ -133,18 +143,6 @@
   fill: var(--color-icon01);
 }
 
-:host > article.expanded div.content,
-:host > article.search div.content {
-  margin: var(--space-unit) 0;
-}
-
-:host > article.expanded div.cover,
-:host > article.search div.cover {
-  border: var(--border-size-small) solid var(--color-surface03);
-  border-radius: var(--border-radius);
-  line-height: 0;
-}
-
 /* EXPANDED STYLES */
 
 :host > article.expanded {
@@ -166,6 +164,8 @@
 
 :host > article.expanded div.cover img {
   width: 100%;
+  border-bottom-left-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
 }
 
 :host > article.expanded .title,
@@ -247,6 +247,7 @@
 
 :host > article.search div.cover {
   height: 314px;
+  border-radius: var(--border-radius);
 }
 
 :host > article.search div.title {
@@ -260,6 +261,79 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: nowrap;
+}
+
+/* COMPACT STYLES */
+
+:host > article.compact {
+  width: var(--z-book-card-compact-width);
+  height: var(--z-book-card-compact-height);
+}
+
+:host > article.compact.borderless {
+  border: none;
+}
+
+:host > article.compact div.cover {
+  width: calc(var(--z-book-card-compact-width) - 4px);
+  height: calc(var(--z-book-card-compact-width) * 1.36);
+  box-sizing: border-box;
+  border-color: transparent;
+  border-bottom-color: var(--color-surface03);
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+}
+
+:host > article.compact div.wrapper {
+  display: flex;
+  height: 100%;
+  flex-flow: column nowrap;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+:host > article.compact div.content {
+  display: flex;
+  box-sizing: border-box;
+  flex-flow: column nowrap;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: calc(var(--space-unit) * 2);
+  padding-top: var(--space-unit);
+  margin: 0;
+}
+
+:host > article.compact div.action-container {
+  padding: calc(var(--space-unit) * 2);
+  padding-top: 0;
+  margin-top: auto;
+}
+
+:host > article.compact.borderless div.cover {
+  width: var(--z-book-card-compact-width);
+  border-color: var(--color-surface03);
+}
+
+:host > article.compact.borderless div.content {
+  padding: 0;
+  padding-top: var(--space-unit);
+}
+
+:host > article.compact.borderless div.action-container {
+  padding: 0;
+  padding-bottom: calc(var(--space-unit) * 2);
+}
+
+:host > article.compact .title,
+:host > article.compact .subtitle,
+:host > article.compact .authors {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: initial;
 }
 
 /* Tablet breakpoint */
@@ -345,7 +419,7 @@
 
 @media (min-width: 1152px) {
   :host {
-    width: 100%;
+    width: initial;
     max-width: initial;
   }
 
