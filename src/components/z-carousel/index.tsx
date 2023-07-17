@@ -199,7 +199,7 @@ export class ZCarousel {
       return;
     }
 
-    this.items = Array.from(this.itemsContainer.querySelectorAll("li"));
+    this.items = Array.from(this.itemsContainer.querySelectorAll(":scope > li"));
 
     if (this.single) {
       this.setIntersectionObserver();
