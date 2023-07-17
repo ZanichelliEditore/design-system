@@ -1,7 +1,7 @@
-import {Component, Element, Listen, Prop, State, h} from "@stencil/core";
+import {Component, Element, Prop, State, h} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
-import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
+import {randomId} from "../../utils/utils";
 
 /**
  * @slot resources - books resources (extended variant only)
@@ -96,15 +96,14 @@ export class ZBookCard {
 
   private resourcesWrapper: HTMLDivElement;
 
-  @Listen("resize", {target: "window"})
-  @Listen("orientationchange", {target: "window"})
-  handleResize(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
-  }
-
   componentWillLoad(): void {
     this.id = `id-${randomId()}`;
-    this.handleResize();
+
+    const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
+    this.isMobile = mobileMediaQuery.matches;
+    mobileMediaQuery.addEventListener("change", (mql) => {
+      this.isMobile = mql.matches;
+    });
   }
 
   componentWillRender(): void {
@@ -132,7 +131,7 @@ export class ZBookCard {
     }
   }
 
-  private renderCard(): JSX.Element {
+  private renderCard(): HTMLDivElement {
     switch (this.variant) {
       case BookCardVariant.EXPANDED:
         return this.isMobile ? this.renderMobileExpandedCard() : this.renderExpandedCard();
@@ -143,7 +142,7 @@ export class ZBookCard {
     }
   }
 
-  private renderExpandedCard(): JSX.Element {
+  private renderExpandedCard(): HTMLDivElement {
     return (
       <div class="wrapper">
         {this.renderCover()}
@@ -166,7 +165,7 @@ export class ZBookCard {
     );
   }
 
-  private renderMobileExpandedCard(): JSX.Element {
+  private renderMobileExpandedCard(): HTMLDivElement {
     return (
       <div class="wrapper">
         <div class="header">
@@ -181,7 +180,13 @@ export class ZBookCard {
           {this.renderIsbn()}
         </div>
         {this.hasResources && (
-          <div class={`footer ${this.showResources ? "open" : "close"}`}>
+          <div
+            class={{
+              footer: true,
+              open: this.showResources,
+              close: !this.showResources,
+            }}
+          >
             {this.renderResourcesSlot()}
             {this.renderShowResources()}
           </div>
@@ -190,7 +195,7 @@ export class ZBookCard {
     );
   }
 
-  private renderSearchCard(): JSX.Element {
+  private renderSearchCard(): HTMLDivElement {
     return (
       <div class="wrapper-container">
         <div class="wrapper">
@@ -211,7 +216,7 @@ export class ZBookCard {
     );
   }
 
-  private renderCompactCard(): JSX.Element {
+  private renderCompactCard(): HTMLDivElement {
     return (
       <div class="wrapper">
         {this.renderCover()}
@@ -226,7 +231,7 @@ export class ZBookCard {
     );
   }
 
-  private renderCover(): JSX.Element {
+  private renderCover(): HTMLDivElement {
     return (
       <div class="cover">
         {this.ribbon && this.variant !== BookCardVariant.COMPACT && (
@@ -248,23 +253,18 @@ export class ZBookCard {
   }
 
   private renderOperaTitle(): JSX.Element {
-    const title = this.operaTitleTag
-      ? `<${this.operaTitleTag}>${this.operaTitle}</${this.operaTitleTag}>`
-      : this.operaTitle;
-
-    return (
-      <div
-        class="title"
-        innerHTML={title}
-      />
+    return this.operaTitleTag ? (
+      <this.operaTitleTag class="title">{this.operaTitle}</this.operaTitleTag>
+    ) : (
+      <div class="title">{this.operaTitle}</div>
     );
   }
 
-  private renderVolumeTitle(): null | JSX.Element {
+  private renderVolumeTitle(): null | HTMLDivElement {
     return this.volumeTitle ? <div class="subtitle">{this.volumeTitle}</div> : null;
   }
 
-  private renderAuthors(): null | JSX.Element {
+  private renderAuthors(): null | HTMLDivElement {
     return this.authors ? (
       <div
         class="authors"
@@ -275,12 +275,8 @@ export class ZBookCard {
     ) : null;
   }
 
-  private renderIsbn(): null | JSX.Element {
-    if (!this.isbn) {
-      return null;
-    }
-
-    return (
+  private renderIsbn(): null | HTMLDivElement {
+    return this.isbn ? (
       <div class="isbn">
         <span
           class="code"
@@ -290,29 +286,25 @@ export class ZBookCard {
         </span>
         <span class="label"> (ed. cartacea)</span>
       </div>
-    );
+    ) : null;
   }
 
-  private renderShowResources(): null | JSX.Element {
+  private renderShowResources(): HTMLButtonElement {
     return (
-      <z-link
-        icon={this.showResources ? "chevron-up" : "chevron-down"}
-        iconposition="right"
-        role="button"
+      <button
         class="show-resources"
         aria-label={`Risorse del libro ${this.operaTitle}`}
         aria-expanded={this.showResources.toString()}
-        aria-haspopup="menu"
         aria-controls={`resources-${this.id}`}
         onClick={() => this.toggleResources()}
-        onKeyUp={(e) => handleEnterKeydSubmit(e, this.toggleResources.bind(this))}
       >
         {this.showResources ? "Chiudi" : "Vedi tutto"}
-      </z-link>
+        <z-icon name={this.showResources ? "chevron-up" : "chevron-down"} />
+      </button>
     );
   }
 
-  private renderTagsSlot(): JSX.Element {
+  private renderTagsSlot(): HTMLDivElement {
     return (
       <div class="tags">
         <slot name="tags" />
@@ -320,11 +312,11 @@ export class ZBookCard {
     );
   }
 
-  private renderHeaderCtaSlot(): JSX.Element {
+  private renderHeaderCtaSlot(): HTMLSlotElement {
     return <slot name="header-cta" />;
   }
 
-  private renderResourcesSlot(): JSX.Element {
+  private renderResourcesSlot(): HTMLDivElement {
     return (
       <div
         id={`resources-${this.id}`}
@@ -337,7 +329,7 @@ export class ZBookCard {
     );
   }
 
-  private renderFooterCtaSlot(): JSX.Element {
+  private renderFooterCtaSlot(): HTMLDivElement {
     return (
       <div class="action-container">
         <slot name="footer-cta" />
@@ -346,6 +338,15 @@ export class ZBookCard {
   }
 
   render(): HTMLZBookCardElement {
-    return <article class={`${this.variant} ${this.borderless ? "borderless" : ""}`}>{this.renderCard()}</article>;
+    return (
+      <article
+        class={{
+          [this.variant]: true,
+          borderless: !!this.borderless,
+        }}
+      >
+        {this.renderCard()}
+      </article>
+    );
   }
 }
