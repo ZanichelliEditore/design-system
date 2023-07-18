@@ -1,4 +1,5 @@
 import {html} from "lit-html";
+import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {BookCardVariant} from "../../beans";
 import "./index";
@@ -20,57 +21,9 @@ const defaultArgs = {
   "--z-book-card-compact-height": "600px",
 };
 const defaultArgTypes = {
-  "variant": {
+  variant: {
     control: {type: "inline-radio"},
     options: Object.values(BookCardVariant),
-  },
-  "cover": {
-    control: {type: "text"},
-  },
-  "operaTitle": {
-    control: {type: "text"},
-  },
-  "volumeTitle": {
-    control: {type: "text"},
-  },
-  "authors": {
-    control: {type: "text"},
-  },
-  "isbn": {
-    control: {type: "text"},
-  },
-  "ribbon": {
-    control: {type: "text"},
-  },
-  "borderless": {
-    control: {type: "boolean"},
-  },
-  "fallbackCover": {
-    control: {type: "text"},
-  },
-  "operaTitleTag": {
-    control: {type: "text"},
-  },
-  "theme": {
-    control: {type: "text"},
-  },
-  "--z-book-card-ribbon-background-color": {
-    control: {type: "text"},
-  },
-  "--z-book-card-ribbon-shadow-color": {
-    control: {type: "text"},
-  },
-  "--z-book-card-compact-width": {
-    control: {type: "text"},
-  },
-  "--z-book-card-compact-height": {
-    control: {type: "text"},
-  },
-};
-const searchArgTypes = {
-  ...defaultArgTypes,
-  variant: {
-    table: {disable: true},
   },
 };
 
@@ -98,16 +51,20 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args[
-          "--z-book-card-ribbon-shadow-color"
-        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
-          "--z-book-card-compact-height"
-        ]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       ></z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Slotted tags
+
+<Canvas>
   <Story name="Slotted tags">
     {(args) =>
       html`<z-book-card
@@ -122,13 +79,12 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args[
-          "--z-book-card-ribbon-shadow-color"
-        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
-          "--z-book-card-compact-height"
-        ]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       >
         <z-tag
           slot="tags"
@@ -139,6 +95,11 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Slotted resources
+
+<Canvas>
   <Story name="Slotted resources">
     {(args) =>
       html`<z-book-card
@@ -153,13 +114,12 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args[
-          "--z-book-card-ribbon-shadow-color"
-        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
-          "--z-book-card-compact-height"
-        ]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       >
         <z-link
           slot="resources"
@@ -177,6 +137,11 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Slotted header CTA
+
+<Canvas>
   <Story name="Slotted header CTA">
     {(args) =>
       html`<z-book-card
@@ -191,13 +156,12 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args[
-          "--z-book-card-ribbon-shadow-color"
-        ]}; --z-book-card-compact-width: ${args["--z-book-card-compact-width"]}; --z-book-card-compact-height: ${args[
-          "--z-book-card-compact-height"
-        ]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       >
         <z-icon
           name="star-empty"
@@ -206,6 +170,11 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Slotted footer CTA
+
+<Canvas>
   <Story name="Slotted footer CTA">
     {(args) =>
       html`<z-book-card
@@ -220,9 +189,12 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args["--z-book-card-ribbon-shadow-color"]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       >
         <z-icon
           name="star-empty"
@@ -241,11 +213,16 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Expanded variant
+
+<Canvas>
   <Story
     name="Expanded variant"
     parameters={{
       controls: {
-        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+        exclude: ["variant", "borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
       },
     }}
   >
@@ -260,9 +237,10 @@ const searchArgTypes = {
         ribbon=${args.ribbon}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
-        style="--z-book-card-ribbon-background-color: ${args[
-          "--z-book-card-ribbon-background-color"
-        ]}; --z-book-card-ribbon-shadow-color: ${args["--z-book-card-ribbon-shadow-color"]};"
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+        })}
       >
         <z-tag
           slot="tags"
@@ -291,12 +269,16 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Search variant
+
+<Canvas>
   <Story
     name="Search variant"
-    argTypes={searchArgTypes}
     parameters={{
       controls: {
-        exclude: ["borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+        exclude: ["variant", "borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
       },
     }}
   >
@@ -311,6 +293,10 @@ const searchArgTypes = {
         ribbon=${args.ribbon}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
+        style=${styleMap({
+          "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
+          "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
+        })}
       >
         <z-icon
           name="star-empty"
@@ -335,12 +321,16 @@ const searchArgTypes = {
       </z-book-card>`
     }
   </Story>
+</Canvas>
+
+## Compact variant
+
+<Canvas>
   <Story
     name="Compact variant"
-    argTypes={searchArgTypes}
     parameters={{
       controls: {
-        exclude: ["ribbon", "--z-book-card-ribbon-background-color", "--z-book-card-ribbon-shadow-color"],
+        exclude: ["variant", "ribbon", "--z-book-card-ribbon-background-color", "--z-book-card-ribbon-shadow-color"],
       },
     }}
   >
@@ -356,9 +346,10 @@ const searchArgTypes = {
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         class=${args.theme}
-        style="--z-book-card-compact-width: ${args[
-          "--z-book-card-compact-width"
-        ]}; --z-book-card-compact-height: ${args["--z-book-card-compact-height"]};"
+        style=${styleMap({
+          "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
+          "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
+        })}
       >
         <z-icon
           name="star-empty"
