@@ -92,10 +92,6 @@ export class ZBookCard {
 
   private id: string;
 
-  private moveFocusToResources = false;
-
-  private resourcesWrapper: HTMLDivElement;
-
   componentWillLoad(): void {
     this.id = `id-${randomId()}`;
 
@@ -106,15 +102,8 @@ export class ZBookCard {
     });
   }
 
-  componentWillRender(): void {
+  componentDidLoad(): void {
     this.handleResources();
-  }
-
-  componentDidRender(): void {
-    if (this.moveFocusToResources) {
-      this.resourcesWrapper.focus();
-      this.moveFocusToResources = false;
-    }
   }
 
   private handleResources(): void {
@@ -126,9 +115,6 @@ export class ZBookCard {
 
   private toggleResources(): void {
     this.showResources = !this.showResources;
-    if (this.showResources) {
-      this.moveFocusToResources = true;
-    }
   }
 
   private renderCard(): HTMLDivElement {
@@ -187,8 +173,9 @@ export class ZBookCard {
               close: !this.showResources,
             }}
           >
+            {!this.showResources && this.renderShowResources()}
             {this.renderResourcesSlot()}
-            {this.renderShowResources()}
+            {this.showResources && this.renderShowResources()}
           </div>
         )}
       </div>
@@ -239,24 +226,31 @@ export class ZBookCard {
             <span>{this.ribbon}</span>
           </div>
         )}
-        <img
-          src={this.cover}
-          onError={() => {
-            if (this.fallbackCover) {
-              this.cover = this.fallbackCover;
-            }
-          }}
-          aria-hidden="true"
-        />
+        <div class="img-wrapper">
+          <img
+            src={this.cover}
+            onError={() => {
+              if (this.fallbackCover) {
+                this.cover = this.fallbackCover;
+              }
+            }}
+            aria-hidden="true"
+          />
+        </div>
       </div>
     );
   }
 
-  private renderOperaTitle(): JSX.Element {
-    return this.operaTitleTag ? (
-      <this.operaTitleTag class="title">{this.operaTitle}</this.operaTitleTag>
-    ) : (
-      <div class="title">{this.operaTitle}</div>
+  private renderOperaTitle(): HTMLDivElement {
+    const title = this.operaTitleTag
+      ? `<${this.operaTitleTag}>${this.operaTitle}</${this.operaTitleTag}>`
+      : this.operaTitle;
+
+    return (
+      <div
+        class="title"
+        innerHTML={title}
+      />
     );
   }
 
@@ -322,9 +316,11 @@ export class ZBookCard {
         id={`resources-${this.id}`}
         class="resources"
         tabIndex={this.showResources ? 0 : -1}
-        ref={(el) => (this.resourcesWrapper = el as HTMLDivElement)}
       >
-        <slot name="resources" />
+        <slot
+          name="resources"
+          onSlotchange={() => this.handleResources()}
+        />
       </div>
     );
   }
