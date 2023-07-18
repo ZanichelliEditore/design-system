@@ -69,11 +69,11 @@
 :host > article div.cover div.ribbon::before {
   position: absolute;
   bottom: -12px;
-  left: 0;
+  left: -2px;
   width: 0;
   height: 0;
   border-top: 10px solid var(--z-book-card-ribbon-shadow-color);
-  border-left: 14px solid transparent;
+  border-left: 16px solid transparent;
   content: "";
 }
 
@@ -299,7 +299,6 @@
   height: calc(var(--z-book-card-compact-width) * 1.36);
   box-sizing: border-box;
   border: none;
-  border-bottom: var(--border-size-small) solid var(--color-surface03);
   background: var(--color-white);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   box-shadow: 0 calc(var(--space-unit) * 0.25) calc(var(--space-unit) * 0.5) 0 rgb(66 69 72 / 35%);
@@ -404,6 +403,10 @@
   :host > article.expanded div.cover div.img-wrapper img {
     width: auto;
     border-radius: 0;
+  }
+
+  :host > article.expanded div.cover div.ribbon::before {
+    border-left: 14px solid transparent;
   }
 
   :host > article.expanded div.content {
