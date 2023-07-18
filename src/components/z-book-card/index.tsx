@@ -97,9 +97,7 @@ export class ZBookCard {
 
     const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
     this.isMobile = mobileMediaQuery.matches;
-    mobileMediaQuery.addEventListener("change", (mql) => {
-      this.isMobile = mql.matches;
-    });
+    mobileMediaQuery.onchange = (mql) => (this.isMobile = mql.matches);
   }
 
   componentDidLoad(): void {

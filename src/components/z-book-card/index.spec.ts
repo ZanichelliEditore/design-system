@@ -4,6 +4,7 @@ import {ZBookCard} from "./index";
 
 describe("Suite test ZBookCard", () => {
   it("Test render ZBookCard - EXPANDED - empty", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded"></z-book-card>`,
@@ -14,7 +15,9 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <img aria-hidden="true" />
+              <div class="img-wrapper">
+                <img aria-hidden="true" />
+              </div>
             </div>
             <div class="content">
               <div class="top">
@@ -44,6 +47,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - EXPANDED - with props", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card
@@ -73,7 +77,9 @@ describe("Suite test ZBookCard", () => {
           <div class="wrapper">
             <div class="cover">
               <div class="ribbon"><span>ADOTTATO</span></div>
-              <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+              <div class="img-wrapper">
+                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+              </div>
             </div>
             <div class="content">
               <div class="top">
@@ -109,6 +115,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - EXPANDED - with slots", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded">
@@ -123,7 +130,9 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <img aria-hidden="true" />
+              <div class="img-wrapper">
+                <img aria-hidden="true" />
+              </div>
             </div>
             <div class="content">
               <div class="top">
@@ -156,6 +165,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - EXPANDED - MOBILE - with props", async () => {
+    mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card
@@ -169,8 +179,6 @@ describe("Suite test ZBookCard", () => {
         opera-title-tag="h1"
       ></z-book-card>`,
     });
-    page.rootInstance.isMobile = true;
-    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-book-card
         variant="expanded"
@@ -191,7 +199,9 @@ describe("Suite test ZBookCard", () => {
               </div>
               <div class="cover">
                 <div class="ribbon"><span>ADOTTATO</span></div>
-                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -212,14 +222,13 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - EXPANDED - MOBILE - with resources - close", async () => {
+    mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
         <z-link slot="resources">Resource link</z-link>
       </z-book-card>`,
     });
-    page.rootInstance.isMobile = true;
-    await page.waitForChanges();
     expect(page.root).toEqualHtml(`
       <z-book-card variant="expanded" opera-title="Matematica.azzurro">
         <mock:shadow-root>
@@ -230,7 +239,9 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -238,19 +249,18 @@ describe("Suite test ZBookCard", () => {
                 </div>
               </div>
               <div class="footer close">
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
-                  <slot name="resources"></slot>
-                </div>
-                <z-link
-                  icon="chevron-down"
-                  iconposition="right"
-                  role="button"
+                <button
                   class="show-resources"
                   aria-label="Risorse del libro Matematica.azzurro"
                   aria-expanded="false"
-                  aria-haspopup="menu"
                   aria-controls="resources-${page.rootInstance.id}"
-                >Vedi tutto</z-link>
+                >
+                  Vedi tutto
+                  <z-icon name="chevron-down"></z-icon>
+                </button>
+                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
+                  <slot name="resources"></slot>
+                </div>
               </div>
             </div>
           </article>
@@ -261,13 +271,13 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - EXPANDED - MOBILE - with resources - open", async () => {
+    mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
         <z-link slot="resources">Resource link</z-link>
       </z-book-card>`,
     });
-    page.rootInstance.isMobile = true;
     page.rootInstance.showResources = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
@@ -280,7 +290,9 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -291,16 +303,15 @@ describe("Suite test ZBookCard", () => {
                 <div class="resources" id="resources-${page.rootInstance.id}" tabindex="0">
                   <slot name="resources"></slot>
                 </div>
-                <z-link
-                  icon="chevron-up"
-                  iconposition="right"
-                  role="button"
+                <button
                   class="show-resources"
                   aria-label="Risorse del libro Matematica.azzurro"
                   aria-expanded="true"
-                  aria-haspopup="menu"
                   aria-controls="resources-${page.rootInstance.id}"
-                >Chiudi</z-link>
+                >
+                  Chiudi
+                  <z-icon name="chevron-up"></z-icon>
+                </button>
               </div>
             </div>
           </article>
@@ -311,6 +322,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - SEARCH - empty", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="search"></z-book-card>`,
@@ -326,7 +338,9 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -345,6 +359,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - SEARCH - with props", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card
@@ -374,7 +389,9 @@ describe("Suite test ZBookCard", () => {
                 <div class="ribbon">
                   <span>ADOTTATO</span>
                 </div>
-                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"/>
+                <div class="img-wrapper">
+                  <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"/>
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -407,6 +424,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - SEARCH - with slots", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="search">
@@ -431,7 +449,9 @@ describe("Suite test ZBookCard", () => {
                 <slot name="header-cta"></slot>
               </div>
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="tags">
@@ -459,6 +479,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - COMPACT - empty", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="compact"></z-book-card>`,
@@ -469,7 +490,9 @@ describe("Suite test ZBookCard", () => {
           <article class="compact">
             <div class="wrapper">
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="title"></div>
@@ -485,6 +508,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - COMPACT - with props", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card
@@ -513,7 +537,9 @@ describe("Suite test ZBookCard", () => {
           <article class="compact borderless">
             <div class="wrapper">
               <div class="cover">
-                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+                </div>
               </div>
               <div class="content">
                 <div class="authors" aria-description="Autori">Massimo Bergamini, Anna Trifone, Graziella Barozzi</div>
@@ -535,6 +561,7 @@ describe("Suite test ZBookCard", () => {
   });
 
   it("Test render ZBookCard - COMPACT - with slots", async () => {
+    mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="compact">
@@ -548,7 +575,9 @@ describe("Suite test ZBookCard", () => {
           <article class="compact">
             <div class="wrapper">
               <div class="cover">
-                <img aria-hidden="true" />
+                <div class="img-wrapper">
+                  <img aria-hidden="true" />
+                </div>
               </div>
               <div class="content">
                 <div class="title"></div>
@@ -565,3 +594,19 @@ describe("Suite test ZBookCard", () => {
     `);
   });
 });
+
+const mockMatchMedia = (matches: boolean = false) => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+      matches: matches,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(), // deprecated
+      removeListener: jest.fn(), // deprecated
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+};
