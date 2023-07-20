@@ -34,7 +34,7 @@ describe("Suite test ZBookCard", () => {
                 </div>
               </div>
               <div class="bottom">
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
+                <div class="resources" id="resources-${page.rootInstance.id}">
                   <slot name="resources"></slot>
                 </div>
               </div>
@@ -102,7 +102,7 @@ describe("Suite test ZBookCard", () => {
                 </div>
               </div>
               <div class="bottom">
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
+                <div class="resources" id="resources-${page.rootInstance.id}">
                   <slot name="resources"></slot>
                 </div>
               </div>
@@ -149,7 +149,7 @@ describe("Suite test ZBookCard", () => {
                 </div>
               </div>
               <div class="bottom">
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
+                <div class="resources" id="resources-${page.rootInstance.id}">
                   <slot name="resources"></slot>
                 </div>
               </div>
@@ -258,7 +258,7 @@ describe("Suite test ZBookCard", () => {
                   Vedi tutto
                   <z-icon name="chevron-down"></z-icon>
                 </button>
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="-1">
+                <div class="resources" id="resources-${page.rootInstance.id}">
                   <slot name="resources"></slot>
                 </div>
               </div>
@@ -300,7 +300,7 @@ describe("Suite test ZBookCard", () => {
                 </div>
               </div>
               <div class="footer open">
-                <div class="resources" id="resources-${page.rootInstance.id}" tabindex="0">
+                <div class="resources" id="resources-${page.rootInstance.id}">
                   <slot name="resources"></slot>
                 </div>
                 <button
