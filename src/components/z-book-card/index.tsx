@@ -313,7 +313,6 @@ export class ZBookCard {
       <div
         id={`resources-${this.id}`}
         class="resources"
-        tabIndex={this.showResources ? 0 : -1}
       >
         <slot
           name="resources"
