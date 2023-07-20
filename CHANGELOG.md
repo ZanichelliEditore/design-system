@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.1.0](https://github.com/ZanichelliEditore/design-system/compare/v9.0.1...v9.1.0) (2023-07-20)
+
+
+### Features
+
+* accessibility ([827e408](https://github.com/ZanichelliEditore/design-system/commit/827e408c611b78e8b796dec2b9a774f22e16d1a6))
+* add icon button code ([ab30fbb](https://github.com/ZanichelliEditore/design-system/commit/ab30fbb902a8cd43a5e1325a6dc95bbc1fc67ea1))
+* add new icons ([e503009](https://github.com/ZanichelliEditore/design-system/commit/e50300921bccb24ab22b951c29b7721b7ab7c186))
+* added fallback cover prop ([727ca16](https://github.com/ZanichelliEditore/design-system/commit/727ca169d78780705bd4b5fe2365bb0563afe533))
+* prevent overflow text for isbn and ribbon ([dd6c279](https://github.com/ZanichelliEditore/design-system/commit/dd6c279ee3842a96441558bdaebc5e3a2068f7d9))
+* readme ([0e53d2b](https://github.com/ZanichelliEditore/design-system/commit/0e53d2b48156ee00785358e4e0f254454741dbbb))
+* storybook ([a2d2373](https://github.com/ZanichelliEditore/design-system/commit/a2d237344e829f9ed52c64c7210047b923cd2a4a))
+* storybook ([05447b9](https://github.com/ZanichelliEditore/design-system/commit/05447b98ab9e00eda276bfb16371fc1119df6c83))
+* tests ([ee63451](https://github.com/ZanichelliEditore/design-system/commit/ee6345111f4f1b346577a831bd4cfee471cd5490))
+* tests ([29456f2](https://github.com/ZanichelliEditore/design-system/commit/29456f2d56c27c333245a08bd65c508b652a33d4))
+* wip base layout ([2617e42](https://github.com/ZanichelliEditore/design-system/commit/2617e42e674ef73913e692f571cf353754b33dfa))
+* wip contents ([02fd7ce](https://github.com/ZanichelliEditore/design-system/commit/02fd7ce1f065374a008eda8cc0c8dac35c2fe07c))
+* z-book-card add slotted footer cta as story in SB ([5f0c3ea](https://github.com/ZanichelliEditore/design-system/commit/5f0c3ea93c317d11ca4e237cdf7de32e31811dce))
+* z-book-card added search variant ([e519129](https://github.com/ZanichelliEditore/design-system/commit/e519129da3f5e8b9dec45abd67f49eb0481196c6))
+* z-book-card compact changed cover ratio ([c650a30](https://github.com/ZanichelliEditore/design-system/commit/c650a30a17fddc51f52036dbe7cf5b0867a2e238))
+* z-book-card compact storybook ([f1e68d5](https://github.com/ZanichelliEditore/design-system/commit/f1e68d58134b3087dd6654ba8b665ab86788115f))
+* z-book-card compact tests ([1e0bc93](https://github.com/ZanichelliEditore/design-system/commit/1e0bc93d39d2a6d733c60c6b924af894111194c7))
+* z-book-card compact variant ([21901bc](https://github.com/ZanichelliEditore/design-system/commit/21901bce75632d0a6875bf3bbaad1d330f76ee6a))
+* z-book-card fix cover fit ([92fc898](https://github.com/ZanichelliEditore/design-system/commit/92fc898da9475f4affd4441b1814a5ef7c4d7691))
+* z-book-card fix cover width ([8bde3be](https://github.com/ZanichelliEditore/design-system/commit/8bde3be0550502abd0164d4bc5f51abd0ffaccd2))
+* z-book-card fix storybook ([392c681](https://github.com/ZanichelliEditore/design-system/commit/392c681f0102f24f1d90306bddb3b97df66c8d66))
+* z-book-card lint ([39592f1](https://github.com/ZanichelliEditore/design-system/commit/39592f17973f547a317f26c8ae638dc3a79664ac))
+* z-book-card linter ([7e2bfb0](https://github.com/ZanichelliEditore/design-system/commit/7e2bfb040035035e20871de610379609cf243ba6))
+* z-book-card max-width ([217bd6d](https://github.com/ZanichelliEditore/design-system/commit/217bd6df2b27ed512a39b32b645a7addd70117c9))
+* z-book-card refactor + storybook ([757ba00](https://github.com/ZanichelliEditore/design-system/commit/757ba009efe5bf7c369d4ecd7c604cd8bff5cd1e))
+* z-book-card refactor storybook ([753302b](https://github.com/ZanichelliEditore/design-system/commit/753302be6c4ea4aae891d7d61ee6e32c169410af))
+* z-book-card tests ([391a9d5](https://github.com/ZanichelliEditore/design-system/commit/391a9d541e3dae59d8faf0d6f0dcfbfa8ca12f3b))
+
+
+### Bug Fixes
+
+* added aria-hidden ([0703466](https://github.com/ZanichelliEditore/design-system/commit/0703466732395146b58f38334c9503de38321f16))
+* broken css ([6ef235a](https://github.com/ZanichelliEditore/design-system/commit/6ef235ab88d428d22b33b49f206f5b6a982eeb74))
+* css ([6cc0adb](https://github.com/ZanichelliEditore/design-system/commit/6cc0adb788b8bbffc086b1b182c65802743c9f81))
+* css ([eb4001e](https://github.com/ZanichelliEditore/design-system/commit/eb4001e47c56691eecbe9b8995ab2e2d02c8f48d))
+* expanded image radius ([27b214f](https://github.com/ZanichelliEditore/design-system/commit/27b214fc2bcb2ff6a5d7b94140ba6f4a896e12bb))
+* pr review ([967e5bf](https://github.com/ZanichelliEditore/design-system/commit/967e5bf56d16ad752994db993e77a86b044f3117))
+* pr review ([21bbda9](https://github.com/ZanichelliEditore/design-system/commit/21bbda9974b163d1ca6bd06387ea052673a85236))
+* pr review ([2a97f7d](https://github.com/ZanichelliEditore/design-system/commit/2a97f7dc1ee257304267cb3a062799dd9113552f))
+* removed tabindex ([291f7b4](https://github.com/ZanichelliEditore/design-system/commit/291f7b4f996c8bae4380af6b89c0443a1af5c5ce))
+* stylelint rule ([9ae6c68](https://github.com/ZanichelliEditore/design-system/commit/9ae6c681955b3b63309b3ed6ae6b82d448717a2c))
+* z-book-card compact css ([bcba3c0](https://github.com/ZanichelliEditore/design-system/commit/bcba3c02eca5dbedf1096605e22d905afab0163d))
+* zBookCard tablet ([c91cf79](https://github.com/ZanichelliEditore/design-system/commit/c91cf79b1cbd42ef184ab53462209a0120d030ed))
+* zBookCard tablet ([fc444e1](https://github.com/ZanichelliEditore/design-system/commit/fc444e1e69db870cbc38a917d22a67a29b57f79d))
+
 ### [9.0.1](https://github.com/ZanichelliEditore/design-system/compare/v9.0.0...v9.0.1) (2023-07-17)
 
 ## [9.0.0](https://github.com/ZanichelliEditore/design-system/compare/v8.0.1...v9.0.0) (2023-07-05)
