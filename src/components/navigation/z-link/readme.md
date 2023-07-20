@@ -49,6 +49,7 @@
 
 ### Used by
 
+ - [z-book-card](../../z-book-card)
  - [z-panel-elem](../../panel/z-panel-elem)
  - [z-skip-to-content](../../z-skip-to-content)
 
@@ -60,6 +61,7 @@
 ```mermaid
 graph TD;
   z-link --> z-icon
+  z-book-card --> z-link
   z-panel-elem --> z-link
   z-skip-to-content --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
