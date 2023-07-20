@@ -330,3 +330,9 @@ export var VisibilityCondition;
   VisibilityCondition["HOVER"] = "hover";
   VisibilityCondition["ALWAYS"] = "always";
 })(VisibilityCondition || (VisibilityCondition = {}));
+export var BookCardVariant;
+(function (BookCardVariant) {
+  BookCardVariant["EXPANDED"] = "expanded";
+  BookCardVariant["COMPACT"] = "compact";
+  BookCardVariant["SEARCH"] = "search";
+})(BookCardVariant || (BookCardVariant = {}));

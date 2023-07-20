@@ -23,9 +23,7 @@ export class ZTable {
     this.expandable = this.host.querySelectorAll("z-tr[expandable]").length > 0;
   }
   /**
-   * Setup table:
-   * - create the resize observer for resize event
-   * - create mutation observer for expandable attribute
+   * Setup the table creating a mutation observer for the expandable attribute.
    */
   componentWillLoad() {
     this.expandableMutationObserver = new MutationObserver(() => {

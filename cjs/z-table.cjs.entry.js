@@ -5,13 +5,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-e3299e0a.js');
 require('./index-23d8692f.js');
 require('./index-a9764c98.js');
-require('./index-46406671.js');
+require('./index-8f188526.js');
 require('./index-92a9f89e.js');
-require('./utils-aa00c0cc.js');
-require('./index-4e1850d7.js');
+require('./utils-1b75af6b.js');
+require('./index-28bcd719.js');
 require('./breakpoints-ebe1a437.js');
-require('./index-977baebe.js');
-require('./index-d550acd3.js');
+require('./index-c6b48307.js');
+require('./index-f438d147.js');
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 
@@ -31,9 +31,7 @@ const ZTable = class {
     this.expandable = this.host.querySelectorAll("z-tr[expandable]").length > 0;
   }
   /**
-   * Setup table:
-   * - create the resize observer for resize event
-   * - create mutation observer for expandable attribute
+   * Setup the table creating a mutation observer for the expandable attribute.
    */
   componentWillLoad() {
     this.expandableMutationObserver = new MutationObserver(() => {

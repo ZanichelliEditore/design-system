@@ -388,3 +388,8 @@ export declare enum VisibilityCondition {
   HOVER = "hover",
   ALWAYS = "always"
 }
+export declare enum BookCardVariant {
+  EXPANDED = "expanded",
+  COMPACT = "compact",
+  SEARCH = "search"
+}

@@ -1,13 +1,13 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
 import './index-6d83248c.js';
 import './index-f171ca51.js';
-import './index-a66b7e8a.js';
+import './index-f69ab5b1.js';
 import './index-8c7b48bc.js';
-import './utils-d7278f26.js';
-import './index-9c5d63ea.js';
+import './utils-456f447b.js';
+import './index-fd62a73e.js';
 import './breakpoints-9b81eb1b.js';
-import './index-77b7d7ae.js';
-import './index-fff6ed17.js';
+import './index-7112671d.js';
+import './index-725a4f41.js';
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 
@@ -27,9 +27,7 @@ const ZTable = class {
     this.expandable = this.host.querySelectorAll("z-tr[expandable]").length > 0;
   }
   /**
-   * Setup table:
-   * - create the resize observer for resize event
-   * - create mutation observer for expandable attribute
+   * Setup the table creating a mutation observer for the expandable attribute.
    */
   componentWillLoad() {
     this.expandableMutationObserver = new MutationObserver(() => {

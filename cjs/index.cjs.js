@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-aa00c0cc.js');
-const index = require('./index-4e1850d7.js');
+const utils = require('./utils-1b75af6b.js');
+const index = require('./index-28bcd719.js');
 require('./breakpoints-ebe1a437.js');
 
 const UTILS = {
@@ -20,6 +20,12 @@ Object.defineProperty(exports, 'AvatarSize', {
   enumerable: true,
   get: function () {
     return index.AvatarSize;
+  }
+});
+Object.defineProperty(exports, 'BookCardVariant', {
+  enumerable: true,
+  get: function () {
+    return index.BookCardVariant;
   }
 });
 Object.defineProperty(exports, 'BreadcrumbHomepageVariant', {

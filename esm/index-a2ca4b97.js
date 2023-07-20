@@ -1912,6 +1912,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-body.entry.js').then(processMod, consoleError);
+        case 'z-book-card':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-book-card.entry.js').then(processMod, consoleError);
         case 'z-breadcrumb':
           return import(
             /* webpackMode: "lazy" */

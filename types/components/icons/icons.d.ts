@@ -2,6 +2,7 @@
  * Object containing SVG d path of `stroke` icons.
  */
 export declare const STROKE_ICONS: {
+  accessibility: string;
   "active-note": string;
   "add-note": string;
   "app-switcher": string;
@@ -94,6 +95,7 @@ export declare const STROKE_ICONS: {
   clean: string;
   "cloud-delete": string;
   "cloud-download": string;
+  code: string;
   collezioni: string;
   "color-selected": string;
   compare: string;
@@ -123,6 +125,7 @@ export declare const STROKE_ICONS: {
   "exercises-interactive": string;
   "exercises-online": string;
   "exercises-plus": string;
+  facebook: string;
   favorites: string;
   feed: string;
   "file-zip": string;
@@ -287,13 +290,16 @@ export declare const STROKE_ICONS: {
   word: string;
   "working-bag": string;
   "workspace-zanichelli": string;
+  youtube: string;
   "zoom-in": string;
   "zoom-out": string;
+  zte: string;
 };
 /**
  * Object containing SVG d paths of `filled` icons.
  */
 export declare const FILLED_ICONS: {
+  "accessibility-filled": string;
   "active-note-filled": string;
   "add-note-filled": string;
   "app-switcher-filled": string;
@@ -386,6 +392,7 @@ export declare const FILLED_ICONS: {
   "clean-filled": string;
   "cloud-delete-filled": string;
   "cloud-download-filled": string;
+  "code-filled": string;
   "collezioni-filled": string;
   "color-selected-filled": string;
   "compare-filled": string;
@@ -415,6 +422,7 @@ export declare const FILLED_ICONS: {
   "exercises-interactive-filled": string;
   "exercises-online-filled": string;
   "exercises-plus-filled": string;
+  "facebook-filled": string;
   "favorites-filled": string;
   "feed-filled": string;
   "file-zip-filled": string;
@@ -579,8 +587,10 @@ export declare const FILLED_ICONS: {
   "word-filled": string;
   "working-bag-filled": string;
   "workspace-zanichelli-filled": string;
+  "youtube-filled": string;
   "zoom-in-filled": string;
   "zoom-out-filled": string;
+  "zte-filled": string;
 };
 /**
  * Object containing SVG d path of `button` icons.
@@ -591,6 +601,7 @@ export declare const BUTTON_ICONS: {
   "burger-menu-booktab-button": string;
   "check-task-button": string;
   "checkmark-square-button": string;
+  "code-button": string;
   "cursor-index-button": string;
   "document-button": string;
   "excel-doc-button": string;
@@ -622,6 +633,7 @@ export declare const ICONS: {
   "burger-menu-booktab-button": string;
   "check-task-button": string;
   "checkmark-square-button": string;
+  "code-button": string;
   "cursor-index-button": string;
   "document-button": string;
   "excel-doc-button": string;
@@ -646,6 +658,7 @@ export declare const ICONS: {
   "show-video-button": string;
   "textual-analysis-button": string;
   "word-button": string;
+  "accessibility-filled": string;
   "active-note-filled": string;
   "add-note-filled": string;
   "app-switcher-filled": string;
@@ -738,6 +751,7 @@ export declare const ICONS: {
   "clean-filled": string;
   "cloud-delete-filled": string;
   "cloud-download-filled": string;
+  "code-filled": string;
   "collezioni-filled": string;
   "color-selected-filled": string;
   "compare-filled": string;
@@ -767,6 +781,7 @@ export declare const ICONS: {
   "exercises-interactive-filled": string;
   "exercises-online-filled": string;
   "exercises-plus-filled": string;
+  "facebook-filled": string;
   "favorites-filled": string;
   "feed-filled": string;
   "file-zip-filled": string;
@@ -931,8 +946,11 @@ export declare const ICONS: {
   "word-filled": string;
   "working-bag-filled": string;
   "workspace-zanichelli-filled": string;
+  "youtube-filled": string;
   "zoom-in-filled": string;
   "zoom-out-filled": string;
+  "zte-filled": string;
+  accessibility: string;
   "active-note": string;
   "add-note": string;
   "app-switcher": string;
@@ -1025,6 +1043,7 @@ export declare const ICONS: {
   clean: string;
   "cloud-delete": string;
   "cloud-download": string;
+  code: string;
   collezioni: string;
   "color-selected": string;
   compare: string;
@@ -1054,6 +1073,7 @@ export declare const ICONS: {
   "exercises-interactive": string;
   "exercises-online": string;
   "exercises-plus": string;
+  facebook: string;
   favorites: string;
   feed: string;
   "file-zip": string;
@@ -1218,8 +1238,10 @@ export declare const ICONS: {
   word: string;
   "working-bag": string;
   "workspace-zanichelli": string;
+  youtube: string;
   "zoom-in": string;
   "zoom-out": string;
+  zte: string;
 };
 export declare const LEGACY_ICONS: {
   "add-image": string;

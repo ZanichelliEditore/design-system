@@ -1,4 +1,3 @@
-/* stylelint-disable value-no-vendor-prefix */
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
