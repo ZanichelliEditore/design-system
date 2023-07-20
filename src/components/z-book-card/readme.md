@@ -35,13 +35,12 @@
 
 ### Depends on
 
-- [z-link](../navigation/z-link)
+- [z-icon](../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-book-card --> z-link
-  z-link --> z-icon
+  z-book-card --> z-icon
   style z-book-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
