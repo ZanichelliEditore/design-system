@@ -10,6 +10,24 @@ import { AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathS
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
+    interface ZAccordion {
+        /**
+          * Name of the z-icon to display before the label's text.
+         */
+        "icon": string;
+        /**
+          * Text label.
+         */
+        "label": string;
+        /**
+          * Size of the component.
+         */
+        "size": ControlSize;
+        /**
+          * Whether the component is placed in a stack of ZAccordion components. When enabled, the bottom border is removed.
+         */
+        "stackContext": boolean;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -2089,6 +2107,12 @@ export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     target: HTMLZTrElement;
 }
 declare global {
+    interface HTMLZAccordionElement extends Components.ZAccordion, HTMLStencilElement {
+    }
+    var HTMLZAccordionElement: {
+        prototype: HTMLZAccordionElement;
+        new (): HTMLZAccordionElement;
+    };
     interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
     }
     var HTMLZAlertElement: {
@@ -2672,6 +2696,7 @@ declare global {
         new (): HTMLZVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "z-accordion": HTMLZAccordionElement;
         "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
@@ -2772,6 +2797,24 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ZAccordion {
+        /**
+          * Name of the z-icon to display before the label's text.
+         */
+        "icon"?: string;
+        /**
+          * Text label.
+         */
+        "label"?: string;
+        /**
+          * Size of the component.
+         */
+        "size"?: ControlSize;
+        /**
+          * Whether the component is placed in a stack of ZAccordion components. When enabled, the bottom border is removed.
+         */
+        "stackContext"?: boolean;
+    }
     interface ZAlert {
         /**
           * alert variant type
@@ -4878,6 +4921,7 @@ declare namespace LocalJSX {
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
+        "z-accordion": ZAccordion;
         "z-alert": ZAlert;
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
@@ -4981,6 +5025,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;

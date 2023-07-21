@@ -1,0 +1,108 @@
+import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
+import {html} from "lit-html";
+import {ControlSize} from "../../beans";
+import {ICONS} from "../icons/icons";
+import {getColorTokens} from "../../utils/storybook-utils";
+import "./index";
+
+<Meta
+  title="ZAccordion"
+  component="z-accordion"
+  argTypes={{
+    "size": {
+      options: Object.values(ControlSize),
+      control: {
+        type: "inline-radio",
+      },
+    },
+    "icon": {
+      options: [null, ...Object.keys(ICONS).sort()],
+      control: {
+        type: "select",
+        labels: {
+          null: "------",
+        },
+      },
+    },
+    "--z-accordion-highlight-color": {
+      options: ["transparent", ...getColorTokens().map((token) => token.replace("--", ""))],
+      control: {type: "select"},
+    },
+  }}
+  args={{
+    "label": "Text label",
+    "size": ControlSize.BIG,
+    "stackContext": false,
+    "icon": null,
+    "--z-accordion-highlight-color": "transparent",
+  }}
+  parameters={{
+    accordionTemplate: (args) => html`<z-accordion
+      size=${args.size}
+      label=${args.label}
+      .icon=${args.icon}
+      .stackContext=${args.stackContext}
+      style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
+      qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
+      summum bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul, orbus, egens,
+      torqueatur eculeo: quem hunc appellas, Zeno? Nam memini etiam quae nolo, oblivisci non possum quae volo. Nec vero
+      sum nescius esse utilitatem in historia, non modo voluptatem.
+    </z-accordion>`,
+  }}
+/>
+
+# ZAccordion
+
+<Canvas>
+  <Story name="ZAccordion">{(args, context) => context.parameters.accordionTemplate(args)}</Story>
+</Canvas>
+
+# ZAccordion - stack
+
+When you have to stack multiple `ZAccordion`s, you can set the `stackContext` property to `true` to avoid the double bottom border and have a more compact layout.
+
+> N.B. Don't enable `stackContext` for the last `ZAccordion` in the stack.
+
+<Canvas>
+  <Story
+    name="stack"
+    args={{stackContext: true}}
+    parameters={{
+      controls: {
+        exclude: ["stackContext"],
+      },
+    }}
+  >
+    {(args, context) =>
+      html`${[
+        context.parameters.accordionTemplate(args),
+        context.parameters.accordionTemplate(args),
+        context.parameters.accordionTemplate(args),
+        context.parameters.accordionTemplate({...args, stackContext: false}),
+      ]}`
+    }
+  </Story>
+</Canvas>
+
+# ZAccordion - with slotted tags
+
+<Canvas>
+  <Story name="with tags">
+    {(args) => html`
+      <z-accordion
+        size=${args.size}
+        label=${args.label}
+        .icon=${args.icon}
+        .stackContext=${args.stackContext}
+      >
+        <z-tag slot="tag">Tag 1</z-tag>
+        <z-tag slot="tag">Tag 2</z-tag>
+        <z-tag slot="tag">Tag 3</z-tag>
+      </z-accordion>
+    `}
+  </Story>
+</Canvas>
+
+<ArgsTable of="z-accordion" />
