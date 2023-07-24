@@ -1,4 +1,4 @@
-import {Component, Prop, State, h} from "@stencil/core";
+import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
 import {ControlSize} from "../../beans";
 
 /**
@@ -39,18 +39,52 @@ export class ZAccordion {
   @Prop({reflect: true})
   stackContext = false;
 
-  @State()
+  /**
+   * Disabled state of the accordion.
+   */
+  @Prop({reflect: true})
+  isDisabled = false;
+
+  /**
+   * The open state of the accordion.
+   */
+  @Prop({reflect: true, mutable: true})
   open = false;
 
+  /**
+   * Enable highlight band on the `summary`'s left edge.
+   */
+  @Prop({reflect: true})
+  highlight = false;
+
+  /**
+   * Event fired when the accordion is toggled.
+   */
+  @Event()
+  toggled: EventEmitter<boolean>;
+
   private detailsElm: HTMLDetailsElement;
+
+  private onDetailsToggle(): void {
+    if (this.isDisabled) {
+      this.open = false;
+      this.detailsElm.open = false;
+
+      return;
+    }
+
+    this.open = this.detailsElm.open;
+    this.toggled.emit(this.open);
+  }
 
   render(): HTMLDetailsElement {
     return (
       <details
         ref={(elm: HTMLDetailsElement) => (this.detailsElm = elm)}
-        onToggle={() => (this.open = this.detailsElm.open)}
+        onToggle={this.onDetailsToggle.bind(this)}
+        open={this.open}
       >
-        <summary>
+        <summary tabIndex={this.isDisabled ? -1 : 0}>
           {this.icon && (
             <z-icon
               class="z-accordion-label-icon"
@@ -66,9 +100,11 @@ export class ZAccordion {
             name={this.open ? "chevron-up" : "chevron-down"}
           />
         </summary>
-        <div class="z-accordion-content">
-          <slot />
-        </div>
+        {!this.isDisabled && (
+          <div class="z-accordion-content">
+            <slot />
+          </div>
+        )}
       </details>
     );
   }

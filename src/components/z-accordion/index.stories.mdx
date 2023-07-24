@@ -27,6 +27,7 @@ import "./index";
     "--z-accordion-highlight-color": {
       options: ["transparent", ...getColorTokens().map((token) => token.replace("--", ""))],
       control: {type: "select"},
+      if: {arg: "highlight", truthy: true},
     },
   }}
   args={{
@@ -34,14 +35,20 @@ import "./index";
     "size": ControlSize.BIG,
     "stackContext": false,
     "icon": null,
+    "open": false,
     "--z-accordion-highlight-color": "transparent",
+    "isDisabled": false,
+    "highlight": false,
   }}
   parameters={{
     accordionTemplate: (args) => html`<z-accordion
       size=${args.size}
       label=${args.label}
+      open=${args.open}
       .icon=${args.icon}
       .stackContext=${args.stackContext}
+      .isDisabled=${args.isDisabled}
+      .highlight=${args.highlight}
       style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
@@ -54,6 +61,8 @@ import "./index";
 />
 
 # ZAccordion
+
+To add the highlight band on the left, set the `highlight` property to `true` then set the `--z-accordion-highlight-color` CSS variable to the desired color.
 
 <Canvas>
   <Story name="ZAccordion">{(args, context) => context.parameters.accordionTemplate(args)}</Story>
@@ -68,10 +77,10 @@ When you have to stack multiple `ZAccordion`s, you can set the `stackContext` pr
 <Canvas>
   <Story
     name="stack"
-    args={{stackContext: true}}
+    args={{stackContext: true, isDisabled: false}}
     parameters={{
       controls: {
-        exclude: ["stackContext"],
+        exclude: ["stackContext", "isDisabled"],
       },
     }}
   >
@@ -96,10 +105,18 @@ When you have to stack multiple `ZAccordion`s, you can set the `stackContext` pr
         label=${args.label}
         .icon=${args.icon}
         .stackContext=${args.stackContext}
+        .isDisabled=${args.isDisabled}
+        .highlight=${args.highlight}
+        style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
       >
         <z-tag slot="tag">Tag 1</z-tag>
         <z-tag slot="tag">Tag 2</z-tag>
         <z-tag slot="tag">Tag 3</z-tag>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
+        qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
+        summum bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul, orbus, egens,
+        torqueatur eculeo: quem hunc appellas, Zeno? Nam memini etiam quae nolo, oblivisci non possum quae volo. Nec
+        vero sum nescius esse utilitatem in historia, non modo voluptatem.
       </z-accordion>
     `}
   </Story>
