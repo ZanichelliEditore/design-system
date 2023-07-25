@@ -68,7 +68,7 @@ export function getColorVars(): string[] {
  * }}```
  */
 export function getColorVarsLabels(): Record<string, string> {
-  return getColorVars().reduce((acc, token) => ({...acc, [token]: token.slice(6, -1)}), {});
+  return getColorVars().reduce((acc, token) => ({...acc, [token]: token.slice(6, -1)}), {null: "default"});
 }
 
 /**

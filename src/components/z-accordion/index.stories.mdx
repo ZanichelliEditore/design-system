@@ -1,6 +1,7 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {html} from "lit-html";
-import {ControlSize} from "../../beans";
+import {styleMap} from "lit-html/directives/style-map.js";
+import {ControlSize, AccordionVariant} from "../../beans";
 import {ICONS} from "../icons/icons";
 import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import "./index";
@@ -9,48 +10,72 @@ import "./index";
   title="ZAccordion"
   component="z-accordion"
   argTypes={{
-    "size": {
-      options: Object.values(ControlSize),
-      control: {
-        type: "inline-radio",
-      },
-    },
-    "icon": {
-      options: [null, ...Object.keys(ICONS).sort()],
+    "--z-accordion-bg": {
+      options: [null, ...getColorVars()],
       control: {
         type: "select",
-        labels: {
-          null: "------",
-        },
+        labels: getColorVarsLabels(),
       },
     },
     "--z-accordion-highlight-color": {
-      options: ["transparent", ...getColorVars()],
+      options: [null, ...getColorVars()],
       control: {
         type: "select",
         labels: getColorVarsLabels(),
       },
       if: {arg: "highlight", truthy: true},
     },
+    "icon": {
+      options: [null, ...Object.keys(ICONS).sort()],
+      control: {
+        type: "select",
+        labels: {
+          null: "—",
+        },
+      },
+    },
+    "shadow": {
+      if: {arg: "variant", eq: AccordionVariant.BACKGROUND},
+    },
+    "size": {
+      options: Object.values(ControlSize),
+      control: {
+        type: "inline-radio",
+      },
+    },
+    "variant": {
+      options: Object.values(AccordionVariant),
+      control: {
+        type: "inline-radio",
+      },
+    },
   }}
   args={{
-    "label": "Text label",
-    "size": ControlSize.BIG,
-    "icon": null,
-    "open": false,
-    "--z-accordion-highlight-color": "transparent",
-    "isDisabled": false,
+    "--z-accordion-bg": null,
+    "--z-accordion-highlight-color": null,
     "highlight": false,
+    "icon": null,
+    "isDisabled": false,
+    "label": "Text label",
+    "open": false,
+    "shadow": true,
+    "size": ControlSize.BIG,
+    "variant": AccordionVariant.DEFAULT,
   }}
   parameters={{
     accordionTemplate: (args) => html`<z-accordion
-      size=${args.size}
-      label=${args.label}
-      .open=${args.open}
+      .highlight=${args.highlight}
       .icon=${args.icon}
       .isDisabled=${args.isDisabled}
-      .highlight=${args.highlight}
-      style="--z-accordion-highlight-color: ${args["--z-accordion-highlight-color"]}"
+      .open=${args.open}
+      .shadow=${args.shadow}
+      label=${args.label}
+      size=${args.size}
+      variant=${args.variant}
+      style=${styleMap({
+        "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
+        "--z-accordion-bg": args["--z-accordion-bg"],
+      })}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
       qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
@@ -71,12 +96,43 @@ To add the highlight band on the left, set the `highlight` property to `true` th
 
 # ZAccordion - stack
 
-When multiple `ZAccordion`s are placed in stack, the style is automatically optimized through global styles, avoiding the double border.
+When multiple `ZAccordion`s are placed in stack, the style is automatically optimized through global styles.
 
 <Canvas>
   <Story
     name="stack"
-    args={{isDisabled: false}}
+    argTypes={{
+      "--z-accordion-highlight-color 2": {
+        options: [null, ...getColorVars()],
+        control: {
+          type: "select",
+          labels: getColorVarsLabels(),
+        },
+        if: {arg: "highlight", truthy: true},
+      },
+      "--z-accordion-highlight-color 3": {
+        options: [null, ...getColorVars()],
+        control: {
+          type: "select",
+          labels: getColorVarsLabels(),
+        },
+        if: {arg: "highlight", truthy: true},
+      },
+      "--z-accordion-highlight-color 4": {
+        options: [null, ...getColorVars()],
+        control: {
+          type: "select",
+          labels: getColorVarsLabels(),
+        },
+        if: {arg: "highlight", truthy: true},
+      },
+    }}
+    args={{
+      "--z-accordion-highlight-color 2": null,
+      "--z-accordion-highlight-color 3": null,
+      "--z-accordion-highlight-color 4": null,
+      "isDisabled": false,
+    }}
     parameters={{
       controls: {exclude: ["open"]},
     }}
@@ -84,9 +140,18 @@ When multiple `ZAccordion`s are placed in stack, the style is automatically opti
     {(args, context) =>
       html`${[
         context.parameters.accordionTemplate(args),
-        context.parameters.accordionTemplate(args),
-        context.parameters.accordionTemplate(args),
-        context.parameters.accordionTemplate(args),
+        context.parameters.accordionTemplate({
+          ...args,
+          "--z-accordion-highlight-color": args["--z-accordion-highlight-color 2"],
+        }),
+        context.parameters.accordionTemplate({
+          ...args,
+          "--z-accordion-highlight-color": args["--z-accordion-highlight-color 3"],
+        }),
+        context.parameters.accordionTemplate({
+          ...args,
+          "--z-accordion-highlight-color": args["--z-accordion-highlight-color 4"],
+        }),
       ]}`
     }
   </Story>
@@ -98,13 +163,18 @@ When multiple `ZAccordion`s are placed in stack, the style is automatically opti
   <Story name="with tags">
     {(args) => html`
       <z-accordion
-        size=${args.size}
-        label=${args.label}
+        .highlight=${args.highlight}
         .icon=${args.icon}
         .isDisabled=${args.isDisabled}
-        .highlight=${args.highlight}
         .open=${args.open}
-        style="--z-accordion-highlight-color: ${args["--z-accordion-highlight-color"]}"
+        .shadow=${args.shadow}
+        label=${args.label}
+        size=${args.size}
+        variant=${args.variant}
+        style=${styleMap({
+          "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
+          "--z-accordion-bg": args["--z-accordion-bg"],
+        })}
       >
         <z-tag slot="tag">Tag 1</z-tag>
         <z-tag slot="tag">Tag 2</z-tag>

@@ -7,12 +7,23 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                      | Type                                                          | Default           |
-| -------------- | --------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------- |
-| `icon`         | `icon`          | Name of the z-icon to display before the label's text.                                                           | `string`                                                      | `undefined`       |
-| `label`        | `label`         | Text label.                                                                                                      | `string`                                                      | `undefined`       |
-| `size`         | `size`          | Size of the component.                                                                                           | `ControlSize.BIG \| ControlSize.SMALL \| ControlSize.X_SMALL` | `ControlSize.BIG` |
-| `stackContext` | `stack-context` | Whether the component is placed in a stack of ZAccordion components. When enabled, the bottom border is removed. | `boolean`                                                     | `false`           |
+| Property     | Attribute     | Description                                                                      | Type                                                          | Default                    |
+| ------------ | ------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------- |
+| `highlight`  | `highlight`   | Enable highlight band on the `summary`'s left edge.                              | `boolean`                                                     | `false`                    |
+| `icon`       | `icon`        | Name of the z-icon to display before the label's text.                           | `string`                                                      | `undefined`                |
+| `isDisabled` | `is-disabled` | Disabled state of the accordion.                                                 | `boolean`                                                     | `false`                    |
+| `label`      | `label`       | Text label.                                                                      | `string`                                                      | `undefined`                |
+| `open`       | `open`        | The open state of the accordion.                                                 | `boolean`                                                     | `false`                    |
+| `shadow`     | `shadow`      | Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`. | `boolean`                                                     | `true`                     |
+| `size`       | `size`        | Size of the component.                                                           | `ControlSize.BIG \| ControlSize.SMALL \| ControlSize.X_SMALL` | `ControlSize.BIG`          |
+| `variant`    | `variant`     | Accordion variant.                                                               | `AccordionVariant.BACKGROUND \| AccordionVariant.DEFAULT`     | `AccordionVariant.DEFAULT` |
+
+
+## Events
+
+| Event     | Description                                | Type                   |
+| --------- | ------------------------------------------ | ---------------------- |
+| `toggled` | Event fired when the accordion is toggled. | `CustomEvent<boolean>` |
 
 
 ## Slots
@@ -21,6 +32,13 @@
 | ------- | -------------------------- |
 |         | Slot for the main content. |
 | `"tag"` | Slot for tags.             |
+
+
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"summary"` |             |
 
 
 ## Dependencies

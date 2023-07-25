@@ -1,12 +1,13 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
-import {ControlSize} from "../../beans";
+import {Component, Prop, h, Event, EventEmitter, Watch} from "@stencil/core";
+import {ControlSize, AccordionVariant} from "../../beans";
 
 /**
  * Accordion component.
  *
  * @slot - Slot for the main content.
  * @slot tag - Slot for tags.
- * @cssprop --z-accordion-highlight-color - Color of the highlight band on the `summary`'s left edge.
+ * @cssprop --z-accordion-highlight-color - Color of the highlight band on the `summary`'s left edge. Only applies when `highlight` is true. Default: `transparent`.
+ * @cssprop --z-accordion-bg - Background color of the accordion. Default: `var(--color-surface02)`.
  */
 @Component({
   tag: "z-accordion",
@@ -51,13 +52,37 @@ export class ZAccordion {
   highlight = false;
 
   /**
+   * Accordion variant.
+   */
+  @Prop({reflect: true})
+  variant: AccordionVariant = AccordionVariant.DEFAULT;
+
+  /**
+   * Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`.
+   */
+  @Prop({reflect: true})
+  shadow = true;
+
+  /**
    * Event fired when the accordion is toggled.
    */
   @Event()
   toggled: EventEmitter<boolean>;
 
+  @Watch("isDisabled")
+  protected onDisabledChange(): void {
+    if (this.isDisabled) {
+      this.open = false;
+    }
+  }
+
   private detailsElm: HTMLDetailsElement;
 
+  /**
+   * Handle `details` element toggle.
+   * If currently disabled, prevent toggling by forcing the `open` state to `false`.
+   * Unfortunately the "toggle" event is not cancelable and when catched, the `open` state is already changed.
+   */
   private onDetailsToggle(): void {
     if (this.isDisabled) {
       this.open = false;
@@ -77,7 +102,10 @@ export class ZAccordion {
         onToggle={this.onDetailsToggle.bind(this)}
         open={this.open}
       >
-        <summary tabIndex={this.isDisabled ? -1 : 0}>
+        <summary
+          tabIndex={this.isDisabled ? -1 : null}
+          part="summary"
+        >
           {this.icon && (
             <z-icon
               class="z-accordion-label-icon"

@@ -6,13 +6,23 @@
 
 :host {
   --z-accordion-highlight-color: transparent;
+  --z-accordion-bg: var(--color-surface01);
 
   display: block;
   border-top: var(--border-size-small) solid var(--color-surface03);
   border-bottom: var(--border-size-small) solid var(--color-surface03);
-  background-color: transparent;
+  background-color: var(--z-accordion-bg);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+}
+
+:host([variant="background"]) {
+  border: var(--border-size-small) solid var(--color-surface03);
+  border-radius: var(--border-radius);
+}
+
+:host([variant="background"][shadow]) {
+  box-shadow: var(--shadow-2);
 }
 
 details {
@@ -48,13 +58,25 @@ summary {
   --summary-y-padding: calc(var(--space-unit) / 2);
 }
 
+:host([variant="background"]) summary {
+  padding-right: calc(var(--space-unit) * 2);
+
+  /* border-radius of the accordion - border-width of the accordion */
+  border-radius: calc(var(--border-radius) - var(--border-size-small));
+}
+
+:host([is-disabled]) summary {
+  cursor: default;
+}
+
 summary:focus:focus-visible {
   background-color: var(--color-surface03);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-summary::before {
+summary::before,
+:host([highlight][variant="background"]) .z-accordion-content::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -64,12 +86,22 @@ summary::before {
   content: "";
 }
 
-:host([highlight]) summary::before {
+:host([highlight]) summary::before,
+:host([highlight][variant="background"]) .z-accordion-content::before {
   background-color: var(--z-accordion-highlight-color, transparent);
 }
 
+:host([is-disabled][highlight]) summary::before,
+:host([is-disabled][highlight][variant="background"]) .z-accordion-content::before {
+  background-color: var(--color-text03);
+}
+
 summary > z-icon {
-  fill: var(--color-icon02);
+  fill: var(--color-text01);
+}
+
+:host([is-disabled]) summary > z-icon {
+  fill: var(--color-text03);
 }
 
 .z-accordion-label {
@@ -80,10 +112,6 @@ summary > z-icon {
 
 :host([size="x-small"]) .z-accordion-label {
   font-size: var(--font-size-2);
-}
-
-summary:focus:focus-visible .z-accordion-label {
-  text-decoration: underline;
 }
 
 :host([size="x-small"]) :is(.z-accordion-label-icon, .z-accordion-chevron) {
@@ -102,6 +130,7 @@ summary z-icon.z-accordion-chevron {
 }
 
 .z-accordion-content {
+  position: relative;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   font-size: var(--font-size-2); /* for "small" and "big" sizes */
 }
@@ -114,20 +143,12 @@ summary z-icon.z-accordion-chevron {
   font-size: var(--font-size-1);
 }
 
-:host([is-disabled]) summary {
-  cursor: default;
-}
-
-:host([is-disabled][highlight]) summary::before {
-  background-color: var(--color-text03);
+:host([variant="background"]) .z-accordion-content {
+  padding-right: calc(var(--space-unit) * 2);
 }
 
 :host([is-disabled]) .z-accordion-label {
   color: var(--color-text03);
-}
-
-:host([is-disabled]) summary > z-icon {
-  fill: var(--color-text03);
 }
 
 :host([is-disabled]) .z-accordion-tags ::slotted(z-tag[slot="tag"]) {
@@ -137,7 +158,7 @@ summary z-icon.z-accordion-chevron {
 
 @media (hover: hover) {
   summary:focus:focus-visible {
-    /* prevents the hover box-shadow to be covered by the background of an hovered sibling accordion */
+    /* prevents the focus shadow to be covered by the background of an hovered sibling accordion */
     position: relative;
     z-index: 1;
   }
@@ -170,4 +191,38 @@ summary z-icon.z-accordion-chevron {
     --z-icon-width: 18px;
     --z-icon-height: 18px;
   }
+}
+
+/* Style for sibling accordions in a stack context */
+
+z-accordion + z-accordion {
+  border-top: none;
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"] {
+  border-radius: 0;
+}
+
+z-accordion[variant="background"]:first-of-type:not(:last-of-type) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary) {
+  border-radius: 0;
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary) {
+  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
+  border-bottom-right-radius: calc(var(--border-radius) - var(--border-size-small));
 }

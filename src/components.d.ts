@@ -5,28 +5,44 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
-import { AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { ListItem } from "./beans/index.js";
 import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
     interface ZAccordion {
         /**
+          * Enable highlight band on the `summary`'s left edge.
+         */
+        "highlight": boolean;
+        /**
           * Name of the z-icon to display before the label's text.
          */
         "icon": string;
+        /**
+          * Disabled state of the accordion.
+         */
+        "isDisabled": boolean;
         /**
           * Text label.
          */
         "label": string;
         /**
+          * The open state of the accordion.
+         */
+        "open": boolean;
+        /**
+          * Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`.
+         */
+        "shadow": boolean;
+        /**
           * Size of the component.
          */
         "size": ControlSize;
         /**
-          * Whether the component is placed in a stack of ZAccordion components. When enabled, the bottom border is removed.
+          * Accordion variant.
          */
-        "stackContext": boolean;
+        "variant": AccordionVariant;
     }
     interface ZAlert {
         /**
@@ -1934,6 +1950,10 @@ export namespace Components {
     interface ZVisuallyHidden {
     }
 }
+export interface ZAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAccordionElement;
+}
 export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
@@ -2799,21 +2819,41 @@ declare global {
 declare namespace LocalJSX {
     interface ZAccordion {
         /**
+          * Enable highlight band on the `summary`'s left edge.
+         */
+        "highlight"?: boolean;
+        /**
           * Name of the z-icon to display before the label's text.
          */
         "icon"?: string;
+        /**
+          * Disabled state of the accordion.
+         */
+        "isDisabled"?: boolean;
         /**
           * Text label.
          */
         "label"?: string;
         /**
+          * Event fired when the accordion is toggled.
+         */
+        "onToggled"?: (event: ZAccordionCustomEvent<boolean>) => void;
+        /**
+          * The open state of the accordion.
+         */
+        "open"?: boolean;
+        /**
+          * Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`.
+         */
+        "shadow"?: boolean;
+        /**
           * Size of the component.
          */
         "size"?: ControlSize;
         /**
-          * Whether the component is placed in a stack of ZAccordion components. When enabled, the bottom border is removed.
+          * Accordion variant.
          */
-        "stackContext"?: boolean;
+        "variant"?: AccordionVariant;
     }
     interface ZAlert {
         /**
