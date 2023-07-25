@@ -36,7 +36,6 @@ import "./index";
   args={{
     "label": "Text label",
     "size": ControlSize.BIG,
-    "stackContext": false,
     "icon": null,
     "open": false,
     "--z-accordion-highlight-color": "transparent",
@@ -49,7 +48,6 @@ import "./index";
       label=${args.label}
       .open=${args.open}
       .icon=${args.icon}
-      .stackContext=${args.stackContext}
       .isDisabled=${args.isDisabled}
       .highlight=${args.highlight}
       style="--z-accordion-highlight-color: ${args["--z-accordion-highlight-color"]}"
@@ -73,18 +71,14 @@ To add the highlight band on the left, set the `highlight` property to `true` th
 
 # ZAccordion - stack
 
-When you have to stack multiple `ZAccordion`s, you can set the `stackContext` property to `true` to avoid the double bottom border and have a more compact layout.
-
-> N.B. Don't enable `stackContext` for the last `ZAccordion` in the stack.
+When multiple `ZAccordion`s are placed in stack, the style is automatically optimized through global styles, avoiding the double border.
 
 <Canvas>
   <Story
     name="stack"
-    args={{stackContext: true, isDisabled: false}}
+    args={{isDisabled: false}}
     parameters={{
-      controls: {
-        exclude: ["stackContext", "isDisabled"],
-      },
+      controls: {exclude: ["open"]},
     }}
   >
     {(args, context) =>
@@ -92,7 +86,7 @@ When you have to stack multiple `ZAccordion`s, you can set the `stackContext` pr
         context.parameters.accordionTemplate(args),
         context.parameters.accordionTemplate(args),
         context.parameters.accordionTemplate(args),
-        context.parameters.accordionTemplate({...args, stackContext: false}),
+        context.parameters.accordionTemplate(args),
       ]}`
     }
   </Story>
@@ -107,11 +101,10 @@ When you have to stack multiple `ZAccordion`s, you can set the `stackContext` pr
         size=${args.size}
         label=${args.label}
         .icon=${args.icon}
-        .stackContext=${args.stackContext}
         .isDisabled=${args.isDisabled}
         .highlight=${args.highlight}
         .open=${args.open}
-        style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
+        style="--z-accordion-highlight-color: ${args["--z-accordion-highlight-color"]}"
       >
         <z-tag slot="tag">Tag 1</z-tag>
         <z-tag slot="tag">Tag 2</z-tag>

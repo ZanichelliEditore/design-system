@@ -33,13 +33,6 @@ export class ZAccordion {
   size = ControlSize.BIG;
 
   /**
-   * Whether the component is placed in a stack of ZAccordion components.
-   * When enabled, the bottom border is removed.
-   */
-  @Prop({reflect: true})
-  stackContext = false;
-
-  /**
    * Disabled state of the accordion.
    */
   @Prop({reflect: true})

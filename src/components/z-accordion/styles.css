@@ -1,25 +1,22 @@
-:host {
-  --z-accordion-highlight-color: transparent;
-
-  background-color: var(--color-surface01);
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-}
-
 :host,
 :host *,
 :host ::slotted(*) {
   box-sizing: border-box;
 }
 
-details {
+:host {
+  --z-accordion-highlight-color: transparent;
+
+  display: block;
   border-top: var(--border-size-small) solid var(--color-surface03);
   border-bottom: var(--border-size-small) solid var(--color-surface03);
   background-color: transparent;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
-:host([stack-context]) details {
-  border-bottom: none;
+details {
+  background-color: transparent;
 }
 
 summary {
@@ -139,7 +136,7 @@ summary z-icon.z-accordion-chevron {
 }
 
 @media (hover: hover) {
-  :host([stack-context]) summary:focus:focus-visible {
+  summary:focus:focus-visible {
     /* prevents the hover box-shadow to be covered by the background of an hovered sibling accordion */
     position: relative;
     z-index: 1;
