@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {PopoverPosition} from "../../../beans";
-import {getColorTokens} from "../../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
@@ -30,13 +30,13 @@ On the following Story, the "position" prop can be set only for the original pos
       control: {type: "select"},
     },
     "--z-tooltip-theme--surface": {
-      options: getColorTokens(),
-      control: {type: "select"},
+      options: getColorVars(),
+      control: {type: "select", labels: getColorVarsLabels()},
     },
   }}
   args={{
     "dark": false,
-    "--z-tooltip-theme--surface": "--color-surface01",
+    "--z-tooltip-theme--surface": "var(--color-surface01)",
     "position": PopoverPosition.LEFT,
   }}
 />
@@ -53,7 +53,7 @@ On the following Story, the "position" prop can be set only for the original pos
           .position=${args.position}
           .dark=${args.dark}
           bind-to="#trigger"
-          style="--z-tooltip-theme--surface: var(${args["--z-tooltip-theme--surface"]})"
+          style="--z-tooltip-theme--surface: ${args["--z-tooltip-theme--surface"]}"
         >
           <div class="container">
             <z-button>Open</z-button>
@@ -93,7 +93,7 @@ In the Story below, the tooltip is opened hovering the button.
           .dark="${args.dark}"
           closable="false"
           bind-to="#info-button"
-          style="--z-tooltip-theme--surface: var(${args["--z-tooltip-theme--surface"]})"
+          style="--z-tooltip-theme--surface: ${args["--z-tooltip-theme--surface"]}"
         >
           <span class="tooltip-info-text">Clicca per fare girare la freccia</span>
         </z-tooltip>

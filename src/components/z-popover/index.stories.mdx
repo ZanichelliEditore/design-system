@@ -2,7 +2,7 @@ import {html} from "lit-html";
 import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {PopoverPosition} from "../../beans";
-import {getColorTokens} from "../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import "./index.stories.css";
 import "./index";
 
@@ -19,17 +19,23 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
       control: {type: "select"},
     },
     "--z-popover-theme--surface": {
-      options: getColorTokens(),
+      options: getColorVars(),
       control: {
         type: "select",
+        labels: getColorVarsLabels(),
       },
     },
     "--z-popover-theme--text": {
-      options: getColorTokens(),
+      options: getColorVars(),
       control: {
         type: "select",
+        labels: getColorVarsLabels(),
       },
     },
+  }}
+  args={{
+    "--z-popover-theme--surface": "var(--color-surface01)",
+    "--z-popover-theme--text": "var(--color-text01)",
   }}
 />
 
@@ -39,14 +45,16 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="contextual-menu-like"
     args={{
-      "position": PopoverPosition.RIGHT_BOTTOM,
-      "--z-popover-theme--surface": "var(--color-surface01)",
-      "--z-popover-theme--text": "var(--color-text01)",
+      position: PopoverPosition.RIGHT_BOTTOM,
     }}
   >
     {(args) => html`
       <div class="popover-container">
         <z-popover
+          style=${styleMap({
+            "--z-popover-theme--surface": args["--z-popover-theme--surface"],
+            "--z-popover-theme--text": args["--z-popover-theme--text"],
+          })}
           .position=${args.position}
           bind-to="#icon"
         >
@@ -78,14 +86,16 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
   <Story
     name="tooltip-like"
     args={{
-      "position": PopoverPosition.RIGHT,
-      "--z-popover-theme--surface": "var(--color-surface01)",
-      "--z-popover-theme--text": "var(--color-text01)",
+      position: PopoverPosition.RIGHT,
     }}
   >
     {(args) => html`
       <div class="popover-container popover-container-tooltip">
         <z-popover
+          style=${styleMap({
+            "--z-popover-theme--surface": args["--z-popover-theme--surface"],
+            "--z-popover-theme--text": args["--z-popover-theme--text"],
+          })}
           .position=${args.position}
           center="true"
           show-arrow="true"

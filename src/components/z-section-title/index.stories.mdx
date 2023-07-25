@@ -1,7 +1,7 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {html} from "lit-html";
 import {ZSectionTitleDividerPosition} from "../../beans";
-import {getColorTokens} from "../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import "./index";
 
 <Meta
@@ -16,11 +16,16 @@ import "./index";
       control: {type: "boolean"},
     },
     "--z-section-title--divider-color": {
-      options: getColorTokens(),
+      options: getColorVars(),
       control: {
         type: "select",
+        labels: getColorVarsLabels(),
       },
     },
+  }}
+  args={{
+    "uppercase": true,
+    "--z-section-title--divider-color": "var(--red500)",
   }}
 />
 
@@ -30,16 +35,14 @@ import "./index";
   <Story
     name="Primary title only"
     args={{
-      "dividerPosition": ZSectionTitleDividerPosition.BEFORE,
-      "uppercase": true,
-      "--z-section-title--divider-color": "--red500",
+      dividerPosition: ZSectionTitleDividerPosition.BEFORE,
     }}
   >
     {(args) => html`
       <z-section-title
         .dividerPosition=${args.dividerPosition}
         .uppercase=${args.uppercase}
-        .style="--z-section-title--divider-color: var(${args["--z-section-title--divider-color"]})"
+        .style="--z-section-title--divider-color: ${args["--z-section-title--divider-color"]}"
       >
         <h4 slot="primary-title">Primary title</h4>
       </z-section-title>
@@ -50,10 +53,6 @@ import "./index";
 <Canvas>
   <Story
     name="With secondary title"
-    args={{
-      "uppercase": true,
-      "--z-section-title--divider-color": "--red500",
-    }}
     parameters={{
       controls: {
         exclude: ["dividerPosition"],
@@ -63,7 +62,7 @@ import "./index";
     {(args) => html`
       <z-section-title
         .uppercase=${args.uppercase}
-        .style="--z-section-title--divider-color: var(${args["--z-section-title--divider-color"]})"
+        .style="--z-section-title--divider-color: ${args["--z-section-title--divider-color"]}"
       >
         <h5 slot="secondary-title">Secondary title</h5>
         <h4 slot="primary-title">Primary title</h4>

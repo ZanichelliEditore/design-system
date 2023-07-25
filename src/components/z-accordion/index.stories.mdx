@@ -2,7 +2,7 @@ import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {html} from "lit-html";
 import {ControlSize} from "../../beans";
 import {ICONS} from "../icons/icons";
-import {getColorTokens} from "../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import "./index";
 
 <Meta
@@ -25,8 +25,11 @@ import "./index";
       },
     },
     "--z-accordion-highlight-color": {
-      options: ["transparent", ...getColorTokens().map((token) => token.replace("--", ""))],
-      control: {type: "select"},
+      options: ["transparent", ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
       if: {arg: "highlight", truthy: true},
     },
   }}
@@ -44,12 +47,12 @@ import "./index";
     accordionTemplate: (args) => html`<z-accordion
       size=${args.size}
       label=${args.label}
-      open=${args.open}
+      .open=${args.open}
       .icon=${args.icon}
       .stackContext=${args.stackContext}
       .isDisabled=${args.isDisabled}
       .highlight=${args.highlight}
-      style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
+      style="--z-accordion-highlight-color: ${args["--z-accordion-highlight-color"]}"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
       qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
@@ -107,6 +110,7 @@ When you have to stack multiple `ZAccordion`s, you can set the `stackContext` pr
         .stackContext=${args.stackContext}
         .isDisabled=${args.isDisabled}
         .highlight=${args.highlight}
+        .open=${args.open}
         style="--z-accordion-highlight-color: var(--${args["--z-accordion-highlight-color"]})"
       >
         <z-tag slot="tag">Tag 1</z-tag>
