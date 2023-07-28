@@ -29,7 +29,7 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
-            <div class="drawer-content" slot="canvasContent">
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
               <slot name="menu"></slot>
             </div>
           </z-offcanvas>
@@ -66,7 +66,7 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
-            <div class="drawer-content" slot="canvasContent">
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
               <slot name="menu"></slot>
             </div>
           </z-offcanvas>
@@ -106,7 +106,7 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
-            <div class="drawer-content" slot="canvasContent">
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
               <slot name="menu"></slot>
             </div>
           </z-offcanvas>
@@ -145,7 +145,7 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
-            <div class="drawer-content" slot="canvasContent">
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
               <slot name="menu"></slot>
             </div>
           </z-offcanvas>

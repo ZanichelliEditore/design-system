@@ -392,7 +392,7 @@ export class ZAppHeader {
           <div
             class="drawer-content"
             slot="canvasContent"
-            aria-hidden={this.drawerOpen}
+            aria-hidden={!this.drawerOpen}
           >
             <slot
               name="menu"
