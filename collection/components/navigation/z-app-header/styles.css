@@ -248,6 +248,10 @@ to correctly align drawer icon and search page button with the title */
 }
 
 .drawer-content {
+  display: none;
+}
+
+z-offcanvas[open] .drawer-content {
   display: flex;
   width: 100%;
   flex: 1 auto;
@@ -255,7 +259,7 @@ to correctly align drawer icon and search page button with the title */
   row-gap: calc(var(--space-unit) * 2.5);
 }
 
-.drawer-content ::slotted(z-menu) {
+z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   width: 100%;
 }
 
