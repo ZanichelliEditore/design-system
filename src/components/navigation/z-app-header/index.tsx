@@ -389,17 +389,16 @@ export class ZAppHeader {
             <z-icon name="close"></z-icon>
           </button>
 
-          {this.drawerOpen && (
-            <div
-              class="drawer-content"
-              slot="canvasContent"
-            >
-              <slot
-                name="menu"
-                onSlotchange={this.collectMenuElements}
-              ></slot>
-            </div>
-          )}
+          <div
+            class="drawer-content"
+            slot="canvasContent"
+            aria-hidden={!this.drawerOpen}
+          >
+            <slot
+              name="menu"
+              onSlotchange={this.collectMenuElements}
+            ></slot>
+          </div>
         </z-offcanvas>
 
         {this._stuck && (

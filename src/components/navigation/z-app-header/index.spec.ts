@@ -29,6 +29,9 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
+              <slot name="menu"></slot>
+            </div>
           </z-offcanvas>
         </mock:shadow-root>
       </z-app-header>
@@ -63,6 +66,9 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
+              <slot name="menu"></slot>
+            </div>
           </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
@@ -100,6 +106,9 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
+              <slot name="menu"></slot>
+            </div>
           </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
@@ -136,6 +145,9 @@ describe("Suite test ZAppHeader", () => {
             <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
               <z-icon name="close"></z-icon>
             </button>
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
+              <slot name="menu"></slot>
+            </div>
           </z-offcanvas>
         </mock:shadow-root>
         <h1 slot="title">Titolo di test</h1>
