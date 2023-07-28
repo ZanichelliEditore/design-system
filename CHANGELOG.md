@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.1.1](https://github.com/ZanichelliEditore/design-system/compare/v9.1.0...v9.1.1) (2023-07-28)
+
+
+### Bug Fixes
+
+* always render mobile menu slot ([49a308e](https://github.com/ZanichelliEditore/design-system/commit/49a308e417bb2c2e8f81f02a12c06fa936f0fb64))
+* always render mobile menu slot ([f185ff5](https://github.com/ZanichelliEditore/design-system/commit/f185ff5de9efe8e94e370d44b7b130857746aeb9))
+
 ## [9.1.0](https://github.com/ZanichelliEditore/design-system/compare/v9.0.1...v9.1.0) (2023-07-20)
 
 
