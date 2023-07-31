@@ -91,6 +91,10 @@ export class ZAppHeader {
      */
     this.searchPlaceholder = "Cerca";
     /**
+     * Search string for the search bar.
+     */
+    this.searchString = "";
+    /**
      * The stuck state of the bar.
      */
     this._stuck = false;
@@ -207,18 +211,16 @@ export class ZAppHeader {
     }
     return (h("z-button", { class: "search-page-button", variant: ButtonVariant.SECONDARY, href: this.searchPageUrl, icon: "search", size: ControlSize.X_SMALL }));
   }
+  renderSeachbar(searchButtonIconOnly) {
+    return (h("z-searchbar", { value: this.searchString, placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: searchButtonIconOnly, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: this.searchString.length < 3, onSearchTyping: (e) => (this.searchString = e.detail) }));
+  }
   componentDidLoad() {
     this.collectMenuElements();
     this.onStuckMode();
     this.evaluateViewport();
   }
   render() {
-    return (h(Host, { "menu-length": this.menuLength }, this.hasHero && (h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero }))))), h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" }), this.renderSearchLinkButton()), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (h("div", { class: "menu-container" }, this.canShowMenu && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && (h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: this.currentViewport !== "desktop", size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
-        e.target.preventSubmit = !e.detail || e.detail.length < 3;
-      } }))))), h("z-offcanvas", { variant: OffCanvasVariant.OVERLAY, transitiondirection: TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent" }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content", slot: "canvasContent", "aria-hidden": !this.drawerOpen }, h("slot", { name: "menu", onSlotchange: this.collectMenuElements }))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && (h("z-searchbar", { placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: false, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: true, onSearchTyping: (e) => {
-        var _a;
-        e.target.preventSubmit = ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.length) < 3;
-      } })))))));
+    return (h(Host, { "menu-length": this.menuLength }, this.hasHero && (h("div", { class: "hero-container" }, h("slot", { name: "hero" }, this.hero && (h("img", { alt: "", src: this.hero }))))), h("div", { class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { class: "heading-container" }, h("div", { class: "heading-title" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("slot", { name: "title" }), this.renderSearchLinkButton()), h("div", { class: "heading-subtitle" }, h("slot", { name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (h("div", { class: "menu-container" }, this.canShowMenu && (h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")))), h("z-offcanvas", { variant: OffCanvasVariant.OVERLAY, transitiondirection: TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, h("button", { class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent" }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content", slot: "canvasContent", "aria-hidden": !this.drawerOpen }, h("slot", { name: "menu", onSlotchange: this.collectMenuElements }))), this._stuck && (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { name: "burger-menu" }))), h("div", { class: "heading-title" }, h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false))))));
   }
   static get is() { return "z-app-header"; }
   static get encapsulation() { return "shadow"; }
@@ -358,6 +360,24 @@ export class ZAppHeader {
         "attribute": "search-placeholder",
         "reflect": false,
         "defaultValue": "\"Cerca\""
+      },
+      "searchString": {
+        "type": "string",
+        "mutable": true,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Search string for the search bar."
+        },
+        "attribute": "search-string",
+        "reflect": false,
+        "defaultValue": "\"\""
       },
       "searchPageUrl": {
         "type": "string",

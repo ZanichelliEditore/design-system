@@ -94,6 +94,10 @@ export declare class ZAppHeader {
    */
   searchPlaceholder: string;
   /**
+   * Search string for the search bar.
+   */
+  searchString: string;
+  /**
    * Url to the search page.
    * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
    * The link will also appear on the sticky header.
@@ -138,6 +142,7 @@ export declare class ZAppHeader {
   private disableStuckMode;
   onStuckMode(): void;
   private renderSearchLinkButton;
+  private renderSeachbar;
   componentDidLoad(): void;
   render(): HTMLZAppHeaderElement;
 }
