@@ -52,6 +52,10 @@ export namespace Components {
          */
         "searchPlaceholder": string;
         /**
+          * Search string for the search bar.
+         */
+        "searchString": string;
+        /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */
         "stuck": boolean;
@@ -2817,6 +2821,10 @@ declare namespace LocalJSX {
           * Placeholder text for the search bar.
          */
         "searchPlaceholder"?: string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString"?: string;
         /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
          */

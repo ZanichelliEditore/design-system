@@ -118,6 +118,12 @@ export class ZAppHeader {
   searchPlaceholder = "Cerca";
 
   /**
+   * Search string for the search bar.
+   */
+  @Prop({mutable: true})
+  searchString = "";
+
+  /**
    * Url to the search page.
    * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
    * The link will also appear on the sticky header.
@@ -300,6 +306,21 @@ export class ZAppHeader {
     );
   }
 
+  private renderSeachbar(searchButtonIconOnly: boolean): HTMLZSearchbarElement {
+    return (
+      <z-searchbar
+        value={this.searchString}
+        placeholder={this.searchPlaceholder}
+        showSearchButton={true}
+        searchButtonIconOnly={searchButtonIconOnly}
+        size={ControlSize.X_SMALL}
+        variant={ButtonVariant.SECONDARY}
+        preventSubmit={this.searchString.length < 3}
+        onSearchTyping={(e) => (this.searchString = e.detail)}
+      />
+    );
+  }
+
   componentDidLoad(): void {
     this.collectMenuElements();
     this.onStuckMode();
@@ -357,19 +378,7 @@ export class ZAppHeader {
                 ></slot>
               )}
 
-              {this.canShowSearchbar && (
-                <z-searchbar
-                  placeholder={this.searchPlaceholder}
-                  showSearchButton={true}
-                  searchButtonIconOnly={this.currentViewport !== "desktop"}
-                  size={ControlSize.X_SMALL}
-                  variant={ButtonVariant.SECONDARY}
-                  preventSubmit={true}
-                  onSearchTyping={(e) => {
-                    e.target.preventSubmit = !e.detail || e.detail.length < 3;
-                  }}
-                ></z-searchbar>
-              )}
+              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
             </div>
           )}
         </div>
@@ -419,20 +428,7 @@ export class ZAppHeader {
               </div>
 
               {this.renderSearchLinkButton()}
-
-              {this.canShowSearchbar && this.currentViewport === "desktop" && (
-                <z-searchbar
-                  placeholder={this.searchPlaceholder}
-                  showSearchButton={true}
-                  searchButtonIconOnly={false}
-                  size={ControlSize.X_SMALL}
-                  variant={ButtonVariant.SECONDARY}
-                  preventSubmit={true}
-                  onSearchTyping={(e) => {
-                    e.target.preventSubmit = e.detail?.length < 3;
-                  }}
-                ></z-searchbar>
-              )}
+              {this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false)}
             </div>
           </div>
         )}
