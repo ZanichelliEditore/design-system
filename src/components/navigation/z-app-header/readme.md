@@ -14,6 +14,7 @@
 | `overlay`           | `overlay`            | Should place an overlay over the hero image. Useful for legibility purpose.                                                                                                                                                                    | `boolean`                          | `false`     |
 | `searchPageUrl`     | `search-page-url`    | Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.                                                | `string`                           | `undefined` |
 | `searchPlaceholder` | `search-placeholder` | Placeholder text for the search bar.                                                                                                                                                                                                           | `string`                           | `"Cerca"`   |
+| `searchString`      | `search-string`      | Search string for the search bar.                                                                                                                                                                                                              | `string`                           | `""`        |
 | `stuck`             | `stuck`              | Stuck mode for the header. You can programmatically set it using an IntersectionObserver.                                                                                                                                                      | `boolean`                          | `false`     |
 
 
@@ -38,16 +39,16 @@
 ### Depends on
 
 - [z-button](../../buttons/z-button)
-- [z-icon](../../icons/z-icon)
 - [z-searchbar](../../inputs/z-searchbar)
+- [z-icon](../../icons/z-icon)
 - [z-offcanvas](../../z-offcanvas)
 
 ### Graph
 ```mermaid
 graph TD;
   z-app-header --> z-button
-  z-app-header --> z-icon
   z-app-header --> z-searchbar
+  z-app-header --> z-icon
   z-app-header --> z-offcanvas
   z-button --> z-icon
   z-searchbar --> z-input
