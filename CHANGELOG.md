@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.2.0](https://github.com/ZanichelliEditore/design-system/compare/v9.1.2...v9.2.0) (2023-08-01)
+
+
+### Features
+
+* background variant; stack context style improvements; stories improvements ([cccf641](https://github.com/ZanichelliEditore/design-system/commit/cccf641958b64434582a80601b651f8834518f88))
+* disabled state ([60c11f9](https://github.com/ZanichelliEditore/design-system/commit/60c11f9457584d2f0af2fde950195fbe32234ba2))
+* z-accordion component ([a08df6e](https://github.com/ZanichelliEditore/design-system/commit/a08df6e83a59dd22134b07e4b79f69fc960fea99))
+
 ### [9.1.2](https://github.com/ZanichelliEditore/design-system/compare/v9.1.1...v9.1.2) (2023-07-31)
 
 ### [9.1.1](https://github.com/ZanichelliEditore/design-system/compare/v9.1.0...v9.1.1) (2023-07-28)
