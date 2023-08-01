@@ -50,4 +50,5 @@ export const parameters = {
       locales: "en-US",
     },
   },
+  controls: {sort: "alpha"},
 };

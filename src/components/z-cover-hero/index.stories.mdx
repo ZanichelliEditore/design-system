@@ -1,7 +1,7 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
 import {styleMap} from "lit-html/directives/style-map.js";
 import {CoverHeroVariant, CoverHeroContentPosition} from "../../beans";
-import {getColorTokens} from "../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import {html} from "lit-html";
 import "./index";
 import "./index.stories.css";
@@ -23,8 +23,8 @@ import "./index.stories.css";
       control: {type: "boolean"},
     },
     "--cover-hero-text-color": {
-      control: {type: "select"},
-      options: getColorTokens(),
+      control: {type: "select", labels: getColorVarsLabels()},
+      options: getColorVars(),
     },
     "--cover-hero-overlay": {
       if: {arg: "variant", eq: CoverHeroVariant.OVERLAY},
@@ -41,6 +41,7 @@ import "./index.stories.css";
     "preserveAspectRatio": true,
     "--cover-hero-aspect-ratio": "",
     "--cover-hero-overlay": "linear-gradient(270deg, #0000 0%, #000000e6 100%)",
+    "--cover-hero-text-color": "var(--color-text-inverse)",
   }}
 />
 
@@ -55,9 +56,9 @@ import "./index.stories.css";
           .variant=${args.variant}
           .preserveAspectRatio=${args.preserveAspectRatio}
           style=${styleMap({
-            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
-            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
-            "--cover-hero-aspect-ratio": `${args["--cover-hero-aspect-ratio"]}`,
+            "--cover-hero-overlay": args["--cover-hero-overlay"],
+            "--cover-hero-text-color": args["--cover-hero-text-color"],
+            "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
           })}
         >
           <img
@@ -106,9 +107,9 @@ import "./index.stories.css";
       <div class="z-cover-hero-story-container">
         <z-cover-hero
           style=${styleMap({
-            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
-            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
-            "--cover-hero-aspect-ratio": `${args["--cover-hero-aspect-ratio"]}`,
+            "--cover-hero-overlay": args["--cover-hero-overlay"],
+            "--cover-hero-text-color": args["--cover-hero-text-color"],
+            "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
           })}
         >
           <img
@@ -155,9 +156,9 @@ import "./index.stories.css";
       <div class="z-cover-hero-story-container z-cover-hero-auto-ratio">
         <z-cover-hero
           style=${styleMap({
-            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
-            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
-            "--cover-hero-aspect-ratio": `${args["--cover-hero-aspect-ratio"]}`,
+            "--cover-hero-overlay": args["--cover-hero-overlay"],
+            "--cover-hero-text-color": args["--cover-hero-text-color"],
+            "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
           })}
         >
           <img
@@ -203,8 +204,8 @@ import "./index.stories.css";
         <z-cover-hero
           .preserveAspectRatio=${false}
           style=${styleMap({
-            "--cover-hero-overlay": `${args["--cover-hero-overlay"]}`,
-            "--cover-hero-text-color": `var(${args["--cover-hero-text-color"]})`,
+            "--cover-hero-overlay": args["--cover-hero-overlay"],
+            "--cover-hero-text-color": args["--cover-hero-text-color"],
           })}
         >
           <img

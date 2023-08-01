@@ -34,6 +34,7 @@
 
 ### Used by
 
+ - [z-accordion](../../z-accordion)
  - [z-app-header](../../navigation/z-app-header)
  - [z-book-card](../../z-book-card)
  - [z-breadcrumb](../../z-breadcrumb)
@@ -79,6 +80,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  z-accordion --> z-icon
   z-app-header --> z-icon
   z-book-card --> z-icon
   z-breadcrumb --> z-icon

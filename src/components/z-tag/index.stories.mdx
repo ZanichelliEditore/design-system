@@ -1,6 +1,6 @@
 import {html} from "lit-html";
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {getColorTokens} from "../../utils/storybook-utils";
+import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
 import {ICONS} from "../icons/icons";
 import "./index";
 
@@ -12,30 +12,30 @@ import "./index";
     "text": {control: {type: "text"}},
     "expandable": {control: {type: "boolean"}},
     "--z-tag-text-color": {
-      options: getColorTokens(),
+      options: getColorVars(),
       control: {
         type: "select",
+        labels: getColorVarsLabels(),
       },
     },
     "--z-tag-bg": {
-      options: getColorTokens(),
+      options: getColorVars(),
       control: {
         type: "select",
+        labels: getColorVarsLabels(),
       },
     },
+  }}
+  args={{
+    text: "In progress",
+    expandable: false,
   }}
 />
 
 # ZTag
 
 <Canvas>
-  <Story
-    name="ZTag-sample"
-    args={{
-      text: "In progress",
-      expandable: false,
-    }}
-  >
+  <Story name="ZTag-sample">
     {(args) =>
       html`<z-tag
         icon="gear"
@@ -53,14 +53,12 @@ import "./index";
     name="ZTag-token"
     args={{
       "icon": "gear",
-      "text": "In progress",
-      "expandable": false,
       "--z-tag-text-color": "",
       "--z-tag-bg": "",
     }}
   >
     {(args) => html`<z-tag
-      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args["--z-tag-bg"]})"
+      style="--z-tag-text-color: ${args["--z-tag-text-color"]}; --z-tag-bg: ${args["--z-tag-bg"]}"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
@@ -82,9 +80,7 @@ import "./index";
     }}
   >
     {(args) => html`<z-tag
-      style="--z-tag-text-color: var(${args["--z-tag-text-color"]}); --z-tag-bg: var(${args[
-        "--z-tag-bg"
-      ]}); max-width: 500px;"
+      style="--z-tag-text-color: ${args["--z-tag-text-color"]}; --z-tag-bg: ${args["--z-tag-bg"]}; max-width: 500px;"
       .icon=${args.icon}
       .expandable=${args.expandable}
       >${args.text}
