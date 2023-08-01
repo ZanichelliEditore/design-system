@@ -2,14 +2,20 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-1b75af6b.js');
-const index = require('./index-28bcd719.js');
+const utils = require('./utils-4ac02425.js');
+const index = require('./index-e8ce94a1.js');
 require('./breakpoints-ebe1a437.js');
 
 const UTILS = {
   colorFromId: utils.colorFromId,
 };
 
+Object.defineProperty(exports, 'AccordionVariant', {
+  enumerable: true,
+  get: function () {
+    return index.AccordionVariant;
+  }
+});
 Object.defineProperty(exports, 'AlertType', {
   enumerable: true,
   get: function () {

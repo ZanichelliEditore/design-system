@@ -336,3 +336,8 @@ export var BookCardVariant;
   BookCardVariant["COMPACT"] = "compact";
   BookCardVariant["SEARCH"] = "search";
 })(BookCardVariant || (BookCardVariant = {}));
+export var AccordionVariant;
+(function (AccordionVariant) {
+  AccordionVariant["DEFAULT"] = "default";
+  AccordionVariant["BACKGROUND"] = "background";
+})(AccordionVariant || (AccordionVariant = {}));

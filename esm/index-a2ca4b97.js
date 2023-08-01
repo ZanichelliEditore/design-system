@@ -1896,6 +1896,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-app-header_11.entry.js').then(processMod, consoleError);
+        case 'z-accordion':
+          return import(
+            /* webpackMode: "lazy" */
+            './z-accordion.entry.js').then(processMod, consoleError);
         case 'z-anchor-navigation':
           return import(
             /* webpackMode: "lazy" */

@@ -1,13 +1,13 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
 import './index-6d83248c.js';
 import './index-f171ca51.js';
-import './index-f69ab5b1.js';
+import './index-1b2e3e53.js';
 import './index-8c7b48bc.js';
-import './utils-456f447b.js';
-import './index-fd62a73e.js';
+import './utils-4d2d99d9.js';
+import './index-03c8b0f0.js';
 import './breakpoints-9b81eb1b.js';
-import './index-7112671d.js';
-import './index-725a4f41.js';
+import './index-49dfba34.js';
+import './index-cfd94e05.js';
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 

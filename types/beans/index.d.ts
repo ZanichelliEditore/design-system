@@ -393,3 +393,7 @@ export declare enum BookCardVariant {
   COMPACT = "compact",
   SEARCH = "search"
 }
+export declare enum AccordionVariant {
+  DEFAULT = "default",
+  BACKGROUND = "background"
+}

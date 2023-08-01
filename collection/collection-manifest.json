@@ -45,6 +45,7 @@
     "./components/table/z-tr/index.js",
     "./components/table/z-tfoot/index.js",
     "./components/table/z-table/index.js",
+    "./components/z-accordion/index.js",
     "./components/z-anchor-navigation/index.js",
     "./components/z-aria-alert/index.js",
     "./components/z-avatar/index.js",
