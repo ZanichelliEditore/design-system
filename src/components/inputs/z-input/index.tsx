@@ -114,6 +114,8 @@ export class ZInput {
 
   private typingtimeout = 300;
 
+  private inputRef: HTMLInputElement;
+
   @Listen("inputCheck", {target: "document"})
   inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
@@ -278,6 +280,7 @@ export class ZInput {
           <input
             type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
+            ref={(el) => (this.inputRef = el)}
           />
           {this.renderIcons()}
         </div>
@@ -345,7 +348,10 @@ export class ZInput {
         type="button"
         class={`icon-button reset-icon ${hidden ? "hidden" : ""}`}
         aria-label="cancella il contenuto dell'input"
-        onClick={() => this.emitInputChange("")}
+        onClick={() => {
+          this.inputRef.value = "";
+          this.emitInputChange("");
+        }}
       >
         <z-icon
           name="multiply"
