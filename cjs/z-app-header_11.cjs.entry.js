@@ -404,7 +404,7 @@ const ZInput = class {
     if (this.hasclearicon && type != index$1.InputType.NUMBER) {
       Object.assign(attr.class, { "has-clear-icon": true });
     }
-    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputType.PASSWORD && !this.passwordHidden ? index$1.InputType.TEXT : type }, attr)), this.renderIcons()), this.renderMessage()));
+    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", null, index.h("input", Object.assign({ type: type === index$1.InputType.PASSWORD && !this.passwordHidden ? index$1.InputType.TEXT : type }, attr, { ref: (el) => (this.inputRef = el) })), this.renderIcons()), this.renderMessage()));
   }
   renderLabel() {
     if (!this.label) {
@@ -429,7 +429,10 @@ const ZInput = class {
     if (!this.hasclearicon || !this.value || this.disabled || this.readonly || this.type == index$1.InputType.NUMBER) {
       hidden = true;
     }
-    return (index.h("button", { type: "button", class: `icon-button reset-icon ${hidden ? "hidden" : ""}`, "aria-label": "cancella il contenuto dell'input", onClick: () => this.emitInputChange("") }, index.h("z-icon", { name: "multiply", class: this.size })));
+    return (index.h("button", { type: "button", class: `icon-button reset-icon ${hidden ? "hidden" : ""}`, "aria-label": "cancella il contenuto dell'input", onClick: () => {
+        this.inputRef.value = "";
+        this.emitInputChange("");
+      } }, index.h("z-icon", { name: "multiply", class: this.size })));
   }
   renderShowHidePassword() {
     return (index.h("button", { type: "button", class: "icon-button toggle-password-icon", disabled: this.disabled, "aria-label": this.passwordHidden ? "mostra password" : "nascondi password", onClick: () => (this.passwordHidden = !this.passwordHidden) }, index.h("z-icon", { name: this.passwordHidden ? "view-filled" : "view-off-filled", class: this.size })));

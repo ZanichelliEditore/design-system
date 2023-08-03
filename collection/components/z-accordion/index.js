@@ -55,7 +55,7 @@ export class ZAccordion {
     this.toggled.emit(this.open);
   }
   render() {
-    return (h("details", { ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { class: "z-accordion-label-icon", name: this.icon })), h("span", { class: "z-accordion-label" }, this.label), h("span", { class: "z-accordion-tags" }, h("slot", { name: "tag" })), h("z-icon", { class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { class: "z-accordion-content" }, h("slot", null)))));
+    return (h("details", { ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { class: "z-accordion-label-icon", name: this.icon })), h("span", { class: "z-accordion-label" }, this.label), h("span", { class: "z-accordion-tags" }, h("slot", { name: "tag" })), h("z-icon", { class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { class: "z-accordion-content", part: "content" }, h("slot", null)))));
   }
   static get is() { return "z-accordion"; }
   static get encapsulation() { return "shadow"; }

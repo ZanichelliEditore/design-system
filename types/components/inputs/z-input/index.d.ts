@@ -52,6 +52,7 @@ export declare class ZInput {
   passwordHidden: boolean;
   private timer;
   private typingtimeout;
+  private inputRef;
   inputCheckListener(e: CustomEvent): void;
   /** get checked status */
   isChecked(): Promise<boolean>;
