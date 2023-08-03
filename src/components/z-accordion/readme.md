@@ -38,6 +38,7 @@
 
 | Part        | Description |
 | ----------- | ----------- |
+| `"content"` |             |
 | `"summary"` |             |
 
 
