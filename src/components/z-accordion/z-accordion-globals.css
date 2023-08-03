@@ -2,13 +2,19 @@ z-accordion + z-accordion {
   border-top: none;
 }
 
-z-accordion[variant="background"] + z-accordion[variant="background"] {
-  border-radius: 0;
-}
-
-z-accordion[variant="background"]:first-of-type:not(:last-of-type) {
+z-accordion[variant="background"]:first-of-type:not(:last-of-type),
+z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary),
+z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary)::before,
+z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(content)::before {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"],
+z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary),
+z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary)::before,
+z-accordion[variant="background"] + z-accordion[variant="background"]::part(content)::before {
+  border-radius: 0;
 }
 
 z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type {
@@ -16,16 +22,14 @@ z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-ty
   border-bottom-right-radius: var(--border-radius);
 }
 
-z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary) {
-  border-radius: 0;
-}
-
 z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary) {
-  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
+  /* border-radius of the accordion - width of the accordion's border */
   border-bottom-right-radius: calc(var(--border-radius) - var(--border-size-small));
+}
+
+z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary),
+z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary)::before,
+z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type::part(content)::before {
+  /* border-radius of the accordion - width of the accordion's border */
+  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
 }

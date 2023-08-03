@@ -122,7 +122,10 @@ export class ZAccordion {
           />
         </summary>
         {!this.isDisabled && (
-          <div class="z-accordion-content">
+          <div
+            class="z-accordion-content"
+            part="content"
+          >
             <slot />
           </div>
         )}
