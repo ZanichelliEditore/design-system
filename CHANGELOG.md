@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.1](https://github.com/ZanichelliEditore/design-system/compare/v9.2.0...v9.2.1) (2023-08-03)
+
+
+### Bug Fixes
+
+* empty input value before validation when clicking content deletion icon ([75c00fa](https://github.com/ZanichelliEditore/design-system/commit/75c00fa821329c36de1b4d36060e3f7f60d00be4))
+* uglier but safer implementation of the accordion's border radius ([ad06765](https://github.com/ZanichelliEditore/design-system/commit/ad06765f7338e525220f3fb23a791c15dde89ddc))
+
 ## [9.2.0](https://github.com/ZanichelliEditore/design-system/compare/v9.1.2...v9.2.0) (2023-08-01)
 
 
