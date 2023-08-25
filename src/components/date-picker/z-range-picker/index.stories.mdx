@@ -15,6 +15,12 @@ import "../index.stories.css";
       options: Object.values(ZRangePickerMode),
       control: {type: "radio"},
     },
+    firstPickerReadOnly: {
+      control: {type: "boolean"},
+    },
+    lastPickerReadOnly: {
+      control: {type: "boolean"},
+    },
     rangePickerId: {
       control: "text",
     },
@@ -33,6 +39,8 @@ import "../index.stories.css";
       firstAriaLabel: "start-date",
       secondLabel: "End date",
       secondAriaLabel: "end-date",
+      firstPickerReadOnly: false,
+      lastPickerReadOnly: false,
     }}
     height="180px"
   >
@@ -53,6 +61,8 @@ import "../index.stories.css";
             first-label=${args.firstLabel}
             second-aria-label=${args.secondAriaLabel}
             second-label=${args.secondLabel}
+            first-picker-read-only=${args.firstPickerReadOnly}
+            last-picker-read-only=${args.lastPickerReadOnly}
           ></z-range-picker>
         </div>
         <div class="story-output-container">
@@ -77,6 +87,8 @@ import "../index.stories.css";
       firstAriaLabel: "start-date",
       secondLabel: "End date",
       secondAriaLabel: "end-date",
+      firstPickerReadOnly: false,
+      lastPickerReadOnly: false,
     }}
   >
     {(args) => html`
@@ -96,6 +108,8 @@ import "../index.stories.css";
             first-label=${args.firstLabel}
             second-aria-label=${args.secondAriaLabel}
             second-label=${args.secondLabel}
+            first-picker-read-only=${args.firstPickerReadOnly}
+            last-picker-read-only=${args.lastPickerReadOnly}
           ></z-range-picker>
         </div>
         <div class="story-output-container">
