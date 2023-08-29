@@ -248,7 +248,7 @@
 
 :host > article.search .wrapper-container .action-container {
   padding-bottom: calc(var(--space-unit) * 2);
-  margin: auto 0 0;
+  margin: 0 auto;
 }
 
 :host > article.search div.header {
