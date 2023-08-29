@@ -73,6 +73,7 @@ export declare const STROKE_ICONS: {
   "caret-down": string;
   "caret-up": string;
   "caret-up-down": string;
+  "catalog-card": string;
   "character-panel": string;
   "check-task": string;
   checkbox: string;
@@ -238,6 +239,7 @@ export declare const STROKE_ICONS: {
   share: string;
   "shopping-cart": string;
   "show-video": string;
+  "site-resources": string;
   "skip-back": string;
   "skip-forward": string;
   spanish: string;
@@ -1021,6 +1023,7 @@ export declare const ICONS: {
   "caret-down": string;
   "caret-up": string;
   "caret-up-down": string;
+  "catalog-card": string;
   "character-panel": string;
   "check-task": string;
   checkbox: string;
@@ -1186,6 +1189,7 @@ export declare const ICONS: {
   share: string;
   "shopping-cart": string;
   "show-video": string;
+  "site-resources": string;
   "skip-back": string;
   "skip-forward": string;
   spanish: string;
