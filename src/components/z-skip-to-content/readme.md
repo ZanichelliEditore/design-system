@@ -15,7 +15,7 @@
 
 ### Depends on
 
-- [z-link](../navigation/z-link)
+- [z-link](../../deprecated/z-link)
 
 ### Graph
 ```mermaid

@@ -49,12 +49,12 @@
 
 ### Used by
 
- - [z-panel-elem](../../panel/z-panel-elem)
- - [z-skip-to-content](../../z-skip-to-content)
+ - [z-panel-elem](../../components/panel/z-panel-elem)
+ - [z-skip-to-content](../../components/z-skip-to-content)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../components/icons/z-icon)
 
 ### Graph
 ```mermaid
