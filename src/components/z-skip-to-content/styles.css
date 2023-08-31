@@ -7,6 +7,16 @@
   background-color: #24f4ff;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  text-align: center;
+
+  --font-size-link: var(--font-size-5);
+  --font-weight-link: var(--font-sb);
+}
+
+:host > .link-container {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
 }
 
 :host.skip-to-content-visible,
@@ -15,18 +25,13 @@
   display: block;
 }
 
-:host > z-link {
-  display: block;
-  text-align: center;
-}
-
-:host > z-link.link-invisible {
+:host > .link-container > a.z-link.link-invisible {
   overflow: hidden;
   width: 0;
   height: 0;
 }
 
-:host > z-link.link-visible {
+:host > .link-container > a.z-link.link-visible {
   width: initial;
   height: initial;
 }
@@ -44,37 +49,36 @@
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
-  :host > z-link {
-    text-align: left;
+  :host {
+    text-align: start;
   }
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host > z-link {
-    display: inline-block;
+  :host > .link-container {
     padding: 0 calc(var(--space-unit) * 3);
     border-right: 1px solid var(--bg-grey-800);
   }
 
-  :host > z-link.link-invisible {
+  :host > .link-container > a.z-link.link-invisible {
     overflow: initial;
     width: initial;
     height: initial;
   }
 
-  :host > z-link:first-child {
+  :host > .link-container:first-child {
     padding-left: 0;
   }
 
-  :host > z-link:last-child,
-  :host.dark > z-link:last-child,
-  :host.light > z-link:last-child {
+  :host > .link-container:last-child,
+  :host.dark > .link-container:last-child,
+  :host.light > .link-container:last-child {
     padding-right: 0;
     border-right: none;
   }
 
-  :host.dark > z-link {
+  :host.dark > .link-container {
     border-right: 1px solid var(--bg-white);
   }
 }
