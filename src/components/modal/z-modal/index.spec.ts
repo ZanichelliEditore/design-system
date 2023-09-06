@@ -21,7 +21,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container" style="overflow: hidden;">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -31,7 +31,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -51,7 +51,7 @@ describe("Suite test ZModal", () => {
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container" id="modal">
+          <div class="modal-container" id="modal"  style="overflow: hidden;">
             <header>
               <div>
                 <h1 id="modal-title">title</h1>
@@ -63,7 +63,7 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -84,7 +84,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container" style="overflow: hidden;">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -94,7 +94,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -115,7 +115,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container" style="overflow: hidden;">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -125,7 +125,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
               <slot name="modalContent"></slot>
             </div>
           </div>
