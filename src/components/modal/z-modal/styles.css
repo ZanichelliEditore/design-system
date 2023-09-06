@@ -179,7 +179,7 @@
     overflow-y: auto;
   }
 
-  .spacer {
+  .modal-spacer {
     height: calc(var(--space-unit) * 6);
     margin: 0 0 calc(var(--space-unit) * 6) 0;
     background: transparent;

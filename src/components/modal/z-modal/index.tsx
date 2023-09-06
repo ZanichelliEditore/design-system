@@ -200,7 +200,7 @@ export class ZModal {
           >
             <slot name="modalContent"></slot>
           </div>
-          {!this.scrollable && <div class="spacer"></div>}
+          {!this.scrollable && <div class="modal-spacer"></div>}
         </div>
         <div
           class={{
