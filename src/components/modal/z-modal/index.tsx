@@ -39,6 +39,10 @@ export class ZModal {
   @Prop()
   closable?: boolean = true;
 
+  /** if true, the modal content is scrollable */
+  @Prop()
+  scrollable?: boolean = true;
+
   private dialog: HTMLDialogElement;
 
   @Element() host: HTMLZModalElement;
@@ -155,6 +159,9 @@ export class ZModal {
   render(): HTMLZModalElement {
     return (
       <dialog
+        class={{
+          "modal-dialog": !this.scrollable,
+        }}
         aria-labelledby="modal-title"
         aria-describedby="modal-content"
         role={this.alertdialog ? "alertdialog" : undefined}
@@ -162,10 +169,21 @@ export class ZModal {
         onClose={() => this.emitModalClose()}
         // @ts-ignore
         onCancel={(e) => this.handleEscape(e)}
+        onClick={() => {
+          this.emitBackgroundClick();
+          this.close();
+        }}
       >
         <div
-          class="modal-container"
+          class={{
+            "modal-container": true,
+            "modal-container-variant": !this.scrollable,
+          }}
+          style={{overflow: this.scrollable ? "hidden" : "initial"}}
           id={this.modalid}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
@@ -178,19 +196,19 @@ export class ZModal {
           <div
             class="modal-content"
             id="modal-content"
+            style={{"--overflow-value": this.scrollable ? "hidden auto" : "initial"}}
           >
             <slot name="modalContent"></slot>
           </div>
+          {!this.scrollable && <div class="spacer"></div>}
         </div>
-
         <div
-          class="modal-background"
+          class={{
+            "modal-background": this.scrollable,
+            "modal-background-variant": !this.scrollable,
+          }}
           data-action="modalBackground"
           data-modal={this.modalid}
-          onClick={() => {
-            this.emitBackgroundClick();
-            this.close();
-          }}
         ></div>
       </dialog>
     );

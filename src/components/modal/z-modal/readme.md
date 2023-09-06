@@ -23,6 +23,7 @@
 | `modalid`          | `modalid`            | unique id                                                     | `string`  | `undefined`       |
 | `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                           | `string`  | `undefined`       |
 | `modaltitle`       | `modaltitle`         | title text (optional)                                         | `string`  | `undefined`       |
+| `scrollable`       | `scrollable`         | if true, the modal content is scrollable                      | `boolean` | `true`            |
 
 
 ## Events

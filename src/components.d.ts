@@ -929,6 +929,10 @@ export namespace Components {
           * open modal
          */
         "open": () => Promise<void>;
+        /**
+          * if true, the modal content is scrollable
+         */
+        "scrollable"?: boolean;
     }
     interface ZMyzCard {
         /**
@@ -3832,6 +3836,10 @@ declare namespace LocalJSX {
           * emitted on modal header click, returns modalid
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
+        /**
+          * if true, the modal content is scrollable
+         */
+        "scrollable"?: boolean;
     }
     interface ZMyzCard {
         /**
