@@ -169,10 +169,6 @@ export class ZModal {
         onClose={() => this.emitModalClose()}
         // @ts-ignore
         onCancel={(e) => this.handleEscape(e)}
-        onClick={() => {
-          this.emitBackgroundClick();
-          this.close();
-        }}
       >
         <div
           class={{
@@ -181,9 +177,6 @@ export class ZModal {
           }}
           style={{overflow: this.scrollable ? "hidden" : "initial"}}
           id={this.modalid}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
@@ -205,6 +198,10 @@ export class ZModal {
         <div
           class={{
             "modal-background": this.scrollable,
+          }}
+          onClick={(_e) => {
+            this.emitBackgroundClick();
+            this.close();
           }}
           data-action="modalBackground"
           data-modal={this.modalid}
