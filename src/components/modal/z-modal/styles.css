@@ -33,6 +33,11 @@
   display: block;
 }
 
+.modal-header {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
 .modal-container {
   z-index: 1010;
   display: flex;
@@ -106,6 +111,8 @@
   overflow: var(--overflow-value);
   flex: 1 auto;
   background: var(--color-surface01);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .modal-container .modal-content::-webkit-scrollbar {

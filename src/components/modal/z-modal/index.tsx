@@ -185,7 +185,10 @@ export class ZModal {
             e.stopPropagation();
           }}
         >
-          <header onClick={this.emitModalHeaderActive.bind(this)}>
+          <header
+            class="modal-header"
+            onClick={this.emitModalHeaderActive.bind(this)}
+          >
             <div>
               {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
               {this.closeButtonSlot()}
