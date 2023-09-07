@@ -87,16 +87,16 @@ export class ZModal {
   /** open modal */
   @Method()
   async open(): Promise<void> {
-    document.body.style.overflow = "hidden";
     this.dialog?.showModal();
+    document.body.style.overflow = "hidden";
   }
 
   /** close modal */
   @Method()
   async close(): Promise<void> {
     if (this.closable) {
-      document.body.style.overflow = "initial";
       this.dialog?.close();
+      document.body.style.overflow = "initial";
     }
   }
 
