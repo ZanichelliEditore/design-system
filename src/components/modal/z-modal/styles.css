@@ -3,10 +3,6 @@
   font-weight: var(--font-rg);
 }
 
-body {
-  overflow: hidden;
-}
-
 :host > dialog {
   padding: 0;
   border: none;

@@ -88,6 +88,7 @@ export class ZModal {
   @Method()
   async open(): Promise<void> {
     this.dialog?.showModal();
+    document.body.style.overflow = "hidden";
   }
 
   /** close modal */
