@@ -33,11 +33,6 @@
   display: block;
 }
 
-.modal-header {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-}
-
 .modal-container {
   z-index: 1010;
   display: flex;
@@ -51,6 +46,8 @@
 .modal-container > header {
   padding: calc(var(--space-unit) * 2 - 2px) calc(var(--space-unit) * 2);
   background: var(--color-surface02);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .modal-container > header button {
@@ -149,12 +146,6 @@
     height: 100%;
     background-color: var(--gray900);
     opacity: 0.7;
-  }
-
-  .modal-background > .modal-background-variant {
-    position: relative;
-    overflow: hidden;
-    width: auto;
   }
 
   .modal-container {

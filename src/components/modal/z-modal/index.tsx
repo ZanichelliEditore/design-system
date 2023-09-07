@@ -185,10 +185,7 @@ export class ZModal {
             e.stopPropagation();
           }}
         >
-          <header
-            class="modal-header"
-            onClick={this.emitModalHeaderActive.bind(this)}
-          >
+          <header onClick={this.emitModalHeaderActive.bind(this)}>
             <div>
               {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
               {this.closeButtonSlot()}
@@ -208,7 +205,6 @@ export class ZModal {
         <div
           class={{
             "modal-background": this.scrollable,
-            "modal-background-variant": !this.scrollable,
           }}
           data-action="modalBackground"
           data-modal={this.modalid}
