@@ -932,7 +932,7 @@ export namespace Components {
         /**
           * if true, the modal content is scrollable
          */
-        "scrollable"?: boolean;
+        "scrollable"?: true;
     }
     interface ZMyzCard {
         /**
@@ -3839,7 +3839,7 @@ declare namespace LocalJSX {
         /**
           * if true, the modal content is scrollable
          */
-        "scrollable"?: boolean;
+        "scrollable"?: true;
     }
     interface ZMyzCard {
         /**

@@ -41,7 +41,7 @@ export class ZModal {
 
   /** if true, the modal content is scrollable */
   @Prop()
-  scrollable?: boolean = true;
+  scrollable?: true;
 
   private dialog: HTMLDialogElement;
 
@@ -88,7 +88,6 @@ export class ZModal {
   @Method()
   async open(): Promise<void> {
     this.dialog?.showModal();
-    document.body.style.overflow = "hidden";
   }
 
   /** close modal */
@@ -96,7 +95,6 @@ export class ZModal {
   async close(): Promise<void> {
     if (this.closable) {
       this.dialog?.close();
-      document.body.style.overflow = "initial";
     }
   }
 
