@@ -22,7 +22,7 @@ describe("Suite test ZModal", () => {
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container" style="overflow: hidden;">
-            <header>
+            <header class="modal-header">
               <div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
@@ -52,7 +52,7 @@ describe("Suite test ZModal", () => {
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container" id="modal"  style="overflow: hidden;">
-            <header>
+            <header class="modal-header">
               <div>
                 <h1 id="modal-title">title</h1>
                 <slot name="modalCloseButton">
@@ -85,7 +85,7 @@ describe("Suite test ZModal", () => {
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container" style="overflow: hidden;">
-            <header>
+            <header class="modal-header">
               <div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
@@ -116,7 +116,7 @@ describe("Suite test ZModal", () => {
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container" style="overflow: hidden;">
-            <header>
+            <header class="modal-header">
               <div>
                 <slot name="modalCloseButton">
                   <button aria-label="chiudi modale">
