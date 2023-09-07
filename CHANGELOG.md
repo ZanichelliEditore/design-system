@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.3](https://github.com/ZanichelliEditore/design-system/compare/v9.2.2...v9.2.3) (2023-09-07)
+
+
+### Bug Fixes
+
+* removes constraint on width actions slot of z-card ([d9003bb](https://github.com/ZanichelliEditore/design-system/commit/d9003bb1053f4c96fd82c74a9e1d374604c2b029))
+
 ### [9.2.2](https://github.com/ZanichelliEditore/design-system/compare/v9.2.1...v9.2.2) (2023-08-29)
 
 ### [9.2.1](https://github.com/ZanichelliEditore/design-system/compare/v9.2.0...v9.2.1) (2023-08-03)
