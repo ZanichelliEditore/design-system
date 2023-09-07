@@ -152,6 +152,7 @@
     position: fixed;
     top: calc(var(--space-unit) * 6);
     left: 50%;
+    overflow: hidden;
     width: auto;
     min-width: calc(var(--space-unit) * 40);
     height: auto;
@@ -159,7 +160,6 @@
     max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
     border-radius: var(--border-radius);
     transform: translateX(-50%);
-    overflow: hidden;
   }
 
   .modal-container-variant {
