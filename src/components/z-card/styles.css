@@ -121,7 +121,6 @@ Unfortunately the `aspect-ratio` property is still experimental */
   position: relative;
   z-index: 2;
   display: flex;
-  width: fit-content;
   flex-direction: row;
   align-items: center;
 }
