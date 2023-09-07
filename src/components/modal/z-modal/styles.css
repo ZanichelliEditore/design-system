@@ -159,12 +159,14 @@
     max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
     border-radius: var(--border-radius);
     transform: translateX(-50%);
+    overflow: hidden;
   }
 
   .modal-container-variant {
     position: absolute;
     top: calc(var(--space-unit) * 6);
     display: block;
+    overflow: initial;
   }
 
   .modal-dialog {
