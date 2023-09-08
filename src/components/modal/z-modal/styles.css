@@ -110,6 +110,7 @@
   background: var(--color-surface01);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  filter: blur(0);
 }
 
 .modal-container .modal-content::-webkit-scrollbar {
@@ -142,10 +143,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
     background-color: var(--gray900);
     opacity: 0.7;
+  }
+
+  .modal-background-variant {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
   }
 
   .modal-container {

@@ -41,7 +41,7 @@ export class ZModal {
 
   /** if true, the modal content is scrollable */
   @Prop()
-  scrollable?: true;
+  scrollable?: boolean = true;
 
   private dialog: HTMLDialogElement;
 
@@ -175,7 +175,6 @@ export class ZModal {
             "modal-container": true,
             "modal-container-variant": !this.scrollable,
           }}
-          style={{overflow: this.scrollable ? "hidden" : "initial"}}
           id={this.modalid}
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
@@ -198,13 +197,14 @@ export class ZModal {
         <div
           class={{
             "modal-background": this.scrollable,
-          }}
-          onClick={(_e) => {
-            this.emitBackgroundClick();
-            this.close();
+            "modal-background-variant": !this.scrollable,
           }}
           data-action="modalBackground"
           data-modal={this.modalid}
+          onClick={() => {
+            this.emitBackgroundClick();
+            this.close();
+          }}
         ></div>
       </dialog>
     );
