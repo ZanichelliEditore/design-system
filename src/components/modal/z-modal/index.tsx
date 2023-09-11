@@ -186,9 +186,11 @@ export class ZModal {
           </header>
 
           <div
-            class="modal-content"
+            class={{
+              "modal-content": this.scrollable,
+              "modal-content-variant": !this.scrollable,
+            }}
             id="modal-content"
-            style={{"--overflow-value": this.scrollable ? "hidden auto" : "initial"}}
           >
             <slot name="modalContent"></slot>
           </div>

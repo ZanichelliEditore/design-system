@@ -103,14 +103,19 @@
 }
 
 .modal-container > .modal-content {
-  --overflow-value: hidden auto;
-
-  overflow: var(--overflow-value);
+  overflow: hidden auto;
   flex: 1 auto;
   background: var(--color-surface01);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   filter: blur(0);
+}
+
+.modal-container > .modal-content-variant {
+  overflow: initial;
+  background: var(--color-surface01);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .modal-container .modal-content::-webkit-scrollbar {
