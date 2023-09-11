@@ -177,6 +177,12 @@
     overflow: initial;
   }
 
+  .modal-container-variant::after {
+    display: block;
+    height: calc(var(--space-unit) * 6);
+    content: " ";
+  }
+
   .modal-dialog {
     position: fixed;
     top: 0;
@@ -189,10 +195,6 @@
 
   .modal-dialog::-webkit-scrollbar {
     display: none;
-  }
-
-  .modal-spacer {
-    height: calc(var(--space-unit) * 6);
   }
 
   .modal-container > header z-icon {
