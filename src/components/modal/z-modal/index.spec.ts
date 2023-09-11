@@ -98,7 +98,6 @@ describe("Suite test ZModal", () => {
             <div class="modal-content" id="modal-content" style="--overflow-value: initial;">
               <slot name="modalContent"></slot>
             </div>
-              <div class="modal-spacer"></div>
           </div>
               <div class="modal-background-variant" data-action="modalBackground" data-modal="modal"></div>
         </div>
