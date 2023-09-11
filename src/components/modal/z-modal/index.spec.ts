@@ -31,7 +31,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -63,7 +63,7 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -95,7 +95,7 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content" id="modal-content" style="--overflow-value: initial;">
+            <div class="modal-content-variant" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -128,7 +128,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -159,7 +159,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content" style="--overflow-value: hidden auto;">
+            <div class="modal-content" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
