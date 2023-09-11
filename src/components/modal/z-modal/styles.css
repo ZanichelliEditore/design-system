@@ -188,7 +188,7 @@
     top: 0;
     left: 0;
     height: auto;
-    background-color: #292929b3;
+    background: color-mix(in oklch, var(--gray900), transparent 30%);
     overflow-x: hidden;
     overflow-y: auto;
   }
