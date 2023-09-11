@@ -187,6 +187,10 @@
     overflow-y: auto;
   }
 
+  .modal-dialog::-webkit-scrollbar {
+    display: none;
+  }
+
   .modal-spacer {
     height: calc(var(--space-unit) * 6);
   }
