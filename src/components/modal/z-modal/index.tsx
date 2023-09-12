@@ -198,7 +198,7 @@ export class ZModal {
         </div>
         <div
           class={{
-            "modal-background-scroll-inside": true,
+            "modal-background": true,
             "modal-background-scroll-outside": !this.scrollInside,
           }}
           data-action="modalBackground"

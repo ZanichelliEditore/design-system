@@ -138,7 +138,7 @@
 
 /* Tablet / Desktop */
 @media only screen and (min-width: 768px) {
-  .modal-background-scroll-inside {
+  .modal-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -149,7 +149,7 @@
     opacity: 0.7;
   }
 
-  .modal-background-scroll-inside.modal-background-scroll-outside {
+  .modal-background.modal-background-scroll-outside {
     position: sticky;
   }
 
