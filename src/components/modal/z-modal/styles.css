@@ -109,7 +109,6 @@
   overflow: hidden auto;
   flex: 1 auto;
   background: var(--color-surface01);
-  filter: blur(0);
 }
 
 .modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar,
