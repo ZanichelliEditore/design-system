@@ -16,11 +16,6 @@
   align-items: center;
 }
 
-:host > .link-container > a {
-  font-size: var(--font-size-5);
-  font-weight: var(--font-sb);
-}
-
 :host.skip-to-content-visible,
 :host:focus {
   position: static;
