@@ -930,9 +930,9 @@ export namespace Components {
          */
         "open": () => Promise<void>;
         /**
-          * if true, the modal content is scrollable
+          * if true, the modal can scroll inside, if false the viewport can scroll
          */
-        "scrollable"?: boolean;
+        "scrollInside"?: boolean;
     }
     interface ZMyzCard {
         /**
@@ -3837,9 +3837,9 @@ declare namespace LocalJSX {
          */
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
         /**
-          * if true, the modal content is scrollable
+          * if true, the modal can scroll inside, if false the viewport can scroll
          */
-        "scrollable"?: boolean;
+        "scrollInside"?: boolean;
     }
     interface ZMyzCard {
         /**

@@ -39,9 +39,9 @@ export class ZModal {
   @Prop()
   closable?: boolean = true;
 
-  /** if true, the modal content is scrollable */
+  /** if true, the modal can scroll inside, if false the viewport can scroll */
   @Prop()
-  scrollable?: boolean = true;
+  scrollInside?: boolean = true;
 
   private dialog: HTMLDialogElement;
 
@@ -160,7 +160,7 @@ export class ZModal {
     return (
       <dialog
         class={{
-          "modal-dialog": !this.scrollable,
+          "modal-dialog": !this.scrollInside,
         }}
         aria-labelledby="modal-title"
         aria-describedby="modal-content"
@@ -173,7 +173,8 @@ export class ZModal {
         <div
           class={{
             "modal-container": true,
-            "modal-container-variant": !this.scrollable,
+            "modal-container-scroll-inside": this.scrollInside,
+            "modal-container-scroll-outside": !this.scrollInside,
           }}
           id={this.modalid}
         >
@@ -187,8 +188,8 @@ export class ZModal {
 
           <div
             class={{
-              "modal-content": this.scrollable,
-              "modal-content-variant": !this.scrollable,
+              "modal-content-scroll-inside": this.scrollInside,
+              "modal-content-scroll-outside": !this.scrollInside,
             }}
             id="modal-content"
           >
@@ -197,8 +198,8 @@ export class ZModal {
         </div>
         <div
           class={{
-            "modal-background": this.scrollable,
-            "modal-background-variant": !this.scrollable,
+            "modal-background-scroll-inside": true,
+            "modal-background-scroll-outside": !this.scrollInside,
           }}
           data-action="modalBackground"
           data-modal={this.modalid}

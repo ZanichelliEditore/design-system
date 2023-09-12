@@ -7,6 +7,7 @@
   padding: 0;
   border: none;
   margin: 0;
+  background-color: transparent;
 }
 
 /* stylelint-disable selector-pseudo-class-no-unknown */
@@ -37,17 +38,19 @@
   z-index: 1010;
   display: flex;
   overflow: -moz-scrollbars-none;
-  overflow: hidden;
   width: 100%;
   height: 100vh;
   flex-direction: column;
 }
 
+.modal-container > .modal-content-scroll-outside {
+  overflow: auto;
+  background: var(--color-surface01);
+}
+
 .modal-container > header {
   padding: calc(var(--space-unit) * 2 - 2px) calc(var(--space-unit) * 2);
   background: var(--color-surface02);
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
 }
 
 .modal-container > header button {
@@ -102,49 +105,40 @@
   margin-top: calc(var(--space-unit) * 0.5);
 }
 
-.modal-container > .modal-content {
+.modal-container-scroll-inside > .modal-content-scroll-inside {
   overflow: hidden auto;
   flex: 1 auto;
   background: var(--color-surface01);
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
   filter: blur(0);
 }
 
-.modal-container > .modal-content-variant {
-  overflow: initial;
-  background: var(--color-surface01);
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-}
-
-.modal-container .modal-content::-webkit-scrollbar {
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar {
   width: 10px;
   background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 
-.modal-container .modal-content::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.modal-container .modal-content::-webkit-scrollbar-thumb {
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar-thumb,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: var(--color-primary01);
 }
 
-.modal-container .modal-content::-webkit-scrollbar-thumb:hover {
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar-thumb:hover,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover-primary);
 }
 
 /* Firefox */
-.modal-container .modal-content {
+.modal-container-scroll-inside .modal-content-scroll-inside,
+.modal-container-scroll-outside .modal-content-scroll-outside {
   scrollbar-color: var(--color-primary01) transparent;
 }
 
 /* Tablet / Desktop */
 @media only screen and (min-width: 768px) {
-  .modal-background {
+  .modal-background-scroll-inside {
     position: fixed;
     top: 0;
     left: 0;
@@ -155,13 +149,11 @@
     opacity: 0.7;
   }
 
-  .modal-background-variant {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+  .modal-background-scroll-inside.modal-background-scroll-outside {
+    position: sticky;
   }
 
-  .modal-container {
+  .modal-container-scroll-inside {
     position: fixed;
     top: calc(var(--space-unit) * 6);
     left: 50%;
@@ -175,14 +167,30 @@
     transform: translateX(-50%);
   }
 
-  .modal-container-variant {
+  .modal-container-scroll-outside {
     position: absolute;
     top: calc(var(--space-unit) * 6);
+    left: 50%;
     display: block;
+    overflow: initial;
+    width: auto;
+    min-width: calc(var(--space-unit) * 40);
+    height: auto;
+    min-height: calc(var(--space-unit) * 40);
+    max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
+    transform: translateX(-50%);
+  }
+
+  .modal-container > .modal-content-scroll-outside {
     overflow: initial;
   }
 
-  .modal-container-variant::after {
+  .modal-container-scroll-outside > header {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .modal-container-scroll-outside::after {
     display: block;
     height: calc(var(--space-unit) * 6);
     content: " ";
@@ -193,9 +201,18 @@
     top: 0;
     left: 0;
     height: auto;
-    background: color-mix(in oklch, var(--gray900), transparent 30%);
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  .modal-content-scroll-outside {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .modal-container-scroll-inside > header {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
   }
 
   .modal-dialog::-webkit-scrollbar {

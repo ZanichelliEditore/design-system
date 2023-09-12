@@ -21,7 +21,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -31,11 +31,11 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
-          <div class="modal-background" data-action="modalBackground"></div>
+          <div class="modal-background-scroll-inside" data-action="modalBackground"></div>
         </dialog>
         </mock:shadow-root>
       </z-modal>
@@ -51,7 +51,7 @@ describe("Suite test ZModal", () => {
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container" id="modal">
+          <div class="modal-container modal-container-scroll-inside" id="modal">
             <header>
               <div>
                 <h1 id="modal-title">title</h1>
@@ -63,11 +63,11 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
-          <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
+          <div class="modal-background-scroll-inside" data-action="modalBackground" data-modal="modal"></div>
         </dialog>
         </mock:shadow-root>
       </z-modal>
@@ -82,8 +82,8 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scrollable="false">
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" class="modal-dialog" open="true">
-          <div class="modal-container modal-container-variant" id="modal">
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+          <div class="modal-container modal-container-scroll-inside" id="modal">
             <header>
               <div>
                 <h1 id="modal-title">title</h1>
@@ -95,11 +95,11 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content-variant" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
-              <div class="modal-background-variant" data-action="modalBackground" data-modal="modal"></div>
+              <div class="modal-background-scroll-inside" data-action="modalBackground" data-modal="modal"></div>
         </div>
       </div>
     </dialog>
@@ -118,7 +118,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -128,11 +128,11 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
-          <div class="modal-background" data-action="modalBackground"></div>
+          <div class="modal-background-scroll-inside" data-action="modalBackground"></div>
         </dialog>
         </mock:shadow-root>
         <div slot="modalContent">Contenuto dello <b>slot</b></div>
@@ -149,7 +149,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -159,11 +159,11 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
-          <div class="modal-background" data-action="modalBackground"></div>
+          <div class="modal-background-scroll-inside" data-action="modalBackground"></div>
         </dialog>
         </mock:shadow-root>
         <div slot="modalContent">Contenuto dello <b>slot</b></div>
