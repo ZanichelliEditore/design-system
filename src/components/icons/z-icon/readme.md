@@ -49,7 +49,7 @@
  - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
  - [z-input-message](../../inputs/z-input-message)
- - [z-link](../../navigation/z-link)
+ - [z-link](../../../deprecated/z-link)
  - [z-list-element](../../list/z-list-element)
  - [z-menu](../../navigation/z-menu)
  - [z-menu-section](../../navigation/z-menu-section)

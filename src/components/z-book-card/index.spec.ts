@@ -121,7 +121,7 @@ describe("Suite test ZBookCard", () => {
       html: `<z-book-card variant="expanded">
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link" slot="resources">Resource link</a>
       </z-book-card>`,
     });
     expect(page.root).toEqualHtml(`
@@ -159,7 +159,7 @@ describe("Suite test ZBookCard", () => {
         </mock:shadow-root>
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link" slot="resources">Resource link</a>
       </z-book-card>
     `);
   });
@@ -226,7 +226,7 @@ describe("Suite test ZBookCard", () => {
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link" slot="resources">Resource link</a>
       </z-book-card>`,
     });
     expect(page.root).toEqualHtml(`
@@ -265,7 +265,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link"slot="resources">Resource link</a>
       </z-book-card>
     `);
   });
@@ -275,7 +275,7 @@ describe("Suite test ZBookCard", () => {
     const page = await newSpecPage({
       components: [ZBookCard],
       html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link" slot="resources">Resource link</a>
       </z-book-card>`,
     });
     page.rootInstance.showResources = true;
@@ -316,7 +316,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-        <z-link slot="resources">Resource link</z-link>
+        <a class="z-link" slot="resources">Resource link</a>
       </z-book-card>
     `);
   });

@@ -49,19 +49,17 @@
 
 ### Used by
 
- - [z-panel-elem](../../panel/z-panel-elem)
- - [z-skip-to-content](../../z-skip-to-content)
+ - [z-panel-elem](../../components/panel/z-panel-elem)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../components/icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   z-link --> z-icon
   z-panel-elem --> z-link
-  z-skip-to-content --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

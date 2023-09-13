@@ -11,20 +11,6 @@
 | `variant` | `variant` | Graphical variant: `dark`, `light`.  | `ThemeVariant.DARK \| ThemeVariant.LIGHT` | `undefined` |
 
 
-## Dependencies
-
-### Depends on
-
-- [z-link](../navigation/z-link)
-
-### Graph
-```mermaid
-graph TD;
-  z-skip-to-content --> z-link
-  z-link --> z-icon
-  style z-skip-to-content fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
