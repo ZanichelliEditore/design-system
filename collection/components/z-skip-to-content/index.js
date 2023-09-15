@@ -50,7 +50,15 @@ export class ZSkipToContent {
         "skip-to-content-visible": this.visible,
       } }, this.links.map((link, i) => {
       const id = `skip-to-content-${i}`;
-      return (h("z-link", { id: id, underline: true, "aria-label": link.ariaLabel || link.label, class: `body-1-sb ${id == this.visibleLink ? "link-visible" : "link-invisible"}`, href: link.href, textcolor: this.variant === ThemeVariant.DARK ? "white" : "black", onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label));
+      return (h("div", { class: "link-container" }, h("a", { id: id, class: {
+          "body-1-sb": true,
+          "z-link": true,
+          "z-link-underline": true,
+          "z-link-white": this.variant === ThemeVariant.DARK,
+          "z-link-black": this.variant !== ThemeVariant.DARK,
+          "link-visible": id == this.visibleLink,
+          "link-invisible": id != this.visibleLink,
+        }, "aria-label": link.ariaLabel || link.label, href: link.href, onFocus: () => (this.visibleLink = id), onClick: () => this.handleLinkClick(), onKeyUp: (e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this)) }, link.label)));
     })));
   }
   static get is() { return "z-skip-to-content"; }
