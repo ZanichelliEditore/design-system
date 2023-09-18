@@ -184,7 +184,8 @@
     overflow: initial;
   }
 
-  .modal-container-scroll-outside > header {
+  .modal-container-scroll-outside > header,
+  .modal-container-scroll-inside > header {
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
   }
@@ -207,11 +208,6 @@
   .modal-content-scroll-outside {
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
-  }
-
-  .modal-container-scroll-inside > header {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
   }
 
   .modal-dialog::-webkit-scrollbar {
