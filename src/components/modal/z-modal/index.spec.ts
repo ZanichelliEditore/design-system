@@ -21,7 +21,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -31,7 +31,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -51,7 +51,7 @@ describe("Suite test ZModal", () => {
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container" id="modal">
+          <div class="modal-container modal-container-scroll-inside" id="modal">
             <header>
               <div>
                 <h1 id="modal-title">title</h1>
@@ -63,7 +63,7 @@ describe("Suite test ZModal", () => {
               </div>
               <h2 id="modal-subtitle">subtitle</h2>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -72,6 +72,74 @@ describe("Suite test ZModal", () => {
         </mock:shadow-root>
       </z-modal>
     `);
+  });
+
+  it("Test render ZModal with prop scrollable set to true", async () => {
+    const page = await newSpecPage({
+      components: [ZModal],
+      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="true"></z-modal>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="true">
+        <mock:shadow-root>
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+          <div class="modal-container modal-container-scroll-inside" id="modal">
+            <header>
+              <div>
+                <h1 id="modal-title">title</h1>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
+              </div>
+              <h2 id="modal-subtitle">subtitle</h2>
+            </header>
+            <div class="modal-content-scroll-inside" id="modal-content">
+              <slot name="modalContent"></slot>
+            </div>
+          </div>
+              <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
+        </div>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</z-modal>
+`);
+  });
+
+  it("Test render ZModal with prop scrollable set to false", async () => {
+    const page = await newSpecPage({
+      components: [ZModal],
+      html: `<z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="false"></z-modal>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="false">
+        <mock:shadow-root>
+        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" class="modal-dialog" open="true">
+          <div class="modal-container modal-container-scroll-outside" id="modal">
+            <header>
+              <div>
+                <h1 id="modal-title">title</h1>
+                <slot name="modalCloseButton">
+                  <button aria-label="chiudi modale">
+                    <z-icon name="multiply-circle-filled"></z-icon>
+                  </button>
+                </slot>
+              </div>
+              <h2 id="modal-subtitle">subtitle</h2>
+            </header>
+            <div class="modal-content-scroll-outside" id="modal-content">
+              <slot name="modalContent"></slot>
+            </div>
+          </div>
+              <div class="modal-background modal-background-scroll-outside" data-action="modalBackground" data-modal="modal"></div>
+        </div>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</z-modal>
+`);
   });
 
   it("Test render ZModal with slotted content", async () => {
@@ -84,7 +152,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -94,7 +162,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>
@@ -115,7 +183,7 @@ describe("Suite test ZModal", () => {
       <z-modal>
         <mock:shadow-root>
         <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
-          <div class="modal-container">
+          <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
                 <slot name="modalCloseButton">
@@ -125,7 +193,7 @@ describe("Suite test ZModal", () => {
                 </slot>
               </div>
             </header>
-            <div class="modal-content" id="modal-content">
+            <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
             </div>
           </div>

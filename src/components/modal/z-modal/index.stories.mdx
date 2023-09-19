@@ -25,6 +25,9 @@ import "./index.stories.css";
     closable: {
       control: {type: "boolean"},
     },
+    scrollInside: {
+      control: {type: "boolean"},
+    },
   }}
   args={{
     modalid: "my-modal",
@@ -33,6 +36,7 @@ import "./index.stories.css";
     closeButtonLabel: "chiudi modale",
     alertdialog: false,
     closable: true,
+    scrollInside: true,
   }}
   decorators={[
     (Story) => html`
@@ -64,6 +68,7 @@ import "./index.stories.css";
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
         closable=${args.closable}
+        scroll-inside=${args.scrollInside}
       >
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -89,9 +94,15 @@ import "./index.stories.css";
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
         closable=${args.closable}
+        scroll-inside=${args.scrollInside}
       >
         <div slot="modalContent">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
+          <z-date-picker
+            date-picker-id="cicciaCulo"
+            ariaLabel="stringaQualsiasi"
+            label="ancheLi"
+          ></z-date-picker>
+          Provaaaaa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
           Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne
           ergo in vita summum bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul,
           orbus, egens, torqueatur eculeo: quem hunc appellas, Zeno? Nam memini etiam quae nolo, oblivisci non possum
@@ -189,6 +200,24 @@ import "./index.stories.css";
           secunda iucunde ac suaviter meminerimus. Quin etiam ferae, inquit Pacuvius, quíbus abest, ad praécavendum
           intéllegendi astútia, iniecto terrore mortis horrescunt. Nihil enim hoc differt. Bonum liberi: misera orbitas.
           Quare attende, quaeso. Quod cum dixissent, ille contra.
+          <z-select
+            items='[{"id":"item_1","name":"first item","selected":false},{"id":"item_2","name":"second item","selected":true},{"id":"item_3","name":"disabled item","selected":false,"disabled":true},{"id":"item_4","name":"fourth item","selected":false}]'
+            label="this is the label"
+            aria-label=""
+            placeholder="select placeholder"
+            name=""
+            status="-"
+            message="helper text"
+            autocomplete="false"
+            noresultslabel="Nessun risultato"
+            disabled="false"
+            readonly="false"
+            htmlid=""
+            htmltitle=""
+            reset-item=""
+            isfixed="false"
+            size="big"
+          ></z-select>
         </div>
       </z-modal>
       <z-button onclick="openZModal()">apri modale</z-button>
@@ -209,6 +238,7 @@ import "./index.stories.css";
         close-button-label=${args.closeButtonLabel}
         alertdialog=${args.alertdialog}
         closable=${args.closable}
+        scroll-inside=${args.scrollInside}
       >
         <div slot="modalContent">
           <div>Contenuto dello <b>slot</b></div>

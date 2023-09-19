@@ -39,6 +39,10 @@ export class ZModal {
   @Prop()
   closable?: boolean = true;
 
+  /** if true, the modal can scroll inside, if false the viewport can scroll */
+  @Prop()
+  scrollInside?: boolean = true;
+
   private dialog: HTMLDialogElement;
 
   @Element() host: HTMLZModalElement;
@@ -155,6 +159,9 @@ export class ZModal {
   render(): HTMLZModalElement {
     return (
       <dialog
+        class={{
+          "modal-dialog": !this.scrollInside,
+        }}
         aria-labelledby="modal-title"
         aria-describedby="modal-content"
         role={this.alertdialog ? "alertdialog" : undefined}
@@ -164,7 +171,11 @@ export class ZModal {
         onCancel={(e) => this.handleEscape(e)}
       >
         <div
-          class="modal-container"
+          class={{
+            "modal-container": true,
+            "modal-container-scroll-inside": this.scrollInside,
+            "modal-container-scroll-outside": !this.scrollInside,
+          }}
           id={this.modalid}
         >
           <header onClick={this.emitModalHeaderActive.bind(this)}>
@@ -176,15 +187,20 @@ export class ZModal {
           </header>
 
           <div
-            class="modal-content"
+            class={{
+              "modal-content-scroll-inside": this.scrollInside,
+              "modal-content-scroll-outside": !this.scrollInside,
+            }}
             id="modal-content"
           >
             <slot name="modalContent"></slot>
           </div>
         </div>
-
         <div
-          class="modal-background"
+          class={{
+            "modal-background": true,
+            "modal-background-scroll-outside": !this.scrollInside,
+          }}
           data-action="modalBackground"
           data-modal={this.modalid}
           onClick={() => {
