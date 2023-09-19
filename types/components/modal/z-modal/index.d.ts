@@ -16,6 +16,8 @@ export declare class ZModal {
   alertdialog?: boolean;
   /** if true, the modal is closable (optional, default is true) */
   closable?: boolean;
+  /** if true, the modal can scroll inside, if false the viewport can scroll */
+  scrollInside?: boolean;
   private dialog;
   host: HTMLZModalElement;
   /** emitted on close button click, returns modalid */
