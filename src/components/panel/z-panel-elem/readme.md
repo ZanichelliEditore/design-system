@@ -57,13 +57,12 @@
 
 ### Depends on
 
-- [z-link](../../../deprecated/z-link)
+- [z-icon](../../icons/z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-panel-elem --> z-link
-  z-link --> z-icon
+  z-panel-elem --> z-icon
   style z-panel-elem fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
