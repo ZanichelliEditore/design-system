@@ -6,7 +6,8 @@ import {Component, Prop, h} from "@stencil/core";
 @Component({
   tag: "z-panel-elem",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZPanelElem {
   /** html element id (optional) */
@@ -83,18 +84,27 @@ export class ZPanelElem {
           </div>
         )}
         <div class="panel-elem-link">
-          <z-link
+          <a
+            class={{
+              "z-link": true,
+              "z-link-disabled": this.isdisabled,
+              "z-link-icon": true,
+            }}
+            id={elemId + "link_id"}
             href={this.url}
-            icon={this.linkicon}
-            isdisabled={this.isdisabled}
             target={this.target}
-            htmlid={elemId + "link_id"}
           >
+            <z-icon
+              class="z-link-icon-left"
+              height={14}
+              width={14}
+              name={this.linkicon}
+            ></z-icon>
             {this.linklabel}
-          </z-link>
+          </a>
         </div>
         {this.descrSlotName && (
-          <div class="panel-elem-desc body-long-01">
+          <div class="panel-elem-desc">
             <slot name={this.descrSlotName} />
           </div>
         )}

@@ -47,10 +47,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [z-panel-elem](../../components/panel/z-panel-elem)
-
 ### Depends on
 
 - [z-icon](../../components/icons/z-icon)
@@ -59,7 +55,6 @@
 ```mermaid
 graph TD;
   z-link --> z-icon
-  z-panel-elem --> z-link
   style z-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
