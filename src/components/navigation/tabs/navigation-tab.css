@@ -38,7 +38,8 @@ z-navigation-tab-link *::after {
 
 z-navigation-tab > *:focus:focus-visible,
 z-navigation-tab-link > *:focus:focus-visible {
-  box-shadow: inset var(--shadow-focus-primary);
+  z-index: 1;
+  box-shadow: inset 0 0 4px 3px var(--color-highlight);
 }
 
 z-navigation-tab:not([disabled]):hover > *,

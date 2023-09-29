@@ -76,14 +76,17 @@ export class ZNavigationTabs {
     return this.orientation == NavigationTabsOrientation.HORIZONTAL ? "Width" : "Height";
   }
 
+  get tabs(): (HTMLZNavigationTabElement | HTMLZNavigationTabLinkElement)[] {
+    return Array.from(this.host.children) as (HTMLZNavigationTabElement | HTMLZNavigationTabLinkElement)[];
+  }
+
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
    */
   @Watch("size")
   setChildrenSize(): void {
-    const children = Array.from(this.host.children);
-    children.forEach((child) => {
-      child.setAttribute("size", this.size);
+    this.tabs.forEach((tab) => {
+      tab.size = this.size;
     });
   }
 
@@ -92,9 +95,8 @@ export class ZNavigationTabs {
    */
   @Watch("orientation")
   setChildrenOrientation(): void {
-    const children = Array.from(this.host.children);
-    children.forEach((child) => {
-      child.setAttribute("orientation", this.orientation);
+    this.tabs.forEach((tab) => {
+      tab.orientation = this.orientation;
     });
   }
 
@@ -133,11 +135,10 @@ export class ZNavigationTabs {
    */
   @Listen("selected")
   onTabSelected(event: CustomEvent): void {
-    const tab = event.target;
-    const children = Array.from(this.host.children);
-    children.forEach((child, i) => {
-      if (child !== tab) {
-        child.removeAttribute("selected");
+    const selectedTab = event.target;
+    this.tabs.forEach((tab, i) => {
+      if (tab !== selectedTab) {
+        tab.selected = undefined;
       } else {
         this.tabFocus = i;
       }
@@ -166,21 +167,20 @@ export class ZNavigationTabs {
   }
 
   /**
-   * move focus though tabs using keyboad arrows.
+   * Move focus through tabs using keyboard arrows.
+   * When `TAB` is pressed, focus the currently selected tab, if any.
    */
   @Listen("keydown")
   private navigateThroughTabs(e: KeyboardEvent): void | boolean {
-    const children = Array.from(this.host.children);
-
+    const tabs = this.tabs;
     if (e.key === KeyboardCode.TAB) {
-      children.forEach((child, i) => {
-        if (
-          child.hasAttribute("selected") &&
-          (e.target as HTMLButtonElement)?.offsetParent?.nodeName === "Z-NAVIGATION-TABS"
-        ) {
+      tabs.forEach((tab, i) => {
+        if (tab.selected && tabs.some((tab) => tab === e.target)) {
           this.tabFocus = i;
         }
       });
+      (tabs[this.tabFocus].children[0] as HTMLElement).tabIndex = 0;
+      (tabs[this.tabFocus].children[0] as HTMLElement).focus();
 
       return;
     }
@@ -190,14 +190,14 @@ export class ZNavigationTabs {
     }
 
     e.preventDefault();
-    children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "-1");
+    (tabs[this.tabFocus].children[0] as HTMLElement).tabIndex = -1;
     // Move forward
     if (
       (e.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
       (e.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
     ) {
       this.tabFocus++;
-      if (this.tabFocus >= children.length) {
+      if (this.tabFocus >= tabs.length) {
         this.tabFocus = 0;
       }
       // Move backward
@@ -207,45 +207,36 @@ export class ZNavigationTabs {
     ) {
       this.tabFocus--;
       if (this.tabFocus < 0) {
-        this.tabFocus = children.length - 1;
+        this.tabFocus = tabs.length - 1;
       }
     }
-    //ignore disabled tabs
-    if (children[this.tabFocus].querySelector('[role="tab"]').hasAttribute("disabled")) {
+    // ignore disabled tabs
+    if (tabs[this.tabFocus].disabled) {
       this.navigateThroughTabs(e);
     } else {
-      children[this.tabFocus].querySelector('[role="tab"]').setAttribute("tabindex", "0");
-      (children[this.tabFocus].querySelector('[role="tab"]') as HTMLElement).focus();
+      (tabs[this.tabFocus].children[0] as HTMLElement).tabIndex = 0;
+      (tabs[this.tabFocus].children[0] as HTMLElement).focus();
     }
   }
 
   /**
-   * move focus though tabs using keyboad arrows.
+   * Check if a keyboard event was triggered by an arrow key.
    */
   private isArrowNavigation(e: KeyboardEvent): boolean {
-    return !!Object.keys(NavigationTabsKeyboardEvents).find((key) => NavigationTabsKeyboardEvents[key] === e.key);
-  }
-
-  private setTabindex(): void {
-    const children = Array.from(this.host.children);
-    if (children.length > 0) {
-      children.forEach((child, i) => {
-        child.hasAttribute("aria-selected") && (this.tabFocus = i);
-        child.querySelector('[role="tab"]')?.setAttribute("tabindex", "-1");
-      });
-      children[this.tabFocus].querySelector('[role="tab"]')?.setAttribute("tabindex", "0");
-    }
-  }
-
-  componentWillLoad(): void {
-    this.tabFocus = 0;
+    return Object.values(NavigationTabsKeyboardEvents).includes(e.key as NavigationTabsKeyboardEvents);
   }
 
   componentDidRender(): void {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
-    this.setTabindex();
+    if (!this.tabFocus) {
+      this.tabFocus = 0;
+      const tabChild = this.tabs[this.tabFocus].children[0] as HTMLElement;
+      if (tabChild) {
+        tabChild.tabIndex = 0;
+      }
+    }
   }
 
   render(): HTMLZNavigationTabsElement {
@@ -277,6 +268,7 @@ export class ZNavigationTabs {
           aria-label={this.ariaLabel}
           ref={(el) => (this.tabsNav = el ?? this.tabsNav)}
           onScroll={this.checkScrollEnabled.bind(this)}
+          aria-orientation={this.orientation}
         >
           <slot></slot>
         </nav>
