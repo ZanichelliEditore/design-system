@@ -292,9 +292,7 @@ export class ZBreadcrumb {
               this.popoverEllipsisOpen = false;
             }
           }}
-          innerHTML={
-            mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon> ${item.text}` : item.text
-          }
+          innerHTML={mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon>${item.text}` : item.text}
         />
       </li>
     );
