@@ -1,9 +1,11 @@
-import {Component, Prop, h, Listen, Event, EventEmitter, Watch} from "@stencil/core";
+import {Component, Prop, h, Listen, Event, EventEmitter, Watch, Host} from "@stencil/core";
 import {NavigationTabsOrientation, NavigationTabsSize} from "../../../../beans";
 import {ICONS} from "../../../icons/icons";
 
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * This component uses the `tab` role:
+ * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
  */
 @Component({
   tag: "z-navigation-tab",
@@ -11,15 +13,19 @@ import {ICONS} from "../../../icons/icons";
 })
 export class ZNavigationTab {
   /**
-   * The aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab.
-   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+   * `aria-controls` attribute of the tab.
+   * Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.
+   * The value must be the `id` of the element it controls.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
    */
   @Prop()
   ariaControls?: string;
 
   /**
-   * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
-   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+   * `id` attribute of the tab.
+   * Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+   * @deprecated Use native `id` attribute instead
    */
   @Prop()
   tabId?: string;
@@ -77,10 +83,11 @@ export class ZNavigationTab {
    * Scroll into view to center the tab.
    */
   private scrollToTab({target: button}): void {
-    const scrollOptions =
+    const scrollOptions = (
       this.orientation === NavigationTabsOrientation.HORIZONTAL
-        ? ({block: "nearest", inline: "center"} as ScrollIntoViewOptions)
-        : ({block: "center", inline: "nearest"} as ScrollIntoViewOptions);
+        ? {block: "nearest", inline: "center"}
+        : {block: "center", inline: "nearest"}
+    ) as ScrollIntoViewOptions;
 
     button.scrollIntoView({
       behavior: "smooth",
@@ -118,21 +125,24 @@ export class ZNavigationTab {
     return <z-icon name={icon}></z-icon>;
   }
 
-  render(): HTMLButtonElement {
+  render(): HTMLZNavigationTabElement {
     return (
-      <button
+      <Host
         role="tab"
         id={this.tabId}
-        disabled={this.disabled}
-        title={this.htmlTitle}
-        onFocus={this.scrollToTab.bind(this)}
         aria-selected={this.selected ? "true" : "false"}
         aria-controls={this.ariaControls}
-        tabindex={this.selected ? "0" : "-1"}
       >
-        {this.icon && this.renderIcon()}
-        {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}
-      </button>
+        <button
+          tabIndex={this.selected ? 0 : -1}
+          onFocus={this.scrollToTab.bind(this)}
+          disabled={this.disabled}
+          title={this.htmlTitle}
+        >
+          {this.icon && this.renderIcon()}
+          {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}
+        </button>
+      </Host>
     );
   }
 }
