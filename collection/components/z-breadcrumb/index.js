@@ -153,7 +153,7 @@ export class ZBreadcrumb {
         if (item.hasTooltip) {
           this.popoverEllipsisOpen = false;
         }
-      }, innerHTML: mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon> ${item.text}` : item.text })));
+      }, innerHTML: mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon>${item.text}` : item.text })));
   }
   renderBreadcrumb() {
     return (h("nav", { ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {

@@ -1,18 +1,22 @@
 import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+ * This component uses the `tab` role:
+ * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
  */
 export declare class ZNavigationTabLink {
   /**
-   * set aria-controls attribute to tab property identifying a corresponding tabpanel
-   * (that has a tabpanel role) by that element's id.
-   * When an element with the tabpanel role has focus, or a child of it has focus,
-   * that indicates that the connected element with the tab role is the active tab in a tablist.
+   * `aria-controls` attribute of the tab.
+   * Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.
+   * The value must be the `id` of the element it controls.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
    */
   ariaControls?: string;
   /**
-   * set id attribute to tab property identifying a corresponding tabpanel
-   * (that has a tabpanel role) by that element's attribute  aria-labelledby.
+   * `id` attribute of the tab.
+   * Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+   * @deprecated Use native `id` attribute instead
    */
   tabId?: string;
   /**
@@ -68,5 +72,5 @@ export declare class ZNavigationTabLink {
    * @returns {HTMLElement}
    */
   private renderIcon;
-  render(): HTMLAnchorElement;
+  render(): HTMLZNavigationTabLinkElement;
 }

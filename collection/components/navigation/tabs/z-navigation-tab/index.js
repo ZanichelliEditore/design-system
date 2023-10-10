@@ -1,8 +1,10 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
 import { ICONS } from "../../../icons/icons";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * This component uses the `tab` role:
+ * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
  */
 export class ZNavigationTab {
   constructor() {
@@ -27,9 +29,9 @@ export class ZNavigationTab {
    * Scroll into view to center the tab.
    */
   scrollToTab({ target: button }) {
-    const scrollOptions = this.orientation === NavigationTabsOrientation.HORIZONTAL
+    const scrollOptions = (this.orientation === NavigationTabsOrientation.HORIZONTAL
       ? { block: "nearest", inline: "center" }
-      : { block: "center", inline: "nearest" };
+      : { block: "center", inline: "nearest" });
     button.scrollIntoView(Object.assign({ behavior: "smooth" }, scrollOptions));
   }
   onClick() {
@@ -56,7 +58,7 @@ export class ZNavigationTab {
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h("button", { role: "tab", id: this.tabId, disabled: this.disabled, title: this.htmlTitle, onFocus: this.scrollToTab.bind(this), "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls, tabindex: this.selected ? "0" : "-1" }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label));
+    return (h(Host, { role: "tab", id: this.tabId, "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls }, h("button", { tabIndex: this.selected ? 0 : -1, onFocus: this.scrollToTab.bind(this), disabled: this.disabled, title: this.htmlTitle }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label)));
   }
   static get is() { return "z-navigation-tab"; }
   static get originalStyleUrls() {
@@ -82,8 +84,11 @@ export class ZNavigationTab {
         "required": false,
         "optional": true,
         "docs": {
-          "tags": [],
-          "text": "The aria-controls attribute refers to the id of the HTML element that has role=\"tabpanel\" and that contains the actual content of this tab.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls"
+          "tags": [{
+              "name": "link",
+              "text": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls"
+            }],
+          "text": "`aria-controls` attribute of the tab.\nIdentifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.\nThe value must be the `id` of the element it controls."
         },
         "attribute": "aria-controls",
         "reflect": false
@@ -99,8 +104,14 @@ export class ZNavigationTab {
         "required": false,
         "optional": true,
         "docs": {
-          "tags": [],
-          "text": "set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.\nref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role"
+          "tags": [{
+              "name": "link",
+              "text": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby"
+            }, {
+              "name": "deprecated",
+              "text": "Use native `id` attribute instead"
+            }],
+          "text": "`id` attribute of the tab.\nSet this id to the `aria-labelledby` attribute of the controlled `tabpanel` element."
         },
         "attribute": "tab-id",
         "reflect": false

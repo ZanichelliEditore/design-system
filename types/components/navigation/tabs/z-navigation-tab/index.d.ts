@@ -1,16 +1,22 @@
 import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
 /**
  * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * This component uses the `tab` role:
+ * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
  */
 export declare class ZNavigationTab {
   /**
-   * The aria-controls attribute refers to the id of the HTML element that has role="tabpanel" and that contains the actual content of this tab.
-   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
+   * `aria-controls` attribute of the tab.
+   * Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.
+   * The value must be the `id` of the element it controls.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
    */
   ariaControls?: string;
   /**
-   * set id attribute to tab property identifying a corresponding tabpanel attribute aria-labelledby.
-   * ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+   * `id` attribute of the tab.
+   * Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
+   * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+   * @deprecated Use native `id` attribute instead
    */
   tabId?: string;
   /**
@@ -58,5 +64,5 @@ export declare class ZNavigationTab {
    * @returns {HTMLElement}
    */
   private renderIcon;
-  render(): HTMLButtonElement;
+  render(): HTMLZNavigationTabElement;
 }

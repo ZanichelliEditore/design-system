@@ -21,13 +21,16 @@
 }
 
 .panel-elem-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: var(--space-unit) auto 0;
   border-radius: var(--border-no-radius);
   font-size: 12px;
-  text-align: center;
 }
 
-.panel-elem-link > z-link {
+.panel-elem-link > a.z-link {
+  padding: calc(var(--space-unit) * 0.5) 0;
   font-weight: var(--font-sb);
 }
 
@@ -36,4 +39,8 @@
   margin: 0;
   letter-spacing: 0.16px;
   text-align: center;
+}
+
+a > z-icon {
+  margin-right: var(--space-unit);
 }

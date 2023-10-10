@@ -42,6 +42,7 @@ export declare class ZNavigationTabs {
    * Getter for the dimension to check based on current orientation.
    */
   get dimension(): string;
+  get tabs(): (HTMLZNavigationTabElement | HTMLZNavigationTabLinkElement)[];
   /**
    * Set the `size` prop to all `z-navigation-tab` children.
    */
@@ -74,15 +75,14 @@ export declare class ZNavigationTabs {
    */
   private navigateForward;
   /**
-   * move focus though tabs using keyboad arrows.
+   * Move focus through tabs using keyboard arrows.
+   * When `TAB` is pressed, focus the currently selected tab, if any.
    */
   private navigateThroughTabs;
   /**
-   * move focus though tabs using keyboad arrows.
+   * Check if a keyboard event was triggered by an arrow key.
    */
   private isArrowNavigation;
-  private setTabindex;
-  componentWillLoad(): void;
   componentDidRender(): void;
   render(): HTMLZNavigationTabsElement;
 }
