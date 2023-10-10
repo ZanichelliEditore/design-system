@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.2.7](https://github.com/ZanichelliEditore/design-system/compare/v9.2.6...v9.2.7) (2023-10-10)
+
+
+### Bug Fixes
+
+* tab role position of z-navigation-tab; some code enhancement; stories enhancements ([b2896ad](https://github.com/ZanichelliEditore/design-system/commit/b2896ad81bf3b0540f9eb71c34d7b1ca1abcf727))
+
 ### [9.2.6](https://github.com/ZanichelliEditore/design-system/compare/v9.2.5...v9.2.6) (2023-09-19)
 
 ### [9.2.5](https://github.com/ZanichelliEditore/design-system/compare/v9.2.3...v9.2.5) (2023-09-19)
