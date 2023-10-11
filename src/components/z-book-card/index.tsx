@@ -278,7 +278,7 @@ export class ZBookCard {
       <div class="isbn">
         <span
           class="code"
-          aria-description="ISBN edizione cartacea"
+          aria-description={`ISBN ${this.isbnLabel}`}
         >
           {this.isbn}
         </span>

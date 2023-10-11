@@ -91,7 +91,7 @@ describe("Suite test ZBookCard", () => {
                     <div class="title"><h1>Matematica.azzurro</h1></div>
                     <div class="subtitle">Volume 3 con Tutor</div>
                     <div class="isbn">
-                      <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                      <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                       <span class="label"> (ed. cartacea)</span>
                     </div>
                   </div>
@@ -214,7 +214,7 @@ describe("Suite test ZBookCard", () => {
                 <div class="authors" aria-description="Autori">Massimo Bergamini, Anna Trifone, Graziella Barozzi</div>
                 <div class="subtitle">Volume 3 con Tutor</div>
                 <div class="isbn">
-                  <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                  <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                   <span class="label"> (ed. cartacea)</span>
                 </div>
               </div>
@@ -409,7 +409,7 @@ describe("Suite test ZBookCard", () => {
                   Volume 3 con Tutor
                 </div>
                 <div class="isbn">
-                  <span aria-description="ISBN edizione cartacea" class="code">
+                  <span aria-description="ISBN (ed. cartacea)" class="code">
                     9788808930552
                   </span>
                   <span class="label">
@@ -553,7 +553,7 @@ describe("Suite test ZBookCard", () => {
                 <div class="title"><h1>Matematica.azzurro</h1></div>
                 <div class="subtitle">Volume 3 con Tutor</div>
                 <div class="isbn">
-                  <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                  <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                   <span class="label"> (ed. cartacea)</span>
                 </div>
               </div>
