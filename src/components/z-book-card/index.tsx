@@ -61,7 +61,7 @@ export class ZBookCard {
    * [optional] ISBN label
    */
   @Prop()
-  isbnLabel?: string;
+  isbnLabel = "";
 
   /**
    * [optional] Ribbon label - expanded and search variant only
