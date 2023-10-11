@@ -57,6 +57,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
@@ -69,6 +70,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       >
@@ -175,6 +177,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
@@ -187,6 +190,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       >
@@ -369,12 +373,13 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
+      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" isbn-label="(ed. cartacea)" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
         <mock:shadow-root>
           <article class="search">
           <div class="wrapper-container">
@@ -518,6 +523,7 @@ describe("Suite test ZBookCard", () => {
               volume-title="Volume 3 con Tutor"
               authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
               isbn="9788808930552"
+              isbn-label="(ed. cartacea)"
               opera-title-tag="h1"
               borderless="true"
       ></z-book-card>`,
@@ -530,6 +536,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         opera-title-tag="h1"
         borderless="true"
       >

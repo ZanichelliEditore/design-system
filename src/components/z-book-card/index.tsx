@@ -58,6 +58,12 @@ export class ZBookCard {
   isbn?: string;
 
   /**
+   * [optional] ISBN label
+   */
+  @Prop()
+  isbnLabel?: string;
+
+  /**
    * [optional] Ribbon label - expanded and search variant only
    */
   @Prop()
@@ -276,7 +282,7 @@ export class ZBookCard {
         >
           {this.isbn}
         </span>
-        <span class="label"> (ed. cartacea)</span>
+        {this.isbnLabel ? <span class="label"> {this.isbnLabel}</span> : null}
       </div>
     ) : null;
   }

@@ -158,6 +158,10 @@ export namespace Components {
          */
         "isbn"?: string;
         /**
+          * [optional] ISBN label
+         */
+        "isbnLabel"?: string;
+        /**
           * Card main title
          */
         "operaTitle": string;
@@ -2980,6 +2984,10 @@ declare namespace LocalJSX {
           * [optional] Main ISBN
          */
         "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel"?: string;
         /**
           * Card main title
          */
