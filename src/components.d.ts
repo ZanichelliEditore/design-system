@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-import { ZTypographyLevels } from "./deprecated/typography/z-typography/index";
 export namespace Components {
     interface ZAccordion {
         /**
@@ -121,20 +120,6 @@ export namespace Components {
           * [optional] Avatar text color
          */
         "textColor"?: string;
-    }
-    interface ZBody {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component": string;
-        /**
-          * Typography level
-         */
-        "level": 1 | 2 | 3 | 4 | 5;
-        /**
-          * Font weight variant
-         */
-        "variant": "regular" | "semibold";
     }
     interface ZBookCard {
         /**
@@ -523,20 +508,6 @@ export namespace Components {
         "type": ZFileUploadType;
     }
     interface ZGhostLoading {
-    }
-    interface ZHeading {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component": string;
-        /**
-          * Typography level
-         */
-        "level": 1 | 2 | 3 | 4;
-        /**
-          * Font weight variant
-         */
-        "variant": "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -1937,20 +1908,6 @@ export namespace Components {
          */
         "expandable": boolean;
     }
-    interface ZTypography {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component": string;
-        /**
-          * Typography level
-         */
-        "level": ZTypographyLevels;
-        /**
-          * Font weight variant
-         */
-        "variant": "regular" | "semibold" | "light";
-    }
     interface ZVisuallyHidden {
     }
 }
@@ -2167,12 +2124,6 @@ declare global {
         prototype: HTMLZAvatarElement;
         new (): HTMLZAvatarElement;
     };
-    interface HTMLZBodyElement extends Components.ZBody, HTMLStencilElement {
-    }
-    var HTMLZBodyElement: {
-        prototype: HTMLZBodyElement;
-        new (): HTMLZBodyElement;
-    };
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
     }
     var HTMLZBookCardElement: {
@@ -2268,12 +2219,6 @@ declare global {
     var HTMLZGhostLoadingElement: {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
-    };
-    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
-    }
-    var HTMLZHeadingElement: {
-        prototype: HTMLZHeadingElement;
-        new (): HTMLZHeadingElement;
     };
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
@@ -2707,12 +2652,6 @@ declare global {
         prototype: HTMLZTrElement;
         new (): HTMLZTrElement;
     };
-    interface HTMLZTypographyElement extends Components.ZTypography, HTMLStencilElement {
-    }
-    var HTMLZTypographyElement: {
-        prototype: HTMLZTypographyElement;
-        new (): HTMLZTypographyElement;
-    };
     interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
     }
     var HTMLZVisuallyHiddenElement: {
@@ -2726,7 +2665,6 @@ declare global {
         "z-app-header": HTMLZAppHeaderElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
-        "z-body": HTMLZBodyElement;
         "z-book-card": HTMLZBookCardElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
@@ -2743,7 +2681,6 @@ declare global {
         "z-file": HTMLZFileElement;
         "z-file-upload": HTMLZFileUploadElement;
         "z-ghost-loading": HTMLZGhostLoadingElement;
-        "z-heading": HTMLZHeadingElement;
         "z-icon": HTMLZIconElement;
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
@@ -2816,7 +2753,6 @@ declare global {
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
-        "z-typography": HTMLZTypographyElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
@@ -2940,20 +2876,6 @@ declare namespace LocalJSX {
           * [optional] Avatar text color
          */
         "textColor"?: string;
-    }
-    interface ZBody {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component"?: string;
-        /**
-          * Typography level
-         */
-        "level"?: 1 | 2 | 3 | 4 | 5;
-        /**
-          * Font weight variant
-         */
-        "variant"?: "regular" | "semibold";
     }
     interface ZBookCard {
         /**
@@ -3378,20 +3300,6 @@ declare namespace LocalJSX {
         "type"?: ZFileUploadType;
     }
     interface ZGhostLoading {
-    }
-    interface ZHeading {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component"?: string;
-        /**
-          * Typography level
-         */
-        "level"?: 1 | 2 | 3 | 4;
-        /**
-          * Font weight variant
-         */
-        "variant"?: "regular" | "semibold" | "light";
     }
     interface ZIcon {
         /**
@@ -4952,20 +4860,6 @@ declare namespace LocalJSX {
          */
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
-    interface ZTypography {
-        /**
-          * HTML tag to use to wrap slotted content
-         */
-        "component"?: string;
-        /**
-          * Typography level
-         */
-        "level"?: ZTypographyLevels;
-        /**
-          * Font weight variant
-         */
-        "variant"?: "regular" | "semibold" | "light";
-    }
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -4975,7 +4869,6 @@ declare namespace LocalJSX {
         "z-app-header": ZAppHeader;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
-        "z-body": ZBody;
         "z-book-card": ZBookCard;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
@@ -4992,7 +4885,6 @@ declare namespace LocalJSX {
         "z-file": ZFile;
         "z-file-upload": ZFileUpload;
         "z-ghost-loading": ZGhostLoading;
-        "z-heading": ZHeading;
         "z-icon": ZIcon;
         "z-info-box": ZInfoBox;
         "z-info-reveal": ZInfoReveal;
@@ -5065,7 +4957,6 @@ declare namespace LocalJSX {
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
-        "z-typography": ZTypography;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -5079,7 +4970,6 @@ declare module "@stencil/core" {
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
-            "z-body": LocalJSX.ZBody & JSXBase.HTMLAttributes<HTMLZBodyElement>;
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
@@ -5096,7 +4986,6 @@ declare module "@stencil/core" {
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
-            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
@@ -5169,7 +5058,6 @@ declare module "@stencil/core" {
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
-            "z-typography": LocalJSX.ZTypography & JSXBase.HTMLAttributes<HTMLZTypographyElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
