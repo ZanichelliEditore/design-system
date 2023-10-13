@@ -8,6 +8,10 @@ const stylesCss = ":host{--z-book-card-ribbon-background-color:var(--avatar-C08)
 const ZBookCard = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    /**
+     * [optional] ISBN label
+     */
+    this.isbnLabel = "";
     this.isMobile = false;
     this.hasResources = false;
     this.showResources = false;
@@ -77,7 +81,7 @@ const ZBookCard = class {
     return this.authors ? (h("div", { class: "authors", "aria-description": "Autori" }, this.authors)) : null;
   }
   renderIsbn() {
-    return this.isbn ? (h("div", { class: "isbn" }, h("span", { class: "code", "aria-description": "ISBN edizione cartacea" }, this.isbn), h("span", { class: "label" }, " (ed. cartacea)"))) : null;
+    return this.isbn ? (h("div", { class: "isbn" }, h("span", { class: "code", "aria-description": `ISBN ${this.isbnLabel}` }, this.isbn), this.isbnLabel ? h("span", { class: "label" }, " ", this.isbnLabel) : null)) : null;
   }
   renderShowResources() {
     return (h("button", { class: "show-resources", "aria-label": `Risorse del libro ${this.operaTitle}`, "aria-expanded": this.showResources.toString(), "aria-controls": `resources-${this.id}`, onClick: () => this.toggleResources() }, this.showResources ? "Chiudi" : "Vedi tutto", h("z-icon", { name: this.showResources ? "chevron-up" : "chevron-down" })));

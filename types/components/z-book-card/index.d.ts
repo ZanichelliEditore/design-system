@@ -36,6 +36,10 @@ export declare class ZBookCard {
    */
   isbn?: string;
   /**
+   * [optional] ISBN label
+   */
+  isbnLabel: string;
+  /**
    * [optional] Ribbon label - expanded and search variant only
    */
   ribbon?: string;
