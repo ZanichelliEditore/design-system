@@ -14,6 +14,7 @@
 | `cover`         | `cover`           | Cover URL                                                  | `string`                                                                        | `undefined` |
 | `fallbackCover` | `fallback-cover`  | [optional] Fallback cover URL                              | `string`                                                                        | `undefined` |
 | `isbn`          | `isbn`            | [optional] Main ISBN                                       | `string`                                                                        | `undefined` |
+| `isbnLabel`     | `isbn-label`      | [optional] ISBN label                                      | `string`                                                                        | `undefined` |
 | `operaTitle`    | `opera-title`     | Card main title                                            | `string`                                                                        | `undefined` |
 | `operaTitleTag` | `opera-title-tag` | [optional] [accessibility] Card title HTML tag             | `string`                                                                        | `undefined` |
 | `ribbon`        | `ribbon`          | [optional] Ribbon label - expanded and search variant only | `string`                                                                        | `undefined` |

@@ -57,6 +57,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
@@ -69,6 +70,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       >
@@ -89,7 +91,7 @@ describe("Suite test ZBookCard", () => {
                     <div class="title"><h1>Matematica.azzurro</h1></div>
                     <div class="subtitle">Volume 3 con Tutor</div>
                     <div class="isbn">
-                      <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                      <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                       <span class="label"> (ed. cartacea)</span>
                     </div>
                   </div>
@@ -175,6 +177,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
@@ -187,6 +190,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       >
@@ -210,7 +214,7 @@ describe("Suite test ZBookCard", () => {
                 <div class="authors" aria-description="Autori">Massimo Bergamini, Anna Trifone, Graziella Barozzi</div>
                 <div class="subtitle">Volume 3 con Tutor</div>
                 <div class="isbn">
-                  <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                  <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                   <span class="label"> (ed. cartacea)</span>
                 </div>
               </div>
@@ -369,12 +373,13 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
       ></z-book-card>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
+      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" isbn-label="(ed. cartacea)" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
         <mock:shadow-root>
           <article class="search">
           <div class="wrapper-container">
@@ -404,7 +409,7 @@ describe("Suite test ZBookCard", () => {
                   Volume 3 con Tutor
                 </div>
                 <div class="isbn">
-                  <span aria-description="ISBN edizione cartacea" class="code">
+                  <span aria-description="ISBN (ed. cartacea)" class="code">
                     9788808930552
                   </span>
                   <span class="label">
@@ -518,6 +523,7 @@ describe("Suite test ZBookCard", () => {
               volume-title="Volume 3 con Tutor"
               authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
               isbn="9788808930552"
+              isbn-label="(ed. cartacea)"
               opera-title-tag="h1"
               borderless="true"
       ></z-book-card>`,
@@ -530,6 +536,7 @@ describe("Suite test ZBookCard", () => {
         volume-title="Volume 3 con Tutor"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
         opera-title-tag="h1"
         borderless="true"
       >
@@ -546,7 +553,7 @@ describe("Suite test ZBookCard", () => {
                 <div class="title"><h1>Matematica.azzurro</h1></div>
                 <div class="subtitle">Volume 3 con Tutor</div>
                 <div class="isbn">
-                  <span class="code" aria-description="ISBN edizione cartacea">9788808930552</span>
+                  <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
                   <span class="label"> (ed. cartacea)</span>
                 </div>
               </div>
