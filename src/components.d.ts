@@ -160,7 +160,7 @@ export namespace Components {
         /**
           * [optional] ISBN label
          */
-        "isbnLabel"?: string;
+        "isbnLabel": string;
         /**
           * Card main title
          */
