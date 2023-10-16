@@ -12,8 +12,11 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v10.0.0](#v1000)
 
   - [ZTypography](#ztypography)
+    - [Rimozione del componente ´ZTypography´ dalla libreria](#rimozione-del-componente-ztypography-dalla-libreria)
   - [ZBody](#zbody)
+    - [Rimozione del componente ´ZBody´ dalla libreria](#rimozione-del-componente-zbody-dalla-libreria)
   - [ZHeading](#zheading)
+    - [Rimozione del componente ´ZHeading´ dalla libreria](#rimozione-del-componente-zheading-dalla-libreria)
 
 - [v9.0.0](#v900)
 
@@ -65,13 +68,19 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ### ZTypography
 
+#### Rimozione del componente `ZTypography` dalla libreria
+
 Il componente deprecato è stato eliminato a favore delle relative classi css su `design-tokens`
 
-#### ZBody
+### ZBody
+
+#### Rimozione del componente `ZBody` dalla libreria
 
 Il componente deprecato è stato eliminato a favore delle relative classi css `.body-*` su `design-tokens`
 
-#### ZHeading
+### ZHeading
+
+#### Rimozione del componente `ZHeading` dalla libreria
 
 Il componente deprecato è stato eliminato a favore delle relative classi css `.heading-*` su `design-tokens`
 
