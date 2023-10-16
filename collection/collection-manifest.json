@@ -1,6 +1,5 @@
 {
   "entries": [
-    "./deprecated/typography/z-typography/index.js",
     "./components/buttons/z-button/index.js",
     "./components/buttons/z-button-sort/index.js",
     "./components/buttons/z-chip/index.js",
@@ -64,8 +63,6 @@
     "./components/z-skip-to-content/index.js",
     "./components/z-tag/index.js",
     "./components/z-visually-hidden/index.js",
-    "./deprecated/typography/z-body/index.js",
-    "./deprecated/typography/z-heading/index.js",
     "./deprecated/z-link/index.js",
     "./deprecated/z-table-deprecated/z-table-body/index.js",
     "./deprecated/z-table-deprecated/z-table-cell/index.js",

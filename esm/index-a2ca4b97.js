@@ -1912,10 +1912,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-avatar.entry.js').then(processMod, consoleError);
-        case 'z-body':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-body.entry.js').then(processMod, consoleError);
         case 'z-book-card':
           return import(
             /* webpackMode: "lazy" */
@@ -1960,10 +1956,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-file-upload.entry.js').then(processMod, consoleError);
-        case 'z-heading':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-heading.entry.js').then(processMod, consoleError);
         case 'z-info-box':
           return import(
             /* webpackMode: "lazy" */
@@ -2212,10 +2204,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return import(
             /* webpackMode: "lazy" */
             './z-myz-list-item.entry.js').then(processMod, consoleError);
-        case 'z-typography':
-          return import(
-            /* webpackMode: "lazy" */
-            './z-typography.entry.js').then(processMod, consoleError);
         case 'z-popover':
           return import(
             /* webpackMode: "lazy" */

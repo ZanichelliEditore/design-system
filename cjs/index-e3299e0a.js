@@ -1934,10 +1934,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-avatar.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-body.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-body.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-book-card.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -1982,10 +1978,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-file-upload.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-heading.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-heading.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-info-box.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
@@ -2234,10 +2226,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
             './z-myz-list-item.cjs.entry.js')); }).then(processMod, consoleError);
-        case 'z-typography.cjs':
-          return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-            /* webpackMode: "lazy" */
-            './z-typography.cjs.entry.js')); }).then(processMod, consoleError);
         case 'z-popover.cjs':
           return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
             /* webpackMode: "lazy" */
