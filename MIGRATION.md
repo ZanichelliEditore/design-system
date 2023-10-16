@@ -9,10 +9,21 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v10.0.0](#v1000)
+
+  - [ZTypography](#ztypography)
+    - [Rimozione del componente ´ZTypography´ dalla libreria](#rimozione-del-componente-ztypography-dalla-libreria)
+  - [ZBody](#zbody)
+    - [Rimozione del componente ´ZBody´ dalla libreria](#rimozione-del-componente-zbody-dalla-libreria)
+  - [ZHeading](#zheading)
+    - [Rimozione del componente ´ZHeading´ dalla libreria](#rimozione-del-componente-zheading-dalla-libreria)
+
 - [v9.0.0](#v900)
+
   - [ZTable](#ztable)
     - [Rimozione del valore `none` dell'enum `SortDirection`](#rimozione-del-valore-none-dellenum-sortdirection)
     - [Rimozione dell'enum `Size`](#rimozione-dellenum-size)
+
 - [v8.0.0](#v800)
   - [ZCard](#zcard)
     - [Rimozione gestione click tramite property `clickable`](#rimozione-gestione-click-tramite-property-clickable)
@@ -52,6 +63,26 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v10.0.0
+
+### ZTypography
+
+#### Rimozione del componente `ZTypography` dalla libreria
+
+Il componente deprecato è stato eliminato a favore delle relative classi css su `design-tokens`
+
+### ZBody
+
+#### Rimozione del componente `ZBody` dalla libreria
+
+Il componente deprecato è stato eliminato a favore delle relative classi css `.body-*` su `design-tokens`
+
+### ZHeading
+
+#### Rimozione del componente `ZHeading` dalla libreria
+
+Il componente deprecato è stato eliminato a favore delle relative classi css `.heading-*` su `design-tokens`
 
 ## v9.0.0
 

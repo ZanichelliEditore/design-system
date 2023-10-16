@@ -152,7 +152,7 @@ export class ZFileUpload {
     return errors;
   }
 
-  private renderTitle(): HTMLZHeadingElement {
+  private renderTitle(): HTMLElement {
     return (
       <h2
         class="heading-2-sb"
