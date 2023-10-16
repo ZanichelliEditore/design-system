@@ -17,6 +17,42 @@ import "./index";
         labels: getColorVarsLabels(),
       },
     },
+    "--z-accordion-label-color": {
+      options: [null, ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
+    },
+    "--z-accordion-disabled-label-color": {
+      options: [null, ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
+      if: {arg: "isDisabled", truthy: true},
+    },
+    "--z-accordion-content-bg": {
+      options: [null, ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
+    },
+    "--z-accordion-content-fg": {
+      options: [null, ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
+    },
+    "--z-accordion-hover-color": {
+      options: [null, ...getColorVars()],
+      control: {
+        type: "select",
+        labels: getColorVarsLabels(),
+      },
+    },
     "--z-accordion-highlight-color": {
       options: [null, ...getColorVars()],
       control: {
@@ -52,6 +88,11 @@ import "./index";
   }}
   args={{
     "--z-accordion-bg": null,
+    "--z-accordion-label-color": null,
+    "--z-accordion-disabled-label-color": null,
+    "--z-accordion-content-bg": null,
+    "--z-accordion-content-fg": null,
+    "--z-accordion-hover-color": null,
     "--z-accordion-highlight-color": null,
     "highlight": false,
     "icon": null,
@@ -75,6 +116,11 @@ import "./index";
       style=${styleMap({
         "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
         "--z-accordion-bg": args["--z-accordion-bg"],
+        "--z-accordion-label-color": args["--z-accordion-label-color"],
+        "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
+        "--z-accordion-content-bg": args["--z-accordion-content-bg"],
+        "--z-accordion-content-fg": args["--z-accordion-content-fg"],
+        "--z-accordion-hover-color": args["--z-accordion-hover-color"],
       })}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
@@ -174,6 +220,11 @@ When multiple `ZAccordion`s are placed in stack, the style is automatically opti
         style=${styleMap({
           "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
           "--z-accordion-bg": args["--z-accordion-bg"],
+          "--z-accordion-label-color": args["--z-accordion-label-color"],
+          "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
+          "--z-accordion-content-bg": args["--z-accordion-content-bg"],
+          "--z-accordion-content-fg": args["--z-accordion-content-fg"],
+          "--z-accordion-hover-color": args["--z-accordion-hover-color"],
         })}
       >
         <z-tag slot="tag">Tag 1</z-tag>
