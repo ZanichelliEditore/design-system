@@ -1,5 +1,5 @@
 import {Component, h, Prop, Element, Watch, Event, EventEmitter, State, Host} from "@stencil/core";
-import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant, ButtonSize} from "../../beans";
+import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant, ControlSize} from "../../beans";
 
 /**
  * ZCarousel component.
@@ -231,11 +231,12 @@ export class ZCarousel {
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
-                size={ButtonSize.SMALL}
+                size={ControlSize.SMALL}
                 data-direction="prev"
                 icon="chevron-left"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.canNavigatePrev}
+                ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
               />
             )}
             <ul class="z-carousel-items-container">
@@ -243,11 +244,12 @@ export class ZCarousel {
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
-                size={ButtonSize.SMALL}
+                size={ControlSize.SMALL}
                 data-direction="next"
                 icon="chevron-right"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.canNavigateNext}
+                ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
               />
             )}
           </div>
@@ -257,11 +259,12 @@ export class ZCarousel {
           <div class="z-carousel-footer">
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
-                size={ButtonSize.SMALL}
+                size={ControlSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-simple-left-filled"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.canNavigatePrev}
+                ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
               />
             )}
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
@@ -286,11 +289,12 @@ export class ZCarousel {
             )}
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
-                size={ButtonSize.SMALL}
+                size={ControlSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-simple-right-filled"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.canNavigateNext}
+                ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
               />
             )}
           </div>

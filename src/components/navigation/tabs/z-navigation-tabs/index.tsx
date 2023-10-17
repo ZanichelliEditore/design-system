@@ -254,6 +254,7 @@ export class ZNavigationTabs {
             onClick={this.navigateBackwards.bind(this)}
             tabindex="-1"
             disabled={!this.canNavigatePrev}
+            aria-label="Mostra elementi precedenti"
           >
             <z-icon
               name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up"}
@@ -282,6 +283,7 @@ export class ZNavigationTabs {
             }}
             tabindex="-1"
             disabled={!this.canNavigateNext}
+            aria-label="Mostra elementi successivi"
           >
             <z-icon
               name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down"}

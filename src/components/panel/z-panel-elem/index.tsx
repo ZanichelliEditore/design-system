@@ -95,7 +95,6 @@ export class ZPanelElem {
             target={this.target}
           >
             <z-icon
-              class="z-link-icon-left"
               height={14}
               width={14}
               name={this.linkicon}
