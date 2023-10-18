@@ -207,6 +207,11 @@ export class ZCarousel {
 
     this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
     this.checkNavigationValidity();
+
+    this.items.forEach((item) => {
+      item.setAttribute("role", "group");
+      item.setAttribute("aria-roledescription", "slide");
+    });
   }
 
   render(): HTMLZCarouselElement {
@@ -226,7 +231,12 @@ export class ZCarousel {
 
     return (
       <Host>
-        <div class="z-carousel-container">
+        <div
+          class="z-carousel-container"
+          role="group"
+          aria-roledescription="carousel"
+          aria-label={this.label || "Carousel"}
+        >
           {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
@@ -239,7 +249,11 @@ export class ZCarousel {
                 ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
               />
             )}
-            <ul class="z-carousel-items-container">
+            <ul
+              class="z-carousel-items-container"
+              aria-atomic="false"
+              aria-live="polite"
+            >
               <slot />
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
@@ -273,6 +287,9 @@ export class ZCarousel {
                   <button
                     type="button"
                     class={{current: this.highlightedIndicator === key}}
+                    aria-label={
+                      this.highlightedIndicator === key ? "Elemento corrente" : `Spostati all'elemento ${key + 1}`
+                    }
                     onClick={() => this.goTo(key)}
                   >
                     <z-icon name={this.highlightedIndicator === key ? "white-circle-filled" : "black-circle-filled"} />
