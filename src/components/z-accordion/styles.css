@@ -12,6 +12,9 @@
   --z-accordion-content-bg: var(--color-surface01);
   --z-accordion-content-fg: var(--color-text01);
   --z-accordion-hover-color: var(--color-surface03);
+  --z-accordion-left-padding: calc(var(--space-unit) * 2);
+  --z-accordion-right-padding: var(--space-unit);
+  --z-accordion-label-font-weight: var(--font-sb);
 
   display: block;
   border-top: var(--border-size-small) solid var(--color-surface03);
@@ -44,7 +47,8 @@ summary {
   display: flex;
   height: var(--summary-height);
   align-items: center;
-  padding: var(--summary-y-padding) var(--space-unit) var(--summary-y-padding) calc(var(--space-unit) * 2);
+  padding: var(--summary-y-padding) var(--z-accordion-right-padding) var(--summary-y-padding)
+    var(--z-accordion-left-padding);
   background-color: var(--z-accordion-bg);
   column-gap: var(--space-unit);
   cursor: pointer;
@@ -128,7 +132,7 @@ summary > z-icon {
 .z-accordion-label {
   color: var(--z-accordion-label-color);
   font-size: var(--font-size-3); /* for "small" and "big" sizes */
-  font-weight: var(--font-sb);
+  font-weight: var(--z-accordion-label-font-weight);
 }
 
 :host([size="x-small"]) .z-accordion-label {
