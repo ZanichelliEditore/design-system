@@ -18,6 +18,10 @@ export class ZButton {
   @Prop({reflect: true})
   ariaLabel = "";
 
+  /** defines role attribute, used for accessibility. */
+  @Prop()
+  role: string | undefined = undefined;
+
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()
   href?: string;
@@ -91,6 +95,7 @@ export class ZButton {
         aria-label={this.ariaLabel}
         name={this.name}
         type={this.type}
+        role={this.role}
         disabled={this.disabled}
       >
         {this.icon && (
