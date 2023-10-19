@@ -7,11 +7,18 @@
 :host {
   --z-accordion-highlight-color: transparent;
   --z-accordion-bg: var(--color-surface01);
+  --z-accordion-label-color: var(--color-text01);
+  --z-accordion-disabled-label-color: var(--color-text03);
+  --z-accordion-content-bg: var(--color-surface01);
+  --z-accordion-content-fg: var(--color-text01);
+  --z-accordion-hover-color: var(--color-surface03);
+  --z-accordion-left-padding: calc(var(--space-unit) * 2);
+  --z-accordion-right-padding: var(--space-unit);
+  --z-accordion-label-font-weight: var(--font-sb);
 
   display: block;
   border-top: var(--border-size-small) solid var(--color-surface03);
   border-bottom: var(--border-size-small) solid var(--color-surface03);
-  background-color: var(--z-accordion-bg);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -40,7 +47,9 @@ summary {
   display: flex;
   height: var(--summary-height);
   align-items: center;
-  padding: var(--summary-y-padding) var(--space-unit) var(--summary-y-padding) calc(var(--space-unit) * 2);
+  padding: var(--summary-y-padding) var(--z-accordion-right-padding) var(--summary-y-padding)
+    var(--z-accordion-left-padding);
+  background-color: var(--z-accordion-bg);
   column-gap: var(--space-unit);
   cursor: pointer;
   list-style: none;
@@ -109,21 +118,21 @@ summary::before,
 
 :host([is-disabled][highlight]) summary::before,
 :host([is-disabled][highlight][variant="background"]) .z-accordion-content::before {
-  background-color: var(--color-text03);
+  background-color: var(--z-accordion-disabled-label-color);
 }
 
 summary > z-icon {
-  fill: var(--color-text01);
+  fill: var(--z-accordion-label-color);
 }
 
 :host([is-disabled]) summary > z-icon {
-  fill: var(--color-text03);
+  fill: var(--z-accordion-disabled-label-color);
 }
 
 .z-accordion-label {
-  color: var(--color-text01);
+  color: var(--z-accordion-label-color);
   font-size: var(--font-size-3); /* for "small" and "big" sizes */
-  font-weight: var(--font-sb);
+  font-weight: var(--z-accordion-label-font-weight);
 }
 
 :host([size="x-small"]) .z-accordion-label {
@@ -148,6 +157,8 @@ summary z-icon.z-accordion-chevron {
 .z-accordion-content {
   position: relative;
   padding: var(--space-unit) var(--space-unit) calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  background-color: var(--z-accordion-content-bg);
+  color: var(--z-accordion-content-fg);
   font-size: var(--font-size-2); /* for "small" and "big" sizes */
 }
 
@@ -164,11 +175,11 @@ summary z-icon.z-accordion-chevron {
 }
 
 :host([is-disabled]) .z-accordion-label {
-  color: var(--color-text03);
+  color: var(--z-accordion-disabled-label-color);
 }
 
 :host([is-disabled]) .z-accordion-tags ::slotted(z-tag[slot="tag"]) {
-  --z-tag-bg: var(--color-text03) !important;
+  --z-tag-bg: var(--z-accordion-disabled-label-color) !important;
   --z-tag-text-color: var(--color-text-inverse) !important;
 }
 
@@ -180,7 +191,7 @@ summary z-icon.z-accordion-chevron {
   }
 
   :host(:not([is-disabled])) summary:hover {
-    background-color: var(--color-surface03);
+    background-color: var(--z-accordion-hover-color);
   }
 
   :host(:not([is-disabled])) summary:hover .z-accordion-label {
