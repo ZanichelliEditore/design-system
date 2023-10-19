@@ -221,7 +221,7 @@ export namespace Components {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role": string | undefined;
+        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -2999,7 +2999,7 @@ declare namespace LocalJSX {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role"?: string | undefined;
+        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */

@@ -20,7 +20,7 @@ export class ZButton {
 
   /** defines role attribute, used for accessibility. */
   @Prop()
-  role: string | undefined = undefined;
+  role?: string;
 
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()
