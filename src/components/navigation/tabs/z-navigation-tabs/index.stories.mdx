@@ -1,6 +1,8 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans/index";
+import {getColorVars, getColorVarsLabels} from "../../../../utils/storybook-utils";
+import {styleMap} from "lit-html/directives/style-map";
 import "./index";
 import "./index.stories.css";
 import "./index.stories.js";
@@ -15,21 +17,27 @@ import "./index.stories.js";
     ZNavigationTabLink: "z-navigation-tab-link",
   }}
   argTypes={{
-    size: {
+    "orientation": {
+      options: Object.values(NavigationTabsOrientation),
       control: {
         type: "inline-radio",
-        options: Object.values(NavigationTabsSize),
       },
     },
-    orientation: {
-      control: {
-        type: "inline-radio",
-        options: Object.values(NavigationTabsOrientation),
-      },
-    },
-    ariaLabel: {
+    "ariaLabel": {
       control: {type: "text"},
     },
+    "--z-navigation-tabs-nav-buttons-bg": {
+      control: {type: "select", labels: getColorVarsLabels()},
+      options: getColorVars(),
+    },
+    "--z-navigation-tabs-nav-buttons-fg": {
+      control: {type: "select", labels: getColorVarsLabels()},
+      options: getColorVars(),
+    },
+  }}
+  args={{
+    "--z-navigation-tabs-nav-buttons-bg": "var(--color-white)",
+    "--z-navigation-tabs-nav-buttons-fg": "var(--color-primary01)",
   }}
 />
 
@@ -38,6 +46,14 @@ import "./index.stories.js";
 <Canvas>
   <Story
     name="z-navigation-tabs horizontal"
+    argTypes={{
+      size: {
+        options: Object.values(NavigationTabsSize),
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
     args={{
       orientation: NavigationTabsOrientation.HORIZONTAL,
       size: NavigationTabsSize.BIG,
@@ -54,6 +70,10 @@ import "./index.stories.js";
         orientation=${args.orientation}
         size=${args.size}
         aria-label=${args.ariaLabel}
+        style=${styleMap({
+          "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
+          "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
+        })}
       >
         <z-navigation-tab
           icon="house"
@@ -95,12 +115,11 @@ import "./index.stories.js";
     name="z-navigation-tabs vertical"
     args={{
       orientation: NavigationTabsOrientation.VERTICAL,
-      size: NavigationTabsSize.BIG,
       ariaLabel: "",
     }}
     parameters={{
       controls: {
-        exclude: ["orientation", "size"],
+        exclude: ["orientation"],
       },
     }}
   >
@@ -108,6 +127,10 @@ import "./index.stories.js";
       <z-navigation-tabs
         orientation=${args.orientation}
         aria-label=${args.ariaLabel}
+        style=${styleMap({
+          "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
+          "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
+        })}
       >
         <z-navigation-tab
           icon="house"
@@ -154,15 +177,18 @@ For more details check the documentation: https://developer.mozilla.org/en-US/do
     args={{
       ariaLabel: "",
       orientation: NavigationTabsOrientation.HORIZONTAL,
-      size: NavigationTabsSize.BIG,
     }}
   >
     {(args) => html`
       <div class="panels-story-wrapper ${args.orientation}">
         <z-navigation-tabs
           orientation=${args.orientation}
-          size=${args.size}
+          size=${NavigationTabsSize.BIG}
           aria-label=${args.ariaLabel}
+          style=${styleMap({
+            "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
+            "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
+          })}
         >
           <z-navigation-tab
             icon="house"

@@ -17,6 +17,7 @@ z-navigation-tabs[orientation="vertical"] {
 
 .panels-story-wrapper z-navigation-tabs + .panels {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   padding: calc(var(--space-unit) * 2) var(--grid-margin);
@@ -28,6 +29,10 @@ z-navigation-tabs[orientation="vertical"] {
   width: 100%;
   border-top: none;
   border-left: var(--border-size-small) solid var(--color-primary01);
+}
+
+.panels-story-wrapper.horizontal .panels {
+  min-height: 360px;
 }
 
 .panels-story-wrapper .panels [role="tabpanel"]:not([hidden]) {

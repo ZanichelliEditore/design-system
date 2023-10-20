@@ -9,6 +9,8 @@ import {
 /**
  * Navigation tabs component.
  * @slot - Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children.
+ * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+ * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
  */
 @Component({
   tag: "z-navigation-tabs",
