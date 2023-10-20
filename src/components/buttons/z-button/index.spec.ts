@@ -29,7 +29,7 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-    it("Test render ZButton con role=link", async () => {
+  it("Test render ZButton con role=link", async () => {
     const page = await newSpecPage({
       components: [ZButton],
       html: `<z-button role="link">link</z-button>`,
