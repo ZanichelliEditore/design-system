@@ -29,6 +29,20 @@ describe("Suite test ZButton", () => {
     `);
   });
 
+    it("Test render ZButton con role=link", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button role="link">link</z-button>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-button aria-label="" role="link" size="big" variant="primary">
+        <button aria-label="" role="link" type="button" class="z-button--container z-button--has-text">
+          link
+        </button>
+      </z-button>
+    `);
+  });
+
   it("Test render ZButton con icon", async () => {
     const page = await newSpecPage({
       components: [ZButton],
