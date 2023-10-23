@@ -341,7 +341,7 @@ export class ZSelect {
           "cursor-select": !this.autocomplete,
         }}
         id={`${this.htmlid}_input`}
-        htmlid={`${this.htmlid}_input`}
+        htmlid={`${this.htmlid}_select_input`}
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
@@ -387,6 +387,7 @@ export class ZSelect {
       <div
         class={this.isOpen ? "open" : "closed"}
         tabindex="-1"
+        aria-hidden={this.isOpen ? "false" : "true"}
       >
         <div
           class={{
@@ -398,8 +399,8 @@ export class ZSelect {
           <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
-            id={this.htmlid}
-            aria-activedescendant={this.selectedItem?.id}
+            id={`${this.htmlid}_list`}
+            aria-activedescendant={this.selectedItem?.id ? `${this.htmlid}_${this.selectedItem?.id}` : undefined}
             aria-multiselectable={false}
             size={this.listSizeType()}
             class={{
@@ -456,8 +457,8 @@ export class ZSelect {
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role="option"
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
-        aria-selected={!!item.selected}
-        id={`${this.htmlid}_${key}`}
+        aria-selected={item.selected ? "true" : "false"}
+        id={`${this.htmlid}_${item.id}`}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item, true)}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
