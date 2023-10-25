@@ -8,7 +8,7 @@ import {classMap} from "lit-html/directives/class-map.js";
 You can use the `.z-fab` class on a `<button>` or `<a>` with some additional configuration class:
 
 - Sizes: `.z-fab-small`, `.z-fab-x-small`. Default with no size classes, is `big`
-- Color variants: `.z-fab-primary03`, `.z-fab-surface01`, `.z-fab-surface04`. Default with no color classes, is `primary01`
+- Color variants: `.z-fab-primary03`, `.z-fab-surface01`, `.z-fab-surface02`, `.z-fab-surface04`. Default with no color classes, is `primary01`
 - `.z-fab-extended`: show the label (if any) near the icon
 - `.z-fab-extendable`: label will be shown only on mouse hover and only on desktop viewports
 
@@ -33,7 +33,7 @@ Some css custom properties are also available to customize the component:
       control: {type: "inline-radio"},
     },
     colorVariant: {
-      options: ["default", "z-fab-primary03", "z-fab-surface01", "z-fab-surface04"],
+      options: ["default", "z-fab-primary03", "z-fab-surface01", "z-fab-surface02", "z-fab-surface04"],
       control: {type: "inline-radio"},
     },
   }}
@@ -61,6 +61,7 @@ Some css custom properties are also available to customize the component:
             "z-fab-x-small": args.size === "z-fab-x-small",
             "z-fab-primary03": args.colorVariant === "z-fab-primary03",
             "z-fab-surface01": args.colorVariant === "z-fab-surface01",
+            "z-fab-surface02": args.colorVariant === "z-fab-surface02",
             "z-fab-surface04": args.colorVariant === "z-fab-surface04",
             "z-fab-extended": args["z-fab-extended"],
             "z-fab-extendable": args["z-fab-extendable"],
