@@ -2,6 +2,7 @@ import {Meta, Canvas, Story} from "@storybook/addon-docs";
 import {html} from "lit-html";
 import {ICONS} from "../../icons/icons";
 import {classMap} from "lit-html/directives/class-map.js";
+import "./index.stories.css";
 
 # ZFab
 
@@ -10,7 +11,7 @@ You can use the `.z-fab` class on a `<button>` or `<a>` with some additional con
 - Sizes: `.z-fab-small`, `.z-fab-x-small`. Default with no size classes, is `big`
 - Color variants: `.z-fab-primary03`, `.z-fab-surface01`, `.z-fab-surface02`, `.z-fab-surface04`. Default with no color classes, is `primary01`
 - `.z-fab-extended`: show the label (if any) near the icon
-- `.z-fab-extendable`: label will be shown only on mouse hover and only on desktop viewports
+- `.z-fab-extendable`: label will be shown only on mouse hover and only on desktop viewports (don't add the `.z-fab-extended` class in this case)
 
 Some css custom properties are also available to customize the component:
 
@@ -43,7 +44,7 @@ Some css custom properties are also available to customize the component:
     "label": "Info",
     "size": "default",
     "z-fab-extendable": false,
-    "z-fab-extended": false,
+    "z-fab-extended": true,
   }}
   parameters={{
     layout: "fullscreen",
@@ -53,24 +54,60 @@ Some css custom properties are also available to customize the component:
 <Canvas>
   <Story name="ZFab">
     {(args) => html`
-      <div class="z-fab-story-wrapper">
-        <button
-          class=${classMap({
-            "z-fab": true,
-            "z-fab-small": args.size === "z-fab-small",
-            "z-fab-x-small": args.size === "z-fab-x-small",
-            "z-fab-primary03": args.colorVariant === "z-fab-primary03",
-            "z-fab-surface01": args.colorVariant === "z-fab-surface01",
-            "z-fab-surface02": args.colorVariant === "z-fab-surface02",
-            "z-fab-surface04": args.colorVariant === "z-fab-surface04",
-            "z-fab-extended": args["z-fab-extended"],
-            "z-fab-extendable": args["z-fab-extendable"],
-          })}
-        >
-          <z-icon name=${args.icon}></z-icon>
-          <span>${args.label}</span>
-        </button>
-      </div>
+      <button
+        class=${classMap({
+          "z-fab": true,
+          "z-fab-small": args.size === "z-fab-small",
+          "z-fab-x-small": args.size === "z-fab-x-small",
+          "z-fab-primary03": args.colorVariant === "z-fab-primary03",
+          "z-fab-surface01": args.colorVariant === "z-fab-surface01",
+          "z-fab-surface02": args.colorVariant === "z-fab-surface02",
+          "z-fab-surface04": args.colorVariant === "z-fab-surface04",
+          "z-fab-extended": args["z-fab-extended"],
+          "z-fab-extendable": args["z-fab-extendable"],
+        })}
+      >
+        <z-icon name=${args.icon}></z-icon>
+        <span>${args.label}</span>
+      </button>
+    `}
+  </Story>
+</Canvas>
+
+## Multiple ZFab
+
+Multiple ZFab can be used in the same page (max 3), but only one can be "default". The other ones must have a smaller size and can't have the text.
+You can space them by setting the `--z-fab-bottom-offset` CSS prop.
+
+<Canvas>
+  <Story name="ZFab multiple">
+    {(args) => html`
+      <button
+        class=${classMap({
+          "z-fab": true,
+          "z-fab-small": args.size === "z-fab-small",
+          "z-fab-x-small": args.size === "z-fab-x-small",
+          "z-fab-primary03": args.colorVariant === "z-fab-primary03",
+          "z-fab-surface01": args.colorVariant === "z-fab-surface01",
+          "z-fab-surface02": args.colorVariant === "z-fab-surface02",
+          "z-fab-surface04": args.colorVariant === "z-fab-surface04",
+          "z-fab-extended": args["z-fab-extended"],
+          "z-fab-extendable": args["z-fab-extendable"],
+        })}
+      >
+        <z-icon name=${args.icon}></z-icon>
+        <span>${args.label}</span>
+      </button>
+      <button
+        class=${classMap({
+          "z-fab": true,
+          "fab2": true,
+          "z-fab-small": true,
+          "z-fab-surface01": true,
+        })}
+      >
+        <z-icon name="support"></z-icon>
+      </button>
     `}
   </Story>
 </Canvas>
