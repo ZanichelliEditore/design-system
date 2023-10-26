@@ -408,7 +408,7 @@ export class ZSelect {
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={`${this.htmlid}_list`}
-            aria-activedescendant={this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}}` : undefined}
+            aria-activedescendant={this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined}
             aria-multiselectable={false}
             size={this.listSizeType()}
             class={{
