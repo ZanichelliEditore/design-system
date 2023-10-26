@@ -14,7 +14,7 @@ describe("Suite test ZPanelElem", () => {
           <div class="panel-elem-container">
             <div class="panel-elem-link">
               <a class="z-link z-link-icon" id="link_id" target="_blank">
-                <z-icon class="z-link-icon-left" height="14" width="14"></z-icon>
+                <z-icon height="14" width="14"></z-icon>
               </a>
             </div>
           </div>
@@ -33,7 +33,7 @@ describe("Suite test ZPanelElem", () => {
           <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="link_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" width="14"></z-icon>
+              <z-icon height="14" width="14"></z-icon>
               label
             </a>
           </div>
@@ -53,7 +53,7 @@ describe("Suite test ZPanelElem", () => {
           <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" id="examplelink_id" href="http://www.google.it" id="link_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" width="14"></z-icon>
+              <z-icon height="14" width="14"></z-icon>
               label
             </a>
           </div>
@@ -73,7 +73,7 @@ describe("Suite test ZPanelElem", () => {
           <div class="panel-elem-container">
             <div class="panel-elem-link">
               <a class="z-link z-link-disabled z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
-                <z-icon class="z-link-icon-left" height="14" width="14"></z-icon>
+                <z-icon height="14" width="14"></z-icon>
                 label
               </a>
             </div>
@@ -93,7 +93,7 @@ describe("Suite test ZPanelElem", () => {
         <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
-              <z-icon class="z-link-icon-left" height="14" width="14"></z-icon>
+              <z-icon height="14" width="14"></z-icon>
               label
             </a>
           </div>
@@ -113,7 +113,7 @@ describe("Suite test ZPanelElem", () => {
         <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -138,7 +138,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -163,7 +163,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -188,7 +188,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -213,7 +213,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -238,7 +238,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -268,7 +268,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -290,7 +290,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon z-link-disabled" href="http://www.google.it" id="examplelink_id" target="_blank">
-              <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+              <z-icon height="14" name="example" width="14"></z-icon>
               label
             </a>
           </div>
@@ -313,7 +313,7 @@ describe("Suite test ZPanelElem", () => {
           </div>
           <div class="panel-elem-link">
           <a class="z-link z-link-icon z-link-disabled" href="http://www.google.it" id="examplelink_id" target="_self">
-            <z-icon class="z-link-icon-left" height="14" name="example" width="14"></z-icon>
+            <z-icon height="14" name="example" width="14"></z-icon>
             label
           </a>
           </div>

@@ -8,15 +8,15 @@ import "./icons.stories.css";
 <Meta title="Iconset" />
 
 <Canvas>
-  <Story name="Icons list">
+  <Story name="Iconset">
     {() => html`<div class="icons-list">
       ${[STROKE_ICONS, FILLED_ICONS, BUTTON_ICONS, LEGACY_ICONS].map(
         (iconsGroup, index) => html`
           <details open>
             <summary>
-              ${["Stroke icons", "Filled icons", "Button icons", "Legacy icon names"][index]} - (${
-          Object.keys(iconsGroup).length
-        })
+              ${["Stroke icons", "Filled icons", "Button icons", "Legacy icon names"][index]} - (${Object.keys(
+                iconsGroup
+              ).length})
             </summary>
             <ol class="icons-container">
               ${Object.keys(iconsGroup)
@@ -29,7 +29,7 @@ import "./icons.stories.css";
                     </li>
                   `
                 )}
-            </div>
+            </ol>
           </details>
         `
       )}

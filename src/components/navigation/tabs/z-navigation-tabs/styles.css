@@ -1,4 +1,7 @@
 :host {
+  --z-navigation-tabs-nav-buttons-bg: var(--color-white);
+  --z-navigation-tabs-nav-buttons-fg: var(--color-primary01);
+
   position: relative;
   z-index: 0;
   display: flex;
@@ -27,17 +30,12 @@
   padding: 0;
   border: none;
   margin: 0;
-  background: var(--color-white);
+  background: var(--z-navigation-tabs-nav-buttons-bg);
   border-radius: var(--border-no-radius);
-  box-shadow: 0 0 4px 1px (--shadow-color-base);
+  box-shadow: 0 0 4px 1px var(--shadow-color-base);
   cursor: pointer;
-  fill: var(--color-primary01);
+  fill: var(--z-navigation-tabs-nav-buttons-fg);
   outline: none;
-}
-
-.navigation-button:focus:focus-visible {
-  box-shadow: inset 0 0 4px 3px var(--color-highlight);
-  fill: var(--color-primary01);
 }
 
 .navigation-button:disabled {

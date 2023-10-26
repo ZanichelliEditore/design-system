@@ -180,7 +180,10 @@ If you put a clickable item as a child cell of a z-tr with `expandable` set to `
         </z-tr>
         <z-tr expandable>
           <z-td>Contenuto cella</z-td>
-          <z-td>Contenuto cella</z-td>
+          <z-td show-menu="always">
+            <span>Contenuto cella con menu</span>
+            <div slot="contextual-menu">Contenuto del popover</div></z-td
+          >
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>
           <z-td>Contenuto cella</z-td>

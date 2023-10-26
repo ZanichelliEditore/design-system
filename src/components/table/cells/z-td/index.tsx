@@ -63,6 +63,11 @@ export class ZTd {
     this.colspanChange.emit(this.colspan || 1);
   }
 
+  private onMenuButtonClick(ev: MouseEvent): void {
+    ev.stopPropagation();
+    this.popoverEl.open = !this.popoverEl.open;
+  }
+
   componentWillLoad(): void {
     this.updateColspan();
   }
@@ -81,7 +86,7 @@ export class ZTd {
               icon="contextual-menu"
               size={ControlSize.X_SMALL}
               ref={(el) => (this.menuTrigger = el as HTMLZButtonElement)}
-              onClick={() => (this.popoverEl.open = !this.popoverEl.open)}
+              onClick={this.onMenuButtonClick.bind(this)}
             />
             <z-popover
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
