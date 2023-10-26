@@ -31,6 +31,7 @@ export declare class ZTd {
    */
   colspanChange: EventEmitter<number>;
   protected updateColspan(): void;
+  private onMenuButtonClick;
   componentWillLoad(): void;
   render(): HTMLZTdElement;
 }

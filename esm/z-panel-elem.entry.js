@@ -22,7 +22,7 @@ const ZPanelElem = class {
         "z-link": true,
         "z-link-disabled": this.isdisabled,
         "z-link-icon": true,
-      }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { class: "z-link-icon-left", height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
+      }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
   }
 };
 ZPanelElem.style = stylesCss;

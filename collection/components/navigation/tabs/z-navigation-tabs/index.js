@@ -3,6 +3,8 @@ import { NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEv
 /**
  * Navigation tabs component.
  * @slot - Main slot. Use `z-navigation-tab` or `z-navigation-tab-link` components as children.
+ * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+ * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
  */
 export class ZNavigationTabs {
   constructor() {
@@ -170,9 +172,9 @@ export class ZNavigationTabs {
     return (h(Host, { class: {
         "interactive-2": this.size === NavigationTabsSize.SMALL,
         "interactive-1": this.size !== NavigationTabsSize.SMALL,
-      }, scrollable: this.canNavigate }, this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), h("nav", { role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, h("slot", null)), this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), onKeyDown: (e) => {
+      }, scrollable: this.canNavigate }, this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev, "aria-label": "Mostra elementi precedenti" }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), h("nav", { role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, h("slot", null)), this.canNavigate && (h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), onKeyDown: (e) => {
         this.navigateThroughTabs(e);
-      }, tabindex: "-1", disabled: !this.canNavigateNext }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
+      }, tabindex: "-1", disabled: !this.canNavigateNext, "aria-label": "Mostra elementi successivi" }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
   }
   static get is() { return "z-navigation-tabs"; }
   static get encapsulation() { return "shadow"; }

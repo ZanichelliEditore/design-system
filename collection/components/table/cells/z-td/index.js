@@ -30,11 +30,15 @@ export class ZTd {
     }
     this.colspanChange.emit(this.colspan || 1);
   }
+  onMenuButtonClick(ev) {
+    ev.stopPropagation();
+    this.popoverEl.open = !this.popoverEl.open;
+  }
   componentWillLoad() {
     this.updateColspan();
   }
   render() {
-    return (h(Host, { role: "cell", "menu-open": this.isMenuOpen }, h("slot", null), this.showMenu && (h("div", { class: "cell--menu-container prevent-expand" }, h("z-button", { variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: () => (this.popoverEl.open = !this.popoverEl.open) }), h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { name: "contextual-menu" }))))));
+    return (h(Host, { role: "cell", "menu-open": this.isMenuOpen }, h("slot", null), this.showMenu && (h("div", { class: "cell--menu-container prevent-expand" }, h("z-button", { variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: this.onMenuButtonClick.bind(this) }), h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { name: "contextual-menu" }))))));
   }
   static get is() { return "z-td"; }
   static get encapsulation() { return "shadow"; }
