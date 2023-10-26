@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.2](https://github.com/ZanichelliEditore/design-system/compare/v10.0.1...v10.0.2) (2023-10-26)
+
+
+### Bug Fixes
+
+* accessibility roles for carousel ([efaaa4c](https://github.com/ZanichelliEditore/design-system/commit/efaaa4c1215cacacd3a96c5477f79987af63094c))
+* expandable table row behavior on contextual menu click ([45aeb63](https://github.com/ZanichelliEditore/design-system/commit/45aeb6334c83b6ef026803fd03240cb3e9012c0f))
+
 ### [10.0.1](https://github.com/ZanichelliEditore/design-system/compare/v10.0.0...v10.0.1) (2023-10-19)
 
 ## [10.0.0](https://github.com/ZanichelliEditore/design-system/compare/v9.2.8...v10.0.0) (2023-10-16)
