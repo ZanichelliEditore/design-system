@@ -29,7 +29,7 @@ export class ZButton {
     if (this.href) {
       return (h("a", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, href: this.href, target: this.target }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
     }
-    return (h("button", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, name: this.name, type: this.type, disabled: this.disabled }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
+    return (h("button", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, name: this.name, type: this.type, role: this.role, disabled: this.disabled }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
   }
   static get is() { return "z-button"; }
   static get encapsulation() { return "scoped"; }
@@ -62,6 +62,23 @@ export class ZButton {
         "attribute": "aria-label",
         "reflect": true,
         "defaultValue": "\"\""
+      },
+      "role": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "defines role attribute, used for accessibility."
+        },
+        "attribute": "role",
+        "reflect": false
       },
       "href": {
         "type": "string",

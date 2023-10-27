@@ -210,7 +210,7 @@ const ZButton = class {
     if (this.href) {
       return (h("a", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, href: this.href, target: this.target }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
     }
-    return (h("button", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, name: this.name, type: this.type, disabled: this.disabled }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
+    return (h("button", Object.assign({}, this.getAttributes(), { "aria-label": this.ariaLabel, name: this.name, type: this.type, role: this.role, disabled: this.disabled }), this.icon && (h("z-icon", { name: this.icon, width: 16, height: 16 })), h("slot", null)));
   }
   get hostElement() { return getElement(this); }
 };
@@ -418,7 +418,7 @@ const ZInput = class {
     if (!this.icon) {
       return;
     }
-    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon, class: this.size })));
+    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1, "aria-hidden": "true" }, h("z-icon", { name: this.icon, class: this.size })));
   }
   renderResetIcon() {
     let hidden = false;

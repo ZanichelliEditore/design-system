@@ -30,6 +30,7 @@ const ZSelect = class {
     this.size = ControlSize.BIG;
     this.isOpen = false;
     this.selectedItem = null;
+    this.selectedItemIndex = null;
     this.itemsList = [];
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -38,6 +39,9 @@ const ZSelect = class {
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item) => item.selected);
+  }
+  watchSelectedItem() {
+    this.selectedItemIndex = this.itemsList.indexOf(this.selectedItem);
   }
   /** get the input selected options */
   async getSelectedItem() {
@@ -226,7 +230,7 @@ const ZSelect = class {
     return (h("z-input", { class: {
         "active-select": this.isOpen,
         "cursor-select": !this.autocomplete,
-      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", size: this.size, onClick: (e) => {
+      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_select_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", size: this.size, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -245,11 +249,10 @@ const ZSelect = class {
       } }));
   }
   renderSelectUl() {
-    var _a;
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: {
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1", "aria-hidden": this.isOpen ? "false" : "true" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: this.htmlid, "aria-activedescendant": (_a = this.selectedItem) === null || _a === void 0 ? void 0 : _a.id, "aria-multiselectable": false, size: this.listSizeType(), class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-activedescendant": this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -268,7 +271,7 @@ const ZSelect = class {
       }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
   }
   renderItem(item, key, lastItem) {
-    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": !!item.selected, id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
+    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
         "selected": !!item.selected,
         "list-element-content": true,
       }, innerHTML: item.name })));
@@ -321,7 +324,8 @@ const ZSelect = class {
   }
   get element() { return getElement(this); }
   static get watchers() { return {
-    "items": ["watchItems"]
+    "items": ["watchItems"],
+    "selectedItem": ["watchSelectedItem"]
   }; }
 };
 ZSelect.style = stylesCss;

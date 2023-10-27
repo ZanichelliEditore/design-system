@@ -6,6 +6,8 @@ export declare class ZButton {
   hostElement: HTMLZButtonElement;
   /** defines a string value that labels an interactive element, used for accessibility. */
   ariaLabel: string;
+  /** defines role attribute, used for accessibility. */
+  role?: string;
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   href?: string;
   /** HTML a target attribute. */

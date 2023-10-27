@@ -161,7 +161,7 @@ export class ZInput {
     if (!this.icon) {
       return;
     }
-    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1 }, h("z-icon", { name: this.icon, class: this.size })));
+    return (h("button", { type: "button", class: "icon-button input-icon", tabIndex: -1, "aria-hidden": "true" }, h("z-icon", { name: this.icon, class: this.size })));
   }
   renderResetIcon() {
     let hidden = false;
