@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.3](https://github.com/ZanichelliEditore/design-system/compare/v10.0.2...v10.0.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* add role attribute to zButton ([afcdaae](https://github.com/ZanichelliEditore/design-system/commit/afcdaae72776ae8c2f509e9b847fd0a784e6b36c))
+* z-select arrow nav ([bd09da3](https://github.com/ZanichelliEditore/design-system/commit/bd09da314205a796c2eaf272f98bd1cdcf658d22))
+* z-select test ([ee6960f](https://github.com/ZanichelliEditore/design-system/commit/ee6960f18ecbd911751d570b9af2524c0f4081b4))
+* zinput a11y improvements ([3bb8051](https://github.com/ZanichelliEditore/design-system/commit/3bb8051898517e0cf17a01c808c71186aebc80df))
+* zselect a11y improvements ([99b54d5](https://github.com/ZanichelliEditore/design-system/commit/99b54d5d7e93f231da9ac708dfd7e7570e6cc22b))
+
 ### [10.0.2](https://github.com/ZanichelliEditore/design-system/compare/v10.0.1...v10.0.2) (2023-10-26)
 
 
