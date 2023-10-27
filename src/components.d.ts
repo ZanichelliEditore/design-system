@@ -219,6 +219,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * defines role attribute, used for accessibility.
+         */
+        "role"?: string;
+        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ButtonSize | ControlSize;
@@ -2992,6 +2996,10 @@ declare namespace LocalJSX {
           * HTML button name attribute.
          */
         "name"?: string;
+        /**
+          * defines role attribute, used for accessibility.
+         */
+        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */

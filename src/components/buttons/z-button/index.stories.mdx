@@ -30,6 +30,8 @@ import "./index";
       size: ButtonSize.BIG,
       disabled: false,
       icon: "download",
+      ariaLabel: "Clicca sul bottone",
+      role: "link",
     }}
   >
     {(args) => html`
@@ -39,6 +41,8 @@ import "./index";
           size=${args.size}
           disabled=${args.disabled}
           icon=${args.icon}
+          ariaLabel=${args.ariaLabel}
+          role=${args.role}
           >Click me</z-button
         >
       </div>
