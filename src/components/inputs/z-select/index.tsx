@@ -86,6 +86,9 @@ export class ZSelect {
   selectedItem: null | SelectItem = null;
 
   @State()
+  selectedItemIndex: null | number = null;
+
+  @State()
   searchString: null | string;
 
   private itemsList: SelectItem[] = [];
@@ -100,6 +103,11 @@ export class ZSelect {
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
+  }
+
+  @Watch("selectedItem")
+  watchSelectedItem(): void {
+    this.selectedItemIndex = this.itemsList.indexOf(this.selectedItem);
   }
 
   /** get the input selected options */
@@ -341,7 +349,7 @@ export class ZSelect {
           "cursor-select": !this.autocomplete,
         }}
         id={`${this.htmlid}_input`}
-        htmlid={`${this.htmlid}_input`}
+        htmlid={`${this.htmlid}_select_input`}
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
@@ -387,6 +395,7 @@ export class ZSelect {
       <div
         class={this.isOpen ? "open" : "closed"}
         tabindex="-1"
+        aria-hidden={this.isOpen ? "false" : "true"}
       >
         <div
           class={{
@@ -398,8 +407,8 @@ export class ZSelect {
           <z-list
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
-            id={this.htmlid}
-            aria-activedescendant={this.selectedItem?.id}
+            id={`${this.htmlid}_list`}
+            aria-activedescendant={this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined}
             aria-multiselectable={false}
             size={this.listSizeType()}
             class={{
@@ -456,7 +465,7 @@ export class ZSelect {
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role="option"
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
-        aria-selected={!!item.selected}
+        aria-selected={item.selected ? "true" : "false"}
         id={`${this.htmlid}_${key}`}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item, true)}

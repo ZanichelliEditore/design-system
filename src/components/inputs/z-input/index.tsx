@@ -328,6 +328,7 @@ export class ZInput {
         type="button"
         class="icon-button input-icon"
         tabIndex={-1}
+        aria-hidden="true"
       >
         <z-icon
           name={this.icon}
