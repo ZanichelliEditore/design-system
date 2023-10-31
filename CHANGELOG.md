@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.4](https://github.com/ZanichelliEditore/design-system/compare/v10.0.3...v10.0.4) (2023-10-31)
+
+
+### Bug Fixes
+
+* remove aria-activedescendant attribute ([db99659](https://github.com/ZanichelliEditore/design-system/commit/db99659019414da6c8b18104f9b4259d25ffd773))
+
 ### [10.0.3](https://github.com/ZanichelliEditore/design-system/compare/v10.0.2...v10.0.3) (2023-10-27)
 
 
