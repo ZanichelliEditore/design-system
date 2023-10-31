@@ -23,7 +23,6 @@ export class ZSelect {
     this.size = ControlSize.BIG;
     this.isOpen = false;
     this.selectedItem = null;
-    this.selectedItemIndex = null;
     this.itemsList = [];
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -32,9 +31,6 @@ export class ZSelect {
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item) => item.selected);
-  }
-  watchSelectedItem() {
-    this.selectedItemIndex = this.itemsList.indexOf(this.selectedItem);
   }
   /** get the input selected options */
   async getSelectedItem() {
@@ -245,7 +241,7 @@ export class ZSelect {
     return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1", "aria-hidden": this.isOpen ? "false" : "true" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-activedescendant": this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined, "aria-multiselectable": false, size: this.listSizeType(), class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -648,7 +644,6 @@ export class ZSelect {
     return {
       "isOpen": {},
       "selectedItem": {},
-      "selectedItemIndex": {},
       "searchString": {}
     };
   }
@@ -753,9 +748,6 @@ export class ZSelect {
     return [{
         "propName": "items",
         "methodName": "watchItems"
-      }, {
-        "propName": "selectedItem",
-        "methodName": "watchSelectedItem"
       }];
   }
 }

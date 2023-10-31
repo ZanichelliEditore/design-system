@@ -30,7 +30,6 @@ const ZSelect = class {
     this.size = ControlSize.BIG;
     this.isOpen = false;
     this.selectedItem = null;
-    this.selectedItemIndex = null;
     this.itemsList = [];
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -39,9 +38,6 @@ const ZSelect = class {
   watchItems() {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item) => item.selected);
-  }
-  watchSelectedItem() {
-    this.selectedItemIndex = this.itemsList.indexOf(this.selectedItem);
   }
   /** get the input selected options */
   async getSelectedItem() {
@@ -252,7 +248,7 @@ const ZSelect = class {
     return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1", "aria-hidden": this.isOpen ? "false" : "true" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-activedescendant": this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined, "aria-multiselectable": false, size: this.listSizeType(), class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -324,8 +320,7 @@ const ZSelect = class {
   }
   get element() { return getElement(this); }
   static get watchers() { return {
-    "items": ["watchItems"],
-    "selectedItem": ["watchSelectedItem"]
+    "items": ["watchItems"]
   }; }
 };
 ZSelect.style = stylesCss;
