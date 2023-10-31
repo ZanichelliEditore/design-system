@@ -86,9 +86,6 @@ export class ZSelect {
   selectedItem: null | SelectItem = null;
 
   @State()
-  selectedItemIndex: null | number = null;
-
-  @State()
   searchString: null | string;
 
   private itemsList: SelectItem[] = [];
@@ -103,11 +100,6 @@ export class ZSelect {
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
-  }
-
-  @Watch("selectedItem")
-  watchSelectedItem(): void {
-    this.selectedItemIndex = this.itemsList.indexOf(this.selectedItem);
   }
 
   /** get the input selected options */
@@ -408,7 +400,6 @@ export class ZSelect {
             role="listbox"
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={`${this.htmlid}_list`}
-            aria-activedescendant={this.selectedItem ? `${this.htmlid}_${this.selectedItemIndex}` : undefined}
             aria-multiselectable={false}
             size={this.listSizeType()}
             class={{

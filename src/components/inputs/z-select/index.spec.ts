@@ -144,7 +144,6 @@ describe("Suite test ZSelect", () => {
                   role="listbox"
                   tabindex="0"
                   id="checkid_list"
-                  aria-activedescendant="checkid_1"
                   class="filled"
                   size="medium"
                 >
@@ -481,7 +480,7 @@ describe("Suite test ZSelect", () => {
             <z-input aria-label="" autocomplete="off" class="active-select" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
             <div class="open" tabindex="-1" aria-hidden="false">
               <div class="ul-scroll-wrapper" tabindex="-1">
-                <z-list aria-activedescendant="checkid_0" class="filled" id="checkid_list" role="listbox" size="medium" tabindex="0">
+                <z-list class="filled" id="checkid_list" role="listbox" size="medium" tabindex="0">
                   <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_0" role="option" tabindex="0">
                     <div class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
