@@ -350,7 +350,7 @@ export class ZPagination {
   }
 
   componentDidRender(): void {
-    if (this.split !== 0) {
+    if (this.split) {
       this.edges = false;
     }
 
