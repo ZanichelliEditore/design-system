@@ -39,39 +39,43 @@ import {classMap} from "lit-html/directives/class-map.js";
 <Canvas>
   <Story name="ZLink">
     {(args) => html`
-      <a
-        href="zanichelli.it"
-        class=${classMap({
-          "z-link": true,
-          "z-link-black": args.colorVariant === "z-link-black",
-          "z-link-white": args.colorVariant === "z-link-white",
-          "z-link-active": args["z-link-active"],
-          "z-link-inverse": args["z-link-inverse"],
-          "z-link-disabled": args["z-link-disabled"],
-          "z-link-underline": args["z-link-underline"],
-          "z-link-icon": args["z-link-icon"],
-          "z-link-sb": args["z-link-sb"],
-        })}
-      >
-        ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
-        <span>${args.text}</span>
-      </a>
-      <button
-        class=${classMap({
-          "z-link": true,
-          "z-link-black": args.colorVariant === "z-link-black",
-          "z-link-white": args.colorVariant === "z-link-white",
-          "z-link-active": args["z-link-active"],
-          "z-link-inverse": args["z-link-inverse"],
-          "z-link-disabled": args["z-link-disabled"],
-          "z-link-underline": args["z-link-underline"],
-          "z-link-icon": args["z-link-icon"],
-          "z-link-sb": args["z-link-sb"],
-        })}
-      >
-        ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
-        <span>${args.text}</span>
-      </button>
+      <div>
+        <a
+          href="zanichelli.it"
+          class=${classMap({
+            "z-link": true,
+            "z-link-black": args.colorVariant === "z-link-black",
+            "z-link-white": args.colorVariant === "z-link-white",
+            "z-link-active": args["z-link-active"],
+            "z-link-inverse": args["z-link-inverse"],
+            "z-link-disabled": args["z-link-disabled"],
+            "z-link-underline": args["z-link-underline"],
+            "z-link-icon": args["z-link-icon"],
+            "z-link-sb": args["z-link-sb"],
+          })}
+        >
+          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
+          <span>${args.text}</span>
+        </a>
+        <br />
+        <br />
+        <button
+          class=${classMap({
+            "z-link": true,
+            "z-link-black": args.colorVariant === "z-link-black",
+            "z-link-white": args.colorVariant === "z-link-white",
+            "z-link-active": args["z-link-active"],
+            "z-link-inverse": args["z-link-inverse"],
+            "z-link-disabled": args["z-link-disabled"],
+            "z-link-underline": args["z-link-underline"],
+            "z-link-icon": args["z-link-icon"],
+            "z-link-sb": args["z-link-sb"],
+          })}
+        >
+          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
+          <span>${args.text}</span>
+        </button>
+      </div>
     `}
   </Story>
 </Canvas>
