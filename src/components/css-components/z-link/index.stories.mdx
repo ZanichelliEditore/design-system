@@ -54,8 +54,7 @@ import {classMap} from "lit-html/directives/class-map.js";
             "z-link-sb": args["z-link-sb"],
           })}
         >
-          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
-          <span>${args.text}</span>
+          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""} ${args.text}
         </a>
         <br />
         <br />
@@ -72,8 +71,7 @@ import {classMap} from "lit-html/directives/class-map.js";
             "z-link-sb": args["z-link-sb"],
           })}
         >
-          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
-          <span>${args.text}</span>
+          ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""} ${args.text}
         </button>
       </div>
     `}
