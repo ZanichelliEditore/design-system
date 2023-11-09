@@ -134,7 +134,8 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 :host([clickable]) ::slotted([slot="title"]:focus:focus-visible) {
-  outline: none;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 :host([variant="text"]) {

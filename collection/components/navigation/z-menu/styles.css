@@ -62,6 +62,10 @@ button.menu-label {
   letter-spacing: normal;
 }
 
+:host .menu-label .menu-label-content ::slotted(*:not([slot]):focus:focus-visible) {
+  box-shadow: none !important;
+}
+
 /* border */
 :host(:is([active], [open], [vertical-context])) .menu-label .menu-label-content::after,
 .menu-label .menu-label-content:hover::after,

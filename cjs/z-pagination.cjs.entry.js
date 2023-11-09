@@ -202,7 +202,7 @@ const ZPagination = class {
     this.setVisiblePages();
   }
   componentDidRender() {
-    if (this.split !== 0) {
+    if (this.split) {
       this.edges = false;
     }
     this.setPagesContainerWidth();
