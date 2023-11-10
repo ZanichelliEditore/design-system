@@ -232,8 +232,10 @@ export class ZNavigationTabs {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
-    if (!this.tabFocus) {
-      this.tabFocus = 0;
+
+    if (this.tabFocus === undefined) {
+      const tabActive = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
+      this.tabFocus = tabActive >= 0 ? tabActive : 0;
       const tabChild = this.tabs[this.tabFocus].children[0] as HTMLElement;
       if (tabChild) {
         tabChild.tabIndex = 0;
