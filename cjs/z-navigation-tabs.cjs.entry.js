@@ -162,8 +162,9 @@ const ZNavigationTabs = class {
     this.setChildrenSize();
     this.setChildrenOrientation();
     this.checkScrollVisible();
-    if (!this.tabFocus) {
-      this.tabFocus = 0;
+    const tabActive = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
+    if ((!this.tabFocus && tabActive < 0) || this.tabFocus === undefined) {
+      this.tabFocus = tabActive >= 0 ? tabActive : 0;
       const tabChild = this.tabs[this.tabFocus].children[0];
       if (tabChild) {
         tabChild.tabIndex = 0;
