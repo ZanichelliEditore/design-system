@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.7](https://github.com/ZanichelliEditore/design-system/compare/v10.0.6...v10.0.7) (2023-11-22)
+
+
+### Bug Fixes
+
+* z-navigation-tabs fix keyboard navigation ([eb83301](https://github.com/ZanichelliEditore/design-system/commit/eb833014d8e70a5b0275d08767418ef00977bb9f))
+* z-navigation-tabs with active tab selected ([cea0bdc](https://github.com/ZanichelliEditore/design-system/commit/cea0bdc7c050d32236b978052bcb3831382788d5))
+
 ### [10.0.6](https://github.com/ZanichelliEditore/design-system/compare/v10.0.5...v10.0.6) (2023-11-09)
 
 ### [10.0.5](https://github.com/ZanichelliEditore/design-system/compare/v10.0.4...v10.0.5) (2023-11-08)
