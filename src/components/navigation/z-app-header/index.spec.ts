@@ -26,7 +26,7 @@ describe("Suite test ZAppHeader", () => {
             </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">
-            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent" aria-hidden disabled>
               <z-icon name="close"></z-icon>
             </button>
             <div class="drawer-content" slot="canvasContent" aria-hidden="">
@@ -63,7 +63,7 @@ describe("Suite test ZAppHeader", () => {
             </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">
-            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent" aria-hidden disabled>
               <z-icon name="close"></z-icon>
             </button>
             <div class="drawer-content" slot="canvasContent" aria-hidden="">
@@ -103,7 +103,7 @@ describe("Suite test ZAppHeader", () => {
           </div>
         </div>
         <z-offcanvas transitiondirection="right" variant="overlay">
-            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent" aria-hidden disabled>
               <z-icon name="close"></z-icon>
             </button>
             <div class="drawer-content" slot="canvasContent" aria-hidden="">
@@ -142,7 +142,7 @@ describe("Suite test ZAppHeader", () => {
             </div>
           </div>
           <z-offcanvas transitiondirection="right" variant="overlay">
-            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent" aria-hidden disabled>
               <z-icon name="close"></z-icon>
             </button>
             <div class="drawer-content" slot="canvasContent" aria-hidden="">

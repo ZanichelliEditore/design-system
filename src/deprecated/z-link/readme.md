@@ -13,6 +13,8 @@
 <!-- Auto Generated Below -->
 
 
+> **[DEPRECATED]** - use a native `<a>` with the `z-link` CSS class instead
+
 ## Properties
 
 | Property       | Attribute      | Description                        | Type                                           | Default     |

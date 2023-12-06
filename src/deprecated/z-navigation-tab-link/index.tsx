@@ -1,17 +1,18 @@
 import {Component, Prop, h, Listen, Event, EventEmitter, Watch, Host} from "@stencil/core";
-import {NavigationTabsOrientation, NavigationTabsSize} from "../../../../beans";
-import {ICONS} from "../../../icons/icons";
+import {NavigationTabsOrientation, NavigationTabsSize} from "../../beans";
+import {ICONS} from "../../components/icons/icons";
 
 /**
- * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
  * This component uses the `tab` role:
  * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+ * @deprecated Use a native `<a>` instead.
  */
 @Component({
-  tag: "z-navigation-tab",
+  tag: "z-navigation-tab-link",
   styleUrl: "../navigation-tab.css",
 })
-export class ZNavigationTab {
+export class ZNavigationTabLink {
   /**
    * `aria-controls` attribute of the tab.
    * Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.
@@ -46,13 +47,31 @@ export class ZNavigationTab {
    * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  orientation: NavigationTabsOrientation = NavigationTabsOrientation.HORIZONTAL;
+  orientation = NavigationTabsOrientation.HORIZONTAL;
 
   /**
    * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
    */
   @Prop({reflect: true})
-  size: NavigationTabsSize = NavigationTabsSize.BIG;
+  size = NavigationTabsSize.BIG;
+
+  /**
+   * Html title attribute for the anchor element.
+   */
+  @Prop()
+  htmlTitle: string;
+
+  /**
+   * Html `target` attribute for the anchor element.
+   */
+  @Prop()
+  target: string;
+
+  /**
+   * Url to set to the anchor element.
+   */
+  @Prop()
+  href: string;
 
   /**
    * Name of the icon to use.
@@ -66,12 +85,6 @@ export class ZNavigationTab {
    */
   @Prop()
   label: string;
-
-  /**
-   * Html `title` attribute for the button.
-   */
-  @Prop()
-  htmlTitle: string;
 
   /**
    * The tab has been selected.
@@ -97,9 +110,7 @@ export class ZNavigationTab {
 
   @Listen("click")
   onClick(): void {
-    if (!this.disabled) {
-      this.selected = true;
-    }
+    this.selected = true;
   }
 
   @Watch("selected")
@@ -125,7 +136,7 @@ export class ZNavigationTab {
     return <z-icon name={icon}></z-icon>;
   }
 
-  render(): HTMLZNavigationTabElement {
+  render(): HTMLZNavigationTabLinkElement {
     return (
       <Host
         role="tab"
@@ -133,15 +144,16 @@ export class ZNavigationTab {
         aria-selected={this.selected ? "true" : "false"}
         aria-controls={this.ariaControls}
       >
-        <button
+        <a
           tabIndex={this.selected ? 0 : -1}
           onFocus={this.scrollToTab.bind(this)}
-          disabled={this.disabled}
+          href={!this.disabled && this.href}
           title={this.htmlTitle}
+          target={this.target}
         >
           {this.icon && this.renderIcon()}
-          {this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label}
-        </button>
+          {this.orientation === "horizontal" && this.label}
+        </a>
       </Host>
     );
   }

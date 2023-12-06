@@ -1,7 +1,7 @@
 import {html} from "lit-html";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
-import {NavigationTabsSize, NavigationTabsOrientation} from "../../../../beans/index";
-import {getColorVars, getColorVarsLabels} from "../../../../utils/storybook-utils";
+import {NavigationTabsSize, NavigationTabsOrientation} from "../../../beans/index";
+import {getColorVars, getColorVarsLabels} from "../../../utils/storybook-utils";
 import {styleMap} from "lit-html/directives/style-map";
 import "./index";
 import "./index.stories.css";
@@ -10,12 +10,8 @@ import "./index.stories.js";
 # ZNavigationTabs
 
 <Meta
-  title="ZNavigationTabs/ZNavigationTabs"
+  title="ZNavigationTabs"
   component="z-navigation-tabs"
-  subcomponents={{
-    ZNavigationTab: "z-navigation-tab",
-    ZNavigationTabLink: "z-navigation-tab-link",
-  }}
   argTypes={{
     "orientation": {
       options: Object.values(NavigationTabsOrientation),
@@ -36,8 +32,8 @@ import "./index.stories.js";
     },
   }}
   args={{
-    "--z-navigation-tabs-nav-buttons-bg": "var(--color-white)",
-    "--z-navigation-tabs-nav-buttons-fg": "var(--color-primary01)",
+    "--z-navigation-tabs-nav-buttons-bg": "",
+    "--z-navigation-tabs-nav-buttons-fg": "",
   }}
 />
 
@@ -45,7 +41,7 @@ import "./index.stories.js";
 
 <Canvas>
   <Story
-    name="z-navigation-tabs horizontal"
+    name="Horizontal"
     argTypes={{
       size: {
         options: Object.values(NavigationTabsSize),
@@ -75,34 +71,23 @@ import "./index.stories.js";
           "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
         })}
       >
-        <z-navigation-tab
-          icon="house"
-          label="Home"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="map"
-          label="Maps"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="download"
-          label="Download"
+        <button aria-label="house"><z-icon name="house" />Home</button>
+        <button aria-label="map"><z-icon name="map" />Maps</button>
+        <button
+          aria-label="download"
           disabled
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="user-avatar"
-          label="Users"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="artist"
-          label="Artisti"
-        ></z-navigation-tab>
-        <z-navigation-tab-link
+        >
+          <z-icon name="download" />Download
+        </button>
+        <button aria-label="user"><z-icon name="user-avatar" />Users</button>
+        <button aria-label="artist"><z-icon name="artist" />Artisti</button>
+        <a
           href="https://www.google.com"
-          icon="arrow-quad-north-east"
-          label="External link"
           target="_blank"
-          htmlTitle="Go to Google"
-        ></z-navigation-tab-link>
+          title="Vai a Google"
+        >
+          <z-icon name="arrow-quad-north-east" />Link esterno</a
+        >
       </z-navigation-tabs>
     `}
   </Story>
@@ -112,7 +97,7 @@ import "./index.stories.js";
 
 <Canvas>
   <Story
-    name="z-navigation-tabs vertical"
+    name="Vertical"
     args={{
       orientation: NavigationTabsOrientation.VERTICAL,
       ariaLabel: "",
@@ -132,34 +117,23 @@ import "./index.stories.js";
           "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
         })}
       >
-        <z-navigation-tab
-          icon="house"
-          label="Home"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="map"
-          label="Maps"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="download"
-          label="Download"
+        <button aria-label="house"><z-icon name="house" />Home</button>
+        <button aria-label="map"><z-icon name="map" />Maps</button>
+        <button
+          aria-label="download"
           disabled
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="user-avatar"
-          label="Users"
-        ></z-navigation-tab>
-        <z-navigation-tab
-          icon="artist"
-          label="Artisti"
-        ></z-navigation-tab>
-        <z-navigation-tab-link
+        >
+          <z-icon name="download" />Download
+        </button>
+        <button aria-label="user"><z-icon name="user-avatar" />Users</button>
+        <button aria-label="artist"><z-icon name="artist" />Artisti</button>
+        <a
           href="https://www.google.com"
-          icon="arrow-quad-north-east"
-          label="External link"
           target="_blank"
-          htmlTitle="Go to Google"
-        ></z-navigation-tab-link>
+          title="Vai a Google"
+        >
+          <z-icon name="arrow-quad-north-east" />Link esterno</a
+        >
       </z-navigation-tabs>
     `}
   </Story>
@@ -167,13 +141,13 @@ import "./index.stories.js";
 
 # With tabpanels
 
-This story gives an example of how to handle a `ZNavigationTabs` with switchable `tabpanel`s, which is the most common use for the navigation tabs. Each panel must have the `tabpanel` role and the `aria-labelledby` attribute, referencing the tab that controls it (unless a different label is provided using `aria-label`). Similarly, the prop `ariaControls`/`aria-controls` of the tabs must be set with the `id` of the controlled panel.
+This story provides an example of how to handle a `ZNavigationTabs` with switchable `tabpanel`s, which is the most common use for the navigation tabs. Each panel must have the `tabpanel` role and the `aria-labelledby` attribute, referencing the tab that controls it (unless a different label is provided using `aria-label`). Similarly, the `aria-controls` attribute must be set on the tabs with the `id` of the controlled panel.
 
 For more details check the documentation: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
 
 <Canvas>
   <Story
-    name="z-navigation-tabs with tabpanels"
+    name="With tabpanels"
     args={{
       ariaLabel: "",
       orientation: NavigationTabsOrientation.HORIZONTAL,
@@ -185,24 +159,26 @@ For more details check the documentation: https://developer.mozilla.org/en-US/do
           orientation=${args.orientation}
           size=${NavigationTabsSize.BIG}
           aria-label=${args.ariaLabel}
+          .selectedTab=${0}
           style=${styleMap({
             "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
             "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
           })}
         >
-          <z-navigation-tab
-            icon="house"
-            label="Home"
+          <button
             aria-controls="panel-1"
+            aria-label="home"
             id="tab-1"
-            selected
-          ></z-navigation-tab>
-          <z-navigation-tab
-            icon="info"
-            label="Info"
+          >
+            <z-icon name="house" />Home
+          </button>
+          <button
             aria-controls="panel-2"
+            aria-label="info"
             id="tab-2"
-          ></z-navigation-tab>
+          >
+            <z-icon name="info" />Info
+          </button>
         </z-navigation-tabs>
         <div class="panels">
           <div

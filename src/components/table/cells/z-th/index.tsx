@@ -55,7 +55,7 @@ export class ZTh {
   @Event()
   private sort: EventEmitter;
 
-  private menuTrigger: HTMLZButtonElement;
+  private menuTrigger: HTMLElement;
 
   private popoverEl: HTMLZPopoverElement;
 
@@ -125,7 +125,7 @@ export class ZTh {
               variant={ButtonVariant.TERTIARY}
               icon="contextual-menu"
               size={ControlSize.X_SMALL}
-              ref={(el) => (this.menuTrigger = el as HTMLZButtonElement)}
+              ref={(el) => (this.menuTrigger = el as HTMLElement)}
               onClick={() => (this.popoverEl.open = !this.popoverEl.open)}
             />
             <z-popover
