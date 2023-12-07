@@ -16,7 +16,6 @@ import {
 @Component({
   tag: "z-navigation-tabs",
   styleUrl: "styles.css",
-  shadow: true,
 })
 export class ZNavigationTabs {
   /**
@@ -77,7 +76,7 @@ export class ZNavigationTabs {
   /**
    * Reference to the `<nav>` element
    */
-  private tabsNav: HTMLElement;
+  private nav: HTMLElement;
 
   /**
    * Getter for the direction to check based on current orientation.
@@ -94,7 +93,7 @@ export class ZNavigationTabs {
   }
 
   get tabs(): HTMLElement[] {
-    return Array.from(this.host.children) as HTMLElement[];
+    return Array.from(this.nav.children) as HTMLElement[];
   }
 
   /**
@@ -117,8 +116,8 @@ export class ZNavigationTabs {
    * Scroll the navigation bar half of its size backward.
    */
   private navigateBackwards(): void {
-    this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
+    this.nav.scrollBy({
+      [this.direction.toLowerCase()]: 0 - this.nav[`client${this.dimension}`] / 2,
       behavior: "smooth",
     });
   }
@@ -127,9 +126,8 @@ export class ZNavigationTabs {
    * Scroll the navigation bar half of its size forward.
    */
   private navigateForward(): void {
-    this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]:
-        this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,
+    this.nav.scrollBy({
+      [this.direction.toLowerCase()]: this.nav[`scroll${this.direction}`] + this.nav[`client${this.dimension}`] / 2,
       behavior: "smooth",
     });
   }
@@ -146,14 +144,13 @@ export class ZNavigationTabs {
    */
   @Watch("canNavigate")
   checkScrollEnabled(): void {
-    if (!this.tabsNav) {
+    if (!this.nav) {
       return;
     }
 
     this.canNavigateNext =
-      this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] <
-      this.tabsNav[`scroll${this.dimension}`];
-    this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
+      this.nav[`scroll${this.direction}`] + this.nav[`client${this.dimension}`] < this.nav[`scroll${this.dimension}`];
+    this.canNavigatePrev = this.nav[`scroll${this.direction}`] > 0;
   }
 
   /**
@@ -175,7 +172,6 @@ export class ZNavigationTabs {
       zicon?.setAttribute("name", `${strokeIcon}-filled`);
       tab.tabIndex = 0;
       tab.setAttribute("aria-selected", "true");
-      tab.focus({preventScroll: true});
     });
     this.scrollToTab(this.tabs[this.selectedTab]);
     this.selected.emit(this.selectedTab);
@@ -186,11 +182,11 @@ export class ZNavigationTabs {
    */
   @Listen("resize", {target: "window", passive: true})
   checkScrollVisible(): void {
-    if (!this.tabsNav) {
+    if (!this.nav) {
       return;
     }
 
-    this.canNavigate = this.tabsNav[`scroll${this.dimension}`] > this.tabsNav[`client${this.dimension}`];
+    this.canNavigate = this.nav[`scroll${this.dimension}`] > this.nav[`client${this.dimension}`];
   }
 
   /**
@@ -266,7 +262,7 @@ export class ZNavigationTabs {
     this.checkScrollVisible();
   }
 
-  componentWillLoad(): void {
+  componentDidLoad(): void {
     // Set role and tabindex to each slotted tab
     this.tabs.forEach((tab) => {
       tab.role = "tab";
@@ -307,7 +303,7 @@ export class ZNavigationTabs {
         <nav
           role="tablist"
           aria-label={this.ariaLabel}
-          ref={(el) => (this.tabsNav = el ?? this.tabsNav)}
+          ref={(el) => (this.nav = el ?? this.nav)}
           onScroll={this.checkScrollEnabled.bind(this)}
           aria-orientation={this.orientation}
         >
