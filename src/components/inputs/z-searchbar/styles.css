@@ -1,5 +1,5 @@
 :host {
-  z-index: 30;
+  z-index: 15;
   display: flex;
   column-gap: calc(var(--space-unit) * 2);
   font-family: var(--font-family-sans);
