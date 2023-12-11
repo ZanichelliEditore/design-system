@@ -153,8 +153,15 @@
   font-family: var(--font-family-sans);
   font-size: 20px;
   font-style: italic;
-  font-weight: 500;
   line-height: 26px;
+}
+
+::slotted([slot="subtitle"]) {
+  font-weight: 500;
+}
+
+::slotted([slot="top-subtitle"]) {
+  font-weight: 400;
 }
 
 .menu-container {
