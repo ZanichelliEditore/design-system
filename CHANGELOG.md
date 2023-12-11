@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/ZanichelliEditore/design-system/compare/v10.0.8...v11.0.0) (2023-12-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* add migration guide
+
+### Features
+
+* added top-subtitle prop with test and storybook ([c45356c](https://github.com/ZanichelliEditore/design-system/commit/c45356c900b6234971301d1819836a329ea05dc6))
+
+
+### Bug Fixes
+
+* ts error in build ([314eaa1](https://github.com/ZanichelliEditore/design-system/commit/314eaa1fafbfaab2efecdcf2d5a99d00fbd510b7))
+* value of aria-hidden attr in app header; tests ([0f140ab](https://github.com/ZanichelliEditore/design-system/commit/0f140ab09e7570339bfa83858234ae39d4888afa))
+* z-index ([9e414ed](https://github.com/ZanichelliEditore/design-system/commit/9e414ed822675769631b4a5372667f2cdcdf8a75))
+* z-index value in z-searchbar ([b6dab2c](https://github.com/ZanichelliEditore/design-system/commit/b6dab2c2ace8b726d53f5ccac2af6490cd58e649))
+
+
+* add migration guide ([4098cd1](https://github.com/ZanichelliEditore/design-system/commit/4098cd153c4707137767da567aea089a2fe74b36))
+
 ### [10.0.8](https://github.com/ZanichelliEditore/design-system/compare/v10.0.7...v10.0.8) (2023-12-11)
 
 ### [10.0.7](https://github.com/ZanichelliEditore/design-system/compare/v10.0.6...v10.0.7) (2023-11-22)
