@@ -1,10 +1,11 @@
-import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
+import { NavigationTabsOrientation, NavigationTabsSize } from "../../beans";
 /**
- * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
  * This component uses the `tab` role:
  * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+ * @deprecated Use a native `<a>` instead.
  */
-export declare class ZNavigationTab {
+export declare class ZNavigationTabLink {
   /**
    * `aria-controls` attribute of the tab.
    * Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab.
@@ -36,6 +37,18 @@ export declare class ZNavigationTab {
    */
   size: NavigationTabsSize;
   /**
+   * Html title attribute for the anchor element.
+   */
+  htmlTitle: string;
+  /**
+   * Html `target` attribute for the anchor element.
+   */
+  target: string;
+  /**
+   * Url to set to the anchor element.
+   */
+  href: string;
+  /**
    * Name of the icon to use.
    * The `filled` version will be automatically used (if found) when the tab is `selected`.
    */
@@ -44,10 +57,6 @@ export declare class ZNavigationTab {
    * Label to show in the tab.
    */
   label: string;
-  /**
-   * Html `title` attribute for the button.
-   */
-  htmlTitle: string;
   /**
    * The tab has been selected.
    */
@@ -64,5 +73,5 @@ export declare class ZNavigationTab {
    * @returns {HTMLElement}
    */
   private renderIcon;
-  render(): HTMLZNavigationTabElement;
+  render(): HTMLZNavigationTabLinkElement;
 }

@@ -87,7 +87,8 @@ z-navigation-tab:not([disabled]):hover > * {
   background-color: var(--color-background);
 }
 
-z-navigation-tab[disabled] > * {
+z-navigation-tab[disabled] > *,
+z-navigation-tab-link[disabled] > * {
   color: var(--gray500);
   cursor: not-allowed;
   fill: currentcolor;
@@ -109,7 +110,7 @@ z-navigation-tab-link[size="small"][orientation="horizontal"] > * {
 
 z-navigation-tab[size="small"][orientation="horizontal"]:not([disabled]):hover > *::after,
 z-navigation-tab[size="small"][orientation="horizontal"][selected] > *::after,
-z-navigation-tab-link[size="small"][orientation="horizontal"]:hover > *::after,
+z-navigation-tab-link[size="small"][orientation="horizontal"]:not([disabled]):hover > *::after,
 z-navigation-tab-link[size="small"][orientation="horizontal"][selected] > *::after {
   height: var(--border-size-medium);
 }
@@ -126,9 +127,9 @@ z-navigation-tab-link[orientation="vertical"] > * {
   padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
 }
 
-z-navigation-tab[orientation="vertical"]:hover:not([disabled]) > *::after,
+z-navigation-tab[orientation="vertical"]:not([disabled]):hover > *::after,
 z-navigation-tab[orientation="vertical"][selected] > *::after,
-z-navigation-tab-link[orientation="vertical"]:hover > *::after,
+z-navigation-tab-link[orientation="vertical"]:not([disabled]):hover > *::after,
 z-navigation-tab-link[orientation="vertical"][selected] > *::after {
   top: 0;
   right: 0;

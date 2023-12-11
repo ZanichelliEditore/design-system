@@ -1127,6 +1127,7 @@ export namespace Components {
         "htmlTitle": string;
         /**
           * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * @deprecated Use a native `<button>` instead.
          */
         "icon": string;
         /**
@@ -1203,13 +1204,17 @@ export namespace Components {
     }
     interface ZNavigationTabs {
         /**
-          * Set aria-label attribute in tablist role.
+          * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
         "ariaLabel"?: string;
         /**
           * Navigation tabs orientation.
          */
         "orientation"?: NavigationTabsOrientation;
+        /**
+          * Index of the selected tab.
+         */
+        "selectedTab": number;
         /**
           * Navigation tabs size.
          */
@@ -2028,6 +2033,10 @@ export interface ZNavigationTabCustomEvent<T> extends CustomEvent<T> {
 export interface ZNavigationTabLinkCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZNavigationTabLinkElement;
+}
+export interface ZNavigationTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZNavigationTabsElement;
 }
 export interface ZNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -4005,6 +4014,7 @@ declare namespace LocalJSX {
         "htmlTitle"?: string;
         /**
           * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
+          * @deprecated Use a native `<button>` instead.
          */
         "icon"?: string;
         /**
@@ -4089,13 +4099,21 @@ declare namespace LocalJSX {
     }
     interface ZNavigationTabs {
         /**
-          * Set aria-label attribute in tablist role.
+          * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
         "ariaLabel"?: string;
+        /**
+          * Emitted when the selected tab changes.
+         */
+        "onSelected"?: (event: ZNavigationTabsCustomEvent<number>) => void;
         /**
           * Navigation tabs orientation.
          */
         "orientation"?: NavigationTabsOrientation;
+        /**
+          * Index of the selected tab.
+         */
+        "selectedTab"?: number;
         /**
           * Navigation tabs size.
          */

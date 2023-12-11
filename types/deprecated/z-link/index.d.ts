@@ -1,5 +1,6 @@
 import { EventEmitter } from "../../stencil-public-runtime";
 /**
+ * @deprecated - use a native `<a>` with the `z-link` CSS class instead
  * @slot - link content
  */
 export declare class ZLink {

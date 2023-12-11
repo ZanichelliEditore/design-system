@@ -1,12 +1,14 @@
-import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-a2ca4b97.js';
-import { N as NavigationTabsOrientation, a as NavigationTabsSize, b as NavigationTabsKeyboardEvents, g as KeyboardCode } from './index-03c8b0f0.js';
-
-const stylesCss = "z-navigation-tabs{position:relative;z-index:0;display:flex;overflow:hidden;flex-direction:row;font-family:var(--font-family-sans);font-weight:var(--font-rg)}z-navigation-tabs,z-navigation-tabs *{box-sizing:border-box}z-navigation-tabs>nav::-webkit-scrollbar{display:none}.navigation-button{position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;padding:0;border:none;margin:0;background-color:var(--z-navigation-tabs-nav-buttons-bg, var(--color-surface01));border-radius:var(--border-no-radius);box-shadow:0 0 4px 1px var(--shadow-color-base);cursor:pointer;fill:var(--z-navigation-tabs-nav-buttons-fg, var(--color-primary01));outline:none}z-navigation-tabs .navigation-button:disabled{display:none}z-navigation-tabs>nav{z-index:0;display:flex;overflow:auto;align-items:center;justify-content:flex-start;scroll-behavior:smooth;scrollbar-width:none}z-navigation-tabs[orientation=\"horizontal\"]>nav{width:100%}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button{top:0;width:calc(var(--space-unit) * 4);height:100%}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button:first-child{left:0}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button:last-child{right:0}z-navigation-tabs[orientation=\"vertical\"]{width:fit-content;flex-direction:column}z-navigation-tabs[orientation=\"vertical\"]>nav{height:100%;flex-direction:column;align-items:stretch}z-navigation-tabs[orientation=\"vertical\"] .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}z-navigation-tabs[orientation=\"vertical\"] .navigation-button:first-child{top:0}z-navigation-tabs[orientation=\"vertical\"] .navigation-button:last-child{bottom:0}z-navigation-tabs[size=\"small\"][orientation=\"vertical\"] .navigation-button{height:calc(var(--space-unit) * 4)}z-navigation-tabs>nav>*{position:relative;z-index:0;display:inline-flex;width:auto;align-items:center;justify-content:center;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);border:none;margin:0;background-color:unset;border-radius:var(--border-no-radius);color:var(--color-primary01);cursor:pointer;fill:currentcolor;font-family:var(--font-family-sans);font-size:inherit;gap:var(--space-unit);letter-spacing:inherit;line-height:inherit;outline:none;text-align:center;white-space:nowrap}z-navigation-tabs>nav>a{text-decoration:none}z-navigation-tabs>nav>*:focus:focus-visible{z-index:1;box-shadow:inset 0 0 4px 3px var(--color-highlight)}z-navigation-tabs>nav>:not([disabled]):hover{background-color:var(--color-surface02)}z-navigation-tabs>nav>button[disabled]{color:var(--color-disabled03);cursor:not-allowed;fill:currentcolor;pointer-events:all}z-navigation-tabs>nav>:not([disabled]):hover,nav>[aria-selected=\"true\"]{color:var(--color-hover-secondary);fill:currentcolor}z-navigation-tabs>nav>:not([disabled]):hover::after,nav>[aria-selected=\"true\"]::after{position:absolute;background-color:var(--color-hover-secondary);content:\"\"}z-navigation-tabs[orientation=\"horizontal\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[orientation=\"horizontal\"]>nav>[aria-selected=\"true\"]::after{bottom:0;left:0;width:100%;height:var(--border-size-large)}z-navigation-tabs>nav>* z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);display:flex;margin:0}z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>*{padding:var(--space-unit) calc(var(--space-unit) * 2)}z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>[aria-selected=\"true\"]::after{height:var(--border-size-medium)}z-navigation-tabs[size=\"small\"]:not([orientation=\"vertical\"])>nav>* z-icon{--z-icon-width:14px;--z-icon-height:14px}z-navigation-tabs[orientation=\"vertical\"]>nav>*{padding:calc(var(--space-unit) * 3) calc(var(--space-unit) * 2)}z-navigation-tabs[orientation=\"vertical\"]>nav>*>:not(z-icon){display:none}z-navigation-tabs[orientation=\"vertical\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[orientation=\"vertical\"]>nav>[aria-selected=\"true\"]::after{top:0;right:0;width:var(--border-size-large);height:100%}";
-
-const ZNavigationTabs = class {
-  constructor(hostRef) {
-    registerInstance(this, hostRef);
-    this.selected = createEvent(this, "selected", 7);
+import { h, Host } from "@stencil/core";
+import { NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents, KeyboardCode, } from "../../../beans";
+/**
+ * Navigation tabs component.
+ * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+ * @slot - Main slot. Use `<button>` or `<a>` tags as children.
+ * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+ * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
+ */
+export class ZNavigationTabs {
+  constructor() {
     /**
      * Navigation tabs orientation.
      */
@@ -188,12 +190,146 @@ const ZNavigationTabs = class {
         this.navigateThroughTabs(e);
       }, tabindex: "-1", disabled: !this.canNavigateNext, "aria-label": "Mostra elementi successivi" }, h("z-icon", { name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
   }
-  get host() { return getElement(this); }
-  static get watchers() { return {
-    "canNavigate": ["checkScrollEnabled"],
-    "selectedTab": ["onTabSelected"]
-  }; }
-};
-ZNavigationTabs.style = stylesCss;
-
-export { ZNavigationTabs as z_navigation_tabs };
+  static get is() { return "z-navigation-tabs"; }
+  static get originalStyleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get styleUrls() {
+    return {
+      "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "ariaLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Set `aria-label` attribute to the internal `<nav>` element with `tablist` role."
+        },
+        "attribute": "aria-label",
+        "reflect": false
+      },
+      "orientation": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "NavigationTabsOrientation",
+          "resolved": "NavigationTabsOrientation.HORIZONTAL | NavigationTabsOrientation.VERTICAL",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Navigation tabs orientation."
+        },
+        "attribute": "orientation",
+        "reflect": true,
+        "defaultValue": "NavigationTabsOrientation.HORIZONTAL"
+      },
+      "size": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "NavigationTabsSize",
+          "resolved": "NavigationTabsSize.BIG | NavigationTabsSize.SMALL",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Navigation tabs size."
+        },
+        "attribute": "size",
+        "reflect": true,
+        "defaultValue": "NavigationTabsSize.BIG"
+      },
+      "selectedTab": {
+        "type": "number",
+        "mutable": true,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Index of the selected tab."
+        },
+        "attribute": "selected-tab",
+        "reflect": false,
+        "defaultValue": "undefined"
+      }
+    };
+  }
+  static get states() {
+    return {
+      "canNavigate": {},
+      "canNavigatePrev": {},
+      "canNavigateNext": {}
+    };
+  }
+  static get events() {
+    return [{
+        "method": "selected",
+        "name": "selected",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "Emitted when the selected tab changes."
+        },
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        }
+      }];
+  }
+  static get elementRef() { return "host"; }
+  static get watchers() {
+    return [{
+        "propName": "canNavigate",
+        "methodName": "checkScrollEnabled"
+      }, {
+        "propName": "selectedTab",
+        "methodName": "onTabSelected"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "resize",
+        "method": "checkScrollVisible",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      }, {
+        "name": "click",
+        "method": "handleTabClick",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }, {
+        "name": "keydown",
+        "method": "navigateThroughTabs",
+        "target": undefined,
+        "capture": false,
+        "passive": false
+      }];
+  }
+}

@@ -147,13 +147,21 @@
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
 }
 
+::slotted([slot="top-subtitle"]),
 ::slotted([slot="subtitle"]) {
   margin: 0;
   font-family: var(--font-family-sans);
   font-size: 20px;
   font-style: italic;
-  font-weight: 500;
   line-height: 26px;
+}
+
+::slotted([slot="subtitle"]) {
+  font-weight: 500;
+}
+
+::slotted([slot="top-subtitle"]) {
+  font-weight: 400;
 }
 
 .menu-container {

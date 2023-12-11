@@ -1,12 +1,13 @@
 import { h, Host } from "@stencil/core";
-import { NavigationTabsOrientation, NavigationTabsSize } from "../../../../beans";
-import { ICONS } from "../../../icons/icons";
+import { NavigationTabsOrientation, NavigationTabsSize } from "../../beans";
+import { ICONS } from "../../components/icons/icons";
 /**
- * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+ * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
  * This component uses the `tab` role:
  * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+ * @deprecated Use a native `<a>` instead.
  */
-export class ZNavigationTab {
+export class ZNavigationTabLink {
   constructor() {
     /**
      * Whether the tab is selected.
@@ -35,9 +36,10 @@ export class ZNavigationTab {
     button.scrollIntoView(Object.assign({ behavior: "smooth" }, scrollOptions));
   }
   onClick() {
-    if (!this.disabled) {
-      this.selected = true;
+    if (this.disabled) {
+      return;
     }
+    this.selected = true;
   }
   onSelected() {
     if (this.selected) {
@@ -58,9 +60,9 @@ export class ZNavigationTab {
     return h("z-icon", { name: icon });
   }
   render() {
-    return (h(Host, { role: "tab", id: this.tabId, "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls }, h("button", { tabIndex: this.selected ? 0 : -1, onFocus: this.scrollToTab.bind(this), disabled: this.disabled, title: this.htmlTitle }, this.icon && this.renderIcon(), this.orientation === NavigationTabsOrientation.HORIZONTAL && this.label)));
+    return (h(Host, { role: "tab", id: this.tabId, "aria-selected": this.selected ? "true" : "false", "aria-controls": this.ariaControls }, h("a", { tabIndex: this.selected ? 0 : -1, onFocus: this.scrollToTab.bind(this), href: this.disabled ? null : this.href, title: this.htmlTitle, target: this.target }, this.icon && this.renderIcon(), this.orientation === "horizontal" && this.label)));
   }
-  static get is() { return "z-navigation-tab"; }
+  static get is() { return "z-navigation-tab-link"; }
   static get originalStyleUrls() {
     return {
       "$": ["../navigation-tab.css"]
@@ -158,12 +160,7 @@ export class ZNavigationTab {
         "complexType": {
           "original": "NavigationTabsOrientation",
           "resolved": "NavigationTabsOrientation.HORIZONTAL | NavigationTabsOrientation.VERTICAL",
-          "references": {
-            "NavigationTabsOrientation": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "references": {}
         },
         "required": false,
         "optional": false,
@@ -181,12 +178,7 @@ export class ZNavigationTab {
         "complexType": {
           "original": "NavigationTabsSize",
           "resolved": "NavigationTabsSize.BIG | NavigationTabsSize.SMALL",
-          "references": {
-            "NavigationTabsSize": {
-              "location": "import",
-              "path": "../../../../beans"
-            }
-          }
+          "references": {}
         },
         "required": false,
         "optional": false,
@@ -197,6 +189,57 @@ export class ZNavigationTab {
         "attribute": "size",
         "reflect": true,
         "defaultValue": "NavigationTabsSize.BIG"
+      },
+      "htmlTitle": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Html title attribute for the anchor element."
+        },
+        "attribute": "html-title",
+        "reflect": false
+      },
+      "target": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Html `target` attribute for the anchor element."
+        },
+        "attribute": "target",
+        "reflect": false
+      },
+      "href": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Url to set to the anchor element."
+        },
+        "attribute": "href",
+        "reflect": false
       },
       "icon": {
         "type": "string",
@@ -230,23 +273,6 @@ export class ZNavigationTab {
           "text": "Label to show in the tab."
         },
         "attribute": "label",
-        "reflect": false
-      },
-      "htmlTitle": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "string",
-          "resolved": "string",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Html `title` attribute for the button."
-        },
-        "attribute": "html-title",
         "reflect": false
       }
     };

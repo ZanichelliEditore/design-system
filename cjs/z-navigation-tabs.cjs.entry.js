@@ -5,11 +5,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-e3299e0a.js');
 const index$1 = require('./index-e8ce94a1.js');
 
-const stylesCss = ":host{--z-navigation-tabs-nav-buttons-bg:var(--color-white);--z-navigation-tabs-nav-buttons-fg:var(--color-primary01);position:relative;z-index:0;display:flex;overflow:hidden;flex-direction:row;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,:host *,::slotted(*){box-sizing:border-box}::-webkit-scrollbar{display:none}.navigation-button{position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;padding:0;border:none;margin:0;background:var(--z-navigation-tabs-nav-buttons-bg);border-radius:var(--border-no-radius);box-shadow:0 0 4px 1px var(--shadow-color-base);cursor:pointer;fill:var(--z-navigation-tabs-nav-buttons-fg);outline:none}.navigation-button:disabled{display:none}nav{display:flex;overflow:auto;align-items:center;justify-content:flex-start;scroll-behavior:smooth;scrollbar-width:none}:host([orientation=\"horizontal\"]) nav{width:100%}:host([orientation=\"horizontal\"]) .navigation-button{top:0;width:calc(var(--space-unit) * 4);height:100%}:host([orientation=\"horizontal\"]) .navigation-button:first-child{left:0}:host([orientation=\"horizontal\"]) .navigation-button:last-child{right:0}:host([orientation=\"vertical\"]){width:fit-content;flex-direction:column}:host([orientation=\"vertical\"]) nav{height:100%;flex-direction:column;align-items:stretch}:host([orientation=\"vertical\"]) .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}:host([orientation=\"vertical\"]) .navigation-button:first-child{top:0}:host([orientation=\"vertical\"]) .navigation-button:last-child{bottom:0}:host([size=\"small\"][orientation=\"vertical\"]) .navigation-button{height:calc(var(--space-unit) * 4)}";
+const stylesCss = "z-navigation-tabs{position:relative;z-index:0;display:flex;overflow:hidden;flex-direction:row;font-family:var(--font-family-sans);font-weight:var(--font-rg)}z-navigation-tabs,z-navigation-tabs *{box-sizing:border-box}z-navigation-tabs>nav::-webkit-scrollbar{display:none}.navigation-button{position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;padding:0;border:none;margin:0;background-color:var(--z-navigation-tabs-nav-buttons-bg, var(--color-surface01));border-radius:var(--border-no-radius);box-shadow:0 0 4px 1px var(--shadow-color-base);cursor:pointer;fill:var(--z-navigation-tabs-nav-buttons-fg, var(--color-primary01));outline:none}z-navigation-tabs .navigation-button:disabled{display:none}z-navigation-tabs>nav{z-index:0;display:flex;overflow:auto;align-items:center;justify-content:flex-start;scroll-behavior:smooth;scrollbar-width:none}z-navigation-tabs[orientation=\"horizontal\"]>nav{width:100%}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button{top:0;width:calc(var(--space-unit) * 4);height:100%}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button:first-child{left:0}z-navigation-tabs[orientation=\"horizontal\"] .navigation-button:last-child{right:0}z-navigation-tabs[orientation=\"vertical\"]{width:fit-content;flex-direction:column}z-navigation-tabs[orientation=\"vertical\"]>nav{height:100%;flex-direction:column;align-items:stretch}z-navigation-tabs[orientation=\"vertical\"] .navigation-button{left:0;width:100%;height:calc(var(--space-unit) * 4)}z-navigation-tabs[orientation=\"vertical\"] .navigation-button:first-child{top:0}z-navigation-tabs[orientation=\"vertical\"] .navigation-button:last-child{bottom:0}z-navigation-tabs[size=\"small\"][orientation=\"vertical\"] .navigation-button{height:calc(var(--space-unit) * 4)}z-navigation-tabs>nav>*{position:relative;z-index:0;display:inline-flex;width:auto;align-items:center;justify-content:center;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);border:none;margin:0;background-color:unset;border-radius:var(--border-no-radius);color:var(--color-primary01);cursor:pointer;fill:currentcolor;font-family:var(--font-family-sans);font-size:inherit;gap:var(--space-unit);letter-spacing:inherit;line-height:inherit;outline:none;text-align:center;white-space:nowrap}z-navigation-tabs>nav>a{text-decoration:none}z-navigation-tabs>nav>*:focus:focus-visible{z-index:1;box-shadow:inset 0 0 4px 3px var(--color-highlight)}z-navigation-tabs>nav>:not([disabled]):hover{background-color:var(--color-surface02)}z-navigation-tabs>nav>button[disabled]{color:var(--color-disabled03);cursor:not-allowed;fill:currentcolor;pointer-events:all}z-navigation-tabs>nav>:not([disabled]):hover,nav>[aria-selected=\"true\"]{color:var(--color-hover-secondary);fill:currentcolor}z-navigation-tabs>nav>:not([disabled]):hover::after,nav>[aria-selected=\"true\"]::after{position:absolute;background-color:var(--color-hover-secondary);content:\"\"}z-navigation-tabs[orientation=\"horizontal\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[orientation=\"horizontal\"]>nav>[aria-selected=\"true\"]::after{bottom:0;left:0;width:100%;height:var(--border-size-large)}z-navigation-tabs>nav>* z-icon{--z-icon-width:calc(var(--space-unit) * 2);--z-icon-height:calc(var(--space-unit) * 2);display:flex;margin:0}z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>*{padding:var(--space-unit) calc(var(--space-unit) * 2)}z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[size=\"small\"][orientation=\"horizontal\"]>nav>[aria-selected=\"true\"]::after{height:var(--border-size-medium)}z-navigation-tabs[size=\"small\"]:not([orientation=\"vertical\"])>nav>* z-icon{--z-icon-width:14px;--z-icon-height:14px}z-navigation-tabs[orientation=\"vertical\"]>nav>*{padding:calc(var(--space-unit) * 3) calc(var(--space-unit) * 2)}z-navigation-tabs[orientation=\"vertical\"]>nav>*>:not(z-icon){display:none}z-navigation-tabs[orientation=\"vertical\"]>nav>:not([disabled]):hover::after,z-navigation-tabs[orientation=\"vertical\"]>nav>[aria-selected=\"true\"]::after{top:0;right:0;width:var(--border-size-large);height:100%}";
 
 const ZNavigationTabs = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
+    this.selected = index.createEvent(this, "selected", 7);
     /**
      * Navigation tabs orientation.
      */
@@ -18,6 +19,14 @@ const ZNavigationTabs = class {
      * Navigation tabs size.
      */
     this.size = index$1.NavigationTabsSize.BIG;
+    /**
+     * Index of the selected tab.
+     */
+    this.selectedTab = undefined;
+    /**
+     * Index of the last tab that held focus.
+     */
+    this.focusedTab = 0;
   }
   /**
    * Getter for the direction to check based on current orientation.
@@ -32,68 +41,23 @@ const ZNavigationTabs = class {
     return this.orientation == index$1.NavigationTabsOrientation.HORIZONTAL ? "Width" : "Height";
   }
   get tabs() {
-    return Array.from(this.host.children);
+    return Array.from(this.nav.children);
   }
   /**
-   * Set the `size` prop to all `z-navigation-tab` children.
+   * Scroll into view to center the tab.
    */
-  setChildrenSize() {
-    this.tabs.forEach((tab) => {
-      tab.size = this.size;
-    });
-  }
-  /**
-   * Set the `orientation` prop to all `z-navigation-tab` children.
-   */
-  setChildrenOrientation() {
-    this.tabs.forEach((tab) => {
-      tab.orientation = this.orientation;
-    });
-  }
-  /**
-   * Check if the navigation buttons are needed on window resize.
-   */
-  checkScrollVisible() {
-    if (!this.tabsNav) {
-      return;
-    }
-    this.canNavigate = this.tabsNav[`scroll${this.dimension}`] > this.tabsNav[`client${this.dimension}`];
-  }
-  /**
-   * Check if navigation buttons can be enabled for each direction.
-   */
-  checkScrollEnabled() {
-    if (!this.tabsNav) {
-      return;
-    }
-    this.canNavigateNext =
-      this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] <
-        this.tabsNav[`scroll${this.dimension}`];
-    this.canNavigatePrev = this.tabsNav[`scroll${this.direction}`] > 0;
-  }
-  /**
-   * Listen for child tab selection.
-   * Deselect all other previously selected tabs,
-   * then scroll to the new selected tab and center it.
-   * @param {CustomEvent} event `selected` event triggered by a child tab
-   */
-  onTabSelected(event) {
-    const selectedTab = event.target;
-    this.tabs.forEach((tab, i) => {
-      if (tab !== selectedTab) {
-        tab.selected = undefined;
-      }
-      else {
-        this.tabFocus = i;
-      }
-    });
+  scrollToTab(tabElement) {
+    const scrollOptions = (this.orientation === index$1.NavigationTabsOrientation.HORIZONTAL
+      ? { block: "nearest", inline: "center" }
+      : { block: "center", inline: "nearest" });
+    tabElement.scrollIntoView(Object.assign({ behavior: "smooth" }, scrollOptions));
   }
   /**
    * Scroll the navigation bar half of its size backward.
    */
   navigateBackwards() {
-    this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: 0 - this.tabsNav[`client${this.dimension}`] / 2,
+    this.nav.scrollBy({
+      [this.direction.toLowerCase()]: 0 - this.nav[`client${this.dimension}`] / 2,
       behavior: "smooth",
     });
   }
@@ -101,56 +65,10 @@ const ZNavigationTabs = class {
    * Scroll the navigation bar half of its size forward.
    */
   navigateForward() {
-    this.tabsNav.scrollBy({
-      [this.direction.toLowerCase()]: this.tabsNav[`scroll${this.direction}`] + this.tabsNav[`client${this.dimension}`] / 2,
+    this.nav.scrollBy({
+      [this.direction.toLowerCase()]: this.nav[`scroll${this.direction}`] + this.nav[`client${this.dimension}`] / 2,
       behavior: "smooth",
     });
-  }
-  /**
-   * Move focus through tabs using keyboard arrows.
-   * When `TAB` is pressed, focus the currently selected tab, if any.
-   */
-  navigateThroughTabs(e) {
-    const tabs = this.tabs;
-    if (e.key === index$1.KeyboardCode.TAB) {
-      tabs.forEach((tab, i) => {
-        if (tab.selected && tabs.some((tab) => tab === e.target)) {
-          this.tabFocus = i;
-        }
-      });
-      tabs[this.tabFocus].children[0].tabIndex = 0;
-      tabs[this.tabFocus].children[0].focus();
-      return;
-    }
-    if (!this.isArrowNavigation(e)) {
-      return true;
-    }
-    e.preventDefault();
-    tabs[this.tabFocus].children[0].tabIndex = -1;
-    // Move forward
-    if ((e.key === index$1.NavigationTabsKeyboardEvents.RIGHT && this.orientation == index$1.NavigationTabsOrientation.HORIZONTAL) ||
-      (e.key === index$1.NavigationTabsKeyboardEvents.DOWN && this.orientation == index$1.NavigationTabsOrientation.VERTICAL)) {
-      this.tabFocus++;
-      if (this.tabFocus >= tabs.length) {
-        this.tabFocus = 0;
-      }
-      // Move backward
-    }
-    else if ((e.key === index$1.NavigationTabsKeyboardEvents.LEFT && this.orientation == index$1.NavigationTabsOrientation.HORIZONTAL) ||
-      (e.key === index$1.NavigationTabsKeyboardEvents.UP && this.orientation == index$1.NavigationTabsOrientation.VERTICAL)) {
-      this.tabFocus--;
-      if (this.tabFocus < 0) {
-        this.tabFocus = tabs.length - 1;
-      }
-    }
-    // ignore disabled tabs
-    if (tabs[this.tabFocus].disabled) {
-      this.navigateThroughTabs(e);
-    }
-    else {
-      tabs[this.tabFocus].children[0].tabIndex = 0;
-      tabs[this.tabFocus].children[0].focus();
-    }
   }
   /**
    * Check if a keyboard event was triggered by an arrow key.
@@ -158,32 +76,126 @@ const ZNavigationTabs = class {
   isArrowNavigation(e) {
     return Object.values(index$1.NavigationTabsKeyboardEvents).includes(e.key);
   }
-  componentDidRender() {
-    this.setChildrenSize();
-    this.setChildrenOrientation();
-    this.checkScrollVisible();
-    const tabActive = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
-    if ((!this.tabFocus && tabActive < 0) || this.tabFocus === undefined) {
-      this.tabFocus = tabActive >= 0 ? tabActive : 0;
-      const tabChild = this.tabs[this.tabFocus].children[0];
-      if (tabChild) {
-        tabChild.tabIndex = 0;
+  /**
+   * Check if navigation buttons can be enabled for each direction.
+   */
+  checkScrollEnabled() {
+    if (!this.nav) {
+      return;
+    }
+    this.canNavigateNext =
+      this.nav[`scroll${this.direction}`] + this.nav[`client${this.dimension}`] < this.nav[`scroll${this.dimension}`];
+    this.canNavigatePrev = this.nav[`scroll${this.direction}`] > 0;
+  }
+  /**
+   * When the selected tab changes, update the `aria-selected` attribute on each tab and scroll to the selected tab.
+   */
+  onTabSelected() {
+    this.tabs.forEach((tab, i) => {
+      const zicon = tab.querySelector("z-icon");
+      const strokeIcon = zicon === null || zicon === void 0 ? void 0 : zicon.getAttribute("name").replace("-filled", "");
+      if (i !== this.selectedTab) {
+        tab.setAttribute("aria-selected", "false");
+        tab.tabIndex = -1;
+        zicon === null || zicon === void 0 ? void 0 : zicon.setAttribute("name", strokeIcon);
+        return;
       }
+      zicon === null || zicon === void 0 ? void 0 : zicon.setAttribute("name", `${strokeIcon}-filled`);
+      tab.tabIndex = 0;
+      tab.setAttribute("aria-selected", "true");
+    });
+    this.scrollToTab(this.tabs[this.selectedTab]);
+    this.selected.emit(this.selectedTab);
+  }
+  /**
+   * Check if the navigation buttons are needed on window resize.
+   */
+  checkScrollVisible() {
+    if (!this.nav) {
+      return;
+    }
+    this.canNavigate = this.nav[`scroll${this.dimension}`] > this.nav[`client${this.dimension}`];
+  }
+  /**
+   * Handle click on the tabs.
+   * @param event `click` event triggered by a child tab
+   */
+  handleTabClick(event) {
+    const clickedTab = event.target.closest("[role='tab']");
+    if (!this.tabs.some((child) => child.contains(clickedTab))) {
+      return;
+    }
+    this.selectedTab = this.tabs.indexOf(clickedTab);
+  }
+  /**
+   * Move focus through tabs when an arrow key is pressed.
+   * When `TAB` is pressed, focus the currently selected tab if any.
+   */
+  navigateThroughTabs(event) {
+    if (!this.tabs.some((tab) => tab.contains(event.target))) {
+      return true;
+    }
+    if (event.key === index$1.KeyboardCode.TAB) {
+      this.focusedTab = this.selectedTab || 0;
+      this.tabs[this.focusedTab].focus({ preventScroll: true });
+      return;
+    }
+    if (!this.isArrowNavigation(event)) {
+      return true;
+    }
+    event.preventDefault();
+    this.tabs[this.focusedTab].tabIndex = -1;
+    if ((event.key === index$1.NavigationTabsKeyboardEvents.RIGHT && this.orientation == index$1.NavigationTabsOrientation.HORIZONTAL) ||
+      (event.key === index$1.NavigationTabsKeyboardEvents.DOWN && this.orientation == index$1.NavigationTabsOrientation.VERTICAL)) {
+      // Move forward
+      this.focusedTab++;
+      if (this.focusedTab >= this.tabs.length) {
+        this.focusedTab = 0;
+      }
+    }
+    else if ((event.key === index$1.NavigationTabsKeyboardEvents.LEFT && this.orientation == index$1.NavigationTabsOrientation.HORIZONTAL) ||
+      (event.key === index$1.NavigationTabsKeyboardEvents.UP && this.orientation == index$1.NavigationTabsOrientation.VERTICAL)) {
+      // Move backward
+      this.focusedTab--;
+      if (this.focusedTab < 0) {
+        this.focusedTab = this.tabs.length - 1;
+      }
+    }
+    // Ignore disabled tabs
+    if (this.tabs[this.focusedTab].hasAttribute("disabled") &&
+      this.tabs[this.focusedTab].getAttribute("disabled") !== "false") {
+      return this.navigateThroughTabs(event);
+    }
+    this.tabs[this.focusedTab].tabIndex = 0;
+    this.tabs[this.focusedTab].focus();
+    this.scrollToTab(this.tabs[this.focusedTab]);
+  }
+  componentDidRender() {
+    this.checkScrollVisible();
+  }
+  componentDidLoad() {
+    // Set role and tabindex to each slotted tab
+    this.tabs.forEach((tab) => {
+      tab.setAttribute("role", "tab");
+      tab.tabIndex = -1;
+    });
+    this.tabs[0].tabIndex = 0;
+    if (this.selectedTab !== undefined) {
+      this.onTabSelected();
     }
   }
   render() {
     return (index.h(index.Host, { class: {
         "interactive-2": this.size === index$1.NavigationTabsSize.SMALL,
         "interactive-1": this.size !== index$1.NavigationTabsSize.SMALL,
-      }, scrollable: this.canNavigate }, this.canNavigate && (index.h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabindex: "-1", disabled: !this.canNavigatePrev, "aria-label": "Mostra elementi precedenti" }, index.h("z-icon", { name: this.orientation === index$1.NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), index.h("nav", { role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.tabsNav = el !== null && el !== void 0 ? el : this.tabsNav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, index.h("slot", null)), this.canNavigate && (index.h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), onKeyDown: (e) => {
+      }, scrollable: this.canNavigate }, this.canNavigate && (index.h("button", { class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabIndex: -1, disabled: !this.canNavigatePrev, "aria-label": "Mostra elementi precedenti" }, index.h("z-icon", { name: this.orientation === index$1.NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 }))), index.h("nav", { role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.nav = el !== null && el !== void 0 ? el : this.nav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, index.h("slot", null)), this.canNavigate && (index.h("button", { class: "navigation-button", onClick: this.navigateForward.bind(this), onKeyDown: (e) => {
         this.navigateThroughTabs(e);
       }, tabindex: "-1", disabled: !this.canNavigateNext, "aria-label": "Mostra elementi successivi" }, index.h("z-icon", { name: this.orientation === index$1.NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 })))));
   }
   get host() { return index.getElement(this); }
   static get watchers() { return {
-    "size": ["setChildrenSize"],
-    "orientation": ["setChildrenOrientation"],
-    "canNavigate": ["checkScrollEnabled"]
+    "canNavigate": ["checkScrollEnabled"],
+    "selectedTab": ["onTabSelected"]
   }; }
 };
 ZNavigationTabs.style = stylesCss;

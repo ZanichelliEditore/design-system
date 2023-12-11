@@ -128,7 +128,7 @@ export class ZPopover {
     }
     if (!e.composedPath().includes(this.host)) {
       const target = e.target;
-      const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
+      const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(CSS.escape(this.bindTo));
       if (triggerElemClicked) {
         e.stopPropagation();
       }
@@ -172,7 +172,7 @@ export class ZPopover {
   setPosition() {
     let element;
     if (typeof this.bindTo === "string") {
-      element = this.host.ownerDocument.querySelector(this.bindTo);
+      element = this.host.ownerDocument.querySelector(CSS.escape(this.bindTo));
     }
     else if (this.bindTo) {
       element = this.bindTo;
