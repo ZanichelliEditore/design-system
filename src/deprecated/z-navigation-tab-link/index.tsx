@@ -110,6 +110,10 @@ export class ZNavigationTabLink {
 
   @Listen("click")
   onClick(): void {
+    if (this.disabled) {
+      return;
+    }
+
     this.selected = true;
   }
 
@@ -147,7 +151,7 @@ export class ZNavigationTabLink {
         <a
           tabIndex={this.selected ? 0 : -1}
           onFocus={this.scrollToTab.bind(this)}
-          href={!this.disabled && this.href}
+          href={this.disabled ? null : this.href}
           title={this.htmlTitle}
           target={this.target}
         >
