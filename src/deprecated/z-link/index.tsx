@@ -2,6 +2,7 @@ import {Component, Prop, h, Event, EventEmitter, Element} from "@stencil/core";
 import {State} from "@stencil/core/internal";
 
 /**
+ * @deprecated - use a native `<a>` with the `z-link` CSS class instead
  * @slot - link content
  */
 @Component({

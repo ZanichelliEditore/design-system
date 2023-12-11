@@ -9,6 +9,8 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v11.0.0](#v1100)
+  - [ZNavigationTabZNavigationTabLink (deprecati)](#znavigationtabznavigationtablink-deprecati)
 - [v10.0.0](#v1000)
 
   - [ZTypography](#ztypography)
@@ -63,6 +65,14 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v11.0.0
+
+### ZNavigationTab/ZNavigationTabLink (deprecati)
+
+L'uso dei sottocomponenti di `ZNavigationTabs` creava dei problemi di accessibilità a causa della struttura HTML generata. I componenti in questione wrappano dei tag `<button>` e `<a>`, con `role=tab`, aggiungendo stili e qualche comportamento. La corretta implementazione del [Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) richiede che le tab siano elementi posizionati direttamente dentro quello con il `role=tablist` e quel wrapping lo impediva.
+Il comportamento implementato nei sottocomponenti è ora gestito dal componente principale.
+Sostituire tutti gli `z-navigation-tab` con dei `<button>` e i `z-navigation-tab-link` con degli `<a>`. Ricordarsi di aggiungere l'attributo `aria-controls` quando necessario.
 
 ## v10.0.0
 
