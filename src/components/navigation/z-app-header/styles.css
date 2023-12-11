@@ -147,6 +147,7 @@
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
 }
 
+::slotted([slot="top-subtitle"]),
 ::slotted([slot="subtitle"]) {
   margin: 0;
   font-family: var(--font-family-sans);
