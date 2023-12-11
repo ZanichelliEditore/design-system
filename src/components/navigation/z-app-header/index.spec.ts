@@ -14,6 +14,9 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
+              <div class="heading-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
               <div class="heading-title">
                 <slot name="title"></slot>
               </div>
@@ -51,6 +54,9 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
+              <div class="heading-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
               <div class="heading-title">
                 <slot name="title"></slot>
               </div>
@@ -90,6 +96,9 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
+              <div class="heading-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
               <div class="heading-title">
                 <slot name="title"></slot>
               </div>
@@ -117,6 +126,50 @@ describe("Suite test ZAppHeader", () => {
     `);
   });
 
+  it("Test render ZAppHeader with title and top subtitle", async () => {
+    const page = await newSpecPage({
+      components: [ZAppHeader],
+      html: `<z-app-header>
+        <h2 slot="top-subtitle">Sottotitolo di test</h2>
+        <h1 slot="title">Titolo di test</h1>
+      </z-app-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-app-header menu-length="0" flow="auto">
+        <mock:shadow-root>
+          <div class="heading-panel">
+            <div class="heading-container">
+              <div class="heading-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
+              <div class="heading-title">
+                <slot name="title"></slot>
+              </div>
+              <div class="heading-subtitle">
+                <slot name="subtitle"></slot>
+              </div>
+            </div>
+            <div class="menu-container">
+              <slot name="menu"></slot>
+            </div>
+          </div>
+        </div>
+        <z-offcanvas transitiondirection="right" variant="overlay">
+            <button aria-label="Chiudi menu" class="drawer-close" slot="canvasContent">
+              <z-icon name="close"></z-icon>
+            </button>
+            <div class="drawer-content" slot="canvasContent" aria-hidden="">
+              <slot name="menu"></slot>
+            </div>
+          </z-offcanvas>
+        </mock:shadow-root>
+        <h2 slot="top-subtitle">Sottotitolo di test</h2>
+        <h1 slot="title">Titolo di test</h1>
+      </z-app-header>
+    `);
+  });
+
   it("Test render ZAppHeader with stuck layout", async () => {
     const page = await newSpecPage({
       components: [ZAppHeader],
@@ -130,6 +183,9 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
+              <div class="heading-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
               <div class="heading-title">
                 <slot name="title"></slot>
               </div>

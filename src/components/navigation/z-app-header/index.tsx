@@ -5,7 +5,8 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
 
 /**
  * @slot title - Slot for the main title
- * @slot subtitle - Slot for the subtitle. It will not appear in stuck header.
+ * @slot subtitle - Slot for the bottom subtitle. It will not appear in stuck header.
+ * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
  * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
  * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
@@ -348,6 +349,9 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
+            <div class="heading-subtitle">
+              <slot name="top-subtitle"></slot>
+            </div>
             <div class="heading-title">
               {this.menuLength > 0 && (
                 <button

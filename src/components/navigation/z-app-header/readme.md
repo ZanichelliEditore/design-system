@@ -30,8 +30,9 @@
 | Slot              | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
 | `"stucked-title"` | Title for the stuck header. By default it uses the text from the `title` slot. |
-| `"subtitle"`      | Slot for the subtitle. It will not appear in stuck header.                     |
+| `"subtitle"`      | Slot for the bottom subtitle. It will not appear in stuck header.              |
 | `"title"`         | Slot for the main title                                                        |
+| `"top-subtitle"`  | Slot for the top subtitle. It will not appear in stuck header.                 |
 
 
 ## Dependencies

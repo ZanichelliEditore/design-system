@@ -70,6 +70,28 @@ import {menuTemplate, longMenuTemplate} from "./index.stories.js";
   </Story>
 </Canvas>
 
+### With payoff above the title
+
+<Canvas>
+  <Story
+    name="Top subtitle"
+    parameters={{
+      controls: {
+        exclude: ["flow"],
+      },
+    }}
+  >
+    {(args) => html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+      <h1 slot="title">Applicazione</h1>
+    </z-app-header>`}
+  </Story>
+</Canvas>
+
 ### With menu
 
 <Canvas>
