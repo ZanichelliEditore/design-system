@@ -398,7 +398,7 @@ export class ZAppHeader {
             aria-label="Chiudi menu"
             onClick={this.closeDrawer}
             slot="canvasContent"
-            aria-hidden={!this.drawerOpen}
+            aria-hidden={`${!this.drawerOpen}`}
             disabled={!this.drawerOpen}
           >
             <z-icon name="close"></z-icon>
@@ -407,7 +407,7 @@ export class ZAppHeader {
           <div
             class="drawer-content"
             slot="canvasContent"
-            aria-hidden={!this.drawerOpen}
+            aria-hidden={`${!this.drawerOpen}`}
           >
             <slot
               name="menu"
