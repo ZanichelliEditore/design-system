@@ -265,7 +265,7 @@ export class ZNavigationTabs {
   componentDidLoad(): void {
     // Set role and tabindex to each slotted tab
     this.tabs.forEach((tab) => {
-      tab.role = "tab";
+      tab.setAttribute("role", "tab");
       tab.tabIndex = -1;
     });
     this.tabs[0].tabIndex = 0;
