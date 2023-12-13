@@ -21,6 +21,12 @@ import "../index.stories.css";
     lastPickerReadOnly: {
       control: {type: "boolean"},
     },
+    firstPickerPlaceholder:{
+      control: "text",
+    },
+    lastPickerPlaceholder:{
+      control: "text",
+    },
     rangePickerId: {
       control: "text",
     },
@@ -39,6 +45,8 @@ import "../index.stories.css";
       firstAriaLabel: "start-date",
       secondLabel: "End date",
       secondAriaLabel: "end-date",
+      firstPickerPlaceholder: "placeholder1",
+      lastPickerPlaceholder: "placeholder2",
       firstPickerReadOnly: false,
       lastPickerReadOnly: false,
     }}
@@ -61,6 +69,8 @@ import "../index.stories.css";
             first-label=${args.firstLabel}
             second-aria-label=${args.secondAriaLabel}
             second-label=${args.secondLabel}
+            first-picker-placeholder=${args.firstPickerPlaceholder}
+            last-picker-placeholder=${args.lastPickerPlaceholder}
             first-picker-read-only=${args.firstPickerReadOnly}
             last-picker-read-only=${args.lastPickerReadOnly}
           ></z-range-picker>
@@ -87,6 +97,8 @@ import "../index.stories.css";
       firstAriaLabel: "start-date",
       secondLabel: "End date",
       secondAriaLabel: "end-date",
+      firstPickerPlaceholder: "placeholder1",
+      lastPickerPlaceholder: "placeholder2",
       firstPickerReadOnly: false,
       lastPickerReadOnly: false,
     }}
@@ -108,6 +120,8 @@ import "../index.stories.css";
             first-label=${args.firstLabel}
             second-aria-label=${args.secondAriaLabel}
             second-label=${args.secondLabel}
+            first-picker-placeholder=${args.firstPickerPlaceholder}
+            last-picker-placeholder=${args.lastPickerPlaceholder}
             first-picker-read-only=${args.firstPickerReadOnly}
             last-picker-read-only=${args.lastPickerReadOnly}
           ></z-range-picker>
