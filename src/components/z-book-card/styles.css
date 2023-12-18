@@ -59,6 +59,10 @@
   line-height: initial;
 }
 
+:host > article div.cover div.ribbon.interactive:hover {
+  cursor: pointer;
+}
+
 :host > article div.cover div.ribbon span {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -75,6 +79,10 @@
   border-top: 10px solid var(--z-book-card-ribbon-shadow-color);
   border-left: 16px solid transparent;
   content: "";
+}
+
+:host > article div.cover div.ribbon z-icon {
+  margin-right: var(--space-unit);
 }
 
 :host > article div.content {
