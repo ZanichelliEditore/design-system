@@ -340,6 +340,7 @@ export class ZBookCard {
       </div>
     );
   }
+
   private renderHeaderCtaSlot(): HTMLSlotElement {
     return <slot name="header-cta" />;
   }
