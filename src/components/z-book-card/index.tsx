@@ -245,22 +245,7 @@ export class ZBookCard {
   private renderCover(): HTMLDivElement {
     return (
       <div class="cover">
-        {this.ribbon && this.variant !== BookCardVariant.COMPACT && (
-          <div
-            class={`ribbon ${this.ribbonInteractive ? "interactive" : ""}`}
-            onClick={this.ribbonInteractive && (() => this.emitRibbonClick())}
-          >
-            {this.ribbonIcon && (
-              <z-icon
-                name={this.ribbonIcon}
-                width={16}
-                height={16}
-                fill={"color-icon03"}
-              />
-            )}
-            <span>{this.ribbon}</span>
-          </div>
-        )}
+        {this.ribbon && this.variant !== BookCardVariant.COMPACT && this.renderRibbon()}
         <div class="img-wrapper">
           <img
             src={this.cover}
@@ -273,6 +258,31 @@ export class ZBookCard {
           />
         </div>
       </div>
+    );
+  }
+
+  private renderRibbon(): HTMLElement {
+    const content = [
+      this.ribbonIcon && (
+        <z-icon
+          name={this.ribbonIcon}
+          width={16}
+          height={16}
+          fill={"color-icon03"}
+        />
+      ),
+      <span>{this.ribbon}</span>,
+    ];
+
+    return this.ribbonInteractive ? (
+      <button
+        class="ribbon interactive"
+        onClick={() => this.emitRibbonClick()}
+      >
+        {content}
+      </button>
+    ) : (
+      <div class="ribbon">{content}</div>
     );
   }
 

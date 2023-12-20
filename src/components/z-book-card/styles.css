@@ -38,7 +38,7 @@
   align-self: flex-end;
 }
 
-:host > article div.cover div.ribbon {
+:host > article div.cover .ribbon {
   position: absolute;
   z-index: 10;
   top: calc(var(--space-unit) * 2);
@@ -59,18 +59,18 @@
   line-height: initial;
 }
 
-:host > article div.cover div.ribbon.interactive:hover {
+:host > article div.cover .ribbon.interactive:hover {
   cursor: pointer;
 }
 
-:host > article div.cover div.ribbon span {
+:host > article div.cover .ribbon span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: nowrap;
 }
 
-:host > article div.cover div.ribbon::before {
+:host > article div.cover .ribbon::before {
   position: absolute;
   bottom: -12px;
   left: -2px;
@@ -81,7 +81,7 @@
   content: "";
 }
 
-:host > article div.cover div.ribbon z-icon {
+:host > article div.cover .ribbon z-icon {
   margin-right: var(--space-unit);
 }
 
