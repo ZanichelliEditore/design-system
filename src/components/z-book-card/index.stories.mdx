@@ -40,10 +40,7 @@ const defaultArgTypes = {
 # ZBookCard
 
 <Canvas>
-  <Story
-    name="All props"
-    args={{ribbonIcon: "info", ribbonInteractive: true}}
-  >
+  <Story name="All props">
     {(args) =>
       html`<z-book-card
         variant=${args.variant}
@@ -211,7 +208,6 @@ const defaultArgTypes = {
         ribbon=${args.ribbon}
         ribbon-icon=${args.ribbonIcon}
         ribbon-interactive=${args.ribbonInteractive}
-        ribbonIcon
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -342,7 +338,6 @@ const defaultArgTypes = {
         ></z-icon>
         <z-tag
           slot="tags"
-          ribbonIcon
           style="--z-tag-bg: var(--avatar-C18)"
           >EDI</z-tag
         >
