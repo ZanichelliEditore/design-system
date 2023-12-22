@@ -14,6 +14,14 @@ export declare class ZRangePicker {
   secondLabel?: string;
   /** [Optional] datepicker mode: date or datetime */
   mode: ZRangePickerMode;
+  /** readonly mode */
+  firstPickerReadOnly: boolean;
+  /** readonly mode */
+  lastPickerReadOnly: boolean;
+  /** readonly mode */
+  firstPickerPlaceholder: string;
+  /** readonly mode */
+  lastPickerPlaceholder: string;
   flatpickrPosition: ZDatePickerPosition;
   activeInput: string;
   firstInputError: boolean;
@@ -25,6 +33,8 @@ export declare class ZRangePicker {
   handleClick(): void;
   handleKeyDown(ev: KeyboardEvent): void;
   componentDidLoad(): void;
+  setupFirstPickersReadOnly(): void;
+  setupLastPickersReadOnly(): void;
   setupPickers(): void;
   private onDateSelect;
   private disableDates;

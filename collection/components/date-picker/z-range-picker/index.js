@@ -7,6 +7,14 @@ export class ZRangePicker {
   constructor() {
     /** [Optional] datepicker mode: date or datetime */
     this.mode = ZRangePickerMode.DATE;
+    /** readonly mode */
+    this.firstPickerReadOnly = false;
+    /** readonly mode */
+    this.lastPickerReadOnly = false;
+    /** readonly mode */
+    this.firstPickerPlaceholder = "";
+    /** readonly mode */
+    this.lastPickerPlaceholder = "";
     this.flatpickrPosition = ZDatePickerPosition.BOTTOM;
     this.activeInput = "start-input";
     this.firstInputError = false;
@@ -51,6 +59,14 @@ export class ZRangePicker {
   }
   componentDidLoad() {
     this.setupPickers();
+  }
+  setupFirstPickersReadOnly() {
+    var _a;
+    (_a = this.firstPicker) === null || _a === void 0 ? void 0 : _a.set("clickOpens", !this.firstPickerReadOnly);
+  }
+  setupLastPickersReadOnly() {
+    var _a;
+    (_a = this.lastPicker) === null || _a === void 0 ? void 0 : _a.set("clickOpens", !this.lastPickerReadOnly);
   }
   setupPickers() {
     const config = {
@@ -105,8 +121,8 @@ export class ZRangePicker {
         setAriaOptions(this.element, this.mode);
       },
     };
-    this.firstPicker = flatpickr(`.${this.rangePickerId}-1-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`) }));
-    this.lastPicker = flatpickr(`.${this.rangePickerId}-2-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`) }));
+    this.firstPicker = flatpickr(`.${this.rangePickerId}-1-container`, Object.assign(Object.assign({}, Object.assign(Object.assign({}, config), { clickOpens: !this.firstPickerReadOnly })), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`) }));
+    this.lastPicker = flatpickr(`.${this.rangePickerId}-2-container`, Object.assign(Object.assign({}, Object.assign(Object.assign({}, config), { clickOpens: !this.lastPickerReadOnly })), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`) }));
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
@@ -319,9 +335,9 @@ export class ZRangePicker {
         [this.mode]: true,
         [this.activeInput]: true,
         [this.flatpickrPosition]: true,
-      } }, h("div", { class: `${this.rangePickerId}-1-wrapper` }, h("div", { class: `${this.rangePickerId}-1-container` }, h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatus.ERROR, onStartTyping: () => {
+      } }, h("div", { class: `${this.rangePickerId}-1-wrapper` }, h("div", { class: `${this.rangePickerId}-1-container` }, h("z-input", Object.assign({}, zInputProps, { placeholder: this.firstPickerPlaceholder, readonly: this.firstPickerReadOnly, "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatus.ERROR, onStartTyping: () => {
         this.firstInputError = false;
-      } })))), h("div", { class: `${this.rangePickerId}-2-wrapper` }, h("div", { class: `${this.rangePickerId}-2-container` }, h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatus.ERROR, onStartTyping: () => {
+      } })))), h("div", { class: `${this.rangePickerId}-2-wrapper` }, h("div", { class: `${this.rangePickerId}-2-container` }, h("z-input", Object.assign({}, zInputProps, { placeholder: this.lastPickerPlaceholder, readonly: this.lastPickerReadOnly, "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatus.ERROR, onStartTyping: () => {
         this.lastInputError = false;
       } }))))));
   }
@@ -445,6 +461,78 @@ export class ZRangePicker {
         "attribute": "mode",
         "reflect": false,
         "defaultValue": "ZRangePickerMode.DATE"
+      },
+      "firstPickerReadOnly": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "readonly mode"
+        },
+        "attribute": "first-picker-read-only",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "lastPickerReadOnly": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "readonly mode"
+        },
+        "attribute": "last-picker-read-only",
+        "reflect": false,
+        "defaultValue": "false"
+      },
+      "firstPickerPlaceholder": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "readonly mode"
+        },
+        "attribute": "first-picker-placeholder",
+        "reflect": false,
+        "defaultValue": "\"\""
+      },
+      "lastPickerPlaceholder": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "readonly mode"
+        },
+        "attribute": "last-picker-placeholder",
+        "reflect": false,
+        "defaultValue": "\"\""
       }
     };
   }
@@ -477,6 +565,12 @@ export class ZRangePicker {
   static get elementRef() { return "element"; }
   static get watchers() {
     return [{
+        "propName": "firstPickerReadOnly",
+        "methodName": "setupFirstPickersReadOnly"
+      }, {
+        "propName": "lastPickerReadOnly",
+        "methodName": "setupLastPickersReadOnly"
+      }, {
         "propName": "mode",
         "methodName": "setupPickers"
       }];

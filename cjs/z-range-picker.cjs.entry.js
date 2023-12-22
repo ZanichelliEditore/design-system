@@ -15,6 +15,14 @@ const ZRangePicker = class {
     this.dateSelect = index.createEvent(this, "dateSelect", 7);
     /** [Optional] datepicker mode: date or datetime */
     this.mode = index$1.ZRangePickerMode.DATE;
+    /** readonly mode */
+    this.firstPickerReadOnly = false;
+    /** readonly mode */
+    this.lastPickerReadOnly = false;
+    /** readonly mode */
+    this.firstPickerPlaceholder = "";
+    /** readonly mode */
+    this.lastPickerPlaceholder = "";
     this.flatpickrPosition = index$1.ZDatePickerPosition.BOTTOM;
     this.activeInput = "start-input";
     this.firstInputError = false;
@@ -59,6 +67,14 @@ const ZRangePicker = class {
   }
   componentDidLoad() {
     this.setupPickers();
+  }
+  setupFirstPickersReadOnly() {
+    var _a;
+    (_a = this.firstPicker) === null || _a === void 0 ? void 0 : _a.set("clickOpens", !this.firstPickerReadOnly);
+  }
+  setupLastPickersReadOnly() {
+    var _a;
+    (_a = this.lastPicker) === null || _a === void 0 ? void 0 : _a.set("clickOpens", !this.lastPickerReadOnly);
   }
   setupPickers() {
     const config = {
@@ -113,8 +129,8 @@ const ZRangePicker = class {
         utils.setAriaOptions(this.element, this.mode);
       },
     };
-    this.firstPicker = utils.flatpickr(`.${this.rangePickerId}-1-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`) }));
-    this.lastPicker = utils.flatpickr(`.${this.rangePickerId}-2-container`, Object.assign(Object.assign({}, config), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`) }));
+    this.firstPicker = utils.flatpickr(`.${this.rangePickerId}-1-container`, Object.assign(Object.assign({}, Object.assign(Object.assign({}, config), { clickOpens: !this.firstPickerReadOnly })), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`) }));
+    this.lastPicker = utils.flatpickr(`.${this.rangePickerId}-2-container`, Object.assign(Object.assign({}, Object.assign(Object.assign({}, config), { clickOpens: !this.lastPickerReadOnly })), { mode: "single", appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`) }));
     this.element.querySelectorAll(".flatpickr-weekday").forEach((element) => {
       element.innerHTML = element.innerHTML.trim().charAt(0);
     });
@@ -327,14 +343,16 @@ const ZRangePicker = class {
         [this.mode]: true,
         [this.activeInput]: true,
         [this.flatpickrPosition]: true,
-      } }, index.h("div", { class: `${this.rangePickerId}-1-wrapper` }, index.h("div", { class: `${this.rangePickerId}-1-container` }, index.h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && index$1.InputStatus.ERROR, onStartTyping: () => {
+      } }, index.h("div", { class: `${this.rangePickerId}-1-wrapper` }, index.h("div", { class: `${this.rangePickerId}-1-container` }, index.h("z-input", Object.assign({}, zInputProps, { placeholder: this.firstPickerPlaceholder, readonly: this.firstPickerReadOnly, "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && index$1.InputStatus.ERROR, onStartTyping: () => {
         this.firstInputError = false;
-      } })))), index.h("div", { class: `${this.rangePickerId}-2-wrapper` }, index.h("div", { class: `${this.rangePickerId}-2-container` }, index.h("z-input", Object.assign({}, zInputProps, { "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && index$1.InputStatus.ERROR, onStartTyping: () => {
+      } })))), index.h("div", { class: `${this.rangePickerId}-2-wrapper` }, index.h("div", { class: `${this.rangePickerId}-2-container` }, index.h("z-input", Object.assign({}, zInputProps, { placeholder: this.lastPickerPlaceholder, readonly: this.lastPickerReadOnly, "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && index$1.InputStatus.ERROR, onStartTyping: () => {
         this.lastInputError = false;
       } }))))));
   }
   get element() { return index.getElement(this); }
   static get watchers() { return {
+    "firstPickerReadOnly": ["setupFirstPickersReadOnly"],
+    "lastPickerReadOnly": ["setupLastPickersReadOnly"],
     "mode": ["setupPickers"]
   }; }
 };
