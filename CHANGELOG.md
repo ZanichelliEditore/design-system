@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [11.0.1](https://github.com/ZanichelliEditore/design-system/compare/v11.0.0...v11.0.1) (2023-12-22)
+
+
+### Features
+
+* added placeholder and readonly ([80d3f50](https://github.com/ZanichelliEditore/design-system/commit/80d3f50cab4a2eb4c116804fad574a49f1797080))
+* added placeholder in stories ([18fedf4](https://github.com/ZanichelliEditore/design-system/commit/18fedf430a5193e43dd059bfa08e2539c60ebd34))
+
+
+### Bug Fixes
+
+* prettier ([fa29720](https://github.com/ZanichelliEditore/design-system/commit/fa297209d0823d34f5ec558ef70aef55cc6e11b4))
+* test ([b14ae43](https://github.com/ZanichelliEditore/design-system/commit/b14ae43524531edbf17385749f363e293e09aaca))
+
 ## [11.0.0](https://github.com/ZanichelliEditore/design-system/compare/v10.0.8...v11.0.0) (2023-12-11)
 
 
