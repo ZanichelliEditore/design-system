@@ -38,6 +38,22 @@ export class ZRangePicker {
   @Prop()
   mode: ZRangePickerMode = ZRangePickerMode.DATE;
 
+  /** readonly mode */
+  @Prop()
+  firstPickerReadOnly = false;
+
+  /** readonly mode */
+  @Prop()
+  lastPickerReadOnly = false;
+
+  /** readonly mode */
+  @Prop()
+  firstPickerPlaceholder = "";
+
+  /** readonly mode */
+  @Prop()
+  lastPickerPlaceholder = "";
+
   @State()
   flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
 
@@ -113,6 +129,16 @@ export class ZRangePicker {
     this.setupPickers();
   }
 
+  @Watch("firstPickerReadOnly")
+  setupFirstPickersReadOnly(): void {
+    this.firstPicker?.set("clickOpens", !this.firstPickerReadOnly);
+  }
+
+  @Watch("lastPickerReadOnly")
+  setupLastPickersReadOnly(): void {
+    this.lastPicker?.set("clickOpens", !this.lastPickerReadOnly);
+  }
+
   @Watch("mode")
   setupPickers(): void {
     const config = {
@@ -168,12 +194,12 @@ export class ZRangePicker {
     };
 
     this.firstPicker = flatpickr(`.${this.rangePickerId}-1-container`, {
-      ...config,
+      ...{...config, clickOpens: !this.firstPickerReadOnly},
       mode: "single",
       appendTo: this.element.querySelector(`.${this.rangePickerId}-1-wrapper`),
     });
     this.lastPicker = flatpickr(`.${this.rangePickerId}-2-container`, {
-      ...config,
+      ...{...config, clickOpens: !this.lastPickerReadOnly},
       mode: "single",
       appendTo: this.element.querySelector(`.${this.rangePickerId}-2-wrapper`),
     });
@@ -417,6 +443,8 @@ export class ZRangePicker {
           <div class={`${this.rangePickerId}-1-container`}>
             <z-input
               {...zInputProps}
+              placeholder={this.firstPickerPlaceholder}
+              readonly={this.firstPickerReadOnly}
               data-input="data-input"
               class={`start-input ${this.rangePickerId}-1`}
               ariaLabel={this.firstAriaLabel}
@@ -432,6 +460,8 @@ export class ZRangePicker {
           <div class={`${this.rangePickerId}-2-container`}>
             <z-input
               {...zInputProps}
+              placeholder={this.lastPickerPlaceholder}
+              readonly={this.lastPickerReadOnly}
               data-input="data-input"
               class={`end-input ${this.rangePickerId}-2`}
               ariaLabel={this.secondAriaLabel}

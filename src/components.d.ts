@@ -1427,6 +1427,22 @@ export namespace Components {
          */
         "firstLabel"?: string;
         /**
+          * readonly mode
+         */
+        "firstPickerPlaceholder": string;
+        /**
+          * readonly mode
+         */
+        "firstPickerReadOnly": boolean;
+        /**
+          * readonly mode
+         */
+        "lastPickerPlaceholder": string;
+        /**
+          * readonly mode
+         */
+        "lastPickerReadOnly": boolean;
+        /**
           * [Optional] datepicker mode: date or datetime
          */
         "mode": ZRangePickerMode;
@@ -4357,6 +4373,22 @@ declare namespace LocalJSX {
           * first z-input label
          */
         "firstLabel"?: string;
+        /**
+          * readonly mode
+         */
+        "firstPickerPlaceholder"?: string;
+        /**
+          * readonly mode
+         */
+        "firstPickerReadOnly"?: boolean;
+        /**
+          * readonly mode
+         */
+        "lastPickerPlaceholder"?: string;
+        /**
+          * readonly mode
+         */
+        "lastPickerReadOnly"?: boolean;
         /**
           * [Optional] datepicker mode: date or datetime
          */
