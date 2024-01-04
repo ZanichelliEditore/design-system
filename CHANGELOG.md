@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.1.0](https://github.com/ZanichelliEditore/design-system/compare/v11.0.1...v11.1.0) (2024-01-04)
+
+
+### Features
+
+* add ribbonIcon and ribbonInteractive ([e103c87](https://github.com/ZanichelliEditore/design-system/commit/e103c87c9b3fb1888601f05572cc5448209776d8))
+* remove unuses args ([c11b4df](https://github.com/ZanichelliEditore/design-system/commit/c11b4dfbcd27bc94c8b5a887e60a08b2ea5ecb5f))
+* render button element on interactive ribbon ([6d1c3ca](https://github.com/ZanichelliEditore/design-system/commit/6d1c3ca565863fbc32d2aa42807b6a7e46e714a1))
+
+
+### Bug Fixes
+
+* add font-family to button.ribbon ([c34a746](https://github.com/ZanichelliEditore/design-system/commit/c34a746746b8bea985e028aa6af8f6b086f866a9))
+
 ### [11.0.1](https://github.com/ZanichelliEditore/design-system/compare/v11.0.0...v11.0.1) (2023-12-22)
 
 
