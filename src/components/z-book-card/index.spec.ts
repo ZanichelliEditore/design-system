@@ -59,6 +59,8 @@ describe("Suite test ZBookCard", () => {
         isbn="9788808930552"
         isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
+        ribbon-icon="info"
+        ribbon-interactive="true"
         opera-title-tag="h1"
       ></z-book-card>`,
     });
@@ -72,13 +74,86 @@ describe("Suite test ZBookCard", () => {
         isbn="9788808930552"
         isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
+        ribbon-icon="info"
+        ribbon-interactive="true"
         opera-title-tag="h1"
       >
         <mock:shadow-root>
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <div class="ribbon"><span>ADOTTATO</span></div>
+              <button class="ribbon interactive"><z-icon fill="color-icon03" height="16" name="info" width="16"></z-icon><span>ADOTTATO</span></button>
+              <div class="img-wrapper">
+                <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
+              </div>
+            </div>
+            <div class="content">
+              <div class="top">
+                <div class="info">
+                  <div class="left">
+                    <div class="authors" aria-description="Autori">Massimo Bergamini, Anna Trifone, Graziella Barozzi</div>
+                    <div class="title"><h1>Matematica.azzurro</h1></div>
+                    <div class="subtitle">Volume 3 con Tutor</div>
+                    <div class="isbn">
+                      <span class="code" aria-description="ISBN (ed. cartacea)">9788808930552</span>
+                      <span class="label"> (ed. cartacea)</span>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <slot name="header-cta"></slot>
+                  </div>
+                </div>
+                <div class="tags">
+                  <slot name="tags"></slot>
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="resources" id="resources-${page.rootInstance.id}">
+                  <slot name="resources"></slot>
+                </div>
+              </div>
+            </div>
+          </div>
+          </article>
+        </mock:shadow-root>
+      </z-book-card>
+    `);
+  });
+
+  it("Test render ZBookCard - EXPANDED - with props", async () => {
+    mockMatchMedia();
+    const page = await newSpecPage({
+      components: [ZBookCard],
+      html: `<z-book-card
+        variant="expanded"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
+        ribbon-icon="info"
+        ribbon-interactive="true"
+        opera-title-tag="h1"
+      ></z-book-card>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-book-card
+        variant="expanded"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        isbn="9788808930552"
+        isbn-label="(ed. cartacea)"
+        ribbon-icon="info"
+        ribbon-interactive="true"
+        opera-title-tag="h1"
+      >
+        <mock:shadow-root>
+          <article class="expanded">
+          <div class="wrapper">
+            <div class="cover">
               <div class="img-wrapper">
                 <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
               </div>

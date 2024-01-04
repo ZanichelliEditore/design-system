@@ -159,6 +159,14 @@ export namespace Components {
          */
         "ribbon"?: string;
         /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "ribbonIcon"?: string;
+        /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "ribbonInteractive"?: boolean;
+        /**
           * Card variant: expanded, compact, search
          */
         "variant": BookCardVariant;
@@ -1958,6 +1966,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBookCardElement;
+}
 export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBreadcrumbElement;
@@ -2946,6 +2958,10 @@ declare namespace LocalJSX {
          */
         "isbnLabel"?: string;
         /**
+          * click on interactive ribbon
+         */
+        "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
           * Card main title
          */
         "operaTitle"?: string;
@@ -2957,6 +2973,14 @@ declare namespace LocalJSX {
           * [optional] Ribbon label - expanded and search variant only
          */
         "ribbon"?: string;
+        /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "ribbonIcon"?: string;
+        /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "ribbonInteractive"?: boolean;
         /**
           * Card variant: expanded, compact, search
          */

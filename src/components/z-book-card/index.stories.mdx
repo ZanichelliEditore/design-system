@@ -12,6 +12,8 @@ const defaultArgs = {
   "isbn": "9788808930552",
   "isbnLabel": "",
   "ribbon": "ADOTTATO",
+  "ribbonIcon": "",
+  "ribbonInteractive": false,
   "borderless": false,
   "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
   "operaTitleTag": "h1",
@@ -49,6 +51,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -78,6 +82,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -114,6 +120,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -162,6 +170,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -196,6 +206,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         borderless=${args.borderless}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
@@ -247,6 +259,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         style=${styleMap({
@@ -309,6 +323,8 @@ const defaultArgTypes = {
         isbn=${args.isbn}
         isbn-label=${args.isbnLabel}
         ribbon=${args.ribbon}
+        ribbon-icon=${args.ribbonIcon}
+        ribbon-interactive=${args.ribbonInteractive}
         fallback-cover=${args.fallbackCover}
         opera-title-tag=${args.operaTitleTag}
         style=${styleMap({
@@ -348,7 +364,14 @@ const defaultArgTypes = {
     name="Compact variant"
     parameters={{
       controls: {
-        exclude: ["variant", "ribbon", "--z-book-card-ribbon-background-color", "--z-book-card-ribbon-shadow-color"],
+        exclude: [
+          "variant",
+          "ribbon",
+          "ribbonIcon",
+          "ribbonInteractive",
+          "--z-book-card-ribbon-background-color",
+          "--z-book-card-ribbon-shadow-color",
+        ],
       },
     }}
   >

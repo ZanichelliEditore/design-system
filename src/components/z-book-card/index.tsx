@@ -1,4 +1,4 @@
-import {Component, Element, Prop, State, h} from "@stencil/core";
+import {Component, Element, Prop, State, h, Event, EventEmitter} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 import {randomId} from "../../utils/utils";
@@ -70,6 +70,18 @@ export class ZBookCard {
   ribbon?: string;
 
   /**
+   * [optional] Ribbon icon - expanded and search variant only
+   */
+  @Prop()
+  ribbonIcon?: string;
+
+  /**
+   * [optional] Ribbon interactive - expanded and search variant only
+   */
+  @Prop()
+  ribbonInteractive?: boolean;
+
+  /**
    * [optional] Borderless card - compact variant only
    */
   @Prop()
@@ -95,6 +107,14 @@ export class ZBookCard {
 
   @State()
   showResources = false;
+
+  /** click on interactive ribbon */
+  @Event()
+  ribbonClick: EventEmitter;
+
+  private emitRibbonClick(): void {
+    this.ribbonClick.emit();
+  }
 
   private id: string;
 
@@ -225,11 +245,7 @@ export class ZBookCard {
   private renderCover(): HTMLDivElement {
     return (
       <div class="cover">
-        {this.ribbon && this.variant !== BookCardVariant.COMPACT && (
-          <div class="ribbon">
-            <span>{this.ribbon}</span>
-          </div>
-        )}
+        {this.ribbon && this.variant !== BookCardVariant.COMPACT && this.renderRibbon()}
         <div class="img-wrapper">
           <img
             src={this.cover}
@@ -242,6 +258,31 @@ export class ZBookCard {
           />
         </div>
       </div>
+    );
+  }
+
+  private renderRibbon(): HTMLElement {
+    const content = [
+      this.ribbonIcon && (
+        <z-icon
+          name={this.ribbonIcon}
+          width={16}
+          height={16}
+          fill={"color-icon03"}
+        />
+      ),
+      <span>{this.ribbon}</span>,
+    ];
+
+    return this.ribbonInteractive ? (
+      <button
+        class="ribbon interactive"
+        onClick={() => this.emitRibbonClick()}
+      >
+        {content}
+      </button>
+    ) : (
+      <div class="ribbon">{content}</div>
     );
   }
 
