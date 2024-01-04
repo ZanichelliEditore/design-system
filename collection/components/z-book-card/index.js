@@ -22,6 +22,9 @@ export class ZBookCard {
     this.hasResources = false;
     this.showResources = false;
   }
+  emitRibbonClick() {
+    this.ribbonClick.emit();
+  }
   componentWillLoad() {
     this.id = `id-${randomId()}`;
     const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
@@ -68,11 +71,18 @@ export class ZBookCard {
     return (h("div", { class: "wrapper" }, this.renderCover(), h("div", { class: "content" }, this.renderAuthors(), this.renderOperaTitle(), this.renderVolumeTitle(), this.renderIsbn()), this.renderFooterCtaSlot()));
   }
   renderCover() {
-    return (h("div", { class: "cover" }, this.ribbon && this.variant !== BookCardVariant.COMPACT && (h("div", { class: "ribbon" }, h("span", null, this.ribbon))), h("div", { class: "img-wrapper" }, h("img", { src: this.cover, onError: () => {
+    return (h("div", { class: "cover" }, this.ribbon && this.variant !== BookCardVariant.COMPACT && this.renderRibbon(), h("div", { class: "img-wrapper" }, h("img", { src: this.cover, onError: () => {
         if (this.fallbackCover) {
           this.cover = this.fallbackCover;
         }
       }, "aria-hidden": "true" }))));
+  }
+  renderRibbon() {
+    const content = [
+      this.ribbonIcon && (h("z-icon", { name: this.ribbonIcon, width: 16, height: 16, fill: "color-icon03" })),
+      h("span", null, this.ribbon),
+    ];
+    return this.ribbonInteractive ? (h("button", { class: "ribbon interactive", onClick: () => this.emitRibbonClick() }, content)) : (h("div", { class: "ribbon" }, content));
   }
   renderOperaTitle() {
     const title = this.operaTitleTag
@@ -266,6 +276,40 @@ export class ZBookCard {
         "attribute": "ribbon",
         "reflect": false
       },
+      "ribbonIcon": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Ribbon icon - expanded and search variant only"
+        },
+        "attribute": "ribbon-icon",
+        "reflect": false
+      },
+      "ribbonInteractive": {
+        "type": "boolean",
+        "mutable": false,
+        "complexType": {
+          "original": "boolean",
+          "resolved": "boolean",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Ribbon interactive - expanded and search variant only"
+        },
+        "attribute": "ribbon-interactive",
+        "reflect": false
+      },
       "borderless": {
         "type": "boolean",
         "mutable": false,
@@ -325,6 +369,24 @@ export class ZBookCard {
       "hasResources": {},
       "showResources": {}
     };
+  }
+  static get events() {
+    return [{
+        "method": "ribbonClick",
+        "name": "ribbonClick",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": {
+          "tags": [],
+          "text": "click on interactive ribbon"
+        },
+        "complexType": {
+          "original": "any",
+          "resolved": "any",
+          "references": {}
+        }
+      }];
   }
   static get elementRef() { return "hostElement"; }
 }

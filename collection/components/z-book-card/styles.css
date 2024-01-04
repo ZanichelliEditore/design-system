@@ -38,7 +38,7 @@
   align-self: flex-end;
 }
 
-:host > article div.cover div.ribbon {
+:host > article div.cover .ribbon {
   position: absolute;
   z-index: 10;
   top: calc(var(--space-unit) * 2);
@@ -54,19 +54,24 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   box-shadow: var(--shadow-2);
   color: var(--color-text04);
+  font-family: var(--dashboard-font);
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
   line-height: initial;
 }
 
-:host > article div.cover div.ribbon span {
+:host > article div.cover .ribbon.interactive:hover {
+  cursor: pointer;
+}
+
+:host > article div.cover .ribbon span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: nowrap;
 }
 
-:host > article div.cover div.ribbon::before {
+:host > article div.cover .ribbon::before {
   position: absolute;
   bottom: -12px;
   left: -2px;
@@ -75,6 +80,10 @@
   border-top: 10px solid var(--z-book-card-ribbon-shadow-color);
   border-left: 16px solid transparent;
   content: "";
+}
+
+:host > article div.cover .ribbon z-icon {
+  margin-right: var(--space-unit);
 }
 
 :host > article div.content {

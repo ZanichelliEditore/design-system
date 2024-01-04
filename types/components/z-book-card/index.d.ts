@@ -1,3 +1,4 @@
+import { EventEmitter } from "../../stencil-public-runtime";
 import { BookCardVariant } from "../../beans";
 /**
  * @slot resources - books resources (extended variant only)
@@ -44,6 +45,14 @@ export declare class ZBookCard {
    */
   ribbon?: string;
   /**
+   * [optional] Ribbon icon - expanded and search variant only
+   */
+  ribbonIcon?: string;
+  /**
+   * [optional] Ribbon interactive - expanded and search variant only
+   */
+  ribbonInteractive?: boolean;
+  /**
    * [optional] Borderless card - compact variant only
    */
   borderless?: boolean;
@@ -58,6 +67,9 @@ export declare class ZBookCard {
   isMobile: boolean;
   hasResources: boolean;
   showResources: boolean;
+  /** click on interactive ribbon */
+  ribbonClick: EventEmitter;
+  private emitRibbonClick;
   private id;
   componentWillLoad(): void;
   componentDidLoad(): void;
@@ -69,6 +81,7 @@ export declare class ZBookCard {
   private renderSearchCard;
   private renderCompactCard;
   private renderCover;
+  private renderRibbon;
   private renderOperaTitle;
   private renderVolumeTitle;
   private renderAuthors;
