@@ -1,24 +1,20 @@
 :host > .z-chip-container {
   display: inline-flex;
+  min-height: 28px;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
   border: var(--border-size-small) solid var(--gray400);
-  background-color: var(--bg-white);
+  background-color: var(--color-surface01);
   border-radius: 14px;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
+  color: var(--color-text01);
+  fill: var(--color-text01);
+  font-family: var(--font-family-sans);
   font-size: 14px;
+  line-height: 28px;
+}
+
+:host > .z-chip-interactive {
   font-weight: var(--font-sb);
-}
-
-:host > .z-chip-container:not([aria-disabled]) button > z-icon:last-child:hover {
-  color: var(--color-hover-primary);
-  fill: var(--color-hover-primary);
-}
-
-:host > .z-chip-container:hover:not([aria-disabled]) > z-icon:first-child {
-  fill: var(--color-icon02);
 }
 
 :host > .z-chip-container > button {
@@ -29,23 +25,28 @@
   cursor: pointer;
 }
 
-:host > .z-chip-container > z-icon.icon-sx {
+:host > .z-chip-container > z-icon:first-child {
   margin-right: calc(var(--space-unit) / 2);
 }
 
-:host > .z-chip-container > button > z-icon:last-child {
+:host > .z-chip-container:not([aria-disabled]):hover > z-icon:first-child {
+  fill: var(--color-icon02);
+}
+
+:host > .z-chip-container .interactive-icon {
   fill: var(--color-primary01);
 }
 
-:host > .z-chip-container[aria-disabled],
-:host > .z-chip-container[aria-disabled] > z-icon,
-:host > .z-chip-container[aria-disabled] > button > z-icon {
-  color: var(--color-disabled03);
-  fill: var(--color-disabled03);
+:host > .z-chip-container:not([aria-disabled]) .interactive-icon:hover {
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary);
 }
 
-:host > .z-chip-container[aria-disabled] > button > z-icon {
+:host > .z-chip-container[aria-disabled],
+:host > .z-chip-container[aria-disabled] z-icon {
+  color: var(--color-disabled03);
   cursor: auto;
+  fill: var(--color-disabled03);
 }
 
 :host > .z-chip-container[aria-disabled] {
@@ -58,81 +59,64 @@
   outline: none;
 }
 
-:host > button:hover:not(:disabled):active:hover > button > z-icon:last-child {
+:host > button:not([disabled]):active:hover .interactive-icon {
   color: var(--color-primary01);
   fill: var(--color-primary01);
 }
 
-:host > div {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 0 calc(var(--space-unit) * 1.5);
-  border: var(--border-size-small) solid var(--bg-grey-200);
-  background-color: var(--bg-white);
-  border-radius: 14px;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
-  font-size: 14px;
-  line-height: 28px;
-}
-
-:host > div > z-icon {
-  margin-right: calc(var(--space-unit) / 2);
+:host > .z-chip-container > z-icon,
+:host > .z-chip-container .interactive-icon {
+  --z-icon-width: 22px;
+  --z-icon-height: 22px;
 }
 
 /* :host type */
-:host > .z-chip-container.default,
-:host > div.default {
+:host > .z-chip-container.default {
   min-height: 44px;
   border-radius: 22px;
   line-height: 44px;
 }
 
-:host > .z-chip-container.medium,
-:host > div.medium {
+:host > .z-chip-container.medium {
   min-height: 40px;
   border-radius: 22px;
   line-height: 40px;
 }
 
-:host > .z-chip-container.small,
-:host > div.small {
+:host > .z-chip-container.small {
   min-height: 36px;
   border-radius: 22px;
   line-height: 36px;
 }
 
 /* Desktop breakpoint */
-@media only screen and (min-width: 1152px) {
+@media (min-width: 1152px) {
   :host > .z-chip-container {
     font-size: 12px;
   }
 
-  :host > div {
-    font-size: 12px;
-  }
-
   /* :host type */
-  :host > .z-chip-container.default,
-  :host > div.default {
+  :host > .z-chip-container.default {
     min-height: 32px;
     border-radius: 16px;
     line-height: 32px;
   }
 
-  :host > .z-chip-container.medium,
-  :host > div.medium {
+  :host > .z-chip-container.medium {
     min-height: 28px;
     border-radius: 16px;
     line-height: 28px;
   }
 
-  :host > .z-chip-container.small,
-  :host > div.small {
+  :host > .z-chip-container.small {
     min-height: 24px;
     border-radius: 16px;
     line-height: 24px;
+  }
+
+  :host > .z-chip-container > z-icon,
+  :host > .z-chip-container .interactive-icon {
+    --z-icon-width: 14px;
+    --z-icon-height: 14px;
   }
 }

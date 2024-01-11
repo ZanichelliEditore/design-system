@@ -50,7 +50,7 @@ footer {
   width: 100%;
   height: 56px;
   align-items: center;
-  border-top: var(--border-base) solid var(--color-surface02);
+  border-top: var(--border-size-medium) solid var(--color-surface02);
   grid-template: 2 / 2;
   grid-template-areas: "center center" "left right";
 }
@@ -84,13 +84,13 @@ footer .bullet-container .bullet {
   width: 8px;
   height: 8px;
   margin: var(--space-unit) 2px;
-  background-color: var(--bg-neutral-150);
+  background-color: var(--gray200);
   border-radius: 50%;
   pointer-events: none;
 }
 
 footer .bullet-container .bullet.selected {
-  background-color: var(--bg-neutral-400);
+  background-color: var(--gray400);
 }
 
 /* Tablet breakpoint */
@@ -98,7 +98,7 @@ footer .bullet-container .bullet.selected {
 @media only screen and (min-width: 768px) {
   footer {
     height: 76px;
-    border-top: var(--border-base) solid var(--color-surface02);
+    border-top: var(--border-size-medium) solid var(--color-surface02);
     grid-template: 1 / 1fr 2fr 1fr;
     grid-template-areas: "left center right";
   }

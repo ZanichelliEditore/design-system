@@ -26,8 +26,8 @@ slot[name="aria-heading"]::slotted(*) {
 header.real,
 header.trial,
 header.temp {
-  border-bottom: var(--border-size-medium) solid var(--accent);
-  background-color: var(--accent-lighter);
+  border-bottom: var(--border-size-medium) solid var(--blue100);
+  background-color: var(--color-primary03);
 }
 
 .card-title {
@@ -53,7 +53,7 @@ header.temp {
 .faded.real,
 .faded.trial,
 .faded.temp {
-  border-top: var(--border-size-medium) solid var(--accent);
-  border-right: var(--border-size-medium) solid var(--accent);
-  border-left: var(--border-size-medium) solid var(--accent);
+  border-top: var(--border-size-medium) solid var(--blue100);
+  border-right: var(--border-size-medium) solid var(--blue100);
+  border-left: var(--border-size-medium) solid var(--blue100);
 }

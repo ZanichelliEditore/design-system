@@ -1,3 +1,8 @@
+.themes-story {
+  padding: var(--grid-margin);
+  color: var(--color-text02);
+}
+
 .themes-story span,
 .themes-story p {
   font-size: 16px;

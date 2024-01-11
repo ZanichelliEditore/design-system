@@ -1,6 +1,6 @@
 import {Component, Prop, h, Element, Event, EventEmitter} from "@stencil/core";
-import {Device, ZChipType} from "../../../beans";
-import {getDevice} from "../../../utils/utils";
+import {ZChipType} from "../../../beans";
+
 @Component({
   tag: "z-chip",
   styleUrl: "styles.css",
@@ -22,7 +22,7 @@ export class ZChip {
   @Prop({reflect: true})
   interactiveIcon?: string;
 
-  /** set z-chip as disabled  */
+  /** set z-chip as disabled */
   @Prop({reflect: true})
   disabled?: boolean = false;
 
@@ -34,59 +34,32 @@ export class ZChip {
   @Event()
   interactiveIconClick: EventEmitter;
 
-  private emitinteractiveIconClick(): void {
-    this.interactiveIconClick.emit();
-  }
-
-  private getIconSize(): number {
-    return getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE ? 22 : 14;
-  }
-
-  render(): HTMLButtonElement | HTMLDivElement {
-    if (this.interactiveIcon) {
-      return (
-        <div
-          class={`z-chip-container ${this.type}`}
-          aria-disabled={this.disabled}
-        >
-          {this.icon && (
-            <z-icon
-              class="icon-sx"
-              name={this.icon}
-              width={this.getIconSize()}
-              height={this.getIconSize()}
-            />
-          )}
-          <slot />
+  render(): HTMLDivElement {
+    return (
+      <div
+        class={{
+          "z-chip-container": true,
+          "z-chip-interactive": !!this.interactiveIcon,
+          [this.type]: true,
+        }}
+        aria-disabled={this.disabled}
+      >
+        {this.icon && <z-icon name={this.icon} />}
+        <slot />
+        {this.interactiveIcon && (
           <button
             type="button"
-            onClick={() => this.emitinteractiveIconClick()}
-            onKeyUp={() => {
-              () => this.emitinteractiveIconClick();
-            }}
+            onClick={() => this.interactiveIconClick.emit()}
+            onKeyUp={() => this.interactiveIconClick.emit()}
             aria-label={this.ariaLabel}
             disabled={this.disabled}
           >
             <z-icon
+              class="interactive-icon"
               name={this.interactiveIcon}
-              width={this.getIconSize()}
-              height={this.getIconSize()}
             />
           </button>
-        </div>
-      );
-    }
-
-    return (
-      <div class={`${this.type}`}>
-        {this.icon && (
-          <z-icon
-            name={this.icon}
-            width={this.getIconSize()}
-            height={this.getIconSize()}
-          />
         )}
-        <slot />
       </div>
     );
   }

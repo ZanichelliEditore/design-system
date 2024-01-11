@@ -1,7 +1,7 @@
 :host {
   position: relative;
   width: calc(var(--space-unit) * 5);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
@@ -12,13 +12,13 @@
 :host(:not(:last-child))::after {
   position: absolute;
   z-index: 1;
-  top: calc(var(--space-unit) * 4);
+  top: calc(var(--space-unit) * 4 - var(--border-size-medium) / 2);
   right: calc(var(--space-unit) * 2);
   left: calc(var(--space-unit) * 3);
   display: block;
   width: auto;
-  border-bottom: solid 2px var(--bg-grey-700);
-  margin: 0 calc(-1 * calc(var(--space-unit) * 2)) 0 calc(var(--space-unit) * 2);
+  border-bottom: var(--border-size-medium) solid var(--color-disabled02);
+  margin: 0 calc(var(--space-unit) * -2) 0 calc(var(--space-unit) * 2);
   content: "";
 }
 
@@ -60,11 +60,11 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--myz-blue);
+  border: var(--border-size-medium) solid var(--color-primary01);
   margin: calc(var(--space-unit) * 2);
-  background: var(--bg-white);
+  background: var(--color-surface01);
   border-radius: 50%;
-  color: var(--myz-blue);
+  color: var(--color-primary01);
   content: counter(stepper);
   font-size: 14px;
   font-weight: var(--font-sb);
@@ -72,9 +72,9 @@
 }
 
 :host([pressed]:not([disabled])) .indicator {
-  border-color: var(--myz-blue-dark);
-  background: var(--myz-blue-dark);
-  color: var(--text-white);
+  border-color: var(--color-active-primary);
+  background: var(--color-active-primary);
+  color: var(--color-text-inverse);
 }
 
 :host(:not([disabled]):focus-within) .indicator {
@@ -82,19 +82,19 @@
 }
 
 :host([disabled]) .indicator {
-  border-color: currentcolor;
-  background: var(--bg-grey-200);
-  color: var(--text-grey-700);
+  border-color: var(--color-disabled02);
+  background: var(--color-disabled01);
+  color: var(--color-disabled03);
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   :host {
     width: calc(var(--space-unit) * 10);
   }
 
   :host(:not(:last-child))::after {
-    top: calc(var(--space-unit) * 5);
+    top: calc(var(--space-unit) * 5 - var(--border-size-medium) / 2);
     left: calc(var(--space-unit) * 8);
   }
 

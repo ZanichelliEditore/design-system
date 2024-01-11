@@ -9,9 +9,9 @@
 :host li > span {
   display: flex;
   padding: calc(var(--space-unit) * 2) 0;
-  color: var(--text-grey-800);
-  fill: var(--text-grey-800);
-  font-family: var(--dashboard-font);
+  color: var(--color-text01);
+  fill: var(--color-icon02);
+  font-family: var(--font-family-sans);
   font-size: 16px;
   font-weight: var(--font-rg);
   letter-spacing: 0.23px;
@@ -38,13 +38,13 @@
 }
 
 :host li > span.border {
-  border-bottom: 2px solid var(--bg-grey-200);
+  border-bottom: 2px solid var(--color-surface03);
 }
 
 :host li span:hover,
 a:hover {
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }
 
 a,
@@ -61,6 +61,6 @@ a:active {
   padding: 0 calc(var(--space-unit) * 1.5) 0 0;
   background-repeat: no-repeat;
   background-size: contain;
-  color: var(--myz-blue);
-  fill: var(--myz-blue);
+  color: var(--color-primary01);
+  fill: var(--color-primary01);
 }

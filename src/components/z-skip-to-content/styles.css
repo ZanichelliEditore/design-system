@@ -34,14 +34,14 @@
 }
 
 :host.dark {
-  background-color: var(--bg-grey-800);
-  color: var(--color-white);
+  background-color: var(--color-surface05);
+  color: var(--color-surface01);
 }
 
 :host.light {
-  border: 2px solid var(--text-grey-800);
-  background-color: var(--bg-white);
-  color: var(--text-grey-800);
+  border: var(--border-size-medium) solid var(--color-surface05);
+  background-color: var(--color-surface01);
+  color: var(--color-text01);
 }
 
 /* Tablet breakpoint */
@@ -55,7 +55,7 @@
 @media (min-width: 1152px) {
   :host > .link-container {
     padding: 0 calc(var(--space-unit) * 3);
-    border-right: 1px solid var(--bg-grey-800);
+    border-right: var(--border-size-small) solid var(--color-surface05);
   }
 
   :host > .link-container > a.z-link.link-invisible {
@@ -76,6 +76,6 @@
   }
 
   :host.dark > .link-container {
-    border-right: 1px solid var(--bg-white);
+    border-right: var(--border-size-small) solid var(--color-surface01);
   }
 }

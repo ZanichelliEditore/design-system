@@ -17,7 +17,7 @@
 a {
   display: inline-flex;
   align-items: center;
-  padding: calc(var(--space-unit) * 0.5) 0;
+  padding: calc(var(--space-unit) / 2) 0;
   border-top: var(--border-size-medium) solid transparent;
   border-bottom: var(--border-size-medium) solid transparent;
   color: var(--color-link-primary);
@@ -136,14 +136,14 @@ a.white,
 a.white:active,
 a.white:hover,
 a.white.active {
-  color: var(--bg-white);
-  fill: var(--bg-white);
+  color: var(--color-white);
+  fill: var(--color-white);
   text-decoration: none;
 }
 
 a.white:visited {
-  color: var(--bg-white);
-  fill: var(--bg-white);
+  color: var(--color-white);
+  fill: var(--color-white);
 }
 
 a.white:hover,
