@@ -20,7 +20,7 @@ z-navigation-tabs > nav::-webkit-scrollbar {
   display: none;
 }
 
-.navigation-button {
+z-navigation-tabs .navigation-button {
   position: absolute;
   z-index: 1;
   display: flex;
