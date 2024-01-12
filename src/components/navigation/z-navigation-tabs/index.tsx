@@ -1,10 +1,5 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {
-  NavigationTabsSize,
-  NavigationTabsOrientation,
-  NavigationTabsKeyboardEvents,
-  KeyboardCode,
-} from "../../../beans";
+import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../beans";
 
 /**
  * Navigation tabs component.
@@ -213,13 +208,6 @@ export class ZNavigationTabs {
       return true;
     }
 
-    if (event.key === KeyboardCode.TAB) {
-      this.focusedTab = this.selectedTab || 0;
-      this.tabs[this.focusedTab].focus({preventScroll: true});
-
-      return;
-    }
-
     if (!this.isArrowNavigation(event)) {
       return true;
     }
@@ -268,7 +256,13 @@ export class ZNavigationTabs {
       tab.setAttribute("role", "tab");
       tab.tabIndex = -1;
     });
-    this.tabs[0].tabIndex = 0;
+
+    // pre-selected tab (a11y purpose)
+    const preselectedTab = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
+    const activeTab = preselectedTab > 0 ? preselectedTab : 0;
+
+    this.selectedTab = this.focusedTab = activeTab;
+    this.tabs[activeTab].tabIndex = 0;
 
     if (this.selectedTab !== undefined) {
       this.onTabSelected();
