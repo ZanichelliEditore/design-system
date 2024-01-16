@@ -1,5 +1,10 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../beans";
+import {
+  NavigationTabsSize,
+  NavigationTabsOrientation,
+  NavigationTabsKeyboardEvents,
+  KeyboardCode,
+} from "../../../beans";
 
 /**
  * Navigation tabs component.
@@ -206,6 +211,16 @@ export class ZNavigationTabs {
   private navigateThroughTabs(event: KeyboardEvent): void | boolean {
     if (!this.tabs.some((tab) => tab.contains(event.target as HTMLElement))) {
       return true;
+    }
+
+    if (event.key === KeyboardCode.TAB) {
+      this.focusedTab = this.selectedTab || 0;
+      this.tabs[this.focusedTab].focus({preventScroll: true});
+      this.tabs.forEach((tab, index) => {
+        tab.tabIndex = index === this.selectedTab ? 0 : -1;
+      });
+
+      return;
     }
 
     if (!this.isArrowNavigation(event)) {
