@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.0.0](https://github.com/ZanichelliEditore/design-system/compare/v11.1.0...v12.0.0) (2024-01-18)
+
+
+### Bug Fixes
+
+* sticky header ellipsis ([1fb7f95](https://github.com/ZanichelliEditore/design-system/commit/1fb7f958bbdce5f9e38b78aca36e2b6376f19b74))
+
 ## [11.1.0](https://github.com/ZanichelliEditore/design-system/compare/v11.0.1...v11.1.0) (2024-01-04)
 
 
