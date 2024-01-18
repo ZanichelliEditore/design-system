@@ -215,9 +215,11 @@ export class ZNavigationTabs {
 
     if (event.key === KeyboardCode.TAB) {
       this.focusedTab = this.selectedTab || 0;
+      const ariaSelected = !this.selectedTab ? 0 : this.selectedTab;
+
       this.tabs[this.focusedTab].focus({preventScroll: true});
       this.tabs.forEach((tab, index) => {
-        tab.tabIndex = index === this.selectedTab ? 0 : -1;
+        tab.tabIndex = index === ariaSelected ? 0 : -1;
       });
 
       return;
@@ -272,11 +274,15 @@ export class ZNavigationTabs {
       tab.tabIndex = -1;
     });
 
+    let activeTab = 0;
+
     // pre-selected tab (a11y purpose)
     const preselectedTab = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
-    const activeTab = preselectedTab > 0 ? preselectedTab : 0;
+    if (preselectedTab > 0) {
+      activeTab = preselectedTab;
+      this.selectedTab = this.focusedTab = activeTab;
+    }
 
-    this.selectedTab = this.focusedTab = activeTab;
     this.tabs[activeTab].tabIndex = 0;
 
     if (this.selectedTab !== undefined) {
