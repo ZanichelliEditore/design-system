@@ -3,7 +3,7 @@ import {styleMap} from "lit-html/directives/style-map.js";
 import {Meta, Story, Canvas, ArgsTable} from "@storybook/addon-docs";
 import "./index";
 import "./index.stories.css";
-import {SortDirection, VisibilityCondition} from "../../../beans";
+import {PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
 
 <Meta
   title="ZTable"
@@ -343,6 +343,7 @@ For the header or footer, just set the `sticky` prop on the `z-thead` or `z-tfoo
 ## Cells with contextual menu
 
 Use the `showMenu` prop on `z-td` or `z-th`, setting a value of the enum `VisibilityCondition` (`HOVER` or `ALWAYS`), to show a contextual menu button on the cell. The content of the menu must be placed using the slot `contextual-menu`.
+Use `popoverPosition` prop on `z-th` to set the position of contextual menu, default is `auto`.
 
 <Canvas>
   <Story
@@ -355,11 +356,16 @@ Use the `showMenu` prop on `z-td` or `z-th`, setting a value of the enum `Visibi
             null: "hidden",
           },
         },
+        popoverPosition: {
+          options: Object.values(PopoverPosition),
+          control: {type: "select"},
+        },
         options: [null, ...Object.values(VisibilityCondition)],
       },
     }}
     args={{
       showMenu: VisibilityCondition.HOVER,
+      popoverPosition: PopoverPosition.AUTO,
     }}
   >
     {(args) => html`<z-table
@@ -372,7 +378,10 @@ Use the `showMenu` prop on `z-td` or `z-th`, setting a value of the enum `Visibi
       <z-thead>
         <z-tr>
           <z-th>Colonna 1</z-th>
-          <z-th .showMenu=${args.showMenu}>
+          <z-th
+            .showMenu=${args.showMenu}
+            .popoverPosition=${args.popoverPosition}
+          >
             Heading con menu
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-th>

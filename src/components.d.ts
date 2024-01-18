@@ -1821,6 +1821,10 @@ export namespace Components {
          */
         "colspan": number;
         /**
+          * Set popover position.
+         */
+        "popoverPosition": PopoverPosition;
+        /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
         "showMenu": VisibilityCondition;
@@ -4819,6 +4823,10 @@ declare namespace LocalJSX {
           * Sort event fired when the user clicks on the sort button. The sorting logic must be implemented by the app. You can set an `id` on the `z-th` to easly identify the column in the event listener.
          */
         "onSort"?: (event: ZThCustomEvent<any>) => void;
+        /**
+          * Set popover position.
+         */
+        "popoverPosition"?: PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
