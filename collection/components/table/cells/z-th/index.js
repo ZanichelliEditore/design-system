@@ -1,5 +1,5 @@
 import { Host, h } from "@stencil/core";
-import { ButtonVariant, ControlSize, SortDirection } from "../../../../beans";
+import { ButtonVariant, ControlSize, PopoverPosition, SortDirection } from "../../../../beans";
 /**
  * ZTh component.
  * @slot - ZTh content.
@@ -17,6 +17,10 @@ export class ZTh {
      * Whether the cell should stick.
      */
     this.sticky = false;
+    /**
+     * Set popover position.
+     */
+    this.popoverPosition = PopoverPosition.AUTO;
     /**
      * Store the open state of the menu.
      */
@@ -56,7 +60,7 @@ export class ZTh {
     this.updateColspan();
   }
   render() {
-    return (h(Host, { role: "columnheader", "menu-open": this.isMenuOpen, "aria-sort": this.ariaSortDirection }, h("slot", null), this.sortDirection && (h("button", { class: "z-th--sort-button", type: "button", onClick: this.handleSort.bind(this) }, h("z-icon", { name: this.sortDirection === SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down", width: 14, height: 14 }))), this.showMenu && (h("div", { class: "cell--menu-container" }, h("z-button", { variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: () => (this.popoverEl.open = !this.popoverEl.open) }), h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { name: "contextual-menu" }))))));
+    return (h(Host, { role: "columnheader", "menu-open": this.isMenuOpen, "aria-sort": this.ariaSortDirection }, h("slot", null), this.sortDirection && (h("button", { class: "z-th--sort-button", type: "button", onClick: this.handleSort.bind(this) }, h("z-icon", { name: this.sortDirection === SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down", width: 14, height: 14 }))), this.showMenu && (h("div", { class: "cell--menu-container" }, h("z-button", { variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: () => (this.popoverEl.open = !this.popoverEl.open) }), h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open), position: this.popoverPosition }, h("slot", { name: "contextual-menu" }))))));
   }
   static get is() { return "z-th"; }
   static get encapsulation() { return "shadow"; }
@@ -151,6 +155,24 @@ export class ZTh {
         },
         "attribute": "sort-direction",
         "reflect": false
+      },
+      "popoverPosition": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "PopoverPosition",
+          "resolved": "PopoverPosition.AUTO | PopoverPosition.BOTTOM | PopoverPosition.BOTTOM_LEFT | PopoverPosition.BOTTOM_RIGHT | PopoverPosition.LEFT | PopoverPosition.LEFT_BOTTOM | PopoverPosition.LEFT_TOP | PopoverPosition.RIGHT | PopoverPosition.RIGHT_BOTTOM | PopoverPosition.RIGHT_TOP | PopoverPosition.TOP | PopoverPosition.TOP_LEFT | PopoverPosition.TOP_RIGHT",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "Set popover position."
+        },
+        "attribute": "popover-position",
+        "reflect": false,
+        "defaultValue": "PopoverPosition.AUTO"
       }
     };
   }

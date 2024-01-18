@@ -1,13 +1,13 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './index-a2ca4b97.js';
 import './index-6d83248c.js';
 import './index-f171ca51.js';
-import './index-f8b674a1.js';
+import './index-cef40abc.js';
 import './index-8c7b48bc.js';
 import './utils-2a4ef29d.js';
 import './index-47f23745.js';
 import './breakpoints-9b81eb1b.js';
 import './index-df85390b.js';
-import './index-6a987c3d.js';
+import './index-4aa29b00.js';
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 

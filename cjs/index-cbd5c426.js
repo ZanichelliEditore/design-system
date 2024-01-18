@@ -20,6 +20,10 @@ const ZTh = class {
      */
     this.sticky = false;
     /**
+     * Set popover position.
+     */
+    this.popoverPosition = index$1.PopoverPosition.AUTO;
+    /**
      * Store the open state of the menu.
      */
     this.isMenuOpen = false;
@@ -58,7 +62,7 @@ const ZTh = class {
     this.updateColspan();
   }
   render() {
-    return (index.h(index.Host, { role: "columnheader", "menu-open": this.isMenuOpen, "aria-sort": this.ariaSortDirection }, index.h("slot", null), this.sortDirection && (index.h("button", { class: "z-th--sort-button", type: "button", onClick: this.handleSort.bind(this) }, index.h("z-icon", { name: this.sortDirection === index$1.SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down", width: 14, height: 14 }))), this.showMenu && (index.h("div", { class: "cell--menu-container" }, index.h("z-button", { variant: index$1.ButtonVariant.TERTIARY, icon: "contextual-menu", size: index$1.ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: () => (this.popoverEl.open = !this.popoverEl.open) }), index.h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, index.h("slot", { name: "contextual-menu" }))))));
+    return (index.h(index.Host, { role: "columnheader", "menu-open": this.isMenuOpen, "aria-sort": this.ariaSortDirection }, index.h("slot", null), this.sortDirection && (index.h("button", { class: "z-th--sort-button", type: "button", onClick: this.handleSort.bind(this) }, index.h("z-icon", { name: this.sortDirection === index$1.SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down", width: 14, height: 14 }))), this.showMenu && (index.h("div", { class: "cell--menu-container" }, index.h("z-button", { variant: index$1.ButtonVariant.TERTIARY, icon: "contextual-menu", size: index$1.ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: () => (this.popoverEl.open = !this.popoverEl.open) }), index.h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open), position: this.popoverPosition }, index.h("slot", { name: "contextual-menu" }))))));
   }
   get host() { return index.getElement(this); }
   static get watchers() { return {

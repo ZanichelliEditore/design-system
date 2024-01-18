@@ -5,13 +5,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-e3299e0a.js');
 require('./index-23d8692f.js');
 require('./index-a9764c98.js');
-require('./index-e6334f94.js');
+require('./index-7aa116b0.js');
 require('./index-92a9f89e.js');
 require('./utils-ee86db4f.js');
 require('./index-cf9497bc.js');
 require('./breakpoints-ebe1a437.js');
 require('./index-dd43ccfd.js');
-require('./index-b9191d60.js');
+require('./index-cbd5c426.js');
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 

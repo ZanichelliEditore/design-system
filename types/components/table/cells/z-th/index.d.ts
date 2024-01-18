@@ -1,4 +1,4 @@
-import { SortDirection, VisibilityCondition } from "../../../../beans";
+import { PopoverPosition, SortDirection, VisibilityCondition } from "../../../../beans";
 /**
  * ZTh component.
  * @slot - ZTh content.
@@ -25,6 +25,10 @@ export declare class ZTh {
    * Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
    */
   sortDirection?: SortDirection;
+  /**
+   * Set popover position.
+   */
+  popoverPosition: PopoverPosition;
   /**
    * Store the open state of the menu.
    */
