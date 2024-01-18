@@ -90,8 +90,7 @@ export declare type ComboItem = {
 export declare enum ButtonVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary",
-  TERTIARY = "tertiary",
-  DARK_BG = "dark-bg"
+  TERTIARY = "tertiary"
 }
 export declare enum ButtonType {
   SUBMIT = "submit",

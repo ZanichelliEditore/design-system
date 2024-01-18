@@ -34,7 +34,6 @@ export var ButtonVariant;
   ButtonVariant["PRIMARY"] = "primary";
   ButtonVariant["SECONDARY"] = "secondary";
   ButtonVariant["TERTIARY"] = "tertiary";
-  ButtonVariant["DARK_BG"] = "dark-bg";
 })(ButtonVariant || (ButtonVariant = {}));
 export var ButtonType;
 (function (ButtonType) {

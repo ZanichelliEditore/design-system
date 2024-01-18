@@ -1,6 +1,6 @@
 :host {
   width: inherit;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family sans);
   font-weight: var(--font-rg);
 }
 

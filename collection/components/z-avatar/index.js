@@ -6,9 +6,9 @@ export class ZAvatar {
     /** [optional] Avatar size */
     this.size = AvatarSize.MEDIUM;
     /** [optional] Avatar text color */
-    this.textColor = "text-white";
+    this.textColor = "color-white";
     /** [optional] Avatar background color */
-    this.backgroundColor = "bg-grey-700";
+    this.backgroundColor = "gray700";
     if (((_a = this.text) === null || _a === void 0 ? void 0 : _a.length) === 0 && ((_b = this.image) === null || _b === void 0 ? void 0 : _b.length) === 0) {
       console.warn("z-avatar must contain at least one prop between text and image");
     }
@@ -100,7 +100,7 @@ export class ZAvatar {
         },
         "attribute": "text-color",
         "reflect": false,
-        "defaultValue": "\"text-white\""
+        "defaultValue": "\"color-white\""
       },
       "backgroundColor": {
         "type": "string",
@@ -118,7 +118,7 @@ export class ZAvatar {
         },
         "attribute": "background-color",
         "reflect": false,
-        "defaultValue": "\"bg-grey-700\""
+        "defaultValue": "\"gray700\""
       },
       "image": {
         "type": "string",

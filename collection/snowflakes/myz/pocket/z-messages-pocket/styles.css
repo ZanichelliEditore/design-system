@@ -91,12 +91,12 @@
       var(--color-surface03) 4px,
       var(--color-surface01) 8px
     );
-    border-radius: var(--radius-base);
+    border-radius: var(--border-radius);
   }
 
   :host ::-webkit-scrollbar-thumb {
     width: var(--space-unit);
     background-color: var(--color-primary01);
-    border-radius: var(--radius-base);
+    border-radius: var(--border-radius);
   }
 }

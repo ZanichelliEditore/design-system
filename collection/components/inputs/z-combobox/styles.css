@@ -14,9 +14,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 calc(var(--space-unit) * 1.5);
-  border: var(--border-size-small) solid var(--bg-grey-700);
+  border: var(--border-size-small) solid var(--color-surface04);
   margin: 0;
-  background-color: var(--bg-white);
+  background-color: var(--color-input-field01);
   border-radius: var(--border-radius-small);
   cursor: pointer;
 }
@@ -36,7 +36,7 @@
 }
 
 :host > div > .header:hover {
-  outline: var(--border-size-medium) solid var(--gray700);
+  outline: var(--border-size-medium) solid var(--color-surface04);
   outline-offset: -2px;
 }
 
@@ -52,7 +52,7 @@
 :host > div > .header > p.body-3 {
   padding: var(--space-unit) 0;
   margin: 0;
-  color: var(--text-grey-800);
+  color: var(--color-text01);
 }
 
 :host > div > .header > p.body-3 > span {
@@ -60,7 +60,7 @@
 }
 
 :host > div > .header > z-icon {
-  fill: var(--text-grey-800);
+  fill: var(--color-icon02);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
@@ -72,7 +72,7 @@
 }
 
 :host > div.open > .header {
-  border: var(--border-size-small) solid var(--blue500);
+  border: var(--border-size-small) solid var(--color-primary01);
   border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
 }
 
@@ -86,7 +86,7 @@
 }
 
 :host > div.disabled .header > p.body-3 {
-  color: var(--text-grey-700);
+  color: var(--color-disabled02);
 }
 
 :host > div.disabled .header > z-icon:last-child {
@@ -94,7 +94,7 @@
 }
 
 :host > div.open > .header > z-icon {
-  fill: var(--text-grey-800);
+  fill: var(--color-icon02);
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
@@ -105,7 +105,7 @@
   padding: var(--space-unit) calc(var(--space-unit) * 2);
   border: var(--border-size-small) solid var(--gray200);
   border-top: 0;
-  background-color: var(--bg-white);
+  background-color: var(--color-input-field01);
   border-radius: 0;
 }
 
@@ -113,8 +113,7 @@
   overflow: auto;
   max-height: 235px;
   padding: 0;
-  scrollbar-color: var(--myz-blue) var(--gray200);
-  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary01) transparent;
 }
 
 :host > div.open > div.open-combo-data > z-input {
@@ -130,14 +129,13 @@
 
 ::-webkit-scrollbar {
   width: 10px;
-  background: linear-gradient(90deg, var(--bg-white) 2px, var(--bg-grey-200) 4px, var(--bg-white) 8px);
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
   border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb {
   width: 10px;
-  background-color: var(--myz-blue);
-  border-radius: var(--border-radius);
+  background-color: var(--color-primary01);
 }
 
 :host > div.open > z-input {
@@ -145,7 +143,7 @@
   z-index: 1;
   width: 238px;
   margin: 0 calc(var(--space-unit) * 2);
-  color: var(--myz-blue);
+  color: var(--color-primary01);
 }
 
 :host > div.open > div.open-combo-data > div.search {
@@ -159,8 +157,7 @@
   overflow: auto;
   max-height: 180px;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
-  scrollbar-color: var(--myz-blue) var(--bg-grey-200);
-  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary01) transparent;
 }
 
 :host > div.open > div.open-combo-data > div.search > div {
@@ -171,9 +168,9 @@
 :host > div.open > div.open-combo-data > div.search > div > a {
   display: inline-block;
   height: 44px;
-  color: var(--myz-blue);
+  color: var(--color-primary01);
   cursor: pointer;
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 44px;

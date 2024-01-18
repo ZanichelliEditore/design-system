@@ -36,7 +36,7 @@ export class ZButtonSort {
     return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
   }
   render() {
-    return (h("button", { title: this.setButtonTitle(), id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, h("label", null, h("span", { ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label), h("span", { class: "counter" }, this.counter && ` (${this.counter})`), h("span", { class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { name: "caret-up-down", width: 16, height: 16 }))));
+    return (h("button", { title: this.setButtonTitle(), id: this.buttonid, class: this.isselected && "selected", onClick: () => this.emitButtonSortClick() }, h("span", { ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label), h("span", { class: "counter" }, this.counter && ` (${this.counter})`), h("span", { class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { name: "caret-up-down", width: 16, height: 16 })));
   }
   static get is() { return "z-button-sort"; }
   static get encapsulation() { return "shadow"; }

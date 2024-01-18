@@ -18,7 +18,7 @@ div {
 div.real,
 div.trial,
 div.temp {
-  border-color: var(--accent);
+  border-color: var(--blue100);
 }
 
 /* HIDDEN status */

@@ -54,7 +54,7 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   box-shadow: var(--shadow-2);
   color: var(--color-text04);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
   line-height: initial;

@@ -1,28 +1,20 @@
 import { h } from "@stencil/core";
-import { Device, ZChipType } from "../../../beans";
-import { getDevice } from "../../../utils/utils";
+import { ZChipType } from "../../../beans";
 export class ZChip {
   constructor() {
     /** z-chip size type, can be default, medium or small */
     this.type = ZChipType.DEFAULT;
-    /** set z-chip as disabled  */
+    /** set z-chip as disabled */
     this.disabled = false;
     /** z-chip aria-label string */
     this.ariaLabel = "";
   }
-  emitinteractiveIconClick() {
-    this.interactiveIconClick.emit();
-  }
-  getIconSize() {
-    return getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE ? 22 : 14;
-  }
   render() {
-    if (this.interactiveIcon) {
-      return (h("div", { class: `z-chip-container ${this.type}`, "aria-disabled": this.disabled }, this.icon && (h("z-icon", { class: "icon-sx", name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null), h("button", { type: "button", onClick: () => this.emitinteractiveIconClick(), onKeyUp: () => {
-          () => this.emitinteractiveIconClick();
-        }, "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { name: this.interactiveIcon, width: this.getIconSize(), height: this.getIconSize() }))));
-    }
-    return (h("div", { class: `${this.type}` }, this.icon && (h("z-icon", { name: this.icon, width: this.getIconSize(), height: this.getIconSize() })), h("slot", null)));
+    return (h("div", { class: {
+        "z-chip-container": true,
+        "z-chip-interactive": !!this.interactiveIcon,
+        [this.type]: true,
+      }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { name: this.icon }), h("slot", null), this.interactiveIcon && (h("button", { type: "button", onClick: () => this.interactiveIconClick.emit(), onKeyUp: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { class: "interactive-icon", name: this.interactiveIcon })))));
   }
   static get is() { return "z-chip"; }
   static get encapsulation() { return "scoped"; }

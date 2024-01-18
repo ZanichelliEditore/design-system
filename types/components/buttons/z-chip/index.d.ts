@@ -8,13 +8,11 @@ export declare class ZChip {
   type?: ZChipType;
   /** z-chip interactive icon */
   interactiveIcon?: string;
-  /** set z-chip as disabled  */
+  /** set z-chip as disabled */
   disabled?: boolean;
   /** z-chip aria-label string */
   ariaLabel: string;
   /** click on interactive icon */
   interactiveIconClick: EventEmitter;
-  private emitinteractiveIconClick;
-  private getIconSize;
-  render(): HTMLButtonElement | HTMLDivElement;
+  render(): HTMLDivElement;
 }

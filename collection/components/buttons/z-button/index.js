@@ -194,7 +194,7 @@ export class ZButton {
         "mutable": false,
         "complexType": {
           "original": "ButtonVariant",
-          "resolved": "ButtonVariant.DARK_BG | ButtonVariant.PRIMARY | ButtonVariant.SECONDARY | ButtonVariant.TERTIARY",
+          "resolved": "ButtonVariant.PRIMARY | ButtonVariant.SECONDARY | ButtonVariant.TERTIARY",
           "references": {
             "ButtonVariant": {
               "location": "import",
