@@ -12,12 +12,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button>
-            <label>
-              <span class="ellipsis"></span>
-              <span class="counter"></span>
-              <span class="sort">A-Z</span>
-              <z-icon name="caret-up-down" width="16" height="16" />
-            </label>
+            <span class="ellipsis"></span>
+            <span class="counter"></span>
+            <span class="sort">A-Z</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -33,12 +31,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort label="label" counter="5">
         <mock:shadow-root>
           <button>
-          <label>
             <span class="ellipsis">label</span>
             <span class="counter"> (5)</span>
             <span class="sort">A-Z</span>
             <z-icon name="caret-up-down" width="16" height="16" />
-          </label>
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -56,12 +52,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button class="selected">
-            <label>
-              <span class="ellipsis"></span>
-              <span class="counter"></span>
-              <span class="sort">A-Z</span>
-              <z-icon name="caret-up-down" width="16" height="16" />
-            </label>
+            <span class="ellipsis"></span>
+            <span class="counter"></span>
+            <span class="sort">A-Z</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -80,12 +74,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort>
         <mock:shadow-root>
           <button class="selected">
-            <label>
-              <span class="ellipsis"></span>
-              <span class="counter"></span>
-              <span class="sort">Z-A</span>
-              <z-icon name="caret-up-down" width="16" height="16" />
-            </label>
+            <span class="ellipsis"></span>
+            <span class="counter"></span>
+            <span class="sort">Z-A</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -122,12 +114,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort label="Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più" counter="5">
         <mock:shadow-root>
           <button title="Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più">
-            <label>
-              <span class="ellipsis">Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più</span>
-              <span class="counter"> (5)</span>
-              <span class="sort">A-Z</span>
-              <z-icon name="caret-up-down" width="16" height="16" />
-            </label>
+            <span class="ellipsis">Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più</span>
+            <span class="counter"> (5)</span>
+            <span class="sort">A-Z</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>
@@ -145,12 +135,10 @@ describe("Suite test ZButtonSort", () => {
       <z-button-sort label="Testo corto" counter="5">
         <mock:shadow-root>
           <button title="">
-            <label>
-              <span class="ellipsis">Testo corto</span>
-              <span class="counter"> (5)</span>
-              <span class="sort">A-Z</span>
-              <z-icon name="caret-up-down" width="16" height="16" />
-            </label>
+            <span class="ellipsis">Testo corto</span>
+            <span class="counter"> (5)</span>
+            <span class="sort">A-Z</span>
+            <z-icon name="caret-up-down" width="16" height="16" />
           </button>
         </mock:shadow-root>
       </z-button-sort>

@@ -213,6 +213,10 @@ z-searchbar {
   column-gap: calc(var(--space-unit) * 2);
 }
 
+.heading-stuck .heading-title {
+  overflow: hidden;
+}
+
 .heading-stuck .heading-title > *,
 .heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
   display: block;

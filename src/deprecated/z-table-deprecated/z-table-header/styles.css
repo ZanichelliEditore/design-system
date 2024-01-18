@@ -3,7 +3,7 @@
   display: table-cell;
   border-bottom: var(--border-size-medium) solid var(--gray200);
   background-color: var(--gray50);
-  font-family: var(--dashboard-font);
+  font-family: var(--font-family-sans);
   font-weight: var(--font-sb);
   text-align: start;
 }

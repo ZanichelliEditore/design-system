@@ -3,7 +3,7 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-grey-700);
+  background-color: var(--gray700);
   border-radius: 50%;
   font-family: var(--font-family-sans);
   text-transform: uppercase;

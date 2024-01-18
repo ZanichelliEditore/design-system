@@ -10,7 +10,7 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="body-4-sb medium" style="color: var(--text-white); background-color: var(--bg-grey-700)">
+      <z-avatar class="body-4-sb medium" style="color: var(--color-white); background-color: var(--gray700)">
         <mock:shadow-root></mock:shadow-root>
       </z-avatar>
     `);
@@ -23,7 +23,7 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="body-5-sb small" style="color: var(--text-white); background-color: var(--bg-grey-700)" size="small">
+      <z-avatar class="body-5-sb small" style="color: var(--color-white); background-color: var(--gray700)" size="small">
         <mock:shadow-root></mock:shadow-root>
       </z-avatar>
     `);
@@ -36,7 +36,7 @@ describe("Suite test ZAvatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-avatar class="body-4-sb medium" style="color: var(--text-white); background-color: var(--bg-grey-700)" text="ABCDE">
+      <z-avatar class="body-4-sb medium" style="color: var(--color-white); background-color: var(--gray700)" text="ABCDE">
         <mock:shadow-root>
           <span>
             AB
@@ -49,14 +49,14 @@ describe("Suite test ZAvatar", () => {
   it("Test render ZAvatar text-color prop", async () => {
     const page = await newSpecPage({
       components: [ZAvatar],
-      html: `<z-avatar text="ABCDE" text-color="myz-blue" size="small"></z-avatar>`,
+      html: `<z-avatar text="ABCDE" text-color="blue500" size="small"></z-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-avatar
         class="body-5-sb small"
-        style="color: var(--myz-blue); background-color: var(--bg-grey-700)"
-        text-color="myz-blue"
+        style="color: var(--blue500); background-color: var(--gray700)"
+        text-color="blue500"
         text="ABCDE"
         size="small">
           <mock:shadow-root>
@@ -71,14 +71,14 @@ describe("Suite test ZAvatar", () => {
   it("Test render ZAvatar background-color prop", async () => {
     const page = await newSpecPage({
       components: [ZAvatar],
-      html: `<z-avatar text="ABCDE" background-color="myz-blue" size="large"></z-avatar>`,
+      html: `<z-avatar text="ABCDE" background-color="blue500" size="large"></z-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
       <z-avatar
       class="body-2-sb large"
-        style="color: var(--text-white); background-color: var(--myz-blue)"
-        background-color="myz-blue"
+        style="color: var(--color-white); background-color: var(--blue500)"
+        background-color="blue500"
         text="ABCDE"
         size="large">
           <mock:shadow-root>
@@ -99,7 +99,7 @@ describe("Suite test ZAvatar", () => {
     expect(page.root).toEqualHtml(`
       <z-avatar
         class="body-4-sb medium"
-        style="color: var(--text-white); background-color: var(--bg-grey-700)"
+        style="color: var(--color-white); background-color: var(--gray700)"
         image="https://cdn.eso.org/images/thumb700x/eso1907a.jpg">
           <mock:shadow-root>
             <img src="https://cdn.eso.org/images/thumb700x/eso1907a.jpg">

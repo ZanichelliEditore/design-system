@@ -1,5 +1,4 @@
 import {newSpecPage} from "@stencil/core/testing";
-
 import {ZChip} from "./index";
 
 describe("Suite test ZChip", () => {
@@ -11,7 +10,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="default">
-          <div class="default"></div>
+        <div class="default z-chip-container"></div>
       </z-chip>
     `);
   });
@@ -24,7 +23,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip type="medium">
-          <div class="medium">text</div>
+        <div class="medium z-chip-container">text</div>
       </z-chip>
     `);
   });
@@ -37,10 +36,10 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" type="default">
-          <div class="default">
-            <z-icon height="14" name="pdf" width="14"></z-icon>
-            text
-          </div>
+        <div class="default z-chip-container">
+          <z-icon name="pdf"></z-icon>
+          text
+        </div>
       </z-chip>
     `);
   });
@@ -53,12 +52,12 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="" interactive-icon="multiply-circled" type="default">
-          <div class="default z-chip-container">
-            text
-            <button aria-label="" type="button">
-              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
-            </button
-          </div>
+        <div class="default z-chip-container z-chip-interactive">
+          text
+          <button aria-label="" type="button">
+            <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
+          </button
+        </div>
       </z-chip>
     `);
   });
@@ -71,13 +70,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="default">
-          <div class="default z-chip-container">
-            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
-            text
-            <button aria-label="" type="button">
-              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
-            </button
-          </div>
+        <div class="default z-chip-container z-chip-interactive">
+          <z-icon name="pdf"></z-icon>
+          text
+          <button aria-label="" type="button">
+            <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
+          </button
+        </div>
       </z-chip>
     `);
   });
@@ -90,11 +89,11 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default">
-        <div aria-disabled="" class="default z-chip-container">
-            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
+        <div aria-disabled="" class="default z-chip-container z-chip-interactive">
+            <z-icon name="pdf"></z-icon>
             text
             <button aria-label="" disabled="" type="button">
-              <z-icon height="14" name="multiply-circled" width="14"></z-icon>
+              <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
             </button
         </div>
       </z-chip>
@@ -109,13 +108,13 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip icon="pdf" interactive-icon="multiply-circled" type="small">
-         <div class="small z-chip-container">
-            <z-icon class="icon-sx" height="14" name="pdf" width="14"></z-icon>
-            text
-            <button aria-label="" type="button">
-            <z-icon height="14" name="multiply-circled" width="14"></z-icon>
-            </button
-          </div>
+        <div class="small z-chip-container z-chip-interactive">
+          <z-icon name="pdf"></z-icon>
+          text
+          <button aria-label="" type="button">
+          <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
+          </button
+        </div>
       </z-chip>
     `);
   });

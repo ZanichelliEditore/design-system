@@ -17,11 +17,11 @@ export class ZAvatar {
 
   /** [optional] Avatar text color */
   @Prop()
-  textColor?: string = "text-white";
+  textColor?: string = "color-white";
 
   /** [optional] Avatar background color */
   @Prop()
-  backgroundColor?: string = "bg-grey-700";
+  backgroundColor?: string = "gray700";
 
   /** [optional] Avatar image */
   @Prop({mutable: true})
