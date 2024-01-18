@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, SortDirection, VisibilityCondition} from "../../../../beans";
+import {ButtonVariant, ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../../beans";
 
 /**
  * ZTh component.
@@ -40,6 +40,12 @@ export class ZTh {
    */
   @Prop({mutable: true})
   sortDirection?: SortDirection;
+
+  /**
+   * Set popover position.
+   */
+  @Prop()
+  popoverPosition = PopoverPosition.AUTO;
 
   /**
    * Store the open state of the menu.
@@ -132,6 +138,7 @@ export class ZTh {
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
               bindTo={this.menuTrigger}
               onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
+              position={this.popoverPosition}
             >
               <slot name="contextual-menu"></slot>
             </z-popover>
