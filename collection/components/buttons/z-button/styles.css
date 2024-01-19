@@ -116,8 +116,8 @@
 }
 
 :host([variant="tertiary"]) .z-button--container {
-  border-color: transparent;
-  background-color: transparent;
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
   color: var(--color-primary01);
 }
 
