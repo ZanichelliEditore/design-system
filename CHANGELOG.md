@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.2](https://github.com/ZanichelliEditore/design-system/compare/v12.0.1...v12.0.2) (2024-01-19)
+
+
+### Bug Fixes
+
+* .navigation-button class ([0f666c7](https://github.com/ZanichelliEditore/design-system/commit/0f666c735474982617c741077d1aeb78e20f4d90))
+* improve navigation ([a406fb2](https://github.com/ZanichelliEditore/design-system/commit/a406fb24e573b437ef140b0c10398ebc1a548349))
+* pre-selected tab a11y navigation ([35e2390](https://github.com/ZanichelliEditore/design-system/commit/35e23902bf59aa8b42f1a3ed233910451a9d631d))
+* preselectedTab ([fc60218](https://github.com/ZanichelliEditore/design-system/commit/fc60218ebc91acfea7190b3911945b208fff6bbe))
+
 ### [12.0.1](https://github.com/ZanichelliEditore/design-system/compare/v12.0.0...v12.0.1) (2024-01-18)
 
 ## [12.0.0](https://github.com/ZanichelliEditore/design-system/compare/v11.1.0...v12.0.0) (2024-01-18)
