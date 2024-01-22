@@ -9,8 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v12.0.0](#v1200)
+  - [Aggiornamento design-tokens senza token legacy](#aggiornamento-design-tokens-senza-token-legacy)
 - [v11.0.0](#v1100)
-  - [ZNavigationTabZNavigationTabLink (deprecati)](#znavigationtabznavigationtablink-deprecati)
+  - [ZNavigationTab - ZNavigationTabLink (deprecati)](#znavigationtab-znavigationtablink-deprecati)
 - [v10.0.0](#v1000)
 
   - [ZTypography](#ztypography)
@@ -66,9 +68,21 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
+## v12.0.0
+
+### Aggiornamento design-tokens senza token legacy
+
+La versione `0.2.29` del pacchetto `@zanichelli/albe-design-tokens` non ha più i token (classi e custom prop CSS) classificati come `legacy`, di conseguenza le applicazioni che usano la versione `>= 12` di questo repo, devono sostituire i vecchi token con i nuovi equivalenti.
+
+Per trovare facilmente i vecchi token nel codice di un applicativo, è possibile fare una ricerca con regex dall'IDE di sviluppo (es. VSCode) usando la seguente regex:
+
+```
+t-weight-lt|t-weight-rg|t-weight-sb|t-align-center|t-color-light|caption-01|helper-text-01|body-short-01|body-short-02|body-long-01|body-long-02|heading-01|heading-02|heading-03|heading-04|heading-05|expressive-heading-04|expressive-heading-05|expressive-paragraph-01|quotation-01|quotation-02|display-01|display-02|display-03|display-04|--dashboard-font|--basex1|--basex2|--basex3|--basex4|--basex5|--basex6|--basex7|--basex8|--half-x1|--half-x3|--half-x5|--half-x7|--half-x9|--half-x11|--half-x13|--half-x14|--myz-blue|--myz-blue-dark|--myz-blue-light|--myz-blue-lighter|--myz-red|--myz-red-dark|--myz-red-light|--accent|--accent-dark|--accent-light|--accent-lighter|--bg-grey-050|--bg-grey-200|--bg-grey-700|--bg-grey-800|--bg-grey-900|--bg-white|--bg-neutral-100|--bg-neutral-150|--bg-neutral-200|--bg-neutral-300|--bg-neutral-400|--bg-neutral-500|--bg-neutral-600|--bg-neutral-700|--bg-neutral-800|--status-error-red|--status-error-red-dark|--status-error-red-light|--status-error-red-lighter|--status-warning-yellow|--status-warning-yellow-dark|--status-warning-yellow-light|--status-warning-yellow-lighter|--status-success-green|--status-success-green-dark|--status-success-green-light|--status-success-green-lighter|--text-grey-800|--text-grey-700|--text-grey-200|--text-grey-050|--text-white|--border-base|--radius-base|--border-radius-base|--border-radius-min|--border-radius-max
+```
+
 ## v11.0.0
 
-### ZNavigationTab/ZNavigationTabLink (deprecati)
+### ZNavigationTab-ZNavigationTabLink (deprecati)
 
 L'uso dei sottocomponenti di `ZNavigationTabs` creava dei problemi di accessibilità a causa della struttura HTML generata. I componenti in questione wrappano dei tag `<button>` e `<a>`, con `role=tab`, aggiungendo stili e qualche comportamento. La corretta implementazione del [Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/) richiede che le tab siano elementi posizionati direttamente dentro quello con il `role=tablist` e quel wrapping lo impediva.
 Il comportamento implementato nei sottocomponenti è ora gestito dal componente principale.
