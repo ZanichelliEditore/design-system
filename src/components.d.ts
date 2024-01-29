@@ -621,6 +621,10 @@ export namespace Components {
          */
         "max"?: number;
         /**
+          * Max length value (optional): available for text
+         */
+        "maxlength"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
@@ -628,6 +632,10 @@ export namespace Components {
           * min number value (optional): available for number
          */
         "min"?: number;
+        /**
+          * Min length value (optional): available for text
+         */
+        "minlength"?: number;
         /**
           * the input name
          */
@@ -3476,6 +3484,10 @@ declare namespace LocalJSX {
          */
         "max"?: number;
         /**
+          * Max length value (optional): available for text
+         */
+        "maxlength"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
@@ -3483,6 +3495,10 @@ declare namespace LocalJSX {
           * min number value (optional): available for number
          */
         "min"?: number;
+        /**
+          * Min length value (optional): available for text
+         */
+        "minlength"?: number;
         /**
           * the input name
          */

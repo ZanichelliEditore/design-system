@@ -71,7 +71,13 @@ import "./index";
     min: {
       control: {type: "number"},
     },
+    minlength: {
+      control: {type: "number"},
+    },
     max: {
+      control: {type: "number"},
+    },
+    maxlength: {
       control: {type: "number"},
     },
     step: {
@@ -102,7 +108,9 @@ import "./index";
     htmltitle: "",
     autocomplete: "",
     min: 1,
+    minlength: 1,
     max: 10,
+    maxlength: 10,
     step: 1,
     pattern: "",
   }}
@@ -146,7 +154,9 @@ import "./index";
           htmltitle=${args.htmltitle}
           autocomplete=${args.autocomplete}
           min=${args.min}
+          minlength=${args.minlength}
           max=${args.max}
+          maxlength=${args.maxlength}
           step=${args.step}
           pattern=${args.pattern}
           size=${args.size}
@@ -176,6 +186,8 @@ import "./index";
           "htmltitle",
           "autocomplete",
           "size",
+          "minlength",
+          "maxlength",
         ],
       },
     }}
@@ -205,6 +217,8 @@ import "./index";
           htmltitle=${args.htmltitle}
           autocomplete=${args.autocomplete}
           size=${args.size}
+          minlength=${args.minlength}
+          maxlength=${args.maxlength}
         ></z-input>
       `
     }

@@ -88,9 +88,17 @@ export class ZInput {
   @Prop()
   min?: number;
 
+  /** Min length value (optional): available for text */
+  @Prop()
+  minlength?: number;
+
   /** max number value (optional): available for number */
   @Prop()
   max?: number;
+
+  /** Max length value (optional): available for text */
+  @Prop()
+  maxlength?: number;
 
   /** step number value (optional): available for number */
   @Prop()
@@ -220,6 +228,8 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
+      minlength: this.minlength,
+      maxlength: this.maxlength,
       class: {
         [`input-${this.status}`]: !!this.status,
         filled: !!this.value,
