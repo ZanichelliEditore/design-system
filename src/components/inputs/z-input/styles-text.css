@@ -81,6 +81,5 @@
 .text-wrapper > div > input:-webkit-autofill:focus,
 .text-wrapper > div > input:-webkit-autofill:active {
   background: var(--color-white) !important;
-  background-clip: text !important;
   -webkit-transition-delay: 99999s !important; /* trick: background color will be applied after 99999s */
 }
