@@ -286,7 +286,8 @@ export class ZNavigationTabs {
 
     const preselectedTab = this.selectedTab ?? this.tabs.findIndex((tab) => tab.ariaSelected === "true");
     if (preselectedTab !== -1) {
-      this.selectedTab = this.focusedTab = preselectedTab;
+      this.selectedTab = preselectedTab;
+      this.tabs[preselectedTab].tabIndex = 0;
       this.onTabSelected();
     } else {
       this.tabs[0].tabIndex = 0;
