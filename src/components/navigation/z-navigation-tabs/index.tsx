@@ -1,10 +1,5 @@
 import {Component, Prop, h, Listen, Element, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {
-  NavigationTabsSize,
-  NavigationTabsOrientation,
-  NavigationTabsKeyboardEvents,
-  KeyboardCode,
-} from "../../../beans";
+import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../../beans";
 
 /**
  * Navigation tabs component.
@@ -38,12 +33,15 @@ export class ZNavigationTabs {
 
   /**
    * Index of the selected tab.
+   * Useful to programmatically select a tab.
+   * The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
    */
   @Prop({mutable: true})
   selectedTab: number = undefined;
 
   /**
    * Emitted when the selected tab changes.
+   * Contains the index of the new selected tab in the `detail` of the event.
    */
   @Event()
   selected: EventEmitter<number>;
@@ -71,7 +69,7 @@ export class ZNavigationTabs {
   /**
    * Index of the last tab that held focus.
    */
-  private focusedTab = 0;
+  private focusedTab = undefined;
 
   /**
    * Reference to the `<nav>` element
@@ -95,6 +93,8 @@ export class ZNavigationTabs {
   get tabs(): HTMLElement[] {
     return Array.from(this.nav.children) as HTMLElement[];
   }
+
+  private resizeObserver: ResizeObserver;
 
   /**
    * Scroll into view to center the tab.
@@ -140,6 +140,17 @@ export class ZNavigationTabs {
   }
 
   /**
+   * Check if the navigation buttons are needed.
+   */
+  private checkScrollVisible(): void {
+    if (!this.nav) {
+      return;
+    }
+
+    this.canNavigate = this.nav[`scroll${this.dimension}`] > this.nav[`client${this.dimension}`];
+  }
+
+  /**
    * Check if navigation buttons can be enabled for each direction.
    */
   @Watch("canNavigate")
@@ -170,23 +181,12 @@ export class ZNavigationTabs {
       }
 
       zicon?.setAttribute("name", `${strokeIcon}-filled`);
-      tab.tabIndex = 0;
       tab.setAttribute("aria-selected", "true");
     });
-    this.scrollToTab(this.tabs[this.selectedTab]);
     this.selected.emit(this.selectedTab);
-  }
-
-  /**
-   * Check if the navigation buttons are needed on window resize.
-   */
-  @Listen("resize", {target: "window", passive: true})
-  checkScrollVisible(): void {
-    if (!this.nav) {
-      return;
+    if (this.selectedTab !== undefined) {
+      this.scrollToTab(this.tabs[this.selectedTab]);
     }
-
-    this.canNavigate = this.nav[`scroll${this.dimension}`] > this.nav[`client${this.dimension}`];
   }
 
   /**
@@ -204,33 +204,33 @@ export class ZNavigationTabs {
   }
 
   /**
-   * Move focus through tabs when an arrow key is pressed.
-   * When `TAB` is pressed, focus the currently selected tab if any.
+   * When a tab is focused, temporarily set to -1 the `tabindex` of the selected tab (if any) and set the `focusedTab` to the index of the focused tab.
    */
-  @Listen("keydown")
-  private navigateThroughTabs(event: KeyboardEvent): void | boolean {
-    if (!this.tabs.some((tab) => tab.contains(event.target as HTMLElement))) {
-      return true;
-    }
-
-    if (event.key === KeyboardCode.TAB) {
-      this.focusedTab = this.selectedTab || 0;
-      const ariaSelected = !this.selectedTab ? 0 : this.selectedTab;
-
-      this.tabs[this.focusedTab].focus({preventScroll: true});
-      this.tabs.forEach((tab, index) => {
-        tab.tabIndex = index === ariaSelected ? 0 : -1;
-      });
-
+  @Listen("focusin")
+  onTabFocusIn(event: FocusEvent): void {
+    const focused = this.tabs.findIndex((tab) => tab.contains(event.target as HTMLElement));
+    if (focused === -1) {
       return;
     }
 
-    if (!this.isArrowNavigation(event)) {
+    if (this.selectedTab !== undefined) {
+      this.tabs[this.selectedTab].tabIndex = -1;
+    }
+    this.focusedTab = focused;
+    this.tabs[this.focusedTab].tabIndex = -1;
+    this.scrollToTab(this.tabs[this.focusedTab]);
+  }
+
+  /**
+   * Handle keyboard navigation through tabs with arrow keys.
+   */
+  @Listen("keydown")
+  navigateThroughTabs(event: KeyboardEvent): void | boolean {
+    if (!this.tabs.some((tab) => tab.contains(event.target as HTMLElement)) || !this.isArrowNavigation(event)) {
       return true;
     }
 
     event.preventDefault();
-    this.tabs[this.focusedTab].tabIndex = -1;
     if (
       (event.key === NavigationTabsKeyboardEvents.RIGHT && this.orientation == NavigationTabsOrientation.HORIZONTAL) ||
       (event.key === NavigationTabsKeyboardEvents.DOWN && this.orientation == NavigationTabsOrientation.VERTICAL)
@@ -258,13 +258,23 @@ export class ZNavigationTabs {
       return this.navigateThroughTabs(event);
     }
 
-    this.tabs[this.focusedTab].tabIndex = 0;
     this.tabs[this.focusedTab].focus();
     this.scrollToTab(this.tabs[this.focusedTab]);
   }
 
-  componentDidRender(): void {
-    this.checkScrollVisible();
+  /**
+   * If the focus is not going on a tab (`relatedTarget` is the new focused element), set to 0 the `tabindex` of the selected tab or the one of the first tab, then unset the `focusedTab`.
+   */
+  @Listen("focusout")
+  onTabFocusOut(event: FocusEvent): void {
+    if (!this.tabs.some((tab) => tab.contains(event.relatedTarget as HTMLElement))) {
+      this.tabs[this.selectedTab ?? 0].tabIndex = 0;
+      this.focusedTab = undefined;
+    }
+  }
+
+  connectedCallback(): void {
+    this.resizeObserver = new ResizeObserver(() => this.checkScrollVisible());
   }
 
   componentDidLoad(): void {
@@ -274,20 +284,19 @@ export class ZNavigationTabs {
       tab.tabIndex = -1;
     });
 
-    let activeTab = 0;
-
-    // pre-selected tab (a11y purpose)
-    const preselectedTab = this.tabs.findIndex((tab) => tab.ariaSelected === "true");
-    if (preselectedTab > 0) {
-      activeTab = preselectedTab;
-      this.selectedTab = this.focusedTab = activeTab;
-    }
-
-    this.tabs[activeTab].tabIndex = 0;
-
-    if (this.selectedTab !== undefined) {
+    const preselectedTab = this.selectedTab ?? this.tabs.findIndex((tab) => tab.ariaSelected === "true");
+    if (preselectedTab !== -1) {
+      this.selectedTab = this.focusedTab = preselectedTab;
       this.onTabSelected();
+    } else {
+      this.tabs[0].tabIndex = 0;
     }
+
+    this.resizeObserver.observe(this.nav);
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver?.disconnect();
   }
 
   render(): HTMLZNavigationTabsElement {
@@ -299,21 +308,20 @@ export class ZNavigationTabs {
         }}
         scrollable={this.canNavigate}
       >
-        {this.canNavigate && (
-          <button
-            class="navigation-button"
-            onClick={this.navigateBackwards.bind(this)}
-            tabIndex={-1}
-            disabled={!this.canNavigatePrev}
-            aria-label="Mostra elementi precedenti"
-          >
-            <z-icon
-              name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up"}
-              width={16}
-              height={16}
-            />
-          </button>
-        )}
+        <button
+          class="navigation-button"
+          onClick={this.navigateBackwards.bind(this)}
+          tabIndex={-1}
+          disabled={!this.canNavigatePrev}
+          aria-label="Mostra elementi precedenti"
+          hidden={!this.canNavigate}
+        >
+          <z-icon
+            name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up"}
+            width={16}
+            height={16}
+          />
+        </button>
 
         <nav
           role="tablist"
@@ -325,24 +333,20 @@ export class ZNavigationTabs {
           <slot></slot>
         </nav>
 
-        {this.canNavigate && (
-          <button
-            class="navigation-button"
-            onClick={this.navigateForward.bind(this)}
-            onKeyDown={(e: KeyboardEvent) => {
-              this.navigateThroughTabs(e);
-            }}
-            tabindex="-1"
-            disabled={!this.canNavigateNext}
-            aria-label="Mostra elementi successivi"
-          >
-            <z-icon
-              name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down"}
-              width={16}
-              height={16}
-            />
-          </button>
-        )}
+        <button
+          class="navigation-button"
+          onClick={this.navigateForward.bind(this)}
+          tabIndex={-1}
+          disabled={!this.canNavigateNext}
+          aria-label="Mostra elementi successivi"
+          hidden={!this.canNavigate}
+        >
+          <z-icon
+            name={this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down"}
+            width={16}
+            height={16}
+          />
+        </button>
       </Host>
     );
   }
