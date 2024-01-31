@@ -74,12 +74,8 @@
   --z-icon-height: 16px;
 }
 
-/* Disable background color webkit */
 /* stylelint-disable property-no-vendor-prefix */
-.text-wrapper > div > input:-webkit-autofill,
-.text-wrapper > div > input:-webkit-autofill:hover,
-.text-wrapper > div > input:-webkit-autofill:focus,
-.text-wrapper > div > input:-webkit-autofill:active {
-  background: var(--color-white) !important;
-  -webkit-transition-delay: 99999s !important; /* trick: background color will be applied after 99999s */
+.text-wrapper > div > input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: currentcolor;
 }
