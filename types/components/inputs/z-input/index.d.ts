@@ -40,8 +40,12 @@ export declare class ZInput {
   icon?: string;
   /** min number value (optional): available for number */
   min?: number;
+  /** Min length value (optional): available for text */
+  minlength?: number;
   /** max number value (optional): available for number */
   max?: number;
+  /** Max length value (optional): available for text */
+  maxlength?: number;
   /** step number value (optional): available for number */
   step?: number;
   /** pattern value (optional): available for tel, text, search, url, email, password*/

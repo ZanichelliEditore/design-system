@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, g as getElement } from './index-a2ca4b97.js';
+import { r as registerInstance, c as createEvent, h, g as getElement } from './index-4968ce56.js';
 import { Y as BookCardVariant } from './index-47f23745.js';
 import { m as mobileBreakpoint } from './breakpoints-9b81eb1b.js';
 import { r as randomId } from './utils-2a4ef29d.js';

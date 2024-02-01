@@ -22,10 +22,13 @@ export declare class ZNavigationTabs {
   size?: NavigationTabsSize;
   /**
    * Index of the selected tab.
+   * Useful to programmatically select a tab.
+   * The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
    */
   selectedTab: number;
   /**
    * Emitted when the selected tab changes.
+   * Contains the index of the new selected tab in the `detail` of the event.
    */
   selected: EventEmitter<number>;
   /**
@@ -58,6 +61,7 @@ export declare class ZNavigationTabs {
    */
   get dimension(): string;
   get tabs(): HTMLElement[];
+  private resizeObserver;
   /**
    * Scroll into view to center the tab.
    */
@@ -75,6 +79,10 @@ export declare class ZNavigationTabs {
    */
   private isArrowNavigation;
   /**
+   * Check if the navigation buttons are needed.
+   */
+  private checkScrollVisible;
+  /**
    * Check if navigation buttons can be enabled for each direction.
    */
   checkScrollEnabled(): void;
@@ -83,20 +91,24 @@ export declare class ZNavigationTabs {
    */
   onTabSelected(): void;
   /**
-   * Check if the navigation buttons are needed on window resize.
-   */
-  checkScrollVisible(): void;
-  /**
    * Handle click on the tabs.
    * @param event `click` event triggered by a child tab
    */
   handleTabClick(event: MouseEvent): void;
   /**
-   * Move focus through tabs when an arrow key is pressed.
-   * When `TAB` is pressed, focus the currently selected tab if any.
+   * When a tab is focused, temporarily set to -1 the `tabindex` of the selected tab (if any) and set the `focusedTab` to the index of the focused tab.
    */
-  private navigateThroughTabs;
-  componentDidRender(): void;
+  onTabFocusIn(event: FocusEvent): void;
+  /**
+   * Handle keyboard navigation through tabs with arrow keys.
+   */
+  navigateThroughTabs(event: KeyboardEvent): void | boolean;
+  /**
+   * If the focus is not going on a tab (`relatedTarget` is the new focused element), set to 0 the `tabindex` of the selected tab or the one of the first tab, then unset the `focusedTab`.
+   */
+  onTabFocusOut(event: FocusEvent): void;
+  connectedCallback(): void;
   componentDidLoad(): void;
+  disconnectedCallback(): void;
   render(): HTMLZNavigationTabsElement;
 }

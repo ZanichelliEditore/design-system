@@ -103,6 +103,8 @@ export class ZInput {
       readonly: this.readonly,
       required: this.required,
       title: this.htmltitle,
+      minlength: this.minlength,
+      maxlength: this.maxlength,
       class: {
         [`input-${this.status}`]: !!this.status,
         filled: !!this.value,
@@ -590,6 +592,23 @@ export class ZInput {
         "attribute": "min",
         "reflect": false
       },
+      "minlength": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Min length value (optional): available for text"
+        },
+        "attribute": "minlength",
+        "reflect": false
+      },
       "max": {
         "type": "number",
         "mutable": false,
@@ -605,6 +624,23 @@ export class ZInput {
           "text": "max number value (optional): available for number"
         },
         "attribute": "max",
+        "reflect": false
+      },
+      "maxlength": {
+        "type": "number",
+        "mutable": false,
+        "complexType": {
+          "original": "number",
+          "resolved": "number",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "Max length value (optional): available for text"
+        },
+        "attribute": "maxlength",
         "reflect": false
       },
       "step": {

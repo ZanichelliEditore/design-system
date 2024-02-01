@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-a2ca4b97.js';
+import { r as registerInstance, h, H as Host } from './index-4968ce56.js';
 import { A as AvatarSize } from './index-47f23745.js';
 
 const stylesCss = ":host{display:inline-flex;overflow:hidden;align-items:center;justify-content:center;background-color:var(--gray700);border-radius:50%;font-family:var(--font-family-sans);text-transform:uppercase}:host(.small),:host(.small)>img{width:calc(var(--space-unit) * 3);height:calc(var(--space-unit) * 3)}:host(.medium),:host(.medium)>img{width:calc(var(--space-unit) * 4);height:calc(var(--space-unit) * 4)}:host(.large),:host(.large)>img{width:calc(var(--space-unit) * 5);height:calc(var(--space-unit) * 5)}:host>img{object-fit:cover}";

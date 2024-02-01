@@ -1,1 +1,0 @@
-import{r as t,h as r}from"./p-d17ebc2f.js";const e=class{constructor(r){t(this,r)}render(){return r("slot",null)}};e.style=":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}";export{e as z_visually_hidden}

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-a2ca4b97.js';
+import { r as registerInstance, h } from './index-4968ce56.js';
 
 const stylesCss = "ul{padding:0;margin:0}";
 

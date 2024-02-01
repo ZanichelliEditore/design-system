@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-a2ca4b97.js';
+import { r as registerInstance, c as createEvent, h } from './index-4968ce56.js';
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>div{display:flex;width:inherit;padding:calc(var(--space-unit) * 2);background:var(--color-primary03);border-radius:var(--border-radius)}:host>div>slot{color:var(--color-text01);font-size:14px}:host>div>z-icon{margin-left:calc(var(--space-unit) * 2);cursor:pointer;fill:var(--color-primary01)}";
 

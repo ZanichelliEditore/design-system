@@ -621,6 +621,10 @@ export namespace Components {
          */
         "max"?: number;
         /**
+          * Max length value (optional): available for text
+         */
+        "maxlength"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
@@ -628,6 +632,10 @@ export namespace Components {
           * min number value (optional): available for number
          */
         "min"?: number;
+        /**
+          * Min length value (optional): available for text
+         */
+        "minlength"?: number;
         /**
           * the input name
          */
@@ -1220,7 +1228,7 @@ export namespace Components {
          */
         "orientation"?: NavigationTabsOrientation;
         /**
-          * Index of the selected tab.
+          * Index of the selected tab. Useful to programmatically select a tab. The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
          */
         "selectedTab": number;
         /**
@@ -3476,6 +3484,10 @@ declare namespace LocalJSX {
          */
         "max"?: number;
         /**
+          * Max length value (optional): available for text
+         */
+        "maxlength"?: number;
+        /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
          */
         "message"?: string | boolean;
@@ -3483,6 +3495,10 @@ declare namespace LocalJSX {
           * min number value (optional): available for number
          */
         "min"?: number;
+        /**
+          * Min length value (optional): available for text
+         */
+        "minlength"?: number;
         /**
           * the input name
          */
@@ -4147,7 +4163,7 @@ declare namespace LocalJSX {
          */
         "ariaLabel"?: string;
         /**
-          * Emitted when the selected tab changes.
+          * Emitted when the selected tab changes. Contains the index of the new selected tab in the `detail` of the event.
          */
         "onSelected"?: (event: ZNavigationTabsCustomEvent<number>) => void;
         /**
@@ -4155,7 +4171,7 @@ declare namespace LocalJSX {
          */
         "orientation"?: NavigationTabsOrientation;
         /**
-          * Index of the selected tab.
+          * Index of the selected tab. Useful to programmatically select a tab. The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
          */
         "selectedTab"?: number;
         /**
