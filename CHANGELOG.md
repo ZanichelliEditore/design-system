@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.1.0](https://github.com/ZanichelliEditore/design-system/compare/v12.0.2...v12.1.0) (2024-02-01)
+
+
+### Features
+
+* add maxlength and minlength - z-input ([10d1ed0](https://github.com/ZanichelliEditore/design-system/commit/10d1ed0f1b0e9ada0aa452099ff1db21e9b3bdd2))
+
+
+### Bug Fixes
+
+* initial tabindex of pre-selected tab ([c93cb03](https://github.com/ZanichelliEditore/design-system/commit/c93cb030a908c00210dbd787e3ee26f68fda2ab2))
+* z-navigation-tabs disappearing on resize; improve keyboard navigation ([0c88d1d](https://github.com/ZanichelliEditore/design-system/commit/0c88d1dfc2ff9e14bcf99f73d78786690f8095d6))
+
 ### [12.0.2](https://github.com/ZanichelliEditore/design-system/compare/v12.0.1...v12.0.2) (2024-01-19)
 
 
