@@ -1,6 +1,6 @@
 import { r as registerInstance, c as createEvent, h, H as Host, g as getElement } from './index-4968ce56.js';
 import { O as OffCanvasVariant, v as TransitionDirection, B as ButtonVariant, e as ControlSize, c as ButtonType, D as DividerSize, h as DividerOrientation, k as LabelPosition, I as InputType, i as ListSize, m as ListType, j as ExpandableListButtonAlign, l as ListDividerType, E as ExpandableListStyle, g as KeyboardCode } from './index-47f23745.js';
-import { I as ICONS } from './icons-6b29d7ea.js';
+import { I as ICONS } from './icons-e3232103.js';
 import { r as randomId, b as boolean, h as handleEnterKeydSubmit } from './utils-2a4ef29d.js';
 import './breakpoints-9b81eb1b.js';
 

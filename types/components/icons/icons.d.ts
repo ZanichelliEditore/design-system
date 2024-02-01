@@ -277,6 +277,7 @@ export declare const STROKE_ICONS: {
   "star-full": string;
   story: string;
   "strikethrough-text": string;
+  "straight-line": string;
   "stroke-color": string;
   "stroke-size": string;
   "stroke-size-large": string;
@@ -315,6 +316,7 @@ export declare const STROKE_ICONS: {
   thumbnail: string;
   timeline: string;
   "timer-clock": string;
+  ticket: string;
   "true-false": string;
   "u-circle": string;
   "u-square": string;
@@ -612,6 +614,7 @@ export declare const FILLED_ICONS: {
   "star-empty-filled": string;
   "star-full-filled": string;
   "story-filled": string;
+  "straight-line-filled": string;
   "strikethrough-text-filled": string;
   "stroke-color-filled": string;
   "stroke-size-filled": string;
@@ -651,6 +654,7 @@ export declare const FILLED_ICONS: {
   "thumbnail-filled": string;
   "timeline-filled": string;
   "timer-clock-filled": string;
+  "ticket-filled": string;
   "true-false-filled": string;
   "u-circle-filled": string;
   "u-square-filled": string;
@@ -1010,6 +1014,7 @@ export declare const ICONS: {
   "star-empty-filled": string;
   "star-full-filled": string;
   "story-filled": string;
+  "straight-line-filled": string;
   "strikethrough-text-filled": string;
   "stroke-color-filled": string;
   "stroke-size-filled": string;
@@ -1049,6 +1054,7 @@ export declare const ICONS: {
   "thumbnail-filled": string;
   "timeline-filled": string;
   "timer-clock-filled": string;
+  "ticket-filled": string;
   "true-false-filled": string;
   "u-circle-filled": string;
   "u-square-filled": string;
@@ -1342,6 +1348,7 @@ export declare const ICONS: {
   "star-full": string;
   story: string;
   "strikethrough-text": string;
+  "straight-line": string;
   "stroke-color": string;
   "stroke-size": string;
   "stroke-size-large": string;
@@ -1380,6 +1387,7 @@ export declare const ICONS: {
   thumbnail: string;
   timeline: string;
   "timer-clock": string;
+  ticket: string;
   "true-false": string;
   "u-circle": string;
   "u-square": string;
