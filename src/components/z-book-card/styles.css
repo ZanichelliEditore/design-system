@@ -239,7 +239,7 @@
 
 :host > article.search {
   width: 262px;
-  height: 536px;
+  height: 616px;
   padding: calc(var(--space-unit) * 2);
   padding-bottom: 0;
 }
@@ -257,7 +257,6 @@
 
 :host > article.search .wrapper-container .action-container {
   padding-bottom: calc(var(--space-unit) * 2);
-  margin: 0 auto;
 }
 
 :host > article.search div.header {
