@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.1.2](https://github.com/ZanichelliEditore/design-system/compare/v12.1.1...v12.1.2) (2024-02-05)
+
+
+### Bug Fixes
+
+* update height in z-book-card ([0a6b298](https://github.com/ZanichelliEditore/design-system/commit/0a6b298134c79955d082f030cce784865a80f5c9))
+
 ### [12.1.1](https://github.com/ZanichelliEditore/design-system/compare/v12.1.0...v12.1.1) (2024-02-01)
 
 ## [12.1.0](https://github.com/ZanichelliEditore/design-system/compare/v12.0.2...v12.1.0) (2024-02-01)
