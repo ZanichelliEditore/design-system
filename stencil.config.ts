@@ -8,6 +8,7 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      polyfills: true,
     },
     reactOutputTarget({
       componentCorePackage: require("./package.json").name,
@@ -24,6 +25,10 @@ export const config: Config = {
       type: "www",
       serviceWorker: null, // disable service workers
       copy: [{src: "pages"}],
+    },
+    {
+      type: "dist-custom-elements",
+      customElementsExportBehavior: "single-export-module",
     },
   ],
   extras: {

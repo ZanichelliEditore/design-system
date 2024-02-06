@@ -330,7 +330,7 @@ export class ZPagination {
               min={1}
               max={this.totalPages}
               message={false}
-              onInput={(ev) => {
+              onInput={(ev: InputEvent) => {
                 this.goToPageValue = (ev.target as HTMLZInputElement).value;
               }}
               placeholder={this.currentPage.toString()}
@@ -440,7 +440,7 @@ export class ZPagination {
                 message={false}
                 placeholder="2"
                 hasclearicon={false}
-                onInput={(ev) => {
+                onInput={(ev: InputEvent) => {
                   this.goToPageValue = (ev.target as HTMLZInputElement).value;
                 }}
                 onKeyDown={(ev) => ev.key === "Enter" && this.selectPage(this.goToPageValue)}

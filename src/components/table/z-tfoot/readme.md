@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZTFoot component.
+
 ## Properties
 
 | Property | Attribute | Description                                                   | Type      | Default |

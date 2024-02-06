@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Accordion component.
+
 ## Properties
 
 | Property     | Attribute     | Description                                                                      | Type                                                          | Default                    |

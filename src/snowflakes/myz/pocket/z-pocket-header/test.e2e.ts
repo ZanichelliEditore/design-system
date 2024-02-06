@@ -1,5 +1,11 @@
 import {newE2EPage} from "@stencil/core/testing";
 
+declare global {
+  interface Window {
+    onPocketHeaderClick: () => void;
+  }
+}
+
 it("Test ZPocketHeader should emit pocketHeaderClick event", async () => {
   const page = await newE2EPage();
 

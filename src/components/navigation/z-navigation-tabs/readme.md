@@ -3,6 +3,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Navigation tabs component.
+To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+
 ## Properties
 
 | Property      | Attribute      | Description                                                                                                                                                             | Type                                                                         | Default                                |

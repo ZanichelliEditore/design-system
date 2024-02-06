@@ -1,16 +1,7 @@
-import {MockHTMLElement} from "@stencil/core/mock-doc";
 import {newSpecPage} from "@stencil/core/testing";
-
 import {ZModal} from "./index";
 
 describe("Suite test ZModal", () => {
-  beforeAll(() => {
-    // INFO: https://github.com/jsdom/jsdom/issues/3294
-    MockHTMLElement.prototype.show = jest.fn();
-    MockHTMLElement.prototype.showModal = jest.fn();
-    MockHTMLElement.prototype.close = jest.fn();
-  });
-
   it("Test render empty ZModal", async () => {
     const page = await newSpecPage({
       components: [ZModal],
@@ -99,7 +90,7 @@ describe("Suite test ZModal", () => {
               <slot name="modalContent"></slot>
             </div>
           </div>
-              <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
+          <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
         </div>
       </div>
     </dialog>

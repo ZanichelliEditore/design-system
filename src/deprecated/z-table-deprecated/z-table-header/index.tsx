@@ -146,7 +146,7 @@ export class ZTableHeader {
               ref={(el) => (this.popover = el as HTMLZPopoverElement)}
               position={PopoverPosition.BOTTOM}
               center={true}
-              bindTo={this.triggerButton}
+              bindTo={this.triggerButton as HTMLElement}
             >
               <div>
                 <slot name="contextual-menu" />

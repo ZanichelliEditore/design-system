@@ -1,4 +1,4 @@
-import {Component, Prop, h, State, Host, Listen, Element, Event, Watch} from "@stencil/core";
+import {Component, Prop, h, State, Host, Listen, Element, Event, Watch, EventEmitter} from "@stencil/core";
 import {
   BreadcrumbHomepageVariant,
   BreadcrumbPath,
@@ -8,7 +8,6 @@ import {
   ListSize,
   PopoverPosition,
 } from "../../beans";
-import {EventEmitter} from "puppeteer";
 import {getDevice, handleKeyboardSubmit} from "../../utils/utils";
 
 @Component({
@@ -61,7 +60,7 @@ export class ZBreadcrumb {
 
   /** Emitted when preventFollowUrl=true to handle custom page transition */
   @Event()
-  clickOnNode: EventEmitter;
+  clickOnNode: EventEmitter<BreadcrumbPath["path"]>;
 
   @Listen("resize", {target: "window"})
   handleResize(): void {
