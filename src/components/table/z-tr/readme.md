@@ -5,6 +5,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZTr component.
+When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+to prevent the row from expanding.
+
 ## Properties
 
 | Property     | Attribute    | Description                                                                                                                                                                                                                                                                                                                                                  | Type      | Default |

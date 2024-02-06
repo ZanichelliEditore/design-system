@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event         | Description                                                         | Type               |
-| ------------- | ------------------------------------------------------------------- | ------------------ |
-| `clickOnNode` | Emitted when preventFollowUrl=true to handle custom page transition | `CustomEvent<any>` |
+| Event         | Description                                                         | Type                  |
+| ------------- | ------------------------------------------------------------------- | --------------------- |
+| `clickOnNode` | Emitted when preventFollowUrl=true to handle custom page transition | `CustomEvent<string>` |
 
 
 ## Dependencies

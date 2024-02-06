@@ -90,7 +90,7 @@ export class ZTd {
             />
             <z-popover
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
-              bindTo={this.menuTrigger}
+              bindTo={this.menuTrigger as HTMLElement}
               onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
             >
               <slot name="contextual-menu"></slot>

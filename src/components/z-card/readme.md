@@ -54,6 +54,10 @@ The width of the card must be set externally, respecting the grid indication of 
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZCard component.
+
 ## Properties
 
 | Property     | Attribute     | Description                                                                                                 | Type                                                                                  | Default     |

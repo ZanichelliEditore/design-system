@@ -23,6 +23,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Single tab component to use inside `z-navigation-tabs`. It renders a button.
+This component uses the `tab` role:
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                                                                                                                                | Type                                                                         | Default                                |

@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZTable component.
+
 ## Properties
 
 | Property   | Attribute  | Description                                                | Type      | Default |

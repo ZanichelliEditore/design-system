@@ -1,5 +1,12 @@
 import {newE2EPage} from "@stencil/core/testing";
 
+declare global {
+  interface Window {
+    onPocketToggle: (e) => void;
+    onPocketHeaderClick: () => void;
+  }
+}
+
 it("Test ZPocket should emit pocketToggle event", async () => {
   const page = await newE2EPage();
 
@@ -12,7 +19,7 @@ it("Test ZPocket should emit pocketToggle event", async () => {
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "pocketToggle";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       window.onPocketToggle({type, detail: e.detail});
     });
   }, type);
@@ -94,7 +101,7 @@ it("Test ZPocket should not emit pocketToggle event with wrong/missing id", asyn
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "pocketToggle";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       window.onPocketToggle({type, detail: e.detail});
     });
   }, type);

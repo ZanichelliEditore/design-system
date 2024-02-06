@@ -3,6 +3,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Section title component.
+An optional secondary title can be put over the primary one.
+
 ## Properties
 
 | Property          | Attribute          | Description                                                                                     | Type                                                                        | Default                               |

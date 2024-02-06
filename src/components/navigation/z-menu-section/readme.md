@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A component to create submenus inside the ZMenu.
+
 ## Properties
 
 | Property | Attribute | Description  | Type      | Default     |
