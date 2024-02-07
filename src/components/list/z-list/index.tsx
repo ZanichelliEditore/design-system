@@ -25,7 +25,7 @@ export class ZList {
   /**
    * [optional] Sets role of the element.
    */
-  @Prop({reflect: true})
+  @Prop()
   role?: string = "list";
 
   private setChildrenSizeType(): void {
