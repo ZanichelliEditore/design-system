@@ -127,6 +127,12 @@ export class ZListElement {
   @Prop({reflect: true})
   listType?: ListType = ListType.NONE;
 
+  /**
+   * [optional] Sets element role.
+   */
+  @Prop({reflect: true})
+  role?: string = "listitem";
+
   @State()
   showInnerContent = false;
 
@@ -266,7 +272,6 @@ export class ZListElement {
   render(): HTMLZListElementElement {
     return (
       <Host
-        role="listitem"
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
