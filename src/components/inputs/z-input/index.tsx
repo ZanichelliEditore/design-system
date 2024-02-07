@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
-import {Host, JSXAttributes, JSXBase} from "@stencil/core/internal";
+import {Host, JSXBase} from "@stencil/core/internal";
 import {InputType, LabelPosition, InputStatus, ControlSize} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
