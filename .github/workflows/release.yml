@@ -1,4 +1,4 @@
-name: new_version_release_process
+name: New version release process
 on:
   workflow_dispatch:
   # da eliminare prima della PR
