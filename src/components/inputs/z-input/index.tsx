@@ -1,5 +1,5 @@
 import {Component, Prop, State, h, Method, Event, EventEmitter, Element, Listen} from "@stencil/core";
-import {Host, JSXBase} from "@stencil/core/internal";
+import {Host, JSXAttributes, JSXBase} from "@stencil/core/internal";
 import {InputType, LabelPosition, InputStatus, ControlSize} from "../../../beans";
 import {boolean, randomId} from "../../../utils/utils";
 
@@ -31,6 +31,10 @@ export class ZInput {
   /** the input aria-label */
   @Prop()
   ariaLabel = "";
+
+  /** the input aria-expaded: available for text */
+  @Prop()
+  ariaExpanded?: string;
 
   /** the input value */
   @Prop({mutable: true})
@@ -276,6 +280,10 @@ export class ZInput {
     return this.role ? {role: this.role} : {};
   }
 
+  private getAriaExpandedAttrubute(): unknown {
+    return this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
+  }
+
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
@@ -284,6 +292,7 @@ export class ZInput {
       ...this.getPatternAttribute(type),
       ...ariaLabel,
       ...this.getRoleAttribute(),
+      ...this.getAriaExpandedAttrubute(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});

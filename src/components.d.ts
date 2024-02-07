@@ -573,6 +573,10 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input aria-expaded: available for text
+         */
+        "ariaExpanded"?: string;
+        /**
           * the input aria-label
          */
         "ariaLabel": string;
@@ -747,6 +751,10 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
+          * [optional] Sets role of the element.
+         */
+        "role"?: string;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -804,6 +812,10 @@ export namespace Components {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * [optional] Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3444,6 +3456,10 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input aria-expaded: available for text
+         */
+        "ariaExpanded"?: string;
+        /**
           * the input aria-label
          */
         "ariaLabel"?: string;
@@ -3634,6 +3650,10 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
+          * [optional] Sets role of the element.
+         */
+        "role"?: string;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -3699,6 +3719,10 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
+        /**
+          * [optional] Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */

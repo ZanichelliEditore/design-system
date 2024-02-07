@@ -345,6 +345,7 @@ export class ZSelect {
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
+        aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutocomplete()}
@@ -353,6 +354,7 @@ export class ZSelect {
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
         autocomplete="off"
+        role="combobox"
         size={this.size}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
