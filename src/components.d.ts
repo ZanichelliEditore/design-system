@@ -657,6 +657,10 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * the input role (optional)
+         */
+        "role"?: string;
+        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
@@ -3535,6 +3539,10 @@ declare namespace LocalJSX {
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
          */
         "required"?: boolean;
+        /**
+          * the input role (optional)
+         */
+        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */

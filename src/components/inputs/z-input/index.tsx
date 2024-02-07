@@ -76,6 +76,10 @@ export class ZInput {
   @Prop()
   autocomplete?: string;
 
+  /** the input role (optional) */
+  @Prop()
+  role?: string;
+
   /** render clear icon when typing (optional): available for text */
   @Prop()
   hasclearicon?: boolean = true;
@@ -268,6 +272,10 @@ export class ZInput {
     };
   }
 
+  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+    return this.role ? {role: this.role} : {};
+  }
+
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
@@ -275,6 +283,7 @@ export class ZInput {
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
       ...ariaLabel,
+      ...this.getRoleAttribute(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -424,6 +433,7 @@ export class ZInput {
           <textarea
             {...attributes}
             {...ariaLabel}
+            {...this.getRoleAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -452,6 +462,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...this.getRoleAttribute()}
         />
 
         <label
@@ -488,6 +499,7 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...this.getRoleAttribute()}
         />
 
         <label
