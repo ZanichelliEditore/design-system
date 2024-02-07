@@ -272,7 +272,7 @@ export class ZInput {
     };
   }
 
-  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement> {
+  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return this.role ? {role: this.role} : {};
   }
 
