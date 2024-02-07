@@ -1,0 +1,18 @@
+name: new_version_release_process
+on:
+  workflow_dispatch:
+  # da eliminare prima della PR
+  push:
+    branches:
+      - "feat/release_github_action"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Prepare package
+        run: |
+          git pull
+          yarn
+          yarn build
+          yarn test
