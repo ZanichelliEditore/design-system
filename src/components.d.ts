@@ -2386,6 +2386,9 @@ export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     target: HTMLZTrElement;
 }
 declare global {
+    interface HTMLZAccordionElementEventMap {
+        "toggled": boolean;
+    }
     /**
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
@@ -2400,6 +2403,14 @@ declare global {
      * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
      */
     interface HTMLZAccordionElement extends Components.ZAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAccordionElementEventMap>(type: K, listener: (this: HTMLZAccordionElement, ev: ZAccordionCustomEvent<HTMLZAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAccordionElementEventMap>(type: K, listener: (this: HTMLZAccordionElement, ev: ZAccordionCustomEvent<HTMLZAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZAccordionElement: {
         prototype: HTMLZAccordionElement;
@@ -2430,6 +2441,9 @@ declare global {
         prototype: HTMLZAnchorNavigationElement;
         new (): HTMLZAnchorNavigationElement;
     };
+    interface HTMLZAppHeaderElementEventMap {
+        "sticking": any;
+    }
     /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
      * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
@@ -2486,6 +2500,14 @@ declare global {
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
      */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
@@ -2503,6 +2525,9 @@ declare global {
         prototype: HTMLZAvatarElement;
         new (): HTMLZAvatarElement;
     };
+    interface HTMLZBookCardElementEventMap {
+        "ribbonClick": any;
+    }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
      * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
@@ -2510,12 +2535,31 @@ declare global {
      * @cssprop --z-book-card-compact-height - compact card custom height
      */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZBookCardElement: {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
     };
+    interface HTMLZBreadcrumbElementEventMap {
+        "clickOnNode": BreadcrumbPath["path"];
+    }
     interface HTMLZBreadcrumbElement extends Components.ZBreadcrumb, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBreadcrumbElementEventMap>(type: K, listener: (this: HTMLZBreadcrumbElement, ev: ZBreadcrumbCustomEvent<HTMLZBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBreadcrumbElementEventMap>(type: K, listener: (this: HTMLZBreadcrumbElement, ev: ZBreadcrumbCustomEvent<HTMLZBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZBreadcrumbElement: {
         prototype: HTMLZBreadcrumbElement;
@@ -2527,7 +2571,18 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
+    interface HTMLZButtonSortElementEventMap {
+        "buttonSortClick": any;
+    }
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZButtonSortElementEventMap>(type: K, listener: (this: HTMLZButtonSortElement, ev: ZButtonSortCustomEvent<HTMLZButtonSortElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZButtonSortElementEventMap>(type: K, listener: (this: HTMLZButtonSortElement, ev: ZButtonSortCustomEvent<HTMLZButtonSortElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZButtonSortElement: {
         prototype: HTMLZButtonSortElement;
@@ -2549,29 +2604,73 @@ declare global {
         prototype: HTMLZCardElement;
         new (): HTMLZCardElement;
     };
+    interface HTMLZCarouselElementEventMap {
+        "indexChange": any;
+    }
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
      */
     interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZCarouselElement: {
         prototype: HTMLZCarouselElement;
         new (): HTMLZCarouselElement;
     };
+    interface HTMLZChipElementEventMap {
+        "interactiveIconClick": any;
+    }
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZChipElementEventMap>(type: K, listener: (this: HTMLZChipElement, ev: ZChipCustomEvent<HTMLZChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZChipElementEventMap>(type: K, listener: (this: HTMLZChipElement, ev: ZChipCustomEvent<HTMLZChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZChipElement: {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
+    interface HTMLZComboboxElementEventMap {
+        "comboboxChange": any;
+    }
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZComboboxElementEventMap>(type: K, listener: (this: HTMLZComboboxElement, ev: ZComboboxCustomEvent<HTMLZComboboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZComboboxElementEventMap>(type: K, listener: (this: HTMLZComboboxElement, ev: ZComboboxCustomEvent<HTMLZComboboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
     };
+    interface HTMLZContextualMenuElementEventMap {
+        "clickContextualMenu": any;
+    }
     interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZContextualMenuElement: {
         prototype: HTMLZContextualMenuElement;
@@ -2590,7 +2689,18 @@ declare global {
         prototype: HTMLZCoverHeroElement;
         new (): HTMLZCoverHeroElement;
     };
+    interface HTMLZDatePickerElementEventMap {
+        "dateSelect": any;
+    }
     interface HTMLZDatePickerElement extends Components.ZDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZDatePickerElementEventMap>(type: K, listener: (this: HTMLZDatePickerElement, ev: ZDatePickerCustomEvent<HTMLZDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZDatePickerElementEventMap>(type: K, listener: (this: HTMLZDatePickerElement, ev: ZDatePickerCustomEvent<HTMLZDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZDatePickerElement: {
         prototype: HTMLZDatePickerElement;
@@ -2602,19 +2712,52 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDragdropAreaElementEventMap {
+        "fileDropped": any;
+    }
     interface HTMLZDragdropAreaElement extends Components.ZDragdropArea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZDragdropAreaElementEventMap>(type: K, listener: (this: HTMLZDragdropAreaElement, ev: ZDragdropAreaCustomEvent<HTMLZDragdropAreaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZDragdropAreaElementEventMap>(type: K, listener: (this: HTMLZDragdropAreaElement, ev: ZDragdropAreaCustomEvent<HTMLZDragdropAreaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZDragdropAreaElement: {
         prototype: HTMLZDragdropAreaElement;
         new (): HTMLZDragdropAreaElement;
     };
+    interface HTMLZFileElementEventMap {
+        "removeFile": any;
+    }
     interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZFileElementEventMap>(type: K, listener: (this: HTMLZFileElement, ev: ZFileCustomEvent<HTMLZFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZFileElementEventMap>(type: K, listener: (this: HTMLZFileElement, ev: ZFileCustomEvent<HTMLZFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZFileElement: {
         prototype: HTMLZFileElement;
         new (): HTMLZFileElement;
     };
+    interface HTMLZFileUploadElementEventMap {
+        "fileInput": any;
+    }
     interface HTMLZFileUploadElement extends Components.ZFileUpload, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZFileUploadElementEventMap>(type: K, listener: (this: HTMLZFileUploadElement, ev: ZFileUploadCustomEvent<HTMLZFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZFileUploadElementEventMap>(type: K, listener: (this: HTMLZFileUploadElement, ev: ZFileUploadCustomEvent<HTMLZFileUploadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZFileUploadElement: {
         prototype: HTMLZFileUploadElement;
@@ -2632,7 +2775,18 @@ declare global {
         prototype: HTMLZIconElement;
         new (): HTMLZIconElement;
     };
+    interface HTMLZInfoBoxElementEventMap {
+        "infoBoxClose": any;
+    }
     interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZInfoBoxElement: {
         prototype: HTMLZInfoBoxElement;
@@ -2644,7 +2798,21 @@ declare global {
         prototype: HTMLZInfoRevealElement;
         new (): HTMLZInfoRevealElement;
     };
+    interface HTMLZInputElementEventMap {
+        "inputChange": any;
+        "startTyping": any;
+        "stopTyping": any;
+        "inputCheck": any;
+    }
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
@@ -2656,10 +2824,21 @@ declare global {
         prototype: HTMLZInputMessageElement;
         new (): HTMLZInputMessageElement;
     };
+    interface HTMLZLinkElementEventMap {
+        "zLinkClick": any;
+    }
     /**
      * @deprecated - use a native `<a>` with the `z-link` CSS class instead
      */
     interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZLinkElement: {
         prototype: HTMLZLinkElement;
@@ -2671,7 +2850,19 @@ declare global {
         prototype: HTMLZListElement;
         new (): HTMLZListElement;
     };
+    interface HTMLZListElementElementEventMap {
+        "accessibleFocus": number;
+        "clickItem": any;
+    }
     interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZListElementElementEventMap>(type: K, listener: (this: HTMLZListElementElement, ev: ZListElementCustomEvent<HTMLZListElementElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZListElementElementEventMap>(type: K, listener: (this: HTMLZListElementElement, ev: ZListElementCustomEvent<HTMLZListElementElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZListElementElement: {
         prototype: HTMLZListElementElement;
@@ -2689,19 +2880,43 @@ declare global {
         prototype: HTMLZLogoElement;
         new (): HTMLZLogoElement;
     };
+    interface HTMLZMenuElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
     /**
      * @cssprop --z-menu-label-color - Color of the label's text.
      */
     interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuElementEventMap>(type: K, listener: (this: HTMLZMenuElement, ev: ZMenuCustomEvent<HTMLZMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuElementEventMap>(type: K, listener: (this: HTMLZMenuElement, ev: ZMenuCustomEvent<HTMLZMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMenuElement: {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
+    interface HTMLZMenuSectionElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
     /**
      * A component to create submenus inside the ZMenu.
      */
     interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuSectionElementEventMap>(type: K, listener: (this: HTMLZMenuSectionElement, ev: ZMenuSectionCustomEvent<HTMLZMenuSectionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuSectionElementEventMap>(type: K, listener: (this: HTMLZMenuSectionElement, ev: ZMenuSectionCustomEvent<HTMLZMenuSectionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
@@ -2713,7 +2928,20 @@ declare global {
         prototype: HTMLZMessagesPocketElement;
         new (): HTMLZMessagesPocketElement;
     };
+    interface HTMLZModalElementEventMap {
+        "modalClose": any;
+        "modalHeaderActive": any;
+        "modalBackgroundClick": any;
+    }
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
@@ -2725,7 +2953,18 @@ declare global {
         prototype: HTMLZMyzCardElement;
         new (): HTMLZMyzCardElement;
     };
+    interface HTMLZMyzCardAlertElementEventMap {
+        "undoAction": any;
+    }
     interface HTMLZMyzCardAlertElement extends Components.ZMyzCardAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardAlertElement: {
         prototype: HTMLZMyzCardAlertElement;
@@ -2743,7 +2982,18 @@ declare global {
         prototype: HTMLZMyzCardCoverElement;
         new (): HTMLZMyzCardCoverElement;
     };
+    interface HTMLZMyzCardDictionaryElementEventMap {
+        "cardFlipped": any;
+    }
     interface HTMLZMyzCardDictionaryElement extends Components.ZMyzCardDictionary, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardDictionaryElement: {
         prototype: HTMLZMyzCardDictionaryElement;
@@ -2773,7 +3023,18 @@ declare global {
         prototype: HTMLZMyzCardIconElement;
         new (): HTMLZMyzCardIconElement;
     };
+    interface HTMLZMyzCardInfoElementEventMap {
+        "flipCard": any;
+    }
     interface HTMLZMyzCardInfoElement extends Components.ZMyzCardInfo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardInfoElement: {
         prototype: HTMLZMyzCardInfoElement;
@@ -2791,23 +3052,49 @@ declare global {
         prototype: HTMLZMyzListElement;
         new (): HTMLZMyzListElement;
     };
+    interface HTMLZMyzListItemElementEventMap {
+        "zListItemLinkClick": any;
+        "zListItemClick": any;
+    }
     interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzListItemElement: {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
+    interface HTMLZNavigationTabElementEventMap {
+        "selected": any;
+    }
     /**
      * Single tab component to use inside `z-navigation-tabs`. It renders a button.
      * This component uses the `tab` role:
      * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
      */
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabElement: {
         prototype: HTMLZNavigationTabElement;
         new (): HTMLZNavigationTabElement;
     };
+    interface HTMLZNavigationTabLinkElementEventMap {
+        "selected": any;
+    }
     /**
      * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
      * This component uses the `tab` role:
@@ -2815,11 +3102,22 @@ declare global {
      * @deprecated Use a native `<a>` instead.
      */
     interface HTMLZNavigationTabLinkElement extends Components.ZNavigationTabLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabLinkElement: {
         prototype: HTMLZNavigationTabLinkElement;
         new (): HTMLZNavigationTabLinkElement;
     };
+    interface HTMLZNavigationTabsElementEventMap {
+        "selected": number;
+    }
     /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
@@ -2827,37 +3125,90 @@ declare global {
      * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
      */
     interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabsElementEventMap>(type: K, listener: (this: HTMLZNavigationTabsElement, ev: ZNavigationTabsCustomEvent<HTMLZNavigationTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabsElementEventMap>(type: K, listener: (this: HTMLZNavigationTabsElement, ev: ZNavigationTabsCustomEvent<HTMLZNavigationTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabsElement: {
         prototype: HTMLZNavigationTabsElement;
         new (): HTMLZNavigationTabsElement;
     };
+    interface HTMLZNotificationElementEventMap {
+        "notificationAction": any;
+        "notificationClose": any;
+    }
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNotificationElement: {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOffcanvasElementEventMap {
+        "canvasOpenStatusChanged": any;
+    }
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZOffcanvasElement: {
         prototype: HTMLZOffcanvasElement;
         new (): HTMLZOffcanvasElement;
     };
+    interface HTMLZOtpElementEventMap {
+        "otpChange": any;
+    }
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZOtpElement: {
         prototype: HTMLZOtpElement;
         new (): HTMLZOtpElement;
     };
+    interface HTMLZPaginationElementEventMap {
+        "pageChanged": any;
+    }
     /**
      * Pagination bar component.
      */
     interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPaginationElement: {
         prototype: HTMLZPaginationElement;
@@ -2869,7 +3220,18 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZPocketElementEventMap {
+        "pocketToggle": any;
+    }
     interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPocketElement: {
         prototype: HTMLZPocketElement;
@@ -2881,7 +3243,19 @@ declare global {
         prototype: HTMLZPocketBodyElement;
         new (): HTMLZPocketBodyElement;
     };
+    interface HTMLZPocketHeaderElementEventMap {
+        "pocketHeaderClick": any;
+        "pocketHeaderPan": any;
+    }
     interface HTMLZPocketHeaderElement extends Components.ZPocketHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPocketHeaderElement: {
         prototype: HTMLZPocketHeaderElement;
@@ -2893,6 +3267,10 @@ declare global {
         prototype: HTMLZPocketMessageElement;
         new (): HTMLZPocketMessageElement;
     };
+    interface HTMLZPopoverElementEventMap {
+        "positionChange": any;
+        "openChange": any;
+    }
     /**
      * Popover component.
      * @cssprop --z-popover-theme--surface - background color of the popover.
@@ -2901,21 +3279,53 @@ declare global {
      * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
      */
     interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPopoverElement: {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZRangePickerElementEventMap {
+        "dateSelect": any;
+    }
     interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZRangePickerElementEventMap>(type: K, listener: (this: HTMLZRangePickerElement, ev: ZRangePickerCustomEvent<HTMLZRangePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZRangePickerElementEventMap>(type: K, listener: (this: HTMLZRangePickerElement, ev: ZRangePickerCustomEvent<HTMLZRangePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZRangePickerElement: {
         prototype: HTMLZRangePickerElement;
         new (): HTMLZRangePickerElement;
     };
+    interface HTMLZSearchbarElementEventMap {
+        "searchSubmit": string;
+        "searchTyping": string;
+        "searchItemClick": SearchbarItem;
+    }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
      */
     interface HTMLZSearchbarElement extends Components.ZSearchbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZSearchbarElement: {
         prototype: HTMLZSearchbarElement;
@@ -2932,7 +3342,19 @@ declare global {
         prototype: HTMLZSectionTitleElement;
         new (): HTMLZSectionTitleElement;
     };
+    interface HTMLZSelectElementEventMap {
+        "optionSelect": any;
+        "resetSelect": any;
+    }
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZSelectElementEventMap>(type: K, listener: (this: HTMLZSelectElement, ev: ZSelectCustomEvent<HTMLZSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZSelectElementEventMap>(type: K, listener: (this: HTMLZSelectElement, ev: ZSelectCustomEvent<HTMLZSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZSelectElement: {
         prototype: HTMLZSelectElement;
@@ -2993,10 +3415,22 @@ declare global {
         prototype: HTMLZTableCellElement;
         new (): HTMLZTableCellElement;
     };
+    interface HTMLZTableDeprecatedElementEventMap {
+        "callToAction": any;
+        "callToActionTwo": any;
+    }
     /**
      * @deprecated 
      */
     interface HTMLZTableDeprecatedElement extends Components.ZTableDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableDeprecatedElement: {
         prototype: HTMLZTableDeprecatedElement;
@@ -3038,10 +3472,21 @@ declare global {
         prototype: HTMLZTableHeadElement;
         new (): HTMLZTableHeadElement;
     };
+    interface HTMLZTableHeaderElementEventMap {
+        "sort": any;
+    }
     /**
      * @deprecated 
      */
     interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableHeaderElement: {
         prototype: HTMLZTableHeaderElement;
@@ -3056,10 +3501,21 @@ declare global {
         prototype: HTMLZTableHeaderRowElement;
         new (): HTMLZTableHeaderRowElement;
     };
+    interface HTMLZTableRowElementEventMap {
+        "expand": any;
+    }
     /**
      * @deprecated 
      */
     interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableRowElement: {
         prototype: HTMLZTableRowElement;
@@ -3094,10 +3550,21 @@ declare global {
         prototype: HTMLZTbodyElement;
         new (): HTMLZTbodyElement;
     };
+    interface HTMLZTdElementEventMap {
+        "colspanChange": number;
+    }
     /**
      * ZTd component.
      */
     interface HTMLZTdElement extends Components.ZTd, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTdElementEventMap>(type: K, listener: (this: HTMLZTdElement, ev: ZTdCustomEvent<HTMLZTdElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTdElementEventMap>(type: K, listener: (this: HTMLZTdElement, ev: ZTdCustomEvent<HTMLZTdElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTdElement: {
         prototype: HTMLZTdElement;
@@ -3112,10 +3579,21 @@ declare global {
         prototype: HTMLZTfootElement;
         new (): HTMLZTfootElement;
     };
+    interface HTMLZThElementEventMap {
+        "sort": any;
+    }
     /**
      * ZTh component.
      */
     interface HTMLZThElement extends Components.ZTh, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZThElementEventMap>(type: K, listener: (this: HTMLZThElement, ev: ZThCustomEvent<HTMLZThElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZThElementEventMap>(type: K, listener: (this: HTMLZThElement, ev: ZThCustomEvent<HTMLZThElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZThElement: {
         prototype: HTMLZThElement;
@@ -3130,7 +3608,18 @@ declare global {
         prototype: HTMLZTheadElement;
         new (): HTMLZTheadElement;
     };
+    interface HTMLZToastNotificationElementEventMap {
+        "toastClose": any;
+    }
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToastNotificationElementEventMap>(type: K, listener: (this: HTMLZToastNotificationElement, ev: ZToastNotificationCustomEvent<HTMLZToastNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToastNotificationElementEventMap>(type: K, listener: (this: HTMLZToastNotificationElement, ev: ZToastNotificationCustomEvent<HTMLZToastNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToastNotificationElement: {
         prototype: HTMLZToastNotificationElement;
@@ -3142,13 +3631,35 @@ declare global {
         prototype: HTMLZToastNotificationListElement;
         new (): HTMLZToastNotificationListElement;
     };
+    interface HTMLZToggleButtonElementEventMap {
+        "toggleClick": any;
+    }
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToggleButtonElement: {
         prototype: HTMLZToggleButtonElement;
         new (): HTMLZToggleButtonElement;
     };
+    interface HTMLZToggleSwitchElementEventMap {
+        "toggleClick": any;
+    }
     interface HTMLZToggleSwitchElement extends Components.ZToggleSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToggleSwitchElementEventMap>(type: K, listener: (this: HTMLZToggleSwitchElement, ev: ZToggleSwitchCustomEvent<HTMLZToggleSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToggleSwitchElementEventMap>(type: K, listener: (this: HTMLZToggleSwitchElement, ev: ZToggleSwitchCustomEvent<HTMLZToggleSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToggleSwitchElement: {
         prototype: HTMLZToggleSwitchElement;
@@ -3167,12 +3678,23 @@ declare global {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTrElementEventMap {
+        "expand": any;
+    }
     /**
      * ZTr component.
      * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
      * to prevent the row from expanding.
      */
     interface HTMLZTrElement extends Components.ZTr, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTrElementEventMap>(type: K, listener: (this: HTMLZTrElement, ev: ZTrCustomEvent<HTMLZTrElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTrElementEventMap>(type: K, listener: (this: HTMLZTrElement, ev: ZTrCustomEvent<HTMLZTrElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTrElement: {
         prototype: HTMLZTrElement;

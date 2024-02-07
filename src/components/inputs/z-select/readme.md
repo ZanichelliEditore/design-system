@@ -60,6 +60,12 @@ Type: `Promise<string>`
 
 set the input value
 
+#### Parameters
+
+| Name    | Type                 | Description |
+| ------- | -------------------- | ----------- |
+| `value` | `string \| string[]` |             |
+
 #### Returns
 
 Type: `Promise<void>`
