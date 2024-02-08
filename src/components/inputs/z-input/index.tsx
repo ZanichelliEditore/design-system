@@ -44,6 +44,10 @@ export class ZInput {
   @Prop()
   ariaAutocomplete?: string;
 
+  /** the input aria-activedescendant: available for text, password, number, email */
+  @Prop()
+  ariaActivedescendant?: string;
+
   /** the input value */
   @Prop({mutable: true})
   value?: string;
@@ -292,11 +296,13 @@ export class ZInput {
     const expanded = this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
     const controls = this.ariaControls ? {"aria-controls": this.ariaControls} : {};
     const autocomplete = this.ariaAutocomplete ? {"aria-autocomplete": this.ariaAutocomplete} : {};
+    const activedescendant = this.ariaActivedescendant ? {"aria-activedescendant": this.ariaActivedescendant} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
+      ...activedescendant,
     };
   }
 

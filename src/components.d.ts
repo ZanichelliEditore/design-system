@@ -573,6 +573,10 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input aria-activedescendant: available for text, password, number, email
+         */
+        "ariaActivedescendant"?: string;
+        /**
           * the input aria-autocomplete: available for text, password, number, email
          */
         "ariaAutocomplete"?: string;
@@ -3464,6 +3468,10 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input aria-activedescendant: available for text, password, number, email
+         */
+        "ariaActivedescendant"?: string;
+        /**
           * the input aria-autocomplete: available for text, password, number, email
          */
         "ariaAutocomplete"?: string;
@@ -3731,6 +3739,10 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onAccessibleFocus"?: (event: ZListElementCustomEvent<number>) => void;
+        /**
+          * set parent aria-activedescendant on focus event, returns filterid
+         */
+        "onAriaDescendantFocus"?: (event: ZListElementCustomEvent<number>) => void;
         /**
           * remove filter click event, returns filterid
          */
