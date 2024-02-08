@@ -52,7 +52,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Publish to npm
-        run: yarn publish --tag 12.1.3-rc --new-version 12.1.3-rc
+        run: yarn publish --tag github-action-test --new-version 12.2.0-rc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push package.json
