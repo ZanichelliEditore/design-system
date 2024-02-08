@@ -27,10 +27,6 @@ on:
           - patch
           - minor
           - major
-  # da eliminare prima della PR
-  push:
-    branches:
-      - "feat/release_github_action"
 jobs:
   release:
     runs-on: ubuntu-latest
