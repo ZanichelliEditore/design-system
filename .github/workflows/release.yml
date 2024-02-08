@@ -40,6 +40,9 @@ jobs:
       - name: Prepare package
         run: |
           git pull
+          git checkout feat/release_github_action_part2
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
           yarn
         # run: |
         #   git pull
@@ -50,8 +53,8 @@ jobs:
         with:
           node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
-          always-auth: false
+          always-auth: true
       - name: Publish to npm
-        run: yarn publish --tag 12.1.3-rc --new-version 12.1.3-rc
+        run: yarn publish --tag 12.1.4-rc --new-version 12.1.4-rc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
