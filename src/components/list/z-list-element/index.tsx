@@ -26,6 +26,15 @@ export class ZListElement {
   })
   accessibleFocus: EventEmitter<number>;
 
+  /** set parent aria-activedescendant on focus event, returns filterid */
+  @Event({
+    eventName: "ariaDescendantFocus",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  ariaDescendantFocus: EventEmitter<number>;
+
   /** remove filter click event, returns filterid */
   @Event({
     eventName: "clickItem",
@@ -177,6 +186,7 @@ export class ZListElement {
 
   private handleKeyDown(event): void {
     const expandByKey = event.code === KeyboardCode.ENTER;
+    this.ariaDescendantFocus.emit(this.listElementId);
     switch (event.code) {
       case KeyboardCode.ARROW_DOWN:
         event.preventDefault();
@@ -274,6 +284,7 @@ export class ZListElement {
       <Host
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
+        onFocus={this.handleKeyDown}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
         tabIndex={!this.isContextualMenu ? "0" : null}

@@ -1,4 +1,4 @@
-import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
+import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method, Listen} from "@stencil/core";
 import {SelectItem, ListDividerType, KeyboardCode, InputStatus, ControlSize, ListSize} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
@@ -86,6 +86,9 @@ export class ZSelect {
   selectedItem: null | SelectItem = null;
 
   @State()
+  focusedItemId: string;
+
+  @State()
   searchString: null | string;
 
   private itemsList: SelectItem[] = [];
@@ -100,6 +103,11 @@ export class ZSelect {
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
+  }
+
+  @Listen("ariaDescendantFocus")
+  getFocusedItemHandler(e: CustomEvent): void {
+    this.focusedItemId = (e.target as Element).id;
   }
 
   /** get the input selected options */
@@ -347,7 +355,9 @@ export class ZSelect {
         label={this.label}
         aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
+        aria-controls={`${this.htmlid}_list`}
         aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
+        aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutocomplete()}
         message={false}

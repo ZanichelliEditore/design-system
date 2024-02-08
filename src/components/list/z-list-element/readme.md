@@ -26,10 +26,11 @@
 
 ## Events
 
-| Event             | Description                                 | Type                  |
-| ----------------- | ------------------------------------------- | --------------------- |
-| `accessibleFocus` | remove filter click event, returns filterid | `CustomEvent<number>` |
-| `clickItem`       | remove filter click event, returns filterid | `CustomEvent<any>`    |
+| Event                 | Description                                                       | Type                  |
+| --------------------- | ----------------------------------------------------------------- | --------------------- |
+| `accessibleFocus`     | remove filter click event, returns filterid                       | `CustomEvent<number>` |
+| `ariaDescendantFocus` | set parent aria-activedescendant on focus event, returns filterid | `CustomEvent<number>` |
+| `clickItem`           | remove filter click event, returns filterid                       | `CustomEvent<any>`    |
 
 
 ## Shadow Parts
