@@ -1,6 +1,32 @@
 name: New version release process
 on:
   workflow_dispatch:
+    inputs:
+      type:
+        description: "Select the type of release"
+        required: true
+        default: "rc"
+        type: choice
+        options:
+          - rc
+          - latest
+      rc_branch_name:
+        description: "If you selected the rc option, provide the branch to switch to in order to start the rc process"
+        required: false
+        type: string
+      rc_version_name:
+        description: "If you selected the rc option, provide a name that will be used for both version and tag"
+        required: false
+        type: string
+      version_type:
+        description: "If you selected the latest option, select the version type"
+        required: false
+        type: choice
+        default: "patch"
+        options:
+          - patch
+          - minor
+          - major
   # da eliminare prima della PR
   push:
     branches:
