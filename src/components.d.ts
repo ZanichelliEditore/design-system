@@ -573,7 +573,15 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input aria-expaded: available for text
+          * the input aria-autocomplete: available for text, password, number, email
+         */
+        "ariaAutocomplete"?: string;
+        /**
+          * the input aria-controls: available for text, password, number, email
+         */
+        "ariaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**
@@ -3456,7 +3464,15 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input aria-expaded: available for text
+          * the input aria-autocomplete: available for text, password, number, email
+         */
+        "ariaAutocomplete"?: string;
+        /**
+          * the input aria-controls: available for text, password, number, email
+         */
+        "ariaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**

@@ -32,9 +32,17 @@ export class ZInput {
   @Prop()
   ariaLabel = "";
 
-  /** the input aria-expaded: available for text */
+  /** the input aria-expaded: available for text, password, number, email */
   @Prop()
   ariaExpanded?: string;
+
+  /** the input aria-controls: available for text, password, number, email */
+  @Prop()
+  ariaControls?: string;
+
+  /** the input aria-autocomplete: available for text, password, number, email */
+  @Prop()
+  ariaAutocomplete?: string;
 
   /** the input value */
   @Prop({mutable: true})
@@ -280,8 +288,16 @@ export class ZInput {
     return this.role ? {role: this.role} : {};
   }
 
-  private getAriaExpandedAttrubute(): unknown {
-    return this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
+  private getAriaAttrubutes(): Record<string, unknown> {
+    const expanded = this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
+    const controls = this.ariaControls ? {"aria-controls": this.ariaControls} : {};
+    const autocomplete = this.ariaAutocomplete ? {"aria-autocomplete": this.ariaAutocomplete} : {};
+
+    return {
+      ...expanded,
+      ...controls,
+      ...autocomplete,
+    };
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
@@ -292,7 +308,7 @@ export class ZInput {
       ...this.getPatternAttribute(type),
       ...ariaLabel,
       ...this.getRoleAttribute(),
-      ...this.getAriaExpandedAttrubute(),
+      ...this.getAriaAttrubutes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});

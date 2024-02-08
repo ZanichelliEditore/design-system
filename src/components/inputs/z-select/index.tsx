@@ -347,13 +347,13 @@ export class ZSelect {
         label={this.label}
         aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
+        aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutocomplete()}
         message={false}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
-        autocomplete="off"
         role="combobox"
         size={this.size}
         onClick={(e: MouseEvent) => {

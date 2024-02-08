@@ -21,7 +21,7 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-down"
                 aria-label=""
-                autocomplete="off"
+                aria-autocomplete="none"
                 aria-expanded="false"
                 role="combobox"
                 size="big"
@@ -74,7 +74,7 @@ describe("Suite test ZSelect", () => {
                 icon="caret-up"
                 readonly=""
                 aria-label=""
-                autocomplete="off"
+                aria-autocomplete="none"
                 aria-expanded="true"
                 role="combobox"
                 size="big"
@@ -139,7 +139,7 @@ describe("Suite test ZSelect", () => {
               icon="caret-up"
               readonly=""
               aria-label=""
-              autocomplete="off"
+              aria-autocomplete="none"
               aria-expanded="true"
               role="combobox"
               size="big"
@@ -206,7 +206,7 @@ describe("Suite test ZSelect", () => {
                 disabled=""
                 readonly=""
                 aria-label=""
-                autocomplete="off"
+                aria-autocomplete="none"
                 aria-expanded="false"
                 role="combobox"
                 size="big"
@@ -272,7 +272,7 @@ describe("Suite test ZSelect", () => {
                   placeholder="select here"
                   icon="caret-down"
                   status="success"
-                  autocomplete="off"
+                  aria-autocomplete="none"
                   aria-expanded="false"
                   role="combobox"
                   size="big"
@@ -338,7 +338,7 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-up"
                 readonly=""
-                autocomplete="off"
+                aria-autocomplete="none"
                 aria-expanded="true"
                 role="combobox"
                 size="big"
@@ -402,7 +402,7 @@ describe("Suite test ZSelect", () => {
               icon="caret-up"
               hasclearicon=""
               aria-label=""
-              autocomplete="off"
+              aria-autocomplete="list"
               aria-expanded="true"
               role="combobox"
               size="big"
@@ -459,7 +459,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
         <div class="select-wrapper">
-            <z-input class="active-select" autocomplete="off" role="combobox" aria-label="" aria-expanded="true" label="default" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
+            <z-input class="active-select" aria-autocomplete="list" role="combobox" aria-label="" aria-expanded="true" label="default" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
             <div class="open" tabindex="-1" aria-hidden="false">
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list id="checkid_list" role="listbox" tabindex="0" size="medium">
@@ -491,7 +491,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select autocomplete="true" htmlid="checkid" items="[{&quot;id&quot;:&quot;item_0&quot;,&quot;name&quot;:&quot;SELECT HERE questa opzione con etichetta lunga lunghissima&quot;,&quot;selected&quot;:true}]" label="default" placeholder="select here" reset-item="Pulisci selezione">
           <div class="select-wrapper">
-            <z-input aria-expanded="true" aria-label="" autocomplete="off" role="combobox" class="active-select" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
+            <z-input aria-expanded="true" aria-label="" aria-autocomplete="list" role="combobox" class="active-select" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
             <div class="open" tabindex="-1" aria-hidden="false">
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list class="filled" id="checkid_list" role="listbox" size="medium" tabindex="0">
@@ -537,7 +537,7 @@ describe("Suite test ZSelect", () => {
                 readonly=""
                 aria-label=""
                 aria-expanded="true"
-                autocomplete="off"
+                aria-autocomplete="none"
                 role="combobox"
                 size="big"
               ></z-input>
