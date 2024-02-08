@@ -47,8 +47,10 @@ jobs:
         with:
           node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
+          always-auth: true
       - run: cat .npmrc
-      # - name: Publish to npm
-      #   run: yarn publish --tag 12.1.3-rc --new-version 12.1.3-rc
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: cat .yarnrc
+      - name: Publish to npm
+        run: yarn publish --tag 12.1.3-rc --new-version 12.1.3-rc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
