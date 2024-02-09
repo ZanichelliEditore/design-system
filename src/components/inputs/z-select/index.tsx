@@ -400,7 +400,6 @@ export class ZSelect {
       <div
         class={this.isOpen ? "open" : "closed"}
         tabindex="-1"
-        aria-hidden={this.isOpen ? "false" : "true"}
       >
         <div
           class={{
