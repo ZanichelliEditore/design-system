@@ -76,7 +76,13 @@ export class ZModal {
   }
 
   componentDidLoad(): void {
-    if (typeof HTMLDialogElement !== "function") {
+    if (typeof window.HTMLDialogElement !== "function") {
+      /* workaround to fix `registerDialog` in test environment:
+      stencil converts html elements to MockHTMLElement but this element is missing the `localName` property,
+      which is used by `registerDialog` to recognize the element as dialog */
+      if (!this.dialog.localName) {
+        Object.defineProperty(this.dialog, "localName", {value: "dialog"});
+      }
       dialogPolyfill.registerDialog(this.dialog);
       this.dialog.setAttribute("open", "true");
     } else {
@@ -149,7 +155,7 @@ export class ZModal {
     }
   }
 
-  private handleEscape(e: KeyboardEvent): void {
+  private handleEscape(e: Event): void {
     if (this.closable) {
       return;
     }
@@ -167,7 +173,6 @@ export class ZModal {
         role={this.alertdialog ? "alertdialog" : undefined}
         ref={(el) => (this.dialog = el as HTMLDialogElement)}
         onClose={() => this.emitModalClose()}
-        // @ts-ignore
         onCancel={(e) => this.handleEscape(e)}
       >
         <div
