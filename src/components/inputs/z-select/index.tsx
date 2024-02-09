@@ -298,6 +298,7 @@ export class ZSelect {
       }
     }
 
+    this.focusedItemId = "";
     this.isOpen = !this.isOpen;
   }
 
