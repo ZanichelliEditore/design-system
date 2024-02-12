@@ -32,19 +32,19 @@ export class ZInput {
   @Prop()
   ariaLabel = "";
 
-  /** the input aria-expaded: available for text, password, number, email */
+  /** the input aria-expaded (optional): available for text, password, number, email */
   @Prop()
   ariaExpanded?: string;
 
-  /** the input aria-controls: available for text, password, number, email */
+  /** the input aria-controls (optional): available for text, password, number, email */
   @Prop()
   ariaControls?: string;
 
-  /** the input aria-autocomplete: available for text, password, number, email */
+  /** the input aria-autocomplete (optional): available for text, password, number, email */
   @Prop()
   ariaAutocomplete?: string;
 
-  /** the input aria-activedescendant: available for text, password, number, email */
+  /** the input aria-activedescendant (optional): available for text, password, number, email */
   @Prop()
   ariaActivedescendant?: string;
 
