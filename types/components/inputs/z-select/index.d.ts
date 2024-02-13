@@ -38,10 +38,12 @@ export declare class ZSelect {
   size?: ControlSize;
   isOpen: boolean;
   selectedItem: null | SelectItem;
+  focusedItemId: string;
   searchString: null | string;
   private itemsList;
   constructor();
   watchItems(): void;
+  getFocusedItemHandler(e: CustomEvent): void;
   /** get the input selected options */
   getSelectedItem(): Promise<SelectItem>;
   /** get the input value */

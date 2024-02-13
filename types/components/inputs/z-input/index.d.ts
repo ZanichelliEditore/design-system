@@ -12,6 +12,14 @@ export declare class ZInput {
   label?: string;
   /** the input aria-label */
   ariaLabel: string;
+  /** the input aria-expaded (optional): available for text, password, number, email */
+  ariaExpanded?: string;
+  /** the input aria-controls (optional): available for text, password, number, email */
+  ariaControls?: string;
+  /** the input aria-autocomplete (optional): available for text, password, number, email */
+  ariaAutocomplete?: string;
+  /** the input aria-activedescendant (optional): available for text, password, number, email */
+  ariaActivedescendant?: string;
   /** the input value */
   value?: string;
   /** the input is disabled */
@@ -34,6 +42,8 @@ export declare class ZInput {
   labelPosition?: LabelPosition;
   /** the input has autocomplete option (optional): available for text, password, number, email */
   autocomplete?: string;
+  /** the input role (optional) */
+  role?: string;
   /** render clear icon when typing (optional): available for text */
   hasclearicon?: boolean;
   /** render icon (optional): available for text */
@@ -76,6 +86,8 @@ export declare class ZInput {
   private getTextAttributes;
   private getNumberAttributes;
   private getPatternAttribute;
+  private getRoleAttribute;
+  private getAriaAttrubutes;
   private renderInputText;
   private renderLabel;
   private renderIcons;

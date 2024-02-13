@@ -10,6 +10,10 @@ export class ZList {
      * [optional] type of the list marker for each element
      */
     this.listType = ListType.NONE;
+    /**
+     * [optional] Sets role of the element.
+     */
+    this.role = "list";
   }
   setChildrenSizeType() {
     const children = this.host.children;
@@ -23,7 +27,7 @@ export class ZList {
     this.setChildrenSizeType();
   }
   render() {
-    return (h(Host, { role: "list" }, h("slot", null)));
+    return (h(Host, null, h("slot", null)));
   }
   static get is() { return "z-list"; }
   static get encapsulation() { return "shadow"; }
@@ -84,6 +88,24 @@ export class ZList {
         "attribute": "list-type",
         "reflect": true,
         "defaultValue": "ListType.NONE"
+      },
+      "role": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "[optional] Sets role of the element."
+        },
+        "attribute": "role",
+        "reflect": true,
+        "defaultValue": "\"list\""
       }
     };
   }

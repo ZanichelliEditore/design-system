@@ -393,9 +393,19 @@ const ZInput = class {
       pattern: this.pattern,
     };
   }
+  getRoleAttribute() {
+    return this.role ? { role: this.role } : {};
+  }
+  getAriaAttrubutes() {
+    const expanded = this.ariaExpanded ? { "aria-expanded": this.ariaExpanded } : {};
+    const controls = this.ariaControls ? { "aria-controls": this.ariaControls } : {};
+    const autocomplete = this.ariaAutocomplete ? { "aria-autocomplete": this.ariaAutocomplete } : {};
+    const activedescendant = this.ariaActivedescendant ? { "aria-activedescendant": this.ariaActivedescendant } : {};
+    return Object.assign(Object.assign(Object.assign(Object.assign({}, expanded), controls), autocomplete), activedescendant);
+  }
   renderInputText(type = InputType.TEXT) {
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    const attr = Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel);
+    const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes());
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, { "has-icon": true });
     }
@@ -446,7 +456,7 @@ const ZInput = class {
   renderTextarea() {
     const attributes = this.getTextAttributes();
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel))), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel, this.getRoleAttribute()))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -455,7 +465,7 @@ const ZInput = class {
   }
   /* START checkbox */
   renderCheckbox() {
-    return (h("div", { class: "checkbox-wrapper" }, h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+    return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
         "checkbox-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
@@ -464,7 +474,7 @@ const ZInput = class {
   /* END checkbox */
   /* START radio */
   renderRadio() {
-    return (h("div", { class: "radio-wrapper" }, h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+    return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
         "radio-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
@@ -533,6 +543,10 @@ const ZList = class {
      * [optional] type of the list marker for each element
      */
     this.listType = ListType.NONE;
+    /**
+     * [optional] Sets role of the element.
+     */
+    this.role = "list";
   }
   setChildrenSizeType() {
     const children = this.host.children;
@@ -546,7 +560,7 @@ const ZList = class {
     this.setChildrenSizeType();
   }
   render() {
-    return (h(Host, { role: "list" }, h("slot", null)));
+    return (h(Host, null, h("slot", null)));
   }
   get host() { return getElement(this); }
 };
@@ -561,6 +575,7 @@ const ZListElement = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.accessibleFocus = createEvent(this, "accessibleFocus", 7);
+    this.ariaDescendantFocus = createEvent(this, "ariaDescendantFocus", 7);
     this.clickItem = createEvent(this, "clickItem", 7);
     /**
      * [optional] Align expandable button left or right.
@@ -614,6 +629,10 @@ const ZListElement = class {
      * [optional] type of the list marker for each element
      */
     this.listType = ListType.NONE;
+    /**
+     * [optional] Sets element role.
+     */
+    this.role = "listitem";
     this.showInnerContent = false;
     this.openElementConfig = {
       accordion: {
@@ -713,7 +732,7 @@ const ZListElement = class {
     }
   }
   render() {
-    return (h(Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (h(Host, { "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   get host() { return getElement(this); }
 };

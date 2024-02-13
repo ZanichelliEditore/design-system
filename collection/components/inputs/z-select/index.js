@@ -32,6 +32,9 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item) => item.selected);
   }
+  getFocusedItemHandler(e) {
+    this.focusedItemId = e.target.id;
+  }
   /** get the input selected options */
   async getSelectedItem() {
     return this.selectedItem;
@@ -182,6 +185,7 @@ export class ZSelect {
         this.element.querySelector(`#${this.htmlid}_input`).focus();
       }
     }
+    this.focusedItemId = "";
     this.isOpen = !this.isOpen;
   }
   handleInputClick(e) {
@@ -219,7 +223,7 @@ export class ZSelect {
     return (h("z-input", { class: {
         "active-select": this.isOpen,
         "cursor-select": !this.autocomplete,
-      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_select_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-label": this.ariaLabel, icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, autocomplete: "off", size: this.size, onClick: (e) => {
+      }, id: `${this.htmlid}_input`, htmlid: `${this.htmlid}_select_input`, placeholder: this.placeholder, value: !this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null, label: this.label, "aria-expanded": this.isOpen ? "true" : "false", "aria-label": this.ariaLabel, "aria-controls": `${this.htmlid}_list`, "aria-autocomplete": this.hasAutocomplete() ? "list" : "none", "aria-activedescendant": this.isOpen ? this.focusedItemId : "", icon: this.isOpen ? "caret-up" : "caret-down", hasclearicon: this.hasAutocomplete(), message: false, disabled: this.disabled, readonly: this.readonly || (!this.hasAutocomplete() && this.isOpen), status: this.isOpen ? undefined : this.status, role: "combobox", size: this.size, onClick: (e) => {
         this.handleInputClick(e);
       }, onKeyUp: (e) => {
         if (e.keyCode !== 13) {
@@ -238,10 +242,10 @@ export class ZSelect {
       } }));
   }
   renderSelectUl() {
-    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1", "aria-hidden": this.isOpen ? "false" : "true" }, h("div", { class: {
+    return (h("div", { class: this.isOpen ? "open" : "closed", tabindex: "-1" }, h("div", { class: {
         "ul-scroll-wrapper": true,
         "fixed": this.isfixed,
-      }, tabindex: "-1" }, h("z-list", { role: "listbox", tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-multiselectable": false, size: this.listSizeType(), class: {
+      }, tabindex: "-1" }, h("z-list", { role: "listbox", "aria-label": this.ariaLabel || this.label, tabindex: this.disabled || this.readonly || !this.isOpen ? -1 : 0, id: `${this.htmlid}_list`, "aria-multiselectable": false, size: this.listSizeType(), class: {
         disabled: this.disabled,
         readonly: this.readonly,
         filled: !!this.selectedItem,
@@ -644,6 +648,7 @@ export class ZSelect {
     return {
       "isOpen": {},
       "selectedItem": {},
+      "focusedItemId": {},
       "searchString": {}
     };
   }
@@ -748,6 +753,15 @@ export class ZSelect {
     return [{
         "propName": "items",
         "methodName": "watchItems"
+      }];
+  }
+  static get listeners() {
+    return [{
+        "name": "ariaDescendantFocus",
+        "method": "getFocusedItemHandler",
+        "target": undefined,
+        "capture": false,
+        "passive": false
       }];
   }
 }

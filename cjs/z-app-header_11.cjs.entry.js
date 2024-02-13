@@ -397,9 +397,19 @@ const ZInput = class {
       pattern: this.pattern,
     };
   }
+  getRoleAttribute() {
+    return this.role ? { role: this.role } : {};
+  }
+  getAriaAttrubutes() {
+    const expanded = this.ariaExpanded ? { "aria-expanded": this.ariaExpanded } : {};
+    const controls = this.ariaControls ? { "aria-controls": this.ariaControls } : {};
+    const autocomplete = this.ariaAutocomplete ? { "aria-autocomplete": this.ariaAutocomplete } : {};
+    const activedescendant = this.ariaActivedescendant ? { "aria-activedescendant": this.ariaActivedescendant } : {};
+    return Object.assign(Object.assign(Object.assign(Object.assign({}, expanded), controls), autocomplete), activedescendant);
+  }
   renderInputText(type = index$1.InputType.TEXT) {
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    const attr = Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel);
+    const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes());
     if (this.icon || type === index$1.InputType.PASSWORD) {
       Object.assign(attr.class, { "has-icon": true });
     }
@@ -450,7 +460,7 @@ const ZInput = class {
   renderTextarea() {
     const attributes = this.getTextAttributes();
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, index.h("textarea", Object.assign({}, attributes, ariaLabel))), this.renderMessage()));
+    return (index.h("div", { class: "text-wrapper" }, this.renderLabel(), index.h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, index.h("textarea", Object.assign({}, attributes, ariaLabel, this.getRoleAttribute()))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -459,7 +469,7 @@ const ZInput = class {
   }
   /* START checkbox */
   renderCheckbox() {
-    return (index.h("div", { class: "checkbox-wrapper" }, index.h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+    return (index.h("div", { class: "checkbox-wrapper" }, index.h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), index.h("label", { htmlFor: this.htmlid, class: {
         "checkbox-label": true,
         "after": this.labelPosition === index$1.LabelPosition.RIGHT,
         "before": this.labelPosition === index$1.LabelPosition.LEFT,
@@ -468,7 +478,7 @@ const ZInput = class {
   /* END checkbox */
   /* START radio */
   renderRadio() {
-    return (index.h("div", { class: "radio-wrapper" }, index.h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), index.h("label", { htmlFor: this.htmlid, class: {
+    return (index.h("div", { class: "radio-wrapper" }, index.h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), index.h("label", { htmlFor: this.htmlid, class: {
         "radio-label": true,
         "after": this.labelPosition === index$1.LabelPosition.RIGHT,
         "before": this.labelPosition === index$1.LabelPosition.LEFT,
@@ -537,6 +547,10 @@ const ZList = class {
      * [optional] type of the list marker for each element
      */
     this.listType = index$1.ListType.NONE;
+    /**
+     * [optional] Sets role of the element.
+     */
+    this.role = "list";
   }
   setChildrenSizeType() {
     const children = this.host.children;
@@ -550,7 +564,7 @@ const ZList = class {
     this.setChildrenSizeType();
   }
   render() {
-    return (index.h(index.Host, { role: "list" }, index.h("slot", null)));
+    return (index.h(index.Host, null, index.h("slot", null)));
   }
   get host() { return index.getElement(this); }
 };
@@ -565,6 +579,7 @@ const ZListElement = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     this.accessibleFocus = index.createEvent(this, "accessibleFocus", 7);
+    this.ariaDescendantFocus = index.createEvent(this, "ariaDescendantFocus", 7);
     this.clickItem = index.createEvent(this, "clickItem", 7);
     /**
      * [optional] Align expandable button left or right.
@@ -618,6 +633,10 @@ const ZListElement = class {
      * [optional] type of the list marker for each element
      */
     this.listType = index$1.ListType.NONE;
+    /**
+     * [optional] Sets element role.
+     */
+    this.role = "listitem";
     this.showInnerContent = false;
     this.openElementConfig = {
       accordion: {
@@ -717,7 +736,7 @@ const ZListElement = class {
     }
   }
   render() {
-    return (index.h(index.Host, { role: "listitem", "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, index.h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, index.h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.ELEMENT && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+    return (index.h(index.Host, { "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, index.h("div", { class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, index.h("div", { class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.ELEMENT && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
   }
   get host() { return index.getElement(this); }
 };

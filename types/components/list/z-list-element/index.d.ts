@@ -4,6 +4,8 @@ export declare class ZListElement {
   host: HTMLZListElementElement;
   /** remove filter click event, returns filterid */
   accessibleFocus: EventEmitter<number>;
+  /** set parent aria-activedescendant on focus event, returns filterid */
+  ariaDescendantFocus: EventEmitter<number>;
   /** remove filter click event, returns filterid */
   clickItem: EventEmitter;
   accessibleFocusHandler(e: CustomEvent): void;
@@ -63,6 +65,10 @@ export declare class ZListElement {
    * [optional] type of the list marker for each element
    */
   listType?: ListType;
+  /**
+   * [optional] Sets element role.
+   */
+  role?: string;
   showInnerContent: boolean;
   private openElementConfig;
   /**

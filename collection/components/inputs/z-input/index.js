@@ -136,9 +136,19 @@ export class ZInput {
       pattern: this.pattern,
     };
   }
+  getRoleAttribute() {
+    return this.role ? { role: this.role } : {};
+  }
+  getAriaAttrubutes() {
+    const expanded = this.ariaExpanded ? { "aria-expanded": this.ariaExpanded } : {};
+    const controls = this.ariaControls ? { "aria-controls": this.ariaControls } : {};
+    const autocomplete = this.ariaAutocomplete ? { "aria-autocomplete": this.ariaAutocomplete } : {};
+    const activedescendant = this.ariaActivedescendant ? { "aria-activedescendant": this.ariaActivedescendant } : {};
+    return Object.assign(Object.assign(Object.assign(Object.assign({}, expanded), controls), autocomplete), activedescendant);
+  }
   renderInputText(type = InputType.TEXT) {
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    const attr = Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel);
+    const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes());
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, { "has-icon": true });
     }
@@ -189,7 +199,7 @@ export class ZInput {
   renderTextarea() {
     const attributes = this.getTextAttributes();
     const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel))), this.renderMessage()));
+    return (h("div", { class: "text-wrapper" }, this.renderLabel(), h("div", { class: Object.assign(Object.assign({}, attributes.class), { "textarea-wrapper": true, "readonly": attributes.readonly }) }, h("textarea", Object.assign({}, attributes, ariaLabel, this.getRoleAttribute()))), this.renderMessage()));
   }
   /* END textarea */
   handleCheck(ev) {
@@ -198,7 +208,7 @@ export class ZInput {
   }
   /* START checkbox */
   renderCheckbox() {
-    return (h("div", { class: "checkbox-wrapper" }, h("input", { id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+    return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
         "checkbox-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
@@ -207,7 +217,7 @@ export class ZInput {
   /* END checkbox */
   /* START radio */
   renderRadio() {
-    return (h("div", { class: "radio-wrapper" }, h("input", { id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }), h("label", { htmlFor: this.htmlid, class: {
+    return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
         "radio-label": true,
         "after": this.labelPosition === LabelPosition.RIGHT,
         "before": this.labelPosition === LabelPosition.LEFT,
@@ -336,6 +346,74 @@ export class ZInput {
         "attribute": "aria-label",
         "reflect": false,
         "defaultValue": "\"\""
+      },
+      "ariaExpanded": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input aria-expaded (optional): available for text, password, number, email"
+        },
+        "attribute": "aria-expanded",
+        "reflect": false
+      },
+      "ariaControls": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input aria-controls (optional): available for text, password, number, email"
+        },
+        "attribute": "aria-controls",
+        "reflect": false
+      },
+      "ariaAutocomplete": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input aria-autocomplete (optional): available for text, password, number, email"
+        },
+        "attribute": "aria-autocomplete",
+        "reflect": false
+      },
+      "ariaActivedescendant": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input aria-activedescendant (optional): available for text, password, number, email"
+        },
+        "attribute": "aria-activedescendant",
+        "reflect": false
       },
       "value": {
         "type": "string",
@@ -538,6 +616,23 @@ export class ZInput {
           "text": "the input has autocomplete option (optional): available for text, password, number, email"
         },
         "attribute": "autocomplete",
+        "reflect": false
+      },
+      "role": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "the input role (optional)"
+        },
+        "attribute": "role",
         "reflect": false
       },
       "hasclearicon": {
