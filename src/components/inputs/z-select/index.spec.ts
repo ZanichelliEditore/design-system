@@ -32,6 +32,7 @@ describe("Suite test ZSelect", () => {
                 <div class="ul-scroll-wrapper" tabindex="-1">
                   <z-list
                     role="listbox"
+                    aria-label="default"
                     tabindex="-1"
                     id="checkid_list"
                     size="medium"
@@ -86,6 +87,7 @@ describe("Suite test ZSelect", () => {
                 <div class="ul-scroll-wrapper" tabindex="-1">
                   <z-list
                     role="listbox"
+                    aria-label="default"
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
@@ -152,6 +154,7 @@ describe("Suite test ZSelect", () => {
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list
                   role="listbox"
+                  aria-label="default"
                   tabindex="0"
                   id="checkid_list"
                   class="filled"
@@ -221,6 +224,7 @@ describe("Suite test ZSelect", () => {
                 <div class="ul-scroll-wrapper" tabindex="-1">
                   <z-list
                     role="listbox"
+                    aria-label="default"
                     tabindex="-1"
                     id="checkid_list"
                     class="disabled readonly"
@@ -289,6 +293,7 @@ describe("Suite test ZSelect", () => {
                   <div class="ul-scroll-wrapper" tabindex="-1">
                     <z-list
                       role="listbox"
+                      aria-label="default"
                       tabindex="-1"
                       id="checkid_list"
                       class="input-success"
@@ -356,6 +361,7 @@ describe("Suite test ZSelect", () => {
                 <div class="ul-scroll-wrapper" tabindex="-1">
                   <z-list
                     role="listbox"
+                    aria-label="default"
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
@@ -421,6 +427,7 @@ describe("Suite test ZSelect", () => {
               <div class="ul-scroll-wrapper" tabindex="-1">
                 <z-list
                   role="listbox"
+                  aria-label="default"
                   tabindex="0"
                   id="checkid_list"
                   size="medium"
@@ -472,7 +479,7 @@ describe("Suite test ZSelect", () => {
             <z-input class="active-select"aria-autocomplete="list"  aria-controls="checkid_list" role="combobox" aria-label="" aria-expanded="true" label="default" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
-                <z-list id="checkid_list" role="listbox" tabindex="0" size="medium">
+                <z-list id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
                   <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_0" role="option" size="medium" tabindex="0">
                     <span class="list-element-content">
                       SELECT HERE questa
@@ -504,7 +511,7 @@ describe("Suite test ZSelect", () => {
             <z-input aria-expanded="true" aria-label="" aria-autocomplete="list" aria-controls="checkid_list" role="combobox" class="active-select" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
             <div class="open" tabindex="-1">
               <div class="ul-scroll-wrapper" tabindex="-1">
-                <z-list class="filled" id="checkid_list" role="listbox" size="medium" tabindex="0">
+                <z-list class="filled" id="checkid_list" role="listbox"  aria-label="default" size="medium" tabindex="0">
                   <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_0" role="option" tabindex="0">
                     <div class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
@@ -556,6 +563,7 @@ describe("Suite test ZSelect", () => {
                 <div class="fixed ul-scroll-wrapper" tabindex="-1">
                   <z-list
                     role="listbox"
+                    aria-label="fixed without groups" 
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
