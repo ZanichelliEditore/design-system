@@ -573,6 +573,22 @@ export namespace Components {
     }
     interface ZInput {
         /**
+          * the input aria-activedescendant: available for text, password, number, email
+         */
+        "ariaActivedescendant"?: string;
+        /**
+          * the input aria-autocomplete: available for text, password, number, email
+         */
+        "ariaAutocomplete"?: string;
+        /**
+          * the input aria-controls: available for text, password, number, email
+         */
+        "ariaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
+         */
+        "ariaExpanded"?: string;
+        /**
           * the input aria-label
          */
         "ariaLabel": string;
@@ -656,6 +672,10 @@ export namespace Components {
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
          */
         "required"?: boolean;
+        /**
+          * the input role (optional)
+         */
+        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -743,6 +763,10 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
+          * [optional] Sets role of the element.
+         */
+        "role"?: string;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -800,6 +824,10 @@ export namespace Components {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * [optional] Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -3440,6 +3468,22 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
+          * the input aria-activedescendant: available for text, password, number, email
+         */
+        "ariaActivedescendant"?: string;
+        /**
+          * the input aria-autocomplete: available for text, password, number, email
+         */
+        "ariaAutocomplete"?: string;
+        /**
+          * the input aria-controls: available for text, password, number, email
+         */
+        "ariaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
+         */
+        "ariaExpanded"?: string;
+        /**
           * the input aria-label
          */
         "ariaLabel"?: string;
@@ -3536,6 +3580,10 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
+          * the input role (optional)
+         */
+        "role"?: string;
+        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
@@ -3626,6 +3674,10 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
+          * [optional] Sets role of the element.
+         */
+        "role"?: string;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -3688,9 +3740,17 @@ declare namespace LocalJSX {
          */
         "onAccessibleFocus"?: (event: ZListElementCustomEvent<number>) => void;
         /**
+          * set parent aria-activedescendant on focus event, returns filterid
+         */
+        "onAriaDescendantFocus"?: (event: ZListElementCustomEvent<number>) => void;
+        /**
           * remove filter click event, returns filterid
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
+        /**
+          * [optional] Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */

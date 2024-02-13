@@ -1,4 +1,4 @@
-import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method} from "@stencil/core";
+import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method, Listen} from "@stencil/core";
 import {SelectItem, ListDividerType, KeyboardCode, InputStatus, ControlSize, ListSize} from "../../../beans";
 import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../../utils/utils";
 
@@ -86,6 +86,9 @@ export class ZSelect {
   selectedItem: null | SelectItem = null;
 
   @State()
+  focusedItemId: string;
+
+  @State()
   searchString: null | string;
 
   private itemsList: SelectItem[] = [];
@@ -100,6 +103,11 @@ export class ZSelect {
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
+  }
+
+  @Listen("ariaDescendantFocus")
+  getFocusedItemHandler(e: CustomEvent): void {
+    this.focusedItemId = (e.target as Element).id;
   }
 
   /** get the input selected options */
@@ -290,6 +298,7 @@ export class ZSelect {
       }
     }
 
+    this.focusedItemId = "";
     this.isOpen = !this.isOpen;
   }
 
@@ -345,14 +354,18 @@ export class ZSelect {
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
+        aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
+        aria-controls={`${this.htmlid}_list`}
+        aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
+        aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutocomplete()}
         message={false}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
-        autocomplete="off"
+        role="combobox"
         size={this.size}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
@@ -387,7 +400,6 @@ export class ZSelect {
       <div
         class={this.isOpen ? "open" : "closed"}
         tabindex="-1"
-        aria-hidden={this.isOpen ? "false" : "true"}
       >
         <div
           class={{

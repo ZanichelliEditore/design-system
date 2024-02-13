@@ -32,6 +32,22 @@ export class ZInput {
   @Prop()
   ariaLabel = "";
 
+  /** the input aria-expaded (optional): available for text, password, number, email */
+  @Prop()
+  ariaExpanded?: string;
+
+  /** the input aria-controls (optional): available for text, password, number, email */
+  @Prop()
+  ariaControls?: string;
+
+  /** the input aria-autocomplete (optional): available for text, password, number, email */
+  @Prop()
+  ariaAutocomplete?: string;
+
+  /** the input aria-activedescendant (optional): available for text, password, number, email */
+  @Prop()
+  ariaActivedescendant?: string;
+
   /** the input value */
   @Prop({mutable: true})
   value?: string;
@@ -75,6 +91,10 @@ export class ZInput {
   /** the input has autocomplete option (optional): available for text, password, number, email */
   @Prop()
   autocomplete?: string;
+
+  /** the input role (optional) */
+  @Prop()
+  role?: string;
 
   /** render clear icon when typing (optional): available for text */
   @Prop()
@@ -268,6 +288,24 @@ export class ZInput {
     };
   }
 
+  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    return this.role ? {role: this.role} : {};
+  }
+
+  private getAriaAttrubutes(): Record<string, unknown> {
+    const expanded = this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
+    const controls = this.ariaControls ? {"aria-controls": this.ariaControls} : {};
+    const autocomplete = this.ariaAutocomplete ? {"aria-autocomplete": this.ariaAutocomplete} : {};
+    const activedescendant = this.ariaActivedescendant ? {"aria-activedescendant": this.ariaActivedescendant} : {};
+
+    return {
+      ...expanded,
+      ...controls,
+      ...autocomplete,
+      ...activedescendant,
+    };
+  }
+
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
@@ -275,6 +313,8 @@ export class ZInput {
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
       ...ariaLabel,
+      ...this.getRoleAttribute(),
+      ...this.getAriaAttrubutes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -424,6 +464,7 @@ export class ZInput {
           <textarea
             {...attributes}
             {...ariaLabel}
+            {...this.getRoleAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -452,6 +493,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...this.getRoleAttribute()}
         />
 
         <label
@@ -488,6 +530,7 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...this.getRoleAttribute()}
         />
 
         <label
