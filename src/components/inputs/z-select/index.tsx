@@ -410,6 +410,7 @@ export class ZSelect {
         >
           <z-list
             role="listbox"
+            aria-label={this.ariaLabel || this.label}
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={`${this.htmlid}_list`}
             aria-multiselectable={false}
