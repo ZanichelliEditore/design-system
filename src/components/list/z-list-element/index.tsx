@@ -26,6 +26,15 @@ export class ZListElement {
   })
   accessibleFocus: EventEmitter<number>;
 
+  /** set parent aria-activedescendant on focus event, returns filterid */
+  @Event({
+    eventName: "ariaDescendantFocus",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  ariaDescendantFocus: EventEmitter<number>;
+
   /** remove filter click event, returns filterid */
   @Event({
     eventName: "clickItem",
@@ -126,6 +135,12 @@ export class ZListElement {
    */
   @Prop({reflect: true})
   listType?: ListType = ListType.NONE;
+
+  /**
+   * [optional] Sets element role.
+   */
+  @Prop({reflect: true})
+  role?: string = "listitem";
 
   @State()
   showInnerContent = false;
@@ -266,9 +281,9 @@ export class ZListElement {
   render(): HTMLZListElementElement {
     return (
       <Host
-        role="listitem"
         aria-expanded={this.expandable ? this.showInnerContent : null}
         onClick={this.handleClick}
+        onFocus={() => this.ariaDescendantFocus.emit(this.listElementId)}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
         tabIndex={!this.isContextualMenu ? "0" : null}
