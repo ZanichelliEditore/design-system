@@ -60,5 +60,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Test latest
-        run: echo "Non ho eseguito la parte della rc, ma solo la latest come ${{ inputs.version_type}}."
+      - name: Prepare package
+        run: |
+          git pull
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+          yarn
+          yarn build
+          yarn test
+      - name: Standard version
+        run: |
+          yarn release --release-as ${{ inputs.version_type }}
+          git push --follow-tags origin master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+          always-auth: true
+      - name: Publish to npm
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
