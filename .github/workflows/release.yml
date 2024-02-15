@@ -32,7 +32,8 @@ on:
           - minor
           - major
 jobs:
-  release:
+  rc:
+    if: ${{ inputs.type == 'rc' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -56,3 +57,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push package.json
         run: git push
+  latest:
+    if: ${{ inputs.type == 'latest' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Test latest
+        run: echo "Non ho eseguito la parte della rc, ma solo la latest come ${{ inputs.version_type}}."
