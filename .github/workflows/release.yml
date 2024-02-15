@@ -55,8 +55,6 @@ jobs:
         run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Push package.json
-        run: git push
   latest:
     if: ${{ inputs.type == 'latest' }}
     runs-on: ubuntu-latest
