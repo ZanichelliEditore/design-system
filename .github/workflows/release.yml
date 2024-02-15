@@ -52,7 +52,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Publish to npm
-        run: yarn publish --tag ${{ inputs.rc_version_tag }}
+        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   latest:
@@ -78,6 +78,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Publish to npm
-        run: yarn publish --new-version
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
