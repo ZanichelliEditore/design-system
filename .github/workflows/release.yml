@@ -14,8 +14,12 @@ on:
         description: "If you selected the rc option, provide the branch to switch to in order to start the rc process"
         required: false
         type: string
+      rc_version_tag:
+        description: "If you selected the rc option, provide a name that will be used as version tag"
+        required: false
+        type: string
       rc_version_name:
-        description: "If you selected the rc option, provide a name that will be used for both version and tag"
+        description: "If you selected the rc option, provide a name that will be used as version name"
         required: false
         type: string
       version_type:
@@ -27,11 +31,6 @@ on:
           - patch
           - minor
           - major
-  # da eliminare prima della PR
-  push:
-    branches:
-      - "feat/release_github_action"
-      - "feat/release_github_action_part2"
 jobs:
   release:
     runs-on: ubuntu-latest
