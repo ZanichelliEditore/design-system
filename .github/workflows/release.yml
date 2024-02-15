@@ -40,7 +40,7 @@ jobs:
       - name: Prepare package
         run: |
           git pull
-          git checkout feat/release_github_action_part2
+          git checkout ${{ inputs.rc_branch_name }}
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
           yarn
@@ -52,7 +52,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Publish to npm
-        run: yarn publish --tag github-action-test --new-version 12.2.0-rc
+        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push package.json
