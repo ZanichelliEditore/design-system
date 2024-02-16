@@ -39,13 +39,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Prepare package
         run: |
-          git pull
           git checkout ${{ inputs.rc_branch_name }}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
-          yarn
-          yarn build
-          yarn test
+          bash ./pre-release.sh
       - uses: actions/setup-node@v3
         with:
           node-version: "20.x"
