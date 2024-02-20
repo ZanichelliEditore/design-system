@@ -143,7 +143,7 @@
 }
 
 :host([variant="tertiary"][disabled]:not([disabled="false"])) .z-button--container {
-  border-color: transparent;
-  background-color: transparent;
+  border-color: var(--color-disabled01);
+  background-color: var(--color-disabled01);
   color: var(--color-disabled02);
 }
