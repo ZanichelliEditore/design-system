@@ -130,14 +130,14 @@
 }
 
 :host([variant="tertiary"]) .z-button--container:focus:focus-visible {
-  border-color: var(--color-surface01);
-  background-color: var(--color-surface01);
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
   color: var(--color-primary01);
 }
 
 :host([variant="tertiary"]) .z-button--container:active {
-  border-color: var(--color-surface01);
-  background-color: var(--color-surface01);
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
   box-shadow: var(--shadow-2);
   color: var(--color-primary01);
 }
