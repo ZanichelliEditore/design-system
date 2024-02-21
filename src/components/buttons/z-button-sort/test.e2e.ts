@@ -1,45 +1,15 @@
 import {newE2EPage} from "@stencil/core/testing";
 
-declare global {
-  interface Window {
-    onButtonSortClick: (e) => void;
-  }
-}
-
 it("Test ZButtonSort should emit buttonSortClick event", async () => {
-  const page = await newE2EPage();
+  const page = await newE2EPage({html: "<z-button-sort></z-button-sort>"});
+  const btn = await page.find("z-button-sort >>> button");
+  const clickEvent = await page.spyOnEvent("buttonSortClick");
 
-  // Define a window.onCustomEvent function on the page.
-  let buttonSortClickCounter = 0;
-  let buttonSortAsc = true;
-  await page.exposeFunction("onButtonSortClick", (e) => {
-    buttonSortClickCounter = 1;
-    buttonSortAsc = e.detail.sortAsc;
-  });
-
-  // Attach an event listener to page to capture a custom event on page load/navigation.
-  page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e: CustomEvent) => {
-      window.onButtonSortClick({type, detail: e.detail});
-    });
-  }, "buttonSortClick");
-
-  await page.setContent(`<z-button-sort></z-button-sort>`);
-  const button = await page.find("z-button-sort");
-
-  expect(buttonSortClickCounter).toEqual(0);
-  expect(buttonSortAsc).toEqual(true);
-
-  button.click();
+  await btn.click();
   await page.waitForChanges();
+  expect(clickEvent).toHaveReceivedEventDetail({sortAsc: true});
 
-  expect(buttonSortClickCounter).toEqual(1);
-  expect(buttonSortAsc).toEqual(true);
-
-  buttonSortClickCounter = 0;
-  button.click();
+  await btn.click();
   await page.waitForChanges();
-
-  expect(buttonSortClickCounter).toEqual(1);
-  expect(buttonSortAsc).toEqual(false);
+  expect(clickEvent).toHaveReceivedEventDetail({sortAsc: false});
 });

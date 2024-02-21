@@ -2880,6 +2880,7 @@ declare global {
     };
     interface HTMLZListElementElementEventMap {
         "accessibleFocus": number;
+        "ariaDescendantFocus": number;
         "clickItem": any;
     }
     interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {

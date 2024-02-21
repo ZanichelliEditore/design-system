@@ -78,7 +78,7 @@ export class ZButtonSort {
       <button
         title={this.setButtonTitle()}
         id={this.buttonid}
-        class={this.isselected && "selected"}
+        class={{selected: this.isselected}}
         onClick={() => this.emitButtonSortClick()}
       >
         <span
