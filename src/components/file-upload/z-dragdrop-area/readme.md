@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property              | Attribute                 | Description              | Type     | Default     |
-| --------------------- | ------------------------- | ------------------------ | -------- | ----------- |
-| `dragAndDropBtnLabel` | `drag-and-drop-btn-label` | drag & drop button label | `string` | `undefined` |
+| Property           | Attribute             | Description              | Type     | Default     |
+| ------------------ | --------------------- | ------------------------ | -------- | ----------- |
+| `dragAndDropLabel` | `drag-and-drop-label` | drag & drop button label | `string` | `undefined` |
 
 
 ## Events
