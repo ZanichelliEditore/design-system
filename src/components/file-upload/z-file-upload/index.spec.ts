@@ -18,9 +18,9 @@ describe("Suite test ZFileUpload", () => {
     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="default" variant="primary">
       <mock:shadow-root>
        <div class="container default" tabindex="0">
-         <h2 class="heading-2-sb" id="title">
+         <span id="title">
            Allega un file
-         </h2>
+         </span>
          <span class="body-3-sb">
            Vuoi allegare un file per chiarire meglio la tua richiesta?
          </span>
@@ -38,7 +38,7 @@ describe("Suite test ZFileUpload", () => {
          </section>
          <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
          <z-button icon="upload" id="fileSelect">
-           Allega
+           allega
          </z-button>
        </div>
       </mock:shadow-root>
@@ -60,9 +60,9 @@ describe("Suite test ZFileUpload", () => {
       .toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
        <mock:shadow-root>
        <div class="container dragdrop" tabindex="0">
-         <h2 class="heading-2-sb" id="title">
+         <span id="title">
            Allega un file
-         </h2>
+         </span>
          <section class="files-container hidden">
           <h4 class="heading-4-sb">
             File appena caricati
@@ -72,16 +72,16 @@ describe("Suite test ZFileUpload", () => {
           </div>
           <z-divider size="medium"></z-divider>
          </section>
-         <z-dragdrop-area>
+         <z-dragdrop-area draganddropbtnlabel="Rilascia i file in questa area per allegarli.">
            <div class="text-container">
              <span class="body-1">
                Vuoi allegare un file per chiarire meglio la tua richiesta?
              </span>
              <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
              <span class="body-1 upload-link-text">
-               Trascinalo qui o
+               Trascina o
                <span class="body-1-sb upload-link" tabindex="0">
-                 caricalo
+                 carica
                </span>
                dal tuo computer
              </span>
