@@ -8,7 +8,7 @@ import {Component, h, Event, EventEmitter, Prop} from "@stencil/core";
 export class ZDragdropArea {
   /** drag & drop button label */
   @Prop()
-  dragAndDropBtnLabel: string;
+  dragAndDropLabel: string;
 
   /** Emitted when user drop one or more files */
   @Event()
@@ -24,7 +24,7 @@ export class ZDragdropArea {
     return (
       <div class="dragover-container">
         <div class="dragover-message">
-          <span class="body-2-sb">{this.dragAndDropBtnLabel}</span>
+          <span class="body-2-sb">{this.dragAndDropLabel}</span>
         </div>
       </div>
     );

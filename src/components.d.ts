@@ -485,7 +485,7 @@ export namespace Components {
         /**
           * drag & drop button label
          */
-        "dragAndDropBtnLabel": string;
+        "dragAndDropLabel": string;
     }
     interface ZFile {
         /**
@@ -513,7 +513,7 @@ export namespace Components {
         /**
           * drag & drop button label
          */
-        "dragAndDropBtnLabel"?: string;
+        "dragAndDropLabel"?: string;
         /**
           * Max file dimension in Megabyte
          */
@@ -3380,7 +3380,7 @@ declare namespace LocalJSX {
         /**
           * drag & drop button label
          */
-        "dragAndDropBtnLabel"?: string;
+        "dragAndDropLabel"?: string;
         /**
           * Emitted when user drop one or more files
          */
@@ -3416,7 +3416,7 @@ declare namespace LocalJSX {
         /**
           * drag & drop button label
          */
-        "dragAndDropBtnLabel"?: string;
+        "dragAndDropLabel"?: string;
         /**
           * Max file dimension in Megabyte
          */

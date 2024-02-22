@@ -42,7 +42,7 @@ export class ZFileUpload {
 
   /** drag & drop button label */
   @Prop()
-  dragAndDropBtnLabel?: string = "Rilascia i file in questa area per allegarli.";
+  dragAndDropLabel?: string = "Rilascia i file in questa area per allegarli.";
 
   /** List of files not allowed to be uploaded */
   @State()
@@ -269,7 +269,7 @@ export class ZFileUpload {
   private renderDragDropMode(): unknown[] {
     return [
       this.renderFileSection(),
-      <z-dragdrop-area dragAndDropBtnLabel={this.dragAndDropBtnLabel}>
+      <z-dragdrop-area drag-and-drop-label={this.dragAndDropLabel}>
         <div class="text-container">
           {this.renderDescription("body-1")}
           {this.renderUploadLink()}
