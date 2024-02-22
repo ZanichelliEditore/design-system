@@ -1,5 +1,4 @@
 :host {
-  margin-top: calc(var(--space-unit) * 3);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }

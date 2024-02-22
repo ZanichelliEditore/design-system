@@ -47,7 +47,9 @@ input#file-elem {
 
 #title {
   display: inline-block;
-  margin-bottom: var(--space-unit);
+  margin: calc(var(--space-unit) * 2.5) 0 calc(var(--space-unit) * 4);
+  font-size: calc(var(--space-unit) * 3);
+  font-weight: var(--font-sb);
 }
 
 :host > .container > z-button {

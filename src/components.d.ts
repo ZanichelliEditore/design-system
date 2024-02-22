@@ -482,6 +482,10 @@ export namespace Components {
         "size"?: DividerSize;
     }
     interface ZDragdropArea {
+        /**
+          * drag & drop button label
+         */
+        "dragAndDropBtnLabel": string;
     }
     interface ZFile {
         /**
@@ -507,6 +511,10 @@ export namespace Components {
          */
         "description"?: string;
         /**
+          * drag & drop button label
+         */
+        "dragAndDropBtnLabel"?: string;
+        /**
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
@@ -522,6 +530,10 @@ export namespace Components {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadType;
+        /**
+          * upoload button label
+         */
+        "uploadBtnLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -3366,6 +3378,10 @@ declare namespace LocalJSX {
     }
     interface ZDragdropArea {
         /**
+          * drag & drop button label
+         */
+        "dragAndDropBtnLabel"?: string;
+        /**
           * Emitted when user drop one or more files
          */
         "onFileDropped"?: (event: ZDragdropAreaCustomEvent<any>) => void;
@@ -3398,6 +3414,10 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * drag & drop button label
+         */
+        "dragAndDropBtnLabel"?: string;
+        /**
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
@@ -3413,6 +3433,10 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadType;
+        /**
+          * upoload button label
+         */
+        "uploadBtnLabel"?: string;
     }
     interface ZGhostLoading {
     }

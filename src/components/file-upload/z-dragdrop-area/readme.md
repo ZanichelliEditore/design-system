@@ -3,6 +3,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property              | Attribute                 | Description              | Type     | Default     |
+| --------------------- | ------------------------- | ------------------------ | -------- | ----------- |
+| `dragAndDropBtnLabel` | `drag-and-drop-btn-label` | drag & drop button label | `string` | `undefined` |
+
+
 ## Events
 
 | Event         | Description                              | Type               |

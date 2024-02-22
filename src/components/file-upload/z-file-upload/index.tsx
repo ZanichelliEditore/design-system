@@ -36,6 +36,14 @@ export class ZFileUpload {
   @State()
   files: File[] = [];
 
+  /** upoload button label */
+  @Prop()
+  uploadBtnLabel?: string = "allega";
+
+  /** drag & drop button label */
+  @Prop()
+  dragAndDropBtnLabel?: string = "Rilascia i file in questa area per allegarli.";
+
   /** List of files not allowed to be uploaded */
   @State()
   invalidFiles: Map<string, string[]>;
@@ -153,14 +161,7 @@ export class ZFileUpload {
   }
 
   private renderTitle(): HTMLElement {
-    return (
-      <h2
-        class="heading-2-sb"
-        id="title"
-      >
-        {this.mainTitle}
-      </h2>
-    );
+    return <span id="title">{this.mainTitle}</span>;
   }
 
   private renderDescription(cssClass): HTMLElement {
@@ -227,7 +228,7 @@ export class ZFileUpload {
         icon="upload"
         ref={(val) => (this.button = val)}
       >
-        Allega
+        {this.uploadBtnLabel}
       </z-button>,
     ];
   }
@@ -236,7 +237,7 @@ export class ZFileUpload {
     return [
       this.renderInput(),
       <span class="body-1 upload-link-text">
-        Trascinalo qui o{" "}
+        Trascina o{" "}
         <span
           tabIndex={0}
           class="body-1-sb upload-link"
@@ -249,7 +250,7 @@ export class ZFileUpload {
           }}
           ref={(val) => (this.uploadLink = val)}
         >
-          caricalo
+          carica
         </span>{" "}
         dal tuo computer
       </span>,
@@ -268,7 +269,7 @@ export class ZFileUpload {
   private renderDragDropMode(): unknown[] {
     return [
       this.renderFileSection(),
-      <z-dragdrop-area>
+      <z-dragdrop-area dragAndDropBtnLabel={this.dragAndDropBtnLabel}>
         <div class="text-container">
           {this.renderDescription("body-1")}
           {this.renderUploadLink()}
@@ -305,7 +306,7 @@ export class ZFileUpload {
           tabIndex={0}
           class={`container ${this.getType()}`}
         >
-          {this.renderTitle()}
+          {this.mainTitle && this.renderTitle()}
           {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>
         {!!this.invalidFiles.size && (
