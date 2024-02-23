@@ -44,7 +44,7 @@ textarea,
 
 /* FOCUS */
 :host:not(.active-select) input:focus:focus-visible,
-.textarea-wrapper:focus-within {
+:host([readonly="false"]) .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -90,7 +90,7 @@ textarea:focus:focus-visible {
 }
 
 /* HOVER */
-input:hover,
+input:not([readonly]):hover,
 .textarea-wrapper:hover {
   outline: var(--border-size-medium) solid var(--color-surface04);
   outline-offset: -2px;
