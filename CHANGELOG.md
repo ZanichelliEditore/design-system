@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.3.0](https://github.com/ZanichelliEditore/design-system/compare/v12.2.0...v12.3.0) (2024-02-23)
+
+
+### Features
+
+* added icon inside select item ([e16423b](https://github.com/ZanichelliEditore/design-system/commit/e16423b5eea7613917b9a8b8bb429c429248f011))
+* storybook ([3ad80a0](https://github.com/ZanichelliEditore/design-system/commit/3ad80a0c02149ba934dfa687b719e6083614f930))
+
 ## [12.2.0](https://github.com/ZanichelliEditore/design-system/compare/v12.1.3...v12.2.0) (2024-02-21)
 
 
