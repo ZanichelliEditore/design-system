@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.2.0](https://github.com/ZanichelliEditore/design-system/compare/v12.1.3...v12.2.0) (2024-02-21)
+
+
+### Features
+
+* add initial workflow steps ([4032292](https://github.com/ZanichelliEditore/design-system/commit/4032292c4333ef5ea76c77d5c0409ac44bcbe7bb))
+* add rc_version_tag input ([a0484f6](https://github.com/ZanichelliEditore/design-system/commit/a0484f6febb7070afc8bcff2570b5b3abad09c26))
+* add user inputs ([cb0593b](https://github.com/ZanichelliEditore/design-system/commit/cb0593b4f39867fb11fe6a25c7004778a41ac62e))
+* delete push hook ([dfc82b9](https://github.com/ZanichelliEditore/design-system/commit/dfc82b95ab310a59f0d62b3cf2ef0080f39b71fc))
+* update workflow name ([75483ea](https://github.com/ZanichelliEditore/design-system/commit/75483ea7a2b2a1e0c041136d287d833de1437ab4))
+
+
+### Bug Fixes
+
+* fixed focus-within in textarea type when status is readonly ([734a356](https://github.com/ZanichelliEditore/design-system/commit/734a35678031798ec09a168e6e8a6fe9832a10cd))
+* readonly status when hover label ([906c2d3](https://github.com/ZanichelliEditore/design-system/commit/906c2d390ea8ac68de8ec109cb4b94d46bbb54ef))
+* update tertiary disabled token ([fe5a76a](https://github.com/ZanichelliEditore/design-system/commit/fe5a76a955e8db23bb3d3e164e1a6d575b3c4401))
+* update tertiary token for active and focus states ([95202ad](https://github.com/ZanichelliEditore/design-system/commit/95202ad24e8e7784c4e9f8cfe5824daa1f3b508b))
+
 ### [12.1.3](https://github.com/ZanichelliEditore/design-system/compare/v12.1.2...v12.1.3) (2024-02-13)
 
 ### [12.1.2](https://github.com/ZanichelliEditore/design-system/compare/v12.1.1...v12.1.2) (2024-02-05)
