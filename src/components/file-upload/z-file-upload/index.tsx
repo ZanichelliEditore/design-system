@@ -192,7 +192,7 @@ export class ZFileUpload {
   private renderFileSection(): HTMLElement {
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <h4 class="heading-4-sb">File appena caricati</h4>
+        <span class="heading-4-sb">File appena caricati</span>
         <div class="files-wrapper">
           <slot name="files" />
         </div>

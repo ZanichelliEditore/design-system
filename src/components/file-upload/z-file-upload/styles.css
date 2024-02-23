@@ -64,6 +64,13 @@ input#file-elem {
 :host > .container > .files-container > .heading-4-sb {
   display: inline-block;
   margin: calc(var(--space-unit) * 3) 0;
+  font-size: calc(var(--space-unit) * 2);
+  font-weight: var(--font-sb);
+}
+
+:host([type="dragdrop"]) > .container > .files-container > .heading-4-sb {
+  margin-top: 0;
+  margin-bottom: calc(var(--space-unit) * 3);
 }
 
 :host > .container > .files-container > .files-wrapper {

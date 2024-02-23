@@ -28,9 +28,9 @@ describe("Suite test ZFileUpload", () => {
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </span>
          <section class="files-container hidden">
-          <h4 class="heading-4-sb">
+          <span class="heading-4-sb">
             File appena caricati
-          </h4>
+          </span>
           <div class="files-wrapper">
             <slot name="files"></slot>
           </div>
@@ -64,9 +64,9 @@ describe("Suite test ZFileUpload", () => {
            Allega un file
          </span>
          <section class="files-container hidden">
-          <h4 class="heading-4-sb">
+          <span class="heading-4-sb">
             File appena caricati
-          </h4>
+          </span>
           <div class="files-wrapper">
             <slot name="files"></slot>
           </div>
@@ -119,9 +119,9 @@ describe("Suite test ZFileUpload", () => {
            Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.
          </span>
          <section class="files-container hidden">
-          <h4 class="heading-4-sb">
+          <span class="heading-4-sb">
             File appena caricati
-          </h4>
+          </span>
           <div class="files-wrapper">
             <slot name="files"></slot>
           </div>
