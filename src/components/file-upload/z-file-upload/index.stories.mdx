@@ -24,6 +24,12 @@ import "./index";
     description: {
       control: {type: "text"},
     },
+    uploadBtnLabel: {
+      control: {type: "text"},
+    },
+    dragAndDropLabel: {
+      control: {type: "text"},
+    },
   }}
 />
 
@@ -38,6 +44,7 @@ import "./index";
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+      uploadBtnLabel: "allega",
     }}
   >
     {(args) => html`<h4 class="heading-4">
@@ -52,6 +59,7 @@ import "./index";
         file-max-size="${args.fileMaxSize}"
         accepted-format="${args.acceptedFormat}"
         main-title="${args.mainTitle}"
+        upload-btn-label="${args.uploadBtnLabel}"
       >
       </z-file-upload>
       <script>
@@ -78,27 +86,35 @@ import "./index";
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
+      uploadBtnLabel: "allega",
+      dragAndDropLabel: "Rilascia i file in questa area per allegarli.",
     }}
   >
-    {(args) => html`
-    <h4 class="heading-4">This story embeds a piece of js script to allow the component to work properly. Please refresh the page before using it!</h4><br>
-    <z-file-upload type="dragdrop"
-                         file-max-size="${args.fileMaxSize}"
-                         description="${args.description}"
-                         accepted-format="${args.acceptedFormat}"}"
-                         main-title="${args.mainTitle}">
+    {(args) => html` <h4 class="heading-4">
+        This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
+        using it!
+      </h4>
+      <br />
+      <z-file-upload
+        type="dragdrop"
+        file-max-size="${args.fileMaxSize}"
+        description="${args.description}"
+        accepted-format="${args.acceptedFormat}"
+        main-title="${args.mainTitle}"
+        drag-and-drop-label="${args.dragAndDropLabel}"
+      >
       </z-file-upload>
       <script>
         const uploaderDragdrop = document.querySelector("z-file-upload");
-          document.addEventListener("fileInput", (e) => {
-              const item = e.detail
-                  const chip = document.createElement('Z-FILE')
-                  chip.setAttribute('slot', 'files')
-                  chip.setAttribute('filetype', item.type)
-                  chip.setAttribute("file-name", item.name);
-                  uploaderDragdrop.appendChild(chip);
-          })
-        </script>`}
+        document.addEventListener("fileInput", (e) => {
+          const item = e.detail;
+          const chip = document.createElement("Z-FILE");
+          chip.setAttribute("slot", "files");
+          chip.setAttribute("filetype", item.type);
+          chip.setAttribute("file-name", item.name);
+          uploaderDragdrop.appendChild(chip);
+        });
+      </script>`}
   </Story>
 </Canvas>
 
