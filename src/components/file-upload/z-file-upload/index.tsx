@@ -311,6 +311,7 @@ export class ZFileUpload {
         </div>
         {!!this.invalidFiles.size && (
           <z-modal
+            modalid={`file-upload-${this.type}-error-modal`}
             tabIndex={0}
             ref={(val) => (this.errorModal = val)}
             modaltitle="Attenzione"
