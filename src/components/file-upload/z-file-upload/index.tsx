@@ -131,7 +131,7 @@ export class ZFileUpload {
 
   private checkFiles(files: File[]): Map<string, string[]> {
     const errors = new Map<string, string[]>();
-    const sizeErrorString = `supera i ${this.fileMaxSize}MB`;
+    const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
     const formatErrorString = " ha un'estensione non prevista";
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
@@ -280,9 +280,9 @@ export class ZFileUpload {
   }
 
   private formatErrorString(key, value): string {
-    const bothErrors = value[0] && value[1] ? ", " : "";
+    const bothErrors = value[0] && value[1] ? ", ed " : "";
 
-    return `Il file ${key} ${value[0] ?? ""}${bothErrors} ${value[1] ?? ""} e non può quindi essere caricato.`;
+    return `Il file ${key} ${value[0] ?? ""}${bothErrors}${value[1] ?? ""}.`;
   }
 
   private handleErrorModalContent(): HTMLDivElement {
