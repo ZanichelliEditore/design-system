@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: calc(var(--space-unit) * 2);
 }
 
 :host .modal-wrapper > .files-wrapper {
@@ -93,5 +94,15 @@ input#file-elem {
 @media only screen and (min-width: 768px) {
   :host > .container > z-button {
     align-self: flex-start;
+  }
+
+  :host .modal-wrapper {
+    padding: calc(var(--space-unit) * 3);
+  }
+}
+
+@media only screen and (min-width: 1152px) {
+  :host .modal-wrapper {
+    padding: calc(var(--space-unit) * 4);
   }
 }
