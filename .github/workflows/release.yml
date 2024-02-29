@@ -2,28 +2,16 @@ name: New release version
 on:
   workflow_dispatch:
     inputs:
-      type:
-        description: "Select the type of release"
-        required: true
-        default: "rc"
-        type: choice
-        options:
-          - rc
-          - latest
-      rc_branch_name:
-        description: "If you selected the rc option, provide the branch to switch to in order to start the rc process"
-        required: false
-        type: string
       rc_version_tag:
-        description: "If you selected the rc option, provide a name that will be used as version tag"
+        description: "For a release candidate, provide a name that will be used as version tag"
         required: false
         type: string
       rc_version_name:
-        description: "If you selected the rc option, provide a name that will be used as version name"
+        description: "For a release candidate, provide a name that will be used as version name"
         required: false
         type: string
       version_type:
-        description: "If you selected the latest option, select the version type"
+        description: "For a latest release, select the version type"
         required: false
         type: choice
         default: "patch"
@@ -33,13 +21,13 @@ on:
           - major
 jobs:
   rc:
-    if: ${{ inputs.type == 'rc' }}
+    if: ${{ github.ref_name != 'master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Prepare package
         run: |
-          git checkout ${{ inputs.rc_branch_name }}
+          git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
       - uses: actions/setup-node@v3
         with:
@@ -51,7 +39,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   latest:
-    if: ${{ inputs.type == 'latest' }}
+    if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
