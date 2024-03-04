@@ -4,7 +4,7 @@ export class ZDragdropArea {
     this.fileDropped.emit(files);
   }
   renderOnDragOverMessage() {
-    return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, "Rilascia i file in questa area per allegarli."))));
+    return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
   }
   render() {
     return (h("div", { tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
@@ -30,6 +30,27 @@ export class ZDragdropArea {
   static get styleUrls() {
     return {
       "$": ["styles.css"]
+    };
+  }
+  static get properties() {
+    return {
+      "dragAndDropLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": "drag & drop button label"
+        },
+        "attribute": "drag-and-drop-label",
+        "reflect": false
+      }
     };
   }
   static get events() {

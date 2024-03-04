@@ -7,6 +7,10 @@ export class ZFileUpload {
     this.type = ZFileUploadType.DEFAULT;
     /** Files added by the user */
     this.files = [];
+    /** upoload button label */
+    this.uploadBtnLabel = "allega";
+    /** drag & drop button label */
+    this.dragAndDropLabel = "Rilascia i file in questa area per allegarli.";
     this.inputAttributes = {
       type: "file",
       id: "file-elem",
@@ -65,7 +69,7 @@ export class ZFileUpload {
   }
   checkFiles(files) {
     const errors = new Map();
-    const sizeErrorString = `supera i ${this.fileMaxSize}MB`;
+    const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
     const formatErrorString = " ha un'estensione non prevista";
     files.forEach((file) => {
       const fileSize = file.size / 1024 / 1024;
@@ -92,7 +96,7 @@ export class ZFileUpload {
     return errors;
   }
   renderTitle() {
-    return (h("h2", { class: "heading-2-sb", id: "title" }, this.mainTitle));
+    return h("span", { id: "title" }, this.mainTitle);
   }
   renderDescription(cssClass) {
     return h("span", { class: cssClass }, this.description);
@@ -114,7 +118,7 @@ export class ZFileUpload {
     return h("span", { class: "body-3" }, fileFormatString || fileWeightString ? finalString : null);
   }
   renderFileSection() {
-    return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("h4", { class: "heading-4-sb" }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
+    return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("span", { class: "heading-4-sb" }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
   }
   renderInput() {
     return (h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));
@@ -127,18 +131,18 @@ export class ZFileUpload {
             e.preventDefault();
             this.input.click();
           }
-        }, id: "fileSelect", variant: this.buttonVariant, icon: "upload", ref: (val) => (this.button = val) }, "Allega"),
+        }, id: "fileSelect", variant: this.buttonVariant, icon: "upload", ref: (val) => (this.button = val) }, this.uploadBtnLabel),
     ];
   }
   renderUploadLink() {
     return [
       this.renderInput(),
-      h("span", { class: "body-1 upload-link-text" }, "Trascinalo qui o", " ", h("span", { tabIndex: 0, class: "body-1-sb upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
+      h("span", { class: "body-1 upload-link-text" }, "Trascina o", " ", h("span", { tabIndex: 0, class: "body-1-sb upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
           if (e.code == "Space" || e.code == "Enter") {
             e.preventDefault();
             this.input.click();
           }
-        }, ref: (val) => (this.uploadLink = val) }, "caricalo"), " ", "dal tuo computer"),
+        }, ref: (val) => (this.uploadLink = val) }, "carica"), " ", "dal tuo computer"),
     ];
   }
   renderDefaultMode() {
@@ -152,13 +156,13 @@ export class ZFileUpload {
   renderDragDropMode() {
     return [
       this.renderFileSection(),
-      h("z-dragdrop-area", null, h("div", { class: "text-container" }, this.renderDescription("body-1"), this.renderUploadLink(), this.renderAllowedFileExtensions())),
+      h("z-dragdrop-area", { "drag-and-drop-label": this.dragAndDropLabel }, h("div", { class: "text-container" }, this.renderDescription("body-1"), this.renderUploadLink(), this.renderAllowedFileExtensions())),
     ];
   }
   formatErrorString(key, value) {
     var _a, _b;
-    const bothErrors = value[0] && value[1] ? ", " : "";
-    return `Il file ${key} ${(_a = value[0]) !== null && _a !== void 0 ? _a : ""}${bothErrors} ${(_b = value[1]) !== null && _b !== void 0 ? _b : ""} e non può quindi essere caricato.`;
+    const bothErrors = value[0] && value[1] ? ", ed " : "";
+    return `Il file ${key} ${(_a = value[0]) !== null && _a !== void 0 ? _a : ""}${bothErrors}${(_b = value[1]) !== null && _b !== void 0 ? _b : ""}.`;
   }
   handleErrorModalContent() {
     return (h("div", { slot: "modalContent" }, h("div", { class: "modal-wrapper" }, h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
@@ -166,7 +170,7 @@ export class ZFileUpload {
     })))));
   }
   render() {
-    return (h(Host, null, h("div", { tabIndex: 0, class: `container ${this.getType()}` }, this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+    return (h(Host, null, h("div", { tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
   }
   static get is() { return "z-file-upload"; }
   static get encapsulation() { return "shadow"; }
@@ -294,6 +298,42 @@ export class ZFileUpload {
         },
         "attribute": "description",
         "reflect": false
+      },
+      "uploadBtnLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "upoload button label"
+        },
+        "attribute": "upload-btn-label",
+        "reflect": false,
+        "defaultValue": "\"allega\""
+      },
+      "dragAndDropLabel": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": true,
+        "docs": {
+          "tags": [],
+          "text": "drag & drop button label"
+        },
+        "attribute": "drag-and-drop-label",
+        "reflect": false,
+        "defaultValue": "\"Rilascia i file in questa area per allegarli.\""
       }
     };
   }

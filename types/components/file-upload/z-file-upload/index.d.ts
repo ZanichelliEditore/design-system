@@ -15,6 +15,10 @@ export declare class ZFileUpload {
   description?: string;
   /** Files added by the user */
   files: File[];
+  /** upoload button label */
+  uploadBtnLabel?: string;
+  /** drag & drop button label */
+  dragAndDropLabel?: string;
   /** List of files not allowed to be uploaded */
   invalidFiles: Map<string, string[]>;
   el: HTMLZFileUploadElement;

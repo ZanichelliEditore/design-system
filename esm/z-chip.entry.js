@@ -19,7 +19,7 @@ const ZChip = class {
         "z-chip-container": true,
         "z-chip-interactive": !!this.interactiveIcon,
         [this.type]: true,
-      }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { name: this.icon }), h("slot", null), this.interactiveIcon && (h("button", { type: "button", onClick: () => this.interactiveIconClick.emit(), onKeyUp: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { class: "interactive-icon", name: this.interactiveIcon })))));
+      }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { name: this.icon }), h("slot", null), this.interactiveIcon && (h("button", { type: "button", onClick: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { class: "interactive-icon", name: this.interactiveIcon })))));
   }
   get el() { return getElement(this); }
 };

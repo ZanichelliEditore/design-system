@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: calc(var(--space-unit) * 2);
 }
 
 :host .modal-wrapper > .files-wrapper {
@@ -47,7 +48,9 @@ input#file-elem {
 
 #title {
   display: inline-block;
-  margin-bottom: var(--space-unit);
+  margin: calc(var(--space-unit) * 2.5) 0 calc(var(--space-unit) * 4);
+  font-size: calc(var(--space-unit) * 3);
+  font-weight: var(--font-sb);
 }
 
 :host > .container > z-button {
@@ -62,6 +65,13 @@ input#file-elem {
 :host > .container > .files-container > .heading-4-sb {
   display: inline-block;
   margin: calc(var(--space-unit) * 3) 0;
+  font-size: calc(var(--space-unit) * 2);
+  font-weight: var(--font-sb);
+}
+
+:host([type="dragdrop"]) > .container > .files-container > .heading-4-sb {
+  margin-top: 0;
+  margin-bottom: calc(var(--space-unit) * 3);
 }
 
 :host > .container > .files-container > .files-wrapper {
@@ -76,9 +86,23 @@ input#file-elem {
   margin-bottom: 0;
 }
 
+:host([type="dragdrop"]) > .container > .files-container > z-divider {
+  margin: calc(var(--space-unit) * 3) 0;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host > .container > z-button {
     align-self: flex-start;
+  }
+
+  :host .modal-wrapper {
+    padding: calc(var(--space-unit) * 3);
+  }
+}
+
+@media only screen and (min-width: 1152px) {
+  :host .modal-wrapper {
+    padding: calc(var(--space-unit) * 4);
   }
 }

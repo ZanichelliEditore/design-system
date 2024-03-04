@@ -264,10 +264,10 @@ export class ZSelect {
       }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
   }
   renderItem(item, key, lastItem) {
-    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("span", { class: {
+    return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("div", { class: "list-element-container" }, item.icon && h("z-icon", { name: item.icon }), h("span", { class: {
         "selected": !!item.selected,
         "list-element-content": true,
-      }, innerHTML: item.name })));
+      }, innerHTML: item.name }))));
   }
   listSizeType() {
     if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
