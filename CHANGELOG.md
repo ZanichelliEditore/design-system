@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.4.0](https://github.com/ZanichelliEditore/design-system/compare/v12.3.0...v12.4.0) (2024-03-04)
+
+
+### Features
+
+* add 'latest' job steps ([55a8a8d](https://github.com/ZanichelliEditore/design-system/commit/55a8a8d6c5d1cfafaa200fb913f24e430f690613))
+* add always auth to .yarnrc ([6684050](https://github.com/ZanichelliEditore/design-system/commit/6684050d9846111b1eeacb48e48d27c0bb0c19c9))
+* add back npm and yarn configuration files ([43e09fb](https://github.com/ZanichelliEditore/design-system/commit/43e09fbca3c3a87e76622962121c4f2878cb23d5))
+* add new develop branch ([600dbbc](https://github.com/ZanichelliEditore/design-system/commit/600dbbcac0e04571367022e8627be0e06a6764c0))
+* add push command ([e290ece](https://github.com/ZanichelliEditore/design-system/commit/e290ecef309a89e88153db23b4abb01e0c92b84a))
+* add script for duplicated commands ([8a62903](https://github.com/ZanichelliEditore/design-system/commit/8a62903109769943ce0fe6597bbd2db3b490f24d))
+* add script on 'latest' job ([feefb25](https://github.com/ZanichelliEditore/design-system/commit/feefb25f7105dde84efb73d4f33ce9327e503b6a))
+* add step to publish an rc to npm ([6232ed3](https://github.com/ZanichelliEditore/design-system/commit/6232ed37849c0a92091f1b9ef1870e6601467e0d))
+* change, package version update test ([85e26af](https://github.com/ZanichelliEditore/design-system/commit/85e26af221788e6d123fc872a308c491ff70dd32))
+* choose job based on user input ([b51e12f](https://github.com/ZanichelliEditore/design-system/commit/b51e12f47eb1bce1c6dba1cbfdfa6338945397e4))
+* config git user ([6fe3ecd](https://github.com/ZanichelliEditore/design-system/commit/6fe3ecd5fd5f543b05e06133e6f924c3c3f34f95))
+* debug ([b2518b5](https://github.com/ZanichelliEditore/design-system/commit/b2518b59fecea22b18f99dfbc987699c7c4ae6d4))
+* debug ([81d140c](https://github.com/ZanichelliEditore/design-system/commit/81d140cfc88a45f409ee46511cbae36c1407206e))
+* debug log ([4d9b8e3](https://github.com/ZanichelliEditore/design-system/commit/4d9b8e37d5cb595ce7347af878af8a1cb74fb97b))
+* fix script path ([facd4e9](https://github.com/ZanichelliEditore/design-system/commit/facd4e9840c7d1033da692382a64bb3111190bb7))
+* remove .npmrc ([1f86466](https://github.com/ZanichelliEditore/design-system/commit/1f864666136532f5e8e5bbd17fe6fda83b7724e2))
+* remove .npmrc, add log ([4fdaeec](https://github.com/ZanichelliEditore/design-system/commit/4fdaeece3b5d5d2c87467e6e4670a7eb0c22ee68))
+* remove .yarnrc ([a18b48d](https://github.com/ZanichelliEditore/design-system/commit/a18b48d2188718816beb9838c2ba1c4062e7683e))
+* remove logs ([5174299](https://github.com/ZanichelliEditore/design-system/commit/5174299db435d5cf5240bcbf90f1b3222d316e93))
+* remove push on remote for rc job ([634aa49](https://github.com/ZanichelliEditore/design-system/commit/634aa493a117b9b5a7902bcafc4f0b0207156f7a))
+* restore rc, publish latest without flags ([7814855](https://github.com/ZanichelliEditore/design-system/commit/78148554fbbd6735d5378b751cb6fad29855548b))
+* set always-auth to false ([32e0671](https://github.com/ZanichelliEditore/design-system/commit/32e0671f2d6ed37016be47b89cbe78d078aa31a6))
+* test --new-version flag with empty value ([96e07c5](https://github.com/ZanichelliEditore/design-system/commit/96e07c5f4c7c2a80e0ef16d68aed527c8657e860))
+* test --new-version flag with valid new package version ([27a4b18](https://github.com/ZanichelliEditore/design-system/commit/27a4b18daec7a585bbe1c116f4c008c304a645e4))
+* test if statements with ref_name ([6be2edb](https://github.com/ZanichelliEditore/design-system/commit/6be2edbd2173a078603e6604500b9925361cf437))
+* test npmrc file ([c66f224](https://github.com/ZanichelliEditore/design-system/commit/c66f2246c806c878a6e618df1158da93de1713b2))
+* test publish without specifing a new version ([9d60b26](https://github.com/ZanichelliEditore/design-system/commit/9d60b264e3b53ac1dc2e3e9e98bdcc68ac25338b))
+* test publish, add log ([e0f25d9](https://github.com/ZanichelliEditore/design-system/commit/e0f25d98a8ae7e61d666325a5ba13f76901b8f72))
+* test removing .yarnrc ([6bdda65](https://github.com/ZanichelliEditore/design-system/commit/6bdda65bc07d24005d31f880b0e81c90b2b5cf1e))
+* use github.ref to select branch and release type ([5e4699d](https://github.com/ZanichelliEditore/design-system/commit/5e4699d7a87ea9e5373d9ac00f16c926ea058856))
+* use user input for rc job ([9017313](https://github.com/ZanichelliEditore/design-system/commit/9017313d2214fd5645109b1d686974cf23ca0912))
+
 ## [12.3.0](https://github.com/ZanichelliEditore/design-system/compare/v12.2.0...v12.3.0) (2024-02-23)
 
 
