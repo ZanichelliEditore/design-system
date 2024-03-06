@@ -62,17 +62,18 @@ z-carousel .z-carousel-items-container > li {
   scroll-snap-align: center;
 }
 
-z-button[data-direction] {
-  --z-icon-width: 32px;
-  --z-icon-height: 32px;
-
+z-carousel .z-carousel-navigation-arrow[data-direction] {
   position: absolute;
   bottom: 50%;
   transform: translateY(50%);
 }
 
-z-button[data-direction="next"] {
+z-carousel .z-carousel-navigation-arrow[data-direction="next"] {
   right: 0;
+}
+
+z-carousel:not([fixed-arrows]) .z-carousel-wrapper .z-carousel-navigation-arrow {
+  display: none;
 }
 
 z-carousel .z-carousel-footer {
@@ -127,4 +128,10 @@ z-carousel .z-carousel-footer .numbers-progress {
 
 z-carousel .z-carousel-footer .numbers-progress .current {
   font-weight: var(--font-sb);
+}
+
+@media (min-width: 768px) {
+  z-carousel:not([fixed-arrows]) .z-carousel-wrapper:hover .z-carousel-navigation-arrow {
+    display: flex;
+  }
 }

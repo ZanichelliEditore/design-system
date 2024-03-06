@@ -39,15 +39,16 @@ z-carousel {
 }
 ```
 
-## Ghost loading notes
+## Ghost loading
 
 You can handle ghost loading for the whole z-carousel by setting two properties:
 
 - `isLoading` (boolean): to show a `z-ghost-loading` component instead of the carousel content.
 - `ghostLoadingHeight` (number): to set the height of the `z-ghost-loading` component.
 
-You can also handle ghost-loading of each single z-carousel item.
-You can see an example of use in the related story.
+You can also handle ghost loading of each single z-carousel item (example in the [related story](#manual-loader-for-items) named "Loading items").
+
+## Slideshow with arrows over
 
 <Canvas>
   <Story
@@ -56,18 +57,22 @@ You can see an example of use in the related story.
       "label": "",
       "--z-carousel-gutter": "var(--space-unit)",
       "infinite": false,
+      "fixedArrows": true,
     }}
   >
     {(args) => html`<z-carousel
       label=${args.label}
       .arrowsPosition=${CarouselArrowsPosition.OVER}
       .infinite=${args.infinite}
+      .fixedArrows=${args.fixedArrows}
       style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
     >
       ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
     </z-carousel>`}
   </Story>
 </Canvas>
+
+## Single mode
 
 <Canvas>
   <Story
@@ -94,6 +99,7 @@ You can see an example of use in the related story.
       progressMode: CarouselProgressMode.DOTS,
       arrowsPosition: CarouselArrowsPosition.BOTTOM,
       infinite: false,
+      fixedArrows: true,
     }}
   >
     {(args) => html`<z-carousel
@@ -102,11 +108,35 @@ You can see an example of use in the related story.
       .progressMode=${args.progressMode}
       .arrowsPosition=${args.arrowsPosition}
       .infinite=${args.infinite}
+      .fixedArrows=${args.fixedArrows}
     >
       ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
     </z-carousel>`}
   </Story>
 </Canvas>
+
+## Ghost loading using `isLoading` and `ghostLoadingHeight` props
+
+<Canvas>
+  <Story
+    name="Ghost loading"
+    args={{
+      label: "Carousel title",
+      ghostLoadingHeight: 265,
+    }}
+    parameters={{
+      controls: {exclude: ["infinite"]},
+    }}
+  >
+    {(args) => html`<z-carousel
+      label=${args.label}
+      .isLoading=${true}
+      .ghostLoadingHeight=${args.ghostLoadingHeight}
+    ></z-carousel>`}
+  </Story>
+</Canvas>
+
+## Manual loader for items
 
 <Canvas>
   <Story
@@ -133,25 +163,6 @@ You can see an example of use in the related story.
         </li>`
       )}
     </z-carousel>`}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story
-    name="Ghost loading"
-    args={{
-      label: "Carousel title",
-      ghostLoadingHeight: 265,
-    }}
-    parameters={{
-      controls: {exclude: ["infinite"]},
-    }}
-  >
-    {(args) => html`<z-carousel
-      label=${args.label}
-      .isLoading=${true}
-      .ghostLoadingHeight=${args.ghostLoadingHeight}
-    ></z-carousel>`}
   </Story>
 </Canvas>
 

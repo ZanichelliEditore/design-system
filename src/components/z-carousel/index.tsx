@@ -34,6 +34,14 @@ export class ZCarousel {
   @Prop()
   progressMode?: CarouselProgressMode;
 
+  /**
+   * Whether the navigation arrow buttons over the items are always visible or only on mouse hover.
+   * If set to `false`, the arrows will not be visible on mobile.
+   * Only meaningful with `arrowsPosition` set to `OVER`.
+   */
+  @Prop({reflect: true})
+  fixedArrows = true;
+
   /** The height of the ghost loader (only visible when `isLoading` is set to `true`) */
   @Prop()
   ghostLoadingHeight = 100;
@@ -251,7 +259,7 @@ export class ZCarousel {
           aria-roledescription="carousel"
           aria-label={this.label || "Carousel"}
         >
-          {this.label && <div class="heading-3-sb z-carousel-title">{this.label}</div>}
+          {this.label && <div class="z-carousel-title heading-3-sb">{this.label}</div>}
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
