@@ -9,45 +9,62 @@ import "./index";
 <Meta
   title="ZCarousel"
   component="z-carousel"
-  argTypes={{
-    arrowsPosition: {
-      control: {
-        type: "inline-radio",
-      },
-      options: Object.values(CarouselArrowsPosition),
-    },
-    progressMode: {
-      control: {
-        type: "inline-radio",
-      },
-      options: Object.values(CarouselProgressMode),
-    },
-  }}
+  decorators={[(Story) => html`<div class="z-carousel-story-container">${Story()}</div>`]}
 />
 
-# ZCarousel
+## ZCarousel
+
+This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
+
+## Usage
+
+Pass any number of elements inside its main `slot`.
+
+```html
+<z-carousel>
+  <li>element</li>
+  <li>element</li>
+  <li>element</li>
+</z-carousel>
+```
+
+> Note: always use `li` elements as direct children of `z-carousel`, as it wraps them with an `ul` element.
+
+You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
+From css:
+
+```css
+z-carousel {
+  --z-carousel-gutter: calc(var(--space-unit) * 2);
+}
+```
+
+## Ghost loading notes
+
+You can handle ghost loading for the whole z-carousel by setting two properties:
+
+- `isLoading` (boolean): to show a `z-ghost-loading` component instead of the carousel content.
+- `ghostLoadingHeight` (number): to set the height of the `z-ghost-loading` component.
+
+You can also handle ghost-loading of each single z-carousel item.
+You can see an example of use in the related story.
 
 <Canvas>
   <Story
-    name="With arrows over"
+    name="Slideshow with arrows over"
     args={{
       "label": "",
       "--z-carousel-gutter": "var(--space-unit)",
-      "arrowsPosition": CarouselArrowsPosition.OVER,
-      "progressMode": CarouselProgressMode.DOTS,
+      "infinite": false,
     }}
   >
     {(args) => html`<z-carousel
       label=${args.label}
-      .arrowsPosition=${args.arrowsPosition}
+      .arrowsPosition=${CarouselArrowsPosition.OVER}
+      .infinite=${args.infinite}
       style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
     >
-      ${repeat(
-        new Array(8),
-        () => html`<li>
-          <div class="carousel-box"></div>
-        </li>`
-      )}
+      ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
     </z-carousel>`}
   </Story>
 </Canvas>
@@ -58,10 +75,25 @@ import "./index";
     parameters={{
       layout: "centered",
     }}
+    argTypes={{
+      arrowsPosition: {
+        control: {
+          type: "inline-radio",
+        },
+        options: Object.values(CarouselArrowsPosition),
+      },
+      progressMode: {
+        control: {
+          type: "inline-radio",
+        },
+        options: Object.values(CarouselProgressMode),
+      },
+    }}
     args={{
       label: "Carousel title",
       progressMode: CarouselProgressMode.DOTS,
       arrowsPosition: CarouselArrowsPosition.BOTTOM,
+      infinite: false,
     }}
   >
     {(args) => html`<z-carousel
@@ -69,13 +101,9 @@ import "./index";
       .single=${true}
       .progressMode=${args.progressMode}
       .arrowsPosition=${args.arrowsPosition}
+      .infinite=${args.infinite}
     >
-      ${repeat(
-        new Array(8),
-        () => html`<li>
-          <div class="carousel-box"></div>
-        </li>`
-      )}
+      ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
     </z-carousel>`}
   </Story>
 </Canvas>
@@ -88,11 +116,12 @@ import "./index";
       "--z-carousel-gutter": "8px",
     }}
     parameters={{
-      controls: {exclude: ["isLoading", "progressMode", "arrowsPosition"]},
+      controls: {exclude: ["infinite"]},
     }}
   >
     {(args) => html`<z-carousel
       label=${args.label}
+      .infinite=${args.infinite}
       style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
     >
       ${repeat(
@@ -112,56 +141,18 @@ import "./index";
     name="Ghost loading"
     args={{
       label: "Carousel title",
-      isLoading: true,
       ghostLoadingHeight: 265,
     }}
     parameters={{
-      controls: {exclude: ["isLoading", "progressMode", "arrowsPosition"]},
+      controls: {exclude: ["infinite"]},
     }}
   >
     {(args) => html`<z-carousel
       label=${args.label}
-      .isLoading=${args.isLoading}
+      .isLoading=${true}
       .ghostLoadingHeight=${args.ghostLoadingHeight}
     ></z-carousel>`}
   </Story>
 </Canvas>
 
 <ArgsTable of="z-carousel" />
-
-## Description
-
-This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
-
-## Usage
-
-Pass any number of elements inside its main `slot`.
-
-```html
-<z-carousel>
-  <li>element</li>
-  <li>element</li>
-  <li>element</li>
-</z-carousel>
-```
-
-> Note: always use `li` elements as direct children of `z-carousel`, as it wraps them into an `ul` element.
-
-You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
-From css:
-
-```css
-z-carousel {
-  --z-carousel-gutter: 16px;
-}
-```
-
-## Ghost loading notes
-
-You can handle ghost loading for the whole z-carousel passing two properties:
-
-- `isLoading` (boolean) : if `true`, it shows z-ghost-loading element.
-- `ghostLoadingHeight` (number): sets the height of the z-carousel ghost loading component.
-
-You can also handle ghost-loading of each single z-carousel element.
-You can see an example of use in the preview above (with story's name as ZCarousel-with-elements-loading).

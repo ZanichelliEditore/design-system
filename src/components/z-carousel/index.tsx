@@ -4,7 +4,7 @@ import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant} from "../..
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.
- * @slot - carousel items. use `<li>` elements inside this slot as it is wrapped inside an `<ul>`
+ * @slot - Carousel items. Use `<li>` elements inside this slot.
  */
 @Component({
   tag: "z-carousel",
@@ -37,6 +37,10 @@ export class ZCarousel {
   /** The height of the ghost loader (only visible when `isLoading` is set to `true`) */
   @Prop()
   ghostLoadingHeight = 100;
+
+  /** When enabled, navigating next the last item will go back to the first item and vice versa. */
+  @Prop()
+  infinite = false;
 
   /** Current item index for single mode. */
   @State()
@@ -81,6 +85,11 @@ export class ZCarousel {
     }
   }
 
+  @Watch("infinite")
+  onInfiniteModeChange(): void {
+    this.checkNavigationValidity();
+  }
+
   /**
    * Set an intersection observer to:
    * - highlight the indicator of the intersecting item during scroll
@@ -89,7 +98,7 @@ export class ZCarousel {
   private setIntersectionObserver(): void {
     this.intersectionObserver = new window.IntersectionObserver(
       (entries) => {
-        const entry = entries.find((entry) => entry.isIntersecting);
+        const entry = entries.find(({isIntersecting}) => isIntersecting);
         if (!entry) {
           return;
         }
@@ -117,36 +126,52 @@ export class ZCarousel {
 
   private onPrev(): void {
     if (this.single) {
-      this.goTo(Math.max(0, this.current - 1));
+      this.goTo(this.infinite && this.current - 1 < 0 ? this.items.length - 1 : Math.max(0, this.current - 1));
 
       return;
     }
 
-    const scroller = this.itemsContainer;
-    scroller?.scrollBy({
-      left: -scroller.clientWidth / 2,
+    this.itemsContainer?.scrollBy({
+      left:
+        this.infinite && this.itemsContainer.scrollLeft == 0
+          ? this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth
+          : -this.itemsContainer.clientWidth / 2,
       behavior: "smooth",
     });
   }
 
   private onNext(): void {
     if (this.single) {
-      this.goTo(Math.min(this.current + 1, this.items.length - 1));
+      const next =
+        this.infinite && this.current + 1 > this.items.length - 1
+          ? 0
+          : Math.min(this.current + 1, this.items.length - 1);
+      this.goTo(next);
 
       return;
     }
 
-    const scroller = this.itemsContainer;
-    scroller?.scrollBy({
-      left: scroller.clientWidth / 2,
+    this.itemsContainer?.scrollBy({
+      left:
+        this.infinite &&
+        this.itemsContainer.scrollLeft == this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth
+          ? -this.itemsContainer.scrollWidth
+          : this.itemsContainer.clientWidth / 2,
       behavior: "smooth",
     });
   }
 
   /**
-   * Check if navigation buttons can be enabled or not and set local states.
+   * Check if navigation buttons can be enabled and set the relative local states.
    */
   private checkNavigationValidity(): void {
+    if (this.infinite) {
+      this.canNavigateNext = true;
+      this.canNavigatePrev = true;
+
+      return;
+    }
+
     if (this.single) {
       this.canNavigatePrev = this.current > 1;
       this.canNavigateNext = this.current < this.items.length - 1;
@@ -158,7 +183,7 @@ export class ZCarousel {
   }
 
   /**
-   * Check if footer can be rendered.
+   * Check if footer has to be rendered.
    */
   private canShowFooter(): boolean {
     return (
@@ -170,9 +195,9 @@ export class ZCarousel {
 
   /**
    * Set current item to passed index.
-   * @param {number} index Index to set
+   * @param index Index to set
    */
-  private goTo(index): void {
+  private goTo(index: number): void {
     if (this.current === index) {
       return;
     }
@@ -230,6 +255,7 @@ export class ZCarousel {
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
+                class="z-carousel-navigation-arrow"
                 variant={ButtonVariant.SECONDARY}
                 data-direction="prev"
                 icon="arrow-left"
@@ -247,6 +273,7 @@ export class ZCarousel {
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
+                class="z-carousel-navigation-arrow"
                 variant={ButtonVariant.SECONDARY}
                 data-direction="next"
                 icon="arrow-right"
@@ -262,6 +289,7 @@ export class ZCarousel {
           <div class="z-carousel-footer">
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
+                class="z-carousel-navigation-arrow"
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-left"
                 onClick={this.onPrev.bind(this)}
@@ -271,14 +299,14 @@ export class ZCarousel {
             )}
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
               <div class="dots-progress">
-                {this.items.map((_item, key) => (
+                {this.items.map((_, index) => (
                   <button
                     type="button"
-                    class={{current: this.highlightedIndicator === key}}
+                    class={{current: this.highlightedIndicator === index}}
                     aria-label={
-                      this.highlightedIndicator === key ? "Elemento corrente" : `Spostati all'elemento ${key + 1}`
+                      this.highlightedIndicator === index ? "Elemento corrente" : `Spostati all'elemento ${index + 1}`
                     }
-                    onClick={() => this.goTo(key)}
+                    onClick={() => this.goTo(index)}
                   />
                 ))}
               </div>
@@ -292,6 +320,7 @@ export class ZCarousel {
             )}
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
+                class="z-carousel-navigation-arrow"
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-right"
                 onClick={this.onNext.bind(this)}

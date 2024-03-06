@@ -80,6 +80,7 @@ z-carousel .z-carousel-footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: var(--space-unit);
   column-gap: calc(var(--space-unit) * 3);
 }
 
@@ -91,7 +92,6 @@ z-carousel .z-carousel-footer .dots-progress {
 }
 
 z-carousel .z-carousel-footer .dots-progress {
-  margin-top: calc(var(--space-unit) * 2);
   column-gap: calc(var(--space-unit) * 3);
 }
 
