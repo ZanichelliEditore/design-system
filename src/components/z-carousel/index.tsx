@@ -1,5 +1,5 @@
 import {Component, h, Prop, Element, Watch, Event, EventEmitter, State, Host} from "@stencil/core";
-import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant, ControlSize} from "../../beans";
+import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant} from "../../beans";
 
 /**
  * ZCarousel component.
@@ -18,23 +18,23 @@ export class ZCarousel {
   @Prop()
   isLoading: boolean;
 
-  /** The z-carousel title, if given. */
+  /** The z-carousel title */
   @Prop()
   label?: string;
 
   /** Shows only one content at a time */
-  @Prop()
+  @Prop({reflect: true})
   single = false;
 
   /** Arrow buttons position */
   @Prop()
   arrowsPosition?: CarouselArrowsPosition;
 
-  /** Progress indicator. Only available for `single` mode */
+  /** Progress indicator type. Only available for `single` mode */
   @Prop()
   progressMode?: CarouselProgressMode;
 
-  /** The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show. */
+  /** The height of the ghost loader (only visible when `isLoading` is set to `true`) */
   @Prop()
   ghostLoadingHeight = 100;
 
@@ -67,7 +67,7 @@ export class ZCarousel {
 
   /** Emitted on index change and only in `single` mode. */
   @Event()
-  indexChange: EventEmitter;
+  indexChange: EventEmitter<{currentItem: number}>;
 
   @Watch("current")
   onIndexChange(): void {
@@ -123,11 +123,7 @@ export class ZCarousel {
     }
 
     const scroller = this.itemsContainer;
-    if (!scroller) {
-      return;
-    }
-
-    scroller.scrollBy({
+    scroller?.scrollBy({
       left: -scroller.clientWidth / 2,
       behavior: "smooth",
     });
@@ -141,11 +137,7 @@ export class ZCarousel {
     }
 
     const scroller = this.itemsContainer;
-    if (!scroller) {
-      return;
-    }
-
-    scroller.scrollBy({
+    scroller?.scrollBy({
       left: scroller.clientWidth / 2,
       behavior: "smooth",
     });
@@ -214,18 +206,15 @@ export class ZCarousel {
     });
   }
 
-  render(): HTMLZCarouselElement {
+  render(): HTMLDivElement | HTMLZCarouselElement {
     if (this.isLoading) {
       return (
-        <Host>
-          {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
+        <div class="z-carousel-container">
+          {this.label && <div class="heading-3-sb z-carousel-title">{this.label}</div>}
           <div style={{height: `${this.ghostLoadingHeight}px`}}>
             <z-ghost-loading></z-ghost-loading>
-            <div class="loading-items-container">
-              <slot />
-            </div>
           </div>
-        </Host>
+        </div>
       );
     }
 
@@ -237,13 +226,13 @@ export class ZCarousel {
           aria-roledescription="carousel"
           aria-label={this.label || "Carousel"}
         >
-          {this.label && <div class="heading-4 z-carousel-title">{this.label}</div>}
+          {this.label && <div class="heading-3-sb z-carousel-title">{this.label}</div>}
           <div class="z-carousel-wrapper">
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
-                size={ControlSize.SMALL}
+                variant={ButtonVariant.SECONDARY}
                 data-direction="prev"
-                icon="chevron-left"
+                icon="arrow-left"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.canNavigatePrev}
                 ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
@@ -258,9 +247,9 @@ export class ZCarousel {
             </ul>
             {this.arrowsPosition === CarouselArrowsPosition.OVER && (
               <z-button
-                size={ControlSize.SMALL}
+                variant={ButtonVariant.SECONDARY}
                 data-direction="next"
-                icon="chevron-right"
+                icon="arrow-right"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.canNavigateNext}
                 ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
@@ -273,9 +262,8 @@ export class ZCarousel {
           <div class="z-carousel-footer">
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
-                size={ControlSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
-                icon="arrow-simple-left-filled"
+                icon="arrow-left"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.canNavigatePrev}
                 ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
@@ -291,9 +279,7 @@ export class ZCarousel {
                       this.highlightedIndicator === key ? "Elemento corrente" : `Spostati all'elemento ${key + 1}`
                     }
                     onClick={() => this.goTo(key)}
-                  >
-                    <z-icon name={this.highlightedIndicator === key ? "white-circle-filled" : "black-circle-filled"} />
-                  </button>
+                  />
                 ))}
               </div>
             )}
@@ -306,9 +292,8 @@ export class ZCarousel {
             )}
             {this.arrowsPosition === CarouselArrowsPosition.BOTTOM && (
               <z-button
-                size={ControlSize.SMALL}
                 variant={ButtonVariant.TERTIARY}
-                icon="arrow-simple-right-filled"
+                icon="arrow-right"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.canNavigateNext}
                 ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
