@@ -6,7 +6,6 @@
   height: 100%;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  visibility: hidden;
 }
 
 .canvas-container {
@@ -26,6 +25,10 @@
 :host([open]) {
   display: flex;
   visibility: visible;
+}
+
+:host(:not([open])) {
+  visibility: hidden;
 }
 
 :host([variant="overlay"]) {
