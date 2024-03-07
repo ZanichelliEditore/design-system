@@ -1,16 +1,7 @@
-import {MockHTMLElement} from "@stencil/core/mock-doc";
 import {newSpecPage} from "@stencil/core/testing";
-
 import {ZModal} from "./index";
 
 describe("Suite test ZModal", () => {
-  beforeAll(() => {
-    // INFO: https://github.com/jsdom/jsdom/issues/3294
-    MockHTMLElement.prototype.show = jest.fn();
-    MockHTMLElement.prototype.showModal = jest.fn();
-    MockHTMLElement.prototype.close = jest.fn();
-  });
-
   it("Test render empty ZModal", async () => {
     const page = await newSpecPage({
       components: [ZModal],
@@ -20,7 +11,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
@@ -50,7 +41,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale">
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container modal-container-scroll-inside" id="modal">
             <header>
               <div>
@@ -82,7 +73,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="true">
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container modal-container-scroll-inside" id="modal">
             <header>
               <div>
@@ -99,7 +90,7 @@ describe("Suite test ZModal", () => {
               <slot name="modalContent"></slot>
             </div>
           </div>
-              <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
+          <div class="modal-background" data-action="modalBackground" data-modal="modal"></div>
         </div>
       </div>
     </dialog>
@@ -116,7 +107,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal modalid="modal" modaltitle="title" modalsubtitle="subtitle" close-button-label="chiudi modale" scroll-inside="false">
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" class="modal-dialog" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" class="modal-dialog" open="true">
           <div class="modal-container modal-container-scroll-outside" id="modal">
             <header>
               <div>
@@ -151,7 +142,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>
@@ -182,7 +173,7 @@ describe("Suite test ZModal", () => {
     expect(page.root).toEqualHtml(`
       <z-modal>
         <mock:shadow-root>
-        <dialog aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
+        <dialog role="dialog" aria-describedby="modal-content" aria-labelledby="modal-title" open="true">
           <div class="modal-container modal-container-scroll-inside">
             <header>
               <div>

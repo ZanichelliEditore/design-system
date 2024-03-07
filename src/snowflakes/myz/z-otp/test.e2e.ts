@@ -1,5 +1,11 @@
 import {newE2EPage} from "@stencil/core/testing";
 
+declare global {
+  interface Window {
+    onOtpChange: (e) => void;
+  }
+}
+
 it("Test ZOtp should emit inputChange event", async () => {
   const page = await newE2EPage();
 
@@ -12,7 +18,7 @@ it("Test ZOtp should emit inputChange event", async () => {
   // Attach an event listener to page to capture a custom event on page load/navigation.
   const type = "otpChange";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       window.onOtpChange({type, detail: e.detail});
     });
   }, type);

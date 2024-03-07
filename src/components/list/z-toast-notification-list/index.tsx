@@ -30,14 +30,15 @@ export class ZToastNotificationList {
   }
 
   componentWillLoad(): void {
-    this.newestontop && this.handleNewestOnTop();
+    if (this.newestontop) {
+      this.handleNewestOnTop();
+    }
   }
 
   private handleNewestOnTop(): void {
     this.notificationArray = Array.from(this.hostElement.children);
     this.hostElement.append(...this.notificationArray.reverse());
-
-    this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
+    this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler.bind(this));
   }
 
   private slotChangeHandler(): void {

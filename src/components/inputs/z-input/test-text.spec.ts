@@ -1,11 +1,11 @@
 import {newSpecPage} from "@stencil/core/testing";
-
 import {ZIcon} from "../../icons/z-icon";
-
 import {ZInput} from "./index";
 
 describe("Suite test ZInput - text", () => {
-  jest.useFakeTimers();
+  jest.useFakeTimers({
+    legacyFakeTimers: true,
+  });
   it("Test render ZInput vuoto", async () => {
     const page = await newSpecPage({
       components: [ZInput],
@@ -17,10 +17,10 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input id="id" class="has-clear-icon" type="text" />
               <span class="icons-wrapper">
-               <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
                 <z-icon class="big" name="multiply"></z-icon>
-               </button>
-             </span>
+                </button>
+              </span>
             </div>
           </div>
       </z-input>
@@ -124,9 +124,9 @@ describe("Suite test ZInput - text", () => {
             <div>
               <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
-               <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
-                 <z-icon class="big" name="multiply"></z-icon>
-               </button>
+                <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
               </span>
             </div>
           </div>
@@ -147,7 +147,7 @@ describe("Suite test ZInput - text", () => {
               <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
-                   <z-icon class="big" name="multiply"></z-icon>
+                    <z-icon class="big" name="multiply"></z-icon>
                 </button>
               </span>
             </div>

@@ -25,6 +25,11 @@
 
 > **[DEPRECATED]** Use a native `<a>` instead.
 
+## Overview
+
+Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+This component uses the `tab` role:
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                                                                                                                                | Type                                                                         | Default                                |

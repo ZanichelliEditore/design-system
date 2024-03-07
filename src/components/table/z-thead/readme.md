@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZThead component.
+
 ## Properties
 
 | Property | Attribute | Description                                                | Type      | Default |
