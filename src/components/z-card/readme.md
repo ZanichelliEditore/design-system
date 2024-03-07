@@ -68,6 +68,17 @@ ZCard component.
 | `variant`    | `variant`     | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariant.BORDER \| CardVariant.OVERLAY \| CardVariant.SHADOW \| CardVariant.TEXT` | `undefined` |
 
 
+## Slots
+
+| Slot         | Description  |
+| ------------ | ------------ |
+| `"action"`   | Actions      |
+| `"cover"`    | Image cover  |
+| `"metadata"` | Metadata     |
+| `"text"`     | Text content |
+| `"title"`    | Title        |
+
+
 ## Dependencies
 
 ### Depends on
