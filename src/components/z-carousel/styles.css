@@ -81,8 +81,11 @@ z-carousel .z-carousel-footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: var(--space-unit);
   column-gap: calc(var(--space-unit) * 3);
+}
+
+z-carousel[arrows-position="bottom"] .z-carousel-footer {
+  margin-top: calc(var(--space-unit) * 0.75);
 }
 
 z-carousel .z-carousel-footer .numbers-progress,
@@ -94,6 +97,10 @@ z-carousel .z-carousel-footer .dots-progress {
 
 z-carousel .z-carousel-footer .dots-progress {
   column-gap: calc(var(--space-unit) * 3);
+}
+
+z-carousel:not([arrows-position="bottom"]) .z-carousel-footer .dots-progress {
+  margin-top: calc(var(--space-unit) * 2);
 }
 
 z-carousel .z-carousel-footer .dots-progress button {
@@ -122,8 +129,11 @@ z-carousel .z-carousel-footer .dots-progress button:not(.current) {
 }
 
 z-carousel .z-carousel-footer .numbers-progress {
-  margin: 0 calc(var(--space-unit) / 2);
   column-gap: calc(var(--space-unit) / 2);
+}
+
+z-carousel:not([arrows-position="bottom"]) .z-carousel-footer .numbers-progress {
+  margin-top: var(--space-unit);
 }
 
 z-carousel .z-carousel-footer .numbers-progress .current {

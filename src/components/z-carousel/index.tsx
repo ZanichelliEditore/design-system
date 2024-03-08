@@ -27,7 +27,7 @@ export class ZCarousel {
   single = false;
 
   /** Arrow buttons position */
-  @Prop()
+  @Prop({reflect: true})
   arrowsPosition?: CarouselArrowsPosition;
 
   /** Progress indicator type. Only available for `single` mode */
@@ -320,7 +320,7 @@ export class ZCarousel {
               </div>
             )}
             {this.progressMode === CarouselProgressMode.NUMBERS && this.single && this.items && (
-              <div class="numbers-progress interactive-3">
+              <div class="numbers-progress interactive-1">
                 <span class="current">{this.current + 1}</span>
                 <span>di</span>
                 <span>{this.items.length}</span>
