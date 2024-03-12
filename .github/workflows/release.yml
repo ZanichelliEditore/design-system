@@ -26,7 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current Github user
-        run: echo ${{github.actor}}
+        run: echo ${{ github.actor }}
+      - name: Commit di prova
+        run: "git commit --allow-empty -m 'fix: commit di prova'"
+      - name: Push
+        run: git push
       # - uses: actions/checkout@master
       # - name: Prepare package
       #   run: |
