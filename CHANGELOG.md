@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.4.1](https://github.com/ZanichelliEditore/design-system/compare/v12.4.0...v12.4.1) (2024-03-12)
+
+
+### Bug Fixes
+
+* select border color ([83878c2](https://github.com/ZanichelliEditore/design-system/commit/83878c270ee6540dd44049601893287e40ebebdc))
+* z-card blocks display; add slots docs ([526107c](https://github.com/ZanichelliEditore/design-system/commit/526107c523feaecd0ac9ce5b23c8c790dff54b1a))
+* z-offcanvas increased css specificity handle unmount ([3fd518e](https://github.com/ZanichelliEditore/design-system/commit/3fd518ee32ae1e26e9abf6d8d4a00d48428abce5))
+
 ## [12.4.0](https://github.com/ZanichelliEditore/design-system/compare/v12.3.0...v12.4.0) (2024-03-04)
 
 
