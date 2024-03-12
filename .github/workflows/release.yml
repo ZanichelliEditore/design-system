@@ -28,7 +28,10 @@ jobs:
       - name: Print current Github user
         run: echo ${{ github.actor }}
       - uses: actions/checkout@master
+      - run: git config --global user.name "${GITHUB_ACTOR}"
+      - run: git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
       - run: git checkout ${{ github.ref_name }}
+      - run: git pull
       - name: Commit di prova
         run: "git commit --allow-empty -m 'fix: commit di prova'"
       - name: Push
