@@ -9,10 +9,10 @@ import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant} from "../..
 @Component({
   tag: "z-carousel",
   styleUrl: "styles.css",
-  shadow: false,
+  shadow: true,
 })
 export class ZCarousel {
-  @Element() hostElement: HTMLZCarouselElement;
+  @Element() host: HTMLZCarouselElement;
 
   /** The z-carousel is on loading state */
   @Prop()
@@ -69,10 +69,13 @@ export class ZCarousel {
   canNavigateNext: boolean;
 
   /** Reference for the items container element. */
-  private itemsContainer: HTMLUListElement;
+  protected itemsContainer: HTMLUListElement;
 
   /** Observer that handles current index change when scrolling on single mode. */
   private intersectionObserver: IntersectionObserver;
+
+  /** Observer to check if navigation can still be enabled/showed when the size of the items' container changes */
+  private resizeObserver: ResizeObserver;
 
   /** Flag indicating the items container is about to scroll programmatically towards the stored index. */
   private scrollingTo: number = null;
@@ -104,7 +107,7 @@ export class ZCarousel {
    * - set the current item to the last intersecting item
    */
   private setIntersectionObserver(): void {
-    this.intersectionObserver = new window.IntersectionObserver(
+    this.intersectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries.find(({isIntersecting}) => isIntersecting);
         if (!entry) {
@@ -132,6 +135,14 @@ export class ZCarousel {
     this.items.forEach((element) => this.intersectionObserver.observe(element));
   }
 
+  /** Update items' list and check conditions to allow navigation */
+  private onSlotChange(): void {
+    this.items = Array.from(this.host.children) as HTMLLIElement[];
+    this.checkNavigationValidity();
+    this.setIntersectionObserver();
+    this.goTo(this.current);
+  }
+
   private onPrev(): void {
     if (this.single) {
       this.goTo(this.infinite && this.current - 1 < 0 ? this.items.length - 1 : Math.max(0, this.current - 1));
@@ -139,7 +150,7 @@ export class ZCarousel {
       return;
     }
 
-    this.itemsContainer?.scrollBy({
+    this.itemsContainer.scrollBy({
       left:
         this.infinite && this.itemsContainer.scrollLeft == 0
           ? this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth
@@ -154,12 +165,11 @@ export class ZCarousel {
         this.infinite && this.current + 1 > this.items.length - 1
           ? 0
           : Math.min(this.current + 1, this.items.length - 1);
-      this.goTo(next);
 
-      return;
+      return this.goTo(next);
     }
 
-    this.itemsContainer?.scrollBy({
+    this.itemsContainer.scrollBy({
       left:
         this.infinite &&
         this.itemsContainer.scrollLeft == this.itemsContainer.scrollWidth - this.itemsContainer.clientWidth
@@ -194,6 +204,10 @@ export class ZCarousel {
    * Check if footer has to be rendered.
    */
   private canShowFooter(): boolean {
+    if (!this.canNavigatePrev && !this.canNavigateNext) {
+      return false;
+    }
+
     return (
       this.arrowsPosition === CarouselArrowsPosition.BOTTOM ||
       this.progressMode === CarouselProgressMode.DOTS ||
@@ -211,32 +225,41 @@ export class ZCarousel {
     }
 
     this.scrollingTo = index;
+    const left = this.items.slice(0, index).reduce((acc, item) => (acc += item.clientWidth), 0);
+    console.log(left);
     // the scroll will trigger the IntersectionObserver and set the current item
     this.itemsContainer.scroll({
-      left: this.items[index].offsetLeft,
+      left,
       behavior: "smooth",
     });
   }
 
-  componentDidLoad(): void {
-    this.itemsContainer = this.hostElement.querySelector(".z-carousel-items-container");
-    if (!this.itemsContainer) {
-      return;
-    }
+  /** Check if navigation of at least one direction is enabled */
+  private get canNavigate(): boolean {
+    return this.canNavigatePrev || this.canNavigateNext;
+  }
 
-    this.items = Array.from(this.itemsContainer.querySelectorAll(":scope > li"));
-
-    if (this.single) {
-      this.setIntersectionObserver();
-    }
-
-    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
-    this.checkNavigationValidity();
-
+  private setupItems(): void {
+    this.items = Array.from(this.host.children) as HTMLLIElement[];
     this.items.forEach((item) => {
       item.setAttribute("role", "group");
       item.setAttribute("aria-roledescription", "slide");
     });
+  }
+
+  componentDidLoad(): void {
+    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
+    this.resizeObserver.observe(this.itemsContainer);
+    this.setupItems();
+    if (this.single) {
+      this.setIntersectionObserver();
+    }
+    this.checkNavigationValidity();
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver?.disconnect();
   }
 
   render(): HTMLDivElement | HTMLZCarouselElement {
@@ -261,35 +284,34 @@ export class ZCarousel {
         >
           {this.label && <div class="z-carousel-title heading-3-sb">{this.label}</div>}
           <div class="z-carousel-wrapper">
-            {this.arrowsPosition === CarouselArrowsPosition.OVER && (
-              <z-button
-                class="z-carousel-navigation-arrow"
-                variant={ButtonVariant.SECONDARY}
-                data-direction="prev"
-                icon="arrow-left"
-                onClick={this.onPrev.bind(this)}
-                disabled={!this.canNavigatePrev}
-                ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
-              />
-            )}
+            <z-button
+              class="z-carousel-navigation-arrow"
+              variant={ButtonVariant.SECONDARY}
+              data-direction="prev"
+              icon="arrow-left"
+              onClick={this.onPrev.bind(this)}
+              disabled={!this.canNavigatePrev}
+              hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
+              ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
+            />
             <ul
               class="z-carousel-items-container"
               aria-atomic="false"
               aria-live="polite"
+              ref={(el) => (this.itemsContainer = el)}
             >
-              <slot />
+              <slot onSlotchange={this.onSlotChange.bind(this)} />
             </ul>
-            {this.arrowsPosition === CarouselArrowsPosition.OVER && (
-              <z-button
-                class="z-carousel-navigation-arrow"
-                variant={ButtonVariant.SECONDARY}
-                data-direction="next"
-                icon="arrow-right"
-                onClick={this.onNext.bind(this)}
-                disabled={!this.canNavigateNext}
-                ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
-              />
-            )}
+            <z-button
+              class="z-carousel-navigation-arrow"
+              variant={ButtonVariant.SECONDARY}
+              data-direction="next"
+              icon="arrow-right"
+              onClick={this.onNext.bind(this)}
+              disabled={!this.canNavigateNext}
+              hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
+              ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
+            />
           </div>
         </div>
 

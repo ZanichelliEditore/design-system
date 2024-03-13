@@ -58,6 +58,7 @@ You can also handle ghost loading of each single z-carousel item (example in the
       "--z-carousel-gutter": "var(--space-unit)",
       "infinite": false,
       "fixedArrows": true,
+      "itemsCount": 8,
     }}
   >
     {(args) => html`<z-carousel
@@ -67,7 +68,11 @@ You can also handle ghost loading of each single z-carousel item (example in the
       .fixedArrows=${args.fixedArrows}
       style="--z-carousel-gutter: ${args["--z-carousel-gutter"]}"
     >
-      ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
+      ${repeat(
+        [...new Array(args.itemsCount)].map((_, i) => i),
+        (i) => i,
+        (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`
+      )}
     </z-carousel>`}
   </Story>
 </Canvas>
@@ -100,6 +105,7 @@ You can also handle ghost loading of each single z-carousel item (example in the
       arrowsPosition: CarouselArrowsPosition.BOTTOM,
       infinite: false,
       fixedArrows: true,
+      itemsCount: 8,
     }}
   >
     {(args) => html`<z-carousel
@@ -110,7 +116,11 @@ You can also handle ghost loading of each single z-carousel item (example in the
       .infinite=${args.infinite}
       .fixedArrows=${args.fixedArrows}
     >
-      ${repeat(new Array(8), (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`)}
+      ${repeat(
+        [...new Array(args.itemsCount)].map((_, i) => i),
+        (i) => i,
+        (_, index) => html`<li><div class="carousel-box">${index + 1}</div></li>`
+      )}
     </z-carousel>`}
   </Story>
 </Canvas>
