@@ -352,19 +352,22 @@ export class ZSearchbar {
         clickable
         onClickItem={() => this.emitSearchItemClick(item)}
       >
-        <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
-          {item?.icon && (
-            <z-icon
-              class="item-icon"
-              name={item.icon}
+        <div class="list-element">
+          <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
+            {item?.icon && (
+              <z-icon
+                class="item-icon"
+                name={item.icon}
+              />
+            )}
+            <span
+              class="item-label"
+              title={item.label}
+              innerHTML={this.renderItemLabel(item.label)}
             />
-          )}
-          <span
-            class="item-label"
-            title={item.label}
-            innerHTML={this.renderItemLabel(item.label)}
-          />
-        </span>
+          </span>
+          {item?.tag && <z-tag icon={item.tag.icon}>{item.tag.text}</z-tag>}
+        </div>
       </z-list-element>
     );
   }
