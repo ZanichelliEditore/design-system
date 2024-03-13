@@ -226,7 +226,6 @@ export class ZCarousel {
 
     this.scrollingTo = index;
     const left = this.items.slice(0, index).reduce((acc, item) => (acc += item.clientWidth), 0);
-    console.log(left);
     // the scroll will trigger the IntersectionObserver and set the current item
     this.itemsContainer.scroll({
       left,
