@@ -1,0 +1,17 @@
+name: Create release and notes on GitHub
+on:
+  push:
+    tags:
+      - "v*"
+      - "test-*"
+jobs:
+  create_github_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to master
+        uses: actions/checkout@master
+      - run: echo ${{ github.ref }}
+    #   - name: Create release with notes
+    #     run: gh release create ${{ github.ref }} --draft --generate-notes
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
