@@ -34,7 +34,7 @@ jobs:
       - name: Push
         run: git push origin test-1
       - name: Create release with notes
-        run: gh release create --draft --generate-notes
+        run: gh release create test-1 --draft --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - uses: actions/setup-node@v3
