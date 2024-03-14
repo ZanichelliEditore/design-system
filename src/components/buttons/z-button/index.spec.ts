@@ -51,7 +51,7 @@ describe("Suite test ZButton", () => {
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary" icon="icon">
         <button aria-label="" type="button" class="z-button--container">
-          <z-icon name="icon" height="16" width="16"></z-icon>
+          <z-icon name="icon"></z-icon>
         </button>
       </z-button>
     `);

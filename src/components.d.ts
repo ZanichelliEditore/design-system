@@ -409,19 +409,27 @@ export namespace Components {
          */
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
-          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
+         */
+        "fixedArrows": boolean;
+        /**
+          * The height of the ghost loader (only visible when `isLoading` is set to `true`)
          */
         "ghostLoadingHeight": number;
+        /**
+          * When enabled, navigating next the last item will go back to the first item and vice versa.
+         */
+        "infinite": boolean;
         /**
           * The z-carousel is on loading state
          */
         "isLoading": boolean;
         /**
-          * The z-carousel title, if given.
+          * The z-carousel title
          */
         "label"?: string;
         /**
-          * Progress indicator. Only available for `single` mode
+          * Progress indicator type. Only available for `single` mode
          */
         "progressMode"?: CarouselProgressMode;
         /**
@@ -2645,7 +2653,7 @@ declare global {
         new (): HTMLZCardElement;
     };
     interface HTMLZCarouselElementEventMap {
-        "indexChange": any;
+        "indexChange": {currentItem: number};
     }
     /**
      * ZCarousel component.
@@ -4263,23 +4271,31 @@ declare namespace LocalJSX {
          */
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
-          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
+         */
+        "fixedArrows"?: boolean;
+        /**
+          * The height of the ghost loader (only visible when `isLoading` is set to `true`)
          */
         "ghostLoadingHeight"?: number;
+        /**
+          * When enabled, navigating next the last item will go back to the first item and vice versa.
+         */
+        "infinite"?: boolean;
         /**
           * The z-carousel is on loading state
          */
         "isLoading"?: boolean;
         /**
-          * The z-carousel title, if given.
+          * The z-carousel title
          */
         "label"?: string;
         /**
           * Emitted on index change and only in `single` mode.
          */
-        "onIndexChange"?: (event: ZCarouselCustomEvent<any>) => void;
+        "onIndexChange"?: (event: ZCarouselCustomEvent<{currentItem: number}>) => void;
         /**
-          * Progress indicator. Only available for `single` mode
+          * Progress indicator type. Only available for `single` mode
          */
         "progressMode"?: CarouselProgressMode;
         /**
