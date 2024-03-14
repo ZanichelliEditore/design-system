@@ -29,14 +29,13 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - name: Commit di prova
-        run: git tag test-1
-      - name: Push
-        run: git push origin test-1
-      - name: Create release with notes
-        run: gh release create test-1 --draft --generate-notes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Standard version
+        run: OUTPUT=$(yarn release --release-as ${{ inputs.version_type }})
+      - run: echo OUTPUT
+      # - name: Create release with notes
+      #   run: gh release create test-1 --draft --generate-notes
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - uses: actions/setup-node@v3
       #   with:
       #     node-version: "20.x"
