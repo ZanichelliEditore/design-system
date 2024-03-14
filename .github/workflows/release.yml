@@ -40,8 +40,13 @@ jobs:
       - name: Standard version
         run: |
           yarn release --release-as ${{ inputs.version_type }}
-      - run: |
-          cat package.json | grep "\"version\": " | grep "[0-9]*\.[0-9]*\.[0-9]*"
+      # - run: |
+      #     echo "OUTPUT=`cat package.json | grep "\"version\": " | grep -o "[0-9]*\.[0-9]*\.[0-9]*"`" >> "$GITHUB_OUTPUT"
+      - name: Create release with notes
+        run: |
+          cat package.json | grep "\"version\": " | grep -o "[0-9]*\.[0-9]*\.[0-9]*" | gh release create {} --draft --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Create release with notes
       #   run: gh release create test-1 --draft --generate-notes
       #   env:
