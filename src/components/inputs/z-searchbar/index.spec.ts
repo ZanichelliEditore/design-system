@@ -2,6 +2,12 @@ import {newSpecPage} from "@stencil/core/testing";
 
 import {ZSearchbar} from "./index";
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
 describe("Suite test ZSearchbar", () => {
   it("Simple searchbar", async () => {
     const page = await newSpecPage({
@@ -141,10 +147,12 @@ describe("Suite test ZSearchbar", () => {
                       dividerType="element"
                       clickable
                     >
+                    <div class="list-element">
                       <span class="item ellipsis">
                         <z-icon class="item-icon" name="download"></z-icon>
                         <span class="item-label" title="item 1"><mark>item</mark> 1</span>
                       </span>
+                    </div>
                     </z-list-element>
                   </z-list-group>
                   ${showAllResults()}
@@ -345,10 +353,12 @@ const resultsItems = () => `
       dividerType="element"
       clickable
     >
+    <div class="list-element">
       <span class="item ellipsis">
         <z-icon class="item-icon" name="download"></z-icon>
         <span class="item-label" title="item 1"><mark>item</mark> 1</span>
       </span>
+    </div>
     </z-list-element>
     <z-list-element
       id="list-item-my-id-1"
@@ -357,9 +367,11 @@ const resultsItems = () => `
       dividerType="element"
       clickable
     >
+    <div class="list-element">
       <span class="item ellipsis">
         <span class="item-label" title="item 2"><mark>item</mark> 2</span>
       </span>
+    </div>
     </z-list-element>
     <z-list-element
       id="list-item-my-id-2"
@@ -367,9 +379,11 @@ const resultsItems = () => `
       tabindex="0"
       clickable
     >
+    <div class="list-element">
       <span class="item ellipsis">
         <span class="item-label" title="item 3"><mark>item</mark> 3</span>
       </span>
+    </div>
     </z-list-element>
   </z-list-group>`;
 
