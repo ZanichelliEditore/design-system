@@ -40,6 +40,7 @@ jobs:
       - name: Standard version
         run: |
           yarn release --release-as ${{ inputs.version_type }}
+          git push --follow-tags
       # - name: Save version number
       #   id: version-output
       #   run: |
