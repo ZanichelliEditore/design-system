@@ -85,6 +85,8 @@
 
 .results z-list-element > .list-element > z-tag {
   border: 1px solid var(--gray800);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
 
   --z-tag-bg: white;
   --z-tag-text-color: var(--color-text01);
