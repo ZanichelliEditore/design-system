@@ -31,7 +31,8 @@ jobs:
           bash ./scripts/pre-release.sh
       - name: Standard version
         id: version-output
-        run: echo "OUTPUT=`yarn release --release-as ${{ inputs.version_type }}`" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "OUTPUT=`yarn release --release-as ${{ inputs.version_type }}`" >> "$GITHUB_OUTPUT"
       - name: Echo output
         env:
           OUTPUT: ${{ steps.version-output.outputs.OUTPUT }}
