@@ -31,7 +31,7 @@ jobs:
           bash ./scripts/pre-release.sh
       - name: Standard version
         run: OUTPUT=$(yarn release --release-as ${{ inputs.version_type }})
-      - run: echo OUTPUT
+      - run: echo "${OUTPUT}"
       # - name: Create release with notes
       #   run: gh release create test-1 --draft --generate-notes
       #   env:
