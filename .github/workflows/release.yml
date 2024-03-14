@@ -29,59 +29,36 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      # - name: Standard version
-      #   id: version-output
-      #   run: |
-      #     echo "OUTPUT=`yarn release --release-as ${{ inputs.version_type }}`" >> "$GITHUB_OUTPUT"
-      # - name: Echo output
-      #   env:
-      #     OUTPUT: ${{ steps.version-output.outputs.OUTPUT }}
-      #   run: echo "$OUTPUT"
-      - name: Standard version
-        run: |
-          yarn release --release-as ${{ inputs.version_type }}
-          git push --follow-tags
-      # - name: Save version number
-      #   id: version-output
-      #   run: |
-      #     echo "VERSION_NUMBER=`cat package.json | grep "\"version\": " | grep -o "[0-9]*\.[0-9]*\.[0-9]*"`" >> "${GITHUB_OUTPUT}"
-      # - name: Echo output
-      #   env:
-      #     VERSION_NUMBER: ${{ steps.version-output.outputs.VERSION_NUMBER }}
-      #   run: echo "${VERSION_NUMBER}"
-      - name: Create release with notes
-        run: bash ./scripts/release-notes.sh
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+          always-auth: true
+      - name: Publish to npm
+        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: gh release create test-1 --draft --generate-notes
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "20.x"
-      #     registry-url: "https://registry.npmjs.org"
-      #     always-auth: true
-      # - name: Publish to npm
-      #   run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      # - name: Prepare package
-      #   run: bash ./scripts/pre-release.sh
-      # - name: Standard version
-      #   run: |
-      #     yarn release --release-as ${{ inputs.version_type }}
-      #     git push --follow-tags origin master
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "20.x"
-      #     registry-url: "https://registry.npmjs.org"
-      #     always-auth: true
-      # - name: Publish to npm
-      #   run: yarn publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Prepare package
+        run: bash ./scripts/pre-release.sh
+      - name: Standard version
+        run: |
+          yarn release --release-as ${{ inputs.version_type }}
+          git push --follow-tags origin master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+          always-auth: true
+      - name: Publish to npm
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create release with notes
+        run: bash ./scripts/release-notes.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
