@@ -50,6 +50,8 @@ jobs:
       #   run: echo "${VERSION_NUMBER}"
       - name: Create release with notes
         run: bash ./scripts/release-notes.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: gh release create test-1 --draft --generate-notes
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
