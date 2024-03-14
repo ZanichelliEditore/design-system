@@ -43,11 +43,11 @@ jobs:
       - name: Save version number
         id: version-output
         run: |
-          echo "OUTPUT=`cat package.json | grep "\"version\": " | grep -o "[0-9]*\.[0-9]*\.[0-9]*"`" >> "$GITHUB_OUTPUT"
+          echo "VERSION_NUMBER=`cat package.json | grep "\"version\": " | grep -o "[0-9]*\.[0-9]*\.[0-9]*"`" >> "${GITHUB_OUTPUT}"
       - name: Echo output
         env:
-          OUTPUT: ${{ steps.version-output.outputs.OUTPUT }}
-        run: echo "$OUTPUT"
+          VERSION_NUMBER: ${{ steps.version-output.outputs.VERSION_NUMBER }}
+        run: echo "${VERSION_NUMBER}"
       # - name: Create release with notes
       #   run: gh release create test-1 --draft --generate-notes
       #   env:
