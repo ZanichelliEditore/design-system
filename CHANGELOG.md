@@ -2,13 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### 12.1.4 (2024-03-14)
-
-
-### Features
-
-* add push tag ([deb1d84](https://github.com/ZanichelliEditore/design-system/commit/deb1d844400c672f05dcf19bb02db7b4f81240cc))
-
 ### [12.1.3](https://github.com/ZanichelliEditore/design-system/compare/v12.1.2...v12.1.3) (2024-02-13)
 
 ### [12.1.2](https://github.com/ZanichelliEditore/design-system/compare/v12.1.1...v12.1.2) (2024-02-05)
