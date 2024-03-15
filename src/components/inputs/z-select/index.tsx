@@ -475,13 +475,16 @@ export class ZSelect {
         onClickItem={() => this.selectItem(item, true)}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
-        <span
-          class={{
-            "selected": !!item.selected,
-            "list-element-content": true,
-          }}
-          innerHTML={item.name}
-        />
+        <div class="list-element-container">
+          {item.icon && <z-icon name={item.icon} />}
+          <span
+            class={{
+              "selected": !!item.selected,
+              "list-element-content": true,
+            }}
+            innerHTML={item.name}
+          />
+        </div>
       </z-list-element>
     );
   }

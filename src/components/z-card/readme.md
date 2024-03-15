@@ -54,6 +54,10 @@ The width of the card must be set externally, respecting the grid indication of 
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZCard component.
+
 ## Properties
 
 | Property     | Attribute     | Description                                                                                                 | Type                                                                                  | Default     |
@@ -62,6 +66,17 @@ The width of the card must be set externally, respecting the grid indication of 
 | `coverIcon`  | `cover-icon`  | Name of the icon to place over the image cover                                                              | `string`                                                                              | `undefined` |
 | `showShadow` | `show-shadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                             | `false`     |
 | `variant`    | `variant`     | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariant.BORDER \| CardVariant.OVERLAY \| CardVariant.SHADOW \| CardVariant.TEXT` | `undefined` |
+
+
+## Slots
+
+| Slot         | Description  |
+| ------------ | ------------ |
+| `"action"`   | Actions      |
+| `"cover"`    | Image cover  |
+| `"metadata"` | Metadata     |
+| `"text"`     | Text content |
+| `"title"`    | Title        |
 
 
 ## Dependencies

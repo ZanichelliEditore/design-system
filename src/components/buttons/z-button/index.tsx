@@ -77,13 +77,7 @@ export class ZButton {
           href={this.href}
           target={this.target}
         >
-          {this.icon && (
-            <z-icon
-              name={this.icon}
-              width={16}
-              height={16}
-            />
-          )}
+          {this.icon && <z-icon name={this.icon} />}
           <slot />
         </a>
       );
@@ -98,13 +92,7 @@ export class ZButton {
         role={this.role}
         disabled={this.disabled}
       >
-        {this.icon && (
-          <z-icon
-            name={this.icon}
-            width={16}
-            height={16}
-          />
-        )}
+        {this.icon && <z-icon name={this.icon} />}
         <slot />
       </button>
     );

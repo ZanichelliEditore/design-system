@@ -50,7 +50,6 @@ export class ZChip {
           <button
             type="button"
             onClick={() => this.interactiveIconClick.emit()}
-            onKeyUp={() => this.interactiveIconClick.emit()}
             aria-label={this.ariaLabel}
             disabled={this.disabled}
           >

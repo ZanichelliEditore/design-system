@@ -77,7 +77,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 ::slotted([slot="metadata"]),
 ::slotted([slot="title"]),
 ::slotted([slot="text"]) {
-  display: box;
+  display: -webkit-inline-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
 }

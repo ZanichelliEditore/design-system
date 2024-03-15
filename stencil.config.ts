@@ -7,7 +7,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
-      esmLoaderPath: "../loader",
+      polyfills: true,
     },
     reactOutputTarget({
       componentCorePackage: require("./package.json").name,
@@ -17,16 +17,22 @@ export const config: Config = {
       type: "docs-readme",
     },
     {
-      type: "docs-vscode", // output for Storybook documentation
+      type: "docs-vscode",
       file: "custom-elements.json",
+      sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
     },
     {
       type: "www",
       serviceWorker: null, // disable service workers
       copy: [{src: "pages"}],
     },
+    {
+      type: "dist-custom-elements",
+      customElementsExportBehavior: "single-export-module",
+    },
   ],
   extras: {
-    experimentalImportInjection: true,
+    enableImportInjection: true,
+    experimentalSlotFixes: true,
   },
 };

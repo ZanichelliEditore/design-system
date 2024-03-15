@@ -1,5 +1,4 @@
 :host {
-  margin-top: calc(var(--space-unit) * 3);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -9,6 +8,7 @@
   display: flex;
   height: 228px;
   flex-direction: column;
+  padding: calc(var(--space-unit) * 2);
   border-color: var(--color-surface04);
   background-color: var(--color-surface02);
 

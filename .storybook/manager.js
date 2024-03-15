@@ -4,5 +4,7 @@ import theme from "./theme";
 addons.setConfig({
   theme,
   enableShortcuts: false,
-  showRoots: false,
+  sidebar: {
+    showRoots: false,
+  },
 });

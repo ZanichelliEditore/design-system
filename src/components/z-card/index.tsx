@@ -10,6 +10,11 @@ import {CardVariant} from "../../beans";
  * @cssprop --z-card--text-border-radius - Default: `none`
  * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
  * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+ * @slot cover - Image cover
+ * @slot metadata - Metadata
+ * @slot title - Title
+ * @slot text - Text content
+ * @slot action - Actions
  */
 @Component({
   tag: "z-card",

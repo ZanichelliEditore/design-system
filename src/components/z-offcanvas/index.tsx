@@ -43,15 +43,17 @@ export class ZOffcanvas {
       this.skipLoadAnimation = false;
     }
 
-    if (this.open) {
-      this.handlePageOverflow();
-    }
+    this.handlePageOverflow();
     this.canvasOpenStatusChanged.emit(this.open);
   }
 
   private handlePageOverflow(): void {
     const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
     document.body.style[overflow] = this.open ? "hidden" : "";
+  }
+
+  disconnectedCallback(): void {
+    this.open = false;
   }
 
   render(): HTMLZOffcanvasElement {

@@ -189,6 +189,7 @@ export type SelectItem = {
   id: string;
   name: string;
   selected: boolean;
+  icon?: string;
   disabled?: boolean;
   category?: string;
 };

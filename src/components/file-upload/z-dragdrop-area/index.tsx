@@ -1,4 +1,4 @@
-import {Component, h, Event, EventEmitter} from "@stencil/core";
+import {Component, h, Event, EventEmitter, Prop} from "@stencil/core";
 
 @Component({
   tag: "z-dragdrop-area",
@@ -6,6 +6,10 @@ import {Component, h, Event, EventEmitter} from "@stencil/core";
   shadow: true,
 })
 export class ZDragdropArea {
+  /** drag & drop button label */
+  @Prop()
+  dragAndDropLabel: string;
+
   /** Emitted when user drop one or more files */
   @Event()
   fileDropped: EventEmitter;
@@ -20,7 +24,7 @@ export class ZDragdropArea {
     return (
       <div class="dragover-container">
         <div class="dragover-message">
-          <span class="body-2-sb">Rilascia i file in questa area per allegarli.</span>
+          <span class="body-2-sb">{this.dragAndDropLabel}</span>
         </div>
       </div>
     );

@@ -18,12 +18,11 @@ it("Test ZInput should emit inputChange event", async () => {
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputChange";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
-  }, type);
+  }, "inputChange");
 
   await page.setContent(`<z-input></z-input>`);
   const input = await page.find("z-input div input");
@@ -49,12 +48,11 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputChange";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       (window as CustomWindow).onInputChange({type, detail: e.detail});
     });
-  }, type);
+  }, "inputChange");
 
   await page.setContent(`<z-input disabled></z-input>`);
   const input = await page.find("z-input div input");
@@ -130,15 +128,11 @@ it("Test ZInput checkbox should emit inputCheck event", async () => {
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputCheck";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
-      (window as CustomWindow).onInputCheck({
-        type,
-        detail: e.detail,
-      });
+    document.addEventListener(type, (e: CustomEvent) => {
+      (window as CustomWindow).onInputCheck({type, detail: e.detail});
     });
-  }, type);
+  }, "inputCheck");
 
   await page.setContent(`<z-input type="checkbox"></z-input>`);
   const input_checkbox = await page.find("z-input div input");
@@ -164,15 +158,14 @@ it("Test disabled ZInput checkbox should not emit inputCheck event", async () =>
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputCheck";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
+    document.addEventListener(type, (e: CustomEvent) => {
       (window as CustomWindow).onInputCheck({
         type,
         detail: e.detail,
       });
     });
-  }, type);
+  }, "inputCheck");
 
   await page.setContent(`<z-input type="checkbox" disabled></z-input>`);
   const input_checkbox_unchecked = await page.find("z-input div input");
@@ -192,15 +185,11 @@ it("Test ZInput radio should emit inputCheck event", async () => {
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputCheck";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
-      (window as CustomWindow).onInputCheck({
-        type,
-        detail: e.detail,
-      });
+    document.addEventListener(type, (e: CustomEvent) => {
+      (window as CustomWindow).onInputCheck({type, detail: e.detail});
     });
-  }, type);
+  }, "inputCheck");
 
   await page.setContent(`<z-input id="radio_1" type="radio"></z-input>`);
   const input_radio = await page.find("z-input div input");
@@ -224,15 +213,11 @@ it("Test disabled ZInput radio should not emit inputCheck event", async () => {
   });
 
   // Attach an event listener to page to capture a custom event on page load/navigation.
-  const type = "inputCheck";
   page.evaluateOnNewDocument((type) => {
-    document.addEventListener(type, (e) => {
-      (window as CustomWindow).onInputCheck({
-        type,
-        detail: e.detail,
-      });
+    document.addEventListener(type, (e: CustomEvent) => {
+      (window as CustomWindow).onInputCheck({type, detail: e.detail});
     });
-  }, type);
+  }, "inputCheck");
 
   await page.setContent(`<z-input type="radio" disabled></z-input>`);
   const input_radio_unchecked = await page.find("z-input div input");

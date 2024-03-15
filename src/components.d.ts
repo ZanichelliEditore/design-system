@@ -5,10 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+export { AlertType, LicenseType } from "./beans/index";
+export { ListItem } from "./beans/index.js";
 export namespace Components {
+    /**
+     * Accordion component.
+     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
+     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
+     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
+     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
+     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
+     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+     */
     interface ZAccordion {
         /**
           * Enable highlight band on the `summary`'s left edge.
@@ -49,12 +65,80 @@ export namespace Components {
          */
         "type": AlertType;
     }
+    /**
+     * * Anchor navigation component.
+     * @example ```
+     * <z-anchor-navigation>
+     *  <div>
+     *    <a href="#section-id">Section name</a>
+     *    <button type="button">
+     *      <z-icon name="share" />
+     *    </button>
+     *  </div>
+     * </z-anchor-navigation>
+     * ```
+     */
     interface ZAnchorNavigation {
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected": boolean;
     }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     */
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -121,6 +205,12 @@ export namespace Components {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -281,6 +371,16 @@ export namespace Components {
          */
         "sortlabeldesc"?: string;
     }
+    /**
+     * ZCard component.
+     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
+     * @cssprop --z-card--border-color - Default: `var(--gray200)`
+     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-border-radius - Default: `none`
+     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+     */
     interface ZCard {
         /**
           * Enable 'clickable' style like hover and focus style.
@@ -299,25 +399,37 @@ export namespace Components {
          */
         "variant": CardVariant;
     }
+    /**
+     * ZCarousel component.
+     * @cssprop --z-carousel-gutter - The gutter between items.
+     */
     interface ZCarousel {
         /**
           * Arrow buttons position
          */
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
-          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
+         */
+        "fixedArrows": boolean;
+        /**
+          * The height of the ghost loader (only visible when `isLoading` is set to `true`)
          */
         "ghostLoadingHeight": number;
+        /**
+          * When enabled, navigating next the last item will go back to the first item and vice versa.
+         */
+        "infinite": boolean;
         /**
           * The z-carousel is on loading state
          */
         "isLoading": boolean;
         /**
-          * The z-carousel title, if given.
+          * The z-carousel title
          */
         "label"?: string;
         /**
-          * Progress indicator. Only available for `single` mode
+          * Progress indicator type. Only available for `single` mode
          */
         "progressMode"?: CarouselProgressMode;
         /**
@@ -435,6 +547,13 @@ export namespace Components {
          */
         "popoverPosition"?: PopoverPosition;
     }
+    /**
+     * Cover hero component.
+     * Component to display a hero image with content.
+     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
+     * @cssprop --cover-hero-text-color - color of the text.
+     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
+     */
     interface ZCoverHero {
         /**
           * Vertical content position (for `STACKED` variant).
@@ -482,6 +601,10 @@ export namespace Components {
         "size"?: DividerSize;
     }
     interface ZDragdropArea {
+        /**
+          * drag & drop button label
+         */
+        "dragAndDropLabel": string;
     }
     interface ZFile {
         /**
@@ -507,6 +630,10 @@ export namespace Components {
          */
         "description"?: string;
         /**
+          * drag & drop button label
+         */
+        "dragAndDropLabel"?: string;
+        /**
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
@@ -522,6 +649,10 @@ export namespace Components {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadType;
+        /**
+          * upoload button label
+         */
+        "uploadBtnLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -707,6 +838,9 @@ export namespace Components {
          */
         "status"?: InputStatus;
     }
+    /**
+     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
+     */
     interface ZLink {
         /**
           * big link version
@@ -881,6 +1015,9 @@ export namespace Components {
          */
         "width"?: number;
     }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
     interface ZMenu {
         /**
           * Flag to set the active status of the menu.
@@ -899,6 +1036,9 @@ export namespace Components {
          */
         "verticalContext": boolean;
     }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
     interface ZMenuSection {
         /**
           * Active state
@@ -1155,6 +1295,11 @@ export namespace Components {
          */
         "underlined": boolean;
     }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     */
     interface ZNavigationTab {
         /**
           * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
@@ -1197,6 +1342,12 @@ export namespace Components {
          */
         "tabId"?: string;
     }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     * @deprecated Use a native `<a>` instead.
+     */
     interface ZNavigationTabLink {
         /**
           * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
@@ -1246,6 +1397,12 @@ export namespace Components {
          */
         "target": string;
     }
+    /**
+     * Navigation tabs component.
+     * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
+     */
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
@@ -1264,6 +1421,10 @@ export namespace Components {
          */
         "size"?: NavigationTabsSize;
     }
+    /**
+     * Notification bar component.
+     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     */
     interface ZNotification {
         /**
           * Action button text
@@ -1323,6 +1484,9 @@ export namespace Components {
          */
         "status"?: InputStatus;
     }
+    /**
+     * Pagination bar component.
+     */
     interface ZPagination {
         /**
           * Current page.
@@ -1435,6 +1599,13 @@ export namespace Components {
     }
     interface ZPocketMessage {
     }
+    /**
+     * Popover component.
+     * @cssprop --z-popover-theme--surface - background color of the popover.
+     * @cssprop --z-popover-theme--text - foreground color of the popover.
+     * @cssprop --z-popover-padding - padding of the popover.
+     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+     */
     interface ZPopover {
         /**
           * The selector or the element bound with the popover.
@@ -1503,6 +1674,9 @@ export namespace Components {
          */
         "secondLabel"?: string;
     }
+    /**
+     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     */
     interface ZSearchbar {
         /**
           * Show autocomplete results
@@ -1565,6 +1739,11 @@ export namespace Components {
          */
         "variant"?: ButtonVariant;
     }
+    /**
+     * Section title component.
+     * An optional secondary title can be put over the primary one.
+     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
+     */
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -1651,6 +1830,9 @@ export namespace Components {
          */
         "status"?: InputStatus;
     }
+    /**
+     * Component short description.
+     */
     interface ZSkipToContent {
         /**
           * Array to fill link into skip-content
@@ -1691,14 +1873,24 @@ export namespace Components {
          */
         "pressed": boolean;
     }
+    /**
+     * ZTable component.
+     * @cssprop --z-table--cells-padding - Padding of the cells.
+     */
     interface ZTable {
         /**
           * Whether the table cells should show a border between them.
          */
         "bordered": boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableBody {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableCell {
         /**
           * Set padding size of cell, if special 0px padding will be set
@@ -1709,6 +1901,9 @@ export namespace Components {
          */
         "showButton"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableDeprecated {
         /**
           * Sets table with border
@@ -1759,6 +1954,9 @@ export namespace Components {
          */
         "subtitle"?: string;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableEmptyBox {
         /**
           * Sets main title message
@@ -1769,16 +1967,28 @@ export namespace Components {
          */
         "subtitle"?: string;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableExpandedRow {
         /**
           * Number table column plus 1 for the expand button
          */
         "colSpan": number;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableFooter {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHead {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHeader {
         /**
           * Column ID
@@ -1805,20 +2015,34 @@ export namespace Components {
          */
         "sortable"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHeaderRow {
         /**
           * Row expandable flag
          */
         "expandable"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableRow {
         /**
           * Table row expanded type
          */
         "expandedType": ZTableRowExpandedType;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableStickyFooter {
     }
+    /**
+     * Ztag  component.
+     * @cssprop --z-tag-text-color - text and icon color using tokens.
+     * @cssprop --z-tag-bg - background color of the z-tag.
+     */
     interface ZTag {
         /**
           * [optional] Hide the text and show it on hover
@@ -1829,8 +2053,14 @@ export namespace Components {
          */
         "icon"?: string;
     }
+    /**
+     * ZTbody component.
+     */
     interface ZTbody {
     }
+    /**
+     * ZTd component.
+     */
     interface ZTd {
         /**
           * Number of columns that the cell should span.
@@ -1845,12 +2075,18 @@ export namespace Components {
          */
         "sticky": boolean;
     }
+    /**
+     * ZTFoot component.
+     */
     interface ZTfoot {
         /**
           * If true, the footer will be stuck to the bottom of the table.
          */
         "sticky": boolean;
     }
+    /**
+     * ZTh component.
+     */
     interface ZTh {
         /**
           * Number of columns that the cell should span.
@@ -1873,6 +2109,9 @@ export namespace Components {
          */
         "sticky": boolean;
     }
+    /**
+     * ZThead component.
+     */
     interface ZThead {
         /**
           * If true, the header will be stuck to the top of the table.
@@ -1967,6 +2206,13 @@ export namespace Components {
          */
         "labelPosition"?: LabelPosition;
     }
+    /**
+     * Tooltip component.
+     * It is basically a wrapper for the `<z-popover>` component with custom configuration.
+     * @cssprop --z-tooltip-theme--surface - background color of the popover.
+     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
+     */
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -1989,6 +2235,11 @@ export namespace Components {
          */
         "position": PopoverPosition;
     }
+    /**
+     * ZTr component.
+     * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+     * to prevent the row from expanding.
+     */
     interface ZTr {
         /**
           * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
@@ -2183,7 +2434,31 @@ export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     target: HTMLZTrElement;
 }
 declare global {
+    interface HTMLZAccordionElementEventMap {
+        "toggled": boolean;
+    }
+    /**
+     * Accordion component.
+     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
+     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
+     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
+     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
+     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
+     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+     */
     interface HTMLZAccordionElement extends Components.ZAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAccordionElementEventMap>(type: K, listener: (this: HTMLZAccordionElement, ev: ZAccordionCustomEvent<HTMLZAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAccordionElementEventMap>(type: K, listener: (this: HTMLZAccordionElement, ev: ZAccordionCustomEvent<HTMLZAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZAccordionElement: {
         prototype: HTMLZAccordionElement;
@@ -2195,13 +2470,92 @@ declare global {
         prototype: HTMLZAlertElement;
         new (): HTMLZAlertElement;
     };
+    /**
+     * * Anchor navigation component.
+     * @example ```
+     * <z-anchor-navigation>
+     *  <div>
+     *    <a href="#section-id">Section name</a>
+     *    <button type="button">
+     *      <z-icon name="share" />
+     *    </button>
+     *  </div>
+     * </z-anchor-navigation>
+     * ```
+     */
     interface HTMLZAnchorNavigationElement extends Components.ZAnchorNavigation, HTMLStencilElement {
     }
     var HTMLZAnchorNavigationElement: {
         prototype: HTMLZAnchorNavigationElement;
         new (): HTMLZAnchorNavigationElement;
     };
+    interface HTMLZAppHeaderElementEventMap {
+        "sticking": any;
+    }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
@@ -2219,13 +2573,41 @@ declare global {
         prototype: HTMLZAvatarElement;
         new (): HTMLZAvatarElement;
     };
+    interface HTMLZBookCardElementEventMap {
+        "ribbonClick": any;
+    }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZBookCardElement: {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
     };
+    interface HTMLZBreadcrumbElementEventMap {
+        "clickOnNode": BreadcrumbPath["path"];
+    }
     interface HTMLZBreadcrumbElement extends Components.ZBreadcrumb, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBreadcrumbElementEventMap>(type: K, listener: (this: HTMLZBreadcrumbElement, ev: ZBreadcrumbCustomEvent<HTMLZBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBreadcrumbElementEventMap>(type: K, listener: (this: HTMLZBreadcrumbElement, ev: ZBreadcrumbCustomEvent<HTMLZBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZBreadcrumbElement: {
         prototype: HTMLZBreadcrumbElement;
@@ -2237,49 +2619,136 @@ declare global {
         prototype: HTMLZButtonElement;
         new (): HTMLZButtonElement;
     };
+    interface HTMLZButtonSortElementEventMap {
+        "buttonSortClick": any;
+    }
     interface HTMLZButtonSortElement extends Components.ZButtonSort, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZButtonSortElementEventMap>(type: K, listener: (this: HTMLZButtonSortElement, ev: ZButtonSortCustomEvent<HTMLZButtonSortElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZButtonSortElementEventMap>(type: K, listener: (this: HTMLZButtonSortElement, ev: ZButtonSortCustomEvent<HTMLZButtonSortElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZButtonSortElement: {
         prototype: HTMLZButtonSortElement;
         new (): HTMLZButtonSortElement;
     };
+    /**
+     * ZCard component.
+     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
+     * @cssprop --z-card--border-color - Default: `var(--gray200)`
+     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-border-radius - Default: `none`
+     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+     */
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
     var HTMLZCardElement: {
         prototype: HTMLZCardElement;
         new (): HTMLZCardElement;
     };
+    interface HTMLZCarouselElementEventMap {
+        "indexChange": {currentItem: number};
+    }
+    /**
+     * ZCarousel component.
+     * @cssprop --z-carousel-gutter - The gutter between items.
+     */
     interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZCarouselElement: {
         prototype: HTMLZCarouselElement;
         new (): HTMLZCarouselElement;
     };
+    interface HTMLZChipElementEventMap {
+        "interactiveIconClick": any;
+    }
     interface HTMLZChipElement extends Components.ZChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZChipElementEventMap>(type: K, listener: (this: HTMLZChipElement, ev: ZChipCustomEvent<HTMLZChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZChipElementEventMap>(type: K, listener: (this: HTMLZChipElement, ev: ZChipCustomEvent<HTMLZChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZChipElement: {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
+    interface HTMLZComboboxElementEventMap {
+        "comboboxChange": any;
+    }
     interface HTMLZComboboxElement extends Components.ZCombobox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZComboboxElementEventMap>(type: K, listener: (this: HTMLZComboboxElement, ev: ZComboboxCustomEvent<HTMLZComboboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZComboboxElementEventMap>(type: K, listener: (this: HTMLZComboboxElement, ev: ZComboboxCustomEvent<HTMLZComboboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
     };
+    interface HTMLZContextualMenuElementEventMap {
+        "clickContextualMenu": any;
+    }
     interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZContextualMenuElement: {
         prototype: HTMLZContextualMenuElement;
         new (): HTMLZContextualMenuElement;
     };
+    /**
+     * Cover hero component.
+     * Component to display a hero image with content.
+     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
+     * @cssprop --cover-hero-text-color - color of the text.
+     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
+     */
     interface HTMLZCoverHeroElement extends Components.ZCoverHero, HTMLStencilElement {
     }
     var HTMLZCoverHeroElement: {
         prototype: HTMLZCoverHeroElement;
         new (): HTMLZCoverHeroElement;
     };
+    interface HTMLZDatePickerElementEventMap {
+        "dateSelect": any;
+    }
     interface HTMLZDatePickerElement extends Components.ZDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZDatePickerElementEventMap>(type: K, listener: (this: HTMLZDatePickerElement, ev: ZDatePickerCustomEvent<HTMLZDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZDatePickerElementEventMap>(type: K, listener: (this: HTMLZDatePickerElement, ev: ZDatePickerCustomEvent<HTMLZDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZDatePickerElement: {
         prototype: HTMLZDatePickerElement;
@@ -2291,19 +2760,52 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDragdropAreaElementEventMap {
+        "fileDropped": any;
+    }
     interface HTMLZDragdropAreaElement extends Components.ZDragdropArea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZDragdropAreaElementEventMap>(type: K, listener: (this: HTMLZDragdropAreaElement, ev: ZDragdropAreaCustomEvent<HTMLZDragdropAreaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZDragdropAreaElementEventMap>(type: K, listener: (this: HTMLZDragdropAreaElement, ev: ZDragdropAreaCustomEvent<HTMLZDragdropAreaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZDragdropAreaElement: {
         prototype: HTMLZDragdropAreaElement;
         new (): HTMLZDragdropAreaElement;
     };
+    interface HTMLZFileElementEventMap {
+        "removeFile": any;
+    }
     interface HTMLZFileElement extends Components.ZFile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZFileElementEventMap>(type: K, listener: (this: HTMLZFileElement, ev: ZFileCustomEvent<HTMLZFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZFileElementEventMap>(type: K, listener: (this: HTMLZFileElement, ev: ZFileCustomEvent<HTMLZFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZFileElement: {
         prototype: HTMLZFileElement;
         new (): HTMLZFileElement;
     };
+    interface HTMLZFileUploadElementEventMap {
+        "fileInput": any;
+    }
     interface HTMLZFileUploadElement extends Components.ZFileUpload, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZFileUploadElementEventMap>(type: K, listener: (this: HTMLZFileUploadElement, ev: ZFileUploadCustomEvent<HTMLZFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZFileUploadElementEventMap>(type: K, listener: (this: HTMLZFileUploadElement, ev: ZFileUploadCustomEvent<HTMLZFileUploadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZFileUploadElement: {
         prototype: HTMLZFileUploadElement;
@@ -2321,7 +2823,18 @@ declare global {
         prototype: HTMLZIconElement;
         new (): HTMLZIconElement;
     };
+    interface HTMLZInfoBoxElementEventMap {
+        "infoBoxClose": any;
+    }
     interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZInfoBoxElement: {
         prototype: HTMLZInfoBoxElement;
@@ -2333,7 +2846,21 @@ declare global {
         prototype: HTMLZInfoRevealElement;
         new (): HTMLZInfoRevealElement;
     };
+    interface HTMLZInputElementEventMap {
+        "inputChange": any;
+        "startTyping": any;
+        "stopTyping": any;
+        "inputCheck": any;
+    }
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
@@ -2345,7 +2872,21 @@ declare global {
         prototype: HTMLZInputMessageElement;
         new (): HTMLZInputMessageElement;
     };
+    interface HTMLZLinkElementEventMap {
+        "zLinkClick": any;
+    }
+    /**
+     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
+     */
     interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZLinkElement: {
         prototype: HTMLZLinkElement;
@@ -2357,7 +2898,20 @@ declare global {
         prototype: HTMLZListElement;
         new (): HTMLZListElement;
     };
+    interface HTMLZListElementElementEventMap {
+        "accessibleFocus": number;
+        "ariaDescendantFocus": number;
+        "clickItem": any;
+    }
     interface HTMLZListElementElement extends Components.ZListElement, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZListElementElementEventMap>(type: K, listener: (this: HTMLZListElementElement, ev: ZListElementCustomEvent<HTMLZListElementElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZListElementElementEventMap>(type: K, listener: (this: HTMLZListElementElement, ev: ZListElementCustomEvent<HTMLZListElementElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZListElementElement: {
         prototype: HTMLZListElementElement;
@@ -2375,13 +2929,43 @@ declare global {
         prototype: HTMLZLogoElement;
         new (): HTMLZLogoElement;
     };
+    interface HTMLZMenuElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
     interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuElementEventMap>(type: K, listener: (this: HTMLZMenuElement, ev: ZMenuCustomEvent<HTMLZMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuElementEventMap>(type: K, listener: (this: HTMLZMenuElement, ev: ZMenuCustomEvent<HTMLZMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMenuElement: {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
+    interface HTMLZMenuSectionElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
     interface HTMLZMenuSectionElement extends Components.ZMenuSection, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuSectionElementEventMap>(type: K, listener: (this: HTMLZMenuSectionElement, ev: ZMenuSectionCustomEvent<HTMLZMenuSectionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuSectionElementEventMap>(type: K, listener: (this: HTMLZMenuSectionElement, ev: ZMenuSectionCustomEvent<HTMLZMenuSectionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
@@ -2393,7 +2977,20 @@ declare global {
         prototype: HTMLZMessagesPocketElement;
         new (): HTMLZMessagesPocketElement;
     };
+    interface HTMLZModalElementEventMap {
+        "modalClose": any;
+        "modalHeaderActive": any;
+        "modalBackgroundClick": any;
+    }
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
@@ -2405,7 +3002,18 @@ declare global {
         prototype: HTMLZMyzCardElement;
         new (): HTMLZMyzCardElement;
     };
+    interface HTMLZMyzCardAlertElementEventMap {
+        "undoAction": any;
+    }
     interface HTMLZMyzCardAlertElement extends Components.ZMyzCardAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardAlertElement: {
         prototype: HTMLZMyzCardAlertElement;
@@ -2423,7 +3031,18 @@ declare global {
         prototype: HTMLZMyzCardCoverElement;
         new (): HTMLZMyzCardCoverElement;
     };
+    interface HTMLZMyzCardDictionaryElementEventMap {
+        "cardFlipped": any;
+    }
     interface HTMLZMyzCardDictionaryElement extends Components.ZMyzCardDictionary, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardDictionaryElement: {
         prototype: HTMLZMyzCardDictionaryElement;
@@ -2453,7 +3072,18 @@ declare global {
         prototype: HTMLZMyzCardIconElement;
         new (): HTMLZMyzCardIconElement;
     };
+    interface HTMLZMyzCardInfoElementEventMap {
+        "flipCard": any;
+    }
     interface HTMLZMyzCardInfoElement extends Components.ZMyzCardInfo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzCardInfoElement: {
         prototype: HTMLZMyzCardInfoElement;
@@ -2471,49 +3101,163 @@ declare global {
         prototype: HTMLZMyzListElement;
         new (): HTMLZMyzListElement;
     };
+    interface HTMLZMyzListItemElementEventMap {
+        "zListItemLinkClick": any;
+        "zListItemClick": any;
+    }
     interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZMyzListItemElement: {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
+    interface HTMLZNavigationTabElementEventMap {
+        "selected": any;
+    }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     */
     interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabElement: {
         prototype: HTMLZNavigationTabElement;
         new (): HTMLZNavigationTabElement;
     };
+    interface HTMLZNavigationTabLinkElementEventMap {
+        "selected": any;
+    }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     * @deprecated Use a native `<a>` instead.
+     */
     interface HTMLZNavigationTabLinkElement extends Components.ZNavigationTabLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabLinkElement: {
         prototype: HTMLZNavigationTabLinkElement;
         new (): HTMLZNavigationTabLinkElement;
     };
+    interface HTMLZNavigationTabsElementEventMap {
+        "selected": number;
+    }
+    /**
+     * Navigation tabs component.
+     * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
+     */
     interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNavigationTabsElementEventMap>(type: K, listener: (this: HTMLZNavigationTabsElement, ev: ZNavigationTabsCustomEvent<HTMLZNavigationTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNavigationTabsElementEventMap>(type: K, listener: (this: HTMLZNavigationTabsElement, ev: ZNavigationTabsCustomEvent<HTMLZNavigationTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNavigationTabsElement: {
         prototype: HTMLZNavigationTabsElement;
         new (): HTMLZNavigationTabsElement;
     };
+    interface HTMLZNotificationElementEventMap {
+        "notificationAction": any;
+        "notificationClose": any;
+    }
+    /**
+     * Notification bar component.
+     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZNotificationElement: {
         prototype: HTMLZNotificationElement;
         new (): HTMLZNotificationElement;
     };
+    interface HTMLZOffcanvasElementEventMap {
+        "canvasOpenStatusChanged": any;
+    }
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZOffcanvasElement: {
         prototype: HTMLZOffcanvasElement;
         new (): HTMLZOffcanvasElement;
     };
+    interface HTMLZOtpElementEventMap {
+        "otpChange": any;
+    }
     interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZOtpElement: {
         prototype: HTMLZOtpElement;
         new (): HTMLZOtpElement;
     };
+    interface HTMLZPaginationElementEventMap {
+        "pageChanged": any;
+    }
+    /**
+     * Pagination bar component.
+     */
     interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPaginationElement: {
         prototype: HTMLZPaginationElement;
@@ -2525,7 +3269,18 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
+    interface HTMLZPocketElementEventMap {
+        "pocketToggle": any;
+    }
     interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPocketElement: {
         prototype: HTMLZPocketElement;
@@ -2537,7 +3292,19 @@ declare global {
         prototype: HTMLZPocketBodyElement;
         new (): HTMLZPocketBodyElement;
     };
+    interface HTMLZPocketHeaderElementEventMap {
+        "pocketHeaderClick": any;
+        "pocketHeaderPan": any;
+    }
     interface HTMLZPocketHeaderElement extends Components.ZPocketHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPocketHeaderElement: {
         prototype: HTMLZPocketHeaderElement;
@@ -2549,36 +3316,102 @@ declare global {
         prototype: HTMLZPocketMessageElement;
         new (): HTMLZPocketMessageElement;
     };
+    interface HTMLZPopoverElementEventMap {
+        "positionChange": any;
+        "openChange": any;
+    }
+    /**
+     * Popover component.
+     * @cssprop --z-popover-theme--surface - background color of the popover.
+     * @cssprop --z-popover-theme--text - foreground color of the popover.
+     * @cssprop --z-popover-padding - padding of the popover.
+     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+     */
     interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZPopoverElement: {
         prototype: HTMLZPopoverElement;
         new (): HTMLZPopoverElement;
     };
+    interface HTMLZRangePickerElementEventMap {
+        "dateSelect": any;
+    }
     interface HTMLZRangePickerElement extends Components.ZRangePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZRangePickerElementEventMap>(type: K, listener: (this: HTMLZRangePickerElement, ev: ZRangePickerCustomEvent<HTMLZRangePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZRangePickerElementEventMap>(type: K, listener: (this: HTMLZRangePickerElement, ev: ZRangePickerCustomEvent<HTMLZRangePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZRangePickerElement: {
         prototype: HTMLZRangePickerElement;
         new (): HTMLZRangePickerElement;
     };
+    interface HTMLZSearchbarElementEventMap {
+        "searchSubmit": string;
+        "searchTyping": string;
+        "searchItemClick": SearchbarItem;
+    }
+    /**
+     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     */
     interface HTMLZSearchbarElement extends Components.ZSearchbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZSearchbarElement: {
         prototype: HTMLZSearchbarElement;
         new (): HTMLZSearchbarElement;
     };
+    /**
+     * Section title component.
+     * An optional secondary title can be put over the primary one.
+     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
+     */
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
     var HTMLZSectionTitleElement: {
         prototype: HTMLZSectionTitleElement;
         new (): HTMLZSectionTitleElement;
     };
+    interface HTMLZSelectElementEventMap {
+        "optionSelect": any;
+        "resetSelect": any;
+    }
     interface HTMLZSelectElement extends Components.ZSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZSelectElementEventMap>(type: K, listener: (this: HTMLZSelectElement, ev: ZSelectCustomEvent<HTMLZSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZSelectElementEventMap>(type: K, listener: (this: HTMLZSelectElement, ev: ZSelectCustomEvent<HTMLZSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZSelectElement: {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
     };
+    /**
+     * Component short description.
+     */
     interface HTMLZSkipToContentElement extends Components.ZSkipToContent, HTMLStencilElement {
     }
     var HTMLZSkipToContentElement: {
@@ -2603,115 +3436,239 @@ declare global {
         prototype: HTMLZStepperItemElement;
         new (): HTMLZStepperItemElement;
     };
+    /**
+     * ZTable component.
+     * @cssprop --z-table--cells-padding - Padding of the cells.
+     */
     interface HTMLZTableElement extends Components.ZTable, HTMLStencilElement {
     }
     var HTMLZTableElement: {
         prototype: HTMLZTableElement;
         new (): HTMLZTableElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableBodyElement extends Components.ZTableBody, HTMLStencilElement {
     }
     var HTMLZTableBodyElement: {
         prototype: HTMLZTableBodyElement;
         new (): HTMLZTableBodyElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableCellElement extends Components.ZTableCell, HTMLStencilElement {
     }
     var HTMLZTableCellElement: {
         prototype: HTMLZTableCellElement;
         new (): HTMLZTableCellElement;
     };
+    interface HTMLZTableDeprecatedElementEventMap {
+        "callToAction": any;
+        "callToActionTwo": any;
+    }
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableDeprecatedElement extends Components.ZTableDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableDeprecatedElement: {
         prototype: HTMLZTableDeprecatedElement;
         new (): HTMLZTableDeprecatedElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableEmptyBoxElement extends Components.ZTableEmptyBox, HTMLStencilElement {
     }
     var HTMLZTableEmptyBoxElement: {
         prototype: HTMLZTableEmptyBoxElement;
         new (): HTMLZTableEmptyBoxElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableExpandedRowElement extends Components.ZTableExpandedRow, HTMLStencilElement {
     }
     var HTMLZTableExpandedRowElement: {
         prototype: HTMLZTableExpandedRowElement;
         new (): HTMLZTableExpandedRowElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableFooterElement extends Components.ZTableFooter, HTMLStencilElement {
     }
     var HTMLZTableFooterElement: {
         prototype: HTMLZTableFooterElement;
         new (): HTMLZTableFooterElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableHeadElement extends Components.ZTableHead, HTMLStencilElement {
     }
     var HTMLZTableHeadElement: {
         prototype: HTMLZTableHeadElement;
         new (): HTMLZTableHeadElement;
     };
+    interface HTMLZTableHeaderElementEventMap {
+        "sort": any;
+    }
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableHeaderElement: {
         prototype: HTMLZTableHeaderElement;
         new (): HTMLZTableHeaderElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableHeaderRowElement extends Components.ZTableHeaderRow, HTMLStencilElement {
     }
     var HTMLZTableHeaderRowElement: {
         prototype: HTMLZTableHeaderRowElement;
         new (): HTMLZTableHeaderRowElement;
     };
+    interface HTMLZTableRowElementEventMap {
+        "expand": any;
+    }
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTableRowElement: {
         prototype: HTMLZTableRowElement;
         new (): HTMLZTableRowElement;
     };
+    /**
+     * @deprecated 
+     */
     interface HTMLZTableStickyFooterElement extends Components.ZTableStickyFooter, HTMLStencilElement {
     }
     var HTMLZTableStickyFooterElement: {
         prototype: HTMLZTableStickyFooterElement;
         new (): HTMLZTableStickyFooterElement;
     };
+    /**
+     * Ztag  component.
+     * @cssprop --z-tag-text-color - text and icon color using tokens.
+     * @cssprop --z-tag-bg - background color of the z-tag.
+     */
     interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
     }
     var HTMLZTagElement: {
         prototype: HTMLZTagElement;
         new (): HTMLZTagElement;
     };
+    /**
+     * ZTbody component.
+     */
     interface HTMLZTbodyElement extends Components.ZTbody, HTMLStencilElement {
     }
     var HTMLZTbodyElement: {
         prototype: HTMLZTbodyElement;
         new (): HTMLZTbodyElement;
     };
+    interface HTMLZTdElementEventMap {
+        "colspanChange": number;
+    }
+    /**
+     * ZTd component.
+     */
     interface HTMLZTdElement extends Components.ZTd, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTdElementEventMap>(type: K, listener: (this: HTMLZTdElement, ev: ZTdCustomEvent<HTMLZTdElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTdElementEventMap>(type: K, listener: (this: HTMLZTdElement, ev: ZTdCustomEvent<HTMLZTdElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTdElement: {
         prototype: HTMLZTdElement;
         new (): HTMLZTdElement;
     };
+    /**
+     * ZTFoot component.
+     */
     interface HTMLZTfootElement extends Components.ZTfoot, HTMLStencilElement {
     }
     var HTMLZTfootElement: {
         prototype: HTMLZTfootElement;
         new (): HTMLZTfootElement;
     };
+    interface HTMLZThElementEventMap {
+        "sort": any;
+    }
+    /**
+     * ZTh component.
+     */
     interface HTMLZThElement extends Components.ZTh, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZThElementEventMap>(type: K, listener: (this: HTMLZThElement, ev: ZThCustomEvent<HTMLZThElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZThElementEventMap>(type: K, listener: (this: HTMLZThElement, ev: ZThCustomEvent<HTMLZThElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZThElement: {
         prototype: HTMLZThElement;
         new (): HTMLZThElement;
     };
+    /**
+     * ZThead component.
+     */
     interface HTMLZTheadElement extends Components.ZThead, HTMLStencilElement {
     }
     var HTMLZTheadElement: {
         prototype: HTMLZTheadElement;
         new (): HTMLZTheadElement;
     };
+    interface HTMLZToastNotificationElementEventMap {
+        "toastClose": any;
+    }
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToastNotificationElementEventMap>(type: K, listener: (this: HTMLZToastNotificationElement, ev: ZToastNotificationCustomEvent<HTMLZToastNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToastNotificationElementEventMap>(type: K, listener: (this: HTMLZToastNotificationElement, ev: ZToastNotificationCustomEvent<HTMLZToastNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToastNotificationElement: {
         prototype: HTMLZToastNotificationElement;
@@ -2723,25 +3680,70 @@ declare global {
         prototype: HTMLZToastNotificationListElement;
         new (): HTMLZToastNotificationListElement;
     };
+    interface HTMLZToggleButtonElementEventMap {
+        "toggleClick": any;
+    }
     interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToggleButtonElement: {
         prototype: HTMLZToggleButtonElement;
         new (): HTMLZToggleButtonElement;
     };
+    interface HTMLZToggleSwitchElementEventMap {
+        "toggleClick": any;
+    }
     interface HTMLZToggleSwitchElement extends Components.ZToggleSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToggleSwitchElementEventMap>(type: K, listener: (this: HTMLZToggleSwitchElement, ev: ZToggleSwitchCustomEvent<HTMLZToggleSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToggleSwitchElementEventMap>(type: K, listener: (this: HTMLZToggleSwitchElement, ev: ZToggleSwitchCustomEvent<HTMLZToggleSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZToggleSwitchElement: {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
+    /**
+     * Tooltip component.
+     * It is basically a wrapper for the `<z-popover>` component with custom configuration.
+     * @cssprop --z-tooltip-theme--surface - background color of the popover.
+     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
+     */
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
     }
     var HTMLZTooltipElement: {
         prototype: HTMLZTooltipElement;
         new (): HTMLZTooltipElement;
     };
+    interface HTMLZTrElementEventMap {
+        "expand": any;
+    }
+    /**
+     * ZTr component.
+     * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+     * to prevent the row from expanding.
+     */
     interface HTMLZTrElement extends Components.ZTr, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTrElementEventMap>(type: K, listener: (this: HTMLZTrElement, ev: ZTrCustomEvent<HTMLZTrElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTrElementEventMap>(type: K, listener: (this: HTMLZTrElement, ev: ZTrCustomEvent<HTMLZTrElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTrElement: {
         prototype: HTMLZTrElement;
@@ -2852,6 +3854,19 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Accordion component.
+     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
+     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
+     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
+     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
+     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
+     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+     */
     interface ZAccordion {
         /**
           * Enable highlight band on the `summary`'s left edge.
@@ -2896,12 +3911,80 @@ declare namespace LocalJSX {
          */
         "type"?: AlertType;
     }
+    /**
+     * * Anchor navigation component.
+     * @example ```
+     * <z-anchor-navigation>
+     *  <div>
+     *    <a href="#section-id">Section name</a>
+     *    <button type="button">
+     *      <z-icon name="share" />
+     *    </button>
+     *  </div>
+     * </z-anchor-navigation>
+     * ```
+     */
     interface ZAnchorNavigation {
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected"?: boolean;
     }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     */
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -2972,6 +4055,12 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -3042,7 +4131,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when preventFollowUrl=true to handle custom page transition
          */
-        "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<any>) => void;
+        "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<BreadcrumbPath["path"]>) => void;
         /**
           * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
          */
@@ -3144,6 +4233,16 @@ declare namespace LocalJSX {
          */
         "sortlabeldesc"?: string;
     }
+    /**
+     * ZCard component.
+     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
+     * @cssprop --z-card--border-color - Default: `var(--gray200)`
+     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
+     * @cssprop --z-card--text-border-radius - Default: `none`
+     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+     */
     interface ZCard {
         /**
           * Enable 'clickable' style like hover and focus style.
@@ -3162,29 +4261,41 @@ declare namespace LocalJSX {
          */
         "variant"?: CardVariant;
     }
+    /**
+     * ZCarousel component.
+     * @cssprop --z-carousel-gutter - The gutter between items.
+     */
     interface ZCarousel {
         /**
           * Arrow buttons position
          */
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
-          * The height of z-carousel ghost loading, this prop is mandatory when isloading is set to true, as otherwise the component won't show.
+          * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
+         */
+        "fixedArrows"?: boolean;
+        /**
+          * The height of the ghost loader (only visible when `isLoading` is set to `true`)
          */
         "ghostLoadingHeight"?: number;
+        /**
+          * When enabled, navigating next the last item will go back to the first item and vice versa.
+         */
+        "infinite"?: boolean;
         /**
           * The z-carousel is on loading state
          */
         "isLoading"?: boolean;
         /**
-          * The z-carousel title, if given.
+          * The z-carousel title
          */
         "label"?: string;
         /**
           * Emitted on index change and only in `single` mode.
          */
-        "onIndexChange"?: (event: ZCarouselCustomEvent<any>) => void;
+        "onIndexChange"?: (event: ZCarouselCustomEvent<{currentItem: number}>) => void;
         /**
-          * Progress indicator. Only available for `single` mode
+          * Progress indicator type. Only available for `single` mode
          */
         "progressMode"?: CarouselProgressMode;
         /**
@@ -3314,6 +4425,13 @@ declare namespace LocalJSX {
          */
         "popoverPosition"?: PopoverPosition;
     }
+    /**
+     * Cover hero component.
+     * Component to display a hero image with content.
+     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
+     * @cssprop --cover-hero-text-color - color of the text.
+     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
+     */
     interface ZCoverHero {
         /**
           * Vertical content position (for `STACKED` variant).
@@ -3366,6 +4484,10 @@ declare namespace LocalJSX {
     }
     interface ZDragdropArea {
         /**
+          * drag & drop button label
+         */
+        "dragAndDropLabel"?: string;
+        /**
           * Emitted when user drop one or more files
          */
         "onFileDropped"?: (event: ZDragdropAreaCustomEvent<any>) => void;
@@ -3398,6 +4520,10 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * drag & drop button label
+         */
+        "dragAndDropLabel"?: string;
+        /**
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
@@ -3413,6 +4539,10 @@ declare namespace LocalJSX {
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type"?: ZFileUploadType;
+        /**
+          * upoload button label
+         */
+        "uploadBtnLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -3614,6 +4744,9 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatus;
     }
+    /**
+     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
+     */
     interface ZLink {
         /**
           * big link version
@@ -3804,6 +4937,9 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
     interface ZMenu {
         /**
           * Flag to set the active status of the menu.
@@ -3830,6 +4966,9 @@ declare namespace LocalJSX {
          */
         "verticalContext"?: boolean;
     }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
     interface ZMenuSection {
         /**
           * Active state
@@ -4118,6 +5257,11 @@ declare namespace LocalJSX {
          */
         "underlined"?: boolean;
     }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     */
     interface ZNavigationTab {
         /**
           * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
@@ -4164,6 +5308,12 @@ declare namespace LocalJSX {
          */
         "tabId"?: string;
     }
+    /**
+     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+     * This component uses the `tab` role:
+     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+     * @deprecated Use a native `<a>` instead.
+     */
     interface ZNavigationTabLink {
         /**
           * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
@@ -4217,6 +5367,12 @@ declare namespace LocalJSX {
          */
         "target"?: string;
     }
+    /**
+     * Navigation tabs component.
+     * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
+     */
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
@@ -4239,6 +5395,10 @@ declare namespace LocalJSX {
          */
         "size"?: NavigationTabsSize;
     }
+    /**
+     * Notification bar component.
+     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     */
     interface ZNotification {
         /**
           * Action button text
@@ -4314,6 +5474,9 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatus;
     }
+    /**
+     * Pagination bar component.
+     */
     interface ZPagination {
         /**
           * Current page.
@@ -4434,6 +5597,13 @@ declare namespace LocalJSX {
     }
     interface ZPocketMessage {
     }
+    /**
+     * Popover component.
+     * @cssprop --z-popover-theme--surface - background color of the popover.
+     * @cssprop --z-popover-theme--text - foreground color of the popover.
+     * @cssprop --z-popover-padding - padding of the popover.
+     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+     */
     interface ZPopover {
         /**
           * The selector or the element bound with the popover.
@@ -4514,6 +5684,9 @@ declare namespace LocalJSX {
          */
         "secondLabel"?: string;
     }
+    /**
+     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     */
     interface ZSearchbar {
         /**
           * Show autocomplete results
@@ -4588,6 +5761,11 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
+    /**
+     * Section title component.
+     * An optional secondary title can be put over the primary one.
+     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
+     */
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
@@ -4670,6 +5848,9 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatus;
     }
+    /**
+     * Component short description.
+     */
     interface ZSkipToContent {
         /**
           * Array to fill link into skip-content
@@ -4710,14 +5891,24 @@ declare namespace LocalJSX {
          */
         "pressed"?: boolean;
     }
+    /**
+     * ZTable component.
+     * @cssprop --z-table--cells-padding - Padding of the cells.
+     */
     interface ZTable {
         /**
           * Whether the table cells should show a border between them.
          */
         "bordered"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableBody {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableCell {
         /**
           * Set padding size of cell, if special 0px padding will be set
@@ -4728,6 +5919,9 @@ declare namespace LocalJSX {
          */
         "showButton"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableDeprecated {
         /**
           * Sets table with border
@@ -4786,6 +5980,9 @@ declare namespace LocalJSX {
          */
         "subtitle"?: string;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableEmptyBox {
         /**
           * Sets main title message
@@ -4796,16 +5993,28 @@ declare namespace LocalJSX {
          */
         "subtitle"?: string;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableExpandedRow {
         /**
           * Number table column plus 1 for the expand button
          */
         "colSpan"?: number;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableFooter {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHead {
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHeader {
         /**
           * Column ID
@@ -4836,12 +6045,18 @@ declare namespace LocalJSX {
          */
         "sortable"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableHeaderRow {
         /**
           * Row expandable flag
          */
         "expandable"?: boolean;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableRow {
         /**
           * Table row expanded type
@@ -4852,8 +6067,16 @@ declare namespace LocalJSX {
          */
         "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
     }
+    /**
+     * @deprecated 
+     */
     interface ZTableStickyFooter {
     }
+    /**
+     * Ztag  component.
+     * @cssprop --z-tag-text-color - text and icon color using tokens.
+     * @cssprop --z-tag-bg - background color of the z-tag.
+     */
     interface ZTag {
         /**
           * [optional] Hide the text and show it on hover
@@ -4864,8 +6087,14 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
     }
+    /**
+     * ZTbody component.
+     */
     interface ZTbody {
     }
+    /**
+     * ZTd component.
+     */
     interface ZTd {
         /**
           * Number of columns that the cell should span.
@@ -4884,12 +6113,18 @@ declare namespace LocalJSX {
          */
         "sticky"?: boolean;
     }
+    /**
+     * ZTFoot component.
+     */
     interface ZTfoot {
         /**
           * If true, the footer will be stuck to the bottom of the table.
          */
         "sticky"?: boolean;
     }
+    /**
+     * ZTh component.
+     */
     interface ZTh {
         /**
           * Number of columns that the cell should span.
@@ -4916,6 +6151,9 @@ declare namespace LocalJSX {
          */
         "sticky"?: boolean;
     }
+    /**
+     * ZThead component.
+     */
     interface ZThead {
         /**
           * If true, the header will be stuck to the top of the table.
@@ -5022,6 +6260,13 @@ declare namespace LocalJSX {
          */
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
+    /**
+     * Tooltip component.
+     * It is basically a wrapper for the `<z-popover>` component with custom configuration.
+     * @cssprop --z-tooltip-theme--surface - background color of the popover.
+     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
+     */
     interface ZTooltip {
         /**
           * The selector or the element bound with the tooltip.
@@ -5044,6 +6289,11 @@ declare namespace LocalJSX {
          */
         "position"?: PopoverPosition;
     }
+    /**
+     * ZTr component.
+     * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+     * to prevent the row from expanding.
+     */
     interface ZTr {
         /**
           * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
@@ -5158,21 +6408,129 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Accordion component.
+             * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
+             * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
+             * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+             * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
+             * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
+             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+             * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
+             * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
+             * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
+             * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+             */
             "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
+            /**
+             * * Anchor navigation component.
+             * @example ```
+             * <z-anchor-navigation>
+             *  <div>
+             *    <a href="#section-id">Section name</a>
+             *    <button type="button">
+             *      <z-icon name="share" />
+             *    </button>
+             *  </div>
+             * </z-anchor-navigation>
+             * ```
+             */
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
+            /**
+             * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+             * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+             * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+             * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+             * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+             * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+             * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+             * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+             * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+             * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+             * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+             * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+             * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+             * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+             * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+             * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+             * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+             * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+             * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+             * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+             * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+             * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+             * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+             * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+             * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+             * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+             * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+             * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+             * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+             * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+             * @cssprop --app-header-height - Defaults to `auto`.
+             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+             * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+             * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+             * Defaults to `--app-header-typography-3-size`.
+             * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+             * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+             * Defaults to `--app-header-typography-3-lineheight`.
+             * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+             * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+             * Defaults to `--app-header-typography-3-tracking`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+             */
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+            /**
+             * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+             * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+             * @cssprop --z-book-card-compact-width - compact card custom width
+             * @cssprop --z-book-card-compact-height - compact card custom height
+             */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+            /**
+             * ZCard component.
+             * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
+             * @cssprop --z-card--border-color - Default: `var(--gray200)`
+             * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
+             * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
+             * @cssprop --z-card--text-border-radius - Default: `none`
+             * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
+             * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+             */
             "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
+            /**
+             * ZCarousel component.
+             * @cssprop --z-carousel-gutter - The gutter between items.
+             */
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
+            /**
+             * Cover hero component.
+             * Component to display a hero image with content.
+             * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
+             * @cssprop --cover-hero-text-color - color of the text.
+             * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
+             */
             "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
             "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
@@ -5185,12 +6543,21 @@ declare module "@stencil/core" {
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
+            /**
+             * @deprecated - use a native `<a>` with the `z-link` CSS class instead
+             */
             "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
             "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
+            /**
+             * @cssprop --z-menu-label-color - Color of the label's text.
+             */
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
+            /**
+             * A component to create submenus inside the ZMenu.
+             */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
@@ -5207,50 +6574,161 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
+            /**
+             * Single tab component to use inside `z-navigation-tabs`. It renders a button.
+             * This component uses the `tab` role:
+             * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+             */
             "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
+            /**
+             * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
+             * This component uses the `tab` role:
+             * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
+             * @deprecated Use a native `<a>` instead.
+             */
             "z-navigation-tab-link": LocalJSX.ZNavigationTabLink & JSXBase.HTMLAttributes<HTMLZNavigationTabLinkElement>;
+            /**
+             * Navigation tabs component.
+             * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
+             * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
+             * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
+             */
             "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
+            /**
+             * Notification bar component.
+             * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+             */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
+            /**
+             * Pagination bar component.
+             */
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
             "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
             "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
             "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
+            /**
+             * Popover component.
+             * @cssprop --z-popover-theme--surface - background color of the popover.
+             * @cssprop --z-popover-theme--text - foreground color of the popover.
+             * @cssprop --z-popover-padding - padding of the popover.
+             * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+             */
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
+            /**
+             * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+             */
             "z-searchbar": LocalJSX.ZSearchbar & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
+            /**
+             * Section title component.
+             * An optional secondary title can be put over the primary one.
+             * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
+             */
             "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            /**
+             * Component short description.
+             */
             "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
             "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            /**
+             * ZTable component.
+             * @cssprop --z-table--cells-padding - Padding of the cells.
+             */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-body": LocalJSX.ZTableBody & JSXBase.HTMLAttributes<HTMLZTableBodyElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-cell": LocalJSX.ZTableCell & JSXBase.HTMLAttributes<HTMLZTableCellElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-deprecated": LocalJSX.ZTableDeprecated & JSXBase.HTMLAttributes<HTMLZTableDeprecatedElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-empty-box": LocalJSX.ZTableEmptyBox & JSXBase.HTMLAttributes<HTMLZTableEmptyBoxElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-expanded-row": LocalJSX.ZTableExpandedRow & JSXBase.HTMLAttributes<HTMLZTableExpandedRowElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-footer": LocalJSX.ZTableFooter & JSXBase.HTMLAttributes<HTMLZTableFooterElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-head": LocalJSX.ZTableHead & JSXBase.HTMLAttributes<HTMLZTableHeadElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-header": LocalJSX.ZTableHeader & JSXBase.HTMLAttributes<HTMLZTableHeaderElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
+            /**
+             * @deprecated 
+             */
             "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
+            /**
+             * Ztag  component.
+             * @cssprop --z-tag-text-color - text and icon color using tokens.
+             * @cssprop --z-tag-bg - background color of the z-tag.
+             */
             "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
+            /**
+             * ZTbody component.
+             */
             "z-tbody": LocalJSX.ZTbody & JSXBase.HTMLAttributes<HTMLZTbodyElement>;
+            /**
+             * ZTd component.
+             */
             "z-td": LocalJSX.ZTd & JSXBase.HTMLAttributes<HTMLZTdElement>;
+            /**
+             * ZTFoot component.
+             */
             "z-tfoot": LocalJSX.ZTfoot & JSXBase.HTMLAttributes<HTMLZTfootElement>;
+            /**
+             * ZTh component.
+             */
             "z-th": LocalJSX.ZTh & JSXBase.HTMLAttributes<HTMLZThElement>;
+            /**
+             * ZThead component.
+             */
             "z-thead": LocalJSX.ZThead & JSXBase.HTMLAttributes<HTMLZTheadElement>;
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            /**
+             * Tooltip component.
+             * It is basically a wrapper for the `<z-popover>` component with custom configuration.
+             * @cssprop --z-tooltip-theme--surface - background color of the popover.
+             * @cssprop --z-tooltip-theme--text - foreground color of the popover.
+             * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
+             */
             "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            /**
+             * ZTr component.
+             * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
+             * to prevent the row from expanding.
+             */
             "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
