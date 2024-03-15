@@ -29,15 +29,16 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "20.x"
-          registry-url: "https://registry.npmjs.org"
-          always-auth: true
-      - name: Publish to npm
-        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: echo "test step"
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "20.x"
+      #     registry-url: "https://registry.npmjs.org"
+      #     always-auth: true
+      # - name: Publish to npm
+      #   run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest

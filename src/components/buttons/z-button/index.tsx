@@ -70,7 +70,7 @@ export class ZButton {
 
   render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
-      return (
+      return 
         <a
           {...this.getAttributes()}
           aria-label={this.ariaLabel}
