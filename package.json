@@ -98,10 +98,5 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "standard-version": {
-    "scripts": {
-      "prerelease": "yarn && yarn build"
-    }
-  }
+  "es2017": "dist/esm/index.mjs"
 }
