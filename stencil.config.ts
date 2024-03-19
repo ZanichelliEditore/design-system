@@ -8,6 +8,7 @@ export const config: Config = {
     {
       type: "dist",
       polyfills: true,
+      esmLoaderPath: "../loader",
     },
     reactOutputTarget({
       componentCorePackage: require("./package.json").name,
