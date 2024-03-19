@@ -1,1 +1,0 @@
-import{r as o,h as r,H as s}from"./p-81006561.js";const t=class{constructor(r){o(this,r)}render(){return r(s,{role:"rowgroup"},r("slot",null))}};t.style=":host{display:block;box-sizing:border-box}";export{t as Z}

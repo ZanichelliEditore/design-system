@@ -2,34 +2,39 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-195ca522.js');
+const index = require('./index-dc60bee7.js');
 
 const stylesCss = "ul{padding:0;margin:0}";
+const ZMyzListStyle0 = stylesCss;
 
 const ZMyzList = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-  }
-  componentWillLoad() {
-    if (this.inputrawdata) {
-      this.parseinputrawdata(this.inputrawdata);
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.inputrawdata = undefined;
+        this.list = undefined;
     }
-  }
-  parseinputrawdata(inputrawdata) {
-    this.list = [...JSON.parse(inputrawdata)];
-  }
-  oninputrawdataChange(newValue) {
-    this.parseinputrawdata(newValue);
-  }
-  render() {
-    const lastElem = this.list ? this.list.length - 1 : -1;
-    return (index.h("ul", null, this.list &&
-      this.list.map((bean, i) => (index.h("z-myz-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
-  }
-  static get watchers() { return {
-    "inputrawdata": ["oninputrawdataChange"]
-  }; }
+    componentWillLoad() {
+        if (this.inputrawdata) {
+            this.parseinputrawdata(this.inputrawdata);
+        }
+    }
+    parseinputrawdata(inputrawdata) {
+        this.list = [...JSON.parse(inputrawdata)];
+    }
+    oninputrawdataChange(newValue) {
+        this.parseinputrawdata(newValue);
+    }
+    render() {
+        const lastElem = this.list ? this.list.length - 1 : -1;
+        return (index.h("ul", { key: '9cf88d3a10f5a2239690c9b548ba18e2a21f4285' }, this.list &&
+            this.list.map((bean, i) => (index.h("z-myz-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
+    }
+    static get watchers() { return {
+        "inputrawdata": ["oninputrawdataChange"]
+    }; }
 };
-ZMyzList.style = stylesCss;
+ZMyzList.style = ZMyzListStyle0;
 
 exports.z_myz_list = ZMyzList;
+
+//# sourceMappingURL=z-myz-list.cjs.entry.js.map

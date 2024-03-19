@@ -2,130 +2,133 @@ import { h, Host } from "@stencil/core";
 import { PopoverPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 export class ZFile {
-  constructor() {
-    this.allowPopover = false;
-    this.popoverVisible = false;
-  }
-  removeFileHandler() {
-    this.removeFile.emit({ fileName: this.fileName });
-    this.el.remove();
-  }
-  onMouseOver() {
-    this.popoverVisible = true;
-  }
-  onMouseLeave() {
-    this.popoverVisible = false;
-  }
-  onInteractiveIconClick() {
-    this.removeFileHandler();
-  }
-  componentDidLoad() {
-    var _a, _b;
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
-      this.allowPopover = true;
+    constructor() {
+        this.fileNumber = undefined;
+        this.fileName = undefined;
+        this.allowPopover = false;
+        this.popoverVisible = false;
     }
-    (_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.focus) === null || _b === void 0 ? void 0 : _b.call(_a);
-  }
-  elementHasEllipsis() {
-    return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
-  }
-  render() {
-    return (h(Host, null, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
-  }
-  static get is() { return "z-file"; }
-  static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get styleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get properties() {
-    return {
-      "fileNumber": {
-        "type": "number",
-        "mutable": false,
-        "complexType": {
-          "original": "number",
-          "resolved": "number",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "File chip id"
-        },
-        "attribute": "file-number",
-        "reflect": false
-      },
-      "fileName": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "string",
-          "resolved": "string",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "File name"
-        },
-        "attribute": "file-name",
-        "reflect": false
-      }
-    };
-  }
-  static get states() {
-    return {
-      "allowPopover": {},
-      "popoverVisible": {}
-    };
-  }
-  static get events() {
-    return [{
-        "method": "removeFile",
-        "name": "removeFile",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "Emitted when a z-file component is removed from the DOM"
-        },
-        "complexType": {
-          "original": "any",
-          "resolved": "any",
-          "references": {}
+    removeFileHandler() {
+        this.removeFile.emit({ fileName: this.fileName });
+        this.el.remove();
+    }
+    onMouseOver() {
+        this.popoverVisible = true;
+    }
+    onMouseLeave() {
+        this.popoverVisible = false;
+    }
+    onInteractiveIconClick() {
+        this.removeFileHandler();
+    }
+    componentDidLoad() {
+        var _a, _b;
+        if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+            this.allowPopover = true;
         }
-      }];
-  }
-  static get elementRef() { return "el"; }
-  static get listeners() {
-    return [{
-        "name": "mouseover",
-        "method": "onMouseOver",
-        "target": undefined,
-        "capture": false,
-        "passive": true
-      }, {
-        "name": "mouseleave",
-        "method": "onMouseLeave",
-        "target": undefined,
-        "capture": false,
-        "passive": true
-      }, {
-        "name": "interactiveIconClick",
-        "method": "onInteractiveIconClick",
-        "target": undefined,
-        "capture": false,
-        "passive": false
-      }];
-  }
+        (_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.focus) === null || _b === void 0 ? void 0 : _b.call(_a);
+    }
+    elementHasEllipsis() {
+        return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
+    }
+    render() {
+        return (h(Host, { key: 'fc115e09bac93434e5c460602d91d75034156d58' }, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { key: 'e834fa8689c5164cb51de5353a14d21495d5bfe5', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { key: '037442876903b11acfa1f65acb3a65ccde8c2161', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+    }
+    static get is() { return "z-file"; }
+    static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "fileNumber": {
+                "type": "number",
+                "mutable": false,
+                "complexType": {
+                    "original": "number",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "File chip id"
+                },
+                "attribute": "file-number",
+                "reflect": false
+            },
+            "fileName": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "File name"
+                },
+                "attribute": "file-name",
+                "reflect": false
+            }
+        };
+    }
+    static get states() {
+        return {
+            "allowPopover": {},
+            "popoverVisible": {}
+        };
+    }
+    static get events() {
+        return [{
+                "method": "removeFile",
+                "name": "removeFile",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Emitted when a z-file component is removed from the DOM"
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }];
+    }
+    static get elementRef() { return "el"; }
+    static get listeners() {
+        return [{
+                "name": "mouseover",
+                "method": "onMouseOver",
+                "target": undefined,
+                "capture": false,
+                "passive": true
+            }, {
+                "name": "mouseleave",
+                "method": "onMouseLeave",
+                "target": undefined,
+                "capture": false,
+                "passive": true
+            }, {
+                "name": "interactiveIconClick",
+                "method": "onInteractiveIconClick",
+                "target": undefined,
+                "capture": false,
+                "passive": false
+            }];
+    }
 }
+//# sourceMappingURL=index.js.map

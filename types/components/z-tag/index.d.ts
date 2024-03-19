@@ -5,9 +5,9 @@
  * @cssprop --z-tag-bg - background color of the z-tag.
  */
 export declare class ZTag {
-  /** [optional] Tag icon */
-  icon?: string;
-  /** [optional] Hide the text and show it on hover*/
-  expandable?: boolean;
-  render(): HTMLZTagElement;
+    /** [optional] Tag icon */
+    icon?: string;
+    /** [optional] Hide the text and show it on hover*/
+    expandable?: boolean;
+    render(): HTMLZTagElement;
 }

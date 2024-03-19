@@ -1,105 +1,107 @@
 import { h } from "@stencil/core";
 import { ToastNotificationPosition } from "../../../beans";
 export class ZToastNotificationList {
-  constructor() {
-    /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
-    this.position = ToastNotificationPosition.TOP_RIGHT;
-    /**Set the entry position of new notification in the list */
-    this.newestontop = true;
-  }
-  watchPropNewestontop(newValue) {
-    this.hostElement.append(...this.notificationArray.reverse());
-    if (newValue) {
-      this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
+    constructor() {
+        this.position = ToastNotificationPosition.TOP_RIGHT;
+        this.newestontop = true;
     }
-    else {
-      this.hostElement.shadowRoot.removeEventListener("slotchange", this.slotChangeHandler);
+    watchPropNewestontop(newValue) {
+        this.hostElement.append(...this.notificationArray.reverse());
+        if (newValue) {
+            this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
+        }
+        else {
+            this.hostElement.shadowRoot.removeEventListener("slotchange", this.slotChangeHandler);
+        }
     }
-  }
-  componentWillLoad() {
-    this.newestontop && this.handleNewestOnTop();
-  }
-  handleNewestOnTop() {
-    this.notificationArray = Array.from(this.hostElement.children);
-    this.hostElement.append(...this.notificationArray.reverse());
-    this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler);
-  }
-  slotChangeHandler() {
-    const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
-    if (difference) {
-      difference.forEach((elem) => {
-        this.notificationArray.push(elem);
-        const newElem = elem;
-        elem.remove();
-        this.hostElement.prepend(newElem);
-      });
+    componentWillLoad() {
+        if (this.newestontop) {
+            this.handleNewestOnTop();
+        }
     }
-  }
-  render() {
-    return h("slot", { name: "toasts" });
-  }
-  static get is() { return "z-toast-notification-list"; }
-  static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get styleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get properties() {
-    return {
-      "position": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "ToastNotificationPosition",
-          "resolved": "ToastNotificationPosition.BOTTOM_CENTRE | ToastNotificationPosition.BOTTOM_LEFT | ToastNotificationPosition.BOTTOM_RIGHT | ToastNotificationPosition.TOP_CENTRE | ToastNotificationPosition.TOP_LEFT | ToastNotificationPosition.TOP_RIGHT",
-          "references": {
-            "ToastNotificationPosition": {
-              "location": "import",
-              "path": "../../../beans"
+    handleNewestOnTop() {
+        this.notificationArray = Array.from(this.hostElement.children);
+        this.hostElement.append(...this.notificationArray.reverse());
+        this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler.bind(this));
+    }
+    slotChangeHandler() {
+        const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
+        if (difference) {
+            difference.forEach((elem) => {
+                this.notificationArray.push(elem);
+                const newElem = elem;
+                elem.remove();
+                this.hostElement.prepend(newElem);
+            });
+        }
+    }
+    render() {
+        return h("slot", { key: '43f93b7edca0a4245d9c79d63004617ad21063b0', name: "toasts" });
+    }
+    static get is() { return "z-toast-notification-list"; }
+    static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "position": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "ToastNotificationPosition",
+                    "resolved": "ToastNotificationPosition.BOTTOM_CENTRE | ToastNotificationPosition.BOTTOM_LEFT | ToastNotificationPosition.BOTTOM_RIGHT | ToastNotificationPosition.TOP_CENTRE | ToastNotificationPosition.TOP_LEFT | ToastNotificationPosition.TOP_RIGHT",
+                    "references": {
+                        "ToastNotificationPosition": {
+                            "location": "import",
+                            "path": "../../../beans",
+                            "id": "src/beans/index.tsx::ToastNotificationPosition"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right"
+                },
+                "attribute": "position",
+                "reflect": true,
+                "defaultValue": "ToastNotificationPosition.TOP_RIGHT"
+            },
+            "newestontop": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the entry position of new notification in the list"
+                },
+                "attribute": "newestontop",
+                "reflect": false,
+                "defaultValue": "true"
             }
-          }
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right"
-        },
-        "attribute": "position",
-        "reflect": true,
-        "defaultValue": "ToastNotificationPosition.TOP_RIGHT"
-      },
-      "newestontop": {
-        "type": "boolean",
-        "mutable": false,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": true,
-        "docs": {
-          "tags": [],
-          "text": "Set the entry position of new notification in the list"
-        },
-        "attribute": "newestontop",
-        "reflect": false,
-        "defaultValue": "true"
-      }
-    };
-  }
-  static get elementRef() { return "hostElement"; }
-  static get watchers() {
-    return [{
-        "propName": "newestontop",
-        "methodName": "watchPropNewestontop"
-      }];
-  }
+        };
+    }
+    static get elementRef() { return "hostElement"; }
+    static get watchers() {
+        return [{
+                "propName": "newestontop",
+                "methodName": "watchPropNewestontop"
+            }];
+    }
 }
+//# sourceMappingURL=index.js.map

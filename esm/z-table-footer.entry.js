@@ -1,2 +1,4 @@
-export { Z as z_table_footer } from './index-fac1fe6c.js';
-import './index-4968ce56.js';
+export { Z as z_table_footer } from './index-73ab3b9b.js';
+import './index-f16bc2ca.js';
+
+//# sourceMappingURL=z-table-footer.entry.js.map

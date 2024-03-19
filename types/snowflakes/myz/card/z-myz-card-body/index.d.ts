@@ -3,5 +3,5 @@
  * @slot cover - book cover slot
  */
 export declare class ZMyzCardBody {
-  render(): HTMLDivElement;
+    render(): HTMLDivElement;
 }

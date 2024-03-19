@@ -8,21 +8,21 @@ import "../z-tfoot/index";
  * @cssprop --z-table--cells-padding - Padding of the cells.
  */
 export declare class ZTable {
-  host: HTMLZTableElement;
-  /**
-   * Whether the table cells should show a border between them.
-   */
-  bordered: boolean;
-  /**
-   * Whether the table contains some expandable rows.
-   */
-  expandable: boolean;
-  private updateExpandable;
-  private expandableMutationObserver;
-  /**
-   * Setup the table creating a mutation observer for the expandable attribute.
-   */
-  componentWillLoad(): void;
-  disconnectedCallback(): void;
-  render(): HTMLZTableElement;
+    host: HTMLZTableElement;
+    /**
+     * Whether the table cells should show a border between them.
+     */
+    bordered: boolean;
+    /**
+     * Whether the table contains some expandable rows.
+     */
+    expandable: boolean;
+    private updateExpandable;
+    private expandableMutationObserver;
+    /**
+     * Setup the table creating a mutation observer for the expandable attribute.
+     */
+    componentWillLoad(): void;
+    disconnectedCallback(): void;
+    render(): HTMLZTableElement;
 }

@@ -4,159 +4,152 @@ import { OffCanvasVariant, TransitionDirection } from "../../beans";
  * @slot canvasContent - Slot for the main content.
  */
 export class ZOffcanvas {
-  constructor() {
-    /**
-     * Offcanvas variant.
-     * Can be one `overlay` or `pushcontent`.
-     * Default variant: pushcontent
-     */
-    this.variant = OffCanvasVariant.PUSHCONTENT;
-    /** Whether the offcanvas is open. Default: false */
-    this.open = false;
-    /** open content transitioning in a specified direction left | right. Default: left */
-    this.transitiondirection = TransitionDirection.LEFT;
-    /**
-     * Whether to skip the initial animation.
-     * Useful when the initial value of the `open` prop is set to `true`.
-     */
-    this.skipLoadAnimation = false;
-  }
-  onOpenChanged() {
-    if (!this.open && this.skipLoadAnimation) {
-      this.skipLoadAnimation = false;
+    constructor() {
+        this.variant = OffCanvasVariant.PUSHCONTENT;
+        this.open = false;
+        this.transitiondirection = TransitionDirection.LEFT;
+        this.skipLoadAnimation = false;
     }
-    if (this.open) {
-      this.handlePageOverflow();
-    }
-    this.canvasOpenStatusChanged.emit(this.open);
-  }
-  handlePageOverflow() {
-    const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
-    document.body.style[overflow] = this.open ? "hidden" : "";
-  }
-  render() {
-    return (h(Host, { class: { "skip-animation": this.skipLoadAnimation } }, h("div", { role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { role: "presentation", class: "canvas-content" }, h("slot", { name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
-  }
-  static get is() { return "z-offcanvas"; }
-  static get encapsulation() { return "scoped"; }
-  static get originalStyleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get styleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get properties() {
-    return {
-      "variant": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "OffCanvasVariant",
-          "resolved": "OffCanvasVariant.OVERLAY | OffCanvasVariant.PUSHCONTENT",
-          "references": {
-            "OffCanvasVariant": {
-              "location": "import",
-              "path": "../../beans"
-            }
-          }
-        },
-        "required": false,
-        "optional": true,
-        "docs": {
-          "tags": [],
-          "text": "Offcanvas variant.\nCan be one `overlay` or `pushcontent`.\nDefault variant: pushcontent"
-        },
-        "attribute": "variant",
-        "reflect": true,
-        "defaultValue": "OffCanvasVariant.PUSHCONTENT"
-      },
-      "open": {
-        "type": "boolean",
-        "mutable": true,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Whether the offcanvas is open. Default: false"
-        },
-        "attribute": "open",
-        "reflect": true,
-        "defaultValue": "false"
-      },
-      "transitiondirection": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "TransitionDirection",
-          "resolved": "TransitionDirection.LEFT | TransitionDirection.RIGHT",
-          "references": {
-            "TransitionDirection": {
-              "location": "import",
-              "path": "../../beans"
-            }
-          }
-        },
-        "required": false,
-        "optional": true,
-        "docs": {
-          "tags": [],
-          "text": "open content transitioning in a specified direction left | right. Default: left"
-        },
-        "attribute": "transitiondirection",
-        "reflect": true,
-        "defaultValue": "TransitionDirection.LEFT"
-      },
-      "skipLoadAnimation": {
-        "type": "boolean",
-        "mutable": true,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Whether to skip the initial animation.\nUseful when the initial value of the `open` prop is set to `true`."
-        },
-        "attribute": "skip-load-animation",
-        "reflect": false,
-        "defaultValue": "false"
-      }
-    };
-  }
-  static get events() {
-    return [{
-        "method": "canvasOpenStatusChanged",
-        "name": "canvasOpenStatusChanged",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "emitted when `open` prop changes"
-        },
-        "complexType": {
-          "original": "any",
-          "resolved": "any",
-          "references": {}
+    onOpenChanged() {
+        if (!this.open && this.skipLoadAnimation) {
+            this.skipLoadAnimation = false;
         }
-      }];
-  }
-  static get watchers() {
-    return [{
-        "propName": "open",
-        "methodName": "onOpenChanged"
-      }];
-  }
+        this.handlePageOverflow();
+        this.canvasOpenStatusChanged.emit(this.open);
+    }
+    handlePageOverflow() {
+        const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
+        document.body.style[overflow] = this.open ? "hidden" : "";
+    }
+    disconnectedCallback() {
+        this.open = false;
+    }
+    render() {
+        return (h(Host, { key: 'f0f282fa9732f81f98d644210d2b602a53161b7d', class: { "skip-animation": this.skipLoadAnimation } }, h("div", { key: '15bf03615f187509da41d3206b39d705ca34cb50', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { key: 'ba4444c4f3e6c3d9c9fecc4ff4ab103fc614b6bb', role: "presentation", class: "canvas-content" }, h("slot", { key: '4da6be1451be2a26815c7d6503a1eb9cec7c48f6', name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
+    }
+    static get is() { return "z-offcanvas"; }
+    static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "variant": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "OffCanvasVariant",
+                    "resolved": "OffCanvasVariant.OVERLAY | OffCanvasVariant.PUSHCONTENT",
+                    "references": {
+                        "OffCanvasVariant": {
+                            "location": "import",
+                            "path": "../../beans",
+                            "id": "src/beans/index.tsx::OffCanvasVariant"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Offcanvas variant.\nCan be one `overlay` or `pushcontent`.\nDefault variant: pushcontent"
+                },
+                "attribute": "variant",
+                "reflect": true,
+                "defaultValue": "OffCanvasVariant.PUSHCONTENT"
+            },
+            "open": {
+                "type": "boolean",
+                "mutable": true,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Whether the offcanvas is open. Default: false"
+                },
+                "attribute": "open",
+                "reflect": true,
+                "defaultValue": "false"
+            },
+            "transitiondirection": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "TransitionDirection",
+                    "resolved": "TransitionDirection.LEFT | TransitionDirection.RIGHT",
+                    "references": {
+                        "TransitionDirection": {
+                            "location": "import",
+                            "path": "../../beans",
+                            "id": "src/beans/index.tsx::TransitionDirection"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "open content transitioning in a specified direction left | right. Default: left"
+                },
+                "attribute": "transitiondirection",
+                "reflect": true,
+                "defaultValue": "TransitionDirection.LEFT"
+            },
+            "skipLoadAnimation": {
+                "type": "boolean",
+                "mutable": true,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Whether to skip the initial animation.\nUseful when the initial value of the `open` prop is set to `true`."
+                },
+                "attribute": "skip-load-animation",
+                "reflect": false,
+                "defaultValue": "false"
+            }
+        };
+    }
+    static get events() {
+        return [{
+                "method": "canvasOpenStatusChanged",
+                "name": "canvasOpenStatusChanged",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "emitted when `open` prop changes"
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }];
+    }
+    static get watchers() {
+        return [{
+                "propName": "open",
+                "methodName": "onOpenChanged"
+            }];
+    }
 }
+//# sourceMappingURL=index.js.map

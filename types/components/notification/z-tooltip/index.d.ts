@@ -8,25 +8,25 @@ import { PopoverPosition } from "../../../beans";
  * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
  */
 export declare class ZTooltip {
-  /** Tooltip position. */
-  position: PopoverPosition;
-  /** Enable tooltip dark mode. */
-  dark: boolean;
-  /**
-   * The open state of the tooltip.
-   */
-  open: boolean;
-  /**
-   * The selector or the element bound with the tooltip.
-   */
-  bindTo?: string | HTMLElement;
-  /**
-   * Reflects `closable` prop of the popover.
-   * "If true, the popover can be closed by clicking outside of it or pressing the escape key.
-   * Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
-   */
-  closable: boolean;
-  private popoverEl;
-  onPopoverOpenChange(): void;
-  render(): HTMLZPopoverElement;
+    /** Tooltip position. */
+    position: PopoverPosition;
+    /** Enable tooltip dark mode. */
+    dark: boolean;
+    /**
+     * The open state of the tooltip.
+     */
+    open: boolean;
+    /**
+     * The selector or the element bound with the tooltip.
+     */
+    bindTo?: string | HTMLElement;
+    /**
+     * Reflects `closable` prop of the popover.
+     * "If true, the popover can be closed by clicking outside of it or pressing the escape key.
+     * Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
+     */
+    closable: boolean;
+    private popoverEl;
+    onPopoverOpenChange(): void;
+    render(): HTMLZPopoverElement;
 }

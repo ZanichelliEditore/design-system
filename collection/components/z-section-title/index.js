@@ -10,79 +10,74 @@ import { DividerSize, ZSectionTitleDividerPosition } from "../../beans";
  * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
  */
 export class ZSectionTitle {
-  constructor() {
-    /**
-     * Divider position for the primary title.
-     * This prop only works if the secondary title is not set.
-     */
-    this.dividerPosition = ZSectionTitleDividerPosition.BEFORE;
-    /**
-     * Whether the primary title text is uppercase.
-     */
-    this.uppercase = true;
-  }
-  componentWillRender() {
-    this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
-  }
-  render() {
-    return (h(Host, null, h("slot", { name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
-  }
-  static get is() { return "z-section-title"; }
-  static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get styleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get properties() {
-    return {
-      "dividerPosition": {
-        "type": "string",
-        "mutable": false,
-        "complexType": {
-          "original": "ZSectionTitleDividerPosition",
-          "resolved": "ZSectionTitleDividerPosition.AFTER | ZSectionTitleDividerPosition.BEFORE",
-          "references": {
-            "ZSectionTitleDividerPosition": {
-              "location": "import",
-              "path": "../../beans"
+    constructor() {
+        this.dividerPosition = ZSectionTitleDividerPosition.BEFORE;
+        this.uppercase = true;
+    }
+    componentWillRender() {
+        this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
+    }
+    render() {
+        return (h(Host, { key: '73bb5aa52dd0ebf377b6dc6c341a6fe856689753' }, h("slot", { key: '69342bb343240b870f387b2f8b81433d6c44adcd', name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { key: 'b13fc5c19b76b950806457e9ccd93cc21b850bc0', name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
+    }
+    static get is() { return "z-section-title"; }
+    static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "dividerPosition": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "ZSectionTitleDividerPosition",
+                    "resolved": "ZSectionTitleDividerPosition.AFTER | ZSectionTitleDividerPosition.BEFORE",
+                    "references": {
+                        "ZSectionTitleDividerPosition": {
+                            "location": "import",
+                            "path": "../../beans",
+                            "id": "src/beans/index.tsx::ZSectionTitleDividerPosition"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Divider position for the primary title.\nThis prop only works if the secondary title is not set."
+                },
+                "attribute": "divider-position",
+                "reflect": false,
+                "defaultValue": "ZSectionTitleDividerPosition.BEFORE"
+            },
+            "uppercase": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Whether the primary title text is uppercase."
+                },
+                "attribute": "uppercase",
+                "reflect": true,
+                "defaultValue": "true"
             }
-          }
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Divider position for the primary title.\nThis prop only works if the secondary title is not set."
-        },
-        "attribute": "divider-position",
-        "reflect": false,
-        "defaultValue": "ZSectionTitleDividerPosition.BEFORE"
-      },
-      "uppercase": {
-        "type": "boolean",
-        "mutable": false,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": false,
-        "docs": {
-          "tags": [],
-          "text": "Whether the primary title text is uppercase."
-        },
-        "attribute": "uppercase",
-        "reflect": true,
-        "defaultValue": "true"
-      }
-    };
-  }
-  static get elementRef() { return "host"; }
+        };
+    }
+    static get elementRef() { return "host"; }
 }
+//# sourceMappingURL=index.js.map

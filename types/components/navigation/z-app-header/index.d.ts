@@ -59,91 +59,91 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
  */
 export declare class ZAppHeader {
-  hostElement: HTMLZAppHeaderElement;
-  /**
-   * Stuck mode for the header.
-   * You can programmatically set it using an IntersectionObserver.
-   */
-  stuck: boolean;
-  /**
-   * Set the hero image source for the header.
-   * You can also use a [slot="hero"] node for advanced customization.
-   */
-  hero: string;
-  /**
-   * Should place an overlay over the hero image.
-   * Useful for legibility purpose.
-   */
-  overlay: boolean;
-  /**
-   * Control menu bar position in the header.
-   * - auto: the menu bar is positioned near the title
-   * - stack: the menu bar is positioned below the title
-   * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-   */
-  flow: "auto" | "stack" | "offcanvas";
-  /**
-   * The opening state of the drawer.
-   */
-  drawerOpen: boolean;
-  /**
-   * Enable the search bar.
-   */
-  enableSearch: boolean;
-  /**
-   * Placeholder text for the search bar.
-   */
-  searchPlaceholder: string;
-  /**
-   * Search string for the search bar.
-   */
-  searchString: string;
-  /**
-   * Url to the search page.
-   * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
-   * The link will also appear on the sticky header.
-   */
-  searchPageUrl: string;
-  /**
-   * The stuck state of the bar.
-   */
-  private _stuck;
-  /**
-   * Current viewport.
-   * Used to change the aspect of the search button (icon only) on mobile and tablet.
-   */
-  private currentViewport;
-  /**
-   * Current count of menu items.
-   */
-  menuLength: number;
-  /**
-   * Emitted when the `stuck` state of the header changes
-   */
-  sticking: EventEmitter;
-  private container?;
-  private menuElements?;
-  private observer?;
-  constructor();
-  evaluateViewport(): void;
-  onStuck(): void;
-  setMenuFloatingMode(): void;
-  private get title();
-  private get scrollParent();
-  private get canShowMenu();
-  private get canShowSearchbar();
-  /**
-   * Whether the header has a hero image, either as a prop or as a slot.
-   */
-  private get hasHero();
-  private openDrawer;
-  private closeDrawer;
-  private collectMenuElements;
-  private enableStuckObserver;
-  private disableStuckMode;
-  onStuckMode(): void;
-  private renderSearchLinkButton;
-  private renderSeachbar;
-  componentDidLoad(): void;
-  render(): HTMLZAppHeaderElement;
+    hostElement: HTMLZAppHeaderElement;
+    /**
+     * Stuck mode for the header.
+     * You can programmatically set it using an IntersectionObserver.
+     */
+    stuck: boolean;
+    /**
+     * Set the hero image source for the header.
+     * You can also use a [slot="hero"] node for advanced customization.
+     */
+    hero: string;
+    /**
+     * Should place an overlay over the hero image.
+     * Useful for legibility purpose.
+     */
+    overlay: boolean;
+    /**
+     * Control menu bar position in the header.
+     * - auto: the menu bar is positioned near the title
+     * - stack: the menu bar is positioned below the title
+     * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+     */
+    flow: "auto" | "stack" | "offcanvas";
+    /**
+     * The opening state of the drawer.
+     */
+    drawerOpen: boolean;
+    /**
+     * Enable the search bar.
+     */
+    enableSearch: boolean;
+    /**
+     * Placeholder text for the search bar.
+     */
+    searchPlaceholder: string;
+    /**
+     * Search string for the search bar.
+     */
+    searchString: string;
+    /**
+     * Url to the search page.
+     * Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar.
+     * The link will also appear on the sticky header.
+     */
+    searchPageUrl: string;
+    /**
+     * The stuck state of the bar.
+     */
+    private _stuck;
+    /**
+     * Current viewport.
+     * Used to change the aspect of the search button (icon only) on mobile and tablet.
+     */
+    private currentViewport;
+    /**
+     * Current count of menu items.
+     */
+    menuLength: number;
+    /**
+     * Emitted when the `stuck` state of the header changes
+     */
+    sticking: EventEmitter;
+    private container?;
+    private menuElements?;
+    private observer?;
+    constructor();
+    evaluateViewport(): void;
+    onStuck(): void;
+    setMenuFloatingMode(): void;
+    private get title();
+    private get scrollParent();
+    private get canShowMenu();
+    private get canShowSearchbar();
+    /**
+     * Whether the header has a hero image, either as a prop or as a slot.
+     */
+    private get hasHero();
+    private openDrawer;
+    private closeDrawer;
+    private collectMenuElements;
+    private enableStuckObserver;
+    private disableStuckMode;
+    onStuckMode(): void;
+    private renderSearchLinkButton;
+    private renderSeachbar;
+    componentDidLoad(): void;
+    render(): HTMLZAppHeaderElement;
 }

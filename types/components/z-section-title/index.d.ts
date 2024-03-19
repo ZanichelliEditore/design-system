@@ -9,17 +9,17 @@ import { ZSectionTitleDividerPosition } from "../../beans";
  * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
  */
 export declare class ZSectionTitle {
-  /**
-   * Divider position for the primary title.
-   * This prop only works if the secondary title is not set.
-   */
-  dividerPosition: ZSectionTitleDividerPosition;
-  /**
-   * Whether the primary title text is uppercase.
-   */
-  uppercase: boolean;
-  host: HTMLZSectionTitleElement;
-  private hasSecondaryTitle;
-  componentWillRender(): void;
-  render(): HTMLZSectionTitleElement;
+    /**
+     * Divider position for the primary title.
+     * This prop only works if the secondary title is not set.
+     */
+    dividerPosition: ZSectionTitleDividerPosition;
+    /**
+     * Whether the primary title text is uppercase.
+     */
+    uppercase: boolean;
+    host: HTMLZSectionTitleElement;
+    private hasSecondaryTitle;
+    componentWillRender(): void;
+    render(): HTMLZSectionTitleElement;
 }

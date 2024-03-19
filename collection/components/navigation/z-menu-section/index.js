@@ -5,121 +5,127 @@ import { h, Host } from "@stencil/core";
  * @slot item - Single entry of the section. Set the same slot name to different items to put many of them. Add the `active` attribute to a slotted item to highlight it.
  */
 export class ZMenuSection {
-  toggle() {
-    if (!this.hasContent) {
-      return;
+    constructor() {
+        this.active = undefined;
+        this.open = undefined;
+        this.hasContent = undefined;
     }
-    this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
-  }
-  /** Close the list when a click is performed outside of this Element. */
-  handleClick(ev) {
-    if (!this.open || this.hostElement.contains(ev.target)) {
-      return;
+    toggle() {
+        if (!this.hasContent) {
+            return;
+        }
+        this.open = !this.open;
+        this.open ? this.opened.emit() : this.closed.emit();
     }
-    this.open = false;
-    this.closed.emit();
-  }
-  /**
-   * Check if some content slot is set.
-   */
-  checkContent() {
-    this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
-  }
-  /**
-   * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
-   * @param ev Slotchange event
-   */
-  onLabelSlotChange(ev) {
-    const labelElement = ev.target.assignedElements()[0];
-    labelElement.dataset.text = (labelElement === null || labelElement === void 0 ? void 0 : labelElement.innerText) || null;
-  }
-  componentWillLoad() {
-    this.checkContent();
-  }
-  render() {
-    return (h(Host, { role: "menu", open: this.open }, h("button", { class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
-  }
-  static get is() { return "z-menu-section"; }
-  static get encapsulation() { return "shadow"; }
-  static get originalStyleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get styleUrls() {
-    return {
-      "$": ["styles.css"]
-    };
-  }
-  static get properties() {
-    return {
-      "active": {
-        "type": "boolean",
-        "mutable": false,
-        "complexType": {
-          "original": "boolean",
-          "resolved": "boolean",
-          "references": {}
-        },
-        "required": false,
-        "optional": true,
-        "docs": {
-          "tags": [],
-          "text": "Active state"
-        },
-        "attribute": "active",
-        "reflect": true
-      }
-    };
-  }
-  static get states() {
-    return {
-      "open": {},
-      "hasContent": {}
-    };
-  }
-  static get events() {
-    return [{
-        "method": "opened",
-        "name": "opened",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "The section has been opened."
-        },
-        "complexType": {
-          "original": "any",
-          "resolved": "any",
-          "references": {}
+    /** Close the list when a click is performed outside of this Element. */
+    handleClick(ev) {
+        if (!this.open || this.hostElement.contains(ev.target)) {
+            return;
         }
-      }, {
-        "method": "closed",
-        "name": "closed",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": {
-          "tags": [],
-          "text": "The section has been closed."
-        },
-        "complexType": {
-          "original": "any",
-          "resolved": "any",
-          "references": {}
-        }
-      }];
-  }
-  static get elementRef() { return "hostElement"; }
-  static get listeners() {
-    return [{
-        "name": "click",
-        "method": "handleClick",
-        "target": "document",
-        "capture": false,
-        "passive": false
-      }];
-  }
+        this.open = false;
+        this.closed.emit();
+    }
+    /**
+     * Check if some content slot is set.
+     */
+    checkContent() {
+        this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+    }
+    /**
+     * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
+     * @param ev Slotchange event
+     */
+    onLabelSlotChange(ev) {
+        const labelElement = ev.target.assignedElements()[0];
+        labelElement.dataset.text = (labelElement === null || labelElement === void 0 ? void 0 : labelElement.innerText) || null;
+    }
+    componentWillLoad() {
+        this.checkContent();
+    }
+    render() {
+        return (h(Host, { key: 'beadad10be10337d069e96c4144372b3ae9188d7', role: "menu", open: this.open }, h("button", { key: 'd76a6e7da3bb60238571b5a4e9c76b2923b07a97', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: 'ba6a653482a7e3f5de77877e7e69225c236b85f8', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
+    }
+    static get is() { return "z-menu-section"; }
+    static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get styleUrls() {
+        return {
+            "$": ["styles.css"]
+        };
+    }
+    static get properties() {
+        return {
+            "active": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Active state"
+                },
+                "attribute": "active",
+                "reflect": true
+            }
+        };
+    }
+    static get states() {
+        return {
+            "open": {},
+            "hasContent": {}
+        };
+    }
+    static get events() {
+        return [{
+                "method": "opened",
+                "name": "opened",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The section has been opened."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }, {
+                "method": "closed",
+                "name": "closed",
+                "bubbles": true,
+                "cancelable": true,
+                "composed": true,
+                "docs": {
+                    "tags": [],
+                    "text": "The section has been closed."
+                },
+                "complexType": {
+                    "original": "any",
+                    "resolved": "any",
+                    "references": {}
+                }
+            }];
+    }
+    static get elementRef() { return "hostElement"; }
+    static get listeners() {
+        return [{
+                "name": "click",
+                "method": "handleClick",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }];
+    }
 }
+//# sourceMappingURL=index.js.map

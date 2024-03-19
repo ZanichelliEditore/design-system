@@ -2,38 +2,40 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-195ca522.js');
-const index$1 = require('./index-cf9497bc.js');
+const index = require('./index-dc60bee7.js');
+const index$1 = require('./index-39ce4edf.js');
 
 const stylesCss$1 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.dragdrop{position:relative;display:flex;height:228px;flex-direction:column;padding:calc(var(--space-unit) * 2);border-color:var(--color-surface04);background-color:var(--color-surface02);background-image:url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e\");border-radius:2px;color:var(--color-text01)}:host>.dragdrop.dragover *{pointer-events:none}:host>.dragdrop .dragover-container{position:absolute;z-index:10;top:0;left:0;display:none;width:100%;height:100%;background-color:var(--color-primary03);box-shadow:var(--shadow-focus-primary)}:host>.dragdrop .dragover-container .dragover-message{padding:10px 28px;background-color:var(--color-link-primary);color:var(--color-text04)}:host>.dragdrop.dragover .dragover-container{display:flex;align-items:center;justify-content:center}";
+const ZDragdropAreaStyle0 = stylesCss$1;
 
 const ZDragdropArea = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.fileDropped = index.createEvent(this, "fileDropped", 7);
-  }
-  fileDroppedHandler(files) {
-    this.fileDropped.emit(files);
-  }
-  renderOnDragOverMessage() {
-    return (index.h("div", { class: "dragover-container" }, index.h("div", { class: "dragover-message" }, index.h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
-  }
-  render() {
-    return (index.h("div", { tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
-        e.preventDefault();
-        this.dragDropContainer.classList.add("dragover");
-      }, onDragLeave: () => {
-        this.dragDropContainer.classList.remove("dragover");
-      }, onDrop: (e) => {
-        e.preventDefault();
-        if (e.dataTransfer.files.length) {
-          this.dragDropContainer.classList.remove("dragover");
-          this.fileDroppedHandler(e.dataTransfer.files);
-        }
-      } }, this.renderOnDragOverMessage(), index.h("slot", null)));
-  }
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.fileDropped = index.createEvent(this, "fileDropped", 7);
+        this.dragAndDropLabel = undefined;
+    }
+    fileDroppedHandler(files) {
+        this.fileDropped.emit(files);
+    }
+    renderOnDragOverMessage() {
+        return (index.h("div", { class: "dragover-container" }, index.h("div", { class: "dragover-message" }, index.h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
+    }
+    render() {
+        return (index.h("div", { key: '8bd841a6a59b438bd0e794a842aa6326dd88ef04', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
+                e.preventDefault();
+                this.dragDropContainer.classList.add("dragover");
+            }, onDragLeave: () => {
+                this.dragDropContainer.classList.remove("dragover");
+            }, onDrop: (e) => {
+                e.preventDefault();
+                if (e.dataTransfer.files.length) {
+                    this.dragDropContainer.classList.remove("dragover");
+                    this.fileDroppedHandler(e.dataTransfer.files);
+                }
+            } }, this.renderOnDragOverMessage(), index.h("slot", { key: 'd99944c1db4408ff5028f628e35c9d5225a37055' })));
+    }
 };
-ZDragdropArea.style = stylesCss$1;
+ZDragdropArea.style = ZDragdropAreaStyle0;
 
 // nb. This is for IE10 and lower _only_.
 var supportCustomEvent = window.CustomEvent;
@@ -893,124 +895,130 @@ if (window.HTMLDialogElement === undefined) {
 }
 
 const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>dialog{padding:0;border:none;margin:0;background-color:transparent}:host>dialog:modal{width:100%;max-width:100%;max-height:100%}:host>dialog::backdrop{display:none}:host>dialog+.backdrop{display:none}:host>dialog:not([open]){display:none}:host>dialog[open]{display:block}.modal-container{z-index:1010;display:flex;overflow:-moz-scrollbars-none;width:100%;height:100vh;flex-direction:column}.modal-container>.modal-content-scroll-outside{overflow:auto;background:var(--color-surface01)}.modal-container>header{padding:calc(var(--space-unit) * 2 - 2px) calc(var(--space-unit) * 2);background:var(--color-surface02)}.modal-container>header button{padding:0;border:none;margin:0;margin-left:auto;background:transparent;cursor:pointer}.modal-container>header z-icon{--z-icon-width:calc(var(--space-unit) * 2.5);--z-icon-height:calc(var(--space-unit) * 2.5);display:flex;fill:var(--color-icon01)}.modal-container>header>div{display:flex;width:100%;align-items:center;margin-right:calc(var(--space-unit) * 2)}.modal-container>header h1,.modal-container>header h2{padding:0;margin:0;color:var(--color-text01);font-weight:var(--font-rg)}.modal-container>header h1{font-size:var(--font-size-5);letter-spacing:0;line-height:1.4}.modal-container>header h2{font-size:var(--font-size-3);letter-spacing:0;line-height:1.5}.modal-container>header>div>h1 *:empty{display:none}.modal-container>header h1+h2{margin-top:calc(var(--space-unit) * 0.5)}.modal-container-scroll-inside>.modal-content-scroll-inside{overflow:hidden auto;flex:1 auto;background:var(--color-surface01)}.modal-container-scroll-inside>.modal-content-scroll-inside::-webkit-scrollbar,.modal-container-scroll-outside>.modal-content-scroll-outside::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.modal-container-scroll-inside>.modal-content-scroll-inside::-webkit-scrollbar-thumb,.modal-container-scroll-outside>.modal-content-scroll-outside::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01)}.modal-container-scroll-inside>.modal-content-scroll-inside::-webkit-scrollbar-thumb:hover,.modal-container-scroll-outside>.modal-content-scroll-outside::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.modal-container-scroll-inside .modal-content-scroll-inside,.modal-container-scroll-outside .modal-content-scroll-outside{scrollbar-color:var(--color-primary01) transparent}@media only screen and (min-width: 768px){.modal-background{position:fixed;top:0;left:0;overflow:hidden;width:100vw;height:100vh;background-color:var(--gray900);opacity:0.7}.modal-background.modal-background-scroll-outside{position:sticky}.modal-container-scroll-inside{position:fixed;top:calc(var(--space-unit) * 6);left:50%;overflow:hidden;width:auto;min-width:calc(var(--space-unit) * 40);height:auto;min-height:calc(var(--space-unit) * 40);max-height:calc(100vh - calc(var(--space-unit) * 6 * 2));border-radius:var(--border-radius);transform:translateX(-50%)}.modal-container-scroll-outside{position:absolute;top:calc(var(--space-unit) * 6);left:50%;display:block;overflow:initial;width:auto;min-width:calc(var(--space-unit) * 40);height:auto;min-height:calc(var(--space-unit) * 40);max-height:calc(100vh - calc(var(--space-unit) * 6 * 2));transform:translateX(-50%)}.modal-container>.modal-content-scroll-outside{overflow:initial}.modal-container-scroll-outside>header,.modal-container-scroll-inside>header{border-top-left-radius:var(--border-radius);border-top-right-radius:var(--border-radius)}.modal-container-scroll-outside::after{display:block;height:calc(var(--space-unit) * 6);content:\" \"}.modal-dialog{position:fixed;top:0;left:0;height:auto;overflow-x:hidden;overflow-y:auto}.modal-content-scroll-outside{border-bottom-left-radius:var(--border-radius);border-bottom-right-radius:var(--border-radius)}.modal-dialog::-webkit-scrollbar{display:none}.modal-container>header z-icon{--z-icon-width:calc(var(--space-unit) * 3);--z-icon-height:calc(var(--space-unit) * 3)}}@media only screen and (min-width: 768px) and (max-width: 1151px){.modal-container>header{padding:calc(var(--space-unit) * 3 - 2px) calc(var(--space-unit) * 3)}}@media only screen and (min-width: 1152px){.modal-container>header{padding:calc(var(--space-unit) * 4 - 4px) calc(var(--space-unit) * 4)}.modal-container>header h1{font-size:var(--font-size-6);letter-spacing:0;line-height:1.33}.modal-container>header h2{font-size:var(--font-size-4);letter-spacing:0;line-height:1.5}.modal-container>header h1+h2{margin-top:0}}";
+const ZModalStyle0 = stylesCss;
 
 const FOCUSABLE_ELEMENTS_SELECTOR = ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 const ZModal = class {
-  constructor(hostRef) {
-    index.registerInstance(this, hostRef);
-    this.modalClose = index.createEvent(this, "modalClose", 7);
-    this.modalHeaderActive = index.createEvent(this, "modalHeaderActive", 7);
-    this.modalBackgroundClick = index.createEvent(this, "modalBackgroundClick", 7);
-    /** aria-label for close button (optional) */
-    this.closeButtonLabel = "chiudi modale";
-    /** add role "alertdialog" to dialog (optional, default is false) */
-    this.alertdialog = false;
-    /** if true, the modal is closable (optional, default is true) */
-    this.closable = true;
-    /** if true, the modal can scroll inside, if false the viewport can scroll */
-    this.scrollInside = true;
-  }
-  emitModalClose() {
-    if (this.closable) {
-      this.modalClose.emit({ modalid: this.modalid });
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.modalClose = index.createEvent(this, "modalClose", 7);
+        this.modalHeaderActive = index.createEvent(this, "modalHeaderActive", 7);
+        this.modalBackgroundClick = index.createEvent(this, "modalBackgroundClick", 7);
+        this.modalid = undefined;
+        this.modaltitle = undefined;
+        this.modalsubtitle = undefined;
+        this.closeButtonLabel = "chiudi modale";
+        this.alertdialog = false;
+        this.closable = true;
+        this.scrollInside = true;
     }
-  }
-  emitModalHeaderActive() {
-    this.modalHeaderActive.emit({ modalid: this.modalid });
-  }
-  emitBackgroundClick() {
-    if (this.closable) {
-      this.modalBackgroundClick.emit({ modalid: this.modalid });
+    emitModalClose() {
+        if (this.closable) {
+            this.modalClose.emit({ modalid: this.modalid });
+        }
     }
-  }
-  componentDidLoad() {
-    if (typeof HTMLDialogElement !== "function") {
-      dialogPolyfill.registerDialog(this.dialog);
-      this.dialog.setAttribute("open", "true");
+    emitModalHeaderActive() {
+        this.modalHeaderActive.emit({ modalid: this.modalid });
     }
-    else {
-      this.open();
+    emitBackgroundClick() {
+        if (this.closable) {
+            this.modalBackgroundClick.emit({ modalid: this.modalid });
+        }
     }
-  }
-  /** open modal */
-  async open() {
-    var _a;
-    (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.showModal();
-  }
-  /** close modal */
-  async close() {
-    var _a;
-    if (this.closable) {
-      (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+    componentDidLoad() {
+        if (typeof window.HTMLDialogElement !== "function") {
+            /* workaround to fix `registerDialog` in test environment:
+            stencil converts html elements to MockHTMLElement but this element is missing the `localName` property,
+            which is used by `registerDialog` to recognize the element as dialog */
+            if (!this.dialog.localName) {
+                Object.defineProperty(this.dialog, "localName", { value: "dialog" });
+            }
+            dialogPolyfill.registerDialog(this.dialog);
+            this.dialog.setAttribute("open", "true");
+        }
+        else {
+            this.open();
+        }
     }
-  }
-  /**
-   * Get a list of focusable elements in the dialog.
-   * Remove elements with `display: none` from the list, because they're not focusable.
-   *
-   * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
-   * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
-   */
-  get focusableElements() {
-    return [
-      ...Array.from(this.host.shadowRoot.querySelectorAll(FOCUSABLE_ELEMENTS_SELECTOR)),
-      ...Array.from(this.host.querySelectorAll(FOCUSABLE_ELEMENTS_SELECTOR)),
-    ].filter((element) => getComputedStyle(element).display !== "none");
-  }
-  handleKeyDown(e) {
-    if (e.code !== index$1.KeyboardCode.TAB) {
-      return;
+    /** open modal */
+    async open() {
+        var _a;
+        (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.showModal();
     }
-    const focusableElements = this.focusableElements;
-    const shadowActiveElement = this.host.shadowRoot.activeElement;
-    const activeElement = this.host.ownerDocument.activeElement;
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
-      e.preventDefault();
-      lastFocusableElement.focus();
+    /** close modal */
+    async close() {
+        var _a;
+        if (this.closable) {
+            (_a = this.dialog) === null || _a === void 0 ? void 0 : _a.close();
+        }
     }
-    else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
-      e.preventDefault();
-      firstFocusableElement.focus();
+    /**
+     * Get a list of focusable elements in the dialog.
+     * Remove elements with `display: none` from the list, because they're not focusable.
+     *
+     * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
+     * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
+     */
+    get focusableElements() {
+        return [
+            ...Array.from(this.host.shadowRoot.querySelectorAll(FOCUSABLE_ELEMENTS_SELECTOR)),
+            ...Array.from(this.host.querySelectorAll(FOCUSABLE_ELEMENTS_SELECTOR)),
+        ].filter((element) => getComputedStyle(element).display !== "none");
     }
-  }
-  closeButtonSlot() {
-    if (this.closable) {
-      return (index.h("slot", { name: "modalCloseButton" }, index.h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, index.h("z-icon", { name: "multiply-circle-filled" }))));
+    handleKeyDown(e) {
+        if (e.code !== index$1.KeyboardCode.TAB) {
+            return;
+        }
+        const focusableElements = this.focusableElements;
+        const shadowActiveElement = this.host.shadowRoot.activeElement;
+        const activeElement = this.host.ownerDocument.activeElement;
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+        if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
+            // shift + tab was pressed and current active element is the first focusable element
+            e.preventDefault();
+            lastFocusableElement.focus();
+        }
+        else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
+            // shift + tab was pressed and current active element is the first focusable element
+            e.preventDefault();
+            firstFocusableElement.focus();
+        }
     }
-  }
-  handleEscape(e) {
-    if (this.closable) {
-      return;
+    closeButtonSlot() {
+        if (this.closable) {
+            return (index.h("slot", { name: "modalCloseButton" }, index.h("button", { "aria-label": this.closeButtonLabel, onClick: () => this.close() }, index.h("z-icon", { name: "multiply-circle-filled" }))));
+        }
     }
-    e.preventDefault();
-  }
-  render() {
-    return (index.h("dialog", { class: {
-        "modal-dialog": !this.scrollInside,
-      }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(),
-      // @ts-ignore
-      onCancel: (e) => this.handleEscape(e) }, index.h("div", { class: {
-        "modal-container": true,
-        "modal-container-scroll-inside": this.scrollInside,
-        "modal-container-scroll-outside": !this.scrollInside,
-      }, id: this.modalid }, index.h("header", { onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", null, this.modaltitle && index.h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && index.h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), index.h("div", { class: {
-        "modal-content-scroll-inside": this.scrollInside,
-        "modal-content-scroll-outside": !this.scrollInside,
-      }, id: "modal-content" }, index.h("slot", { name: "modalContent" }))), index.h("div", { class: {
-        "modal-background": true,
-        "modal-background-scroll-outside": !this.scrollInside,
-      }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
-        this.emitBackgroundClick();
-        this.close();
-      } })));
-  }
-  get host() { return index.getElement(this); }
+    handleEscape(e) {
+        if (this.closable) {
+            return;
+        }
+        e.preventDefault();
+    }
+    render() {
+        return (index.h("dialog", { key: 'f2dbe7bebb572bf6a00736ede42543c096feccf7', class: {
+                "modal-dialog": !this.scrollInside,
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, index.h("div", { key: '53e9cb2fa74698f0b6a01dcc2f582d5159850aaa', class: {
+                "modal-container": true,
+                "modal-container-scroll-inside": this.scrollInside,
+                "modal-container-scroll-outside": !this.scrollInside,
+            }, id: this.modalid }, index.h("header", { key: '53e1a607d3e73ac915d295a429b46af592231ea4', onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", { key: 'b0c66eca76b7f9437780ca2e13c8f168a49a161a' }, this.modaltitle && index.h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && index.h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), index.h("div", { key: '6fe98736ef22c37f2a99b00e40a245684b880710', class: {
+                "modal-content-scroll-inside": this.scrollInside,
+                "modal-content-scroll-outside": !this.scrollInside,
+            }, id: "modal-content" }, index.h("slot", { key: '1b0da4801769eb69b3ecdc78de294b8a064dabfe', name: "modalContent" }))), index.h("div", { key: 'd86093efe62e7eccac464f533997d69905956fcb', class: {
+                "modal-background": true,
+                "modal-background-scroll-outside": !this.scrollInside,
+            }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
+                this.emitBackgroundClick();
+                this.close();
+            } })));
+    }
+    get host() { return index.getElement(this); }
 };
-ZModal.style = stylesCss;
+ZModal.style = ZModalStyle0;
 
 exports.z_dragdrop_area = ZDragdropArea;
 exports.z_modal = ZModal;
+
+//# sourceMappingURL=z-dragdrop-area_2.cjs.entry.js.map

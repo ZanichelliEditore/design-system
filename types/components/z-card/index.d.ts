@@ -8,31 +8,36 @@ import { CardVariant } from "../../beans";
  * @cssprop --z-card--text-border-radius - Default: `none`
  * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
  * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
+ * @slot cover - Image cover
+ * @slot metadata - Metadata
+ * @slot title - Title
+ * @slot text - Text content
+ * @slot action - Actions
  */
 export declare class ZCard {
-  /**
-   * Card variant.
-   * Can be one of "text", "border", "shadow", "overlay".
-   * Leave it undefined for the default card.
-   */
-  variant: CardVariant;
-  /** Name of the icon to place over the image cover */
-  coverIcon: string;
-  /** Enable shadow. Default: false. */
-  showShadow: boolean;
-  /** Enable 'clickable' style like hover and focus style. */
-  clickable: boolean;
-  host: HTMLZCardElement;
-  hasCoverImage: boolean;
-  componentWillLoad(): void;
-  /**
-   * Template for a card without image cover.
-   * A colored background replaces the image and some data is moved over it.
-   */
-  private renderColorCoverCard;
-  /**
-   * Template for the content div.
-   */
-  private renderContentDiv;
-  render(): HTMLZCardElement;
+    /**
+     * Card variant.
+     * Can be one of "text", "border", "shadow", "overlay".
+     * Leave it undefined for the default card.
+     */
+    variant: CardVariant;
+    /** Name of the icon to place over the image cover */
+    coverIcon: string;
+    /** Enable shadow. Default: false. */
+    showShadow: boolean;
+    /** Enable 'clickable' style like hover and focus style. */
+    clickable: boolean;
+    host: HTMLZCardElement;
+    hasCoverImage: boolean;
+    componentWillLoad(): void;
+    /**
+     * Template for a card without image cover.
+     * A colored background replaces the image and some data is moved over it.
+     */
+    private renderColorCoverCard;
+    /**
+     * Template for the content div.
+     */
+    private renderContentDiv;
+    render(): HTMLZCardElement;
 }

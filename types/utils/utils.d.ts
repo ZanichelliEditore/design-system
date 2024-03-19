@@ -14,11 +14,11 @@ export declare function getClickedElement(elem?: null | Element): null | Element
 export declare function getElementTree(elem: Element, tree?: Element[]): null | Element[];
 export declare function getSiblings(elem: HTMLElement): ChildNode[];
 export declare function getDevice(): Device;
-declare type JSONValue = string | number | boolean | JSONObject | JSONArray;
+type JSONValue = string | number | boolean | JSONObject | JSONArray;
 interface JSONObject {
-  [x: string]: JSONValue;
+    [x: string]: JSONValue;
 }
-declare type JSONArray = JSONValue[];
+type JSONArray = JSONValue[];
 export declare function convertJson(data: string): JSONValue;
 export declare function colorFromId(id: number): string;
 export {};

@@ -54,7 +54,7 @@ textarea:focus:focus-visible {
 }
 
 :host.active-select input {
-  border: var(--border-size-small) solid var(--blue500);
+  border: var(--border-size-small) solid var(--color-primary01);
 }
 
 :host.cursor-select input:focus:focus-visible {

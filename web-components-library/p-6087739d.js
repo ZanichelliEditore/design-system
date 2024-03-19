@@ -1,0 +1,2 @@
+import{r,h as o}from"./p-10bb4f4b.js";const s=".sc-z-table-sticky-footer-h{position:sticky;left:0;display:block;padding:calc(var(--space-unit) * 2);border-width:var(--border-size-small) 0 var(--border-size-medium);border-style:solid;border-color:var(--color-surface03);background-color:var(--color-surface01);font-weight:var(--font-rg)}";const e=s;const t=class{constructor(o){r(this,o)}render(){return o("slot",{key:"7b27e3b2d212955d97029c2d92df46b4bddb3fb1"})}};t.style=e;export{t as Z};
+//# sourceMappingURL=p-6087739d.js.map
