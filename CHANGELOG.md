@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 12.5.0 (2024-03-20)
+
+
+### Bug Fixes
+
+* esmLoaderPath output target config ([1bf4ad8](https://github.com/ZanichelliEditore/design-system/commit/1bf4ad882ba4e55ddfb1d8de0e79dddfc5002505))
+
 ### [12.4.1](https://github.com/ZanichelliEditore/design-system/compare/v12.4.0...v12.4.1) (2024-03-12)
 
 
