@@ -180,19 +180,14 @@ export class ZCarousel {
   }
 
   /**
-   * Check if navigation buttons can be enabled and set the relative local states.
+   * Check if navigation buttons can be enabled and set the related local states.
    */
   private checkNavigationValidity(): void {
-    if (this.infinite) {
-      this.canNavigateNext = true;
-      this.canNavigatePrev = true;
+    if (this.single) {
+      this.canNavigatePrev = this.current > 0;
+      this.canNavigateNext = this.current < this.items.length - 1;
 
       return;
-    }
-
-    if (this.single) {
-      this.canNavigatePrev = this.current > 1;
-      this.canNavigateNext = this.current < this.items.length - 1;
     }
 
     this.canNavigatePrev = this.itemsContainer.scrollLeft > 0;
@@ -289,7 +284,7 @@ export class ZCarousel {
               data-direction="prev"
               icon="arrow-left"
               onClick={this.onPrev.bind(this)}
-              disabled={!this.canNavigatePrev}
+              disabled={!this.infinite && !this.canNavigatePrev}
               hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
               ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
             />
@@ -307,7 +302,7 @@ export class ZCarousel {
               data-direction="next"
               icon="arrow-right"
               onClick={this.onNext.bind(this)}
-              disabled={!this.canNavigateNext}
+              disabled={!this.infinite && !this.canNavigateNext}
               hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
               ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
             />
@@ -322,7 +317,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-left"
                 onClick={this.onPrev.bind(this)}
-                disabled={!this.canNavigatePrev}
+                disabled={!this.infinite && !this.canNavigatePrev}
                 ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
               />
             )}
@@ -353,7 +348,7 @@ export class ZCarousel {
                 variant={ButtonVariant.TERTIARY}
                 icon="arrow-right"
                 onClick={this.onNext.bind(this)}
-                disabled={!this.canNavigateNext}
+                disabled={!this.infinite && !this.canNavigateNext}
                 ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
               />
             )}
