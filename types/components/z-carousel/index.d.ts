@@ -61,7 +61,7 @@ export declare class ZCarousel {
     private onPrev;
     private onNext;
     /**
-     * Check if navigation buttons can be enabled and set the relative local states.
+     * Check if navigation buttons can be enabled and set the related local states.
      */
     private checkNavigationValidity;
     /**
