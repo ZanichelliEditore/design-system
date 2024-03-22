@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
+import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch, Element} from "@stencil/core";
 import {
   ButtonVariant,
   ListDividerType,
@@ -6,8 +6,9 @@ import {
   SearchbarGroupedItem,
   SearchbarItem,
   ControlSize,
+  Device,
 } from "../../../beans";
-import {handleEnterKeydSubmit, randomId} from "../../../utils/utils";
+import {getDevice, handleEnterKeydSubmit, randomId} from "../../../utils/utils";
 
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -87,9 +88,16 @@ export class ZSearchbar {
   @State()
   showResults = false;
 
+  @State()
+  isMobile = false;
+
+  @Element() element: HTMLZSearchbarElement;
+
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
   private inputRef: HTMLZInputElement;
+
+  private resizeObserver: ResizeObserver;
 
   /** Emitted on search submit, return search string */
   @Event()
@@ -136,6 +144,22 @@ export class ZSearchbar {
     if (!this.searchString) {
       this.currResultsCount = this.resultsCount;
     }
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver.disconnect();
+  }
+
+  componentDidLoad(): void {
+    this.resizeObserver = new ResizeObserver(() => {
+      if (getDevice() === Device.MOBILE && !this.isMobile) {
+        this.isMobile = true;
+      }
+      if (getDevice() !== Device.MOBILE && this.isMobile) {
+        this.isMobile = false;
+      }
+    });
+    this.resizeObserver.observe(this.element);
   }
 
   componentWillLoad(): void {
@@ -352,19 +376,22 @@ export class ZSearchbar {
         clickable
         onClickItem={() => this.emitSearchItemClick(item)}
       >
-        <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
-          {item?.icon && (
-            <z-icon
-              class="item-icon"
-              name={item.icon}
+        <div class="list-element">
+          <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
+            {item?.icon && (
+              <z-icon
+                class="item-icon"
+                name={item.icon}
+              />
+            )}
+            <span
+              class="item-label"
+              title={item.label}
+              innerHTML={this.renderItemLabel(item.label)}
             />
-          )}
-          <span
-            class="item-label"
-            title={item.label}
-            innerHTML={this.renderItemLabel(item.label)}
-          />
-        </span>
+          </span>
+          {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
+        </div>
       </z-list-element>
     );
   }
