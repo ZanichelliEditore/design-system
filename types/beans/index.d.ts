@@ -360,6 +360,10 @@ export type SearchbarItem = {
     label: string;
     id?: string;
     icon?: string;
+    tag?: {
+        icon?: string;
+        text: string;
+    };
     category?: string;
     subcategory?: string;
 };

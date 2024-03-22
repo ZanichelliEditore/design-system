@@ -78,6 +78,20 @@
   display: block;
 }
 
+.results z-list-element > .list-element {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results z-list-element > .list-element > z-tag {
+  border: 1px solid var(--gray800);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+
+  --z-tag-bg: white;
+  --z-tag-text-color: var(--color-text01);
+}
+
 .results .item {
   --z-icon-height: 12px;
   --z-icon-width: 12px;

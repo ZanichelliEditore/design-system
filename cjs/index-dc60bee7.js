@@ -2779,10 +2779,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           }
           switch(bundleId) {
               
-                case 'z-app-header_11.cjs':
+                case 'z-app-header_12.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
-                        './z-app-header_11.cjs.entry.js')); }).then(processMod, consoleError);
+                        './z-app-header_12.cjs.entry.js')); }).then(processMod, consoleError);
                 case 'z-accordion.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
@@ -2999,10 +2999,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
                         './z-table-sticky-footer.cjs.entry.js')); }).then(processMod, consoleError);
-                case 'z-tag.cjs':
-                    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-                        /* webpackMode: "lazy" */
-                        './z-tag.cjs.entry.js')); }).then(processMod, consoleError);
                 case 'z-tbody.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */

@@ -1,16 +1,17 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { e as ControlSize, B as ButtonVariant, l as ListDividerType } from './index2.js';
-import { r as randomId, f as handleEnterKeydSubmit } from './utils.js';
-import { d as defineCustomElement$8 } from './index4.js';
-import { d as defineCustomElement$7 } from './index6.js';
-import { d as defineCustomElement$6 } from './index9.js';
-import { d as defineCustomElement$5 } from './index10.js';
-import { d as defineCustomElement$4 } from './index11.js';
-import { d as defineCustomElement$3 } from './index12.js';
-import { d as defineCustomElement$2 } from './index13.js';
-import { d as defineCustomElement$1 } from './index14.js';
+import { e as ControlSize, B as ButtonVariant, p as Device, l as ListDividerType } from './index2.js';
+import { r as randomId, g as getDevice, f as handleEnterKeydSubmit } from './utils.js';
+import { d as defineCustomElement$9 } from './index4.js';
+import { d as defineCustomElement$8 } from './index6.js';
+import { d as defineCustomElement$7 } from './index9.js';
+import { d as defineCustomElement$6 } from './index10.js';
+import { d as defineCustomElement$5 } from './index11.js';
+import { d as defineCustomElement$4 } from './index12.js';
+import { d as defineCustomElement$3 } from './index13.js';
+import { d as defineCustomElement$2 } from './index14.js';
+import { d as defineCustomElement$1 } from './index30.js';
 
-const stylesCss = ":host{z-index:15;display:flex;column-gap:calc(var(--space-unit) * 2);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,*{box-sizing:border-box}.input-container{position:relative;display:flex;width:100%;flex-direction:column}.results-wrapper{position:absolute;top:calc(100% - 1px);left:0;width:100%;padding:calc(var(--space-unit) / 4);border:var(--border-size-small) solid var(--color-surface03);border-top:none;background:var(--color-surface01)}.results{overflow:auto;max-height:var(--z-searchbar-results-height, 540px);padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}.results::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.results::-webkit-scrollbar-track{background-color:transparent}.results::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.results .category-heading{display:block;font-size:var(--font-size-2);font-weight:var(--font-rg);line-height:var(--font-size-3)}.results .category-heading>*{display:block}.results .category-heading>.category{color:var(--color-text05);font-style:italic}.results .category-heading>.subcategory{margin-top:var(--space-unit);color:var(--color-text01);text-transform:uppercase}.results z-list-element{display:block}.results .item{--z-icon-height:12px;--z-icon-width:12px;display:flex;flex-flow:row nowrap;align-items:center;justify-content:flex-start;color:var(--color-text01);column-gap:calc(var(--space-unit) * 1.5);fill:var(--color-icon02);font-size:var(--font-size-2);line-height:var(--font-size-3)}.results .item.ellipsis>.item-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.results .item>.item-label mark{background:var(--color-primary03)}.results .item.has-category{padding-left:calc(var(--space-unit) * 3)}.results .item.item-search{--z-icon-height:16px;--z-icon-width:16px}.results .item-show-all{text-align:center}.results .item-no-results{display:block;font-size:var(--font-size-2);font-style:italic;line-height:var(--font-size-5)}.results .item-no-results>ul{padding-left:calc(var(--space-unit) * 2);margin:var(--space-unit)}@media (min-width: 768px){.results .category-heading{font-size:var(--font-size-3);line-height:var(--font-size-6)}.results .item{font-size:var(--font-size-3);line-height:var(--font-size-6)}.results .item.item-search{--z-icon-height:18px;--z-icon-width:18px}.results .item.ellipsis>.item-label{height:24px}}@media (min-width: 1152px){.results .item{cursor:pointer}.results .item-no-results{cursor:default;font-size:var(--font-size-3);line-height:var(--font-size-6)}}:host([size=\"small\"]) .results :is(.item,.category-heading),:host([size=\"x-small\"]) .results :is(.item,.category-heading){font-size:var(--font-size-2)}:host([size=\"small\"]) .results .item:not(.has-category),:host([size=\"x-small\"]) .results .item:not(.has-category){--z-icon-height:16px;--z-icon-width:16px}:host([size=\"small\"])::part(list-item-container){min-height:calc(var(--space-unit) * 4.5);padding:0}:host([size=\"x-small\"])::part(list-item-container){min-height:calc(var(--space-unit) * 4);padding:0}";
+const stylesCss = ":host{z-index:15;display:flex;column-gap:calc(var(--space-unit) * 2);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host,*{box-sizing:border-box}.input-container{position:relative;display:flex;width:100%;flex-direction:column}.results-wrapper{position:absolute;top:calc(100% - 1px);left:0;width:100%;padding:calc(var(--space-unit) / 4);border:var(--border-size-small) solid var(--color-surface03);border-top:none;background:var(--color-surface01)}.results{overflow:auto;max-height:var(--z-searchbar-results-height, 540px);padding:calc(var(--space-unit) / 2) calc(var(--space-unit) * 1.5);scrollbar-color:var(--color-primary01) transparent}.results::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.results::-webkit-scrollbar-track{background-color:transparent}.results::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.results .category-heading{display:block;font-size:var(--font-size-2);font-weight:var(--font-rg);line-height:var(--font-size-3)}.results .category-heading>*{display:block}.results .category-heading>.category{color:var(--color-text05);font-style:italic}.results .category-heading>.subcategory{margin-top:var(--space-unit);color:var(--color-text01);text-transform:uppercase}.results z-list-element{display:block}.results z-list-element>.list-element{display:flex;justify-content:space-between}.results z-list-element>.list-element>z-tag{border:1px solid var(--gray800);font-size:var(--font-size-1);font-weight:var(--font-sb);--z-tag-bg:white;--z-tag-text-color:var(--color-text01)}.results .item{--z-icon-height:12px;--z-icon-width:12px;display:flex;flex-flow:row nowrap;align-items:center;justify-content:flex-start;color:var(--color-text01);column-gap:calc(var(--space-unit) * 1.5);fill:var(--color-icon02);font-size:var(--font-size-2);line-height:var(--font-size-3)}.results .item.ellipsis>.item-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.results .item>.item-label mark{background:var(--color-primary03)}.results .item.has-category{padding-left:calc(var(--space-unit) * 3)}.results .item.item-search{--z-icon-height:16px;--z-icon-width:16px}.results .item-show-all{text-align:center}.results .item-no-results{display:block;font-size:var(--font-size-2);font-style:italic;line-height:var(--font-size-5)}.results .item-no-results>ul{padding-left:calc(var(--space-unit) * 2);margin:var(--space-unit)}@media (min-width: 768px){.results .category-heading{font-size:var(--font-size-3);line-height:var(--font-size-6)}.results .item{font-size:var(--font-size-3);line-height:var(--font-size-6)}.results .item.item-search{--z-icon-height:18px;--z-icon-width:18px}.results .item.ellipsis>.item-label{height:24px}}@media (min-width: 1152px){.results .item{cursor:pointer}.results .item-no-results{cursor:default;font-size:var(--font-size-3);line-height:var(--font-size-6)}}:host([size=\"small\"]) .results :is(.item,.category-heading),:host([size=\"x-small\"]) .results :is(.item,.category-heading){font-size:var(--font-size-2)}:host([size=\"small\"]) .results .item:not(.has-category),:host([size=\"x-small\"]) .results .item:not(.has-category){--z-icon-height:16px;--z-icon-width:16px}:host([size=\"small\"])::part(list-item-container){min-height:calc(var(--space-unit) * 4.5);padding:0}:host([size=\"x-small\"])::part(list-item-container){min-height:calc(var(--space-unit) * 4);padding:0}";
 const ZSearchbarStyle0 = stylesCss;
 
 const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTMLElement {
@@ -40,6 +41,7 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         this.searchString = this.value;
         this.currResultsCount = 0;
         this.showResults = false;
+        this.isMobile = false;
     }
     emitSearchSubmit() {
         this.searchSubmit.emit(this.inputRef.value);
@@ -64,6 +66,20 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         if (!this.searchString) {
             this.currResultsCount = this.resultsCount;
         }
+    }
+    disconnectedCallback() {
+        this.resizeObserver.disconnect();
+    }
+    componentDidLoad() {
+        this.resizeObserver = new ResizeObserver(() => {
+            if (getDevice() === Device.MOBILE && !this.isMobile) {
+                this.isMobile = true;
+            }
+            if (getDevice() !== Device.MOBILE && this.isMobile) {
+                this.isMobile = false;
+            }
+        });
+        this.resizeObserver.observe(this.element);
     }
     componentWillLoad() {
         this.resultsItemsList = this.getResultsItemsList();
@@ -190,7 +206,7 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         return listGroups;
     }
     renderItem(item, key, divider) {
-        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined, clickable: true, onClickItem: () => this.emitSearchItemClick(item) }, h("span", { class: { "item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category } }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) }))));
+        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined, clickable: true, onClickItem: () => this.emitSearchItemClick(item) }, h("div", { class: "list-element" }, h("span", { class: { "item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category } }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : ""))));
     }
     renderItemLabel(label) {
         if (!this.searchString) {
@@ -221,8 +237,9 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: 'fb00861518eb5646a75f2fa810b907163d720531', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '10ed44f469ddd16737653dff61427ccde59df735', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: '49e7bb3d48c18519e07ac4952188f271895dd1a1', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '033d0ae0a35385e0d9d915e18887650b997c5688', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
+    get element() { return this; }
     static get watchers() { return {
         "resultsItems": ["watchItems"],
         "resultsCount": ["watchResultsCount"],
@@ -248,7 +265,8 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         "variant": [1],
         "searchString": [32],
         "currResultsCount": [32],
-        "showResults": [32]
+        "showResults": [32],
+        "isMobile": [32]
     }, [[4, "click", "handleOutsideClick"]], {
         "resultsItems": ["watchItems"],
         "resultsCount": ["watchResultsCount"],
@@ -259,7 +277,7 @@ function defineCustomElement() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["z-searchbar", "z-button", "z-divider", "z-icon", "z-input", "z-input-message", "z-list", "z-list-element", "z-list-group"];
+    const components = ["z-searchbar", "z-button", "z-divider", "z-icon", "z-input", "z-input-message", "z-list", "z-list-element", "z-list-group", "z-tag"];
     components.forEach(tagName => { switch (tagName) {
         case "z-searchbar":
             if (!customElements.get(tagName)) {
@@ -268,40 +286,45 @@ function defineCustomElement() {
             break;
         case "z-button":
             if (!customElements.get(tagName)) {
-                defineCustomElement$8();
+                defineCustomElement$9();
             }
             break;
         case "z-divider":
             if (!customElements.get(tagName)) {
-                defineCustomElement$7();
+                defineCustomElement$8();
             }
             break;
         case "z-icon":
             if (!customElements.get(tagName)) {
-                defineCustomElement$6();
+                defineCustomElement$7();
             }
             break;
         case "z-input":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
+                defineCustomElement$6();
             }
             break;
         case "z-input-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$4();
+                defineCustomElement$5();
             }
             break;
         case "z-list":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$4();
             }
             break;
         case "z-list-element":
             if (!customElements.get(tagName)) {
-                defineCustomElement$2();
+                defineCustomElement$3();
             }
             break;
         case "z-list-group":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$2();
+            }
+            break;
+        case "z-tag":
             if (!customElements.get(tagName)) {
                 defineCustomElement$1();
             }

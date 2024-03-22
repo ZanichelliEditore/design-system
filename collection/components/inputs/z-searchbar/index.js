@@ -1,6 +1,6 @@
 import { h, Host } from "@stencil/core";
-import { ButtonVariant, ListDividerType, ControlSize, } from "../../../beans";
-import { handleEnterKeydSubmit, randomId } from "../../../utils/utils";
+import { ButtonVariant, ListDividerType, ControlSize, Device, } from "../../../beans";
+import { getDevice, handleEnterKeydSubmit, randomId } from "../../../utils/utils";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
  */
@@ -25,6 +25,7 @@ export class ZSearchbar {
         this.searchString = this.value;
         this.currResultsCount = 0;
         this.showResults = false;
+        this.isMobile = false;
     }
     emitSearchSubmit() {
         this.searchSubmit.emit(this.inputRef.value);
@@ -49,6 +50,20 @@ export class ZSearchbar {
         if (!this.searchString) {
             this.currResultsCount = this.resultsCount;
         }
+    }
+    disconnectedCallback() {
+        this.resizeObserver.disconnect();
+    }
+    componentDidLoad() {
+        this.resizeObserver = new ResizeObserver(() => {
+            if (getDevice() === Device.MOBILE && !this.isMobile) {
+                this.isMobile = true;
+            }
+            if (getDevice() !== Device.MOBILE && this.isMobile) {
+                this.isMobile = false;
+            }
+        });
+        this.resizeObserver.observe(this.element);
     }
     componentWillLoad() {
         this.resultsItemsList = this.getResultsItemsList();
@@ -175,7 +190,7 @@ export class ZSearchbar {
         return listGroups;
     }
     renderItem(item, key, divider) {
-        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined, clickable: true, onClickItem: () => this.emitSearchItemClick(item) }, h("span", { class: { "item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category } }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) }))));
+        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined, clickable: true, onClickItem: () => this.emitSearchItemClick(item) }, h("div", { class: "list-element" }, h("span", { class: { "item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category } }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : ""))));
     }
     renderItemLabel(label) {
         if (!this.searchString) {
@@ -206,7 +221,7 @@ export class ZSearchbar {
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: 'fb00861518eb5646a75f2fa810b907163d720531', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '10ed44f469ddd16737653dff61427ccde59df735', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: '49e7bb3d48c18519e07ac4952188f271895dd1a1', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '033d0ae0a35385e0d9d915e18887650b997c5688', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     static get is() { return "z-searchbar"; }
     static get encapsulation() { return "shadow"; }
@@ -512,7 +527,8 @@ export class ZSearchbar {
         return {
             "searchString": {},
             "currResultsCount": {},
-            "showResults": {}
+            "showResults": {},
+            "isMobile": {}
         };
     }
     static get events() {
@@ -558,7 +574,7 @@ export class ZSearchbar {
                 },
                 "complexType": {
                     "original": "SearchbarItem",
-                    "resolved": "{ label: string; id?: string; icon?: string; category?: string; subcategory?: string; }",
+                    "resolved": "{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; }",
                     "references": {
                         "SearchbarItem": {
                             "location": "import",
@@ -569,6 +585,7 @@ export class ZSearchbar {
                 }
             }];
     }
+    static get elementRef() { return "element"; }
     static get watchers() {
         return [{
                 "propName": "resultsItems",

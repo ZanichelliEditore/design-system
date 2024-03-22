@@ -2757,10 +2757,10 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
           }
           switch(bundleId) {
               
-                case 'z-app-header_11':
+                case 'z-app-header_12':
                     return import(
                       /* webpackMode: "lazy" */
-                      './z-app-header_11.entry.js').then(processMod, consoleError);
+                      './z-app-header_12.entry.js').then(processMod, consoleError);
                 case 'z-accordion':
                     return import(
                       /* webpackMode: "lazy" */
@@ -2977,10 +2977,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-table-sticky-footer.entry.js').then(processMod, consoleError);
-                case 'z-tag':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-tag.entry.js').then(processMod, consoleError);
                 case 'z-tbody':
                     return import(
                       /* webpackMode: "lazy" */
