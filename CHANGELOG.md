@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.6.1-rc1](https://github.com/ZanichelliEditore/design-system/compare/v12.6.0...v12.6.1-rc1) (2024-03-26)
+
+
+### Features
+
+* add hasFileSection prop to ZFileUpload ([8e70ed3](https://github.com/ZanichelliEditore/design-system/commit/8e70ed34fe3e0b107265b9a8ee206b988f58f296))
+
 ## 12.6.0 (2024-03-22)
 
 ### 12.5.1 (2024-03-21)
