@@ -28,11 +28,11 @@
 
 ## Events
 
-| Event             | Description                                    | Type                                                                                                   |
-| ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; id?: string; icon?: string; category?: string; subcategory?: string; }>` |
-| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                  |
-| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                  |
+| Event             | Description                                    | Type                                                                                                                                           |
+| ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; }>` |
+| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                                                          |
+| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                                                          |
 
 
 ## Dependencies
@@ -49,6 +49,7 @@
 - [z-list-group](../../list/z-list-group)
 - [z-list-element](../../list/z-list-element)
 - [z-icon](../../icons/z-icon)
+- [z-tag](../../z-tag)
 
 ### Graph
 ```mermaid
@@ -59,6 +60,7 @@ graph TD;
   z-searchbar --> z-list-group
   z-searchbar --> z-list-element
   z-searchbar --> z-icon
+  z-searchbar --> z-tag
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
@@ -66,6 +68,7 @@ graph TD;
   z-list-group --> z-divider
   z-list-element --> z-icon
   z-list-element --> z-divider
+  z-tag --> z-icon
   z-app-header --> z-searchbar
   style z-searchbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
