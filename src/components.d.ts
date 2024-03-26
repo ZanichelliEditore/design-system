@@ -642,6 +642,10 @@ export namespace Components {
          */
         "getFiles": () => Promise<File[]>;
         /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
+        /**
           * Title
          */
         "mainTitle"?: string;
@@ -4527,6 +4531,10 @@ declare namespace LocalJSX {
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
+        /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
         /**
           * Title
          */

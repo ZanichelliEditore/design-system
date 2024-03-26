@@ -44,6 +44,10 @@ export class ZFileUpload {
   @Prop()
   dragAndDropLabel?: string = "Rilascia i file in questa area per allegarli.";
 
+  /** uploaded files history rendering */
+  @Prop()
+  hasFileSection?: boolean = true;
+
   /** List of files not allowed to be uploaded */
   @State()
   invalidFiles: Map<string, string[]>;
@@ -258,17 +262,33 @@ export class ZFileUpload {
   }
 
   private renderDefaultMode(): unknown[] {
-    return [
-      this.renderDescription("body-3-sb"),
-      this.renderAllowedFileExtensions(),
-      this.renderFileSection(),
-      this.renderUploadButton(),
-    ];
+    if (this.hasFileSection) {
+      return [
+        this.renderDescription("body-3-sb"),
+        this.renderAllowedFileExtensions(),
+        this.renderFileSection(),
+        this.renderUploadButton(),
+      ];
+    }
+
+    return [this.renderDescription("body-3-sb"), this.renderAllowedFileExtensions(), this.renderUploadButton()];
   }
 
   private renderDragDropMode(): unknown[] {
+    if (this.hasFileSection) {
+      return [
+        this.renderFileSection(),
+        <z-dragdrop-area drag-and-drop-label={this.dragAndDropLabel}>
+          <div class="text-container">
+            {this.renderDescription("body-1")}
+            {this.renderUploadLink()}
+            {this.renderAllowedFileExtensions()}
+          </div>
+        </z-dragdrop-area>,
+      ];
+    }
+
     return [
-      this.renderFileSection(),
       <z-dragdrop-area drag-and-drop-label={this.dragAndDropLabel}>
         <div class="text-container">
           {this.renderDescription("body-1")}
