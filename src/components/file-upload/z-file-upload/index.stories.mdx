@@ -30,6 +30,9 @@ import "./index";
     dragAndDropLabel: {
       control: {type: "text"},
     },
+    hasFileSection: {
+      control: {type: "text"},
+    },
   }}
 />
 
@@ -45,6 +48,7 @@ import "./index";
       mainTitle: "Allega un file",
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
       uploadBtnLabel: "allega",
+      hasFileSection: "true",
     }}
   >
     {(args) => html`<h4 class="heading-4">
@@ -54,6 +58,7 @@ import "./index";
       <br />
       <z-file-upload
         type="default"
+        has-file-section="${args.hasFileSection}"
         description="${args.description}"
         button-variant="${args.buttonVariant}"
         file-max-size="${args.fileMaxSize}"
@@ -88,6 +93,7 @@ import "./index";
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
       uploadBtnLabel: "allega",
       dragAndDropLabel: "Rilascia i file in questa area per allegarli.",
+      hasFileSection: "true",
     }}
   >
     {(args) => html` <h4 class="heading-4">
@@ -97,6 +103,7 @@ import "./index";
       <br />
       <z-file-upload
         type="dragdrop"
+        has-file-section="${args.hasFileSection}"
         file-max-size="${args.fileMaxSize}"
         description="${args.description}"
         accepted-format="${args.acceptedFormat}"

@@ -44,6 +44,10 @@ export class ZFileUpload {
   @Prop()
   dragAndDropLabel?: string = "Rilascia i file in questa area per allegarli.";
 
+  /** uploaded files history rendering */
+  @Prop()
+  hasFileSection?: boolean = true;
+
   /** List of files not allowed to be uploaded */
   @State()
   invalidFiles: Map<string, string[]>;
@@ -190,6 +194,10 @@ export class ZFileUpload {
   }
 
   private renderFileSection(): HTMLElement {
+    if (!this.hasFileSection) {
+      return;
+    }
+
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
         <span class="heading-4-sb">File appena caricati</span>
