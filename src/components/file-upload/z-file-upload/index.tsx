@@ -194,6 +194,10 @@ export class ZFileUpload {
   }
 
   private renderFileSection(): HTMLElement {
+    if (!this.hasFileSection) {
+      return;
+    }
+
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
         <span class="heading-4-sb">File appena caricati</span>
@@ -262,33 +266,17 @@ export class ZFileUpload {
   }
 
   private renderDefaultMode(): unknown[] {
-    if (this.hasFileSection) {
-      return [
-        this.renderDescription("body-3-sb"),
-        this.renderAllowedFileExtensions(),
-        this.renderFileSection(),
-        this.renderUploadButton(),
-      ];
-    }
-
-    return [this.renderDescription("body-3-sb"), this.renderAllowedFileExtensions(), this.renderUploadButton()];
+    return [
+      this.renderDescription("body-3-sb"),
+      this.renderAllowedFileExtensions(),
+      this.renderFileSection(),
+      this.renderUploadButton(),
+    ];
   }
 
   private renderDragDropMode(): unknown[] {
-    if (this.hasFileSection) {
-      return [
-        this.renderFileSection(),
-        <z-dragdrop-area drag-and-drop-label={this.dragAndDropLabel}>
-          <div class="text-container">
-            {this.renderDescription("body-1")}
-            {this.renderUploadLink()}
-            {this.renderAllowedFileExtensions()}
-          </div>
-        </z-dragdrop-area>,
-      ];
-    }
-
     return [
+      this.renderFileSection(),
       <z-dragdrop-area drag-and-drop-label={this.dragAndDropLabel}>
         <div class="text-container">
           {this.renderDescription("body-1")}
