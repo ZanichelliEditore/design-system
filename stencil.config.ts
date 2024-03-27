@@ -36,4 +36,7 @@ export const config: Config = {
     enableImportInjection: true,
     experimentalSlotFixes: true,
   },
+  testing: {
+    testPathIgnorePatterns: ["./storybook/*", "./dist/*"],
+  },
 };

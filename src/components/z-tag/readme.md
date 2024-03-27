@@ -24,6 +24,10 @@ Ztag  component.
 
 ## Dependencies
 
+### Used by
+
+ - [z-searchbar](../inputs/z-searchbar)
+
 ### Depends on
 
 - [z-icon](../icons/z-icon)
@@ -32,6 +36,7 @@ Ztag  component.
 ```mermaid
 graph TD;
   z-tag --> z-icon
+  z-searchbar --> z-tag
   style z-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

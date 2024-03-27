@@ -20,7 +20,6 @@
 
  - [z-breadcrumb](../../z-breadcrumb)
  - [z-combobox](../../inputs/z-combobox)
- - [z-contextual-menu](../../z-contextual-menu)
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
 
@@ -34,7 +33,6 @@ graph TD;
   z-list-group --> z-divider
   z-breadcrumb --> z-list-group
   z-combobox --> z-list-group
-  z-contextual-menu --> z-list-group
   z-searchbar --> z-list-group
   z-select --> z-list-group
   style z-list-group fill:#f9f,stroke:#333,stroke-width:4px
