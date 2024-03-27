@@ -533,20 +533,6 @@ export namespace Components {
          */
         "uncheckalltext"?: string;
     }
-    interface ZContextualMenu {
-        /**
-          * [optional] Sets text color of ZContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * Elements of ZContextualMenu
-         */
-        "elements"?: string;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
-    }
     /**
      * Cover hero component.
      * Component to display a hero image with content.
@@ -2024,10 +2010,6 @@ export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZComboboxElement;
 }
-export interface ZContextualMenuCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZContextualMenuElement;
-}
 export interface ZDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZDatePickerElement;
@@ -2429,23 +2411,6 @@ declare global {
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
-    };
-    interface HTMLZContextualMenuElementEventMap {
-        "clickContextualMenu": any;
-    }
-    interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZContextualMenuElement: {
-        prototype: HTMLZContextualMenuElement;
-        new (): HTMLZContextualMenuElement;
     };
     /**
      * Cover hero component.
@@ -3315,7 +3280,6 @@ declare global {
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
-        "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
@@ -3938,24 +3902,6 @@ declare namespace LocalJSX {
           * uncheck all label (optional)
          */
         "uncheckalltext"?: string;
-    }
-    interface ZContextualMenu {
-        /**
-          * [optional] Sets text color of ZContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * Elements of ZContextualMenu
-         */
-        "elements"?: string;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onClickContextualMenu"?: (event: ZContextualMenuCustomEvent<any>) => void;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
     }
     /**
      * Cover hero component.
@@ -5572,7 +5518,6 @@ declare namespace LocalJSX {
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
-        "z-contextual-menu": ZContextualMenu;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
@@ -5761,7 +5706,6 @@ declare module "@stencil/core" {
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
-            "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             /**
              * Cover hero component.
              * Component to display a hero image with content.

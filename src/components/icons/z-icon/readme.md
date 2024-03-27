@@ -43,7 +43,6 @@
  - [z-card](../../z-card)
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
- - [z-contextual-menu](../../z-contextual-menu)
  - [z-info-box](../../notification/z-info-box)
  - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
@@ -85,7 +84,6 @@ graph TD;
   z-card --> z-icon
   z-chip --> z-icon
   z-combobox --> z-icon
-  z-contextual-menu --> z-icon
   z-info-box --> z-icon
   z-info-reveal --> z-icon
   z-input --> z-icon
