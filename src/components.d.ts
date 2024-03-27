@@ -1296,53 +1296,6 @@ export namespace Components {
         "underlined": boolean;
     }
     /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface ZNavigationTab {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Html `title` attribute for the button.
-         */
-        "htmlTitle": string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-          * @deprecated Use a native `<button>` instead.
-         */
-        "icon": string;
-        /**
-          * Label to show in the tab.
-         */
-        "label": string;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation": NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size": NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-    }
-    /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
      * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
@@ -2135,10 +2088,6 @@ export interface ZMyzListItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMyzListItemElement;
 }
-export interface ZNavigationTabCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZNavigationTabElement;
-}
 export interface ZNavigationTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZNavigationTabsElement;
@@ -2893,28 +2842,6 @@ declare global {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
-    interface HTMLZNavigationTabElementEventMap {
-        "selected": any;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZNavigationTabElement: {
-        prototype: HTMLZNavigationTabElement;
-        new (): HTMLZNavigationTabElement;
-    };
     interface HTMLZNavigationTabsElementEventMap {
         "selected": number;
     }
@@ -3423,7 +3350,6 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
-        "z-navigation-tab": HTMLZNavigationTabElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
@@ -4864,57 +4790,6 @@ declare namespace LocalJSX {
         "underlined"?: boolean;
     }
     /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface ZNavigationTab {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Html `title` attribute for the button.
-         */
-        "htmlTitle"?: string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-          * @deprecated Use a native `<button>` instead.
-         */
-        "icon"?: string;
-        /**
-          * Label to show in the tab.
-         */
-        "label"?: string;
-        /**
-          * The tab has been selected.
-         */
-        "onSelected"?: (event: ZNavigationTabCustomEvent<any>) => void;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation"?: NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size"?: NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-    }
-    /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
      * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
@@ -5732,7 +5607,6 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
-        "z-navigation-tab": ZNavigationTab;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
@@ -5938,12 +5812,6 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
-            /**
-             * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-             * This component uses the `tab` role:
-             * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-             */
-            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
             /**
              * Navigation tabs component.
              * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
