@@ -59,7 +59,6 @@
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
  - [z-navigation-tab](../../../deprecated/z-navigation-tab)
- - [z-navigation-tab-link](../../../deprecated/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination](../../z-pagination)
@@ -103,7 +102,6 @@ graph TD;
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
   z-navigation-tab --> z-icon
-  z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination --> z-icon
