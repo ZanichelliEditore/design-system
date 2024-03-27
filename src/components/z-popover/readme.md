@@ -58,7 +58,6 @@ Popover component.
  - [z-contextual-menu](../z-contextual-menu)
  - [z-file](../file-upload/z-file)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
- - [z-table-header](../../deprecated/z-table-deprecated/z-table-header)
  - [z-td](../table/cells/z-td)
  - [z-th](../table/cells/z-th)
  - [z-tooltip](../notification/z-tooltip)
@@ -70,7 +69,6 @@ graph TD;
   z-contextual-menu --> z-popover
   z-file --> z-popover
   z-myz-card-info --> z-popover
-  z-table-header --> z-popover
   z-td --> z-popover
   z-th --> z-popover
   z-tooltip --> z-popover

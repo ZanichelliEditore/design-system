@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -1884,161 +1884,6 @@ export namespace Components {
         "bordered": boolean;
     }
     /**
-     * @deprecated 
-     */
-    interface ZTableBody {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableDeprecated {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan": number;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableFooter {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHead {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId": string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: "asc" | "desc" | "none";
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection": "asc" | "desc" | "none";
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType": ZTableRowExpandedType;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableStickyFooter {
-    }
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -2396,18 +2241,6 @@ export interface ZSearchbarCustomEvent<T> extends CustomEvent<T> {
 export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZSelectElement;
-}
-export interface ZTableDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableDeprecatedElement;
-}
-export interface ZTableHeaderCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableHeaderElement;
-}
-export interface ZTableRowCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableRowElement;
 }
 export interface ZTdCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3447,139 +3280,6 @@ declare global {
         new (): HTMLZTableElement;
     };
     /**
-     * @deprecated 
-     */
-    interface HTMLZTableBodyElement extends Components.ZTableBody, HTMLStencilElement {
-    }
-    var HTMLZTableBodyElement: {
-        prototype: HTMLZTableBodyElement;
-        new (): HTMLZTableBodyElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableCellElement extends Components.ZTableCell, HTMLStencilElement {
-    }
-    var HTMLZTableCellElement: {
-        prototype: HTMLZTableCellElement;
-        new (): HTMLZTableCellElement;
-    };
-    interface HTMLZTableDeprecatedElementEventMap {
-        "callToAction": any;
-        "callToActionTwo": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableDeprecatedElement extends Components.ZTableDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableDeprecatedElement: {
-        prototype: HTMLZTableDeprecatedElement;
-        new (): HTMLZTableDeprecatedElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableEmptyBoxElement extends Components.ZTableEmptyBox, HTMLStencilElement {
-    }
-    var HTMLZTableEmptyBoxElement: {
-        prototype: HTMLZTableEmptyBoxElement;
-        new (): HTMLZTableEmptyBoxElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableExpandedRowElement extends Components.ZTableExpandedRow, HTMLStencilElement {
-    }
-    var HTMLZTableExpandedRowElement: {
-        prototype: HTMLZTableExpandedRowElement;
-        new (): HTMLZTableExpandedRowElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableFooterElement extends Components.ZTableFooter, HTMLStencilElement {
-    }
-    var HTMLZTableFooterElement: {
-        prototype: HTMLZTableFooterElement;
-        new (): HTMLZTableFooterElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeadElement extends Components.ZTableHead, HTMLStencilElement {
-    }
-    var HTMLZTableHeadElement: {
-        prototype: HTMLZTableHeadElement;
-        new (): HTMLZTableHeadElement;
-    };
-    interface HTMLZTableHeaderElementEventMap {
-        "sort": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableHeaderElement: {
-        prototype: HTMLZTableHeaderElement;
-        new (): HTMLZTableHeaderElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeaderRowElement extends Components.ZTableHeaderRow, HTMLStencilElement {
-    }
-    var HTMLZTableHeaderRowElement: {
-        prototype: HTMLZTableHeaderRowElement;
-        new (): HTMLZTableHeaderRowElement;
-    };
-    interface HTMLZTableRowElementEventMap {
-        "expand": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableRowElement: {
-        prototype: HTMLZTableRowElement;
-        new (): HTMLZTableRowElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableStickyFooterElement extends Components.ZTableStickyFooter, HTMLStencilElement {
-    }
-    var HTMLZTableStickyFooterElement: {
-        prototype: HTMLZTableStickyFooterElement;
-        new (): HTMLZTableStickyFooterElement;
-    };
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -3827,17 +3527,6 @@ declare global {
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
-        "z-table-body": HTMLZTableBodyElement;
-        "z-table-cell": HTMLZTableCellElement;
-        "z-table-deprecated": HTMLZTableDeprecatedElement;
-        "z-table-empty-box": HTMLZTableEmptyBoxElement;
-        "z-table-expanded-row": HTMLZTableExpandedRowElement;
-        "z-table-footer": HTMLZTableFooterElement;
-        "z-table-head": HTMLZTableHeadElement;
-        "z-table-header": HTMLZTableHeaderElement;
-        "z-table-header-row": HTMLZTableHeaderRowElement;
-        "z-table-row": HTMLZTableRowElement;
-        "z-table-sticky-footer": HTMLZTableStickyFooterElement;
         "z-tag": HTMLZTagElement;
         "z-tbody": HTMLZTbodyElement;
         "z-td": HTMLZTdElement;
@@ -5902,177 +5591,6 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
     }
     /**
-     * @deprecated 
-     */
-    interface ZTableBody {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableDeprecated {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * remove call to action event
-         */
-        "onCallToAction"?: (event: ZTableDeprecatedCustomEvent<any>) => void;
-        /**
-          * remove call to action event
-         */
-        "onCallToActionTwo"?: (event: ZTableDeprecatedCustomEvent<any>) => void;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan"?: number;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableFooter {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHead {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId"?: string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: "asc" | "desc" | "none";
-        /**
-          * [Optional] callback for sorting
-         */
-        "onSort"?: (event: ZTableHeaderCustomEvent<any>) => void;
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection"?: "asc" | "desc" | "none";
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType"?: ZTableRowExpandedType;
-        /**
-          * Row has been expanded
-         */
-        "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableStickyFooter {
-    }
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -6378,17 +5896,6 @@ declare namespace LocalJSX {
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
-        "z-table-body": ZTableBody;
-        "z-table-cell": ZTableCell;
-        "z-table-deprecated": ZTableDeprecated;
-        "z-table-empty-box": ZTableEmptyBox;
-        "z-table-expanded-row": ZTableExpandedRow;
-        "z-table-footer": ZTableFooter;
-        "z-table-head": ZTableHead;
-        "z-table-header": ZTableHeader;
-        "z-table-header-row": ZTableHeaderRow;
-        "z-table-row": ZTableRow;
-        "z-table-sticky-footer": ZTableStickyFooter;
         "z-tag": ZTag;
         "z-tbody": ZTbody;
         "z-td": ZTd;
@@ -6642,50 +6149,6 @@ declare module "@stencil/core" {
              * @cssprop --z-table--cells-padding - Padding of the cells.
              */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-body": LocalJSX.ZTableBody & JSXBase.HTMLAttributes<HTMLZTableBodyElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-cell": LocalJSX.ZTableCell & JSXBase.HTMLAttributes<HTMLZTableCellElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-deprecated": LocalJSX.ZTableDeprecated & JSXBase.HTMLAttributes<HTMLZTableDeprecatedElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-empty-box": LocalJSX.ZTableEmptyBox & JSXBase.HTMLAttributes<HTMLZTableEmptyBoxElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-expanded-row": LocalJSX.ZTableExpandedRow & JSXBase.HTMLAttributes<HTMLZTableExpandedRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-footer": LocalJSX.ZTableFooter & JSXBase.HTMLAttributes<HTMLZTableFooterElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-head": LocalJSX.ZTableHead & JSXBase.HTMLAttributes<HTMLZTableHeadElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-header": LocalJSX.ZTableHeader & JSXBase.HTMLAttributes<HTMLZTableHeaderElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
             /**
              * Ztag  component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
