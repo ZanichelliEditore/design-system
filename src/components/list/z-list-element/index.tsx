@@ -119,12 +119,6 @@ export class ZListElement {
   disabled?: boolean = false;
 
   /**
-   * [optional] If is used in ZContextualMenu component
-   */
-  @Prop({reflect: true})
-  isContextualMenu?: boolean = false;
-
-  /**
    * [optional] position of the list element inside the list or the group
    */
   @Prop({reflect: true})
@@ -174,14 +168,6 @@ export class ZListElement {
       return;
     }
     this.showInnerContent = !this.showInnerContent;
-  }
-
-  private calculateClass(): string {
-    if (this.isContextualMenu) {
-      return "container-contextual-menu";
-    }
-
-    return "container";
   }
 
   private handleKeyDown(event): void {
@@ -286,12 +272,12 @@ export class ZListElement {
         onFocus={() => this.ariaDescendantFocus.emit(this.listElementId)}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
-        tabIndex={!this.isContextualMenu ? "0" : null}
+        tabIndex="0"
       >
         <div
-          class={`${this.calculateClass()}`}
+          class="container"
           style={{color: `var(--${this.color})`}}
-          tabindex={this.isContextualMenu ? "0" : "-1"}
+          tabindex="-1"
           id={`z-list-element-id-${this.listElementId}`}
           part="list-item-container"
         >

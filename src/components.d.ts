@@ -929,10 +929,6 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ZContextualMenu component
-         */
-        "isContextualMenu"?: boolean;
-        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -4330,10 +4326,6 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
-        /**
-          * [optional] If is used in ZContextualMenu component
-         */
-        "isContextualMenu"?: boolean;
         /**
           * [optional] List element id.
          */
