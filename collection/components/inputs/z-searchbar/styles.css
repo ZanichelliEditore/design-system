@@ -1,4 +1,7 @@
 :host {
+  --z-searchbar-tag-text-color: var(--color-primary03);
+  --z-searchbar-tag-bg: var(--color-hover-primary);
+
   z-index: 15;
   display: flex;
   column-gap: calc(var(--space-unit) * 2);
@@ -88,8 +91,8 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
 
-  --z-tag-bg: white;
-  --z-tag-text-color: var(--color-text01);
+  --z-tag-bg: var(--z-searchbar-tag-bg);
+  --z-tag-text-color: var(--z-searchbar-tag-text-color);
 }
 
 .results .item {

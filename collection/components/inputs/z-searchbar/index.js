@@ -3,6 +3,8 @@ import { ButtonVariant, ListDividerType, ControlSize, Device, } from "../../../b
 import { getDevice, handleEnterKeydSubmit, randomId } from "../../../utils/utils";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+ * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+ * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
  */
 export class ZSearchbar {
     constructor() {
@@ -221,7 +223,7 @@ export class ZSearchbar {
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: '49e7bb3d48c18519e07ac4952188f271895dd1a1', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '033d0ae0a35385e0d9d915e18887650b997c5688', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: 'b198d39d33540acea446c870ae3d47776bfa1470', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: 'cebdc4139bc155e30da8d90266289aa485406265', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     static get is() { return "z-searchbar"; }
     static get encapsulation() { return "shadow"; }

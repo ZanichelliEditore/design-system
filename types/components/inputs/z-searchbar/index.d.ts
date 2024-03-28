@@ -2,6 +2,8 @@ import { EventEmitter } from "../../../stencil-public-runtime";
 import { ButtonVariant, SearchbarItem, ControlSize } from "../../../beans";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+ * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+ * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
  */
 export declare class ZSearchbar {
     /** the id of the searchbar element */
