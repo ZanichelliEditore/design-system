@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 12.6.1 (2024-03-28)
+
+
+### Bug Fixes
+
+* fixed css vars for ztag ([26da6e0](https://github.com/ZanichelliEditore/design-system/commit/26da6e0bb3aeb967bf07d64a3f1fdd855687a9e3))
+
 ## 12.6.0 (2024-03-22)
 
 ### 12.5.1 (2024-03-21)
