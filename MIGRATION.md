@@ -9,6 +9,21 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v13.0.0](#v1300)
+
+  - [ZTable](#ztable)
+    - [Rimozione del componente deprecato ZTable dalla libreria](#rimozione-componente-ztable-dalla-libreria)
+  - [ZNavigationTab](#znavigationtab)
+    - [Rimozione del componente deprecato ZNavigationTab dalla libreria](#rimozione-componente-znavigationtab-dalla-libreria)
+  - [ZNavigationTabLink](#znavigationtablink)
+    - [Rimozione del componente deprecato ZNavigationTabLink dalla libreria](#rimozione-componente-znavigationtablink-dalla-libreria)
+  - [ZContextualMenu](#zcontextualmenu)
+    - [Rimozione del componente deprecato ZContextualMenu dalla libreria](#rimozione-componente-zcontextualmenu-dalla-libreria)
+  - [ZlistElement](#zlistelement)
+    - [Rimozione della prop inutilizzata isContextualMenu](#rimozione-della-prop-inutilzzata-iscontextualmenu)
+  - [Stencil config](#stencil)
+    - [Fix: aggiunto testPathIgnorePatterns a stencil.config perchè ignori le cartelle /dist e /storybook dai test](#rimozione-cartelle-dist-e-storybook-dai-test)
+
 - [v12.0.0](#v1200)
   - [Aggiornamento design-tokens senza token legacy](#aggiornamento-design-tokens-senza-token-legacy)
 - [v11.0.0](#v1100)
@@ -67,6 +82,57 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v13.0.0
+
+### ZTable
+
+#### Rimozione componente `zTable` dalla libreria
+
+Rimosso i componenti deprecati ZTable e i suoi componenti figli.
+Nel dettaglio sono stati rimossi:
+
+- z-table
+- z-table-body
+- z-table-cell
+- z-table-empty-box
+- z-table-expanded-row
+- z-table-footer
+- z-table-head
+- z-table-header
+- z-table-header-row
+- z-table-row
+- z-table-sticky-footer
+
+### ZNavigationTab
+
+### Rimozione componente `ZNavigationTab` dalla libreria
+
+Il componente deprecato è stato eliminato definitivamente dalla libreria
+
+### ZNavigationTabLink
+
+### Rimozione componente `ZNavigationTabLink` dalla libreria
+
+Il componente deprecato è stato eliminato definitivamente dalla libreria
+
+### ZContextualMenu
+
+### Rimozione componente `ZContextualMenu` dalla libreria
+
+Il componente deprecato è stato eliminato definitivamente dalla libreria
+
+### ZListElement
+
+### Rimozione della prop inutilzzata `isContextualMenu`
+
+A seguito della rimozione del componente ZContextualMenu la prop `isContextualMenu` (optional) e tutte le logiche legate a essa sono state rimosse perchè non più necessarie
+
+### Stencil
+
+### Rimozione cartelle `dist` e `storybook` dai test
+
+Aggiunto `testPathIgnorePatterns` al file `stencil.config.ts` perchè ignori le cartelle `/dist` e `/storybook` dai test
 
 ## v12.0.0
 
