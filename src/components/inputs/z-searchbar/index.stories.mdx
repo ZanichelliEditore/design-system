@@ -49,6 +49,12 @@ import "./index";
     "--z-searchbar-results-height": {
       control: {type: "text"},
     },
+    "--z-searchbar-tag-text-color": {
+      control: {type: "text"},
+    },
+    "--z-searchbar-tag-bg": {
+      control: {type: "text"},
+    },
     "size": {
       control: {type: "inline-radio"},
       options: Object.values(ControlSize),
@@ -73,6 +79,8 @@ import "./index";
     "placeholder": "my placeholder",
     "value": "",
     "--z-searchbar-results-height": "",
+    "--z-searchbar-tag-text-color": "var(--color-primary03)",
+    "--z-searchbar-tag-bg": "var(--color-hover-primary)",
     "size": ControlSize.BIG,
     "variant": ButtonVariant.PRIMARY,
   }}
@@ -242,7 +250,11 @@ import "./index";
           value=${args.value}
           placeholder=${args.placeholder}
           htmlid=${args.htmlid}
-          style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
+          style="--z-searchbar-results-height: ${args[
+            "--z-searchbar-results-height"
+          ]}; --z-searchbar-tag-text-color: ${args["--z-searchbar-tag-text-color"]}; --z-searchbar-tag-bg: ${args[
+            "--z-searchbar-tag-bg"
+          ]}"
           size=${args.size}
           variant=${args.variant}
         ></z-searchbar>

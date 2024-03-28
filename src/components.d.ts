@@ -1676,6 +1676,8 @@ export namespace Components {
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
      */
     interface ZSearchbar {
         /**
@@ -3365,6 +3367,8 @@ declare global {
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
      */
     interface HTMLZSearchbarElement extends Components.ZSearchbar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5686,6 +5690,8 @@ declare namespace LocalJSX {
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
      */
     interface ZSearchbar {
         /**
@@ -6621,6 +6627,8 @@ declare module "@stencil/core" {
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             /**
              * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+             * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+             * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
              */
             "z-searchbar": LocalJSX.ZSearchbar & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
             /**

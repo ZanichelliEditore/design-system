@@ -12,6 +12,8 @@ import {getDevice, handleEnterKeydSubmit, randomId} from "../../../utils/utils";
 
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
+ * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
+ * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
  */
 @Component({
   tag: "z-searchbar",
