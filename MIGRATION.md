@@ -12,7 +12,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v13.0.0](#v1300)
 
   - [ZTable](#ztable)
-    - [Rimozione del componente deprecato ZTable i suoi componenti figli dalla libreria](#rimozione-componente-ztable-e-i-suoi-componenti-figli-dalla-libreria)
+    - [Rimozione del componente deprecato ZTable e dei suoi componenti figli dalla libreria](#rimozione-componente-ztable-e-dei-suoi-componenti-figli-dalla-libreria)
   - [ZNavigationTab](#znavigationtab)
     - [Rimozione del componente deprecato ZNavigationTab dalla libreria](#rimozione-componente-znavigationtab-dalla-libreria)
   - [ZNavigationTabLink](#znavigationtablink)
@@ -87,7 +87,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ### ZTable
 
-#### Rimozione componente `zTable` e i suoi componenti figli dalla libreria
+#### Rimozione componente `zTable` e dei suoi componenti figli dalla libreria
 
 Rimosso i componenti deprecati ZTable e i suoi componenti figli.
 Nel dettaglio sono stati rimossi:
