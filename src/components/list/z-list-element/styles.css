@@ -2,8 +2,7 @@
   outline: none;
 }
 
-:host > .container,
-:host > .container-contextual-menu {
+:host > .container {
   --background-color-list-element: var(--color-surface01);
   --background-hover-color-list-element: var(--color-surface02);
   --background-active-color-list-element: var(--color-surface02);
@@ -42,77 +41,53 @@
 /* ----------------- */
 
 :host([expandable]) > .container,
-:host([expandable]) > .container-contextual-menu,
-:host([clickable]) > .container,
-:host([clickable]) > .container-contextual-menu {
+:host([clickable]) > .container {
   cursor: pointer;
 }
 
 :host([expandable]:hover) > .container,
-:host([expandable]:hover) > .container-contextual-menu,
-:host([clickable]:hover) > .container,
-:host([clickable]:hover) > .container-contextual-menu {
+:host([clickable]:hover) > .container {
   background-color: var(--background-hover-color-list-element);
 }
 
 :host([expandable]:focus:focus-visible) > .container,
-:host([expandable]:focus:focus-visible) > .container-contextual-menu,
-:host([clickable]:focus:focus-visible) > .container,
-:host([clickable]:focus:focus-visible) > .container-contextual-menu {
+:host([clickable]:focus:focus-visible) > .container {
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([clickable]:not([expandable])) > .container.clicked,
-:host([clickable]:not([expandable])) > .container-contextual-menu.clicked {
+:host([clickable]:not([expandable])) > .container.clicked {
   box-shadow: var(--shadow-focus-primary);
 }
 
 :host([expandable]:active) > .container,
-:host([expandable]:active) > .container-contextual-menu,
-:host([clickable]:active) > .container,
-:host([clickable]:active) > .container-contextual-menu {
+:host([clickable]:active) > .container {
   background-color: var(--background-active-color-list-element);
 }
 
-:host([align-button="left"][expandable]) > .container > .z-list-element-container,
-:host([align-button="left"][expandable]) > .container-contextual-menu > .z-list-element-container {
+:host([align-button="left"][expandable]) > .container > .z-list-element-container {
   display: flex;
 }
 
-:host([align-button="right"][expandable]) > .container > .z-list-element-container,
-:host([align-button="right"][expandable]) > .container-contextual-menu > .z-list-element-container {
+:host([align-button="right"][expandable]) > .container > .z-list-element-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
 
-:host([align-button="left"][expandable]) > .container > .z-list-element-container > z-icon,
-:host([align-button="left"][expandable]) > .container-contextual-menu > .z-list-element-container > z-icon {
+:host([align-button="left"][expandable]) > .container > .z-list-element-container > z-icon {
   margin-right: var(--space-unit);
 }
 
-:host([align-button="right"][expandable]) > .container > .z-list-element-container > z-icon,
-:host([align-button="right"][expandable]) > .container-contextual-menu > .z-list-element-container > z-icon {
+:host([align-button="right"][expandable]) > .container > .z-list-element-container > z-icon {
   margin-left: var(--space-unit);
 }
 
-:host > .container > .z-list-element-inner-container,
-:host > .container-contextual-menu > .z-list-element-inner-container {
+:host > .container > .z-list-element-inner-container {
   display: none;
 }
 
-:host > .container > .z-list-element-inner-container.expanded,
-:host > .container-contextual-menu > .z-list-element-inner-container.expanded {
+:host > .container > .z-list-element-inner-container.expanded {
   display: block;
-}
-
-:host([clickable]:hover) > .container-contextual-menu {
-  background-color: var(--color-surface03);
-}
-
-.container-contextual-menu:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
 
 .z-list-content-container {

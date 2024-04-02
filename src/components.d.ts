@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition, ZTableRowExpandedType } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -533,20 +533,6 @@ export namespace Components {
          */
         "uncheckalltext"?: string;
     }
-    interface ZContextualMenu {
-        /**
-          * [optional] Sets text color of ZContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * Elements of ZContextualMenu
-         */
-        "elements"?: string;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
-    }
     /**
      * Cover hero component.
      * Component to display a hero image with content.
@@ -943,10 +929,6 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ZContextualMenu component
-         */
-        "isContextualMenu"?: boolean;
-        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -1294,108 +1276,6 @@ export namespace Components {
           * underlined style flag
          */
         "underlined": boolean;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface ZNavigationTab {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Html `title` attribute for the button.
-         */
-        "htmlTitle": string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-          * @deprecated Use a native `<button>` instead.
-         */
-        "icon": string;
-        /**
-          * Label to show in the tab.
-         */
-        "label": string;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation": NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size": NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     * @deprecated Use a native `<a>` instead.
-     */
-    interface ZNavigationTabLink {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Url to set to the anchor element.
-         */
-        "href": string;
-        /**
-          * Html title attribute for the anchor element.
-         */
-        "htmlTitle": string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-         */
-        "icon": string;
-        /**
-          * Label to show in the tab.
-         */
-        "label": string;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation": NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size": NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-        /**
-          * Html `target` attribute for the anchor element.
-         */
-        "target": string;
     }
     /**
      * Navigation tabs component.
@@ -1886,161 +1766,6 @@ export namespace Components {
         "bordered": boolean;
     }
     /**
-     * @deprecated 
-     */
-    interface ZTableBody {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableDeprecated {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan": number;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableFooter {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHead {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId": string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: "asc" | "desc" | "none";
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding": "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection": "asc" | "desc" | "none";
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType": ZTableRowExpandedType;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableStickyFooter {
-    }
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -2283,10 +2008,6 @@ export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZComboboxElement;
 }
-export interface ZContextualMenuCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZContextualMenuElement;
-}
 export interface ZDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZDatePickerElement;
@@ -2347,14 +2068,6 @@ export interface ZMyzListItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMyzListItemElement;
 }
-export interface ZNavigationTabCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZNavigationTabElement;
-}
-export interface ZNavigationTabLinkCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZNavigationTabLinkElement;
-}
 export interface ZNavigationTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZNavigationTabsElement;
@@ -2398,18 +2111,6 @@ export interface ZSearchbarCustomEvent<T> extends CustomEvent<T> {
 export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZSelectElement;
-}
-export interface ZTableDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableDeprecatedElement;
-}
-export interface ZTableHeaderCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableHeaderElement;
-}
-export interface ZTableRowCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTableRowElement;
 }
 export interface ZTdCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2708,23 +2409,6 @@ declare global {
     var HTMLZComboboxElement: {
         prototype: HTMLZComboboxElement;
         new (): HTMLZComboboxElement;
-    };
-    interface HTMLZContextualMenuElementEventMap {
-        "clickContextualMenu": any;
-    }
-    interface HTMLZContextualMenuElement extends Components.ZContextualMenu, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZContextualMenuElementEventMap>(type: K, listener: (this: HTMLZContextualMenuElement, ev: ZContextualMenuCustomEvent<HTMLZContextualMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZContextualMenuElement: {
-        prototype: HTMLZContextualMenuElement;
-        new (): HTMLZContextualMenuElement;
     };
     /**
      * Cover hero component.
@@ -3121,51 +2805,6 @@ declare global {
         prototype: HTMLZMyzListItemElement;
         new (): HTMLZMyzListItemElement;
     };
-    interface HTMLZNavigationTabElementEventMap {
-        "selected": any;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface HTMLZNavigationTabElement extends Components.ZNavigationTab, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZNavigationTabElementEventMap>(type: K, listener: (this: HTMLZNavigationTabElement, ev: ZNavigationTabCustomEvent<HTMLZNavigationTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZNavigationTabElement: {
-        prototype: HTMLZNavigationTabElement;
-        new (): HTMLZNavigationTabElement;
-    };
-    interface HTMLZNavigationTabLinkElementEventMap {
-        "selected": any;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     * @deprecated Use a native `<a>` instead.
-     */
-    interface HTMLZNavigationTabLinkElement extends Components.ZNavigationTabLink, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZNavigationTabLinkElementEventMap>(type: K, listener: (this: HTMLZNavigationTabLinkElement, ev: ZNavigationTabLinkCustomEvent<HTMLZNavigationTabLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZNavigationTabLinkElement: {
-        prototype: HTMLZNavigationTabLinkElement;
-        new (): HTMLZNavigationTabLinkElement;
-    };
     interface HTMLZNavigationTabsElementEventMap {
         "selected": number;
     }
@@ -3451,139 +3090,6 @@ declare global {
         new (): HTMLZTableElement;
     };
     /**
-     * @deprecated 
-     */
-    interface HTMLZTableBodyElement extends Components.ZTableBody, HTMLStencilElement {
-    }
-    var HTMLZTableBodyElement: {
-        prototype: HTMLZTableBodyElement;
-        new (): HTMLZTableBodyElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableCellElement extends Components.ZTableCell, HTMLStencilElement {
-    }
-    var HTMLZTableCellElement: {
-        prototype: HTMLZTableCellElement;
-        new (): HTMLZTableCellElement;
-    };
-    interface HTMLZTableDeprecatedElementEventMap {
-        "callToAction": any;
-        "callToActionTwo": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableDeprecatedElement extends Components.ZTableDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableDeprecatedElementEventMap>(type: K, listener: (this: HTMLZTableDeprecatedElement, ev: ZTableDeprecatedCustomEvent<HTMLZTableDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableDeprecatedElement: {
-        prototype: HTMLZTableDeprecatedElement;
-        new (): HTMLZTableDeprecatedElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableEmptyBoxElement extends Components.ZTableEmptyBox, HTMLStencilElement {
-    }
-    var HTMLZTableEmptyBoxElement: {
-        prototype: HTMLZTableEmptyBoxElement;
-        new (): HTMLZTableEmptyBoxElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableExpandedRowElement extends Components.ZTableExpandedRow, HTMLStencilElement {
-    }
-    var HTMLZTableExpandedRowElement: {
-        prototype: HTMLZTableExpandedRowElement;
-        new (): HTMLZTableExpandedRowElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableFooterElement extends Components.ZTableFooter, HTMLStencilElement {
-    }
-    var HTMLZTableFooterElement: {
-        prototype: HTMLZTableFooterElement;
-        new (): HTMLZTableFooterElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeadElement extends Components.ZTableHead, HTMLStencilElement {
-    }
-    var HTMLZTableHeadElement: {
-        prototype: HTMLZTableHeadElement;
-        new (): HTMLZTableHeadElement;
-    };
-    interface HTMLZTableHeaderElementEventMap {
-        "sort": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeaderElement extends Components.ZTableHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableHeaderElementEventMap>(type: K, listener: (this: HTMLZTableHeaderElement, ev: ZTableHeaderCustomEvent<HTMLZTableHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableHeaderElement: {
-        prototype: HTMLZTableHeaderElement;
-        new (): HTMLZTableHeaderElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableHeaderRowElement extends Components.ZTableHeaderRow, HTMLStencilElement {
-    }
-    var HTMLZTableHeaderRowElement: {
-        prototype: HTMLZTableHeaderRowElement;
-        new (): HTMLZTableHeaderRowElement;
-    };
-    interface HTMLZTableRowElementEventMap {
-        "expand": any;
-    }
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableRowElement extends Components.ZTableRow, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTableRowElementEventMap>(type: K, listener: (this: HTMLZTableRowElement, ev: ZTableRowCustomEvent<HTMLZTableRowElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZTableRowElement: {
-        prototype: HTMLZTableRowElement;
-        new (): HTMLZTableRowElement;
-    };
-    /**
-     * @deprecated 
-     */
-    interface HTMLZTableStickyFooterElement extends Components.ZTableStickyFooter, HTMLStencilElement {
-    }
-    var HTMLZTableStickyFooterElement: {
-        prototype: HTMLZTableStickyFooterElement;
-        new (): HTMLZTableStickyFooterElement;
-    };
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -3774,7 +3280,6 @@ declare global {
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
         "z-combobox": HTMLZComboboxElement;
-        "z-contextual-menu": HTMLZContextualMenuElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
         "z-divider": HTMLZDividerElement;
@@ -3809,8 +3314,6 @@ declare global {
         "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
-        "z-navigation-tab": HTMLZNavigationTabElement;
-        "z-navigation-tab-link": HTMLZNavigationTabLinkElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
@@ -3831,17 +3334,6 @@ declare global {
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
-        "z-table-body": HTMLZTableBodyElement;
-        "z-table-cell": HTMLZTableCellElement;
-        "z-table-deprecated": HTMLZTableDeprecatedElement;
-        "z-table-empty-box": HTMLZTableEmptyBoxElement;
-        "z-table-expanded-row": HTMLZTableExpandedRowElement;
-        "z-table-footer": HTMLZTableFooterElement;
-        "z-table-head": HTMLZTableHeadElement;
-        "z-table-header": HTMLZTableHeaderElement;
-        "z-table-header-row": HTMLZTableHeaderRowElement;
-        "z-table-row": HTMLZTableRowElement;
-        "z-table-sticky-footer": HTMLZTableStickyFooterElement;
         "z-tag": HTMLZTagElement;
         "z-tbody": HTMLZTbodyElement;
         "z-td": HTMLZTdElement;
@@ -4411,24 +3903,6 @@ declare namespace LocalJSX {
          */
         "uncheckalltext"?: string;
     }
-    interface ZContextualMenu {
-        /**
-          * [optional] Sets text color of ZContextualMenu's content
-         */
-        "color"?: string;
-        /**
-          * Elements of ZContextualMenu
-         */
-        "elements"?: string;
-        /**
-          * remove filter click event, returns filterid
-         */
-        "onClickContextualMenu"?: (event: ZContextualMenuCustomEvent<any>) => void;
-        /**
-          * [optional] Sets the position of the popover
-         */
-        "popoverPosition"?: PopoverPosition;
-    }
     /**
      * Cover hero component.
      * Component to display a hero image with content.
@@ -4857,10 +4331,6 @@ declare namespace LocalJSX {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
-          * [optional] If is used in ZContextualMenu component
-         */
-        "isContextualMenu"?: boolean;
-        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -5260,116 +4730,6 @@ declare namespace LocalJSX {
           * underlined style flag
          */
         "underlined"?: boolean;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     */
-    interface ZNavigationTab {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Html `title` attribute for the button.
-         */
-        "htmlTitle"?: string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-          * @deprecated Use a native `<button>` instead.
-         */
-        "icon"?: string;
-        /**
-          * Label to show in the tab.
-         */
-        "label"?: string;
-        /**
-          * The tab has been selected.
-         */
-        "onSelected"?: (event: ZNavigationTabCustomEvent<any>) => void;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation"?: NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size"?: NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-    }
-    /**
-     * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
-     * This component uses the `tab` role:
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-     * @deprecated Use a native `<a>` instead.
-     */
-    interface ZNavigationTabLink {
-        /**
-          * `aria-controls` attribute of the tab. Identifies the element (with `role=tabpanel`) whose contents or presence are controlled by this tab. The value must be the `id` of the element it controls.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls
-         */
-        "ariaControls"?: string;
-        /**
-          * Whether the tab is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Url to set to the anchor element.
-         */
-        "href"?: string;
-        /**
-          * Html title attribute for the anchor element.
-         */
-        "htmlTitle"?: string;
-        /**
-          * Name of the icon to use. The `filled` version will be automatically used (if found) when the tab is `selected`.
-         */
-        "icon"?: string;
-        /**
-          * Label to show in the tab.
-         */
-        "label"?: string;
-        /**
-          * The tab has been selected.
-         */
-        "onSelected"?: (event: ZNavigationTabLinkCustomEvent<any>) => void;
-        /**
-          * Tab orientation. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "orientation"?: NavigationTabsOrientation;
-        /**
-          * Whether the tab is selected.
-         */
-        "selected"?: boolean;
-        /**
-          * Tab size. Do not set this manually: `z-navigation-tabs` will handle this.
-         */
-        "size"?: NavigationTabsSize;
-        /**
-          * `id` attribute of the tab. Set this id to the `aria-labelledby` attribute of the controlled `tabpanel` element.
-          * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-          * @deprecated Use native `id` attribute instead
-         */
-        "tabId"?: string;
-        /**
-          * Html `target` attribute for the anchor element.
-         */
-        "target"?: string;
     }
     /**
      * Navigation tabs component.
@@ -5908,177 +5268,6 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
     }
     /**
-     * @deprecated 
-     */
-    interface ZTableBody {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableCell {
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableDeprecated {
-        /**
-          * Sets table with border
-         */
-        "bordered"?: boolean;
-        /**
-          * Sets call to action label
-         */
-        "callToActionLabel"?: string;
-        /**
-          * Sets call to action label
-         */
-        "callToActionTwoLabel"?: string;
-        /**
-          * Sets first column sticky
-         */
-        "columnSticky"?: boolean;
-        /**
-          * Sets empty table
-         */
-        "empty"?: boolean;
-        /**
-          * Set error status
-         */
-        "error"?: boolean;
-        /**
-          * Set error status
-         */
-        "errorLink"?: string;
-        /**
-          * Error message
-         */
-        "errorMessage"?: string;
-        /**
-          * Sets header sticky
-         */
-        "headerSticky"?: boolean;
-        /**
-          * Number of lines of element
-         */
-        "lines"?: number;
-        /**
-          * Set message
-         */
-        "message"?: string;
-        /**
-          * remove call to action event
-         */
-        "onCallToAction"?: (event: ZTableDeprecatedCustomEvent<any>) => void;
-        /**
-          * remove call to action event
-         */
-        "onCallToActionTwo"?: (event: ZTableDeprecatedCustomEvent<any>) => void;
-        /**
-          * Set subtitle
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableEmptyBox {
-        /**
-          * Sets main title message
-         */
-        "message"?: string;
-        /**
-          * Sets message
-         */
-        "subtitle"?: string;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableExpandedRow {
-        /**
-          * Number table column plus 1 for the expand button
-         */
-        "colSpan"?: number;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableFooter {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHead {
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeader {
-        /**
-          * Column ID
-         */
-        "columnId"?: string;
-        /**
-          * [Optional] Default sort order
-         */
-        "defaultSortDirection"?: "asc" | "desc" | "none";
-        /**
-          * [Optional] callback for sorting
-         */
-        "onSort"?: (event: ZTableHeaderCustomEvent<any>) => void;
-        /**
-          * Set padding size of cell, if special 0px padding will be set
-         */
-        "padding"?: "x-small" | "small" | "medium" | "large" | "special";
-        /**
-          * [Optional] Show contextual menu button
-         */
-        "showButton"?: boolean;
-        /**
-          * Sort direction
-         */
-        "sortDirection"?: "asc" | "desc" | "none";
-        /**
-          * [Optional] Make the header sortable
-         */
-        "sortable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableHeaderRow {
-        /**
-          * Row expandable flag
-         */
-        "expandable"?: boolean;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableRow {
-        /**
-          * Table row expanded type
-         */
-        "expandedType"?: ZTableRowExpandedType;
-        /**
-          * Row has been expanded
-         */
-        "onExpand"?: (event: ZTableRowCustomEvent<any>) => void;
-    }
-    /**
-     * @deprecated 
-     */
-    interface ZTableStickyFooter {
-    }
-    /**
      * Ztag  component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
@@ -6327,7 +5516,6 @@ declare namespace LocalJSX {
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
         "z-combobox": ZCombobox;
-        "z-contextual-menu": ZContextualMenu;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
         "z-divider": ZDivider;
@@ -6362,8 +5550,6 @@ declare namespace LocalJSX {
         "z-myz-card-list": ZMyzCardList;
         "z-myz-list": ZMyzList;
         "z-myz-list-item": ZMyzListItem;
-        "z-navigation-tab": ZNavigationTab;
-        "z-navigation-tab-link": ZNavigationTabLink;
         "z-navigation-tabs": ZNavigationTabs;
         "z-notification": ZNotification;
         "z-offcanvas": ZOffcanvas;
@@ -6384,17 +5570,6 @@ declare namespace LocalJSX {
         "z-stepper": ZStepper;
         "z-stepper-item": ZStepperItem;
         "z-table": ZTable;
-        "z-table-body": ZTableBody;
-        "z-table-cell": ZTableCell;
-        "z-table-deprecated": ZTableDeprecated;
-        "z-table-empty-box": ZTableEmptyBox;
-        "z-table-expanded-row": ZTableExpandedRow;
-        "z-table-footer": ZTableFooter;
-        "z-table-head": ZTableHead;
-        "z-table-header": ZTableHeader;
-        "z-table-header-row": ZTableHeaderRow;
-        "z-table-row": ZTableRow;
-        "z-table-sticky-footer": ZTableStickyFooter;
         "z-tag": ZTag;
         "z-tbody": ZTbody;
         "z-td": ZTd;
@@ -6529,7 +5704,6 @@ declare module "@stencil/core" {
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
-            "z-contextual-menu": LocalJSX.ZContextualMenu & JSXBase.HTMLAttributes<HTMLZContextualMenuElement>;
             /**
              * Cover hero component.
              * Component to display a hero image with content.
@@ -6580,19 +5754,6 @@ declare module "@stencil/core" {
             "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
-            /**
-             * Single tab component to use inside `z-navigation-tabs`. It renders a button.
-             * This component uses the `tab` role:
-             * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-             */
-            "z-navigation-tab": LocalJSX.ZNavigationTab & JSXBase.HTMLAttributes<HTMLZNavigationTabElement>;
-            /**
-             * Single tab component to use inside `z-navigation-tabs`. It renders an anchor element.
-             * This component uses the `tab` role:
-             * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role
-             * @deprecated Use a native `<a>` instead.
-             */
-            "z-navigation-tab-link": LocalJSX.ZNavigationTabLink & JSXBase.HTMLAttributes<HTMLZNavigationTabLinkElement>;
             /**
              * Navigation tabs component.
              * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
@@ -6650,50 +5811,6 @@ declare module "@stencil/core" {
              * @cssprop --z-table--cells-padding - Padding of the cells.
              */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-body": LocalJSX.ZTableBody & JSXBase.HTMLAttributes<HTMLZTableBodyElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-cell": LocalJSX.ZTableCell & JSXBase.HTMLAttributes<HTMLZTableCellElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-deprecated": LocalJSX.ZTableDeprecated & JSXBase.HTMLAttributes<HTMLZTableDeprecatedElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-empty-box": LocalJSX.ZTableEmptyBox & JSXBase.HTMLAttributes<HTMLZTableEmptyBoxElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-expanded-row": LocalJSX.ZTableExpandedRow & JSXBase.HTMLAttributes<HTMLZTableExpandedRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-footer": LocalJSX.ZTableFooter & JSXBase.HTMLAttributes<HTMLZTableFooterElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-head": LocalJSX.ZTableHead & JSXBase.HTMLAttributes<HTMLZTableHeadElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-header": LocalJSX.ZTableHeader & JSXBase.HTMLAttributes<HTMLZTableHeaderElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-header-row": LocalJSX.ZTableHeaderRow & JSXBase.HTMLAttributes<HTMLZTableHeaderRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-row": LocalJSX.ZTableRow & JSXBase.HTMLAttributes<HTMLZTableRowElement>;
-            /**
-             * @deprecated 
-             */
-            "z-table-sticky-footer": LocalJSX.ZTableStickyFooter & JSXBase.HTMLAttributes<HTMLZTableStickyFooterElement>;
             /**
              * Ztag  component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
