@@ -1,2 +1,0 @@
-import{r as t,h as r,g as o}from"./p-10bb4f4b.js";const e=".sc-z-table-head-h{display:table-header-group;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";const s=e;const a=class{constructor(r){t(this,r)}componentWillRender(){this.host.setAttribute("role","rowgroup")}render(){return r("slot",{key:"98012cd26ee60c370c6ccf6bff47ca5c827f30b6"})}get host(){return o(this)}};a.style=s;export{a as Z};
-//# sourceMappingURL=p-011a7536.js.map

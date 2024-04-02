@@ -30,7 +30,7 @@ export class ZMyzCardHeader {
         };
     }
     render() {
-        return (h("header", { key: '42e4bbade9cd208a99dcee56b87ee0fcff8202b2', class: this.retrieveClass() }, h("slot", { key: '939ec6cec0e6b04daba246efa4cbd841c8f72199', name: "aria-heading" }), h("span", { key: 'd71fe4dcb951f026dccdb791f67c56aa74508487', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: 'dd4ad05319e7c87f1ad55a6fb1ff02e2e529757d', name: "icon" })));
+        return (h("header", { key: 'f3d234d1b49462a02c765ca33c76bc787bb6e1f0', class: this.retrieveClass() }, h("slot", { key: '9b83dea3d133b504dc5a233165c268f5c30fd001', name: "aria-heading" }), h("span", { key: 'e05a6f12405b5615d4722dbff22cb5148ed372b4', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: '318bc12c3d51dd4cb5227d0017d18ceb9a7326f5', name: "icon" })));
     }
     static get is() { return "z-myz-card-header"; }
     static get encapsulation() { return "shadow"; }

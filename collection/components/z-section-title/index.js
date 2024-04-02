@@ -18,7 +18,7 @@ export class ZSectionTitle {
         this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
     }
     render() {
-        return (h(Host, { key: '73bb5aa52dd0ebf377b6dc6c341a6fe856689753' }, h("slot", { key: '69342bb343240b870f387b2f8b81433d6c44adcd', name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { key: 'b13fc5c19b76b950806457e9ccd93cc21b850bc0', name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
+        return (h(Host, { key: 'b629b236477e358e5e1f839dfab33ac08aa3cd68' }, h("slot", { key: 'f0752bbd190a7ad8a1e5f72a81c0cd92c77137f7', name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.BEFORE && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" })), h("slot", { key: 'a4477bb9b91f62cdf839532f54eeb783615cc498', name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === ZSectionTitleDividerPosition.AFTER && (h("z-divider", { size: DividerSize.LARGE, color: "z-section-title--divider-color" }))));
     }
     static get is() { return "z-section-title"; }
     static get encapsulation() { return "shadow"; }

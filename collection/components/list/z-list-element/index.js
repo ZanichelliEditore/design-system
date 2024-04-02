@@ -32,7 +32,6 @@ export class ZListElement {
         this.size = ListSize.MEDIUM;
         this.color = "none";
         this.disabled = false;
-        this.isContextualMenu = false;
         this.listElementPosition = "0";
         this.listType = ListType.NONE;
         this.role = "listitem";
@@ -50,12 +49,6 @@ export class ZListElement {
             return;
         }
         this.showInnerContent = !this.showInnerContent;
-    }
-    calculateClass() {
-        if (this.isContextualMenu) {
-            return "container-contextual-menu";
-        }
-        return "container";
     }
     handleKeyDown(event) {
         const expandByKey = event.code === KeyboardCode.ENTER;
@@ -121,7 +114,7 @@ export class ZListElement {
         }
     }
     render() {
-        return (h(Host, { key: '3c55ce5744a82e1b1871f658d0d63dc49a55fbba', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { key: 'f9ccf0529e72d61ffed2f8da94461b6d0d904447', class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '9747b70e158f1e0a50bd392bc11724df0951196e', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (h(Host, { key: 'b0dc00b8abad630739f30361dcb1abad5fa379e0', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: "0" }, h("div", { key: '81f742ce528b757fb67feefc231ce78e7e76ba87', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: 'c2230431473ea5e8292b26c280c71a86d795a1de', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
     }
     static get is() { return "z-list-element"; }
     static get encapsulation() { return "shadow"; }
@@ -361,24 +354,6 @@ export class ZListElement {
                     "text": "[optional] Sets disabled style of the element."
                 },
                 "attribute": "disabled",
-                "reflect": true,
-                "defaultValue": "false"
-            },
-            "isContextualMenu": {
-                "type": "boolean",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "[optional] If is used in ZContextualMenu component"
-                },
-                "attribute": "is-contextual-menu",
                 "reflect": true,
                 "defaultValue": "false"
             },

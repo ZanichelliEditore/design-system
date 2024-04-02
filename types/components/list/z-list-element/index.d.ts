@@ -54,10 +54,6 @@ export declare class ZListElement {
      */
     disabled?: boolean;
     /**
-     * [optional] If is used in ZContextualMenu component
-     */
-    isContextualMenu?: boolean;
-    /**
      * [optional] position of the list element inside the list or the group
      */
     listElementPosition?: string;
@@ -80,7 +76,6 @@ export declare class ZListElement {
      * @returns void
      */
     private handleClick;
-    private calculateClass;
     private handleKeyDown;
     /**
      * Renders button to expand element.

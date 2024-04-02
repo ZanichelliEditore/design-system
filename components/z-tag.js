@@ -1,4 +1,4 @@
-import { Z as ZTag$1, d as defineCustomElement$1 } from './index30.js';
+import { Z as ZTag$1, d as defineCustomElement$1 } from './index27.js';
 
 const ZTag = ZTag$1;
 const defineCustomElement = defineCustomElement$1;

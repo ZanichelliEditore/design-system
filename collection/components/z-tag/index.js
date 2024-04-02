@@ -11,10 +11,10 @@ export class ZTag {
         this.expandable = undefined;
     }
     render() {
-        return (h(Host, { key: '9d45170a5cefce5d815ac7b5402123645a8d243b', class: {
+        return (h(Host, { key: 'fa2bfa00bef52495bef1e2271ffa20c09a60380a', class: {
                 "body-5-sb": true,
                 "expandable": this.expandable && !!this.icon,
-            } }, this.icon && h("z-icon", { name: this.icon }), h("div", { key: '9cf3b9f7b169709cf109cdab4d0cfe346a9eb29c' }, h("slot", { key: 'c26454112b3fa7ce120eaf50844cb82c9e11e751' }))));
+            } }, this.icon && h("z-icon", { name: this.icon }), h("div", { key: '37bbe9678c9a2022a6fe260753b7955fdb9a76d1' }, h("slot", { key: 'f9f7a5f44c6b89d90b4b252fd990889751e955c8' }))));
     }
     static get is() { return "z-tag"; }
     static get encapsulation() { return "scoped"; }

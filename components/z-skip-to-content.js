@@ -48,7 +48,7 @@ const ZSkipToContent$1 = /*@__PURE__*/ proxyCustomElement(class ZSkipToContent e
         this.visible = false;
     }
     render() {
-        return (h(Host, { key: '148da854d3c5a83e5c103b3efcc5358f86278936', class: {
+        return (h(Host, { key: '08004b426a63113ef27d0cac85716b5433a2a292', class: {
                 [this.variant]: true,
                 "skip-to-content-visible": this.visible,
             } }, this.links.map((link, i) => {

@@ -14,7 +14,7 @@ export class ZOtp {
         this.otpRef = [...Array(this.inputNum)];
     }
     render() {
-        return (h("div", { key: 'ed4894a5e991ebb5e870ab0a1f54c75217721c5c', class: "otp-container" }, h("div", { key: '1bef4aae264fb80813a5b7b71412eb638c17736d', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
+        return (h("div", { key: '52fb020b2ebcd1d55b61a700c42b9292e23e88d7', class: "otp-container" }, h("div", { key: 'fd1c71d7029342f745a0adee68b79b5440c01927', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
                 if (e.keyCode > 47) {
                     this.otpRef[i].value = "";
                 }
@@ -25,7 +25,7 @@ export class ZOtp {
             }, onInput: (e) => {
                 this.otp[i] = e.target.value;
                 this.emitInputChange(this.otp.join(""));
-            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: '6b40b61f792ad0f1789a44d27b51657e2f446a8b', message: this.message, status: this.status })));
+            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: '2eb46b8273e78ce177f352d50441493e5ac260e8', message: this.message, status: this.status })));
     }
     static get is() { return "z-otp"; }
     static get encapsulation() { return "shadow"; }

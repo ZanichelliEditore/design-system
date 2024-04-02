@@ -5,7 +5,7 @@ import { h } from "@stencil/core";
  */
 export class ZMyzCardFooterSections {
     render() {
-        return (h("div", { key: '62c6d04f17701a66638885f241c6cee08411eb45' }, h("footer", { key: '935193a38295ec3b700b3c30a32aca8ed310b3ad' }, h("div", { key: '8c7af9e6f32e4353942a7831dea7f9875455e868', class: "top" }, h("slot", { key: '3a93460244816042d5a46a37909fe150b7dad333', name: "top" })), h("div", { key: '3bc02862cb0fcebbc1a763ba6f40e909cf39dbf1', class: "bottom" }, h("slot", { key: '600288fe385b411013722ca70809a8f841236563', name: "bottom" })))));
+        return (h("div", { key: 'ad5a5b4ce763cd24f68d02ec7b6e29b2545b94be' }, h("footer", { key: '85252bc9e7ac49dd5250160f31eda28d0cd9b56c' }, h("div", { key: '43fdf6d47836f0c6cddb8e6a2a807837642a46b6', class: "top" }, h("slot", { key: 'ec8b4121c2c3aa2975f19c8ba846689f5a0e0dea', name: "top" })), h("div", { key: 'a76056af1fba864d1dd3dbc7c4c6a109ee1e5e9d', class: "bottom" }, h("slot", { key: 'b1f51897fe2f8bac34c21b409c74003651bc641a', name: "bottom" })))));
     }
     static get is() { return "z-myz-card-footer-sections"; }
     static get encapsulation() { return "shadow"; }

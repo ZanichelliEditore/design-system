@@ -40,7 +40,7 @@ const ZMessagesPocket = class {
         return (index.h("z-pocket-body", { pocketid: this.pocketid }, index.h("div", { class: "body" }, index.h("slot", null)), index.h("div", { class: "gradient" })));
     }
     render() {
-        return (index.h("z-pocket", { key: '3aefef3d845cb5f672ed037667da8d59bf2355dd', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
+        return (index.h("z-pocket", { key: '2bf2ce854eb809ffe7cc0b64d071e6926d08814c', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
     }
 };
 ZMessagesPocket.style = ZMessagesPocketStyle0;

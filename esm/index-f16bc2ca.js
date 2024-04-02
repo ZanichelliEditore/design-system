@@ -2801,10 +2801,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-combobox.entry.js').then(processMod, consoleError);
-                case 'z-contextual-menu':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-contextual-menu.entry.js').then(processMod, consoleError);
                 case 'z-cover-hero':
                     return import(
                       /* webpackMode: "lazy" */
@@ -2881,14 +2877,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-myz-list.entry.js').then(processMod, consoleError);
-                case 'z-navigation-tab':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-navigation-tab.entry.js').then(processMod, consoleError);
-                case 'z-navigation-tab-link':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-navigation-tab-link.entry.js').then(processMod, consoleError);
                 case 'z-navigation-tabs':
                     return import(
                       /* webpackMode: "lazy" */
@@ -2945,38 +2933,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-table.entry.js').then(processMod, consoleError);
-                case 'z-table-body':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-body.entry.js').then(processMod, consoleError);
-                case 'z-table-deprecated':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-deprecated.entry.js').then(processMod, consoleError);
-                case 'z-table-expanded-row':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-expanded-row.entry.js').then(processMod, consoleError);
-                case 'z-table-footer':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-footer.entry.js').then(processMod, consoleError);
-                case 'z-table-head':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-head.entry.js').then(processMod, consoleError);
-                case 'z-table-header-row':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-header-row.entry.js').then(processMod, consoleError);
-                case 'z-table-row':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-row.entry.js').then(processMod, consoleError);
-                case 'z-table-sticky-footer':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-sticky-footer.entry.js').then(processMod, consoleError);
                 case 'z-tbody':
                     return import(
                       /* webpackMode: "lazy" */
@@ -3049,18 +3005,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-pocket_3.entry.js').then(processMod, consoleError);
-                case 'z-table-cell':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-cell.entry.js').then(processMod, consoleError);
-                case 'z-table-empty-box':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-empty-box.entry.js').then(processMod, consoleError);
-                case 'z-table-header':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-table-header.entry.js').then(processMod, consoleError);
                 case 'z-myz-list-item':
                     return import(
                       /* webpackMode: "lazy" */

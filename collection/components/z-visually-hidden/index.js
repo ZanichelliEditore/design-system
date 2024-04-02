@@ -1,7 +1,7 @@
 import { h } from "@stencil/core";
 export class ZVisuallyHidden {
     render() {
-        return h("slot", { key: '9ce7d87881fa96e717bc1556d5242cbfe68d0739' });
+        return h("slot", { key: '9fb05af5cc8c977fc5041b5a5b75d5813caefd82' });
     }
     static get is() { return "z-visually-hidden"; }
     static get encapsulation() { return "shadow"; }

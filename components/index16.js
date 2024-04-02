@@ -37,7 +37,7 @@ const ZMyzCardComponent = /*@__PURE__*/ proxyCustomElement(class ZMyzCardCompone
         return elemClasses;
     }
     render() {
-        return (h("div", { key: '2ea30f2293b9dd4cc187d2cc97449caf4851b424', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: 'ee17e5ceb45cba4f565e6efe41cf524f2cf91ed7' })));
+        return (h("div", { key: 'bb61c603563fe59552323e57f54348036621173a', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: '154d569cd2055c0ba1fca9c2551a5078e7f2f7ce' })));
     }
     static get style() { return ZMyzCardStyle0; }
 }, [1, "z-myz-card", {

@@ -35,7 +35,7 @@ const ZMyzCardComponent = class {
         return elemClasses;
     }
     render() {
-        return (h("div", { key: '2ea30f2293b9dd4cc187d2cc97449caf4851b424', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: 'ee17e5ceb45cba4f565e6efe41cf524f2cf91ed7' })));
+        return (h("div", { key: 'bb61c603563fe59552323e57f54348036621173a', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: '154d569cd2055c0ba1fca9c2551a5078e7f2f7ce' })));
     }
 };
 ZMyzCardComponent.style = ZMyzCardStyle0;
@@ -48,7 +48,7 @@ const ZMyzCardBody = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h("div", { key: '445a0d9463e21e7e51df000bbd32b892d16db6f7' }, h("slot", { key: 'aff7823ed27e2055d2803a1a55a0be35cfbcebf5', name: "alert" }), h("slot", { key: '0f435dc867e63caadc313043006a97156ebe2dc3', name: "cover" })));
+        return (h("div", { key: 'bc6cdeae214e8d2a678b06affa36c464edc8f7ea' }, h("slot", { key: '6891036c0f1a98722edc901ea45042c0451831a3', name: "alert" }), h("slot", { key: '50357c351f505338ffb08cd3b0df6eb6619745e7', name: "cover" })));
     }
 };
 ZMyzCardBody.style = ZMyzCardBodyStyle0;
@@ -68,7 +68,7 @@ const ZMyzCardCover = class {
         this.img = this.defaultimg;
     }
     render() {
-        return (h("img", { key: '3b84be44f2691dea2e073c4f941672de4febfb8c', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
+        return (h("img", { key: 'b248cf088629c40f40cbd42695c8dd2ec93d92e0', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
     }
 };
 ZMyzCardCover.style = ZMyzCardCoverStyle0;
@@ -104,7 +104,7 @@ const ZMyzCardHeader = class {
         };
     }
     render() {
-        return (h("header", { key: '42e4bbade9cd208a99dcee56b87ee0fcff8202b2', class: this.retrieveClass() }, h("slot", { key: '939ec6cec0e6b04daba246efa4cbd841c8f72199', name: "aria-heading" }), h("span", { key: 'd71fe4dcb951f026dccdb791f67c56aa74508487', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: 'dd4ad05319e7c87f1ad55a6fb1ff02e2e529757d', name: "icon" })));
+        return (h("header", { key: 'f3d234d1b49462a02c765ca33c76bc787bb6e1f0', class: this.retrieveClass() }, h("slot", { key: '9b83dea3d133b504dc5a233165c268f5c30fd001', name: "aria-heading" }), h("span", { key: 'e05a6f12405b5615d4722dbff22cb5148ed372b4', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: '318bc12c3d51dd4cb5227d0017d18ceb9a7326f5', name: "icon" })));
     }
 };
 ZMyzCardHeader.style = ZMyzCardHeaderStyle0;

@@ -12,7 +12,7 @@ const ZGhostLoading = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return index.h(index.Host, { key: '38a3ba066f0322e41cff8962b230ad752312c8b1' });
+        return index.h(index.Host, { key: '463019d2e47586ce45bfac3ab258320c5c7c3785' });
     }
 };
 ZGhostLoading.style = ZGhostLoadingStyle0;

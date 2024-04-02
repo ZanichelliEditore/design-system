@@ -1,7 +1,7 @@
 import { h, Host } from "@stencil/core";
 export class ZGhostLoading {
     render() {
-        return h(Host, { key: '38a3ba066f0322e41cff8962b230ad752312c8b1' });
+        return h(Host, { key: '463019d2e47586ce45bfac3ab258320c5c7c3785' });
     }
     static get is() { return "z-ghost-loading"; }
     static get encapsulation() { return "shadow"; }

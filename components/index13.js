@@ -3,7 +3,7 @@ import { j as ExpandableListButtonAlign, l as ListDividerType, D as DividerSize,
 import { d as defineCustomElement$2 } from './index6.js';
 import { d as defineCustomElement$1 } from './index9.js';
 
-const stylesCss = ":host{outline:none}:host>.container,:host>.container-contextual-menu{--background-color-list-element:var(--color-surface01);--background-hover-color-list-element:var(--color-surface02);--background-active-color-list-element:var(--color-surface02);display:flex;box-sizing:border-box;flex-direction:column;justify-content:center;font-family:var(--font-family-sans);font-weight:var(--font-rg);outline:none}:host([size=\"small\"])>.container{min-height:calc(var(--space-unit) * 4);padding:calc(var(--space-unit) / 2) 0}:host([size=\"medium\"])>.container{min-height:calc(var(--space-unit) * 5);padding:var(--space-unit) 0}:host([size=\"large\"])>.container{min-height:calc(var(--space-unit) * 7);padding:calc(var(--space-unit) * 2) 0}:host([size=\"x-large\"])>.container{min-height:calc(var(--space-unit) * 9);padding:calc(var(--space-unit) * 3) 0}:host([expandable])>.container,:host([expandable])>.container-contextual-menu,:host([clickable])>.container,:host([clickable])>.container-contextual-menu{cursor:pointer}:host([expandable]:hover)>.container,:host([expandable]:hover)>.container-contextual-menu,:host([clickable]:hover)>.container,:host([clickable]:hover)>.container-contextual-menu{background-color:var(--background-hover-color-list-element)}:host([expandable]:focus:focus-visible)>.container,:host([expandable]:focus:focus-visible)>.container-contextual-menu,:host([clickable]:focus:focus-visible)>.container,:host([clickable]:focus:focus-visible)>.container-contextual-menu{box-shadow:var(--shadow-focus-primary)}:host([clickable]:not([expandable]))>.container.clicked,:host([clickable]:not([expandable]))>.container-contextual-menu.clicked{box-shadow:var(--shadow-focus-primary)}:host([expandable]:active)>.container,:host([expandable]:active)>.container-contextual-menu,:host([clickable]:active)>.container,:host([clickable]:active)>.container-contextual-menu{background-color:var(--background-active-color-list-element)}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container{display:flex;flex-direction:row-reverse;justify-content:space-between}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"left\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-right:var(--space-unit)}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container>z-icon,:host([align-button=\"right\"][expandable])>.container-contextual-menu>.z-list-element-container>z-icon{margin-left:var(--space-unit)}:host>.container>.z-list-element-inner-container,:host>.container-contextual-menu>.z-list-element-inner-container{display:none}:host>.container>.z-list-element-inner-container.expanded,:host>.container-contextual-menu>.z-list-element-inner-container.expanded{display:block}:host([clickable]:hover)>.container-contextual-menu{background-color:var(--color-surface03)}.container-contextual-menu:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none}.z-list-content-container{display:flex;align-items:center}";
+const stylesCss = ":host{outline:none}:host>.container{--background-color-list-element:var(--color-surface01);--background-hover-color-list-element:var(--color-surface02);--background-active-color-list-element:var(--color-surface02);display:flex;box-sizing:border-box;flex-direction:column;justify-content:center;font-family:var(--font-family-sans);font-weight:var(--font-rg);outline:none}:host([size=\"small\"])>.container{min-height:calc(var(--space-unit) * 4);padding:calc(var(--space-unit) / 2) 0}:host([size=\"medium\"])>.container{min-height:calc(var(--space-unit) * 5);padding:var(--space-unit) 0}:host([size=\"large\"])>.container{min-height:calc(var(--space-unit) * 7);padding:calc(var(--space-unit) * 2) 0}:host([size=\"x-large\"])>.container{min-height:calc(var(--space-unit) * 9);padding:calc(var(--space-unit) * 3) 0}:host([expandable])>.container,:host([clickable])>.container{cursor:pointer}:host([expandable]:hover)>.container,:host([clickable]:hover)>.container{background-color:var(--background-hover-color-list-element)}:host([expandable]:focus:focus-visible)>.container,:host([clickable]:focus:focus-visible)>.container{box-shadow:var(--shadow-focus-primary)}:host([clickable]:not([expandable]))>.container.clicked{box-shadow:var(--shadow-focus-primary)}:host([expandable]:active)>.container,:host([clickable]:active)>.container{background-color:var(--background-active-color-list-element)}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container{display:flex}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container{display:flex;flex-direction:row-reverse;justify-content:space-between}:host([align-button=\"left\"][expandable])>.container>.z-list-element-container>z-icon{margin-right:var(--space-unit)}:host([align-button=\"right\"][expandable])>.container>.z-list-element-container>z-icon{margin-left:var(--space-unit)}:host>.container>.z-list-element-inner-container{display:none}:host>.container>.z-list-element-inner-container.expanded{display:block}.z-list-content-container{display:flex;align-items:center}";
 const ZListElementStyle0 = stylesCss;
 
 const ZListElement = /*@__PURE__*/ proxyCustomElement(class ZListElement extends HTMLElement {
@@ -44,7 +44,6 @@ const ZListElement = /*@__PURE__*/ proxyCustomElement(class ZListElement extends
         this.size = ListSize.MEDIUM;
         this.color = "none";
         this.disabled = false;
-        this.isContextualMenu = false;
         this.listElementPosition = "0";
         this.listType = ListType.NONE;
         this.role = "listitem";
@@ -62,12 +61,6 @@ const ZListElement = /*@__PURE__*/ proxyCustomElement(class ZListElement extends
             return;
         }
         this.showInnerContent = !this.showInnerContent;
-    }
-    calculateClass() {
-        if (this.isContextualMenu) {
-            return "container-contextual-menu";
-        }
-        return "container";
     }
     handleKeyDown(event) {
         const expandByKey = event.code === KeyboardCode.ENTER;
@@ -131,7 +124,7 @@ const ZListElement = /*@__PURE__*/ proxyCustomElement(class ZListElement extends
         }
     }
     render() {
-        return (h(Host, { key: '3c55ce5744a82e1b1871f658d0d63dc49a55fbba', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: !this.isContextualMenu ? "0" : null }, h("div", { key: 'f9ccf0529e72d61ffed2f8da94461b6d0d904447', class: `${this.calculateClass()}`, style: { color: `var(--${this.color})` }, tabindex: this.isContextualMenu ? "0" : "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '9747b70e158f1e0a50bd392bc11724df0951196e', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (h(Host, { key: 'b0dc00b8abad630739f30361dcb1abad5fa379e0', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: "0" }, h("div", { key: '81f742ce528b757fb67feefc231ce78e7e76ba87', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: 'c2230431473ea5e8292b26c280c71a86d795a1de', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
     }
     get host() { return this; }
     static get style() { return ZListElementStyle0; }
@@ -147,7 +140,6 @@ const ZListElement = /*@__PURE__*/ proxyCustomElement(class ZListElement extends
         "size": [513],
         "color": [513],
         "disabled": [516],
-        "isContextualMenu": [516, "is-contextual-menu"],
         "listElementPosition": [513, "list-element-position"],
         "listType": [513, "list-type"],
         "role": [513],

@@ -32,7 +32,7 @@ const ZMyzCardList = class {
         });
     }
     render() {
-        return index.h("ul", { key: 'd233563583f4c1de64348fee709013c5a48781ca' }, this.renderList(JSON.parse(this.listdata)));
+        return index.h("ul", { key: '1ab3695f896cb1c963751a88e9513b90678aea47' }, this.renderList(JSON.parse(this.listdata)));
     }
 };
 ZMyzCardList.style = ZMyzCardListStyle0;

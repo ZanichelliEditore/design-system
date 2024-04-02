@@ -45,7 +45,7 @@ export class ZLink {
         }
     }
     render() {
-        return (h("a", { key: 'b5b630a2b5ffe83a239315612faf6b673158c782', id: this.htmlid, href: this.href ? this.href : null, class: {
+        return (h("a", { key: 'e5b80b5dac596f11648e2e8afa373c1da00e6e5d', id: this.htmlid, href: this.href ? this.href : null, class: {
                 disabled: this.isdisabled,
                 active: this.isactive,
                 white: this.iswhite,
