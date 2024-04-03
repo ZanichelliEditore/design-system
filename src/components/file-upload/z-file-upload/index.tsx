@@ -71,15 +71,7 @@ export class ZFileUpload {
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener(e: CustomEvent): void {
-    const files = this.files;
-    const file = files.find((file) => file.name === e.detail.fileName);
-    if (file) {
-      const index = files.indexOf(file);
-      if (index >= 0) {
-        files.splice(index, 1);
-        this.files = [...files];
-      }
-    }
+    this.removeFile(e.detail.fileName);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -112,6 +104,19 @@ export class ZFileUpload {
   @Method()
   async getFiles(): Promise<File[]> {
     return this.files;
+  }
+
+  @Method()
+  async removeFile(fileName: string): Promise<void> {
+    const files = this.files;
+    const file = files.find((file) => file.name === fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
   }
 
   private getType(): ZFileUploadType {
