@@ -106,6 +106,7 @@ export class ZFileUpload {
     return this.files;
   }
 
+  /** remove file from the array */
   @Method()
   async removeFile(fileName: string): Promise<void> {
     const files = this.files;
