@@ -265,6 +265,8 @@ export class ZCombobox {
         action={`combo-li-${this.inputid}`}
         underlined={index !== length - 1}
         class={this.size}
+        role="option"
+        aria-selected={item.checked ? "true" : "false"}
       >
         <z-input
           type={InputType.CHECKBOX}
@@ -291,7 +293,11 @@ export class ZCombobox {
     }
 
     return (
-      <ul>
+      <ul
+        role="listbox"
+        id={`${this.inputid}_list`}
+        aria-multiselectable={true}
+      >
         {items.map((item, i) => {
           return this.renderItem(item, i, items.length);
         })}
@@ -371,6 +377,10 @@ export class ZCombobox {
         value={this.searchValue}
         message={false}
         size={this.size}
+        role="combobox"
+        aria-autocomplete="list"
+        aria-expanded={this.isopen}
+        aria-controls={`${this.inputid}_list`}
         onInputChange={(e: CustomEvent) => {
           if (e.detail.keycode === 27) {
             return this.closeFilterItems();
