@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, KeyboardKeyCode, ListDividerType, ControlSize} from "../../../beans";
+import {ComboItem, InputType, ListDividerType, ControlSize, KeyboardCode} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 import {ZMyzListItem} from "../../../snowflakes/myz/list/z-myz-list-item";
@@ -207,7 +207,7 @@ export class ZCombobox {
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
-          if (ev.keyCode === KeyboardKeyCode.SPACE) {
+          if (ev.key === KeyboardCode.SPACE) {
             ev.preventDefault();
           }
         }}
@@ -242,15 +242,8 @@ export class ZCombobox {
   }
 
   private renderItems(): HTMLDivElement {
-    if (!this.isopen) {
-      return;
-    }
-
     return (
-      <div
-        class={this.searchValue && "search"}
-        tabindex={-1}
-      >
+      <div class={this.searchValue && "search"}>
         {this.renderList(this.renderItemsList)}
         {this.searchValue && this.renderCloseButton()}
       </div>
@@ -363,10 +356,6 @@ export class ZCombobox {
   }
 
   private renderSearchInput(): ZInput {
-    if (!this.isopen) {
-      return;
-    }
-
     return (
       <z-input
         htmlid={`${this.inputid}_search`}
