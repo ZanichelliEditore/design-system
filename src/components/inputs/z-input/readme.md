@@ -175,12 +175,13 @@
 
 ## Events
 
-| Event         | Description                                                                         | Type               |
-| ------------- | ----------------------------------------------------------------------------------- | ------------------ |
-| `inputChange` | Emitted on input value change, returns value, validity                              | `CustomEvent<any>` |
-| `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity | `CustomEvent<any>` |
-| `startTyping` | Emitted when user starts typing                                                     | `CustomEvent<any>` |
-| `stopTyping`  | Emitted when user stops typing, returns value, validity                             | `CustomEvent<any>` |
+| Event                 | Description                                                                         | Type                  |
+| --------------------- | ----------------------------------------------------------------------------------- | --------------------- |
+| `ariaDescendantFocus` | set parent aria-activedescendant on focus event, returns filterid                   | `CustomEvent<string>` |
+| `inputChange`         | Emitted on input value change, returns value, validity                              | `CustomEvent<any>`    |
+| `inputCheck`          | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity | `CustomEvent<any>`    |
+| `startTyping`         | Emitted when user starts typing                                                     | `CustomEvent<any>`    |
+| `stopTyping`          | Emitted when user stops typing, returns value, validity                             | `CustomEvent<any>`    |
 
 
 ## Methods

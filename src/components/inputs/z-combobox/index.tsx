@@ -91,6 +91,9 @@ export class ZCombobox {
   @State()
   renderItemsList: ComboItem[] = []; // used for render only
 
+  @State()
+  focusedItemId: string;
+
   private itemsList: ComboItem[] = [];
 
   private inputType: InputType = InputType.TEXT;
@@ -105,6 +108,12 @@ export class ZCombobox {
   @Watch("searchValue")
   watchSearchValue(): void {
     this.filterItems(this.searchValue);
+  }
+
+  @Listen("ariaDescendantFocus")
+  getFocusedItemHandler(e: CustomEvent): void {
+    this.focusedItemId = e.detail;
+    console.log("ariaDescendantFocus fired", e.detail);
   }
 
   @Listen("inputCheck")
@@ -199,6 +208,7 @@ export class ZCombobox {
 
   private toggleComboBox(): void {
     this.isopen = !this.isopen;
+    this.focusedItemId = "";
   }
 
   private renderHeader(): HTMLDivElement {
@@ -369,6 +379,7 @@ export class ZCombobox {
         role="combobox"
         aria-autocomplete="list"
         aria-expanded={this.isopen}
+        aria-activedescendant={this.isopen ? this.focusedItemId : ""}
         aria-controls={`${this.inputid}_list`}
         onInputChange={(e: CustomEvent) => {
           if (e.detail.keycode === 27) {

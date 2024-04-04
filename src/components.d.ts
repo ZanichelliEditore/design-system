@@ -2537,6 +2537,7 @@ declare global {
         "startTyping": any;
         "stopTyping": any;
         "inputCheck": any;
+        "ariaDescendantFocus": string;
     }
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4155,6 +4156,10 @@ declare namespace LocalJSX {
           * the input name
          */
         "name"?: string;
+        /**
+          * set parent aria-activedescendant on focus event, returns filterid
+         */
+        "onAriaDescendantFocus"?: (event: ZInputCustomEvent<string>) => void;
         /**
           * Emitted on input value change, returns value, validity
          */

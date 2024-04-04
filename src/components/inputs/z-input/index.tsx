@@ -230,6 +230,15 @@ export class ZInput {
     });
   }
 
+  /** set parent aria-activedescendant on focus event, returns filterid */
+  @Event({
+    eventName: "ariaDescendantFocus",
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  })
+  ariaDescendantFocus: EventEmitter<string>;
+
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
 
@@ -493,6 +502,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
           {...this.getRoleAttribute()}
         />
 
@@ -530,6 +540,7 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
           {...this.getRoleAttribute()}
         />
 
