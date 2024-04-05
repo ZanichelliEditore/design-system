@@ -132,9 +132,9 @@ export class ZInput {
   @Prop({reflect: true})
   size?: ControlSize = ControlSize.BIG;
 
-  /** set tabindex to input tag (optional). Defaults to 0. */
+  /** set tabindex to input tag (optional). Defaults to native behaviour. */
   @Prop()
-  innerTabIndex?: number = 0;
+  innerTabIndex?: number;
 
   @State()
   isTyping = false;
@@ -301,6 +301,10 @@ export class ZInput {
     };
   }
 
+  private getTabIndexAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    return this.innerTabIndex ? {tabindex: this.innerTabIndex} : {};
+  }
+
   private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return this.role ? {role: this.role} : {};
   }
@@ -328,6 +332,7 @@ export class ZInput {
       ...ariaLabel,
       ...this.getRoleAttribute(),
       ...this.getAriaAttrubutes(),
+      ...this.getTabIndexAttribute(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -478,6 +483,7 @@ export class ZInput {
             {...attributes}
             {...ariaLabel}
             {...this.getRoleAttribute()}
+            {...this.getTabIndexAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -506,9 +512,9 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          tabIndex={this.innerTabIndex}
           onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
           {...this.getRoleAttribute()}
+          {...this.getTabIndexAttribute()}
         />
 
         <label
@@ -547,6 +553,7 @@ export class ZInput {
           value={this.value}
           onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
           {...this.getRoleAttribute()}
+          {...this.getTabIndexAttribute()}
         />
 
         <label
