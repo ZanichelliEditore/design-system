@@ -157,6 +157,12 @@ export class ZCombobox {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
   }
 
+  private resetInputTabIndex(): void {
+    this.itemsList.forEach(function (item: ComboItem) {
+      this.element.shadowRoot.querySelector(`#combo-checkbox-combo_1-${item.id}`).setAttribute("tabindex", "-1");
+    }, this.element);
+  }
+
   private setInputTabIndex(itemId, index): number {
     if (index === 0) {
       return 0;
@@ -165,14 +171,8 @@ export class ZCombobox {
     return this.getFocusedItemIndex(itemId) === index ? 0 : -1;
   }
 
-  private resetInputTabIndex(): void {
-    this.element.shadowRoot.querySelectorAll(`#${this.inputid}_list z-input input`).forEach(function (el: HTMLElement) {
-      el.setAttribute("tabindex", "-1");
-    });
-  }
-
   private getFocusedItemIndex(itemId): number {
-    return itemId.indexOf("_");
+    return itemId.substring(itemId.indexOf("_") + 1);
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
@@ -186,9 +186,9 @@ export class ZCombobox {
 
     let index = key;
     if (e.key === KeyboardCode.ARROW_DOWN) {
-      index = index === this.itemsList.length ? 1 : index + 1;
+      index = index === this.itemsList.length - 1 ? 1 : this.getFocusedItemIndex(this.itemsList[index + 1].id);
     } else if (e.key === KeyboardCode.ARROW_UP) {
-      index = index === 1 ? this.itemsList.length : index - 1;
+      index = index === 0 ? this.itemsList.length : this.getFocusedItemIndex(this.itemsList[index - 1].id);
     }
 
     this.resetInputTabIndex();
@@ -233,7 +233,9 @@ export class ZCombobox {
       const end = start + value.length;
       const newName =
         item.name.substring(0, start) +
-        item.name.substring(start, end).bold() +
+        "<strong>" +
+        item.name.substring(start, end) +
+        "</strong>" +
         item.name.substring(end, item.name.length);
 
       item.name = newName;
@@ -329,7 +331,7 @@ export class ZCombobox {
           label={item.name}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index + 1)}
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
         />
       </z-myz-list-item>
     );

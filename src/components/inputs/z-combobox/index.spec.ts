@@ -130,10 +130,10 @@ describe("Suite test ZCombobox", () => {
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1" role="option"  aria-selected="false" listitemid="item_1" action="combo-li-combo" underlined="">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item class="big" id="item_2" role="option"  aria-selected="true" listitemid="item_2" action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                   </z-myz-list-item>
                 </ul>
               </div
@@ -164,10 +164,10 @@ describe("Suite test ZCombobox", () => {
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1"  aria-selected="false" role="option" listitemid="item_1" action="combo-li-combo" underlined="">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item class="big" id="item_2" aria-selected="true" role="option" listitemid="item_2" action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1"  label="secondo elemento" checked></z-input>
                   </z-myz-list-item>
                 </ul>
               </div>
@@ -199,7 +199,7 @@ describe("Suite test ZCombobox", () => {
               <div class="search">
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1" aria-selected="false" role="option" listitemid="item_1" action="combo-li-combo">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
+                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="<strong>primo</strong> elemento"></z-input>
                   </z-myz-list-item>
                 </ul>
                 <div>
@@ -234,7 +234,7 @@ describe("Suite test ZCombobox", () => {
               <div class="search">
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1" listitemid="item_1" aria-selected="false" role="option" action="combo-li-combo">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<b>primo</b> elemento"></z-input>
+                    <z-input disabled="0"  innertabindex="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<strong>primo</strong> elemento"></z-input>
                   </z-myz-list-item>
                 </ul>
                 <div>
@@ -303,10 +303,10 @@ describe("Suite test ZCombobox", () => {
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1" listitemid="item_1" aria-selected="false" role="option" action="combo-li-combo" underlined="">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
                   </z-myz-list-item>
-                  <z-myz-list-item class="big" id="item_2" listitemid="item_2" aria-selected="true" role="option" action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                  <z-myz-list-item class="big" id="item_2" listitemid="item_2"  aria-selected="true" role="option" action="combo-li-combo">
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                   </z-myz-list-item>
                 </ul>
               </div
@@ -339,10 +339,10 @@ describe("Suite test ZCombobox", () => {
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item class="big" id="item_1" listitemid="item_1" aria-selected="true" role="option" action="combo-li-combo" underlined="">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item class="big" id="item_2" listitemid="item_2" aria-selected="true" role="option"  action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                   </z-myz-list-item>
                 </ul>
               </div
@@ -371,11 +371,11 @@ describe("Suite test ZCombobox", () => {
             <div class="open-combo-data">
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-myz-list-item class="big" id="item_1" listitemid="item_1" aria-selected="false" role="option" action="combo-li-combo" underlined="">
-                    <z-input disabled="" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento"></z-input>
+                  <z-myz-list-item class="big" id="item_1" listitemid="item_1"  aria-selected="false" role="option" action="combo-li-combo" underlined="">
+                    <z-input disabled="" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item class="big" id="item_2" listitemid="item_2" aria-selected="true" role="option" action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                   </z-myz-list-item>
                 </ul>
               </div
@@ -407,11 +407,11 @@ describe("Suite test ZCombobox", () => {
               </div>
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-myz-list-item id="item_1" class="big" listitemid="item_1" aria-selected="true" role="option" action="combo-li-combo" underlined="">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
+                  <z-myz-list-item id="item_1" class="big" listitemid="item_1"  aria-selected="true" role="option" action="combo-li-combo" underlined="">
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1"innertabindex="0" label="primo elemento" checked></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item id="item_2" class="big" listitemid="item_2" aria-selected="false" role="option" action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento"></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento"></z-input>
                   </z-myz-list-item>
                 </ul>
               </div
@@ -444,10 +444,10 @@ describe("Suite test ZCombobox", () => {
               <div>
                 <ul aria-multiselectable="" id="combo_list" role="listbox">
                   <z-myz-list-item id="item_1" class="big"  aria-selected="true"  role="option" listitemid="item_1" action="combo-li-combo" underlined="">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="primo elemento" checked></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
                   </z-myz-list-item>
                   <z-myz-list-item id="item_2" class="big" listitemid="item_2"  aria-selected="false"  role="option" listitemid="item_1"  action="combo-li-combo">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" label="secondo elemento" disabled></z-input>
+                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" disabled></z-input>
                   </z-myz-list-item>
                 </ul>
               </div

@@ -738,7 +738,7 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * set tabindex to input tag (optional). Defaults to 0.
+          * set tabindex to input tag (optional). Defaults to native behaviour.
          */
         "innerTabIndex"?: number;
         /**
@@ -4129,7 +4129,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * set tabindex to input tag (optional). Defaults to 0.
+          * set tabindex to input tag (optional). Defaults to native behaviour.
          */
         "innerTabIndex"?: number;
         /**
