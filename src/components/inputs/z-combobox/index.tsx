@@ -1,4 +1,4 @@
-import {Component, Prop, h, State, Listen, Watch, Event, EventEmitter} from "@stencil/core";
+import {Component, Prop, h, State, Listen, Watch, Event, Element, EventEmitter} from "@stencil/core";
 import {ComboItem, InputType, ListDividerType, ControlSize, KeyboardCode} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
@@ -10,6 +10,8 @@ import {ZMyzListItem} from "../../../snowflakes/myz/list/z-myz-list-item";
   shadow: true,
 })
 export class ZCombobox {
+  @Element() element: HTMLZComboboxElement;
+
   /** input unique id */
   @Prop()
   inputid: string;
@@ -113,7 +115,6 @@ export class ZCombobox {
   @Listen("ariaDescendantFocus")
   getFocusedItemHandler(e: CustomEvent): void {
     this.focusedItemId = e.detail;
-    console.log("ariaDescendantFocus fired", e.detail);
   }
 
   @Listen("inputCheck")
@@ -154,6 +155,55 @@ export class ZCombobox {
 
   componentWillRender(): void {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
+  }
+
+  private setInputTabIndex(itemId, index): number {
+    if (index === 0) {
+      return 0;
+    }
+
+    return this.getFocusedItemIndex(itemId) === index ? 0 : -1;
+  }
+
+  private resetInputTabIndex(): void {
+    this.element.shadowRoot.querySelectorAll(`#${this.inputid}_list z-input input`).forEach(function (el: HTMLElement) {
+      el.setAttribute("tabindex", "-1");
+    });
+  }
+
+  private getFocusedItemIndex(itemId): number {
+    return itemId.indexOf("_");
+  }
+
+  private arrowsSelectNav(e: KeyboardEvent, key: number): void {
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+    if (!arrows.includes(e.key as KeyboardCode) || !this.isopen) {
+      return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    let index = key;
+    if (e.key === KeyboardCode.ARROW_DOWN) {
+      index = index === this.itemsList.length ? 1 : index + 1;
+    } else if (e.key === KeyboardCode.ARROW_UP) {
+      index = index === 1 ? this.itemsList.length : index - 1;
+    }
+
+    this.resetInputTabIndex();
+    this.focusComboboxItem(index);
+  }
+
+  private focusComboboxItem(index: number): void {
+    const focusElem: HTMLElement = this.element.shadowRoot.querySelector(
+      `#combo-checkbox-${this.inputid}-item_${index}`
+    );
+
+    if (focusElem) {
+      focusElem.setAttribute("tabindex", "0");
+      focusElem.focus();
+    }
   }
 
   private updateRenderItemsList(): void {
@@ -272,12 +322,14 @@ export class ZCombobox {
         aria-selected={item.checked ? "true" : "false"}
       >
         <z-input
+          innerTabIndex={this.setInputTabIndex(item.id, index)}
           type={InputType.CHECKBOX}
           checked={item.checked}
           htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
           label={item.name}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index + 1)}
         />
       </z-myz-list-item>
     );
