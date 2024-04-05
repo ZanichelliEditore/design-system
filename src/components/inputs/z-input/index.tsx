@@ -132,6 +132,10 @@ export class ZInput {
   @Prop({reflect: true})
   size?: ControlSize = ControlSize.BIG;
 
+  /** set tabindex to input tag (optional). Defaults to 0. */
+  @Prop()
+  innerTabIndex?: number = 0;
+
   @State()
   isTyping = false;
 
@@ -502,6 +506,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          tabIndex={this.innerTabIndex}
           onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
           {...this.getRoleAttribute()}
         />

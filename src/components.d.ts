@@ -738,6 +738,10 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * set tabindex to input tag (optional). Defaults to 0.
+         */
+        "innerTabIndex"?: number;
+        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
@@ -4124,6 +4128,10 @@ declare namespace LocalJSX {
           * render icon (optional): available for text
          */
         "icon"?: string;
+        /**
+          * set tabindex to input tag (optional). Defaults to 0.
+         */
+        "innerTabIndex"?: number;
         /**
           * the input label
          */
