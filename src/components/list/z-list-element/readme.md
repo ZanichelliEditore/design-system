@@ -16,7 +16,6 @@
 | `dividerType`         | `divider-type`          | [optional] Sets the position where to insert the divider.            | `ListDividerType.ELEMENT \| ListDividerType.HEADER \| ListDividerType.NONE` | `ListDividerType.NONE`           |
 | `expandable`          | `expandable`            | [optional] Sets element as expandable.                               | `boolean`                                                                   | `false`                          |
 | `expandableStyle`     | `expandable-style`      | [optional] Sets expandable style to element.                         | `ExpandableListStyle.ACCORDION \| ExpandableListStyle.MENU`                 | `ExpandableListStyle.ACCORDION`  |
-| `isContextualMenu`    | `is-contextual-menu`    | [optional] If is used in ZContextualMenu component                   | `boolean`                                                                   | `false`                          |
 | `listElementId`       | `list-element-id`       | [optional] List element id.                                          | `number`                                                                    | `undefined`                      |
 | `listElementPosition` | `list-element-position` | [optional] position of the list element inside the list or the group | `string`                                                                    | `"0"`                            |
 | `listType`            | `list-type`             | [optional] type of the list marker for each element                  | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                   | `ListType.NONE`                  |
@@ -45,7 +44,6 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
- - [z-contextual-menu](../../z-contextual-menu)
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
 
@@ -60,7 +58,6 @@ graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-breadcrumb --> z-list-element
-  z-contextual-menu --> z-list-element
   z-searchbar --> z-list-element
   z-select --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px

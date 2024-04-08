@@ -17,7 +17,6 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
- - [z-contextual-menu](../../z-contextual-menu)
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
 
@@ -25,7 +24,6 @@
 ```mermaid
 graph TD;
   z-breadcrumb --> z-list
-  z-contextual-menu --> z-list
   z-searchbar --> z-list
   z-select --> z-list
   style z-list fill:#f9f,stroke:#333,stroke-width:4px

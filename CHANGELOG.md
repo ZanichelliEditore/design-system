@@ -2,12 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [12.6.1-rc1](https://github.com/ZanichelliEditore/design-system/compare/v12.6.0...v12.6.1-rc1) (2024-03-26)
+## 13.0.0 (2024-04-02)
+
+### 12.6.1 (2024-03-28)
 
 
-### Features
+### Bug Fixes
 
-* add hasFileSection prop to ZFileUpload ([8e70ed3](https://github.com/ZanichelliEditore/design-system/commit/8e70ed34fe3e0b107265b9a8ee206b988f58f296))
+* fixed css vars for ztag ([26da6e0](https://github.com/ZanichelliEditore/design-system/commit/26da6e0bb3aeb967bf07d64a3f1fdd855687a9e3))
 
 ## 12.6.0 (2024-03-22)
 

@@ -43,7 +43,6 @@
  - [z-card](../../z-card)
  - [z-chip](../../buttons/z-chip)
  - [z-combobox](../../inputs/z-combobox)
- - [z-contextual-menu](../../z-contextual-menu)
  - [z-info-box](../../notification/z-info-box)
  - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
@@ -58,8 +57,6 @@
  - [z-myz-card-icon](../../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../../snowflakes/myz/list/z-myz-list-item)
- - [z-navigation-tab](../../../deprecated/z-navigation-tab)
- - [z-navigation-tab-link](../../../deprecated/z-navigation-tab-link)
  - [z-navigation-tabs](../../navigation/z-navigation-tabs)
  - [z-notification](../../notification/z-notification)
  - [z-pagination](../../z-pagination)
@@ -68,8 +65,6 @@
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
  - [z-slideshow](../../../snowflakes/myz/z-slideshow)
- - [z-table-header](../../../deprecated/z-table-deprecated/z-table-header)
- - [z-table-row](../../../deprecated/z-table-deprecated/z-table-row)
  - [z-tag](../../z-tag)
  - [z-th](../../table/cells/z-th)
  - [z-toast-notification](../../notification/z-toast-notification)
@@ -89,7 +84,6 @@ graph TD;
   z-card --> z-icon
   z-chip --> z-icon
   z-combobox --> z-icon
-  z-contextual-menu --> z-icon
   z-info-box --> z-icon
   z-info-reveal --> z-icon
   z-input --> z-icon
@@ -104,8 +98,6 @@ graph TD;
   z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
-  z-navigation-tab --> z-icon
-  z-navigation-tab-link --> z-icon
   z-navigation-tabs --> z-icon
   z-notification --> z-icon
   z-pagination --> z-icon
@@ -114,8 +106,6 @@ graph TD;
   z-searchbar --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
-  z-table-header --> z-icon
-  z-table-row --> z-icon
   z-tag --> z-icon
   z-th --> z-icon
   z-toast-notification --> z-icon
