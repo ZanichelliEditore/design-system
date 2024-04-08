@@ -628,9 +628,17 @@ export namespace Components {
          */
         "getFiles": () => Promise<File[]>;
         /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
+        /**
           * Title
          */
         "mainTitle"?: string;
+        /**
+          * remove file from the array
+         */
+        "removeFile": (fileName: string) => Promise<void>;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
@@ -4005,6 +4013,10 @@ declare namespace LocalJSX {
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
+        /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
         /**
           * Title
          */

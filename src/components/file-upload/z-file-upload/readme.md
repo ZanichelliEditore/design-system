@@ -12,6 +12,7 @@
 | `description`      | `description`         | Description                                                       | `string`                                                                     | `undefined`                                       |
 | `dragAndDropLabel` | `drag-and-drop-label` | drag & drop button label                                          | `string`                                                                     | `"Rilascia i file in questa area per allegarli."` |
 | `fileMaxSize`      | `file-max-size`       | Max file dimension in Megabyte                                    | `number`                                                                     | `undefined`                                       |
+| `hasFileSection`   | `has-file-section`    | uploaded files history rendering                                  | `boolean`                                                                    | `true`                                            |
 | `mainTitle`        | `main-title`          | Title                                                             | `string`                                                                     | `undefined`                                       |
 | `type`             | `type`                | Prop indicating the file upload type - can be default or dragdrop | `ZFileUploadType.DEFAULT \| ZFileUploadType.DRAGDROP`                        | `ZFileUploadType.DEFAULT`                         |
 | `uploadBtnLabel`   | `upload-btn-label`    | upoload button label                                              | `string`                                                                     | `"allega"`                                        |
@@ -33,6 +34,22 @@ get array of uploaded files
 #### Returns
 
 Type: `Promise<File[]>`
+
+
+
+### `removeFile(fileName: string) => Promise<void>`
+
+remove file from the array
+
+#### Parameters
+
+| Name       | Type     | Description |
+| ---------- | -------- | ----------- |
+| `fileName` | `string` |             |
+
+#### Returns
+
+Type: `Promise<void>`
 
 
 

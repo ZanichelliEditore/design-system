@@ -44,6 +44,10 @@ export class ZFileUpload {
   @Prop()
   dragAndDropLabel?: string = "Rilascia i file in questa area per allegarli.";
 
+  /** uploaded files history rendering */
+  @Prop()
+  hasFileSection?: boolean = true;
+
   /** List of files not allowed to be uploaded */
   @State()
   invalidFiles: Map<string, string[]>;
@@ -67,15 +71,7 @@ export class ZFileUpload {
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener(e: CustomEvent): void {
-    const files = this.files;
-    const file = files.find((file) => file.name === e.detail.fileName);
-    if (file) {
-      const index = files.indexOf(file);
-      if (index >= 0) {
-        files.splice(index, 1);
-        this.files = [...files];
-      }
-    }
+    this.removeFileHandler(e.detail);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -110,6 +106,24 @@ export class ZFileUpload {
     return this.files;
   }
 
+  /** remove file from the array */
+  @Method()
+  async removeFile(fileName: string): Promise<void> {
+    this.removeFileHandler(fileName);
+  }
+
+  private removeFileHandler(fileName: string): void {
+    const files = this.files;
+    const file = files.find((file) => file.name === fileName);
+    if (file) {
+      const index = files.indexOf(file);
+      if (index >= 0) {
+        files.splice(index, 1);
+        this.files = [...files];
+      }
+    }
+  }
+
   private getType(): ZFileUploadType {
     if (getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE) {
       return ZFileUploadType.DEFAULT;
@@ -132,7 +146,7 @@ export class ZFileUpload {
   private checkFiles(files: File[]): Map<string, string[]> {
     const errors = new Map<string, string[]>();
     const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
-    const formatErrorString = " ha un'estensione non prevista";
+    const formatErrorString = " ha un formato non supportato";
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
       const fileFormatOk = this.acceptedFormat
@@ -190,6 +204,10 @@ export class ZFileUpload {
   }
 
   private renderFileSection(): HTMLElement {
+    if (!this.hasFileSection) {
+      return;
+    }
+
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
         <span class="heading-4-sb">File appena caricati</span>
@@ -280,9 +298,15 @@ export class ZFileUpload {
   }
 
   private formatErrorString(key, value): string {
-    const bothErrors = value[0] && value[1] ? ", ed " : "";
+    const bothErrors = value[0] && value[1] ? " e " : "";
 
-    return `Il file ${key} ${value[0] ?? ""}${bothErrors}${value[1] ?? ""}.`;
+    return (
+      <span class="error-message">
+        Il file <span class="file-name">{key}</span> {value[1] ?? ""}
+        {bothErrors}
+        {value[0] ?? ""}.
+      </span>
+    );
   }
 
   private handleErrorModalContent(): HTMLDivElement {
@@ -314,7 +338,7 @@ export class ZFileUpload {
             modalid={`file-upload-${this.type}-error-modal`}
             tabIndex={0}
             ref={(val) => (this.errorModal = val)}
-            modaltitle="Attenzione"
+            modaltitle="Errore di caricamento"
             onModalClose={() => (this.invalidFiles = new Map<string, string[]>())}
             onModalBackgroundClick={() => (this.invalidFiles = new Map<string, string[]>())}
           >
