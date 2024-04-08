@@ -298,7 +298,7 @@ export class ZFileUpload {
 
     return (
       <span class="error-message">
-        Il file <span class="file-title">{key}</span> {value[1] ?? ""}
+        Il file <span class="file-name">{key}</span> {value[1] ?? ""}
         {bothErrors}
         {value[0] ?? ""}.
       </span>

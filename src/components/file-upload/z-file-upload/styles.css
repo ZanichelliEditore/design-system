@@ -93,12 +93,12 @@ input#file-elem {
 :host .error-message {
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.0016em;
+  letter-spacing: 0.16%;
   line-height: 20px;
   text-align: left;
 }
 
-:host .file-title {
+:host .error-message > .file-name {
   font-weight: 600;
 }
 
