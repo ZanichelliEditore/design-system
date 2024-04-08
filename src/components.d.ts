@@ -650,6 +650,10 @@ export namespace Components {
          */
         "mainTitle"?: string;
         /**
+          * remove file from the array
+         */
+        "removeFile": (fileName: string) => Promise<void>;
+        /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
         "type": ZFileUploadType;

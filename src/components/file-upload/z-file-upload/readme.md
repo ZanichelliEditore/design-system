@@ -37,6 +37,22 @@ Type: `Promise<File[]>`
 
 
 
+### `removeFile(fileName: string) => Promise<void>`
+
+remove file from the array
+
+#### Parameters
+
+| Name       | Type     | Description |
+| ---------- | -------- | ----------- |
+| `fileName` | `string` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

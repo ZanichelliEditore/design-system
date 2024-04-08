@@ -142,7 +142,7 @@ export class ZFileUpload {
   private checkFiles(files: File[]): Map<string, string[]> {
     const errors = new Map<string, string[]>();
     const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
-    const formatErrorString = " ha un'estensione non prevista";
+    const formatErrorString = " ha un formato non supportato";
     files.forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
       const fileFormatOk = this.acceptedFormat
@@ -294,9 +294,15 @@ export class ZFileUpload {
   }
 
   private formatErrorString(key, value): string {
-    const bothErrors = value[0] && value[1] ? ", ed " : "";
+    const bothErrors = value[0] && value[1] ? " e " : "";
 
-    return `Il file ${key} ${value[0] ?? ""}${bothErrors}${value[1] ?? ""}.`;
+    return (
+      <span>
+        Il file <b>{key}</b> {value[1] ?? ""}
+        {bothErrors}
+        {value[0] ?? ""}.
+      </span>
+    );
   }
 
   private handleErrorModalContent(): HTMLDivElement {
@@ -328,7 +334,7 @@ export class ZFileUpload {
             modalid={`file-upload-${this.type}-error-modal`}
             tabIndex={0}
             ref={(val) => (this.errorModal = val)}
-            modaltitle="Attenzione"
+            modaltitle="Errore di caricamento"
             onModalClose={() => (this.invalidFiles = new Map<string, string[]>())}
             onModalBackgroundClick={() => (this.invalidFiles = new Map<string, string[]>())}
           >
