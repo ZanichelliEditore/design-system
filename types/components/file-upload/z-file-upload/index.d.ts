@@ -19,6 +19,8 @@ export declare class ZFileUpload {
     uploadBtnLabel?: string;
     /** drag & drop button label */
     dragAndDropLabel?: string;
+    /** uploaded files history rendering */
+    hasFileSection?: boolean;
     /** List of files not allowed to be uploaded */
     invalidFiles: Map<string, string[]>;
     el: HTMLZFileUploadElement;
@@ -38,6 +40,9 @@ export declare class ZFileUpload {
     private fileInputHandler;
     /** get array of uploaded files */
     getFiles(): Promise<File[]>;
+    /** remove file from the array */
+    removeFile(fileName: string): Promise<void>;
+    private removeFileHandler;
     private getType;
     private handleAccessibility;
     private checkFiles;

@@ -17,19 +17,12 @@ export class ZFileUpload {
         this.files = [];
         this.uploadBtnLabel = "allega";
         this.dragAndDropLabel = "Rilascia i file in questa area per allegarli.";
+        this.hasFileSection = true;
         this.invalidFiles = undefined;
     }
     /** Listen removeFile event sent from z-file component */
     removeFileListener(e) {
-        const files = this.files;
-        const file = files.find((file) => file.name === e.detail.fileName);
-        if (file) {
-            const index = files.indexOf(file);
-            if (index >= 0) {
-                files.splice(index, 1);
-                this.files = [...files];
-            }
-        }
+        this.removeFileHandler(e.detail);
     }
     /** Listen fileDropped event sent from z-dragdrop-area component */
     fileDroppedListener(e) {
@@ -52,6 +45,21 @@ export class ZFileUpload {
     async getFiles() {
         return this.files;
     }
+    /** remove file from the array */
+    async removeFile(fileName) {
+        this.removeFileHandler(fileName);
+    }
+    removeFileHandler(fileName) {
+        const files = this.files;
+        const file = files.find((file) => file.name === fileName);
+        if (file) {
+            const index = files.indexOf(file);
+            if (index >= 0) {
+                files.splice(index, 1);
+                this.files = [...files];
+            }
+        }
+    }
     getType() {
         if (getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE) {
             return ZFileUploadType.DEFAULT;
@@ -72,7 +80,7 @@ export class ZFileUpload {
     checkFiles(files) {
         const errors = new Map();
         const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
-        const formatErrorString = " ha un'estensione non prevista";
+        const formatErrorString = " ha un formato non supportato";
         files.forEach((file) => {
             const fileSize = file.size / 1024 / 1024;
             const fileFormatOk = this.acceptedFormat
@@ -120,6 +128,9 @@ export class ZFileUpload {
         return h("span", { class: "body-3" }, fileFormatString || fileWeightString ? finalString : null);
     }
     renderFileSection() {
+        if (!this.hasFileSection) {
+            return;
+        }
         return (h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, h("span", { class: "heading-4-sb" }, "File appena caricati"), h("div", { class: "files-wrapper" }, h("slot", { name: "files" })), h("z-divider", { size: DividerSize.MEDIUM })));
     }
     renderInput() {
@@ -163,8 +174,8 @@ export class ZFileUpload {
     }
     formatErrorString(key, value) {
         var _a, _b;
-        const bothErrors = value[0] && value[1] ? ", ed " : "";
-        return `Il file ${key} ${(_a = value[0]) !== null && _a !== void 0 ? _a : ""}${bothErrors}${(_b = value[1]) !== null && _b !== void 0 ? _b : ""}.`;
+        const bothErrors = value[0] && value[1] ? " e " : "";
+        return (h("span", { class: "error-message" }, "Il file ", h("span", { class: "file-name" }, key), " ", (_a = value[1]) !== null && _a !== void 0 ? _a : "", bothErrors, (_b = value[0]) !== null && _b !== void 0 ? _b : "", "."));
     }
     handleErrorModalContent() {
         return (h("div", { slot: "modalContent" }, h("div", { class: "modal-wrapper" }, h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
@@ -172,7 +183,7 @@ export class ZFileUpload {
         })))));
     }
     render() {
-        return (h(Host, { key: 'b098b42d074787675ee266cc25746d479c202c5b' }, h("div", { key: '642c0c1c5e470dcbb57ce9975fd89ca138c196f4', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (h(Host, { key: 'a3d761286217ef951686119b60ec51779833dd7c' }, h("div", { key: 'a95c0abe6e8fdcaa4ef6991db9e138eb5fb2ba03', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     static get is() { return "z-file-upload"; }
     static get encapsulation() { return "shadow"; }
@@ -338,6 +349,24 @@ export class ZFileUpload {
                 "attribute": "drag-and-drop-label",
                 "reflect": false,
                 "defaultValue": "\"Rilascia i file in questa area per allegarli.\""
+            },
+            "hasFileSection": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "uploaded files history rendering"
+                },
+                "attribute": "has-file-section",
+                "reflect": false,
+                "defaultValue": "true"
             }
         };
     }
@@ -385,6 +414,27 @@ export class ZFileUpload {
                 },
                 "docs": {
                     "text": "get array of uploaded files",
+                    "tags": []
+                }
+            },
+            "removeFile": {
+                "complexType": {
+                    "signature": "(fileName: string) => Promise<void>",
+                    "parameters": [{
+                            "name": "fileName",
+                            "type": "string",
+                            "docs": ""
+                        }],
+                    "references": {
+                        "Promise": {
+                            "location": "global",
+                            "id": "global::Promise"
+                        }
+                    },
+                    "return": "Promise<void>"
+                },
+                "docs": {
+                    "text": "remove file from the array",
                     "tags": []
                 }
             }

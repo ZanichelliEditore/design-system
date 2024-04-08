@@ -7,7 +7,7 @@ const index$1 = require('./index-39ce4edf.js');
 const utils = require('./utils-d0b10736.js');
 require('./breakpoints-5c22092a.js');
 
-const stylesCss = ":host{color:var(--color-text01);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.container{display:flex;flex-direction:column}:host .modal-wrapper{display:flex;align-items:center;justify-content:center;padding:calc(var(--space-unit) * 2)}:host .modal-wrapper>.files-wrapper{display:flex;flex-direction:column;margin:calc(var(--space-unit) * 4);gap:var(--space-unit)}:host .text-container{display:flex;flex-direction:column;margin:auto}:host .text-container .body-1{text-align:center}:host .text-container .upload-link{color:var(--color-link-primary);cursor:pointer}:host .text-container .upload-link-text{margin-bottom:var(--space-unit)}input#file-elem{display:none}#title{display:inline-block;margin:calc(var(--space-unit) * 2.5) 0 calc(var(--space-unit) * 4);font-size:calc(var(--space-unit) * 3);font-weight:var(--font-sb)}:host>.container>z-button{display:inline-block;margin-top:calc(var(--space-unit) * 3)}:host>.container>.files-container.hidden{display:none}:host>.container>.files-container>.heading-4-sb{display:inline-block;margin:calc(var(--space-unit) * 3) 0;font-size:calc(var(--space-unit) * 2);font-weight:var(--font-sb)}:host([type=\"dragdrop\"])>.container>.files-container>.heading-4-sb{margin-top:0;margin-bottom:calc(var(--space-unit) * 3)}:host>.container>.files-container>.files-wrapper{display:flex;flex-wrap:wrap;column-gap:calc(var(--space-unit) * 2);row-gap:calc(var(--space-unit) * 2)}:host>.container>.files-container>z-divider{margin-top:calc(var(--space-unit) * 3);margin-bottom:0}:host([type=\"dragdrop\"])>.container>.files-container>z-divider{margin:calc(var(--space-unit) * 3) 0}@media only screen and (min-width: 768px){:host>.container>z-button{align-self:flex-start}:host .modal-wrapper{padding:calc(var(--space-unit) * 3)}}@media only screen and (min-width: 1152px){:host .modal-wrapper{padding:calc(var(--space-unit) * 4)}}";
+const stylesCss = ":host{color:var(--color-text01);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.container{display:flex;flex-direction:column}:host .modal-wrapper{display:flex;align-items:center;justify-content:center;padding:calc(var(--space-unit) * 2)}:host .modal-wrapper>.files-wrapper{display:flex;flex-direction:column;margin:calc(var(--space-unit) * 4);gap:var(--space-unit)}:host .text-container{display:flex;flex-direction:column;margin:auto}:host .text-container .body-1{text-align:center}:host .text-container .upload-link{color:var(--color-link-primary);cursor:pointer}:host .text-container .upload-link-text{margin-bottom:var(--space-unit)}input#file-elem{display:none}#title{display:inline-block;margin:calc(var(--space-unit) * 2.5) 0 calc(var(--space-unit) * 4);font-size:calc(var(--space-unit) * 3);font-weight:var(--font-sb)}:host>.container>z-button{display:inline-block;margin-top:calc(var(--space-unit) * 3)}:host>.container>.files-container.hidden{display:none}:host>.container>.files-container>.heading-4-sb{display:inline-block;margin:calc(var(--space-unit) * 3) 0;font-size:calc(var(--space-unit) * 2);font-weight:var(--font-sb)}:host([type=\"dragdrop\"])>.container>.files-container>.heading-4-sb{margin-top:0;margin-bottom:calc(var(--space-unit) * 3)}:host>.container>.files-container>.files-wrapper{display:flex;flex-wrap:wrap;column-gap:calc(var(--space-unit) * 2);row-gap:calc(var(--space-unit) * 2)}:host>.container>.files-container>z-divider{margin-top:calc(var(--space-unit) * 3);margin-bottom:0}:host([type=\"dragdrop\"])>.container>.files-container>z-divider{margin:calc(var(--space-unit) * 3) 0}:host .error-message{font-size:14px;font-weight:400;letter-spacing:0.16%;line-height:20px;text-align:left}:host .error-message>.file-name{font-weight:600}@media only screen and (min-width: 768px){:host>.container>z-button{align-self:flex-start}:host .modal-wrapper{padding:calc(var(--space-unit) * 3)}}@media only screen and (min-width: 1152px){:host .modal-wrapper{padding:calc(var(--space-unit) * 4)}}";
 const ZFileUploadStyle0 = stylesCss;
 
 const ZFileUpload = class {
@@ -28,19 +28,12 @@ const ZFileUpload = class {
         this.files = [];
         this.uploadBtnLabel = "allega";
         this.dragAndDropLabel = "Rilascia i file in questa area per allegarli.";
+        this.hasFileSection = true;
         this.invalidFiles = undefined;
     }
     /** Listen removeFile event sent from z-file component */
     removeFileListener(e) {
-        const files = this.files;
-        const file = files.find((file) => file.name === e.detail.fileName);
-        if (file) {
-            const index = files.indexOf(file);
-            if (index >= 0) {
-                files.splice(index, 1);
-                this.files = [...files];
-            }
-        }
+        this.removeFileHandler(e.detail);
     }
     /** Listen fileDropped event sent from z-dragdrop-area component */
     fileDroppedListener(e) {
@@ -63,6 +56,21 @@ const ZFileUpload = class {
     async getFiles() {
         return this.files;
     }
+    /** remove file from the array */
+    async removeFile(fileName) {
+        this.removeFileHandler(fileName);
+    }
+    removeFileHandler(fileName) {
+        const files = this.files;
+        const file = files.find((file) => file.name === fileName);
+        if (file) {
+            const index = files.indexOf(file);
+            if (index >= 0) {
+                files.splice(index, 1);
+                this.files = [...files];
+            }
+        }
+    }
     getType() {
         if (utils.getDevice() !== index$1.Device.DESKTOP && utils.getDevice() !== index$1.Device.DESKTOP_WIDE) {
             return index$1.ZFileUploadType.DEFAULT;
@@ -83,7 +91,7 @@ const ZFileUpload = class {
     checkFiles(files) {
         const errors = new Map();
         const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
-        const formatErrorString = " ha un'estensione non prevista";
+        const formatErrorString = " ha un formato non supportato";
         files.forEach((file) => {
             const fileSize = file.size / 1024 / 1024;
             const fileFormatOk = this.acceptedFormat
@@ -131,6 +139,9 @@ const ZFileUpload = class {
         return index.h("span", { class: "body-3" }, fileFormatString || fileWeightString ? finalString : null);
     }
     renderFileSection() {
+        if (!this.hasFileSection) {
+            return;
+        }
         return (index.h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, index.h("span", { class: "heading-4-sb" }, "File appena caricati"), index.h("div", { class: "files-wrapper" }, index.h("slot", { name: "files" })), index.h("z-divider", { size: index$1.DividerSize.MEDIUM })));
     }
     renderInput() {
@@ -174,8 +185,8 @@ const ZFileUpload = class {
     }
     formatErrorString(key, value) {
         var _a, _b;
-        const bothErrors = value[0] && value[1] ? ", ed " : "";
-        return `Il file ${key} ${(_a = value[0]) !== null && _a !== void 0 ? _a : ""}${bothErrors}${(_b = value[1]) !== null && _b !== void 0 ? _b : ""}.`;
+        const bothErrors = value[0] && value[1] ? " e " : "";
+        return (index.h("span", { class: "error-message" }, "Il file ", index.h("span", { class: "file-name" }, key), " ", (_a = value[1]) !== null && _a !== void 0 ? _a : "", bothErrors, (_b = value[0]) !== null && _b !== void 0 ? _b : "", "."));
     }
     handleErrorModalContent() {
         return (index.h("div", { slot: "modalContent" }, index.h("div", { class: "modal-wrapper" }, index.h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
@@ -183,7 +194,7 @@ const ZFileUpload = class {
         })))));
     }
     render() {
-        return (index.h(index.Host, { key: 'b098b42d074787675ee266cc25746d479c202c5b' }, index.h("div", { key: '642c0c1c5e470dcbb57ce9975fd89ca138c196f4', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Attenzione", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (index.h(index.Host, { key: 'a3d761286217ef951686119b60ec51779833dd7c' }, index.h("div", { key: 'a95c0abe6e8fdcaa4ef6991db9e138eb5fb2ba03', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     get el() { return index.getElement(this); }
 };
