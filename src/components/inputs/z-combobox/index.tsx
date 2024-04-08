@@ -175,7 +175,7 @@ export class ZCombobox {
     return itemId.substring(itemId.indexOf("_") + 1);
   }
 
-  private arrowsSelectNav(e: KeyboardEvent, key: number): void {
+  private handleSelectArrowsNavigation(e: KeyboardEvent, key: number): void {
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCode) || !this.isopen) {
       return;
@@ -339,7 +339,7 @@ export class ZCombobox {
           label={item.name}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, index)}
+          onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
         />
       </z-myz-list-item>
     );
