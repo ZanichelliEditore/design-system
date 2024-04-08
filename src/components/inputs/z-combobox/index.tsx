@@ -195,6 +195,15 @@ export class ZCombobox {
     this.focusComboboxItem(index);
   }
 
+  private handleHeaderKeyboardEvent(ev: KeyboardEvent): void {
+    if (ev.key === KeyboardCode.SPACE) {
+      ev.preventDefault();
+    }
+    if ((ev.key === KeyboardCode.ARROW_DOWN && !this.isopen) || (ev.key === KeyboardCode.ARROW_UP && this.isopen)) {
+      this.toggleComboBox();
+    }
+  }
+
   private focusComboboxItem(index: number): void {
     const focusElem: HTMLElement = this.element.shadowRoot.querySelector(
       `#combo-checkbox-${this.inputid}-item_${index}`
@@ -269,9 +278,7 @@ export class ZCombobox {
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
-          if (ev.key === KeyboardCode.SPACE) {
-            ev.preventDefault();
-          }
+          this.handleHeaderKeyboardEvent(ev);
         }}
         onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
