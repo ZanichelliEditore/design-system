@@ -442,10 +442,12 @@ export class ZCombobox {
         aria-expanded={this.isopen}
         aria-activedescendant={this.isopen ? this.focusedItemId : ""}
         aria-controls={`${this.inputid}_list`}
-        onInputChange={(e: CustomEvent) => {
-          if (e.detail.keycode === 27) {
-            return this.closeFilterItems();
+        onKeyUp={(e: KeyboardEvent) => {
+          if (e.key === KeyboardCode.ESC) {
+            this.closeFilterItems();
           }
+        }}
+        onInputChange={(e: CustomEvent) => {
           this.searchValue = e.detail.value;
         }}
       />
