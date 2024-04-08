@@ -283,6 +283,7 @@ export class ZCombobox {
         onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
         tabindex={0}
+        aria-expanded={this.isopen ? "true" : "false"}
       >
         <p class="body-3">
           {this.label}
