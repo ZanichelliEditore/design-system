@@ -93,8 +93,8 @@ input#file-elem {
 :host .error-message {
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
   letter-spacing: 0.0016em;
+  line-height: 20px;
   text-align: left;
 }
 
