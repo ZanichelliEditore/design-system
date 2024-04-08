@@ -71,7 +71,7 @@ export class ZFileUpload {
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
   removeFileListener(e: CustomEvent): void {
-    this.removeFiles(e.detail);
+    this.removeFileHandler(e.detail);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -109,10 +109,10 @@ export class ZFileUpload {
   /** remove file from the array */
   @Method()
   async removeFile(fileName: string): Promise<void> {
-    await this.removeFiles(fileName);
+    this.removeFileHandler(fileName);
   }
 
-  private async removeFiles(fileName: string): Promise<void> {
+  private removeFileHandler(fileName: string): void {
     const files = this.files;
     const file = files.find((file) => file.name === fileName);
     if (file) {
