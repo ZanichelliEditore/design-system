@@ -242,7 +242,7 @@ export class ZCarousel {
   }
 
   componentDidLoad(): void {
-    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.itemsContainer?.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
     this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
     this.resizeObserver.observe(this.itemsContainer);
     this.setupItems();
