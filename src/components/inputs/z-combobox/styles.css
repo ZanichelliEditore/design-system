@@ -1,5 +1,6 @@
 :host {
   display: block;
+  font-family: var(--font-family-sans);
 }
 
 :host > div.fixed {
@@ -170,7 +171,6 @@
   height: 44px;
   color: var(--color-primary01);
   cursor: pointer;
-  font-family: var(--font-family-sans);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 44px;
