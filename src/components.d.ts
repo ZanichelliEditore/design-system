@@ -935,7 +935,7 @@ export namespace Components {
         /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */
-        "htmlTabindex"?: number | null;
+        "htmltabindex"?: number | null;
         /**
           * [optional] List element id.
          */
@@ -4350,7 +4350,7 @@ declare namespace LocalJSX {
         /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */
-        "htmlTabindex"?: number | null;
+        "htmltabindex"?: number | null;
         /**
           * [optional] List element id.
          */

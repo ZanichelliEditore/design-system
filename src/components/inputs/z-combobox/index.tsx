@@ -117,24 +117,6 @@ export class ZCombobox {
     this.focusedItemId = e.detail;
   }
 
-  @Listen("inputCheck")
-  inputCheckListener(e: CustomEvent): void {
-    const id = e.detail.id;
-    if (id.endsWith("check-all") && (!this.maxcheckableitems || this.maxcheckableitems >= this.itemsList.length)) {
-      return this.checkAll(e.detail.checked);
-    }
-
-    this.itemsList = this.itemsList.map((item: ComboItem) => {
-      if (id.endsWith(item.id)) {
-        item.checked = e.detail.checked;
-      }
-
-      return item;
-    });
-    this.updateRenderItemsList();
-    this.emitComboboxChange();
-  }
-
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event()
   comboboxChange: EventEmitter;
@@ -176,12 +158,12 @@ export class ZCombobox {
   }
 
   private getItemId(item: ComboItem): string {
-    return `#combo-checkbox-${this.inputid}-${item.id}`;
+    return `combo-checkbox-${this.inputid}-${item.id}`;
   }
 
   private resetInputTabIndex(): void {
     this.itemsList.forEach(function (item: ComboItem) {
-      this.element.shadowRoot.querySelector(this.getItemId(item)).setAttribute("tabindex", "-1");
+      this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`).setAttribute("tabindex", "-1");
     }, this.element);
   }
 
@@ -225,7 +207,7 @@ export class ZCombobox {
     if (!item) {
       return;
     }
-    const focusElem: HTMLElement = this.element.shadowRoot.querySelector(this.getItemId(item));
+    const focusElem: HTMLElement = this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`);
 
     if (focusElem) {
       focusElem.setAttribute("tabindex", "0");
@@ -345,7 +327,7 @@ export class ZCombobox {
     return (
       <z-list-element
         id={item.id}
-        htmlTabindex={null}
+        htmltabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
         role="option"
@@ -355,11 +337,21 @@ export class ZCombobox {
           innerTabIndex={this.setInputTabIndex(item.id, index)}
           type={InputType.CHECKBOX}
           checked={item.checked}
-          htmlid={`combo-checkbox-${this.inputid}-${item.id}`}
+          htmlid={this.getItemId(item)}
           label={item.name}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
+          onInputCheck={(e: CustomEvent) => {
+            this.itemsList = this.itemsList.map((i: ComboItem) => {
+              if (item.id === i.id) {
+                i.checked = e.detail.checked;
+              }
+              return i;
+            });
+            this.updateRenderItemsList();
+            this.emitComboboxChange();
+          }}
         />
       </z-list-element>
     );
@@ -497,6 +489,9 @@ export class ZCombobox {
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+          onInputCheck={(e: CustomEvent) => {
+            this.checkAll(e.detail.checked);
+          }}
         />
       </div>
     );

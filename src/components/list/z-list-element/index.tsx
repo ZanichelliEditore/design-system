@@ -138,7 +138,7 @@ export class ZListElement {
 
   /** set tabindex to Host tag (optional). Defaults to 0. */
   @Prop()
-  htmlTabindex?: number | null = 0;
+  htmltabindex?: number | null = 0;
 
   @State()
   showInnerContent = false;
@@ -276,7 +276,7 @@ export class ZListElement {
         onFocus={() => this.ariaDescendantFocus.emit(this.listElementId)}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
-        tabIndex={this.htmlTabindex}
+        tabIndex={this.htmltabindex}
       >
         <div
           class="container"
