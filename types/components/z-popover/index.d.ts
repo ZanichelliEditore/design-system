@@ -17,6 +17,7 @@ export declare class ZPopover {
     open: boolean;
     /**
      * The selector or the element bound with the popover.
+     * If string css selector is provided make sure to use a valid selector.
      */
     bindTo?: string | HTMLElement;
     /**

@@ -32,10 +32,11 @@ export class ZTable {
         });
     }
     disconnectedCallback() {
-        this.expandableMutationObserver.disconnect();
+        var _a;
+        (_a = this.expandableMutationObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: '4c33beca2ea12f899450df4a244ea271ea30c018', expandable: this.expandable }, h("div", { key: 'e5f6e45535e0251091d58b9784cfbe0b9bfc8f7e', class: "table", role: "table" }, h("slot", { key: 'd244f077dd25df7f2189f5b5f4b6f89e69db4768' }))));
+        return (h(Host, { key: 'd404e04cce15f5c9c01d1d90477b0b073ce4fb18', expandable: this.expandable }, h("div", { key: '093877b6d4f94257a4178c2d0647107a91cd782b', class: "table", role: "table" }, h("slot", { key: '19e147c5cb2e20287208e39085e816cfc62f3f5e' }))));
     }
     static get is() { return "z-table"; }
     static get encapsulation() { return "shadow"; }

@@ -1496,7 +1496,7 @@ export namespace Components {
      */
     interface ZPopover {
         /**
-          * The selector or the element bound with the popover.
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
          */
         "bindTo"?: string | HTMLElement;
         /**
@@ -4982,7 +4982,7 @@ declare namespace LocalJSX {
      */
     interface ZPopover {
         /**
-          * The selector or the element bound with the popover.
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
          */
         "bindTo"?: string | HTMLElement;
         /**

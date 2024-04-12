@@ -117,7 +117,7 @@ const ZPopover = /*@__PURE__*/ proxyCustomElement(class ZPopover extends HTMLEle
         }
         if (!e.composedPath().includes(this.host)) {
             const target = e.target;
-            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(CSS.escape(this.bindTo));
+            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
             if (triggerElemClicked) {
                 e.stopPropagation();
             }
@@ -161,7 +161,7 @@ const ZPopover = /*@__PURE__*/ proxyCustomElement(class ZPopover extends HTMLEle
     setPosition() {
         let element;
         if (typeof this.bindTo === "string") {
-            element = this.host.ownerDocument.querySelector(CSS.escape(this.bindTo));
+            element = this.host.ownerDocument.querySelector(this.bindTo);
         }
         else if (this.bindTo) {
             element = this.bindTo;
@@ -302,7 +302,7 @@ const ZPopover = /*@__PURE__*/ proxyCustomElement(class ZPopover extends HTMLEle
         this.onOpen();
     }
     render() {
-        return h("slot", { key: '70c742e7871fbf8a871165a4de625dda200ae024' });
+        return h("slot", { key: 'dd51a369f1d5c8097418f1e69dd52c155adbe46e' });
     }
     get host() { return this; }
     static get watchers() { return {

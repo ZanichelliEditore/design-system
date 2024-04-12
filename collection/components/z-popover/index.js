@@ -116,7 +116,7 @@ export class ZPopover {
         }
         if (!e.composedPath().includes(this.host)) {
             const target = e.target;
-            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(CSS.escape(this.bindTo));
+            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
             if (triggerElemClicked) {
                 e.stopPropagation();
             }
@@ -160,7 +160,7 @@ export class ZPopover {
     setPosition() {
         let element;
         if (typeof this.bindTo === "string") {
-            element = this.host.ownerDocument.querySelector(CSS.escape(this.bindTo));
+            element = this.host.ownerDocument.querySelector(this.bindTo);
         }
         else if (this.bindTo) {
             element = this.bindTo;
@@ -301,7 +301,7 @@ export class ZPopover {
         this.onOpen();
     }
     render() {
-        return h("slot", { key: '70c742e7871fbf8a871165a4de625dda200ae024' });
+        return h("slot", { key: 'dd51a369f1d5c8097418f1e69dd52c155adbe46e' });
     }
     static get is() { return "z-popover"; }
     static get encapsulation() { return "shadow"; }
@@ -376,7 +376,7 @@ export class ZPopover {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "The selector or the element bound with the popover."
+                    "text": "The selector or the element bound with the popover.\nIf string css selector is provided make sure to use a valid selector."
                 },
                 "attribute": "bind-to",
                 "reflect": false

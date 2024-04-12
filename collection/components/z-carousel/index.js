@@ -146,7 +146,8 @@ export class ZCarousel {
         });
     }
     componentDidLoad() {
-        this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), { passive: true });
+        var _a;
+        (_a = this.itemsContainer) === null || _a === void 0 ? void 0 : _a.addEventListener("scroll", this.checkNavigationValidity.bind(this), { passive: true });
         this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
         this.resizeObserver.observe(this.itemsContainer);
         this.setupItems();

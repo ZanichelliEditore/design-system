@@ -62,6 +62,7 @@
 
 .z-carousel-navigation-arrow[data-direction] {
   position: absolute;
+  z-index: 1;
   bottom: 50%;
   transform: translateY(50%);
 }

@@ -119,7 +119,7 @@ const ZPopover = class {
         }
         if (!e.composedPath().includes(this.host)) {
             const target = e.target;
-            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(CSS.escape(this.bindTo));
+            const triggerElemClicked = this.bindTo instanceof HTMLElement ? this.bindTo.contains(target) : target.closest(this.bindTo);
             if (triggerElemClicked) {
                 e.stopPropagation();
             }
@@ -163,7 +163,7 @@ const ZPopover = class {
     setPosition() {
         let element;
         if (typeof this.bindTo === "string") {
-            element = this.host.ownerDocument.querySelector(CSS.escape(this.bindTo));
+            element = this.host.ownerDocument.querySelector(this.bindTo);
         }
         else if (this.bindTo) {
             element = this.bindTo;
@@ -304,7 +304,7 @@ const ZPopover = class {
         this.onOpen();
     }
     render() {
-        return index.h("slot", { key: '70c742e7871fbf8a871165a4de625dda200ae024' });
+        return index.h("slot", { key: 'dd51a369f1d5c8097418f1e69dd52c155adbe46e' });
     }
     get host() { return index.getElement(this); }
     static get watchers() { return {
