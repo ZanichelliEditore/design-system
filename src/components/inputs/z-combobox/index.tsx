@@ -166,7 +166,7 @@ export class ZCombobox {
   }
 
   private resetInputTabIndex(): void {
-    this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`);
+    this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`).setAttribute("tabindex", "-1");
     this.itemsList.forEach(function (item: ComboItem) {
       this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`).setAttribute("tabindex", "-1");
     }, this);
@@ -342,7 +342,7 @@ export class ZCombobox {
     return (
       <z-list-element
         id={item.id}
-        htmltabindex={null}
+        htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
         role="option"
