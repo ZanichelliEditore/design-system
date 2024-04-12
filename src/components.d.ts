@@ -933,6 +933,10 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * set tabindex to Host tag (optional). Defaults to 0.
+         */
+        "htmlTabindex"?: number | null;
+        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -944,10 +948,6 @@ export namespace Components {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
-        /**
-          * if  true unset tabindex to Host tag (optional). Defaults to false.
-         */
-        "resetTabIndex"?: boolean;
         /**
           * [optional] Sets element role.
          */
@@ -4348,6 +4348,10 @@ declare namespace LocalJSX {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * set tabindex to Host tag (optional). Defaults to 0.
+         */
+        "htmlTabindex"?: number | null;
+        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -4371,10 +4375,6 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
-        /**
-          * if  true unset tabindex to Host tag (optional). Defaults to false.
-         */
-        "resetTabIndex"?: boolean;
         /**
           * [optional] Sets element role.
          */

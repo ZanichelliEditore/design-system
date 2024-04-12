@@ -345,7 +345,7 @@ export class ZCombobox {
     return (
       <z-list-element
         id={item.id}
-        resetTabIndex
+        htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
         role="option"

@@ -16,10 +16,10 @@
 | `dividerType`         | `divider-type`          | [optional] Sets the position where to insert the divider.            | `ListDividerType.ELEMENT \| ListDividerType.HEADER \| ListDividerType.NONE` | `ListDividerType.NONE`           |
 | `expandable`          | `expandable`            | [optional] Sets element as expandable.                               | `boolean`                                                                   | `false`                          |
 | `expandableStyle`     | `expandable-style`      | [optional] Sets expandable style to element.                         | `ExpandableListStyle.ACCORDION \| ExpandableListStyle.MENU`                 | `ExpandableListStyle.ACCORDION`  |
+| `htmlTabindex`        | `html-tabindex`         | set tabindex to Host tag (optional). Defaults to 0.                  | `number`                                                                    | `0`                              |
 | `listElementId`       | `list-element-id`       | [optional] List element id.                                          | `number`                                                                    | `undefined`                      |
 | `listElementPosition` | `list-element-position` | [optional] position of the list element inside the list or the group | `string`                                                                    | `"0"`                            |
 | `listType`            | `list-type`             | [optional] type of the list marker for each element                  | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                   | `ListType.NONE`                  |
-| `resetTabIndex`       | `reset-tab-index`       | if  true unset tabindex to Host tag (optional). Defaults to false.   | `boolean`                                                                   | `false`                          |
 | `role`                | `role`                  | [optional] Sets element role.                                        | `string`                                                                    | `"listitem"`                     |
 | `size`                | `size`                  | [optional] Sets size of inside elements.                             | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE`   | `ListSize.MEDIUM`                |
 
