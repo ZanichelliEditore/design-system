@@ -101,8 +101,10 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" ></z-icon>
             </div>
             <div aria-controls="combobox_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div>
-                <ul aria-multiselectable="" id="combobox_list" role="listbox"></ul>
+              <div aria-multiselectable="" role="listbox">  
+                <div>
+                  <ul id="combobox_list"></ul>
+                </div>
               </div>
             </div>
           </div>
@@ -127,16 +129,18 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
              <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
-                  </z-list-element>
-                </ul>
-              </div
+              <div aria-multiselectable="" role="listbox">
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
+                      <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </mock:shadow-root>
@@ -161,15 +165,17 @@ describe("Suite test ZCombobox", () => {
             </div>
             <div class="open-combo-data">
               <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text"></z-input>
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1"  label="secondo elemento" checked></z-input>
-                  </z-list-element>
-                </ul>
+              <div aria-multiselectable="" role="listbox">
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
+                      <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1"  label="secondo elemento" checked></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -195,14 +201,17 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              <div class="search">
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="<strong>primo</strong> elemento"></z-input>
-                  </z-list-element>
-                </ul>
-                <div>
-                  <a role="button" tabindex="0">CHIUDI</a>
+              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
+              <div aria-multiselectable="" role="listbox">
+                <div class="search">
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
+                      <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="<strong>primo</strong> elemento"></z-input>
+                    </z-list-element>
+                  </ul>
+                  <div>
+                    <a role="button" tabindex="0">CHIUDI</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -229,14 +238,17 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              <div class="search">
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
-                    <z-input disabled="0"  innertabindex="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<strong>primo</strong> elemento"></z-input>
-                  </z-list-element>
-                </ul>
-                <div>
-                  <a role="button" tabindex="0">Chiudi</a>
+              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
+              <div aria-multiselectable="" role="listbox">
+                <div class="search">
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
+                      <z-input disabled="0"  innertabindex="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<strong>primo</strong> elemento"></z-input>
+                    </z-list-element>
+                  </ul>
+                  <div>
+                    <a role="button" tabindex="0">Chiudi</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -264,12 +276,14 @@ describe("Suite test ZCombobox", () => {
             </div>
             <div class="open-combo-data">
               <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="prova"></z-input>
-              <div class="search">
-                <ul>
-                  <z-myz-list-item class="big" id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-myz-list-item>
-                </ul>
-                <div>
-                  <a role="button" tabindex="0">CHIUDI</a>
+               <div aria-multiselectable="" role="listbox">
+                <div class="search">
+                  <ul>
+                    <z-myz-list-item class="big" id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-myz-list-item>
+                  </ul>
+                  <div>
+                    <a role="button" tabindex="0">CHIUDI</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -295,19 +309,21 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div class="check-all-wrapper">
-                <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" disabled="0" />
+              <div aria-multiselectable="" role="listbox">
+                <div class="check-all-wrapper"  role="option">
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" disabled="0" />
+                </div>
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
+                      <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                    </z-list-element>
+                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                    <z-input disabled="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
-                  </z-list-element>
-                 <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
-                  </z-list-element>
-                </ul>
-              </div
             </div>
           </div>
         </mock:shadow-root>
@@ -331,19 +347,21 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div class="check-all-wrapper">
-                <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="UNCHECK" checked disabled="0" />
+              <div aria-multiselectable="" role="listbox">
+                <div class="check-all-wrapper" role="option">
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="UNCHECK" checked disabled="0" />
+                </div>
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
-                  </z-list-element>
-                </ul>
-              </div
             </div>
           </div>
         </mock:shadow-root>
@@ -367,16 +385,18 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                    <z-input disabled="" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
-                  </z-list-element>
-                </ul>
-              </div
+              <div aria-multiselectable="" role="listbox">
+                <div>
+                  <ul  id="combo_list">
+                    <z-list-element aria-selected="false" role="option" dividertype="element" id="item_1" size="large">
+                      <z-input disabled=""  type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
+                      <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </mock:shadow-root>
@@ -400,17 +420,19 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div class="check-all-wrapper">
-                <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+              <div aria-multiselectable="" role="listbox">  
+                <div class="check-all-wrapper" role="option">
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+                </div>
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1"innertabindex="0" label="primo elemento" checked></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento"></z-input>
+                    </z-list-element>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1"innertabindex="0" label="primo elemento" checked></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento"></z-input>
-                  </z-list-element>
-                </ul>
-              </div
             </div>
           </div>
         </mock:shadow-root>
@@ -434,18 +456,20 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
              
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">              
-            <div class="check-all-wrapper">
-                <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">                
+            <div aria-multiselectable="" role="listbox">
+              <div class="check-all-wrapper" role="option">
+                  <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+                </div>
+                <div>
+                  <ul id="combo_list">
+                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
+                    </z-list-element>
+                    <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" disabled></z-input>
+                    </z-list-element>
+                  </ul>
+                </div
               </div>
-              <div>
-                <ul aria-multiselectable="" id="combo_list" role="listbox">
-                  <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
-                  </z-list-element>
-                  <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large">                    <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" disabled></z-input>
-                  </z-list-element>
-                </ul>
-              </div
             </div>
           </div>
         </mock:shadow-root>
