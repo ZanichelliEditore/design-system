@@ -367,7 +367,7 @@ export class ZCombobox {
     }
 
     if (this.hasgroupitems) {
-      return this.renderGroups(this.itemsList);
+      return this.renderGroups(items);
     }
 
     return (
