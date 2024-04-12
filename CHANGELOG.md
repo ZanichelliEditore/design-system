@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 13.1.3 (2024-04-12)
+
+
+### Features
+
+* add css prop for shadow to the carousel component ([da859ee](https://github.com/ZanichelliEditore/design-system/commit/da859ee072bfe67e230c3a05df9633754d88619b))
+
 ### 13.1.2 (2024-04-12)
 
 ### 13.1.1 (2024-04-11)
