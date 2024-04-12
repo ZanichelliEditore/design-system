@@ -1,5 +1,5 @@
 import {Component, Prop, h, State, Listen, Watch, Event, Element, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, ListDividerType, ControlSize, KeyboardCode} from "../../../beans";
+import {ComboItem, InputType, ListDividerType, ControlSize, KeyboardCode, ListSize} from "../../../beans";
 import {ZInput} from "../z-input";
 import {handleKeyboardSubmit} from "../../../utils/utils";
 import {ZMyzListItem} from "../../../snowflakes/myz/list/z-myz-list-item";
@@ -119,14 +119,13 @@ export class ZCombobox {
 
   @Listen("inputCheck")
   inputCheckListener(e: CustomEvent): void {
-    const id = e.detail.id.replace(`combo-checkbox-${this.inputid}-`, "");
-
-    if (id === "check-all" && (!this.maxcheckableitems || this.maxcheckableitems >= this.itemsList.length)) {
+    const id = e.detail.id;
+    if (id.endsWith("check-all") && (!this.maxcheckableitems || this.maxcheckableitems >= this.itemsList.length)) {
       return this.checkAll(e.detail.checked);
     }
 
     this.itemsList = this.itemsList.map((item: ComboItem) => {
-      if (item.id === id) {
+      if (id.endsWith(item.id)) {
         item.checked = e.detail.checked;
       }
 
@@ -157,11 +156,32 @@ export class ZCombobox {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
   }
 
+  private getControlToListSize(): ListSize {
+    let size;
+    switch (this.size) {
+      case ControlSize.BIG:
+        size = ListSize.LARGE;
+        break;
+      case ControlSize.SMALL:
+        size = ListSize.SMALL;
+        break;
+      case ControlSize.X_SMALL:
+        size = ListSize.SMALL;
+        break;
+      default:
+        size = ListSize.MEDIUM;
+    }
+
+    return size;
+  }
+
+  private getItemId(item: ComboItem): string {
+    return `#combo-checkbox-${this.inputid}-${item.id}`;
+  }
+
   private resetInputTabIndex(): void {
     this.itemsList.forEach(function (item: ComboItem) {
-      this.element.shadowRoot
-        .querySelector(`#combo-checkbox-${this.inputid}-${item.id}`)
-        .setAttribute("tabindex", "-1");
+      this.element.shadowRoot.querySelector(this.getItemId(item)).setAttribute("tabindex", "-1");
     }, this.element);
   }
 
@@ -170,11 +190,7 @@ export class ZCombobox {
       return 0;
     }
 
-    return this.getFocusedItemIndex(itemId) === index ? 0 : -1;
-  }
-
-  private getFocusedItemIndex(itemId): number {
-    return itemId.substring(itemId.indexOf("_") + 1);
+    return itemId === this.focusedItemId ? 0 : -1;
   }
 
   private handleSelectArrowsNavigation(e: KeyboardEvent, key: number): void {
@@ -185,16 +201,15 @@ export class ZCombobox {
 
     e.preventDefault();
     e.stopPropagation();
-
     let index = key;
     if (e.key === KeyboardCode.ARROW_DOWN) {
-      index = index === this.itemsList.length - 1 ? 1 : this.getFocusedItemIndex(this.itemsList[index + 1].id);
+      index = index === this.itemsList.length - 1 ? 0 : key + 1;
     } else if (e.key === KeyboardCode.ARROW_UP) {
-      index = index === 0 ? this.itemsList.length : this.getFocusedItemIndex(this.itemsList[index - 1].id);
+      index = index === 0 ? this.itemsList.length - 1 : key - 1;
     }
 
     this.resetInputTabIndex();
-    this.focusComboboxItem(index);
+    this.focusComboboxItem(this.itemsList[index]);
   }
 
   private handleHeaderKeyboardEvent(ev: KeyboardEvent): void {
@@ -206,10 +221,11 @@ export class ZCombobox {
     }
   }
 
-  private focusComboboxItem(index: number): void {
-    const focusElem: HTMLElement = this.element.shadowRoot.querySelector(
-      `#combo-checkbox-${this.inputid}-item_${index}`
-    );
+  private focusComboboxItem(item: ComboItem): void {
+    if (!item) {
+      return;
+    }
+    const focusElem: HTMLElement = this.element.shadowRoot.querySelector(this.getItemId(item));
 
     if (focusElem) {
       focusElem.setAttribute("tabindex", "0");
@@ -305,7 +321,10 @@ export class ZCombobox {
     }
 
     return (
-      <div class="open-combo-data">
+      <div
+        class="open-combo-data"
+        {...(!this.hassearch ? this.getComboboxA11yAttributes() : null)}
+      >
         {this.hassearch && this.renderSearchInput()}
         {this.hascheckall && this.renderCheckAll()}
         {this.renderItems()}
@@ -324,12 +343,11 @@ export class ZCombobox {
 
   private renderItem(item: ComboItem, index: number, length: number): ZMyzListItem {
     return (
-      <z-myz-list-item
+      <z-list-element
         id={item.id}
-        listitemid={item.id}
-        action={`combo-li-${this.inputid}`}
-        underlined={index !== length - 1}
-        class={this.size}
+        resetTabIndex
+        dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
+        size={this.getControlToListSize()}
         role="option"
         aria-selected={item.checked ? "true" : "false"}
       >
@@ -343,7 +361,7 @@ export class ZCombobox {
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
         />
-      </z-myz-list-item>
+      </z-list-element>
     );
   }
 
@@ -429,6 +447,15 @@ export class ZCombobox {
     );
   }
 
+  private getComboboxA11yAttributes(): Record<string, unknown> {
+    return {
+      "role": "combobox",
+      "aria-expanded": this.isopen ? "true" : "false",
+      "aria-activedescendant": this.isopen ? this.focusedItemId : "",
+      "aria-controls": `${this.inputid}_list`,
+    };
+  }
+
   private renderSearchInput(): ZInput {
     return (
       <z-input
@@ -440,11 +467,8 @@ export class ZCombobox {
         value={this.searchValue}
         message={false}
         size={this.size}
-        role="combobox"
         aria-autocomplete="list"
-        aria-expanded={this.isopen}
-        aria-activedescendant={this.isopen ? this.focusedItemId : ""}
-        aria-controls={`${this.inputid}_list`}
+        {...this.getComboboxA11yAttributes()}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.key === KeyboardCode.ESC) {
             this.closeFilterItems();

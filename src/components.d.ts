@@ -945,6 +945,10 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
+          * if  true unset tabindex to Host tag (optional). Defaults to false.
+         */
+        "resetTabIndex"?: boolean;
+        /**
           * [optional] Sets element role.
          */
         "role"?: string;
@@ -4367,6 +4371,10 @@ declare namespace LocalJSX {
           * remove filter click event, returns filterid
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
+        /**
+          * if  true unset tabindex to Host tag (optional). Defaults to false.
+         */
+        "resetTabIndex"?: boolean;
         /**
           * [optional] Sets element role.
          */
