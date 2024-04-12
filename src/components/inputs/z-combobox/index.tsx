@@ -164,7 +164,7 @@ export class ZCombobox {
   private resetInputTabIndex(): void {
     this.itemsList.forEach(function (item: ComboItem) {
       this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`).setAttribute("tabindex", "-1");
-    }, this.element);
+    }, this);
   }
 
   private setInputTabIndex(itemId, index): number {
