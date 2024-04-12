@@ -402,6 +402,7 @@ export namespace Components {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -2369,6 +2370,7 @@ declare global {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3768,6 +3770,7 @@ declare namespace LocalJSX {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -5712,6 +5715,7 @@ declare module "@stencil/core" {
             /**
              * ZCarousel component.
              * @cssprop --z-carousel-gutter - The gutter between items.
+             * @cssprop --z-carousel-items-shadow - The shadow around the items.
              */
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
