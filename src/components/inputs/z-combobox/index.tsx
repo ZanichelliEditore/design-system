@@ -347,6 +347,7 @@ export class ZCombobox {
               if (item.id === i.id) {
                 i.checked = e.detail.checked;
               }
+
               return i;
             });
             this.updateRenderItemsList();
