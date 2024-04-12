@@ -19,6 +19,7 @@
 | `listElementId`       | `list-element-id`       | [optional] List element id.                                          | `number`                                                                    | `undefined`                      |
 | `listElementPosition` | `list-element-position` | [optional] position of the list element inside the list or the group | `string`                                                                    | `"0"`                            |
 | `listType`            | `list-type`             | [optional] type of the list marker for each element                  | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                   | `ListType.NONE`                  |
+| `resetTabIndex`       | `reset-tab-index`       | if  true unset tabindex to Host tag (optional). Defaults to false.   | `boolean`                                                                   | `false`                          |
 | `role`                | `role`                  | [optional] Sets element role.                                        | `string`                                                                    | `"listitem"`                     |
 | `size`                | `size`                  | [optional] Sets size of inside elements.                             | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE`   | `ListSize.MEDIUM`                |
 
@@ -44,6 +45,7 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
+ - [z-combobox](../../inputs/z-combobox)
  - [z-searchbar](../../inputs/z-searchbar)
  - [z-select](../../inputs/z-select)
 
@@ -58,6 +60,7 @@ graph TD;
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-breadcrumb --> z-list-element
+  z-combobox --> z-list-element
   z-searchbar --> z-list-element
   z-select --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
