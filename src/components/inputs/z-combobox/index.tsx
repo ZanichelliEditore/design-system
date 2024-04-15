@@ -110,7 +110,7 @@ export class ZCombobox {
   @Watch("searchValue")
   watchSearchValue(): void {
     this.filterItems(this.searchValue);
-    const elem = this.element.shadowRoot.querySelector(`.combo-item-checkbox-input-${this.inputid} input`);
+    const elem = this.element.shadowRoot.querySelector(`.${this.getCheckboxClass()} input`);
     if (elem) {
       elem.setAttribute("tabindex", "0");
     }
@@ -165,6 +165,10 @@ export class ZCombobox {
     return `combo-checkbox-${this.inputid}-${item.id}`;
   }
 
+  private getCheckboxClass(): string {
+    return `combo-item-checkbox-input-${this.inputid}`;
+  }
+
   private getCheckAllId(): string {
     return `combo-checkbox-${this.inputid}-check-all`;
   }
@@ -174,15 +178,9 @@ export class ZCombobox {
   }
 
   private resetInputTabIndex(): void {
-    if (this.hascheckall && !this.searchValue) {
-      this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`).setAttribute("tabindex", "-1");
-    }
-
-    this.element.shadowRoot
-      .querySelectorAll(`.combo-item-checkbox-input-${this.inputid} input`)
-      .forEach(function (item) {
-        item.setAttribute("tabindex", "-1");
-      });
+    this.element.shadowRoot.querySelectorAll(`.${this.getCheckboxClass()} input`).forEach(function (item) {
+      item.setAttribute("tabindex", "-1");
+    });
   }
 
   private setInputTabIndex(itemId, index): number {
@@ -384,7 +382,7 @@ export class ZCombobox {
           checked={item.checked}
           htmlid={this.getItemId(item)}
           label={item.name}
-          class={`combo-item-checkbox-input-${this.inputid}`}
+          class={this.getCheckboxClass()}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
@@ -532,6 +530,7 @@ export class ZCombobox {
           type={InputType.CHECKBOX}
           checked={allChecked}
           htmlid={this.getCheckAllId()}
+          class={this.getCheckboxClass()}
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.hasCheckAllDisabled()}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}

@@ -136,7 +136,7 @@ describe("Suite test ZCombobox", () => {
                       <z-input disabled="0" class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
                     </z-list-element>
                     <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox"  class="combo-item-checkbox-input-combo"size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -311,7 +311,7 @@ describe("Suite test ZCombobox", () => {
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
               <div aria-multiselectable="" role="listbox">
                 <div class="check-all-wrapper"  role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" disabled="0" />
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" disabled="0" />
                 </div>
                 <div>
                   <ul id="combo_list">
@@ -349,7 +349,7 @@ describe("Suite test ZCombobox", () => {
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
               <div aria-multiselectable="" role="listbox">
                 <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="UNCHECK" checked disabled="0" />
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="UNCHECK" checked disabled="0" />
                 </div>
                 <div>
                   <ul id="combo_list">
@@ -422,7 +422,7 @@ describe("Suite test ZCombobox", () => {
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
               <div aria-multiselectable="" role="listbox">  
                 <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" />
                 </div>
                 <div>
                   <ul id="combo_list">
@@ -461,7 +461,7 @@ describe("Suite test ZCombobox", () => {
             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">                
             <div aria-multiselectable="" role="listbox">
               <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combo-check-all" label="CHECK" />
+                  <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" />
                 </div>
                 <div>
                   <ul id="combo_list">
