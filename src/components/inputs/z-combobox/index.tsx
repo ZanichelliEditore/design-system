@@ -110,6 +110,10 @@ export class ZCombobox {
   @Watch("searchValue")
   watchSearchValue(): void {
     this.filterItems(this.searchValue);
+    const elem = this.element.shadowRoot.querySelector(`.combo-item-checkbox-input-${this.inputid} input`);
+    if (elem) {
+      elem.setAttribute("tabindex", "0");
+    }
   }
 
   @Listen("ariaDescendantFocus")
@@ -165,16 +169,31 @@ export class ZCombobox {
     return `combo-checkbox-${this.inputid}-check-all`;
   }
 
+  private hasCheckAllDisabled(): boolean {
+    return this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length;
+  }
+
   private resetInputTabIndex(): void {
-    this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`).setAttribute("tabindex", "-1");
-    this.itemsList.forEach(function (item: ComboItem) {
-      this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`).setAttribute("tabindex", "-1");
-    }, this);
+    if (this.hascheckall && !this.searchValue) {
+      this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`).setAttribute("tabindex", "-1");
+    }
+
+    this.element.shadowRoot
+      .querySelectorAll(`.combo-item-checkbox-input-${this.inputid} input`)
+      .forEach(function (item) {
+        item.setAttribute("tabindex", "-1");
+      });
   }
 
   private setInputTabIndex(itemId, index): number {
     if (index === 0) {
-      return 0;
+      if (
+        !this.hascheckall ||
+        (this.hascheckall && this.searchValue) ||
+        (this.hascheckall && this.hasCheckAllDisabled())
+      ) {
+        return 0;
+      }
     }
 
     return itemId === this.focusedItemId ? 0 : -1;
@@ -188,11 +207,18 @@ export class ZCombobox {
 
     e.preventDefault();
     e.stopPropagation();
+    const firstCheckbox = this.hascheckall && !this.hasCheckAllDisabled() && !this.searchValue ? -1 : 0;
+    const itemsLentgh = this.renderItemsList.length - 1;
     let index = key;
+
     if (e.key === KeyboardCode.ARROW_DOWN) {
-      index = index === this.itemsList.length - 1 ? -1 : key + 1;
+      index = index === itemsLentgh ? firstCheckbox : key + 1;
     } else if (e.key === KeyboardCode.ARROW_UP) {
-      index = index < 0 ? this.itemsList.length - 1 : key - 1;
+      if (this.hascheckall && !this.searchValue) {
+        index = index < 0 ? itemsLentgh : key - 1;
+      } else {
+        index = index === 0 ? itemsLentgh : key - 1;
+      }
     }
 
     this.resetInputTabIndex();
@@ -210,15 +236,19 @@ export class ZCombobox {
 
   private focusComboboxItem(index: number): void {
     let focusElem: HTMLElement;
+
     if (index < 0) {
       focusElem = this.element.shadowRoot.querySelector(`#${this.getCheckAllId()}`);
     } else {
-      const item = this.itemsList[index];
+      const item = this.renderItemsList[index];
+
       if (!item) {
         return;
       }
+
       focusElem = this.element.shadowRoot.querySelector(`#${this.getItemId(item)}`);
     }
+
     if (focusElem) {
       focusElem.setAttribute("tabindex", "0");
       focusElem.focus();
@@ -354,6 +384,7 @@ export class ZCombobox {
           checked={item.checked}
           htmlid={this.getItemId(item)}
           label={item.name}
+          class={`combo-item-checkbox-input-${this.inputid}`}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
@@ -502,7 +533,7 @@ export class ZCombobox {
           checked={allChecked}
           htmlid={this.getCheckAllId()}
           label={allChecked ? this.uncheckalltext : this.checkalltext}
-          disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
+          disabled={this.hasCheckAllDisabled()}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, -1)}
           onInputCheck={(e: CustomEvent) => {
