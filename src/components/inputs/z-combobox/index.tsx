@@ -345,14 +345,16 @@ export class ZCombobox {
     }
 
     return (
-      <div
-        class="open-combo-data"
-        {...(!this.hassearch ? this.getComboboxA11yAttributes() : null)}
-      >
+      <div class="open-combo-data">
         {this.hassearch && this.renderSearchInput()}
+        <span {...(!this.hassearch ? this.getComboboxA11yAttributes() : null)} />
         <div
           role="listbox"
           aria-multiselectable={true}
+          id={`${this.inputid}_list`}
+          aria-owns={`${this.hascheckall ? `${this.getCheckAllId()} ` : ``}${this.itemsList
+            .map((item) => this.getItemId(item))
+            .join(" ")}`}
         >
           {this.hascheckall && this.renderCheckAll()}
           {this.renderItems()}
@@ -377,8 +379,6 @@ export class ZCombobox {
         htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
-        role="option"
-        aria-selected={item.checked ? "true" : "false"}
       >
         <z-input
           innerTabIndex={this.setInputTabIndex(item.id, index)}
@@ -389,6 +389,8 @@ export class ZCombobox {
           class={this.getCheckboxClass()}
           disabled={!item.checked && this.maxcheckableitems && this.maxcheckableitems === this.selectedCounter}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+          role="option"
+          aria-selected={item.checked ? "true" : "false"}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, index)}
           onInputCheck={(e: CustomEvent) => {
             this.itemsList = this.itemsList.map((i: ComboItem) => {
@@ -419,7 +421,7 @@ export class ZCombobox {
     }
 
     return (
-      <ul id={`${this.inputid}_list`}>
+      <ul role="generic">
         {items.map((item, i) => {
           return this.renderItem(item, i, items.length);
         })}
@@ -452,12 +454,12 @@ export class ZCombobox {
       );
     });
 
-    return <ul>{listGroups}</ul>;
+    return <ul role="generic">{listGroups}</ul>;
   }
 
   private renderNoSearchResults(): HTMLUListElement {
     return (
-      <ul>
+      <ul role="generic">
         <z-myz-list-item
           id="no-results"
           text={this.noresultslabel}
@@ -526,10 +528,7 @@ export class ZCombobox {
     const allChecked = this.selectedCounter === this.itemsList.length;
 
     return (
-      <div
-        class="check-all-wrapper"
-        role="option"
-      >
+      <div class="check-all-wrapper">
         <z-input
           type={InputType.CHECKBOX}
           checked={allChecked}
@@ -538,6 +537,8 @@ export class ZCombobox {
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.hasCheckAllDisabled()}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+          role="option"
+          aria-selected={allChecked ? "true" : "false"}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, -1)}
           onInputCheck={(e: CustomEvent) => {
             this.checkAll(e.detail.checked);
