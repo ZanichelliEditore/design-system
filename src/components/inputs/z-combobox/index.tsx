@@ -347,7 +347,7 @@ export class ZCombobox {
     return (
       <div class="open-combo-data">
         {this.hassearch && this.renderSearchInput()}
-        <span {...(!this.hassearch ? this.getComboboxA11yAttributes() : null)} />
+        {!this.hassearch ? <span {...this.getComboboxA11yAttributes()} /> : null}
         <div
           role="listbox"
           aria-multiselectable={true}
@@ -421,7 +421,7 @@ export class ZCombobox {
     }
 
     return (
-      <ul role="generic">
+      <ul role="none">
         {items.map((item, i) => {
           return this.renderItem(item, i, items.length);
         })}
@@ -454,12 +454,12 @@ export class ZCombobox {
       );
     });
 
-    return <ul role="generic">{listGroups}</ul>;
+    return <ul role="none">{listGroups}</ul>;
   }
 
   private renderNoSearchResults(): HTMLUListElement {
     return (
-      <ul role="generic">
+      <ul role="none">
         <z-myz-list-item
           id="no-results"
           text={this.noresultslabel}

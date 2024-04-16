@@ -100,10 +100,11 @@ describe("Suite test ZCombobox", () => {
            <p class="body-3"><span></span></p>
               <z-icon class="big" name="caret-down" ></z-icon>
             </div>
-            <div aria-controls="combobox_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">  
+            <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="">
                 <div>
-                  <ul id="combobox_list"></ul>
+                  <ul role="none"></ul>
                 </div>
               </div>
             </div>
@@ -116,27 +117,28 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con elementi", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
             <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
-             <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">
+             <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                      <z-input disabled="0" class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="0" class="combo-item-checkbox-input-combobox" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="0" label="primo elemento"></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large">
+                      <z-input role="option" aria-selected="true" type="checkbox" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -151,28 +153,28 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con ricerca", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
             <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text"></z-input>
-              <div aria-multiselectable="" role="listbox">
+              <z-input aria-autocomplete="list" aria-controls="combobox_list" aria-expanded="true" htmlid="combobox_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text"></z-input>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                      <z-input disabled="0" class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="0" class="combo-item-checkbox-input-combobox" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="0" label="primo elemento"></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1"  label="secondo elemento" checked></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large">
+                      <z-input type="checkbox" role="option" aria-selected="true" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1"  label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -187,26 +189,26 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con ricerca attiva e risultati", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "primo";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
             <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
-              <div aria-multiselectable="" role="listbox">
+              <z-input aria-autocomplete="list" aria-controls="combobox_list" aria-expanded="true" htmlid="combobox_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div class="search">
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
-                      <z-input disabled="0" class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="<strong>primo</strong> elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="none" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="0" class="combo-item-checkbox-input-combobox" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="0" label="<strong>primo</strong> elemento"></z-input>
                     </z-list-element>
                   </ul>
                   <div>
@@ -224,26 +226,26 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con ricerca attiva senza testo di chiusura della ricerca testuale", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "primo";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
             <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
-              <div aria-multiselectable="" role="listbox">
+              <z-input aria-autocomplete="list" aria-controls="combobox_list" aria-expanded="true" htmlid="combobox_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="primo"></z-input>              
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div class="search">
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="false" dividertype="none" id="item_1" role="option" size="large">
-                      <z-input disabled="0" class="combo-item-checkbox-input-combo" innertabindex="0" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" label="<strong>primo</strong> elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="none" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="0" class="combo-item-checkbox-input-combobox" innertabindex="0" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" label="<strong>primo</strong> elemento"></z-input>
                     </z-list-element>
                   </ul>
                   <div>
@@ -261,24 +263,24 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con ricerca attiva senza risultati", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "prova";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true"  class="header" role="button" tabindex="0">
               <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data">
-              <z-input aria-autocomplete="list" aria-controls="combo_list" aria-expanded="true" htmlid="combo_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="prova"></z-input>
-               <div aria-multiselectable="" role="listbox">
+              <z-input aria-autocomplete="list" aria-controls="combobox_list" aria-expanded="true" htmlid="combobox_search" label="cerca" placeholder="placeholder" role="combobox" size="big" type="text" value="prova"></z-input>
+               <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div class="search">
-                  <ul>
+                  <ul role="none">
                     <z-myz-list-item class="big" id='no-results' text='non ci sono risultati' listitemid='no-results' icon='multiply-circle'></z-myz-list-item>
                   </ul>
                   <div>
@@ -296,30 +298,31 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con check all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
               <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">
-                <div class="check-all-wrapper"  role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" disabled="0" />
+            <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-check-all combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
+                <div class="check-all-wrapper">
+                  <z-input type="checkbox" aria-selected="false" role="option" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" disabled="0" />
                 </div>
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="false" dividertype="element" id="item_1" role="option" size="large">
-                      <z-input disabled="0" class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="-1" label="primo elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="0" class="combo-item-checkbox-input-combobox" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="-1" label="primo elemento"></z-input>
                     </z-list-element>
-                  <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                  <z-list-element dividertype="none" id="item_2" size="large">
+                      <z-input role="option" aria-selected="true" type="checkbox" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -334,30 +337,31 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con uncheck all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
               <p class="body-3">combo<span>(2)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">
-                <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="UNCHECK" checked disabled="0" />
+            <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-check-all combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
+                <div class="check-all-wrapper">
+                  <z-input type="checkbox" aria-selected="true" role="option" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="UNCHECK" checked disabled="0" />
                 </div>
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">                    
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="-1" label="primo elemento" checked></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">                    
+                      <z-input type="checkbox" role="option" aria-selected="true" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="-1" label="primo elemento" checked></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large">
+                      <z-input type="checkbox" role="option" aria-selected="true" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -372,27 +376,28 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con max checkable items", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
              <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">
+            <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
                 <div>
-                  <ul  id="combo_list">
-                    <z-list-element aria-selected="false" role="option" dividertype="element" id="item_1" size="large">
-                      <z-input disabled=""  class="combo-item-checkbox-input-combo" type="checkbox" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento"></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">
+                      <z-input role="option" aria-selected="false" disabled="" class="combo-item-checkbox-input-combobox" type="checkbox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="0" label="primo elemento"></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="true" dividertype="none" id="item_2" role="option" size="large">
-                      <z-input type="checkbox"  class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large">
+                      <z-input type="checkbox" role="option" aria-selected="true" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento" checked></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -407,30 +412,31 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con maxcheckableitems + check all", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
+      <z-combobox inputid="combobox" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
               <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">
-              <div aria-multiselectable="" role="listbox">  
-                <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" />
+            <div class="open-combo-data">
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-check-all combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">  
+                <div class="check-all-wrapper">
+                  <z-input aria-selected="false" type="checkbox" role="option" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" />
                 </div>
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">  
-                      <z-input type="checkbox" size="big" class="combo-item-checkbox-input-combo" htmlid="combo-checkbox-combo-item_1"innertabindex="-1" label="primo elemento" checked></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">  
+                      <z-input type="checkbox" role="option" aria-selected="true" size="big" class="combo-item-checkbox-input-combobox" htmlid="combo-checkbox-combobox-item_1"innertabindex="-1" label="primo elemento" checked></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large"> 
-                      <z-input type="checkbox" size="big" class="combo-item-checkbox-input-combo" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento"></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large"> 
+                      <z-input type="checkbox" role="option" aria-selected="false" size="big" class="combo-item-checkbox-input-combobox" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento"></z-input>
                     </z-list-element>
                   </ul>
                 </div>
@@ -445,31 +451,32 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox aperta con maxcheckableitems + check all (disabled)", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combo" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
+      <z-combobox inputid="combobox" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
-          <div class="open" data-action="combo-combo" id="combo">
+          <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-expanded="true" class="header" role="button" tabindex="0">
               <p class="body-3">combo<span>(1)</span></p>
               <z-icon class="big" name="caret-down" />
             </div>
              
-            <div aria-controls="combo_list" aria-expanded="true" class="open-combo-data" role="combobox">                
-            <div aria-multiselectable="" role="listbox">
-              <div class="check-all-wrapper" role="option">
-                  <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combo-check-all" class="combo-item-checkbox-input-combo" label="CHECK" />
+            <div class="open-combo-data">             
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
+              <div aria-multiselectable="" role="listbox" id="combobox_list" aria-owns="combo-checkbox-combobox-check-all combo-checkbox-combobox-item_1 combo-checkbox-combobox-item_2">
+                <div class="check-all-wrapper">
+                  <z-input type="checkbox" aria-selected="false" role="option" size="big" disabled htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" />
                 </div>
                 <div>
-                  <ul id="combo_list">
-                    <z-list-element aria-selected="true" dividertype="element" id="item_1" role="option" size="large">  
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_1" innertabindex="0" label="primo elemento" checked></z-input>
+                  <ul role="none">
+                    <z-list-element dividertype="element" id="item_1" size="large">  
+                      <z-input type="checkbox" role="option" aria-selected="true" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_1" innertabindex="0" label="primo elemento" checked></z-input>
                     </z-list-element>
-                    <z-list-element aria-selected="false" dividertype="none" id="item_2" role="option" size="large"> 
-                      <z-input type="checkbox" class="combo-item-checkbox-input-combo" size="big" htmlid="combo-checkbox-combo-item_2" innertabindex="-1" label="secondo elemento" disabled></z-input>
+                    <z-list-element dividertype="none" id="item_2" size="large"> 
+                      <z-input type="checkbox" role="option" aria-selected="false" class="combo-item-checkbox-input-combobox" size="big" htmlid="combo-checkbox-combobox-item_2" innertabindex="-1" label="secondo elemento" disabled></z-input>
                     </z-list-element>
                   </ul>
                 </div
