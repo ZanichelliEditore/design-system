@@ -198,6 +198,11 @@ export class ZCombobox {
   }
 
   private handleSelectArrowsNavigation(e: KeyboardEvent, key: number): void {
+    let index = key;
+
+    this.resetInputTabIndex();
+    this.focusComboboxItem(index);
+
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
     if (!arrows.includes(e.key as KeyboardCode) || !this.isopen) {
       return;
@@ -207,7 +212,6 @@ export class ZCombobox {
     e.stopPropagation();
     const firstCheckbox = this.hascheckall && !this.hasCheckAllDisabled() && !this.searchValue ? -1 : 0;
     const itemsLentgh = this.renderItemsList.length - 1;
-    let index = key;
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
       index = index === itemsLentgh ? firstCheckbox : key + 1;
