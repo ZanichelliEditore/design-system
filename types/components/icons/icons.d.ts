@@ -80,6 +80,7 @@ export declare const STROKE_ICONS: {
     "caret-up": string;
     "caret-up-down": string;
     "catalog-card": string;
+    chapter: string;
     "character-panel": string;
     "check-task": string;
     checkbox: string;
@@ -138,6 +139,7 @@ export declare const STROKE_ICONS: {
     "exercises-interactive": string;
     "exercises-online": string;
     "exercises-plus": string;
+    extra: string;
     facebook: string;
     favorites: string;
     feed: string;
@@ -287,6 +289,7 @@ export declare const STROKE_ICONS: {
     "stroke-solid": string;
     "stroke-solid-dash": string;
     "stroke-solid-dot": string;
+    student: string;
     subscript: string;
     "suit-club": string;
     "suit-diamond": string;
@@ -317,6 +320,8 @@ export declare const STROKE_ICONS: {
     timeline: string;
     "timer-clock": string;
     ticket: string;
+    topic: string;
+    topography: string;
     "true-false": string;
     "u-circle": string;
     "u-square": string;
@@ -418,6 +423,7 @@ export declare const FILLED_ICONS: {
     "caret-down-filled": string;
     "caret-up-down-filled": string;
     "caret-up-filled": string;
+    "chapter-filled": string;
     "character-panel-filled": string;
     "check-task-filled": string;
     "checkbox-checked-filled": string;
@@ -477,6 +483,7 @@ export declare const FILLED_ICONS: {
     "exercises-interactive-filled": string;
     "exercises-online-filled": string;
     "exercises-plus-filled": string;
+    "extra-filled": string;
     "facebook-filled": string;
     "favorites-filled": string;
     "feed-filled": string;
@@ -625,6 +632,7 @@ export declare const FILLED_ICONS: {
     "stroke-solid-filled": string;
     "stroke-solid-dash-filled": string;
     "stroke-solid-dot-filled": string;
+    "student-filled": string;
     "subscript-filled": string;
     "suit-club-filled": string;
     "suit-diamond-filled": string;
@@ -655,6 +663,8 @@ export declare const FILLED_ICONS: {
     "timeline-filled": string;
     "timer-clock-filled": string;
     "ticket-filled": string;
+    "topic-filled": string;
+    "topography-filled": string;
     "true-false-filled": string;
     "u-circle-filled": string;
     "u-square-filled": string;
@@ -818,6 +828,7 @@ export declare const ICONS: {
     "caret-down-filled": string;
     "caret-up-down-filled": string;
     "caret-up-filled": string;
+    "chapter-filled": string;
     "character-panel-filled": string;
     "check-task-filled": string;
     "checkbox-checked-filled": string;
@@ -877,6 +888,7 @@ export declare const ICONS: {
     "exercises-interactive-filled": string;
     "exercises-online-filled": string;
     "exercises-plus-filled": string;
+    "extra-filled": string;
     "facebook-filled": string;
     "favorites-filled": string;
     "feed-filled": string;
@@ -1025,6 +1037,7 @@ export declare const ICONS: {
     "stroke-solid-filled": string;
     "stroke-solid-dash-filled": string;
     "stroke-solid-dot-filled": string;
+    "student-filled": string;
     "subscript-filled": string;
     "suit-club-filled": string;
     "suit-diamond-filled": string;
@@ -1055,6 +1068,8 @@ export declare const ICONS: {
     "timeline-filled": string;
     "timer-clock-filled": string;
     "ticket-filled": string;
+    "topic-filled": string;
+    "topography-filled": string;
     "true-false-filled": string;
     "u-circle-filled": string;
     "u-square-filled": string;
@@ -1152,6 +1167,7 @@ export declare const ICONS: {
     "caret-up": string;
     "caret-up-down": string;
     "catalog-card": string;
+    chapter: string;
     "character-panel": string;
     "check-task": string;
     checkbox: string;
@@ -1209,6 +1225,7 @@ export declare const ICONS: {
     "exercises-interactive": string;
     "exercises-online": string;
     "exercises-plus": string;
+    extra: string;
     facebook: string;
     favorites: string;
     feed: string;
@@ -1358,6 +1375,7 @@ export declare const ICONS: {
     "stroke-solid": string;
     "stroke-solid-dash": string;
     "stroke-solid-dot": string;
+    student: string;
     subscript: string;
     "suit-club": string;
     "suit-diamond": string;
@@ -1388,6 +1406,8 @@ export declare const ICONS: {
     timeline: string;
     "timer-clock": string;
     ticket: string;
+    topic: string;
+    topography: string;
     "true-false": string;
     "u-circle": string;
     "u-square": string;

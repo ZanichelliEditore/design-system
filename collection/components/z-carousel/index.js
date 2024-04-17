@@ -3,6 +3,7 @@ import { CarouselArrowsPosition, CarouselProgressMode, ButtonVariant } from "../
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.
+ * @cssprop --z-carousel-items-shadow - The shadow around the items.
  * @slot - Carousel items. Use `<li>` elements inside this slot.
  */
 export class ZCarousel {
