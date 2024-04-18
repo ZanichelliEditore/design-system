@@ -234,14 +234,19 @@ export class ZInput {
     });
   }
 
-  /** set parent aria-activedescendant on focus event, returns filterid */
-  @Event({
-    eventName: "ariaDescendantFocus",
-    composed: true,
-    cancelable: true,
-    bubbles: true,
-  })
-  ariaDescendantFocus: EventEmitter<string>;
+  /** Emitted on input focus */
+  @Event()
+  inputFocus: EventEmitter;
+  private emitInputFocus(): void {
+    this.inputFocus.emit({id: this.htmlid});
+  }
+
+  /** Emitted on input blur */
+  @Event()
+  inputBlur: EventEmitter;
+  private emitInputBlur(): void {
+    this.inputBlur.emit({id: this.htmlid});
+  }
 
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
@@ -301,10 +306,6 @@ export class ZInput {
     };
   }
 
-  private getTabIndexAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-    return this.innerTabIndex ? {tabindex: this.innerTabIndex} : {};
-  }
-
   private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return this.role ? {role: this.role} : {};
   }
@@ -332,7 +333,6 @@ export class ZInput {
       ...ariaLabel,
       ...this.getRoleAttribute(),
       ...this.getAriaAttrubutes(),
-      ...this.getTabIndexAttribute(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -483,7 +483,6 @@ export class ZInput {
             {...attributes}
             {...ariaLabel}
             {...this.getRoleAttribute()}
-            {...this.getTabIndexAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -512,9 +511,9 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
+          onFocus={() => this.emitInputFocus()}
+          onBlur={() => this.emitInputBlur()}
           {...this.getRoleAttribute()}
-          {...this.getTabIndexAttribute()}
         />
 
         <label
@@ -551,9 +550,9 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          onFocus={() => this.ariaDescendantFocus.emit(this.htmlid)}
+          onFocus={() => this.emitInputFocus()}
+          onBlur={() => this.emitInputBlur()}
           {...this.getRoleAttribute()}
-          {...this.getTabIndexAttribute()}
         />
 
         <label
