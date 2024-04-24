@@ -8,6 +8,10 @@ import "./index";
   title="ZFileUpload"
   component="z-file-upload"
   argTypes={{
+    type: {
+      options: ["default", "dragdrop"],
+      control: {type: "radio"},
+    },
     buttonVariant: {
       options: ["primary", "secondary"],
       control: {type: "radio"},
@@ -30,6 +34,9 @@ import "./index";
     dragAndDropLabel: {
       control: {type: "text"},
     },
+    hasFileSection: {
+      control: {type: "text"},
+    },
   }}
 />
 
@@ -39,12 +46,14 @@ import "./index";
   <Story
     name="ZFileUpload default version"
     args={{
+      type: "default",
       buttonVariant: ButtonVariant.PRIMARY,
       fileMaxSize: "50",
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
       uploadBtnLabel: "allega",
+      hasFileSection: "true",
     }}
   >
     {(args) => html`<h4 class="heading-4">
@@ -53,7 +62,8 @@ import "./index";
       </h4>
       <br />
       <z-file-upload
-        type="default"
+        type="${args.type}"
+        has-file-section="${args.hasFileSection}"
         description="${args.description}"
         button-variant="${args.buttonVariant}"
         file-max-size="${args.fileMaxSize}"
@@ -82,12 +92,14 @@ import "./index";
   <Story
     name="ZFileUpload dragdrop version"
     args={{
+      type: "dragdrop",
       fileMaxSize: "50",
       acceptedFormat: ".pdf, .doc, .tiff, .png, .jpg",
       mainTitle: "Allega un file",
       description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
       uploadBtnLabel: "allega",
       dragAndDropLabel: "Rilascia i file in questa area per allegarli.",
+      hasFileSection: "true",
     }}
   >
     {(args) => html` <h4 class="heading-4">
@@ -96,7 +108,8 @@ import "./index";
       </h4>
       <br />
       <z-file-upload
-        type="dragdrop"
+        type="${args.type}"
+        has-file-section="${args.hasFileSection}"
         file-max-size="${args.fileMaxSize}"
         description="${args.description}"
         accepted-format="${args.acceptedFormat}"

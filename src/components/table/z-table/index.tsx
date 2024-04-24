@@ -52,7 +52,7 @@ export class ZTable {
   }
 
   disconnectedCallback(): void {
-    this.expandableMutationObserver.disconnect();
+    this.expandableMutationObserver?.disconnect();
   }
 
   render(): HTMLZTableElement {

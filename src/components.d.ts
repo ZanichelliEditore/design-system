@@ -402,6 +402,7 @@ export namespace Components {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -628,9 +629,17 @@ export namespace Components {
          */
         "getFiles": () => Promise<File[]>;
         /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
+        /**
           * Title
          */
         "mainTitle"?: string;
+        /**
+          * remove file from the array
+         */
+        "removeFile": (fileName: string) => Promise<void>;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
@@ -1492,7 +1501,7 @@ export namespace Components {
      */
     interface ZPopover {
         /**
-          * The selector or the element bound with the popover.
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
          */
         "bindTo"?: string | HTMLElement;
         /**
@@ -2365,6 +2374,7 @@ declare global {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3766,6 +3776,7 @@ declare namespace LocalJSX {
     /**
      * ZCarousel component.
      * @cssprop --z-carousel-gutter - The gutter between items.
+     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -4011,6 +4022,10 @@ declare namespace LocalJSX {
           * Max file dimension in Megabyte
          */
         "fileMaxSize"?: number;
+        /**
+          * uploaded files history rendering
+         */
+        "hasFileSection"?: boolean;
         /**
           * Title
          */
@@ -4988,7 +5003,7 @@ declare namespace LocalJSX {
      */
     interface ZPopover {
         /**
-          * The selector or the element bound with the popover.
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
          */
         "bindTo"?: string | HTMLElement;
         /**
@@ -5718,6 +5733,7 @@ declare module "@stencil/core" {
             /**
              * ZCarousel component.
              * @cssprop --z-carousel-gutter - The gutter between items.
+             * @cssprop --z-carousel-items-shadow - The shadow around the items.
              */
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;

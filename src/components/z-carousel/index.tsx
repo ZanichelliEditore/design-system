@@ -4,6 +4,7 @@ import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant} from "../..
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.
+ * @cssprop --z-carousel-items-shadow - The shadow around the items.
  * @slot - Carousel items. Use `<li>` elements inside this slot.
  */
 @Component({
@@ -242,7 +243,7 @@ export class ZCarousel {
   }
 
   componentDidLoad(): void {
-    this.itemsContainer.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.itemsContainer?.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
     this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
     this.resizeObserver.observe(this.itemsContainer);
     this.setupItems();

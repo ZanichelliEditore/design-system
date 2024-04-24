@@ -90,6 +90,18 @@ input#file-elem {
   margin: calc(var(--space-unit) * 3) 0;
 }
 
+:host .error-message {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.16%;
+  line-height: 20px;
+  text-align: left;
+}
+
+:host .error-message > .file-name {
+  font-weight: 600;
+}
+
 /* Tablet breakpoint */
 @media only screen and (min-width: 768px) {
   :host > .container > z-button {

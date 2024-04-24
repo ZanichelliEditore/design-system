@@ -3,6 +3,7 @@
   font-weight: var(--font-rg);
 
   --z-carousel-gutter: 0;
+  --z-carousel-items-shadow: ;
 }
 
 :host([single]) {
@@ -35,6 +36,7 @@
   max-width: 100%;
   flex-direction: row;
   margin: 0;
+  box-shadow: var(--z-carousel-items-shadow, none);
   column-gap: var(--z-carousel-gutter);
   list-style: none;
   -ms-overflow-style: none; /* IE and Edge */
@@ -62,6 +64,7 @@
 
 .z-carousel-navigation-arrow[data-direction] {
   position: absolute;
+  z-index: 1;
   bottom: 50%;
   transform: translateY(50%);
 }
