@@ -132,10 +132,6 @@ export class ZInput {
   @Prop({reflect: true})
   size?: ControlSize = ControlSize.BIG;
 
-  /** set tabindex to input tag (optional). Defaults to native behaviour. */
-  @Prop()
-  innerTabIndex?: number;
-
   @State()
   isTyping = false;
 
@@ -237,6 +233,7 @@ export class ZInput {
   /** Emitted on input focus */
   @Event()
   inputFocus: EventEmitter;
+
   private emitInputFocus(): void {
     this.inputFocus.emit({id: this.htmlid});
   }
@@ -244,6 +241,7 @@ export class ZInput {
   /** Emitted on input blur */
   @Event()
   inputBlur: EventEmitter;
+
   private emitInputBlur(): void {
     this.inputBlur.emit({id: this.htmlid});
   }
@@ -324,6 +322,13 @@ export class ZInput {
     };
   }
 
+  private getFocusBlurAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    return {
+      onFocus: () => this.emitInputFocus(),
+      onBlur: () => this.emitInputBlur(),
+    };
+  }
+
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
@@ -333,6 +338,7 @@ export class ZInput {
       ...ariaLabel,
       ...this.getRoleAttribute(),
       ...this.getAriaAttrubutes(),
+      ...this.getFocusBlurAttributes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -511,9 +517,8 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          onFocus={() => this.emitInputFocus()}
-          onBlur={() => this.emitInputBlur()}
           {...this.getRoleAttribute()}
+          {...this.getFocusBlurAttributes()}
         />
 
         <label
@@ -550,9 +555,8 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          onFocus={() => this.emitInputFocus()}
-          onBlur={() => this.emitInputBlur()}
           {...this.getRoleAttribute()}
+          {...this.getFocusBlurAttributes()}
         />
 
         <label

@@ -123,6 +123,7 @@ export class ZCombobox {
   /** Emitted when value is checked/unchecked. Returns id, items. */
   @Event()
   comboboxChange: EventEmitter;
+
   private emitComboboxChange(): void {
     this.comboboxChange.emit({id: this.inputid, items: this.itemsList});
   }
@@ -366,7 +367,6 @@ export class ZCombobox {
         size={this.getControlToListSize()}
       >
         <z-input
-          // innerTabIndex={this.setInputTabIndex(item.id, index)}
           type={InputType.CHECKBOX}
           checked={item.checked}
           htmlid={this.getItemId(item)}
