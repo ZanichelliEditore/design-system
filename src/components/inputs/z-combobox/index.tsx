@@ -148,8 +148,12 @@ export class ZCombobox {
     }
   }
 
+  private hexEncodeItemId(id: string): string {
+    return Buffer.from(id, "utf8").toString("hex");
+  }
+
   private getItemId(item: ComboItem): string {
-    return `combo-checkbox-${this.inputid}-${item.id}`;
+    return `combo-checkbox-${this.inputid}-${this.hexEncodeItemId(item.id)}`;
   }
 
   private getCheckboxClass(): string {
@@ -361,7 +365,7 @@ export class ZCombobox {
   private renderItem(item: ComboItem, index: number, length: number): ZMyzListItem {
     return (
       <z-list-element
-        id={item.id}
+        id={this.hexEncodeItemId(item.id)}
         htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
