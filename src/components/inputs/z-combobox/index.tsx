@@ -513,7 +513,6 @@ export class ZCombobox {
           htmlid={checkAllId}
           class={this.getCheckboxClass()}
           label={allChecked ? this.uncheckalltext : this.checkalltext}
-          // disabled={this.hasCheckAllDisabled()}
           disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
           role="option"
