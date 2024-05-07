@@ -18,7 +18,7 @@
   Generated SVG image is vector and it fills width and height of elements by 100%, so it doesn't matter what size elements have. */
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 2px;
-  color: var(--color-text01);
+  color: var(--color-default-text);
 }
 
 /* https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element */
@@ -41,7 +41,7 @@
 :host > .dragdrop .dragover-container .dragover-message {
   padding: 10px 28px;
   background-color: var(--color-link-primary);
-  color: var(--color-text04);
+  color: var(--color-inverse-text);
 }
 
 :host > .dragdrop.dragover .dragover-container {

@@ -24,12 +24,12 @@ z-pagination z-icon {
 }
 
 z-pagination *:disabled z-icon {
-  fill: var(--color-disabled02);
+  fill: var(--color-disabled03);
 }
 
 z-pagination .page-label {
   margin-right: calc(var(--space-unit) * 3);
-  color: var(--color-text02);
+  color: var(--color-default-text);
 }
 
 z-pagination .pagination-bar {
@@ -74,7 +74,7 @@ z-pagination .pagination-bar .navigation-button {
 z-pagination .pagination-bar .pagination-button:disabled,
 z-pagination .pagination-bar .navigation-button:disabled {
   background-color: var(--color-disabled01);
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
   cursor: default;
   pointer-events: none;
 }
@@ -129,7 +129,7 @@ z-pagination .go-to-page {
 }
 
 z-pagination .go-to-page .label {
-  color: var(--color-text02);
+  color: var(--color-default-text);
   text-transform: uppercase;
 }
 

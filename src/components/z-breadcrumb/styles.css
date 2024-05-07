@@ -50,7 +50,7 @@ li {
 }
 
 :host a.missing-path {
-  color: var(--color-text01);
+  color: var(--color-default-text);
 }
 
 :host a.text-ellipsis {

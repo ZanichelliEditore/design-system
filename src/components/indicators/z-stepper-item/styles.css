@@ -17,7 +17,7 @@
   left: calc(var(--space-unit) * 3);
   display: block;
   width: auto;
-  border-bottom: var(--border-size-medium) solid var(--color-disabled02);
+  border-bottom: var(--border-size-medium) solid var(--color-disabled03);
   margin: 0 calc(var(--space-unit) * -2) 0 calc(var(--space-unit) * 2);
   content: "";
 }
