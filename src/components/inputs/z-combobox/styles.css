@@ -60,7 +60,7 @@
 }
 
 :host > div > .header > z-icon {
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
@@ -94,7 +94,7 @@
 }
 
 :host > div.open > .header > z-icon {
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   transform: rotate(180deg);
   transition: all 200ms linear;
 }

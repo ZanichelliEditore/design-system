@@ -22,7 +22,7 @@ textarea,
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
   color: var(--color-default-text);
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);

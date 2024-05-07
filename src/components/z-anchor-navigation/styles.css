@@ -77,7 +77,7 @@ z-anchor-navigation nav z-icon {
 
   display: flex;
   padding: calc(var(--space-unit) * 1.5);
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 @media (min-width: 768px) {
