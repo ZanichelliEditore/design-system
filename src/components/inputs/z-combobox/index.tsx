@@ -163,22 +163,14 @@ export class ZCombobox {
   }
 
   private getControlToListSize(): ListSize {
-    let size;
     switch (this.size) {
-      case ControlSize.BIG:
-        size = ListSize.LARGE;
-        break;
-      case ControlSize.SMALL:
-        size = ListSize.SMALL;
-        break;
       case ControlSize.X_SMALL:
-        size = ListSize.SMALL;
-        break;
+        return ListSize.SMALL;
+      case ControlSize.SMALL:
+        return ListSize.MEDIUM;
       default:
-        size = ListSize.MEDIUM;
+        return ListSize.LARGE;
     }
-
-    return size;
   }
 
   private handleSelectArrowsNavigation(e: KeyboardEvent, currId: string): void {
