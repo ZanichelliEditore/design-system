@@ -153,33 +153,35 @@ export class ZBreadcrumb {
   }
 
   private checkEllipsisOrOverflowMenu(): void {
-    this.pathsList.forEach((pathItem, index) => {
-      if (pathItem.text.length <= this.truncateChar) {
-        return;
+    for (let i = 0; i < this.pathsList.length; i++) {
+      if (this.pathsList[i].text.length <= this.truncateChar) {
+        continue;
       }
 
       if (this.truncatePosition > 0) {
-        this.collapsedElements.concat(this.pathListCopy.splice(0, this.truncatePosition));
+        this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition));
         this.pathsList.splice(0, this.truncatePosition);
         this.truncatePosition = 0;
 
         return;
       } else if (this.truncatePosition === 0) {
-        this.collapsedElements.concat(this.pathListCopy.splice(0, this.truncatePosition + 1));
+        this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition + 1));
         this.pathsList.splice(0, this.truncatePosition + 1);
         this.truncatePosition = null;
 
         return;
       }
 
-      if (index !== this.pathsList.length - 1) {
-        const truncatedString = this.truncateWithEllipsis(pathItem.text, this.truncateChar);
-        this.currentEllipsisText = pathItem.text;
-        pathItem.text = truncatedString;
-        pathItem.hasTooltip = true;
-        this.truncatePosition = index;
+      if (i !== this.pathsList.length - 1) {
+        const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
+        this.currentEllipsisText = this.pathsList[i].text;
+        this.pathsList[i].text = truncatedString;
+        this.pathsList[i].hasTooltip = true;
+        this.truncatePosition = i;
+
+        return;
       }
-    });
+    }
   }
 
   private truncateWithEllipsis(str: string, maxLength: number): string {
