@@ -86,7 +86,7 @@
 }
 
 :host > div.disabled .header > p.body-3 {
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 :host > div.disabled .header > z-icon:last-child {
