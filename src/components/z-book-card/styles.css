@@ -154,7 +154,7 @@
 
   padding: var(--space-unit);
   cursor: pointer;
-  fill: var(--color-icon01);
+  fill: var(--color-primary01-icon);
 }
 
 /* EXPANDED STYLES */

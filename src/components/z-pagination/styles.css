@@ -20,7 +20,7 @@ z-pagination button {
 }
 
 z-pagination z-icon {
-  fill: var(--color-icon01);
+  fill: var(--color-primary01-icon);
 }
 
 z-pagination *:disabled z-icon {

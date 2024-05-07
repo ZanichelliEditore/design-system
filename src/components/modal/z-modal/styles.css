@@ -67,7 +67,7 @@
   --z-icon-height: calc(var(--space-unit) * 2.5);
 
   display: flex;
-  fill: var(--color-icon01);
+  fill: var(--color-primary01-icon);
 }
 
 .modal-container > header > div {
