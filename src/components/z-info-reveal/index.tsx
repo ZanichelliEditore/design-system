@@ -1,80 +1,57 @@
-import {Component, h, Prop, State, Watch, Element, Host} from "@stencil/core";
-import {InfoRevealPosition} from "../../beans";
+import {Component, h, Prop, State, Host} from "@stencil/core";
+import {ControlSize, InfoRevealPosition} from "../../beans";
 
+/**
+ * Info reveal component.
+ *
+ * @slot - content of the info panel.
+ */
 @Component({
   tag: "z-info-reveal",
   styleUrl: "styles.css",
   shadow: true,
 })
-
-/**
- * Info reveal component.
- *
- * @slot - info to display in the info box. If more than one element has been slotted,
- * by clicking on the panel it switches to the next info element.
- * @cssprop --z-info-reveal-theme--surface - background color of the info reveal panel.
- * @cssprop --z-info-reveal-theme--text - foreground color of the info reveal panel.
- * @cssprop --z-info-reveal-shadow - shadow of the info reveal panel.
- * @cssprop --z-info-reveal-max-width - max width of the info reveal panel.
- */
 export class ZInfoReveal {
-  @Element() el: HTMLZInfoRevealElement;
-
-  /** Name of the icon for the open button */
+  /** Name of the icon for the trigger button */
   @Prop()
   icon? = "informationsource";
 
-  /** Info reveal's position */
+  /**
+   * The position of the z-info-reveal in the page. This helps to correctly place the info panel.
+   * The panel will grow in the opposite direction of the position.
+   * For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
+   */
   @Prop({reflect: true})
   position?: InfoRevealPosition = InfoRevealPosition.BOTTOM_RIGHT;
 
-  /** Text that appears on closed panel next to the open button. */
+  /** Label of the trigger button. */
   @Prop()
   label?: string;
+
+  /** Aria label of the trigger button. It will be only used when `label` prop is empty. */
+  @Prop()
+  ariaLabel = "Apri pannello informazioni";
+
+  /** Size of the trigger button */
+  @Prop({reflect: true})
+  size?: ControlSize = ControlSize.BIG;
 
   /** Whether the info panel is open. */
   @State()
   open = false;
 
-  /** Current index for the info queue. */
-  @State()
-  currentIndex: number = null;
-
-  @Watch("currentIndex")
-  watchItems(): void {
-    Array.from(this.el.children).forEach((child, index) => {
-      if (this.currentIndex === index) {
-        child.setAttribute("data-current", "");
-      } else {
-        child.removeAttribute("data-current");
-      }
-    });
+  /**
+   * Toggle the open state of the info panel.
+   */
+  private togglePanel(): void {
+    this.open = !this.open;
   }
 
   /**
-   * Open the info box.
+   * Close the info panel.
    */
-  private openInfoBox(): void {
-    this.currentIndex = 0;
-    this.open = true;
-  }
-
-  /**
-   * Close the info box.
-   */
-  private closeInfoBox(): void {
+  private closePanel(): void {
     this.open = false;
-  }
-
-  /**
-   * Navigate slotted info.
-   * It closes the info box after the last info has been navigated.
-   */
-  private next(): void {
-    this.currentIndex = this.currentIndex + 1;
-    if (this.currentIndex === this.el.children.length) {
-      this.closeInfoBox();
-    }
   }
 
   render(): HTMLZInfoRevealElement {
@@ -82,23 +59,26 @@ export class ZInfoReveal {
       <Host open={this.open}>
         <button
           class="z-info-reveal-trigger"
-          onClick={this.openInfoBox.bind(this)}
+          onClick={this.togglePanel.bind(this)}
+          aria-label={!this.label ? this.ariaLabel : undefined}
+          aria-expanded={this.open ? "true" : "false"}
+          aria-controls="z-info-reveal-panel"
         >
+          {this.icon && <z-icon name={this.icon} />}
           {this.label && <span class="z-info-reveal-label">{this.label}</span>}
-          <z-icon name={this.icon}></z-icon>
         </button>
         {this.open && (
           <div
-            class="info-box"
-            onClick={this.next.bind(this)}
-            tabIndex={0}
+            class="z-info-reveal-panel"
+            id="z-info-reveal-panel"
           >
             <slot></slot>
             <button
               class="z-info-reveal-close"
-              onClick={this.closeInfoBox.bind(this)}
+              onClick={this.closePanel.bind(this)}
+              aria-label="Chiudi pannello informazioni"
             >
-              <z-icon name="close"></z-icon>
+              <z-icon name="multiply" />
             </button>
           </div>
         )}

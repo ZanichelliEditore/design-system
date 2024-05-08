@@ -56,19 +56,19 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
             "--z-popover-theme--text": args["--z-popover-theme--text"],
           })}
           .position=${args.position}
-          bind-to="#icon"
+          bind-to="#trigger"
         >
           <div class="container">
-            <z-button icon="gear"> Impostazioni </z-button>
+            <z-button icon="gear">Impostazioni</z-button>
           </div>
         </z-popover>
         <z-icon
-          id="icon"
+          id="trigger"
           name="plus-square-filled"
         ></z-icon>
       </div>
       <script>
-        var iconTrigger = document.querySelector("#icon");
+        var iconTrigger = document.querySelector("#trigger");
         var popover = document.querySelector("z-popover");
         iconTrigger.addEventListener("click", () => {
           if (popover.open) {
@@ -99,19 +99,19 @@ To be sure the AUTO algorithm finds the right container when calculating the pos
           .position=${args.position}
           center="true"
           show-arrow="true"
-          bind-to="#icon"
+          bind-to="#trigger"
         >
           <div class="container">
             <z-button icon="gear"> Impostazioni </z-button>
           </div>
         </z-popover>
         <z-icon
-          id="icon"
+          id="trigger"
           name="plus-square-filled"
         ></z-icon>
       </div>
       <script>
-        document.querySelector("#icon").addEventListener("click", () => {
+        document.querySelector("#trigger").addEventListener("click", () => {
           if (document.querySelector("z-popover").open) {
             document.querySelector("z-popover").open = false;
           } else {
