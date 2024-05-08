@@ -177,8 +177,10 @@
 
 | Event         | Description                                                                         | Type               |
 | ------------- | ----------------------------------------------------------------------------------- | ------------------ |
+| `inputBlur`   | Emitted on input blur                                                               | `CustomEvent<any>` |
 | `inputChange` | Emitted on input value change, returns value, validity                              | `CustomEvent<any>` |
 | `inputCheck`  | Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity | `CustomEvent<any>` |
+| `inputFocus`  | Emitted on input focus                                                              | `CustomEvent<any>` |
 | `startTyping` | Emitted when user starts typing                                                     | `CustomEvent<any>` |
 | `stopTyping`  | Emitted when user stops typing, returns value, validity                             | `CustomEvent<any>` |
 

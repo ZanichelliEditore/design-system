@@ -938,6 +938,10 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * set tabindex to Host tag (optional). Defaults to 0.
+         */
+        "htmlTabindex"?: number | null;
+        /**
           * [optional] List element id.
          */
         "listElementId"?: number;
@@ -2547,6 +2551,8 @@ declare global {
         "startTyping": any;
         "stopTyping": any;
         "inputCheck": any;
+        "inputFocus": any;
+        "inputBlur": any;
     }
     interface HTMLZInputElement extends Components.ZInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZInputElementEventMap>(type: K, listener: (this: HTMLZInputElement, ev: ZInputCustomEvent<HTMLZInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4171,6 +4177,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Emitted on input blur
+         */
+        "onInputBlur"?: (event: ZInputCustomEvent<any>) => void;
+        /**
           * Emitted on input value change, returns value, validity
          */
         "onInputChange"?: (event: ZInputCustomEvent<any>) => void;
@@ -4178,6 +4188,10 @@ declare namespace LocalJSX {
           * Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity
          */
         "onInputCheck"?: (event: ZInputCustomEvent<any>) => void;
+        /**
+          * Emitted on input focus
+         */
+        "onInputFocus"?: (event: ZInputCustomEvent<any>) => void;
         /**
           * Emitted when user starts typing
          */
@@ -4345,6 +4359,10 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * set tabindex to Host tag (optional). Defaults to 0.
+         */
+        "htmlTabindex"?: number | null;
         /**
           * [optional] List element id.
          */
