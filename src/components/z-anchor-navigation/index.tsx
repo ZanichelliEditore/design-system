@@ -39,14 +39,14 @@ export class ZAnchorNavigation {
   private nav: HTMLElement;
 
   /**
-   * Set aria-current attribute to the anchors and `current` to nav children.
+   * Set aria-current attribute to the anchors.
    */
   private setAriaCurrent(): void {
     Array.from(this.nav.children).forEach((item) => {
       const anchor = item instanceof HTMLAnchorElement ? item : item.querySelector("a");
       const isCurrent = window.location.href === anchor.href;
       anchor.setAttribute("aria-current", isCurrent.toString());
-      item.toggleAttribute("current", isCurrent);
+      item.toggleAttribute("data-current", isCurrent);
     });
   }
 
