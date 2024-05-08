@@ -833,59 +833,6 @@ export namespace Components {
          */
         "status"?: InputStatus;
     }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link icon position (optional)
-         */
-        "iconposition"?: "left" | "right";
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: "primary" | "inverse" | "white" | "black";
-        /**
-          * draw underline on text (optional)
-         */
-        "underline"?: boolean;
-    }
     interface ZList {
         /**
           * [optional] type of the list marker for each element
@@ -2045,10 +1992,6 @@ export interface ZInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInputElement;
 }
-export interface ZLinkCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZLinkElement;
-}
 export interface ZListElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZListElementElement;
@@ -2573,26 +2516,6 @@ declare global {
     var HTMLZInputMessageElement: {
         prototype: HTMLZInputMessageElement;
         new (): HTMLZInputMessageElement;
-    };
-    interface HTMLZLinkElementEventMap {
-        "zLinkClick": any;
-    }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZLinkElement: {
-        prototype: HTMLZLinkElement;
-        new (): HTMLZLinkElement;
     };
     interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
     }
@@ -3308,7 +3231,6 @@ declare global {
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
         "z-input-message": HTMLZInputMessageElement;
-        "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
         "z-list-group": HTMLZListGroupElement;
@@ -4250,63 +4172,6 @@ declare namespace LocalJSX {
           * input status (optional)
          */
         "status"?: InputStatus;
-    }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link icon position (optional)
-         */
-        "iconposition"?: "left" | "right";
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * emitted on link click, returns linkId
-         */
-        "onZLinkClick"?: (event: ZLinkCustomEvent<any>) => void;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: "primary" | "inverse" | "white" | "black";
-        /**
-          * draw underline on text (optional)
-         */
-        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -5561,7 +5426,6 @@ declare namespace LocalJSX {
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
         "z-input-message": ZInputMessage;
-        "z-link": ZLink;
         "z-list": ZList;
         "z-list-element": ZListElement;
         "z-list-group": ZListGroup;
@@ -5757,10 +5621,6 @@ declare module "@stencil/core" {
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
-            /**
-             * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-             */
-            "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
             "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
