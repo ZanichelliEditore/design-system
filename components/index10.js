@@ -15,6 +15,8 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
         this.startTyping = createEvent(this, "startTyping", 7);
         this.stopTyping = createEvent(this, "stopTyping", 7);
         this.inputCheck = createEvent(this, "inputCheck", 7);
+        this.inputFocus = createEvent(this, "inputFocus", 7);
+        this.inputBlur = createEvent(this, "inputBlur", 7);
         this.typingtimeout = 300;
         this.htmlid = `id-${randomId()}`;
         this.type = undefined;
@@ -109,6 +111,12 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
             validity: this.getValidity("input"),
         });
     }
+    emitInputFocus() {
+        this.inputFocus.emit({ id: this.htmlid });
+    }
+    emitInputBlur() {
+        this.inputBlur.emit({ id: this.htmlid });
+    }
     getValidity(type) {
         const input = this.hostElement.querySelector(type);
         return input.validity;
@@ -167,9 +175,15 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
         const activedescendant = this.ariaActivedescendant ? { "aria-activedescendant": this.ariaActivedescendant } : {};
         return Object.assign(Object.assign(Object.assign(Object.assign({}, expanded), controls), autocomplete), activedescendant);
     }
+    getFocusBlurAttributes() {
+        return {
+            onFocus: () => this.emitInputFocus(),
+            onBlur: () => this.emitInputBlur(),
+        };
+    }
     renderInputText(type = InputType.TEXT) {
         const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-        const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes());
+        const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes()), this.getFocusBlurAttributes());
         if (this.icon || type === InputType.PASSWORD) {
             Object.assign(attr.class, { "has-icon": true });
         }
@@ -229,7 +243,7 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
     }
     /* START checkbox */
     renderCheckbox() {
-        return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
+        return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute(), this.getFocusBlurAttributes())), h("label", { htmlFor: this.htmlid, class: {
                 "checkbox-label": true,
                 "after": this.labelPosition === LabelPosition.RIGHT,
                 "before": this.labelPosition === LabelPosition.LEFT,
@@ -238,7 +252,7 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
     /* END checkbox */
     /* START radio */
     renderRadio() {
-        return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
+        return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute(), this.getFocusBlurAttributes())), h("label", { htmlFor: this.htmlid, class: {
                 "radio-label": true,
                 "after": this.labelPosition === LabelPosition.RIGHT,
                 "before": this.labelPosition === LabelPosition.LEFT,
@@ -260,7 +274,7 @@ const ZInput = /*@__PURE__*/ proxyCustomElement(class ZInput extends HTMLElement
             default:
                 input = this.renderInputText(this.type);
         }
-        return h(Host, { key: '67a39cc20219fa02de2cca264a5d51428f4359f3' }, input);
+        return h(Host, { key: '1a0cb1ef6eb16091c75e87f9761d1eee55a3d3f0' }, input);
     }
     get hostElement() { return this; }
     static get style() { return ZInputStyle0; }

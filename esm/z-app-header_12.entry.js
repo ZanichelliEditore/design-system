@@ -199,7 +199,7 @@ const ZDivider = class {
         this.orientation = DividerOrientation.HORIZONTAL;
     }
     render() {
-        return (h(Host, { key: '2dd73f0950f7c3f83fb650b12d92631fa353c67f', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
+        return (h(Host, { key: '2f058ffac1fd07ea8bd499de4749a4fd1f766414', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
     }
 };
 ZDivider.style = ZDividerStyle0;
@@ -1107,6 +1107,8 @@ const ZInput = class {
         this.startTyping = createEvent(this, "startTyping", 7);
         this.stopTyping = createEvent(this, "stopTyping", 7);
         this.inputCheck = createEvent(this, "inputCheck", 7);
+        this.inputFocus = createEvent(this, "inputFocus", 7);
+        this.inputBlur = createEvent(this, "inputBlur", 7);
         this.typingtimeout = 300;
         this.htmlid = `id-${randomId()}`;
         this.type = undefined;
@@ -1201,6 +1203,12 @@ const ZInput = class {
             validity: this.getValidity("input"),
         });
     }
+    emitInputFocus() {
+        this.inputFocus.emit({ id: this.htmlid });
+    }
+    emitInputBlur() {
+        this.inputBlur.emit({ id: this.htmlid });
+    }
     getValidity(type) {
         const input = this.hostElement.querySelector(type);
         return input.validity;
@@ -1259,9 +1267,15 @@ const ZInput = class {
         const activedescendant = this.ariaActivedescendant ? { "aria-activedescendant": this.ariaActivedescendant } : {};
         return Object.assign(Object.assign(Object.assign(Object.assign({}, expanded), controls), autocomplete), activedescendant);
     }
+    getFocusBlurAttributes() {
+        return {
+            onFocus: () => this.emitInputFocus(),
+            onBlur: () => this.emitInputBlur(),
+        };
+    }
     renderInputText(type = InputType.TEXT) {
         const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
-        const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes());
+        const attr = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, this.getTextAttributes()), this.getNumberAttributes(type)), this.getPatternAttribute(type)), ariaLabel), this.getRoleAttribute()), this.getAriaAttrubutes()), this.getFocusBlurAttributes());
         if (this.icon || type === InputType.PASSWORD) {
             Object.assign(attr.class, { "has-icon": true });
         }
@@ -1321,7 +1335,7 @@ const ZInput = class {
     }
     /* START checkbox */
     renderCheckbox() {
-        return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
+        return (h("div", { class: "checkbox-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "checkbox", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, required: this.required, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute(), this.getFocusBlurAttributes())), h("label", { htmlFor: this.htmlid, class: {
                 "checkbox-label": true,
                 "after": this.labelPosition === LabelPosition.RIGHT,
                 "before": this.labelPosition === LabelPosition.LEFT,
@@ -1330,7 +1344,7 @@ const ZInput = class {
     /* END checkbox */
     /* START radio */
     renderRadio() {
-        return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute())), h("label", { htmlFor: this.htmlid, class: {
+        return (h("div", { class: "radio-wrapper" }, h("input", Object.assign({ id: this.htmlid, type: "radio", name: this.name, checked: this.checked, disabled: this.disabled, readonly: this.readonly, onChange: this.handleCheck.bind(this), value: this.value }, this.getRoleAttribute(), this.getFocusBlurAttributes())), h("label", { htmlFor: this.htmlid, class: {
                 "radio-label": true,
                 "after": this.labelPosition === LabelPosition.RIGHT,
                 "before": this.labelPosition === LabelPosition.LEFT,
@@ -1352,7 +1366,7 @@ const ZInput = class {
             default:
                 input = this.renderInputText(this.type);
         }
-        return h(Host, { key: '67a39cc20219fa02de2cca264a5d51428f4359f3' }, input);
+        return h(Host, { key: '1a0cb1ef6eb16091c75e87f9761d1eee55a3d3f0' }, input);
     }
     get hostElement() { return getElement(this); }
 };
@@ -1459,6 +1473,7 @@ const ZListElement = class {
         this.listElementPosition = "0";
         this.listType = ListType.NONE;
         this.role = "listitem";
+        this.htmlTabindex = 0;
         this.showInnerContent = false;
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -1536,7 +1551,7 @@ const ZListElement = class {
         }
     }
     render() {
-        return (h(Host, { key: 'b0dc00b8abad630739f30361dcb1abad5fa379e0', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: "0" }, h("div", { key: '81f742ce528b757fb67feefc231ce78e7e76ba87', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: 'c2230431473ea5e8292b26c280c71a86d795a1de', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (h(Host, { key: 'fb33c5abf92ac7e89faea59b46358c847fd7efab', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, h("div", { key: '0bd49dca96fcb7ddfb8201ea0f3b6501b633bbbb', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '5a548758092f2062823021a2c0ddd097f0296646', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
     }
     get host() { return getElement(this); }
 };
@@ -1607,7 +1622,7 @@ const ZOffcanvas = class {
         this.open = false;
     }
     render() {
-        return (h(Host, { key: '60946289b968d1faf19d7f2620a848a4c5fe049b', class: { "skip-animation": this.skipLoadAnimation } }, h("div", { key: 'b29107d6cfc579c79bef11aa8ae35b6cb7b2d319', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { key: '6fdb6a4048b7f25b81fed9adb148e1afc1f2838c', role: "presentation", class: "canvas-content" }, h("slot", { key: '51ffe7fbc7bda15cf4ee2dd92d6cf87984a7ee96', name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
+        return (h(Host, { key: 'dbe2cd2f56dba42df914c0d6643b62ba3543a2cb', class: { "skip-animation": this.skipLoadAnimation } }, h("div", { key: 'ed825afb1152d0e56ebfefd804f473d1e7680cb9', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { key: '368c7d337aedeed1d464031dc55c33778dee6354', role: "presentation", class: "canvas-content" }, h("slot", { key: '507daf4b8fd961b0e0c81627e42a4fd605eab4c0', name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
     }
     static get watchers() { return {
         "open": ["onOpenChanged"]
@@ -1861,10 +1876,10 @@ const ZTag = class {
         this.expandable = undefined;
     }
     render() {
-        return (h(Host, { key: 'fa2bfa00bef52495bef1e2271ffa20c09a60380a', class: {
+        return (h(Host, { key: '1c3bc302ffa93e3950f50aa33560e3f6dbe3f003', class: {
                 "body-5-sb": true,
                 "expandable": this.expandable && !!this.icon,
-            } }, this.icon && h("z-icon", { name: this.icon }), h("div", { key: '37bbe9678c9a2022a6fe260753b7955fdb9a76d1' }, h("slot", { key: 'f9f7a5f44c6b89d90b4b252fd990889751e955c8' }))));
+            } }, this.icon && h("z-icon", { name: this.icon }), h("div", { key: '73bf2526e308bd86ce198807bfc8c77c7f917a37' }, h("slot", { key: '31d6b94d10752d3c3bea0ec36ecb897af3db28f7' }))));
     }
 };
 ZTag.style = ZTagStyle0;

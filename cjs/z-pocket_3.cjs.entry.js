@@ -64,7 +64,7 @@ const ZPocket = class {
         }
     }
     render() {
-        return (index.h("div", { key: '97d80e0b2cb56a932f35aa104256bf763f1eee7c' }, index.h("div", { key: '9e8f3eacd18892d80cc1a5c314c861ef18178daa', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), index.h("div", { key: 'ee7d44929e94ebe8f2c128a74e0b8250819df04b', id: this.pocketid, class: "content-wrapper" }, index.h("div", { key: '57a77810690ce70ed3c7fac92cc4fa7e5158f17d' }, index.h("slot", { key: '9f1c1757f0bc2ff2db326ac9158d80f33802970f' })))));
+        return (index.h("div", { key: 'ad25460e1d77b82434d7237fc8bf70bdaccd1037' }, index.h("div", { key: '66003489b14556acf7ea4345dfd942cb244abfad', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), index.h("div", { key: '69e23ca317f9aa2d68e00213af6d4aba2d01a5f9', id: this.pocketid, class: "content-wrapper" }, index.h("div", { key: '1d02d4b55e0853375c3770bd0f038e38922ce3f4' }, index.h("slot", { key: 'a4a0ebc7522d5f242263ac87b8b61191dd98d2b7' })))));
     }
     get hostElement() { return index.getElement(this); }
     static get watchers() { return {
@@ -88,7 +88,7 @@ const ZPocketBody = class {
         }
     }
     render() {
-        return (index.h("main", { key: 'cd660568916f4384dc815a3c0067a579c217fa33', class: this.status }, index.h("slot", { key: '3dd94db83f10a36a3656914a90ca571bd088fc6d' })));
+        return (index.h("main", { key: 'f017441cd9ae7d12e0bea9ee61f6ebae5809ade7', class: this.status }, index.h("slot", { key: '02d262a95a8d41b1e303ac9d0efbd4218e8b28c9' })));
     }
 };
 ZPocketBody.style = ZPocketBodyStyle0;
@@ -118,7 +118,7 @@ const ZPocketHeader = class {
         mc.on("pandown", () => this.emitPocketHeaderPan("down"));
     }
     render() {
-        return (index.h("header", { key: '4f1f69686926f9b45d72800e711ae8437a3ca2f5', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, index.h("slot", { key: 'cfdaf2acf381639e86ea15349a83834c311fda71' })));
+        return (index.h("header", { key: 'f14fbd3ff1d6757a840175eb9f17e71e40d7c507', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => utils.handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, index.h("slot", { key: 'f6087dbe044ca3f0d2777194a73e60c4d5306c3c' })));
     }
 };
 ZPocketHeader.style = ZPocketHeaderStyle0;

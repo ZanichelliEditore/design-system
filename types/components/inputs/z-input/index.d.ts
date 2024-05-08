@@ -82,12 +82,19 @@ export declare class ZInput {
     /** Emitted on checkbox check/uncheck, returns id, checked, type, name, value, validity */
     inputCheck: EventEmitter;
     private emitInputCheck;
+    /** Emitted on input focus */
+    inputFocus: EventEmitter;
+    private emitInputFocus;
+    /** Emitted on input blur */
+    inputBlur: EventEmitter;
+    private emitInputBlur;
     private getValidity;
     private getTextAttributes;
     private getNumberAttributes;
     private getPatternAttribute;
     private getRoleAttribute;
     private getAriaAttrubutes;
+    private getFocusBlurAttributes;
     private renderInputText;
     private renderLabel;
     private renderIcons;

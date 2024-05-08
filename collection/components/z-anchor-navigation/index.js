@@ -21,14 +21,14 @@ export class ZAnchorNavigation {
         this.collapsed = false;
     }
     /**
-     * Set aria-current attribute to the anchors and `current` to nav children.
+     * Set aria-current attribute to the anchors.
      */
     setAriaCurrent() {
         Array.from(this.nav.children).forEach((item) => {
             const anchor = item instanceof HTMLAnchorElement ? item : item.querySelector("a");
             const isCurrent = window.location.href === anchor.href;
             anchor.setAttribute("aria-current", isCurrent.toString());
-            item.toggleAttribute("current", isCurrent);
+            item.toggleAttribute("data-current", isCurrent);
         });
     }
     /**
@@ -45,7 +45,7 @@ export class ZAnchorNavigation {
         window.removeEventListener("hashchange", this.setAriaCurrent);
     }
     render() {
-        return (h(Host, { key: '2f19d516f4b99e0f76268f025227f94d302273ea', collapsed: this.collapsed }, h("z-button", { key: '822dca30f3ea2176f463b35a167fcc4714feeb7f', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: '218bf9aeb919037ad4725a9593ded46302b9e42a', ref: (el) => (this.nav = el) }, h("slot", { key: '0dfb9d2e7642d86b5c3e7da97be6ec04d05db70f' }))));
+        return (h(Host, { key: '7dbd18145c5e8f799ae5dca19f1f1f4eaa8690b3', collapsed: this.collapsed }, h("z-button", { key: '5c36d79b8284d4f0aef21c659947fa5042a784c1', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: '26c60ec5a4110f25a9dc9f3e34f1338c170f07b2', ref: (el) => (this.nav = el) }, h("slot", { key: '06320c9dd7b84048b5008cd6d3163df0455dd83d' }))));
     }
     static get is() { return "z-anchor-navigation"; }
     static get originalStyleUrls() {

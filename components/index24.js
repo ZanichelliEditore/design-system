@@ -29,7 +29,7 @@ const ZPocketHeader = /*@__PURE__*/ proxyCustomElement(class ZPocketHeader exten
         mc.on("pandown", () => this.emitPocketHeaderPan("down"));
     }
     render() {
-        return (h("header", { key: '4f1f69686926f9b45d72800e711ae8437a3ca2f5', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: 'cfdaf2acf381639e86ea15349a83834c311fda71' })));
+        return (h("header", { key: 'f14fbd3ff1d6757a840175eb9f17e71e40d7c507', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: 'f6087dbe044ca3f0d2777194a73e60c4d5306c3c' })));
     }
     static get style() { return ZPocketHeaderStyle0; }
 }, [1, "z-pocket-header", {

@@ -35,6 +35,7 @@ export class ZListElement {
         this.listElementPosition = "0";
         this.listType = ListType.NONE;
         this.role = "listitem";
+        this.htmlTabindex = 0;
         this.showInnerContent = false;
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -114,7 +115,7 @@ export class ZListElement {
         }
     }
     render() {
-        return (h(Host, { key: 'b0dc00b8abad630739f30361dcb1abad5fa379e0', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: "0" }, h("div", { key: '81f742ce528b757fb67feefc231ce78e7e76ba87', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: 'c2230431473ea5e8292b26c280c71a86d795a1de', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (h(Host, { key: 'fb33c5abf92ac7e89faea59b46358c847fd7efab', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, h("div", { key: '0bd49dca96fcb7ddfb8201ea0f3b6501b633bbbb', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '5a548758092f2062823021a2c0ddd097f0296646', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
     }
     static get is() { return "z-list-element"; }
     static get encapsulation() { return "shadow"; }
@@ -416,6 +417,24 @@ export class ZListElement {
                 "attribute": "role",
                 "reflect": true,
                 "defaultValue": "\"listitem\""
+            },
+            "htmlTabindex": {
+                "type": "number",
+                "mutable": false,
+                "complexType": {
+                    "original": "number | null",
+                    "resolved": "number",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "set tabindex to Host tag (optional). Defaults to 0."
+                },
+                "attribute": "html-tabindex",
+                "reflect": false,
+                "defaultValue": "0"
             }
         };
     }

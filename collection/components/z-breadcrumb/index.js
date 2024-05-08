@@ -26,7 +26,7 @@ export class ZBreadcrumb {
     }
     // eslint-disable-next-line lines-between-class-members
     handlePropChange() {
-        this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+        this.initializeBreadcrumb();
     }
     handleResizeUp(newValue, oldValue) {
         if (newValue === Device.MOBILE ||
@@ -36,12 +36,12 @@ export class ZBreadcrumb {
             (oldValue === Device.TABLET && newValue === Device.DESKTOP) ||
             (oldValue === Device.TABLET && newValue === Device.DESKTOP_WIDE) ||
             (oldValue === Device.DESKTOP && newValue === Device.DESKTOP_WIDE)) {
-            this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+            this.initializeBreadcrumb();
         }
     }
     componentWillLoad() {
         this.viewPortWidth = getDevice();
-        this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+        this.initializeBreadcrumb();
     }
     componentWillRender() {
         if (this.viewPortWidth !== Device.MOBILE && this.hasOverflow) {
@@ -57,61 +57,52 @@ export class ZBreadcrumb {
             this.hasOverflow = true;
         }
     }
-    initializeBreadcrumb(isMobile) {
-        if (isMobile) {
+    initializeBreadcrumb() {
+        if (this.viewPortWidth === Device.MOBILE) {
             this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
         }
         else {
             this.pathsList = this.getPathsItemsList();
         }
-        this.totalLenght = this.pathsList.length;
         this.homepageNode = this.pathsList.shift();
-        this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
+        this.pathListCopy = [...this.pathsList];
         this.collapsedElements = [];
-        if (this.totalLenght > this.maxNodesToShow) {
+        if (this.pathsList.length > this.maxNodesToShow) {
             this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
         }
     }
     checkEllipsisOrOverflowMenu() {
-        if (this.pathListCopy.length > 0) {
-            for (let i = 0; i < this.pathsList.length; i++) {
-                if (this.pathsList[i].text.length > this.truncateChar) {
-                    if (this.truncatePosition !== null) {
-                        if (this.truncatePosition > 0) {
-                            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
-                            arrayToPush.forEach((item) => {
-                                this.collapsedElements.push(item);
-                            });
-                            this.pathsList.splice(0, this.truncatePosition);
-                            this.truncatePosition = 0;
-                            return;
-                        }
-                        if (this.truncatePosition === 0) {
-                            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
-                            this.collapsedElements.push(...arrayToPush);
-                            this.pathsList.splice(0, this.truncatePosition + 1);
-                            this.truncatePosition = null;
-                            return;
-                        }
-                    }
-                    if (i !== this.pathsList.length - 1) {
-                        const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
-                        this.currentEllipsisText = this.pathsList[i].text;
-                        this.pathsList[i].text = truncatedString;
-                        this.pathsList[i].hasTooltip = true;
-                        this.truncatePosition = i;
-                        return;
-                    }
-                }
+        for (let i = 0; i < this.pathsList.length; i++) {
+            if (this.pathsList[i].text.length <= this.truncateChar) {
+                continue;
+            }
+            if (this.truncatePosition > 0) {
+                this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition));
+                this.pathsList.splice(0, this.truncatePosition);
+                this.truncatePosition = 0;
+                return;
+            }
+            else if (this.truncatePosition === 0) {
+                this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition + 1));
+                this.pathsList.splice(0, this.truncatePosition + 1);
+                this.truncatePosition = null;
+                return;
+            }
+            if (i !== this.pathsList.length - 1) {
+                const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
+                this.currentEllipsisText = this.pathsList[i].text;
+                this.pathsList[i].text = truncatedString;
+                this.pathsList[i].hasTooltip = true;
+                this.truncatePosition = i;
+                return;
             }
         }
     }
-    truncateWithEllipsis(str, length) {
-        const ending = "&mldr;";
-        if (str.length > length) {
-            return str.substring(0, length - 1) + ending;
+    truncateWithEllipsis(str, maxLength) {
+        if (str.length <= maxLength) {
+            return str;
         }
-        return str;
+        return str.substring(0, maxLength - 1) + "&mldr;";
     }
     getPathsItemsList() {
         return Array.from(this.hostElement.children).map((item) => {
@@ -122,38 +113,12 @@ export class ZBreadcrumb {
             };
         });
     }
-    renderMobileBreadcrumb() {
-        const lastPath = this.pathsList[this.pathsList.length - 1];
-        return (h("nav", { "aria-label": "Breadcrumb", class: {
-                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-            } }, h("ol", null, this.renderNode(lastPath, true))));
-    }
-    renderHomepageNode(item) {
+    renderHomepageNode() {
         return (h("li", null, h("a", { class: {
-                "homepage-icon": this.homepageVariant === BreadcrumbHomepageVariant.ICON,
                 "homepage-text": this.homepageVariant === BreadcrumbHomepageVariant.TEXT,
-            }, href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item) }, this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (h("z-icon", { name: "home", fill: "color-link-primary", height: 16, width: 16 })) : ("Home"))));
-    }
-    renderNode(item, mobile) {
-        return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
-                "missing-path": !item.path,
-                "text-ellipsis": mobile,
-            }, ref: (val) => (this.triggerEllipsis = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
-                if (item.hasTooltip) {
-                    this.popoverEllipsisOpen = true;
-                }
-            }, onMouseLeave: () => {
-                if (item.hasTooltip) {
-                    this.popoverEllipsisOpen = false;
-                }
-            }, innerHTML: mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon>${item.text}` : item.text })));
-    }
-    renderBreadcrumb() {
-        return (h("nav", { ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
-                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-            } }, h("ol", null, this.renderHomepageNode(this.homepageNode), this.collapsedElements.length ? this.renderOverflowMenu() : "", this.pathsList.map((item) => this.renderNode(item, false)))));
+            }, href: this.homepageNode.path, onClick: (e) => this.handlePreventFollowUrl(e, this.homepageNode), innerHTML: this.homepageVariant === BreadcrumbHomepageVariant.ICON
+                ? `<z-icon name="home" />`
+                : this.homepageNode.text || "Home" }), this.pathsList.length > 0 && (h("z-icon", { class: "separator", name: "chevron-right" }))));
     }
     togglePopover() {
         if (!this.collapsedElementsRef.open) {
@@ -189,21 +154,49 @@ export class ZBreadcrumb {
         }
     }
     renderOverflowMenu() {
-        if (this.collapsedElements.length) {
-            return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
-                return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
-            }))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
-                    this.togglePopover();
-                }, onKeyDown: (e) => {
-                    handleKeyboardSubmit(e, this.togglePopover.bind(this));
-                    setTimeout(() => {
-                        this.anchorElements[0].focus();
-                    }, 100);
-                } }, "...")));
+        return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), bindTo: this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
+            return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e), innerHTML: item.text })), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
+        }))))), h("button", { class: "dots", ref: (el) => (this.triggerButton = el), "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", onClick: () => {
+                this.togglePopover();
+            }, onKeyDown: (e) => {
+                handleKeyboardSubmit(e, this.togglePopover.bind(this));
+                setTimeout(() => {
+                    this.anchorElements[0].focus();
+                }, 100);
+            }, innerHTML: "&mldr;" }), this.pathsList.length > 0 && (h("z-icon", { class: "separator", name: "chevron-right" }))));
+    }
+    renderMobileItems() {
+        // show only the second to last element
+        const secondToLastPath = this.pathsList[this.pathsList.length - 1];
+        if (!secondToLastPath) {
+            return;
         }
+        return (h("li", null, h("a", { "aria-current": secondToLastPath.path ? undefined : "page", href: secondToLastPath.path, onClick: (e) => this.handlePreventFollowUrl(e, secondToLastPath) }, h("z-icon", { name: "chevron-left" }), h("span", { class: {
+                "missing-path": !secondToLastPath.path,
+                "text-ellipsis": true,
+            } }, secondToLastPath.text))));
+    }
+    renderItems() {
+        let trigger;
+        return [
+            this.renderHomepageNode(),
+            this.collapsedElements.length > 0 && this.renderOverflowMenu(),
+            ...this.pathsList.map((item, index) => (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", bindTo: trigger, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: { "missing-path": !item.path }, ref: (val) => (trigger = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
+                    if (item.hasTooltip) {
+                        this.popoverEllipsisOpen = true;
+                    }
+                }, onMouseLeave: () => {
+                    if (item.hasTooltip) {
+                        this.popoverEllipsisOpen = false;
+                    }
+                }, innerHTML: item.text }), index !== this.pathsList.length - 1 && (h("z-icon", { class: "separator", name: "chevron-right" }))))),
+        ];
     }
     render() {
-        return (h(Host, { key: '0fdd2556f767ddc969bb26ad157149092c28976f', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
+        return (h(Host, { key: 'b5f0321b29ae51fac8fba3cc0302beff908cd56e', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '32d4c57f93c3fd943cb6f6b72b9f9c004003d470', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
+                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
+            } }, h("ol", { key: '725c96157a94749d8e55e321dd1708132479b74a' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     static get is() { return "z-breadcrumb"; }
     static get encapsulation() { return "shadow"; }

@@ -18,7 +18,7 @@ const ZPocketBody = /*@__PURE__*/ proxyCustomElement(class ZPocketBody extends H
         }
     }
     render() {
-        return (h("main", { key: 'cd660568916f4384dc815a3c0067a579c217fa33', class: this.status }, h("slot", { key: '3dd94db83f10a36a3656914a90ca571bd088fc6d' })));
+        return (h("main", { key: 'f017441cd9ae7d12e0bea9ee61f6ebae5809ade7', class: this.status }, h("slot", { key: '02d262a95a8d41b1e303ac9d0efbd4218e8b28c9' })));
     }
     static get style() { return ZPocketBodyStyle0; }
 }, [1, "z-pocket-body", {

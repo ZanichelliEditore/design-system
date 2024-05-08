@@ -26,7 +26,7 @@ export declare class ZAnchorNavigation {
     /** Reference to the nav element. */
     private nav;
     /**
-     * Set aria-current attribute to the anchors and `current` to nav children.
+     * Set aria-current attribute to the anchors.
      */
     private setAriaCurrent;
     /**

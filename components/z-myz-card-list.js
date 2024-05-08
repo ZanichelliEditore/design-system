@@ -30,7 +30,7 @@ const ZMyzCardList$1 = /*@__PURE__*/ proxyCustomElement(class ZMyzCardList exten
         });
     }
     render() {
-        return h("ul", { key: '1ab3695f896cb1c963751a88e9513b90678aea47' }, this.renderList(JSON.parse(this.listdata)));
+        return h("ul", { key: '250f4b81e12dff09558a14b130f8b6a0226c0384' }, this.renderList(JSON.parse(this.listdata)));
     }
     static get style() { return ZMyzCardListStyle0; }
 }, [1, "z-myz-card-list", {

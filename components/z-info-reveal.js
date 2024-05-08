@@ -50,7 +50,7 @@ const ZInfoReveal$1 = /*@__PURE__*/ proxyCustomElement(class ZInfoReveal extends
         }
     }
     render() {
-        return (h(Host, { key: '51bcd6c5884e26ac25f2cf5b46d579e70c4a0562', open: this.open }, h("button", { key: '7d8754375d54f85145cb193845dd823f931c321e', class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && h("span", { class: "z-info-reveal-label" }, this.label), h("z-icon", { key: '3bd934391dc01c04380db1a77107558e95661e6c', name: this.icon })), this.open && (h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, h("slot", null), h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, h("z-icon", { name: "close" }))))));
+        return (h(Host, { key: '1cc6cbacd33676a39d804037c786a37fd7aa9864', open: this.open }, h("button", { key: '5ad8966b67c365f654c0ddb50e879a0859a9e785', class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && h("span", { class: "z-info-reveal-label" }, this.label), h("z-icon", { key: '5314f51f922a64ee58162687bab764835401d6a2', name: this.icon })), this.open && (h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, h("slot", null), h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, h("z-icon", { name: "close" }))))));
     }
     get el() { return this; }
     static get watchers() { return {

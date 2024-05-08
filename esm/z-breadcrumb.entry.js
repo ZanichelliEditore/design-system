@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, a as Host, g as getElement } from './index-f16bc2ca.js';
-import { V as BreadcrumbPathStyle, W as BreadcrumbHomepageVariant, p as Device, P as PopoverPosition, g as KeyboardCode, i as ListSize } from './index-2255c6c8.js';
+import { V as BreadcrumbPathStyle, W as BreadcrumbHomepageVariant, p as Device, g as KeyboardCode, P as PopoverPosition, i as ListSize } from './index-2255c6c8.js';
 import { g as getDevice, a as handleKeyboardSubmit } from './utils-7983d02c.js';
 import './breakpoints-680e0e56.js';
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--line-clamp-popover:0;--line-clamp-mobile:1}button{padding:0;border:none;margin:0;background-color:transparent}nav{display:flex;height:30px;align-items:center;padding-left:calc(var(--space-unit) / 2);overflow-x:hidden}li{display:flex;align-items:baseline}:host a:focus,:host button:focus{box-shadow:var(--shadow-focus-primary);outline:0}:host a{color:var(--color-link-primary);font-size:var(--font-size-2);text-decoration:none;white-space:nowrap}:host a.homepage-icon{display:list-item}:host a.homepage-text{display:initial;margin-top:calc(var(--space-unit) / 4);margin-right:var(--space-unit)}:host a.missing-path{color:var(--color-text01)}:host a.text-ellipsis{display:-webkit-box !important;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);text-overflow:ellipsis;white-space:normal}:host ol{display:flex;padding:0;margin:0;list-style-type:none}:host ol>li:not(:first-child,:last-child){margin-right:var(--space-unit)}nav.underlined>ol>li a:not(.missing-path),nav.underlined>ol>li button{text-decoration:underline}nav.semibold>ol>li a:not(.missing-path),nav.semibold>ol>li button{font-weight:var(--font-sb)}:host z-icon{margin-right:var(--space-unit);--z-icon-width:12px;--z-icon-height:12px}:host button.dots{display:inline-block;color:var(--color-link-primary);cursor:pointer}:host .hidden-paths-popover .popover-content{max-width:302px;padding:calc(var(--space-unit) / 2) var(--space-unit);text-align:left}:host .hidden-paths-popover .popover-content a{font-weight:var(--font-rg);text-decoration:none}:host .hidden-paths-popover{--z-popover-theme--surface:var(--color-surface02);--z-popover-padding:0}:host .hidden-paths-popover::before,.full-path-tooltip::before{--arrow-edge-offset:calc(100% - (var(--space-unit) * 2.55))}:host .full-path-tooltip{--z-popover-theme--surface:var(--color-surface05);--z-popover-theme--text:var(--color-text-inverse);--z-popover-padding:0}:host .tooltip-content{padding:0 var(--space-unit);font-size:var(--font-size-2)}@media (min-width: 768px){:host ol>li+li::before{display:inline-block;width:10px;height:10px;flex:1;margin-right:2px;color:var(--color-disabled03);content:\"\\203A\"}:host a.text-ellipsis{-webkit-line-clamp:var(--line-clamp-popover)}}";
+const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg);--line-clamp-popover:0;--line-clamp-mobile:1}*{box-sizing:border-box}button{padding:0;border:none;margin:0;background-color:transparent}nav{display:flex;align-items:center}ol{display:flex;align-items:center;padding:0;margin:0;column-gap:var(--space-unit);list-style:none}li{display:flex;align-items:center;justify-content:flex-start;column-gap:var(--space-unit)}ol li>a,ol li>button{font-size:var(--font-size-2);letter-spacing:0.16px;line-height:1.4}a:focus,button:focus{box-shadow:var(--shadow-focus-primary);outline:none}a{color:var(--color-link-primary);white-space:nowrap}a.missing-path{color:var(--color-text01)}.text-ellipsis{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);text-overflow:ellipsis;white-space:initial}nav.semibold>ol>li>a:not(.missing-path),nav.semibold>ol>li>button{font-weight:var(--font-sb);text-decoration:none}nav.underlined a,nav.underlined button{text-decoration:underline}z-icon{--z-icon-width:16px;--z-icon-height:16px;display:block;fill:var(--color-link-primary)}z-icon.separator{--z-icon-width:10px;--z-icon-height:10px;fill:var(--gray500)}button.dots{display:inline-block;color:var(--color-link-primary);cursor:pointer}.hidden-paths-popover .popover-content{max-width:302px;padding:calc(var(--space-unit) / 2) var(--space-unit);text-align:left}.hidden-paths-popover .popover-content a{font-weight:var(--font-rg);text-decoration:none}.hidden-paths-popover{--z-popover-theme--surface:var(--color-surface02);--z-popover-padding:0}.hidden-paths-popover::before,.full-path-tooltip::before{--arrow-edge-offset:calc(100% - (var(--space-unit) * 2.55))}.full-path-tooltip{--z-popover-theme--surface:var(--color-surface05);--z-popover-theme--text:var(--color-text-inverse);--z-popover-padding:0}.tooltip-content{padding:0 var(--space-unit);font-size:var(--font-size-2)}@media (min-width: 768px){.text-ellipsis{-webkit-line-clamp:var(--line-clamp-popover)}}@media (max-width: 767px){li a{display:flex;align-items:center;column-gap:var(--space-unit)}}";
 const ZBreadcrumbStyle0 = stylesCss;
 
 const ZBreadcrumb = class {
@@ -33,7 +33,7 @@ const ZBreadcrumb = class {
     }
     // eslint-disable-next-line lines-between-class-members
     handlePropChange() {
-        this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+        this.initializeBreadcrumb();
     }
     handleResizeUp(newValue, oldValue) {
         if (newValue === Device.MOBILE ||
@@ -43,12 +43,12 @@ const ZBreadcrumb = class {
             (oldValue === Device.TABLET && newValue === Device.DESKTOP) ||
             (oldValue === Device.TABLET && newValue === Device.DESKTOP_WIDE) ||
             (oldValue === Device.DESKTOP && newValue === Device.DESKTOP_WIDE)) {
-            this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+            this.initializeBreadcrumb();
         }
     }
     componentWillLoad() {
         this.viewPortWidth = getDevice();
-        this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+        this.initializeBreadcrumb();
     }
     componentWillRender() {
         if (this.viewPortWidth !== Device.MOBILE && this.hasOverflow) {
@@ -64,61 +64,52 @@ const ZBreadcrumb = class {
             this.hasOverflow = true;
         }
     }
-    initializeBreadcrumb(isMobile) {
-        if (isMobile) {
+    initializeBreadcrumb() {
+        if (this.viewPortWidth === Device.MOBILE) {
             this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
         }
         else {
             this.pathsList = this.getPathsItemsList();
         }
-        this.totalLenght = this.pathsList.length;
         this.homepageNode = this.pathsList.shift();
-        this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
+        this.pathListCopy = [...this.pathsList];
         this.collapsedElements = [];
-        if (this.totalLenght > this.maxNodesToShow) {
+        if (this.pathsList.length > this.maxNodesToShow) {
             this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
         }
     }
     checkEllipsisOrOverflowMenu() {
-        if (this.pathListCopy.length > 0) {
-            for (let i = 0; i < this.pathsList.length; i++) {
-                if (this.pathsList[i].text.length > this.truncateChar) {
-                    if (this.truncatePosition !== null) {
-                        if (this.truncatePosition > 0) {
-                            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
-                            arrayToPush.forEach((item) => {
-                                this.collapsedElements.push(item);
-                            });
-                            this.pathsList.splice(0, this.truncatePosition);
-                            this.truncatePosition = 0;
-                            return;
-                        }
-                        if (this.truncatePosition === 0) {
-                            const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
-                            this.collapsedElements.push(...arrayToPush);
-                            this.pathsList.splice(0, this.truncatePosition + 1);
-                            this.truncatePosition = null;
-                            return;
-                        }
-                    }
-                    if (i !== this.pathsList.length - 1) {
-                        const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
-                        this.currentEllipsisText = this.pathsList[i].text;
-                        this.pathsList[i].text = truncatedString;
-                        this.pathsList[i].hasTooltip = true;
-                        this.truncatePosition = i;
-                        return;
-                    }
-                }
+        for (let i = 0; i < this.pathsList.length; i++) {
+            if (this.pathsList[i].text.length <= this.truncateChar) {
+                continue;
+            }
+            if (this.truncatePosition > 0) {
+                this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition));
+                this.pathsList.splice(0, this.truncatePosition);
+                this.truncatePosition = 0;
+                return;
+            }
+            else if (this.truncatePosition === 0) {
+                this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition + 1));
+                this.pathsList.splice(0, this.truncatePosition + 1);
+                this.truncatePosition = null;
+                return;
+            }
+            if (i !== this.pathsList.length - 1) {
+                const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
+                this.currentEllipsisText = this.pathsList[i].text;
+                this.pathsList[i].text = truncatedString;
+                this.pathsList[i].hasTooltip = true;
+                this.truncatePosition = i;
+                return;
             }
         }
     }
-    truncateWithEllipsis(str, length) {
-        const ending = "&mldr;";
-        if (str.length > length) {
-            return str.substring(0, length - 1) + ending;
+    truncateWithEllipsis(str, maxLength) {
+        if (str.length <= maxLength) {
+            return str;
         }
-        return str;
+        return str.substring(0, maxLength - 1) + "&mldr;";
     }
     getPathsItemsList() {
         return Array.from(this.hostElement.children).map((item) => {
@@ -129,38 +120,12 @@ const ZBreadcrumb = class {
             };
         });
     }
-    renderMobileBreadcrumb() {
-        const lastPath = this.pathsList[this.pathsList.length - 1];
-        return (h("nav", { "aria-label": "Breadcrumb", class: {
-                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-            } }, h("ol", null, this.renderNode(lastPath, true))));
-    }
-    renderHomepageNode(item) {
+    renderHomepageNode() {
         return (h("li", null, h("a", { class: {
-                "homepage-icon": this.homepageVariant === BreadcrumbHomepageVariant.ICON,
                 "homepage-text": this.homepageVariant === BreadcrumbHomepageVariant.TEXT,
-            }, href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item) }, this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (h("z-icon", { name: "home", fill: "color-link-primary", height: 16, width: 16 })) : ("Home"))));
-    }
-    renderNode(item, mobile) {
-        return (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", "bind-to": this.triggerEllipsis, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: {
-                "missing-path": !item.path,
-                "text-ellipsis": mobile,
-            }, ref: (val) => (this.triggerEllipsis = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
-                if (item.hasTooltip) {
-                    this.popoverEllipsisOpen = true;
-                }
-            }, onMouseLeave: () => {
-                if (item.hasTooltip) {
-                    this.popoverEllipsisOpen = false;
-                }
-            }, innerHTML: mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon>${item.text}` : item.text })));
-    }
-    renderBreadcrumb() {
-        return (h("nav", { ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
-                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-            } }, h("ol", null, this.renderHomepageNode(this.homepageNode), this.collapsedElements.length ? this.renderOverflowMenu() : "", this.pathsList.map((item) => this.renderNode(item, false)))));
+            }, href: this.homepageNode.path, onClick: (e) => this.handlePreventFollowUrl(e, this.homepageNode), innerHTML: this.homepageVariant === BreadcrumbHomepageVariant.ICON
+                ? `<z-icon name="home" />`
+                : this.homepageNode.text || "Home" }), this.pathsList.length > 0 && (h("z-icon", { class: "separator", name: "chevron-right" }))));
     }
     togglePopover() {
         if (!this.collapsedElementsRef.open) {
@@ -196,21 +161,49 @@ const ZBreadcrumb = class {
         }
     }
     renderOverflowMenu() {
-        if (this.collapsedElements.length) {
-            return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), "bind-to": this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
-                return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e) }, item.text)), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
-            }))))), h("button", { "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", ref: (el) => (this.triggerButton = el), class: "dots", onClick: () => {
-                    this.togglePopover();
-                }, onKeyDown: (e) => {
-                    handleKeyboardSubmit(e, this.togglePopover.bind(this));
-                    setTimeout(() => {
-                        this.anchorElements[0].focus();
-                    }, 100);
-                } }, "...")));
+        return (h("li", null, h("z-popover", { class: "hidden-paths-popover", ref: (val) => (this.collapsedElementsRef = val), bindTo: this.triggerButton, position: PopoverPosition.BOTTOM_RIGHT, closable: true, showArrow: true }, h("div", { class: "popover-content" }, h("z-list", null, h("z-list-group", { size: ListSize.SMALL }, this.collapsedElements.map((item, index, array) => {
+            return (h("div", null, h("z-list-element", { clickable: true }, h("a", { class: "text-ellipsis", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onKeyDown: (e) => this.handleOverflowMenuAccessibility(e), innerHTML: item.text })), index < array.length - 1 && h("z-divider", { color: "color-surface03" })));
+        }))))), h("button", { class: "dots", ref: (el) => (this.triggerButton = el), "aria-label": "Mostra pi\u00F9 breadcrumb", "aria-haspopup": "true", onClick: () => {
+                this.togglePopover();
+            }, onKeyDown: (e) => {
+                handleKeyboardSubmit(e, this.togglePopover.bind(this));
+                setTimeout(() => {
+                    this.anchorElements[0].focus();
+                }, 100);
+            }, innerHTML: "&mldr;" }), this.pathsList.length > 0 && (h("z-icon", { class: "separator", name: "chevron-right" }))));
+    }
+    renderMobileItems() {
+        // show only the second to last element
+        const secondToLastPath = this.pathsList[this.pathsList.length - 1];
+        if (!secondToLastPath) {
+            return;
         }
+        return (h("li", null, h("a", { "aria-current": secondToLastPath.path ? undefined : "page", href: secondToLastPath.path, onClick: (e) => this.handlePreventFollowUrl(e, secondToLastPath) }, h("z-icon", { name: "chevron-left" }), h("span", { class: {
+                "missing-path": !secondToLastPath.path,
+                "text-ellipsis": true,
+            } }, secondToLastPath.text))));
+    }
+    renderItems() {
+        let trigger;
+        return [
+            this.renderHomepageNode(),
+            this.collapsedElements.length > 0 && this.renderOverflowMenu(),
+            ...this.pathsList.map((item, index) => (h("li", null, item.hasTooltip && (h("z-popover", { class: "full-path-tooltip", bindTo: trigger, open: this.popoverEllipsisOpen, position: PopoverPosition.BOTTOM_RIGHT, closable: false, showArrow: true }, h("span", { class: "tooltip-content" }, this.currentEllipsisText))), h("a", { class: { "missing-path": !item.path }, ref: (val) => (trigger = val), "aria-current": item.path ? undefined : "page", href: item.path, onClick: (e) => this.handlePreventFollowUrl(e, item), onMouseOver: () => {
+                    if (item.hasTooltip) {
+                        this.popoverEllipsisOpen = true;
+                    }
+                }, onMouseLeave: () => {
+                    if (item.hasTooltip) {
+                        this.popoverEllipsisOpen = false;
+                    }
+                }, innerHTML: item.text }), index !== this.pathsList.length - 1 && (h("z-icon", { class: "separator", name: "chevron-right" }))))),
+        ];
     }
     render() {
-        return (h(Host, { key: '0fdd2556f767ddc969bb26ad157149092c28976f', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()));
+        return (h(Host, { key: 'b5f0321b29ae51fac8fba3cc0302beff908cd56e', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '32d4c57f93c3fd943cb6f6b72b9f9c004003d470', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+                semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
+                underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
+            } }, h("ol", { key: '725c96157a94749d8e55e321dd1708132479b74a' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

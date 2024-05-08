@@ -21,22 +21,20 @@ export declare class ZBreadcrumb {
     popoverEllipsisOpen: boolean;
     /** Emitted when preventFollowUrl=true to handle custom page transition */
     clickOnNode: EventEmitter<BreadcrumbPath["path"]>;
-    handleResize(): void;
-    handlePropChange(): void;
-    handleResizeUp(newValue: Device, oldValue: Device): void;
     private pathsList;
     private pathListCopy;
     private collapsedElements;
     private collapsedElementsRef;
     private triggerButton;
-    private triggerEllipsis;
     private wrapElement;
     private currentIndex;
     private homepageNode;
-    private totalLenght;
     private anchorElements;
     private currentEllipsisText;
     private truncatePosition;
+    handleResize(): void;
+    handlePropChange(): void;
+    handleResizeUp(newValue: Device, oldValue: Device): void;
     componentWillLoad(): void;
     componentWillRender(): void;
     componentDidRender(): void;
@@ -44,13 +42,12 @@ export declare class ZBreadcrumb {
     private checkEllipsisOrOverflowMenu;
     private truncateWithEllipsis;
     private getPathsItemsList;
-    private renderMobileBreadcrumb;
     private renderHomepageNode;
-    private renderNode;
-    private renderBreadcrumb;
     private togglePopover;
     private handlePreventFollowUrl;
     private handleOverflowMenuAccessibility;
     private renderOverflowMenu;
+    private renderMobileItems;
+    private renderItems;
     render(): HTMLZBreadcrumbElement;
 }

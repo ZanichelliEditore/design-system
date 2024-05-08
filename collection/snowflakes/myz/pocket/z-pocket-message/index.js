@@ -5,7 +5,7 @@ import { h } from "@stencil/core";
  */
 export class ZPocketMessage {
     render() {
-        return (h("div", { key: 'af350f4364cdc056efb2bfb7573f32aff6e1fb74' }, h("z-icon", { key: '978d77e166c93ff7dc66ce4488b9de335ad222f1', name: "exclamation-circle" }), h("div", { key: '8b2b15f096af975a001abc24f13145c19a93df10', class: "content" }, h("slot", { key: 'dc4a2c27b657fa13e1ed27b095c31903f481dfb6' })), h("div", { key: '73f8485447c46858f416f8cf10c332808ee8a129', class: "cta-wrapper" }, h("slot", { key: '9b36b26758f23f527da634df4a115d0db6ca8b51', name: "cta" }))));
+        return (h("div", { key: '843ee900479a31fb894034f112cc0228b96777db' }, h("z-icon", { key: 'fd7328544da14a6f0291267e9b5b0f13eebc6d78', name: "exclamation-circle" }), h("div", { key: '1612d02ebeb6a3181d632350af14d847883cdce4', class: "content" }, h("slot", { key: 'f7256dfd56028f2dc9e3c42c324c210041ed50ad' })), h("div", { key: '9b5db0c5c46967ba4ae2091fac0ab3e4ec3718ff', class: "cta-wrapper" }, h("slot", { key: '9a23bdb386bd1c10d311c41226a430e2a61b9d45', name: "cta" }))));
     }
     static get is() { return "z-pocket-message"; }
     static get encapsulation() { return "shadow"; }

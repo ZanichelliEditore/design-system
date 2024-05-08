@@ -29,7 +29,7 @@ const ZOffcanvas = /*@__PURE__*/ proxyCustomElement(class ZOffcanvas extends HTM
         this.open = false;
     }
     render() {
-        return (h(Host, { key: '60946289b968d1faf19d7f2620a848a4c5fe049b', class: { "skip-animation": this.skipLoadAnimation } }, h("div", { key: 'b29107d6cfc579c79bef11aa8ae35b6cb7b2d319', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { key: '6fdb6a4048b7f25b81fed9adb148e1afc1f2838c', role: "presentation", class: "canvas-content" }, h("slot", { key: '51ffe7fbc7bda15cf4ee2dd92d6cf87984a7ee96', name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
+        return (h(Host, { key: 'dbe2cd2f56dba42df914c0d6643b62ba3543a2cb', class: { "skip-animation": this.skipLoadAnimation } }, h("div", { key: 'ed825afb1152d0e56ebfefd804f473d1e7680cb9', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, h("div", { key: '368c7d337aedeed1d464031dc55c33778dee6354', role: "presentation", class: "canvas-content" }, h("slot", { key: '507daf4b8fd961b0e0c81627e42a4fd605eab4c0', name: "canvasContent" }))), this.variant == OffCanvasVariant.OVERLAY && (h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
     }
     static get watchers() { return {
         "open": ["onOpenChanged"]

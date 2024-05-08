@@ -1,6 +1,7 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
 import { ComboItem, ControlSize } from "../../../beans";
 export declare class ZCombobox {
+    element: HTMLZComboboxElement;
     /** input unique id */
     inputid: string;
     /** list items array */
@@ -40,23 +41,35 @@ export declare class ZCombobox {
     searchValue: string;
     selectedCounter: number;
     renderItemsList: ComboItem[];
+    focusedItemId: string;
+    checkboxes: HTMLInputElement[];
     private itemsList;
     private inputType;
     watchItems(): void;
     watchSearchValue(): void;
-    inputCheckListener(e: CustomEvent): void;
+    watchCheckboxes(): void;
     /** Emitted when value is checked/unchecked. Returns id, items. */
     comboboxChange: EventEmitter;
     private emitComboboxChange;
     constructor();
     componentWillLoad(): void;
     componentWillRender(): void;
+    componentDidRender(): void;
+    private getItemId;
+    private getCheckboxClass;
+    private getAllCheckboxes;
+    private getControlToListSize;
+    private handleSelectArrowsNavigation;
+    private handleHeaderKeyboardEvent;
+    private handleCheckboxFocus;
+    private focusComboboxItem;
     private updateRenderItemsList;
     private resetRenderItemsList;
     private filterItems;
     private checkAll;
     private closeFilterItems;
     private toggleComboBox;
+    private getComboboxA11yAttributes;
     private renderHeader;
     private renderContent;
     private renderItems;

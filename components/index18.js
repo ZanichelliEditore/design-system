@@ -17,7 +17,7 @@ const ZMyzCardCover = /*@__PURE__*/ proxyCustomElement(class ZMyzCardCover exten
         this.img = this.defaultimg;
     }
     render() {
-        return (h("img", { key: 'b248cf088629c40f40cbd42695c8dd2ec93d92e0', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
+        return (h("img", { key: '5d3f258dae6077687ccd98690f6caad390bc05aa', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
     }
     static get style() { return ZMyzCardCoverStyle0; }
 }, [1, "z-myz-card-cover", {

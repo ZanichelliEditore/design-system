@@ -11,7 +11,7 @@ const ZAlert = /*@__PURE__*/ proxyCustomElement(class ZAlert extends HTMLElement
         this.type = undefined;
     }
     render() {
-        return (h("div", { key: '118a9d311dba051df5cb7fc1ad53a8e72fb0e5b0', class: this.type }, h("slot", { key: 'eec707ce1616abc18e015a7486f12dbc17e0c0eb' })));
+        return (h("div", { key: '5f1af9f77d699a3098b189a33cbebdba36d5ce23', class: this.type }, h("slot", { key: 'd8b6da798f1579042763c3953a7e1a869031a9e0' })));
     }
     static get style() { return ZAlertStyle0; }
 }, [1, "z-alert", {

@@ -54,7 +54,7 @@ export class ZPocket {
         }
     }
     render() {
-        return (h("div", { key: '97d80e0b2cb56a932f35aa104256bf763f1eee7c' }, h("div", { key: '9e8f3eacd18892d80cc1a5c314c861ef18178daa', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: 'ee7d44929e94ebe8f2c128a74e0b8250819df04b', id: this.pocketid, class: "content-wrapper" }, h("div", { key: '57a77810690ce70ed3c7fac92cc4fa7e5158f17d' }, h("slot", { key: '9f1c1757f0bc2ff2db326ac9158d80f33802970f' })))));
+        return (h("div", { key: 'ad25460e1d77b82434d7237fc8bf70bdaccd1037' }, h("div", { key: '66003489b14556acf7ea4345dfd942cb244abfad', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: '69e23ca317f9aa2d68e00213af6d4aba2d01a5f9', id: this.pocketid, class: "content-wrapper" }, h("div", { key: '1d02d4b55e0853375c3770bd0f038e38922ce3f4' }, h("slot", { key: 'a4a0ebc7522d5f242263ac87b8b61191dd98d2b7' })))));
     }
     static get is() { return "z-pocket"; }
     static get encapsulation() { return "shadow"; }

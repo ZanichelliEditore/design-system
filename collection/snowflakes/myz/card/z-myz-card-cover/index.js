@@ -10,7 +10,7 @@ export class ZMyzCardCover {
         this.img = this.defaultimg;
     }
     render() {
-        return (h("img", { key: 'b248cf088629c40f40cbd42695c8dd2ec93d92e0', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
+        return (h("img", { key: '5d3f258dae6077687ccd98690f6caad390bc05aa', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
     }
     static get is() { return "z-myz-card-cover"; }
     static get encapsulation() { return "shadow"; }

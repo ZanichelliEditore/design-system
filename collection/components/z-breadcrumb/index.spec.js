@@ -14,9 +14,10 @@ describe("Suite test ZBreadcrumb", () => {
         <nav aria-label="Breadcrumb" class="underlined">
           <ol>
             <li>
-              <a class="homepage-icon" href="http://testing.stenciljs.com/link1">
-                <z-icon fill="color-link-primary" height="16" name="home" width="16"></z-icon>
+              <a href="http://testing.stenciljs.com/link1">
+                <z-icon name="home"></z-icon>
               </a>
+              <z-icon class="separator" name="chevron-right"></z-icon>
             </li>
             <li>
               <a href="http://testing.stenciljs.com/link2">
