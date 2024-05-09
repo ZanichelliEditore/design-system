@@ -6,6 +6,10 @@
   --line-clamp-mobile: 1;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 button {
   padding: 0;
   border: none;
@@ -15,132 +19,130 @@ button {
 
 nav {
   display: flex;
-  height: 30px;
   align-items: center;
-  padding-left: calc(var(--space-unit) / 2);
-  overflow-x: hidden;
+}
+
+ol {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  column-gap: var(--space-unit);
+  list-style: none;
 }
 
 li {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: var(--space-unit);
 }
 
-:host a:focus,
-:host button:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: 0;
-}
-
-:host a {
-  color: var(--color-link-primary);
+ol li > a,
+ol li > button {
   font-size: var(--font-size-2);
-  text-decoration: none;
+  letter-spacing: 0.16px;
+  line-height: 1.4;
+}
+
+a:focus,
+button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+a {
+  color: var(--color-link-primary);
   white-space: nowrap;
 }
 
-:host a.homepage-icon {
-  display: list-item;
-}
-
-:host a.homepage-text {
-  display: initial;
-  margin-top: calc(var(--space-unit) / 4);
-  margin-right: var(--space-unit);
-}
-
-:host a.missing-path {
+a.missing-path {
   color: var(--color-default-text);
 }
 
-:host a.text-ellipsis {
-  display: -webkit-box !important;
+.text-ellipsis {
+  display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--line-clamp-mobile);
   text-overflow: ellipsis;
-  white-space: normal;
+  white-space: initial;
 }
 
-:host ol {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+nav.semibold > ol > li > a:not(.missing-path),
+nav.semibold > ol > li > button {
+  font-weight: var(--font-sb);
+  text-decoration: none;
 }
 
-:host ol > li:not(:first-child, :last-child) {
-  margin-right: var(--space-unit);
-}
-
-nav.underlined > ol > li a:not(.missing-path),
-nav.underlined > ol > li button {
+nav.underlined a,
+nav.underlined button {
   text-decoration: underline;
 }
 
-nav.semibold > ol > li a:not(.missing-path),
-nav.semibold > ol > li button {
-  font-weight: var(--font-sb);
+z-icon {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+
+  display: block;
+  fill: var(--color-link-primary);
 }
 
-:host z-icon {
-  margin-right: var(--space-unit);
+z-icon.separator {
+  --z-icon-width: 10px;
+  --z-icon-height: 10px;
 
-  --z-icon-width: 12px;
-  --z-icon-height: 12px;
+  fill: var(--gray500);
 }
 
-:host button.dots {
+button.dots {
   display: inline-block;
   color: var(--color-link-primary);
   cursor: pointer;
 }
 
-:host .hidden-paths-popover .popover-content {
+.hidden-paths-popover .popover-content {
   max-width: 302px;
   padding: calc(var(--space-unit) / 2) var(--space-unit);
   text-align: left;
 }
 
-:host .hidden-paths-popover .popover-content a {
+.hidden-paths-popover .popover-content a {
   font-weight: var(--font-rg);
   text-decoration: none;
 }
 
-:host .hidden-paths-popover {
+.hidden-paths-popover {
   --z-popover-theme--surface: var(--color-surface02);
   --z-popover-padding: 0;
 }
 
-:host .hidden-paths-popover::before,
+.hidden-paths-popover::before,
 .full-path-tooltip::before {
   --arrow-edge-offset: calc(100% - (var(--space-unit) * 2.55));
 }
 
-:host .full-path-tooltip {
+.full-path-tooltip {
   --z-popover-theme--surface: var(--color-surface05);
   --z-popover-theme--text: var(--color-text-inverse);
   --z-popover-padding: 0;
 }
 
-:host .tooltip-content {
+.tooltip-content {
   padding: 0 var(--space-unit);
   font-size: var(--font-size-2);
 }
 
 @media (min-width: 768px) {
-  /* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/#accessibilityfeatures */
-  :host ol > li + li::before {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    flex: 1;
-    margin-right: 2px;
-    color: var(--color-disabled03);
-    content: "\203A";
-  }
-
-  :host a.text-ellipsis {
+  .text-ellipsis {
     -webkit-line-clamp: var(--line-clamp-popover);
+  }
+}
+
+@media (max-width: 767px) {
+  li a {
+    display: flex;
+    align-items: center;
+    column-gap: var(--space-unit);
   }
 }

@@ -1,5 +1,6 @@
 :host {
   display: block;
+  font-family: var(--font-family-sans);
 }
 
 :host > div.fixed {
@@ -109,7 +110,7 @@
   border-radius: 0;
 }
 
-:host > div.open > div.open-combo-data > div {
+:host > div.open > div.open-combo-data > div > div {
   overflow: auto;
   max-height: 235px;
   padding: 0;
@@ -121,7 +122,7 @@
   margin-bottom: calc(var(--space-unit) * 2);
 }
 
-:host > div.open > div.open-combo-data > div > ul {
+:host > div.open > div.open-combo-data > div > div > ul {
   max-height: 235px;
   padding: 0 3px; /* needed for checkbox focus shadow */
   margin: 0;
@@ -146,31 +147,30 @@
   color: var(--color-primary01);
 }
 
-:host > div.open > div.open-combo-data > div.search {
+:host > div.open > div.open-combo-data > div > div.search {
   overflow: hidden;
   max-height: auto;
   margin-top: 0;
   box-shadow: 1px 1px 4px 2px rgb(217 222 227 / 50%);
 }
 
-:host > div.open > div.open-combo-data > div.search > ul {
+:host > div.open > div.open-combo-data > div > div.search > ul {
   overflow: auto;
   max-height: 180px;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
   scrollbar-color: var(--color-primary01) transparent;
 }
 
-:host > div.open > div.open-combo-data > div.search > div {
+:host > div.open > div.open-combo-data > div > div.search > div {
   display: flex;
   justify-content: center;
 }
 
-:host > div.open > div.open-combo-data > div.search > div > a {
+:host > div.open > div.open-combo-data > div > div.search > div > a {
   display: inline-block;
   height: 44px;
   color: var(--color-primary01);
   cursor: pointer;
-  font-family: var(--font-family-sans);
   font-size: 14px;
   font-weight: var(--font-sb);
   line-height: 44px;
@@ -178,17 +178,17 @@
   text-transform: uppercase;
 }
 
-:host > div.open > div.open-combo-data > div.check-all-wrapper {
+:host > div.open > div.open-combo-data > div > div.check-all-wrapper {
   padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
   border-bottom: var(--border-size-small) solid var(--gray800);
   margin-bottom: var(--space-unit);
   text-align: left;
 }
 
-:host([size="small"]) > div.open > div.open-combo-data > div.check-all-wrapper {
+:host([size="small"]) > div.open > div.open-combo-data > div > div.check-all-wrapper {
   padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 0.5);
 }
 
-:host([size="x-small"]) > div.open > div.open-combo-data > div.check-all-wrapper {
+:host([size="x-small"]) > div.open > div.open-combo-data > div > div.check-all-wrapper {
   padding: var(--space-unit) calc(var(--space-unit) * 0.5);
 }
