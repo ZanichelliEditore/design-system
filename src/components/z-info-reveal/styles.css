@@ -1,5 +1,6 @@
 :host {
-  --z-info-reveal-width: 343px; /* defaults to average width of mobile devices */
+  --z-info-reveal-panel-width: 384px; /* defaults half the size of the mobile breakpoint */
+  --trigger-size: 44px;
 
   position: relative;
 }
@@ -9,7 +10,6 @@
 }
 
 button {
-  --trigger-size: 44px;
   --trigger-icon-size: calc(var(--trigger-size) / 2);
 
   display: flex;
@@ -76,7 +76,7 @@ button:focus:focus-visible {
 .z-info-reveal-panel {
   position: absolute;
   display: flex;
-  width: var(--z-info-reveal-width);
+  width: var(--z-info-reveal-panel-width);
   height: fit-content;
   align-items: flex-start;
   padding: calc(var(--space-unit) * 1.5);
@@ -85,6 +85,10 @@ button:focus:focus-visible {
   box-shadow: var(--shadow-4);
   color: var(--color-text04);
   column-gap: var(--space-unit);
+}
+
+.z-info-reveal-panel[hidden] {
+  display: none;
 }
 
 :host([position="top_left"]) .z-info-reveal-panel,
@@ -113,4 +117,16 @@ button:focus:focus-visible {
 
 .z-info-reveal-panel z-icon {
   fill: var(--color-icon03);
+}
+
+@media (max-width: 767px) {
+  .z-info-reveal-panel {
+    position: fixed;
+    top: auto !important;
+    bottom: auto !important;
+    left: var(--grid-margin) !important;
+    width: calc(100% - (var(--grid-margin) * 2)) !important;
+    max-width: none !important;
+    margin-top: calc(var(--trigger-size) * -1);
+  }
 }
