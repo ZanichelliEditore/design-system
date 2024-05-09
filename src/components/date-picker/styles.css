@@ -256,7 +256,7 @@ z-range-picker {
 .flatpickr-monthSelect-month:focus {
   border-color: var(--color-hover-primary) !important;
   background-color: var(--color-hover-primary) !important;
-  color: var(--color-inverse-text) !important;
+  color: var(--color-text-inverse) !important;
 }
 
 .flatpickr-day.today,
