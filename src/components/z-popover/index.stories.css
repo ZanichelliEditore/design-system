@@ -11,7 +11,9 @@
   --z-popover-padding: var(--space-unit);
 }
 
-.popover-container z-icon {
+.popover-container z-icon#trigger {
   --z-icon-width: 32px;
   --z-icon-height: 32px;
+
+  cursor: pointer;
 }

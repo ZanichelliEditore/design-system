@@ -1,79 +1,89 @@
-import {Component, h, Prop, State, Watch, Element, Host} from "@stencil/core";
-import {InfoRevealPosition} from "../../beans";
+import {Component, h, Prop, State, Host, Listen, Watch, Element} from "@stencil/core";
+import {ControlSize, InfoRevealPosition} from "../../beans";
 
+/**
+ * Info reveal component.
+ *
+ * @slot - content of the info panel.
+ * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+ */
 @Component({
   tag: "z-info-reveal",
   styleUrl: "styles.css",
   shadow: true,
 })
-
-/**
- * Info reveal component.
- *
- * @slot - info to display in the info box. If more than one element has been slotted,
- * by clicking on the panel it switches to the next info element.
- * @cssprop --z-info-reveal-theme--surface - background color of the info reveal panel.
- * @cssprop --z-info-reveal-theme--text - foreground color of the info reveal panel.
- * @cssprop --z-info-reveal-shadow - shadow of the info reveal panel.
- * @cssprop --z-info-reveal-max-width - max width of the info reveal panel.
- */
 export class ZInfoReveal {
-  @Element() el: HTMLZInfoRevealElement;
-
-  /** Name of the icon for the open button */
+  /** Name of the icon for the trigger button */
   @Prop()
   icon? = "informationsource";
 
-  /** Info reveal's position */
+  /**
+   * The position of the z-info-reveal in the page. This helps to correctly place the info panel.
+   * The panel will grow in the opposite direction of the position.
+   * For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
+   */
   @Prop({reflect: true})
   position?: InfoRevealPosition = InfoRevealPosition.BOTTOM_RIGHT;
 
-  /** Text that appears on closed panel next to the open button. */
+  /** Label of the trigger button. */
   @Prop()
   label?: string;
+
+  /** Aria label of the trigger button. It will be only used when `label` prop is empty. */
+  @Prop()
+  ariaLabel = "Apri pannello informazioni";
+
+  /** Size of the trigger button */
+  @Prop({reflect: true})
+  size?: ControlSize = ControlSize.BIG;
 
   /** Whether the info panel is open. */
   @State()
   open = false;
 
-  /** Current index for the info queue. */
-  @State()
-  currentIndex: number = null;
+  @Element() host: HTMLZInfoRevealElement;
 
-  @Watch("currentIndex")
-  watchItems(): void {
-    Array.from(this.el.children).forEach((child, index) => {
-      if (this.currentIndex === index) {
-        child.setAttribute("data-current", "");
-      } else {
-        child.removeAttribute("data-current");
-      }
-    });
+  private panel: HTMLDivElement;
+
+  /**
+   * Adjust the position of the info panel to prevent exiting the viewport.
+   */
+  @Watch("position")
+  @Watch("open")
+  @Listen("resize", {target: "window", passive: true})
+  adjustPanelPosition(): void {
+    if (!this.open || !this.panel) {
+      return;
+    }
+
+    const rect = this.host.getBoundingClientRect();
+    const gridMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--grid-margin"), 10);
+    const pageWidth = document.documentElement.offsetWidth;
+    // Available space for the info panel to grow towards the edge of the page, based on the `position` prop.
+    const availableSpace = Math.round(
+      (this.position.includes("left") ? pageWidth - rect.left : rect.right) - gridMargin
+    );
+    this.panel.style.maxWidth = `${availableSpace}px`;
   }
 
   /**
-   * Open the info box.
+   * Toggle the open state of the info panel.
    */
-  private openInfoBox(): void {
-    this.currentIndex = 0;
-    this.open = true;
+  private togglePanel(): void {
+    this.open = !this.open;
   }
 
   /**
-   * Close the info box.
+   * Close the info panel.
    */
-  private closeInfoBox(): void {
+  private closePanel(): void {
     this.open = false;
   }
 
-  /**
-   * Navigate slotted info.
-   * It closes the info box after the last info has been navigated.
-   */
-  private next(): void {
-    this.currentIndex = this.currentIndex + 1;
-    if (this.currentIndex === this.el.children.length) {
-      this.closeInfoBox();
+  @Listen("keydown", {target: "window", capture: true})
+  handleEscapeKey(event: KeyboardEvent): void {
+    if (event.key === "Escape" && this.open) {
+      this.closePanel();
     }
   }
 
@@ -82,26 +92,31 @@ export class ZInfoReveal {
       <Host open={this.open}>
         <button
           class="z-info-reveal-trigger"
-          onClick={this.openInfoBox.bind(this)}
+          type="button"
+          onClick={this.togglePanel.bind(this)}
+          aria-label={!this.label ? this.ariaLabel : undefined}
+          aria-expanded={this.open ? "true" : "false"}
+          aria-controls="z-info-reveal-panel"
         >
+          {this.icon && <z-icon name={this.icon} />}
           {this.label && <span class="z-info-reveal-label">{this.label}</span>}
-          <z-icon name={this.icon}></z-icon>
         </button>
-        {this.open && (
-          <div
-            class="info-box"
-            onClick={this.next.bind(this)}
-            tabIndex={0}
+        <div
+          class="z-info-reveal-panel"
+          id="z-info-reveal-panel"
+          ref={(el) => (this.panel = el)}
+          hidden={!this.open}
+        >
+          <slot></slot>
+          <button
+            class="z-info-reveal-close"
+            type="button"
+            onClick={this.closePanel.bind(this)}
+            aria-label="Chiudi pannello informazioni"
           >
-            <slot></slot>
-            <button
-              class="z-info-reveal-close"
-              onClick={this.closeInfoBox.bind(this)}
-            >
-              <z-icon name="close"></z-icon>
-            </button>
-          </div>
-        )}
+            <z-icon name="multiply" />
+          </button>
+        </div>
       </Host>
     );
   }
