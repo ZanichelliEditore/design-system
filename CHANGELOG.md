@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 13.6.0 (2024-05-13)
+
+
+### Features
+
+* **LAZE-1009:** icon - add new icons ([9c974ca](https://github.com/ZanichelliEditore/design-system/commit/9c974cafcda06f6ec8eab8f932dbe7628779a78b))
+
 ## 13.5.0 (2024-05-10)
 
 ## 13.4.0 (2024-05-08)
