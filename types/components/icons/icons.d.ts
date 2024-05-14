@@ -155,6 +155,7 @@ export declare const STROKE_ICONS: {
     "font-color": string;
     french: string;
     fun: string;
+    gap: string;
     gear: string;
     geogebra: string;
     "geographical-map": string;
@@ -217,6 +218,7 @@ export declare const STROKE_ICONS: {
     "multiply-circled": string;
     "multiply-square": string;
     "my-data": string;
+    "natural-science": string;
     nib: string;
     note: string;
     notification: string;
@@ -499,6 +501,7 @@ export declare const FILLED_ICONS: {
     "font-color-filled": string;
     "french-filled": string;
     "fun-filled": string;
+    "gap-filled": string;
     "gear-filled": string;
     "geogebra-filled": string;
     "geographical-map-filled": string;
@@ -561,6 +564,7 @@ export declare const FILLED_ICONS: {
     "multiply-filled": string;
     "multiply-square-filled": string;
     "my-data-filled": string;
+    "natural-science-filled": string;
     "nib-filled": string;
     "note-filled": string;
     "notification-filled": string;
@@ -904,6 +908,7 @@ export declare const ICONS: {
     "font-color-filled": string;
     "french-filled": string;
     "fun-filled": string;
+    "gap-filled": string;
     "gear-filled": string;
     "geogebra-filled": string;
     "geographical-map-filled": string;
@@ -966,6 +971,7 @@ export declare const ICONS: {
     "multiply-filled": string;
     "multiply-square-filled": string;
     "my-data-filled": string;
+    "natural-science-filled": string;
     "nib-filled": string;
     "note-filled": string;
     "notification-filled": string;
@@ -1241,6 +1247,7 @@ export declare const ICONS: {
     "font-color": string;
     french: string;
     fun: string;
+    gap: string;
     gear: string;
     geogebra: string;
     "geographical-map": string;
@@ -1303,6 +1310,7 @@ export declare const ICONS: {
     "multiply-circled": string;
     "multiply-square": string;
     "my-data": string;
+    "natural-science": string;
     nib: string;
     note: string;
     notification: string;

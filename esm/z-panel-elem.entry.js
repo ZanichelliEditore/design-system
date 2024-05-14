@@ -16,19 +16,13 @@ const ZPanelElem = class {
         this.isdisabled = false;
         this.descrSlotName = undefined;
     }
-    renderIcon() {
-        if (this.isdisabled) {
-            return (h("img", { src: this.imgurl, alt: this.imgalt }));
-        }
-        return (h("a", { class: "elem-icon", href: this.url, target: this.target }, h("img", { src: this.imgurl, alt: this.imgalt })));
-    }
     render() {
         const elemId = this.elemid ? this.elemid : "";
-        return (h("div", { key: 'ef6db6ad212d9675eca3c713a1b4f91cd18f78e0', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, this.renderIcon())), h("div", { key: '3735e07d1d2f29df948cc305a0dc03f8f18bf136', class: "panel-elem-link" }, h("a", { key: '4ddfc8fa8ee168e4b92bf7a8c2c13bc3c3b365c5', class: {
+        return (h("div", { key: 'bdc30d88a3eb7ba48958701df00b9ef7e8516bba', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, h("img", { src: this.imgurl, alt: this.imgalt }))), h("div", { key: 'fe7f4ba7d0851986d693be0a88b463cedabb5934', class: "panel-elem-link" }, h("a", { key: '7325188fe40d6a2726d542607581b1517e6d5b3b', class: {
                 "z-link": true,
                 "z-link-disabled": this.isdisabled,
                 "z-link-icon": true,
-            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: 'fe5d6af74bba6f36ef4b5458c51e3e4b4d17db54', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
+            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: 'df0f7f98e88de69f4894bfa8250a884aa6da9c3a', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
     }
 };
 ZPanelElem.style = ZPanelElemStyle0;

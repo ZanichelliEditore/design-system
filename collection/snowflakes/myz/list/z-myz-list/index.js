@@ -17,7 +17,7 @@ export class ZMyzList {
     }
     render() {
         const lastElem = this.list ? this.list.length - 1 : -1;
-        return (h("ul", { key: '7ae896a090c0215b27d6e4b9cd44a269c03c009c' }, this.list &&
+        return (h("ul", { key: '943b3633a4b233466186116698cb65f49ecde7ce' }, this.list &&
             this.list.map((bean, i) => (h("z-myz-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
     }
     static get is() { return "z-myz-list"; }

@@ -23,7 +23,7 @@ export class ZMyzCardList {
         });
     }
     render() {
-        return h("ul", { key: '250f4b81e12dff09558a14b130f8b6a0226c0384' }, this.renderList(JSON.parse(this.listdata)));
+        return h("ul", { key: 'eabe41902a685c9b541606cd45920f379b6d1362' }, this.renderList(JSON.parse(this.listdata)));
     }
     static get is() { return "z-myz-card-list"; }
     static get encapsulation() { return "shadow"; }

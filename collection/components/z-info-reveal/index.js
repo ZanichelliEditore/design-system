@@ -1,58 +1,53 @@
 import { h, Host } from "@stencil/core";
-import { InfoRevealPosition } from "../../beans";
+import { ControlSize, InfoRevealPosition } from "../../beans";
 /**
  * Info reveal component.
  *
- * @slot - info to display in the info box. If more than one element has been slotted,
- * by clicking on the panel it switches to the next info element.
- * @cssprop --z-info-reveal-theme--surface - background color of the info reveal panel.
- * @cssprop --z-info-reveal-theme--text - foreground color of the info reveal panel.
- * @cssprop --z-info-reveal-shadow - shadow of the info reveal panel.
- * @cssprop --z-info-reveal-max-width - max width of the info reveal panel.
+ * @slot - content of the info panel.
+ * @cssprop --z-info-reveal-panel-width - Width of the info panel.
  */
 export class ZInfoReveal {
     constructor() {
         this.icon = "informationsource";
         this.position = InfoRevealPosition.BOTTOM_RIGHT;
         this.label = undefined;
-        this.open = false;
-        this.currentIndex = null;
-    }
-    watchItems() {
-        Array.from(this.el.children).forEach((child, index) => {
-            if (this.currentIndex === index) {
-                child.setAttribute("data-current", "");
-            }
-            else {
-                child.removeAttribute("data-current");
-            }
-        });
-    }
-    /**
-     * Open the info box.
-     */
-    openInfoBox() {
-        this.currentIndex = 0;
-        this.open = true;
-    }
-    /**
-     * Close the info box.
-     */
-    closeInfoBox() {
+        this.ariaLabel = "Apri pannello informazioni";
+        this.size = ControlSize.BIG;
         this.open = false;
     }
     /**
-     * Navigate slotted info.
-     * It closes the info box after the last info has been navigated.
+     * Adjust the position of the info panel to prevent exiting the viewport.
      */
-    next() {
-        this.currentIndex = this.currentIndex + 1;
-        if (this.currentIndex === this.el.children.length) {
-            this.closeInfoBox();
+    adjustPanelPosition() {
+        if (!this.open || !this.panel) {
+            return;
+        }
+        const rect = this.host.getBoundingClientRect();
+        const gridMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--grid-margin"), 10);
+        const pageWidth = document.documentElement.offsetWidth;
+        // Available space for the info panel to grow towards the edge of the page, based on the `position` prop.
+        const availableSpace = Math.round((this.position.includes("left") ? pageWidth - rect.left : rect.right) - gridMargin);
+        this.panel.style.maxWidth = `${availableSpace}px`;
+    }
+    /**
+     * Toggle the open state of the info panel.
+     */
+    togglePanel() {
+        this.open = !this.open;
+    }
+    /**
+     * Close the info panel.
+     */
+    closePanel() {
+        this.open = false;
+    }
+    handleEscapeKey(event) {
+        if (event.key === "Escape" && this.open) {
+            this.closePanel();
         }
     }
     render() {
-        return (h(Host, { key: '1cc6cbacd33676a39d804037c786a37fd7aa9864', open: this.open }, h("button", { key: '5ad8966b67c365f654c0ddb50e879a0859a9e785', class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && h("span", { class: "z-info-reveal-label" }, this.label), h("z-icon", { key: '5314f51f922a64ee58162687bab764835401d6a2', name: this.icon })), this.open && (h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, h("slot", null), h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, h("z-icon", { name: "close" }))))));
+        return (h(Host, { key: 'db425718606f2b7f411fab9cdac57d91ce88560c', open: this.open }, h("button", { key: 'a70882d456af51c526726220a05864ab54ea86d6', class: "z-info-reveal-trigger", type: "button", onClick: this.togglePanel.bind(this), "aria-label": !this.label ? this.ariaLabel : undefined, "aria-expanded": this.open ? "true" : "false", "aria-controls": "z-info-reveal-panel" }, this.icon && h("z-icon", { name: this.icon }), this.label && h("span", { class: "z-info-reveal-label" }, this.label)), h("div", { key: '765172552ea823e07e010a68c201f5fa76fbc93d', class: "z-info-reveal-panel", id: "z-info-reveal-panel", ref: (el) => (this.panel = el), hidden: !this.open }, h("slot", { key: 'f95ed8f0c6c94758b389139dde42289ef8b78ffc' }), h("button", { key: 'a80d002f3d07f101af8bcc84ef2a78d85da7036f', class: "z-info-reveal-close", type: "button", onClick: this.closePanel.bind(this), "aria-label": "Chiudi pannello informazioni" }, h("z-icon", { key: '015386db04b0f4bdb2fefd9da623fb03327fbf86', name: "multiply" })))));
     }
     static get is() { return "z-info-reveal"; }
     static get encapsulation() { return "shadow"; }
@@ -80,7 +75,7 @@ export class ZInfoReveal {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Name of the icon for the open button"
+                    "text": "Name of the icon for the trigger button"
                 },
                 "attribute": "icon",
                 "reflect": false,
@@ -104,7 +99,7 @@ export class ZInfoReveal {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Info reveal's position"
+                    "text": "The position of the z-info-reveal in the page. This helps to correctly place the info panel.\nThe panel will grow in the opposite direction of the position.\nFor example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left."
                 },
                 "attribute": "position",
                 "reflect": true,
@@ -122,24 +117,83 @@ export class ZInfoReveal {
                 "optional": true,
                 "docs": {
                     "tags": [],
-                    "text": "Text that appears on closed panel next to the open button."
+                    "text": "Label of the trigger button."
                 },
                 "attribute": "label",
                 "reflect": false
+            },
+            "ariaLabel": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "string",
+                    "resolved": "string",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Aria label of the trigger button. It will be only used when `label` prop is empty."
+                },
+                "attribute": "aria-label",
+                "reflect": false,
+                "defaultValue": "\"Apri pannello informazioni\""
+            },
+            "size": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "ControlSize",
+                    "resolved": "ControlSize.BIG | ControlSize.SMALL | ControlSize.X_SMALL",
+                    "references": {
+                        "ControlSize": {
+                            "location": "import",
+                            "path": "../../beans",
+                            "id": "src/beans/index.tsx::ControlSize"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Size of the trigger button"
+                },
+                "attribute": "size",
+                "reflect": true,
+                "defaultValue": "ControlSize.BIG"
             }
         };
     }
     static get states() {
         return {
-            "open": {},
-            "currentIndex": {}
+            "open": {}
         };
     }
-    static get elementRef() { return "el"; }
+    static get elementRef() { return "host"; }
     static get watchers() {
         return [{
-                "propName": "currentIndex",
-                "methodName": "watchItems"
+                "propName": "position",
+                "methodName": "adjustPanelPosition"
+            }, {
+                "propName": "open",
+                "methodName": "adjustPanelPosition"
+            }];
+    }
+    static get listeners() {
+        return [{
+                "name": "resize",
+                "method": "adjustPanelPosition",
+                "target": "window",
+                "capture": false,
+                "passive": true
+            }, {
+                "name": "keydown",
+                "method": "handleEscapeKey",
+                "target": "window",
+                "capture": true,
+                "passive": false
             }];
     }
 }

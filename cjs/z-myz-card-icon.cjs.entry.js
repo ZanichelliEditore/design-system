@@ -15,7 +15,7 @@ const ZMyzCardIcon = class {
         this.ariaLabel = "";
     }
     render() {
-        return (index.h("button", { key: 'bbbbbbe77b7de06f08972ee4d5026ed462c746dc', disabled: this.isdisabled, "aria-label": this.ariaLabel }, index.h("span", { key: '8ad2c105260ef90af55fc87533513664d6accc9c' }, index.h("z-icon", { key: '9af21937f5c601ad05966c684b28f5f5503e5932', name: this.icon, width: 16, height: 16 }))));
+        return (index.h("button", { key: 'baa3a80095798ad5aeffd5ed7c82f734972fffcd', disabled: this.isdisabled, "aria-label": this.ariaLabel }, index.h("span", { key: '6087bd7415624e7e299d2d56a1974259503f1025' }, index.h("z-icon", { key: '1ec75e4468b4ae898df057c2e0739d28d8b50fab', name: this.icon, width: 16, height: 16 }))));
     }
 };
 ZMyzCardIcon.style = ZMyzCardIconStyle0;

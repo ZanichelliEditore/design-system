@@ -10,7 +10,7 @@ const ZVisuallyHidden$1 = /*@__PURE__*/ proxyCustomElement(class ZVisuallyHidden
         this.__attachShadow();
     }
     render() {
-        return h("slot", { key: '65fd2ab29bc68aa93203b219daa615d80bc6bdba' });
+        return h("slot", { key: '3621cee7a23fe68812b92d58a239dce03caf4724' });
     }
     static get style() { return ZVisuallyHiddenStyle0; }
 }, [1, "z-visually-hidden"]);

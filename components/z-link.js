@@ -50,7 +50,7 @@ const ZLink$1 = /*@__PURE__*/ proxyCustomElement(class ZLink extends HTMLElement
         }
     }
     render() {
-        return (h("a", { key: '425050abb1336c772d5bbe5ec770a998c50089b5', id: this.htmlid, href: this.href ? this.href : null, class: {
+        return (h("a", { key: 'ec5051df288fd9731b92f6551bfaa9b999d20462', id: this.htmlid, href: this.href ? this.href : null, class: {
                 disabled: this.isdisabled,
                 active: this.isactive,
                 white: this.iswhite,

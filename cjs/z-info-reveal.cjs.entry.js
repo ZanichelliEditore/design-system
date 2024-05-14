@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-dc60bee7.js');
 const index$1 = require('./index-39ce4edf.js');
 
-const stylesCss = ":host{--z-info-reveal-theme--surface:var(--color-black);--z-info-reveal-theme--text:var(--color-white);--z-info-reveal-shadow:var(--shadow-2);--z-info-reveal-max-width:375px;position:relative;display:flex;width:fit-content;background-color:var(--z-info-reveal-theme--surface);color:var(--z-info-reveal-theme--text);font-size:var(--font-size-3);font-weight:var(--font-rg);letter-spacing:0;line-height:1.5}button{padding:0;border:none;background-color:transparent;border-radius:0;color:inherit;cursor:pointer;fill:currentcolor;font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit}z-icon{--z-icon-width:calc(var(--space-unit) * 3);--z-icon-height:calc(var(--space-unit) * 3);display:flex}.z-info-reveal-trigger{display:flex;width:fit-content;height:100%;align-items:center;padding:calc(var(--space-unit) / 2);box-shadow:var(--z-info-reveal-shadow);column-gap:calc(var(--space-unit) / 2)}:host([position=\"top_left\"]) .z-info-reveal-trigger,:host([position=\"bottom_left\"]) .z-info-reveal-trigger{flex-direction:row-reverse}:host([open]) .z-info-reveal-trigger{box-shadow:none}.info-box{position:absolute;display:flex;max-width:var(--z-info-reveal-max-width);padding:calc(var(--space-unit) / 2);background-color:var(--z-info-reveal-theme--surface);box-shadow:var(--z-info-reveal-shadow);column-gap:calc(var(--space-unit) / 2);cursor:pointer}:host([position=\"bottom_left\"]) .info-box,:host([position=\"bottom_right\"]) .info-box{bottom:0}:host([position=\"top_right\"]) .info-box,:host([position=\"bottom_right\"]) .info-box{right:0}:host([position=\"top_left\"]) .info-box,:host([position=\"bottom_left\"]) .info-box{left:0;flex-direction:row-reverse}::slotted(*){display:none;width:max-content}::slotted([data-current]){display:block}:host([position=\"top_left\"]) .z-info-reveal-close,:host([position=\"top_right\"]) .z-info-reveal-close{align-self:flex-start}:host([position=\"bottom_left\"]) .z-info-reveal-close,:host([position=\"bottom_right\"]) .z-info-reveal-close{align-self:flex-end}";
+const stylesCss = ":host{--z-info-reveal-panel-width:384px;--trigger-size:44px;position:relative}:host *{box-sizing:border-box}button{--trigger-icon-size:calc(var(--trigger-size) / 2);display:flex;align-items:center;justify-content:center;padding:0;border:none;background-color:transparent;cursor:pointer;font-family:inherit;letter-spacing:inherit}button:focus:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none}.z-info-reveal-trigger{min-width:var(--trigger-size);height:var(--trigger-size);padding:calc((var(--trigger-size) - var(--trigger-icon-size)) / 2);background-color:var(--color-surface05);border-radius:var(--border-radius);color:var(--color-text04);column-gap:var(--space-unit);font-weight:var(--font-sb);line-height:1rem}:host([size=\"big\"]) .z-info-reveal-trigger{font-size:var(--font-size-2)}:host([size=\"small\"]) .z-info-reveal-trigger{--trigger-size:36px;font-size:var(--font-size-2)}:host([size=\"x-small\"]) .z-info-reveal-trigger{--trigger-size:32px;padding:var(--space-unit);font-size:var(--font-size-1)}:host>.z-info-reveal-trigger z-icon{--z-icon-width:var(--trigger-icon-size);--z-icon-height:var(--trigger-icon-size);display:flex;fill:var(--color-icon03)}:host([size=\"small\"])>.z-info-reveal-trigger z-icon{--trigger-icon-size:18px}:host([size=\"x-small\"])>.z-info-reveal-trigger z-icon{--trigger-icon-size:16px}.z-info-reveal-panel{position:absolute;display:flex;width:var(--z-info-reveal-panel-width);height:fit-content;align-items:flex-start;padding:calc(var(--space-unit) * 1.5);background-color:var(--color-surface05);border-radius:var(--border-radius);box-shadow:var(--shadow-4);color:var(--color-text04);column-gap:var(--space-unit)}.z-info-reveal-panel[hidden]{display:none}:host([position=\"top_left\"]) .z-info-reveal-panel,:host([position=\"top_right\"]) .z-info-reveal-panel{top:0}:host([position=\"bottom_left\"]) .z-info-reveal-panel,:host([position=\"bottom_right\"]) .z-info-reveal-panel{bottom:0}:host([position=\"top_right\"]) .z-info-reveal-panel,:host([position=\"bottom_right\"]) .z-info-reveal-panel{right:0}:host([position=\"top_left\"]) .z-info-reveal-panel,:host([position=\"bottom_left\"]) .z-info-reveal-panel{left:0}.z-info-reveal-panel .z-info-reveal-close{margin-left:auto}.z-info-reveal-panel z-icon{fill:var(--color-icon03)}@media (max-width: 767px){.z-info-reveal-panel{position:fixed;top:auto !important;bottom:auto !important;left:var(--grid-margin) !important;width:calc(100% - (var(--grid-margin) * 2)) !important;max-width:none !important;margin-top:calc(var(--trigger-size) * -1)}}";
 const ZInfoRevealStyle0 = stylesCss;
 
 const ZInfoReveal = class {
@@ -14,48 +14,48 @@ const ZInfoReveal = class {
         this.icon = "informationsource";
         this.position = index$1.InfoRevealPosition.BOTTOM_RIGHT;
         this.label = undefined;
-        this.open = false;
-        this.currentIndex = null;
-    }
-    watchItems() {
-        Array.from(this.el.children).forEach((child, index) => {
-            if (this.currentIndex === index) {
-                child.setAttribute("data-current", "");
-            }
-            else {
-                child.removeAttribute("data-current");
-            }
-        });
-    }
-    /**
-     * Open the info box.
-     */
-    openInfoBox() {
-        this.currentIndex = 0;
-        this.open = true;
-    }
-    /**
-     * Close the info box.
-     */
-    closeInfoBox() {
+        this.ariaLabel = "Apri pannello informazioni";
+        this.size = index$1.ControlSize.BIG;
         this.open = false;
     }
     /**
-     * Navigate slotted info.
-     * It closes the info box after the last info has been navigated.
+     * Adjust the position of the info panel to prevent exiting the viewport.
      */
-    next() {
-        this.currentIndex = this.currentIndex + 1;
-        if (this.currentIndex === this.el.children.length) {
-            this.closeInfoBox();
+    adjustPanelPosition() {
+        if (!this.open || !this.panel) {
+            return;
+        }
+        const rect = this.host.getBoundingClientRect();
+        const gridMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--grid-margin"), 10);
+        const pageWidth = document.documentElement.offsetWidth;
+        // Available space for the info panel to grow towards the edge of the page, based on the `position` prop.
+        const availableSpace = Math.round((this.position.includes("left") ? pageWidth - rect.left : rect.right) - gridMargin);
+        this.panel.style.maxWidth = `${availableSpace}px`;
+    }
+    /**
+     * Toggle the open state of the info panel.
+     */
+    togglePanel() {
+        this.open = !this.open;
+    }
+    /**
+     * Close the info panel.
+     */
+    closePanel() {
+        this.open = false;
+    }
+    handleEscapeKey(event) {
+        if (event.key === "Escape" && this.open) {
+            this.closePanel();
         }
     }
     render() {
-        return (index.h(index.Host, { key: '1cc6cbacd33676a39d804037c786a37fd7aa9864', open: this.open }, index.h("button", { key: '5ad8966b67c365f654c0ddb50e879a0859a9e785', class: "z-info-reveal-trigger", onClick: this.openInfoBox.bind(this) }, this.label && index.h("span", { class: "z-info-reveal-label" }, this.label), index.h("z-icon", { key: '5314f51f922a64ee58162687bab764835401d6a2', name: this.icon })), this.open && (index.h("div", { class: "info-box", onClick: this.next.bind(this), tabIndex: 0 }, index.h("slot", null), index.h("button", { class: "z-info-reveal-close", onClick: this.closeInfoBox.bind(this) }, index.h("z-icon", { name: "close" }))))));
+        return (index.h(index.Host, { key: 'db425718606f2b7f411fab9cdac57d91ce88560c', open: this.open }, index.h("button", { key: 'a70882d456af51c526726220a05864ab54ea86d6', class: "z-info-reveal-trigger", type: "button", onClick: this.togglePanel.bind(this), "aria-label": !this.label ? this.ariaLabel : undefined, "aria-expanded": this.open ? "true" : "false", "aria-controls": "z-info-reveal-panel" }, this.icon && index.h("z-icon", { name: this.icon }), this.label && index.h("span", { class: "z-info-reveal-label" }, this.label)), index.h("div", { key: '765172552ea823e07e010a68c201f5fa76fbc93d', class: "z-info-reveal-panel", id: "z-info-reveal-panel", ref: (el) => (this.panel = el), hidden: !this.open }, index.h("slot", { key: 'f95ed8f0c6c94758b389139dde42289ef8b78ffc' }), index.h("button", { key: 'a80d002f3d07f101af8bcc84ef2a78d85da7036f', class: "z-info-reveal-close", type: "button", onClick: this.closePanel.bind(this), "aria-label": "Chiudi pannello informazioni" }, index.h("z-icon", { key: '015386db04b0f4bdb2fefd9da623fb03327fbf86', name: "multiply" })))));
     }
-    get el() { return index.getElement(this); }
+    get host() { return index.getElement(this); }
     static get watchers() { return {
-        "currentIndex": ["watchItems"]
+        "position": ["adjustPanelPosition"],
+        "open": ["adjustPanelPosition"]
     }; }
 };
 ZInfoReveal.style = ZInfoRevealStyle0;

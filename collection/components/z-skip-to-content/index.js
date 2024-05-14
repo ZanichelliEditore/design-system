@@ -45,7 +45,7 @@ export class ZSkipToContent {
         this.visible = false;
     }
     render() {
-        return (h(Host, { key: '911d2c6e0710ecc5f438fba15ace454e2d43b2d1', class: {
+        return (h(Host, { key: 'a23874893887060f9581859334bd1a21603a46bb', class: {
                 [this.variant]: true,
                 "skip-to-content-visible": this.visible,
             } }, this.links.map((link, i) => {

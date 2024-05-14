@@ -18,7 +18,7 @@ const ZSectionTitle = class {
         this.hasSecondaryTitle = !!this.host.querySelector("[slot=secondary-title]");
     }
     render() {
-        return (index.h(index.Host, { key: 'ffae3cccc6d4923d5904055ab083a1d581818e5b' }, index.h("slot", { key: 'a8bad3881acb225f24dafd28316bc08be97657f1', name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === index$1.ZSectionTitleDividerPosition.BEFORE && (index.h("z-divider", { size: index$1.DividerSize.LARGE, color: "z-section-title--divider-color" })), index.h("slot", { key: '7121066325d4be6c5385d70083da300f15eacf2b', name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === index$1.ZSectionTitleDividerPosition.AFTER && (index.h("z-divider", { size: index$1.DividerSize.LARGE, color: "z-section-title--divider-color" }))));
+        return (index.h(index.Host, { key: 'd691017e2953d129c291a8d1e8fa5411f0faf457' }, index.h("slot", { key: '99c8dce52dde7a85c2dd7423d08875b9a5ab4dfe', name: "secondary-title" }), !this.hasSecondaryTitle && this.dividerPosition === index$1.ZSectionTitleDividerPosition.BEFORE && (index.h("z-divider", { size: index$1.DividerSize.LARGE, color: "z-section-title--divider-color" })), index.h("slot", { key: 'de5810f9b9a3db9c2fb81a59ac3dda261079b81f', name: "primary-title" }), !this.hasSecondaryTitle && this.dividerPosition === index$1.ZSectionTitleDividerPosition.AFTER && (index.h("z-divider", { size: index$1.DividerSize.LARGE, color: "z-section-title--divider-color" }))));
     }
     get host() { return index.getElement(this); }
 };

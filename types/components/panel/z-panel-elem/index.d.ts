@@ -20,6 +20,5 @@ export declare class ZPanelElem {
     isdisabled?: boolean;
     /** name of slot container (optional) */
     descrSlotName?: string;
-    private renderIcon;
     render(): HTMLDivElement;
 }

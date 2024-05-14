@@ -9,7 +9,7 @@ const ZAlert = class {
         this.type = undefined;
     }
     render() {
-        return (h("div", { key: '5f1af9f77d699a3098b189a33cbebdba36d5ce23', class: this.type }, h("slot", { key: 'd8b6da798f1579042763c3953a7e1a869031a9e0' })));
+        return (h("div", { key: '824f9b9f4ee2d4212ad28a561b03c2bb8e2dbb0c', class: this.type }, h("slot", { key: '276f05d0bbb4a1f0e6ef9391d66a07ed875890b9' })));
     }
 };
 ZAlert.style = ZAlertStyle0;

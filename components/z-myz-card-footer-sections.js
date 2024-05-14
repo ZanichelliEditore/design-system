@@ -10,7 +10,7 @@ const ZMyzCardFooterSections$1 = /*@__PURE__*/ proxyCustomElement(class ZMyzCard
         this.__attachShadow();
     }
     render() {
-        return (h("div", { key: 'a293f04dca9996921d120faad7a7338afdab0205' }, h("footer", { key: 'e7fc7b09f264943f559723900a225f6c5201b9d1' }, h("div", { key: '782863c61b3b92c3735db24a3f2ec66ee195e72b', class: "top" }, h("slot", { key: '940eae81a4f44cf95f6f2175f91e1b734dd7bc9f', name: "top" })), h("div", { key: 'eb385964446becb65d044b5143ee7bc534f9b16b', class: "bottom" }, h("slot", { key: '2c3be22878583359845307dd704d102dc006fc97', name: "bottom" })))));
+        return (h("div", { key: '4ba6b97d65b6e6356411680b1b0d954c3b2ef2a6' }, h("footer", { key: '9b29ba240c9420c8aa6c3757f99e60e0806e403e' }, h("div", { key: '13d5c349f14a9de7b172ec1c4e45784eae1ab845', class: "top" }, h("slot", { key: '74af633d2e01f97b9487e10baaa44e2b6aebdaed', name: "top" })), h("div", { key: 'c2adb665b29ce04cea0f6d8d4f6dc76a7c801582', class: "bottom" }, h("slot", { key: 'fb5967cd696d33d1dc46aa75d3f65526254f8330', name: "bottom" })))));
     }
     static get style() { return ZMyzCardFooterSectionsStyle0; }
 }, [1, "z-myz-card-footer-sections"]);

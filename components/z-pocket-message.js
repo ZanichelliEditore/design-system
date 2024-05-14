@@ -11,7 +11,7 @@ const ZPocketMessage$1 = /*@__PURE__*/ proxyCustomElement(class ZPocketMessage e
         this.__attachShadow();
     }
     render() {
-        return (h("div", { key: '843ee900479a31fb894034f112cc0228b96777db' }, h("z-icon", { key: 'fd7328544da14a6f0291267e9b5b0f13eebc6d78', name: "exclamation-circle" }), h("div", { key: '1612d02ebeb6a3181d632350af14d847883cdce4', class: "content" }, h("slot", { key: 'f7256dfd56028f2dc9e3c42c324c210041ed50ad' })), h("div", { key: '9b5db0c5c46967ba4ae2091fac0ab3e4ec3718ff', class: "cta-wrapper" }, h("slot", { key: '9a23bdb386bd1c10d311c41226a430e2a61b9d45', name: "cta" }))));
+        return (h("div", { key: 'db10fcdf23fbd0da7833e01f8d72a6302f6cadba' }, h("z-icon", { key: '7c241ba1a147f71db15162c5ee6d84738536430e', name: "exclamation-circle" }), h("div", { key: '7ec8936f539f19047c644be7b9ec1dd985d3d42e', class: "content" }, h("slot", { key: 'a6cd9ab932dcac28058640df1a08da9f174e1a2b' })), h("div", { key: '376e912ec9d49a7148b620b54ce26d9e8a278f1f', class: "cta-wrapper" }, h("slot", { key: '3ccbb7a2cd41d211ab76734fb73e7b23aa100d9b', name: "cta" }))));
     }
     static get style() { return ZPocketMessageStyle0; }
 }, [1, "z-pocket-message"]);

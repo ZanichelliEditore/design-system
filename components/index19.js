@@ -34,7 +34,7 @@ const ZMyzCardHeader = /*@__PURE__*/ proxyCustomElement(class ZMyzCardHeader ext
         };
     }
     render() {
-        return (h("header", { key: '904634bcd078321c3142c3b92eb8ad14244c6c4b', class: this.retrieveClass() }, h("slot", { key: 'c6e19f0f2b536def7a32c3dd9343439f8d532e98', name: "aria-heading" }), h("span", { key: '36da9db6eb1620f5ef38db575ec81196997ccb48', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: '7f3f94bb0161e385189963b861eb61ef224c1548', name: "icon" })));
+        return (h("header", { key: 'b78bcd035a80f910780071965ac3226cfe13d307', class: this.retrieveClass() }, h("slot", { key: '012280b6c5689ce3266f63460002bc8aba202493', name: "aria-heading" }), h("span", { key: 'ee783cc471606e97a88809eddf6d0436e07d15e7', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: '0a628219decd82055dc7e7b6c0b6fc30570e268e', name: "icon" })));
     }
     static get style() { return ZMyzCardHeaderStyle0; }
 }, [1, "z-myz-card-header", {
