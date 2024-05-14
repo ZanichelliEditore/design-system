@@ -9,6 +9,17 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v14.0.0](#v1400)
+
+  - [Aggiornamento design-tokens](#aggiornamento-design-tokens)
+    - [text01 diventa default-text](#text01-diventa-default-text)
+    - [text04 diventa text-inverse](#text04-diventa-text-inverse)
+    - [icon01 diventa primary01-icon](#icon01-diventa-primary01-icon)
+    - [icon02 diventa default-icon](#icon02-diventa-default-icon)
+    - [icon03 diventa inverse-icon](#icon03-diventa-inverse-icon)
+    - [text02 cambia valore da gray800 a gray100](#text02-cambia-valore-da-gray800-a-gray100)
+    - [disabled02 cambia valore da gray700 a gray100](#disabled02-cambia-valore-da-gray700-a-gray100)
+
 - [v13.0.0](#v1300)
 
   - [ZTable](#ztable)
@@ -82,6 +93,22 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v14.0.0
+
+### Aggiornamento design-tokens
+
+La versione `1.0.0` del pacchetto `@zanichelli/albe-design-tokens` ha cambiato la denominazione e il valore di alcuni token, di conseguenza le applicazioni che usano la versione `>= 14` di questo repo, devono sostituire i vecchi token con i nuovi equivalenti.
+
+Di seguito la lista dei tokens da modificare:
+
+- `text01` da modificare in `default-text`
+- `text02` ha cambiato valore da gray800 a gray100, verificare se in alcuni punti `text02` è da sostituire con `text01`
+- `text04` da modificare in `text-inverse`
+- `disabled02` ha cambiato valore da gray700 a gray100, verificare se in alcuni punti `disabled02` è da sostituire con `disabled03`
+- `icon01` da modificare in `primary01-icon`
+- `icon02` da modificare in `default-icon`
+- `icon03` da modificare in `inverse-icon`
 
 ## v13.0.0
 
