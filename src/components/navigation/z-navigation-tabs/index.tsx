@@ -17,7 +17,7 @@ export class ZNavigationTabs {
    * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
    */
   @Prop()
-  ariaLabel?: string;
+  ariaLabel = "";
 
   /**
    * Navigation tabs orientation.

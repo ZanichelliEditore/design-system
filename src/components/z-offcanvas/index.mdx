@@ -1,0 +1,20 @@
+import {Meta, Canvas, Story, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZOffcanvas
+
+<Canvas>
+  <Story of={IndexStories.ZOffcanvasEnterRight} />
+</Canvas>
+
+<Canvas>
+  <Story of={IndexStories.ZOffcanvasEnterLeft} />
+</Canvas>
+
+<Canvas>
+  <Story of={IndexStories.ZOffcanvasSkipLoadAnimation} />
+</Canvas>
+
+<Controls />

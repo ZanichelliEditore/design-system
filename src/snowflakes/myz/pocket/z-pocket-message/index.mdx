@@ -1,0 +1,15 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+
+import * as IndexStories from "./index.stories.js";
+
+<Meta of={IndexStories} />
+
+# ZPocketMessage
+
+<Canvas>
+  <Story of={IndexStories.ZPocketMessage} />
+
+  <Story of={IndexStories.ZPocketMessageCta} />
+</Canvas>
+
+<Controls />

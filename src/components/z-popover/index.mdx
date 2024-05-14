@@ -1,0 +1,20 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+## ZPopover
+
+To be sure the AUTO algorithm finds the right container when calculating the position, set its container's position to `position: relative;`
+
+<Meta of={IndexStories} />
+
+# ZPopover
+
+<Canvas>
+  <Story of={IndexStories.ContextualMenuLike} />
+</Canvas>
+
+<Canvas>
+  <Story of={IndexStories.TooltipLike} />
+</Canvas>
+
+<Controls />

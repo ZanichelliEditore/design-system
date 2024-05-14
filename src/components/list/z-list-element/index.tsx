@@ -131,10 +131,10 @@ export class ZListElement {
   listType?: ListType = ListType.NONE;
 
   /**
-   * [optional] Sets element role.
+   * Sets element role.
    */
   @Prop({reflect: true})
-  role?: string = "listitem";
+  role = "listitem";
 
   /** set tabindex to Host tag (optional). Defaults to 0. */
   @Prop()

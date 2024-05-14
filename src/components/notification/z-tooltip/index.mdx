@@ -1,0 +1,25 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+## ZTooltip
+
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
+On the following Story, the "position" prop can be set only for the original positions of the `z-tooltip` by design.
+
+<Meta of={IndexStories} />
+
+<Canvas>
+  <Story of={IndexStories.ZTooltip} />
+</Canvas>
+
+## Autoclose off
+
+When `closable` property is set to `false`, you can open the tooltip on hover and still click things outside without closing it.
+In the Story below, the tooltip is opened hovering the button.
+
+<Canvas>
+  <Story of={IndexStories.AutocloseOff} />
+</Canvas>
+
+<Controls />

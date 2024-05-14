@@ -32,9 +32,9 @@ export class ZInput {
   @Prop()
   ariaLabel = "";
 
-  /** the input aria-expaded (optional): available for text, password, number, email */
+  /** the input aria-expaded: available for text, password, number, email */
   @Prop()
-  ariaExpanded?: string;
+  ariaExpanded = "";
 
   /** the input aria-controls (optional): available for text, password, number, email */
   @Prop()
@@ -92,9 +92,9 @@ export class ZInput {
   @Prop()
   autocomplete?: string;
 
-  /** the input role (optional) */
+  /** the input role */
   @Prop()
-  role?: string;
+  role = "";
 
   /** render clear icon when typing (optional): available for text */
   @Prop()

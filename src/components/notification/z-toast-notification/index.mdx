@@ -1,0 +1,38 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZToastNotification
+
+## Slide-in right
+
+<Canvas>
+  <Story of={IndexStories.SlideInRight} />
+</Canvas>
+
+## Slide-in left
+
+<Canvas>
+  <Story of={IndexStories.SlideInLeft} />
+</Canvas>
+
+## Slide-in down
+
+<Canvas>
+  <Story of={IndexStories.SlideInDown} />
+</Canvas>
+
+## Slide-in up
+
+<Canvas>
+  <Story of={IndexStories.SlideInUp} />
+</Canvas>
+
+## Slotted button
+
+<Canvas>
+  <Story of={IndexStories.SlottedButton} />
+</Canvas>
+
+<Controls />

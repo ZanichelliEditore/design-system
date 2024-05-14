@@ -1,0 +1,32 @@
+import {Meta, Canvas, Story, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZPagination - visible pages
+
+<Canvas>
+  <Story of={IndexStories.ZPaginationVisiblePages} />
+</Canvas>
+
+# ZPagination - split
+
+> Note that enabling `split` will shut off `visiblePages` and `edges`.
+
+<Canvas>
+  <Story of={IndexStories.ZPaginationSplit} />
+</Canvas>
+
+# ZPagination - edges
+
+<Canvas>
+  <Story of={IndexStories.ZPaginationEdges} />
+</Canvas>
+
+# ZPagination - skip
+
+<Canvas>
+  <Story of={IndexStories.ZPaginationSkip} />
+</Canvas>
+
+<Controls />

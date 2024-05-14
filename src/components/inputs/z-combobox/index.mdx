@@ -1,0 +1,24 @@
+import {Meta, Canvas, Story, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZCombobox
+
+<Canvas>
+  <Story of={IndexStories.ZCombobox} />
+</Canvas>
+
+# ZCombobox with groups
+
+<Canvas>
+  <Story of={IndexStories.ZComboboxWithGroups} />
+</Canvas>
+
+# ZCombobox disabled
+
+<Canvas>
+  <Story of={IndexStories.ZComboboxDisabled} />
+</Canvas>
+
+<Controls />

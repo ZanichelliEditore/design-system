@@ -3,14 +3,20 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@stencil/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:storybook/recommended",
+    "plugin:@stencil-community/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "@stencil/eslint-plugin", "prettier"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "warn",
     "curly": "warn",
@@ -83,16 +89,26 @@
       {
         "selector": "typeLike",
         "format": ["PascalCase"]
+      },
+      {
+        "selector": "objectLiteralProperty",
+        "format": null
+      },
+      {
+        "selector": "import",
+        "format": null
       }
     ],
     "react/jsx-no-bind": "off",
-    "@stencil/class-pattern": [
+    "@stencil-community/ban-default-true": "off",
+    "@stencil-community/ban-exported-const-enums": "off",
+    "@stencil-community/class-pattern": [
       "error",
       {
         "pattern": "^Z[A-Z].*$"
       }
     ],
-    "@stencil/decorators-style": [
+    "@stencil-community/decorators-style": [
       "error",
       {
         "prop": "multiline",
@@ -104,8 +120,35 @@
         "listen": "multiline"
       }
     ],
-    "@stencil/required-prefix": ["error", ["z"]],
-    "@stencil/strict-boolean-conditions": "off",
-    "@stencil/prefer-vdom-listener": "off"
-  }
+    "@stencil-community/required-prefix": ["error", ["z"]],
+    "@stencil-community/prefer-vdom-listener": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "modifiers": ["exported"],
+            "format": ["PascalCase"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["./src/components/**/icons.tsx"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "objectLiteralProperty",
+            "modifiers": ["requiresQuotes"],
+            "format": null
+          }
+        ]
+      }
+    }
+  ]
 }

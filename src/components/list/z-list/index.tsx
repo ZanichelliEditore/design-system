@@ -23,10 +23,10 @@ export class ZList {
   listType?: ListType = ListType.NONE;
 
   /**
-   * [optional] Sets role of the element.
+   * Sets role of the element.
    */
   @Prop({reflect: true})
-  role?: string = "list";
+  role = "list";
 
   private setChildrenSizeType(): void {
     const children = this.host.children;

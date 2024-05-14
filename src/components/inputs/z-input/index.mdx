@@ -1,0 +1,22 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZInput
+
+<Canvas>
+  <Story of={IndexStories.ZInputAllProps} />
+
+  <Story of={IndexStories.ZInputText} />
+
+  <Story of={IndexStories.ZInputTextarea} />
+
+  <Story of={IndexStories.ZInputCheckbox} />
+
+  <Story of={IndexStories.ZInputRadio} />
+
+  <Story of={IndexStories.ZInputNumber} />
+</Canvas>
+
+<Controls />

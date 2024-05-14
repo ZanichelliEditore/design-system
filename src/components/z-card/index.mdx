@@ -1,0 +1,40 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZCard
+
+## With image
+
+<Canvas>
+  <Story of={IndexStories.WithImage} />
+</Canvas>
+
+## With image and icon
+
+<Canvas>
+  <Story of={IndexStories.WithImageAndIcon} />
+</Canvas>
+
+## Color cover
+
+<Canvas>
+  <Story of={IndexStories.ColorCover} />
+</Canvas>
+
+## Text
+
+<Canvas>
+  <Story of={IndexStories.TextVariantPrimaryBackground} />
+
+  <Story of={IndexStories.TextVariantWhiteBackgroundAndBordered} />
+</Canvas>
+
+## With image, trigger event on click
+
+<Canvas>
+  <Story of={IndexStories.WithImageAndClick} />
+</Canvas>
+
+<Controls />

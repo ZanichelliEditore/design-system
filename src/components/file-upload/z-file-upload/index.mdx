@@ -1,0 +1,16 @@
+import {Meta, Story, Controls, Canvas} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZFileUpload
+
+<Canvas>
+  <Story of={IndexStories.ZFileUploadDefaultVersion} />
+</Canvas>
+
+<Canvas>
+  <Story of={IndexStories.ZFileUploadDragdropVersion} />
+</Canvas>
+
+<Controls />

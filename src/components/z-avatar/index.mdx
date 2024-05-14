@@ -1,0 +1,18 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZAvatar
+
+<Canvas>
+  <Story of={IndexStories.ZAvatar} />
+</Canvas>
+
+## How to use
+
+Pass at least one prop between **text** and **image**.
+
+If prop **image** contains a broken URL, the component will show **text** prop, if given.
+
+<Controls />

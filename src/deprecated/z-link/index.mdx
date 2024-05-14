@@ -1,0 +1,32 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+# ZLink
+
+<Meta of={IndexStories} />
+
+## How to use
+
+Icon dimension is calculated using the link font size multiplied by 1.125. To change the font size set the --font-size-link variable in style; defaults to inherit (es. inline).
+
+Current available text color is : primary, inverse, black and white. Primary and Inverse use the theming values from design-tokens; Black and White has fixed colors.
+
+## Primary
+
+<Canvas>
+  <Story of={IndexStories.Primary} />
+</Canvas>
+
+## Inverse
+
+<Canvas>
+  <Story of={IndexStories.Inverse} />
+</Canvas>
+
+## Inline without icon
+
+<Canvas>
+  <Story of={IndexStories.InlineWithoutIcon} />
+</Canvas>
+
+<Controls />

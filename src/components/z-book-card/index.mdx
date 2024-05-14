@@ -1,0 +1,54 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZBookCard
+
+<Canvas>
+  <Story of={IndexStories.AllProps} />
+</Canvas>
+
+## Slotted tags
+
+<Canvas>
+  <Story of={IndexStories.SlottedTags} />
+</Canvas>
+
+## Slotted resources
+
+<Canvas>
+  <Story of={IndexStories.SlottedResources} />
+</Canvas>
+
+## Slotted header CTA
+
+<Canvas>
+  <Story of={IndexStories.SlottedHeaderCta} />
+</Canvas>
+
+## Slotted footer CTA
+
+<Canvas>
+  <Story of={IndexStories.SlottedFooterCta} />
+</Canvas>
+
+## Expanded variant
+
+<Canvas>
+  <Story of={IndexStories.ExpandedVariant} />
+</Canvas>
+
+## Search variant
+
+<Canvas>
+  <Story of={IndexStories.SearchVariant} />
+</Canvas>
+
+## Compact variant
+
+<Canvas>
+  <Story of={IndexStories.CompactVariant} />
+</Canvas>
+
+<Controls />

@@ -319,7 +319,7 @@ export namespace Components {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -683,19 +683,31 @@ export namespace Components {
          */
         "isclosable": boolean;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel": string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -711,9 +723,9 @@ export namespace Components {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
-        "ariaExpanded"?: string;
+        "ariaExpanded": string;
         /**
           * the input aria-label
          */
@@ -799,9 +811,9 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -892,9 +904,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -954,9 +966,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1300,7 +1312,7 @@ export namespace Components {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * Navigation tabs orientation.
          */
@@ -2540,6 +2552,10 @@ declare global {
         prototype: HTMLZInfoBoxElement;
         new (): HTMLZInfoBoxElement;
     };
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
     }
     var HTMLZInfoRevealElement: {
@@ -4081,19 +4097,31 @@ declare namespace LocalJSX {
          */
         "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -4109,7 +4137,7 @@ declare namespace LocalJSX {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**
@@ -4217,7 +4245,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
         "role"?: string;
         /**
@@ -4314,7 +4342,7 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
         "role"?: string;
         /**
@@ -4388,7 +4416,7 @@ declare namespace LocalJSX {
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
         "role"?: string;
         /**
@@ -5754,6 +5782,10 @@ declare module "@stencil/core" {
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            /**
+             * Info reveal component.
+             * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+             */
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;

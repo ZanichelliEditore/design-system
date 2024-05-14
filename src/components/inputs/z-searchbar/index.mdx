@@ -1,0 +1,30 @@
+import {Meta, Story, Canvas, Controls} from "@storybook/blocks";
+import * as IndexStories from "./index.stories";
+
+<Meta of={IndexStories} />
+
+# ZSearchbar
+
+<Canvas>
+  <Story of={IndexStories.ZSearchbar} />
+</Canvas>
+
+# ZSearchbar - simple search
+
+<Canvas>
+  <Story of={IndexStories.ZSearchbarSimpleSearch} />
+</Canvas>
+
+# ZSearchbar - autocomplete
+
+<Canvas>
+  <Story of={IndexStories.ZSearchbarAutocomplete} />
+</Canvas>
+
+# ZSearchbar - autocomplete with complex items
+
+<Canvas>
+  <Story of={IndexStories.ZSearchbarAutocompleteWithComplexItems} />
+</Canvas>
+
+<Controls />
