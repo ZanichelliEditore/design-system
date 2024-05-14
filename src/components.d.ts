@@ -683,19 +683,31 @@ export namespace Components {
          */
         "isclosable": boolean;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel": string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -2540,6 +2552,10 @@ declare global {
         prototype: HTMLZInfoBoxElement;
         new (): HTMLZInfoBoxElement;
     };
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
     }
     var HTMLZInfoRevealElement: {
@@ -4081,19 +4097,31 @@ declare namespace LocalJSX {
          */
         "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -5754,6 +5782,10 @@ declare module "@stencil/core" {
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            /**
+             * Info reveal component.
+             * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+             */
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
