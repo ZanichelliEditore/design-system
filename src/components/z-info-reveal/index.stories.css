@@ -1,0 +1,14 @@
+.z-info-reveal-story-wrapper {
+  display: flex;
+  width: 600px;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  column-gap: var(--space-unit);
+}
+
+@media (max-width: 767px) {
+  .z-info-reveal-story-wrapper {
+    width: 100%;
+  }
+}
