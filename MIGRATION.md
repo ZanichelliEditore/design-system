@@ -19,6 +19,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
     - [icon03 diventa inverse-icon](#icon03-diventa-inverse-icon)
     - [text02 cambia valore da gray800 a gray100](#text02-cambia-valore-da-gray800-a-gray100)
     - [disabled02 cambia valore da gray700 a gray100](#disabled02-cambia-valore-da-gray700-a-gray100)
+  - [ZLink](#zlink)
+    - [Rimozione del componente deprecato ZLink dalla libreria](#rimozione-componente-zlink-dalla-libreria)
 
 - [v13.0.0](#v1300)
 
@@ -109,6 +111,12 @@ Di seguito la lista dei tokens da modificare:
 - `icon01` da modificare in `primary01-icon`
 - `icon02` da modificare in `default-icon`
 - `icon03` da modificare in `inverse-icon`
+
+### ZLink
+
+#### Rimozione componente `zLink` dalla libreria
+
+Il componente deprecato è stato eliminato definitivamente dalla libreria
 
 ## v13.0.0
 
