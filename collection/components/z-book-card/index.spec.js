@@ -79,7 +79,7 @@ describe("Suite test ZBookCard", () => {
           <article class="expanded">
           <div class="wrapper">
             <div class="cover">
-              <button class="ribbon interactive"><z-icon fill="color-icon03" height="16" name="info" width="16"></z-icon><span>ADOTTATO</span></button>
+              <button class="ribbon interactive"><z-icon fill="color-inverse-icon" height="16" name="info" width="16"></z-icon><span>ADOTTATO</span></button>
               <div class="img-wrapper">
                 <img aria-hidden="true" src="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" />
               </div>

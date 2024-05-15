@@ -60,7 +60,6 @@
     "components/z-skip-to-content/index.js",
     "components/z-tag/index.js",
     "components/z-visually-hidden/index.js",
-    "deprecated/z-link/index.js",
     "snowflakes/myz/card/z-myz-card/index.js",
     "snowflakes/myz/card/z-myz-card-alert/index.js",
     "snowflakes/myz/card/z-myz-card-body/index.js",

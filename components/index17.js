@@ -10,7 +10,7 @@ const ZMyzCardBody = /*@__PURE__*/ proxyCustomElement(class ZMyzCardBody extends
         this.__attachShadow();
     }
     render() {
-        return (h("div", { key: '12386f13964444007e6bef9219e791d01f131d9a' }, h("slot", { key: '10378c336d6a6c70dea11375397fd734dc570f53', name: "alert" }), h("slot", { key: '7dfff15df0a1a32f63ac329a4be3b11d7d4554f6', name: "cover" })));
+        return (h("div", { key: '29910997b3d57c8ed4694ae81e3f8e62b86908df' }, h("slot", { key: 'da76b95d6eb9c8d36bb6a09f79d277dd5f6924e4', name: "alert" }), h("slot", { key: 'cc694615936aa77e99090e627eb4623c6feac31d', name: "cover" })));
     }
     static get style() { return ZMyzCardBodyStyle0; }
 }, [1, "z-myz-card-body"]);

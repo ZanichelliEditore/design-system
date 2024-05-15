@@ -40,8 +40,8 @@ button:active {
 }
 
 button:disabled {
-  color: var(--color-disabled02);
-  fill: var(--color-disabled02);
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
 }
 
 z-icon {

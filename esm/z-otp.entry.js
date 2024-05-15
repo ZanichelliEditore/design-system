@@ -20,7 +20,7 @@ const ZOtp = class {
         this.otpRef = [...Array(this.inputNum)];
     }
     render() {
-        return (h("div", { key: 'a7f919ee8d83098adb6303d6af70a701684d9752', class: "otp-container" }, h("div", { key: '07143c3078db7cd5dd9f5bf48c977d87df9457e9', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
+        return (h("div", { key: '995d76c97533e24975e62c98ecd08b4558a45687', class: "otp-container" }, h("div", { key: '97f2ddc116b3c6b41f197037b0612cb39706bed8', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
                 if (e.keyCode > 47) {
                     this.otpRef[i].value = "";
                 }
@@ -31,7 +31,7 @@ const ZOtp = class {
             }, onInput: (e) => {
                 this.otp[i] = e.target.value;
                 this.emitInputChange(this.otp.join(""));
-            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: '19663f9110cfe610c76ca900938192fb4f7fb96c', message: this.message, status: this.status })));
+            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: 'ce5613a45e4a578a16b63580207359b02b78cba1', message: this.message, status: this.status })));
     }
 };
 ZOtp.style = ZOtpStyle0;

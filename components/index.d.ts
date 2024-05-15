@@ -51,8 +51,6 @@ export { ZInput as ZInput } from '../types/components/inputs/z-input/index';
 export { defineCustomElement as defineCustomElementZInput } from './z-input';
 export { ZInputMessage as ZInputMessage } from '../types/components/inputs/z-input-message/index';
 export { defineCustomElement as defineCustomElementZInputMessage } from './z-input-message';
-export { ZLink as ZLink } from '../types/deprecated/z-link/index';
-export { defineCustomElement as defineCustomElementZLink } from './z-link';
 export { ZList as ZList } from '../types/components/list/z-list/index';
 export { defineCustomElement as defineCustomElementZList } from './z-list';
 export { ZListElement as ZListElement } from '../types/components/list/z-list-element/index';

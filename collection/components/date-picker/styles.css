@@ -300,7 +300,7 @@ z-range-picker {
   height: calc(var(--space-unit) * 5.5) !important;
   padding-left: var(--space-unit) !important;
   background: var(--color-surface01) !important;
-  color: var(--color-text02) !important;
+  color: var(--color-default-text) !important;
   font-size: var(--font-size-3) !important;
   font-weight: var(--font-rg) !important;
   outline: 1px solid black !important;
@@ -317,7 +317,7 @@ z-range-picker {
   width: calc(var(--space-unit) * 10);
   height: calc(var(--space-unit) * 5.5) !important;
   background: var(--color-surface01) !important;
-  color: var(--color-text02);
+  color: var(--color-default-text);
   outline: 1px solid black !important;
 }
 
@@ -385,7 +385,7 @@ z-range-picker {
 .flatpickr-monthSelect-month:focus {
   border-color: var(--color-hover-primary) !important;
   background-color: var(--color-hover-primary) !important;
-  color: var(--color-text04) !important;
+  color: var(--color-text-inverse) !important;
 }
 
 .flatpickr-day.today,
@@ -418,7 +418,7 @@ z-range-picker {
   display: block;
   width: 100%;
   padding-left: var(--space-unit);
-  color: var(--color-text02) !important;
+  color: var(--color-default-text) !important;
   content: "Orario";
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);

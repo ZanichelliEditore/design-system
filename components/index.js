@@ -27,7 +27,6 @@ export { ZInfoBox, defineCustomElement as defineCustomElementZInfoBox } from './
 export { ZInfoReveal, defineCustomElement as defineCustomElementZInfoReveal } from './z-info-reveal.js';
 export { ZInput, defineCustomElement as defineCustomElementZInput } from './z-input.js';
 export { ZInputMessage, defineCustomElement as defineCustomElementZInputMessage } from './z-input-message.js';
-export { ZLink, defineCustomElement as defineCustomElementZLink } from './z-link.js';
 export { ZList, defineCustomElement as defineCustomElementZList } from './z-list.js';
 export { ZListElement, defineCustomElement as defineCustomElementZListElement } from './z-list-element.js';
 export { ZListGroup, defineCustomElement as defineCustomElementZListGroup } from './z-list-group.js';

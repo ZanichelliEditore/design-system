@@ -7,10 +7,10 @@ import { ControlSize, AccordionVariant } from "../../beans";
  * @slot tag - Slot for tags.
  * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
  * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
- * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+ * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
  * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
  * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
- * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+ * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
  * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
  * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
  * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -47,7 +47,7 @@ export class ZAccordion {
         this.toggled.emit(this.open);
     }
     render() {
-        return (h("details", { key: 'df8ab3183d7dee036891420e1ca4b58ea8186972', ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { key: 'c4160d5af242307bc85cd4fbe055b6646aa065b8', tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { class: "z-accordion-label-icon", name: this.icon })), h("span", { key: '1802dd7e1b6384c69527e0d4cf65881f4810f88c', class: "z-accordion-label" }, this.label), h("span", { key: '38244c63af937be53bb3fb2e54f225239ce2b9f9', class: "z-accordion-tags" }, h("slot", { key: '2cacb7ab9947c006b50de586065b2a77868dbb11', name: "tag" })), h("z-icon", { key: 'd9936dc9e899a176a3e929758f36cdd5f278b50e', class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { class: "z-accordion-content", part: "content" }, h("slot", null)))));
+        return (h("details", { key: 'a1a71f7848714200cb7257e52f5fc33eb5c138a8', ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { key: '6d54c14ad248b2b10a7483b4c4bbb7d551f0cc1d', tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { class: "z-accordion-label-icon", name: this.icon })), h("span", { key: 'e5c9bb595f5ff65ede8d0094172e8779b85023db', class: "z-accordion-label" }, this.label), h("span", { key: 'b48e9f6e1dca9c00c9f85a8a6960a774a07f1287', class: "z-accordion-tags" }, h("slot", { key: '9c9300a51a7b484c9e34dd48ad88f0e81909f13a', name: "tag" })), h("z-icon", { key: '1394de17280c4a42735ab0f839a3ad967d0f27e2', class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { class: "z-accordion-content", part: "content" }, h("slot", null)))));
     }
     static get is() { return "z-accordion"; }
     static get encapsulation() { return "shadow"; }

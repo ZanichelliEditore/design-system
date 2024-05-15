@@ -46,7 +46,7 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+ * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
  * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
  * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
  * Defaults to `--app-header-typography-3-size`.
@@ -56,7 +56,7 @@ import { EventEmitter } from "../../../stencil-public-runtime";
  * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
  * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
  * Defaults to `--app-header-typography-3-tracking`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+ * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 export declare class ZAppHeader {
     hostElement: HTMLZAppHeaderElement;

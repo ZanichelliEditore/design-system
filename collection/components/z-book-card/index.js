@@ -88,7 +88,7 @@ export class ZBookCard {
     }
     renderRibbon() {
         const content = [
-            this.ribbonIcon && (h("z-icon", { name: this.ribbonIcon, width: 16, height: 16, fill: "color-icon03" })),
+            this.ribbonIcon && (h("z-icon", { name: this.ribbonIcon, width: 16, height: 16, fill: "color-inverse-icon" })),
             h("span", null, this.ribbon),
         ];
         return this.ribbonInteractive ? (h("button", { class: "ribbon interactive", onClick: () => this.emitRibbonClick() }, content)) : (h("div", { class: "ribbon" }, content));
@@ -124,7 +124,7 @@ export class ZBookCard {
         return (h("div", { class: "action-container" }, h("slot", { name: "footer-cta" })));
     }
     render() {
-        return (h("article", { key: '0be831c7e7f9c9cc2684610dd8015d46820ce07d', class: {
+        return (h("article", { key: '101c9922d8f9405fc38fb79f36fbf0d608327064', class: {
                 [this.variant]: true,
                 borderless: !!this.borderless,
             } }, this.renderCard()));

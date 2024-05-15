@@ -2825,10 +2825,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-info-reveal.entry.js').then(processMod, consoleError);
-                case 'z-link':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-link.entry.js').then(processMod, consoleError);
                 case 'z-logo':
                     return import(
                       /* webpackMode: "lazy" */

@@ -21,8 +21,8 @@ textarea,
   border: var(--border-size-small) solid var(--color-surface04);
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
-  color: var(--color-text01);
-  fill: var(--color-icon02);
+  color: var(--color-default-text);
+  fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
@@ -110,7 +110,7 @@ input:not([readonly]):hover,
 :host([disabled]:not([disabled="false"])) z-icon {
   border-color: var(--color-disabled01);
   box-shadow: none;
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
   fill: var(--color-disabled01);
   pointer-events: none;
 }
@@ -141,7 +141,7 @@ textarea::placeholder {
 label.input-label {
   display: block;
   padding-bottom: var(--space-unit);
-  color: var(--color-text02);
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
@@ -150,13 +150,13 @@ label.input-label {
 }
 
 :host([disabled]:not([disabled="false"])) label.input-label {
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 .text-wrapper > div {
   position: relative;
   z-index: 1;
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 .text-wrapper > div > input {
@@ -277,7 +277,7 @@ textarea {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  color: var(--color-text01);
+  color: var(--color-default-text);
   fill: var(--color-primary01);
   font-family: var(--font-family-sans);
 }
@@ -386,7 +386,7 @@ textarea {
 /* disabled */
 .radio-wrapper > input:disabled + .radio-label,
 .checkbox-wrapper > input:disabled + .checkbox-label {
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 .radio-wrapper > input:disabled + .radio-label > z-icon,

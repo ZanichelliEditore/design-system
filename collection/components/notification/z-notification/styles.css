@@ -79,7 +79,7 @@
 
 .content-text {
   max-width: 800px;
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;

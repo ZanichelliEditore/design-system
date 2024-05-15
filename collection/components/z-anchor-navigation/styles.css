@@ -45,7 +45,7 @@ z-anchor-navigation nav * a:not(:only-child) {
 z-anchor-navigation nav > * {
   position: relative;
   border-left: var(--border-size-large) solid var(--color-surface04);
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -77,7 +77,7 @@ z-anchor-navigation nav z-icon {
 
   display: flex;
   padding: calc(var(--space-unit) * 1.5);
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 @media (min-width: 768px) {

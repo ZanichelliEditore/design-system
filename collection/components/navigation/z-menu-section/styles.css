@@ -18,7 +18,7 @@
 }
 
 ::slotted(*) {
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
@@ -90,7 +90,7 @@ when placed below the real text using `flex-direction: column`. */
 
 .label z-icon {
   margin-left: calc(var(--space-unit) * 4);
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 .items {

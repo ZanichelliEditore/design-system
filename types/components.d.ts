@@ -16,10 +16,10 @@ export namespace Components {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -127,7 +127,7 @@ export namespace Components {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -137,7 +137,7 @@ export namespace Components {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
@@ -844,59 +844,6 @@ export namespace Components {
           * input status (optional)
          */
         "status"?: InputStatus;
-    }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link icon position (optional)
-         */
-        "iconposition"?: "left" | "right";
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: "primary" | "inverse" | "white" | "black";
-        /**
-          * draw underline on text (optional)
-         */
-        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -2057,10 +2004,6 @@ export interface ZInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInputElement;
 }
-export interface ZLinkCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZLinkElement;
-}
 export interface ZListElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZListElementElement;
@@ -2169,10 +2112,10 @@ declare global {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -2263,7 +2206,7 @@ declare global {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -2273,7 +2216,7 @@ declare global {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2589,26 +2532,6 @@ declare global {
     var HTMLZInputMessageElement: {
         prototype: HTMLZInputMessageElement;
         new (): HTMLZInputMessageElement;
-    };
-    interface HTMLZLinkElementEventMap {
-        "zLinkClick": any;
-    }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface HTMLZLinkElement extends Components.ZLink, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZLinkElementEventMap>(type: K, listener: (this: HTMLZLinkElement, ev: ZLinkCustomEvent<HTMLZLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZLinkElement: {
-        prototype: HTMLZLinkElement;
-        new (): HTMLZLinkElement;
     };
     interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
     }
@@ -3324,7 +3247,6 @@ declare global {
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
         "z-input-message": HTMLZInputMessageElement;
-        "z-link": HTMLZLinkElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
         "z-list-group": HTMLZListGroupElement;
@@ -3386,10 +3308,10 @@ declare namespace LocalJSX {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -3501,7 +3423,7 @@ declare namespace LocalJSX {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -3511,7 +3433,7 @@ declare namespace LocalJSX {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
@@ -4278,63 +4200,6 @@ declare namespace LocalJSX {
           * input status (optional)
          */
         "status"?: InputStatus;
-    }
-    /**
-     * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-     */
-    interface ZLink {
-        /**
-          * big link version
-         */
-        "big"?: boolean;
-        /**
-          * link url (optional)
-         */
-        "href"?: string;
-        /**
-          * link id (optional)
-         */
-        "htmlid"?: string;
-        /**
-          * tabindex link attribute (optional)
-         */
-        "htmltabindex"?: number;
-        /**
-          * link icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link icon position (optional)
-         */
-        "iconposition"?: "left" | "right";
-        /**
-          * active link flag (optional)
-         */
-        "isactive"?: boolean;
-        /**
-          * disable link flag (optional)
-         */
-        "isdisabled"?: boolean;
-        /**
-          * white variant flag (optional)
-         */
-        "iswhite"?: boolean;
-        /**
-          * emitted on link click, returns linkId
-         */
-        "onZLinkClick"?: (event: ZLinkCustomEvent<any>) => void;
-        /**
-          * link target (optional)
-         */
-        "target"?: string;
-        /**
-          * link text variant (optional)
-         */
-        "textcolor"?: "primary" | "inverse" | "white" | "black";
-        /**
-          * draw underline on text (optional)
-         */
-        "underline"?: boolean;
     }
     interface ZList {
         /**
@@ -5589,7 +5454,6 @@ declare namespace LocalJSX {
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
         "z-input-message": ZInputMessage;
-        "z-link": ZLink;
         "z-list": ZList;
         "z-list-element": ZListElement;
         "z-list-group": ZListGroup;
@@ -5654,10 +5518,10 @@ declare module "@stencil/core" {
              * Accordion component.
              * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
              * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-             * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+             * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
              * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
              * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
              * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
              * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
              * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -5722,7 +5586,7 @@ declare module "@stencil/core" {
              * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
              * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
              * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
              * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
              * Defaults to `--app-header-typography-3-size`.
@@ -5732,7 +5596,7 @@ declare module "@stencil/core" {
              * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
              * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
              * Defaults to `--app-header-typography-3-tracking`.
-             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
@@ -5789,10 +5653,6 @@ declare module "@stencil/core" {
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
-            /**
-             * @deprecated - use a native `<a>` with the `z-link` CSS class instead
-             */
-            "z-link": LocalJSX.ZLink & JSXBase.HTMLAttributes<HTMLZLinkElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
             "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
