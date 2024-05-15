@@ -41,7 +41,7 @@
 :host.light {
   border: var(--border-size-medium) solid var(--color-surface05);
   background-color: var(--color-surface01);
-  color: var(--color-text01);
+  color: var(--color-default-text);
 }
 
 /* Tablet breakpoint */

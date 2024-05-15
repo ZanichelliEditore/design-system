@@ -268,7 +268,7 @@ export class ZBookCard {
           name={this.ribbonIcon}
           width={16}
           height={16}
-          fill={"color-icon03"}
+          fill={"color-inverse-icon"}
         />
       ),
       <span>{this.ribbon}</span>,

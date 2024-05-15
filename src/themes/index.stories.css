@@ -1,6 +1,6 @@
 .themes-story {
   padding: var(--grid-margin);
-  color: var(--color-text02);
+  color: var(--color-default-text);
 }
 
 .themes-story span,

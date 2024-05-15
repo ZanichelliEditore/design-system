@@ -73,7 +73,7 @@
 
 .results .category-heading > .subcategory {
   margin-top: var(--space-unit);
-  color: var(--color-text01);
+  color: var(--color-default-text);
   text-transform: uppercase;
 }
 
@@ -103,9 +103,9 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-start;
-  color: var(--color-text01);
+  color: var(--color-default-text);
   column-gap: calc(var(--space-unit) * 1.5);
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   font-size: var(--font-size-2);
   line-height: var(--font-size-3);
 }

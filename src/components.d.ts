@@ -16,10 +16,10 @@ export namespace Components {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -127,7 +127,7 @@ export namespace Components {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -137,7 +137,7 @@ export namespace Components {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
@@ -683,19 +683,31 @@ export namespace Components {
          */
         "isclosable": boolean;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel": string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -2100,10 +2112,10 @@ declare global {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -2194,7 +2206,7 @@ declare global {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -2204,7 +2216,7 @@ declare global {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2483,6 +2495,10 @@ declare global {
         prototype: HTMLZInfoBoxElement;
         new (): HTMLZInfoBoxElement;
     };
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
     }
     var HTMLZInfoRevealElement: {
@@ -3292,10 +3308,10 @@ declare namespace LocalJSX {
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
      * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
      * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
      * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
      * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
      * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
      * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -3407,7 +3423,7 @@ declare namespace LocalJSX {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -3417,7 +3433,7 @@ declare namespace LocalJSX {
      * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
      * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
      * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
@@ -4003,19 +4019,31 @@ declare namespace LocalJSX {
          */
         "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
     }
+    /**
+     * Info reveal component.
+     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     */
     interface ZInfoReveal {
         /**
-          * Name of the icon for the open button
+          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Name of the icon for the trigger button
          */
         "icon"?: string;
         /**
-          * Text that appears on closed panel next to the open button.
+          * Label of the trigger button.
          */
         "label"?: string;
         /**
-          * Info reveal's position
+          * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
          */
         "position"?: InfoRevealPosition;
+        /**
+          * Size of the trigger button
+         */
+        "size"?: ControlSize;
     }
     interface ZInput {
         /**
@@ -5490,10 +5518,10 @@ declare module "@stencil/core" {
              * Accordion component.
              * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
              * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-             * @cssprop --z-accordion-label-color - Label color. Default: `--color-text01`.
+             * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
              * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
              * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-text01`.
+             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
              * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
              * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
              * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
@@ -5558,7 +5586,7 @@ declare module "@stencil/core" {
              * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
              * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-text01`.
+             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
              * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
              * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
              * Defaults to `--app-header-typography-3-size`.
@@ -5568,7 +5596,7 @@ declare module "@stencil/core" {
              * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
              * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
              * Defaults to `--app-header-typography-3-tracking`.
-             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-text01`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
@@ -5618,6 +5646,10 @@ declare module "@stencil/core" {
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            /**
+             * Info reveal component.
+             * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+             */
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;

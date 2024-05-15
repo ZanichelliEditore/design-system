@@ -12,7 +12,7 @@
 }
 
 :host > div > slot {
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-size: 14px;
 }
 

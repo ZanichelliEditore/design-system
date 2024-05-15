@@ -6,8 +6,8 @@
   border: var(--border-size-small) solid var(--gray400);
   background-color: var(--color-surface01);
   border-radius: 14px;
-  color: var(--color-text01);
-  fill: var(--color-text01);
+  color: var(--color-default-text);
+  fill: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-size: 14px;
   line-height: 28px;
@@ -30,7 +30,7 @@
 }
 
 :host > .z-chip-container:not([aria-disabled]):hover > z-icon:first-child {
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 :host > .z-chip-container .interactive-icon {

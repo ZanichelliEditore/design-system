@@ -9,7 +9,7 @@
   display: inline-flex;
   flex-direction: column;
 
-  --z-menu-label-color: var(--color-text01);
+  --z-menu-label-color: var(--color-default-text);
 }
 
 ::slotted(a) {
@@ -17,7 +17,7 @@
 }
 
 ::slotted(*) {
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }

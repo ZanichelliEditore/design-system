@@ -53,7 +53,7 @@
 :host > div > .header > p.body-3 {
   padding: var(--space-unit) 0;
   margin: 0;
-  color: var(--color-text01);
+  color: var(--color-default-text);
 }
 
 :host > div > .header > p.body-3 > span {
@@ -61,7 +61,7 @@
 }
 
 :host > div > .header > z-icon {
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
@@ -87,7 +87,7 @@
 }
 
 :host > div.disabled .header > p.body-3 {
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 :host > div.disabled .header > z-icon:last-child {
@@ -95,7 +95,7 @@
 }
 
 :host > div.open > .header > z-icon {
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
