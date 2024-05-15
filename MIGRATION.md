@@ -9,6 +9,11 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v14.0.0](#v1400)
+
+  - [ZLink](#zlink)
+    - [Rimozione del componente deprecato ZLink dalla libreria](#rimozione-componente-zlink-dalla-libreria)
+
 - [v13.0.0](#v1300)
 
   - [ZTable](#ztable)
@@ -82,6 +87,14 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v14.0.0
+
+### ZLink
+
+#### Rimozione componente `zLink` dalla libreria
+
+Il componente deprecato è stato eliminato definitivamente dalla libreria
 
 ## v13.0.0
 
