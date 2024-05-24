@@ -1,6 +1,6 @@
 import {newE2EPage} from "@stencil/core/testing";
 
-import {ICONS} from "../../icons/icons";
+import {ICONS} from "../../../constants/iconset";
 
 type CustomWindow = Window &
   typeof globalThis & {

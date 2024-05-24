@@ -30,7 +30,7 @@ Ztag  component.
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../z-icon)
 
 ### Graph
 ```mermaid

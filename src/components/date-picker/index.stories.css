@@ -1,6 +1,3 @@
-@import "~flatpickr/dist/flatpickr.min.css";
-@import "~flatpickr/dist/plugins/monthSelect/style.css";
-
 .story-container {
   display: flex;
 }

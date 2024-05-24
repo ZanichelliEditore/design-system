@@ -41,7 +41,7 @@
 
 - [z-button](../../buttons/z-button)
 - [z-searchbar](../../inputs/z-searchbar)
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-offcanvas](../../z-offcanvas)
 
 ### Graph

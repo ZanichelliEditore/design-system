@@ -50,8 +50,12 @@ z-pagination .pagination-bar button {
   cursor: pointer;
   font-family: inherit;
   font-weight: inherit;
-  transition: background-color 0.15s ease-out, color 0.15s ease-out, border-bottom-color 0.15s ease-out,
-    font-size 0.15s ease-in-out, font-weight 0.15s ease-in-out;
+  transition:
+    background-color 0.15s ease-out,
+    color 0.15s ease-out,
+    border-bottom-color 0.15s ease-out,
+    font-size 0.15s ease-in-out,
+    font-weight 0.15s ease-in-out;
 }
 
 z-pagination .pagination-bar button:focus-visible {

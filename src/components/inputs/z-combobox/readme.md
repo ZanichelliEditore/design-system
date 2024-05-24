@@ -63,7 +63,7 @@
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-list-element](../../list/z-list-element)
 - [z-input](../z-input)
 - [z-list-group](../../list/z-list-group)

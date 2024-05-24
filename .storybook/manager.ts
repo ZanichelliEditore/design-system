@@ -1,8 +1,8 @@
 import {addons} from "@storybook/manager-api";
-import theme from "./theme";
+import {darkTheme} from "./theme";
 
 addons.setConfig({
-  theme,
+  theme: darkTheme,
   enableShortcuts: false,
   sidebar: {
     showRoots: false,

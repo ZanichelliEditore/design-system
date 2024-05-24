@@ -1,12 +1,12 @@
-import {TemplateResult, html} from "lit";
+import {html} from "lit";
 import {ZChipType} from "../../../beans";
-import {Args, Meta, StoryObj} from "@storybook/web-components";
+import {Meta, StoryObj} from "@storybook/web-components";
 import {type ZChip} from ".";
-import {ICONS} from "../../icons/icons";
+import "./index";
+import {ICONS} from "../../../constants/iconset";
 
 const StoryMeta = {
   title: "ZChip",
-  component: "z-chip",
   argTypes: {
     type: {
       options: Object.values(ZChipType),
@@ -26,7 +26,7 @@ export default StoryMeta;
 type Story = StoryObj<ZChip>;
 
 export const Default = {
-  render: (args: Args) => html`
+  render: (args) => html`
     <z-chip
       type=${args.type}
       icon=${args.icon}
@@ -36,7 +36,7 @@ export const Default = {
 } satisfies Story;
 
 export const DifferentFontWeight = {
-  render: (args: Args): TemplateResult => html`
+  render: (args) => html`
     <z-chip
       type=${args.type}
       icon=${args.icon}
@@ -66,7 +66,7 @@ export const InteractiveIcon = {
     interactiveIcon: "multiply-circled",
     disabled: false,
   },
-  render: (args: Args) => html`
+  render: (args) => html`
     <z-chip
       type=${args.type}
       icon=${args.icon}

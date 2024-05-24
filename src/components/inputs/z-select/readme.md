@@ -80,7 +80,7 @@ Type: `Promise<void>`
 - [z-input](../z-input)
 - [z-list](../../list/z-list)
 - [z-list-element](../../list/z-list-element)
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-list-group](../../list/z-list-group)
 - [z-input-message](../z-input-message)
 

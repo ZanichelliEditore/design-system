@@ -5,7 +5,7 @@ import {boolean, randomId} from "../../../utils/utils";
 
 @Component({
   tag: "z-input",
-  styleUrl: "styles.css",
+  styleUrls: ["styles-general.css", "styles-text.css", "styles-textarea.css", "styles-checkbox-radio.css"],
   shadow: false,
   scoped: true,
 })

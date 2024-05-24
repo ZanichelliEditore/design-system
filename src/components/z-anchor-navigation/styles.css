@@ -47,7 +47,10 @@ z-anchor-navigation nav > * {
   border-left: var(--border-size-large) solid var(--color-surface04);
   color: var(--color-text01);
   font-family: var(--font-family-sans);
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 z-anchor-navigation nav > [data-current] {

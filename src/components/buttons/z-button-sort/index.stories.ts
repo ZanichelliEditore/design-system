@@ -1,10 +1,10 @@
+import type {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import {type ZButtonSort} from ".";
-import {Args, Meta, StoryObj} from "@storybook/web-components";
+import "./index";
+import type {ZButtonSort} from "./index";
 
 const StoryMeta = {
   title: "ZButtonSort",
-  component: "z-button-sort",
   args: {
     label: "sort",
     counter: 3,
@@ -21,7 +21,7 @@ export default StoryMeta;
 type Story = StoryObj<ZButtonSort>;
 
 export const Default = {
-  render: (args: Args) =>
+  render: (args) =>
     html`<z-button-sort
       label="${args.label}"
       counter="${args.counter}"

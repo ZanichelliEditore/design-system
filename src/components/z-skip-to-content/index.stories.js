@@ -1,37 +1,25 @@
 import {html} from "lit";
-import {ThemeVariant, linkItem} from "../../beans";
+import {ThemeVariant} from "../../beans";
 
 export default {
   title: "ZSkipToContent",
   component: "z-skip-to-content",
-
   argTypes: {
     variant: {
-      options: ["default", "dark", "light"],
-
+      options: Object.values(ThemeVariant),
       control: {
-        type: "radio",
+        type: "inline-radio",
       },
     },
-
     links: {
       control: "object",
     },
   },
 };
 
-export const ZSkipToContentSample = {
-  render: (args) =>
-    html`<z-skip-to-content
-      variant=${args.variant}
-      links=${JSON.stringify(args.links)}
-    ></z-skip-to-content>`,
-
-  name: "ZSkipToContent-sample",
-
+export const ZSkipToContent = {
   args: {
     variant: "default",
-
     links: [
       {
         ariaLabel: "prova",
@@ -48,4 +36,9 @@ export const ZSkipToContentSample = {
       },
     ],
   },
+  render: (args) =>
+    html`<z-skip-to-content
+      variant=${args.variant}
+      links=${JSON.stringify(args.links)}
+    ></z-skip-to-content>`,
 };

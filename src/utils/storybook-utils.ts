@@ -1,3 +1,9 @@
+import {OptionsConfig} from "@storybook/blocks";
+import {Args} from "@storybook/web-components";
+
+type EnsurePrefix<T extends string, P extends string> = T extends `${P}${string}` ? T : `${P}${T}`;
+export type CssVarsArguments<T extends string = string> = {[x in EnsurePrefix<T, "--">]: string};
+
 /**
  * Get all root CSS properties.
  */
@@ -67,7 +73,7 @@ export function getColorVars(): string[] {
  *  }
  * }}```
  */
-export function getColorVarsLabels(): Record<string, string> {
+export function getColorVarsLabels(): OptionsConfig["labels"] {
   return getColorVars().reduce((acc, token) => ({...acc, [token]: token.slice(6, -1)}), {null: "default"});
 }
 
@@ -79,4 +85,29 @@ export function getThemesColorTokens(): string[] {
 
   // remove duplicates
   return [...new Set(colorTokens)];
+}
+
+/**
+ * Get a Storybook Arg config for Design System color tokens.
+ * Useful to configure a control for the stories.
+ * @param nullable - If true, it will add a `null` option to the list of options, with a label of "-" to allow the user to deselect a color value.
+ * @example ```
+ * "--z-component--background-color": {
+ *  ...getColorTokenArgConfig(),
+ * }
+  ```
+ */
+export function getColorTokenArgConfig(nullable = false): Args {
+  const colorTokens = getColorTokens();
+  if (nullable) {
+    colorTokens.unshift(null);
+  }
+
+  return {
+    options: colorTokens,
+    control: {
+      type: "select",
+      labels: getColorVarsLabels(),
+    },
+  } satisfies Args;
 }

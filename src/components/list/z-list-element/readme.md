@@ -51,7 +51,7 @@
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-divider](../../z-divider)
 
 ### Graph

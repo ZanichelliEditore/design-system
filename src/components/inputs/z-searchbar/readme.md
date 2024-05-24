@@ -48,7 +48,7 @@
 - [z-list](../../list/z-list)
 - [z-list-group](../../list/z-list-group)
 - [z-list-element](../../list/z-list-element)
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-tag](../../z-tag)
 
 ### Graph

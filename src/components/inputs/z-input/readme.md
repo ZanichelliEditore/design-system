@@ -211,7 +211,7 @@ Type: `Promise<boolean>`
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-input-message](../z-input-message)
 
 ### Graph

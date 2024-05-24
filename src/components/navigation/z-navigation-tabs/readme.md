@@ -36,7 +36,7 @@ To select a specific tab programmatically, set the `aria-selected` attribute to 
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 
 ### Graph
 ```mermaid

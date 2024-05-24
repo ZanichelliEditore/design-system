@@ -1,7 +1,8 @@
-import type {Args, Meta, StoryObj} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
+import type {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
 import {ButtonVariant, ControlSize} from "../../../beans";
-import {type ZButton} from ".";
+import "./index";
+import {type ZButton} from "./index";
 
 const StoryMeta = {
   title: "ZButton",
@@ -17,11 +18,11 @@ const StoryMeta = {
   argTypes: {
     variant: {
       options: Object.values(ButtonVariant),
-      control: {type: "radio"},
+      control: {type: "inline-radio"},
     },
     size: {
       options: Object.values(ControlSize),
-      control: {type: "radio"},
+      control: {type: "inline-radio"},
     },
   },
 } satisfies Meta<ZButton>;
@@ -31,7 +32,7 @@ export default StoryMeta;
 type Story = StoryObj<ZButton>;
 
 export const Default = {
-  render: (args: Args): TemplateResult =>
+  render: (args) =>
     html`<z-button
       variant=${args.variant}
       size=${args.size}
@@ -42,19 +43,6 @@ export const Default = {
     >
       Click me
     </z-button>`,
-} satisfies Story;
-
-export const TertiarySmall = {
-  args: {
-    variant: ButtonVariant.TERTIARY,
-    size: ControlSize.SMALL,
-  },
-  parameters: {
-    controls: {
-      exclude: ["variant", "icon"],
-    },
-  },
-  render: Default.render,
 } satisfies Story;
 
 export const SecondaryXSmall = {
@@ -70,8 +58,21 @@ export const SecondaryXSmall = {
   render: Default.render,
 } satisfies Story;
 
+export const TertiarySmall = {
+  args: {
+    variant: ButtonVariant.TERTIARY,
+    size: ControlSize.SMALL,
+  },
+  parameters: {
+    controls: {
+      exclude: ["variant", "icon"],
+    },
+  },
+  render: Default.render,
+} satisfies Story;
+
 export const IconOnly = {
-  render: (args: Args) =>
+  render: (args) =>
     html`<z-button
       variant=${args.variant}
       size=${args.size}
@@ -89,7 +90,7 @@ export const LinkButton = {
     target: "_blank",
     role: "link",
   },
-  render: (args: Args) =>
+  render: (args) =>
     html`<z-button
       variant=${args.variant}
       size=${args.size}

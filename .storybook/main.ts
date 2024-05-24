@@ -1,28 +1,28 @@
-import type {StorybookConfig} from "@storybook/web-components-webpack5";
+import type {StorybookConfig} from "@storybook/web-components-vite";
 
 const config = {
-  framework: {
-    name: "@storybook/web-components-webpack5",
-    options: {},
-  },
+  framework: "@storybook/web-components-vite",
+
   core: {
     disableWhatsNewNotifications: true,
+    disableTelemetry: true,
   },
+
   staticDirs: ["../dist", "../src/assets", {from: "../src/assets/favicon.png", to: "/images/favicon.png"}],
-  stories: ["../migration.mdx", "../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+
+  stories: [
+    "../docs/**/*.mdx",
+    "../docs/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/**/index.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
+
   addons: [
-    // "storybook-addon-stencil",
-    {
-      name: "@storybook/addon-docs",
-      options: {transcludeMarkdown: true},
-    },
+    "@storybook/addon-docs",
     "@storybook/addon-controls",
     "@storybook/addon-viewport",
-    "@storybook/addon-webpack5-compiler-swc",
+    "storybook-addon-stencil",
   ],
-  docs: {
-    autodocs: true,
-  },
 } satisfies StorybookConfig;
 
 export default config;

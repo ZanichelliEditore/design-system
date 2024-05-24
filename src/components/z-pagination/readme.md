@@ -33,7 +33,7 @@ Pagination bar component.
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../z-icon)
 - [z-input](../inputs/z-input)
 - [z-button](../buttons/z-button)
 

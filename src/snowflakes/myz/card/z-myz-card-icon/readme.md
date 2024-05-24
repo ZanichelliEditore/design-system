@@ -30,7 +30,7 @@
 
 ### Depends on
 
-- [z-icon](../../../../components/icons/z-icon)
+- [z-icon](../../../../components/z-icon)
 
 ### Graph
 ```mermaid

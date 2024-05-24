@@ -1,11 +1,9 @@
-import {Preview} from "@storybook/web-components";
-import theme from "./theme";
-import {defineCustomElements} from "../loader";
+import {type Preview} from "@storybook/web-components";
 import "../src/global.css";
+import {lightTheme} from "./theme";
+import DocTemplate from "./elements/docs-template";
 
-defineCustomElements();
-
-const preview = {
+const preview: Preview = {
   parameters: {
     viewport: {
       viewports: [
@@ -43,18 +41,22 @@ const preview = {
         },
       ],
     },
-    docs: {
-      theme,
-    },
     options: {
       storySort: {
         method: "alphabetical",
-        locales: "en-US",
-        includeName: true,
+        order: ["Migration", "Themes", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
       },
     },
     controls: {sort: "alpha"},
+    docs: {
+      canvas: {sourceState: "shown"},
+      source: {format: true, language: "tsx"},
+      page: DocTemplate,
+      // toc: true,
+      theme: lightTheme,
+    },
   },
+  tags: ["autodocs", "autodocs"],
 } satisfies Preview;
 
 export default preview;

@@ -1,6 +1,14 @@
+import type {ThemeVarsPartial} from "@storybook/theming";
 import {create} from "@storybook/theming/create";
 
-export default create({
+const branding = {
+  brandTitle: "Design System — Zanichelli Editore",
+  brandImage: "./images/png/zanichelli-logo.png",
+  brandUrl: "https://albe.zanichelli.it",
+  brandTarget: "_blank",
+};
+
+const light = {
   base: "light",
 
   colorPrimary: "#0056c1",
@@ -8,8 +16,9 @@ export default create({
 
   // UI
   appBg: "#f6f6f6",
+  appPreviewBg: "#f6f6f6",
   appContentBg: "#fff",
-  appBorderColor: "#D6D6D6",
+  appBorderColor: "#d6d6d6",
   appBorderRadius: 2,
 
   // Typography
@@ -17,23 +26,62 @@ export default create({
   fontCode: "'IBM Plex Mono', monospace",
 
   // Text colors
-  textColor: "#3D3D3D",
+  textColor: "#3d3d3d",
   textInverseColor: "#fff",
+  // textMutedColor: "",
 
   // Toolbar default and active colors
-  barTextColor: "#3D3D3D",
+  barTextColor: "#3d3d3d",
   barSelectedColor: "#0056c1",
+  barHoverColor: "#002c63",
   barBg: "#fff",
 
   // Form colors
   inputBg: "#fff",
-  inputBorder: "#3D3D3D",
-  inputTextColor: "#3D3D3D",
+  inputBorder: "#3d3d3d",
+  inputTextColor: "#3d3d3d",
   inputBorderRadius: 2,
+  // buttonBg: "",
+  // buttonBorder: "#292929",
+  // booleanBg: "",
+  // booleanSelectedBg: "",
 
-  // Branding
-  brandTitle: "Design System — Zanichelli Editore",
-  brandImage: "./images/png/zanichelli-logo.png",
-  brandUrl: "https://www.zanichelli.it",
-  brandTarget: "_blank",
-});
+  ...branding,
+} satisfies ThemeVarsPartial;
+
+const dark = {
+  ...light,
+
+  base: "dark",
+
+  // colorPrimary: "#fff",
+  colorPrimary: "#5893DB",
+  colorSecondary: "#5893DB",
+
+  // UI
+  appBg: "#292929",
+  appPreviewBg: "#fff",
+  appContentBg: "#292929",
+  appBorderColor: "#fff",
+
+  // Text colors
+  textColor: "#ebebeb",
+  textInverseColor: "#292929",
+  textMutedColor: "#9b9b9b",
+
+  // Toolbar default and active colors
+  barTextColor: "#ebebeb",
+  // barSelectedColor: "#ebebeb",
+  barSelectedColor: "#5893DB",
+  barHoverColor: "#f49fa9",
+  barBg: "#292929",
+
+  // Form colors
+  buttonBg: "#fff",
+  buttonBorder: "#fff",
+  booleanBg: "#525252",
+  booleanSelectedBg: "#e4011c",
+} satisfies ThemeVarsPartial;
+
+export const lightTheme = create(light, {color: {seafoam: "#000"}});
+export const darkTheme = create(dark);
