@@ -38,7 +38,7 @@
 
 ### Used by
 
- - [z-app-header](../navigation/z-app-header)
+ - [z-app-header](../z-app-header)
 
 ### Graph
 ```mermaid

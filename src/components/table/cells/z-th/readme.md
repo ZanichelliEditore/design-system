@@ -40,7 +40,7 @@ ZTh component.
 ### Depends on
 
 - [z-icon](../../../z-icon)
-- [z-button](../../../buttons/z-button)
+- [z-button](../../../z-button)
 - [z-popover](../../../z-popover)
 
 ### Graph

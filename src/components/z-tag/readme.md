@@ -26,7 +26,7 @@ Ztag component.
 
 ### Used by
 
- - [z-searchbar](../inputs/z-searchbar)
+ - [z-searchbar](../z-searchbar)
 
 ### Depends on
 

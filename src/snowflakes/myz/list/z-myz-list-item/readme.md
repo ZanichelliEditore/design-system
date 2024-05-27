@@ -39,7 +39,7 @@
 
 ### Used by
 
- - [z-combobox](../../../../components/inputs/z-combobox)
+ - [z-combobox](../../../../components/z-combobox)
  - [z-myz-list](../z-myz-list)
 
 ### Depends on

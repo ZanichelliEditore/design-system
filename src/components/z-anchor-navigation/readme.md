@@ -27,7 +27,7 @@
 
 ### Depends on
 
-- [z-button](../buttons/z-button)
+- [z-button](../z-button)
 
 ### Graph
 ```mermaid

@@ -4,7 +4,7 @@ import {styleMap} from "lit/directives/style-map.js";
 import {ZBookCard} from ".";
 import {BookCardVariant} from "../../beans";
 import {CssVarsArguments} from "../../utils/storybook-utils";
-import "../buttons/z-button/index";
+import "../z-button/index";
 import "../z-icon/index";
 import "../z-tag/index";
 import "./index";

@@ -34,8 +34,8 @@ Pagination bar component.
 ### Depends on
 
 - [z-icon](../z-icon)
-- [z-input](../inputs/z-input)
-- [z-button](../buttons/z-button)
+- [z-input](../z-input)
+- [z-button](../z-button)
 
 ### Graph
 ```mermaid

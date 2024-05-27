@@ -24,7 +24,7 @@
 
 ### Depends on
 
-- [z-input](../../inputs/z-input)
+- [z-input](../../z-input)
 
 ### Graph
 ```mermaid

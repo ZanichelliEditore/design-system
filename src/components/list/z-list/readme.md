@@ -17,8 +17,8 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
- - [z-searchbar](../../inputs/z-searchbar)
- - [z-select](../../inputs/z-select)
+ - [z-searchbar](../../z-searchbar)
+ - [z-select](../../z-select)
 
 ### Graph
 ```mermaid

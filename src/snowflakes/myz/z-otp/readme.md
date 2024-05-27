@@ -23,7 +23,7 @@
 
 ### Depends on
 
-- [z-input-message](../../../components/inputs/z-input-message)
+- [z-input-message](../../../components/z-input-message)
 
 ### Graph
 ```mermaid
