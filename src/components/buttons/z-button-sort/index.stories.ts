@@ -14,13 +14,6 @@ const StoryMeta = {
     isselected: true,
     sortasc: true,
   },
-} satisfies Meta<ZButtonSort>;
-
-export default StoryMeta;
-
-type Story = StoryObj<ZButtonSort>;
-
-export const Default = {
   render: (args) =>
     html`<z-button-sort
       label="${args.label}"
@@ -31,11 +24,16 @@ export const Default = {
       isselected="${args.isselected}"
       sortasc="${args.sortasc}"
     ></z-button-sort>`,
-} satisfies Story;
+} satisfies Meta<ZButtonSort>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZButtonSort>;
+
+export const Default = {};
 
 export const Ellipsis = {
   args: {
     label: "Testo molto lungo lungo lungo lunghissimo lunghissimo lunghissimo ancora di più",
   },
-  render: Default.render,
 } satisfies Story;

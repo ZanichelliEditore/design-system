@@ -1,33 +1,45 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
+import {ZCard} from ".";
 import {CardVariant} from "../../beans";
-
+import {CssVarsArguments} from "../../utils/storybook-utils";
+import "../z-icon/index";
+import "./index";
 import "./index.stories.css";
 
-export default {
+type ZCardStoriesArgs = ZCard &
+  CssVarsArguments<
+    | "z-card--color-cover-background"
+    | "z-card--color-cover-background"
+    | "z-card--text-border"
+    | "z-card--text-border-radius"
+    | "z-card--text-padding"
+  >;
+const StoryMeta = {
   title: "ZCard",
   component: "z-card",
-
   argTypes: {
     variant: {
       control: {
         type: "inline-radio",
-
         labels: {
           null: "default",
         },
       },
-
       options: [null, ...Object.values(CardVariant)],
     },
   },
-
   args: {
     variant: null,
     showShadow: false,
     clickable: false,
   },
-};
+} satisfies Meta<ZCardStoriesArgs>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZCardStoriesArgs>;
 
 export const WithImage = {
   render: (args) => html`
@@ -64,11 +76,12 @@ export const WithImage = {
       <button slot="action"><z-icon name="delete"></z-icon></button>
     </z-card>
   `,
-
-  name: "With image",
-};
+} satisfies Story;
 
 export const WithImageAndIcon = {
+  args: {
+    coverIcon: "play-filled",
+  },
   render: (args) => html`
     <z-card
       class="demo-card"
@@ -104,15 +117,12 @@ export const WithImageAndIcon = {
       <button slot="action"><z-icon name="delete"></z-icon></button>
     </z-card>
   `,
-
-  name: "With image and icon",
-
-  args: {
-    coverIcon: "play-filled",
-  },
-};
+} satisfies Story;
 
 export const ColorCover = {
+  args: {
+    "--z-card--color-cover-background": "var(--yellow500)",
+  },
   render: (args) => html`
     <z-card
       class="demo-card"
@@ -144,15 +154,17 @@ export const ColorCover = {
       <button slot="action"><z-icon name="delete"></z-icon></button>
     </z-card>
   `,
-
-  name: "Color cover",
-
-  args: {
-    "--z-card--color-cover-background": "var(--yellow500)",
-  },
-};
+} satisfies Story;
 
 export const TextVariantPrimaryBackground = {
+  args: {
+    "--z-card--text-border-radius": "4px",
+  },
+  parameters: {
+    controls: {
+      exclude: ["variant"],
+    },
+  },
   render: (args) => html`
     <z-card
       class="text-variant-card"
@@ -198,21 +210,19 @@ export const TextVariantPrimaryBackground = {
       </button>
     </z-card>
   `,
+} satisfies Story;
 
-  name: "Text variant - primary background",
-
+export const TextVariantWhiteBackgroundAndBordered = {
   args: {
+    "--z-card--text-border": "2px solid var(--gray800)",
     "--z-card--text-border-radius": "4px",
+    "--z-card--text-padding": "16px 8px",
   },
-
   parameters: {
     controls: {
       exclude: ["variant"],
     },
   },
-};
-
-export const TextVariantWhiteBackgroundAndBordered = {
   render: (args) =>
     html`<z-card
       class="text-variant-card"
@@ -258,21 +268,7 @@ export const TextVariantWhiteBackgroundAndBordered = {
         ></z-icon>
       </button>
     </z-card>`,
-
-  name: "Text variant - white background and bordered",
-
-  args: {
-    "--z-card--text-border": "2px solid var(--gray800)",
-    "--z-card--text-border-radius": "4px",
-    "--z-card--text-padding": "16px 8px",
-  },
-
-  parameters: {
-    controls: {
-      exclude: ["variant"],
-    },
-  },
-};
+} satisfies Story;
 
 export const WithImageAndClick = {
   render: (args) => html`
@@ -314,6 +310,4 @@ export const WithImageAndClick = {
       <button slot="action"><z-icon name="delete"></z-icon></button>
     </z-card>
   `,
-
-  name: "With image and click",
-};
+} satisfies Story;

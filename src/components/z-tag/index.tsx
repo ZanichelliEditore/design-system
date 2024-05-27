@@ -1,7 +1,7 @@
 import {Component, Prop, h, Host} from "@stencil/core";
 
 /**
- * Ztag  component.
+ * Ztag component.
  * @slot - The text of the z-tag.
  * @cssprop --z-tag-text-color - text and icon color using tokens.
  * @cssprop --z-tag-bg - background color of the z-tag.

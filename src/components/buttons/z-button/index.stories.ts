@@ -25,13 +25,6 @@ const StoryMeta = {
       control: {type: "inline-radio"},
     },
   },
-} satisfies Meta<ZButton>;
-
-export default StoryMeta;
-
-type Story = StoryObj<ZButton>;
-
-export const Default = {
   render: (args) =>
     html`<z-button
       variant=${args.variant}
@@ -43,7 +36,13 @@ export const Default = {
     >
       Click me
     </z-button>`,
-} satisfies Story;
+} satisfies Meta<ZButton>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZButton>;
+
+export const Primary = {};
 
 export const SecondaryXSmall = {
   args: {
@@ -55,7 +54,6 @@ export const SecondaryXSmall = {
       exclude: ["variant", "icon"],
     },
   },
-  render: Default.render,
 } satisfies Story;
 
 export const TertiarySmall = {
@@ -68,7 +66,6 @@ export const TertiarySmall = {
       exclude: ["variant", "icon"],
     },
   },
-  render: Default.render,
 } satisfies Story;
 
 export const IconOnly = {

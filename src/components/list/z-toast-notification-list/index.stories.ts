@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/web-components";
-import {TemplateResult, html} from "lit";
+import {type TemplateResult, html} from "lit";
 import {ZToastNotificationList} from ".";
 import {ToastNotificationPosition, ToastNotificationTransition} from "../../../beans";
 import "../../notification/z-toast-notification/index";

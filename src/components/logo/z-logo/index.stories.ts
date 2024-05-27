@@ -1,7 +1,9 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {ZLogo} from "./";
 import "./index";
 
-export default {
+const StoryMeta = {
   title: "ZLogo",
   component: "z-logo",
   args: {
@@ -12,9 +14,11 @@ export default {
     targetBlank: false,
     mobileLogo: false,
   },
-};
+} satisfies Meta<ZLogo>;
 
-export const ZLogo = {
+export default StoryMeta;
+
+export const Default = {
   render: (args) =>
     html`<z-logo
       image-alt="${args.imageAlt}"
@@ -24,4 +28,4 @@ export const ZLogo = {
       target-blank="${args.targetBlank}"
       mobile-logo="${args.mobileLogo}"
     ></z-logo>`,
-};
+} satisfies StoryObj<ZLogo>;

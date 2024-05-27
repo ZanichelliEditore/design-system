@@ -1,23 +1,35 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
+import {ZBookCard} from ".";
 import {BookCardVariant} from "../../beans";
+import {CssVarsArguments} from "../../utils/storybook-utils";
+import "../buttons/z-button/index";
+import "../z-icon/index";
+import "../z-tag/index";
+import "./index";
 
-export default {
+type ZBookCardStoriesArgs = ZBookCard & {
+  theme: ".theme-default" | ".theme-dark" | ".theme-black-yellow";
+} & CssVarsArguments<
+    | "z-book-card-ribbon-background-color"
+    | "z-book-card-ribbon-shadow-color"
+    | "z-book-card-compact-width"
+    | "z-book-card-compact-height"
+  >;
+const StoryMeta = {
   title: "ZBookCard",
   component: "z-book-card",
-
   argTypes: {
     variant: {
       control: {
         type: "inline-radio",
       },
-
       options: Object.values(BookCardVariant),
     },
   },
-
   args: {
-    "variant": "expanded",
+    "variant": BookCardVariant.EXPANDED,
     "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
     "operaTitle": "Matematica.azzurro",
     "volumeTitle": "Volume 3 con Tutor",
@@ -30,14 +42,17 @@ export default {
     "borderless": false,
     "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
     "operaTitleTag": "h1",
-    "theme": "",
+    "theme": ".theme-default",
     "--z-book-card-ribbon-background-color": "var(--avatar-C08)",
     "--z-book-card-ribbon-shadow-color": "var(--green950)",
     "--z-book-card-compact-width": "262px",
     "--z-book-card-compact-height": "600px",
   },
-};
+} satisfies Meta<ZBookCardStoriesArgs>;
 
+export default StoryMeta;
+
+type Story = StoryObj<ZBookCardStoriesArgs>;
 export const AllProps = {
   render: (args) =>
     html`<z-book-card
@@ -62,9 +77,7 @@ export const AllProps = {
         "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
       })}
     ></z-book-card>`,
-
-  name: "All props",
-};
+} satisfies Story;
 
 export const SlottedTags = {
   render: (args) =>
@@ -97,9 +110,7 @@ export const SlottedTags = {
       >
       <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
     </z-book-card>`,
-
-  name: "Slotted tags",
-};
+} satisfies Story;
 
 export const SlottedResources = {
   render: (args) =>
@@ -144,9 +155,7 @@ export const SlottedResources = {
         >Resource CTA mock</z-button
       >
     </z-book-card>`,
-
-  name: "Slotted resources",
-};
+} satisfies Story;
 
 export const SlottedHeaderCta = {
   render: (args) =>
@@ -177,9 +186,7 @@ export const SlottedHeaderCta = {
         slot="header-cta"
       ></z-icon>
     </z-book-card>`,
-
-  name: "Slotted header CTA",
-};
+} satisfies Story;
 
 export const SlottedFooterCta = {
   render: (args) =>
@@ -220,11 +227,14 @@ export const SlottedFooterCta = {
         </z-button>
       </div>
     </z-book-card>`,
-
-  name: "Slotted footer CTA",
-};
+} satisfies Story;
 
 export const ExpandedVariant = {
+  parameters: {
+    controls: {
+      exclude: ["variant", "borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant="expanded"
@@ -274,17 +284,14 @@ export const ExpandedVariant = {
         tabindex="0"
       ></z-icon>
     </z-book-card>`,
+} satisfies Story;
 
-  name: "Expanded variant",
-
+export const SearchVariant = {
   parameters: {
     controls: {
       exclude: ["variant", "borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
     },
   },
-};
-
-export const SearchVariant = {
   render: (args) =>
     html`<z-book-card
       variant="search"
@@ -325,17 +332,21 @@ export const SearchVariant = {
         </z-button>
       </div>
     </z-book-card>`,
-
-  name: "Search variant",
-
-  parameters: {
-    controls: {
-      exclude: ["variant", "borderless", "theme", "--z-book-card-compact-width", "--z-book-card-compact-height"],
-    },
-  },
-};
+} satisfies Story;
 
 export const CompactVariant = {
+  parameters: {
+    controls: {
+      exclude: [
+        "variant",
+        "ribbon",
+        "ribbonIcon",
+        "ribbonInteractive",
+        "--z-book-card-ribbon-background-color",
+        "--z-book-card-ribbon-shadow-color",
+      ],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant="compact"
@@ -383,19 +394,4 @@ export const CompactVariant = {
         ></z-button>
       </div>
     </z-book-card>`,
-
-  name: "Compact variant",
-
-  parameters: {
-    controls: {
-      exclude: [
-        "variant",
-        "ribbon",
-        "ribbonIcon",
-        "ribbonInteractive",
-        "--z-book-card-ribbon-background-color",
-        "--z-book-card-ribbon-shadow-color",
-      ],
-    },
-  },
-};
+} satisfies Story;

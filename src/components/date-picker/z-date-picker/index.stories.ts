@@ -24,17 +24,6 @@ const StoryMeta = {
     ariaLabel: "date-picker",
     mode: ZDatePickerMode.DATE,
   },
-} satisfies Meta<ZDatePicker>;
-
-export default StoryMeta;
-
-type Story = StoryObj<ZDatePicker>;
-
-export const Default: Story = {
-  args: {
-    datePickerId: "picker-01",
-    label: "ZDatePicker with date",
-  },
   render: (args) => html`
     <script>
       document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
@@ -59,6 +48,17 @@ export const Default: Story = {
       </div>
     </div>
   `,
+} satisfies Meta<ZDatePicker>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZDatePicker>;
+
+export const Date: Story = {
+  args: {
+    datePickerId: "picker-01",
+    label: "ZDatePicker with date",
+  },
 } satisfies Story;
 
 export const DateAndTime: Story = {
@@ -66,7 +66,6 @@ export const DateAndTime: Story = {
     datePickerId: "picker-02",
     label: "ZDatePicker with date and time",
   },
-  render: Default.render,
 } satisfies Story;
 
 export const MonthsOnly: Story = {
@@ -74,7 +73,6 @@ export const MonthsOnly: Story = {
     datePickerId: "picker-03",
     label: "ZDatePicker with only months",
   },
-  render: Default.render,
 } satisfies Story;
 
 export const CustomToggle: Story = {

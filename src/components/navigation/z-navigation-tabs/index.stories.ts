@@ -1,4 +1,4 @@
-import {TemplateResult, html} from "lit";
+import {type TemplateResult, html} from "lit";
 import {NavigationTabsSize, NavigationTabsOrientation} from "../../../beans/index";
 import {CssVarsArguments, getColorTokenArgConfig} from "../../../utils/storybook-utils";
 import {styleMap} from "lit/directives/style-map.js";

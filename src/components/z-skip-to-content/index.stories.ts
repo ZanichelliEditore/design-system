@@ -1,7 +1,9 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {ZSkipToContent} from ".";
 import {ThemeVariant} from "../../beans";
 
-export default {
+const StoryMeta = {
   title: "ZSkipToContent",
   component: "z-skip-to-content",
   argTypes: {
@@ -11,15 +13,14 @@ export default {
         type: "inline-radio",
       },
     },
-    links: {
-      control: "object",
-    },
   },
-};
+} satisfies Meta<ZSkipToContent>;
 
-export const ZSkipToContent = {
+export default StoryMeta;
+
+export const Default = {
   args: {
-    variant: "default",
+    variant: ThemeVariant.LIGHT,
     links: [
       {
         ariaLabel: "prova",
@@ -41,4 +42,4 @@ export const ZSkipToContent = {
       variant=${args.variant}
       links=${JSON.stringify(args.links)}
     ></z-skip-to-content>`,
-};
+} satisfies StoryObj<ZSkipToContent>;

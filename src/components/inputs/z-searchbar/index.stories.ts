@@ -1,134 +1,39 @@
 import {html} from "lit";
 import {ControlSize, ButtonVariant} from "../../../beans";
+import "./index";
+import {Meta, StoryObj} from "@storybook/web-components";
+import {ZSearchbar} from "./index";
+import {CssVarsArguments} from "../../../utils/storybook-utils";
 
-export default {
+type ZSearchbarStoriesArgs = ZSearchbar &
+  CssVarsArguments<"--z-searchbar-results-height" | "--z-searchbar-tag-text-color" | "--z-searchbar-tag-bg">;
+
+const StoryMeta = {
   title: "ZSearchbar",
   component: "z-searchbar",
-
   argTypes: {
-    "preventSubmit": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "showSearchButton": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "searchButtonIconOnly": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "autocomplete": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "autocompleteMinChars": {
-      control: {
-        type: "number",
-      },
-    },
-
-    "resultsCount": {
-      control: {
-        type: "number",
-      },
-    },
-
-    "resultsEllipsis": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "searchHelperLabel": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "resultsItems": {
-      control: {
-        type: "object",
-      },
-    },
-
-    "sortResultsItems": {
-      control: {
-        type: "boolean",
-      },
-    },
-
-    "htmlid": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "placeholder": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "value": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "--z-searchbar-results-height": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "--z-searchbar-tag-text-color": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "--z-searchbar-tag-bg": {
-      control: {
-        type: "text",
-      },
-    },
-
-    "size": {
+    size: {
       control: {
         type: "inline-radio",
       },
-
       options: Object.values(ControlSize),
     },
-
-    "variant": {
+    variant: {
       control: {
         type: "inline-radio",
       },
-
       options: Object.values(ButtonVariant),
     },
   },
-
   args: {
     "preventSubmit": false,
     "showSearchButton": false,
     "searchButtonIconOnly": false,
     "autocomplete": false,
     "autocompleteMinChars": 3,
-    "resultsCount": "",
+    "resultsCount": null,
     "resultsEllipsis": true,
     "searchHelperLabel": "Cerca {searchString}",
-
     "resultsItems": [
       {
         label: "first item",
@@ -143,7 +48,6 @@ export default {
         label: "fourth item",
       },
     ],
-
     "sortResultsItems": false,
     "htmlid": "myId",
     "placeholder": "my placeholder",
@@ -154,9 +58,13 @@ export default {
     "size": ControlSize.BIG,
     "variant": ButtonVariant.PRIMARY,
   },
-};
+} satisfies Meta<ZSearchbarStoriesArgs>;
 
-export const ZSearchbar = {
+export default StoryMeta;
+
+type Story = StoryObj<ZSearchbarStoriesArgs>;
+
+export const Default = {
   render: (args) => html`
     <z-searchbar
       prevent-submit=${args.preventSubmit}
@@ -177,11 +85,17 @@ export const ZSearchbar = {
       variant=${args.variant}
     ></z-searchbar>
   `,
+} satisfies Story;
 
-  name: "z-searchbar",
-};
-
-export const ZSearchbarSimpleSearch = {
+export const SimpleSearch = {
+  parameters: {
+    controls: {
+      include: ["value", "placeholder", "htmlid", "size"],
+    },
+  },
+  args: {
+    htmlid: "myIdSimple",
+  },
   render: (args) => html`
     <z-searchbar
       prevent-submit="false"
@@ -194,21 +108,15 @@ export const ZSearchbarSimpleSearch = {
       size=${args.size}
     ></z-searchbar>
   `,
+} satisfies Story;
 
-  name: "z-searchbar - simple search",
-
-  parameters: {
-    controls: {
-      include: ["value", "placeholder", "htmlid", "size"],
-    },
-  },
-
+export const Autocomplete = {
   args: {
-    htmlid: "myIdSimple",
+    autocomplete: true,
+    htmlid: "myIdAutocomplete",
+    showSearchButton: false,
+    searchButtonIconOnly: false,
   },
-};
-
-export const ZSearchbarAutocomplete = {
   render: (args) => html`
     <z-searchbar
       prevent-submit=${args.preventSubmit}
@@ -229,61 +137,22 @@ export const ZSearchbarAutocomplete = {
       variant=${args.variant}
     ></z-searchbar>
   `,
+} satisfies Story;
 
-  name: "z-searchbar - autocomplete",
-
-  args: {
-    autocomplete: true,
-    htmlid: "myIdAutocomplete",
-    showSearchButton: false,
-    searchButtonIconOnly: false,
-  },
-};
-
-export const ZSearchbarAutocompleteWithComplexItems = {
-  render: (args) => html`
-    <z-searchbar
-      prevent-submit=${args.preventSubmit}
-      show-search-button=${args.showSearchButton}
-      search-button-icon-only=${args.searchButtonIconOnly}
-      autocomplete=${args.autocomplete}
-      autocomplete-min-chars=${args.autocompleteMinChars}
-      results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
-      search-helper-label=${args.searchHelperLabel}
-      results-items=${JSON.stringify(args.resultsItems)}
-      sort-results-items=${JSON.stringify(args.sortResultsItems)}
-      value=${args.value}
-      placeholder=${args.placeholder}
-      htmlid=${args.htmlid}
-      style="--z-searchbar-results-height: ${args[
-        "--z-searchbar-results-height"
-      ]}; --z-searchbar-tag-text-color: ${args["--z-searchbar-tag-text-color"]}; --z-searchbar-tag-bg: ${args[
-        "--z-searchbar-tag-bg"
-      ]}"
-      size=${args.size}
-      variant=${args.variant}
-    ></z-searchbar>
-  `,
-
-  name: "z-searchbar - autocomplete with complex items",
-
+export const AutocompleteWithComplexItems = {
   args: {
     autocomplete: true,
     htmlid: "myIdGroupedAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
-
     resultsItems: [
       {
         label: "first item",
         icon: "download",
-
         tag: {
           text: "Riservato all'insegnante",
           icon: "teacher",
         },
-
         category: "Category A",
         subcategory: "Subcategory A1",
       },
@@ -319,4 +188,28 @@ export const ZSearchbarAutocompleteWithComplexItems = {
       },
     ],
   },
-};
+  render: (args) => html`
+    <z-searchbar
+      prevent-submit=${args.preventSubmit}
+      show-search-button=${args.showSearchButton}
+      search-button-icon-only=${args.searchButtonIconOnly}
+      autocomplete=${args.autocomplete}
+      autocomplete-min-chars=${args.autocompleteMinChars}
+      results-count=${args.resultsCount}
+      results-ellipsis=${args.resultsEllipsis}
+      search-helper-label=${args.searchHelperLabel}
+      results-items=${JSON.stringify(args.resultsItems)}
+      sort-results-items=${JSON.stringify(args.sortResultsItems)}
+      value=${args.value}
+      placeholder=${args.placeholder}
+      htmlid=${args.htmlid}
+      style="--z-searchbar-results-height: ${args[
+        "--z-searchbar-results-height"
+      ]}; --z-searchbar-tag-text-color: ${args["--z-searchbar-tag-text-color"]}; --z-searchbar-tag-bg: ${args[
+        "--z-searchbar-tag-bg"
+      ]}"
+      size=${args.size}
+      variant=${args.variant}
+    ></z-searchbar>
+  `,
+} satisfies Story;

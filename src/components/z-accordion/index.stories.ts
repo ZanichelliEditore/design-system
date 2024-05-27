@@ -1,5 +1,5 @@
 import {Args, Meta, StoryObj} from "@storybook/web-components";
-import {TemplateResult, html} from "lit";
+import {type TemplateResult, html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZAccordion} from ".";
 import {AccordionVariant, ControlSize} from "../../beans";
