@@ -85,7 +85,7 @@
 
 /* Variant stacked */
 :host([variant="stacked"]) {
-  --cover-hero-text-color: var(--color-text01);
+  --cover-hero-text-color: var(--color-default-text);
 }
 
 :host([variant="stacked"]) .content-container ::slotted(*) {

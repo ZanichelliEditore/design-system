@@ -37,7 +37,7 @@ const StoryMeta = {
   },
   args: {
     "--z-popover-theme--surface": "var(--color-surface01)",
-    "--z-popover-theme--text": "var(--color-text01)",
+    "--z-popover-theme--text": "var(--color-default-text)",
   },
 } satisfies Meta<ZPopover & {"--z-popover-theme--surface": string; "--z-popover-theme--text": string}>;
 

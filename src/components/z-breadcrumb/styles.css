@@ -57,7 +57,7 @@ a {
 }
 
 a.missing-path {
-  color: var(--color-text01);
+  color: var(--color-default-text);
 }
 
 .text-ellipsis {

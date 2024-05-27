@@ -205,7 +205,7 @@
 :host > #external-container.light #icon,
 :host > #external-container.warning #text,
 :host > #external-container.warning #icon {
-  fill: var(--color-icon01);
+  fill: var(--color-primary01-icon);
 }
 
 :host > #external-container.light #text,

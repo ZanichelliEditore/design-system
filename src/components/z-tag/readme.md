@@ -5,7 +5,7 @@
 
 ## Overview
 
-Ztag  component.
+Ztag component.
 
 ## Properties
 

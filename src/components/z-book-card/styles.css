@@ -53,7 +53,7 @@
   background: var(--z-book-card-ribbon-background-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   box-shadow: var(--shadow-2);
-  color: var(--color-text04);
+  color: var(--color-text-inverse);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
@@ -95,7 +95,7 @@
   display: flex;
   height: 100%;
   align-self: center;
-  color: var(--color-text02);
+  color: var(--color-default-text);
   font-size: var(--font-size-4);
   font-weight: var(--font-sb);
   line-height: 1.5;
@@ -106,14 +106,14 @@
 }
 
 :host > article div.subtitle {
-  color: var(--color-text02);
+  color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   line-height: 1.4;
 }
 
 :host > article div.authors {
-  color: var(--color-text02);
+  color: var(--color-default-text);
   font-size: var(--font-size-1);
   font-weight: var(--font-rg);
   line-height: 1.33;
@@ -121,7 +121,7 @@
 
 :host > article div.isbn {
   overflow: hidden;
-  color: var(--color-text02);
+  color: var(--color-default-text);
   font-size: var(--font-size-2);
   line-height: 1.33;
   text-overflow: ellipsis;
@@ -154,7 +154,7 @@
 
   padding: var(--space-unit);
   cursor: pointer;
-  fill: var(--color-icon01);
+  fill: var(--color-primary01-icon);
 }
 
 /* EXPANDED STYLES */

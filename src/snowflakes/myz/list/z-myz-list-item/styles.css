@@ -9,8 +9,8 @@
 :host li > span {
   display: flex;
   padding: calc(var(--space-unit) * 2) 0;
-  color: var(--color-text01);
-  fill: var(--color-icon02);
+  color: var(--color-default-text);
+  fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: 16px;
   font-weight: var(--font-rg);

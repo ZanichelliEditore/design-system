@@ -50,7 +50,7 @@
   --app-header-stucked-bg: var(--color-surface01);
 
   /* Variable to customize text and icon color. */
-  --app-header-text-color: var(--color-text01);
+  --app-header-text-color: var(--color-default-text);
 
   /* Variable to customize the title's font size.
   NOTE: Only use one of the exported `--app-header-typography-*-size` as a value. */
@@ -67,7 +67,7 @@
   --app-header-title-letter-spacing: var(--app-header-typography-3-tracking);
 
   /* Variable to customize stuck header's text and icon color. */
-  --app-header-stucked-text-color: var(--color-text01);
+  --app-header-stucked-text-color: var(--color-default-text);
 
   position: relative;
   display: block;

@@ -75,7 +75,7 @@ const StoryMeta = {
     expandableStyle: ExpandableListStyle.ACCORDION,
     listElementId: 0,
     size: ListSize.MEDIUM,
-    color: "color-text01",
+    color: "color-default-text",
     disabled: true,
     listElementPosition: "0",
     listType: ListType.NONE,

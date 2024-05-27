@@ -85,7 +85,7 @@
 :host([variant="primary"][disabled]:not([disabled="false"])) .z-button--container {
   border-color: var(--color-disabled01);
   background-color: var(--color-disabled01);
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 :host([variant="secondary"]) .z-button--container {
@@ -112,7 +112,7 @@
 :host([variant="secondary"][disabled]:not([disabled="false"])) .z-button--container {
   border-color: var(--color-disabled01);
   background-color: var(--color-surface01);
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
 
 :host([variant="tertiary"]) .z-button--container {
@@ -145,5 +145,5 @@
 :host([variant="tertiary"][disabled]:not([disabled="false"])) .z-button--container {
   border-color: var(--color-disabled01);
   background-color: var(--color-disabled01);
-  color: var(--color-disabled02);
+  color: var(--color-disabled03);
 }
