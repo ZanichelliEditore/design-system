@@ -1,37 +1,61 @@
-.themes-story {
+.colors-story {
   padding: var(--grid-margin);
   color: var(--color-default-text);
 }
 
-.themes-story span,
-.themes-story p {
-  font-size: 16px;
-  letter-spacing: 0.3px;
-}
-
-.themes-story .theme-list {
+.colors-story ul {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
-  columns: 2;
+  list-style: none;
 }
 
-.themes-story .theme-list > li {
+.colors-story.themes ul {
+  display: grid;
+  column-gap: calc(var(--space-unit) * 4);
+  grid-template-columns: 1fr 1fr;
+}
+
+.colors-story li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-unit) 0;
-  border-bottom: 1px solid var(--gray200);
+  border-top: 1px solid var(--gray200);
+  column-gap: calc(var(--space-unit) * 3);
   font-weight: var(--font-sb);
 }
 
-.themes-story .theme-list > li > code {
-  margin-right: 8px;
+.colors-story .color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-unit);
 }
 
-.themes-story .theme-list > li > span {
-  display: inline-block;
-  width: 100px;
-  height: 20px;
+.colors-story .color-box {
+  width: 240px;
+  height: calc(var(--space-unit) * 5);
   border: 1px solid var(--gray400);
   border-radius: 4px;
+}
+
+/* palettes */
+
+.colors-story.palettes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-unit) * 4);
+}
+
+.colors-story.palette .tokens-container {
+  display: flex;
+  min-width: 40%;
+  flex: 1 auto;
+  flex-direction: column;
+}
+
+.colors-story .tokens-container z-section-title {
+  margin-bottom: calc(var(--space-unit) * 2);
 }

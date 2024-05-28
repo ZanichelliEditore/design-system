@@ -44,7 +44,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetical",
-        order: ["Migration", "Themes", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
+        order: ["Migration", "Colors", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
       },
     },
     controls: {sort: "alpha"},
@@ -52,11 +52,10 @@ const preview: Preview = {
       canvas: {sourceState: "shown"},
       source: {format: true, language: "tsx"},
       page: DocTemplate,
-      // toc: true,
       theme: lightTheme,
     },
   },
-  tags: ["autodocs", "autodocs"],
+  tags: ["autodocs"],
 } satisfies Preview;
 
 export default preview;

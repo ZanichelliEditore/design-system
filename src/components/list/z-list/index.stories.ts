@@ -1,9 +1,9 @@
-import {html} from "lit";
-import {ListSize, ListType} from "../../../beans";
 import {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
 import {ZList} from ".";
-import "./index";
+import {ListSize, ListType} from "../../../beans";
 import "../z-list-element/index";
+import "./index";
 
 const StoryMeta = {
   title: "ZList/ZList",
@@ -95,7 +95,7 @@ export const HeaderDivider = {
           >Elemento 3</z-list-element
         >
       </z-list-group>
-    </z-list> `,
+    </z-list>`,
 } satisfies Story;
 
 export const ElementDivider = {

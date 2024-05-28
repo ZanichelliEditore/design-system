@@ -103,66 +103,47 @@ const StoryMeta = {
     "size": ControlSize.BIG,
     "variant": AccordionVariant.DEFAULT,
   },
+  render: (args: Args): TemplateResult =>
+    html`<z-accordion
+      .highlight=${args.highlight}
+      .icon=${args.icon}
+      .isDisabled=${args.isDisabled}
+      .open=${args.open}
+      .shadow=${args.shadow}
+      label=${args.label}
+      size=${args.size}
+      variant=${args.variant}
+      style=${styleMap({
+        "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
+        "--z-accordion-bg": args["--z-accordion-bg"],
+        "--z-accordion-label-color": args["--z-accordion-label-color"],
+        "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
+        "--z-accordion-content-bg": args["--z-accordion-content-bg"],
+        "--z-accordion-content-fg": args["--z-accordion-content-fg"],
+        "--z-accordion-hover-color": args["--z-accordion-hover-color"],
+        "--z-accordion-right-padding": args["--z-accordion-right-padding"],
+        "--z-accordion-left-padding": args["--z-accordion-left-padding"],
+        "--z-accordion-label-font-weight": args["--z-accordion-label-font-weight"],
+      })}
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
+      qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
+      summum bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul, orbus, egens,
+      torqueatur eculeo: quem hunc appellas, Zeno? Nam memini etiam quae nolo, oblivisci non possum quae volo. Nec vero
+      sum nescius esse utilitatem in historia, non modo voluptatem.
+    </z-accordion>`,
 } satisfies Meta<ZAccordionStoriesArgs>;
 
 export default StoryMeta;
 
-const accordionTemplate = (args: Args): TemplateResult =>
-  html`<z-accordion
-    .highlight=${args.highlight}
-    .icon=${args.icon}
-    .isDisabled=${args.isDisabled}
-    .open=${args.open}
-    .shadow=${args.shadow}
-    label=${args.label}
-    size=${args.size}
-    variant=${args.variant}
-    style=${styleMap({
-      "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
-      "--z-accordion-bg": args["--z-accordion-bg"],
-      "--z-accordion-label-color": args["--z-accordion-label-color"],
-      "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
-      "--z-accordion-content-bg": args["--z-accordion-content-bg"],
-      "--z-accordion-content-fg": args["--z-accordion-content-fg"],
-      "--z-accordion-hover-color": args["--z-accordion-hover-color"],
-      "--z-accordion-right-padding": args["--z-accordion-right-padding"],
-      "--z-accordion-left-padding": args["--z-accordion-left-padding"],
-      "--z-accordion-label-font-weight": args["--z-accordion-label-font-weight"],
-    })}
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede, qui
-    dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita summum
-    bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul, orbus, egens, torqueatur
-    eculeo: quem hunc appellas, Zeno? Nam memini etiam quae nolo, oblivisci non possum quae volo. Nec vero sum nescius
-    esse utilitatem in historia, non modo voluptatem.
-  </z-accordion>`;
-
 type Story = StoryObj<ZAccordionStoriesArgs>;
 
-export const Default = {
-  render: (args) => accordionTemplate(args),
-};
+export const Default = {};
 
 /**
  * When multiple `ZAccordion`s are placed in stack, the style is automatically optimized through global styles.
  */
 export const Stack = {
-  render: (args) =>
-    html`${[
-      accordionTemplate(args),
-      accordionTemplate({
-        ...args,
-        "--z-accordion-highlight-color": args["--z-accordion-highlight-color2"],
-      }),
-      accordionTemplate({
-        ...args,
-        "--z-accordion-highlight-color": args["--z-accordion-highlight-color3"],
-      }),
-      accordionTemplate({
-        ...args,
-        "--z-accordion-highlight-color": args["--z-accordion-highlight-color4"],
-      }),
-    ]}`,
   argTypes: {
     "--z-accordion-highlight-color2": cssPropsArgs["--z-accordion-highlight-color"],
     "--z-accordion-highlight-color3": cssPropsArgs["--z-accordion-highlight-color"],
@@ -178,6 +159,22 @@ export const Stack = {
       exclude: ["open"],
     },
   },
+  render: (args) =>
+    html`${[
+      StoryMeta.render,
+      StoryMeta.render({
+        ...args,
+        "--z-accordion-highlight-color": args["--z-accordion-highlight-color2"],
+      }),
+      StoryMeta.render({
+        ...args,
+        "--z-accordion-highlight-color": args["--z-accordion-highlight-color3"],
+      }),
+      StoryMeta.render({
+        ...args,
+        "--z-accordion-highlight-color": args["--z-accordion-highlight-color4"],
+      }),
+    ]}`,
 } satisfies Story;
 
 export const WithTags = {

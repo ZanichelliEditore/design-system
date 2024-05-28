@@ -1,11 +1,11 @@
 import {Meta, StoryObj} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
+import {html, type TemplateResult} from "lit";
+import {ZToastNotification} from ".";
 import {ToastNotification, ToastNotificationTransition} from "../../beans";
 import "./index";
-import {ZToastNotification} from "./index";
 
 const template = (args): TemplateResult =>
-  html` <div class="toast-container">
+  html`<div class="toast-container">
     <z-toast-notification
       heading="${args.heading}"
       message="${args.message}"
@@ -76,7 +76,7 @@ export const SlottedButton = {
     transition: ToastNotificationTransition.SLIDE_IN_DOWN,
   },
   render: (args) =>
-    html` <div class="toast-container slotted-button">
+    html`<div class="toast-container slotted-button">
       <z-toast-notification
         heading="${args.heading}"
         message="${args.message}"

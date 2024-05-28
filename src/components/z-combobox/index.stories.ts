@@ -66,7 +66,7 @@ const StoryMeta = {
     size: ControlSize.BIG,
   },
   render: (args) =>
-    html` <z-combobox
+    html`<z-combobox
       checkalltext=${args.checkalltext}
       closesearchtext=${args.closesearchtext}
       disabled=${args.disabled}

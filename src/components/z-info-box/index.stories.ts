@@ -1,7 +1,7 @@
 import {Meta} from "@storybook/web-components";
 import {html} from "lit";
 import "./index";
-import {ZInfoBox} from "./index";
+import {ZInfoBox} from ".";
 
 const StoryMeta = {
   title: "ZInfoBox",

@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ButtonVariant, ControlSize} from "../../beans";
 import "./index";
-import {type ZButton} from "./index";
+import {type ZButton} from ".";
 
 const StoryMeta = {
   title: "ZButton",

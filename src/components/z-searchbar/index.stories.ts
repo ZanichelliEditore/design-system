@@ -2,7 +2,7 @@ import {html} from "lit";
 import {ControlSize, ButtonVariant} from "../../beans";
 import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZSearchbar} from "./index";
+import {ZSearchbar} from ".";
 import {CssVarsArguments} from "../../utils/storybook-utils";
 
 type ZSearchbarStoriesArgs = ZSearchbar &

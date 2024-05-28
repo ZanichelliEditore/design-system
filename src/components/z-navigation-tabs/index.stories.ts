@@ -5,7 +5,7 @@ import {styleMap} from "lit/directives/style-map.js";
 import "./index.stories.css";
 import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZNavigationTabs} from "./index";
+import {ZNavigationTabs} from ".";
 
 type ZNavigationTabsStoriesArgs = ZNavigationTabs &
   CssVarsArguments<"z-navigation-tabs-nav-buttons-bg" | "z-navigation-tabs-nav-buttons-fg">;

@@ -75,7 +75,7 @@ export const Dragdrop = {
     dragAndDropLabel: "Rilascia i file in questa area per allegarli.",
   },
   render: (args) =>
-    html` <h4 class="heading-4">
+    html`<h4 class="heading-4">
         This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
         using it!
       </h4>

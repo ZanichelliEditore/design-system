@@ -1,8 +1,20 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {OptionsConfig} from "@storybook/blocks";
 import {Args} from "@storybook/web-components";
 
 type EnsurePrefix<T extends string, P extends string> = T extends `${P}${string}` ? T : `${P}${T}`;
+
 export type CssVarsArguments<T extends string = string> = {[x in EnsurePrefix<T, "--">]: string};
+
+enum PALETTES {
+  RED = "red",
+  GREEN = "green",
+  BLUE = "blue",
+  YELLOW = "yellow",
+  GRAY = "gray",
+  AVATAR = "avatar",
+  SUBJECT = "subject",
+}
 
 /**
  * Get all root CSS properties.
@@ -33,12 +45,27 @@ function getRootCssProperties(): string[] {
  * ```<z-component .style="--z-component--background-color: var(${args["--z-component--background-color"]})" />```
  */
 export function getColorTokens(): string[] {
-  const availableColorGroups = ["red", "green", "blue", "yellow", "gray", "avatar", "color"];
+  const tokenGroups = [...Object.values(PALETTES), "color"];
   const colorTokens = getRootCssProperties()?.filter((token) =>
-    availableColorGroups.some((group) => token.startsWith(`--${group}`))
+    tokenGroups.some((group) => token.startsWith(`--${group}`))
   );
 
   return [...new Set(colorTokens)].sort();
+}
+
+/**
+ * Get Design System color palettes.
+ */
+export function getPalettes(): Record<keyof typeof PALETTES, string[]> {
+  return Object.values(PALETTES).reduce(
+    (acc, curr) => {
+      const tokens = getRootCssProperties()?.filter((token) => token.startsWith(`--${curr}`));
+      acc[curr] = tokens.sort((a, b) => +a.replace(/\D/g, "") - +b.replace(/\D/g, ""));
+
+      return acc;
+    },
+    {} as Record<keyof typeof PALETTES, string[]>
+  );
 }
 
 /**

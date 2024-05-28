@@ -1,10 +1,11 @@
 import {StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import {getThemesColorTokens} from "../../src/utils/storybook-utils";
+import {getPalettes, getThemesColorTokens} from "../../src/utils/storybook-utils";
 import "./index.stories.css";
+import "../../src/components/z-section-title/index";
 
 export default {
-  title: "Themes",
+  title: "Colors",
   argTypes: {
     theme: {
       control: {
@@ -24,41 +25,72 @@ export default {
 
 export const Themes = {
   render: (args) => html`
-    <div class="themes-story ${args.theme}">
-      <p>Currently available color themes:</p>
-      <ul>
-        <li>
-          <a
-            class="z-link"
-            target="_blank"
-            href="https://albe.zanichelli.it/485b31545/v/0/p/68aa0a-colori/t/421e81"
-          >
-            default
-          </a>
-        </li>
-        <li>
-          <a
-            class="z-link"
-            target="_blank"
-            href="https://app.abstract.com/projects/fd370780-e659-11e8-99dc-0d08537c5fde/branches/eac24e1a-798f-445d-b8c4-3812cd9adb9f/commits/latest/files/9f586aa0-bd5b-4c12-9541-aed2e98a7a9c/layers/4EF5FE71-9450-4CBA-811C-D72CC0203A8A?collectionId=1a973a75-0d81-49aa-b31f-f38f2e36879a&collectionLayerId=98c9877b-1058-4039-8619-26db7a27e2e3"
-          >
-            black-yellow
-          </a>
-        </li>
-        <li>theme-dark</li>
-      </ul>
-      <p>On this page you can see the color tokens of each theme by switching from the controls.</p>
-      <h3>Color Tokens</h3>
-      <ul class="theme-list">
-        ${getThemesColorTokens().map(
-          (color) => html`
-            <li>
-              <code>${color}</code>
-              <span style="background-color: var(${color})"></span>
-            </li>
-          `
-        )}
-      </ul>
+    <div class="colors-story themes ${args.theme}">
+      <p>
+        Currently available color themes: <strong>default</strong>, <strong>black-yellow</strong>, <strong>dark</strong>
+      </p>
+      <p>On this page you can see the value of the color tokens for each theme, by switching it from the controls.</p>
+      <div class="tokens-container">
+        <z-section-title divider-position="after">
+          <div slot="primary-title">Color tokens</div>
+        </z-section-title>
+        <ul>
+          ${getThemesColorTokens().map(
+            (token) => html`
+              <li>
+                <span class="token-name">${token}</span>
+                <div class="color">
+                  <div
+                    class="color-box"
+                    style="background-color: var(${token})"
+                  ></div>
+                  <div class="interactive-2">${getComputedStyle(document.documentElement).getPropertyValue(token)}</div>
+                </div>
+              </li>
+            `
+          )}
+        </ul>
+      </div>
+    </div>
+  `,
+} satisfies StoryObj;
+
+const palettes = getPalettes();
+
+export const Palettes = {
+  render: () => html`
+    <div class="colors-story palettes">
+      ${Object.keys(palettes).map(
+        (paletteName) =>
+          html`<div class="tokens-container">
+            <z-section-title
+              divider-position="after"
+              style="--z-section-title--divider-color: var(${palettes[paletteName].find((token) =>
+                token.includes("500")
+              )})"
+            >
+              <div slot="primary-title">${paletteName}</div>
+            </z-section-title>
+            <ul>
+              ${palettes[paletteName].map(
+                (token) => html`
+                  <li>
+                    <span class="token-name">${token}</span>
+                    <div class="color">
+                      <div
+                        class="color-box"
+                        style="background-color: var(${token})"
+                      ></div>
+                      <div class="interactive-2">
+                        ${getComputedStyle(document.documentElement).getPropertyValue(token)}
+                      </div>
+                    </div>
+                  </li>
+                `
+              )}
+            </ul>
+          </div>`
+      )}
     </div>
   `,
 } satisfies StoryObj;

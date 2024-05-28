@@ -38,7 +38,7 @@ export const EnterRight = {
     transitiondirection: TransitionDirection.RIGHT,
   },
   render: (args) =>
-    html` <div id="offcanvas-story-container">
+    html`<div id="offcanvas-story-container">
       <z-offcanvas
         .variant=${args.variant}
         .open=${args.open}
@@ -92,7 +92,7 @@ export const EnterLeft = {
     transitiondirection: TransitionDirection.LEFT,
   },
   render: (args) =>
-    html` <div
+    html`<div
       id="offcanvas-story-container"
       class="offcanvas-left"
     >
@@ -151,7 +151,7 @@ export const SkipLoadAnimation = {
     skipLoadAnimation: true,
   },
   render: (args) =>
-    html` <div
+    html`<div
       id="offcanvas-story-container"
       class="offcanvas-left"
     >

@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import "./index";
-import {ZStepper} from "./index";
+import {ZStepper} from ".";
 
 export default {
   title: "ZStepper/ZStepper",

@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import "./index";
-import type {ZButtonSort} from "./index";
+import type {ZButtonSort} from ".";
 
 const StoryMeta = {
   title: "ZButtonSort",
