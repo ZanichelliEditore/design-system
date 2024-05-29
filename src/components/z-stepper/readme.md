@@ -31,9 +31,9 @@
 
 ## Slots
 
-| Slot | Description    |
-| ---- | -------------- |
-|      | z-stepper-item |
+| Slot | Description                |
+| ---- | -------------------------- |
+|      | slot for `z-stepper-item`s |
 
 
 ----------------------------------------------
