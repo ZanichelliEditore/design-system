@@ -1,7 +1,3 @@
 z-app-header {
   --app-header-top-offset: 0;
 }
-
-z-app-header#hero {
-  --app-header-height: 400px;
-}

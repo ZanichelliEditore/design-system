@@ -228,38 +228,6 @@ import {menuTemplate, longMenuTemplate} from "./index.stories.js";
   </Story>
 </Canvas>
 
-### Hero
-
-<Canvas>
-  <Story
-    name="Cover hero with slotted image"
-    args={{
-      overlay: true,
-      hero: "",
-    }}
-  >
-    {(args) => html`<z-app-header
-      id="hero"
-      .overlay=${args.overlay}
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      .hero=${args.hero}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-      flow=${args.flow}
-    >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${args.hero
-        ? ""
-        : html`<img
-            slot="hero"
-            src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
-            alt=""
-          />`} ${longMenuTemplate()}
-    </z-app-header>`}
-  </Story>
-</Canvas>
-
 ### Search
 
 <Canvas>

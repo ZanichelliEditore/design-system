@@ -50,7 +50,6 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
  * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
  * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
  * Defaults to `--app-header-typography-3-size`.
@@ -76,20 +75,6 @@ export class ZAppHeader {
    */
   @Prop({reflect: true})
   stuck = false;
-
-  /**
-   * Set the hero image source for the header.
-   * You can also use a [slot="hero"] node for advanced customization.
-   */
-  @Prop()
-  hero: string;
-
-  /**
-   * Should place an overlay over the hero image.
-   * Useful for legibility purpose.
-   */
-  @Prop({reflect: true})
-  overlay = false;
 
   /**
    * Control menu bar position in the header.
@@ -248,13 +233,6 @@ export class ZAppHeader {
     return true;
   }
 
-  /**
-   * Whether the header has a hero image, either as a prop or as a slot.
-   */
-  private get hasHero(): boolean {
-    return !!this.hero || this.hostElement.querySelector("[slot=hero]") !== null;
-  }
-
   private openDrawer(): void {
     this.drawerOpen = true;
   }
@@ -331,19 +309,6 @@ export class ZAppHeader {
   render(): HTMLZAppHeaderElement {
     return (
       <Host menu-length={this.menuLength}>
-        {this.hasHero && (
-          <div class="hero-container">
-            <slot name="hero">
-              {this.hero && (
-                <img
-                  alt=""
-                  src={this.hero}
-                />
-              )}
-            </slot>
-          </div>
-        )}
-
         <div
           class="heading-panel"
           ref={(el) => (this.container = el)}

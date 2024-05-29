@@ -127,7 +127,6 @@ export namespace Components {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -152,14 +151,6 @@ export namespace Components {
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow": "auto" | "stack" | "offcanvas";
-        /**
-          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
-         */
-        "hero": string;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose.
-         */
-        "overlay": boolean;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -2206,7 +2197,6 @@ declare global {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -3423,7 +3413,6 @@ declare namespace LocalJSX {
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
      * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
      * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
      * Defaults to `--app-header-typography-3-size`.
@@ -3449,17 +3438,9 @@ declare namespace LocalJSX {
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
-          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
-         */
-        "hero"?: string;
-        /**
           * Emitted when the `stuck` state of the header changes
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose.
-         */
-        "overlay"?: boolean;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -5586,7 +5567,6 @@ declare module "@stencil/core" {
              * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
              * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
              * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
              * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
              * Defaults to `--app-header-typography-3-size`.
