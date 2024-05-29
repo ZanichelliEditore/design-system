@@ -25,6 +25,12 @@ export class ZStepperItem {
   pressed: boolean;
 
   /**
+   * The checked state of the item.
+   */
+  @Prop({attribute: "checked"})
+  checked: boolean;
+
+  /**
    * The disabled state of the item.
    */
   @Prop({attribute: "disabled"})
@@ -37,7 +43,7 @@ export class ZStepperItem {
           href={!this.disabled && this.href}
           class="stepper-item"
         >
-          <div class="indicator">{this.index}</div>
+          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
           <span>
             <slot />
           </span>
@@ -50,7 +56,7 @@ export class ZStepperItem {
         class="stepper-item"
         disabled={this.disabled}
       >
-        <div class="indicator">{this.index}</div>
+        <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
         <span>
           <slot />
         </span>

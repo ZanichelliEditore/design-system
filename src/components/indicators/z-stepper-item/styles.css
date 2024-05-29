@@ -3,6 +3,9 @@
   width: calc(var(--space-unit) * 5);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --z-icon-width: 20px;
+  --z-icon-height: 20px;
 }
 
 :host(:not(:last-child)) {
@@ -87,10 +90,27 @@
   color: var(--color-disabled03);
 }
 
+:host([checked]:not([disabled])) .indicator {
+  border-color: var(--color-success-default);
+  color: var(--color-success-default);
+}
+
+:host([checked]:not([disabled])) .indicator z-icon {
+  fill: var(--color-success-default);
+}
+
+:host([checked]) .indicator z-icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host {
     width: calc(var(--space-unit) * 10);
+
+    --z-icon-width: 24px;
+    --z-icon-height: 24px;
   }
 
   :host(:not(:last-child))::after {
