@@ -3274,10 +3274,10 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zanichelli/albe-design-tokens@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@zanichelli/albe-design-tokens/-/albe-design-tokens-1.2.2.tgz#9466e6b651a2229630c0e6b3c43a58191810bd54"
-  integrity sha512-Tn8ZeMXOtRUGNsKt9QU6SOldF4AtuqJS7Y0yHGDR72pfxRwHQtePkROyP0MgNVWNRxtABaAir24pHxf+U5paxg==
+"@zanichelli/albe-design-tokens@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@zanichelli/albe-design-tokens/-/albe-design-tokens-1.2.3.tgz#aa669701e1ca9932b4c5aecc0df1d0764f908384"
+  integrity sha512-VNgcsJgAulRXRlIP7lGdtlvXhJLdehyOqMnPVQaz+eozkT5QgRlcI1Gnte+nhoOTsIbyGjBntDUTDM8bxoENyg==
 
 JSONStream@^1.0.4:
   version "1.3.5"
