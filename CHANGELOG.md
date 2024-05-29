@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 14.2.0 (2024-05-29)
+
+
+### Features
+
+* update design-tokens version to 1.2.0 ([4382793](https://github.com/ZanichelliEditore/design-system/commit/43827937367b7b20033cfeecb3223378c8879952))
+
 ## 14.1.0 (2024-05-20)
 
 
