@@ -2,10 +2,10 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZSectionTitle} from ".";
 import {ZSectionTitleDividerPosition} from "../../beans";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "./index";
 
-type ZSectionTitleStoriesArgs = ZSectionTitle & CssVarsArguments<"z-section-title--divider-color">;
+type ZSectionTitleStoriesArgs = ZSectionTitle & CSSVarsArguments<"z-section-title--divider-color">;
 
 const StoryMeta = {
   title: "ZSectionTitle",

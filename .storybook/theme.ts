@@ -55,8 +55,8 @@ const dark = {
   base: "dark",
 
   // colorPrimary: "#fff",
-  colorPrimary: "#5893DB",
-  colorSecondary: "#5893DB",
+  colorPrimary: "#5893db",
+  colorSecondary: "#5893db",
 
   // UI
   appBg: "#292929",
@@ -67,20 +67,20 @@ const dark = {
   // Text colors
   textColor: "#ebebeb",
   textInverseColor: "#292929",
-  textMutedColor: "#9b9b9b",
+  textMutedColor: "#C2C2C2",
 
   // Toolbar default and active colors
   barTextColor: "#ebebeb",
   // barSelectedColor: "#ebebeb",
-  barSelectedColor: "#5893DB",
-  barHoverColor: "#f49fa9",
+  barSelectedColor: "#5893db",
+  barHoverColor: "#5893db",
   barBg: "#292929",
 
   // Form colors
   buttonBg: "#fff",
   buttonBorder: "#fff",
   booleanBg: "#525252",
-  booleanSelectedBg: "#e4011c",
+  booleanSelectedBg: "#5893db",
 } satisfies ThemeVarsPartial;
 
 export const lightTheme = create(light, {color: {seafoam: "#000"}});

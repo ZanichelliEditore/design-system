@@ -1,14 +1,14 @@
 import {Meta} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
+import {html, type TemplateResult} from "lit";
 import {repeat} from "lit/directives/repeat.js";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZTable} from ".";
 import {PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
-import {CssVarsArguments} from "../../../utils/storybook-utils";
+import {CSSVarsArguments} from "../../../utils/storybook-utils";
 import "./index";
 import "./index.stories.css";
 
-type ZTableStoriesArgs = ZTable & CssVarsArguments<"z-table--cells-padding">;
+type ZTableStoriesArgs = ZTable & CSSVarsArguments<"z-table--cells-padding">;
 
 /**
  * ## Accessibility

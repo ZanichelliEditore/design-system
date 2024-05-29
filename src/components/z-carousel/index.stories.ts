@@ -2,12 +2,12 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {repeat} from "lit/directives/repeat.js";
 import {CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
-import {CssVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "./index";
 import {ZCarousel} from ".";
 import "./index.stories.css";
 
-type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CssVarsArguments<"z-carousel-gutter">;
+type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CSSVarsArguments<"z-carousel-gutter">;
 
 /**
  * This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).

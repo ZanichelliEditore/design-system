@@ -3,10 +3,10 @@ import {ControlSize, ButtonVariant} from "../../beans";
 import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
 import {ZSearchbar} from ".";
-import {CssVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
 
 type ZSearchbarStoriesArgs = ZSearchbar &
-  CssVarsArguments<"--z-searchbar-results-height" | "--z-searchbar-tag-text-color" | "--z-searchbar-tag-bg">;
+  CSSVarsArguments<"--z-searchbar-results-height" | "--z-searchbar-tag-text-color" | "--z-searchbar-tag-bg">;
 
 const StoryMeta = {
   title: "ZSearchbar",

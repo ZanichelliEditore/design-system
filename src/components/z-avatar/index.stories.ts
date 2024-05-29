@@ -18,7 +18,7 @@ const StoryMeta = {
     size: {
       options: Object.values(AvatarSize),
       control: {
-        type: "select",
+        type: "inline-radio",
       },
     },
     textColor: {

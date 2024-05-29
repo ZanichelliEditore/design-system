@@ -1,13 +1,13 @@
 import {Meta} from "@storybook/web-components";
 import {type TemplateResult, html} from "lit";
-import {CssVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "./index";
 import "../z-menu/index";
 import "../z-menu-section/index";
 import {ZAppHeader} from ".";
 import "./index.stories.css";
 
-type ZAppHeaderStoriesArgs = ZAppHeader & CssVarsArguments<"app-header-content-max-width">;
+type ZAppHeaderStoriesArgs = ZAppHeader & CSSVarsArguments<"app-header-content-max-width">;
 
 const StoryMeta = {
   title: "ZAppHeader",

@@ -1,12 +1,12 @@
 import {html} from "lit";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ICONS} from "../../constants/iconset";
 import {Meta} from "@storybook/web-components";
 import {ZTag} from ".";
 import {styleMap} from "lit/directives/style-map.js";
 import "./index";
 
-type ZTagStoriesArgs = ZTag & CssVarsArguments<"z-tag-text-color" | "z-tag-bg"> & {text: string};
+type ZTagStoriesArgs = ZTag & CSSVarsArguments<"z-tag-text-color" | "z-tag-bg"> & {text: string};
 
 const StoryMeta = {
   title: "ZTag",

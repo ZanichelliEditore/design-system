@@ -3,7 +3,7 @@ import {type TemplateResult, html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZAccordion} from ".";
 import {AccordionVariant, ControlSize} from "../../beans";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ICONS} from "../../constants/iconset";
 import "./index";
 
@@ -40,7 +40,7 @@ const cssPropsArgs = {
 } as const;
 
 type ZAccordionStoriesArgs = ZAccordion &
-  CssVarsArguments<
+  CSSVarsArguments<
     | keyof typeof cssPropsArgs
     | `z-accordion-${"left" | "right"}-padding`
     | "z-accordion-label-font-weight"
@@ -161,7 +161,7 @@ export const Stack = {
   },
   render: (args) =>
     html`${[
-      StoryMeta.render,
+      StoryMeta.render(args),
       StoryMeta.render({
         ...args,
         "--z-accordion-highlight-color": args["--z-accordion-highlight-color2"],

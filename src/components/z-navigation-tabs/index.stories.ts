@@ -1,6 +1,6 @@
 import {type TemplateResult, html} from "lit";
 import {NavigationTabsSize, NavigationTabsOrientation} from "../../beans/index";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {styleMap} from "lit/directives/style-map.js";
 import "./index.stories.css";
 import "./index";
@@ -8,7 +8,7 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {ZNavigationTabs} from ".";
 
 type ZNavigationTabsStoriesArgs = ZNavigationTabs &
-  CssVarsArguments<"z-navigation-tabs-nav-buttons-bg" | "z-navigation-tabs-nav-buttons-fg">;
+  CSSVarsArguments<"z-navigation-tabs-nav-buttons-bg" | "z-navigation-tabs-nav-buttons-fg">;
 
 const StoryMeta = {
   title: "ZNavigationTabs",

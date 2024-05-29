@@ -3,15 +3,15 @@ import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {ZBookCard} from ".";
 import {BookCardVariant} from "../../beans";
-import {CssVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "../z-button/index";
 import "../z-icon/index";
 import "../z-tag/index";
 import "./index";
 
 type ZBookCardStoriesArgs = ZBookCard & {
-  theme: ".theme-default" | ".theme-dark" | ".theme-black-yellow";
-} & CssVarsArguments<
+  theme: "theme-default" | "theme-dark" | "theme-black-yellow";
+} & CSSVarsArguments<
     | "z-book-card-ribbon-background-color"
     | "z-book-card-ribbon-shadow-color"
     | "z-book-card-compact-width"
@@ -21,12 +21,20 @@ const StoryMeta = {
   title: "ZBookCard",
   component: "z-book-card",
   argTypes: {
-    variant: {
+    "variant": {
       control: {
         type: "inline-radio",
       },
       options: Object.values(BookCardVariant),
     },
+    "theme": {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["theme-default", "theme-dark", "theme-black-yellow"],
+    },
+    "--z-book-card-ribbon-background-color": getColorTokenArgConfig(),
+    "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),
   },
   args: {
     "variant": BookCardVariant.EXPANDED,
@@ -42,7 +50,7 @@ const StoryMeta = {
     "borderless": false,
     "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
     "operaTitleTag": "h1",
-    "theme": ".theme-default",
+    "theme": "theme-default",
     "--z-book-card-ribbon-background-color": "var(--avatar-C08)",
     "--z-book-card-ribbon-shadow-color": "var(--green950)",
     "--z-book-card-compact-width": "262px",
@@ -53,7 +61,13 @@ const StoryMeta = {
 export default StoryMeta;
 
 type Story = StoryObj<ZBookCardStoriesArgs>;
+
 export const AllProps = {
+  parameters: {
+    controls: {
+      exclude: ["borderless"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -66,7 +80,6 @@ export const AllProps = {
       ribbon=${args.ribbon}
       ribbon-icon=${args.ribbonIcon}
       ribbon-interactive=${args.ribbonInteractive}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}
@@ -80,6 +93,11 @@ export const AllProps = {
 } satisfies Story;
 
 export const SlottedTags = {
+  parameters: {
+    controls: {
+      exclude: ["borderless"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -92,7 +110,6 @@ export const SlottedTags = {
       ribbon=${args.ribbon}
       ribbon-icon=${args.ribbonIcon}
       ribbon-interactive=${args.ribbonInteractive}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}
@@ -113,6 +130,11 @@ export const SlottedTags = {
 } satisfies Story;
 
 export const SlottedResources = {
+  parameters: {
+    controls: {
+      exclude: ["borderless"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -125,7 +147,6 @@ export const SlottedResources = {
       ribbon=${args.ribbon}
       ribbon-icon=${args.ribbonIcon}
       ribbon-interactive=${args.ribbonInteractive}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}
@@ -158,6 +179,11 @@ export const SlottedResources = {
 } satisfies Story;
 
 export const SlottedHeaderCta = {
+  parameters: {
+    controls: {
+      exclude: ["borderless"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -170,7 +196,6 @@ export const SlottedHeaderCta = {
       ribbon=${args.ribbon}
       ribbon-icon=${args.ribbonIcon}
       ribbon-interactive=${args.ribbonInteractive}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}
@@ -189,6 +214,11 @@ export const SlottedHeaderCta = {
 } satisfies Story;
 
 export const SlottedFooterCta = {
+  parameters: {
+    controls: {
+      exclude: ["borderless"],
+    },
+  },
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -201,7 +231,6 @@ export const SlottedFooterCta = {
       ribbon=${args.ribbon}
       ribbon-icon=${args.ribbonIcon}
       ribbon-interactive=${args.ribbonInteractive}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}
@@ -353,10 +382,10 @@ export const CompactVariant = {
       cover=${args.cover}
       opera-title=${args.operaTitle}
       volume-title=${args.volumeTitle}
+      borderless=${args.borderless}
       authors=${args.authors}
       isbn=${args.isbn}
       isbn-label=${args.isbnLabel}
-      borderless=${args.borderless}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
       class=${args.theme}

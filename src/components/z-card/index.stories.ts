@@ -3,13 +3,13 @@ import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {ZCard} from ".";
 import {CardVariant} from "../../beans";
-import {CssVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "../z-icon/index";
 import "./index";
 import "./index.stories.css";
 
 type ZCardStoriesArgs = ZCard &
-  CssVarsArguments<
+  CSSVarsArguments<
     | "z-card--color-cover-background"
     | "z-card--color-cover-background"
     | "z-card--text-border"

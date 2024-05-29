@@ -1,11 +1,11 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
-import {PopoverPosition} from "../../beans";
-import {getColorVars, getColorVarsLabels} from "../../utils/storybook-utils";
-import "./index.stories.css";
-import "./index";
-import {Meta, StoryObj} from "@storybook/web-components";
 import {ZPopover} from ".";
+import {PopoverPosition} from "../../beans";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import "./index";
+import "./index.stories.css";
 
 /**
  * To be sure the AUTO algorithm finds the right container when calculating the position, set its container's position to `position: relative;`
@@ -20,26 +20,14 @@ const StoryMeta = {
         type: "select",
       },
     },
-    "--z-popover-theme--surface": {
-      options: getColorVars(),
-      control: {
-        type: "select",
-        labels: getColorVarsLabels(),
-      },
-    },
-    "--z-popover-theme--text": {
-      options: getColorVars(),
-      control: {
-        type: "select",
-        labels: getColorVarsLabels(),
-      },
-    },
+    "--z-popover-theme--surface": getColorTokenArgConfig(),
+    "--z-popover-theme--text": getColorTokenArgConfig(),
   },
   args: {
     "--z-popover-theme--surface": "var(--color-surface01)",
     "--z-popover-theme--text": "var(--color-default-text)",
   },
-} satisfies Meta<ZPopover & {"--z-popover-theme--surface": string; "--z-popover-theme--text": string}>;
+} satisfies Meta<ZPopover & CSSVarsArguments<"--z-popover-theme--surface" | "--z-popover-theme--text">>;
 
 export default StoryMeta;
 

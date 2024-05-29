@@ -3,13 +3,13 @@ import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {ZCoverHero} from ".";
 import {CoverHeroContentPosition, CoverHeroVariant} from "../../beans";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "../z-info-reveal/index";
 import "./index";
 import "./index.stories.css";
 
 type ZCoverHeroStoriesArgs = ZCoverHero &
-  CssVarsArguments<"cover-hero-text-color" | "cover-hero-overlay" | "cover-hero-aspect-ratio">;
+  CSSVarsArguments<"cover-hero-text-color" | "cover-hero-overlay" | "cover-hero-aspect-ratio">;
 
 const StoryMeta = {
   title: "ZCoverHero",

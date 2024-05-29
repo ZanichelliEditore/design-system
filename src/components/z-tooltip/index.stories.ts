@@ -2,11 +2,11 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZTooltip} from ".";
 import {PopoverPosition} from "../../beans";
-import {CssVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "./index";
 import "./index.stories.css";
 
-type ZTooltipStoriesArgs = ZTooltip & CssVarsArguments<"z-tooltip-theme--surface">;
+type ZTooltipStoriesArgs = ZTooltip & CSSVarsArguments<"z-tooltip-theme--surface">;
 
 /**
  * To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`

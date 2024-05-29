@@ -1,7 +1,18 @@
+/// <reference types="vite/client" />
+
 import {type Preview} from "@storybook/web-components";
-import "../src/global.css";
-import {lightTheme} from "./theme";
+import globalStyle from "../src/global.css?inline";
 import DocTemplate from "./elements/docs-template";
+import {lightTheme} from "./theme";
+
+/**
+ * With the file import of the global styles (`import "../src/global.css"`) Stencil would inject them right before the first <link> tag
+ * in the <head> of the preview's iframe 🤷🏻‍♂️, causing components' styles to be overridden by the global styles.
+ * To fix this, we prepend the global styles in the <head>.
+ */
+const styleEl = document.createElement("style");
+styleEl.textContent = globalStyle;
+document.head.prepend(styleEl);
 
 const preview: Preview = {
   parameters: {
@@ -49,7 +60,6 @@ const preview: Preview = {
     },
     controls: {sort: "alpha"},
     docs: {
-      canvas: {sourceState: "shown"},
       source: {format: true, language: "tsx"},
       page: DocTemplate,
       theme: lightTheme,
