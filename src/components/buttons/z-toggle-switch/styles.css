@@ -21,7 +21,7 @@ label.right {
 }
 
 label > span:first-child {
-  color: var(--color-text01);
+  color: var(--color-default-text);
   letter-spacing: 0;
 }
 

@@ -1,7 +1,7 @@
 .text-wrapper > div {
   position: relative;
   z-index: 1;
-  fill: var(--color-icon02);
+  fill: var(--color-default-icon);
 }
 
 .text-wrapper > div > input {

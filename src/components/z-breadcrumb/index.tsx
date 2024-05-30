@@ -62,6 +62,28 @@ export class ZBreadcrumb {
   @Event()
   clickOnNode: EventEmitter<BreadcrumbPath["path"]>;
 
+  private pathsList: BreadcrumbPath[];
+
+  private pathListCopy: BreadcrumbPath[];
+
+  private collapsedElements: BreadcrumbPath[] = [];
+
+  private collapsedElementsRef: HTMLZPopoverElement;
+
+  private triggerButton: HTMLButtonElement;
+
+  private wrapElement: HTMLElement;
+
+  private currentIndex = 0;
+
+  private homepageNode: BreadcrumbPath;
+
+  private anchorElements;
+
+  private currentEllipsisText: string;
+
+  private truncatePosition = null;
+
   @Listen("resize", {target: "window"})
   handleResize(): void {
     this.viewPortWidth = getDevice();
@@ -76,7 +98,7 @@ export class ZBreadcrumb {
   // eslint-disable-next-line lines-between-class-members
   @Watch("maxNodesToShow")
   handlePropChange(): void {
-    this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+    this.initializeBreadcrumb();
   }
 
   @Watch("viewPortWidth")
@@ -90,39 +112,13 @@ export class ZBreadcrumb {
       (oldValue === Device.TABLET && newValue === Device.DESKTOP_WIDE) ||
       (oldValue === Device.DESKTOP && newValue === Device.DESKTOP_WIDE)
     ) {
-      this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+      this.initializeBreadcrumb();
     }
   }
 
-  private pathsList: BreadcrumbPath[];
-
-  private pathListCopy: BreadcrumbPath[];
-
-  private collapsedElements: BreadcrumbPath[] = [];
-
-  private collapsedElementsRef: HTMLZPopoverElement;
-
-  private triggerButton: HTMLButtonElement;
-
-  private triggerEllipsis: HTMLAnchorElement;
-
-  private wrapElement: HTMLElement;
-
-  private currentIndex = 0;
-
-  private homepageNode: BreadcrumbPath;
-
-  private totalLenght: number;
-
-  private anchorElements;
-
-  private currentEllipsisText: string;
-
-  private truncatePosition = null;
-
   componentWillLoad(): void {
     this.viewPortWidth = getDevice();
-    this.initializeBreadcrumb(this.viewPortWidth === Device.MOBILE);
+    this.initializeBreadcrumb();
   }
 
   componentWillRender(): void {
@@ -142,67 +138,58 @@ export class ZBreadcrumb {
     }
   }
 
-  private initializeBreadcrumb(isMobile: boolean): void {
-    if (isMobile) {
+  private initializeBreadcrumb(): void {
+    if (this.viewPortWidth === Device.MOBILE) {
       this.pathsList = this.getPathsItemsList().filter((item) => !!item.path);
     } else {
       this.pathsList = this.getPathsItemsList();
     }
-    this.totalLenght = this.pathsList.length;
     this.homepageNode = this.pathsList.shift();
-    this.pathListCopy = JSON.parse(JSON.stringify(this.pathsList));
+    this.pathListCopy = [...this.pathsList];
     this.collapsedElements = [];
-    if (this.totalLenght > this.maxNodesToShow) {
+    if (this.pathsList.length > this.maxNodesToShow) {
       this.collapsedElements = this.pathsList.splice(0, this.pathsList.length - 2);
     }
   }
 
   private checkEllipsisOrOverflowMenu(): void {
-    if (this.pathListCopy.length > 0) {
-      for (let i = 0; i < this.pathsList.length; i++) {
-        if (this.pathsList[i].text.length > this.truncateChar) {
-          if (this.truncatePosition !== null) {
-            if (this.truncatePosition > 0) {
-              const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition);
-              arrayToPush.forEach((item) => {
-                this.collapsedElements.push(item);
-              });
-              this.pathsList.splice(0, this.truncatePosition);
-              this.truncatePosition = 0;
+    for (let i = 0; i < this.pathsList.length; i++) {
+      if (this.pathsList[i].text.length <= this.truncateChar) {
+        continue;
+      }
 
-              return;
-            }
-            if (this.truncatePosition === 0) {
-              const arrayToPush = this.pathListCopy.splice(0, this.truncatePosition + 1);
-              this.collapsedElements.push(...arrayToPush);
-              this.pathsList.splice(0, this.truncatePosition + 1);
-              this.truncatePosition = null;
+      if (this.truncatePosition > 0) {
+        this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition));
+        this.pathsList.splice(0, this.truncatePosition);
+        this.truncatePosition = 0;
 
-              return;
-            }
-          }
-          if (i !== this.pathsList.length - 1) {
-            const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
-            this.currentEllipsisText = this.pathsList[i].text;
-            this.pathsList[i].text = truncatedString;
-            this.pathsList[i].hasTooltip = true;
-            this.truncatePosition = i;
+        return;
+      } else if (this.truncatePosition === 0) {
+        this.collapsedElements.push(...this.pathListCopy.splice(0, this.truncatePosition + 1));
+        this.pathsList.splice(0, this.truncatePosition + 1);
+        this.truncatePosition = null;
 
-            return;
-          }
-        }
+        return;
+      }
+
+      if (i !== this.pathsList.length - 1) {
+        const truncatedString = this.truncateWithEllipsis(this.pathsList[i].text, this.truncateChar);
+        this.currentEllipsisText = this.pathsList[i].text;
+        this.pathsList[i].text = truncatedString;
+        this.pathsList[i].hasTooltip = true;
+        this.truncatePosition = i;
+
+        return;
       }
     }
   }
 
-  private truncateWithEllipsis(str: string, length: number): string {
-    const ending = "&mldr;";
-
-    if (str.length > length) {
-      return str.substring(0, length - 1) + ending;
+  private truncateWithEllipsis(str: string, maxLength: number): string {
+    if (str.length <= maxLength) {
+      return str;
     }
 
-    return str;
+    return str.substring(0, maxLength - 1) + "&mldr;";
   }
 
   private getPathsItemsList(): BreadcrumbPath[] {
@@ -215,104 +202,28 @@ export class ZBreadcrumb {
     });
   }
 
-  private renderMobileBreadcrumb(): HTMLDivElement {
-    const lastPath = this.pathsList[this.pathsList.length - 1];
-
-    return (
-      <nav
-        aria-label="Breadcrumb"
-        class={{
-          underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-          semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-        }}
-      >
-        <ol>{this.renderNode(lastPath, true)}</ol>
-      </nav>
-    );
-  }
-
-  private renderHomepageNode(item): HTMLLIElement {
+  private renderHomepageNode(): HTMLLIElement {
     return (
       <li>
         <a
           class={{
-            "homepage-icon": this.homepageVariant === BreadcrumbHomepageVariant.ICON,
             "homepage-text": this.homepageVariant === BreadcrumbHomepageVariant.TEXT,
           }}
-          href={item.path}
-          onClick={(e) => this.handlePreventFollowUrl(e, item)}
-        >
-          {this.homepageVariant === BreadcrumbHomepageVariant.ICON ? (
-            <z-icon
-              name="home"
-              fill="color-link-primary"
-              height={16}
-              width={16}
-            />
-          ) : (
-            "Home"
-          )}
-        </a>
-      </li>
-    );
-  }
-
-  private renderNode(item, mobile): HTMLLIElement {
-    return (
-      <li>
-        {item.hasTooltip && (
-          <z-popover
-            class="full-path-tooltip"
-            bind-to={this.triggerEllipsis}
-            open={this.popoverEllipsisOpen}
-            position={PopoverPosition.BOTTOM_RIGHT}
-            closable={false}
-            showArrow
-          >
-            <span class="tooltip-content">{this.currentEllipsisText}</span>
-          </z-popover>
-        )}
-        <a
-          class={{
-            "missing-path": !item.path,
-            "text-ellipsis": mobile,
-          }}
-          ref={(val) => (this.triggerEllipsis = val)}
-          aria-current={item.path ? undefined : "page"}
-          href={item.path}
-          onClick={(e) => this.handlePreventFollowUrl(e, item)}
-          onMouseOver={() => {
-            if (item.hasTooltip) {
-              this.popoverEllipsisOpen = true;
-            }
-          }}
-          onMouseLeave={() => {
-            if (item.hasTooltip) {
-              this.popoverEllipsisOpen = false;
-            }
-          }}
-          innerHTML={mobile ? `<z-icon fill="color-link-primary" name="chevron-left"></z-icon>${item.text}` : item.text}
+          href={this.homepageNode.path}
+          onClick={(e) => this.handlePreventFollowUrl(e, this.homepageNode)}
+          innerHTML={
+            this.homepageVariant === BreadcrumbHomepageVariant.ICON
+              ? `<z-icon name="home" />`
+              : this.homepageNode.text || "Home"
+          }
         />
+        {this.pathsList.length > 0 && (
+          <z-icon
+            class="separator"
+            name="chevron-right"
+          />
+        )}
       </li>
-    );
-  }
-
-  private renderBreadcrumb(): HTMLElement {
-    return (
-      <nav
-        ref={(val) => (this.wrapElement = val)}
-        aria-label="Breadcrumb"
-        class={{
-          underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-          semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
-        }}
-      >
-        <ol>
-          {this.renderHomepageNode(this.homepageNode)}
-          {this.collapsedElements.length ? this.renderOverflowMenu() : ""}
-          {this.pathsList.map((item) => this.renderNode(item, false))}
-        </ol>
-      </nav>
     );
   }
 
@@ -357,67 +268,156 @@ export class ZBreadcrumb {
   }
 
   private renderOverflowMenu(): HTMLLIElement {
-    if (this.collapsedElements.length) {
-      return (
-        <li>
-          <z-popover
-            class="hidden-paths-popover"
-            ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
-            bind-to={this.triggerButton}
-            position={PopoverPosition.BOTTOM_RIGHT}
-            closable={true}
-            showArrow
-          >
-            <div class="popover-content">
-              <z-list>
-                <z-list-group size={ListSize.SMALL}>
-                  {this.collapsedElements.map((item, index, array) => {
-                    return (
-                      <div>
-                        <z-list-element clickable>
-                          <a
-                            class="text-ellipsis"
-                            href={item.path}
-                            onClick={(e) => this.handlePreventFollowUrl(e, item)}
-                            onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
-                          >
-                            {item.text}
-                          </a>
-                        </z-list-element>
-                        {index < array.length - 1 && <z-divider color="color-surface03"></z-divider>}
-                      </div>
-                    );
-                  })}
-                </z-list-group>
-              </z-list>
-            </div>
-          </z-popover>
-          <button
-            aria-label="Mostra più breadcrumb"
-            aria-haspopup="true"
-            ref={(el) => (this.triggerButton = el as HTMLButtonElement)}
-            class="dots"
-            onClick={() => {
-              this.togglePopover();
-            }}
-            onKeyDown={(e) => {
-              handleKeyboardSubmit(e, this.togglePopover.bind(this));
-              setTimeout(() => {
-                this.anchorElements[0].focus();
-              }, 100);
-            }}
-          >
-            ...
-          </button>
-        </li>
-      );
+    return (
+      <li>
+        <z-popover
+          class="hidden-paths-popover"
+          ref={(val) => (this.collapsedElementsRef = val as HTMLZPopoverElement)}
+          bindTo={this.triggerButton}
+          position={PopoverPosition.BOTTOM_RIGHT}
+          closable
+          showArrow
+        >
+          <div class="popover-content">
+            <z-list>
+              <z-list-group size={ListSize.SMALL}>
+                {this.collapsedElements.map((item, index, array) => {
+                  return (
+                    <div>
+                      <z-list-element clickable>
+                        <a
+                          class="text-ellipsis"
+                          href={item.path}
+                          onClick={(e) => this.handlePreventFollowUrl(e, item)}
+                          onKeyDown={(e) => this.handleOverflowMenuAccessibility(e)}
+                          innerHTML={item.text}
+                        />
+                      </z-list-element>
+                      {index < array.length - 1 && <z-divider color="color-surface03"></z-divider>}
+                    </div>
+                  );
+                })}
+              </z-list-group>
+            </z-list>
+          </div>
+        </z-popover>
+        <button
+          class="dots"
+          ref={(el) => (this.triggerButton = el)}
+          aria-label="Mostra più breadcrumb"
+          aria-haspopup="true"
+          onClick={() => {
+            this.togglePopover();
+          }}
+          onKeyDown={(e) => {
+            handleKeyboardSubmit(e, this.togglePopover.bind(this));
+            setTimeout(() => {
+              this.anchorElements[0].focus();
+            }, 100);
+          }}
+          innerHTML="&mldr;"
+        ></button>
+        {this.pathsList.length > 0 && (
+          <z-icon
+            class="separator"
+            name="chevron-right"
+          />
+        )}
+      </li>
+    );
+  }
+
+  private renderMobileItems(): HTMLLIElement {
+    // show only the second to last element
+    const secondToLastPath = this.pathsList[this.pathsList.length - 1];
+
+    if (!secondToLastPath) {
+      return;
     }
+
+    return (
+      <li>
+        <a
+          aria-current={secondToLastPath.path ? undefined : "page"}
+          href={secondToLastPath.path}
+          onClick={(e) => this.handlePreventFollowUrl(e, secondToLastPath)}
+        >
+          <z-icon name="chevron-left" />
+          <span
+            class={{
+              "missing-path": !secondToLastPath.path,
+              "text-ellipsis": true,
+            }}
+          >
+            {secondToLastPath.text}
+          </span>
+        </a>
+      </li>
+    );
+  }
+
+  private renderItems(): HTMLElement[] {
+    let trigger;
+
+    return [
+      this.renderHomepageNode(),
+      this.collapsedElements.length > 0 && this.renderOverflowMenu(),
+      ...this.pathsList.map((item, index) => (
+        <li>
+          {item.hasTooltip && (
+            <z-popover
+              class="full-path-tooltip"
+              bindTo={trigger}
+              open={this.popoverEllipsisOpen}
+              position={PopoverPosition.BOTTOM_RIGHT}
+              closable={false}
+              showArrow
+            >
+              <span class="tooltip-content">{this.currentEllipsisText}</span>
+            </z-popover>
+          )}
+          <a
+            class={{"missing-path": !item.path}}
+            ref={(val) => (trigger = val)}
+            aria-current={item.path ? undefined : "page"}
+            href={item.path}
+            onClick={(e) => this.handlePreventFollowUrl(e, item)}
+            onMouseOver={() => {
+              if (item.hasTooltip) {
+                this.popoverEllipsisOpen = true;
+              }
+            }}
+            onMouseLeave={() => {
+              if (item.hasTooltip) {
+                this.popoverEllipsisOpen = false;
+              }
+            }}
+            innerHTML={item.text}
+          />
+          {index !== this.pathsList.length - 1 && (
+            <z-icon
+              class="separator"
+              name="chevron-right"
+            />
+          )}
+        </li>
+      )),
+    ];
   }
 
   render(): HTMLZBreadcrumbElement {
     return (
       <Host style={{"--line-clamp-popover": `${this.overflowMenuItemRows}`}}>
-        {this.viewPortWidth === Device.MOBILE ? this.renderMobileBreadcrumb() : this.renderBreadcrumb()}
+        <nav
+          ref={(val) => (this.wrapElement = val)}
+          aria-label="Breadcrumb"
+          class={{
+            semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
+            underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
+          }}
+        >
+          <ol>{this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()}</ol>
+        </nav>
       </Host>
     );
   }

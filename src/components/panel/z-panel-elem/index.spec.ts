@@ -132,9 +132,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
           <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_blank">
-              <img src="exampleImgUrl" />
-            </a>
+            <img src="exampleImgUrl" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
@@ -157,9 +155,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgurl="exampleImgUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
           <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_self">
-              <img src="exampleImgUrl" />
-            </a>
+            <img src="exampleImgUrl" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
@@ -182,9 +178,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgalt="exampleDesc" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
           <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_blank">
-              <img alt="exampleDesc" />
-            </a>
+            <img alt="exampleDesc" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
@@ -207,9 +201,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem imgalt="exampleDesc" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
           <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_self">
-              <img alt="exampleDesc" />
-            </a>
+            <img alt="exampleDesc" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
@@ -232,9 +224,7 @@ describe("Suite test ZPanelElem", () => {
       <z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
           <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_self">
-              <img src="exampleUrl" />
-            </a>
+            <img src="exampleUrl" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">
@@ -262,9 +252,7 @@ describe("Suite test ZPanelElem", () => {
         </div>
         <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-            <a class="elem-icon" href="http://www.google.it" target="_self">
-              <img src="exampleUrl" />
-            </a>
+            <img src="exampleUrl" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-icon" href="http://www.google.it" id="examplelink_id" target="_self">

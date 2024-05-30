@@ -1,19 +1,24 @@
 import {Meta, Canvas, Story, ArgsTable} from "@storybook/addon-docs";
-import {styleMap} from "lit-html/directives/style-map.js";
-import {InfoRevealPosition} from "../../beans";
 import {html} from "lit-html";
+import {ControlSize, InfoRevealPosition} from "../../beans";
+import {ICONS} from "../icons/icons";
 import "./index";
+import "./index.stories.css";
 
 <Meta
   title="ZInfoReveal"
   component="z-info-reveal"
   argTypes={{
-    icon: {control: {type: "text"}},
+    icon: {control: {type: "select"}, options: Object.keys(ICONS).sort()},
     label: {control: {type: "text"}},
+    size: {control: {type: "inline-radio"}, options: Object.values(ControlSize)},
     position: {
       options: Object.values(InfoRevealPosition),
       control: {type: "inline-radio"},
     },
+  }}
+  parameters={{
+    layout: "centered",
   }}
 />
 
@@ -25,40 +30,23 @@ import "./index";
     args={{
       label: "",
       icon: "informationsource",
+      size: ControlSize.BIG,
       position: InfoRevealPosition.TOP_RIGHT,
     }}
   >
     {(args) => html`
-      <style>
-        z-info-reveal {
-          margin-top: 10vw;
-          margin-left: 10vw;
-        }
-      </style>
-      <div style="position: absolute; top: 0; left: 0;">
+      <div class="z-info-reveal-story-wrapper">
+        <z-button .size=${args.size}>Button</z-button>
         <z-info-reveal
-          .position=${args.position}
           .label=${args.label}
           .icon=${args.icon}
-          style=${styleMap({
-            "--z-info-reveal-theme--surface": `var(${args["--z-info-reveal-theme--surface"]})`,
-            "--z-info-reveal-theme--text": `var(${args["--z-info-reveal-theme--text"]})`,
-          })}
+          .size=${args.size}
+          .position=${args.position}
         >
-          <span style="font-style: italic;">Prima frase.</span>
-          <span style="font-style: italic;"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
-            Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?</span
-          >
-          <span>
-            <a
-              style="color: inherit;"
-              href="https://google.com"
-              target="_blank"
-            >
-              terza frase che è un link
-            </a>
-          </span>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
+            Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?
+          </div>
         </z-info-reveal>
       </div>
     `}

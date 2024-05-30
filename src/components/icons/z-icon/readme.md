@@ -47,7 +47,6 @@
  - [z-info-reveal](../../z-info-reveal)
  - [z-input](../../inputs/z-input)
  - [z-input-message](../../inputs/z-input-message)
- - [z-link](../../../deprecated/z-link)
  - [z-list-element](../../list/z-list-element)
  - [z-menu](../../navigation/z-menu)
  - [z-menu-section](../../navigation/z-menu-section)
@@ -88,7 +87,6 @@ graph TD;
   z-info-reveal --> z-icon
   z-input --> z-icon
   z-input-message --> z-icon
-  z-link --> z-icon
   z-list-element --> z-icon
   z-menu --> z-icon
   z-menu-section --> z-icon

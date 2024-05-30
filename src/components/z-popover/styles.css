@@ -1,6 +1,6 @@
 :host {
   --z-popover-theme--surface: var(--color-surface01);
-  --z-popover-theme--text: var(--color-text01);
+  --z-popover-theme--text: var(--color-default-text);
   --z-popover-padding: 0;
   --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
 

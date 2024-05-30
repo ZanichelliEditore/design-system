@@ -230,6 +230,22 @@ export class ZInput {
     });
   }
 
+  /** Emitted on input focus */
+  @Event()
+  inputFocus: EventEmitter;
+
+  private emitInputFocus(): void {
+    this.inputFocus.emit({id: this.htmlid});
+  }
+
+  /** Emitted on input blur */
+  @Event()
+  inputBlur: EventEmitter;
+
+  private emitInputBlur(): void {
+    this.inputBlur.emit({id: this.htmlid});
+  }
+
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
 
@@ -306,6 +322,13 @@ export class ZInput {
     };
   }
 
+  private getFocusBlurAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    return {
+      onFocus: () => this.emitInputFocus(),
+      onBlur: () => this.emitInputBlur(),
+    };
+  }
+
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
     const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
@@ -315,6 +338,7 @@ export class ZInput {
       ...ariaLabel,
       ...this.getRoleAttribute(),
       ...this.getAriaAttrubutes(),
+      ...this.getFocusBlurAttributes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
@@ -494,6 +518,7 @@ export class ZInput {
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getRoleAttribute()}
+          {...this.getFocusBlurAttributes()}
         />
 
         <label
@@ -531,6 +556,7 @@ export class ZInput {
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getRoleAttribute()}
+          {...this.getFocusBlurAttributes()}
         />
 
         <label

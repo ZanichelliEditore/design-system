@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 14.2.4 (2024-05-29)
+
+### [14.2.3](https://github.com/ZanichelliEditore/design-system/compare/v14.2.2...v14.2.3) (2024-05-29)
+
+### 14.2.2 (2024-05-29)
+
+### 14.2.1 (2024-05-29)
+
+## 14.2.0 (2024-05-29)
+
+
+### Features
+
+* update design-tokens version to 1.2.0 ([4382793](https://github.com/ZanichelliEditore/design-system/commit/43827937367b7b20033cfeecb3223378c8879952))
+
+## 14.1.0 (2024-05-20)
+
+
+### Features
+
+* **LAZE-1009:** update design token ([a6a605b](https://github.com/ZanichelliEditore/design-system/commit/a6a605bc77048ccca5d5546201d44eab5d1026b6))
+
+## 14.0.0 (2024-05-15)
+
+### 13.6.1 (2024-05-14)
+
+## 13.6.0 (2024-05-13)
+
+
+### Features
+
+* **LAZE-1009:** icon - add new icons ([9c974ca](https://github.com/ZanichelliEditore/design-system/commit/9c974cafcda06f6ec8eab8f932dbe7628779a78b))
+
+## 13.5.0 (2024-05-10)
+
+## 13.4.0 (2024-05-08)
+
+### 13.3.1 (2024-05-08)
+
+## 13.3.0 (2024-04-18)
+
+## 13.2.0 (2024-04-17)
+
 ### 13.1.3 (2024-04-12)
 
 

@@ -1,5 +1,5 @@
 :host {
-  color: var(--color-text01);
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }

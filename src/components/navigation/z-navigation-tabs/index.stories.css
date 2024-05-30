@@ -26,7 +26,7 @@ z-navigation-tabs[orientation="vertical"] {
 .panels-story-wrapper .panel:not([hidden]) {
   display: flex;
   align-items: center;
-  color: var(-color-text01);
+  color: var(--color-default-text);
   column-gap: var(--space-unit);
 }
 

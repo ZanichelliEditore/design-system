@@ -46,30 +46,6 @@ export class ZPanelElem {
   @Prop()
   descrSlotName?: string;
 
-  private renderIcon(): HTMLZIconElement {
-    if (this.isdisabled) {
-      return (
-        <img
-          src={this.imgurl}
-          alt={this.imgalt}
-        />
-      );
-    }
-
-    return (
-      <a
-        class="elem-icon"
-        href={this.url}
-        target={this.target}
-      >
-        <img
-          src={this.imgurl}
-          alt={this.imgalt}
-        />
-      </a>
-    );
-  }
-
   render(): HTMLDivElement {
     const elemId = this.elemid ? this.elemid : "";
 
@@ -80,7 +56,10 @@ export class ZPanelElem {
             aria-hidden="true"
             class="panel-elem-icon"
           >
-            {this.renderIcon()}
+            <img
+              src={this.imgurl}
+              alt={this.imgalt}
+            />
           </div>
         )}
         <div class="panel-elem-link">
