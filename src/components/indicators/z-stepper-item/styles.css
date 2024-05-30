@@ -48,7 +48,7 @@
   text-align: center;
 }
 
-:host(:not([disabled])) .stepper-item {
+:host([href]:not([disabled], [pressed])) .stepper-item {
   cursor: pointer;
 }
 

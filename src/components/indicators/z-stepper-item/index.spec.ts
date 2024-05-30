@@ -12,7 +12,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item>
         <mock:shadow-root>
-          <button class="stepper-item">
+          <button class="stepper-item" tabindex="-1">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
@@ -30,7 +30,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item index="5">
         <mock:shadow-root>
-          <button class="stepper-item">
+          <button class="stepper-item"  tabindex="-1">
             <div class="indicator">5</div>
             <span><slot></slot></span>
           </button>
@@ -48,7 +48,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item index="4">
         <mock:shadow-root>
-          <button class="stepper-item">
+          <button class="stepper-item"  tabindex="-1">
             <div class="indicator">4</div>
             <span><slot></slot></span>
           </button>
@@ -67,10 +67,10 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item href="#/test" index="4">
         <mock:shadow-root>
-          <a href="#/test" class="stepper-item">
+          <button class="stepper-item" role="link">
             <div class="indicator">4</div>
             <span><slot></slot></span>
-          </a>
+          </button>
         </mock:shadow-root>
         Text
       </z-stepper-item>
@@ -86,7 +86,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item disabled>
         <mock:shadow-root>
-          <button class="stepper-item" disabled>
+          <button class="stepper-item" disabled  tabindex="-1">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
@@ -105,10 +105,10 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item href="#/test" disabled>
         <mock:shadow-root>
-          <a class="stepper-item" href="false">
+          <button class="stepper-item" disabled>
             <div class="indicator"></div>
             <span><slot></slot></span>
-          </a>
+          </button>
         </mock:shadow-root>
         Text
       </z-stepper-item>

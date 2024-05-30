@@ -36,25 +36,26 @@ export class ZStepperItem {
   @Prop({attribute: "disabled"})
   disabled: boolean;
 
-  render(): HTMLAnchorElement | HTMLButtonElement {
-    if (this.href) {
-      return (
-        <a
-          href={!this.disabled && this.href}
-          class="stepper-item"
-        >
-          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
-          <span>
-            <slot />
-          </span>
-        </a>
-      );
-    }
+  private getAttributes(): Record<string, unknown> {
+    const href = this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : {};
+    const role = this.href && !this.disabled ? {role: "link"} : {};
+    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : {};
+    const tabindex = this.pressed || !this.href ? {tabindex: -1} : {};
 
+    return {
+      ...href,
+      ...role,
+      ...current,
+      ...tabindex,
+    };
+  }
+
+  render(): HTMLAnchorElement | HTMLButtonElement {
     return (
       <button
         class="stepper-item"
         disabled={this.disabled}
+        {...this.getAttributes()}
       >
         <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
         <span>
