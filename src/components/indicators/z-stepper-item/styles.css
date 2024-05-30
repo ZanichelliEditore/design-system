@@ -36,8 +36,8 @@
   background: transparent;
   color: inherit;
   font-family: inherit;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 12px;
+  line-height: 16px;
   outline: 0;
   text-decoration: none;
 }
@@ -106,6 +106,13 @@
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+  .stepper-item span {
+    display: block;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1152px) {
   :host {
     width: calc(var(--space-unit) * 10);
 
@@ -120,10 +127,8 @@
 
   .stepper-item {
     width: calc(var(--space-unit) * 10);
-  }
-
-  .stepper-item span {
-    display: block;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   .indicator {
