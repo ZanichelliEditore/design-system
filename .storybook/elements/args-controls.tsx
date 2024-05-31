@@ -31,6 +31,11 @@ const getFilteredArgTypes = () => {
         // set a category for the "auxiliary" args that are not part of the component but are used for demo purposes
         arg.table.category = "Story controls";
       }
+
+      if (arg.table?.category === "css custom properties") {
+        // fix control type for css custom properties. set text instead of the `object` automatically inferred by storybook
+        arg.control = Object.assign(arg.control ?? {}, {type: "text"});
+      }
       acc[key] = arg;
     }
 
