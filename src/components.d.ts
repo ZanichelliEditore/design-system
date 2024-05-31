@@ -148,6 +148,10 @@ export namespace Components {
          */
         "enableSearch": boolean;
         /**
+          * Enable laZ logo.
+         */
+        "enableZLogo": boolean;
+        /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
         "flow": "auto" | "stack" | "offcanvas";
@@ -3433,6 +3437,10 @@ declare namespace LocalJSX {
           * Enable the search bar.
          */
         "enableSearch"?: boolean;
+        /**
+          * Enable laZ logo.
+         */
+        "enableZLogo"?: boolean;
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */

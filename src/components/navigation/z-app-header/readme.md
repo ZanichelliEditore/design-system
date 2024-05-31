@@ -9,9 +9,8 @@
 | ------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------- |
 | `drawerOpen`        | `drawer-open`        | The opening state of the drawer.                                                                                                                                                                                                               | `boolean`                          | `false`     |
 | `enableSearch`      | `enable-search`      | Enable the search bar.                                                                                                                                                                                                                         | `boolean`                          | `false`     |
+| `enableZLogo`       | `enable-z-logo`      | Enable laZ logo.                                                                                                                                                                                                                               | `boolean`                          | `true`      |
 | `flow`              | `flow`               | Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu | `"auto" \| "offcanvas" \| "stack"` | `"auto"`    |
-| `hero`              | `hero`               | Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.                                                                                                                                    | `string`                           | `undefined` |
-| `overlay`           | `overlay`            | Should place an overlay over the hero image. Useful for legibility purpose.                                                                                                                                                                    | `boolean`                          | `false`     |
 | `searchPageUrl`     | `search-page-url`    | Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.                                                | `string`                           | `undefined` |
 | `searchPlaceholder` | `search-placeholder` | Placeholder text for the search bar.                                                                                                                                                                                                           | `string`                           | `"Cerca"`   |
 | `searchString`      | `search-string`      | Search string for the search bar.                                                                                                                                                                                                              | `string`                           | `""`        |
@@ -41,6 +40,7 @@
 
 - [z-button](../../buttons/z-button)
 - [z-searchbar](../../inputs/z-searchbar)
+- [z-divider](../../z-divider)
 - [z-icon](../../icons/z-icon)
 - [z-offcanvas](../../z-offcanvas)
 
@@ -49,6 +49,7 @@
 graph TD;
   z-app-header --> z-button
   z-app-header --> z-searchbar
+  z-app-header --> z-divider
   z-app-header --> z-icon
   z-app-header --> z-offcanvas
   z-button --> z-icon

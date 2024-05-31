@@ -1,5 +1,5 @@
-import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen} from "@stencil/core";
-import {ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection} from "../../../beans";
+import {Component, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen, h, Fragment} from "@stencil/core";
+import {ButtonVariant, ControlSize, DividerOrientation, OffCanvasVariant, TransitionDirection} from "../../../beans";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -8,6 +8,7 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot subtitle - Slot for the bottom subtitle. It will not appear in stuck header.
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
+ * @slot product-logo - To insert the product logo, it should be used with an img tag.
  * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
  * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
  * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -116,6 +117,12 @@ export class ZAppHeader {
    */
   @Prop()
   searchPageUrl: string;
+
+  /**
+   * Enable laZ logo.
+   */
+  @Prop({reflect: true})
+  enableZLogo = true;
 
   /**
    * The stuck state of the bar.
@@ -300,6 +307,26 @@ export class ZAppHeader {
     );
   }
 
+  private renderLogo(): HTMLElement | null {
+    return (
+      <Fragment>
+        {this.enableZLogo && (
+          <img
+            src="../assets/images/LaZ.svg"
+            alt=""
+          />
+        )}
+        {this.enableZLogo && (
+          <z-divider
+            class="heading-divider"
+            orientation={DividerOrientation.VERTICAL}
+          ></z-divider>
+        )}
+        <slot name="product-logo"></slot>
+      </Fragment>
+    );
+  }
+
   componentDidLoad(): void {
     this.collectMenuElements();
     this.onStuckMode();
@@ -328,6 +355,7 @@ export class ZAppHeader {
                 </button>
               )}
 
+              {this.renderLogo()}
               <slot name="title"></slot>
 
               {this.renderSearchLinkButton()}

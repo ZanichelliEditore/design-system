@@ -114,8 +114,19 @@
   display: flex;
   max-width: 100%;
   flex-direction: row;
-  align-items: flex-start;
-  column-gap: calc(var(--space-unit) * 2);
+  align-items: center;
+}
+
+.heading-title > z-divider.heading-divider {
+  height: 36px;
+  margin: 0 12px;
+}
+
+::slotted([slot="product-logo"]) {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 50%;
 }
 
 ::slotted([slot="title"]),
