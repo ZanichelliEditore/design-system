@@ -15,12 +15,7 @@ const config = {
     "../src/**/index.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-docs",
-    "@storybook/addon-controls",
-    "@storybook/addon-viewport",
-    "storybook-addon-stencil",
-  ],
+  addons: ["@storybook/addon-docs", "@storybook/addon-viewport", "storybook-addon-stencil"],
   async viteFinal(config) {
     const {mergeConfig} = await import("vite");
     return mergeConfig(config, {

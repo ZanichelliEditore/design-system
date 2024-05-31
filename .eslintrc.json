@@ -139,19 +139,6 @@
         ],
         "no-duplicate-imports": "off"
       }
-    },
-    {
-      "files": ["./src/components/**/icons.tsx"],
-      "rules": {
-        "@typescript-eslint/naming-convention": [
-          "error",
-          {
-            "selector": "objectLiteralProperty",
-            "modifiers": ["requiresQuotes"],
-            "format": null
-          }
-        ]
-      }
     }
   ]
 }

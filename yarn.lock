@@ -1978,16 +1978,6 @@
   resolved "https://registry.yarnpkg.com/@stencil/react-output-target/-/react-output-target-0.5.3.tgz#2a7186b7ba6c8721f92f4200e414b70854030d79"
   integrity sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==
 
-"@storybook/addon-controls@^8.1.4":
-  version "8.1.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-8.1.4.tgz#e6480ae8cb99ad30a073b6d1b851600f15089708"
-  integrity sha512-YuimjOeHYKMXAAs8tYVen2A84ZJNNuvoI6t+paZU570hkEeh5iPggC2UneNAgtQBds98TWwEy+3YggXtfon6iw==
-  dependencies:
-    "@storybook/blocks" "8.1.4"
-    dequal "^2.0.2"
-    lodash "^4.17.21"
-    ts-dedent "^2.0.0"
-
 "@storybook/addon-docs@^8.1.4":
   version "8.1.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-8.1.4.tgz#827877775df668fe68482f07673f6cbb7b130fc6"

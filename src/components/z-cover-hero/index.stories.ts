@@ -37,14 +37,10 @@ const StoryMeta = {
         arg: "variant",
         eq: CoverHeroVariant.OVERLAY,
       },
-      control: {
-        type: "text",
-      },
     },
     "--cover-hero-aspect-ratio": {
       if: {
         arg: "preserveAspectRatio",
-        eq: true,
       },
     },
   },
@@ -190,10 +186,10 @@ export const AutoAspectRatio = {
 };
 
 export const WithoutPreservingAspectRatio = {
-  parameters: {
-    controls: {
-      exclude: ["variant", "preserveAspectRatio", "--cover-hero-aspect-ratio"],
-    },
+  argTypes: {
+    "variant": {table: {disable: true}},
+    "preserveAspectRatio": {table: {disable: true}},
+    "--cover-hero-aspect-ratio": {table: {disable: true}},
   },
   args: {
     textContent:
