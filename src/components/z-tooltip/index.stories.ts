@@ -3,6 +3,7 @@ import {html} from "lit";
 import {type ZTooltip} from ".";
 import {PopoverPosition} from "../../beans";
 import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import "../z-button/index";
 import "./index";
 import "./index.stories.css";
 

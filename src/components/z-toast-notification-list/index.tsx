@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, Watch} from "@stencil/core";
+import {Component, Element, Prop, Watch, h} from "@stencil/core";
 import {ToastNotificationPosition} from "../../beans";
 
 @Component({

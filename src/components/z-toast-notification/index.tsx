@@ -1,5 +1,5 @@
-import {Component, Prop, h, Event, EventEmitter, Element, Host, State, Watch} from "@stencil/core";
-import {ToastNotificationTransition, ToastNotification} from "../../beans";
+import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {ToastNotification, ToastNotificationTransition} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 
 import Hammer from "hammerjs";

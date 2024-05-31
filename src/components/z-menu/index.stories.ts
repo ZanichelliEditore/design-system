@@ -1,6 +1,8 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZMenu} from ".";
+import "../z-menu-section/index";
+import "./index";
 
 const StoryMeta = {
   title: "ZMenu",

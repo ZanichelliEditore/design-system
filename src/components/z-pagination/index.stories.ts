@@ -1,7 +1,7 @@
-import {html} from "lit";
-import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZPagination} from ".";
+import {html} from "lit";
+import {type ZPagination} from ".";
+import "./index";
 
 const StoryMeta: Meta<ZPagination> = {
   title: "ZPagination",

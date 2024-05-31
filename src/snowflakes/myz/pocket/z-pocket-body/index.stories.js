@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/Pocket/ZPocketBody",
@@ -39,6 +40,4 @@ export const ZPocketBody = {
       aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
       molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
     </z-pocket-body>`,
-
-  name: "ZPocketBody",
 };

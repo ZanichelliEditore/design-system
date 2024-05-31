@@ -1,4 +1,4 @@
-import {Component, h, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection} from "../../beans";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";

@@ -1,7 +1,7 @@
-import {html} from "lit";
-import {getColorTokens} from "../../utils/storybook-utils";
 import {Meta} from "@storybook/web-components";
+import {html} from "lit";
 import {type ZIcon} from ".";
+import {getColorTokens} from "../../utils/storybook-utils";
 import "./index";
 
 export default {

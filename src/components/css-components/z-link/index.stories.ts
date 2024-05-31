@@ -1,6 +1,6 @@
 import {html} from "lit";
+import {classMap, type ClassInfo} from "lit/directives/class-map.js";
 import {ICONS} from "../../../constants/iconset";
-import {type ClassInfo, classMap} from "lit/directives/class-map.js";
 import "../../z-icon/index";
 import "./index.stories.css";
 

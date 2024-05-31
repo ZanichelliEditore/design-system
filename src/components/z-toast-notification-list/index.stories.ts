@@ -1,7 +1,8 @@
 import {Meta, StoryObj} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
-import {ZToastNotificationList} from ".";
+import {html, type TemplateResult} from "lit";
+import {type ZToastNotificationList} from ".";
 import {ToastNotificationPosition, ToastNotificationTransition} from "../../beans";
+import "../z-button/index";
 import "../z-toast-notification/index";
 import "./index";
 import "./index.stories.css";

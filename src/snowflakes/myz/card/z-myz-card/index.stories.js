@@ -1,4 +1,13 @@
 import {html} from "lit";
+import "../../../../components/z-toggle-button/index";
+import "../z-myz-card-alert/index";
+import "../z-myz-card-body/index";
+import "../z-myz-card-cover/index";
+import "../z-myz-card-footer/index";
+import "../z-myz-card-header/index";
+import "../z-myz-card-icon/index";
+import "../z-myz-card-list/index";
+import "./index";
 
 export default {
   title: "Snowflakes/MyzCard/ZMyzCard",
@@ -60,6 +69,4 @@ export const ZMyzCard = {
         />
       </z-myz-card-footer>
     </z-myz-card>`,
-
-  name: "ZMyzCard",
 };

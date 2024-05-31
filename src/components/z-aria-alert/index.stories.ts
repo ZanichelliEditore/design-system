@@ -2,6 +2,7 @@ import {Meta} from "@storybook/web-components";
 import {html} from "lit";
 import {ZAriaAlert} from ".";
 import {ZAriaAlertMode} from "../../beans";
+import "../z-button/index";
 import "../z-visually-hidden/index";
 import "./index";
 

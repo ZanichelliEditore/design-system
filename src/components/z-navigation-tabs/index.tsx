@@ -1,5 +1,5 @@
-import {Component, Prop, h, Listen, Element, State, Watch, Host, Event, EventEmitter} from "@stencil/core";
-import {NavigationTabsSize, NavigationTabsOrientation, NavigationTabsKeyboardEvents} from "../../beans";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {NavigationTabsKeyboardEvents, NavigationTabsOrientation, NavigationTabsSize} from "../../beans";
 
 /**
  * Navigation tabs component.

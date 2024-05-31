@@ -1,7 +1,7 @@
-import {html} from "lit";
-import {LabelPosition} from "../../beans";
 import {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
 import {type ZToggleSwitch} from ".";
+import {LabelPosition} from "../../beans";
 import "./index";
 
 const StoryMeta = {

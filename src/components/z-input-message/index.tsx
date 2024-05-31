@@ -1,4 +1,4 @@
-import {Component, Prop, Watch, State, h, Host} from "@stencil/core";
+import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
 
 @Component({

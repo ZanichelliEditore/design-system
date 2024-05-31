@@ -10,6 +10,7 @@ import {
   ListType,
 } from "../../../beans";
 import {getColorTokens} from "../../../utils/storybook-utils";
+import "../z-list/index";
 import "./index";
 
 const StoryMeta = {

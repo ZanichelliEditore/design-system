@@ -1,4 +1,4 @@
-import {Component, Prop, State, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {tabletBreakpoint} from "../../constants/breakpoints";
 @Component({
   tag: "z-button-sort",

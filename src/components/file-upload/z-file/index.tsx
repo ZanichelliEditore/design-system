@@ -1,4 +1,4 @@
-import {Component, h, EventEmitter, Event, Element, Host, State, Listen, Prop} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 import {PopoverPosition, ZChipType} from "../../../beans";
 import {tabletBreakpoint} from "../../../constants/breakpoints";
 

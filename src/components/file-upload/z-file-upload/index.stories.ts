@@ -1,7 +1,7 @@
-import {html} from "lit";
-import {ButtonVariant, ZFileUploadType} from "../../../beans";
 import {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
 import {type ZFileUpload} from ".";
+import {ButtonVariant, ZFileUploadType} from "../../../beans";
 import "./index";
 
 const StoryMeta = {

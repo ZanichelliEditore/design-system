@@ -1,4 +1,4 @@
-import {Component, Prop, h, Method, Event, EventEmitter, Listen, Element, Watch} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Listen, Method, Prop, Watch, h} from "@stencil/core";
 import {PocketStatus} from "../../../../beans";
 
 /**

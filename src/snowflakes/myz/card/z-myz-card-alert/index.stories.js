@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/MyzCard/ZMyzCardAlert",
@@ -20,6 +21,4 @@ export const ZMyzCardAlert = {
       iconName="${args.iconName}"
       type="${args.type}"
     ></z-myz-card-alert>`,
-
-  name: "ZMyzCardAlert",
 };

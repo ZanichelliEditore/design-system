@@ -1,4 +1,4 @@
-import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
+import {Component, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {NotificationType} from "../../beans";
 
 /**

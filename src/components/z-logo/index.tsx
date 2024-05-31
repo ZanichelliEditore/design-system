@@ -1,4 +1,4 @@
-import {Component, Prop, Host, h} from "@stencil/core";
+import {Component, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-logo",

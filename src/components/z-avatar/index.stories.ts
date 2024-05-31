@@ -1,8 +1,8 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {ZAvatar} from ".";
 import {AvatarSize} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
-import {Meta, StoryObj} from "@storybook/web-components";
-import {ZAvatar} from ".";
 import "./index";
 
 const colorTokens = getColorTokens().map((token) => token.replace("--", ""));

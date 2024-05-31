@@ -5,6 +5,7 @@ import {styleMap} from "lit/directives/style-map.js";
 import {type ZTable} from ".";
 import {PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
 import {CSSVarsArguments} from "../../../utils/storybook-utils";
+import "../../z-button/index";
 import "./index";
 import "./index.stories.css";
 
@@ -45,7 +46,7 @@ export const Default = {
       })}
     >
       <z-thead>
-        <z-tr>${repeat([...new Array(8)], () => html`<z-th>Titolo colonna</z-th>`)}}</z-tr>
+        <z-tr>${repeat([...new Array(8)], () => html`<z-th>Titolo colonna</z-th>`)}</z-tr>
       </z-thead>
       <z-tbody>${repeat([...new Array(5)], () => html`<z-tr>${cellsTemplate(8)}</z-tr>`)}</z-tbody>
       <z-tfoot>
@@ -70,9 +71,7 @@ export const ExpandableRows = {
       })}
     >
       <z-thead>
-        <z-tr>
-          <z-tr>${repeat([...new Array(8)], (index) => html`<z-th>Colonna ${index + 1}</z-th>`)}}</z-tr>
-        </z-tr>
+        <z-tr>${repeat([...new Array(8)], (_, index) => html`<z-th>Colonna ${index + 1}</z-th>`)}</z-tr>
       </z-thead>
       <z-tbody>
         <z-tr>
@@ -141,7 +140,7 @@ export const Sticky = {
       <z-thead .sticky=${args.stickyHeader}>
         <z-tr>
           <z-th .sticky=${args.stickFirstColumn}>Colonna 1</z-th>
-          ${repeat([...new Array(7)], (index) => html`<z-th>Colonna ${index + 2}</z-th>`)}
+          ${repeat([...new Array(7)], (_, index) => html`<z-th>Colonna ${index + 2}</z-th>`)}
         </z-tr>
       </z-thead>
       <z-tbody>

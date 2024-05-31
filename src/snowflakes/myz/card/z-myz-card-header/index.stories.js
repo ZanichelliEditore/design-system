@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/MyzCard/ZMyzCardHeader",
@@ -18,6 +19,4 @@ export const ZMyzCardHeader = {
       faded="${args.faded}"
       titolo="${args.titolo}"
     />`,
-
-  name: "ZMyzCardHeader",
 };

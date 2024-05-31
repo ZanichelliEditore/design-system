@@ -1,6 +1,6 @@
-import {Component, Prop, State, h, Event, EventEmitter, Watch, Element, Method, Listen} from "@stencil/core";
-import {SelectItem, ListDividerType, KeyboardCode, InputStatus, ControlSize, ListSize} from "../../beans";
-import {randomId, handleKeyboardSubmit, getClickedElement, getElementTree, boolean} from "../../utils/utils";
+import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
+import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",

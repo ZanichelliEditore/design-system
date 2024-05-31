@@ -1,11 +1,12 @@
-import {type TemplateResult, html} from "lit";
-import {NavigationTabsSize, NavigationTabsOrientation} from "../../beans/index";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {styleMap} from "lit/directives/style-map.js";
-import "./index.stories.css";
-import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZNavigationTabs} from ".";
+import {html, type TemplateResult} from "lit";
+import {styleMap} from "lit/directives/style-map.js";
+import {type ZNavigationTabs} from ".";
+import {NavigationTabsOrientation, NavigationTabsSize} from "../../beans/index";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import "../z-icon/index";
+import "./index";
+import "./index.stories.css";
 
 type ZNavigationTabsStoriesArgs = ZNavigationTabs &
   CSSVarsArguments<"z-navigation-tabs-nav-buttons-bg" | "z-navigation-tabs-nav-buttons-fg">;

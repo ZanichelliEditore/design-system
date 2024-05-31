@@ -1,4 +1,4 @@
-import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, Host} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 
 /**
  * @slot - Menu label

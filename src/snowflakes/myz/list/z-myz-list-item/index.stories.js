@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/List/ZMyzListItem",
@@ -24,6 +25,4 @@ export const ZMyzListItem = {
       >ITEM 1</z-myz-list-item
     >
   `,
-
-  name: "ZMyzListItem",
 };

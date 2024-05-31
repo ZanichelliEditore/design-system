@@ -1,4 +1,4 @@
-import {Component, h, Event, EventEmitter, Prop} from "@stencil/core";
+import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {InputStatus} from "../../../beans";
 
 @Component({

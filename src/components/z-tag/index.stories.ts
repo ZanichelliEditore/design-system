@@ -1,9 +1,9 @@
-import {html} from "lit";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ICONS} from "../../constants/iconset";
 import {Meta} from "@storybook/web-components";
-import {ZTag} from ".";
+import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
+import {type ZTag} from ".";
+import {ICONS} from "../../constants/iconset";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "./index";
 
 type ZTagStoriesArgs = ZTag & CSSVarsArguments<"z-tag-text-color" | "z-tag-bg"> & {text: string};

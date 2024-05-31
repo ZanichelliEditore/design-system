@@ -1,12 +1,12 @@
-import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch, Element} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {
   ButtonVariant,
+  ControlSize,
+  Device,
   ListDividerType,
   SearchbarGroup,
   SearchbarGroupedItem,
   SearchbarItem,
-  ControlSize,
-  Device,
 } from "../../beans";
 import {getDevice, handleEnterKeydSubmit, randomId} from "../../utils/utils";
 

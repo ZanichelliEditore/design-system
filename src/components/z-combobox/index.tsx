@@ -1,8 +1,8 @@
-import {Component, Prop, h, State, Watch, Event, Element, EventEmitter} from "@stencil/core";
-import {ComboItem, InputType, ListDividerType, ControlSize, KeyboardCode, ListSize} from "../../beans";
-import {ZInput} from "../z-input";
-import {handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {Component, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
+import {ComboItem, ControlSize, InputType, KeyboardCode, ListDividerType, ListSize} from "../../beans";
 import {ZMyzListItem} from "../../snowflakes/myz/list/z-myz-list-item";
+import {handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {ZInput} from "../z-input";
 
 @Component({
   tag: "z-combobox",

@@ -1,7 +1,8 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import {ZSkipToContent} from ".";
+import {type ZSkipToContent} from ".";
 import {ThemeVariant} from "../../beans";
+import "./index";
 
 const StoryMeta = {
   title: "ZSkipToContent",

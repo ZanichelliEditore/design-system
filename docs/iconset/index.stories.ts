@@ -1,6 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import "../../src/components/z-accordion/index";
+import "../../src/components/z-icon/index";
 import {BUTTON_ICONS, FILLED_ICONS, LEGACY_ICONS, STROKE_ICONS} from "../../src/constants/iconset";
 import "./index.stories.css";
 

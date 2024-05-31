@@ -1,10 +1,10 @@
 import {Meta} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
-import "./index";
-import "../z-menu/index";
-import "../z-menu-section/index";
+import {html, type TemplateResult} from "lit";
 import {ZAppHeader} from ".";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
+import "../z-menu-section/index";
+import "../z-menu/index";
+import "./index";
 import "./index.stories.css";
 
 type ZAppHeaderStoriesArgs = ZAppHeader & CSSVarsArguments<"app-header-content-max-width">;

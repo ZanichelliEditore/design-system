@@ -1,4 +1,4 @@
-import {Component, Prop, Host, h} from "@stencil/core";
+import {Component, Host, Prop, h} from "@stencil/core";
 import {ICONS} from "../../constants/iconset";
 
 @Component({

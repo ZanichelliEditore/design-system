@@ -3,6 +3,7 @@ import {html} from "lit";
 import {ZList} from ".";
 import {ListSize, ListType} from "../../../beans";
 import "../z-list-element/index";
+import "../z-list-group/index";
 import "./index";
 
 const StoryMeta = {

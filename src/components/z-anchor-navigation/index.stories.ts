@@ -1,7 +1,9 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import "./index";
 import {ZAnchorNavigation} from ".";
+import "../z-button/index";
+import "../z-icon/index";
+import "./index";
 import "./index.stories.css";
 
 const StoryMeta = {

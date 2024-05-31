@@ -1,10 +1,11 @@
 import {Args, Meta, StoryObj} from "@storybook/web-components";
-import {type TemplateResult, html} from "lit";
+import {html, type TemplateResult} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZAccordion} from ".";
 import {AccordionVariant, ControlSize} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ICONS} from "../../constants/iconset";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import "../z-tag/index";
 import "./index";
 
 const cssPropsArgs = {

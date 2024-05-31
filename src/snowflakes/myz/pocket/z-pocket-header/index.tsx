@@ -1,6 +1,6 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
-import {handleKeyboardSubmit} from "../../../../utils/utils";
+import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
 import Hammer from "hammerjs";
+import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
  * @slot  - pocket header content

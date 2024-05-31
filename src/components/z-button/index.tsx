@@ -1,6 +1,6 @@
-import {Component, Prop, h, Element} from "@stencil/core";
+import {Component, Element, Prop, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {ButtonVariant, ButtonType, ButtonSize, ControlSize} from "../../beans";
+import {ButtonSize, ButtonType, ButtonVariant, ControlSize} from "../../beans";
 
 /**
  * @slot - button label

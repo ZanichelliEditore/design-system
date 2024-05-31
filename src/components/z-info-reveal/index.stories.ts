@@ -1,9 +1,11 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {type ZInfoReveal} from ".";
 import {ControlSize, InfoRevealPosition} from "../../beans";
 import {ICONS} from "../../constants/iconset";
+import "../z-button/index";
+import "./index";
 import "./index.stories.css";
-import {Meta, StoryObj} from "@storybook/web-components";
-import {ZInfoReveal} from ".";
 
 const StoryMeta = {
   title: "ZInfoReveal",

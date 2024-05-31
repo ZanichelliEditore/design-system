@@ -1,4 +1,4 @@
-import {Component, Prop, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 @Component({

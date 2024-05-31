@@ -1,4 +1,4 @@
-import {Component, h, Prop, State, Event, EventEmitter, Element, Listen, Host} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 
 /**
  * A component to create submenus inside the ZMenu.

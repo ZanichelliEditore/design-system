@@ -1,4 +1,4 @@
-import {Component, Element, Prop, State, h, Event, EventEmitter} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
 import {mobileBreakpoint} from "../../constants/breakpoints";
 import {randomId} from "../../utils/utils";

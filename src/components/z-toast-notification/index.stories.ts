@@ -1,7 +1,8 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html, type TemplateResult} from "lit";
-import {ZToastNotification} from ".";
+import {type ZToastNotification} from ".";
 import {ToastNotification, ToastNotificationTransition} from "../../beans";
+import "../z-button/index";
 import "./index";
 
 const template = (args): TemplateResult =>

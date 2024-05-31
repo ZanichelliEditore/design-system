@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/MyzCard/ZMyzCardFooterSections",
@@ -12,6 +13,4 @@ export const ZMyzCardFooterSections = {
       <span slot="bottom">Bottom footer content</span>
     </z-myz-card-footer-sections>
   `,
-
-  name: "ZMyzCardFooterSections",
 };

@@ -1,7 +1,10 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {type ZModal} from ".";
+import "../date-picker/z-date-picker/index";
+import "../z-button/index";
+import "../z-select/index";
 import "./index";
-import {ZModal} from ".";
 import "./index.stories.css";
 
 const StoryMeta = {

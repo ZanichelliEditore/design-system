@@ -1,5 +1,5 @@
-import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
-import {PopoverPosition, KeyboardCode} from "../../beans";
+import {Component, Element, Event, EventEmitter, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {KeyboardCode, PopoverPosition} from "../../beans";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 

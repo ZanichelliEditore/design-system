@@ -1,6 +1,6 @@
 import {newSpecPage} from "@stencil/core/testing";
-import {ZSectionTitle} from "./index";
 import {ZSectionTitleDividerPosition} from "../../beans";
+import {ZSectionTitle} from "./index";
 
 describe("Suite test ZNotification", () => {
   it("ZSectionTitle with secondary title should not render the z-divider", async () => {

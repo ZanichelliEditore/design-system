@@ -1,9 +1,11 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
-import {ZPopover} from ".";
+import {type ZPopover} from ".";
 import {PopoverPosition} from "../../beans";
 import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import "../z-button/index";
+import "../z-icon/index";
 import "./index";
 import "./index.stories.css";
 

@@ -1,8 +1,8 @@
 import {StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import "../../src/components/z-section-title/index";
 import {getPalettes, getThemesColorTokens} from "../../src/utils/storybook-utils";
 import "./index.stories.css";
-import "../../src/components/z-section-title/index";
 
 export default {
   title: "Colors",

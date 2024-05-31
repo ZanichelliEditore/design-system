@@ -3,6 +3,8 @@ import {html} from "lit";
 import {ZListGroup} from ".";
 import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
 import {getColorTokenArgConfig} from "../../../utils/storybook-utils";
+import "../z-list-element/index";
+import "../z-list/index";
 import "./index";
 
 const StoryMeta = {

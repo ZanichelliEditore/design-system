@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/Pocket/ZPocketHeader",
@@ -11,5 +12,4 @@ export default {
 
 export const ZPocketHeader = {
   render: (args) => html`<z-pocket-header pocketid="${args.pocketid}"> ZPocketHeader Content </z-pocket-header>`,
-  name: "ZPocketHeader",
 };

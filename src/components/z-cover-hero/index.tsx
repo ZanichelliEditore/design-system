@@ -1,5 +1,5 @@
-import {Component, Prop, h, Host, Listen, Element} from "@stencil/core";
-import {CoverHeroVariant, CoverHeroContentPosition} from "../../beans";
+import {Component, Element, Host, Listen, Prop, h} from "@stencil/core";
+import {CoverHeroContentPosition, CoverHeroVariant} from "../../beans";
 
 /**
  * Cover hero component.

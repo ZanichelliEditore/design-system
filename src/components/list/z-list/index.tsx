@@ -1,5 +1,4 @@
-import {Component, Element, h, Prop, Host} from "@stencil/core";
-
+import {Component, Element, Host, Prop, h} from "@stencil/core";
 import {ListSize, ListType} from "../../../beans";
 
 @Component({

@@ -1,10 +1,11 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {repeat} from "lit/directives/repeat.js";
+import {type ZCarousel} from ".";
 import {CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
+import "../z-ghost-loading/index";
 import "./index";
-import {ZCarousel} from ".";
 import "./index.stories.css";
 
 type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CSSVarsArguments<"z-carousel-gutter">;

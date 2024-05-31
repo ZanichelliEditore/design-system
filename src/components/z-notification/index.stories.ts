@@ -1,9 +1,9 @@
-import {html} from "lit";
-import {NotificationType} from "../../beans";
-import "./index.stories.css";
-import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZNotification} from ".";
+import {html} from "lit";
+import {type ZNotification} from ".";
+import {NotificationType} from "../../beans";
+import "./index";
+import "./index.stories.css";
 
 type ZNotificationStoriesArgs = ZNotification & {notificationText: string};
 

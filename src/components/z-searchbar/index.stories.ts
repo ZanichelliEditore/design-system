@@ -1,9 +1,9 @@
-import {html} from "lit";
-import {ControlSize, ButtonVariant} from "../../beans";
-import "./index";
 import {Meta, StoryObj} from "@storybook/web-components";
-import {ZSearchbar} from ".";
+import {html} from "lit";
+import {type ZSearchbar} from ".";
+import {ButtonVariant, ControlSize} from "../../beans";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
+import "./index";
 
 type ZSearchbarStoriesArgs = ZSearchbar &
   CSSVarsArguments<"--z-searchbar-results-height" | "--z-searchbar-tag-text-color" | "--z-searchbar-tag-bg">;

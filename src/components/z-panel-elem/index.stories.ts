@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {type ZPanelElem} from ".";
 import "./index";
-import {ZPanelElem} from ".";
 
 const StoryMeta = {
   title: "ZPanelElem",

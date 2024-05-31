@@ -1,12 +1,19 @@
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {type ZMenuSection} from ".";
+import "./index";
 
-export default {
+const StoryMeta = {
   title: "ZMenu/ZMenuSection",
   component: "z-menu-section",
   args: {
     active: false,
   },
-};
+} satisfies Meta<ZMenuSection>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZMenuSection>;
 
 export const WithItems = {
   render: (args) => html`
@@ -30,7 +37,7 @@ export const WithItems = {
       >
     </z-menu-section>
   `,
-};
+} satisfies Story;
 
 export const WithoutItems = {
   render: (args) => html`
@@ -38,4 +45,4 @@ export const WithoutItems = {
       <h3>Label</h3>
     </z-menu-section>
   `,
-};
+} satisfies Story;

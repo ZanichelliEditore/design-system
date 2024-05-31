@@ -1,4 +1,4 @@
-import {Component, Prop, h, Event, EventEmitter, Method, Element, Listen} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
 import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../beans";
 

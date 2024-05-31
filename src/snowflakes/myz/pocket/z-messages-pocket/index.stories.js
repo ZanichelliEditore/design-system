@@ -1,4 +1,6 @@
 import {html} from "lit";
+import "../z-pocket-message/index";
+import "./index";
 
 export default {
   title: "Snowflakes/Pocket/ZMessagesPocket",
@@ -42,6 +44,4 @@ export const ZMessagesPocket = {
       </z-pocket-message>
     </z-messages-pocket>
   `,
-
-  name: "ZMessagesPocket",
 };

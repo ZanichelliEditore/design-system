@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, Event, EventEmitter} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {ZChipType} from "../../beans";
 
 @Component({

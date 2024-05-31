@@ -1,6 +1,6 @@
-import {Component, Prop, h, Event, EventEmitter, Host} from "@stencil/core";
-import {randomId} from "../../utils/utils";
+import {Component, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {LabelPosition} from "../../beans";
+import {randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-toggle-switch",

@@ -1,4 +1,4 @@
-import {Component, Prop, h, Listen} from "@stencil/core";
+import {Component, Listen, Prop, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
 
 /**

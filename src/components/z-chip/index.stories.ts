@@ -1,9 +1,9 @@
-import {html} from "lit";
-import {ZChipType} from "../../beans";
 import {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
 import {type ZChip} from ".";
-import "./index";
+import {ZChipType} from "../../beans";
 import {ICONS} from "../../constants/iconset";
+import "./index";
 
 const StoryMeta = {
   title: "ZChip",

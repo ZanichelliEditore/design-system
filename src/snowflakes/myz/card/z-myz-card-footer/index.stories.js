@@ -1,4 +1,5 @@
 import {html} from "lit";
+import "./index";
 
 export default {
   title: "Snowflakes/MyzCard/ZMyzCardFooter",
@@ -24,6 +25,4 @@ export const ZMyzCardFooter = {
       titolo="${args.titolo}"
       opened="${args.opened}"
     />`,
-
-  name: "ZMyzCardFooter",
 };
