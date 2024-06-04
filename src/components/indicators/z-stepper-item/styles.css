@@ -46,6 +46,7 @@
   display: none;
   width: calc(100% + calc(var(--space-unit) * 4));
   text-align: center;
+  color: var(--color-default-text);
 }
 
 :host([href]:not([disabled], [pressed])) .stepper-item {
