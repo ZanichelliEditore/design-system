@@ -84,6 +84,11 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host([href]:not([disabled], [pressed], [checked])) .indicator:hover {
+  border-color: var(--color-hover-primary);
+  color: var(--color-hover-primary);
+}
+
 :host([disabled]) .indicator {
   border-color: var(--color-disabled02);
   background: var(--color-disabled01);
