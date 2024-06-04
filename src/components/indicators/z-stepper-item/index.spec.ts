@@ -12,7 +12,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item>
         <mock:shadow-root>
-          <button class="stepper-item" tabindex="-1">
+          <button class="stepper-item">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
@@ -30,7 +30,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item index="5">
         <mock:shadow-root>
-          <button class="stepper-item"  tabindex="-1">
+          <button class="stepper-item">
             <div class="indicator">5</div>
             <span><slot></slot></span>
           </button>
@@ -48,7 +48,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item index="4">
         <mock:shadow-root>
-          <button class="stepper-item"  tabindex="-1">
+          <button class="stepper-item">
             <div class="indicator">4</div>
             <span><slot></slot></span>
           </button>
@@ -86,7 +86,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item disabled>
         <mock:shadow-root>
-          <button class="stepper-item" disabled  tabindex="-1">
+          <button class="stepper-item" disabled>
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
