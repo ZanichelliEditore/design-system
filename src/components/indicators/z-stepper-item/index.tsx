@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, Prop, Element, h} from "@stencil/core";
 
 @Component({
   tag: "z-stepper-item",
@@ -6,6 +6,8 @@ import {Component, Prop, h} from "@stencil/core";
   shadow: true,
 })
 export class ZStepperItem {
+  @Element() element: HTMLZStepperItemElement;
+
   /**
    * The number of the step item.
    */
@@ -37,10 +39,11 @@ export class ZStepperItem {
   disabled: boolean;
 
   private getAttributes(): Record<string, unknown> {
-    const href = this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : {};
-    const role = this.href && !this.disabled ? {role: "link"} : {};
-    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : {};
-    const tabindex = this.pressed || !this.href ? {tabindex: -1} : {};
+    const href =
+      this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
+    const role = href ? {role: "link"} : undefined;
+    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
+    const tabindex = !this.element.onclick && !href ? {tabindex: -1} : undefined;
 
     return {
       ...href,
