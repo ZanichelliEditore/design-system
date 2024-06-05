@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-stepper-item",
@@ -53,16 +53,18 @@ export class ZStepperItem {
 
   render(): HTMLAnchorElement | HTMLButtonElement {
     return (
-      <button
-        class="stepper-item"
-        disabled={this.disabled}
-        {...this.getAttributes()}
-      >
-        <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
-        <span>
-          <slot />
-        </span>
-      </button>
+      <Host role="listitem">
+        <button
+          class="stepper-item"
+          disabled={this.disabled}
+          {...this.getAttributes()}
+        >
+          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
+          <span>
+            <slot />
+          </span>
+        </button>
+      </Host>
     );
   }
 }
