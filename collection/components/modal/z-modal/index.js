@@ -101,16 +101,16 @@ export class ZModal {
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: 'f2dbe7bebb572bf6a00736ede42543c096feccf7', class: {
+        return (h("dialog", { key: 'e2e7b6cf379e4d8a0636b926901047a752184ac8', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '53e9cb2fa74698f0b6a01dcc2f582d5159850aaa', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: 'fc3170c92b4b0bb67f23fd8b00a9540b64f9583a', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '53e1a607d3e73ac915d295a429b46af592231ea4', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: 'b0c66eca76b7f9437780ca2e13c8f168a49a161a' }, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), h("div", { key: '6fe98736ef22c37f2a99b00e40a245684b880710', class: {
+            }, id: this.modalid }, h("header", { key: '268f689959051dc304efd99dd64a4eb5ac47aa17', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '5651d45bddad36999eddf25863a7d398cc87cf91' }, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), h("div", { key: '93eae28fa449cc1830d533e93b46e580d4be4540', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: '1b0da4801769eb69b3ecdc78de294b8a064dabfe', name: "modalContent" }))), h("div", { key: 'd86093efe62e7eccac464f533997d69905956fcb', class: {
+            }, id: "modal-content" }, h("slot", { key: 'a38384cf4d2c4eadda052099f3d47f2457585555', name: "modalContent" }))), h("div", { key: '10f7f01194bd21059d9afb15c421eb9354b77302', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

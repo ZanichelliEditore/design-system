@@ -5,7 +5,7 @@ import { h } from "@stencil/core";
  */
 export class ZMyzCardBody {
     render() {
-        return (h("div", { key: '29910997b3d57c8ed4694ae81e3f8e62b86908df' }, h("slot", { key: 'da76b95d6eb9c8d36bb6a09f79d277dd5f6924e4', name: "alert" }), h("slot", { key: 'cc694615936aa77e99090e627eb4623c6feac31d', name: "cover" })));
+        return (h("div", { key: 'cf1d5f3496d5d26fc8af29aaadb102fb6d05fc01' }, h("slot", { key: 'c0e3125ceecc33606e9644c514643de2ff59be1b', name: "alert" }), h("slot", { key: 'fbac52128264cd4a5637a7acbe3f57670efb5d50', name: "cover" })));
     }
     static get is() { return "z-myz-card-body"; }
     static get encapsulation() { return "shadow"; }

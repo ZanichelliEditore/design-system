@@ -25,7 +25,7 @@ const ZLogo = class {
         if (this.height) {
             style["height"] = style["max-height"] = `${this.height}px`;
         }
-        return (index.h(index.Host, { key: '5cf212c5af863d8179c77dd3318eaabd83c881c2', style: style, class: { mobile: !!this.mobileLogo } }, this.link ? (index.h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, index.h("img", { alt: this.imageAlt }))) : (index.h("img", { alt: this.imageAlt }))));
+        return (index.h(index.Host, { key: 'd9975127a15315e31fe4303eb4f0d76e40a1d885', style: style, class: { mobile: !!this.mobileLogo } }, this.link ? (index.h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, index.h("img", { alt: this.imageAlt }))) : (index.h("img", { alt: this.imageAlt }))));
     }
 };
 ZLogo.style = ZLogoStyle0;

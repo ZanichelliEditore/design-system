@@ -8,7 +8,7 @@ export class ZTfoot {
         this.sticky = false;
     }
     render() {
-        return (h(Host, { key: '1ebaa2ba1dca561a52963708d05c8e3e5f0940ac', role: "rowgroup" }, h("slot", { key: '06826f87e1ffdcf4b54cbf3b13d779dcb77f8c9a' })));
+        return (h(Host, { key: '441a3e0656da274193c4a12681b9e9d641690982', role: "rowgroup" }, h("slot", { key: '5e80207cbf1238b2141fcd657cb10fc18be7bccb' })));
     }
     static get is() { return "z-tfoot"; }
     static get encapsulation() { return "shadow"; }

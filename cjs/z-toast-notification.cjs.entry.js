@@ -181,7 +181,7 @@ const ZToastNotification = class {
             } }, index.h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
     }
     render() {
-        return (index.h(index.Host, { key: 'd6ea4a44c85076f5db4dca3513e6f659f3405d13', style: {
+        return (index.h(index.Host, { key: 'aeaadb9a5b9ee6e77cfd1e991eec225364456e9e', style: {
                 "--percentuale": `${this.percentage}%`,
             }, class: this.transition ? this.transition : index$1.ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {

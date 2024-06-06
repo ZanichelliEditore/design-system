@@ -31,7 +31,7 @@ const ZAvatar$1 = /*@__PURE__*/ proxyCustomElement(class ZAvatar extends HTMLEle
         }
     }
     render() {
-        return (h(Host, { key: 'de60cf77cb859ea6ba50222aa625dc9e35e1cf08', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        return (h(Host, { key: '17a097738ce186c791794f5f8192cd46845df2a6', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
                 color: `var(--${this.textColor})`,
                 backgroundColor: `var(--${this.backgroundColor})`,
             } }, this.text && !this.image && h("span", null, this.text.substring(0, 2)), this.image && (h("img", { src: this.image, onError: () => (this.image = "") }))));

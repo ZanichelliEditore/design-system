@@ -34,7 +34,7 @@ const ZMyzCardHeader = /*@__PURE__*/ proxyCustomElement(class ZMyzCardHeader ext
         };
     }
     render() {
-        return (h("header", { key: 'f3fb4075b1c20b22f5f50a6a78c682bfb1def0ca', class: this.retrieveClass() }, h("slot", { key: 'cd9061e842911bb341a0aa2ac5bb8b07175d1b73', name: "aria-heading" }), h("span", { key: '1396012e6796b69e4f747d57807614838401e066', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: 'df08bc2b36d8294c64144306abb50d5bb8bdcdb0', name: "icon" })));
+        return (h("header", { key: '2899cd14120a644cd410c8e3ecbf5dc8057741aa', class: this.retrieveClass() }, h("slot", { key: '9fc6922f5caae746f28dd045662791755a12e531', name: "aria-heading" }), h("span", { key: 'c9e10b400ec78bbecb3c2f4620e3a4934dfed3f4', class: "card-title", ref: (el) => (this.ellipsis = el), title: this.getTitle() }, this.titolo), h("slot", { key: '71828a2ea10c63e807951f1a5e71725a8779cd9e', name: "icon" })));
     }
     static get style() { return ZMyzCardHeaderStyle0; }
 }, [1, "z-myz-card-header", {

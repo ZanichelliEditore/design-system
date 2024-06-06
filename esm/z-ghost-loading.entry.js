@@ -8,7 +8,7 @@ const ZGhostLoading = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return h(Host, { key: 'efae0dd8d520db16bbb3bd49b434ba0fe8e45c33' });
+        return h(Host, { key: '8738533f14d7ef5917825e6632b63e995a410d24' });
     }
 };
 ZGhostLoading.style = ZGhostLoadingStyle0;

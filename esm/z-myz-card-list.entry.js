@@ -28,7 +28,7 @@ const ZMyzCardList = class {
         });
     }
     render() {
-        return h("ul", { key: '8375d62edd6ef039ccf8211c2c1b72ec84a87b3f' }, this.renderList(JSON.parse(this.listdata)));
+        return h("ul", { key: '8fa3ddd1500ab0fa34402944d13c147aa6467a3b' }, this.renderList(JSON.parse(this.listdata)));
     }
 };
 ZMyzCardList.style = ZMyzCardListStyle0;

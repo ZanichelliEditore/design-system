@@ -314,7 +314,7 @@ export class ZSelect {
         return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (h("div", { key: '5566ddc949ae9fee8724ebd22bb2ae21dfc0d19e', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: '78ac427d8d3de7b8bd2d62bff9ffc07b0625da28', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     static get is() { return "z-select"; }
     static get encapsulation() { return "scoped"; }

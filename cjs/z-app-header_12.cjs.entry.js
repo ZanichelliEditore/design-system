@@ -144,7 +144,7 @@ const ZAppHeader = class {
         this.evaluateViewport();
     }
     render() {
-        return (index.h(index.Host, { key: '51666bc0b5726db455d8bf8cc907bcff2da1e172', "menu-length": this.menuLength }, this.hasHero && (index.h("div", { class: "hero-container" }, index.h("slot", { name: "hero" }, this.hero && (index.h("img", { alt: "", src: this.hero }))))), index.h("div", { key: '13ca632f3d3caa156455378fc9bb8c1d4bd76202', class: "heading-panel", ref: (el) => (this.container = el) }, index.h("div", { key: 'b7511dad80b3a59dc6b4b3b138411d14f0181b27', class: "heading-container" }, index.h("div", { key: '29eb4903303dcbf8634e838c0f1c2d2015d9563e', class: "heading-subtitle" }, index.h("slot", { key: '5d9ac688e8412abbf02f7f72971fd57f1352ec58', name: "top-subtitle" })), index.h("div", { key: 'c4bc77fc79b49a625134e43fb7e5321cf4736bfd', class: "heading-title" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("slot", { key: 'e01be70149678b4892c23480a36620750e4563c0', name: "title" }), this.renderSearchLinkButton()), index.h("div", { key: '67260ddeb67f020a2bd08d742dd2c20ad1128a1f', class: "heading-subtitle" }, index.h("slot", { key: '0caafd6353bf775f1b8e34e6730ef6dc2e235c07', name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (index.h("div", { class: "menu-container" }, this.canShowMenu && (index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")))), index.h("z-offcanvas", { key: 'ad56d89175ff6b9bedb0b0800d565cd729e206f6', variant: index$1.OffCanvasVariant.OVERLAY, transitiondirection: index$1.TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, index.h("button", { key: '9069191f96443a4a611ea1044fd352a9b48f9fb1', class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}`, disabled: !this.drawerOpen }, index.h("z-icon", { key: '1ca4770c5eff335199cf84cddff5c3abb45a1c66', name: "close" })), index.h("div", { key: '3665121f762d5795e7f97cd4d981094799ed553e', class: "drawer-content", slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}` }, index.h("slot", { key: 'ac485939e23ea77b03a365d9e078f964d04f541a', name: "menu", onSlotchange: this.collectMenuElements }))), this._stuck && (index.h("div", { class: "heading-stuck" }, index.h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("div", { class: "heading-title" }, index.h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false))))));
+        return (index.h(index.Host, { key: '492c21ddccbe23f96d68b6d3a536609fa6f8e7a0', "menu-length": this.menuLength }, this.hasHero && (index.h("div", { class: "hero-container" }, index.h("slot", { name: "hero" }, this.hero && (index.h("img", { alt: "", src: this.hero }))))), index.h("div", { key: 'd7bc0f2dcc9f752cb9207df4f60049e390f1bf2b', class: "heading-panel", ref: (el) => (this.container = el) }, index.h("div", { key: '6787c6ddf9b2c1f8220fee57ae76bf9ab5071c25', class: "heading-container" }, index.h("div", { key: '4c4eb2dc4badb35c894f65bbe90dbc1daf2aa27d', class: "heading-subtitle" }, index.h("slot", { key: '3b8bccd45f75e095ed89140549a1a0ccaa352d58', name: "top-subtitle" })), index.h("div", { key: '8a6c64ddea38f03adcf9dd2f8fda5104b7766dd5', class: "heading-title" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("slot", { key: 'b3dc639700ddd8c6c925fedc6f9c70db4bd25ef9', name: "title" }), this.renderSearchLinkButton()), index.h("div", { key: '5234e4372fc9acc5e7ebfe2cfda802d9e72f52e7', class: "heading-subtitle" }, index.h("slot", { key: 'd88d67131d4a93e53804353d59a87a8c8b8d0bc7', name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (index.h("div", { class: "menu-container" }, this.canShowMenu && (index.h("slot", { name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")))), index.h("z-offcanvas", { key: '15f2d78f637b5476e30d316c7eaad00db9c63109', variant: index$1.OffCanvasVariant.OVERLAY, transitiondirection: index$1.TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, index.h("button", { key: '59f03739039ecfdd7f9763faea7ac189ba15ce00', class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}`, disabled: !this.drawerOpen }, index.h("z-icon", { key: 'cbd35efe1609c908d78f7c677b34b4fae1f6cf90', name: "close" })), index.h("div", { key: '10f3cecb244008796339fd08a43317c9b6a90a5a', class: "drawer-content", slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}` }, index.h("slot", { key: '5a253dabd6913eedf8c7f35b5f5d78bf79148b07', name: "menu", onSlotchange: this.collectMenuElements }))), this._stuck && (index.h("div", { class: "heading-stuck" }, index.h("div", { class: "heading-stuck-content" }, this.menuLength > 0 && (index.h("button", { class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, index.h("z-icon", { name: "burger-menu" }))), index.h("div", { class: "heading-title" }, index.h("slot", { name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false))))));
     }
     get hostElement() { return index.getElement(this); }
     static get watchers() { return {
@@ -203,7 +203,7 @@ const ZDivider = class {
         this.orientation = index$1.DividerOrientation.HORIZONTAL;
     }
     render() {
-        return (index.h(index.Host, { key: '2f058ffac1fd07ea8bd499de4749a4fd1f766414', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
+        return (index.h(index.Host, { key: '1950fc93c4f4ac5468b211a468e9192d92eabfd2', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
     }
 };
 ZDivider.style = ZDividerStyle0;
@@ -1374,7 +1374,7 @@ const ZInput = class {
             default:
                 input = this.renderInputText(this.type);
         }
-        return index.h(index.Host, { key: '1a0cb1ef6eb16091c75e87f9761d1eee55a3d3f0' }, input);
+        return index.h(index.Host, { key: 'd00c575b84349183aab61e9c14a82920a836c85e' }, input);
     }
     get hostElement() { return index.getElement(this); }
 };
@@ -1402,7 +1402,7 @@ const ZInputMessage = class {
         this.onMessageChange();
     }
     render() {
-        return (index.h(index.Host, Object.assign({ key: '7cb2d7df7604fbc5801ce1eb9142155a4905861d' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && index.h("z-icon", { name: this.statusIcons[this.status] }), index.h("span", { key: 'd1734748c3be02eba1d40526855bc4ea69e454f8', innerHTML: this.message })));
+        return (index.h(index.Host, Object.assign({ key: '76dfef8a9c24cc18ecdae15781eb08a8a61f77ff' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && index.h("z-icon", { name: this.statusIcons[this.status] }), index.h("span", { key: 'e98ece17c91457481b206187a6ddbef98d8d210e', innerHTML: this.message })));
     }
     static get watchers() { return {
         "message": ["onMessageChange"],
@@ -1433,7 +1433,7 @@ const ZList = class {
         this.setChildrenSizeType();
     }
     render() {
-        return (index.h(index.Host, { key: '2593adc6912a0a49a9e38eadd5056d779cac33b4' }, index.h("slot", { key: '5fb99c0f4cad9633c84d2c353334fc5c816be5a5' })));
+        return (index.h(index.Host, { key: 'd49a1ce7a55b23b7905e44d47184672765f9ba34' }, index.h("slot", { key: 'f813287a50cd22f3f3e0bf1444dc8c5a146fb6ae' })));
     }
     get host() { return index.getElement(this); }
 };
@@ -1559,7 +1559,7 @@ const ZListElement = class {
         }
     }
     render() {
-        return (index.h(index.Host, { key: 'fb33c5abf92ac7e89faea59b46358c847fd7efab', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, index.h("div", { key: '0bd49dca96fcb7ddfb8201ea0f3b6501b633bbbb', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, index.h("div", { key: '5a548758092f2062823021a2c0ddd097f0296646', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.ELEMENT && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (index.h(index.Host, { key: '237469383255a8c4b6927b6fc7fca35f16709937', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, index.h("div", { key: 'eab49723116d003d80ee724895e2fc09a4e3cacd', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, index.h("div", { key: '43573c7439a4a176070a70c7fb9caa5d29c69883', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === index$1.ListDividerType.ELEMENT && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
     }
     get host() { return index.getElement(this); }
 };
@@ -1594,10 +1594,10 @@ const ZListGroup = class {
         this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
     }
     render() {
-        return (index.h(index.Host, { key: 'c25db9a48f30bf98694c87dce08463ac6b314719', role: "group" }, index.h("div", { key: '354ea1928b4f2e58b46ef2eb18e84234e9db2cd9', class: {
+        return (index.h(index.Host, { key: '5dbf1efc3893dc5f97d0f8ec1b9b7a97f3798b23', role: "group" }, index.h("div", { key: '2ded7f0b5b2c6554239659c8eaa9ef413e37fead', class: {
                 "z-list-group-header-container": true,
                 "has-header": this.hasHeader,
-            } }, index.h("slot", { key: '48b577a0a6b35ab74eb9b70c53dd9462ab57e92d', name: "header-title" }), this.dividerType === index$1.ListDividerType.HEADER && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), index.h("slot", { key: '407e9151406fdc7f01b0ba40a69bd0516d5cc1f4' })));
+            } }, index.h("slot", { key: '56fe1bfadf2b3aa5dd8f8955789204a49e6bc667', name: "header-title" }), this.dividerType === index$1.ListDividerType.HEADER && (index.h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), index.h("slot", { key: '641523b4a9f4e0795571127cb509b76e51515b22' })));
     }
     get host() { return index.getElement(this); }
 };
@@ -1630,7 +1630,7 @@ const ZOffcanvas = class {
         this.open = false;
     }
     render() {
-        return (index.h(index.Host, { key: '554986cba00c7380f17f737267b450dcf0c3f52e', class: { "skip-animation": this.skipLoadAnimation } }, index.h("div", { key: 'dc736f68ce6842d9d7e65093e140f5eaebd460f9', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, index.h("div", { key: '416b060ab45249f20e0776cb5a65d27c71cd349b', role: "presentation", class: "canvas-content" }, index.h("slot", { key: 'e7a92fbd0696f8ed5a215610a3a3f78266ccec2f', name: "canvasContent" }))), this.variant == index$1.OffCanvasVariant.OVERLAY && (index.h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
+        return (index.h(index.Host, { key: '69563f05a3b8e956a97da1eef9f89a67bc79e8d0', class: { "skip-animation": this.skipLoadAnimation } }, index.h("div", { key: '725ba012a1bbd29e274882fca1a767f50fb08281', role: "presentation", class: "canvas-container", onTransitionEnd: () => this.handlePageOverflow() }, index.h("div", { key: '7653561f431bbc5eee82292f36d1c34706d0df3c', role: "presentation", class: "canvas-content" }, index.h("slot", { key: 'f607e0f2ec69cc9f0928e413ba8fcf9debd72ce7', name: "canvasContent" }))), this.variant == index$1.OffCanvasVariant.OVERLAY && (index.h("div", { class: "canvas-background", "data-action": "canvasBackground", onClick: () => (this.open = false) }))));
     }
     static get watchers() { return {
         "open": ["onOpenChanged"]
@@ -1862,7 +1862,7 @@ const ZSearchbar = class {
         return (index.h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, index.h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (index.h(index.Host, { key: 'b198d39d33540acea446c870ae3d47776bfa1470', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, index.h("div", { key: 'cebdc4139bc155e30da8d90266289aa485406265', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (index.h(index.Host, { key: 'e95c23e603fd303d9c99386f5878685b713ce128', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, index.h("div", { key: '7d32c1394e6adfd4e83cba37c8f8bf66a97ee460', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     get element() { return index.getElement(this); }
     static get watchers() { return {
@@ -1884,10 +1884,10 @@ const ZTag = class {
         this.expandable = undefined;
     }
     render() {
-        return (index.h(index.Host, { key: 'b729016f6124e26466ce3ccf198788857464cc6c', class: {
+        return (index.h(index.Host, { key: '4ceab08ea5a0bc2c05fdad9adb7a23d08027d8d8', class: {
                 "body-5-sb": true,
                 "expandable": this.expandable && !!this.icon,
-            } }, this.icon && index.h("z-icon", { name: this.icon }), index.h("div", { key: 'ee019241356d66ebf6f64020e37586a88703dfa2' }, index.h("slot", { key: '7f7a73ef3b731a5ddb8126b2fb1e2627af99805d' }))));
+            } }, this.icon && index.h("z-icon", { name: this.icon }), index.h("div", { key: 'f7c3b0f2a4678cfaf0f06472cbd6e63bd5903acb' }, index.h("slot", { key: '8bfd8c8d335d60ad2f6328bb429d46d76f720880' }))));
     }
 };
 ZTag.style = ZTagStyle0;

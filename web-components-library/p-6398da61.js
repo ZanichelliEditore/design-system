@@ -1,0 +1,2 @@
+import{r as o,h as r,a as s}from"./p-10bb4f4b.js";const e=":host{display:block;box-sizing:border-box}";const b=e;const c=class{constructor(r){o(this,r)}render(){return r(s,{key:"5053f27544fc018342c190f6365808a7dd5680bd",role:"rowgroup"},r("slot",{key:"14a7c9dfd3e65dbb6fe1c36012de193e9b734a68"}))}};c.style=b;export{c as Z};
+//# sourceMappingURL=p-6398da61.js.map

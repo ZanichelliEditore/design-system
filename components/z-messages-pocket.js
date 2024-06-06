@@ -42,7 +42,7 @@ const ZMessagesPocket$1 = /*@__PURE__*/ proxyCustomElement(class ZMessagesPocket
         return (h("z-pocket-body", { pocketid: this.pocketid }, h("div", { class: "body" }, h("slot", null)), h("div", { class: "gradient" })));
     }
     render() {
-        return (h("z-pocket", { key: 'e68496d2dd8bdcf5a008d06a6b4b57f971a8134d', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
+        return (h("z-pocket", { key: '2f8a4cab129678f4a14c8fe5605c20098d29427a', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
     }
     static get style() { return ZMessagesPocketStyle0; }
 }, [1, "z-messages-pocket", {

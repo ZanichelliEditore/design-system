@@ -27,7 +27,7 @@ const ZNotification = class {
     }
     render() {
         var _a;
-        return (h(Host, { key: 'b610c9bba78b5d6773e97cdcc7d758e6e26e883b' }, this.contenticonname && (h("z-icon", { class: "status-icon", name: this.contenticonname, width: 16, height: 16 })), h("div", { key: 'c3f2d084587396ece3e4a69db068cd11cd41a086', class: "content-container" }, h("div", { key: '0c03f73bdad7fca93e1aba2f7946b33cf49690d5', class: "content-text" }, h("slot", { key: '544dedd18270206a8ba2925edfa3aa84268e0c4f' })), !!((_a = this.actiontext) === null || _a === void 0 ? void 0 : _a.trim()) && (h("button", { class: "action-button", type: "button", onClick: this.handleActionButtonClick }, this.actiontext))), this.showclose && (h("button", { class: "close-button", type: "button", onClick: this.handleCloseButtonClick }, h("z-icon", { name: "multiply-circle", width: 16, height: 16 })))));
+        return (h(Host, { key: 'e1b8c509acb129182cfadc355c1963fd1c4274c6' }, this.contenticonname && (h("z-icon", { class: "status-icon", name: this.contenticonname, width: 16, height: 16 })), h("div", { key: 'c9cf0db48f3bacb9a5fd30edef7205e2466f833d', class: "content-container" }, h("div", { key: 'ac120c5078e63ca5d4089f2e2ddfea3bd60c5660', class: "content-text" }, h("slot", { key: 'fcc4c3bb250103c84453421964bc740f26baf40d' })), !!((_a = this.actiontext) === null || _a === void 0 ? void 0 : _a.trim()) && (h("button", { class: "action-button", type: "button", onClick: this.handleActionButtonClick }, this.actiontext))), this.showclose && (h("button", { class: "close-button", type: "button", onClick: this.handleCloseButtonClick }, h("z-icon", { name: "multiply-circle", width: 16, height: 16 })))));
     }
 };
 ZNotification.style = ZNotificationStyle0;

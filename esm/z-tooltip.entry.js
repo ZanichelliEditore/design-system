@@ -17,7 +17,7 @@ const ZTooltip = class {
         this.open = this.popoverEl.open;
     }
     render() {
-        return (h("z-popover", { key: '307a54499b3c7c6b9929f427a226fbb784b4c620', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: '09baa9194d76cec1bb471d65a5903ac3642823b8' })));
+        return (h("z-popover", { key: '9f666fd17b7051e4ab7a766c46887c7e41579052', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: 'e50d24a8bebabcc40645baf2afd6cafb396b520a' })));
     }
 };
 ZTooltip.style = ZTooltipStyle0;

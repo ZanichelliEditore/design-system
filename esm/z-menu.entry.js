@@ -97,7 +97,7 @@ const ZMenu = class {
         return (h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }))));
     }
     render() {
-        return (h(Host, { key: 'f76898d2bf69ae311b8e0ae16ac15651a72aff19' }, this.renderMenuLabel(), this.hasContent && (h("div", { class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent }))), h("div", { class: "items", role: "menu" }, h("slot", { name: "item", onSlotchange: this.onItemsChange }))))));
+        return (h(Host, { key: '0ecfa6c7439e2472ebb454362e5dd86b4eef9ad3' }, this.renderMenuLabel(), this.hasContent && (h("div", { class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent }))), h("div", { class: "items", role: "menu" }, h("slot", { name: "item", onSlotchange: this.onItemsChange }))))));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

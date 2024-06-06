@@ -261,7 +261,7 @@ export class ZInput {
             default:
                 input = this.renderInputText(this.type);
         }
-        return h(Host, { key: '1a0cb1ef6eb16091c75e87f9761d1eee55a3d3f0' }, input);
+        return h(Host, { key: 'd00c575b84349183aab61e9c14a82920a836c85e' }, input);
     }
     static get is() { return "z-input"; }
     static get encapsulation() { return "scoped"; }

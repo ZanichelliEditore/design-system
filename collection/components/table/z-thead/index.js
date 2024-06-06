@@ -8,7 +8,7 @@ export class ZThead {
         this.sticky = false;
     }
     render() {
-        return (h(Host, { key: 'ad4f78d64587c716f2b873a02a2473426d0c1d3f', role: "rowgroup" }, h("slot", { key: '5606cc9d05f711573a130def219cb4d44c5a74a0' })));
+        return (h(Host, { key: 'fd1e0dced377fcfcd3b531c063ac36937eaf6904', role: "rowgroup" }, h("slot", { key: '1d75abf2f9b0f1c109eec083ebfaf3e07de81dca' })));
     }
     static get is() { return "z-thead"; }
     static get encapsulation() { return "shadow"; }

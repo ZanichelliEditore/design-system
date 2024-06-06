@@ -25,10 +25,10 @@ export class ZListGroup {
         this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
     }
     render() {
-        return (h(Host, { key: 'c25db9a48f30bf98694c87dce08463ac6b314719', role: "group" }, h("div", { key: '354ea1928b4f2e58b46ef2eb18e84234e9db2cd9', class: {
+        return (h(Host, { key: '5dbf1efc3893dc5f97d0f8ec1b9b7a97f3798b23', role: "group" }, h("div", { key: '2ded7f0b5b2c6554239659c8eaa9ef413e37fead', class: {
                 "z-list-group-header-container": true,
                 "has-header": this.hasHeader,
-            } }, h("slot", { key: '48b577a0a6b35ab74eb9b70c53dd9462ab57e92d', name: "header-title" }), this.dividerType === ListDividerType.HEADER && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), h("slot", { key: '407e9151406fdc7f01b0ba40a69bd0516d5cc1f4' })));
+            } }, h("slot", { key: '56fe1bfadf2b3aa5dd8f8955789204a49e6bc667', name: "header-title" }), this.dividerType === ListDividerType.HEADER && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), h("slot", { key: '641523b4a9f4e0795571127cb509b76e51515b22' })));
     }
     static get is() { return "z-list-group"; }
     static get encapsulation() { return "shadow"; }

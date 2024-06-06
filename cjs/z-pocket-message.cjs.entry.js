@@ -12,7 +12,7 @@ const ZPocketMessage = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return (index.h("div", { key: 'fc7dd1f124a7891d06714e8e246fb9b7b9e51036' }, index.h("z-icon", { key: 'c1889b328efb70835d3049cd96c7893baf6fa0c9', name: "exclamation-circle" }), index.h("div", { key: '2d7adc5063f6207ef8ff0ca148fd8b77c1d9096d', class: "content" }, index.h("slot", { key: 'b16cc5a7086302b73baa229ef37f3df14bae4676' })), index.h("div", { key: '91e56d2ae0cf57cc0c6d2898fb05b3fc83b87f99', class: "cta-wrapper" }, index.h("slot", { key: 'c9e114961d136434110f37614ac725a59a54c8e3', name: "cta" }))));
+        return (index.h("div", { key: '77c4ac87fc391b13dea88c69e71165692075170e' }, index.h("z-icon", { key: '12387df9bfe2fb8fa3cc0e5cfc2f1515e8ddf322', name: "exclamation-circle" }), index.h("div", { key: '4ae85314b4c54d9de77f5cc2e789fcfa2516cfac', class: "content" }, index.h("slot", { key: '7dcf450d21455d6796faa2cfb1222aab546a94d6' })), index.h("div", { key: 'a51ae4748bb1c29223d35fb10633e51fc17506ec', class: "cta-wrapper" }, index.h("slot", { key: '2641720771473f5ce8cd207731273f82810dc428', name: "cta" }))));
     }
 };
 ZPocketMessage.style = ZPocketMessageStyle0;

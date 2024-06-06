@@ -10,7 +10,7 @@ const ZTbody$1 = /*@__PURE__*/ proxyCustomElement(class ZTbody extends HTMLEleme
         this.__attachShadow();
     }
     render() {
-        return (h(Host, { key: 'f60a683407e08dc44c3e60699142dbe15714af8f', role: "rowgroup" }, h("slot", { key: 'cce2e55d056641c4bbe3c043e51525303d75562b' })));
+        return (h(Host, { key: '5053f27544fc018342c190f6365808a7dd5680bd', role: "rowgroup" }, h("slot", { key: '14a7c9dfd3e65dbb6fe1c36012de193e9b734a68' })));
     }
     static get style() { return ZTbodyStyle0; }
 }, [1, "z-tbody"]);

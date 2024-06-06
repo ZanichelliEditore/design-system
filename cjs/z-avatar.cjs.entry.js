@@ -33,7 +33,7 @@ const ZAvatar = class {
         }
     }
     render() {
-        return (index.h(index.Host, { key: 'de60cf77cb859ea6ba50222aa625dc9e35e1cf08', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        return (index.h(index.Host, { key: '17a097738ce186c791794f5f8192cd46845df2a6', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
                 color: `var(--${this.textColor})`,
                 backgroundColor: `var(--${this.backgroundColor})`,
             } }, this.text && !this.image && index.h("span", null, this.text.substring(0, 2)), this.image && (index.h("img", { src: this.image, onError: () => (this.image = "") }))));

@@ -36,7 +36,7 @@ export class ZTable {
         (_a = this.expandableMutationObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: 'd404e04cce15f5c9c01d1d90477b0b073ce4fb18', expandable: this.expandable }, h("div", { key: '093877b6d4f94257a4178c2d0647107a91cd782b', class: "table", role: "table" }, h("slot", { key: '19e147c5cb2e20287208e39085e816cfc62f3f5e' }))));
+        return (h(Host, { key: '7df0f17c2a8af3ffc26afb0eac92ff80201ea65a', expandable: this.expandable }, h("div", { key: '44d334758702e852bbafe3845c6904c13670c355', class: "table", role: "table" }, h("slot", { key: 'e53145cc9d7b07fc0a2384df635ca5adc5e47b91' }))));
     }
     static get is() { return "z-table"; }
     static get encapsulation() { return "shadow"; }

@@ -326,7 +326,7 @@ const ZSelect = class {
         return (index.h("z-input-message", { message: utils.boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (index.h("div", { key: '5566ddc949ae9fee8724ebd22bb2ae21dfc0d19e', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (index.h("div", { key: '78ac427d8d3de7b8bd2d62bff9ffc07b0625da28', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get element() { return index.getElement(this); }
     static get watchers() { return {

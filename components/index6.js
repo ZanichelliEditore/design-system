@@ -13,7 +13,7 @@ const ZDivider = /*@__PURE__*/ proxyCustomElement(class ZDivider extends HTMLEle
         this.orientation = DividerOrientation.HORIZONTAL;
     }
     render() {
-        return (h(Host, { key: '2f058ffac1fd07ea8bd499de4749a4fd1f766414', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
+        return (h(Host, { key: '1950fc93c4f4ac5468b211a468e9192d92eabfd2', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
     }
     static get style() { return ZDividerStyle0; }
 }, [2, "z-divider", {

@@ -237,7 +237,7 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: 'b198d39d33540acea446c870ae3d47776bfa1470', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: 'cebdc4139bc155e30da8d90266289aa485406265', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: 'e95c23e603fd303d9c99386f5878685b713ce128', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '7d32c1394e6adfd4e83cba37c8f8bf66a97ee460', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     get element() { return this; }
     static get watchers() { return {

@@ -48,7 +48,7 @@ const ZMenuSection$1 = /*@__PURE__*/ proxyCustomElement(class ZMenuSection exten
         this.checkContent();
     }
     render() {
-        return (h(Host, { key: 'beadad10be10337d069e96c4144372b3ae9188d7', role: "menu", open: this.open }, h("button", { key: 'd76a6e7da3bb60238571b5a4e9c76b2923b07a97', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: 'ba6a653482a7e3f5de77877e7e69225c236b85f8', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
+        return (h(Host, { key: '9afac5c30a1a957eca75b6c0b0efee330d9ea2ec', role: "menu", open: this.open }, h("button", { key: '9f0c3438436d4b035a37473f0f147d26ca4abc3c', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: '918f29cb6a6ea8e47d5460c907686ec80930b2fd', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
     }
     get hostElement() { return this; }
     static get style() { return ZMenuSectionStyle0; }

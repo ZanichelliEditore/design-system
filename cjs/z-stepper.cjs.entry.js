@@ -12,7 +12,7 @@ const ZStepper = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return index.h("slot", { key: '043113235ab04ac3c32e73cecc87f3098b02a666' });
+        return (index.h(index.Host, { key: '8f9ead5ee6d332ff3279c5135cd581603235fd54', role: "list" }, index.h("slot", { key: '1e4c88be235b6c0e0baeb4f7ec6547a2af1d24cc' })));
     }
 };
 ZStepper.style = ZStepperStyle0;

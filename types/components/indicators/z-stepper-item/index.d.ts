@@ -12,8 +12,13 @@ export declare class ZStepperItem {
      */
     pressed: boolean;
     /**
+     * The checked state of the item.
+     */
+    checked: boolean;
+    /**
      * The disabled state of the item.
      */
     disabled: boolean;
+    private getAttributes;
     render(): HTMLAnchorElement | HTMLButtonElement;
 }

@@ -54,7 +54,7 @@ export class ZPocket {
         }
     }
     render() {
-        return (h("div", { key: '1f4362d03177bb2bfd444088334a59f62421d571' }, h("div", { key: '188212c09305eecc4dc7ddf2d7f386bf8c69fed4', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: 'e7e7ca655263acaaf32e5b957b2be6ff2464a468', id: this.pocketid, class: "content-wrapper" }, h("div", { key: '60b7f7651dae196192aa2b2ffee763558bed7845' }, h("slot", { key: '09a2f3491ca662949f6ab78f0bab977d3269cc87' })))));
+        return (h("div", { key: '380d3967f3e1c227bd1895c972327425313b87b8' }, h("div", { key: '781e4595f07f68092ffd16442af0a6ff272164a0', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: '6f902c3c03baf3cfd6d4a4302333df049c6bae35', id: this.pocketid, class: "content-wrapper" }, h("div", { key: 'c7029dcd23c29dc5bc797293271771084b9f6b31' }, h("slot", { key: '770b7882d607fccbdc095ebe662193a36aa515bd' })))));
     }
     static get is() { return "z-pocket"; }
     static get encapsulation() { return "shadow"; }

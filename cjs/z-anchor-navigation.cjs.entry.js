@@ -39,7 +39,7 @@ const ZAnchorNavigation = class {
         window.removeEventListener("hashchange", this.setAriaCurrent);
     }
     render() {
-        return (index.h(index.Host, { key: '7dbd18145c5e8f799ae5dca19f1f1f4eaa8690b3', collapsed: this.collapsed }, index.h("z-button", { key: '5c36d79b8284d4f0aef21c659947fa5042a784c1', class: "toggle", variant: index$1.ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), index.h("nav", { key: '26c60ec5a4110f25a9dc9f3e34f1338c170f07b2', ref: (el) => (this.nav = el) }, index.h("slot", { key: '06320c9dd7b84048b5008cd6d3163df0455dd83d' }))));
+        return (index.h(index.Host, { key: '334a479e907631a2f25b757b6a37d136a78eaa4b', collapsed: this.collapsed }, index.h("z-button", { key: 'cdfdae6b09a0f1b0f23004d9c56eaaf39d49e94e', class: "toggle", variant: index$1.ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), index.h("nav", { key: '11406c615df8d8c6779428d7275a8f77ff7484d0', ref: (el) => (this.nav = el) }, index.h("slot", { key: 'b33c4318e70c79d606d27a3a6e0aad5550f45442' }))));
     }
 };
 ZAnchorNavigation.style = ZAnchorNavigationStyle0;

@@ -11,7 +11,7 @@ const ZAriaAlert = class {
         this.mode = index$1.ZAriaAlertMode.POLITE;
     }
     render() {
-        return (index.h(index.Host, { key: 'a3275876421862b2b2c80c044ca50f50464cfd55', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, index.h("slot", { key: '3767d930ccea80abbd79b4f3ee6d1733df29b934' })));
+        return (index.h(index.Host, { key: '88e0d50e7f29c2e80aaa047a32902bc6347ad8d9', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, index.h("slot", { key: 'c76710250968f02393f69652d148ddf22eb1839e' })));
     }
 };
 

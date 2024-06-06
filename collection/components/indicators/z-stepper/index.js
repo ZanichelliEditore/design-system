@@ -1,10 +1,10 @@
-import { h } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 /**
  * @slot - z-stepper-item
  */
 export class ZStepper {
     render() {
-        return h("slot", { key: '043113235ab04ac3c32e73cecc87f3098b02a666' });
+        return (h(Host, { key: '8f9ead5ee6d332ff3279c5135cd581603235fd54', role: "list" }, h("slot", { key: '1e4c88be235b6c0e0baeb4f7ec6547a2af1d24cc' })));
     }
     static get is() { return "z-stepper"; }
     static get encapsulation() { return "shadow"; }

@@ -11,7 +11,7 @@ export class ZInfoBox {
         this.infoBoxClose.emit({ boxid: this.boxid });
     }
     render() {
-        return (h("div", { key: 'dcefc3298cf5c600a7d53ab050df26bacb9bf7f0', id: this.boxid }, h("slot", { key: '0a08e8819fcf0f852652716109b59efe3bf7ef09', name: "content" }), this.isclosable && (h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() }))));
+        return (h("div", { key: 'ca557ef255dac8cd5e349193e1a737ebbbc89e67', id: this.boxid }, h("slot", { key: '1be32b81bde96ac8f548a4bd84698ddbbc2485f1', name: "content" }), this.isclosable && (h("z-icon", { name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() }))));
     }
     static get is() { return "z-info-box"; }
     static get encapsulation() { return "shadow"; }

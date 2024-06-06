@@ -7,7 +7,7 @@ describe("Suite test ZStepper", () => {
             html: `<z-stepper></z-stepper>`,
         });
         expect(page.root).toEqualHtml(`
-      <z-stepper>
+      <z-stepper role="list">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
@@ -24,7 +24,7 @@ describe("Suite test ZStepper", () => {
       </z-stepper>`,
         });
         expect(page.root).toEqualHtml(`
-      <z-stepper>
+      <z-stepper role="list">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

@@ -18,11 +18,11 @@ const ZPanelElem = class {
     }
     render() {
         const elemId = this.elemid ? this.elemid : "";
-        return (h("div", { key: 'bdc30d88a3eb7ba48958701df00b9ef7e8516bba', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, h("img", { src: this.imgurl, alt: this.imgalt }))), h("div", { key: 'fe7f4ba7d0851986d693be0a88b463cedabb5934', class: "panel-elem-link" }, h("a", { key: '7325188fe40d6a2726d542607581b1517e6d5b3b', class: {
+        return (h("div", { key: '91a143d46fe8e4a3577180d6e4402f688b234110', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { "aria-hidden": "true", class: "panel-elem-icon" }, h("img", { src: this.imgurl, alt: this.imgalt }))), h("div", { key: '86758f350858a9d7541c04f97b28380172fd9ae1', class: "panel-elem-link" }, h("a", { key: '11bc0af0c410e5fa21148508abefa95c4b92c5db', class: {
                 "z-link": true,
                 "z-link-disabled": this.isdisabled,
                 "z-link-icon": true,
-            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: 'df0f7f98e88de69f4894bfa8250a884aa6da9c3a', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
+            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: '166a449dea58e874d07fa86631692ff5dc14c7cc', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { class: "panel-elem-desc" }, h("slot", { name: this.descrSlotName })))));
     }
 };
 ZPanelElem.style = ZPanelElemStyle0;

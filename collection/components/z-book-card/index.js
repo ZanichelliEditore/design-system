@@ -124,7 +124,7 @@ export class ZBookCard {
         return (h("div", { class: "action-container" }, h("slot", { name: "footer-cta" })));
     }
     render() {
-        return (h("article", { key: '101c9922d8f9405fc38fb79f36fbf0d608327064', class: {
+        return (h("article", { key: '5bdf53790a65a448b54994ac6d88bb333f23db33', class: {
                 [this.variant]: true,
                 borderless: !!this.borderless,
             } }, this.renderCard()));
