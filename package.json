@@ -33,6 +33,7 @@
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
     "test": "stencil test --spec",
     "test.e2e": "stencil test --e2e",
+    "test.e2e.single": "stencil test --e2e -- ",
     "test.watch": "stencil test --spec --watch",
     "ts-check": "tsc --noEmit"
   },

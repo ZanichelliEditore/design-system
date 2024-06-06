@@ -40,4 +40,13 @@ it("Tests z-combobox search", async () => {
   const filteredListElems = await listbox.findAll("z-list-element");
 
   expect(filteredListElems.map(({id}) => id)).toEqual([items[0].id]);
+
+  const clickEvent = await page.spyOnEvent("comboboxChange");
+
+  const checkbox = await filteredListElems[0].find("z-input div input");
+  console.log(checkbox);
+  await checkbox.click();
+  await page.waitForChanges();
+
+  expect(clickEvent).toHaveReceivedEvent();
 });
