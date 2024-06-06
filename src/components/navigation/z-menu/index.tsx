@@ -1,4 +1,5 @@
 import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, Host} from "@stencil/core";
+import {DividerOrientation} from "../../../beans";
 
 /**
  * @slot - Menu label
@@ -36,6 +37,12 @@ export class ZMenu {
    */
   @Prop({reflect: true})
   verticalContext = false;
+
+  /**
+   * Used to manage the presence of the divider to separate the menu buttons
+   */
+  @Prop()
+  hasDivider: boolean;
 
   @State()
   hasHeader: boolean;
@@ -148,17 +155,26 @@ export class ZMenu {
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
-        <button
-          class="menu-label"
-          aria-expanded={this.open ? "true" : "false"}
-          aria-label={this.open ? "Chiudi menù" : "Apri menù"}
-          onClick={this.toggle}
-        >
-          <div class="menu-label-content">
-            <slot onSlotchange={this.onLabelSlotChange}></slot>
-            <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
-          </div>
-        </button>
+        <div class="menu-wrapper">
+          <button
+            class="menu-label"
+            aria-expanded={this.open ? "true" : "false"}
+            aria-label={this.open ? "Chiudi menù" : "Apri menù"}
+            onClick={this.toggle}
+          >
+            <div class="menu-label-content">
+              <slot onSlotchange={this.onLabelSlotChange}></slot>
+              <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+            </div>
+          </button>
+          {this.hasDivider && (
+            <z-divider
+              class="menu-divider"
+              orientation={DividerOrientation.VERTICAL}
+              color="color-black"
+            ></z-divider>
+          )}
+        </div>
       );
     }
 

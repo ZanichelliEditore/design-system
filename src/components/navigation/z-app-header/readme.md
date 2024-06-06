@@ -28,6 +28,7 @@
 
 | Slot              | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
+| `"product-logo"`  | To insert the product logo, it should be used with an img tag.                 |
 | `"stucked-title"` | Title for the stuck header. By default it uses the text from the `title` slot. |
 | `"subtitle"`      | Slot for the bottom subtitle. It will not appear in stuck header.              |
 | `"title"`         | Slot for the main title                                                        |
