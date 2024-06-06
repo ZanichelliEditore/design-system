@@ -11,11 +11,25 @@
 
 | Property   | Attribute  | Description                     | Type      | Default     |
 | ---------- | ---------- | ------------------------------- | --------- | ----------- |
+| `checked`  | `checked`  | The checked state of the item.  | `boolean` | `undefined` |
 | `disabled` | `disabled` | The disabled state of the item. | `boolean` | `undefined` |
 | `href`     | `href`     | The href to navigate on click.  | `string`  | `undefined` |
 | `index`    | `index`    | The number of the step item.    | `number`  | `undefined` |
 | `pressed`  | `pressed`  | The pressed state of the item.  | `boolean` | `undefined` |
 
+
+## Dependencies
+
+### Depends on
+
+- [z-icon](../../icons/z-icon)
+
+### Graph
+```mermaid
+graph TD;
+  z-stepper-item --> z-icon
+  style z-stepper-item fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
