@@ -205,6 +205,15 @@ export class ZAppHeader {
     });
   }
 
+  @Watch("stuck")
+  onStuckMode(): void {
+    if (this.stuck) {
+      this.enableStuckObserver();
+    } else {
+      this.disableStuckMode();
+    }
+  }
+
   private get title(): string {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (titleElement === null) {
@@ -267,15 +276,6 @@ export class ZAppHeader {
     }
   }
 
-  @Watch("stuck")
-  onStuckMode(): void {
-    if (this.stuck) {
-      this.enableStuckObserver();
-    } else {
-      this.disableStuckMode();
-    }
-  }
-
   private renderSearchLinkButton(): HTMLZButtonElement | null {
     if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
       return null;
@@ -328,8 +328,11 @@ export class ZAppHeader {
   }
 
   componentDidLoad(): void {
-    this.collectMenuElements();
     this.onStuckMode();
+  }
+
+  componentWillLoad(): void {
+    this.collectMenuElements();
     this.evaluateViewport();
   }
 
