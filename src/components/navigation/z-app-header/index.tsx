@@ -310,7 +310,7 @@ export class ZAppHeader {
     return (
       <Host menu-length={this.menuLength}>
         <div
-          class="heading-panel"
+          class={`heading-panel ${this.isSlotPresent("top-subtitle") ? "padding-top-subtitle" : ""}`}
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">

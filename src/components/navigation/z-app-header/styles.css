@@ -1,19 +1,8 @@
 :host {
-  --app-header-typography-1-size: 24px;
-  --app-header-typography-2-size: 28px;
   --app-header-typography-3-size: 32px;
-  --app-header-typography-4-size: 36px;
-  --app-header-typography-5-size: 42px;
-  --app-header-typography-6-size: 48px;
-  --app-header-typography-7-size: 54px;
-  --app-header-typography-8-size: 60px;
-  --app-header-typography-9-size: 68px;
-  --app-header-typography-10-size: 76px;
-  --app-header-typography-11-size: 84px;
-  --app-header-typography-12-size: 92px;
+  --app-header-typography-3-lineheight: 1.25;
   --app-header-typography-1-lineheight: 1.33;
   --app-header-typography-2-lineheight: 1.29;
-  --app-header-typography-3-lineheight: 1.25;
   --app-header-typography-4-lineheight: 1.24;
   --app-header-typography-5-lineheight: 1.24;
   --app-header-typography-6-lineheight: 1.25;
@@ -23,8 +12,6 @@
   --app-header-typography-10-lineheight: 1.26;
   --app-header-typography-11-lineheight: 1.2;
   --app-header-typography-12-lineheight: 1.2;
-  --app-header-typography-1-tracking: calc(-0.2 / 1em);
-  --app-header-typography-2-tracking: calc(-0.4 / 1em);
   --app-header-typography-3-tracking: calc(-0.6 / 1em);
   --app-header-typography-4-tracking: calc(-0.8 / 1em);
   --app-header-typography-5-tracking: calc(-1 / 1em);
@@ -51,10 +38,6 @@
 
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--color-default-text);
-
-  /* Variable to customize the title's font size.
-  NOTE: Only use one of the exported `--app-header-typography-*-size` as a value. */
-  --app-header-title-font-size: var(--app-header-typography-3-size);
 
   /* Variable to customize the title's line-height.
   NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value
@@ -89,10 +72,13 @@
   flex-grow: 0;
   flex-shrink: 0;
   align-items: baseline;
-  padding: var(--grid-margin);
+  padding: calc(var(--space-unit) * 2);
   margin: 0 auto;
   background: var(--app-header-bg);
-  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
+}
+
+.heading-panel.padding-top-subtitle {
+  padding: calc(var(--space-unit) * 2.5) calc(var(--space-unit) * 2);
 }
 
 :host(:empty) .heading-panel {
@@ -106,26 +92,46 @@
   width: 100%;
   max-width: 100%;
   flex: 1 auto;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
 }
 
 .heading-title {
   display: flex;
   max-width: 100%;
+  height: 24px;
   flex-direction: row;
   align-items: center;
+  margin-top: -3px;
+}
+
+.heading-top-subtitle.active-top-subtitle {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 3px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: initial;
+}
+
+:host(:is([flow="offcanvas"])) .heading-title > img.z-logo {
+  margin: 0 calc(var(--space-unit) * 2);
+}
+
+.heading-title > img.z-logo {
+  height: calc(var(--space-unit) * 3);
+  margin-right: calc(var(--space-unit) * 2);
 }
 
 .heading-title > z-divider.heading-divider {
   height: 36px;
-  margin: 0 12px;
+  margin: 0 calc(var(--space-unit) * 1.5);
 }
 
 ::slotted([slot="product-logo"]) {
   width: 32px;
   height: 32px;
-  margin-right: 8px;
+  margin-right: var(--space-unit);
   border-radius: 50%;
 }
 
@@ -134,41 +140,32 @@
 ::slotted([slot="stucked-title"]) {
   margin: 0;
   font-family: "IBM Plex Serif", serif;
-  font-weight: var(--font-bd);
 }
 
 ::slotted([slot="title"]) {
-  font-size: var(--app-header-title-font-size);
+  font-size: calc(var(--space-unit) * 3);
   letter-spacing: var(--app-header-title-letter-spacing);
   line-height: var(--app-header-title-lineheight);
 }
 
 .heading-stuck .heading-title > *,
 ::slotted([slot="stucked-title"]) {
-  font-size: var(--app-header-typography-3-size);
+  font-size: calc(var(--space-unit) * 4.5);
   letter-spacing: var(--app-header-typography-3-tracking);
   line-height: var(--app-header-typography-3-lineheight);
 }
 
-:host(:not([menu-length="0"])) .heading-subtitle {
+:host(:is([flow="offcanvas"]) :not([menu-length="0"])) .heading-top-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
 }
 
-::slotted([slot="top-subtitle"]),
-::slotted([slot="subtitle"]) {
+::slotted([slot="top-subtitle"]) {
   margin: 0;
   font-family: var(--font-family-sans);
-  font-size: 20px;
+  font-size: 14px;
   font-style: italic;
-  line-height: 26px;
-}
-
-::slotted([slot="subtitle"]) {
-  font-weight: 500;
-}
-
-::slotted([slot="top-subtitle"]) {
   font-weight: 400;
+  line-height: 18.2px;
 }
 
 .menu-container {
@@ -191,9 +188,7 @@
 z-searchbar {
   z-index: 0;
   display: flex;
-  width: auto;
   min-width: calc(var(--space-unit) * 32);
-  flex: 1 auto;
   align-items: center;
   margin-left: auto;
 }
@@ -215,7 +210,7 @@ z-searchbar {
   display: flex;
   max-width: var(--app-header-content-max-width);
   align-items: center;
-  padding: var(--space-unit) var(--grid-margin);
+  padding: calc(var(--space-unit) * 0.75) var(--grid-margin);
   margin: 0 auto;
   column-gap: calc(var(--space-unit) * 2);
 }
@@ -258,7 +253,7 @@ z-searchbar {
 to correctly align drawer icon and search page button with the title */
 .heading-container :is(.drawer-trigger, z-button.search-page-button) {
   display: flex;
-  height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
+  height: calc(var(--space-unit) * 4.5) * var(--app-header-title-lineheight);
   align-items: center;
 }
 
@@ -306,27 +301,37 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host {
-    --app-header-title-font-size: var(--app-header-typography-6-size);
     --app-header-title-lineheight: var(--app-header-typography-6-lineheight);
     --app-header-title-letter-spacing: var(--app-header-typography-6-tracking);
   }
 
+  ::slotted([slot="title"]) {
+    font-size: calc(var(--space-unit) * 4.5);
+    letter-spacing: var(--app-header-title-letter-spacing);
+    line-height: var(--app-header-title-lineheight);
+  }
+
+  .heading-title {
+    height: 36px;
+  }
+
+  .heading-title > img.z-logo {
+    height: 32px;
+    margin: 0;
+  }
+
+  .heading-top-subtitle {
+    height: 22px;
+  }
+
   .heading-panel {
-    flex-flow: row wrap;
     align-items: center;
-    padding-bottom: calc(var(--space-unit) * 2);
+    padding: 0 calc(var(--space-unit) * 3);
   }
 
   .heading-container {
+    flex-direction: column;
     margin-right: auto;
-  }
-
-  :host(:is([flow="offcanvas"], [menu-length="0"])) :is(.heading-container, .menu-container) {
-    width: auto;
-  }
-
-  :host(:not([flow="offcanvas"])) .heading-subtitle {
-    padding-left: 0;
   }
 
   .menu-container {
@@ -335,11 +340,11 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   :host([menu-length="0"]) .menu-container:not(:empty) {
-    height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
+    height: calc(var(--space-unit) * 4.5 * var(--app-header-title-lineheight));
   }
 
   :host(:not([flow="offcanvas"])) .menu-container {
-    gap: var(--space-unit) calc(var(--space-unit) * 5);
+    /* gap: var(--space-unit) 14px; */
   }
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
@@ -349,20 +354,20 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host {
-    --app-header-title-font-size: var(--app-header-typography-7-size);
-    --app-header-title-lineheight: var(--app-header-typography-7-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-7-tracking);
-  }
-
-  .heading-panel {
-    justify-content: flex-start;
-    padding-bottom: calc(var(--space-unit) * 3);
-  }
-
-  .heading-container,
   .menu-container {
-    width: auto;
+    margin-top: calc(var(--space-unit) * 2.5);
+  }
+
+  .menu-container.menu-top-subtitle {
+    margin-top: calc(var(--space-unit) * 3);
+  }
+
+  :host(:not([enable-search])) .menu-container {
+    margin-top: calc(var(--space-unit) * 3.5);
+  }
+
+  .heading-top-subtitle {
+    height: 20px;
   }
 
   :host([flow="stack"]) .heading-panel {
@@ -374,24 +379,15 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     width: 100%;
   }
 
-  :host(:not([flow="offcanvas"], [menu-length="0"])) .heading-panel {
-    row-gap: calc(var(--space-unit) * 3);
-  }
-
   z-searchbar {
     min-width: calc(var(--space-unit) * 45);
     flex: initial;
   }
 }
 
-/* Wide breakpoint */
+/* Wide breakpoint
 @media (min-width: 1366px) {
-  :host {
-    --app-header-title-font-size: var(--app-header-typography-9-size);
-    --app-header-title-lineheight: var(--app-header-typography-9-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-9-tracking);
-  }
-}
+} */
 
 @keyframes slide-stuck-heading-in {
   0% {

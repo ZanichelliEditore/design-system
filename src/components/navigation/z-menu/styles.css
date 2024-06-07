@@ -54,6 +54,7 @@ button.menu-label {
 .menu-label .menu-label-content {
   position: relative;
   display: flex;
+  height: 30px;
   align-items: center;
 }
 
@@ -132,8 +133,7 @@ when placed below the real text using `flex-direction: column`. */
   font-family: var(--font-family-sans);
   font-size: calc(var(--space-unit) * 2);
   font-weight: inherit;
-  letter-spacing: 0.36px; /* increasing the letter spacing of the regular text helps reduce the size difference between regular and bold text */
-  line-height: 1.2;
+  letter-spacing: 0.36px;
   outline: none;
 }
 
