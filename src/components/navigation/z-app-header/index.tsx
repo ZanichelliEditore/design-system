@@ -5,54 +5,15 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
 
 /**
  * @slot title - Slot for the main title
- * @slot subtitle - Slot for the bottom subtitle. It will not appear in stuck header.
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
  * @slot product-logo - To insert the product logo, it should be used with an img tag.
- * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
- * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
- * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
- * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
- * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
- * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
- * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
- * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
- * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
- * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
- * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
- * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
- * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
- * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
- * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
- * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
- * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
- * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
- * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
- * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
- * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
- * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
- * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
- * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
- * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
- * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
  * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
  * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
- * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
  * Defaults to `--app-header-typography-3-size`.
  * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
  * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
@@ -122,7 +83,7 @@ export class ZAppHeader {
    * Enable laZ logo.
    */
   @Prop({reflect: true})
-  enableZLogo = true;
+  enableZLogo = false;
 
   /**
    * The stuck state of the bar.
@@ -198,10 +159,11 @@ export class ZAppHeader {
     }
 
     const elements = this.menuElements;
-    elements.forEach((element) => {
+    elements.forEach((element, index) => {
       (element as HTMLZMenuElement).open = false;
       (element as HTMLZMenuElement).floating = !this.drawerOpen;
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+      (element as HTMLZMenuElement).hasDivider = index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
   }
 
@@ -276,6 +238,12 @@ export class ZAppHeader {
     }
   }
 
+  private isSlotPresent(slotName: string): boolean {
+    const slot = this.hostElement.querySelector(`[slot="${slotName}"]`);
+
+    return !!slot;
+  }
+
   private renderSearchLinkButton(): HTMLZButtonElement | null {
     if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
       return null;
@@ -307,22 +275,24 @@ export class ZAppHeader {
     );
   }
 
-  private renderLogo(): HTMLElement | null {
+  private renderProductLogos(): HTMLElement | null {
     return (
       <Fragment>
         {this.enableZLogo && (
           <img
+            class="z-logo"
             src="../assets/images/LaZ.svg"
             alt=""
           />
         )}
-        {this.enableZLogo && (
+        {this.enableZLogo && this.currentViewport !== "mobile" && (
           <z-divider
             class="heading-divider"
             orientation={DividerOrientation.VERTICAL}
+            color="color-black"
           ></z-divider>
         )}
-        <slot name="product-logo"></slot>
+        {this.currentViewport !== "mobile" && <slot name="product-logo"></slot>}
       </Fragment>
     );
   }
@@ -344,7 +314,7 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            <div class="heading-subtitle">
+            <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
               <slot name="top-subtitle"></slot>
             </div>
             <div class="heading-title">
@@ -358,27 +328,22 @@ export class ZAppHeader {
                 </button>
               )}
 
-              {this.renderLogo()}
+              {!this.isSlotPresent("top-subtitle") && this.renderProductLogos()}
               <slot name="title"></slot>
+              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
 
               {this.renderSearchLinkButton()}
-            </div>
-
-            <div class="heading-subtitle">
-              <slot name="subtitle"></slot>
             </div>
           </div>
 
           {(this.canShowMenu || this.canShowSearchbar) && (
-            <div class="menu-container">
+            <div class={`menu-container ${this.isSlotPresent("top-subtitle") ? "menu-top-subtitle" : ""}`}>
               {this.canShowMenu && (
                 <slot
                   name="menu"
                   onSlotchange={this.collectMenuElements}
                 ></slot>
               )}
-
-              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
             </div>
           )}
         </div>
