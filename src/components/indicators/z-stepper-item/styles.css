@@ -57,6 +57,11 @@
   pointer-events: none;
 }
 
+:host([pressed]),
+:host([pressed]) .stepper-item {
+  pointer-events: none;
+}
+
 .indicator {
   display: flex;
   width: calc(var(--space-unit) * 4);
