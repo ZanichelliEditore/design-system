@@ -78,7 +78,7 @@
 }
 
 .modal-container > header h1,
-.modal-container > header h2 {
+.modal-container > header .subtitle {
   padding: 0;
   margin: 0;
   color: var(--color-default-text);
@@ -91,7 +91,7 @@
   line-height: 1.4;
 }
 
-.modal-container > header h2 {
+.modal-container > header .subtitle {
   font-size: var(--font-size-3);
   letter-spacing: 0;
   line-height: 1.5;
@@ -101,7 +101,7 @@
   display: none;
 }
 
-.modal-container > header h1 + h2 {
+.modal-container > header h1 + .subtitle {
   margin-top: calc(var(--space-unit) * 0.5);
 }
 
@@ -239,13 +239,13 @@
     line-height: 1.33;
   }
 
-  .modal-container > header h2 {
+  .modal-container > header .subtitle {
     font-size: var(--font-size-4);
     letter-spacing: 0;
     line-height: 1.5;
   }
 
-  .modal-container > header h1 + h2 {
+  .modal-container > header h1 + .subtitle {
     margin-top: 0;
   }
 }
