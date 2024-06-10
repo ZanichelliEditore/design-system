@@ -316,6 +316,16 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     --app-header-title-letter-spacing: var(--app-header-typography-6-tracking);
   }
 
+  :host([enable-search]:not([search-page-url])) .heading-title {
+    flex-wrap: nowrap;
+  }
+
+  z-searchbar {
+    min-width: auto;
+    padding-top: 0;
+    margin-left: auto;
+  }
+
   ::slotted([slot="title"]) {
     font-size: calc(var(--space-unit) * 4.5);
     letter-spacing: var(--app-header-title-letter-spacing);
@@ -324,6 +334,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   .heading-title {
     height: 36px;
+    align-items: center;
   }
 
   .heading-title > img.z-logo {
@@ -355,7 +366,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   :host(:not([flow="offcanvas"])) .menu-container {
-    /* gap: var(--space-unit) 14px; */
+    margin-top: calc((var(--space-unit) * 1.75));
   }
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {

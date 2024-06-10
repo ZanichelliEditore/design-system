@@ -179,10 +179,19 @@ export class ZMenu {
     }
 
     return (
-      <div class="menu-label">
-        <div class="menu-label-content">
-          <slot onSlotchange={this.onLabelSlotChange}></slot>
+      <div class="menu-wrapper">
+        <div class="menu-label">
+          <div class="menu-label-content">
+            <slot onSlotchange={this.onLabelSlotChange}></slot>
+          </div>
         </div>
+        {this.hasDivider && (
+          <z-divider
+            class="menu-divider"
+            orientation={DividerOrientation.VERTICAL}
+            color="color-black"
+          ></z-divider>
+        )}
       </div>
     );
   }

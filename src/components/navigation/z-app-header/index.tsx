@@ -390,7 +390,7 @@ export class ZAppHeader {
                 </button>
               )}
               <div class="heading-title">
-                {!this.isSlotPresent("top-subtitle") && this.renderProductLogos()}
+                {this.renderProductLogos()}
                 <slot name="stucked-title">{this.title}</slot>
               </div>
 
