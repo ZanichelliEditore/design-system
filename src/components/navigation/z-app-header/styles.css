@@ -99,19 +99,24 @@
 .heading-title {
   display: flex;
   max-width: 100%;
-  height: 24px;
   flex-direction: row;
-  align-items: center;
-  margin-top: -3px;
+  align-items: start;
+}
+
+:host([enable-search]:not([search-page-url])) .heading-title {
+  flex-wrap: wrap;
 }
 
 .heading-top-subtitle.active-top-subtitle {
   display: -webkit-box;
   overflow: hidden;
-  margin-top: 3px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   white-space: initial;
+}
+
+:host(:not([menu-length="0"])) .heading-top-subtitle {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
 :host(:is([flow="offcanvas"])) .heading-title > img.z-logo {
@@ -120,7 +125,11 @@
 
 .heading-title > img.z-logo {
   height: calc(var(--space-unit) * 3);
-  margin-right: calc(var(--space-unit) * 2);
+  margin: 4px var(--space-unit) 0 0;
+}
+
+:host([stuck]) .heading-stuck .heading-title > img.z-logo {
+  margin-top: 0;
 }
 
 .heading-title > z-divider.heading-divider {
@@ -143,6 +152,7 @@
 }
 
 ::slotted([slot="title"]) {
+  padding-right: var(--space-unit);
   font-size: calc(var(--space-unit) * 3);
   letter-spacing: var(--app-header-title-letter-spacing);
   line-height: var(--app-header-title-lineheight);
@@ -160,6 +170,7 @@
 }
 
 ::slotted([slot="top-subtitle"]) {
+  max-width: 255px;
   margin: 0;
   font-family: var(--font-family-sans);
   font-size: 14px;
@@ -188,9 +199,9 @@
 z-searchbar {
   z-index: 0;
   display: flex;
-  min-width: calc(var(--space-unit) * 32);
+  min-width: 100%;
   align-items: center;
-  margin-left: auto;
+  padding-top: calc(var(--space-unit) * 2);
 }
 
 .heading-stuck {
@@ -210,9 +221,8 @@ z-searchbar {
   display: flex;
   max-width: var(--app-header-content-max-width);
   align-items: center;
-  padding: calc(var(--space-unit) * 0.75) var(--grid-margin);
+  padding: var(--space-unit) var(--grid-margin);
   margin: 0 auto;
-  column-gap: calc(var(--space-unit) * 2);
 }
 
 .heading-stuck .heading-title {
@@ -223,6 +233,7 @@ z-searchbar {
 .heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
   display: block;
   overflow: hidden;
+  font-size: calc(var(--space-unit) * 2.5);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -234,7 +245,7 @@ z-searchbar {
 .drawer-trigger {
   padding: 0;
   border: 0;
-  margin: 0;
+  margin-right: var(--space-unit);
   appearance: none;
   background: none;
   border-radius: 0;

@@ -389,8 +389,8 @@ export class ZAppHeader {
                   <z-icon name="burger-menu"></z-icon>
                 </button>
               )}
-
               <div class="heading-title">
+                {!this.isSlotPresent("top-subtitle") && this.renderProductLogos()}
                 <slot name="stucked-title">{this.title}</slot>
               </div>
 
