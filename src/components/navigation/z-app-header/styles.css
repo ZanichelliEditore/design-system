@@ -115,10 +115,6 @@
   white-space: initial;
 }
 
-:host(:is([flow="offcanvas"])) .heading-title > img.z-logo {
-  margin: 0 calc(var(--space-unit) * 2);
-}
-
 .heading-title > img.z-logo {
   height: calc(var(--space-unit) * 3);
   margin: 4px var(--space-unit) 0 0;

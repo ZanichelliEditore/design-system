@@ -163,7 +163,8 @@ export class ZAppHeader {
       (element as HTMLZMenuElement).open = false;
       (element as HTMLZMenuElement).floating = !this.drawerOpen;
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
-      (element as HTMLZMenuElement).hasDivider = index !== this.menuElements.length - 1 && this.menuElements.length > 1;
+      (element as HTMLZMenuElement).hasDivider =
+        this.flow === "offcanvas" ? false : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
   }
 
@@ -314,7 +315,7 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            {!this.canShowSearchbar && (
+            {((!this.canShowSearchbar && this.currentViewport === "mobile") || this.currentViewport !== "mobile") && (
               <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
                 <slot name="top-subtitle"></slot>
               </div>
