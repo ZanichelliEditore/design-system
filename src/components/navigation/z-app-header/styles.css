@@ -115,10 +115,6 @@
   white-space: initial;
 }
 
-:host(:not([menu-length="0"])) .heading-top-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
-}
-
 :host(:is([flow="offcanvas"])) .heading-title > img.z-logo {
   margin: 0 calc(var(--space-unit) * 2);
 }
@@ -158,15 +154,12 @@
   line-height: var(--app-header-title-lineheight);
 }
 
-.heading-stuck .heading-title > *,
-::slotted([slot="stucked-title"]) {
-  font-size: calc(var(--space-unit) * 4.5);
-  letter-spacing: var(--app-header-typography-3-tracking);
-  line-height: var(--app-header-typography-3-lineheight);
+:host(:not([menu-length="0"])) .heading-top-subtitle {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
-:host(:is([flow="offcanvas"]) :not([menu-length="0"])) .heading-top-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
+:host(:is([flow="offcanvas"]):not([menu-length="0"])) .heading-top-subtitle {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit)));
 }
 
 ::slotted([slot="top-subtitle"]) {
@@ -230,8 +223,14 @@ z-searchbar {
 }
 
 .heading-stuck .heading-title > *,
+::slotted([slot="stucked-title"]) {
+  font-size: calc(var(--space-unit) * 4.5);
+  letter-spacing: var(--app-header-typography-3-tracking);
+  line-height: var(--app-header-typography-3-lineheight);
+}
+
+.heading-stuck .heading-title > *,
 .heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
-  display: block;
   overflow: hidden;
   font-size: calc(var(--space-unit) * 2.5);
   text-overflow: ellipsis;
@@ -371,6 +370,27 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
     display: none;
+  }
+
+  .heading-stuck .heading-title > *,
+  .heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
+    font-size: calc(var(--space-unit) * 4);
+  }
+
+  .heading-stuck-content {
+    padding: 6px var(--grid-margin);
+  }
+
+  .heading-title > z-divider.heading-divider {
+    margin: 0 calc(var(--space-unit) * 1.75);
+  }
+
+  ::slotted([slot="product-logo"]) {
+    margin-right: calc(var(--space-unit) * 1.75);
+  }
+
+  :host(:not([menu-length="0"])) .heading-top-subtitle {
+    padding-left: 0;
   }
 }
 

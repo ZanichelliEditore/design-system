@@ -314,9 +314,11 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
-              <slot name="top-subtitle"></slot>
-            </div>
+            {!this.canShowSearchbar && (
+              <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
+                <slot name="top-subtitle"></slot>
+              </div>
+            )}
             <div class="heading-title">
               {this.menuLength > 0 && (
                 <button
@@ -328,7 +330,7 @@ export class ZAppHeader {
                 </button>
               )}
 
-              {!this.isSlotPresent("top-subtitle") && this.renderProductLogos()}
+              {!this.isSlotPresent("top-subtitle") && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
               {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
 
