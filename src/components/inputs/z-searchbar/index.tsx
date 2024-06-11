@@ -264,6 +264,7 @@ export class ZSearchbar {
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
         onKeyUp={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.handleSubmit())}
         value={this.value}
+        ariaLabel={this.placeholder}
         size={this.size}
       />
     );

@@ -52,7 +52,7 @@ describe("Suite test ZModal", () => {
                   </button>
                 </slot>
               </div>
-              <h2 id="modal-subtitle">subtitle</h2>
+              <div class="subtitle" id="modal-subtitle">subtitle</div>
             </header>
             <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
@@ -84,7 +84,7 @@ describe("Suite test ZModal", () => {
                   </button>
                 </slot>
               </div>
-              <h2 id="modal-subtitle">subtitle</h2>
+               <div class="subtitle" id="modal-subtitle">subtitle</div>
             </header>
             <div class="modal-content-scroll-inside" id="modal-content">
               <slot name="modalContent"></slot>
@@ -118,7 +118,7 @@ describe("Suite test ZModal", () => {
                   </button>
                 </slot>
               </div>
-              <h2 id="modal-subtitle">subtitle</h2>
+               <div class="subtitle" id="modal-subtitle">subtitle</div>
             </header>
             <div class="modal-content-scroll-outside" id="modal-content">
               <slot name="modalContent"></slot>

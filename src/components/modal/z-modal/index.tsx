@@ -188,7 +188,14 @@ export class ZModal {
               {this.modaltitle && <h1 id="modal-title">{this.modaltitle}</h1>}
               {this.closeButtonSlot()}
             </div>
-            {this.modalsubtitle && <h2 id="modal-subtitle">{this.modalsubtitle}</h2>}
+            {this.modalsubtitle && (
+              <div
+                class="subtitle"
+                id="modal-subtitle"
+              >
+                {this.modalsubtitle}
+              </div>
+            )}
           </header>
 
           <div
