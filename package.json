@@ -28,7 +28,7 @@
     "lint.prettier": "prettier --check .",
     "lint.stylelint": "stylelint \"src/**/*.css\"",
     "prepare": "husky install",
-    "release": "standard-version",
+    "release": "commit-and-tag-version",
     "start": "stencil build --dev --watch --serve --no-open",
     "start-storybook": "start-storybook --port 3003 --ci --no-manager-cache",
     "test": "stencil test --spec",
