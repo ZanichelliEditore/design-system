@@ -43,13 +43,16 @@ const StoryMeta = {
       if: {
         arg: "preserveAspectRatio",
       },
+      control: {
+        type: "text",
+      },
     },
   },
   args: {
     "variant": CoverHeroVariant.OVERLAY,
     "contentPosition": CoverHeroContentPosition.TOP,
     "preserveAspectRatio": true,
-    "--cover-hero-aspect-ratio": "",
+    "--cover-hero-aspect-ratio": undefined,
     "--cover-hero-overlay": "linear-gradient(270deg, #0000 0%, #000000e6 100%)",
     "--cover-hero-text-color": "var(--color-text-inverse)",
   },

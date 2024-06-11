@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZCombobox} from ".";
-import {ControlSize} from "../../beans";
+import {ComboItem, ControlSize} from "../../beans";
 import "./index";
 
 const StoryMeta = {
@@ -22,31 +22,11 @@ const StoryMeta = {
   },
   args: {
     items: [
-      {
-        id: "item_1",
-        checked: false,
-        name: "",
-        category: "Gruppo 1",
-      },
-      {
-        id: "item_2",
-        checked: false,
-        name: "",
-        category: "Gruppo 1",
-      },
-      {
-        id: "item_3",
-        checked: false,
-        name: "",
-        category: "Gruppo 2",
-      },
-      {
-        id: "item_4",
-        checked: false,
-        name: "",
-        category: "Gruppo 3",
-      },
-    ],
+      {id: "ite_m_1", name: "First item", checked: false, category: "Gruppo 1"},
+      {id: "ite_m_2", name: "Second item", checked: false, category: "Gruppo 1"},
+      {id: "it_em_3", name: "Other item", checked: false, category: "Gruppo 2"},
+      {id: "it_e_m_5", name: "Last item", checked: false, category: "Gruppo 3"},
+    ] satisfies ComboItem[],
     checkalltext: "Select all",
     closesearchtext: "Close",
     disabled: false,
@@ -75,7 +55,7 @@ const StoryMeta = {
       inputid=${args.inputid}
       isfixed=${args.isfixed}
       isopen=${args.isopen}
-      items=${JSON.stringify(args.items)}
+      .items=${args.items}
       label=${args.label}
       maxcheckableitems=${args.maxcheckableitems}
       hasgroupitems=${args.hasgroupitems}
@@ -94,44 +74,6 @@ export const Default = {};
 
 export const Groups = {
   args: {
-    items: [
-      {
-        id: "item_1",
-        checked: false,
-        name: "",
-        category: "Gruppo 1",
-      },
-      {
-        id: "item_2",
-        checked: false,
-        name: "",
-        category: "Gruppo 1",
-      },
-      {
-        id: "item_3",
-        checked: false,
-        name: "",
-        category: "Gruppo 2",
-      },
-      {
-        id: "item_5",
-        checked: false,
-        name: "",
-        category: "Gruppo 3",
-      },
-      {
-        id: "item_6",
-        checked: false,
-        name: "",
-        category: "Gruppo 3",
-      },
-      {
-        id: "item_7",
-        checked: false,
-        name: "",
-        category: "Gruppo 4",
-      },
-    ],
     hasgroupitems: true,
   },
 } satisfies Story;
