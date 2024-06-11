@@ -152,7 +152,7 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
     renderInput() {
         return (h("z-input", { ref: (val) => {
                 this.inputRef = val;
-            }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value, size: this.size }));
+            }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value, ariaLabel: this.placeholder, size: this.size }));
     }
     renderButton() {
         if (!this.showSearchButton) {
@@ -237,7 +237,7 @@ const ZSearchbar = /*@__PURE__*/ proxyCustomElement(class ZSearchbar extends HTM
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: 'e95c23e603fd303d9c99386f5878685b713ce128', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '7d32c1394e6adfd4e83cba37c8f8bf66a97ee460', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: 'd37b6d416257f957e74d357a6d8b27c983b7d973', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '42acf14b381f287bda89da77daff57430e486dd9', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     get element() { return this; }
     static get watchers() { return {

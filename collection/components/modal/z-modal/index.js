@@ -107,10 +107,10 @@ export class ZModal {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '268f689959051dc304efd99dd64a4eb5ac47aa17', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '5651d45bddad36999eddf25863a7d398cc87cf91' }, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && h("h2", { id: "modal-subtitle" }, this.modalsubtitle)), h("div", { key: '93eae28fa449cc1830d533e93b46e580d4be4540', class: {
+            }, id: this.modalid }, h("header", { key: '268f689959051dc304efd99dd64a4eb5ac47aa17', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '5651d45bddad36999eddf25863a7d398cc87cf91' }, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: '375fa8c15cc53534fae53912cb353b1f93190946', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: 'a38384cf4d2c4eadda052099f3d47f2457585555', name: "modalContent" }))), h("div", { key: '10f7f01194bd21059d9afb15c421eb9354b77302', class: {
+            }, id: "modal-content" }, h("slot", { key: 'cb32585b3159f2acc9c15ab45635b4600ae97696', name: "modalContent" }))), h("div", { key: '8439bcbbbfe0307b31a22b1c674e3080b63e507a', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
