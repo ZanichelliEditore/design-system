@@ -6,7 +6,7 @@ const config = {
     disableWhatsNewNotifications: true,
     disableTelemetry: true,
   },
-  staticDirs: ["../dist", "../src/assets", {from: "../src/assets/favicon.png", to: "/images/favicon.png"}],
+  staticDirs: ["../dist", "../src/assets"],
   stories: [
     "../docs/**/*.mdx",
     "../docs/**/*.stories.@(js|jsx|ts|tsx)",
