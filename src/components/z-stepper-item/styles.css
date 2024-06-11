@@ -3,6 +3,9 @@
   width: calc(var(--space-unit) * 5);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --z-icon-width: 20px;
+  --z-icon-height: 20px;
 }
 
 :host(:not(:last-child)) {
@@ -33,8 +36,8 @@
   background: transparent;
   color: inherit;
   font-family: inherit;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 12px;
+  line-height: 16px;
   outline: 0;
   text-decoration: none;
 }
@@ -42,14 +45,20 @@
 .stepper-item span {
   display: none;
   width: calc(100% + calc(var(--space-unit) * 4));
+  color: var(--color-default-text);
   text-align: center;
 }
 
-:host(:not([disabled])) .stepper-item {
+:host([href]:not([disabled], [pressed])) .stepper-item {
   cursor: pointer;
 }
 
 :host([disabled]) .stepper-item {
+  pointer-events: none;
+}
+
+:host([pressed]),
+:host([pressed]) .stepper-item {
   pointer-events: none;
 }
 
@@ -81,16 +90,45 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host([href]:not([disabled], [pressed], [checked])) .indicator:hover {
+  border-color: var(--color-hover-primary);
+  color: var(--color-hover-primary);
+}
+
 :host([disabled]) .indicator {
   border-color: var(--color-disabled02);
   background: var(--color-disabled01);
   color: var(--color-disabled03);
 }
 
+:host([checked]:not([disabled])) .indicator {
+  border-color: var(--color-success-default);
+  color: var(--color-success-default);
+}
+
+:host([checked]:not([disabled])) .indicator z-icon {
+  fill: var(--color-success-default);
+}
+
+:host([checked]) .indicator z-icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+  .stepper-item span {
+    display: block;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1152px) {
   :host {
     width: calc(var(--space-unit) * 10);
+
+    --z-icon-width: 24px;
+    --z-icon-height: 24px;
   }
 
   :host(:not(:last-child))::after {
@@ -100,10 +138,8 @@
 
   .stepper-item {
     width: calc(var(--space-unit) * 10);
-  }
-
-  .stepper-item span {
-    display: block;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   .indicator {

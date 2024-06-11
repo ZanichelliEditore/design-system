@@ -1711,6 +1711,10 @@ export namespace Components {
     }
     interface ZStepperItem {
         /**
+          * The checked state of the item.
+         */
+        "checked": boolean;
+        /**
           * The disabled state of the item.
          */
         "disabled": boolean;
@@ -5166,6 +5170,10 @@ declare namespace LocalJSX {
     interface ZStepper {
     }
     interface ZStepperItem {
+        /**
+          * The checked state of the item.
+         */
+        "checked"?: boolean;
         /**
           * The disabled state of the item.
          */

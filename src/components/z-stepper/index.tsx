@@ -1,4 +1,4 @@
-import {Component, h} from "@stencil/core";
+import {Component, Host, h} from "@stencil/core";
 
 /**
  * @slot - slot for `z-stepper-item`s
@@ -10,6 +10,10 @@ import {Component, h} from "@stencil/core";
 })
 export class ZStepper {
   render(): HTMLSlotElement {
-    return <slot />;
+    return (
+      <Host role="list">
+        <slot />
+      </Host>
+    );
   }
 }

@@ -33,3 +33,12 @@ export const Pressed = {
       >First step</z-stepper-item
     >`,
 };
+
+export const Checked = {
+  render: () =>
+    html`<z-stepper-item
+      index="1"
+      checked
+      >First step</z-stepper-item
+    >`,
+};

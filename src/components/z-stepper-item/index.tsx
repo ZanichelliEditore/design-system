@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-stepper-item",
@@ -25,36 +25,46 @@ export class ZStepperItem {
   pressed: boolean;
 
   /**
+   * The checked state of the item.
+   */
+  @Prop({attribute: "checked"})
+  checked: boolean;
+
+  /**
    * The disabled state of the item.
    */
   @Prop({attribute: "disabled"})
   disabled: boolean;
 
+  private getAttributes(): Record<string, unknown> {
+    const href =
+      this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
+    const role = href ? {role: "link"} : undefined;
+    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
+    const tabindex = this.pressed || this.href === "" ? {tabindex: -1} : undefined;
+
+    return {
+      ...href,
+      ...role,
+      ...current,
+      ...tabindex,
+    };
+  }
+
   render(): HTMLAnchorElement | HTMLButtonElement {
-    if (this.href) {
-      return (
-        <a
-          href={!this.disabled && this.href}
+    return (
+      <Host role="listitem">
+        <button
           class="stepper-item"
+          disabled={this.disabled}
+          {...this.getAttributes()}
         >
-          <div class="indicator">{this.index}</div>
+          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
           <span>
             <slot />
           </span>
-        </a>
-      );
-    }
-
-    return (
-      <button
-        class="stepper-item"
-        disabled={this.disabled}
-      >
-        <div class="indicator">{this.index}</div>
-        <span>
-          <slot />
-        </span>
-      </button>
+        </button>
+      </Host>
     );
   }
 }
