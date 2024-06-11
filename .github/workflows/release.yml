@@ -35,7 +35,7 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - run: node --version
+      - run: echo node --version
       # - name: Publish to npm
       #   run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
       #   env:
