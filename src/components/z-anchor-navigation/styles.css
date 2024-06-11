@@ -59,7 +59,7 @@ z-anchor-navigation nav > [data-current] {
   font-weight: var(--font-sb);
 }
 
-z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
+z-anchor-navigation nav > * > *:is(z-button, button) {
   position: absolute;
   top: 50%;
   right: 0;
@@ -67,20 +67,17 @@ z-anchor-navigation nav > * > *:is(z-button, button, z-icon) {
   transition: opacity 0.3s ease-in-out;
 }
 
+z-anchor-navigation nav > *:focus:focus-visible,
+z-anchor-navigation nav > * > *:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 z-anchor-navigation nav button {
   padding: 0;
   border: none;
   margin: 0;
   background-color: transparent;
-}
-
-z-anchor-navigation nav z-icon {
-  --z-icon-width: 16px;
-  --z-icon-height: 16px;
-
-  display: flex;
-  padding: calc(var(--space-unit) * 1.5);
-  fill: var(--color-default-icon);
 }
 
 @media (min-width: 768px) {
@@ -92,11 +89,19 @@ z-anchor-navigation nav z-icon {
     display: flex;
   }
 
-  z-anchor-navigation nav a {
-    outline: none;
+  /* hide anchor actions by default... */
+  z-anchor-navigation nav > * > :is(z-button, button) {
+    opacity: 0;
+    pointer-events: none;
   }
 
   @media (hover: hover) {
+    /* ...show them only hovering/focusing the anchor */
+    z-anchor-navigation nav > :is([data-current], :hover, :focus, :focus-within) > :is(z-button, button) {
+      opacity: 1;
+      pointer-events: unset;
+    }
+
     z-anchor-navigation nav > *:hover {
       border-left-color: var(--color-hover-secondary);
       background-color: var(--color-hover-surface);
@@ -104,28 +109,8 @@ z-anchor-navigation nav z-icon {
     }
   }
 
-  z-anchor-navigation nav > *:is(:focus, :focus-within),
-  z-anchor-navigation nav :is(z-icon, button):focus:focus-visible {
-    box-shadow: var(--shadow-focus-primary);
-    outline: none;
-  }
-
   z-anchor-navigation[hide-unselected] nav > *:not([data-current], :hover, :focus, :focus-within) {
     color: transparent;
-  }
-
-  z-anchor-navigation
-    nav
-    > *:not([data-current], :hover, :focus, :focus-within)
-    > *:is(z-button, button, z-icon):not(:focus:focus-visible) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  @media (hover: none) {
-    z-anchor-navigation:not([hide-unselected]) nav > * > *:is(z-button, button, z-icon) {
-      opacity: 1;
-      pointer-events: all;
-    }
+    fill: transparent;
   }
 }
