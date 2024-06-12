@@ -5,3 +5,8 @@
 @import "~@zanichelli/albe-design-tokens/dist/themes/black-yellow.css";
 @import "~@zanichelli/albe-design-tokens/dist/themes/dark-default.css";
 @import "components/z-accordion/z-accordion-globals.css";
+
+*:focus,
+*:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
