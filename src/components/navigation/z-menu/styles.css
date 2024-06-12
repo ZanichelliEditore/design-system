@@ -224,6 +224,10 @@ when placed below the real text using `flex-direction: column`. */
 
 /* Desktop breakpoint */
 @media (min-width: 768px) {
+  .menu-label {
+    width: fit-content;
+  }
+
   .menu-wrapper > z-divider.menu-divider,
   .menu-label > z-divider.menu-divider {
     height: calc(var(--space-unit) * 2);

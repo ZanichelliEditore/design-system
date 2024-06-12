@@ -1,5 +1,13 @@
 import {Component, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen, h, Fragment} from "@stencil/core";
-import {ButtonVariant, ControlSize, DividerOrientation, OffCanvasVariant, TransitionDirection} from "../../../beans";
+import {
+  ButtonVariant,
+  ControlSize,
+  Device,
+  DividerOrientation,
+  OffCanvasVariant,
+  TransitionDirection,
+} from "../../../beans";
+import {getDevice} from "../../../utils/utils";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -9,18 +17,10 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
  * @slot product-logo - To insert the product logo, it should be used with an img tag.
  * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * Defaults to `--app-header-typography-3-size`.
- * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
- * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-lineheight`.
- * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
- * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-tracking`.
  * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 @Component({
@@ -96,7 +96,7 @@ export class ZAppHeader {
    * Used to change the aspect of the search button (icon only) on mobile and tablet.
    */
   @State()
-  private currentViewport: "mobile" | "tablet" | "desktop" = "mobile";
+  private currentViewport: "mobile" | "tablet" | "desktop" | "desktop-wide" = "mobile";
 
   /**
    * Current count of menu items.
@@ -133,13 +133,7 @@ export class ZAppHeader {
 
   @Listen("resize", {target: "window", passive: true})
   evaluateViewport(): void {
-    if (window.innerWidth < 768) {
-      this.currentViewport = "mobile";
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1152) {
-      this.currentViewport = "tablet";
-    } else {
-      this.currentViewport = "desktop";
-    }
+    this.currentViewport = getDevice();
   }
 
   @Watch("_stuck")
@@ -286,14 +280,14 @@ export class ZAppHeader {
             alt=""
           />
         )}
-        {this.enableZLogo && this.currentViewport !== "mobile" && (
+        {this.enableZLogo && this.currentViewport !== Device.MOBILE && (
           <z-divider
             class="heading-divider"
             orientation={DividerOrientation.VERTICAL}
             color="color-black"
           ></z-divider>
         )}
-        {this.currentViewport !== "mobile" && <slot name="product-logo"></slot>}
+        {this.currentViewport !== Device.MOBILE && <slot name="product-logo"></slot>}
       </Fragment>
     );
   }
@@ -315,7 +309,8 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            {((!this.canShowSearchbar && this.currentViewport === "mobile") || this.currentViewport !== "mobile") && (
+            {((!this.canShowSearchbar && this.currentViewport === Device.MOBILE) ||
+              this.currentViewport !== Device.MOBILE) && (
               <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
                 <slot name="top-subtitle"></slot>
               </div>
@@ -333,7 +328,7 @@ export class ZAppHeader {
 
               {!this.isSlotPresent("top-subtitle") && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
-              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
+              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== Device.DESKTOP)}
 
               {this.renderSearchLinkButton()}
             </div>
@@ -398,7 +393,7 @@ export class ZAppHeader {
               </div>
 
               {this.renderSearchLinkButton()}
-              {this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false)}
+              {this.canShowSearchbar && this.currentViewport === Device.DESKTOP && this.renderSeachbar(false)}
             </div>
           </div>
         )}

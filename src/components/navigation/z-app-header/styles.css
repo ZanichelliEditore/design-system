@@ -1,29 +1,5 @@
 :host {
-  --app-header-typography-3-size: 32px;
-  --app-header-typography-3-lineheight: 1.25;
-  --app-header-typography-1-lineheight: 1.33;
-  --app-header-typography-2-lineheight: 1.29;
-  --app-header-typography-4-lineheight: 1.24;
-  --app-header-typography-5-lineheight: 1.24;
-  --app-header-typography-6-lineheight: 1.25;
-  --app-header-typography-7-lineheight: 1.2;
-  --app-header-typography-8-lineheight: 1.26;
-  --app-header-typography-9-lineheight: 1.24;
-  --app-header-typography-10-lineheight: 1.26;
-  --app-header-typography-11-lineheight: 1.2;
-  --app-header-typography-12-lineheight: 1.2;
-  --app-header-typography-3-tracking: calc(-0.6 / 1em);
-  --app-header-typography-4-tracking: calc(-0.8 / 1em);
-  --app-header-typography-5-tracking: calc(-1 / 1em);
-  --app-header-typography-6-tracking: calc(-1.2 / 1em);
-  --app-header-typography-7-tracking: calc(-1.4 / 1em);
-  --app-header-typography-8-tracking: calc(-1.6 / 1em);
-  --app-header-typography-9-tracking: calc(-1.8 / 1em);
-  --app-header-typography-10-tracking: calc(-2 / 1em);
-  --app-header-typography-11-tracking: calc(-2.2 / 1em);
-  --app-header-typography-12-tracking: calc(-2.4 / 1em);
   --app-header-content-max-width: 100%;
-  --app-header-height: auto;
 
   /* Variable to set stuck header and drawer's top offset.
   Useful when something is absolutely positioned above the header. */
@@ -42,19 +18,18 @@
   /* Variable to customize the title's line-height.
   NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value
   and use the same level as the one of the font size. */
-  --app-header-title-lineheight: var(--app-header-typography-3-lineheight);
+  --app-header-title-lineheight: 1.25;
 
   /* Variable to customize the title's letter-spacing.
   NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value
   and use the same level as the one of the font size. */
-  --app-header-title-letter-spacing: var(--app-header-typography-3-tracking);
+  --app-header-title-letter-spacing: calc(-0.6 / 1em);
 
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-default-text);
 
   position: relative;
   display: block;
-  height: var(--app-header-height);
   color: var(--app-header-text-color);
 }
 
@@ -151,7 +126,7 @@
 }
 
 :host(:is([flow="offcanvas"]):not([menu-length="0"])) .heading-top-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit)));
+  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
 ::slotted([slot="top-subtitle"]) {
@@ -217,8 +192,8 @@ z-searchbar {
 .heading-stuck .heading-title > *,
 ::slotted([slot="stucked-title"]) {
   font-size: calc(var(--space-unit) * 4.5);
-  letter-spacing: var(--app-header-typography-3-tracking);
-  line-height: var(--app-header-typography-3-lineheight);
+  letter-spacing: calc(-0.6 / 1em);
+  line-height: 1.25;
 }
 
 .heading-stuck .heading-title > *,
@@ -303,8 +278,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   :host {
-    --app-header-title-lineheight: var(--app-header-typography-6-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-6-tracking);
+    --app-header-title-lineheight: 1.25;
+    --app-header-title-letter-spacing: calc(-1.2 / 1em);
   }
 
   :host([enable-search]:not([search-page-url])) .heading-title {

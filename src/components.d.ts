@@ -86,18 +86,10 @@ export namespace Components {
     }
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
@@ -2126,18 +2118,10 @@ declare global {
     }
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
@@ -3304,18 +3288,10 @@ declare namespace LocalJSX {
     }
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
      * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
@@ -5428,18 +5404,10 @@ declare module "@stencil/core" {
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             /**
              * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-             * @cssprop --app-header-height - Defaults to `auto`.
              * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
              * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
              * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * Defaults to `--app-header-typography-3-size`.
-             * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-             * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-             * Defaults to `--app-header-typography-3-lineheight`.
-             * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-             * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-             * Defaults to `--app-header-typography-3-tracking`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
