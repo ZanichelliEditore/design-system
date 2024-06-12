@@ -276,8 +276,7 @@ export class ZAppHeader {
         {this.enableZLogo && (
           <img
             class="z-logo"
-            src="../assets/images/LaZ.svg"
-            alt=""
+            alt="Logo Zanichelli"
           />
         )}
         {this.enableZLogo && this.currentViewport !== Device.MOBILE && (
