@@ -292,13 +292,71 @@ export class ZAppHeader {
     );
   }
 
-  componentDidLoad(): void {
-    this.onStuckMode();
+  private renderOffcanvas(): HTMLZOffcanvasElement {
+    return (
+      <z-offcanvas
+        variant={OffCanvasVariant.OVERLAY}
+        transitiondirection={TransitionDirection.RIGHT}
+        open={this.drawerOpen}
+        onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
+      >
+        <button
+          class="drawer-close"
+          aria-label="Chiudi menu"
+          onClick={this.closeDrawer}
+          slot="canvasContent"
+          aria-hidden={`${!this.drawerOpen}`}
+          disabled={!this.drawerOpen}
+        >
+          <z-icon name="close"></z-icon>
+        </button>
+
+        <div
+          class="drawer-content"
+          slot="canvasContent"
+          aria-hidden={`${!this.drawerOpen}`}
+        >
+          <slot
+            name="menu"
+            onSlotchange={this.collectMenuElements}
+          ></slot>
+        </div>
+      </z-offcanvas>
+    );
+  }
+
+  private renderStuck(): HTMLElement {
+    return (
+      <div class="heading-stuck">
+        <div class="heading-stuck-content">
+          {this.menuLength > 0 && (
+            <button
+              class="drawer-trigger"
+              aria-label="Apri menu"
+              onClick={this.openDrawer}
+            >
+              <z-icon name="burger-menu"></z-icon>
+            </button>
+          )}
+          <div class="heading-title">
+            {this.renderProductLogos()}
+            <slot name="stucked-title">{this.title}</slot>
+          </div>
+
+          {this.renderSearchLinkButton()}
+          {this.canShowSearchbar && this.currentViewport === Device.DESKTOP && this.renderSeachbar(false)}
+        </div>
+      </div>
+    );
   }
 
   componentWillLoad(): void {
     this.collectMenuElements();
     this.evaluateViewport();
+  }
+
+  componentDidLoad(): void {
+    this.onStuckMode();
   }
 
   render(): HTMLZAppHeaderElement {
@@ -346,57 +404,9 @@ export class ZAppHeader {
           )}
         </div>
 
-        <z-offcanvas
-          variant={OffCanvasVariant.OVERLAY}
-          transitiondirection={TransitionDirection.RIGHT}
-          open={this.drawerOpen}
-          onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
-        >
-          <button
-            class="drawer-close"
-            aria-label="Chiudi menu"
-            onClick={this.closeDrawer}
-            slot="canvasContent"
-            aria-hidden={`${!this.drawerOpen}`}
-            disabled={!this.drawerOpen}
-          >
-            <z-icon name="close"></z-icon>
-          </button>
+        {this.renderOffcanvas()}
 
-          <div
-            class="drawer-content"
-            slot="canvasContent"
-            aria-hidden={`${!this.drawerOpen}`}
-          >
-            <slot
-              name="menu"
-              onSlotchange={this.collectMenuElements}
-            ></slot>
-          </div>
-        </z-offcanvas>
-
-        {this._stuck && (
-          <div class="heading-stuck">
-            <div class="heading-stuck-content">
-              {this.menuLength > 0 && (
-                <button
-                  class="drawer-trigger"
-                  aria-label="Apri menu"
-                  onClick={this.openDrawer}
-                >
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
-              )}
-              <div class="heading-title">
-                {this.renderProductLogos()}
-                <slot name="stucked-title">{this.title}</slot>
-              </div>
-
-              {this.renderSearchLinkButton()}
-              {this.canShowSearchbar && this.currentViewport === Device.DESKTOP && this.renderSeachbar(false)}
-            </div>
-          </div>
-        )}
+        {this._stuck && this.renderStuck()}
       </Host>
     );
   }
