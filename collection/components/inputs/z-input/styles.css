@@ -18,11 +18,11 @@ input,
 textarea,
 .textarea-wrapper {
   box-sizing: border-box;
-  border: var(--border-size-small) solid var(--color-surface04);
+  border: var(--border-size-small) solid var(--gray700);
   background: var(--color-input-field01);
   border-radius: var(--border-radius-small);
-  color: var(--color-default-text);
-  fill: var(--color-default-icon);
+  color: var(--gray900);
+  fill: var(--gray900);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
@@ -92,7 +92,7 @@ textarea:focus:focus-visible {
 /* HOVER */
 input:not([readonly]):hover,
 .textarea-wrapper:hover {
-  outline: var(--border-size-medium) solid var(--color-surface04);
+  outline: var(--border-size-medium) solid var(--gray700);
   outline-offset: -2px;
 }
 
@@ -156,7 +156,7 @@ label.input-label {
 .text-wrapper > div {
   position: relative;
   z-index: 1;
-  fill: var(--color-default-icon);
+  fill: var(--gray900);
 }
 
 .text-wrapper > div > input {
