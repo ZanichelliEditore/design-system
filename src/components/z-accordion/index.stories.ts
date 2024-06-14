@@ -9,12 +9,8 @@ import "../z-tag/index";
 import "./index";
 
 const cssPropsArgs = {
-  "--z-accordion-bg": {
-    ...getColorTokenArgConfig(true),
-  },
-  "--z-accordion-label-color": {
-    ...getColorTokenArgConfig(true),
-  },
+  "--z-accordion-bg": getColorTokenArgConfig(true),
+  "--z-accordion-label-color": getColorTokenArgConfig(true),
   "--z-accordion-disabled-label-color": {
     ...getColorTokenArgConfig(true),
     if: {
@@ -22,15 +18,9 @@ const cssPropsArgs = {
       truthy: true,
     },
   },
-  "--z-accordion-content-bg": {
-    ...getColorTokenArgConfig(true),
-  },
-  "--z-accordion-content-fg": {
-    ...getColorTokenArgConfig(true),
-  },
-  "--z-accordion-hover-color": {
-    ...getColorTokenArgConfig(true),
-  },
+  "--z-accordion-content-bg": getColorTokenArgConfig(true),
+  "--z-accordion-content-fg": getColorTokenArgConfig(true),
+  "--z-accordion-hover-color": getColorTokenArgConfig(true),
   "--z-accordion-highlight-color": {
     ...getColorTokenArgConfig(true),
     if: {

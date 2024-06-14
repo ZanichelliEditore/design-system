@@ -25,18 +25,18 @@ const getFilteredArgTypes = () => {
   const argTypes = useArgTypes();
   const args = useArgs()[0];
 
-  return Object.entries(argTypes).reduce((acc, [key, arg]) => {
+  return Object.entries(argTypes).reduce((acc, [key, argType]) => {
     if (key in args) {
-      if (arg.table && !arg.table.category) {
+      if (argType.table && !argType.table.category) {
         // set a category for the "auxiliary" args that are not part of the component but are used for demo purposes
-        arg.table.category = "Story controls";
+        argType.table.category = "Story controls";
       }
 
-      if (arg.table?.category === "css custom properties") {
+      if (argType.table?.category === "css custom properties" && argType.control?.["type"] === "object") {
         // fix control type for css custom properties. set text instead of the `object` automatically inferred by storybook
-        arg.control = Object.assign(arg.control ?? {}, {type: "text"});
+        argType.control = Object.assign(argType.control ?? {}, {type: "text"});
       }
-      acc[key] = arg;
+      acc[key] = argType;
     }
 
     return acc;
