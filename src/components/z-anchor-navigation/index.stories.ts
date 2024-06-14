@@ -147,9 +147,11 @@ export const Default = {
 } satisfies StoryObj<ZAnchorNavigation>;
 
 /**
- * Manual activation of the `current` item on click setting `autoCurrent` to false.
+ * Setting `autoCurrent` to `false` disables the automatic highlighting of the current section in the anchor navigation
+ * and allows manual handling.
+ * In this story, for example, the highlighting of the current section is done by clicking on the related button.
  */
-export const AutoCurrent = {
+export const AutoCurrentDisabling = {
   args: {
     autoCurrent: false,
   },
