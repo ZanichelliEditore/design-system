@@ -35,6 +35,15 @@
   top: 56px;
 }
 
+.z-anchor-navigation-demo-sections {
+  scroll-snap-type: y mandatory;
+}
+
+.z-anchor-navigation-demo-sections > .section {
+  scroll-margin-top: 56px;
+  scroll-snap-align: start;
+}
+
 @media (min-width: 768px) {
   .z-anchor-navigation-story-wrapper {
     display: inline-flex;

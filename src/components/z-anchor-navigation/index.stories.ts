@@ -160,26 +160,25 @@ export const AutoCurrent = {
   },
   render: (args) => html`
     <script>
-      const onClick = (ev) => {
-        const sectionID = ev.target.closest("z-button")?.dataset.to;
-        const current = document.querySelector("#" + sectionID + "-anchor");
-        const nav = current?.closest("nav");
-        Array.from(nav?.children ?? []).forEach((item) => {
-          const isCurrent = item.contains(current);
-          if (isCurrent) {
-            item.setAttribute("data-current", "");
-          } else {
-            item.removeAttribute("data-current");
-          }
-          const anchor = item.tagName === "A" ? item : item.querySelector("a");
-          item?.setAttribute("aria-current", isCurrent.toString());
-        });
-        const section = document.querySelector("#" + sectionID);
-        section?.scrollIntoView();
-      };
-
-      const buttons = document.querySelectorAll(".z-anchor-navigation-manual-current z-button");
-      Array.from(buttons).forEach((item) => item.addEventListener("click", onClick));
+      Array.from(document.querySelectorAll(".z-anchor-navigation-manual-current z-button")).forEach((item) =>
+        item.addEventListener("click", (ev) => {
+          const sectionID = ev.target.closest("z-button")?.dataset.to;
+          const current = document.querySelector("#" + sectionID + "-anchor");
+          const nav = current?.closest("nav");
+          Array.from(nav?.children ?? []).forEach((item) => {
+            const isCurrent = item.contains(current);
+            if (isCurrent) {
+              item.setAttribute("data-current", "");
+            } else {
+              item.removeAttribute("data-current");
+            }
+            const anchor = item.tagName === "A" ? item : item.querySelector("a");
+            item?.setAttribute("aria-current", isCurrent.toString());
+          });
+          const section = document.querySelector("#" + sectionID);
+          section?.scrollIntoView();
+        })
+      );
     </script>
 
     <div class="z-anchor-navigation-manual-current">
@@ -237,8 +236,11 @@ export const AutoCurrent = {
           Third section with a very very long title and an icon and the title is repeated so it can go over 2 lines
         </a>
       </z-anchor-navigation>
-      <div>
-        <div id="first-section">
+      <div class="z-anchor-navigation-demo-sections">
+        <div
+          class="section"
+          id="first-section"
+        >
           <h4>First section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -258,7 +260,10 @@ export const AutoCurrent = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="second-section">
+        <div
+          class="section"
+          id="second-section"
+        >
           <h4>Second section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -278,7 +283,10 @@ export const AutoCurrent = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="third-section">
+        <div
+          class="section"
+          id="third-section"
+        >
           <h4>Third section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -298,7 +306,10 @@ export const AutoCurrent = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="fourth-section">
+        <div
+          class="section"
+          id="fourth-section"
+        >
           <h4>Fourth section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
