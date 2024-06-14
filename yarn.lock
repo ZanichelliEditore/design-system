@@ -9881,10 +9881,10 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
-storybook-addon-stencil@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-stencil/-/storybook-addon-stencil-0.2.0.tgz#1594a84f787636b2c11d1885b39deea119038a2d"
-  integrity sha512-hDfJdYIWZ7QZu4VEROsOcMA5C1krzus4TVPfy49uMWdSZIrJgko+kHVoTbEvB3hhcDlwyl5N83gJWiGDc7s2tQ==
+storybook-addon-stencil@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-stencil/-/storybook-addon-stencil-0.2.1.tgz#1db0f996ad81e210ea9ee8d92b5f5a207f98afcd"
+  integrity sha512-tPm/6UE56y4Oh6Qg0XJhg+pf3XqnG8mNkMQuxWVQKTtcguwXzPAfD1OvMrgrfD/6Mi0Fn6sPljYiAQSi1O3XSQ==
   dependencies:
     "@stencil/core" "^4"
     "@storybook/builder-vite" "^8.1.4"
