@@ -12,7 +12,7 @@ jobs:
   build-deploy:
     name: Build and deploy storybook
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/setup-node@v4
         with:
