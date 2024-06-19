@@ -11,13 +11,13 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
@@ -30,11 +30,11 @@ jobs:
       - setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
@@ -50,11 +50,11 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
@@ -70,11 +70,11 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
