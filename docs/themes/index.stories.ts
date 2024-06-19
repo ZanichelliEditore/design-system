@@ -35,20 +35,24 @@ export const Themes = {
           <div slot="primary-title">Color tokens</div>
         </z-section-title>
         <ul>
-          ${getThemesColorTokens().map(
-            (token) => html`
-              <li>
-                <span class="token-name">${token}</span>
-                <div class="color">
-                  <div
-                    class="color-box"
-                    style="background-color: var(${token})"
-                  ></div>
-                  <div class="interactive-2">${getComputedStyle(document.documentElement).getPropertyValue(token)}</div>
-                </div>
-              </li>
-            `
-          )}
+          ${getThemesColorTokens()
+            .sort()
+            .map(
+              (token) => html`
+                <li>
+                  <span class="token-name">${token}</span>
+                  <div class="color">
+                    <div
+                      class="color-box"
+                      style="background-color: var(${token})"
+                    ></div>
+                    <div class="interactive-2">
+                      ${getComputedStyle(document.documentElement).getPropertyValue(token)}
+                    </div>
+                  </div>
+                </li>
+              `
+            )}
         </ul>
       </div>
     </div>
