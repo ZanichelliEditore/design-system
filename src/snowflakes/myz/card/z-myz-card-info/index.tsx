@@ -1,4 +1,4 @@
-import {Component, Prop, h, Event, EventEmitter, State} from "@stencil/core";
+import {Component, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {DictionaryData, PopoverPosition} from "../../../../beans";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 

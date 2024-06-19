@@ -1,4 +1,4 @@
-import {Component, h, Prop, Listen} from "@stencil/core";
+import {Component, Listen, Prop, h} from "@stencil/core";
 import {PocketStatus} from "../../../../beans";
 
 /**

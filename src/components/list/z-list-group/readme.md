@@ -19,9 +19,9 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
- - [z-combobox](../../inputs/z-combobox)
- - [z-searchbar](../../inputs/z-searchbar)
- - [z-select](../../inputs/z-select)
+ - [z-combobox](../../z-combobox)
+ - [z-searchbar](../../z-searchbar)
+ - [z-select](../../z-select)
 
 ### Depends on
 

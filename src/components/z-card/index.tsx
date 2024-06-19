@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, State, Host} from "@stencil/core";
+import {Component, Element, Host, Prop, State, h} from "@stencil/core";
 import {CardVariant} from "../../beans";
 
 /**

@@ -38,7 +38,7 @@
 - [z-myz-card-header](../z-myz-card-header)
 - [z-myz-card-body](../z-myz-card-body)
 - [z-myz-card-cover](../z-myz-card-cover)
-- [z-button](../../../../components/buttons/z-button)
+- [z-button](../../../../components/z-button)
 
 ### Graph
 ```mermaid

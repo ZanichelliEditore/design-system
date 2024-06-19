@@ -1,4 +1,4 @@
-import {Component, Prop, h, Watch} from "@stencil/core";
+import {Component, Prop, Watch, h} from "@stencil/core";
 import {ListItem} from "../../../../beans/index.js";
 
 @Component({

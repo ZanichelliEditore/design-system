@@ -47,7 +47,7 @@ ZCarousel component.
 ### Depends on
 
 - [z-ghost-loading](../z-ghost-loading)
-- [z-button](../buttons/z-button)
+- [z-button](../z-button)
 
 ### Graph
 ```mermaid

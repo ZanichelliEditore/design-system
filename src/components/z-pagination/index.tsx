@@ -1,4 +1,4 @@
-import {Component, Prop, h, Element, Event, EventEmitter, Watch, State, Listen, Host} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {InputType} from "../../beans";
 
 /**

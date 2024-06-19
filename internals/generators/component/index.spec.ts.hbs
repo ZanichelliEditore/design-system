@@ -1,12 +1,11 @@
 import {newSpecPage} from "@stencil/core/testing";
-
-import {\{{ properCase name }}\} from "./index";
+import { {{~properCase name~}} } from "./index";
 
 describe("Suite test {{properCase name}}", () => {
   it("Test render {{properCase name}} vuoto", async () => {
 
     const page = await newSpecPage({
-      components: [{{ properCase name }}],
+      components: [{{properCase name}}],
       html: `<{{kebabCase name}}></{{kebabCase name}}>`
     });
 

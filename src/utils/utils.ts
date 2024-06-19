@@ -1,5 +1,5 @@
 import {ChildNode} from "@stencil/core";
-import {KeyboardCode, Device} from "../beans/index";
+import {Device, KeyboardCode} from "../beans/index";
 import {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {

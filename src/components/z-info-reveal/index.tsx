@@ -1,4 +1,4 @@
-import {Component, h, Prop, State, Host, Listen, Watch, Element} from "@stencil/core";
+import {Component, Element, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InfoRevealPosition} from "../../beans";
 
 /**

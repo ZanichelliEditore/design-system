@@ -12,7 +12,9 @@ footer {
   color: var(--color-surface05);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  transition:
+    height 500ms ease-in-out,
+    top 500ms ease-in-out;
 }
 
 footer.real,
@@ -116,7 +118,9 @@ footer.isopen > div.content > div > p.year-isbn > span.isbn {
 footer.isopen {
   top: -212px;
   height: 295px;
-  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  transition:
+    height 500ms ease-in-out,
+    top 500ms ease-in-out;
 }
 
 footer.isopen.custom-content {
@@ -125,7 +129,9 @@ footer.isopen.custom-content {
 
 footer.isopen > div.content {
   height: 280px;
-  transition: height 500ms ease-in-out, top 500ms ease-in-out;
+  transition:
+    height 500ms ease-in-out,
+    top 500ms ease-in-out;
 }
 
 footer.isopen.custom-content > div.content {

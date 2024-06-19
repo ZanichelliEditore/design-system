@@ -20,7 +20,7 @@
 | `listElementId`       | `list-element-id`       | [optional] List element id.                                          | `number`                                                                    | `undefined`                      |
 | `listElementPosition` | `list-element-position` | [optional] position of the list element inside the list or the group | `string`                                                                    | `"0"`                            |
 | `listType`            | `list-type`             | [optional] type of the list marker for each element                  | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                   | `ListType.NONE`                  |
-| `role`                | `role`                  | [optional] Sets element role.                                        | `string`                                                                    | `"listitem"`                     |
+| `role`                | `role`                  | Sets element role.                                                   | `string`                                                                    | `"listitem"`                     |
 | `size`                | `size`                  | [optional] Sets size of inside elements.                             | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE`   | `ListSize.MEDIUM`                |
 
 
@@ -45,13 +45,13 @@
 ### Used by
 
  - [z-breadcrumb](../../z-breadcrumb)
- - [z-combobox](../../inputs/z-combobox)
- - [z-searchbar](../../inputs/z-searchbar)
- - [z-select](../../inputs/z-select)
+ - [z-combobox](../../z-combobox)
+ - [z-searchbar](../../z-searchbar)
+ - [z-select](../../z-select)
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 - [z-divider](../../z-divider)
 
 ### Graph

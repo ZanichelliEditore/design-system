@@ -1,4 +1,4 @@
-import {Component, Prop, h, State, Host, Listen, Element, Event, Watch, EventEmitter} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {
   BreadcrumbHomepageVariant,
   BreadcrumbPath,

@@ -39,12 +39,12 @@
 
 ### Used by
 
- - [z-combobox](../../../../components/inputs/z-combobox)
+ - [z-combobox](../../../../components/z-combobox)
  - [z-myz-list](../z-myz-list)
 
 ### Depends on
 
-- [z-icon](../../../../components/icons/z-icon)
+- [z-icon](../../../../components/z-icon)
 
 ### Graph
 ```mermaid

@@ -320,143 +320,58 @@ Per via delle regole di Stylelint, alcune classi CSS hanno cambiato nome (da _ca
 
 Di seguito l'elenco dei componenti interessati e delle classi modificate:
 
-- `z-input`
-
-  - .hasClearIcon
-  - .hasIcon
-  - .iconButton
-  - .iconsWrapper
-  - .inputIcon
-  - .inputLabel
-  - .resetIcon
-  - .showHidePasswordIcon
-  - .textareaWrapper
-  - .textWrapper
-
-- `z-input-deprecated`
-
-  - .hasClearIcon
-  - .hasIcon
-  - .iconsWrapper
-  - .input_error
-  - .input_success
-  - .input_warning
-  - .resetIcon
-  - .showHidePasswordIcon
-  - .textareaWrapper
-
-- `z-input` / `z-input-deprecated`
-
-  - La classe `.showHidePasswordIcon` è stata modificata in `.toggle-password-icon` per chiarezza
-
-- `z-input-deprecated` _(checkbox)_
-
-  - .checkboxLabel
-  - .checkboxWrapper
-  - .radioLabel
-  - .radioWrapper
-
-- `z-select`
-
-  - .noResults
-  - .selectWrapper
-  - .ulScrollWrapper
-
-- `z-chip`
-
-  - .iconSx
-
-- `z-file-upload`
-
-  - .modalWrapper
-
-- `z-table-empty-box`
-
-  - .has2Cta
-
-- `z-button`
-
-- `z-toggle-switch`
-
-- `z-date-picker`
-
-- `z-range-picker`
-
-- `z-footer`
-
-- `z-combobox`
-
-- `z-input-message`
-
-- `z-list-element`
-
-- `z-toast-notification-list`
-
-- `z-modal-login`
-
-- `z-navigation-tab-link`
-
-- `z-navigation-tab`
-
-- `z-navigation-tabs`
-
-- `z-menu-dropdown`
-
-- `z-cookiebar`
-
-- `z-toast-notification`
-
-- `z-card`
-
-- `z-offcanvas`
-
-- `z-pagination`
-
-- `z-popover`
-
-- `z-section-title`
-
-- `z-table`
-
-- `z-table-cell`
-
-- `z-table-header`
-
-- `z-button-deprecated`
-
-- `z-popover-deprecated`
-
-- `z-myz-card-alert`
-
-- `z-myz-card-dictionary`
-
-- `z-myz-card-footer`
-
-- `z-myz-card-header`
-
-- `z-myz-card-list`
-
-- `z-myz-card`
-
-- `z-myz-card-alert`
-
-- `z-myz-list`
-
-- `z-messages-pocket`
-
-- `z-pocket-body`
-
-- `z-pocket`
-
-- `topbar`
-
-- `z-alert`
-
-- `z-otp`
-
-- `z-slideshow`
-
-- `utils`
+| Component                         | Classes                                                                                                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `z-input`                         | `.hasClearIcon` `.hasIcon` `.iconButton` `.iconsWrapper` `.inputIcon` `.inputLabel` `.resetIcon` `.showHidePasswordIcon` `.textareaWrapper` `.textWrapper` |
+| `z-input-deprecated`              | `.hasClearIcon` `.hasIcon` `.iconsWrapper` `.input_error` `.input_success` `.input_warning` `.resetIcon` `.showHidePasswordIcon` `.textareaWrapper`        |
+| `z-input` / `z-input-deprecated`  | La classe `.showHidePasswordIcon` è stata modificata in `.toggle-password-icon` per chiarezza                                                              |
+| `z-input-deprecated` _(checkbox)_ | `.checkboxLabel` `.checkboxWrapper` `.radioLabel` `.radioWrapper`                                                                                          |
+| `z-select`                        | `.noResults` `.selectWrapper` `.ulScrollWrapper`                                                                                                           |
+| `z-chip`                          | `.iconSx`                                                                                                                                                  |
+| `z-file-upload`                   | `.modalWrapper`                                                                                                                                            |
+| `z-table-empty-box`               | `.has2Cta`                                                                                                                                                 |
+| `z-button`                        | -                                                                                                                                                          |
+| `z-toggle-switch`                 | -                                                                                                                                                          |
+| `z-date-picker`                   | -                                                                                                                                                          |
+| `z-range-picker`                  | -                                                                                                                                                          |
+| `z-footer`                        | -                                                                                                                                                          |
+| `z-combobox`                      | -                                                                                                                                                          |
+| `z-input-message`                 | -                                                                                                                                                          |
+| `z-list-element`                  | -                                                                                                                                                          |
+| `z-toast-notification-list`       | -                                                                                                                                                          |
+| `z-modal-login`                   | -                                                                                                                                                          |
+| `z-navigation-tab-link`           | -                                                                                                                                                          |
+| `z-navigation-tab`                | -                                                                                                                                                          |
+| `z-navigation-tabs`               | -                                                                                                                                                          |
+| `z-menu-dropdown`                 | -                                                                                                                                                          |
+| `z-cookiebar`                     | -                                                                                                                                                          |
+| `z-toast-notification`            | -                                                                                                                                                          |
+| `z-card`                          | -                                                                                                                                                          |
+| `z-offcanvas`                     | -                                                                                                                                                          |
+| `z-pagination`                    | -                                                                                                                                                          |
+| `z-popover`                       | -                                                                                                                                                          |
+| `z-section-title`                 | -                                                                                                                                                          |
+| `z-table`                         | -                                                                                                                                                          |
+| `z-table-cell`                    | -                                                                                                                                                          |
+| `z-table-header`                  | -                                                                                                                                                          |
+| `z-button-deprecated`             | -                                                                                                                                                          |
+| `z-popover-deprecated`            | -                                                                                                                                                          |
+| `z-myz-card-alert`                | -                                                                                                                                                          |
+| `z-myz-card-dictionary`           | -                                                                                                                                                          |
+| `z-myz-card-footer`               | -                                                                                                                                                          |
+| `z-myz-card-header`               | -                                                                                                                                                          |
+| `z-myz-card-list`                 | -                                                                                                                                                          |
+| `z-myz-card`                      | -                                                                                                                                                          |
+| `z-myz-card-alert`                | -                                                                                                                                                          |
+| `z-myz-list`                      | -                                                                                                                                                          |
+| `z-messages-pocket`               | -                                                                                                                                                          |
+| `z-pocket-body`                   | -                                                                                                                                                          |
+| `z-pocket`                        | -                                                                                                                                                          |
+| `topbar`                          | -                                                                                                                                                          |
+| `z-alert`                         | -                                                                                                                                                          |
+| `z-otp`                           | -                                                                                                                                                          |
+| `z-slideshow`                     | -                                                                                                                                                          |
+| `utils`                           | -                                                                                                                                                          |
 
 > Sono state cambiate classi CSS anche in altri componenti che non sono inclusi nell'elenco: quei componenti hanno l'opzione `shadow: true`, quindi di sicuro non è stato possibile usare le classi CSS per modificarne lo stile dai prodotti.
 

@@ -171,12 +171,16 @@
 
 :host(:not([open])[variant="overlay"][transitiondirection="right"]) > .canvas-container {
   transform: translateX(-100%);
-  transition: visibility 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    visibility 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 :host(:not([open])[variant="overlay"][transitiondirection="left"]) > .canvas-container {
   transform: translateX(100%);
-  transition: visibility 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    visibility 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 :host(:not([open])[variant="overlay"]) .canvas-background {

@@ -1,4 +1,4 @@
-import {Component, Prop, h, EventEmitter, Event, State, Listen, Element, Host, Method} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h} from "@stencil/core";
 import {ButtonVariant, Device, DividerSize, ZFileUploadType} from "../../../beans";
 import {getDevice} from "../../../utils/utils";
 

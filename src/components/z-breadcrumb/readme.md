@@ -28,7 +28,7 @@
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../z-icon)
 - [z-popover](../z-popover)
 - [z-list](../list/z-list)
 - [z-list-group](../list/z-list-group)

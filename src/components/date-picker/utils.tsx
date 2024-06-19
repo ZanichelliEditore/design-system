@@ -21,8 +21,8 @@ export function setFlatpickrPosition(
     mode === ZDatePickerMode.DATE_TIME
       ? ZDatePickerModeValue.DATE_TIME
       : mode === ZDatePickerMode.MONTHS
-      ? ZDatePickerModeValue.MONTHS
-      : ZDatePickerModeValue.DATE;
+        ? ZDatePickerModeValue.MONTHS
+        : ZDatePickerModeValue.DATE;
 
   const bottom = element.getBoundingClientRect().bottom;
   const overflowBottom = bottom + flatpickrHeight > window.innerHeight;
