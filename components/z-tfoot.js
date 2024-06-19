@@ -11,7 +11,7 @@ const ZTfoot$1 = /*@__PURE__*/ proxyCustomElement(class ZTfoot extends HTMLEleme
         this.sticky = false;
     }
     render() {
-        return (h(Host, { key: '441a3e0656da274193c4a12681b9e9d641690982', role: "rowgroup" }, h("slot", { key: '5e80207cbf1238b2141fcd657cb10fc18be7bccb' })));
+        return (h(Host, { key: 'c56c6c8f9f3eda99f7eaed147ef2df8c99d43cda', role: "rowgroup" }, h("slot", { key: '03eeb74397f395723a8a649bb7213ac9fdbcf4f0' })));
     }
     static get style() { return ZTfootStyle0; }
 }, [1, "z-tfoot", {

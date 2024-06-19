@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { BreadcrumbHomepageVariant, BreadcrumbPathStyle, Device, KeyboardCode, ListSize, PopoverPosition, } from "../../beans";
 import { getDevice, handleKeyboardSubmit } from "../../utils/utils";
 export class ZBreadcrumb {
@@ -193,10 +193,10 @@ export class ZBreadcrumb {
         ];
     }
     render() {
-        return (h(Host, { key: 'f733fb3402c54c6d006af3ff72ddcba4a61256d5', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: 'a75562e28f23a646eccebf5c80ee1f71135a4b58', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+        return (h(Host, { key: 'bba9d5bf2b1316c4e29eebcc00cb23c3e6635a36', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '4d916bcbb730f4e3cd0d051b630336db7222aa30', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
                 semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
                 underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-            } }, h("ol", { key: '2b9f2868480e987d14e8829af4850d028087e722' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
+            } }, h("ol", { key: '654d8e9cad8417a155f1bc349b7b16687c8db96e' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     static get is() { return "z-breadcrumb"; }
     static get encapsulation() { return "shadow"; }

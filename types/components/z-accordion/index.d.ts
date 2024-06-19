@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../stencil-public-runtime";
-import { ControlSize, AccordionVariant } from "../../beans";
+import { AccordionVariant, ControlSize } from "../../beans";
 /**
  * Accordion component.
  *

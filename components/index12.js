@@ -25,7 +25,7 @@ const ZList = /*@__PURE__*/ proxyCustomElement(class ZList extends HTMLElement {
         this.setChildrenSizeType();
     }
     render() {
-        return (h(Host, { key: 'd49a1ce7a55b23b7905e44d47184672765f9ba34' }, h("slot", { key: 'f813287a50cd22f3f3e0bf1444dc8c5a146fb6ae' })));
+        return (h(Host, { key: 'a5269da1127742a7a9e58e8b0e46174c4c990a39' }, h("slot", { key: 'ced862d8fb2e6e4d86212e9dd22ca1c12a184fe3' })));
     }
     get host() { return this; }
     static get style() { return ZListStyle0; }

@@ -1,4 +1,4 @@
-import { KeyboardCode, Device } from "../beans/index";
+import { Device, KeyboardCode } from "../beans/index";
 import { desktopBreakpoint, mobileBreakpoint, tabletBreakpoint } from "../constants/breakpoints";
 export function format(first, middle, last) {
     return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");

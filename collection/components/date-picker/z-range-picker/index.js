@@ -1,7 +1,7 @@
 import { h } from "@stencil/core";
 import flatpickr from "flatpickr";
 import { Italian } from "flatpickr/dist/l10n/it.js";
-import { ZRangePickerMode, ZDatePickerPosition, InputType, InputStatus } from "../../../beans";
+import { InputStatus, InputType, ZDatePickerPosition, ZRangePickerMode } from "../../../beans";
 import { setAriaOptions, setFlatpickrPosition, validateDate } from "../utils";
 export class ZRangePicker {
     constructor() {
@@ -330,14 +330,14 @@ export class ZRangePicker {
             onStopTyping: this.onStopTyping.bind(this),
             value: "",
         };
-        return (h("div", { key: '04ed565c6d980ee5beb9f7e1d758e0b86f3f8638', class: {
+        return (h("div", { key: 'c503698bd0205fe189c3859dd115f6558dfc9a09', class: {
                 ["range-pickers-container"]: true,
                 [this.mode]: true,
                 [this.activeInput]: true,
                 [this.flatpickrPosition]: true,
-            } }, h("div", { key: 'c2beb59178405530065cfbb23dec44fc47712ea1', class: `${this.rangePickerId}-1-wrapper` }, h("div", { key: '531aa0a7f2734b79e194bfb8296e26426adebcc5', class: `${this.rangePickerId}-1-container` }, h("z-input", Object.assign({ key: 'f61370c377a2dbd5da98480c57745aac19387c5a' }, zInputProps, { placeholder: this.firstPickerPlaceholder, readonly: this.firstPickerReadOnly, "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatus.ERROR, onStartTyping: () => {
+            } }, h("div", { key: 'ebb4f94bc07bf7141fd1eb42f0dc9155ed563cd0', class: `${this.rangePickerId}-1-wrapper` }, h("div", { key: '924fc4ab0efc18550e96ec6bf51938a3a4335c2c', class: `${this.rangePickerId}-1-container` }, h("z-input", Object.assign({ key: '7aeb9334a243a29401c4a590809d57f8aaefd1b1' }, zInputProps, { placeholder: this.firstPickerPlaceholder, readonly: this.firstPickerReadOnly, "data-input": "data-input", class: `start-input ${this.rangePickerId}-1`, ariaLabel: this.firstAriaLabel, label: this.firstLabel, status: this.firstInputError && InputStatus.ERROR, onStartTyping: () => {
                 this.firstInputError = false;
-            } })))), h("div", { key: '17b8675699c2c4bc1c7d8cbc30e415192b703e12', class: `${this.rangePickerId}-2-wrapper` }, h("div", { key: 'bbe5a944c24489dc7fd48a185c279f0336a476fe', class: `${this.rangePickerId}-2-container` }, h("z-input", Object.assign({ key: '96c1b3138166de2571e06f1891b5cecef11856af' }, zInputProps, { placeholder: this.lastPickerPlaceholder, readonly: this.lastPickerReadOnly, "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatus.ERROR, onStartTyping: () => {
+            } })))), h("div", { key: '9aac0744b849283527ba3ad5d81ba760cc1d051e', class: `${this.rangePickerId}-2-wrapper` }, h("div", { key: '16fd5555b561645e206a4cbda09f77dfacd9088a', class: `${this.rangePickerId}-2-container` }, h("z-input", Object.assign({ key: '7b2cbc88fcd73059696f962ecd0870e1a3d9225c' }, zInputProps, { placeholder: this.lastPickerPlaceholder, readonly: this.lastPickerReadOnly, "data-input": "data-input", class: `end-input ${this.rangePickerId}-2`, ariaLabel: this.secondAriaLabel, label: this.secondLabel, status: this.lastInputError && InputStatus.ERROR, onStartTyping: () => {
                 this.lastInputError = false;
             } }))))));
     }

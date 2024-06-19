@@ -465,7 +465,7 @@ const ZDatePicker$1 = /*@__PURE__*/ proxyCustomElement(class ZDatePicker extends
             } })));
     }
     render() {
-        return (h("div", { key: 'af246b77b4ca4c20b37de99ef7751d7f0a06ebd4', class: {
+        return (h("div", { key: 'e36383db1da5908e5c61fcc543ff6006a0b5d27a', class: {
                 "flatpickr-toggle-container": true,
                 [this.flatpickrPosition]: true,
                 [this.mode]: true,

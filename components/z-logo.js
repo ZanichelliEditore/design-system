@@ -23,7 +23,7 @@ const ZLogo$1 = /*@__PURE__*/ proxyCustomElement(class ZLogo extends HTMLElement
         if (this.height) {
             style["height"] = style["max-height"] = `${this.height}px`;
         }
-        return (h(Host, { key: 'd9975127a15315e31fe4303eb4f0d76e40a1d885', style: style, class: { mobile: !!this.mobileLogo } }, this.link ? (h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, h("img", { alt: this.imageAlt }))) : (h("img", { alt: this.imageAlt }))));
+        return (h(Host, { key: '2faf5f56df6dbfff397a42f15f18b496e407da11', style: style, class: { mobile: !!this.mobileLogo } }, this.link ? (h("a", { href: this.link, target: this.targetBlank ? "_blank" : "_self" }, h("img", { alt: this.imageAlt }))) : (h("img", { alt: this.imageAlt }))));
     }
     static get style() { return ZLogoStyle0; }
 }, [1, "z-logo", {

@@ -12,10 +12,10 @@ const ZTag = /*@__PURE__*/ proxyCustomElement(class ZTag extends HTMLElement {
         this.expandable = undefined;
     }
     render() {
-        return (h(Host, { key: '4ceab08ea5a0bc2c05fdad9adb7a23d08027d8d8', class: {
+        return (h(Host, { key: '0b2f0fda539ab5e9f07e93bd1eeab8eb098e3245', class: {
                 "body-5-sb": true,
                 "expandable": this.expandable && !!this.icon,
-            } }, this.icon && h("z-icon", { name: this.icon }), h("div", { key: 'f7c3b0f2a4678cfaf0f06472cbd6e63bd5903acb' }, h("slot", { key: '8bfd8c8d335d60ad2f6328bb429d46d76f720880' }))));
+            } }, this.icon && h("z-icon", { key: '1ce99af72a0ee664304ffc0a0fd401e98e043788', name: this.icon }), h("div", { key: 'fb9aee905ab56d5c086ee850eaf7f7cb8fa10dfe' }, h("slot", { key: '8f1d8bb919793b9570fb49a0761be534b6e454ce' }))));
     }
     static get style() { return ZTagStyle0; }
 }, [6, "z-tag", {

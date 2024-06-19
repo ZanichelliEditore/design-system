@@ -34,7 +34,7 @@ export class ZMessagesPocket {
         return (h("z-pocket-body", { pocketid: this.pocketid }, h("div", { class: "body" }, h("slot", null)), h("div", { class: "gradient" })));
     }
     render() {
-        return (h("z-pocket", { key: '2f8a4cab129678f4a14c8fe5605c20098d29427a', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
+        return (h("z-pocket", { key: '5be608e84b6e356a29b5f1d7b96a36646ee0299a', pocketid: this.pocketid, status: this.status, class: this.status }, this.renderHeader(), this.renderBody()));
     }
     static get is() { return "z-messages-pocket"; }
     static get encapsulation() { return "shadow"; }

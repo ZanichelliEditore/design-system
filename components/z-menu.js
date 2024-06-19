@@ -100,7 +100,7 @@ const ZMenu$1 = /*@__PURE__*/ proxyCustomElement(class ZMenu extends HTMLElement
         return (h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }))));
     }
     render() {
-        return (h(Host, { key: '0ecfa6c7439e2472ebb454362e5dd86b4eef9ad3' }, this.renderMenuLabel(), this.hasContent && (h("div", { class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { class: "header" }, h("slot", { name: "header", onSlotchange: this.checkContent }))), h("div", { class: "items", role: "menu" }, h("slot", { name: "item", onSlotchange: this.onItemsChange }))))));
+        return (h(Host, { key: '675f13eb3d814743037d5e791afd82d8737ba57d' }, this.renderMenuLabel(), this.hasContent && (h("div", { key: '50ef2a4dbf031fa211bc818b7704d46acbe63446', class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { key: '9ed7520b00334a598c7664e0ccb1c4f8bfe3b858', class: "header" }, h("slot", { key: '6a41d2d5802d54bf192fd7f03586df1c933a7877', name: "header", onSlotchange: this.checkContent }))), h("div", { key: '7aa4c1c061559caac915866d1ae2acfe02dc3a8a', class: "items", role: "menu" }, h("slot", { key: '8494b984ad295b61d2cad61a25571220e74b8dff', name: "item", onSlotchange: this.onItemsChange }))))));
     }
     get hostElement() { return this; }
     static get watchers() { return {

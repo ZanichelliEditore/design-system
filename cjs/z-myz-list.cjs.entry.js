@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 
 const stylesCss = "ul{padding:0;margin:0}";
 const ZMyzListStyle0 = stylesCss;
@@ -26,7 +26,7 @@ const ZMyzList = class {
     }
     render() {
         const lastElem = this.list ? this.list.length - 1 : -1;
-        return (index.h("ul", { key: 'beb3170f0894edf221d32e81e23fdf0967d5560b' }, this.list &&
+        return (index.h("ul", { key: '9cf1e909a4da9d319f437c1d5fcbc799a49e668b' }, this.list &&
             this.list.map((bean, i) => (index.h("z-myz-list-item", { listitemid: bean.listitemid, text: bean.text, link: bean.link, linktarget: bean.linktarget, icon: bean.icon, underlined: lastElem != i })))));
     }
     static get watchers() { return {

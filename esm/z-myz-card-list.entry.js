@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-f16bc2ca.js';
+import { r as registerInstance, h } from './index-ab5f1eaa.js';
 
 const stylesCss = "ul{overflow:hidden;width:auto;height:auto;padding:0;margin:0 calc(var(--space-unit) * 2);color:var(--color-primary01);font-family:var(--font-family-sans);list-style:none}ul>li{padding-left:10px;text-indent:-10px}ul>li>a{display:block;padding-top:calc(var(--space-unit) * 0.5);color:var(--color-primary01);font-size:14px;font-weight:var(--font-sb);letter-spacing:0.16px;line-height:calc(var(--space-unit) * 2.5);text-decoration:none}ul>li>a::before{padding-right:5px;content:\"•\"}ul>li>span{padding:0 calc(var(--space-unit) * 2);color:var(--color-surface04);font-size:14px;font-weight:var(--font-rg);letter-spacing:0.16px;line-height:calc(var(--space-unit) * 2.5);text-decoration:none}";
 const ZMyzCardListStyle0 = stylesCss;
@@ -28,7 +28,7 @@ const ZMyzCardList = class {
         });
     }
     render() {
-        return h("ul", { key: '8fa3ddd1500ab0fa34402944d13c147aa6467a3b' }, this.renderList(JSON.parse(this.listdata)));
+        return h("ul", { key: '04fd2a50aca23fe43cb8126e7325dda58393cb7b' }, this.renderList(JSON.parse(this.listdata)));
     }
 };
 ZMyzCardList.style = ZMyzCardListStyle0;

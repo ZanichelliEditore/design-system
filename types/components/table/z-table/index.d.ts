@@ -1,7 +1,7 @@
-import "../z-thead/index";
 import "../z-tbody/index";
-import "../z-tr/index";
 import "../z-tfoot/index";
+import "../z-thead/index";
+import "../z-tr/index";
 /**
  * ZTable component.
  * @slot - Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`).

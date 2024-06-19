@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, a as Host, g as getElement } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h, a as Host, g as getElement } from './index-ab5f1eaa.js';
 import { s as ToastNotificationTransition } from './index-2255c6c8.js';
 import { m as mobileBreakpoint } from './breakpoints-680e0e56.js';
 import { H as Hammer } from './hammer-f1ed46b5.js';
@@ -177,7 +177,7 @@ const ZToastNotification = class {
             } }, h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
     }
     render() {
-        return (h(Host, { key: 'aeaadb9a5b9ee6e77cfd1e991eec225364456e9e', style: {
+        return (h(Host, { key: 'bf20c69f253b702092fe078443eedb9e86fe223a', style: {
                 "--percentuale": `${this.percentage}%`,
             }, class: this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {

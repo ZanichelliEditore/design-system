@@ -1,8 +1,8 @@
 import { Host, h } from "@stencil/core";
-import "../z-thead/index";
 import "../z-tbody/index";
-import "../z-tr/index";
 import "../z-tfoot/index";
+import "../z-thead/index";
+import "../z-tr/index";
 /**
  * ZTable component.
  * @slot - Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`).
@@ -36,7 +36,7 @@ export class ZTable {
         (_a = this.expandableMutationObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: '7df0f17c2a8af3ffc26afb0eac92ff80201ea65a', expandable: this.expandable }, h("div", { key: '44d334758702e852bbafe3845c6904c13670c355', class: "table", role: "table" }, h("slot", { key: 'e53145cc9d7b07fc0a2384df635ca5adc5e47b91' }))));
+        return (h(Host, { key: '5f7370afd7912583561ac67baf5b70921c49eea2', expandable: this.expandable }, h("div", { key: '8cbf774ffe599cf49ed9377c2ff3c1e0e8d14e85', class: "table", role: "table" }, h("slot", { key: '318eceb0c4e486a49faab1fe7027acfa76456352' }))));
     }
     static get is() { return "z-table"; }
     static get encapsulation() { return "shadow"; }

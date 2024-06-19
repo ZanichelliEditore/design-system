@@ -62,9 +62,9 @@ export declare class ZListElement {
      */
     listType?: ListType;
     /**
-     * [optional] Sets element role.
+     * Sets element role.
      */
-    role?: string;
+    role: string;
     /** set tabindex to Host tag (optional). Defaults to 0. */
     htmlTabindex?: number | null;
     showInnerContent: boolean;

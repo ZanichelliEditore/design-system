@@ -964,16 +964,16 @@ const ZModal = /*@__PURE__*/ proxyCustomElement(class ZModal extends HTMLElement
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: 'e2e7b6cf379e4d8a0636b926901047a752184ac8', class: {
+        return (h("dialog", { key: '502c0fd42f37a498ef3ec2b2b174ac4950287883', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: 'fc3170c92b4b0bb67f23fd8b00a9540b64f9583a', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '0dd9496ca11660307bcb8d751e8793659aa30741', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '268f689959051dc304efd99dd64a4eb5ac47aa17', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '5651d45bddad36999eddf25863a7d398cc87cf91' }, this.modaltitle && h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: '375fa8c15cc53534fae53912cb353b1f93190946', class: {
+            }, id: this.modalid }, h("header", { key: '6952365a4a1d64e1ce23a9454f11cd4ae76e37ca', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: 'fe219a40167ad9984255885bb189d9a9a0509cd5' }, this.modaltitle && h("h1", { key: '2991d4e6c254160dfe33e3558dc5db4d4dbf0abf', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '5a612bc3eb027b488a37918794c4f24e1991a38d', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: '34008ade3d0f05c701b4d94df647086a8de3cd27', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: 'cb32585b3159f2acc9c15ab45635b4600ae97696', name: "modalContent" }))), h("div", { key: '8439bcbbbfe0307b31a22b1c674e3080b63e507a', class: {
+            }, id: "modal-content" }, h("slot", { key: '7ce631a687090f9b69bafa8de5dbe76d21d2c554', name: "modalContent" }))), h("div", { key: '8fc40e271bec8219fbbbf208bbba900a74ebdec8', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

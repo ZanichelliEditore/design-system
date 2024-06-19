@@ -1,6 +1,6 @@
 import { h } from "@stencil/core";
-import { handleKeyboardSubmit } from "../../../../utils/utils";
 import Hammer from "hammerjs";
+import { handleKeyboardSubmit } from "../../../../utils/utils";
 /**
  * @slot  - pocket header content
  */
@@ -23,7 +23,7 @@ export class ZPocketHeader {
         mc.on("pandown", () => this.emitPocketHeaderPan("down"));
     }
     render() {
-        return (h("header", { key: 'dbf411ce43b511c02c768d79c20eb95991b3555d', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '30b0c595f0c4e503dbe8e144c3805be2a8d4aed5' })));
+        return (h("header", { key: 'e7f1ed78dd4b33c701d5bd0f648c9401d8a38313', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '1d8bb012ac6dcdf3337d0c70df59b3b098e9de56' })));
     }
     static get is() { return "z-pocket-header"; }
     static get encapsulation() { return "shadow"; }

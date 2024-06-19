@@ -31,10 +31,10 @@ const ZAvatar$1 = /*@__PURE__*/ proxyCustomElement(class ZAvatar extends HTMLEle
         }
     }
     render() {
-        return (h(Host, { key: '17a097738ce186c791794f5f8192cd46845df2a6', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        return (h(Host, { key: '63564a1499f36b406dcece1fd47bb0aa8e06ed6d', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
                 color: `var(--${this.textColor})`,
                 backgroundColor: `var(--${this.backgroundColor})`,
-            } }, this.text && !this.image && h("span", null, this.text.substring(0, 2)), this.image && (h("img", { src: this.image, onError: () => (this.image = "") }))));
+            } }, this.text && !this.image && h("span", { key: '9813952059608df9a5cdf74db7038aec2751dfa8' }, this.text.substring(0, 2)), this.image && (h("img", { key: 'd918f83b5212cb7618e30a0dc040f0c312341386', src: this.image, onError: () => (this.image = "") }))));
     }
     static get style() { return ZAvatarStyle0; }
 }, [1, "z-avatar", {

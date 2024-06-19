@@ -768,6 +768,7 @@ export declare namespace JSXBase {
         hrefLang?: string;
         hreflang?: string;
         media?: string;
+        ping?: string;
         rel?: string;
         target?: string;
         referrerPolicy?: ReferrerPolicy;
@@ -794,7 +795,6 @@ export declare namespace JSXBase {
         cite?: string;
     }
     interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
         disabled?: boolean;
         form?: string;
         formAction?: string;
@@ -921,8 +921,6 @@ export declare namespace JSXBase {
         autocapitalize?: string;
         autoComplete?: string;
         autocomplete?: string;
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         capture?: string;
         checked?: boolean;
         crossOrigin?: string;
@@ -979,8 +977,6 @@ export declare namespace JSXBase {
         popoverTarget?: string;
     }
     interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         challenge?: string;
         disabled?: boolean;
         form?: string;
@@ -1129,7 +1125,6 @@ export declare namespace JSXBase {
         type?: string;
     }
     interface SelectHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
         disabled?: boolean;
         form?: string;
         multiple?: boolean;
@@ -1164,8 +1159,6 @@ export declare namespace JSXBase {
     interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
         autoComplete?: string;
         autocomplete?: string;
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         cols?: number;
         disabled?: boolean;
         form?: string;
@@ -1218,6 +1211,8 @@ export declare namespace JSXBase {
     interface HTMLAttributes<T = HTMLElement> extends DOMAttributes<T> {
         innerHTML?: string;
         accessKey?: string;
+        autoFocus?: boolean;
+        autofocus?: boolean | string;
         class?: string | {
             [className: string]: boolean;
         };

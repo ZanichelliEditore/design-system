@@ -1,5 +1,5 @@
-import { h, Host } from "@stencil/core";
-import { DividerSize, DividerOrientation } from "../../beans";
+import { Host, h } from "@stencil/core";
+import { DividerOrientation, DividerSize } from "../../beans";
 export class ZDivider {
     constructor() {
         this.size = DividerSize.SMALL;
@@ -7,7 +7,7 @@ export class ZDivider {
         this.orientation = DividerOrientation.HORIZONTAL;
     }
     render() {
-        return (h(Host, { key: '1950fc93c4f4ac5468b211a468e9192d92eabfd2', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
+        return (h(Host, { key: 'eb614abec38cb1f4c558cb1b2daf4eae845842c8', class: `divider-${this.size} divider-${this.orientation}`, style: { backgroundColor: `var(--${this.color})` } }));
     }
     static get is() { return "z-divider"; }
     static get encapsulation() { return "scoped"; }

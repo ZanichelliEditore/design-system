@@ -43,7 +43,7 @@ const ZToastNotificationList$1 = /*@__PURE__*/ proxyCustomElement(class ZToastNo
         }
     }
     render() {
-        return h("slot", { key: '8cabaa4c789ff5519e3e42e952464f4c137cc157', name: "toasts" });
+        return h("slot", { key: 'ead27e0dd8742e6008aa4fc6ffa4129cae868af8', name: "toasts" });
     }
     get hostElement() { return this; }
     static get watchers() { return {

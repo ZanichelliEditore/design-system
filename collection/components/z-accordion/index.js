@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { ControlSize, AccordionVariant } from "../../beans";
+import { AccordionVariant, ControlSize } from "../../beans";
 /**
  * Accordion component.
  *
@@ -47,7 +47,7 @@ export class ZAccordion {
         this.toggled.emit(this.open);
     }
     render() {
-        return (h("details", { key: '9b6381d6a29fe8ea16ecdcb38d1784c1cc3bcc80', ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { key: 'bf02abfd586afbafabddf1d3e5d7de934722dea6', tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { class: "z-accordion-label-icon", name: this.icon })), h("span", { key: '2fa466698c2f605dbe4eaac5cd48cd9af69448cc', class: "z-accordion-label" }, this.label), h("span", { key: '3cf6a1812413aa84f7ce106d5b81587d5e211cb2', class: "z-accordion-tags" }, h("slot", { key: '0a7109139d474427bf396960af79eae2e827c985', name: "tag" })), h("z-icon", { key: 'e2853db6bbd4947486fe3d95a5bc8d003c74299f', class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { class: "z-accordion-content", part: "content" }, h("slot", null)))));
+        return (h("details", { key: '38787e09f78228eedda870ebd2380feae9f221ef', ref: (elm) => (this.detailsElm = elm), onToggle: this.onDetailsToggle.bind(this), open: this.open }, h("summary", { key: '5eebc1fe756b6ef603bd0170fd53aa9548e02dec', tabIndex: this.isDisabled ? -1 : null, part: "summary" }, this.icon && (h("z-icon", { key: '741eab4038e866bc34259348e66d0115a55ad333', class: "z-accordion-label-icon", name: this.icon })), h("span", { key: 'e82c28a47084aba4a031ce947ac22e73d9c0c26d', class: "z-accordion-label" }, this.label), h("span", { key: '20279a9c0935c533a909a124a1f87f266d5783a3', class: "z-accordion-tags" }, h("slot", { key: '697e5e1cfb5764da59ded7eec41a3e7a2edd56b4', name: "tag" })), h("z-icon", { key: '079968872230475ee1783077819387e205ebdf72', class: "z-accordion-chevron", name: this.open ? "chevron-up" : "chevron-down" })), !this.isDisabled && (h("div", { key: '4377a46e29de0d5e079f1e8011b3e6e10bf1a876', class: "z-accordion-content", part: "content" }, h("slot", { key: 'e998671e6f42b524ab26d2ef71931acf5ed680b7' })))));
     }
     static get is() { return "z-accordion"; }
     static get encapsulation() { return "shadow"; }

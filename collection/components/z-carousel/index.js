@@ -1,5 +1,5 @@
-import { h, Host } from "@stencil/core";
-import { CarouselArrowsPosition, CarouselProgressMode, ButtonVariant } from "../../beans";
+import { Host, h } from "@stencil/core";
+import { ButtonVariant, CarouselArrowsPosition, CarouselProgressMode } from "../../beans";
 /**
  * ZCarousel component.
  * @cssprop --z-carousel-gutter - The gutter between items.

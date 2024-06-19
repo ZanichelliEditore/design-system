@@ -1,0 +1,1 @@
+.z-toast-notification-container{position:relative;height:400px}.z-toast-notification-container z-toast-notification-list{position:absolute;z-index:10000;background:var(--blue50);text-align:center}.z-toast-notification-container z-button{--color-primary01: var(--gray600);--color-hover-primary: var(--gray700)}

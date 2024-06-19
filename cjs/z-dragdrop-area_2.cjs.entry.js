@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 
 const stylesCss$1 = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.dragdrop{position:relative;display:flex;height:228px;flex-direction:column;padding:calc(var(--space-unit) * 2);border-color:var(--color-surface04);background-color:var(--color-surface02);background-image:url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e\");border-radius:2px;color:var(--color-default-text)}:host>.dragdrop.dragover *{pointer-events:none}:host>.dragdrop .dragover-container{position:absolute;z-index:10;top:0;left:0;display:none;width:100%;height:100%;background-color:var(--color-primary03);box-shadow:var(--shadow-focus-primary)}:host>.dragdrop .dragover-container .dragover-message{padding:10px 28px;background-color:var(--color-link-primary);color:var(--color-text-inverse)}:host>.dragdrop.dragover .dragover-container{display:flex;align-items:center;justify-content:center}";
@@ -21,7 +21,7 @@ const ZDragdropArea = class {
         return (index.h("div", { class: "dragover-container" }, index.h("div", { class: "dragover-message" }, index.h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
     }
     render() {
-        return (index.h("div", { key: '8bd841a6a59b438bd0e794a842aa6326dd88ef04', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
+        return (index.h("div", { key: '41334ac77bca3fb0d30518480b702c815d95b125', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
                 e.preventDefault();
                 this.dragDropContainer.classList.add("dragover");
             }, onDragLeave: () => {
@@ -32,7 +32,7 @@ const ZDragdropArea = class {
                     this.dragDropContainer.classList.remove("dragover");
                     this.fileDroppedHandler(e.dataTransfer.files);
                 }
-            } }, this.renderOnDragOverMessage(), index.h("slot", { key: 'd99944c1db4408ff5028f628e35c9d5225a37055' })));
+            } }, this.renderOnDragOverMessage(), index.h("slot", { key: '83344ee14fcec799690b644fe0a56cc86e1b4476' })));
     }
 };
 ZDragdropArea.style = ZDragdropAreaStyle0;
@@ -997,16 +997,16 @@ const ZModal = class {
         e.preventDefault();
     }
     render() {
-        return (index.h("dialog", { key: 'e2e7b6cf379e4d8a0636b926901047a752184ac8', class: {
+        return (index.h("dialog", { key: '502c0fd42f37a498ef3ec2b2b174ac4950287883', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, index.h("div", { key: 'fc3170c92b4b0bb67f23fd8b00a9540b64f9583a', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, index.h("div", { key: '0dd9496ca11660307bcb8d751e8793659aa30741', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, index.h("header", { key: '268f689959051dc304efd99dd64a4eb5ac47aa17', onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", { key: '5651d45bddad36999eddf25863a7d398cc87cf91' }, this.modaltitle && index.h("h1", { id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (index.h("div", { class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), index.h("div", { key: '375fa8c15cc53534fae53912cb353b1f93190946', class: {
+            }, id: this.modalid }, index.h("header", { key: '6952365a4a1d64e1ce23a9454f11cd4ae76e37ca', onClick: this.emitModalHeaderActive.bind(this) }, index.h("div", { key: 'fe219a40167ad9984255885bb189d9a9a0509cd5' }, this.modaltitle && index.h("h1", { key: '2991d4e6c254160dfe33e3558dc5db4d4dbf0abf', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (index.h("div", { key: '5a612bc3eb027b488a37918794c4f24e1991a38d', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), index.h("div", { key: '34008ade3d0f05c701b4d94df647086a8de3cd27', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, index.h("slot", { key: 'cb32585b3159f2acc9c15ab45635b4600ae97696', name: "modalContent" }))), index.h("div", { key: '8439bcbbbfe0307b31a22b1c674e3080b63e507a', class: {
+            }, id: "modal-content" }, index.h("slot", { key: '7ce631a687090f9b69bafa8de5dbe76d21d2c554', name: "modalContent" }))), index.h("div", { key: '8fc40e271bec8219fbbbf208bbba900a74ebdec8', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

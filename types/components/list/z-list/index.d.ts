@@ -10,9 +10,9 @@ export declare class ZList {
      */
     listType?: ListType;
     /**
-     * [optional] Sets role of the element.
+     * Sets role of the element.
      */
-    role?: string;
+    role: string;
     private setChildrenSizeType;
     componentDidLoad(): void;
     render(): HTMLZListElement;

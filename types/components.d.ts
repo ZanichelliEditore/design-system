@@ -319,7 +319,7 @@ export namespace Components {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -723,9 +723,9 @@ export namespace Components {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
-        "ariaExpanded"?: string;
+        "ariaExpanded": string;
         /**
           * the input aria-label
          */
@@ -811,9 +811,9 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -851,9 +851,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -913,9 +913,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1259,7 +1259,7 @@ export namespace Components {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * Navigation tabs orientation.
          */
@@ -1742,7 +1742,7 @@ export namespace Components {
         "bordered": boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -3049,7 +3049,7 @@ declare global {
         new (): HTMLZTableElement;
     };
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -4063,7 +4063,7 @@ declare namespace LocalJSX {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**
@@ -4171,7 +4171,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
         "role"?: string;
         /**
@@ -4211,7 +4211,7 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
         "role"?: string;
         /**
@@ -4285,7 +4285,7 @@ declare namespace LocalJSX {
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
         "role"?: string;
         /**
@@ -5202,7 +5202,7 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -5746,7 +5746,7 @@ declare module "@stencil/core" {
              */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**
-             * Ztag  component.
+             * Ztag component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
              * @cssprop --z-tag-bg - background color of the z-tag.
              */

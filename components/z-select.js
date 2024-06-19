@@ -329,7 +329,7 @@ const ZSelect$1 = /*@__PURE__*/ proxyCustomElement(class ZSelect extends HTMLEle
         return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (h("div", { key: '78ac427d8d3de7b8bd2d62bff9ffc07b0625da28', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: '9746ad38f69cb9f568cd1ef2e36937ae0f13bfed', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get element() { return this; }
     static get watchers() { return {

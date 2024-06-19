@@ -20,7 +20,7 @@ const ZTooltip$1 = /*@__PURE__*/ proxyCustomElement(class ZTooltip extends HTMLE
         this.open = this.popoverEl.open;
     }
     render() {
-        return (h("z-popover", { key: '9f666fd17b7051e4ab7a766c46887c7e41579052', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: 'e50d24a8bebabcc40645baf2afd6cafb396b520a' })));
+        return (h("z-popover", { key: 'ed88c22d97e3e84963b0d3b7c6ee03d401aa5ce8', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: '6b3cd438f4ab6cfb3459f67f9e8ea81b554a3ccb' })));
     }
     static get style() { return ZTooltipStyle0; }
 }, [1, "z-tooltip", {

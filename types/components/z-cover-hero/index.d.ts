@@ -1,4 +1,4 @@
-import { CoverHeroVariant, CoverHeroContentPosition } from "../../beans";
+import { CoverHeroContentPosition, CoverHeroVariant } from "../../beans";
 /**
  * Cover hero component.
  * Component to display a hero image with content.

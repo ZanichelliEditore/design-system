@@ -1,5 +1,5 @@
 import { h } from "@stencil/core";
-import { PopoverPosition, KeyboardCode } from "../../beans";
+import { KeyboardCode, PopoverPosition } from "../../beans";
 const DOCUMENT_ELEMENT = document.documentElement;
 function getParentElement(element) {
     if (element.parentNode.host) {
@@ -301,7 +301,7 @@ export class ZPopover {
         this.onOpen();
     }
     render() {
-        return h("slot", { key: 'fc1d26a6af4fb99ea37da14628dfe730f4a5fd94' });
+        return h("slot", { key: 'a7a3830d93abc15bc7138815f9820bc8cda7ab35' });
     }
     static get is() { return "z-popover"; }
     static get encapsulation() { return "shadow"; }

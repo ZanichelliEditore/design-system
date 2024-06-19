@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../stencil-public-runtime";
-import { ZRangePickerMode, ZDatePickerPosition } from "../../../beans";
+import { ZDatePickerPosition, ZRangePickerMode } from "../../../beans";
 export declare class ZRangePicker {
     element: HTMLZRangePickerElement;
     /** unique id */

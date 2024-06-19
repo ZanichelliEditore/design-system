@@ -18,7 +18,7 @@ const ZDragdropArea = /*@__PURE__*/ proxyCustomElement(class ZDragdropArea exten
         return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
     }
     render() {
-        return (h("div", { key: '8bd841a6a59b438bd0e794a842aa6326dd88ef04', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
+        return (h("div", { key: '41334ac77bca3fb0d30518480b702c815d95b125', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
                 e.preventDefault();
                 this.dragDropContainer.classList.add("dragover");
             }, onDragLeave: () => {
@@ -29,7 +29,7 @@ const ZDragdropArea = /*@__PURE__*/ proxyCustomElement(class ZDragdropArea exten
                     this.dragDropContainer.classList.remove("dragover");
                     this.fileDroppedHandler(e.dataTransfer.files);
                 }
-            } }, this.renderOnDragOverMessage(), h("slot", { key: 'd99944c1db4408ff5028f628e35c9d5225a37055' })));
+            } }, this.renderOnDragOverMessage(), h("slot", { key: '83344ee14fcec799690b644fe0a56cc86e1b4476' })));
     }
     static get style() { return ZDragdropAreaStyle0; }
 }, [1, "z-dragdrop-area", {

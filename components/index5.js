@@ -17,11 +17,11 @@ const ZChip = /*@__PURE__*/ proxyCustomElement(class ZChip extends HTMLElement {
         this.ariaLabel = "";
     }
     render() {
-        return (h("div", { key: '6f854f9af61641c48e7870b320f330e08fa10115', class: {
+        return (h("div", { key: '97f98567047b81864de0326e6ec89153d83cc1c1', class: {
                 "z-chip-container": true,
                 "z-chip-interactive": !!this.interactiveIcon,
                 [this.type]: true,
-            }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { name: this.icon }), h("slot", { key: '17dd6eacc4edf0df59bd68f4c453126e954c5e86' }), this.interactiveIcon && (h("button", { type: "button", onClick: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { class: "interactive-icon", name: this.interactiveIcon })))));
+            }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { key: '45a3661a2cbda05351c56bbc9fd697fad9bc96ea', name: this.icon }), h("slot", { key: '9d81610f7d11777a0ab71772f35e610796d65e98' }), this.interactiveIcon && (h("button", { key: '53c13cdad61a96cb139c32923c469e9e1237bc15', type: "button", onClick: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { key: '0baf684cbd662f7b3cedbd2a7468215f896472c6', class: "interactive-icon", name: this.interactiveIcon })))));
     }
     get el() { return this; }
     static get style() { return ZChipStyle0; }

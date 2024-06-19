@@ -35,7 +35,7 @@ const ZTd$1 = /*@__PURE__*/ proxyCustomElement(class ZTd extends HTMLElement {
         this.updateColspan();
     }
     render() {
-        return (h(Host, { key: '4c8c986b18fffe96985174dddd6b4ef77ceaa1ce', role: "cell", "menu-open": this.isMenuOpen }, h("slot", { key: 'a40bcbb99d5ffc1e962b420ffb89f13cbcb3875e' }), this.showMenu && (h("div", { class: "cell--menu-container prevent-expand" }, h("z-button", { variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: this.onMenuButtonClick.bind(this) }), h("z-popover", { ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { name: "contextual-menu" }))))));
+        return (h(Host, { key: 'b0b39511d34b7f04a8a21c22ad4a8f967c200529', role: "cell", "menu-open": this.isMenuOpen }, h("slot", { key: '93467b923af5d4145dc81c025c261a880c57e2bb' }), this.showMenu && (h("div", { key: '158f04cdf214db6813b70bdbfa384e4627320b17', class: "cell--menu-container prevent-expand" }, h("z-button", { key: '71f7d601c03a61e091b28e79f6198dcb91da9621', variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: this.onMenuButtonClick.bind(this) }), h("z-popover", { key: '00cf3359460a45552b1a720d2f50679cad1b2671', ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { key: '7e04b722b396abc56dc5494130d78861731bb526', name: "contextual-menu" }))))));
     }
     get host() { return this; }
     static get watchers() { return {

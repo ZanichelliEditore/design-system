@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, g as getElement } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h, g as getElement } from './index-ab5f1eaa.js';
 import { e as ControlSize, g as KeyboardCode, l as ListDividerType, i as ListSize } from './index-2255c6c8.js';
 import { r as randomId, b as boolean, d as getElementTree, a as handleKeyboardSubmit, e as getClickedElement } from './utils-7983d02c.js';
 import './breakpoints-680e0e56.js';
@@ -322,7 +322,7 @@ const ZSelect = class {
         return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (h("div", { key: '78ac427d8d3de7b8bd2d62bff9ffc07b0625da28', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: '9746ad38f69cb9f568cd1ef2e36937ae0f13bfed', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get element() { return getElement(this); }
     static get watchers() { return {

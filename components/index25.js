@@ -302,7 +302,7 @@ const ZPopover = /*@__PURE__*/ proxyCustomElement(class ZPopover extends HTMLEle
         this.onOpen();
     }
     render() {
-        return h("slot", { key: 'fc1d26a6af4fb99ea37da14628dfe730f4a5fd94' });
+        return h("slot", { key: 'a7a3830d93abc15bc7138815f9820bc8cda7ab35' });
     }
     get host() { return this; }
     static get watchers() { return {

@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
-import { h as handleKeyboardSubmit } from './utils.js';
 import { H as Hammer } from './hammer.js';
+import { h as handleKeyboardSubmit } from './utils.js';
 
 const stylesCss = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>header{display:flex;height:36px;flex-flow:row nowrap;align-items:center;justify-content:center;border:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);border-radius:var(--space-unit) var(--space-unit) 0 0;cursor:pointer}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
 const ZPocketHeaderStyle0 = stylesCss;
@@ -29,7 +29,7 @@ const ZPocketHeader = /*@__PURE__*/ proxyCustomElement(class ZPocketHeader exten
         mc.on("pandown", () => this.emitPocketHeaderPan("down"));
     }
     render() {
-        return (h("header", { key: 'dbf411ce43b511c02c768d79c20eb95991b3555d', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '30b0c595f0c4e503dbe8e144c3805be2a8d4aed5' })));
+        return (h("header", { key: 'e7f1ed78dd4b33c701d5bd0f648c9401d8a38313', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '1d8bb012ac6dcdf3337d0c70df59b3b098e9de56' })));
     }
     static get style() { return ZPocketHeaderStyle0; }
 }, [1, "z-pocket-header", {

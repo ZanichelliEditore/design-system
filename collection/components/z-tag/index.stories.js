@@ -1,0 +1,60 @@
+import { html } from "lit";
+import { styleMap } from "lit/directives/style-map.js";
+import { ICONS } from "../../constants/iconset";
+import { getColorTokenArgConfig } from "../../utils/storybook-utils";
+import "./index";
+const StoryMeta = {
+    title: "ZTag",
+    component: "z-tag",
+    argTypes: {
+        "icon": {
+            control: {
+                type: "select",
+            },
+            options: Object.keys(ICONS).sort(),
+        },
+        "--z-tag-text-color": getColorTokenArgConfig(),
+        "--z-tag-bg": getColorTokenArgConfig(),
+    },
+    args: {
+        "text": "In progress",
+        "expandable": false,
+        "icon": "gear",
+        "--z-tag-text-color": undefined,
+        "--z-tag-bg": undefined,
+    },
+};
+export default StoryMeta;
+export const Default = {
+    render: (args) => html `<z-tag
+      icon="gear"
+      expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`,
+};
+export const ColorTokens = {
+    render: (args) => html `<z-tag
+      style=${styleMap({
+        "--z-tag-text-color": args["--z-tag-text-color"],
+        "--z-tag-bg": args["--z-tag-bg"],
+    })}
+      .icon=${args.icon}
+      .expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`,
+};
+export const LongText = {
+    args: {
+        text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+    },
+    render: (args) => html `<z-tag
+      style=${styleMap({
+        "--z-tag-text-color": args["--z-tag-text-color"],
+        "--z-tag-bg": args["--z-tag-bg"],
+    })}
+      .icon=${args.icon}
+      .expandable=${args.expandable}
+      >${args.text}
+    </z-tag>`,
+};
+//# sourceMappingURL=index.stories.js.map

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const utils = require('./utils-d0b10736.js');
 require('./breakpoints-5c22092a.js');
@@ -262,7 +262,7 @@ const ZCombobox = class {
         return (index.h("div", { class: "check-all-wrapper" }, index.h("z-input", { type: index$1.InputType.CHECKBOX, checked: allChecked, htmlid: checkAllId, class: this.getCheckboxClass(), label: allChecked ? this.uncheckalltext : this.checkalltext, disabled: this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length, size: this.size === index$1.ControlSize.X_SMALL ? index$1.ControlSize.SMALL : this.size, role: "option", "aria-selected": allChecked ? "true" : "false", onKeyDown: (e) => this.handleSelectArrowsNavigation(e, checkAllId), onInputCheck: (e) => this.checkAll(e.detail.checked), onInputFocus: (e) => this.handleCheckboxFocus(e.detail.id) })));
     }
     render() {
-        return (index.h("div", { key: '9844f86b698bf44ddedcfd410ee185bd7c9bbfe3', "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
+        return (index.h("div", { key: '118ffd4229b6b7f060d9b28ace7d5a59796620b9', "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
     }
     get element() { return index.getElement(this); }
     static get watchers() { return {

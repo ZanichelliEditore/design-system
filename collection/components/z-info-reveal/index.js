@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { ControlSize, InfoRevealPosition } from "../../beans";
 /**
  * Info reveal component.
@@ -47,7 +47,7 @@ export class ZInfoReveal {
         }
     }
     render() {
-        return (h(Host, { key: '9760fea9358ffa3422f6dad090a03c30cd8b51f2', open: this.open }, h("button", { key: '52c39a04ac63089ecb493927b49dea106a94ee93', class: "z-info-reveal-trigger", type: "button", onClick: this.togglePanel.bind(this), "aria-label": !this.label ? this.ariaLabel : undefined, "aria-expanded": this.open ? "true" : "false", "aria-controls": "z-info-reveal-panel" }, this.icon && h("z-icon", { name: this.icon }), this.label && h("span", { class: "z-info-reveal-label" }, this.label)), h("div", { key: '839afc7d65706951dcf0b5a56aaa69c6c56cc720', class: "z-info-reveal-panel", id: "z-info-reveal-panel", ref: (el) => (this.panel = el), hidden: !this.open }, h("slot", { key: '598c69722edab2f836962b3807e50a4a8a296aee' }), h("button", { key: '53c5f103f7bcca4bf1d6ccb8d4454459b1a82afd', class: "z-info-reveal-close", type: "button", onClick: this.closePanel.bind(this), "aria-label": "Chiudi pannello informazioni" }, h("z-icon", { key: '506717510c3ab82f30efbfe70753af7bc277a29f', name: "multiply" })))));
+        return (h(Host, { key: '45471ff481d7ce13ff05da131b5de64fadaf68d9', open: this.open }, h("button", { key: '8677715bec503a1bd07f6df15932a98417599495', class: "z-info-reveal-trigger", type: "button", onClick: this.togglePanel.bind(this), "aria-label": !this.label ? this.ariaLabel : undefined, "aria-expanded": this.open ? "true" : "false", "aria-controls": "z-info-reveal-panel" }, this.icon && h("z-icon", { key: '48e14ecbee56d2dc6b9b297f8daa171c34c2a98d', name: this.icon }), this.label && h("span", { key: '89e72867433abd07cb334120558ccdc02a5bbb81', class: "z-info-reveal-label" }, this.label)), h("div", { key: '06268f048b3d6244f940900ca114dfcad5417849', class: "z-info-reveal-panel", id: "z-info-reveal-panel", ref: (el) => (this.panel = el), hidden: !this.open }, h("slot", { key: '3698cbc239ab16b04226e7e9f1619014500b30f6' }), h("button", { key: '7e03364aeb76b404d4ed78d640de500b95f68769', class: "z-info-reveal-close", type: "button", onClick: this.closePanel.bind(this), "aria-label": "Chiudi pannello informazioni" }, h("z-icon", { key: '524131a6b9b100729c10657c778bc6bb1daf6946', name: "multiply" })))));
     }
     static get is() { return "z-info-reveal"; }
     static get encapsulation() { return "shadow"; }

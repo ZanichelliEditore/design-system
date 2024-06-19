@@ -1,4 +1,4 @@
-import { r as registerInstance, h, a as Host } from './index-f16bc2ca.js';
+import { r as registerInstance, h, a as Host } from './index-ab5f1eaa.js';
 import { A as AvatarSize } from './index-2255c6c8.js';
 
 const stylesCss = ":host{display:inline-flex;overflow:hidden;align-items:center;justify-content:center;background-color:var(--gray700);border-radius:50%;font-family:var(--font-family-sans);text-transform:uppercase}:host(.small),:host(.small)>img{width:calc(var(--space-unit) * 3);height:calc(var(--space-unit) * 3)}:host(.medium),:host(.medium)>img{width:calc(var(--space-unit) * 4);height:calc(var(--space-unit) * 4)}:host(.large),:host(.large)>img{width:calc(var(--space-unit) * 5);height:calc(var(--space-unit) * 5)}:host>img{object-fit:cover}";
@@ -29,10 +29,10 @@ const ZAvatar = class {
         }
     }
     render() {
-        return (h(Host, { key: '17a097738ce186c791794f5f8192cd46845df2a6', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        return (h(Host, { key: '63564a1499f36b406dcece1fd47bb0aa8e06ed6d', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
                 color: `var(--${this.textColor})`,
                 backgroundColor: `var(--${this.backgroundColor})`,
-            } }, this.text && !this.image && h("span", null, this.text.substring(0, 2)), this.image && (h("img", { src: this.image, onError: () => (this.image = "") }))));
+            } }, this.text && !this.image && h("span", { key: '9813952059608df9a5cdf74db7038aec2751dfa8' }, this.text.substring(0, 2)), this.image && (h("img", { key: 'd918f83b5212cb7618e30a0dc040f0c312341386', src: this.image, onError: () => (this.image = "") }))));
     }
 };
 ZAvatar.style = ZAvatarStyle0;

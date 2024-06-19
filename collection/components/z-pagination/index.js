@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { InputType } from "../../beans";
 /**
  * Pagination bar component.

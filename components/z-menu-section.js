@@ -48,7 +48,7 @@ const ZMenuSection$1 = /*@__PURE__*/ proxyCustomElement(class ZMenuSection exten
         this.checkContent();
     }
     render() {
-        return (h(Host, { key: '9afac5c30a1a957eca75b6c0b0efee330d9ea2ec', role: "menu", open: this.open }, h("button", { key: '9f0c3438436d4b035a37473f0f147d26ca4abc3c', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: '918f29cb6a6ea8e47d5460c907686ec80930b2fd', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { class: "items" }, h("slot", { name: "item", onSlotchange: this.checkContent.bind(this) })))));
+        return (h(Host, { key: '7261f7c68d7e097fe0a70e6f8c0b513958605dbd', role: "menu", open: this.open }, h("button", { key: '74fd64a789a7f9ea93ec118dc2978809e70c5312', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: 'b8e32ae6fc27571d5318eb71ceddea6d87ca3ffa', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { key: '5500c12ff4f374564c03e887a69ceba287a8d577', name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { key: 'ff66588a6fa8fe8968ec9d7e12d6fac3bb1bb45f', class: "items" }, h("slot", { key: 'de19fdba5a89f0a048b6f8e824feacaa80bbe3fc', name: "item", onSlotchange: this.checkContent.bind(this) })))));
     }
     get hostElement() { return this; }
     static get style() { return ZMenuSectionStyle0; }

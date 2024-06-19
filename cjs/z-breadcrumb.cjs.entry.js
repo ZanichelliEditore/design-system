@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const utils = require('./utils-d0b10736.js');
 require('./breakpoints-5c22092a.js');
@@ -204,10 +204,10 @@ const ZBreadcrumb = class {
         ];
     }
     render() {
-        return (index.h(index.Host, { key: 'f733fb3402c54c6d006af3ff72ddcba4a61256d5', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, index.h("nav", { key: 'a75562e28f23a646eccebf5c80ee1f71135a4b58', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+        return (index.h(index.Host, { key: 'bba9d5bf2b1316c4e29eebcc00cb23c3e6635a36', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, index.h("nav", { key: '4d916bcbb730f4e3cd0d051b630336db7222aa30', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
                 semibold: this.pathStyle === index$1.BreadcrumbPathStyle.SEMIBOLD,
                 underlined: this.pathStyle === index$1.BreadcrumbPathStyle.UNDERLINED,
-            } }, index.h("ol", { key: '2b9f2868480e987d14e8829af4850d028087e722' }, this.viewPortWidth === index$1.Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
+            } }, index.h("ol", { key: '654d8e9cad8417a155f1bc349b7b16687c8db96e' }, this.viewPortWidth === index$1.Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     get hostElement() { return index.getElement(this); }
     static get watchers() { return {

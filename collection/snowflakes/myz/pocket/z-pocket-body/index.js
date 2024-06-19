@@ -14,7 +14,7 @@ export class ZPocketBody {
         }
     }
     render() {
-        return (h("main", { key: 'e9cb89b3b1a529205e689a7e39ba780695a2fea4', class: this.status }, h("slot", { key: '705e4752dd80c52f8a744ef85d00737a505ab01b' })));
+        return (h("main", { key: 'b617d3b45b165732ac7f354c52e789b141eef47a', class: this.status }, h("slot", { key: 'bfed72b7529e4ee7f05e929d332a5913f46445bf' })));
     }
     static get is() { return "z-pocket-body"; }
     static get encapsulation() { return "shadow"; }

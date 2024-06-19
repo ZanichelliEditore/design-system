@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 
 const stylesCss = ":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}";
 const ZVisuallyHiddenStyle0 = stylesCss;
@@ -12,7 +12,7 @@ const ZVisuallyHidden = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return index.h("slot", { key: '3d88b0bfa19b14d1891a6693c557485767035f50' });
+        return index.h("slot", { key: 'ae350dcba13aae6abc2f746555896c973baea496' });
     }
 };
 ZVisuallyHidden.style = ZVisuallyHiddenStyle0;

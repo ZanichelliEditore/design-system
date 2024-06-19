@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const breakpoints = require('./breakpoints-5c22092a.js');
 const hammer = require('./hammer-eaf294be.js');
@@ -181,7 +181,7 @@ const ZToastNotification = class {
             } }, index.h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
     }
     render() {
-        return (index.h(index.Host, { key: 'aeaadb9a5b9ee6e77cfd1e991eec225364456e9e', style: {
+        return (index.h(index.Host, { key: 'bf20c69f253b702092fe078443eedb9e86fe223a', style: {
                 "--percentuale": `${this.percentage}%`,
             }, class: this.transition ? this.transition : index$1.ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {

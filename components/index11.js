@@ -25,7 +25,7 @@ const ZInputMessage = /*@__PURE__*/ proxyCustomElement(class ZInputMessage exten
         this.onMessageChange();
     }
     render() {
-        return (h(Host, Object.assign({ key: '76dfef8a9c24cc18ecdae15781eb08a8a61f77ff' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { name: this.statusIcons[this.status] }), h("span", { key: 'e98ece17c91457481b206187a6ddbef98d8d210e', innerHTML: this.message })));
+        return (h(Host, Object.assign({ key: '94ef5066088cb9eed13a07ea360427f99504352c' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { key: '657b2370b4f114a60d57d0aeb0c42076a0a6d05c', name: this.statusIcons[this.status] }), h("span", { key: 'e999e55f209f358943ff20d86967f9e7bd9d876b', innerHTML: this.message })));
     }
     static get watchers() { return {
         "message": ["onMessageChange"],

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const utils = require('./utils-d0b10736.js');
 require('./breakpoints-5c22092a.js');
@@ -326,7 +326,7 @@ const ZSelect = class {
         return (index.h("z-input-message", { message: utils.boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (index.h("div", { key: '78ac427d8d3de7b8bd2d62bff9ffc07b0625da28', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (index.h("div", { key: '9746ad38f69cb9f568cd1ef2e36937ae0f13bfed', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get element() { return index.getElement(this); }
     static get watchers() { return {

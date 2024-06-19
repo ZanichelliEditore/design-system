@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { Device, DividerSize, ZFileUploadType } from "../../../beans";
 import { getDevice } from "../../../utils/utils";
 export class ZFileUpload {
@@ -183,7 +183,7 @@ export class ZFileUpload {
         })))));
     }
     render() {
-        return (h(Host, { key: 'a3d761286217ef951686119b60ec51779833dd7c' }, h("div", { key: 'a95c0abe6e8fdcaa4ef6991db9e138eb5fb2ba03', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (h(Host, { key: '5164e39fa841c1e236b44ccc647bc4c0167e23ff' }, h("div", { key: '498f8b221758f4c9a0577471a3d2193185d559fa', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { key: '7acbcd5147d4f85fbba76b56eb3de8df5a6ba030', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     static get is() { return "z-file-upload"; }
     static get encapsulation() { return "shadow"; }

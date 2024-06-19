@@ -14,7 +14,7 @@ const ZNavigationTabs$1 = /*@__PURE__*/ proxyCustomElement(class ZNavigationTabs
          * Index of the last tab that held focus.
          */
         this.focusedTab = undefined;
-        this.ariaLabel = undefined;
+        this.ariaLabel = "";
         this.orientation = NavigationTabsOrientation.HORIZONTAL;
         this.size = NavigationTabsSize.BIG;
         this.selectedTab = undefined;
@@ -205,10 +205,10 @@ const ZNavigationTabs$1 = /*@__PURE__*/ proxyCustomElement(class ZNavigationTabs
         (_a = this.resizeObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: 'b8ac3831227ebd2bede2d818f2df5f7cf1985596', class: {
+        return (h(Host, { key: '0dfbe739542add5d05e82462f9ca115734f75ab7', class: {
                 "interactive-2": this.size === NavigationTabsSize.SMALL,
                 "interactive-1": this.size !== NavigationTabsSize.SMALL,
-            }, scrollable: this.canNavigate }, h("button", { key: '1080ad28e05e2169e002f00cf841e1ce0c37f49e', class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabIndex: -1, disabled: !this.canNavigatePrev, "aria-label": "Mostra elementi precedenti", hidden: !this.canNavigate }, h("z-icon", { key: 'ddd530730b3a5a3165a06ced3f7266a16e867e5f', name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 })), h("nav", { key: 'fa168689fdbbbef714dc6ef50061216b72833e3e', role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.nav = el !== null && el !== void 0 ? el : this.nav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, h("slot", { key: '8aec51101e0bb61e76ef1a90f08b277d026b87e1' })), h("button", { key: 'c963e7c135d6e93c0f7eeeabff80fad020ea302d', class: "navigation-button", onClick: this.navigateForward.bind(this), tabIndex: -1, disabled: !this.canNavigateNext, "aria-label": "Mostra elementi successivi", hidden: !this.canNavigate }, h("z-icon", { key: '7e3184c2801af92791457cde20c47c55c361f169', name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 }))));
+            }, scrollable: this.canNavigate }, h("button", { key: 'a679c4104ef79c5245a205e634872992ad6b7702', class: "navigation-button", onClick: this.navigateBackwards.bind(this), tabIndex: -1, disabled: !this.canNavigatePrev, "aria-label": "Mostra elementi precedenti", hidden: !this.canNavigate }, h("z-icon", { key: '13b64410e78d66d28b9a2a870535a393b5361f06', name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-left" : "chevron-up", width: 16, height: 16 })), h("nav", { key: 'ae01aa47ea6620209017d612b3b6e1b0664efcba', role: "tablist", "aria-label": this.ariaLabel, ref: (el) => (this.nav = el !== null && el !== void 0 ? el : this.nav), onScroll: this.checkScrollEnabled.bind(this), "aria-orientation": this.orientation }, h("slot", { key: 'bd1f92fef8fde67a415964efd61b89d9895192a7' })), h("button", { key: '0b7a9b4ecf5773f576f25468a8f64118b57c4480', class: "navigation-button", onClick: this.navigateForward.bind(this), tabIndex: -1, disabled: !this.canNavigateNext, "aria-label": "Mostra elementi successivi", hidden: !this.canNavigate }, h("z-icon", { key: '91686040ca32ff9136c6a96ce70ed3ca20a6b753', name: this.orientation === NavigationTabsOrientation.HORIZONTAL ? "chevron-right" : "chevron-down", width: 16, height: 16 }))));
     }
     get host() { return this; }
     static get watchers() { return {

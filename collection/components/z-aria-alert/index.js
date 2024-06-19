@@ -1,11 +1,11 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { ZAriaAlertMode } from "../../beans";
 export class ZAriaAlert {
     constructor() {
         this.mode = ZAriaAlertMode.POLITE;
     }
     render() {
-        return (h(Host, { key: '88e0d50e7f29c2e80aaa047a32902bc6347ad8d9', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", { key: 'c76710250968f02393f69652d148ddf22eb1839e' })));
+        return (h(Host, { key: '3dc09efdfb273cbb3700c75f6e83112d6d158fb0', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", { key: '109c1e5fa0fa0bd7fa990c7fdb23c0f65dd6811e' })));
     }
     static get is() { return "z-aria-alert"; }
     static get properties() {

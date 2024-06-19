@@ -33,10 +33,10 @@ const ZListGroup = /*@__PURE__*/ proxyCustomElement(class ZListGroup extends HTM
         this.hasHeader = !!this.host.querySelector('[slot="header-title"]');
     }
     render() {
-        return (h(Host, { key: '5dbf1efc3893dc5f97d0f8ec1b9b7a97f3798b23', role: "group" }, h("div", { key: '2ded7f0b5b2c6554239659c8eaa9ef413e37fead', class: {
+        return (h(Host, { key: '5732fd0502a40361f81b8896d35b5ecb50f3d405', role: "group" }, h("div", { key: 'd70da2717bc7ba681b0e4a01c9c83404d51ceba9', class: {
                 "z-list-group-header-container": true,
                 "has-header": this.hasHeader,
-            } }, h("slot", { key: '56fe1bfadf2b3aa5dd8f8955789204a49e6bc667', name: "header-title" }), this.dividerType === ListDividerType.HEADER && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))), h("slot", { key: '641523b4a9f4e0795571127cb509b76e51515b22' })));
+            } }, h("slot", { key: '77ed9d0a8baffb09574d5e9a183dbf8fbf3f4a96', name: "header-title" }), this.dividerType === ListDividerType.HEADER && (h("z-divider", { key: '35051ec5919d79249f1bb35a29587b53a1b1da89', color: this.dividerColor, size: this.dividerSize }))), h("slot", { key: '6920f9d885ec1e4a250164a4dc1d5c266246af4c' })));
     }
     get host() { return this; }
     static get style() { return ZListGroupStyle0; }

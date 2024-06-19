@@ -43,7 +43,7 @@ export class ZTr {
         this.updateColumns();
     }
     render() {
-        return (h(Host, { key: '23e6468561e474d51304677536e0d731fa09cfbf', role: "row", onClick: this.onRowClick.bind(this), expanded: this.expanded }, h("div", { key: 'e716dd6247818a285aacd88109964cf7b063b317', class: "z-tr--expand-button-container" }, this.expandable && (h("button", { "aria-expanded": this.expanded ? "true" : "false", "aria-label": this.expanded ? "Comprimi riga" : "Espandi riga", "aria-controls": this.expandableContentId, type: "button" }, h("z-icon", { name: this.expanded ? "minus-circled" : "plus-circled" })))), h("slot", { key: '0de8d962ba7e9c72aa614c76052bab607b83a04e', onSlotchange: this.updateColumns.bind(this) })));
+        return (h(Host, { key: 'a7834f72abcf18e74ff16ff9dbbcb4e987f673df', role: "row", onClick: this.onRowClick.bind(this), expanded: this.expanded }, h("div", { key: 'badaec159c7abf449da9c7015fb2fa240ce14377', class: "z-tr--expand-button-container" }, this.expandable && (h("button", { key: '6e312e5e8f907d05968b636f6368cda6397214eb', "aria-expanded": this.expanded ? "true" : "false", "aria-label": this.expanded ? "Comprimi riga" : "Espandi riga", "aria-controls": this.expandableContentId, type: "button" }, h("z-icon", { key: 'e054cb205c4a81e1e88509300976133c21f27d0f', name: this.expanded ? "minus-circled" : "plus-circled" })))), h("slot", { key: '95b75f93a1c27d6245e8993dcdfeef3f614c1843', onSlotchange: this.updateColumns.bind(this) })));
     }
     static get is() { return "z-tr"; }
     static get encapsulation() { return "shadow"; }

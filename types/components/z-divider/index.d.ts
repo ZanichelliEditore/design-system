@@ -1,4 +1,4 @@
-import { DividerSize, DividerOrientation } from "../../beans";
+import { DividerOrientation, DividerSize } from "../../beans";
 export declare class ZDivider {
     /** [optional] Divider size */
     size?: DividerSize;

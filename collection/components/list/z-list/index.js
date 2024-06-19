@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { ListSize, ListType } from "../../../beans";
 export class ZList {
     constructor() {
@@ -18,7 +18,7 @@ export class ZList {
         this.setChildrenSizeType();
     }
     render() {
-        return (h(Host, { key: 'd49a1ce7a55b23b7905e44d47184672765f9ba34' }, h("slot", { key: 'f813287a50cd22f3f3e0bf1444dc8c5a146fb6ae' })));
+        return (h(Host, { key: 'a5269da1127742a7a9e58e8b0e46174c4c990a39' }, h("slot", { key: 'ced862d8fb2e6e4d86212e9dd22ca1c12a184fe3' })));
     }
     static get is() { return "z-list"; }
     static get encapsulation() { return "shadow"; }
@@ -91,10 +91,10 @@ export class ZList {
                     "references": {}
                 },
                 "required": false,
-                "optional": true,
+                "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "[optional] Sets role of the element."
+                    "text": "Sets role of the element."
                 },
                 "attribute": "role",
                 "reflect": true,

@@ -10,7 +10,7 @@ const ZButton = /*@__PURE__*/ proxyCustomElement(class ZButton extends HTMLEleme
         super();
         this.__registerHost();
         this.ariaLabel = "";
-        this.role = undefined;
+        this.role = "";
         this.href = undefined;
         this.target = undefined;
         this.htmlid = undefined;

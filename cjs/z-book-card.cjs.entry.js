@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const breakpoints = require('./breakpoints-5c22092a.js');
 const utils = require('./utils-d0b10736.js');
@@ -124,7 +124,7 @@ const ZBookCard = class {
         return (index.h("div", { class: "action-container" }, index.h("slot", { name: "footer-cta" })));
     }
     render() {
-        return (index.h("article", { key: '5bdf53790a65a448b54994ac6d88bb333f23db33', class: {
+        return (index.h("article", { key: '93b847b7f5067c69880ea8ba283a207c8b691a2a', class: {
                 [this.variant]: true,
                 borderless: !!this.borderless,
             } }, this.renderCard()));

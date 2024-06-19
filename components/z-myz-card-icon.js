@@ -14,7 +14,7 @@ const ZMyzCardIcon$1 = /*@__PURE__*/ proxyCustomElement(class ZMyzCardIcon exten
         this.ariaLabel = "";
     }
     render() {
-        return (h("button", { key: 'ad617a342a7d7ae30067dc750b17453d66db9ffa', disabled: this.isdisabled, "aria-label": this.ariaLabel }, h("span", { key: '67079cabf8a0b3213ca75a04e7570d984fe9286f' }, h("z-icon", { key: '1e0a2ebcac6652f6c720da6c74a2d8f718ec825f', name: this.icon, width: 16, height: 16 }))));
+        return (h("button", { key: 'd07c0ca573477aa1045a68da5f4fe528243ce36f', disabled: this.isdisabled, "aria-label": this.ariaLabel }, h("span", { key: 'd4fbc76e9d771efc6fba0f0f311e30261c4bb070' }, h("z-icon", { key: '7a27b69214edf71caff54e1b0619f1b8ce7f1003', name: this.icon, width: 16, height: 16 }))));
     }
     static get style() { return ZMyzCardIconStyle0; }
 }, [1, "z-myz-card-icon", {

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const utils = require('./utils-d0b10736.js');
 require('./breakpoints-5c22092a.js');
@@ -194,7 +194,7 @@ const ZFileUpload = class {
         })))));
     }
     render() {
-        return (index.h(index.Host, { key: 'a3d761286217ef951686119b60ec51779833dd7c' }, index.h("div", { key: 'a95c0abe6e8fdcaa4ef6991db9e138eb5fb2ba03', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (index.h(index.Host, { key: '5164e39fa841c1e236b44ccc647bc4c0167e23ff' }, index.h("div", { key: '498f8b221758f4c9a0577471a3d2193185d559fa', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { key: '7acbcd5147d4f85fbba76b56eb3de8df5a6ba030', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     get el() { return index.getElement(this); }
 };

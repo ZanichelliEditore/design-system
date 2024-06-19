@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-dc60bee7.js');
+const index = require('./index-5dc4a8de.js');
 const index$1 = require('./index-39ce4edf.js');
 const breakpoints = require('./breakpoints-5c22092a.js');
 
@@ -42,7 +42,7 @@ const ZFile = class {
         return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
     }
     render() {
-        return (index.h(index.Host, { key: 'fc115e09bac93434e5c460602d91d75034156d58' }, this.allowPopover && (index.h("z-popover", { open: this.popoverVisible, position: index$1.PopoverPosition.AUTO, bindTo: this.chip }, index.h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { key: 'e834fa8689c5164cb51de5353a14d21495d5bfe5', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.DEFAULT }, index.h("span", { key: '037442876903b11acfa1f65acb3a65ccde8c2161', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+        return (index.h(index.Host, { key: '03c2efd6f2abf7ba920eb9ac47f268ade6ec1404' }, this.allowPopover && (index.h("z-popover", { key: 'f916e0f4aed0a9c7d2a8ff59ee0a073baff02ad5', open: this.popoverVisible, position: index$1.PopoverPosition.AUTO, bindTo: this.chip }, index.h("span", { key: '1f364c21b8bd45ff52c23a40df45ee1684271122', class: "body-5 tooltip-content" }, this.ellipsis.innerText))), index.h("z-chip", { key: '0c69ec654a4fb7f251bdd904ffec476c911e545a', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: index$1.ZChipType.DEFAULT }, index.h("span", { key: 'b71ea54ee7156bfb324f7d5f2fa71d9b50c167bf', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
     }
     get el() { return index.getElement(this); }
 };

@@ -115,7 +115,7 @@ export class ZListElement {
         }
     }
     render() {
-        return (h(Host, { key: '237469383255a8c4b6927b6fc7fca35f16709937', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, h("div", { key: 'eab49723116d003d80ee724895e2fc09a4e3cacd', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '43573c7439a4a176070a70c7fb9caa5d29c69883', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { color: this.dividerColor, size: this.dividerSize }))));
+        return (h(Host, { key: 'b62c211ee47f6a05a2404a5f27d44aea4c4d3067', "aria-expanded": this.expandable ? this.showInnerContent : null, onClick: this.handleClick, onFocus: () => this.ariaDescendantFocus.emit(this.listElementId), onKeyDown: this.handleKeyDown, clickable: this.clickable && !this.disabled, tabIndex: this.htmlTabindex }, h("div", { key: '33ba57474a0a13545a14e9b94b7bda1f762a11b0', class: "container", style: { color: `var(--${this.color})` }, tabindex: "-1", id: `z-list-element-id-${this.listElementId}`, part: "list-item-container" }, h("div", { key: '1cfcd978c233414902faf1d4b624aa93cf3bcc11', class: "z-list-element-container" }, this.renderExpandableButton(), this.renderContent()), this.renderExpandedContent()), this.dividerType === ListDividerType.ELEMENT && (h("z-divider", { key: 'dbe033f9d3a796cb344b640d6a02b4e923bebd2b', color: this.dividerColor, size: this.dividerSize }))));
     }
     static get is() { return "z-list-element"; }
     static get encapsulation() { return "shadow"; }
@@ -409,10 +409,10 @@ export class ZListElement {
                     "references": {}
                 },
                 "required": false,
-                "optional": true,
+                "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "[optional] Sets element role."
+                    "text": "Sets element role."
                 },
                 "attribute": "role",
                 "reflect": true,

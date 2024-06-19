@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { PopoverPosition, ZChipType } from "../../../beans";
 import { tabletBreakpoint } from "../../../constants/breakpoints";
 export class ZFile {
@@ -32,7 +32,7 @@ export class ZFile {
         return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
     }
     render() {
-        return (h(Host, { key: 'fc115e09bac93434e5c460602d91d75034156d58' }, this.allowPopover && (h("z-popover", { open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { key: 'e834fa8689c5164cb51de5353a14d21495d5bfe5', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { key: '037442876903b11acfa1f65acb3a65ccde8c2161', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+        return (h(Host, { key: '03c2efd6f2abf7ba920eb9ac47f268ade6ec1404' }, this.allowPopover && (h("z-popover", { key: 'f916e0f4aed0a9c7d2a8ff59ee0a073baff02ad5', open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { key: '1f364c21b8bd45ff52c23a40df45ee1684271122', class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { key: '0c69ec654a4fb7f251bdd904ffec476c911e545a', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { key: 'b71ea54ee7156bfb324f7d5f2fa71d9b50c167bf', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
     }
     static get is() { return "z-file"; }
     static get encapsulation() { return "scoped"; }

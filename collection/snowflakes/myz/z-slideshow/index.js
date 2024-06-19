@@ -1,6 +1,6 @@
 import { h } from "@stencil/core";
 import { Device } from "../../../beans";
-import { getDevice, handleKeyboardSubmit, convertJson } from "../../../utils/utils";
+import { convertJson, getDevice, handleKeyboardSubmit } from "../../../utils/utils";
 /**
  * Check if data is an array of strings.
  * @param {unknown} data Data to check

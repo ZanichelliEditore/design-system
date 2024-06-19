@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, g as getElement } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h, g as getElement } from './index-ab5f1eaa.js';
 import { Y as BookCardVariant } from './index-2255c6c8.js';
 import { m as mobileBreakpoint } from './breakpoints-680e0e56.js';
 import { r as randomId } from './utils-7983d02c.js';
@@ -120,7 +120,7 @@ const ZBookCard = class {
         return (h("div", { class: "action-container" }, h("slot", { name: "footer-cta" })));
     }
     render() {
-        return (h("article", { key: '5bdf53790a65a448b54994ac6d88bb333f23db33', class: {
+        return (h("article", { key: '93b847b7f5067c69880ea8ba283a207c8b691a2a', class: {
                 [this.variant]: true,
                 borderless: !!this.borderless,
             } }, this.renderCard()));

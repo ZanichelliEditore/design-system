@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h } from './index-ab5f1eaa.js';
 import { a as handleKeyboardSubmit } from './utils-7983d02c.js';
 import './index-2255c6c8.js';
 import './breakpoints-680e0e56.js';
@@ -29,7 +29,7 @@ const ZMyzListItem = class {
     }
     render() {
         const linkId = this.listitemid ? `link_${this.listitemid}` : "";
-        return (h("li", { key: '914bc78b92ddae7aa62c5a695c7b92343dd5dab3', role: "button", id: this.listitemid, "data-action": this.action, onClick: (e) => this.emitZListItemClick(e, this.listitemid), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid) }, h("span", { key: 'e673a5e63e48760fdf00bc8c74a7b22f850fca8c', class: this.underlined && "border" }, this.icon && h("z-icon", { name: this.icon }), this.link ? (h("a", { href: this.link ? this.link : null, target: this.linktarget, id: linkId, onClick: (e) => this.emitZListItemLinkClick(e, linkId), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId), role: this.link ? "link" : "button", tabindex: "0" }, this.text)) : (h("span", { innerHTML: this.text })), h("slot", { key: '05aaf3b526046e02ef2505c74a64c907c6f66444' }))));
+        return (h("li", { key: 'de14506aedfc2f75ad3314a6491118e42c3f845b', role: "button", id: this.listitemid, "data-action": this.action, onClick: (e) => this.emitZListItemClick(e, this.listitemid), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid) }, h("span", { key: '1fd3c77d35ba7c9d93235f1dee870fcccd8c9861', class: this.underlined && "border" }, this.icon && h("z-icon", { key: 'e154e814209d09377037d9df89e6c0018b6e02b3', name: this.icon }), this.link ? (h("a", { href: this.link ? this.link : null, target: this.linktarget, id: linkId, onClick: (e) => this.emitZListItemLinkClick(e, linkId), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitZListItemLinkClick, linkId), role: this.link ? "link" : "button", tabindex: "0" }, this.text)) : (h("span", { innerHTML: this.text })), h("slot", { key: '3c3a24c8332321e062d0d3ac864ee3c92a699ace' }))));
     }
 };
 ZMyzListItem.style = ZMyzListItemStyle0;

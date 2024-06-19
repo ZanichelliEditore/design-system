@@ -180,7 +180,7 @@ const ZToastNotification$1 = /*@__PURE__*/ proxyCustomElement(class ZToastNotifi
             } }, h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
     }
     render() {
-        return (h(Host, { key: 'aeaadb9a5b9ee6e77cfd1e991eec225364456e9e', style: {
+        return (h(Host, { key: 'bf20c69f253b702092fe078443eedb9e86fe223a', style: {
                 "--percentuale": `${this.percentage}%`,
             }, class: this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {

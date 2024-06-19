@@ -1,0 +1,2 @@
+import{r as o,h as r,a as c}from"./p-cc3c02fe.js";const s=":host{display:block;box-sizing:border-box;border-top:1px solid var(--color-surface03);border-bottom:1px solid var(--color-surface03)}:host([sticky]){position:sticky;z-index:1;bottom:0;background-color:var(--color-surface01)}";const e=s;const t=class{constructor(r){o(this,r);this.sticky=false}render(){return r(c,{key:"c56c6c8f9f3eda99f7eaed147ef2df8c99d43cda",role:"rowgroup"},r("slot",{key:"03eeb74397f395723a8a649bb7213ac9fdbcf4f0"}))}};t.style=e;export{t as Z};
+//# sourceMappingURL=p-737293b2.js.map

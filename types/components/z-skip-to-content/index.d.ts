@@ -1,4 +1,4 @@
-import { ThemeVariant, SkipToContentLink } from "../../beans";
+import { SkipToContentLink, ThemeVariant } from "../../beans";
 /**
  * Component short description.
  */

@@ -1,6 +1,6 @@
-import { h, Host } from "@stencil/core";
-import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
+import { Host, h } from "@stencil/core";
 import { ThemeVariant } from "../../beans";
+import { getElementTree, handleKeyboardSubmit } from "../../utils/utils";
 /**
  * Component short description.
  */
@@ -45,7 +45,7 @@ export class ZSkipToContent {
         this.visible = false;
     }
     render() {
-        return (h(Host, { key: '4c268f1358c2b8d099b43c8ca3800d460ddb3127', class: {
+        return (h(Host, { key: 'ae03554e1bb63eebca8f51d3cae23b885ee79428', class: {
                 [this.variant]: true,
                 "skip-to-content-visible": this.visible,
             } }, this.links.map((link, i) => {

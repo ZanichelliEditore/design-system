@@ -1,7 +1,7 @@
-import { r as registerInstance, c as createEvent, h, g as getElement } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h, g as getElement } from './index-ab5f1eaa.js';
 import { q as PocketStatus } from './index-2255c6c8.js';
-import { a as handleKeyboardSubmit } from './utils-7983d02c.js';
 import { H as Hammer } from './hammer-f1ed46b5.js';
+import { a as handleKeyboardSubmit } from './utils-7983d02c.js';
 import './breakpoints-680e0e56.js';
 
 const stylesCss$2 = ":host{width:inherit;height:100%;margin:inherit;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>div{width:inherit;height:100%;margin:inherit}:host>div>div.background{position:fixed;z-index:998;top:0;right:0;bottom:0;left:0;width:0;height:0}:host>div>div.background.open{width:100%;height:100%}:host>div>div.content-wrapper{position:fixed;z-index:999;bottom:0;left:0;width:inherit;margin:inherit}:host>div>div.content-wrapper>div{margin:calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 0.5);border-radius:var(--space-unit) var(--space-unit) 0 0;box-shadow:0 -2px calc(var(--space-unit) * 0.5) 0 rgb(66 69 72 / 40%)}";
@@ -60,7 +60,7 @@ const ZPocket = class {
         }
     }
     render() {
-        return (h("div", { key: '380d3967f3e1c227bd1895c972327425313b87b8' }, h("div", { key: '781e4595f07f68092ffd16442af0a6ff272164a0', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: '6f902c3c03baf3cfd6d4a4302333df049c6bae35', id: this.pocketid, class: "content-wrapper" }, h("div", { key: 'c7029dcd23c29dc5bc797293271771084b9f6b31' }, h("slot", { key: '770b7882d607fccbdc095ebe662193a36aa515bd' })))));
+        return (h("div", { key: '45e8cd09d2390cda3ef219256245868d2c96a970' }, h("div", { key: '3eb0f5af6a61188321d4258eaa8201f7ee24a607', "data-action": "pocketBackground", "data-pocket": this.pocketid, class: `background ${this.status}`, onClick: (e) => this.handleBackgroundClick(e) }), h("div", { key: '453fc771bb812749b02687a4acf43eb60c8a32ec', id: this.pocketid, class: "content-wrapper" }, h("div", { key: 'd84500c28a276e0e30eb3eef88d8141dd047f290' }, h("slot", { key: 'dcd5b7827d6fc211ce38300af4aaa7efcbe71ef2' })))));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {
@@ -69,7 +69,7 @@ const ZPocket = class {
 };
 ZPocket.style = ZPocketStyle0;
 
-const stylesCss$1 = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>main{overflow:auto;border-right:var(--border-size-small) solid var(--color-surface03);border-left:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);scrollbar-width:none}:host>main.preview{max-height:225px;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.open{max-height:calc(100vh - 48px);transition:all 200ms ease-in-out, top 200ms ease-in-out}:host>main.closed{height:0;transition:all 200ms ease-in-out, top 200ms ease-in-out}:host ::-webkit-scrollbar{width:0}@media only screen and (min-width: 768px){:host>main.preview{max-height:157px}}";
+const stylesCss$1 = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>main{overflow:auto;border-right:var(--border-size-small) solid var(--color-surface03);border-left:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);scrollbar-width:none}:host>main.preview{max-height:225px;transition:all 200ms ease-in-out,\n    top 200ms ease-in-out}:host>main.open{max-height:calc(100vh - 48px);transition:all 200ms ease-in-out,\n    top 200ms ease-in-out}:host>main.closed{height:0;transition:all 200ms ease-in-out,\n    top 200ms ease-in-out}:host ::-webkit-scrollbar{width:0}@media only screen and (min-width: 768px){:host>main.preview{max-height:157px}}";
 const ZPocketBodyStyle0 = stylesCss$1;
 
 const ZPocketBody = class {
@@ -84,7 +84,7 @@ const ZPocketBody = class {
         }
     }
     render() {
-        return (h("main", { key: 'e9cb89b3b1a529205e689a7e39ba780695a2fea4', class: this.status }, h("slot", { key: '705e4752dd80c52f8a744ef85d00737a505ab01b' })));
+        return (h("main", { key: 'b617d3b45b165732ac7f354c52e789b141eef47a', class: this.status }, h("slot", { key: 'bfed72b7529e4ee7f05e929d332a5913f46445bf' })));
     }
 };
 ZPocketBody.style = ZPocketBodyStyle0;
@@ -114,7 +114,7 @@ const ZPocketHeader = class {
         mc.on("pandown", () => this.emitPocketHeaderPan("down"));
     }
     render() {
-        return (h("header", { key: 'dbf411ce43b511c02c768d79c20eb95991b3555d', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '30b0c595f0c4e503dbe8e144c3805be2a8d4aed5' })));
+        return (h("header", { key: 'e7f1ed78dd4b33c701d5bd0f648c9401d8a38313', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '1d8bb012ac6dcdf3337d0c70df59b3b098e9de56' })));
     }
 };
 ZPocketHeader.style = ZPocketHeaderStyle0;

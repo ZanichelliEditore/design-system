@@ -1,4 +1,4 @@
-import { DividerSize, ListSize, ListDividerType, ListType } from "../../../beans";
+import { DividerSize, ListDividerType, ListSize, ListType } from "../../../beans";
 export declare class ZListGroup {
     host: HTMLZListGroupElement;
     /**

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, g as getElement } from './index-f16bc2ca.js';
+import { r as registerInstance, c as createEvent, h, g as getElement } from './index-ab5f1eaa.js';
 import { c as commonjsGlobal, f as flatpickr, i as it, s as setAriaOptions, a as setFlatpickrPosition, v as validateDate } from './utils-cd008fbc.js';
 import { z as ZDatePickerMode, G as ZDatePickerPosition, I as InputType } from './index-2255c6c8.js';
 
@@ -461,7 +461,7 @@ const ZDatePicker = class {
             } })));
     }
     render() {
-        return (h("div", { key: 'af246b77b4ca4c20b37de99ef7751d7f0a06ebd4', class: {
+        return (h("div", { key: 'e36383db1da5908e5c61fcc543ff6006a0b5d27a', class: {
                 "flatpickr-toggle-container": true,
                 [this.flatpickrPosition]: true,
                 [this.mode]: true,

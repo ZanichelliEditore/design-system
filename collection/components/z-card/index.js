@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Host, h } from "@stencil/core";
 import { CardVariant } from "../../beans";
 /**
  * ZCard component.
