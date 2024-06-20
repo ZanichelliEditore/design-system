@@ -7,20 +7,21 @@
 
 ## Overview
 
-* Anchor navigation component.
+Anchor navigation component.
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                                    | Type      | Default |
-| ---------------- | ----------------- | -------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `hideUnselected` | `hide-unselected` | If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering. | `boolean` | `false` |
+| Property         | Attribute         | Description                                                                                                                                                                                                                                                                                                            | Type      | Default |
+| ---------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `autoCurrent`    | `auto-current`    | Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors. | `boolean` | `true`  |
+| `hideUnselected` | `hide-unselected` | If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.                                                                                                                                                                                                         | `boolean` | `false` |
 
 
 ## Slots
 
-| Slot                                                                                                                  | Description |
-| --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `"Main slot. Put some `<a>` tags inside. If you need an action button/icon, wrap it and the <a> inside another tag."` |             |
+| Slot | Description                                                                                                                      |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------- |
+|      | Anchor navigation items. Use `<a>` elements inside. If you need an extra action element, use a wrapper around it and the anchor. |
 
 
 ## Dependencies
