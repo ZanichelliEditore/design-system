@@ -1,2 +1,0 @@
-import{r as o,h as r,a as s}from"./p-cc3c02fe.js";const c=":host{display:block;box-sizing:border-box}";const a=c;const e=class{constructor(r){o(this,r)}render(){return r(s,{key:"82690ddf3bdd8b742cadcf45a75778892d15c5bf",role:"rowgroup"},r("slot",{key:"6b1a45b35318f6df0966ee67aa60f33aa32c5751"}))}};e.style=a;export{e as Z};
-//# sourceMappingURL=p-feca4075.js.map

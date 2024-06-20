@@ -3,17 +3,17 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-5dc4a8de.js');
-require('./index-19279b08.js');
-require('./index-94f7957c.js');
-require('./index-f31d0e66.js');
-require('./index-be1c71c6.js');
+require('./index-8eb6b556.js');
+require('./index-593b4622.js');
+require('./index-1d6878f3.js');
+require('./index-020fa172.js');
 require('./utils-d0b10736.js');
 require('./index-39ce4edf.js');
 require('./breakpoints-5c22092a.js');
-require('./index-1ebcef6a.js');
-require('./index-42d4c304.js');
+require('./index-e7a8260e.js');
+require('./index-3977eba4.js');
 
-const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
+const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content}";
 const ZTableStyle0 = stylesCss;
 
 const ZTable = class {

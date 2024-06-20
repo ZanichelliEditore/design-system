@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 
-const stylesCss = "img{display:block;max-width:100%;height:340px;margin:auto;object-fit:cover}img.faded{opacity:0.3}";
+const stylesCss = "img{display:block;max-width:100%;height:340px;margin:auto;-o-object-fit:cover;object-fit:cover}img.faded{opacity:0.3}";
 const ZMyzCardCoverStyle0 = stylesCss;
 
 const ZMyzCardCover = /*@__PURE__*/ proxyCustomElement(class ZMyzCardCover extends HTMLElement {

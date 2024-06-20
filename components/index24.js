@@ -2,7 +2,7 @@ import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/i
 import { H as Hammer } from './hammer.js';
 import { h as handleKeyboardSubmit } from './utils.js';
 
-const stylesCss = ":host{display:block;width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>header{display:flex;height:36px;flex-flow:row nowrap;align-items:center;justify-content:center;border:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);border-radius:var(--space-unit) var(--space-unit) 0 0;cursor:pointer}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
+const stylesCss = ":host{display:block;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>header{display:-ms-flexbox;display:flex;height:36px;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;border:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);border-radius:var(--space-unit) var(--space-unit) 0 0;cursor:pointer}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
 const ZPocketHeaderStyle0 = stylesCss;
 
 const ZPocketHeader = /*@__PURE__*/ proxyCustomElement(class ZPocketHeader extends HTMLElement {

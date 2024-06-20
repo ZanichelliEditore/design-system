@@ -1,6 +1,6 @@
 /**
- * * Anchor navigation component.
- * @slot Main slot. Put some `<a>` tags inside. If you need an action button/icon, wrap it and the <a> inside another tag.
+ * Anchor navigation component.
+ * @slot - Anchor navigation items. Use `<a>` elements inside. If you need an extra action element, use a wrapper around it and the anchor.
  * @example
  * ```
  * <z-anchor-navigation>
@@ -20,15 +20,23 @@ export declare class ZAnchorNavigation {
      */
     hideUnselected: boolean;
     /**
+     * Enables automatic inference of the current item, listening for hash change
+     * and checking the `href` of the slotted anchors.
+     * When disabled, the highlight of current item must be handled manually by setting the `data-current`
+     * attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+     */
+    autoCurrent: boolean;
+    /**
      * Whether the mobile list is collapsed.
      */
     collapsed: boolean;
+    host: HTMLZAnchorNavigationElement;
     /** Reference to the nav element. */
     private nav;
     /**
-     * Set aria-current attribute to the anchors.
+     * Set `aria-current` attribute to the anchors.
      */
-    private setAriaCurrent;
+    private setCurrent;
     /**
      * Toggle collapsed state.
      */

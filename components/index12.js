@@ -1,7 +1,7 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { i as ListSize, m as ListType } from './index2.js';
 
-const stylesCss = ":host{display:flex;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";
+const stylesCss = ":host{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";
 const ZListStyle0 = stylesCss;
 
 const ZList = /*@__PURE__*/ proxyCustomElement(class ZList extends HTMLElement {

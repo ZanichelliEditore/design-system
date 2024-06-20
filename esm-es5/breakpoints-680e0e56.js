@@ -1,0 +1,2 @@
+var mobileBreakpoint=767;var tabletBreakpoint=1052;var desktopBreakpoint=1365;export{desktopBreakpoint as d,mobileBreakpoint as m,tabletBreakpoint as t};
+//# sourceMappingURL=breakpoints-680e0e56.js.map

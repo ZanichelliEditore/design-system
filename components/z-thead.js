@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{--z-table--cells-bottom-border-size:var(\n    --border-size-medium\n  );--z-table--cells-background:var(\n    --color-surface02\n  );display:block;box-sizing:border-box}:host([sticky]){position:sticky;z-index:2;top:0;box-shadow:0 2px 4px -2px var(--shadow-color-base)}";
+const stylesCss = ":host{--z-table--cells-bottom-border-size:var(\n    --border-size-medium\n  );--z-table--cells-background:var(\n    --color-surface02\n  );display:block;-webkit-box-sizing:border-box;box-sizing:border-box}:host([sticky]){position:-webkit-sticky;position:sticky;z-index:2;top:0;-webkit-box-shadow:0 2px 4px -2px var(--shadow-color-base);box-shadow:0 2px 4px -2px var(--shadow-color-base)}";
 const ZTheadStyle0 = stylesCss;
 
 const ZThead$1 = /*@__PURE__*/ proxyCustomElement(class ZThead extends HTMLElement {

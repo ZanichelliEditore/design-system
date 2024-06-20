@@ -1,7 +1,7 @@
 import { r as registerInstance, h } from './index-ab5f1eaa.js';
 import { L as LicenseType } from './index-2255c6c8.js';
 
-const stylesCss$3 = ":host{--card-overflow:hidden}div{display:flex;overflow:var(--card-overflow);width:auto;width:256px;height:522px;box-sizing:border-box;flex-direction:column;border:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius)}div.real,div.trial,div.temp{border-color:var(--blue100)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
+const stylesCss$3 = ":host{--card-overflow:hidden}div{display:-ms-flexbox;display:flex;overflow:var(--card-overflow);width:auto;width:256px;height:522px;-webkit-box-sizing:border-box;box-sizing:border-box;-ms-flex-direction:column;flex-direction:column;border:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius)}div.real,div.trial,div.temp{border-color:var(--blue100)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{-webkit-box-shadow:var(--shadow-4);box-shadow:var(--shadow-4);outline:none}div.pressed{-webkit-box-shadow:var(--shadow-8);box-shadow:var(--shadow-8);outline:none}div:focus{-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);outline:none}";
 const ZMyzCardStyle0 = stylesCss$3;
 
 const ZMyzCardComponent = class {
@@ -40,7 +40,7 @@ const ZMyzCardComponent = class {
 };
 ZMyzCardComponent.style = ZMyzCardStyle0;
 
-const stylesCss$2 = ":host{width:auto;height:340px}:host>div{position:relative;display:flex;width:auto;height:340px;align-items:center;justify-content:center}";
+const stylesCss$2 = ":host{width:auto;height:340px}:host>div{position:relative;display:-ms-flexbox;display:flex;width:auto;height:340px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}";
 const ZMyzCardBodyStyle0 = stylesCss$2;
 
 const ZMyzCardBody = class {
@@ -53,7 +53,7 @@ const ZMyzCardBody = class {
 };
 ZMyzCardBody.style = ZMyzCardBodyStyle0;
 
-const stylesCss$1 = "img{display:block;max-width:100%;height:340px;margin:auto;object-fit:cover}img.faded{opacity:0.3}";
+const stylesCss$1 = "img{display:block;max-width:100%;height:340px;margin:auto;-o-object-fit:cover;object-fit:cover}img.faded{opacity:0.3}";
 const ZMyzCardCoverStyle0 = stylesCss$1;
 
 const ZMyzCardCover = class {
@@ -73,7 +73,7 @@ const ZMyzCardCover = class {
 };
 ZMyzCardCover.style = ZMyzCardCoverStyle0;
 
-const stylesCss = "header{position:relative;display:flex;width:auto;height:calc(var(--space-unit) * 6);flex-direction:row;align-items:flex-start;justify-content:space-between;border-bottom:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius) var(--border-radius) var(--border-no-radius) var(--border-no-radius)}slot[name=\"aria-heading\"]::slotted(*){position:absolute;overflow:hidden !important;width:1px !important;height:1px !important;padding:0 !important;border:0 none !important;margin:-1px !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important}header.real,header.trial,header.temp{border-bottom:var(--border-size-medium) solid var(--blue100);background-color:var(--color-primary03)}.card-title{overflow:hidden;height:calc(var(--space-unit) * 2);padding:calc(var(--space-unit) * 2);margin:0;color:var(--color-surface05);font-family:var(--font-family-sans);font-size:12px;font-weight:var(--font-sb);letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);text-overflow:ellipsis;text-transform:uppercase;white-space:nowrap}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial,.faded.temp{border-top:var(--border-size-medium) solid var(--blue100);border-right:var(--border-size-medium) solid var(--blue100);border-left:var(--border-size-medium) solid var(--blue100)}";
+const stylesCss = "header{position:relative;display:-ms-flexbox;display:flex;width:auto;height:calc(var(--space-unit) * 6);-ms-flex-direction:row;flex-direction:row;-ms-flex-align:start;align-items:flex-start;-ms-flex-pack:justify;justify-content:space-between;border-bottom:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius) var(--border-radius) var(--border-no-radius) var(--border-no-radius)}slot[name=\"aria-heading\"]::slotted(*){position:absolute;overflow:hidden !important;width:1px !important;height:1px !important;padding:0 !important;border:0 none !important;margin:-1px !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important}header.real,header.trial,header.temp{border-bottom:var(--border-size-medium) solid var(--blue100);background-color:var(--color-primary03)}.card-title{overflow:hidden;height:calc(var(--space-unit) * 2);padding:calc(var(--space-unit) * 2);margin:0;color:var(--color-surface05);font-family:var(--font-family-sans);font-size:12px;font-weight:var(--font-sb);letter-spacing:0.22px;line-height:calc(var(--space-unit) * 2);text-overflow:ellipsis;text-transform:uppercase;white-space:nowrap}.faded{border-bottom:var(--border-size-medium) solid var(--color-surface02)}.faded.real,.faded.trial,.faded.temp{border-top:var(--border-size-medium) solid var(--blue100);border-right:var(--border-size-medium) solid var(--blue100);border-left:var(--border-size-medium) solid var(--blue100)}";
 const ZMyzCardHeaderStyle0 = stylesCss;
 
 const ZMyzCardHeader = class {

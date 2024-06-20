@@ -1,7 +1,7 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 import { L as LicenseType } from './index2.js';
 
-const stylesCss = ":host{--card-overflow:hidden}div{display:flex;overflow:var(--card-overflow);width:auto;width:256px;height:522px;box-sizing:border-box;flex-direction:column;border:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius)}div.real,div.trial,div.temp{border-color:var(--blue100)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{box-shadow:var(--shadow-4);outline:none}div.pressed{box-shadow:var(--shadow-8);outline:none}div:focus{box-shadow:var(--shadow-focus-primary);outline:none}";
+const stylesCss = ":host{--card-overflow:hidden}div{display:-ms-flexbox;display:flex;overflow:var(--card-overflow);width:auto;width:256px;height:522px;-webkit-box-sizing:border-box;box-sizing:border-box;-ms-flex-direction:column;flex-direction:column;border:var(--border-size-medium) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:var(--border-radius)}div.real,div.trial,div.temp{border-color:var(--blue100)}div.faded{border:var(--border-size-medium) solid var(--color-surface02)}div.highlighted{-webkit-box-shadow:var(--shadow-4);box-shadow:var(--shadow-4);outline:none}div.pressed{-webkit-box-shadow:var(--shadow-8);box-shadow:var(--shadow-8);outline:none}div:focus{-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);outline:none}";
 const ZMyzCardStyle0 = stylesCss;
 
 const ZMyzCardComponent = /*@__PURE__*/ proxyCustomElement(class ZMyzCardComponent extends HTMLElement {

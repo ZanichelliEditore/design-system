@@ -1,8 +1,8 @@
 import { h, Host } from "@stencil/core";
 import { ButtonVariant } from "../../beans";
 /**
- * * Anchor navigation component.
- * @slot Main slot. Put some `<a>` tags inside. If you need an action button/icon, wrap it and the <a> inside another tag.
+ * Anchor navigation component.
+ * @slot - Anchor navigation items. Use `<a>` elements inside. If you need an extra action element, use a wrapper around it and the anchor.
  * @example
  * ```
  * <z-anchor-navigation>
@@ -18,15 +18,17 @@ import { ButtonVariant } from "../../beans";
 export class ZAnchorNavigation {
     constructor() {
         this.hideUnselected = false;
+        this.autoCurrent = true;
         this.collapsed = false;
     }
     /**
-     * Set aria-current attribute to the anchors.
+     * Set `aria-current` attribute to the anchors.
      */
-    setAriaCurrent() {
+    setCurrent() {
+        const currentElement = Array.from(this.nav.querySelectorAll("a")).find((anchor) => anchor.href === this.host.ownerDocument.location.href);
         Array.from(this.nav.children).forEach((item) => {
             const anchor = item instanceof HTMLAnchorElement ? item : item.querySelector("a");
-            const isCurrent = window.location.href === anchor.href;
+            const isCurrent = anchor === currentElement;
             anchor.setAttribute("aria-current", isCurrent.toString());
             item.toggleAttribute("data-current", isCurrent);
         });
@@ -38,14 +40,16 @@ export class ZAnchorNavigation {
         this.collapsed = !this.collapsed;
     }
     componentDidLoad() {
-        window.addEventListener("hashchange", this.setAriaCurrent.bind(this));
-        this.setAriaCurrent();
+        if (this.autoCurrent) {
+            window.addEventListener("hashchange", this.setCurrent.bind(this));
+            this.setCurrent();
+        }
     }
     disconnectedCallback() {
-        window.removeEventListener("hashchange", this.setAriaCurrent);
+        window.removeEventListener("hashchange", this.setCurrent);
     }
     render() {
-        return (h(Host, { key: '40c490634b5e567815548db1d680503b34df39cf', collapsed: this.collapsed }, h("z-button", { key: '62c027ed41139cf8f8a26bfcd1f6e61d0a1a9978', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: 'a47eecd0766ce06b867f303e405aea4cfde06031', ref: (el) => (this.nav = el) }, h("slot", { key: '2e2f920a69b34aaa75ce61ba85db318ddee37828' }))));
+        return (h(Host, { key: '6869675f35b8ca58e36058d10ed89301d2b49034', collapsed: this.collapsed }, h("z-button", { key: 'd6bacaf89ac6731dacb2250793c7ffba4a43a989', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: '0c308debc3e444015e1c8733af628d0b7a5d8b6e', ref: (el) => (this.nav = el) }, h("slot", { key: '02b49c5a23db78d839ba6320f1cbbd770cfa6d3f' }))));
     }
     static get is() { return "z-anchor-navigation"; }
     static get originalStyleUrls() {
@@ -77,6 +81,24 @@ export class ZAnchorNavigation {
                 "attribute": "hide-unselected",
                 "reflect": true,
                 "defaultValue": "false"
+            },
+            "autoCurrent": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Enables automatic inference of the current item, listening for hash change\nand checking the `href` of the slotted anchors.\nWhen disabled, the highlight of current item must be handled manually by setting the `data-current`\nattribute to the correct slotted items and the `aria-current` attribute to the anchors."
+                },
+                "attribute": "auto-current",
+                "reflect": false,
+                "defaultValue": "true"
             }
         };
     }
@@ -85,5 +107,6 @@ export class ZAnchorNavigation {
             "collapsed": {}
         };
     }
+    static get elementRef() { return "host"; }
 }
 //# sourceMappingURL=index.js.map

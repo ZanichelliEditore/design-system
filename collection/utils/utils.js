@@ -113,4 +113,17 @@ export function colorFromId(id) {
     }
     return `${prefix}${color.toString().padStart(2, "0")}`;
 }
+/**
+ * Check if the passed CSS selector is valid.
+ * @param selector CSS selector to validate
+ */
+export function isSelectorValid(selector) {
+    try {
+        document.createDocumentFragment().querySelector(selector);
+        return true;
+    }
+    catch (_a) {
+        return false;
+    }
+}
 //# sourceMappingURL=utils.js.map

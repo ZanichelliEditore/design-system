@@ -1,0 +1,1 @@
+{"version":3,"names":["UTILS","colorFromId"],"sources":["src/index.ts"],"sourcesContent":["import {colorFromId} from \"./utils/utils\";\n\nconst UTILS = {\n  colorFromId,\n};\n\nexport * from \"./beans\";\nexport * from \"./components\";\nexport {UTILS as Utils};\n"],"mappings":"wwCAEMA,MAAQ,CACZC,YAAWA,oB","ignoreList":[]}

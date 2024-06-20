@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{display:block;box-sizing:border-box}";
+const stylesCss = ":host{display:block;-webkit-box-sizing:border-box;box-sizing:border-box}";
 const ZTbodyStyle0 = stylesCss;
 
 const ZTbody$1 = /*@__PURE__*/ proxyCustomElement(class ZTbody extends HTMLElement {

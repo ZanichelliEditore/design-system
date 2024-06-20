@@ -66,7 +66,7 @@ export namespace Components {
         "type": AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -79,6 +79,10 @@ export namespace Components {
      * ```
      */
     interface ZAnchorNavigation {
+        /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent": boolean;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
@@ -2146,7 +2150,7 @@ declare global {
         new (): HTMLZAlertElement;
     };
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -3366,7 +3370,7 @@ declare namespace LocalJSX {
         "type"?: AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -3379,6 +3383,10 @@ declare namespace LocalJSX {
      * ```
      */
     interface ZAnchorNavigation {
+        /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent"?: boolean;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
@@ -5538,7 +5546,7 @@ declare module "@stencil/core" {
             "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             /**
-             * * Anchor navigation component.
+             * Anchor navigation component.
              * @example ```
              * <z-anchor-navigation>
              *  <div>

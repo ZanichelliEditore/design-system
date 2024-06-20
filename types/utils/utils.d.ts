@@ -21,4 +21,9 @@ interface JSONObject {
 type JSONArray = JSONValue[];
 export declare function convertJson(data: string): JSONValue;
 export declare function colorFromId(id: number): string;
+/**
+ * Check if the passed CSS selector is valid.
+ * @param selector CSS selector to validate
+ */
+export declare function isSelectorValid(selector: string): boolean;
 export {};

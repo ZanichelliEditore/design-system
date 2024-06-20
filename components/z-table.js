@@ -2,7 +2,7 @@ import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal
 import './index2.js';
 import './iconset.js';
 
-const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
+const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content}";
 const ZTableStyle0 = stylesCss;
 
 const ZTable$1 = /*@__PURE__*/ proxyCustomElement(class ZTable extends HTMLElement {

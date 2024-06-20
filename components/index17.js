@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{width:auto;height:340px}:host>div{position:relative;display:flex;width:auto;height:340px;align-items:center;justify-content:center}";
+const stylesCss = ":host{width:auto;height:340px}:host>div{position:relative;display:-ms-flexbox;display:flex;width:auto;height:340px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}";
 const ZMyzCardBodyStyle0 = stylesCss;
 
 const ZMyzCardBody = /*@__PURE__*/ proxyCustomElement(class ZMyzCardBody extends HTMLElement {

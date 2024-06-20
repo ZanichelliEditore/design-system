@@ -1,15 +1,15 @@
 import { r as registerInstance, h, a as Host, g as getElement } from './index-ab5f1eaa.js';
-import './index-41ee4016.js';
-import './index-cfde9cec.js';
-import './index-ea49e441.js';
-import './index-2f0ea8a1.js';
+import './index-62dc7ee8.js';
+import './index-b5bcd90e.js';
+import './index-dc52118c.js';
+import './index-a4f1946a.js';
 import './utils-7983d02c.js';
 import './index-2255c6c8.js';
 import './breakpoints-680e0e56.js';
-import './index-e194f4a7.js';
-import './index-db930fad.js';
+import './index-5f6d3ef8.js';
+import './index-2501b2b5.js';
 
-const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
+const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content}";
 const ZTableStyle0 = stylesCss;
 
 const ZTable = class {
