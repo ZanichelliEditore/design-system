@@ -66,7 +66,7 @@ export namespace Components {
         "type": AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -79,6 +79,10 @@ export namespace Components {
      * ```
      */
     interface ZAnchorNavigation {
+        /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent": boolean;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
@@ -264,7 +268,7 @@ export namespace Components {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -668,9 +672,9 @@ export namespace Components {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
-        "ariaExpanded"?: string;
+        "ariaExpanded": string;
         /**
           * the input aria-label
          */
@@ -756,9 +760,9 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -796,9 +800,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -858,9 +862,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1208,7 +1212,7 @@ export namespace Components {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * Navigation tabs orientation.
          */
@@ -1660,6 +1664,10 @@ export namespace Components {
     }
     interface ZStepperItem {
         /**
+          * The checked state of the item.
+         */
+        "checked": boolean;
+        /**
           * The disabled state of the item.
          */
         "disabled": boolean;
@@ -1687,7 +1695,7 @@ export namespace Components {
         "bordered": boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -2091,7 +2099,7 @@ declare global {
         new (): HTMLZAlertElement;
     };
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -2947,7 +2955,7 @@ declare global {
         new (): HTMLZTableElement;
     };
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -3264,7 +3272,7 @@ declare namespace LocalJSX {
         "type"?: AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -3277,6 +3285,10 @@ declare namespace LocalJSX {
      * ```
      */
     interface ZAnchorNavigation {
+        /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent"?: boolean;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
@@ -3906,7 +3918,7 @@ declare namespace LocalJSX {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**
@@ -4014,7 +4026,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
         "role"?: string;
         /**
@@ -4054,7 +4066,7 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
         "role"?: string;
         /**
@@ -4128,7 +4140,7 @@ declare namespace LocalJSX {
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
         "role"?: string;
         /**
@@ -5018,6 +5030,10 @@ declare namespace LocalJSX {
     }
     interface ZStepperItem {
         /**
+          * The checked state of the item.
+         */
+        "checked"?: boolean;
+        /**
           * The disabled state of the item.
          */
         "disabled"?: boolean;
@@ -5045,7 +5061,7 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -5381,7 +5397,7 @@ declare module "@stencil/core" {
             "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             /**
-             * * Anchor navigation component.
+             * Anchor navigation component.
              * @example ```
              * <z-anchor-navigation>
              *  <div>
@@ -5542,7 +5558,7 @@ declare module "@stencil/core" {
              */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**
-             * Ztag  component.
+             * Ztag component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
              * @cssprop --z-tag-bg - background color of the z-tag.
              */

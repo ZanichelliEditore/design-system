@@ -1,6 +1,6 @@
-import {Component, h, Host, Element, Listen, Prop, State} from "@stencil/core";
+import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
+import {SkipToContentLink, ThemeVariant} from "../../beans";
 import {getElementTree, handleKeyboardSubmit} from "../../utils/utils";
-import {ThemeVariant, SkipToContentLink} from "../../beans";
 
 /**
  * Component short description.

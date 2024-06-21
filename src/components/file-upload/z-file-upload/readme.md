@@ -59,9 +59,9 @@ Type: `Promise<void>`
 ### Depends on
 
 - [z-divider](../../z-divider)
-- [z-button](../../buttons/z-button)
+- [z-button](../../z-button)
 - [z-dragdrop-area](../z-dragdrop-area)
-- [z-modal](../../modal/z-modal)
+- [z-modal](../../z-modal)
 
 ### Graph
 ```mermaid

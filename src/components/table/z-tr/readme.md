@@ -36,7 +36,7 @@ to prevent the row from expanding.
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
+- [z-icon](../../z-icon)
 
 ### Graph
 ```mermaid

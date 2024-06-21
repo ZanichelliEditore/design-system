@@ -1,9 +1,9 @@
-import {Component, Prop, Element, h, Listen, EventEmitter, Event, State, Watch} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Listen, Prop, State, Watch, h} from "@stencil/core";
 
 import flatpickr from "flatpickr";
 import {Italian} from "flatpickr/dist/l10n/it.js";
 
-import {ZRangePickerMode, ZDatePickerPosition, InputType, InputStatus} from "../../../beans";
+import {InputStatus, InputType, ZDatePickerPosition, ZRangePickerMode} from "../../../beans";
 import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
 
 @Component({

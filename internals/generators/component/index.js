@@ -34,8 +34,8 @@ module.exports = {
       },
       {
         type: "add",
-        path: "../../src/components/{{kebabCase name}}/index.stories.mdx",
-        templateFile: "./component/index.stories.mdx.hbs",
+        path: "../../src/components/{{kebabCase name}}/index.stories.ts",
+        templateFile: "./component/index.stories.ts.hbs",
         abortOnFail: true
       }
     ];

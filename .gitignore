@@ -5,6 +5,7 @@ react/
 src-react/
 !src-react/index.ts
 
+docs-vscode.json
 custom-elements.json
 
 src/readme

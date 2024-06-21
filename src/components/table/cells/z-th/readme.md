@@ -39,8 +39,8 @@ ZTh component.
 
 ### Depends on
 
-- [z-icon](../../../icons/z-icon)
-- [z-button](../../../buttons/z-button)
+- [z-icon](../../../z-icon)
+- [z-button](../../../z-button)
 - [z-popover](../../../z-popover)
 
 ### Graph

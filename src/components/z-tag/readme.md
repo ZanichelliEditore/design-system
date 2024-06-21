@@ -5,7 +5,7 @@
 
 ## Overview
 
-Ztag  component.
+Ztag component.
 
 ## Properties
 
@@ -26,11 +26,11 @@ Ztag  component.
 
 ### Used by
 
- - [z-searchbar](../inputs/z-searchbar)
+ - [z-searchbar](../z-searchbar)
 
 ### Depends on
 
-- [z-icon](../icons/z-icon)
+- [z-icon](../z-icon)
 
 ### Graph
 ```mermaid

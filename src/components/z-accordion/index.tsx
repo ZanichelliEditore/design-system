@@ -1,5 +1,5 @@
-import {Component, Prop, h, Event, EventEmitter, Watch} from "@stencil/core";
-import {ControlSize, AccordionVariant} from "../../beans";
+import {Component, Event, EventEmitter, Prop, Watch, h} from "@stencil/core";
+import {AccordionVariant, ControlSize} from "../../beans";
 
 /**
  * Accordion component.

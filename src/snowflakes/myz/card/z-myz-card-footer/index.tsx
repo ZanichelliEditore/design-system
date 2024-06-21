@@ -1,4 +1,4 @@
-import {Element, Component, Prop, h, State, Listen} from "@stencil/core";
+import {Component, Element, Listen, Prop, State, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {LicenseType} from "../../../../beans/index";
 

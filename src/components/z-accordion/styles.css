@@ -84,7 +84,7 @@ summary {
 }
 
 summary:focus:focus-visible {
-  background-color: var(--color-surface03);
+  background-color: var(--z-accordion-hover-color);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }

@@ -271,10 +271,11 @@ ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 
 Each component is structured as follows:
 
-| File name           | Description                    |
-| ------------------- | ------------------------------ |
-| `index.tsx`         | Component markup and UI logics |
-| `styles.css`        | Component styles               |
-| `index.spec.ts`     | Component tests                |
-| `index.stories.mdx` | Component storybook file       |
-| `README.md`         | Component documentation        |
+| File name          | Description                  |
+| ------------------ | ---------------------------- |
+| `index.tsx`        | Markup and UI logics         |
+| `styles.css`       | Styles                       |
+| `index.spec.ts`    | Tests                        |
+| `index.mdx`        | Storybook's markdown         |
+| `index.stories.ts` | Storybook's CSF stories      |
+| `readme.md`        | Auto-generated documentation |

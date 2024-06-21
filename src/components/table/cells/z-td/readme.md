@@ -36,7 +36,7 @@ ZTd component.
 
 ### Depends on
 
-- [z-button](../../../buttons/z-button)
+- [z-button](../../../z-button)
 - [z-popover](../../../z-popover)
 
 ### Graph

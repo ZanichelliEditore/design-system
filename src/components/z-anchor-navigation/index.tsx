@@ -1,9 +1,9 @@
-import {Component, h, Host, Prop, State} from "@stencil/core";
+import {Component, Element, h, Host, Prop, State} from "@stencil/core";
 import {ButtonVariant} from "../../beans";
 
 /**
- * * Anchor navigation component.
- * @slot Main slot. Put some `<a>` tags inside. If you need an action button/icon, wrap it and the <a> inside another tag.
+ * Anchor navigation component.
+ * @slot - Anchor navigation items. Use `<a>` elements inside. If you need an extra action element, use a wrapper around it and the anchor.
  * @example
  * ```
  * <z-anchor-navigation>
@@ -30,21 +30,35 @@ export class ZAnchorNavigation {
   hideUnselected = false;
 
   /**
+   * Enables automatic inference of the current item, listening for hash change
+   * and checking the `href` of the slotted anchors.
+   * When disabled, the highlight of current item must be handled manually by setting the `data-current`
+   * attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+   */
+  @Prop()
+  autoCurrent = true;
+
+  /**
    * Whether the mobile list is collapsed.
    */
   @State()
   collapsed = false;
 
+  @Element() host: HTMLZAnchorNavigationElement;
+
   /** Reference to the nav element. */
   private nav: HTMLElement;
 
   /**
-   * Set aria-current attribute to the anchors.
+   * Set `aria-current` attribute to the anchors.
    */
-  private setAriaCurrent(): void {
+  private setCurrent(): void {
+    const currentElement = Array.from(this.nav.querySelectorAll("a")).find(
+      (anchor) => anchor.href === this.host.ownerDocument.location.href
+    );
     Array.from(this.nav.children).forEach((item) => {
       const anchor = item instanceof HTMLAnchorElement ? item : item.querySelector("a");
-      const isCurrent = window.location.href === anchor.href;
+      const isCurrent = anchor === currentElement;
       anchor.setAttribute("aria-current", isCurrent.toString());
       item.toggleAttribute("data-current", isCurrent);
     });
@@ -58,12 +72,14 @@ export class ZAnchorNavigation {
   }
 
   componentDidLoad(): void {
-    window.addEventListener("hashchange", this.setAriaCurrent.bind(this));
-    this.setAriaCurrent();
+    if (this.autoCurrent) {
+      window.addEventListener("hashchange", this.setCurrent.bind(this));
+      this.setCurrent();
+    }
   }
 
   disconnectedCallback(): void {
-    window.removeEventListener("hashchange", this.setAriaCurrent);
+    window.removeEventListener("hashchange", this.setCurrent);
   }
 
   render(): HTMLZAnchorNavigationElement {

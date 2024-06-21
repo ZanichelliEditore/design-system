@@ -16,17 +16,23 @@
 
 :host > main.preview {
   max-height: 225px;
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
+  transition:
+    all 200ms ease-in-out,
+    top 200ms ease-in-out;
 }
 
 :host > main.open {
   max-height: calc(100vh - 48px);
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
+  transition:
+    all 200ms ease-in-out,
+    top 200ms ease-in-out;
 }
 
 :host > main.closed {
   height: 0;
-  transition: all 200ms ease-in-out, top 200ms ease-in-out;
+  transition:
+    all 200ms ease-in-out,
+    top 200ms ease-in-out;
 }
 
 :host ::-webkit-scrollbar {

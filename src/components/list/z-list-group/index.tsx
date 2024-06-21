@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {DividerSize, ListSize, ListDividerType, ListType} from "../../../beans";
+import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
 
 @Component({
   tag: "z-list-group",

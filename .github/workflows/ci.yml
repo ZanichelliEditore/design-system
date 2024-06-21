@@ -7,79 +7,65 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup:
-    name: Setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
   prettier:
     name: Run prettier
-    needs:
-      - setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
       - name: Run prettier
-        run: yarn prettier --check .
+        run: |
+          ls -al .prettierignore .prettierrc.json
+          yarn prettier --version
+          yarn prettier --check .
   eslint:
     name: Run eslint
-    needs:
-      - setup
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
       - name: Run eslint
         run: yarn eslint src/
   stylelint:
     name: Stylelint
-    needs:
-      - setup
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3
+          node-version: 20
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
       - name: Run stylelint
         run: yarn stylelint 'src/**/*.css'

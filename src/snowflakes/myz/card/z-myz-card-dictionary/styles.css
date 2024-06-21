@@ -13,7 +13,9 @@
   height: 522px;
   transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
-  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition:
+    transform 0.5s ease-out,
+    -webkit-transform 0.5s ease-out;
 }
 
 :host > div .content {
@@ -24,7 +26,9 @@
   transform-style: preserve-3d;
   transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
-  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition:
+    transform 0.5s ease-out,
+    -webkit-transform 0.5s ease-out;
 }
 
 :host > div .content.flipped {
