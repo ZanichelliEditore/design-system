@@ -291,6 +291,23 @@ export class ZAppHeader {
     );
   }
 
+  private renderMenuButton(): HTMLButtonElement {
+    return (
+      this.menuLength > 0 && (
+        <button
+          aria-label="Apri menu"
+          aria-haspopup="menu"
+          aria-expanded={`${this.drawerOpen}`}
+          aria-controls="menu-offcanvas"
+          class="drawer-trigger"
+          onClick={this.openDrawer}
+        >
+          <z-icon name="burger-menu"></z-icon>
+        </button>
+      )
+    );
+  }
+
   private renderOffcanvas(): HTMLZOffcanvasElement {
     return (
       <z-offcanvas
@@ -299,26 +316,26 @@ export class ZAppHeader {
         open={this.drawerOpen}
         onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
       >
-        <button
-          class="drawer-close"
-          aria-label="Chiudi menu"
-          onClick={this.closeDrawer}
-          slot="canvasContent"
-          aria-hidden={`${!this.drawerOpen}`}
-          disabled={!this.drawerOpen}
-        >
-          <z-icon name="close"></z-icon>
-        </button>
+        <div slot="canvasContent">
+          <button
+            class="drawer-close"
+            aria-label="Chiudi menu"
+            onClick={this.closeDrawer}
+            aria-hidden={`${!this.drawerOpen}`}
+            disabled={!this.drawerOpen}
+          >
+            <z-icon name="close"></z-icon>
+          </button>
 
-        <div
-          class="drawer-content"
-          slot="canvasContent"
-          aria-hidden={`${!this.drawerOpen}`}
-        >
-          <slot
-            name="menu"
-            onSlotchange={this.collectMenuElements}
-          ></slot>
+          <div
+            class="drawer-content"
+            aria-hidden={`${!this.drawerOpen}`}
+          >
+            <slot
+              name="menu"
+              onSlotchange={this.collectMenuElements}
+            ></slot>
+          </div>
         </div>
       </z-offcanvas>
     );
@@ -328,15 +345,7 @@ export class ZAppHeader {
     return (
       <div class="heading-stuck">
         <div class="heading-stuck-content">
-          {this.menuLength > 0 && (
-            <button
-              class="drawer-trigger"
-              aria-label="Apri menu"
-              onClick={this.openDrawer}
-            >
-              <z-icon name="burger-menu"></z-icon>
-            </button>
-          )}
+          {this.renderMenuButton()}
           <div class="heading-title">
             {this.renderProductLogos()}
             <slot name="stucked-title">{this.title}</slot>
@@ -373,16 +382,7 @@ export class ZAppHeader {
               </div>
             )}
             <div class="heading-title">
-              {this.menuLength > 0 && (
-                <button
-                  class="drawer-trigger"
-                  aria-label="Apri menu"
-                  onClick={this.openDrawer}
-                >
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
-              )}
-
+              {this.renderMenuButton()}
               {!this.isSlotPresent("top-subtitle") && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
               {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== Device.DESKTOP)}

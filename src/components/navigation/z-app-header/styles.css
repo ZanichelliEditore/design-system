@@ -221,6 +221,11 @@ z-searchbar {
   border-radius: 0;
   color: inherit;
   cursor: pointer;
+  outline: none;
+}
+
+.drawer-trigger:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .drawer-trigger z-icon {
