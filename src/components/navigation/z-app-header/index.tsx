@@ -4,6 +4,7 @@ import {
   ControlSize,
   Device,
   DividerOrientation,
+  KeyboardCode,
   OffCanvasVariant,
   TransitionDirection,
 } from "../../../beans";
@@ -46,12 +47,6 @@ export class ZAppHeader {
    */
   @Prop({reflect: true})
   flow: "auto" | "stack" | "offcanvas" = "auto";
-
-  /**
-   * The opening state of the drawer.
-   */
-  @Prop({reflect: true})
-  drawerOpen = false;
 
   /**
    * Enable the search bar.
@@ -110,9 +105,21 @@ export class ZAppHeader {
   @Event()
   sticking: EventEmitter;
 
+  /**
+   * The opening state of the drawer.
+   */
+  @State()
+  private drawerOpen = false;
+
   private container?: HTMLDivElement;
 
   private menuElements?: NodeListOf<HTMLElement>;
+
+  private closeMenuButton: HTMLButtonElement;
+
+  private burgerButton: HTMLButtonElement;
+
+  private currentIndex = -1;
 
   private observer?: IntersectionObserver =
     SUPPORT_INTERSECTION_OBSERVER &&
@@ -136,6 +143,72 @@ export class ZAppHeader {
     this.currentViewport = getDevice();
   }
 
+  @Listen("keyup")
+  handleKeyUp(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ESC) {
+      this.closeDrawer();
+      this.burgerButton.focus();
+
+      return;
+    }
+
+    this.handleArrowsNav(e);
+  }
+
+  private handleArrowsNav(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+      console.log("return");
+
+      return;
+    }
+
+    const elements = [];
+    this.menuElements.forEach((el) => {
+      elements.push(el.shadowRoot.querySelector(".menu-label"));
+    });
+
+    const firstMenuItem = elements[0] as HTMLElement;
+    const lastMenuItem = elements[elements.length - 1] as HTMLElement;
+    let nextFocusableItem: HTMLElement;
+
+    if (e.code === KeyboardCode.ARROW_DOWN) {
+      switch (this.currentIndex) {
+        case -1:
+          nextFocusableItem = firstMenuItem;
+          this.currentIndex++;
+          break;
+        case elements.length - 1:
+          nextFocusableItem = firstMenuItem;
+          this.currentIndex = 0;
+          break;
+        default:
+          nextFocusableItem = elements[this.currentIndex + 1] as HTMLElement;
+          this.currentIndex++;
+          break;
+      }
+    } else if (e.code === KeyboardCode.ARROW_UP) {
+      switch (this.currentIndex) {
+        case -1:
+          nextFocusableItem = lastMenuItem;
+          this.currentIndex--;
+          break;
+        case 0:
+          nextFocusableItem = lastMenuItem;
+          this.currentIndex = elements.length - 1;
+          break;
+        default:
+          nextFocusableItem = elements[this.currentIndex - 1] as HTMLElement;
+          this.currentIndex--;
+          break;
+      }
+    }
+
+    if (nextFocusableItem) {
+      nextFocusableItem.setAttribute("tabindex", "0");
+      nextFocusableItem.focus();
+    }
+  }
+
   @Watch("_stuck")
   onStuck(): void {
     const scrollParent = this.scrollParent;
@@ -151,12 +224,14 @@ export class ZAppHeader {
     if (this.menuElements.length === 0) {
       return;
     }
-
     const elements = this.menuElements;
     elements.forEach((element, index) => {
       (element as HTMLZMenuElement).open = false;
       (element as HTMLZMenuElement).floating = !this.drawerOpen;
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+      (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
+      (element as HTMLZMenuElement).setAttribute("role", "menuitem");
+
       (element as HTMLZMenuElement).hasDivider =
         this.flow === "offcanvas" ? false : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
@@ -295,12 +370,18 @@ export class ZAppHeader {
     return (
       this.menuLength > 0 && (
         <button
+          ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
           aria-label="Apri menu"
           aria-haspopup="menu"
           aria-expanded={`${this.drawerOpen}`}
           aria-controls="menu-offcanvas"
           class="drawer-trigger"
           onClick={this.openDrawer}
+          onKeyUp={(ev: KeyboardEvent) => {
+            if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
+              this.closeMenuButton.focus();
+            }
+          }}
         >
           <z-icon name="burger-menu"></z-icon>
         </button>
@@ -318,6 +399,7 @@ export class ZAppHeader {
       >
         <div slot="canvasContent">
           <button
+            ref={(el) => (this.closeMenuButton = el as HTMLButtonElement)}
             class="drawer-close"
             aria-label="Chiudi menu"
             onClick={this.closeDrawer}

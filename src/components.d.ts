@@ -94,10 +94,6 @@ export namespace Components {
      */
     interface ZAppHeader {
         /**
-          * The opening state of the drawer.
-         */
-        "drawerOpen": boolean;
-        /**
           * Enable the search bar.
          */
         "enableSearch": boolean;
@@ -3295,10 +3291,6 @@ declare namespace LocalJSX {
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
-        /**
-          * The opening state of the drawer.
-         */
-        "drawerOpen"?: boolean;
         /**
           * Enable the search bar.
          */
