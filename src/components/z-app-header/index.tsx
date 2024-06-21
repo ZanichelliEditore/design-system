@@ -1,4 +1,4 @@
-import {Component, Element, Prop, State, Watch, Host, Event, EventEmitter, Listen, h, Fragment} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {
   ButtonVariant,
   ControlSize,
