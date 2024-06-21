@@ -55,7 +55,7 @@ export class ZMenuSection {
    * Check if some content slot is set.
    */
   private checkContent(): void {
-    this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+    this.hasContent = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
   }
 
   /**
@@ -88,7 +88,7 @@ export class ZMenuSection {
         {this.open && (
           <div class="items">
             <slot
-              name="item"
+              name="section"
               onSlotchange={this.checkContent.bind(this)}
             ></slot>
           </div>

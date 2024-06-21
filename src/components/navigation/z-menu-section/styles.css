@@ -101,7 +101,7 @@ when placed below the real text using `flex-direction: column`. */
   padding-bottom: calc(var(--space-unit) * 1.5);
 }
 
-.items > ::slotted([slot="item"]) {
+.items > ::slotted([slot="section"]) {
   display: inline-flex;
   padding: calc(var(--space-unit) / 2);
   margin: 0;

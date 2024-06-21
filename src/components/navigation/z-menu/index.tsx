@@ -1,5 +1,5 @@
 import {Component, h, Prop, State, Event, EventEmitter, Listen, Element, Watch, Host} from "@stencil/core";
-import {DividerOrientation} from "../../../beans";
+import {DividerOrientation, KeyboardCode} from "../../../beans";
 
 /**
  * @slot - Menu label
@@ -84,6 +84,87 @@ export class ZMenu {
     this.closed.emit();
   }
 
+  private currentIndex = -1;
+
+  @Listen("keyup")
+  handleKeyUp(e: KeyboardEvent): void {
+    console.log("e", e);
+    e.preventDefault();
+
+    if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
+      console.log("qui");
+      console.log(this.hostElement.shadowRoot.querySelector(".menu-label"));
+      const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+      menuLabel.focus();
+      this.currentIndex = -1;
+      this.open = false;
+
+      return;
+    }
+
+    const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
+    const firstMenuItem = menuItems[0] as HTMLElement;
+    const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
+
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+      if (this.open) {
+        firstMenuItem.focus();
+        this.currentIndex = 0;
+      }
+
+      return;
+    }
+
+    if (this.open) {
+      // menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      // console.log(this.hostElement.shadowRoot.querySelector(".content"));
+
+      console.log(firstMenuItem);
+      console.log(lastMenuItem);
+      let nextFocusableItem: HTMLElement;
+
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+      if (e.code === KeyboardCode.ARROW_DOWN) {
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex++;
+            break;
+          case menuItems.length - 1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex = 0;
+            break;
+          default:
+            nextFocusableItem = menuItems[this.currentIndex + 1] as HTMLElement;
+            this.currentIndex++;
+            break;
+        }
+      } else if (e.code === KeyboardCode.ARROW_UP) {
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex--;
+            break;
+          case 0:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex = menuItems.length - 1;
+            break;
+          default:
+            nextFocusableItem = menuItems[this.currentIndex - 1] as HTMLElement;
+            this.currentIndex--;
+            break;
+        }
+      }
+
+      if (nextFocusableItem) {
+        console.log("next", nextFocusableItem);
+        nextFocusableItem.setAttribute("tabindex", "0");
+        nextFocusableItem.focus();
+      }
+    }
+  }
+
   @Watch("open")
   onOpenChanged(): void {
     if (this.open) {
@@ -148,6 +229,7 @@ export class ZMenu {
     const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
     items.forEach((item) => {
       item.setAttribute("role", "menuitem");
+      item.setAttribute("tabindex", "-1");
       item.dataset.text = item.textContent;
     });
   }

@@ -145,9 +145,9 @@ export class ZAppHeader {
 
   @Listen("keyup")
   handleKeyUp(e: KeyboardEvent): void {
+    console.log("tab", e.code);
     if (e.code === KeyboardCode.ESC) {
       this.closeDrawer();
-      this.burgerButton.focus();
 
       return;
     }
@@ -156,20 +156,24 @@ export class ZAppHeader {
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
-    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-      console.log("return");
-
-      return;
-    }
-
     const elements = [];
     this.menuElements.forEach((el) => {
       elements.push(el.shadowRoot.querySelector(".menu-label"));
     });
-
     const firstMenuItem = elements[0] as HTMLElement;
     const lastMenuItem = elements[elements.length - 1] as HTMLElement;
+
+    if (document.activeElement.slot === "item") {
+      return;
+    }
+
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+      return;
+    }
     let nextFocusableItem: HTMLElement;
+
+    // INFO: reset focus on all menu items
+    elements.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
 
     if (e.code === KeyboardCode.ARROW_DOWN) {
       switch (this.currentIndex) {
@@ -287,6 +291,7 @@ export class ZAppHeader {
 
   private closeDrawer(): void {
     this.drawerOpen = false;
+    this.burgerButton.focus();
   }
 
   private collectMenuElements(): void {
