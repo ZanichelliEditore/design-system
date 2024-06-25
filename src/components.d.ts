@@ -106,9 +106,9 @@ export namespace Components {
          */
         "enableZLogo": boolean;
         /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
-        "flow": "auto" | "stack" | "offcanvas";
+        "flow": "offcanvas";
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -3312,9 +3312,9 @@ declare namespace LocalJSX {
          */
         "enableZLogo"?: boolean;
         /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
-        "flow"?: "auto" | "stack" | "offcanvas";
+        "flow"?: "offcanvas";
         /**
           * Emitted when the `stuck` state of the header changes
          */

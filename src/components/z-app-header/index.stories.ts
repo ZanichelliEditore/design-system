@@ -27,7 +27,6 @@ const StoryMeta = {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
-    "flow": "auto",
   },
 } satisfies Meta<ZAppHeaderStoriesArgs>;
 

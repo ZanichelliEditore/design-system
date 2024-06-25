@@ -40,13 +40,10 @@ export class ZAppHeader {
   stuck = false;
 
   /**
-   * Control menu bar position in the header.
-   * - auto: the menu bar is positioned near the title
-   * - stack: the menu bar is positioned below the title
-   * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+   * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
    */
   @Prop({reflect: true})
-  flow: "auto" | "stack" | "offcanvas" = "auto";
+  flow: "offcanvas";
 
   /**
    * Enable the search bar.
@@ -145,7 +142,6 @@ export class ZAppHeader {
 
   @Listen("keyup")
   handleKeyUp(e: KeyboardEvent): void {
-    console.log("tab", e.code);
     if (e.code === KeyboardCode.ESC) {
       this.closeDrawer();
 
@@ -235,7 +231,6 @@ export class ZAppHeader {
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
       (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
       (element as HTMLZMenuElement).setAttribute("role", "menuitem");
-
       (element as HTMLZMenuElement).hasDivider =
         this.flow === "offcanvas" ? false : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
