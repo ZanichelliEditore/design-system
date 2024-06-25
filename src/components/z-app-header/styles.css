@@ -400,15 +400,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     height: 20px;
   }
 
-  :host([flow="stack"]) .heading-panel {
-    flex-flow: column;
-    align-items: flex-start;
-  }
-
-  :host([flow="stack"]) .menu-container {
-    width: 100%;
-  }
-
   z-searchbar {
     min-width: calc(var(--space-unit) * 45);
     flex: initial;
