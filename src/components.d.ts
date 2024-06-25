@@ -108,7 +108,7 @@ export namespace Components {
         /**
           * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
-        "flow": "offcanvas";
+        "flow": "offcanvas" | null;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -3314,7 +3314,7 @@ declare namespace LocalJSX {
         /**
           * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
          */
-        "flow"?: "offcanvas";
+        "flow"?: "offcanvas" | null;
         /**
           * Emitted when the `stuck` state of the header changes
          */

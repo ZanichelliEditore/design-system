@@ -42,8 +42,8 @@ export class ZAppHeader {
   /**
    * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
    */
-  @Prop({reflect: true})
-  flow: "offcanvas";
+  @Prop({reflect: true, mutable: true})
+  flow: "offcanvas" | null;
 
   /**
    * Enable the search bar.
@@ -245,6 +245,19 @@ export class ZAppHeader {
     }
   }
 
+  private enableStuckObserver(): void {
+    if (this.observer) {
+      this.observer.observe(this.container);
+    }
+  }
+
+  private disableStuckMode(): void {
+    this._stuck = false;
+    if (this.observer) {
+      this.observer.unobserve(this.container);
+    }
+  }
+
   private get title(): string {
     const titleElement = this.hostElement.querySelector('[slot="title"]');
     if (titleElement === null) {
@@ -293,19 +306,6 @@ export class ZAppHeader {
     const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
     this.menuLength = menuElements.length;
     this.setMenuFloatingMode();
-  }
-
-  private enableStuckObserver(): void {
-    if (this.observer) {
-      this.observer.observe(this.container);
-    }
-  }
-
-  private disableStuckMode(): void {
-    this._stuck = false;
-    if (this.observer) {
-      this.observer.unobserve(this.container);
-    }
   }
 
   private isSlotPresent(slotName: string): boolean {
@@ -440,6 +440,20 @@ export class ZAppHeader {
     );
   }
 
+  private getWidthMenu(): number {
+    if (this.menuElements.length === 0) {
+      return;
+    }
+
+    let totalWidth = 0;
+    this.menuElements.forEach((item) => {
+      const itemWidth = item.getBoundingClientRect().width;
+      totalWidth += itemWidth;
+    });
+
+    return totalWidth;
+  }
+
   componentWillLoad(): void {
     this.collectMenuElements();
     this.evaluateViewport();
@@ -447,6 +461,17 @@ export class ZAppHeader {
 
   componentDidLoad(): void {
     this.onStuckMode();
+
+    const menuWidth = this.getWidthMenu();
+    const resizeObserver = new ResizeObserver((observer) => {
+      if (menuWidth > observer[0].contentRect.width) {
+        this.flow = "offcanvas";
+      } else {
+        this.flow = null;
+      }
+    });
+
+    resizeObserver.observe(this.container);
   }
 
   render(): HTMLZAppHeaderElement {
@@ -468,7 +493,6 @@ export class ZAppHeader {
               {!this.isSlotPresent("top-subtitle") && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
               {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== Device.DESKTOP)}
-
               {this.renderSearchLinkButton()}
             </div>
           </div>
