@@ -92,7 +92,6 @@ export class ZMenu {
     e.preventDefault();
 
     if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
-      console.log(this.hostElement.shadowRoot.querySelector(".menu-label"));
       const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
       menuLabel.focus();
       this.currentIndex = -1;
@@ -115,9 +114,6 @@ export class ZMenu {
     }
 
     if (this.open) {
-      // menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-      // console.log(this.hostElement.shadowRoot.querySelector(".content"));
-
       console.log(firstMenuItem);
       console.log(lastMenuItem);
       let nextFocusableItem: HTMLElement;

@@ -232,7 +232,9 @@ export class ZAppHeader {
       (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
       (element as HTMLZMenuElement).setAttribute("role", "menuitem");
       (element as HTMLZMenuElement).hasDivider =
-        this.flow === "offcanvas" ? false : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
+        this.flow === "offcanvas" || this._stuck
+          ? false
+          : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
   }
 
