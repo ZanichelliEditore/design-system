@@ -1,6 +1,5 @@
 import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
-
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
@@ -19,7 +18,7 @@ export const config: Config = {
     },
     {
       type: "docs-vscode",
-      file: "docs-vscode.json",
+      file: "custom-elements.json",
       sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
     },
     {
@@ -39,4 +38,4 @@ export const config: Config = {
   testing: {
     testPathIgnorePatterns: ["./storybook/*", "./dist/*"],
   },
-} satisfies Config;
+};
