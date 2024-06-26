@@ -1,5 +1,6 @@
 import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
+
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
