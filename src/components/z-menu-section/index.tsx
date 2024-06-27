@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {KeyboardCode} from "../../beans";
 
 /**
  * A component to create submenus inside the ZMenu.
@@ -30,6 +31,60 @@ export class ZMenuSection {
   /** The section has been closed. */
   @Event()
   closed: EventEmitter;
+
+  private currentIndex = -1;
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    const menuItems = this.hostElement.querySelectorAll('[slot="section"]');
+    const firstMenuItem = menuItems[0] as HTMLElement;
+    const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
+
+    if (this.open) {
+      let nextFocusableItem: HTMLElement;
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      if (e.code === KeyboardCode.ARROW_DOWN) {
+        e.preventDefault();
+        e.stopPropagation();
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex++;
+            break;
+          case menuItems.length - 1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex = 0;
+            break;
+          default:
+            nextFocusableItem = menuItems[this.currentIndex + 1] as HTMLElement;
+            this.currentIndex++;
+            break;
+        }
+      } else if (e.code === KeyboardCode.ARROW_UP) {
+        e.preventDefault();
+        e.stopPropagation();
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex--;
+            break;
+          case 0:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex = menuItems.length - 1;
+            break;
+          default:
+            nextFocusableItem = menuItems[this.currentIndex - 1] as HTMLElement;
+            this.currentIndex--;
+            break;
+        }
+      }
+
+      if (nextFocusableItem) {
+        nextFocusableItem.setAttribute("tabindex", "0");
+        nextFocusableItem.focus();
+      }
+    }
+  }
 
   private toggle(): void {
     if (!this.hasContent) {
@@ -81,6 +136,10 @@ export class ZMenuSection {
           class="label"
           aria-pressed={this.open ? "true" : "false"}
           onClick={this.toggle.bind(this)}
+          onKeyUp={() => {
+            const firstElement = this.hostElement.querySelectorAll('[slot="section"]')[0] as HTMLElement;
+            firstElement.focus();
+          }}
         >
           <slot onSlotchange={this.onLabelSlotChange.bind(this)}></slot>
           {this.hasContent && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}

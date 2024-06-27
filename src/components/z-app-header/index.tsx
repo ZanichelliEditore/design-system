@@ -140,9 +140,9 @@ export class ZAppHeader {
     this.currentViewport = getDevice();
   }
 
-  @Listen("keyup")
-  handleKeyUp(e: KeyboardEvent): void {
-    if (e.code === KeyboardCode.ESC) {
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ESC && this.drawerOpen) {
       this.closeDrawer();
 
       return;
@@ -152,54 +152,62 @@ export class ZAppHeader {
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
-    const elements = [];
-    this.menuElements.forEach((el) => {
-      elements.push(el.shadowRoot.querySelector(".menu-label"));
-    });
-    const firstMenuItem = elements[0] as HTMLElement;
-    const lastMenuItem = elements[elements.length - 1] as HTMLElement;
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+      return;
+    }
 
     if (document.activeElement.slot === "item") {
       return;
     }
 
-    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-      return;
-    }
+    const elements = [];
+    this.menuElements.forEach((el) => {
+      elements.push(el.shadowRoot.querySelector(".menu-label"));
+    });
+
+    const firstMenuItem = elements[0] as HTMLElement;
+    const lastMenuItem = elements[elements.length - 1] as HTMLElement;
+
     let nextFocusableItem: HTMLElement;
 
-    // INFO: reset focus on all menu items
-    elements.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+    if (this.currentViewport === "mobile" || this.flow === "offcanvas" || this._stuck) {
+      // INFO: reset focus on all menu items
+      elements.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
 
-    if (e.code === KeyboardCode.ARROW_DOWN) {
-      switch (this.currentIndex) {
-        case -1:
-          nextFocusableItem = firstMenuItem;
-          this.currentIndex++;
-          break;
-        case elements.length - 1:
-          nextFocusableItem = firstMenuItem;
-          this.currentIndex = 0;
-          break;
-        default:
-          nextFocusableItem = elements[this.currentIndex + 1] as HTMLElement;
-          this.currentIndex++;
-          break;
-      }
-    } else if (e.code === KeyboardCode.ARROW_UP) {
-      switch (this.currentIndex) {
-        case -1:
-          nextFocusableItem = lastMenuItem;
-          this.currentIndex--;
-          break;
-        case 0:
-          nextFocusableItem = lastMenuItem;
-          this.currentIndex = elements.length - 1;
-          break;
-        default:
-          nextFocusableItem = elements[this.currentIndex - 1] as HTMLElement;
-          this.currentIndex--;
-          break;
+      if (e.code === KeyboardCode.ARROW_DOWN) {
+        e.preventDefault();
+        e.stopPropagation();
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex++;
+            break;
+          case elements.length - 1:
+            nextFocusableItem = firstMenuItem;
+            this.currentIndex = 0;
+            break;
+          default:
+            nextFocusableItem = elements[this.currentIndex + 1] as HTMLElement;
+            this.currentIndex++;
+            break;
+        }
+      } else if (e.code === KeyboardCode.ARROW_UP) {
+        e.preventDefault();
+        e.stopPropagation();
+        switch (this.currentIndex) {
+          case -1:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex--;
+            break;
+          case 0:
+            nextFocusableItem = lastMenuItem;
+            this.currentIndex = elements.length - 1;
+            break;
+          default:
+            nextFocusableItem = elements[this.currentIndex - 1] as HTMLElement;
+            this.currentIndex--;
+            break;
+        }
       }
     }
 
@@ -229,7 +237,7 @@ export class ZAppHeader {
       (element as HTMLZMenuElement).open = false;
       (element as HTMLZMenuElement).floating = !this.drawerOpen;
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
-      (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
+      // (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
       (element as HTMLZMenuElement).setAttribute("role", "menuitem");
       (element as HTMLZMenuElement).hasDivider =
         this.flow === "offcanvas" || this._stuck

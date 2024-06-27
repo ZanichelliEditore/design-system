@@ -86,41 +86,48 @@ export class ZMenu {
 
   private currentIndex = -1;
 
-  @Listen("keyup")
-  handleKeyUp(e: KeyboardEvent): void {
-    console.log("e", e);
-    e.preventDefault();
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    // if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
+    //   const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+    //   menuLabel.focus();
+    //   this.currentIndex = -1;
+    //   this.open = false;
 
-    if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
-      const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-      menuLabel.focus();
-      this.currentIndex = -1;
-      this.open = false;
-
-      return;
-    }
+    //   return;
+    // }
 
     const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
     const firstMenuItem = menuItems[0] as HTMLElement;
     const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
+    const newMenuItems = [];
 
-    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-      if (this.open) {
-        firstMenuItem.focus();
-        this.currentIndex = 0;
+    menuItems.forEach((el) => {
+      if (el.tagName === "Z-MENU-SECTION") {
+        newMenuItems.push(el.shadowRoot.querySelector("button"));
+      } else {
+        newMenuItems.push(el);
       }
+    });
 
-      return;
-    }
+    // console.log("menuItems", menuItems);
+    // console.log("newMenuItems", newMenuItems);
+
+    // if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+    //   if (this.open) {
+    //     firstMenuItem.focus();
+    //     this.currentIndex = 0;
+    //   }
+
+    //   return;
+    // }
 
     if (this.open) {
-      console.log(firstMenuItem);
-      console.log(lastMenuItem);
       let nextFocusableItem: HTMLElement;
-
-      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-
+      newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
       if (e.code === KeyboardCode.ARROW_DOWN) {
+        e.preventDefault();
+        e.stopPropagation();
         switch (this.currentIndex) {
           case -1:
             nextFocusableItem = firstMenuItem;
@@ -131,11 +138,13 @@ export class ZMenu {
             this.currentIndex = 0;
             break;
           default:
-            nextFocusableItem = menuItems[this.currentIndex + 1] as HTMLElement;
+            nextFocusableItem = newMenuItems[this.currentIndex + 1] as HTMLElement;
             this.currentIndex++;
             break;
         }
       } else if (e.code === KeyboardCode.ARROW_UP) {
+        e.preventDefault();
+        e.stopPropagation();
         switch (this.currentIndex) {
           case -1:
             nextFocusableItem = lastMenuItem;
@@ -143,17 +152,16 @@ export class ZMenu {
             break;
           case 0:
             nextFocusableItem = lastMenuItem;
-            this.currentIndex = menuItems.length - 1;
+            this.currentIndex = newMenuItems.length - 1;
             break;
           default:
-            nextFocusableItem = menuItems[this.currentIndex - 1] as HTMLElement;
+            nextFocusableItem = newMenuItems[this.currentIndex - 1] as HTMLElement;
             this.currentIndex--;
             break;
         }
       }
 
       if (nextFocusableItem) {
-        console.log("next", nextFocusableItem);
         nextFocusableItem.setAttribute("tabindex", "0");
         nextFocusableItem.focus();
       }
@@ -238,6 +246,10 @@ export class ZMenu {
             aria-expanded={this.open ? "true" : "false"}
             aria-label={this.open ? "Chiudi menù" : "Apri menù"}
             onClick={this.toggle}
+            onKeyUp={() => {
+              const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0] as HTMLElement;
+              firstElement.focus();
+            }}
           >
             <div class="menu-label-content">
               <slot onSlotchange={this.onLabelSlotChange}></slot>
