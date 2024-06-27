@@ -88,14 +88,14 @@ export class ZMenu {
 
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
-    // if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
-    //   const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-    //   menuLabel.focus();
-    //   this.currentIndex = -1;
-    //   this.open = false;
+    if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
+      const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+      menuLabel.focus();
+      this.currentIndex = -1;
+      this.open = false;
 
-    //   return;
-    // }
+      return;
+    }
 
     const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
     const firstMenuItem = menuItems[0] as HTMLElement;
@@ -109,18 +109,6 @@ export class ZMenu {
         newMenuItems.push(el);
       }
     });
-
-    // console.log("menuItems", menuItems);
-    // console.log("newMenuItems", newMenuItems);
-
-    // if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-    //   if (this.open) {
-    //     firstMenuItem.focus();
-    //     this.currentIndex = 0;
-    //   }
-
-    //   return;
-    // }
 
     if (this.open) {
       let nextFocusableItem: HTMLElement;
