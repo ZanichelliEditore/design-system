@@ -15,6 +15,10 @@ const StoryMeta = {
   parameters: {
     layout: "fullscreen",
   },
+  subcomponents: {
+    ZMenu: "z-menu",
+    ZMenuSection: "z-menu-section",
+  },
   args: {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,

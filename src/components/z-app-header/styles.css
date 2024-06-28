@@ -350,7 +350,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     margin-right: calc(var(--space-unit) * 1.75);
   }
 
-  :host(:not([enable-offcanvas]) :not([menu-length="0"])) .heading-top-subtitle {
+  :host(:not([enable-offcanvas]):not([menu-length="0"])) .heading-top-subtitle {
     padding-left: 0;
   }
 

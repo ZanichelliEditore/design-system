@@ -5,7 +5,7 @@ import "../z-menu-section/index";
 import "./index";
 
 const StoryMeta = {
-  title: "ZMenu",
+  title: "Zmenu/ZMenu",
   component: "z-menu",
   args: {
     active: false,
