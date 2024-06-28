@@ -98,6 +98,10 @@ export namespace Components {
      */
     interface ZAppHeader {
         /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas": boolean;
+        /**
           * Enable the search bar.
          */
         "enableSearch": boolean;
@@ -105,10 +109,6 @@ export namespace Components {
           * Enable laZ logo.
          */
         "enableZLogo": boolean;
-        /**
-          * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-         */
-        "flow": "offcanvas" | null;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -3304,6 +3304,10 @@ declare namespace LocalJSX {
      */
     interface ZAppHeader {
         /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas"?: boolean;
+        /**
           * Enable the search bar.
          */
         "enableSearch"?: boolean;
@@ -3311,10 +3315,6 @@ declare namespace LocalJSX {
           * Enable laZ logo.
          */
         "enableZLogo"?: boolean;
-        /**
-          * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-         */
-        "flow"?: "offcanvas" | null;
         /**
           * Emitted when the `stuck` state of the header changes
          */

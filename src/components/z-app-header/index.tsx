@@ -40,10 +40,10 @@ export class ZAppHeader {
   stuck = false;
 
   /**
-   * - the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+   * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
    */
   @Prop({reflect: true, mutable: true})
-  flow: "offcanvas" | null;
+  enableOffcanvas = false;
 
   /**
    * Enable the search bar.
@@ -170,7 +170,7 @@ export class ZAppHeader {
 
     let nextFocusableItem: HTMLElement;
 
-    if (this.currentViewport === "mobile" || this.flow === "offcanvas" || this._stuck) {
+    if (this.currentViewport === "mobile" || this.enableOffcanvas || this._stuck) {
       // INFO: reset focus on all menu items
       elements.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
 
@@ -237,10 +237,9 @@ export class ZAppHeader {
       (element as HTMLZMenuElement).open = false;
       (element as HTMLZMenuElement).floating = !this.drawerOpen;
       (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
-      // (element as HTMLZMenuElement).setAttribute("tabindex", "-1");
       (element as HTMLZMenuElement).setAttribute("role", "menuitem");
       (element as HTMLZMenuElement).hasDivider =
-        this.flow === "offcanvas" || this._stuck
+        this.enableOffcanvas || this._stuck
           ? false
           : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
@@ -287,7 +286,9 @@ export class ZAppHeader {
   }
 
   private get canShowMenu(): boolean {
-    return this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
+    return (
+      !this.enableOffcanvas && this.menuElements.length > 0 && this.currentViewport !== "mobile" && !this.drawerOpen
+    );
   }
 
   private get canShowSearchbar(): boolean {
@@ -378,7 +379,8 @@ export class ZAppHeader {
 
   private renderMenuButton(): HTMLButtonElement {
     return (
-      this.menuLength > 0 && (
+      this.menuLength > 0 &&
+      this.enableOffcanvas && (
         <button
           ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
           aria-label="Apri menu"
@@ -474,10 +476,12 @@ export class ZAppHeader {
 
     const menuWidth = this.getWidthMenu();
     const resizeObserver = new ResizeObserver((observer) => {
-      if (menuWidth > observer[0].contentRect.width) {
-        this.flow = "offcanvas";
-      } else {
-        this.flow = null;
+      if (!this.enableOffcanvas) {
+        if (menuWidth > observer[0].contentRect.width) {
+          this.enableOffcanvas = true;
+        } else {
+          this.enableOffcanvas = false;
+        }
       }
     });
 

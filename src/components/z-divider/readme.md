@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [z-app-header](../navigation/z-app-header)
+ - [z-app-header](../z-app-header)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-file-upload](../file-upload/z-file-upload)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
- - [z-menu](../navigation/z-menu)
+ - [z-menu](../z-menu)
  - [z-section-title](../z-section-title)
 
 ### Graph

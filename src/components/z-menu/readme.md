@@ -35,8 +35,8 @@
 
 ### Depends on
 
-- [z-icon](../../icons/z-icon)
-- [z-divider](../../z-divider)
+- [z-icon](../z-icon)
+- [z-divider](../z-divider)
 
 ### Graph
 ```mermaid

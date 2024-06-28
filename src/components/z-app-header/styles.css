@@ -20,11 +20,6 @@
   and use the same level as the one of the font size. */
   --app-header-title-lineheight: 1.25;
 
-  /* Variable to customize the title's letter-spacing.
-  NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value
-  and use the same level as the one of the font size. */
-  --app-header-title-letter-spacing: calc(-0.6 / 1em);
-
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-default-text);
 
@@ -121,15 +116,13 @@ img.z-logo {
 ::slotted([slot="title"]) {
   padding-right: var(--space-unit);
   font-size: calc(var(--space-unit) * 3);
-  letter-spacing: var(--app-header-title-letter-spacing);
-  line-height: var(--app-header-title-lineheight);
 }
 
 :host(:not([menu-length="0"])) .heading-top-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
-:host(:is([flow="offcanvas"]):not([menu-length="0"])) .heading-top-subtitle {
+:host(:is([enable-offcanvas="true"]):not([menu-length="0"])) .heading-top-subtitle {
   padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
@@ -286,11 +279,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
-  :host {
-    --app-header-title-lineheight: 1.25;
-    --app-header-title-letter-spacing: calc(-1.2 / 1em);
-  }
-
   :host([enable-search]:not([search-page-url])) .heading-title {
     flex-wrap: nowrap;
   }
@@ -303,12 +291,9 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   ::slotted([slot="title"]) {
     font-size: calc(var(--space-unit) * 4.5);
-    letter-spacing: var(--app-header-title-letter-spacing);
-    line-height: var(--app-header-title-lineheight);
   }
 
   .heading-title {
-    height: 36px;
     align-items: center;
   }
 
@@ -340,11 +325,11 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     height: calc(var(--space-unit) * 4.5 * var(--app-header-title-lineheight));
   }
 
-  :host(:not([flow="offcanvas"])) .menu-container {
+  :host(:not([enable-offcanvas="false"])) .menu-container {
     margin-top: calc((var(--space-unit) * 1.75));
   }
 
-  :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
+  :host(:not([enable-offcanvas])) .heading-container .drawer-trigger {
     display: none;
   }
 
@@ -365,7 +350,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     margin-right: calc(var(--space-unit) * 1.75);
   }
 
-  :host(:not([menu-length="0"])) .heading-top-subtitle {
+  :host(:not([enable-offcanvas]) :not([menu-length="0"])) .heading-top-subtitle {
     padding-left: 0;
   }
 
