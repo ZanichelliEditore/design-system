@@ -366,7 +366,7 @@ export class ZAppHeader {
   private renderMenuButton(): HTMLButtonElement {
     return (
       this.menuLength > 0 &&
-      this.enableOffcanvas && (
+      (this.enableOffcanvas || this._stuck) && (
         <button
           ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
           aria-label="Apri menu"
@@ -460,14 +460,18 @@ export class ZAppHeader {
   componentDidLoad(): void {
     this.onStuckMode();
 
+    if (this.enableOffcanvas) {
+      return;
+    }
+
     const menuWidth = this.getWidthMenu();
     const resizeObserver = new ResizeObserver((observer) => {
-      if (!this.enableOffcanvas) {
-        if (menuWidth > observer[0].contentRect.width) {
-          this.enableOffcanvas = true;
-        } else {
-          this.enableOffcanvas = false;
-        }
+      const containerWidth = observer[0].contentRect.width;
+
+      if (menuWidth > containerWidth && !this.enableOffcanvas) {
+        this.enableOffcanvas = true;
+      } else if (menuWidth <= containerWidth && this.enableOffcanvas) {
+        this.enableOffcanvas = false;
       }
     });
 
