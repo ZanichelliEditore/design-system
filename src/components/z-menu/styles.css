@@ -128,6 +128,7 @@ when placed below the real text using `flex-direction: column`. */
 .menu-label .menu-label-content ::slotted(*) {
   display: inline-flex;
   width: 100%;
+  min-width: fit-content;
   margin: 0;
   appearance: none;
   color: var(--z-menu-label-color);

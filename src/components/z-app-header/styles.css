@@ -350,6 +350,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     margin-right: calc(var(--space-unit) * 1.75);
   }
 
+  /* stylelint-disable-next-line selector-not-notation */
   :host(:not([enable-offcanvas]):not([menu-length="0"])) .heading-top-subtitle {
     padding-left: 0;
   }
