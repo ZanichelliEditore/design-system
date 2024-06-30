@@ -153,6 +153,10 @@ export class ZAppHeader {
 
   private handleArrowsNav(e: KeyboardEvent): void {
     if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
+      if (this.enableOffcanvas && e.code !== KeyboardCode.ENTER) {
+        this.closeDrawer();
+      }
+
       return;
     }
 
@@ -160,54 +164,23 @@ export class ZAppHeader {
       return;
     }
 
-    const elements = [];
-    this.menuElements.forEach((el) => {
-      elements.push(el.shadowRoot.querySelector(".menu-label"));
-    });
-
-    const firstMenuItem = elements[0] as HTMLElement;
-    const lastMenuItem = elements[elements.length - 1] as HTMLElement;
+    const menuItems = Array.from(this.menuElements).map(
+      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+    );
 
     let nextFocusableItem: HTMLElement;
 
     if (this.currentViewport === "mobile" || this.enableOffcanvas || this._stuck) {
       // INFO: reset focus on all menu items
-      elements.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+      e.preventDefault();
+      e.stopPropagation();
 
       if (e.code === KeyboardCode.ARROW_DOWN) {
-        e.preventDefault();
-        e.stopPropagation();
-        switch (this.currentIndex) {
-          case -1:
-            nextFocusableItem = firstMenuItem;
-            this.currentIndex++;
-            break;
-          case elements.length - 1:
-            nextFocusableItem = firstMenuItem;
-            this.currentIndex = 0;
-            break;
-          default:
-            nextFocusableItem = elements[this.currentIndex + 1] as HTMLElement;
-            this.currentIndex++;
-            break;
-        }
+        nextFocusableItem = this.getNextItem(menuItems, 1);
       } else if (e.code === KeyboardCode.ARROW_UP) {
-        e.preventDefault();
-        e.stopPropagation();
-        switch (this.currentIndex) {
-          case -1:
-            nextFocusableItem = lastMenuItem;
-            this.currentIndex--;
-            break;
-          case 0:
-            nextFocusableItem = lastMenuItem;
-            this.currentIndex = elements.length - 1;
-            break;
-          default:
-            nextFocusableItem = elements[this.currentIndex - 1] as HTMLElement;
-            this.currentIndex--;
-            break;
-        }
+        nextFocusableItem = this.getNextItem(menuItems, -1);
       }
     }
 
@@ -215,6 +188,18 @@ export class ZAppHeader {
       nextFocusableItem.setAttribute("tabindex", "0");
       nextFocusableItem.focus();
     }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
   }
 
   @Watch("_stuck")
@@ -311,6 +296,7 @@ export class ZAppHeader {
   private closeDrawer(): void {
     this.drawerOpen = false;
     this.burgerButton.focus();
+    this.currentIndex = -1;
   }
 
   private collectMenuElements(): void {
@@ -489,22 +475,24 @@ export class ZAppHeader {
   }
 
   render(): HTMLZAppHeaderElement {
+    const hasTopSubtitle = this.isSlotPresent("top-subtitle");
+
     return (
       <Host menu-length={this.menuLength}>
         <div
-          class={`heading-panel ${this.isSlotPresent("top-subtitle") ? "padding-top-subtitle" : ""}`}
+          class={`heading-panel ${hasTopSubtitle ? "padding-top-subtitle" : ""}`}
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
             {((!this.canShowSearchbar && this.currentViewport === Device.MOBILE) ||
               this.currentViewport !== Device.MOBILE) && (
-              <div class={`heading-top-subtitle ${this.isSlotPresent("top-subtitle") ? "active-top-subtitle" : ""}`}>
+              <div class={`heading-top-subtitle ${hasTopSubtitle ? "active-top-subtitle" : ""}`}>
                 <slot name="top-subtitle"></slot>
               </div>
             )}
             <div class="heading-title">
               {this.renderMenuButton()}
-              {!this.isSlotPresent("top-subtitle") && !this._stuck && this.renderProductLogos()}
+              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
               {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== Device.DESKTOP)}
               {this.renderSearchLinkButton()}
@@ -512,7 +500,7 @@ export class ZAppHeader {
           </div>
 
           {(this.canShowMenu || this.canShowSearchbar) && (
-            <div class={`menu-container ${this.isSlotPresent("top-subtitle") ? "menu-top-subtitle" : ""}`}>
+            <div class={`menu-container ${hasTopSubtitle ? "menu-top-subtitle" : ""}`}>
               {this.canShowMenu && (
                 <slot
                   name="menu"
