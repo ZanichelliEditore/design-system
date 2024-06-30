@@ -111,6 +111,7 @@ export class ZMenu {
 
       if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
         let nextFocusableItem: HTMLElement;
+        // INFO: reset focus on all menu items
         newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
 
         if (e.code === KeyboardCode.ARROW_DOWN) {
@@ -144,8 +145,8 @@ export class ZMenu {
   }
 
   private focusToParentAndCloseMenu(): void {
-    const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-    menuLabel.focus();
+    const menuButton = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+    menuButton.focus();
     this.currentIndex = -1;
     this.open = false;
   }
@@ -219,6 +220,14 @@ export class ZMenu {
     });
   }
 
+  private focusFirstItemOnKeyUp(): void {
+    const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0] as HTMLElement;
+    if (firstElement) {
+      firstElement.focus();
+      this.currentIndex = 0;
+    }
+  }
+
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
@@ -228,10 +237,7 @@ export class ZMenu {
             aria-expanded={this.open ? "true" : "false"}
             aria-label={this.open ? "Chiudi menù" : "Apri menù"}
             onClick={this.toggle}
-            onKeyUp={() => {
-              const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0] as HTMLElement;
-              firstElement.focus();
-            }}
+            onKeyUp={this.focusFirstItemOnKeyUp.bind(this)}
           >
             <div class="menu-label-content">
               <slot onSlotchange={this.onLabelSlotChange}></slot>
