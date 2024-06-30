@@ -63,6 +63,8 @@ export class ZMenu {
   @Event()
   closed: EventEmitter;
 
+  private currentIndex = -1;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;
@@ -84,24 +86,17 @@ export class ZMenu {
     this.closed.emit();
   }
 
-  private currentIndex = -1;
-
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
-    if (e.code === KeyboardCode.TAB || (e.code === KeyboardCode.TAB && e.shiftKey) || e.code === "ShiftLeft") {
-      const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-      menuLabel.focus();
-      this.currentIndex = -1;
-      this.open = false;
-
+    if (e.code === KeyboardCode.ENTER) {
       return;
     }
+    this.handleArrowsNav(e);
+  }
 
+  private handleArrowsNav(e: KeyboardEvent): void {
     const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
-    const firstMenuItem = menuItems[0] as HTMLElement;
-    const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
     const newMenuItems = [];
-
     menuItems.forEach((el) => {
       if (el.tagName === "Z-MENU-SECTION") {
         newMenuItems.push(el.shadowRoot.querySelector("button"));
@@ -111,49 +106,48 @@ export class ZMenu {
     });
 
     if (this.open) {
-      let nextFocusableItem: HTMLElement;
-      newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-      if (e.code === KeyboardCode.ARROW_DOWN) {
-        e.preventDefault();
-        e.stopPropagation();
-        switch (this.currentIndex) {
-          case -1:
-            nextFocusableItem = firstMenuItem;
-            this.currentIndex++;
-            break;
-          case menuItems.length - 1:
-            nextFocusableItem = firstMenuItem;
-            this.currentIndex = 0;
-            break;
-          default:
-            nextFocusableItem = newMenuItems[this.currentIndex + 1] as HTMLElement;
-            this.currentIndex++;
-            break;
-        }
-      } else if (e.code === KeyboardCode.ARROW_UP) {
-        e.preventDefault();
-        e.stopPropagation();
-        switch (this.currentIndex) {
-          case -1:
-            nextFocusableItem = lastMenuItem;
-            this.currentIndex--;
-            break;
-          case 0:
-            nextFocusableItem = lastMenuItem;
-            this.currentIndex = newMenuItems.length - 1;
-            break;
-          default:
-            nextFocusableItem = newMenuItems[this.currentIndex - 1] as HTMLElement;
-            this.currentIndex--;
-            break;
-        }
-      }
+      e.preventDefault();
+      e.stopPropagation();
 
-      if (nextFocusableItem) {
-        nextFocusableItem.setAttribute("tabindex", "0");
-        nextFocusableItem.focus();
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        let nextFocusableItem: HTMLElement;
+        newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+        if (e.code === KeyboardCode.ARROW_DOWN) {
+          nextFocusableItem = this.getNextItem(newMenuItems, 1);
+        } else if (e.code === KeyboardCode.ARROW_UP) {
+          nextFocusableItem = this.getNextItem(newMenuItems, -1);
+        }
+
+        if (nextFocusableItem) {
+          nextFocusableItem.setAttribute("tabindex", "0");
+          nextFocusableItem.focus();
+        }
+      } else if (e.code === KeyboardCode.TAB) {
+        this.focusToParentAndCloseMenu();
+      } else {
+        this.focusToParentAndCloseMenu();
       }
     }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
+  }
+
+  private focusToParentAndCloseMenu(): void {
+    const menuLabel = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+    menuLabel.focus();
+    this.currentIndex = -1;
+    this.open = false;
   }
 
   @Watch("open")
