@@ -272,7 +272,10 @@ export class ZAppHeader {
 
   private get canShowMenu(): boolean {
     return (
-      !this.enableOffcanvas && this.menuElements.length > 0 && this.currentViewport !== "mobile" && !this.drawerOpen
+      !this.enableOffcanvas &&
+      this.menuElements.length > 0 &&
+      this.currentViewport !== Device.MOBILE &&
+      !this.drawerOpen
     );
   }
 
@@ -366,7 +369,7 @@ export class ZAppHeader {
   private renderMenuButton(): HTMLButtonElement {
     return (
       this.menuLength > 0 &&
-      (this.enableOffcanvas || this._stuck) && (
+      (this.enableOffcanvas || this._stuck || this.currentViewport === Device.MOBILE) && (
         <button
           ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
           aria-label="Apri menu"
