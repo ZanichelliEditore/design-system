@@ -3105,10 +3105,10 @@
     "@types/emscripten" "^1.39.6"
     tslib "^1.13.0"
 
-"@zanichelli/albe-design-tokens@^1.2.6":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@zanichelli/albe-design-tokens/-/albe-design-tokens-1.2.6.tgz#847be39c421ffeba8a1f9435a4bfff4d9d886b0c"
-  integrity sha512-sffrFDRoTC5Jywz8Utw5cIQoGx7bZLL3hOgQn9NfUAT/PAS8KD6uPkWwjNnS5XfkcIhcR2qgsD+l85pLTzgRyw==
+"@zanichelli/albe-design-tokens@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@zanichelli/albe-design-tokens/-/albe-design-tokens-1.3.0.tgz#5ad1a59cc977f527b97b0b29d812900399a662b2"
+  integrity sha512-de+KE7JHo0Zh3TCyv68Hx0vFy0TEu2w0uTpcQw/8i05hL8CkMe/DtrANeXZt2i3RnSBLn7aBwesP0GGpRwC/pw==
 
 JSONStream@^1.0.4, JSONStream@^1.3.5:
   version "1.3.5"
