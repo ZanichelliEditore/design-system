@@ -13,15 +13,17 @@ describe("Suite test ZMenu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-menu role="menu">
-        <mock:shadow-root>
+    <z-menu role="menu">
+      <mock:shadow-root>
+        <div class="menu-wrapper">
           <div class="menu-label">
             <div class="menu-label-content">
               <slot></slot>
             </div>
           </div>
-        </mock:shadow-root>
-        <h3>Menu label</h3>
+        </div>
+      </mock:shadow-root>
+      <h3>Menu label</h3>
     </z-menu>`);
   });
 
@@ -39,12 +41,14 @@ describe("Suite test ZMenu", () => {
     expect(page.root).toEqualHtml(`
       <z-menu role="menu">
         <mock:shadow-root>
-          <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
-            <div class="menu-label-content">
-              <slot></slot>
-              <z-icon name="chevron-down"></z-icon>
-            </div>
-          </button>
+          <div class="menu-wrapper">
+            <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
+              <div class="menu-label-content">
+                <slot></slot>
+                <z-icon name="chevron-down"></z-icon>
+              </div>
+            </button>
+          </div>
           <div class="content">
             <div class="items" role="menu">
               <slot name="item"></slot>
@@ -66,40 +70,52 @@ describe("Suite test ZMenu", () => {
         <a href="#" slot="item">Item 1</a>
         <z-menu-section slot="item">
           <h3>Item 2</h2>
-          <a href="#" slot="item">Item 2.1</a>
-          <a href="#" slot="item">Item 2.2</a>
+          <a href="#" slot="section">Item 2.1</a>
+          <a href="#" slot="section">Item 2.2</a>
         </z-menu-section>
       </z-menu>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-menu role="menu">
-        <mock:shadow-root>
+    <z-menu role="menu">
+      <mock:shadow-root>
+        <div class="menu-wrapper">
           <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
             <div class="menu-label-content">
               <slot></slot>
               <z-icon name="chevron-down"></z-icon>
             </div>
           </button>
-          <div class="content">
-            <div class="items" role="menu">
-              <slot name="item"></slot>
-            </div>
+        </div>
+        <div class="content">
+          <div class="items" role="menu">
+            <slot name="item"></slot>
           </div>
+        </div>
+      </mock:shadow-root>
+      <h3>
+        Menu label
+      </h3>
+      <a href="#" slot="item">
+        Item 1
+      </a>
+      <z-menu-section role="menu" slot="item">
+        <mock:shadow-root>
+          <button aria-pressed="false" class="label">
+            <slot></slot>
+            <z-icon name="chevron-down"></z-icon>
+          </button>
         </mock:shadow-root>
-        <h3>Menu label</h3>
-        <a href="#" slot="item">Item 1</a>
-        <z-menu-section role="menu" slot="item">
-          <mock:shadow-root>
-            <button aria-pressed="false" class="label">
-              <slot></slot>
-              <z-icon name="chevron-down"></z-icon>
-            </button>
-          </mock:shadow-root>
-          <h3>Item 2</h3>
-          <a href="#" slot="item">Item 2.1</a>
-          <a href="#" slot="item">Item 2.2</a>
-        </z-menu-section>
+        <h3>
+          Item 2
+        </h3>
+        <a href="#" slot="section">
+          Item 2.1
+        </a>
+        <a href="#" slot="section">
+          Item 2.2
+        </a>
+      </z-menu-section>
     </z-menu>`);
   });
 

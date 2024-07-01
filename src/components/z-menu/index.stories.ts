@@ -40,12 +40,12 @@ export const FloatingContentLayout = {
         <h3>Item 3</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.2</a
         >
       </z-menu-section>
@@ -53,12 +53,12 @@ export const FloatingContentLayout = {
         <h3>Item 4</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.2</a
         >
       </z-menu-section>
@@ -98,12 +98,12 @@ export const WithHeader = {
         <h3>Item 3</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.2</a
         >
       </z-menu-section>

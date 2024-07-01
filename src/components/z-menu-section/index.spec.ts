@@ -8,9 +8,9 @@ describe("Suite test ZMenuSection", () => {
       components: [ZMenuSection],
       html: `<z-menu-section>
         <h3>Menu section label</h3>
-        <a href="#" slot="item">Item 1</a>
-        <a href="#" slot="item">Item 2</a>
-        <a href="#" slot="item">Item 3</a>
+        <a href="#" slot="section">Item 1</a>
+        <a href="#" slot="section">Item 2</a>
+        <a href="#" slot="section">Item 3</a>
       </z-menu-section>`,
     });
 
@@ -23,9 +23,9 @@ describe("Suite test ZMenuSection", () => {
           </button>
         </mock:shadow-root>
         <h3>Menu section label</h3>
-        <a href="#" slot="item">Item 1</a>
-        <a href="#" slot="item">Item 2</a>
-        <a href="#" slot="item">Item 3</a>
+        <a href="#" slot="section">Item 1</a>
+        <a href="#" slot="section">Item 2</a>
+        <a href="#" slot="section">Item 3</a>
     </z-menu-section>`);
   });
 
@@ -33,7 +33,7 @@ describe("Suite test ZMenuSection", () => {
     const page = await newSpecPage({
       components: [ZMenuSection],
       html: `<z-menu-section>
-        <div slot="item">item</div>
+        <div slot="section">item</div>
       </z-menu-section>`,
     });
     const menu = page.rootInstance;
