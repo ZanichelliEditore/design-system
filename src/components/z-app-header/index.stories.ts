@@ -85,246 +85,6 @@ const menuTemplate = (): TemplateResult => {
     >
       <a href>Menu label</a>
     </z-menu>
-  `;
-};
-
-const longMenuTemplate = (): TemplateResult => {
-  return html`
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Not so short menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
     <z-menu
       slot="menu"
       floating
@@ -457,7 +217,7 @@ export const ProductLogo = {
       <h1 slot="title">Applicazione</h1>
       <img
         slot="product-logo"
-        src="https://picsum.photos/320/320?random=1"
+        src="src/assets/orientamento.svg"
         alt=""
       />
     </z-app-header>`,
@@ -499,7 +259,7 @@ export const MenuWithTopTitle = {
     </z-app-header>`,
 } satisfies Story;
 
-export const VeryLongMenu = {
+export const LongTitle = {
   parameters: {
     controls: {
       exclude: ["enableOffcanvas"],
@@ -512,105 +272,54 @@ export const VeryLongMenu = {
       .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
-      <h1 slot="title">Applicazione</h1>
-      <img
-        slot="product-logo"
-        src="https://picsum.photos/320/320?random=1"
-        alt=""
-      />
-      ${longMenuTemplate()}
+      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
+      ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
 
-// export const LongTitle = {
-//   render: (args) =>
-//     html`<z-app-header
-//       flow=${args.flow}
-//       .enableSearch=${args.enableSearch}
-//       .searchPageUrl=${args.searchPageUrl}
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-//     >
-//       <h1 slot="title">Applicazione con nome veramente lungo che fa andare il menu a capo</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-//       ${menuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
+export const OffcanvasMenu = {
+  args: {
+    enableOffcanvas: true,
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableOffcanvas="${args.enableOffcanvas}"
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${args.enableZLogo}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h1 slot="title">Applicazione</h1>
+      ${menuTemplate()}
+    </z-app-header>`,
+} satisfies Story;
 
-// export const OffcanvasMenu = {
-//   parameters: {
-//     controls: {
-//       exclude: ["flow"],
-//     },
-//   },
-//   render: (args) =>
-//     html`<z-app-header
-//       flow="offcanvas"
-//       .enableSearch=${args.enableSearch}
-//       .searchPageUrl=${args.searchPageUrl}
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-//     >
-//       <h1 slot="title">Applicazione</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-//       ${longMenuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
-
-// export const Stuck = {
-//   decorators: [
-//     (Story) => html`
-//       <div style="padding: 16px var(--grid-margin)">Scroll to see <code>stuck</code> prop in action.</div>
-//       <div style="height: 200vh">${Story()}</div>
-//     `,
-//   ],
-//   parameters: {
-//     docs: {
-//       inlineStories: false,
-//       iframeHeight: "400px",
-//     },
-//   },
-//   render: (args) =>
-//     html`<z-app-header
-//       stuck
-//       .flow=${args.flow}
-//       .enableSearch=${args.enableSearch}
-//       .searchPageUrl=${args.searchPageUrl}
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
-//     >
-//       <h1 slot="title">Applicazione</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-//       ${longMenuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
-
-// export const MaxWidth = {
-//   args: {
-//     "--app-header-content-max-width": "1366px",
-//   },
-//   decorators: [
-//     (Story) => html`
-//       <div style="padding: 16px var(--grid-margin)">Scroll to see max width also in stuck header.</div>
-//       <div style="height: 200vh">${Story()}</div>
-//     `,
-//   ],
-//   parameters: {
-//     docs: {
-//       inlineStories: false,
-//       iframeHeight: "400px",
-//     },
-//   },
-//   render: (args) =>
-//     html`<z-app-header
-//       stuck
-//       .flow=${args.flow}
-//       .enableSearch=${args.enableSearch}
-//       .searchPageUrl=${args.searchPageUrl}
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0;"
-//     >
-//       <h1 slot="title">Applicazione</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-//       ${menuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
+export const Stuck = {
+  decorators: [
+    (Story) => html`
+      <div style="padding: 16px var(--grid-margin)">Scroll to see <code>stuck</code> prop in action.</div>
+      <div style="height: 200vh">${Story()}</div>
+    `,
+  ],
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "400px",
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      stuck
+      .enableZLogo=${args.enableZLogo}
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      .enableOffcanvas="${args.enableOffcanvas}"
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
+    >
+      <h1 slot="title">Applicazione</h1>
+      ${menuTemplate()}
+    </z-app-header>`,
+} satisfies Story;
 
 // export const Searchbar = {
 //   parameters: {
@@ -620,12 +329,12 @@ export const VeryLongMenu = {
 //   },
 //   render: (args) =>
 //     html`<z-app-header
-//       flow=${args.flow}
 //       enable-search
+//       .enableOffcanvas="${args.enableOffcanvas}"
+//       .enableZLogo=${args.enableZLogo}
 //       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
 //     >
 //       <h1 slot="title">Applicazione</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
 //       ${menuTemplate()}
 //     </z-app-header>`,
 // } satisfies Story;
@@ -646,7 +355,6 @@ export const VeryLongMenu = {
 //   ],
 //   render: (args) =>
 //     html`<z-app-header
-//       flow=${args.flow}
 //       enable-search
 //       search-page-url="https://www.zanichelli.it"
 //       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"

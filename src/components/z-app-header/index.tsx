@@ -116,6 +116,9 @@ export class ZAppHeader {
 
   private burgerButton: HTMLButtonElement;
 
+  /** Observer when the size of the element container changes */
+  private resizeObserver: ResizeObserver;
+
   private currentIndex = -1;
 
   private observer?: IntersectionObserver =
@@ -468,7 +471,7 @@ export class ZAppHeader {
     }
 
     const menuWidth = this.getWidthMenu();
-    const resizeObserver = new ResizeObserver((observer) => {
+    this.resizeObserver = new ResizeObserver((observer) => {
       const containerWidth = observer[0].contentRect.width;
 
       if (menuWidth > containerWidth && !this.enableOffcanvas) {
@@ -478,7 +481,11 @@ export class ZAppHeader {
       }
     });
 
-    resizeObserver.observe(this.container);
+    this.resizeObserver.observe(this.container);
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver?.disconnect();
   }
 
   render(): HTMLZAppHeaderElement {
