@@ -262,17 +262,13 @@ export const MenuWithTopTitle = {
 export const LongTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "enableZLogo", "enableSearch", "searchPageUrl"],
     },
   },
   render: (args) =>
-    html`<z-app-header
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      .enableZLogo=${args.enableZLogo}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-    >
+    html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
       <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
+      <h2 slot="top-subtitle">Jearl Walker, David Halliday, Robert Resnick</h2>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
@@ -283,7 +279,7 @@ export const OffcanvasMenu = {
   },
   render: (args) =>
     html`<z-app-header
-      .enableOffcanvas="${args.enableOffcanvas}"
+      .enableOffcanvas=${args.enableOffcanvas}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
       .enableZLogo=${args.enableZLogo}
@@ -313,7 +309,7 @@ export const Stuck = {
       .enableZLogo=${args.enableZLogo}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
-      .enableOffcanvas="${args.enableOffcanvas}"
+      .enableOffcanvas=${args.enableOffcanvas}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
     >
       <h1 slot="title">Applicazione</h1>
@@ -321,46 +317,29 @@ export const Stuck = {
     </z-app-header>`,
 } satisfies Story;
 
-// export const Searchbar = {
-//   parameters: {
-//     controls: {
-//       exclude: ["searchPageUrl", "enableSearch"],
-//     },
-//   },
-//   render: (args) =>
-//     html`<z-app-header
-//       enable-search
-//       .enableOffcanvas="${args.enableOffcanvas}"
-//       .enableZLogo=${args.enableZLogo}
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-//     >
-//       <h1 slot="title">Applicazione</h1>
-//       ${menuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
-
-// export const SearchPageButton = {
-//   parameters: {
-//     controls: {
-//       exclude: ["searchPageUrl", "enableSearch"],
-//     },
-//   },
-//   decorators: [
-//     (Story) => html`
-//       <div style="padding: 16px var(--grid-margin)">
-//         The prop <code>searchPageUrl</code> only affects the component in tablet and mobile viewports.
-//       </div>
-//       ${Story()}
-//     `,
-//   ],
-//   render: (args) =>
-//     html`<z-app-header
-//       enable-search
-//       search-page-url="https://www.zanichelli.it"
-//       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-//     >
-//       <h1 slot="title">Applicazione</h1>
-//       <h2 slot="subtitle">Payoff dell'applicazione</h2>
-//       ${menuTemplate()}
-//     </z-app-header>`,
-// } satisfies Story;
+export const SearchPageButton = {
+  parameters: {
+    controls: {
+      exclude: ["searchPageUrl", "enableSearch", "enableOffcanvas"],
+    },
+  },
+  decorators: [
+    (Story) => html`
+      <div style="padding: 16px var(--grid-margin)">
+        The prop <code>searchPageUrl</code> only affects the component in tablet and mobile viewports.
+      </div>
+      ${Story()}
+    `,
+  ],
+  render: (args) =>
+    html`<z-app-header
+      enable-search
+      .enableZLogo=${args.enableZLogo}
+      search-page-url="https://www.zanichelli.it"
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h1 slot="title">Applicazione</h1>
+      <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      ${menuTemplate()}
+    </z-app-header>`,
+} satisfies Story;
