@@ -114,8 +114,13 @@ img.z-logo {
 }
 
 ::slotted([slot="title"]) {
+  display: -webkit-box;
+  overflow: hidden;
   padding-right: var(--space-unit);
+  -webkit-box-orient: vertical;
   font-size: calc(var(--space-unit) * 3);
+  -webkit-line-clamp: 2;
+  white-space: initial;
 }
 
 :host(:not([menu-length="0"])) .heading-top-subtitle {
@@ -127,7 +132,7 @@ img.z-logo {
 }
 
 ::slotted([slot="top-subtitle"]) {
-  max-width: 255px;
+  max-width: 80%;
   margin: 0;
   font-family: var(--font-family-sans);
   font-size: 14px;
