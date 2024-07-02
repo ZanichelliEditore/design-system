@@ -23,6 +23,7 @@
 }
 
 .menu-label {
+  width: 100%;
   padding: 0;
   border: 0;
   margin: 0;
@@ -31,6 +32,11 @@
   color: inherit;
   outline: none;
   text-align: left;
+}
+
+.menu-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 button.menu-label {
@@ -49,6 +55,7 @@ button.menu-label {
 .menu-label .menu-label-content {
   position: relative;
   display: flex;
+  height: 30px;
   align-items: center;
 }
 
@@ -121,14 +128,14 @@ when placed below the real text using `flex-direction: column`. */
 .menu-label .menu-label-content ::slotted(*) {
   display: inline-flex;
   width: 100%;
+  min-width: fit-content;
   margin: 0;
   appearance: none;
   color: var(--z-menu-label-color);
   font-family: var(--font-family-sans);
-  font-size: var(--font-size-5);
+  font-size: calc(var(--space-unit) * 2);
   font-weight: inherit;
-  letter-spacing: 0.36px; /* increasing the letter spacing of the regular text helps reduce the size difference between regular and bold text */
-  line-height: 1.2;
+  letter-spacing: 0.36px;
   outline: none;
 }
 
@@ -214,4 +221,13 @@ when placed below the real text using `flex-direction: column`. */
 .items > ::slotted([slot="item"]:active) {
   border-color: var(--color-secondary01);
   font-weight: var(--font-bd);
+}
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+  .menu-wrapper > z-divider.menu-divider,
+  .menu-label > z-divider.menu-divider {
+    height: calc(var(--space-unit) * 2);
+    margin: 0 calc(var(--space-unit) * 2);
+  }
 }

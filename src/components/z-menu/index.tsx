@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {DividerOrientation, KeyboardCode} from "../../beans";
 
 /**
  * @slot - Menu label
@@ -37,6 +38,12 @@ export class ZMenu {
   @Prop({reflect: true})
   verticalContext = false;
 
+  /**
+   * Used to manage the presence of the divider to separate the menu buttons
+   */
+  @Prop()
+  hasDivider: boolean;
+
   @State()
   hasHeader: boolean;
 
@@ -55,6 +62,8 @@ export class ZMenu {
   /** The menu has been closed. */
   @Event()
   closed: EventEmitter;
+
+  private currentIndex = -1;
 
   private toggle(): void {
     if (!this.hasContent) {
@@ -75,6 +84,71 @@ export class ZMenu {
     this.reflow();
     this.open = false;
     this.closed.emit();
+  }
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ENTER) {
+      return;
+    }
+    this.handleArrowsNav(e);
+  }
+
+  private handleArrowsNav(e: KeyboardEvent): void {
+    const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
+    const newMenuItems = [];
+    menuItems.forEach((el) => {
+      if (el.tagName === "Z-MENU-SECTION") {
+        newMenuItems.push(el.shadowRoot.querySelector("button"));
+      } else {
+        newMenuItems.push(el);
+      }
+    });
+
+    if (this.open) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        let nextFocusableItem: HTMLElement;
+        // INFO: reset focus on all menu items
+        newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+        if (e.code === KeyboardCode.ARROW_DOWN) {
+          nextFocusableItem = this.getNextItem(newMenuItems, 1);
+        } else if (e.code === KeyboardCode.ARROW_UP) {
+          nextFocusableItem = this.getNextItem(newMenuItems, -1);
+        }
+
+        if (nextFocusableItem) {
+          nextFocusableItem.setAttribute("tabindex", "0");
+          nextFocusableItem.focus();
+        }
+      } else if (e.code === KeyboardCode.TAB) {
+        this.focusToParentAndCloseMenu();
+      } else {
+        this.focusToParentAndCloseMenu();
+      }
+    }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
+  }
+
+  private focusToParentAndCloseMenu(): void {
+    const menuButton = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+    menuButton.focus();
+    this.currentIndex = -1;
+    this.open = false;
   }
 
   @Watch("open")
@@ -141,32 +215,60 @@ export class ZMenu {
     const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
     items.forEach((item) => {
       item.setAttribute("role", "menuitem");
+      item.setAttribute("tabindex", "-1");
       item.dataset.text = item.textContent;
     });
+  }
+
+  private focusFirstItemOnKeyUp(): void {
+    const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0] as HTMLElement;
+    if (firstElement) {
+      firstElement.focus();
+      this.currentIndex = 0;
+    }
   }
 
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
-        <button
-          class="menu-label"
-          aria-expanded={this.open ? "true" : "false"}
-          aria-label={this.open ? "Chiudi menù" : "Apri menù"}
-          onClick={this.toggle}
-        >
-          <div class="menu-label-content">
-            <slot onSlotchange={this.onLabelSlotChange}></slot>
-            <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
-          </div>
-        </button>
+        <div class="menu-wrapper">
+          <button
+            class="menu-label"
+            aria-expanded={this.open ? "true" : "false"}
+            aria-label={this.open ? "Chiudi menù" : "Apri menù"}
+            onClick={this.toggle}
+            onKeyUp={this.focusFirstItemOnKeyUp.bind(this)}
+          >
+            <div class="menu-label-content">
+              <slot onSlotchange={this.onLabelSlotChange}></slot>
+              <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+            </div>
+          </button>
+          {this.hasDivider && (
+            <z-divider
+              class="menu-divider"
+              orientation={DividerOrientation.VERTICAL}
+              color="color-black"
+            ></z-divider>
+          )}
+        </div>
       );
     }
 
     return (
-      <div class="menu-label">
-        <div class="menu-label-content">
-          <slot onSlotchange={this.onLabelSlotChange}></slot>
+      <div class="menu-wrapper">
+        <div class="menu-label">
+          <div class="menu-label-content">
+            <slot onSlotchange={this.onLabelSlotChange}></slot>
+          </div>
         </div>
+        {this.hasDivider && (
+          <z-divider
+            class="menu-divider"
+            orientation={DividerOrientation.VERTICAL}
+            color="color-black"
+          ></z-divider>
+        )}
       </div>
     );
   }
