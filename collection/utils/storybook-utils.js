@@ -13,11 +13,9 @@ var PALETTES;
  */
 function getRootCssProperties() {
     return Array.from(document.styleSheets)
-        .map((sheet) => Array.from(sheet.cssRules))
-        .flat()
-        .filter((rule) => rule instanceof CSSStyleRule && rule.selectorText === ":root")
-        .map((rule) => Object.values(rule.style || {}))
-        .flat()
+        .flatMap((sheet) => Array.from(sheet.cssRules))
+        .filter((rule) => { var _a; return rule instanceof CSSStyleRule && ((_a = rule.selectorText) === null || _a === void 0 ? void 0 : _a.includes(":root")); })
+        .flatMap((rule) => Object.values(rule.style || {}))
         .filter(Boolean);
 }
 /**
@@ -90,9 +88,26 @@ export function getColorVarsLabels() {
  * Get Design System themes tokens.
  */
 export function getThemesColorTokens() {
-    const colorTokens = getRootCssProperties().filter((token) => token.startsWith(`--color`));
+    const colorTokens = getRootCssProperties().filter((token) => token.startsWith("--color"));
     // remove duplicates
     return [...new Set(colorTokens)];
+}
+/**
+ * Get the value of a token for a given theme.
+ * @param themeClass CSS class name of the theme
+ * @param token Token name to get the value of
+ * @returns The value of the token for the given theme.
+ */
+export function getThemeTokenValue(themeClass, token) {
+    var _a, _b;
+    const themeStyle = Array.from(document.styleSheets)
+        .flatMap((sheet) => Array.from(sheet.cssRules))
+        .filter((rule) => rule instanceof CSSStyleRule)
+        .find((rule) => rule.selectorText.includes(themeClass));
+    const value = (_a = themeStyle.styleMap.get(token)) === null || _a === void 0 ? void 0 : _a[0];
+    return value instanceof CSSVariableReferenceValue
+        ? getComputedStyle(document.documentElement).getPropertyValue(value.variable)
+        : (_b = value === null || value === void 0 ? void 0 : value.toString()) !== null && _b !== void 0 ? _b : undefined;
 }
 /**
  * Get a Storybook Arg config for Design System color tokens.

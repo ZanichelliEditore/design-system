@@ -67,7 +67,14 @@ export declare function getColorVarsLabels(): OptionsConfig["labels"];
 /**
  * Get Design System themes tokens.
  */
-export declare function getThemesColorTokens(): string[];
+export declare function getThemesColorTokens(): `--color${string}`[];
+/**
+ * Get the value of a token for a given theme.
+ * @param themeClass CSS class name of the theme
+ * @param token Token name to get the value of
+ * @returns The value of the token for the given theme.
+ */
+export declare function getThemeTokenValue(themeClass: string, token: `--${string}`): string | undefined;
 /**
  * Get a Storybook Arg config for Design System color tokens.
  * Useful to configure a control for the stories.
