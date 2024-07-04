@@ -22,11 +22,9 @@ enum PALETTES {
  */
 function getRootCssProperties(): string[] {
   return Array.from(document.styleSheets)
-    .map((sheet) => Array.from(sheet.cssRules))
-    .flat()
-    .filter((rule): rule is CSSStyleRule => rule instanceof CSSStyleRule && rule.selectorText === ":root")
-    .map((rule) => Object.values(rule.style || {}))
-    .flat()
+    .flatMap((sheet) => Array.from(sheet.cssRules))
+    .filter((rule): rule is CSSStyleRule => rule instanceof CSSStyleRule && rule.selectorText?.includes(":root"))
+    .flatMap((rule) => Object.values(rule.style || {}))
     .filter(Boolean);
 }
 
@@ -122,11 +120,32 @@ export function getColorVarsLabels(): OptionsConfig["labels"] {
 /**
  * Get Design System themes tokens.
  */
-export function getThemesColorTokens(): string[] {
-  const colorTokens = getRootCssProperties().filter((token) => token.startsWith(`--color`));
+export function getThemesColorTokens(): `--color${string}`[] {
+  const colorTokens = getRootCssProperties().filter((token): token is `--color${string}` =>
+    token.startsWith("--color")
+  );
 
   // remove duplicates
   return [...new Set(colorTokens)];
+}
+
+/**
+ * Get the value of a token for a given theme.
+ * @param themeClass CSS class name of the theme
+ * @param token Token name to get the value of
+ * @returns The value of the token for the given theme.
+ */
+export function getThemeTokenValue(themeClass: string, token: `--${string}`): string | undefined {
+  const themeStyle = Array.from(document.styleSheets)
+    .flatMap((sheet) => Array.from(sheet.cssRules))
+    .filter((rule): rule is CSSStyleRule => rule instanceof CSSStyleRule)
+    .find((rule) => rule.selectorText.includes(themeClass));
+
+  const value = themeStyle.styleMap.get(token)?.[0] as CSSStyleValue | undefined;
+
+  return value instanceof CSSVariableReferenceValue
+    ? getComputedStyle(document.documentElement).getPropertyValue(value.variable)
+    : value?.toString() ?? undefined;
 }
 
 /**
