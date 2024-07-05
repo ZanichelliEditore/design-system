@@ -126,6 +126,99 @@ export namespace Components {
          */
         "stuck": boolean;
     }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeaderDeprecated {
+        /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen": boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch": boolean;
+        /**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "flow": "auto" | "stack" | "offcanvas";
+        /**
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
+         */
+        "hero": string;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
+         */
+        "overlay": boolean;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl": string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString": string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck": boolean;
+    }
     interface ZAriaAlert {
         /**
           * Aria live mode
@@ -944,9 +1037,39 @@ export namespace Components {
         "verticalContext": boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+         */
+        "open": boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext": boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
+        /**
+          * Active state
+         */
+        "active"?: boolean;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
         /**
           * Active state
          */
@@ -1913,6 +2036,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZAppHeaderDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAppHeaderDeprecatedElement;
+}
 export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
@@ -1969,9 +2096,17 @@ export interface ZMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuElement;
 }
+export interface ZMenuDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuDeprecatedElement;
+}
 export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuSectionElement;
+}
+export interface ZMenuSectionDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuSectionDeprecatedElement;
 }
 export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2141,6 +2276,78 @@ declare global {
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
         new (): HTMLZAppHeaderElement;
+    };
+    interface HTMLZAppHeaderDeprecatedElementEventMap {
+        "sticking": any;
+    }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface HTMLZAppHeaderDeprecatedElement extends Components.ZAppHeaderDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZAppHeaderDeprecatedElement: {
+        prototype: HTMLZAppHeaderDeprecatedElement;
+        new (): HTMLZAppHeaderDeprecatedElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2501,6 +2708,27 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
+    interface HTMLZMenuDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface HTMLZMenuDeprecatedElement extends Components.ZMenuDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuDeprecatedElement: {
+        prototype: HTMLZMenuDeprecatedElement;
+        new (): HTMLZMenuDeprecatedElement;
+    };
     interface HTMLZMenuSectionElementEventMap {
         "opened": any;
         "closed": any;
@@ -2521,6 +2749,27 @@ declare global {
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
+    };
+    interface HTMLZMenuSectionDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface HTMLZMenuSectionDeprecatedElement extends Components.ZMenuSectionDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuSectionDeprecatedElement: {
+        prototype: HTMLZMenuSectionDeprecatedElement;
+        new (): HTMLZMenuSectionDeprecatedElement;
     };
     interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
     }
@@ -3135,6 +3384,7 @@ declare global {
         "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
+        "z-app-header-deprecated": HTMLZAppHeaderDeprecatedElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
@@ -3162,7 +3412,9 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
+        "z-menu-deprecated": HTMLZMenuDeprecatedElement;
         "z-menu-section": HTMLZMenuSectionElement;
+        "z-menu-section-deprecated": HTMLZMenuSectionDeprecatedElement;
         "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-myz-card": HTMLZMyzCardElement;
@@ -3319,6 +3571,103 @@ declare namespace LocalJSX {
           * Emitted when the `stuck` state of the header changes
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl"?: string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString"?: string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck"?: boolean;
+    }
+    /**
+     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-height - Defaults to `auto`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
+     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+     * Defaults to `--app-header-typography-3-size`.
+     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-lineheight`.
+     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+     * Defaults to `--app-header-typography-3-tracking`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeaderDeprecated {
+        /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen"?: boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch"?: boolean;
+        /**
+          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "flow"?: "auto" | "stack" | "offcanvas";
+        /**
+          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
+         */
+        "hero"?: string;
+        /**
+          * Emitted when the `stuck` state of the header changes
+         */
+        "onSticking"?: (event: ZAppHeaderDeprecatedCustomEvent<any>) => void;
+        /**
+          * Should place an overlay over the hero image. Useful for legibility purpose.
+         */
+        "overlay"?: boolean;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -4230,6 +4579,35 @@ declare namespace LocalJSX {
         "verticalContext"?: boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The menu has been closed.
+         */
+        "onClosed"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The menu has been opened.
+         */
+        "onOpened"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+         */
+        "open"?: boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext"?: boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
@@ -4245,6 +4623,23 @@ declare namespace LocalJSX {
           * The section has been opened.
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
+        /**
+          * Active state
+         */
+        "active"?: boolean;
+        /**
+          * The section has been closed.
+         */
+        "onClosed"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
+        /**
+          * The section has been opened.
+         */
+        "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
     interface ZMessagesPocket {
         /**
@@ -5299,6 +5694,7 @@ declare namespace LocalJSX {
         "z-alert": ZAlert;
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
+        "z-app-header-deprecated": ZAppHeaderDeprecated;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
@@ -5326,7 +5722,9 @@ declare namespace LocalJSX {
         "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
+        "z-menu-deprecated": ZMenuDeprecated;
         "z-menu-section": ZMenuSection;
+        "z-menu-section-deprecated": ZMenuSectionDeprecated;
         "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-myz-card": ZMyzCard;
@@ -5419,6 +5817,62 @@ declare module "@stencil/core" {
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
             "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            /**
+             * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
+             * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
+             * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
+             * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
+             * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
+             * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
+             * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
+             * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
+             * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
+             * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
+             * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
+             * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
+             * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
+             * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
+             * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+             * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
+             * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+             * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
+             * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
+             * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
+             * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
+             * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
+             * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
+             * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
+             * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
+             * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
+             * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
+             * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
+             * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
+             * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
+             * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
+             * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+             * @cssprop --app-header-height - Defaults to `auto`.
+             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
+             * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
+             * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
+             * Defaults to `--app-header-typography-3-size`.
+             * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
+             * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
+             * Defaults to `--app-header-typography-3-lineheight`.
+             * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
+             * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
+             * Defaults to `--app-header-typography-3-tracking`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+             */
+            "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             /**
@@ -5482,9 +5936,17 @@ declare module "@stencil/core" {
              */
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             /**
+             * @cssprop --z-menu-label-color - Color of the label's text.
+             */
+            "z-menu-deprecated": LocalJSX.ZMenuDeprecated & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
+            /**
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            /**
+             * A component to create submenus inside the ZMenu.
+             */
+            "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;

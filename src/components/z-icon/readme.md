@@ -36,6 +36,7 @@
 
  - [z-accordion](../z-accordion)
  - [z-app-header](../z-app-header)
+ - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
  - [z-book-card](../z-book-card)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-button](../z-button)
@@ -49,7 +50,9 @@
  - [z-input-message](../z-input-message)
  - [z-list-element](../list/z-list-element)
  - [z-menu](../z-menu)
+ - [z-menu-deprecated](../deprecated/z-menu-deprecated)
  - [z-menu-section](../z-menu-section)
+ - [z-menu-section-deprecated](../deprecated/z-menu-section-deprecated)
  - [z-messages-pocket](../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../z-modal)
  - [z-myz-card-alert](../../snowflakes/myz/card/z-myz-card-alert)
@@ -77,6 +80,7 @@
 graph TD;
   z-accordion --> z-icon
   z-app-header --> z-icon
+  z-app-header-deprecated --> z-icon
   z-book-card --> z-icon
   z-breadcrumb --> z-icon
   z-button --> z-icon
@@ -90,7 +94,9 @@ graph TD;
   z-input-message --> z-icon
   z-list-element --> z-icon
   z-menu --> z-icon
+  z-menu-deprecated --> z-icon
   z-menu-section --> z-icon
+  z-menu-section-deprecated --> z-icon
   z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-myz-card-alert --> z-icon
