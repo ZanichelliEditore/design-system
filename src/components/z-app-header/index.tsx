@@ -494,7 +494,9 @@ export class ZAppHeader {
           <div class="heading-container">
             {((!this.canShowSearchbar && this.currentViewport === Device.MOBILE) ||
               this.currentViewport !== Device.MOBILE) && (
-              <div class={`heading-top-subtitle ${hasTopSubtitle ? "active-top-subtitle" : ""}`}>
+              <div
+                class={`heading-top-subtitle ${hasTopSubtitle ? "active-top-subtitle" : ""} ${this.enableOffcanvas ? "active-padding" : ""}`}
+              >
                 <slot name="top-subtitle"></slot>
               </div>
             )}

@@ -116,14 +116,14 @@ img.z-logo {
 ::slotted([slot="title"]) {
   display: -webkit-box;
   overflow: hidden;
-  padding-right: var(--space-unit);
+  padding-right: calc(var(--space-unit) * 2);
   -webkit-box-orient: vertical;
   font-size: calc(var(--space-unit) * 3);
   -webkit-line-clamp: 2;
   white-space: initial;
 }
 
-:host(:not([menu-length="0"])) .heading-top-subtitle {
+:host(:not([menu-length="0"])) .heading-top-subtitle.active-padding {
   padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
