@@ -88,7 +88,7 @@ export class ZAppHeader {
    * Used to change the aspect of the search button (icon only) on mobile and tablet.
    */
   @State()
-  private currentViewport: "mobile" | "tablet" | "desktop" | "desktop-wide" = "mobile";
+  private currentViewport: Device = Device.MOBILE;
 
   /**
    * Current count of menu items.
@@ -110,7 +110,7 @@ export class ZAppHeader {
 
   private container?: HTMLDivElement;
 
-  private menuElements?: NodeListOf<HTMLElement>;
+  private menuElements?: NodeListOf<HTMLZMenuElement>;
 
   private closeMenuButton: HTMLButtonElement;
 
@@ -220,13 +220,13 @@ export class ZAppHeader {
     if (this.menuElements.length === 0) {
       return;
     }
-    const elements = this.menuElements;
-    elements.forEach((element, index) => {
-      (element as HTMLZMenuElement).open = false;
-      (element as HTMLZMenuElement).floating = !this.drawerOpen;
-      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
-      (element as HTMLZMenuElement).setAttribute("role", "menuitem");
-      (element as HTMLZMenuElement).hasDivider =
+
+    this.menuElements.forEach((element, index) => {
+      element.open = false;
+      element.floating = !this.drawerOpen;
+      element.verticalContext = this.drawerOpen;
+      element.setAttribute("role", "menuitem");
+      element.hasDivider =
         this.enableOffcanvas || this._stuck
           ? false
           : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
@@ -289,7 +289,7 @@ export class ZAppHeader {
 
     // Always show the searchbar on desktop, even if a searchPageUrl is set
     if (this.searchPageUrl) {
-      return this.currentViewport === "desktop";
+      return this.currentViewport === Device.DESKTOP;
     }
 
     return true;
@@ -318,7 +318,7 @@ export class ZAppHeader {
   }
 
   private renderSearchLinkButton(): HTMLZButtonElement | null {
-    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
+    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === Device.DESKTOP) {
       return null;
     }
 
@@ -449,13 +449,7 @@ export class ZAppHeader {
       return;
     }
 
-    let totalWidth = 0;
-    this.menuElements.forEach((item) => {
-      const itemWidth = item.getBoundingClientRect().width;
-      totalWidth += itemWidth;
-    });
-
-    return totalWidth;
+    return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 0);
   }
 
   componentWillLoad(): void {
