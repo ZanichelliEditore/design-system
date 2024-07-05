@@ -95,14 +95,13 @@ export class ZMenu {
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
-    const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
-    const newMenuItems = [];
-    menuItems.forEach((el) => {
+    const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']")) as HTMLElement[];
+    const newMenuItems = menuItems.map((el) => {
       if (el.tagName === "Z-MENU-SECTION") {
-        newMenuItems.push(el.shadowRoot.querySelector("button"));
-      } else {
-        newMenuItems.push(el);
+        return el.shadowRoot.querySelector("button");
       }
+
+      return el;
     });
 
     if (this.open) {
@@ -228,6 +227,16 @@ export class ZMenu {
     }
   }
 
+  private renderDivider(): HTMLZDividerElement {
+    return (
+      <z-divider
+        class="menu-divider"
+        orientation={DividerOrientation.VERTICAL}
+        color="color-black"
+      ></z-divider>
+    );
+  }
+
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
@@ -244,13 +253,7 @@ export class ZMenu {
               <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
             </div>
           </button>
-          {this.hasDivider && (
-            <z-divider
-              class="menu-divider"
-              orientation={DividerOrientation.VERTICAL}
-              color="color-black"
-            ></z-divider>
-          )}
+          {this.hasDivider && this.renderDivider()}
         </div>
       );
     }
@@ -262,13 +265,7 @@ export class ZMenu {
             <slot onSlotchange={this.onLabelSlotChange}></slot>
           </div>
         </div>
-        {this.hasDivider && (
-          <z-divider
-            class="menu-divider"
-            orientation={DividerOrientation.VERTICAL}
-            color="color-black"
-          ></z-divider>
-        )}
+        {this.hasDivider && this.renderDivider()}
       </div>
     );
   }
