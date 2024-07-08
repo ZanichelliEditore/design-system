@@ -156,7 +156,7 @@ export class ZAppHeader {
 
   private handleArrowsNav(e: KeyboardEvent): void {
     if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-      if (this.enableOffcanvas && e.code !== KeyboardCode.ENTER) {
+      if (this.enableOffcanvas && this.drawerOpen && e.code !== KeyboardCode.ENTER) {
         this.closeDrawer();
       }
 
