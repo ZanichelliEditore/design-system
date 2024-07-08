@@ -66,11 +66,11 @@
   flex-direction: column-reverse;
 }
 
-:host([enable-search="true"]) .heading-panel.padding-top-subtitle .heading-container {
+:host(:not([enable-search="false"])) .heading-panel.padding-top-subtitle .heading-container {
   flex-direction: column;
 }
 
-:host([enable-search="true"][search-page-url]) .heading-panel .heading-container {
+:host(:not([enable-search="false"])[search-page-url]) .heading-panel .heading-container {
   flex-direction: row;
 }
 
