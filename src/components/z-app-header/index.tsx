@@ -282,14 +282,6 @@ export class ZAppHeader {
     );
   }
 
-  private get canShowSearchbar(): boolean {
-    if (!this.enableSearch) {
-      return false;
-    }
-
-    return true;
-  }
-
   private openDrawer(): void {
     this.drawerOpen = true;
   }
@@ -504,7 +496,7 @@ export class ZAppHeader {
             </div>
           </div>
 
-          {(this.canShowMenu || this.canShowSearchbar) && (
+          {this.canShowMenu && (
             <div class={`menu-container ${hasTopSubtitle ? "menu-top-subtitle" : ""}`}>
               {this.canShowMenu && (
                 <slot
