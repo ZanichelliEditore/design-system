@@ -304,6 +304,18 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     align-items: center;
   }
 
+  .heading-container .heading-title {
+    align-items: flex-start;
+  }
+
+  div.heading-container .heading-title button,
+  div.heading-container .heading-title z-searchbar,
+  div.heading-container .heading-title img,
+  div.heading-container .heading-title .heading-divider,
+  div.heading-container .heading-title ::slotted([slot="product-logo"]) {
+    margin-top: var(--space-unit);
+  }
+
   .heading-title > img.z-logo {
     height: 32px;
     margin: 0;
