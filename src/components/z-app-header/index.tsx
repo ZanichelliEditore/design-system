@@ -456,6 +456,10 @@ export class ZAppHeader {
     this.resizeObserver = new ResizeObserver((observer) => {
       const containerWidth = observer[0].contentRect.width;
 
+      if (this.currentViewport === Device.MOBILE) {
+        return (this.enableOffcanvas = true);
+      }
+
       if (menuWidth > containerWidth && !this.enableOffcanvas) {
         this.enableOffcanvas = true;
       } else if (menuWidth <= containerWidth && this.enableOffcanvas) {
@@ -492,8 +496,9 @@ export class ZAppHeader {
               {this.renderMenuButton()}
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
-              {this.enableSearch && this.renderSeachbar()}
+              {this.enableSearch && this.currentViewport !== Device.MOBILE && this.renderSeachbar()}
             </div>
+            {this.enableSearch && this.currentViewport === Device.MOBILE && this.renderSeachbar()}
           </div>
 
           {this.canShowMenu && (
