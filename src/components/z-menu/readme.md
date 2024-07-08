@@ -35,14 +35,14 @@
 
 ### Depends on
 
-- [z-icon](../z-icon)
 - [z-divider](../z-divider)
+- [z-icon](../z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-menu --> z-icon
   z-menu --> z-divider
+  z-menu --> z-icon
   style z-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

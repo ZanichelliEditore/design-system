@@ -449,7 +449,7 @@ describe("Suite test ZAppHeader", () => {
                 <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
-                <z-searchbar placeholder="Cerca" preventsubmit="" searchbuttonicononly="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
+                <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
               </div>
             </div>
             <div class="menu-container">

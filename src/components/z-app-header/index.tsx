@@ -287,11 +287,6 @@ export class ZAppHeader {
       return false;
     }
 
-    // Always show the searchbar on desktop, even if a searchPageUrl is set
-    if (this.searchPageUrl) {
-      return this.currentViewport === Device.DESKTOP;
-    }
-
     return true;
   }
 
@@ -317,29 +312,32 @@ export class ZAppHeader {
     return !!slot;
   }
 
-  private renderSearchLinkButton(): HTMLZButtonElement | null {
-    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === Device.DESKTOP) {
-      return null;
+  private renderSeachbar(): HTMLZSearchbarElement | HTMLZButtonElement {
+    const renderSearch =
+      this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET ? true : false;
+
+    if (this.currentViewport === Device.MOBILE && !this.searchPageUrl && this._stuck) {
+      return;
     }
 
-    return (
-      <z-button
-        class="search-page-button"
-        variant={ButtonVariant.SECONDARY}
-        href={this.searchPageUrl}
-        icon="search"
-        size={ControlSize.X_SMALL}
-      ></z-button>
-    );
-  }
+    if (this.searchPageUrl && (this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET)) {
+      return (
+        <z-button
+          class="search-page-button"
+          variant={ButtonVariant.SECONDARY}
+          href={this.searchPageUrl}
+          icon="search"
+          size={ControlSize.X_SMALL}
+        ></z-button>
+      );
+    }
 
-  private renderSeachbar(searchButtonIconOnly: boolean): HTMLZSearchbarElement {
     return (
       <z-searchbar
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
-        searchButtonIconOnly={searchButtonIconOnly}
+        searchButtonIconOnly={renderSearch}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
@@ -436,9 +434,7 @@ export class ZAppHeader {
             {this.renderProductLogos()}
             <slot name="stucked-title">{this.title}</slot>
           </div>
-
-          {this.renderSearchLinkButton()}
-          {this.canShowSearchbar && this.currentViewport === Device.DESKTOP && this.renderSeachbar(false)}
+          {this.enableSearch && this.renderSeachbar()}
         </div>
       </div>
     );
@@ -492,7 +488,7 @@ export class ZAppHeader {
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            {((!this.canShowSearchbar && this.currentViewport === Device.MOBILE) ||
+            {((!this.enableSearch && this.currentViewport === Device.MOBILE) ||
               this.currentViewport !== Device.MOBILE) && (
               <div
                 class={`heading-top-subtitle ${hasTopSubtitle ? "active-top-subtitle" : ""} ${this.enableOffcanvas ? "active-padding" : ""}`}
@@ -504,8 +500,7 @@ export class ZAppHeader {
               {this.renderMenuButton()}
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
-              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== Device.DESKTOP)}
-              {this.renderSearchLinkButton()}
+              {this.enableSearch && this.renderSeachbar()}
             </div>
           </div>
 
