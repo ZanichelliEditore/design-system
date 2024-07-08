@@ -69,7 +69,7 @@
   align-items: start;
 }
 
-:host([enable-search]:not([search-page-url])) .heading-title {
+:host([enable-search]:not([search-page-url])) .heading-container .heading-title {
   flex-wrap: wrap;
 }
 
@@ -120,6 +120,7 @@ img.z-logo {
   -webkit-box-orient: vertical;
   font-size: calc(var(--space-unit) * 3);
   -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
   white-space: initial;
 }
 
@@ -198,9 +199,10 @@ z-searchbar {
   line-height: 1.25;
 }
 
-.heading-stuck .heading-title > *,
-.heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
+.heading-stuck .heading-title [name="stucked-title"] {
+  display: block;
   overflow: hidden;
+  margin-right: calc(var(--space-unit) * 2);
   font-size: calc(var(--space-unit) * 2.5);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -289,7 +291,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   z-searchbar {
-    min-width: auto;
+    min-width: 30%;
     padding-top: 0;
     margin-left: auto;
   }
