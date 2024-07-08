@@ -70,6 +70,10 @@
   flex-direction: column;
 }
 
+:host([enable-search][search-page-url]) .heading-panel .heading-container {
+  flex-direction: row;
+}
+
 .heading-title {
   display: flex;
   width: 100%;
@@ -237,14 +241,6 @@ z-searchbar {
   --z-icon-height: var(--app-header-drawer-trigger-size);
 
   fill: currentcolor;
-}
-
-/* Simulate the height of the first line of text,
-to correctly align drawer icon and search page button with the title */
-.heading-container :is(.drawer-trigger, z-button.search-page-button) {
-  display: flex;
-  height: calc(var(--space-unit) * 4.5) * var(--app-header-title-lineheight);
-  align-items: center;
 }
 
 .heading-container z-button.search-page-button {
