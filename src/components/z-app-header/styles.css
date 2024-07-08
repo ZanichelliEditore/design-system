@@ -390,10 +390,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     margin-top: calc(var(--space-unit) * 2.5);
   }
 
-  :host(:not([enable-search])) .menu-container {
-    margin-top: calc(var(--space-unit) * 3.5);
-  }
-
   .heading-title > z-divider.heading-divider {
     margin: 0 calc(var(--space-unit) * 1.5);
   }
