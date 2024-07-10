@@ -221,6 +221,13 @@
   }
 }
 
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1151px) {
+  .modal-container > header {
+    padding-top: calc(var(--space-unit) * 3 - 2px);
+  }
+}
+
 /* Desktop */
 @media only screen and (min-width: 1152px) {
   .modal-container > header {
@@ -241,12 +248,5 @@
 
   .modal-container > header h1 + .subtitle {
     margin-top: 0;
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1151px) {
-  .modal-container > header {
-    padding-top: calc(var(--space-unit) * 3 - 2px);
   }
 }
