@@ -4,7 +4,6 @@ import {reactOutputTarget} from "@stencil/react-output-target";
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
-  buildEs5: true,
   outputTargets: [
     {
       type: "dist",
