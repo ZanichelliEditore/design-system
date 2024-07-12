@@ -16,7 +16,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0">
+      <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
@@ -24,6 +24,8 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+              <img alt="Logo Zanichelli" class="z-logo">
+                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -53,7 +55,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0">
+      <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
@@ -61,6 +63,8 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+              <img alt="Logo Zanichelli" class="z-logo">
+                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -94,7 +98,7 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header menu-length="0">
+      <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
           <div class="heading-panel padding-top-subtitle">
             <div class="heading-container">
