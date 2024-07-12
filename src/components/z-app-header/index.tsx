@@ -75,7 +75,7 @@ export class ZAppHeader {
    * Enable laZ logo.
    */
   @Prop({reflect: true})
-  enableZLogo = false;
+  enableZLogo = true;
 
   /**
    * The stuck state of the bar.
