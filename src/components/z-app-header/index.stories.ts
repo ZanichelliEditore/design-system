@@ -246,6 +246,9 @@ export const MenuWithTopTitle = {
       exclude: ["enableZLogo"],
     },
   },
+  args: {
+    enableOffcanvas: true,
+  },
   render: (args) =>
     html`<z-app-header
       .enableOffcanvas=${args.enableOffcanvas}
