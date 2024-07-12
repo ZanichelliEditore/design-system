@@ -52,6 +52,10 @@ button.menu-label {
   box-shadow: var(--shadow-focus-primary);
 }
 
+.menu-label:last-child:focus-within {
+  margin-right: calc(var(--space-unit) * 0.5);
+}
+
 .menu-label .menu-label-content {
   position: relative;
   display: flex;
@@ -61,6 +65,7 @@ button.menu-label {
 
 :host(:is([active], [open])) .menu-label-content,
 .menu-label:focus-within .menu-label-content {
+  color: var(--color-primary01);
   font-weight: var(--font-bd);
 }
 
@@ -137,7 +142,6 @@ when placed below the real text using `flex-direction: column`. */
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: inherit;
-  letter-spacing: 0.36px;
   outline: none;
 }
 
