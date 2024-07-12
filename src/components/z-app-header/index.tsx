@@ -221,15 +221,11 @@ export class ZAppHeader {
       return;
     }
 
-    this.menuElements.forEach((element, index) => {
+    this.menuElements.forEach((element) => {
       element.open = false;
       element.floating = !this.drawerOpen;
       element.verticalContext = this.drawerOpen;
       element.setAttribute("role", "menuitem");
-      element.hasDivider =
-        this.enableOffcanvas || this._stuck
-          ? false
-          : index !== this.menuElements.length - 1 && this.menuElements.length > 1;
     });
   }
 

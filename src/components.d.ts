@@ -1024,10 +1024,6 @@ export namespace Components {
          */
         "floating"?: boolean;
         /**
-          * Used to manage the presence of the divider to separate the menu buttons
-         */
-        "hasDivider": boolean;
-        /**
           * The opening state of the menu.
          */
         "open": boolean;
@@ -4557,10 +4553,6 @@ declare namespace LocalJSX {
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
          */
         "floating"?: boolean;
-        /**
-          * Used to manage the presence of the divider to separate the menu buttons
-         */
-        "hasDivider"?: boolean;
         /**
           * The menu has been closed.
          */

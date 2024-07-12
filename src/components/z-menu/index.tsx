@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {DividerOrientation, KeyboardCode} from "../../beans";
+import {KeyboardCode} from "../../beans";
 
 /**
  * @slot - Menu label
@@ -37,12 +37,6 @@ export class ZMenu {
    */
   @Prop({reflect: true})
   verticalContext = false;
-
-  /**
-   * Used to manage the presence of the divider to separate the menu buttons
-   */
-  @Prop()
-  hasDivider: boolean;
 
   @State()
   hasHeader: boolean;
@@ -227,16 +221,6 @@ export class ZMenu {
     }
   }
 
-  private renderDivider(): HTMLZDividerElement {
-    return (
-      <z-divider
-        class="menu-divider"
-        orientation={DividerOrientation.VERTICAL}
-        color="color-black"
-      ></z-divider>
-    );
-  }
-
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
@@ -253,7 +237,6 @@ export class ZMenu {
               <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
             </div>
           </button>
-          {this.hasDivider && this.renderDivider()}
         </div>
       );
     }
@@ -265,7 +248,6 @@ export class ZMenu {
             <slot onSlotchange={this.onLabelSlotChange}></slot>
           </div>
         </div>
-        {this.hasDivider && this.renderDivider()}
       </div>
     );
   }

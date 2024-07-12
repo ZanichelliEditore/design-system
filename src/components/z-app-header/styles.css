@@ -156,6 +156,7 @@ img.z-logo {
   width: 100%;
   flex: 1 auto;
   flex-flow: row wrap;
+  column-gap: calc(var(--space-unit) * 4);
 }
 
 :host([menu-length="0"]:not([enable-search])) .menu-container,
@@ -166,6 +167,17 @@ img.z-logo {
 .menu-container ::slotted([open]) {
   position: relative;
   z-index: 3;
+}
+
+.menu-container ::slotted([slot="menu"]:not(:last-child))::after {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--space-unit) * -2);
+  width: var(--border-size-small);
+  height: 1em;
+  background-color: currentcolor;
+  content: "";
+  transform: translateY(-50%);
 }
 
 z-searchbar {

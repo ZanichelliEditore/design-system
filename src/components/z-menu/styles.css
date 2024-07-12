@@ -228,12 +228,3 @@ when placed below the real text using `flex-direction: column`. */
   border-color: var(--color-secondary01);
   font-weight: var(--font-bd);
 }
-
-/* Desktop breakpoint */
-@media (min-width: 768px) {
-  .menu-wrapper > z-divider.menu-divider,
-  .menu-label > z-divider.menu-divider {
-    height: calc(var(--space-unit) * 2);
-    margin: 0 calc(var(--space-unit) * 2);
-  }
-}
