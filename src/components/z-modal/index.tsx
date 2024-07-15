@@ -128,6 +128,10 @@ export class ZModal {
 
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ESC && !this.closable) {
+      e.preventDefault();
+    }
+
     if (e.code !== KeyboardCode.TAB) {
       return;
     }
