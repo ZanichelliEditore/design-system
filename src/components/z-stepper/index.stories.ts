@@ -20,15 +20,18 @@ export const Default = {
       <z-stepper-item
         index="1"
         pressed
-      ></z-stepper-item>
+        >I tuoi dati</z-stepper-item
+      >
       <z-stepper-item
         index="2"
         disabled
-      ></z-stepper-item>
+        >Le tue credenziali</z-stepper-item
+      >
       <z-stepper-item
         index="3"
         disabled
-      ></z-stepper-item>
+        >Conferma</z-stepper-item
+      >
     </z-stepper>`,
 } satisfies Story;
 
@@ -40,6 +43,48 @@ export const Completed = {
       <z-stepper-item
         index="3"
         pressed
+        >Conferma</z-stepper-item
+      >
+    </z-stepper>`,
+} satisfies Story;
+
+export const CompletedDisabled = {
+  render: () =>
+    html`<z-stepper>
+      <z-stepper-item
+        index="1"
+        disabled
+        >I tuoi dati</z-stepper-item
+      >
+      <z-stepper-item
+        index="2"
+        disabled
+        >Le tue credenziali</z-stepper-item
+      >
+      <z-stepper-item
+        index="3"
+        pressed
+        >Conferma</z-stepper-item
+      >
+    </z-stepper>`,
+} satisfies Story;
+
+export const Checked = {
+  render: () =>
+    html`<z-stepper>
+      <z-stepper-item
+        index="1"
+        checked
+        >I tuoi dati</z-stepper-item
+      >
+      <z-stepper-item
+        index="2"
+        checked
+        >Le tue credenziali</z-stepper-item
+      >
+      <z-stepper-item
+        index="3"
+        checked
         >Conferma</z-stepper-item
       >
     </z-stepper>`,

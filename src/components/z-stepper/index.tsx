@@ -1,7 +1,7 @@
 import {Component, Host, h} from "@stencil/core";
 
 /**
- * @slot - slot for `z-stepper-item`s
+ * @slot - slot for `z-stepper-item`
  */
 @Component({
   tag: "z-stepper",
