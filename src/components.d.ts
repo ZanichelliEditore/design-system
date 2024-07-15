@@ -613,6 +613,10 @@ export namespace Components {
          */
         "acceptedFormat"?: string;
         /**
+          * allowed file message
+         */
+        "allowedFilesMessage"?: string;
+        /**
           * Prop indicating the button variant
          */
         "buttonVariant"?: ButtonVariant;
@@ -624,6 +628,14 @@ export namespace Components {
           * drag & drop button label
          */
         "dragAndDropLabel"?: string;
+        /**
+          * error modal message
+         */
+        "errorModalMessage"?: string;
+        /**
+          * error modal title
+         */
+        "errorModalTitle"?: string;
         /**
           * Max file dimension in Megabyte
          */
@@ -652,6 +664,18 @@ export namespace Components {
           * upoload button label
          */
         "uploadBtnLabel"?: string;
+        /**
+          * upload clickable message
+         */
+        "uploadClickableMessage"?: string;
+        /**
+          * upload message
+         */
+        "uploadMessage"?: string;
+        /**
+          * loaded files label
+         */
+        "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -3957,6 +3981,10 @@ declare namespace LocalJSX {
          */
         "acceptedFormat"?: string;
         /**
+          * allowed file message
+         */
+        "allowedFilesMessage"?: string;
+        /**
           * Prop indicating the button variant
          */
         "buttonVariant"?: ButtonVariant;
@@ -3968,6 +3996,14 @@ declare namespace LocalJSX {
           * drag & drop button label
          */
         "dragAndDropLabel"?: string;
+        /**
+          * error modal message
+         */
+        "errorModalMessage"?: string;
+        /**
+          * error modal title
+         */
+        "errorModalTitle"?: string;
         /**
           * Max file dimension in Megabyte
          */
@@ -3992,6 +4028,18 @@ declare namespace LocalJSX {
           * upoload button label
          */
         "uploadBtnLabel"?: string;
+        /**
+          * upload clickable message
+         */
+        "uploadClickableMessage"?: string;
+        /**
+          * upload message
+         */
+        "uploadMessage"?: string;
+        /**
+          * loaded files label
+         */
+        "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
