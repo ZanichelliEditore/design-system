@@ -49,7 +49,7 @@
 }
 
 .modal-container > header {
-  padding: calc(var(--space-unit) * 3 - 2px) calc(var(--space-unit) * 2) calc(var(--space-unit) + 4px)
+  padding: calc(var(--space-unit) + 4px) calc(var(--space-unit) * 2) calc(var(--space-unit) + 4px)
     calc(var(--space-unit) * 2);
   background: var(--color-surface02);
 }
@@ -61,11 +61,12 @@
   margin-left: auto;
   background: transparent;
   cursor: pointer;
+  margin-top: calc(var(--space-unit) + 2px);
 }
 
 .modal-container > header z-icon {
-  --z-icon-width: calc(var(--space-unit) * 2.5);
-  --z-icon-height: calc(var(--space-unit) * 2.5);
+  --z-icon-width: calc(var(--space-unit) * 2.25);
+  --z-icon-height: calc(var(--space-unit) * 2.25);
 
   display: flex;
   fill: var(--color-primary01-icon);
@@ -94,8 +95,9 @@
 
 .modal-container > header .subtitle {
   font-size: var(--font-size-3);
-  letter-spacing: 0;
+  font-weight: var(--font-rg);
   line-height: 1.5;
+  letter-spacing: 0;
 }
 
 .modal-container > header > div > h1 *:empty {
@@ -214,39 +216,58 @@
   .modal-dialog::-webkit-scrollbar {
     display: none;
   }
-
-  .modal-container > header z-icon {
-    --z-icon-width: calc(var(--space-unit) * 3);
-    --z-icon-height: calc(var(--space-unit) * 3);
-  }
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1151px) {
   .modal-container > header {
-    padding-top: calc(var(--space-unit) * 3 - 2px);
+    padding-top: calc(var(--space-unit) + 4px);
+  }
+
+  .modal-container > header button {
+    margin-top: var(--space-unit);
+  }
+
+  .modal-container > header h1 {
+    font-size: var(--font-size-5);
+    font-weight: var(--font-rg);
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .modal-container > header .subtitle {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-rg);
+    line-height: 1.5;
+    letter-spacing: 0;
   }
 }
 
 /* Desktop */
 @media only screen and (min-width: 1152px) {
   .modal-container > header {
-    padding-top: calc(var(--space-unit) * 3 - 4px);
+    padding-top: calc(var(--space-unit) + 4px);
   }
 
   .modal-container > header h1 {
     font-size: var(--font-size-6);
+    font-weight: var(--font-rg);
+    line-height: 1.333;
     letter-spacing: 0;
-    line-height: 1.33;
   }
 
   .modal-container > header .subtitle {
     font-size: var(--font-size-4);
-    letter-spacing: 0;
+    font-weight: var(--font-rg);
     line-height: 1.5;
+    letter-spacing: 0;
   }
 
   .modal-container > header h1 + .subtitle {
     margin-top: 0;
+  }
+
+  .modal-container > header button {
+    margin-top: var(--space-unit);
   }
 }
