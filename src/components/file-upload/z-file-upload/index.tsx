@@ -51,7 +51,7 @@ export class ZFileUpload {
   /** upload clickable message */
   @Prop()
   uploadClickableMessage?: string = "Carica";
-  
+
   /** upload message */
   @Prop()
   uploadMessage?: string = "o trascina dal tuo computer";
