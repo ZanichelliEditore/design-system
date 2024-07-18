@@ -10,7 +10,7 @@ const ZStepper$1 = /*@__PURE__*/ proxyCustomElement(class ZStepper extends HTMLE
         this.__attachShadow();
     }
     render() {
-        return (h(Host, { key: 'c1069a6d199240aa1e8eb9fe30be9a75b2dabecb', role: "list" }, h("slot", { key: '283f1f42d5f73259b7c04e965bf592e4ba543fc8' })));
+        return (h(Host, { key: '80b89caa35e9adb82ad413783b16eae491a26f48', role: "list" }, h("slot", { key: '140e35a55637873b1eee70d5a7a8c2b03af3eed7' })));
     }
     static get style() { return ZStepperStyle0; }
 }, [1, "z-stepper"]);

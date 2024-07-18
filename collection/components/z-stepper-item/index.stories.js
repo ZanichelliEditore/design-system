@@ -3,32 +3,57 @@ import "./index";
 export default {
     title: "ZStepper/ZStepperItem",
     component: "z-stepper-item",
+    args: {
+        pressed: false,
+        disabled: false,
+        checked: false,
+        index: 1,
+        text: "First Item",
+    },
 };
-export const WithIndex = {
-    render: () => html `<z-stepper-item index="1"></z-stepper-item>`,
-};
-export const WithText = {
-    render: () => html `<z-stepper-item index="1">First step</z-stepper-item>`,
-};
-export const Disabled = {
-    render: () => html `<z-stepper-item
-      index="1"
-      disabled
-      >First step</z-stepper-item
+export const Default = {
+    render: (args) => html `<z-stepper-item
+      index=${args.index}
+      ?pressed=${args.pressed}
+      ?disabled=${args.disabled}
+      ?checked=${args.checked}
+      >${args.text}</z-stepper-item
     >`,
 };
 export const Pressed = {
-    render: () => html `<z-stepper-item
-      index="1"
-      pressed
-      >First step</z-stepper-item
+    args: {
+        pressed: true,
+    },
+    render: (args) => html `<z-stepper-item
+      index=${args.index}
+      ?pressed=${args.pressed}
+      ?disabled=${args.disabled}
+      ?checked=${args.checked}
+      >${args.text}</z-stepper-item
+    >`,
+};
+export const Disabled = {
+    args: {
+        disabled: true,
+    },
+    render: (args) => html `<z-stepper-item
+      index=${args.index}
+      ?pressed=${args.pressed}
+      ?disabled=${args.disabled}
+      ?checked=${args.checked}
+      >${args.text}</z-stepper-item
     >`,
 };
 export const Checked = {
-    render: () => html `<z-stepper-item
-      index="1"
-      checked
-      >First step</z-stepper-item
+    args: {
+        checked: true,
+    },
+    render: (args) => html `<z-stepper-item
+      index=${args.index}
+      ?pressed=${args.pressed}
+      ?disabled=${args.disabled}
+      ?checked=${args.checked}
+      >${args.text}</z-stepper-item
     >`,
 };
 //# sourceMappingURL=index.stories.js.map

@@ -49,8 +49,7 @@
 }
 
 .modal-container > header {
-  padding: calc(var(--space-unit) * 3 - 2px) calc(var(--space-unit) * 2) calc(var(--space-unit) + 4px)
-    calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2 - 2px) calc(var(--space-unit) * 2);
   background: var(--color-surface02);
 }
 
@@ -221,10 +220,17 @@
   }
 }
 
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1151px) {
+  .modal-container > header {
+    padding: calc(var(--space-unit) * 3 - 2px) calc(var(--space-unit) * 3);
+  }
+}
+
 /* Desktop */
 @media only screen and (min-width: 1152px) {
   .modal-container > header {
-    padding-top: calc(var(--space-unit) * 3 - 4px);
+    padding: calc(var(--space-unit) * 4 - 4px) calc(var(--space-unit) * 4);
   }
 
   .modal-container > header h1 {
@@ -241,12 +247,5 @@
 
   .modal-container > header h1 + .subtitle {
     margin-top: 0;
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1151px) {
-  .modal-container > header {
-    padding-top: calc(var(--space-unit) * 3 - 2px);
   }
 }

@@ -2,20 +2,33 @@ import "./index";
 declare const _default: {
     title: string;
     component: string;
+    args: {
+        pressed: false;
+        disabled: false;
+        checked: false;
+        index: number;
+        text: string;
+    };
 };
 export default _default;
-export declare const WithIndex: {
-    render: () => import("lit-html").TemplateResult<1>;
-};
-export declare const WithText: {
-    render: () => import("lit-html").TemplateResult<1>;
-};
-export declare const Disabled: {
-    render: () => import("lit-html").TemplateResult<1>;
+export declare const Default: {
+    render: (args: any) => import("lit-html").TemplateResult<1>;
 };
 export declare const Pressed: {
-    render: () => import("lit-html").TemplateResult<1>;
+    args: {
+        pressed: boolean;
+    };
+    render: (args: any) => import("lit-html").TemplateResult<1>;
+};
+export declare const Disabled: {
+    args: {
+        disabled: boolean;
+    };
+    render: (args: any) => import("lit-html").TemplateResult<1>;
 };
 export declare const Checked: {
-    render: () => import("lit-html").TemplateResult<1>;
+    args: {
+        checked: boolean;
+    };
+    render: (args: any) => import("lit-html").TemplateResult<1>;
 };

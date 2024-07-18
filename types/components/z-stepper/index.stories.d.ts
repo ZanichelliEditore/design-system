@@ -14,3 +14,9 @@ export declare const Default: {
 export declare const Completed: {
     render: () => import("lit-html").TemplateResult<1>;
 };
+export declare const CompletedDisabled: {
+    render: () => import("lit-html").TemplateResult<1>;
+};
+export declare const Checked: {
+    render: () => import("lit-html").TemplateResult<1>;
+};

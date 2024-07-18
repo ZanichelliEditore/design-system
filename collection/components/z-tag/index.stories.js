@@ -17,22 +17,24 @@ const StoryMeta = {
         "--z-tag-bg": getColorTokenArgConfig(),
     },
     args: {
-        "text": "In progress",
-        "expandable": false,
-        "icon": "gear",
-        "--z-tag-text-color": undefined,
-        "--z-tag-bg": undefined,
+        text: "In progress",
+        expandable: false,
+        icon: "gear",
     },
 };
 export default StoryMeta;
 export const Default = {
     render: (args) => html `<z-tag
-      icon="gear"
+      icon=${args.icon}
       expandable=${args.expandable}
       >${args.text}
     </z-tag>`,
 };
 export const ColorTokens = {
+    args: {
+        "--z-tag-text-color": null,
+        "--z-tag-bg": null,
+    },
     render: (args) => html `<z-tag
       style=${styleMap({
         "--z-tag-text-color": args["--z-tag-text-color"],
@@ -45,7 +47,9 @@ export const ColorTokens = {
 };
 export const LongText = {
     args: {
-        text: "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+        "text": "In progress testo lungo molto lungo lungo lungo lungo lungolungo lungolungo",
+        "--z-tag-text-color": null,
+        "--z-tag-bg": null,
     },
     render: (args) => html `<z-tag
       style=${styleMap({
