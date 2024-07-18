@@ -217,23 +217,6 @@
   }
 }
 
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1151px) {
-  .modal-container > header h1 {
-    font-size: var(--font-size-5);
-    font-weight: var(--font-sb);
-    letter-spacing: 0;
-    line-height: 1.4;
-  }
-
-  .modal-container > header .subtitle {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-rg);
-    letter-spacing: 0;
-    line-height: 1.5;
-  }
-}
-
 /* Desktop */
 @media only screen and (min-width: 1152px) {
   .modal-container > header {
