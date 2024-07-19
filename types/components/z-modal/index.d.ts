@@ -29,6 +29,7 @@ export declare class ZModal {
     /** emitted on background click, returns modalid */
     modalBackgroundClick: EventEmitter;
     private emitBackgroundClick;
+    private handlePageOverflow;
     componentDidLoad(): void;
     /** open modal */
     open(): Promise<void>;

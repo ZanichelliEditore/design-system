@@ -1,6 +1,7 @@
 import { h } from "@stencil/core";
 import dialogPolyfill from "dialog-polyfill";
 import { KeyboardCode } from "../../beans";
+import { mobileBreakpoint } from "../../constants/breakpoints";
 const FOCUSABLE_ELEMENTS_SELECTOR = ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 /**
  * @slot modalCloseButton - accept custom close button
@@ -29,6 +30,10 @@ export class ZModal {
             this.modalBackgroundClick.emit({ modalid: this.modalid });
         }
     }
+    handlePageOverflow() {
+        const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
+        document.body.style["overflow-y"] = mobileMediaQuery.matches ? "hidden" : "";
+    }
     componentDidLoad() {
         if (typeof window.HTMLDialogElement !== "function") {
             /* workaround to fix `registerDialog` in test environment:
@@ -43,6 +48,7 @@ export class ZModal {
         else {
             this.open();
         }
+        this.handlePageOverflow();
     }
     /** open modal */
     async open() {
@@ -70,6 +76,9 @@ export class ZModal {
         ].filter((element) => getComputedStyle(element).display !== "none");
     }
     handleKeyDown(e) {
+        if (e.code === KeyboardCode.ESC && !this.closable) {
+            e.preventDefault();
+        }
         if (e.code !== KeyboardCode.TAB) {
             return;
         }
@@ -101,16 +110,16 @@ export class ZModal {
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: '502c0fd42f37a498ef3ec2b2b174ac4950287883', class: {
+        return (h("dialog", { key: '50df4e07a74c86679fd2243e6795da0eeaae9c2c', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '0dd9496ca11660307bcb8d751e8793659aa30741', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '035ad0b71a6726e43c1fb52dae69257afd054525', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '6952365a4a1d64e1ce23a9454f11cd4ae76e37ca', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: 'fe219a40167ad9984255885bb189d9a9a0509cd5' }, this.modaltitle && h("h1", { key: '2991d4e6c254160dfe33e3558dc5db4d4dbf0abf', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '5a612bc3eb027b488a37918794c4f24e1991a38d', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: '34008ade3d0f05c701b4d94df647086a8de3cd27', class: {
+            }, id: this.modalid }, h("header", { key: '8f9e92a6c41e4dbff647c4140a1efc42adf258a9', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '3521275e24a100ba06c2f259ef239a361a6841e5' }, this.modaltitle && h("h1", { key: '3c345754f355fbe4cb7c0515404b01a3ff647b26', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '5307334b7aca04ae351a0a69cbdaa6ec0ee32654', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'fe5a158f3a0f0d6a06e83ce4cf32fb50ea5bf79f', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: '7ce631a687090f9b69bafa8de5dbe76d21d2c554', name: "modalContent" }))), h("div", { key: '8fc40e271bec8219fbbbf208bbba900a74ebdec8', class: {
+            }, id: "modal-content" }, h("slot", { key: 'c2e5855dc48026fda519ad69bf5a7f9c3c1a2773', name: "modalContent" }))), h("div", { key: 'd7f80d8206c262bf5166ee1231d78eb0e55e4bb5', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {
