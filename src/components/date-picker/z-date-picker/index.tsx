@@ -217,7 +217,6 @@ export class ZDatePicker {
           type={InputType.TEXT}
           icon="event"
           message={false}
-          tabindex="0"
           value=""
           onStopTyping={(value) => {
             this.onStopTyping(value);

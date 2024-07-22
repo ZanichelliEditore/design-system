@@ -1,3 +1,9 @@
 .fab2 {
   --z-fab-bottom-offset: calc(58px + var(--grid-margin));
 }
+
+*:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+

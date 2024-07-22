@@ -23,6 +23,11 @@ respecting the grid indications of the design. */
   box-sizing: border-box;
 }
 
+*:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 :host(:not([variant="overlay"])) .cover-container {
   position: relative;
   width: 100%;
@@ -112,6 +117,11 @@ Unfortunately the `aspect-ratio` property is still experimental */
   text-decoration: none;
 }
 
+::slotted([slot="title"]:focus) {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 ::slotted([slot="text"]) {
   margin: 0;
   -webkit-line-clamp: 3;
@@ -127,6 +137,11 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 ::slotted([slot="action"]:not(:last-child)) {
   margin-right: calc(var(--space-unit) * 2);
+}
+
+::slotted([slot="action"]:focus) {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
 }
 
 :host([clickable]) ::slotted([slot="title"]:focus:focus-visible)::before {

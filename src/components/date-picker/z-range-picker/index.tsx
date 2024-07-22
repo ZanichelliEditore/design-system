@@ -424,7 +424,6 @@ export class ZRangePicker {
     const zInputProps = {
       type: InputType.TEXT,
       icon: "event",
-      tabindex: "0",
       message: false,
       onStopTyping: this.onStopTyping.bind(this),
       value: "",

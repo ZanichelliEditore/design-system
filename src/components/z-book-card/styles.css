@@ -64,6 +64,11 @@
   cursor: pointer;
 }
 
+:host > article div.cover .ribbon.interactive:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 :host > article div.cover .ribbon span {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -155,6 +160,11 @@
   padding: var(--space-unit);
   cursor: pointer;
   fill: var(--color-primary01-icon);
+}
+
+:host > article ::slotted([slot="header-cta"]:focus) {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
 }
 
 /* EXPANDED STYLES */

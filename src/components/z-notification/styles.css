@@ -94,6 +94,11 @@
   line-height: 16px;
 }
 
+.action-button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 .content-container + .close-button {
   margin-left: calc(var(--space-unit) * 2);
 }
@@ -103,7 +108,7 @@
 }
 
 /* Tablet breakpoint */
-@media and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .content-container {
     flex-wrap: nowrap;
   }
