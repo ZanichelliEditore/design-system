@@ -19,6 +19,18 @@ export declare class ZFileUpload {
     uploadBtnLabel?: string;
     /** drag & drop button label */
     dragAndDropLabel?: string;
+    /** allowed file message */
+    allowedFilesMessage?: string;
+    /** upload clickable message */
+    uploadClickableMessage?: string;
+    /** upload message */
+    uploadMessage?: string;
+    /** error modal title */
+    errorModalTitle?: string;
+    /** error modal message */
+    errorModalMessage?: string;
+    /** loaded files label */
+    uploadedFilesLabel?: string;
     /** uploaded files history rendering */
     hasFileSection?: boolean;
     /** List of files not allowed to be uploaded */

@@ -92,4 +92,51 @@ export const Dragdrop = {
         });
       </script>`,
 };
+export const DragdropEnglish = {
+    args: {
+        mainTitle: "Attach a file",
+        description: "Do you want to attach a file to clarify your request?",
+        uploadBtnLabel: "Attach",
+        dragAndDropLabel: "Drop the image here",
+        allowedFilesMessage: "You can upload files in the format PDF, DOC, TIFF, PNG, JPG for a maximum of 50MB",
+        uploadClickableMessage: "Load",
+        uploadMessage: "or drag from your computer",
+        errorModalTitle: "Loading error",
+        errorModalMessage: "The file does not respect the allowed parameters.",
+        uploadedFilesLabel: "Uploaded files",
+    },
+    render: (args) => html `<h4 class="heading-4">
+        This story embeds a piece of js script to allow the component to work properly. Please refresh the page before
+        using it!
+      </h4>
+      <br />
+      <z-file-upload
+        type=${ZFileUploadType.DRAGDROP}
+        .hasFileSection=${args.hasFileSection}
+        description="${args.description}"
+        .fileMaxSize=${args.fileMaxSize}
+        .acceptedFormat=${args.acceptedFormat}
+        .mainTitle=${args.mainTitle}
+        .dragAndDropLabel=${args.dragAndDropLabel}
+        .allowedFilesMessage=${args.allowedFilesMessage}
+        .uploadClickableMessage=${args.uploadClickableMessage}
+        .uploadMessage=${args.uploadMessage}
+        .errorModalTitle=${args.errorModalTitle}
+        .errorModalMessage=${args.errorModalMessage}
+        .uploadedFilesLabel=${args.uploadedFilesLabel}
+        .uploadBtnLabel=${args.uploadBtnLabel}
+      >
+      </z-file-upload>
+      <script>
+        const uploaderDragdrop = document.querySelector("z-file-upload");
+        document.addEventListener("fileInput", (e) => {
+          const item = e.detail;
+          const chip = document.createElement("Z-FILE");
+          chip.setAttribute("slot", "files");
+          chip.setAttribute("filetype", item.type);
+          chip.setAttribute("file-name", item.name);
+          uploaderDragdrop.appendChild(chip);
+        });
+      </script>`,
+};
 //# sourceMappingURL=index.stories.js.map

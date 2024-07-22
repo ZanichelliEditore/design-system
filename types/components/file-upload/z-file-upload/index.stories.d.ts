@@ -40,3 +40,18 @@ export declare const Dragdrop: {
     };
     render: (args: ZFileUpload) => import("lit-html").TemplateResult<1>;
 };
+export declare const DragdropEnglish: {
+    args: {
+        mainTitle: string;
+        description: string;
+        uploadBtnLabel: string;
+        dragAndDropLabel: string;
+        allowedFilesMessage: string;
+        uploadClickableMessage: string;
+        uploadMessage: string;
+        errorModalTitle: string;
+        errorModalMessage: string;
+        uploadedFilesLabel: string;
+    };
+    render: (args: ZFileUpload) => import("lit-html").TemplateResult<1>;
+};

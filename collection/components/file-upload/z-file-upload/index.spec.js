@@ -76,11 +76,10 @@ describe("Suite test ZFileUpload", () => {
              </span>
              <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" id="file-elem" multiple="" type="file">
              <span class="body-1 upload-link-text">
-               Trascina o
                <span class="body-1-sb upload-link" tabindex="0">
-                 carica
+                 Carica
                </span>
-               dal tuo computer
+               o trascina dal tuo computer
              </span>
              <span class="body-3">
                Puoi allegare file nei formati PDF, DOC, TIFF, PNG, JPG, JPEG per un massimo di 50MB di peso.

@@ -28,6 +28,12 @@ const ZFileUpload = class {
         this.files = [];
         this.uploadBtnLabel = "allega";
         this.dragAndDropLabel = "Rilascia i file in questa area per allegarli.";
+        this.allowedFilesMessage = undefined;
+        this.uploadClickableMessage = "Carica";
+        this.uploadMessage = "o trascina dal tuo computer";
+        this.errorModalTitle = "Errore di caricamento";
+        this.errorModalMessage = undefined;
+        this.uploadedFilesLabel = "File appena caricati";
         this.hasFileSection = true;
         this.invalidFiles = undefined;
     }
@@ -136,13 +142,17 @@ const ZFileUpload = class {
             fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`;
         }
         const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
-        return index.h("span", { class: "body-3" }, fileFormatString || fileWeightString ? finalString : null);
+        return (index.h("span", { class: "body-3" }, this.allowedFilesMessage
+            ? this.allowedFilesMessage
+            : fileFormatString || fileWeightString
+                ? finalString
+                : null));
     }
     renderFileSection() {
         if (!this.hasFileSection) {
             return;
         }
-        return (index.h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, index.h("span", { class: "heading-4-sb" }, "File appena caricati"), index.h("div", { class: "files-wrapper" }, index.h("slot", { name: "files" })), index.h("z-divider", { size: index$1.DividerSize.MEDIUM })));
+        return (index.h("section", { class: `files-container ${!this.files.length ? "hidden" : ""}` }, index.h("span", { class: "heading-4-sb" }, this.uploadedFilesLabel), index.h("div", { class: "files-wrapper" }, index.h("slot", { name: "files" })), index.h("z-divider", { size: index$1.DividerSize.MEDIUM })));
     }
     renderInput() {
         return (index.h("input", Object.assign({}, this.inputAttributes, { onChange: () => this.fileInputHandler(), accept: this.acceptedFormat, ref: (val) => (this.input = val) })));
@@ -161,12 +171,12 @@ const ZFileUpload = class {
     renderUploadLink() {
         return [
             this.renderInput(),
-            index.h("span", { class: "body-1 upload-link-text" }, "Trascina o", " ", index.h("span", { tabIndex: 0, class: "body-1-sb upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
+            index.h("span", { class: "body-1 upload-link-text" }, index.h("span", { tabIndex: 0, class: "body-1-sb upload-link", onClick: () => this.input.click(), onKeyPress: (e) => {
                     if (e.code == "Space" || e.code == "Enter") {
                         e.preventDefault();
                         this.input.click();
                     }
-                }, ref: (val) => (this.uploadLink = val) }, "carica"), " ", "dal tuo computer"),
+                }, ref: (val) => (this.uploadLink = val) }, this.uploadClickableMessage), " ", this.uploadMessage),
         ];
     }
     renderDefaultMode() {
@@ -189,12 +199,12 @@ const ZFileUpload = class {
         return (index.h("span", { class: "error-message" }, "Il file ", index.h("span", { class: "file-name" }, key), " ", (_a = value[1]) !== null && _a !== void 0 ? _a : "", bothErrors, (_b = value[0]) !== null && _b !== void 0 ? _b : "", "."));
     }
     handleErrorModalContent() {
-        return (index.h("div", { slot: "modalContent" }, index.h("div", { class: "modal-wrapper" }, index.h("div", { class: "files" }, Array.from(this.invalidFiles).map(([key, value]) => {
+        return (index.h("div", { slot: "modalContent" }, index.h("div", { class: "modal-wrapper" }, index.h("div", { class: "files" }, this.errorModalMessage ? (index.h("span", { class: "body-3" }, this.errorModalMessage)) : (Array.from(this.invalidFiles).map(([key, value]) => {
             return index.h("span", { class: "body-3" }, this.formatErrorString(key, value));
-        })))));
+        }))))));
     }
     render() {
-        return (index.h(index.Host, { key: '5164e39fa841c1e236b44ccc647bc4c0167e23ff' }, index.h("div", { key: '498f8b221758f4c9a0577471a3d2193185d559fa', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { key: '7acbcd5147d4f85fbba76b56eb3de8df5a6ba030', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: "Errore di caricamento", onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (index.h(index.Host, { key: '30d78f7ce88aa6e994de1355cf4bb8bbc79e6f85' }, index.h("div", { key: '95a606aeda5279d50acb1b127f2d4784ccd95411', tabIndex: 0, class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == index$1.ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (index.h("z-modal", { key: '576e0e283b6fc92d6099a94178fde4c4eaa280b9', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: this.errorModalTitle, onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     get el() { return index.getElement(this); }
 };
