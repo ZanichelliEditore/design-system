@@ -44,6 +44,30 @@ export class ZFileUpload {
   @Prop()
   dragAndDropLabel?: string = "Rilascia i file in questa area per allegarli.";
 
+  /** allowed file message */
+  @Prop()
+  allowedFilesMessage?: string;
+
+  /** upload clickable message */
+  @Prop()
+  uploadClickableMessage?: string = "Carica";
+
+  /** upload message */
+  @Prop()
+  uploadMessage?: string = "o trascina dal tuo computer";
+
+  /** error modal title */
+  @Prop()
+  errorModalTitle?: string = "Errore di caricamento";
+
+  /** error modal message */
+  @Prop()
+  errorModalMessage?: string;
+
+  /** loaded files label */
+  @Prop()
+  uploadedFilesLabel?: string = "File appena caricati";
+
   /** uploaded files history rendering */
   @Prop()
   hasFileSection?: boolean = true;
@@ -200,7 +224,15 @@ export class ZFileUpload {
 
     const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
 
-    return <span class="body-3">{fileFormatString || fileWeightString ? finalString : null}</span>;
+    return (
+      <span class="body-3">
+        {this.allowedFilesMessage
+          ? this.allowedFilesMessage
+          : fileFormatString || fileWeightString
+            ? finalString
+            : null}
+      </span>
+    );
   }
 
   private renderFileSection(): HTMLElement {
@@ -210,7 +242,7 @@ export class ZFileUpload {
 
     return (
       <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <span class="heading-4-sb">File appena caricati</span>
+        <span class="heading-4-sb">{this.uploadedFilesLabel}</span>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
@@ -255,7 +287,6 @@ export class ZFileUpload {
     return [
       this.renderInput(),
       <span class="body-1 upload-link-text">
-        Trascina o{" "}
         <span
           tabIndex={0}
           class="body-1-sb upload-link"
@@ -268,9 +299,9 @@ export class ZFileUpload {
           }}
           ref={(val) => (this.uploadLink = val)}
         >
-          carica
+          {this.uploadClickableMessage}
         </span>{" "}
-        dal tuo computer
+        {this.uploadMessage}
       </span>,
     ];
   }
@@ -314,9 +345,13 @@ export class ZFileUpload {
       <div slot="modalContent">
         <div class="modal-wrapper">
           <div class="files">
-            {Array.from(this.invalidFiles).map(([key, value]) => {
-              return <span class="body-3">{this.formatErrorString(key, value)}</span>;
-            })}
+            {this.errorModalMessage ? (
+              <span class="body-3">{this.errorModalMessage}</span>
+            ) : (
+              Array.from(this.invalidFiles).map(([key, value]) => {
+                return <span class="body-3">{this.formatErrorString(key, value)}</span>;
+              })
+            )}
           </div>
         </div>
       </div>
@@ -338,7 +373,7 @@ export class ZFileUpload {
             modalid={`file-upload-${this.type}-error-modal`}
             tabIndex={0}
             ref={(val) => (this.errorModal = val)}
-            modaltitle="Errore di caricamento"
+            modaltitle={this.errorModalTitle}
             onModalClose={() => (this.invalidFiles = new Map<string, string[]>())}
             onModalBackgroundClick={() => (this.invalidFiles = new Map<string, string[]>())}
           >
