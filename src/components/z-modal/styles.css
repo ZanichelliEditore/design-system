@@ -1,5 +1,5 @@
 *:focus {
-  border-radius: 50%; 
+  border-radius: 50%;
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
 }
