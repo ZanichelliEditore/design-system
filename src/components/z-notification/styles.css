@@ -108,7 +108,7 @@
 }
 
 /* Tablet breakpoint */
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .content-container {
     flex-wrap: nowrap;
   }
