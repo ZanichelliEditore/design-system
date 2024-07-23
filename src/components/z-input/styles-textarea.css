@@ -5,11 +5,6 @@
   scrollbar-color: var(--color-primary01) transparent;
 }
 
-.textarea-wrapper:focus-within {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 textarea::-webkit-scrollbar {
   width: 10px;
   background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
