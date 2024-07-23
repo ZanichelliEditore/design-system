@@ -1,8 +1,3 @@
 .z-link-story .z-link {
   font-size: 1rem;
 }
-
-.z-link:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
