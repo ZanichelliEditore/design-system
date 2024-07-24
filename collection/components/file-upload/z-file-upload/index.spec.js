@@ -15,7 +15,7 @@ describe("Suite test ZFileUpload", () => {
         expect(page.root).toEqualHtml(`
     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="default" variant="primary">
       <mock:shadow-root>
-       <div class="container default" tabindex="0">
+       <div class="container default">
          <span id="title">
            Allega un file
          </span>
@@ -56,7 +56,7 @@ describe("Suite test ZFileUpload", () => {
         expect(page.root)
             .toEqualHtml(`     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" main-title="Allega un file" type="dragdrop">
        <mock:shadow-root>
-       <div class="container dragdrop" tabindex="0">
+       <div class="container dragdrop">
          <span id="title">
            Allega un file
          </span>
@@ -106,7 +106,7 @@ describe("Suite test ZFileUpload", () => {
         expect(page.root).toEqualHtml(`
     <z-file-upload accepted-format=".pdf, .doc, .tiff, .png, .jpg, .jpeg" description="Vuoi allegare un file per chiarire meglio la tua richiesta?" file-max-size="50" upload-btn-label="testo custom" drag-and-drop-label="drag and drop custom label" type="default" variant="primary">
       <mock:shadow-root>
-       <div class="container default" tabindex="0">
+       <div class="container default">
          <span class="body-3-sb">
            Vuoi allegare un file per chiarire meglio la tua richiesta?
          </span>

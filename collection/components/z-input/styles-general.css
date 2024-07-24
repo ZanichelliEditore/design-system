@@ -44,7 +44,7 @@ textarea,
 
 /* FOCUS */
 :host:not(.active-select) input:focus:focus-visible,
-:host([readonly="false"]) .textarea-wrapper:focus-within {
+:host:not([readonly="true"]) .textarea-wrapper:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
 

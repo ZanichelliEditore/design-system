@@ -14,6 +14,11 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 .input-container {
   position: relative;
   display: flex;
