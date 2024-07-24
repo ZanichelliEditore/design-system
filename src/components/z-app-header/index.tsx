@@ -108,6 +108,8 @@ export class ZAppHeader {
 
   private burgerButton: HTMLButtonElement;
 
+  private searchbar: HTMLZSearchbarElement;
+
   /** Observer when the size of the element container changes */
   private resizeObserver: ResizeObserver;
 
@@ -142,16 +144,11 @@ export class ZAppHeader {
 
       return;
     }
-
     this.handleArrowsNav(e);
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
-    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP) {
-      if (this.enableOffcanvas && this.drawerOpen && e.code !== KeyboardCode.ENTER) {
-        this.closeDrawer();
-      }
-
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP && this.enableOffcanvas) {
       return;
     }
 
@@ -162,23 +159,31 @@ export class ZAppHeader {
     const menuItems = Array.from(this.menuElements).map(
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
-
     let nextFocusableItem: HTMLElement;
-
-    if (this.currentViewport === "mobile" || this.enableOffcanvas || this._stuck) {
+    if (this.enableOffcanvas || this._stuck) {
       // INFO: reset focus on all menu items
       menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-
       e.preventDefault();
       e.stopPropagation();
-
       if (e.code === KeyboardCode.ARROW_DOWN) {
         nextFocusableItem = this.getNextItem(menuItems, 1);
       } else if (e.code === KeyboardCode.ARROW_UP) {
         nextFocusableItem = this.getNextItem(menuItems, -1);
       }
-    }
+    } else {
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        e.preventDefault();
 
+        return;
+      }
+      //INFO: reset focus on all menu items
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      if (e.code === KeyboardCode.ARROW_RIGHT) {
+        nextFocusableItem = this.getNextItem(menuItems, 1);
+      } else if (e.code === KeyboardCode.ARROW_LEFT) {
+        nextFocusableItem = this.getNextItem(menuItems, -1);
+      }
+    }
     if (nextFocusableItem) {
       nextFocusableItem.setAttribute("tabindex", "0");
       nextFocusableItem.focus();
@@ -218,6 +223,7 @@ export class ZAppHeader {
       element.floating = !this.drawerOpen;
       element.verticalContext = this.drawerOpen;
       element.setAttribute("role", "menuitem");
+      element.setAttribute("tabindex", "-1");
     });
   }
 
@@ -314,6 +320,7 @@ export class ZAppHeader {
 
     return (
       <z-searchbar
+        ref={(el) => (this.searchbar = el as HTMLZSearchbarElement)}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
@@ -421,6 +428,20 @@ export class ZAppHeader {
     return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 0);
   }
 
+  private focusToFirstItemMenu(e): void {
+    if (e.shiftKey && e.code === KeyboardCode.TAB && this.currentIndex === 0) {
+      const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
+      input.focus();
+      this.currentIndex = -1;
+    } else if (this.currentIndex === -1) {
+      const menuItems = Array.from(this.menuElements).map(
+        (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+      );
+      menuItems[0].focus();
+      this.currentIndex = 0;
+    }
+  }
+
   componentWillLoad(): void {
     this.collectMenuElements();
     this.evaluateViewport();
@@ -481,13 +502,22 @@ export class ZAppHeader {
           </div>
 
           {this.canShowMenu && (
-            <div class="menu-container">
-              {this.canShowMenu && (
-                <slot
-                  name="menu"
-                  onSlotchange={this.collectMenuElements}
-                ></slot>
-              )}
+            <div
+              class="menu-container"
+              onKeyUp={(e) => {
+                if (this.enableOffcanvas) {
+                  return;
+                }
+
+                this.focusToFirstItemMenu(e);
+              }}
+              role="hidden"
+              tabIndex={0}
+            >
+              <slot
+                name="menu"
+                onSlotchange={this.collectMenuElements}
+              ></slot>
             </div>
           )}
         </div>

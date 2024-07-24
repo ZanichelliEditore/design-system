@@ -151,6 +151,10 @@ img.z-logo {
   column-gap: calc(var(--space-unit) * 4);
 }
 
+.menu-container:focus:focus-visible {
+  outline: none;
+}
+
 :host([menu-length="0"]:not([enable-search])) .menu-container,
 .menu-container:empty {
   display: none;
