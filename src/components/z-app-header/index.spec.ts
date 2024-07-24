@@ -451,7 +451,7 @@ describe("Suite test ZAppHeader", () => {
                 <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
               </div>
             </div>
-            <div class="menu-container">
+            <div class="menu-container" role="hidden" tabindex="0">
               <slot name="menu"></slot>
             </div>
           </div>
@@ -470,12 +470,12 @@ describe("Suite test ZAppHeader", () => {
           Titolo di test
         </h1>
         <img alt="" slot="product-logo" src="https://picsum.photos/id/237/320/320">
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <a href="">
             Menu label
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <h3>
             Not so short menu label
           </h3>
@@ -511,7 +511,7 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <h3>
             Not so short menu label
           </h3>
@@ -547,12 +547,12 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <a href="">
             Menu label
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <h3>
             Not so short menu label
           </h3>
@@ -588,7 +588,7 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu">
+        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
           <h3>
             Not so short menu label
           </h3>

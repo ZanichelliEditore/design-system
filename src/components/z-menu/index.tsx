@@ -85,7 +85,36 @@ export class ZMenu {
     if (e.code === KeyboardCode.ENTER) {
       return;
     }
+
+    if (this.open) {
+      this.handleNavigationSideArrow(e);
+    }
+
     this.handleArrowsNav(e);
+  }
+
+  private handleNavigationSideArrow(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+      return;
+    }
+
+    if (e.code === KeyboardCode.ARROW_RIGHT) {
+      const nextElement = this.hostElement.nextElementSibling;
+      if (nextElement) {
+        const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        menuButton.focus();
+      }
+      this.open = false;
+    } else if (e.code === KeyboardCode.ARROW_LEFT) {
+      const prevElement = this.hostElement.previousElementSibling;
+      if (prevElement) {
+        const menuButton = this.hostElement.previousElementSibling.shadowRoot.querySelector(
+          ".menu-label"
+        ) as HTMLElement;
+        menuButton.focus();
+      }
+      this.open = false;
+    }
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
@@ -117,9 +146,7 @@ export class ZMenu {
           nextFocusableItem.setAttribute("tabindex", "0");
           nextFocusableItem.focus();
         }
-      } else if (e.code === KeyboardCode.TAB) {
-        this.focusToParentAndCloseMenu();
-      } else {
+      } else if (e.code === KeyboardCode.ESC) {
         this.focusToParentAndCloseMenu();
       }
     }

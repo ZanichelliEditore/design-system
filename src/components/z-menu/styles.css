@@ -45,15 +45,7 @@ button.menu-label {
 
 .menu-label:focus-within {
   z-index: 1;
-  padding-right: calc(var(--space-unit) * 0.5);
-  padding-left: calc(var(--space-unit) * 0.5);
-  margin-right: calc(var(--space-unit) * -0.5);
-  margin-left: calc(var(--space-unit) * -0.5);
   box-shadow: var(--shadow-focus-primary);
-}
-
-.menu-label:last-child:focus-within {
-  margin-right: calc(var(--space-unit) * 0.5);
 }
 
 .menu-label .menu-label-content {
