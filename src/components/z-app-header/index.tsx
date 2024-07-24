@@ -1,13 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {
-  ButtonVariant,
-  ControlSize,
-  Device,
-  DividerOrientation,
-  KeyboardCode,
-  OffCanvasVariant,
-  TransitionDirection,
-} from "../../beans";
+import {ButtonVariant, ControlSize, Device, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {getDevice} from "../../utils/utils";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
@@ -343,13 +335,6 @@ export class ZAppHeader {
             alt="Logo Zanichelli"
           />
         )}
-        {this.enableZLogo && this.currentViewport !== Device.MOBILE && (
-          <z-divider
-            class="heading-divider"
-            orientation={DividerOrientation.VERTICAL}
-            color="color-black"
-          ></z-divider>
-        )}
         {this.currentViewport !== Device.MOBILE && <slot name="product-logo"></slot>}
       </Fragment>
     );
@@ -476,15 +461,13 @@ export class ZAppHeader {
     return (
       <Host menu-length={this.menuLength}>
         <div
-          class={`heading-panel ${hasTopSubtitle ? "padding-top-subtitle" : ""}`}
+          class="heading-panel"
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
             {((!this.enableSearch && this.currentViewport === Device.MOBILE) ||
               this.currentViewport !== Device.MOBILE) && (
-              <div
-                class={`heading-top-subtitle ${hasTopSubtitle ? "active-top-subtitle" : ""} ${this.enableOffcanvas ? "active-padding" : ""}`}
-              >
+              <div class={`${this.enableOffcanvas ? "p-left" : ""}`}>
                 <slot name="top-subtitle"></slot>
               </div>
             )}
@@ -498,7 +481,7 @@ export class ZAppHeader {
           </div>
 
           {this.canShowMenu && (
-            <div class={`menu-container ${hasTopSubtitle ? "menu-top-subtitle" : ""}`}>
+            <div class="menu-container">
               {this.canShowMenu && (
                 <slot
                   name="menu"

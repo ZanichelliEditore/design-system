@@ -20,12 +20,11 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
               <img alt="Logo Zanichelli" class="z-logo">
-                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -59,12 +58,11 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
               <img alt="Logo Zanichelli" class="z-logo">
-                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -100,9 +98,9 @@ describe("Suite test ZAppHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
-          <div class="heading-panel padding-top-subtitle">
+          <div class="heading-panel">
             <div class="heading-container">
-              <div class="active-top-subtitle heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
@@ -149,12 +147,11 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <img alt="Logo Zanichelli" class="z-logo">
-                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -197,12 +194,11 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <img alt="Logo Zanichelli" class="z-logo">
-                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -445,12 +441,11 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-top-subtitle">
+              <div>
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <img alt="Logo Zanichelli" class="z-logo">
-                <z-divider class="heading-divider" color="color-black" orientation="vertical"></z-divider>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
                 <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
