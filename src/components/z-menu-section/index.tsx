@@ -34,12 +34,48 @@ export class ZMenuSection {
 
   private currentIndex = -1;
 
+  private currentCanvasOpenStatus = false;
+
+  @Listen("canvasOpenStatusChanged", {target: "document"})
+  canvasOpenStatusChanged(e: CustomEvent): void {
+    this.currentCanvasOpenStatus = e.detail;
+  }
+
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
     if (e.code === KeyboardCode.ENTER) {
       return;
     }
+
+    if (this.open && !this.currentCanvasOpenStatus) {
+      this.handleNavigationSideArrow(e);
+    }
+
     this.handleArrowsNav(e);
+  }
+
+  private handleNavigationSideArrow(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+      return;
+    }
+    if (e.code === KeyboardCode.ARROW_RIGHT) {
+      const nextElement = this.hostElement.parentElement.nextElementSibling;
+      if (nextElement) {
+        const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        console.log(this.hostElement.parentElement);
+        menuButton.focus();
+      }
+      this.open = false;
+      nextElement.setAttribute("open", "true");
+    } else if (e.code === KeyboardCode.ARROW_LEFT) {
+      const prevElement = this.hostElement.parentElement.previousElementSibling;
+      if (prevElement) {
+        const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        menuButton.focus();
+      }
+      prevElement.setAttribute("open", "true");
+      this.open = false;
+    }
   }
 
   private handleArrowsNav(e: KeyboardEvent): void {
@@ -62,9 +98,7 @@ export class ZMenuSection {
           nextFocusableItem.setAttribute("tabindex", "0");
           nextFocusableItem.focus();
         }
-      } else if (e.code === KeyboardCode.TAB) {
-        this.focusToParentAndCloseMenu();
-      } else {
+      } else if (e.code === KeyboardCode.ESC) {
         this.focusToParentAndCloseMenu();
       }
     }

@@ -59,6 +59,8 @@ export class ZMenu {
 
   private currentIndex = -1;
 
+  private currentCanvasOpenStatus = false;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;
@@ -80,13 +82,18 @@ export class ZMenu {
     this.closed.emit();
   }
 
+  @Listen("canvasOpenStatusChanged", {target: "document"})
+  canvasOpenStatusChanged(e: CustomEvent): void {
+    this.currentCanvasOpenStatus = e.detail;
+  }
+
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
     if (e.code === KeyboardCode.ENTER) {
       return;
     }
 
-    if (this.open) {
+    if (this.open && !this.currentCanvasOpenStatus) {
       this.handleNavigationSideArrow(e);
     }
 
@@ -105,14 +112,14 @@ export class ZMenu {
         menuButton.focus();
       }
       this.open = false;
+      nextElement.setAttribute("open", "true");
     } else if (e.code === KeyboardCode.ARROW_LEFT) {
       const prevElement = this.hostElement.previousElementSibling;
       if (prevElement) {
-        const menuButton = this.hostElement.previousElementSibling.shadowRoot.querySelector(
-          ".menu-label"
-        ) as HTMLElement;
+        const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
         menuButton.focus();
       }
+      prevElement.setAttribute("open", "true");
       this.open = false;
     }
   }
