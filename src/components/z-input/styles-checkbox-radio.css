@@ -104,9 +104,16 @@
 }
 
 /* focus */
-.radio-wrapper > input:focus:focus-visible + .radio-label > z-icon,
+.radio-wrapper > input:focus:focus-visible + .radio-label > z-icon {
+  border-radius: 50%;
+}
+
 .checkbox-wrapper > input:focus:focus-visible + .checkbox-label > z-icon {
   border-radius: var(--border-radius-small);
+}
+
+.radio-wrapper > input:focus:focus-visible + .radio-label > z-icon,
+.checkbox-wrapper > input:focus:focus-visible + .checkbox-label > z-icon {
   box-shadow: var(--shadow-focus-primary);
 }
 

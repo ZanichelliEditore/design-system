@@ -74,6 +74,11 @@
   --z-icon-height: 16px;
 }
 
+.text-wrapper .icons-wrapper > button.icon-button:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 /* stylelint-disable property-no-vendor-prefix */
 .text-wrapper > div > input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff inset;

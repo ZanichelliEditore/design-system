@@ -361,10 +361,7 @@ export class ZFileUpload {
   render(): HTMLZFileUploadElement {
     return (
       <Host>
-        <div
-          tabIndex={0}
-          class={`container ${this.getType()}`}
-        >
+        <div class={`container ${this.getType()}`}>
           {this.mainTitle && this.renderTitle()}
           {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         </div>
