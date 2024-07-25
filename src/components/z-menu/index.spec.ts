@@ -13,7 +13,7 @@ describe("Suite test ZMenu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-menu role="menu">
+    <z-menu floating="" role="menu">
       <mock:shadow-root>
         <div class="menu-wrapper">
           <div class="menu-label">
@@ -39,7 +39,7 @@ describe("Suite test ZMenu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-menu role="menu">
+      <z-menu floating="" role="menu">
         <mock:shadow-root>
           <div class="menu-wrapper">
             <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
@@ -65,7 +65,7 @@ describe("Suite test ZMenu", () => {
   it("Test render ZMenu with submenu", async () => {
     const page = await newSpecPage({
       components: [ZMenu, ZMenuSection],
-      html: `<z-menu role="menu">
+      html: `<z-menu floating="" role="menu">
         <h3>Menu label</h3>
         <a href="#" slot="item">Item 1</a>
         <z-menu-section slot="item">
@@ -77,7 +77,7 @@ describe("Suite test ZMenu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-menu role="menu">
+    <z-menu floating="" role="menu">
       <mock:shadow-root>
         <div class="menu-wrapper">
           <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
