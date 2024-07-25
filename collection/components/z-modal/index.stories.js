@@ -193,32 +193,4 @@ export const LongText = {
     <z-button onclick="openZModal()">apri modale</z-button>
   `,
 };
-export const SlottedCloseButton = {
-    args: {
-        modalid: "my-modal-slotted-close",
-    },
-    render: (args) => html `
-    <z-modal
-      modalid=${args.modalid}
-      modaltitle=${args.modaltitle}
-      modalsubtitle=${args.modalsubtitle}
-      close-button-label=${args.closeButtonLabel}
-      alertdialog=${args.alertdialog}
-      closable=${args.closable}
-      scroll-inside=${args.scrollInside}
-    >
-      <div slot="modalContent">
-        <div>Contenuto dello <b>slot</b></div>
-      </div>
-      <button
-        slot="modalCloseButton"
-        aria-label="close"
-        onclick="closeZModal()"
-      >
-        X
-      </button>
-    </z-modal>
-    <z-button onclick="openZModal()">apri modale</z-button>
-  `,
-};
 //# sourceMappingURL=index.stories.js.map

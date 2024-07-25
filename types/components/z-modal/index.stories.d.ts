@@ -31,9 +31,3 @@ export declare const LongText: {
     };
     render: (args: ZModal) => import("lit-html").TemplateResult<1>;
 };
-export declare const SlottedCloseButton: {
-    args: {
-        modalid: string;
-    };
-    render: (args: ZModal) => import("lit-html").TemplateResult<1>;
-};
