@@ -25,7 +25,7 @@ export class ZMenu {
    * stacked beneath it otherwise.
    */
   @Prop({reflect: true})
-  floating? = false;
+  floating? = true;
 
   /** The opening state of the menu. */
   @Prop({mutable: true, reflect: true})
