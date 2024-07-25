@@ -10,10 +10,10 @@ const ZPopoverStyle0 = stylesCss;
 
 const DOCUMENT_ELEMENT = document.documentElement;
 function getParentElement(element) {
-    if (element.parentNode.host) {
-        return element.parentNode.host;
+    if (element.parentNode === element.shadowRoot) {
+        return element.shadowRoot.host;
     }
-    return element.parentNode;
+    return element.parentElement;
 }
 /**
  * Find the closest scrollable parent of a node.
@@ -304,7 +304,7 @@ const ZPopover = class {
         this.onOpen();
     }
     render() {
-        return index.h("slot", { key: 'a7a3830d93abc15bc7138815f9820bc8cda7ab35' });
+        return index.h("slot", { key: '06ccad911be5d149ace59bb4cd239648a9eeb5da' });
     }
     get host() { return index.getElement(this); }
     static get watchers() { return {

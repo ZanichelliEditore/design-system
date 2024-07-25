@@ -2,10 +2,10 @@ import { h } from "@stencil/core";
 import { KeyboardCode, PopoverPosition } from "../../beans";
 const DOCUMENT_ELEMENT = document.documentElement;
 function getParentElement(element) {
-    if (element.parentNode.host) {
-        return element.parentNode.host;
+    if (element.parentNode === element.shadowRoot) {
+        return element.shadowRoot.host;
     }
-    return element.parentNode;
+    return element.parentElement;
 }
 /**
  * Find the closest scrollable parent of a node.
@@ -301,7 +301,7 @@ export class ZPopover {
         this.onOpen();
     }
     render() {
-        return h("slot", { key: 'a7a3830d93abc15bc7138815f9820bc8cda7ab35' });
+        return h("slot", { key: '06ccad911be5d149ace59bb4cd239648a9eeb5da' });
     }
     static get is() { return "z-popover"; }
     static get encapsulation() { return "shadow"; }
