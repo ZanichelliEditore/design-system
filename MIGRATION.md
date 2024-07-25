@@ -9,6 +9,21 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v15.0.0](#v1400)
+
+  - [Rimosso parametro buildEs5 dal config stencil.](#rimosso-parametro-buildes5-dal-config-stencil)
+    L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che li utilizzano.
+
+  **Il metodo in precedenza usato in questo modo:**
+
+  `applyPolyfills().then(() => {
+    defineCustomElements(window);
+});`
+
+  **dovrà essere usato così:**
+
+  `  defineCustomElements(window);`
+
 - [v14.0.0](#v1400)
 
   - [Aggiornamento design-tokens](#aggiornamento-design-tokens)
