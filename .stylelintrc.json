@@ -10,9 +10,9 @@
       true,
       {
         "resolver": {
-          "paths": ["./src/tokens", "./src/tokens/palette", "./src/themes"]
+          "paths": ["./src/tokens", "./src/tokens/palette", "./src/tokens/themes"]
         },
-        "importFrom": ["./src/tokens/main.css", "./src/themes/default.css"]
+        "importFrom": ["./src/tokens/main.css", "./src/tokens/themes/default.css"]
       }
     ],
     "value-no-vendor-prefix": null

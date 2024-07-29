@@ -1,7 +1,4 @@
 /* stylelint-disable-next-line import-notation */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,700;1,700&display=swap");
 @import "./tokens/main.css";
-@import "./themes/default.css";
-@import "./themes/black-yellow.css";
-@import "./themes/dark-default.css";
+@import "./tokens/themes/index.css";
 @import "components/z-accordion/z-accordion-globals.css";
