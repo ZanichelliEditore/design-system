@@ -1,0 +1,15 @@
+:root {
+  --shadow-color-base: rgb(66 69 72 / 35%);
+  --shadow-inset-2: inset 0 2px 4px 0 var(--shadow-color-base);
+  --shadow-inset-4: inset 0 4px 8px 0 var(--shadow-color-base);
+  --shadow-0: 0 0 0 0 var(--shadow-color-base);
+  --shadow-1: 0 1px 2px 0 var(--shadow-color-base);
+  --shadow-2: 0 2px 4px 0 var(--shadow-color-base);
+  --shadow-3: 0 3px 6px 0 var(--shadow-color-base);
+  --shadow-4: 0 4px 8px 0 var(--shadow-color-base);
+  --shadow-6: 0 6px 12px 0 var(--shadow-color-base);
+  --shadow-8: 0 8px 16px 0 var(--shadow-color-base);
+  --shadow-12: 0 12px 24px 0 var(--shadow-color-base);
+  --shadow-16: 0 16px 32px 0 var(--shadow-color-base);
+  --shadow-24: 0 24px 48px 0 var(--shadow-color-base);
+}

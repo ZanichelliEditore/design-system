@@ -1,0 +1,167 @@
+button.z-link {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+a.z-link,
+button.z-link {
+  display: inline-flex;
+  color: var(--color-link-primary);
+  cursor: pointer;
+  fill: var(--color-link-primary);
+  font-family: var(--font-family-sans);
+  line-height: inherit;
+  text-decoration: none;
+}
+
+a.z-link:hover,
+button.z-link:hover,
+a.z-link:focus,
+button.z-link:focus,
+a.z-link:active,
+button.z-link:active {
+  text-decoration: underline;
+}
+
+a.z-link:hover,
+button.z-link:hover,
+a.z-link:focus,
+button.z-link:focus {
+  color: var(--color-hover-link);
+  fill: var(--color-hover-link);
+}
+
+a.z-link:active,
+button.z-link:active,
+a.z-link.z-link-active:active,
+button.z-link.z-link-active:active {
+  color: var(--color-pressed-link);
+  fill: var(--color-pressed-link);
+}
+
+a.z-link:visited,
+button.z-link:visited {
+  color: var(--color-visited-link);
+  fill: var(--color-visited-link);
+}
+
+a.z-link.z-link-active,
+button.z-link.z-link-active {
+  color: var(--color-active-link);
+  fill: var(--color-active-link);
+}
+
+a.z-link.z-link-active.z-link-inverse,
+button.z-link.z-link-active.z-link-inverse {
+  color: var(--color-inverse-active-link);
+  fill: var(--color-inverse-active-link);
+}
+
+a.z-link.z-link-active.z-link-black,
+button.z-link.z-link-active.z-link-black {
+  color: var(--color-black);
+  fill: var(--color-black);
+}
+
+a.z-link.z-link-disabled,
+button.z-link.z-link-disabled {
+  color: var(--color-disabled03);
+  cursor: default;
+  fill: var(--color-disabled03);
+  outline: none;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+a.z-link.z-link-underline,
+button.z-link.z-link-underline {
+  text-decoration: underline;
+}
+
+a.z-link.z-link-inverse,
+button.z-link.z-link-inverse {
+  color: var(--color-inverse-link);
+  fill: var(--color-inverse-link);
+}
+
+a.z-link.z-link-inverse:hover,
+button.z-link.z-link-inverse:hover {
+  color: var(--color-inverse-hover-link);
+  fill: var(--color-inverse-hover-link);
+}
+
+a.z-link.z-link-inverse:active,
+button.z-link.z-link-inverse:active,
+a.z-link.z-link-inverse:focus,
+button.z-link.z-link-inverse:focus {
+  color: var(--color-inverse-pressed-link);
+  fill: var(--color-inverse-pressed-link);
+}
+
+a.z-link.z-link-inverse:visited,
+button.z-link.z-link-inverse:visited {
+  color: var(--color-inverse-visited-link);
+  fill: var(--color-inverse-visited-link);
+}
+
+a.z-link.z-link-black,
+button.z-link.z-link-black {
+  color: var(--gray800);
+  fill: var(--gray800);
+}
+
+a.z-link.z-link-black:hover:visited,
+button.z-link.z-link-black:hover:visited {
+  color: var(--gray800);
+  fill: var(--gray800);
+}
+
+a.z-link.z-link-black:hover,
+button.z-link.z-link-black:hover,
+a.z-link.z-link-black.z-link-active:focus,
+button.z-link.z-link-black.z-link-active:focus {
+  color: var(--color-black);
+  fill: var(--color-black);
+}
+
+a.z-link.z-link-black:active,
+button.z-link.z-link-black:active,
+a.z-link.z-link-black.z-link-active:active,
+button.z-link.z-link-black.z-link-active:active {
+  color: var(--gray700);
+  fill: var(--gray700);
+}
+
+a.z-link.z-link-black.z-link-disabled.z-link-active,
+button.z-link.z-link-black.z-link-disabled.z-link-active {
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}
+
+a.z-link.z-link-white,
+button.z-link.z-link-white {
+  color: var(--color-white);
+  fill: var(--color-white);
+}
+
+a.z-link.z-link-white.z-link-disabled,
+button.z-link.z-link-white.z-link-disabled {
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}
+
+a.z-link.z-link-icon,
+button.z-link.z-link-icon {
+  --z-icon-width: 1.125em;
+  --z-icon-height: 1.125em;
+
+  align-items: center;
+  column-gap: 0.5em;
+}
+
+a.z-link.z-link-sb,
+button.z-link.z-link-sb {
+  font-weight: var(--font-sb);
+}
