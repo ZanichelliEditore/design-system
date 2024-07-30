@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 15.1.0 (2024-07-30)
+
 ## 15.0.3 (2024-07-25)
 
 ## 15.0.2 (2024-07-24)
