@@ -7,7 +7,7 @@ export default {
 export const Grid = {
     render: () => html `
     <div class="grid-story body-1">
-      <p>This story highlights z-grid column responsive CSS classes from albe-design-tokens grid system.</p>
+      <p>This story highlights z-grid column responsive CSS classes from tokens grid system.</p>
       <p>Changing the viewport size will change the grid layout.</p>
       <p>Try changing viewport size using Storybook preview tool on Canvas tab.</p>
       <div class="container">
