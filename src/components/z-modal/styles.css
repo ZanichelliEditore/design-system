@@ -1,9 +1,3 @@
-*:focus {
-  border-radius: 50%;
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
@@ -67,6 +61,12 @@
   margin-left: auto;
   background: transparent;
   cursor: pointer;
+}
+
+.modal-container > header button:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
 }
 
 .modal-container > header z-icon {

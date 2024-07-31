@@ -1,8 +1,3 @@
-*:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 :host {
   color: var(--color-default-text);
   font-family: var(--font-family-sans);

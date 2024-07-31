@@ -23,11 +23,6 @@ respecting the grid indications of the design. */
   box-sizing: border-box;
 }
 
-*:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 :host(:not([variant="overlay"])) .cover-container {
   position: relative;
   width: 100%;
