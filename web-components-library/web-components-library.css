@@ -1418,6 +1418,12 @@
   transition: all 0.2s ease-in-out;
 }
 
+.z-fab:focus {
+  -webkit-box-shadow: var(--shadow-focus-primary);
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 button.z-fab {
   border: none;
 }
@@ -1566,6 +1572,13 @@ button.z-link:focus {
   fill: var(--color-hover-link);
 }
 
+a.z-link:focus,
+button.z-link:focus {
+  -webkit-box-shadow: var(--shadow-focus-primary);
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 a.z-link:active,
 button.z-link:active,
 a.z-link.z-link-active:active,
@@ -1600,6 +1613,8 @@ button.z-link.z-link-active.z-link-black {
 
 a.z-link.z-link-disabled,
 button.z-link.z-link-disabled {
+  -webkit-box-shadow: none;
+  box-shadow: none;
   color: var(--color-disabled03);
   cursor: default;
   fill: var(--color-disabled03);
