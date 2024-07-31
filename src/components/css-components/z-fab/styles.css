@@ -27,6 +27,11 @@
   transition: all 0.2s ease-in-out;
 }
 
+.z-fab:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 button.z-fab {
   border: none;
 }
