@@ -36,7 +36,7 @@ button.z-link:focus {
 a.z-link:focus,
 button.z-link:focus {
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
+  outline: none;
 }
 
 a.z-link:active,

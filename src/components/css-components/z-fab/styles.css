@@ -29,7 +29,7 @@
 
 .z-fab:focus {
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
+  outline: none;
 }
 
 button.z-fab {
