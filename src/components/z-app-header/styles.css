@@ -241,7 +241,7 @@ z-searchbar {
   outline: none;
 }
 
-.drawer-trigger:focus-visible {
+.drawer-trigger:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
 }
 
