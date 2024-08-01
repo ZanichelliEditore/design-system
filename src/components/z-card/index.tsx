@@ -38,7 +38,7 @@ export class ZCard {
   @Prop({reflect: true})
   showShadow = false;
 
-  /** Enable 'clickable' style like hover and focus style. */
+  /** Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. */
   @Prop({reflect: true})
   clickable = false;
 
@@ -75,9 +75,9 @@ export class ZCard {
   }
 
   /**
-   * Template for the content div.
+   * Template for the content.
    */
-  private renderContentDiv(): HTMLDivElement {
+  private renderContent(): HTMLDivElement {
     return (
       <div class="content">
         <slot name="metadata"></slot>
@@ -92,7 +92,7 @@ export class ZCard {
 
   render(): HTMLZCardElement {
     if (this.variant === CardVariant.TEXT) {
-      return <Host>{this.renderContentDiv()}</Host>;
+      return <Host>{this.renderContent()}</Host>;
     }
 
     if (this.variant === CardVariant.OVERLAY || this.hasCoverImage) {
@@ -105,7 +105,7 @@ export class ZCard {
             ]}
             {!this.hasCoverImage && <div class="color-cover"></div>}
           </div>
-          {this.renderContentDiv()}
+          {this.renderContent()}
         </Host>
       );
     }

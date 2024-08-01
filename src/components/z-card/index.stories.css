@@ -23,9 +23,16 @@ z-card:is(.demo-card, .text-variant-card) [slot="title"] {
   font-size: var(--font-size-5);
   font-weight: var(--font-sb);
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   text-decoration: none;
 }
 
 z-card #btn-card {
   text-align: left;
+}
+
+z-card + #click-alert-container {
+  padding: calc(var(--space-unit) * 2);
+  margin-top: calc(var(--space-unit) * 4);
+  background-color: var(--color-background);
 }
