@@ -9,6 +9,7 @@
   position: relative;
   display: inline-flex;
   flex-direction: column;
+  flex-shrink: 0;
 
   --z-menu-label-color: var(--color-default-text);
 }

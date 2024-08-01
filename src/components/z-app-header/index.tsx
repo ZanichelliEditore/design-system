@@ -159,6 +159,7 @@ export class ZAppHeader {
     const menuItems = Array.from(this.menuElements).map(
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
+
     let nextFocusableItem: HTMLElement;
     if (this.enableOffcanvas || this._stuck) {
       // INFO: reset focus on all menu items

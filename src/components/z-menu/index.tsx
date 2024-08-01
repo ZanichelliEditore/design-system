@@ -61,6 +61,10 @@ export class ZMenu {
 
   private currentCanvasOpenStatus = false;
 
+  private firstElMenu: HTMLMenuElement;
+
+  private lastElMenu: HTMLMenuElement;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;
@@ -107,20 +111,37 @@ export class ZMenu {
 
     if (e.code === KeyboardCode.ARROW_RIGHT) {
       const nextElement = this.hostElement.nextElementSibling;
-      if (nextElement) {
+
+      if (!nextElement) {
+        const firstMenuItem = this.firstElMenu.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        firstMenuItem.focus();
+        this.open = false;
+      }
+
+      if (nextElement && nextElement.tagName === "Z-MENU") {
         const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
         menuButton.focus();
+
+        if (nextElement.children.length > 1) {
+          nextElement.setAttribute("open", "true");
+        }
+        this.open = false;
       }
-      this.open = false;
-      nextElement.setAttribute("open", "true");
     } else if (e.code === KeyboardCode.ARROW_LEFT) {
       const prevElement = this.hostElement.previousElementSibling;
-      if (prevElement) {
+      if (prevElement.tagName !== "Z-MENU") {
+        const lastElMenuItem = this.lastElMenu.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        lastElMenuItem.focus();
+        this.open = false;
+      }
+      if (prevElement && prevElement.tagName === "Z-MENU") {
         const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
         menuButton.focus();
+        if (prevElement.children.length > 1) {
+          prevElement.setAttribute("open", "true");
+        }
+        this.open = false;
       }
-      prevElement.setAttribute("open", "true");
-      this.open = false;
     }
   }
 
@@ -154,6 +175,8 @@ export class ZMenu {
           nextFocusableItem.focus();
         }
       } else if (e.code === KeyboardCode.ESC) {
+        this.focusToParentAndCloseMenu();
+      } else if (e.shiftKey && e.code === KeyboardCode.TAB) {
         this.focusToParentAndCloseMenu();
       }
     }
@@ -195,6 +218,10 @@ export class ZMenu {
   }
 
   componentWillLoad(): void {
+    const menuItems = Array.from(this.hostElement.parentElement.querySelectorAll('[slot="menu"]'));
+    this.firstElMenu = menuItems[0] as HTMLMenuElement;
+    this.lastElMenu = menuItems[menuItems.length - 1] as HTMLMenuElement;
+
     this.checkContent();
   }
 
