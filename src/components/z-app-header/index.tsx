@@ -329,6 +329,11 @@ export class ZAppHeader {
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
         onSearchTyping={(e) => (this.searchString = e.detail)}
+        onKeyDown={(e) => {
+          if (e.code === KeyboardCode.ARROW_RIGHT || e.code === KeyboardCode.ARROW_LEFT) {
+            e.stopPropagation();
+          }
+        }}
       />
     );
   }

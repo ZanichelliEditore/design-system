@@ -2,6 +2,7 @@
 ::slotted(*),
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 :host {
@@ -37,6 +38,12 @@
 .menu-wrapper {
   display: flex;
   align-items: center;
+}
+
+.menu-wrapper:focus-visible,
+.menu-label-content:focus-visible,
+button:focus-visible {
+  outline: none;
 }
 
 button.menu-label {

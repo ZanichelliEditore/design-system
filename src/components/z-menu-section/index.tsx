@@ -100,6 +100,8 @@ export class ZMenuSection {
         }
       } else if (e.code === KeyboardCode.ESC) {
         this.focusToParentAndCloseMenu();
+      } else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+        this.focusToParentAndCloseMenu();
       }
     }
   }
