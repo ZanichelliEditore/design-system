@@ -1,21 +1,21 @@
 import {newSpecPage} from "@stencil/core/testing";
 
-import {ZMenuSection} from "./index";
+import {ZMenuSectionDeprecated} from "./index";
 
 describe("Suite test ZMenuSection", () => {
   it("Test render ZMenu with items", async () => {
     const page = await newSpecPage({
-      components: [ZMenuSection],
-      html: `<z-menu-section>
+      components: [ZMenuSectionDeprecated],
+      html: `<z-menu-section-deprecated>
         <h3>Menu section label</h3>
-        <a href="#" slot="section">Item 1</a>
-        <a href="#" slot="section">Item 2</a>
-        <a href="#" slot="section">Item 3</a>
-      </z-menu-section>`,
+        <a href="#" slot="item">Item 1</a>
+        <a href="#" slot="item">Item 2</a>
+        <a href="#" slot="item">Item 3</a>
+      </z-menu-section-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-menu-section role="menu">
+      <z-menu-section-deprecated role="menu">
         <mock:shadow-root>
           <button aria-pressed="false" class="label">
             <slot></slot>
@@ -23,18 +23,18 @@ describe("Suite test ZMenuSection", () => {
           </button>
         </mock:shadow-root>
         <h3>Menu section label</h3>
-        <a href="#" slot="section">Item 1</a>
-        <a href="#" slot="section">Item 2</a>
-        <a href="#" slot="section">Item 3</a>
-    </z-menu-section>`);
+        <a href="#" slot="item">Item 1</a>
+        <a href="#" slot="item">Item 2</a>
+        <a href="#" slot="item">Item 3</a>
+    </z-menu-section-deprecated>`);
   });
 
   it("Test ZMenuSection toggle events", async () => {
     const page = await newSpecPage({
-      components: [ZMenuSection],
-      html: `<z-menu-section>
-        <div slot="section">item</div>
-      </z-menu-section>`,
+      components: [ZMenuSectionDeprecated],
+      html: `<z-menu-section-deprecated>
+        <div slot="item">item</div>
+      </z-menu-section-deprecated>`,
     });
     const menu = page.rootInstance;
 

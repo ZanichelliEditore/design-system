@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {KeyboardCode} from "../../beans";
 
 /**
  * @slot - Menu label
@@ -24,7 +25,7 @@ export class ZMenu {
    * stacked beneath it otherwise.
    */
   @Prop({reflect: true})
-  floating? = false;
+  floating? = true;
 
   /** The opening state of the menu. */
   @Prop({mutable: true, reflect: true})
@@ -56,6 +57,14 @@ export class ZMenu {
   @Event()
   closed: EventEmitter;
 
+  private currentIndex = -1;
+
+  private currentCanvasOpenStatus = false;
+
+  private firstElMenu: HTMLMenuElement;
+
+  private lastElMenu: HTMLMenuElement;
+
   private toggle(): void {
     if (!this.hasContent) {
       return;
@@ -77,6 +86,121 @@ export class ZMenu {
     this.closed.emit();
   }
 
+  @Listen("canvasOpenStatusChanged", {target: "document"})
+  canvasOpenStatusChanged(e: CustomEvent): void {
+    this.currentCanvasOpenStatus = e.detail;
+  }
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ENTER) {
+      return;
+    }
+
+    if (this.open && !this.currentCanvasOpenStatus) {
+      this.handleNavigationSideArrow(e);
+    }
+
+    this.handleArrowsNav(e);
+  }
+
+  private handleNavigationSideArrow(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+      return;
+    }
+
+    if (e.code === KeyboardCode.ARROW_RIGHT) {
+      const nextElement = this.hostElement.nextElementSibling;
+
+      if (!nextElement) {
+        const firstMenuItem = this.firstElMenu.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        firstMenuItem.focus();
+        this.open = false;
+      }
+
+      if (nextElement && nextElement.tagName === "Z-MENU") {
+        const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        menuButton.focus();
+
+        if (nextElement.children.length > 1) {
+          nextElement.setAttribute("open", "true");
+        }
+        this.open = false;
+      }
+    } else if (e.code === KeyboardCode.ARROW_LEFT) {
+      const prevElement = this.hostElement.previousElementSibling;
+      if (prevElement.tagName !== "Z-MENU") {
+        const lastElMenuItem = this.lastElMenu.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        lastElMenuItem.focus();
+        this.open = false;
+      }
+      if (prevElement && prevElement.tagName === "Z-MENU") {
+        const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        menuButton.focus();
+        if (prevElement.children.length > 1) {
+          prevElement.setAttribute("open", "true");
+        }
+        this.open = false;
+      }
+    }
+  }
+
+  private handleArrowsNav(e: KeyboardEvent): void {
+    const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']")) as HTMLElement[];
+    const newMenuItems = menuItems.map((el) => {
+      if (el.tagName === "Z-MENU-SECTION") {
+        return el.shadowRoot.querySelector("button");
+      }
+
+      return el;
+    });
+
+    if (this.open) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        let nextFocusableItem: HTMLElement;
+        // INFO: reset focus on all menu items
+        newMenuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+        if (e.code === KeyboardCode.ARROW_DOWN) {
+          nextFocusableItem = this.getNextItem(newMenuItems, 1);
+        } else if (e.code === KeyboardCode.ARROW_UP) {
+          nextFocusableItem = this.getNextItem(newMenuItems, -1);
+        }
+
+        if (nextFocusableItem) {
+          nextFocusableItem.setAttribute("tabindex", "0");
+          nextFocusableItem.focus();
+        }
+      } else if (e.code === KeyboardCode.ESC) {
+        this.focusToParentAndCloseMenu();
+      } else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+        this.focusToParentAndCloseMenu();
+      }
+    }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
+  }
+
+  private focusToParentAndCloseMenu(): void {
+    const menuButton = this.hostElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+    menuButton.focus();
+    this.currentIndex = -1;
+    this.open = false;
+  }
+
   @Watch("open")
   onOpenChanged(): void {
     if (this.open) {
@@ -94,6 +218,10 @@ export class ZMenu {
   }
 
   componentWillLoad(): void {
+    const menuItems = Array.from(this.hostElement.parentElement.querySelectorAll('[slot="menu"]'));
+    this.firstElMenu = menuItems[0] as HTMLMenuElement;
+    this.lastElMenu = menuItems[menuItems.length - 1] as HTMLMenuElement;
+
     this.checkContent();
   }
 
@@ -141,31 +269,45 @@ export class ZMenu {
     const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
     items.forEach((item) => {
       item.setAttribute("role", "menuitem");
+      item.setAttribute("tabindex", "-1");
       item.dataset.text = item.textContent;
     });
+  }
+
+  private focusFirstItemOnKeyUp(): void {
+    const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0] as HTMLElement;
+    if (firstElement) {
+      firstElement.focus();
+      this.currentIndex = 0;
+    }
   }
 
   private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
     if (this.hasContent) {
       return (
-        <button
-          class="menu-label"
-          aria-expanded={this.open ? "true" : "false"}
-          aria-label={this.open ? "Chiudi menù" : "Apri menù"}
-          onClick={this.toggle}
-        >
-          <div class="menu-label-content">
-            <slot onSlotchange={this.onLabelSlotChange}></slot>
-            <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
-          </div>
-        </button>
+        <div class="menu-wrapper">
+          <button
+            class="menu-label"
+            aria-expanded={this.open ? "true" : "false"}
+            aria-label={this.open ? "Chiudi menù" : "Apri menù"}
+            onClick={this.toggle}
+            onKeyUp={this.focusFirstItemOnKeyUp.bind(this)}
+          >
+            <div class="menu-label-content">
+              <slot onSlotchange={this.onLabelSlotChange}></slot>
+              <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+            </div>
+          </button>
+        </div>
       );
     }
 
     return (
-      <div class="menu-label">
-        <div class="menu-label-content">
-          <slot onSlotchange={this.onLabelSlotChange}></slot>
+      <div class="menu-wrapper">
+        <div class="menu-label">
+          <div class="menu-label-content">
+            <slot onSlotchange={this.onLabelSlotChange}></slot>
+          </div>
         </div>
       </div>
     );

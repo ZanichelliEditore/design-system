@@ -1,0 +1,7 @@
+z-app-header-deprecated {
+  --app-header-top-offset: 0;
+}
+
+z-app-header-deprecated#hero {
+  --app-header-height: 400px;
+}

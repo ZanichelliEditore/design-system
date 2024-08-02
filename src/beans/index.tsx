@@ -183,6 +183,8 @@ export enum KeyboardCode {
   ARROW_DOWN = "ArrowDown",
   BACKSPACE = "Backspace",
   DELETE = "Delete",
+  ARROW_RIGHT = "ArrowRight",
+  ARROW_LEFT = "ArrowLeft",
 }
 
 export type SelectItem = {

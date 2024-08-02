@@ -2,14 +2,12 @@
 ::slotted(*),
 * {
   box-sizing: border-box;
-  outline: none;
 }
 
 :host {
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  flex-shrink: 0;
 
   --z-menu-label-color: var(--color-default-text);
 }
@@ -25,7 +23,6 @@
 }
 
 .menu-label {
-  width: 100%;
   padding: 0;
   border: 0;
   margin: 0;
@@ -36,43 +33,32 @@
   text-align: left;
 }
 
-.menu-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.menu-wrapper:focus-visible,
-.menu-label-content:focus-visible,
-button:focus-visible {
-  outline: none;
-}
-
 button.menu-label {
   cursor: pointer;
 }
 
 .menu-label:focus-within {
   z-index: 1;
+  padding-right: calc(var(--space-unit) * 0.5);
+  padding-left: calc(var(--space-unit) * 0.5);
+  margin-right: calc(var(--space-unit) * -0.5);
+  margin-left: calc(var(--space-unit) * -0.5);
   box-shadow: var(--shadow-focus-primary);
 }
 
 .menu-label .menu-label-content {
   position: relative;
   display: flex;
-  height: 30px;
   align-items: center;
 }
 
 :host(:is([active], [open])) .menu-label-content,
 .menu-label:focus-within .menu-label-content {
-  color: var(--color-primary01);
   font-weight: var(--font-bd);
 }
 
 :host(:is([active], [open])) .menu-label-content ::slotted(*),
-.menu-label:focus-within .menu-label-content ::slotted(*),
-.menu-label:focus-within .menu-label-content z-icon {
-  color: var(--color-primary01);
+.menu-label:focus-within .menu-label-content ::slotted(*) {
   letter-spacing: normal;
 }
 
@@ -135,13 +121,14 @@ when placed below the real text using `flex-direction: column`. */
 .menu-label .menu-label-content ::slotted(*) {
   display: inline-flex;
   width: 100%;
-  min-width: fit-content;
   margin: 0;
   appearance: none;
   color: var(--z-menu-label-color);
   font-family: var(--font-family-sans);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-5);
   font-weight: inherit;
+  letter-spacing: 0.36px; /* increasing the letter spacing of the regular text helps reduce the size difference between regular and bold text */
+  line-height: 1.2;
   outline: none;
 }
 

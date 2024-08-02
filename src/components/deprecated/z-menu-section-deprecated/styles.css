@@ -101,7 +101,7 @@ when placed below the real text using `flex-direction: column`. */
   padding-bottom: calc(var(--space-unit) * 1.5);
 }
 
-.items > ::slotted([slot="section"]) {
+.items > ::slotted([slot="item"]) {
   display: inline-flex;
   padding: calc(var(--space-unit) / 2);
   margin: 0;
@@ -110,14 +110,14 @@ when placed below the real text using `flex-direction: column`. */
   outline: none;
 }
 
-.items > ::slotted([slot="section"]:focus:focus-visible) {
+.items > ::slotted([slot="item"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
   color: var(--color-secondary01);
 }
 
-.items > ::slotted([slot="section"]:hover),
-.items > ::slotted([slot="section"]:focus:focus-visible),
-.items > ::slotted([slot="section"][active]) {
+.items > ::slotted([slot="item"]:hover),
+.items > ::slotted([slot="item"]:focus:focus-visible),
+.items > ::slotted([slot="item"][active]) {
   color: var(--color-secondary01);
   font-weight: var(--font-bd);
 }
