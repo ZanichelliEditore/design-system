@@ -1,8 +1,3 @@
-*:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 :host {
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
@@ -41,6 +36,11 @@
 :host .text-container .upload-link {
   color: var(--color-link-primary);
   cursor: pointer;
+}
+
+:host .text-container .upload-link:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
 }
 
 :host .text-container .upload-link-text {
