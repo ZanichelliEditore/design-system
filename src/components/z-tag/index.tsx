@@ -25,8 +25,7 @@ export class ZTag {
     return (
       <Host
         class={{
-          "body-5-sb": true,
-          "expandable": this.expandable && !!this.icon,
+          expandable: this.expandable && !!this.icon,
         }}
       >
         {this.icon && <z-icon name={this.icon} />}
