@@ -434,12 +434,16 @@ export class ZAppHeader {
     return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 0);
   }
 
-  private focusToFirstItemMenu(): void {
+  private focusToFirstItemMenu(e): void {
     const menuItems = Array.from(this.menuElements).map(
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
 
-    if (this.currentIndex === -1) {
+    if (e.shiftKey && e.code === KeyboardCode.TAB && this.currentIndex === 0 && this.enableSearch) {
+      const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
+      input.focus();
+      this.currentIndex = -1;
+    } else if (this.currentIndex === -1) {
       menuItems[0].focus();
       this.currentIndex = 0;
     } else if (this.currentIndex !== -1) {
