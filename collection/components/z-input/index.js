@@ -261,18 +261,18 @@ export class ZInput {
             default:
                 input = this.renderInputText(this.type);
         }
-        return h(Host, { key: '6c3388f6f1d03c08f2965bcfb6f212655acfbf9b' }, input);
+        return h(Host, { key: '72a37f109e4ea99c470c43a29a86c267466f719e' }, input);
     }
     static get is() { return "z-input"; }
     static get encapsulation() { return "scoped"; }
     static get originalStyleUrls() {
         return {
-            "$": ["styles-general.css", "styles-text.css", "styles-textarea.css", "styles-checkbox-radio.css"]
+            "$": ["styles.css"]
         };
     }
     static get styleUrls() {
         return {
-            "$": ["styles-general.css", "styles-text.css", "styles-textarea.css", "styles-checkbox-radio.css"]
+            "$": ["styles.css"]
         };
     }
     static get properties() {

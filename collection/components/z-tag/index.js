@@ -11,10 +11,9 @@ export class ZTag {
         this.expandable = undefined;
     }
     render() {
-        return (h(Host, { key: '0b2f0fda539ab5e9f07e93bd1eeab8eb098e3245', class: {
-                "body-5-sb": true,
-                "expandable": this.expandable && !!this.icon,
-            } }, this.icon && h("z-icon", { key: '1ce99af72a0ee664304ffc0a0fd401e98e043788', name: this.icon }), h("div", { key: 'fb9aee905ab56d5c086ee850eaf7f7cb8fa10dfe' }, h("slot", { key: '8f1d8bb919793b9570fb49a0761be534b6e454ce' }))));
+        return (h(Host, { key: '2b457c2a7462afa36499c0991a32436751b2b6d1', class: {
+                expandable: this.expandable && !!this.icon,
+            } }, this.icon && h("z-icon", { key: '3f6b461a15c9221c658221894f62895bdbd8e108', name: this.icon }), h("div", { key: '0bb11571e1f99587a62e9d345fc731bf795656e5' }, h("slot", { key: '46ccbc8282a3611e7a3188651bbe96df1aacb5b2' }))));
     }
     static get is() { return "z-tag"; }
     static get encapsulation() { return "scoped"; }
