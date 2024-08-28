@@ -65,4 +65,29 @@ describe("z-modal test end2end", () => {
     expect(modalCloseEvent).not.toHaveReceivedEvent();
     await modal.isVisible();
   });
+
+  it("Not emit modalClose event when unmounting z-modal component", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+    <main>
+      <input class="other-element" />
+      <z-modal modalid="my-modal-short" modaltitle="My modal title" closable="true" alertdialog="false" scroll-inside="true">
+        <div slot="modalContent">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+      </z-modal>
+    </main>`);
+    const modalCloseEvent = await page.spyOnEvent("modalClose");
+
+    await page.evaluate(() => {
+      const main = document.querySelector("main");
+      main.removeChild(document.querySelector("z-modal"));
+    });
+
+    await page.waitForChanges();
+
+    expect(modalCloseEvent).not.toHaveReceivedEvent();
+    const modal = await page.find("z-modal");
+    expect(modal).toBeNull();
+  });
 });
