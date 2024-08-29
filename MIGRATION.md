@@ -303,7 +303,6 @@ Lista degli Enum e tipi interessati:
 - `NotificationType`
 - `AlertType`
 - `Device`
-- `PocketStatus`
 - `ToastNotification`
 - `ToastNotificationTransition`
 - `ToastNotificationPosition`
@@ -375,9 +374,6 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 | `z-myz-card`                      | -                                                                                                                                                          |
 | `z-myz-card-alert`                | -                                                                                                                                                          |
 | `z-myz-list`                      | -                                                                                                                                                          |
-| `z-messages-pocket`               | -                                                                                                                                                          |
-| `z-pocket-body`                   | -                                                                                                                                                          |
-| `z-pocket`                        | -                                                                                                                                                          |
 | `topbar`                          | -                                                                                                                                                          |
 | `z-alert`                         | -                                                                                                                                                          |
 | `z-otp`                           | -                                                                                                                                                          |

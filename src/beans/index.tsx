@@ -290,12 +290,6 @@ export type DictionaryLicenseData = {
   installations: string;
 };
 
-export enum PocketStatus {
-  PREVIEW = "preview",
-  OPEN = "open",
-  CLOSED = "closed",
-}
-
 export enum ToastNotification {
   DARK = "dark",
   LIGHT = "light",
