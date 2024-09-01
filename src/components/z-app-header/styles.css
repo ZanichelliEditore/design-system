@@ -147,7 +147,6 @@ img.z-logo {
   display: flex;
   width: 100%;
   flex: 1 auto;
-  flex-flow: row wrap;
   column-gap: calc(var(--space-unit) * 4);
 }
 

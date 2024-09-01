@@ -431,7 +431,7 @@ export class ZAppHeader {
       return;
     }
 
-    return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 0);
+    return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 100);
   }
 
   private focusToFirstItemMenu(e): void {
@@ -464,16 +464,16 @@ export class ZAppHeader {
     }
 
     const menuWidth = this.getWidthMenu();
+    const containerSidePadding = 50;
     this.resizeObserver = new ResizeObserver((observer) => {
       const containerWidth = observer[0].contentRect.width;
-
       if (this.currentViewport === Device.MOBILE) {
         return (this.enableOffcanvas = true);
       }
 
-      if (menuWidth > containerWidth && !this.enableOffcanvas) {
+      if (menuWidth > containerWidth - containerSidePadding && !this.enableOffcanvas) {
         this.enableOffcanvas = true;
-      } else if (menuWidth <= containerWidth && this.enableOffcanvas) {
+      } else if (menuWidth <= containerWidth - containerSidePadding && this.enableOffcanvas) {
         this.enableOffcanvas = false;
       }
     });
