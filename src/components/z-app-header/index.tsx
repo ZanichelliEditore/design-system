@@ -439,7 +439,7 @@ export class ZAppHeader {
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
 
-    if (e.shiftKey && e.code === KeyboardCode.TAB && this.currentIndex === 0 && this.enableSearch) {
+    if (e.shiftKey && e.code === KeyboardCode.TAB && this.enableSearch) {
       const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
       input.focus();
       this.currentIndex = -1;
