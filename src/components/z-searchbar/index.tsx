@@ -327,6 +327,7 @@ export class ZSearchbar {
       <z-list
         role="listbox"
         id={`list-${this.htmlid}`}
+        class="tree"
       >
         {this.renderSearchHelper(!!this.resultsItemsList?.length)}
         {this.renderItems()}
@@ -395,6 +396,13 @@ export class ZSearchbar {
           </span>
           {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
         </div>
+        {item.children && item.children.length > 0 ? (
+          <z-list>
+            <div style={{paddingLeft: "32px"}}>
+              {item.children.map((child, index) => this.renderItem(child, index, false))}
+            </div>
+          </z-list>
+        ) : null}
       </z-list-element>
     );
   }

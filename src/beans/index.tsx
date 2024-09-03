@@ -418,6 +418,7 @@ export type SearchbarItem = {
   tag?: {icon?: string; text: string};
   category?: string;
   subcategory?: string;
+  children?: Omit<SearchbarItem, "category" | "subcategory">[];
 };
 
 export type SearchbarGroupedItem = {
