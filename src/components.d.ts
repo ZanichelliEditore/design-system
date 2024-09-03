@@ -1027,6 +1027,9 @@ export namespace Components {
          */
         "active"?: boolean;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -2591,6 +2594,9 @@ declare global {
         "modalHeaderActive": any;
         "modalBackgroundClick": any;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4327,6 +4333,9 @@ declare namespace LocalJSX {
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -5554,6 +5563,9 @@ declare module "@stencil/core" {
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            /**
+             * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+             */
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;

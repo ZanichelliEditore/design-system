@@ -1,6 +1,8 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --z-modal-content-padding: calc(var(--space-unit) * 2);
 }
 
 :host > dialog {
@@ -32,6 +34,10 @@
 
 :host > dialog[open] {
   display: block;
+}
+
+::slotted([slot="modalContent"]) {
+  padding: var(--z-modal-content-padding);
 }
 
 .modal-container {
@@ -67,6 +73,17 @@
   border-radius: 50%;
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
+}
+
+.modal-container > header button::after {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  content: "";
 }
 
 .modal-container > header z-icon {
