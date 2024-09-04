@@ -6,6 +6,7 @@ const FOCUSABLE_ELEMENTS_SELECTOR = ':is(button, input, select, textarea, [conte
 /**
  * @slot modalCloseButton - accept custom close button
  * @slot modalContent - set the content of the modal
+ * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
  */
 export class ZModal {
     constructor() {
@@ -110,16 +111,16 @@ export class ZModal {
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: '50df4e07a74c86679fd2243e6795da0eeaae9c2c', class: {
+        return (h("dialog", { key: '15eba99f071f5b0b57743e44b916c4ea6970f07a', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '035ad0b71a6726e43c1fb52dae69257afd054525', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '82ac5037fd70c3661dce7bd34300dd249aa1e052', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '8f9e92a6c41e4dbff647c4140a1efc42adf258a9', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '3521275e24a100ba06c2f259ef239a361a6841e5' }, this.modaltitle && h("h1", { key: '3c345754f355fbe4cb7c0515404b01a3ff647b26', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '5307334b7aca04ae351a0a69cbdaa6ec0ee32654', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'fe5a158f3a0f0d6a06e83ce4cf32fb50ea5bf79f', class: {
+            }, id: this.modalid }, h("header", { key: '4885ed46b798305fc01456487c500aa89fbced3e', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '87d47369f0bb766cead5aee4889b0f7fbf96ded3' }, this.modaltitle && h("h1", { key: '79974d32cd15dc7c423f7cdd570f7eeb88c66b3f', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: 'da3e80cba34e51cf4c635839e7e989872144625f', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'a4fea6c1784848e10390553f879873a7140d87d3', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: 'c2e5855dc48026fda519ad69bf5a7f9c3c1a2773', name: "modalContent" }))), h("div", { key: 'd7f80d8206c262bf5166ee1231d78eb0e55e4bb5', class: {
+            }, id: "modal-content" }, h("slot", { key: '2ff2465682aeb86fac11b7dd3edd788946295bc7', name: "modalContent" }))), h("div", { key: '1ad45c5b879fd7ae2d3d3560e7ad4199e8c0268d', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

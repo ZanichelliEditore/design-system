@@ -1908,10 +1908,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-menu-section.entry.js').then(processMod, consoleError);
-                case 'z-messages-pocket':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-messages-pocket.entry.js').then(processMod, consoleError);
                 case 'z-myz-card-alert':
                     return import(
                       /* webpackMode: "lazy" */
@@ -1964,10 +1960,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-panel-elem.entry.js').then(processMod, consoleError);
-                case 'z-pocket-message':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-pocket-message.entry.js').then(processMod, consoleError);
                 case 'z-range-picker':
                     return import(
                       /* webpackMode: "lazy" */
@@ -2068,10 +2060,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-myz-card_4.entry.js').then(processMod, consoleError);
-                case 'z-pocket_3':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-pocket_3.entry.js').then(processMod, consoleError);
                 case 'z-myz-list-item':
                     return import(
                       /* webpackMode: "lazy" */

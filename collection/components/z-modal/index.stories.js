@@ -8,13 +8,14 @@ const StoryMeta = {
     title: "ZModal",
     component: "z-modal",
     args: {
-        modalid: "my-modal",
-        modaltitle: "My modal title",
-        modalsubtitle: "My modal subtitle",
-        closeButtonLabel: "chiudi modale",
-        alertdialog: false,
-        closable: true,
-        scrollInside: true,
+        "modalid": "my-modal",
+        "modaltitle": "My modal title",
+        "modalsubtitle": "My modal subtitle",
+        "closeButtonLabel": "chiudi modale",
+        "alertdialog": false,
+        "closable": true,
+        "scrollInside": true,
+        "--z-modal-content-padding": "var(--space-unit)",
     },
     decorators: [
         (Story) => html `
@@ -44,6 +45,7 @@ export const ShortText = {
       alertdialog=${args.alertdialog}
       closable=${args.closable}
       scroll-inside=${args.scrollInside}
+      style="--z-modal-content-padding: ${args["--z-modal-content-padding"]}"
     >
       <div slot="modalContent">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -67,12 +69,13 @@ export const LongText = {
       alertdialog=${args.alertdialog}
       closable=${args.closable}
       scroll-inside=${args.scrollInside}
+      style="--z-modal-content-padding: ${args["--z-modal-content-padding"]}"
     >
       <div slot="modalContent">
         <z-date-picker
-          date-picker-id="cicciaCulo"
+          date-picker-id="date-picker-1"
           ariaLabel="stringaQualsiasi"
-          label="ancheLi"
+          label="label"
         ></z-date-picker>
         Provaaaaa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
         Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne

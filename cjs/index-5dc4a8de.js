@@ -1930,10 +1930,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
                         './z-menu-section.cjs.entry.js')); }).then(processMod, consoleError);
-                case 'z-messages-pocket.cjs':
-                    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-                        /* webpackMode: "lazy" */
-                        './z-messages-pocket.cjs.entry.js')); }).then(processMod, consoleError);
                 case 'z-myz-card-alert.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
@@ -1986,10 +1982,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
                         './z-panel-elem.cjs.entry.js')); }).then(processMod, consoleError);
-                case 'z-pocket-message.cjs':
-                    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-                        /* webpackMode: "lazy" */
-                        './z-pocket-message.cjs.entry.js')); }).then(processMod, consoleError);
                 case 'z-range-picker.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
@@ -2090,10 +2082,6 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */
                         './z-myz-card_4.cjs.entry.js')); }).then(processMod, consoleError);
-                case 'z-pocket_3.cjs':
-                    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
-                        /* webpackMode: "lazy" */
-                        './z-pocket_3.cjs.entry.js')); }).then(processMod, consoleError);
                 case 'z-myz-list-item.cjs':
                     return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
                         /* webpackMode: "lazy" */

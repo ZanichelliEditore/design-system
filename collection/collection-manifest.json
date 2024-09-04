@@ -72,11 +72,6 @@
     "snowflakes/myz/card/z-myz-card-info/index.js",
     "snowflakes/myz/card/z-myz-card-list/index.js",
     "snowflakes/myz/list/z-myz-list/index.js",
-    "snowflakes/myz/pocket/z-messages-pocket/index.js",
-    "snowflakes/myz/pocket/z-pocket/index.js",
-    "snowflakes/myz/pocket/z-pocket-body/index.js",
-    "snowflakes/myz/pocket/z-pocket-header/index.js",
-    "snowflakes/myz/pocket/z-pocket-message/index.js",
     "snowflakes/myz/z-alert/index.js",
     "snowflakes/myz/z-otp/index.js",
     "snowflakes/myz/z-slideshow/index.js"

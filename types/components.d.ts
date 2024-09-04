@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -1027,20 +1027,9 @@ export namespace Components {
          */
         "active"?: boolean;
     }
-    interface ZMessagesPocket {
-        /**
-          * number of messages
-         */
-        "messages": number;
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
-    }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -1442,42 +1431,6 @@ export namespace Components {
           * link url
          */
         "url": string;
-    }
-    interface ZPocket {
-        /**
-          * close z-pocket
-         */
-        "close": () => Promise<void>;
-        /**
-          * open z-pocket
-         */
-        "open": () => Promise<void>;
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
-    }
-    interface ZPocketBody {
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
-    }
-    interface ZPocketHeader {
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-    }
-    interface ZPocketMessage {
     }
     /**
      * Popover component.
@@ -2088,14 +2041,6 @@ export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPaginationElement;
 }
-export interface ZPocketCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPocketElement;
-}
-export interface ZPocketHeaderCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPocketHeaderElement;
-}
 export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPopoverElement;
@@ -2644,17 +2589,14 @@ declare global {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
     };
-    interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
-    }
-    var HTMLZMessagesPocketElement: {
-        prototype: HTMLZMessagesPocketElement;
-        new (): HTMLZMessagesPocketElement;
-    };
     interface HTMLZModalElementEventMap {
         "modalClose": any;
         "modalHeaderActive": any;
         "modalBackgroundClick": any;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2896,53 +2838,6 @@ declare global {
     var HTMLZPanelElemElement: {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
-    };
-    interface HTMLZPocketElementEventMap {
-        "pocketToggle": any;
-    }
-    interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZPocketElement: {
-        prototype: HTMLZPocketElement;
-        new (): HTMLZPocketElement;
-    };
-    interface HTMLZPocketBodyElement extends Components.ZPocketBody, HTMLStencilElement {
-    }
-    var HTMLZPocketBodyElement: {
-        prototype: HTMLZPocketBodyElement;
-        new (): HTMLZPocketBodyElement;
-    };
-    interface HTMLZPocketHeaderElementEventMap {
-        "pocketHeaderClick": any;
-        "pocketHeaderPan": any;
-    }
-    interface HTMLZPocketHeaderElement extends Components.ZPocketHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZPocketHeaderElement: {
-        prototype: HTMLZPocketHeaderElement;
-        new (): HTMLZPocketHeaderElement;
-    };
-    interface HTMLZPocketMessageElement extends Components.ZPocketMessage, HTMLStencilElement {
-    }
-    var HTMLZPocketMessageElement: {
-        prototype: HTMLZPocketMessageElement;
-        new (): HTMLZPocketMessageElement;
     };
     interface HTMLZPopoverElementEventMap {
         "positionChange": any;
@@ -3285,7 +3180,6 @@ declare global {
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
         "z-menu-section": HTMLZMenuSectionElement;
-        "z-messages-pocket": HTMLZMessagesPocketElement;
         "z-modal": HTMLZModalElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
@@ -3306,10 +3200,6 @@ declare global {
         "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
         "z-panel-elem": HTMLZPanelElemElement;
-        "z-pocket": HTMLZPocketElement;
-        "z-pocket-body": HTMLZPocketBodyElement;
-        "z-pocket-header": HTMLZPocketHeaderElement;
-        "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-searchbar": HTMLZSearchbarElement;
@@ -4443,20 +4333,9 @@ declare namespace LocalJSX {
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
     }
-    interface ZMessagesPocket {
-        /**
-          * number of messages
-         */
-        "messages"?: number;
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-        /**
-          * pocket status
-         */
-        "status"?: PocketStatus;
-    }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -4906,46 +4785,6 @@ declare namespace LocalJSX {
           * link url
          */
         "url"?: string;
-    }
-    interface ZPocket {
-        /**
-          * Emitted on pocket toggle, returns pocket id and status
-         */
-        "onPocketToggle"?: (event: ZPocketCustomEvent<any>) => void;
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-        /**
-          * pocket status
-         */
-        "status"?: PocketStatus;
-    }
-    interface ZPocketBody {
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-        /**
-          * pocket status
-         */
-        "status"?: PocketStatus;
-    }
-    interface ZPocketHeader {
-        /**
-          * Emitted on pocket header click
-         */
-        "onPocketHeaderClick"?: (event: ZPocketHeaderCustomEvent<any>) => void;
-        /**
-          * Emitted on pocket header pan
-         */
-        "onPocketHeaderPan"?: (event: ZPocketHeaderCustomEvent<any>) => void;
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-    }
-    interface ZPocketMessage {
     }
     /**
      * Popover component.
@@ -5524,7 +5363,6 @@ declare namespace LocalJSX {
         "z-logo": ZLogo;
         "z-menu": ZMenu;
         "z-menu-section": ZMenuSection;
-        "z-messages-pocket": ZMessagesPocket;
         "z-modal": ZModal;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
@@ -5545,10 +5383,6 @@ declare namespace LocalJSX {
         "z-otp": ZOtp;
         "z-pagination": ZPagination;
         "z-panel-elem": ZPanelElem;
-        "z-pocket": ZPocket;
-        "z-pocket-body": ZPocketBody;
-        "z-pocket-header": ZPocketHeader;
-        "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
         "z-range-picker": ZRangePicker;
         "z-searchbar": ZSearchbar;
@@ -5729,7 +5563,9 @@ declare module "@stencil/core" {
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
-            "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
+            /**
+             * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+             */
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
@@ -5763,10 +5599,6 @@ declare module "@stencil/core" {
              */
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
-            "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
-            "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
-            "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
-            "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             /**
              * Popover component.
              * @cssprop --z-popover-theme--surface - background color of the popover.

@@ -193,12 +193,6 @@ export var Device;
     Device["DESKTOP"] = "desktop";
     Device["DESKTOP_WIDE"] = "desktop-wide";
 })(Device || (Device = {}));
-export var PocketStatus;
-(function (PocketStatus) {
-    PocketStatus["PREVIEW"] = "preview";
-    PocketStatus["OPEN"] = "open";
-    PocketStatus["CLOSED"] = "closed";
-})(PocketStatus || (PocketStatus = {}));
 export var ToastNotification;
 (function (ToastNotification) {
     ToastNotification["DARK"] = "dark";

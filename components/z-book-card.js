@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
-import { Y as BookCardVariant } from './index2.js';
+import { X as BookCardVariant } from './index2.js';
 import { m as mobileBreakpoint } from './breakpoints.js';
 import { r as randomId } from './utils.js';
 import { d as defineCustomElement$2 } from './index9.js';

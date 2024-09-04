@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
-import { u as ZAriaAlertMode } from './index2.js';
+import { t as ZAriaAlertMode } from './index2.js';
 
 const ZAriaAlert$1 = /*@__PURE__*/ proxyCustomElement(class ZAriaAlert extends HTMLElement {
     constructor() {

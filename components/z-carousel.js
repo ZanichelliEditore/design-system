@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { R as CarouselArrowsPosition, U as CarouselProgressMode, B as ButtonVariant } from './index2.js';
+import { Q as CarouselArrowsPosition, R as CarouselProgressMode, B as ButtonVariant } from './index2.js';
 import { d as defineCustomElement$4 } from './index4.js';
 import { d as defineCustomElement$3 } from './index8.js';
 import { d as defineCustomElement$2 } from './index9.js';

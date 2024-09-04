@@ -1,6 +1,6 @@
 export { getAssetPath, setAssetPath, setNonce, setPlatformOptions } from '@stencil/core/internal/client';
 import { c as colorFromId } from './utils.js';
-export { _ as AccordionVariant, o as AlertType, A as AvatarSize, Y as BookCardVariant, W as BreadcrumbHomepageVariant, V as BreadcrumbPathStyle, d as ButtonSize, c as ButtonType, B as ButtonVariant, C as CardVariant, R as CarouselArrowsPosition, U as CarouselProgressMode, e as ControlSize, Q as CoverHeroContentPosition, M as CoverHeroVariant, p as Device, h as DividerOrientation, D as DividerSize, j as ExpandableListButtonAlign, E as ExpandableListStyle, J as InfoRevealPosition, f as InputStatus, I as InputType, g as KeyboardCode, K as KeyboardKeyCode, k as LabelPosition, L as LicenseType, l as ListDividerType, i as ListSize, m as ListType, b as NavigationTabsKeyboardEvents, N as NavigationTabsOrientation, a as NavigationTabsSize, n as NotificationType, O as OffCanvasVariant, q as PocketStatus, P as PopoverPosition, S as SortDirection, T as ThemeVariant, r as ToastNotification, t as ToastNotificationPosition, s as ToastNotificationTransition, v as TransitionDirection, X as VisibilityCondition, u as ZAriaAlertMode, x as ZChipType, z as ZDatePickerMode, F as ZDatePickerModeValue, G as ZDatePickerPosition, w as ZFileUploadType, H as ZRangePickerMode, y as ZSectionTitleDividerPosition, Z as ZTableRowExpandedType } from './index2.js';
+export { Y as AccordionVariant, o as AlertType, A as AvatarSize, X as BookCardVariant, V as BreadcrumbHomepageVariant, U as BreadcrumbPathStyle, d as ButtonSize, c as ButtonType, B as ButtonVariant, C as CardVariant, Q as CarouselArrowsPosition, R as CarouselProgressMode, e as ControlSize, M as CoverHeroContentPosition, J as CoverHeroVariant, p as Device, h as DividerOrientation, D as DividerSize, j as ExpandableListButtonAlign, E as ExpandableListStyle, H as InfoRevealPosition, f as InputStatus, I as InputType, g as KeyboardCode, K as KeyboardKeyCode, k as LabelPosition, L as LicenseType, l as ListDividerType, i as ListSize, m as ListType, b as NavigationTabsKeyboardEvents, N as NavigationTabsOrientation, a as NavigationTabsSize, n as NotificationType, O as OffCanvasVariant, P as PopoverPosition, S as SortDirection, T as ThemeVariant, q as ToastNotification, s as ToastNotificationPosition, r as ToastNotificationTransition, u as TransitionDirection, W as VisibilityCondition, t as ZAriaAlertMode, w as ZChipType, y as ZDatePickerMode, z as ZDatePickerModeValue, F as ZDatePickerPosition, v as ZFileUploadType, G as ZRangePickerMode, x as ZSectionTitleDividerPosition, Z as ZTableRowExpandedType } from './index2.js';
 export { ZAccordion, defineCustomElement as defineCustomElementZAccordion } from './z-accordion.js';
 export { ZAlert, defineCustomElement as defineCustomElementZAlert } from './z-alert.js';
 export { ZAnchorNavigation, defineCustomElement as defineCustomElementZAnchorNavigation } from './z-anchor-navigation.js';
@@ -33,7 +33,6 @@ export { ZListGroup, defineCustomElement as defineCustomElementZListGroup } from
 export { ZLogo, defineCustomElement as defineCustomElementZLogo } from './z-logo.js';
 export { ZMenu, defineCustomElement as defineCustomElementZMenu } from './z-menu.js';
 export { ZMenuSection, defineCustomElement as defineCustomElementZMenuSection } from './z-menu-section.js';
-export { ZMessagesPocket, defineCustomElement as defineCustomElementZMessagesPocket } from './z-messages-pocket.js';
 export { ZModal, defineCustomElement as defineCustomElementZModal } from './z-modal.js';
 export { ZMyzCard, defineCustomElement as defineCustomElementZMyzCard } from './z-myz-card.js';
 export { ZMyzCardAlert, defineCustomElement as defineCustomElementZMyzCardAlert } from './z-myz-card-alert.js';
@@ -54,10 +53,6 @@ export { ZOffcanvas, defineCustomElement as defineCustomElementZOffcanvas } from
 export { ZOtp, defineCustomElement as defineCustomElementZOtp } from './z-otp.js';
 export { ZPagination, defineCustomElement as defineCustomElementZPagination } from './z-pagination.js';
 export { ZPanelElem, defineCustomElement as defineCustomElementZPanelElem } from './z-panel-elem.js';
-export { ZPocket, defineCustomElement as defineCustomElementZPocket } from './z-pocket.js';
-export { ZPocketBody, defineCustomElement as defineCustomElementZPocketBody } from './z-pocket-body.js';
-export { ZPocketHeader, defineCustomElement as defineCustomElementZPocketHeader } from './z-pocket-header.js';
-export { ZPocketMessage, defineCustomElement as defineCustomElementZPocketMessage } from './z-pocket-message.js';
 export { ZPopover, defineCustomElement as defineCustomElementZPopover } from './z-popover.js';
 export { ZRangePicker, defineCustomElement as defineCustomElementZRangePicker } from './z-range-picker.js';
 export { ZSearchbar, defineCustomElement as defineCustomElementZSearchbar } from './z-searchbar.js';

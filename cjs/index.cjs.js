@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const utils = require('./utils-d0b10736.js');
-const index = require('./index-39ce4edf.js');
+const utils = require('./utils-1a8655c7.js');
+const index = require('./index-e3835c94.js');
 require('./breakpoints-5c22092a.js');
 
 const UTILS = {
@@ -218,12 +218,6 @@ Object.defineProperty(exports, 'OffCanvasVariant', {
     enumerable: true,
     get: function () {
         return index.OffCanvasVariant;
-    }
-});
-Object.defineProperty(exports, 'PocketStatus', {
-    enumerable: true,
-    get: function () {
-        return index.PocketStatus;
     }
 });
 Object.defineProperty(exports, 'PopoverPosition', {

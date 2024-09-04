@@ -193,12 +193,6 @@ var Device;
     Device["DESKTOP"] = "desktop";
     Device["DESKTOP_WIDE"] = "desktop-wide";
 })(Device || (Device = {}));
-var PocketStatus;
-(function (PocketStatus) {
-    PocketStatus["PREVIEW"] = "preview";
-    PocketStatus["OPEN"] = "open";
-    PocketStatus["CLOSED"] = "closed";
-})(PocketStatus || (PocketStatus = {}));
 var ToastNotification;
 (function (ToastNotification) {
     ToastNotification["DARK"] = "dark";
@@ -341,6 +335,6 @@ var AccordionVariant;
     AccordionVariant["BACKGROUND"] = "background";
 })(AccordionVariant || (AccordionVariant = {}));
 
-export { AvatarSize as A, ButtonVariant as B, CardVariant as C, DividerSize as D, ExpandableListStyle as E, ZDatePickerModeValue as F, ZDatePickerPosition as G, ZRangePickerMode as H, InputType as I, InfoRevealPosition as J, KeyboardKeyCode as K, LicenseType as L, CoverHeroVariant as M, NavigationTabsOrientation as N, OffCanvasVariant as O, PopoverPosition as P, CoverHeroContentPosition as Q, CarouselArrowsPosition as R, SortDirection as S, ThemeVariant as T, CarouselProgressMode as U, BreadcrumbPathStyle as V, BreadcrumbHomepageVariant as W, VisibilityCondition as X, BookCardVariant as Y, ZTableRowExpandedType as Z, AccordionVariant as _, NavigationTabsSize as a, NavigationTabsKeyboardEvents as b, ButtonType as c, ButtonSize as d, ControlSize as e, InputStatus as f, KeyboardCode as g, DividerOrientation as h, ListSize as i, ExpandableListButtonAlign as j, LabelPosition as k, ListDividerType as l, ListType as m, NotificationType as n, AlertType as o, Device as p, PocketStatus as q, ToastNotification as r, ToastNotificationTransition as s, ToastNotificationPosition as t, ZAriaAlertMode as u, TransitionDirection as v, ZFileUploadType as w, ZChipType as x, ZSectionTitleDividerPosition as y, ZDatePickerMode as z };
+export { AvatarSize as A, ButtonVariant as B, CardVariant as C, DividerSize as D, ExpandableListStyle as E, ZDatePickerPosition as F, ZRangePickerMode as G, InfoRevealPosition as H, InputType as I, CoverHeroVariant as J, KeyboardKeyCode as K, LicenseType as L, CoverHeroContentPosition as M, NavigationTabsOrientation as N, OffCanvasVariant as O, PopoverPosition as P, CarouselArrowsPosition as Q, CarouselProgressMode as R, SortDirection as S, ThemeVariant as T, BreadcrumbPathStyle as U, BreadcrumbHomepageVariant as V, VisibilityCondition as W, BookCardVariant as X, AccordionVariant as Y, ZTableRowExpandedType as Z, NavigationTabsSize as a, NavigationTabsKeyboardEvents as b, ButtonType as c, ButtonSize as d, ControlSize as e, InputStatus as f, KeyboardCode as g, DividerOrientation as h, ListSize as i, ExpandableListButtonAlign as j, LabelPosition as k, ListDividerType as l, ListType as m, NotificationType as n, AlertType as o, Device as p, ToastNotification as q, ToastNotificationTransition as r, ToastNotificationPosition as s, ZAriaAlertMode as t, TransitionDirection as u, ZFileUploadType as v, ZChipType as w, ZSectionTitleDividerPosition as x, ZDatePickerMode as y, ZDatePickerModeValue as z };
 
 //# sourceMappingURL=index2.js.map

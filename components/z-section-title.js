@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
-import { y as ZSectionTitleDividerPosition, D as DividerSize } from './index2.js';
+import { x as ZSectionTitleDividerPosition, D as DividerSize } from './index2.js';
 import { d as defineCustomElement$2 } from './index6.js';
 
 const stylesCss = ":host{--z-section-title--divider-color:var(--red500);display:-ms-flexbox;display:flex;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:start;align-items:flex-start;font-family:var(--font-family-sans)}:host,:host ::slotted(*){-webkit-box-sizing:border-box;box-sizing:border-box}::slotted(*){margin:0}::slotted([slot=\"secondary-title\"]){padding-bottom:calc(var(--space-unit) / 2);border-bottom:var(--border-size-large) solid var(--z-section-title--divider-color);font-size:var(--font-size-3);font-weight:var(--font-sb);line-height:1.5rem;text-transform:uppercase}::slotted([slot=\"primary-title\"]){font-size:var(--font-size-6);font-weight:var(--font-sb);line-height:2rem}:host([uppercase]:not([uppercase=\"false\"])) ::slotted([slot=\"primary-title\"]){text-transform:uppercase}@media (min-width: 1152px){::slotted([slot=\"primary-title\"]){font-size:var(--font-size-7);line-height:2.25rem}}";

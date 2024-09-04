@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
 import { c as commonjsGlobal, f as flatpickr, i as it, s as setAriaOptions, a as setFlatpickrPosition, v as validateDate } from './utils2.js';
-import { z as ZDatePickerMode, G as ZDatePickerPosition, I as InputType } from './index2.js';
+import { y as ZDatePickerMode, F as ZDatePickerPosition, I as InputType } from './index2.js';
 import { d as defineCustomElement$4 } from './index9.js';
 import { d as defineCustomElement$3 } from './index10.js';
 import { d as defineCustomElement$2 } from './index11.js';

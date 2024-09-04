@@ -250,11 +250,6 @@ export type DictionaryLicenseData = {
     expiring: boolean;
     installations: string;
 };
-export declare enum PocketStatus {
-    PREVIEW = "preview",
-    OPEN = "open",
-    CLOSED = "closed"
-}
 export declare enum ToastNotification {
     DARK = "dark",
     LIGHT = "light",

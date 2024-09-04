@@ -1,5 +1,5 @@
 import { r as registerInstance, h, a as Host } from './index-ab5f1eaa.js';
-import { A as AvatarSize } from './index-2255c6c8.js';
+import { A as AvatarSize } from './index-a7f69d42.js';
 
 const stylesCss = ":host{display:-ms-inline-flexbox;display:inline-flex;overflow:hidden;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;background-color:var(--gray700);border-radius:50%;font-family:var(--font-family-sans);text-transform:uppercase}:host(.small),:host(.small)>img{width:calc(var(--space-unit) * 3);height:calc(var(--space-unit) * 3)}:host(.medium),:host(.medium)>img{width:calc(var(--space-unit) * 4);height:calc(var(--space-unit) * 4)}:host(.large),:host(.large)>img{width:calc(var(--space-unit) * 5);height:calc(var(--space-unit) * 5)}:host>img{-o-object-fit:cover;object-fit:cover}";
 const ZAvatarStyle0 = stylesCss;

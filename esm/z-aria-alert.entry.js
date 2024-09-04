@@ -1,5 +1,5 @@
 import { r as registerInstance, h, a as Host } from './index-ab5f1eaa.js';
-import { u as ZAriaAlertMode } from './index-2255c6c8.js';
+import { t as ZAriaAlertMode } from './index-a7f69d42.js';
 
 const ZAriaAlert = class {
     constructor(hostRef) {

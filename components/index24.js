@@ -1,54 +1,45 @@
-import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
-import { H as Hammer } from './hammer.js';
-import { h as handleKeyboardSubmit } from './utils.js';
+import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
+import { d as defineCustomElement$1 } from './index9.js';
 
-const stylesCss = ":host{display:block;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>header{display:-ms-flexbox;display:flex;height:36px;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;border:var(--border-size-small) solid var(--color-surface03);background:var(--color-surface01);border-radius:var(--space-unit) var(--space-unit) 0 0;cursor:pointer}:host>header:focus{outline:none}:host>header::-moz-focus-inner{border:0}";
-const ZPocketHeaderStyle0 = stylesCss;
+const stylesCss = ".sc-z-tag-h{--z-icon-width:14px;--z-icon-height:14px;display:-ms-flexbox;display:flex;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;max-width:inherit;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;max-height:inherit;-ms-flex-align:start;align-items:flex-start;padding:calc(var(--space-unit) / 2);background-color:var(--z-tag-bg, var(--color-hover-primary));border-radius:var(--border-radius);color:var(--z-tag-text-color, var(--color-text-inverse));fill:currentcolor;font-family:var(--font-family-sans);font-size:var(--font-size-1);font-weight:var(--font-sb);letter-spacing:0.32px;line-height:14px;text-transform:uppercase}.expandable.sc-z-tag-h>z-icon.sc-z-tag{-webkit-transition:margin-right 0.3s ease-out;transition:margin-right 0.3s ease-out}.sc-z-tag-h:not(.expandable)>z-icon.sc-z-tag,.expandable.sc-z-tag-h:hover>z-icon.sc-z-tag{margin-right:var(--space-unit);-webkit-transition:margin-right 0.3s ease-out 0s;transition:margin-right 0.3s ease-out 0s}.expandable.sc-z-tag-h>div.sc-z-tag{overflow:hidden;max-width:0;max-height:0}.expandable.sc-z-tag-h:hover>div.sc-z-tag{max-width:100%;max-height:100%}";
+const ZTagStyle0 = stylesCss;
 
-const ZPocketHeader = /*@__PURE__*/ proxyCustomElement(class ZPocketHeader extends HTMLElement {
-    emitPocketHeaderClick() {
-        this.pocketHeaderClick.emit({ id: this.pocketid });
-    }
-    emitPocketHeaderPan(direction) {
-        this.pocketHeaderPan.emit({ id: this.pocketid, direction });
-    }
+const ZTag = /*@__PURE__*/ proxyCustomElement(class ZTag extends HTMLElement {
     constructor() {
         super();
         this.__registerHost();
-        this.__attachShadow();
-        this.pocketHeaderClick = createEvent(this, "pocketHeaderClick", 7);
-        this.pocketHeaderPan = createEvent(this, "pocketHeaderPan", 7);
-        this.pocketid = undefined;
-        this.emitPocketHeaderClick = this.emitPocketHeaderClick.bind(this);
-    }
-    componentDidLoad() {
-        // INFO: swipe handling
-        const mc = new Hammer(this.swipeWrap);
-        mc.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
-        mc.on("panup", () => this.emitPocketHeaderPan("up"));
-        mc.on("pandown", () => this.emitPocketHeaderPan("down"));
+        this.icon = undefined;
+        this.expandable = undefined;
     }
     render() {
-        return (h("header", { key: 'e7f1ed78dd4b33c701d5bd0f648c9401d8a38313', role: "button", tabindex: 0, onClick: () => this.emitPocketHeaderClick(), onKeyPress: (ev) => handleKeyboardSubmit(ev, this.emitPocketHeaderClick), ref: (el) => (this.swipeWrap = el) }, h("slot", { key: '1d8bb012ac6dcdf3337d0c70df59b3b098e9de56' })));
+        return (h(Host, { key: '2b457c2a7462afa36499c0991a32436751b2b6d1', class: {
+                expandable: this.expandable && !!this.icon,
+            } }, this.icon && h("z-icon", { key: '3f6b461a15c9221c658221894f62895bdbd8e108', name: this.icon }), h("div", { key: '0bb11571e1f99587a62e9d345fc731bf795656e5' }, h("slot", { key: '46ccbc8282a3611e7a3188651bbe96df1aacb5b2' }))));
     }
-    static get style() { return ZPocketHeaderStyle0; }
-}, [1, "z-pocket-header", {
-        "pocketid": [1]
+    static get style() { return ZTagStyle0; }
+}, [6, "z-tag", {
+        "icon": [1],
+        "expandable": [4]
     }]);
 function defineCustomElement() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["z-pocket-header"];
+    const components = ["z-tag", "z-icon"];
     components.forEach(tagName => { switch (tagName) {
-        case "z-pocket-header":
+        case "z-tag":
             if (!customElements.get(tagName)) {
-                customElements.define(tagName, ZPocketHeader);
+                customElements.define(tagName, ZTag);
+            }
+            break;
+        case "z-icon":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$1();
             }
             break;
     } });
 }
 
-export { ZPocketHeader as Z, defineCustomElement as d };
+export { ZTag as Z, defineCustomElement as d };
 
 //# sourceMappingURL=index24.js.map

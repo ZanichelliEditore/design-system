@@ -7,7 +7,7 @@ export class ZAlert {
         this.type = undefined;
     }
     render() {
-        return (h("div", { key: 'a04290b826aa50ecac798ad9126d93ee1d7e883e', class: this.type }, h("slot", { key: 'bc0f26d27fe3a68484f3079f11fb1c767fe255c4' })));
+        return (h("div", { key: '6c3d7eaa274e4115e3e5e06465b61ba17a262970', class: this.type }, h("slot", { key: '0f7e2e160f86417d7ed910e105f55af1cfad2824' })));
     }
     static get is() { return "z-alert"; }
     static get encapsulation() { return "shadow"; }

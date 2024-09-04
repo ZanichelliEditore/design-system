@@ -1,5 +1,5 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { w as ZFileUploadType, p as Device, D as DividerSize } from './index2.js';
+import { v as ZFileUploadType, p as Device, D as DividerSize } from './index2.js';
 import { g as getDevice } from './utils.js';
 import { d as defineCustomElement$6 } from './index4.js';
 import { d as defineCustomElement$5 } from './index6.js';

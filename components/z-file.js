@@ -1,9 +1,9 @@
 import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-import { P as PopoverPosition, x as ZChipType } from './index2.js';
+import { P as PopoverPosition, w as ZChipType } from './index2.js';
 import { t as tabletBreakpoint } from './breakpoints.js';
 import { d as defineCustomElement$4 } from './index5.js';
 import { d as defineCustomElement$3 } from './index9.js';
-import { d as defineCustomElement$2 } from './index25.js';
+import { d as defineCustomElement$2 } from './index22.js';
 
 const stylesCss = ".sc-z-file-h{position:relative;font-family:var(--font-family-sans);font-weight:var(--font-rg)}.sc-z-file-h>z-popover.sc-z-file{z-index:10}.sc-z-file-h>z-popover.sc-z-file>.tooltip-content.sc-z-file{white-space:nowrap}.sc-z-file-h>z-chip.sc-z-file span.sc-z-file{display:block;overflow:hidden;max-width:250px;letter-spacing:0.32px;line-height:1.33;text-overflow:ellipsis;white-space:nowrap}";
 const ZFileStyle0 = stylesCss;
