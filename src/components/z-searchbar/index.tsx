@@ -377,11 +377,12 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
-        clickable
-        onClickItem={() => this.emitSearchItemClick(item)}
       >
-        <div class="list-element">
-          <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
+        <div
+          class="list-element"
+          onClick={() => this.emitSearchItemClick(item)}
+        >
+          <span class={{item: true, ellipsis: this.resultsEllipsis}}>
             {item?.icon && (
               <z-icon
                 class="item-icon"
@@ -398,7 +399,7 @@ export class ZSearchbar {
         </div>
         {item.children && item.children.length > 0 ? (
           <z-list>
-            <div style={{paddingLeft: "32px"}}>
+            <div style={{paddingLeft: "24px"}}>
               {item.children.map((child, index) => this.renderItem(child, index, false))}
             </div>
           </z-list>
