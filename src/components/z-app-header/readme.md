@@ -39,7 +39,6 @@
 
 - [z-button](../z-button)
 - [z-searchbar](../z-searchbar)
-- [z-divider](../z-divider)
 - [z-icon](../z-icon)
 - [z-offcanvas](../z-offcanvas)
 
@@ -48,7 +47,6 @@
 graph TD;
   z-app-header --> z-button
   z-app-header --> z-searchbar
-  z-app-header --> z-divider
   z-app-header --> z-icon
   z-app-header --> z-offcanvas
   z-button --> z-icon

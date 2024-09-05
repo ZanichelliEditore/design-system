@@ -16,7 +16,6 @@
 
 ### Used by
 
- - [z-app-header](../z-app-header)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-file-upload](../file-upload/z-file-upload)
  - [z-list-element](../list/z-list-element)
@@ -26,7 +25,6 @@
 ### Graph
 ```mermaid
 graph TD;
-  z-app-header --> z-divider
   z-breadcrumb --> z-divider
   z-file-upload --> z-divider
   z-list-element --> z-divider
