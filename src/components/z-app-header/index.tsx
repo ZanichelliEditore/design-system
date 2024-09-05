@@ -435,6 +435,12 @@ export class ZAppHeader {
   }
 
   private focusToFirstItemMenu(e): void {
+    if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP || e.code === KeyboardCode.ENTER) {
+      return;
+    } else if (e.code === KeyboardCode.TAB && this.currentIndex !== -1) {
+      return;
+    }
+
     const menuItems = Array.from(this.menuElements).map(
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
