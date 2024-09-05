@@ -32,7 +32,6 @@ const StoryMeta = {
     "autocomplete": false,
     "autocompleteMinChars": 3,
     "resultsCount": null,
-    "resultsEllipsis": true,
     "searchHelperLabel": "Cerca {searchString}",
     "resultsItems": [
       {
@@ -73,7 +72,6 @@ export const Default = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}
@@ -125,7 +123,6 @@ export const Autocomplete = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}
@@ -196,7 +193,6 @@ export const AutocompleteWithComplexItems = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}
@@ -334,7 +330,6 @@ export const AutocompleteWithComplexTreeItems = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}

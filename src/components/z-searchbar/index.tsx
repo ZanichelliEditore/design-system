@@ -49,10 +49,6 @@ export class ZSearchbar {
   @Prop()
   resultsCount?: number;
 
-  /** Truncate results to single row */
-  @Prop()
-  resultsEllipsis?: boolean = true;
-
   /** Search helper text */
   @Prop()
   searchHelperLabel?: string = "Cerca {searchString}";
@@ -327,7 +323,6 @@ export class ZSearchbar {
       <z-list
         role="listbox"
         id={`list-${this.htmlid}`}
-        class="tree"
       >
         {this.renderSearchHelper(!!this.resultsItemsList?.length)}
         {this.renderItems()}
@@ -382,7 +377,7 @@ export class ZSearchbar {
           class="list-element"
           onClick={() => this.emitSearchItemClick(item)}
         >
-          <span class={{item: true, ellipsis: this.resultsEllipsis}}>
+          <span class="item ellipsis">
             {item?.icon && (
               <z-icon
                 class="item-icon"
