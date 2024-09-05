@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, PopoverPosition, VisibilityCondition} from "../../../../beans";
+import {ButtonVariant, ControlSize, VisibilityCondition} from "../../../../beans";
 
 /**
  * ZTd component.
@@ -32,12 +32,6 @@ export class ZTd {
    */
   @Prop({reflect: true})
   showMenu: VisibilityCondition = null;
-
-  /**
-   * Set a the popover default position.
-   */
-  @Prop()
-  defaultPopoverPosition?: PopoverPosition = PopoverPosition.LEFT;
 
   /**
    * Store the open state of the menu.
@@ -98,7 +92,6 @@ export class ZTd {
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
               bindTo={this.menuTrigger as HTMLElement}
               onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
-              position={this.defaultPopoverPosition}
             >
               <slot name="contextual-menu"></slot>
             </z-popover>

@@ -1751,10 +1751,6 @@ export namespace Components {
          */
         "colspan": number;
         /**
-          * Set a the popover default position.
-         */
-        "defaultPopoverPosition"?: PopoverPosition;
-        /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
         "showMenu": VisibilityCondition;
@@ -5128,10 +5124,6 @@ declare namespace LocalJSX {
           * Number of columns that the cell should span.
          */
         "colspan"?: number;
-        /**
-          * Set a the popover default position.
-         */
-        "defaultPopoverPosition"?: PopoverPosition;
         /**
           * Emitted when the value of the `colspan` changes.
          */
