@@ -305,6 +305,9 @@ export const Stuck = {
       inlineStories: false,
       iframeHeight: "400px",
     },
+    controls: {
+      exclude: ["enableOffcanvas"],
+    },
   },
   render: (args) =>
     html`<z-app-header
@@ -312,7 +315,6 @@ export const Stuck = {
       .enableZLogo=${args.enableZLogo}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
-      .enableOffcanvas=${args.enableOffcanvas}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
     >
       <h1 slot="title">Applicazione</h1>
