@@ -1,7 +1,5 @@
-/* stylelint-disable-next-line import-notation */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,700;1,700&display=swap");
-@import "~@zanichelli/albe-design-tokens/dist/tokens.css";
-@import "~@zanichelli/albe-design-tokens/dist/themes/default.css";
-@import "~@zanichelli/albe-design-tokens/dist/themes/black-yellow.css";
-@import "~@zanichelli/albe-design-tokens/dist/themes/dark-default.css";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import "./tokens/main.css";
+@import "./tokens/themes/index.css";
 @import "components/z-accordion/z-accordion-globals.css";

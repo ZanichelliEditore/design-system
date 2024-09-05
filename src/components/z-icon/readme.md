@@ -50,7 +50,6 @@
  - [z-list-element](../list/z-list-element)
  - [z-menu](../z-menu)
  - [z-menu-section](../z-menu-section)
- - [z-messages-pocket](../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../z-modal)
  - [z-myz-card-alert](../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../snowflakes/myz/card/z-myz-card-icon)
@@ -60,7 +59,6 @@
  - [z-notification](../z-notification)
  - [z-pagination](../z-pagination)
  - [z-panel-elem](../z-panel-elem)
- - [z-pocket-message](../../snowflakes/myz/pocket/z-pocket-message)
  - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
  - [z-slideshow](../../snowflakes/myz/z-slideshow)
@@ -91,7 +89,6 @@ graph TD;
   z-list-element --> z-icon
   z-menu --> z-icon
   z-menu-section --> z-icon
-  z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
@@ -101,7 +98,6 @@ graph TD;
   z-notification --> z-icon
   z-pagination --> z-icon
   z-panel-elem --> z-icon
-  z-pocket-message --> z-icon
   z-searchbar --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
