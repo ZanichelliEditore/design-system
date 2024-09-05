@@ -1,6 +1,7 @@
 :host {
   --z-searchbar-tag-text-color: var(--color-primary03);
   --z-searchbar-tag-bg: var(--color-hover-primary);
+  --z-searchbar-item-height: 44px;
 
   z-index: 15;
   display: flex;
@@ -131,7 +132,7 @@ z-list > z-list-group > z-list-element::after {
 .results z-list-element > .list-element {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: calc(var(--space-unit) * 1.25) 0;
   cursor: pointer;
 }
 
@@ -145,15 +146,16 @@ z-list > z-list-group > z-list-element::after {
   right: 0;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 44px;
   content: "";
   transform: translateX(-100%);
 }
 
 .results z-list-element > .list-element:hover,
 .results z-list-element > .list-element:hover::after {
-  /* background-color: var(--color-surface02); */
-  background-color: yellow;
+  background-color: var(--color-surface02);
+
+  /*   background-color: yellow; */
   cursor: pointer;
 }
 
@@ -178,7 +180,7 @@ z-list > z-list-group > z-list-element::after {
   column-gap: calc(var(--space-unit) * 1.5);
   fill: var(--color-default-icon);
   font-size: var(--font-size-2);
-  line-height: var(--font-size-3);
+  line-height: var(--font-size-6);
 }
 
 .results .item.ellipsis > .item-label {
