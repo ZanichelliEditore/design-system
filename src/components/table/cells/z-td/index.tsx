@@ -37,7 +37,7 @@ export class ZTd {
    * Set a the popover default position.
    */
   @Prop()
-  defaultPopoverPosition?: PopoverPosition = PopoverPosition.LEFT;
+  defaultPopoverPosition?: PopoverPosition = PopoverPosition.AUTO;
 
   /**
    * Store the open state of the menu.
