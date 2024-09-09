@@ -9,6 +9,11 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v16.0.0](#v1600)
+
+  - [Nuova versione componente ZAppHeader](#Nuova-versione-componente-ZAppHeader)
+  - [Polyfill](#Polyfill)
+
 - [v15.0.0](#v1500)
 
   - [Modifica header modale](#modifica-header-modale)
@@ -99,6 +104,16 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v16.0.0
+
+### Nuova versione componente ZAppHeader
+
+A partire da questa release è stato rivisto il componente `z-app-header`. Le modifiche sono breaking, per favorire un aggiornamento graduale, viene quindi mantenuta attiva la sua versione deprecated, anche per i suoi elementi interni.
+
+### Polyfill
+
+A partire da questa release il metodo applyPolyfill non sarà più esportato dalla libreria, quindi il suo utilizzo deve essere rimosso dalle applicazioni.
 
 ## v15.0.0
 

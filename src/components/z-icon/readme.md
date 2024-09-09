@@ -53,7 +53,6 @@
  - [z-menu-deprecated](../deprecated/z-menu-deprecated)
  - [z-menu-section](../z-menu-section)
  - [z-menu-section-deprecated](../deprecated/z-menu-section-deprecated)
- - [z-messages-pocket](../../snowflakes/myz/pocket/z-messages-pocket)
  - [z-modal](../z-modal)
  - [z-myz-card-alert](../../snowflakes/myz/card/z-myz-card-alert)
  - [z-myz-card-icon](../../snowflakes/myz/card/z-myz-card-icon)
@@ -96,7 +95,6 @@ graph TD;
   z-menu-deprecated --> z-icon
   z-menu-section --> z-icon
   z-menu-section-deprecated --> z-icon
-  z-messages-pocket --> z-icon
   z-modal --> z-icon
   z-myz-card-alert --> z-icon
   z-myz-card-icon --> z-icon
