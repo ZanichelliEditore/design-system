@@ -82,12 +82,17 @@
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: calc(var(--space-unit) * 1.5);
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container .list-element-content {
   display: block;
   padding: calc(var(--space-unit) * 0.5) 0;
+}
+
+.select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container > z-tag {
+  margin-right: calc(var(--space-unit));
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container > z-icon + .list-element-content {

@@ -634,4 +634,77 @@ describe("Suite test ZSelect", () => {
         </z-select>
       `);
   });
+  it("Test render ZSelect aperta con elementi, elemento con icona", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"item 0","selected":false,"icon":"teacher"},{"id":"item_1","name":"item 1","selected":false}]'> </z-select>`,
+    });
+    page.rootInstance.isOpen = true;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"item 0","selected":false,"icon":"teacher"},{"id":"item_1","name":"item 1","selected":false}]'>
+            <div class="select-wrapper">
+              <z-input
+                class="cursor-select active-select"
+                label="default"
+                id="checkid_input"
+                htmlid="checkid_select_input"
+                placeholder="select here"
+                icon="caret-up"
+                readonly=""
+                aria-label=""
+                aria-autocomplete="none"
+                aria-expanded="true"
+                aria-controls="checkid_list"
+                role="combobox"
+                size="big"
+              ></z-input>
+              <div class="open" tabindex="-1">
+                <div class="ul-scroll-wrapper" tabindex="-1">
+                  <z-list
+                    role="listbox"
+                    aria-label="default"
+                    tabindex="0"
+                    id="checkid_list"
+                    size="medium"
+                  >
+                    <z-list-element
+                      clickable=""
+                      aria-selected="false"
+                      dividertype="element"
+                      role="option"
+                      tabindex="0"
+                      class=""
+                      id="checkid_0"
+                      size="medium"
+                    >
+                    <div class="list-element-container">
+                      <span class="list-element-content">item 0</span>
+                      <z-tag>
+                        <z-icon name="teacher"></z-icon>
+                      </z-tag>
+                    </div>
+                    </z-list-element>
+                    <z-list-element
+                      clickable=""
+                      aria-selected="false"
+                      dividertype="header"
+                      role="option"
+                      tabindex="0"
+                      class=""
+                      id="checkid_1"
+                      size="medium"
+                    >
+                    <div class="list-element-container">
+                      <span class="list-element-content">item 1</span>
+                    </div>
+                    </z-list-element>
+                  </z-list>
+                </div>
+              </div>
+              <z-input-message class="big"></z-input-message>
+            </div>
+        </z-select>
+      `);
+  });
 });
