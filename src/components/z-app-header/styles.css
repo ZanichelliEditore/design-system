@@ -67,7 +67,7 @@
   flex-direction: column-reverse;
 }
 
-:host(:not([enable-search="false"])) .heading-panel .heading-container {
+:host([enable-search]) .heading-panel .heading-container {
   flex-direction: column;
 }
 
