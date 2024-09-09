@@ -680,9 +680,7 @@ describe("Suite test ZSelect", () => {
                     >
                     <div class="list-element-container">
                       <span class="list-element-content">item 0</span>
-                      <z-tag>
-                        <z-icon name="teacher"></z-icon>
-                      </z-tag>
+                      <z-tag icon="teacher"></z-tag>
                     </div>
                     </z-list-element>
                     <z-list-element

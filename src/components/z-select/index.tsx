@@ -484,11 +484,7 @@ export class ZSelect {
             innerHTML={item.name}
           />
 
-          {item.icon && (
-            <z-tag>
-              <z-icon name={item.icon}></z-icon>
-            </z-tag>
-          )}
+          {item.icon && <z-tag icon={item.icon}></z-tag>}
         </div>
       </z-list-element>
     );
