@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v15.0.0](#v1500)
+
+  - [Modifica header modale](#modifica-header-modale)
+
 - [v14.0.0](#v1400)
 
   - [Aggiornamento design-tokens](#aggiornamento-design-tokens)
@@ -95,6 +99,13 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v15.0.0
+
+### Modifica header modale
+
+Questa versione non introduce problemi a livello di compilazione del codice, ma a livello di layout.
+Il padding laterale dell'header della modale è stato infatti fissato a `16px` indipendentemente dal breakpoint. Prima della modifica invece era `32px/24px/8px`. Questo influirà sui layout dei prodotti che usano il componente, in quanto il contenuto è uno slot e le spaziature vengono impostate dal prodotto; dovranno quindi essere eventualmente rivisti gli allineamenti laterali del contenuto.
 
 ## v14.0.0
 
@@ -292,7 +303,6 @@ Lista degli Enum e tipi interessati:
 - `NotificationType`
 - `AlertType`
 - `Device`
-- `PocketStatus`
 - `ToastNotification`
 - `ToastNotificationTransition`
 - `ToastNotificationPosition`
@@ -364,9 +374,6 @@ Di seguito l'elenco dei componenti interessati e delle classi modificate:
 | `z-myz-card`                      | -                                                                                                                                                          |
 | `z-myz-card-alert`                | -                                                                                                                                                          |
 | `z-myz-list`                      | -                                                                                                                                                          |
-| `z-messages-pocket`               | -                                                                                                                                                          |
-| `z-pocket-body`                   | -                                                                                                                                                          |
-| `z-pocket`                        | -                                                                                                                                                          |
 | `topbar`                          | -                                                                                                                                                          |
 | `z-alert`                         | -                                                                                                                                                          |
 | `z-otp`                           | -                                                                                                                                                          |

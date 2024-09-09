@@ -194,6 +194,18 @@
   fill: var(--color-white);
 }
 
+z-icon {
+  display: inline-block;
+  vertical-align: 0;
+}
+
+z-icon:focus {
+  padding: calc(var(--space-unit) / 4);
+  border-radius: 50%;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 :host > #external-container.dark {
   background: var(--gray800);
 }

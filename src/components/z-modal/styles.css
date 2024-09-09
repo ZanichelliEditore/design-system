@@ -1,6 +1,8 @@
 :host {
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+
+  --z-modal-content-padding: calc(var(--space-unit) * 2);
 }
 
 :host > dialog {
@@ -34,6 +36,10 @@
   display: block;
 }
 
+::slotted([slot="modalContent"]) {
+  padding: var(--z-modal-content-padding);
+}
+
 .modal-container {
   z-index: 1010;
   display: flex;
@@ -49,7 +55,8 @@
 }
 
 .modal-container > header {
-  padding: calc(var(--space-unit) * 2 - 2px) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.75) calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.75)
+    calc(var(--space-unit) * 2);
   background: var(--color-surface02);
 }
 
@@ -62,9 +69,26 @@
   cursor: pointer;
 }
 
+.modal-container > header button:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
+.modal-container > header button::after {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  content: "";
+}
+
 .modal-container > header z-icon {
-  --z-icon-width: calc(var(--space-unit) * 2.5);
-  --z-icon-height: calc(var(--space-unit) * 2.5);
+  --z-icon-width: calc(var(--space-unit) * 2.25);
+  --z-icon-height: calc(var(--space-unit) * 2.25);
 
   display: flex;
   fill: var(--color-primary01-icon);
@@ -73,7 +97,7 @@
 .modal-container > header > div {
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: baseline;
   margin-right: calc(var(--space-unit) * 2);
 }
 
@@ -82,7 +106,7 @@
   padding: 0;
   margin: 0;
   color: var(--color-default-text);
-  font-weight: var(--font-rg);
+  font-weight: var(--font-sb);
 }
 
 .modal-container > header h1 {
@@ -93,6 +117,7 @@
 
 .modal-container > header .subtitle {
   font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
   letter-spacing: 0;
   line-height: 1.5;
 }
@@ -213,34 +238,25 @@
   .modal-dialog::-webkit-scrollbar {
     display: none;
   }
-
-  .modal-container > header z-icon {
-    --z-icon-width: calc(var(--space-unit) * 3);
-    --z-icon-height: calc(var(--space-unit) * 3);
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1151px) {
-  .modal-container > header {
-    padding: calc(var(--space-unit) * 3 - 2px) calc(var(--space-unit) * 3);
-  }
 }
 
 /* Desktop */
 @media only screen and (min-width: 1152px) {
   .modal-container > header {
-    padding: calc(var(--space-unit) * 4 - 4px) calc(var(--space-unit) * 4);
+    padding-top: calc(var(--space-unit) * 1.5);
+    padding-bottom: calc(var(--space-unit) * 1.5);
   }
 
   .modal-container > header h1 {
     font-size: var(--font-size-6);
+    font-weight: var(--font-sb);
     letter-spacing: 0;
-    line-height: 1.33;
+    line-height: 1.333;
   }
 
   .modal-container > header .subtitle {
     font-size: var(--font-size-4);
+    font-weight: var(--font-rg);
     letter-spacing: 0;
     line-height: 1.5;
   }

@@ -244,6 +244,11 @@ z-searchbar {
   box-shadow: var(--shadow-focus-primary);
 }
 
+.drawer-trigger:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 .drawer-trigger z-icon {
   --z-icon-width: var(--app-header-drawer-trigger-size);
   --z-icon-height: var(--app-header-drawer-trigger-size);

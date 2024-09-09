@@ -3,12 +3,12 @@ import {KeyboardCode, PopoverPosition} from "../../beans";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
-function getParentElement(element: Element): ShadowRoot["host"] {
-  if ((element.parentNode as ShadowRoot).host) {
-    return (element.parentNode as ShadowRoot).host;
+function getParentElement(element: Element): Element {
+  if (element.parentNode === element.shadowRoot) {
+    return element.shadowRoot.host;
   }
 
-  return element.parentNode as Element;
+  return element.parentElement;
 }
 
 /**

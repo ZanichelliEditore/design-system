@@ -1,7 +1,7 @@
 import {StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import "../../src/components/z-section-title/index";
-import {getPalettes, getThemesColorTokens} from "../../src/utils/storybook-utils";
+import {getPalettes, getThemesColorTokens, getThemeTokenValue} from "../../src/utils/storybook-utils";
 import "./index.stories.css";
 
 export default {
@@ -11,11 +11,11 @@ export default {
       control: {
         type: "inline-radio",
       },
-      options: ["default", "theme-black-yellow", "theme-dark"],
+      options: ["theme-default", "theme-black-yellow", "theme-dark"],
     },
   },
   args: {
-    theme: "default",
+    theme: "theme-default",
   },
   parameters: {
     layout: "fullscreen",
@@ -47,7 +47,8 @@ export const Themes = {
                       style="background-color: var(${token})"
                     ></div>
                     <div class="interactive-2">
-                      ${getComputedStyle(document.documentElement).getPropertyValue(token)}
+                      ${getThemeTokenValue(args.theme, token) ??
+                      getComputedStyle(document.documentElement).getPropertyValue(token)}
                     </div>
                   </div>
                 </li>

@@ -21,6 +21,11 @@
   color: var(--color-default-text);
 }
 
+:host > .dragdrop:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 /* https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element */
 :host > .dragdrop.dragover * {
   pointer-events: none;

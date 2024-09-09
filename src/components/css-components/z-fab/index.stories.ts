@@ -64,8 +64,8 @@ export const Default = {
         "z-fab-extendable": args["z-fab-extendable"],
       })}
     >
-      <z-icon name=${args.icon}></z-icon>
-      <span>${args.label}</span>
+      ${args.icon ? html`<z-icon name=${args.icon}></z-icon>` : ""}
+      ${args.label ? html`<span>${args.label}</span>` : ""}
     </button>
   `,
 };
