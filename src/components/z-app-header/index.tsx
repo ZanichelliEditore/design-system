@@ -434,25 +434,40 @@ export class ZAppHeader {
     return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 100);
   }
 
-  private focusToFirstItemMenu(e): void {
-    if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP || e.code === KeyboardCode.ENTER) {
-      return;
-    } else if (e.code === KeyboardCode.TAB && this.currentIndex !== -1) {
-      return;
-    }
-
+  private focusToFirstItemMenu(): void {
     const menuItems = Array.from(this.menuElements).map(
       (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
     );
 
-    if (e.shiftKey && e.code === KeyboardCode.TAB && this.enableSearch) {
+    menuItems[0].focus();
+    this.currentIndex = 0;
+  }
+
+  private handleFocusItem(e): void {
+    const menuItems = Array.from(this.menuElements).map(
+      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+    );
+
+    if (
+      e.code === KeyboardCode.ARROW_DOWN ||
+      e.code === KeyboardCode.ARROW_UP ||
+      e.code === KeyboardCode.ENTER ||
+      e.code === KeyboardCode.TAB
+    ) {
+      return;
+    }
+
+    if (document.activeElement.tagName === "Z-MENU-SECTION" || document.activeElement.tagName === "Z-MENU") {
+      return;
+    }
+
+    if (this.enableSearch && this.currentIndex === 0) {
       const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
       input.focus();
       this.currentIndex = -1;
-    } else if (this.currentIndex === -1) {
-      menuItems[0].focus();
-      this.currentIndex = 0;
-    } else if (this.currentIndex !== -1) {
+    }
+
+    if (this.currentIndex !== -1) {
       menuItems[this.currentIndex].focus();
     }
   }
@@ -524,7 +539,11 @@ export class ZAppHeader {
                   return;
                 }
 
-                this.focusToFirstItemMenu(e);
+                if (this.currentIndex === -1) {
+                  this.focusToFirstItemMenu();
+                } else {
+                  this.handleFocusItem(e);
+                }
               }}
               role="hidden"
               tabIndex={0}
