@@ -108,7 +108,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ### Rimosso parametro buildEs5 dal config stencil.
 
-L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che li utilizzano.
+L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che ne fanno uso.
 
 **Il metodo in precedenza usato in questo modo:**
 
