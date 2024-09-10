@@ -15,10 +15,10 @@ export class ZToggleButton {
         this.toggleClick.emit(this.opened);
     }
     render() {
-        return (h("button", { key: '809ca74c63187ce21d411516d595bda6ed5b082b', tabindex: this.avoidclick ? "-1" : "0", class: {
+        return (h("button", { key: 'a0335db670898e98b232857bd9f878f9f6bceaa0', tabindex: this.avoidclick ? "-1" : "0", class: {
                 "isopen": this.opened,
                 "avoid-clicks": this.avoidclick,
-            }, disabled: this.isdisabled, "aria-expanded": this.opened ? "true" : "false", "aria-label": this.ariaLabel, onClick: () => this.emitToggleClick() }, h("z-icon", { key: '66af2faa257599724f2506230eae3c0c612c0700', name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
+            }, disabled: this.isdisabled, "aria-expanded": this.opened ? "true" : "false", "aria-label": this.ariaLabel, onClick: () => this.emitToggleClick() }, h("z-icon", { key: '353df156fc85eb6824152ec2a5578426263627b7', name: this.opened ? "chevron-down" : "chevron-up", width: 16, height: 16 }), this.label));
     }
     static get is() { return "z-toggle-button"; }
     static get encapsulation() { return "shadow"; }

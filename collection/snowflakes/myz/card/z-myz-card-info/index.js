@@ -114,7 +114,7 @@ export class ZMyzCardInfo {
         return (h("section", { ref: (el) => (this.offlineLicenseWrapper = el) }, h("span", { class: "license-heading" }, h("span", null, "Licenza offline"), this.setExpirationLicenseMessage("offline")), "Scadenza il ", h("b", null, this.cardData.offlineLicense.expiration), h("br", null), "Installazioni disponibili: ", h("b", null, this.cardData.offlineLicense.installations)));
     }
     render() {
-        return (h("div", { key: '086c4df611ed65fc3929e9d607b4043a6ef33f06' }, this.renderCloseIcon(), h("div", { key: 'c3dbdc2e386d06269e79109fc29ae6e0b5826ad5', class: "content-wrapper", ref: (el) => (this.contentWrapper = el) }, this.renderGeneralSection(), this.renderTooltip(), this.renderOnlineLicenseSection(), this.renderOfflineLicenseSection()), h("div", { key: '5e79d55d2e1673de4e40d03d6e3ad385af65152f', class: "cta-wrapper" }, h("slot", { key: 'aa7141484bdbaf50856f31285dc2fef49f84abe1' }))));
+        return (h("div", { key: '1f42c0e5dee2d7dad7f4cfe4f57546091566e6a0' }, this.renderCloseIcon(), h("div", { key: '15bde9788efb9a4b9140ba75d0619aed9d9debfa', class: "content-wrapper", ref: (el) => (this.contentWrapper = el) }, this.renderGeneralSection(), this.renderTooltip(), this.renderOnlineLicenseSection(), this.renderOfflineLicenseSection()), h("div", { key: '813495ab63d355830e85557f10ae18ee3900c517', class: "cta-wrapper" }, h("slot", { key: '760ca67e6143c5d96bf31121b786e03f7606b4f3' }))));
     }
     static get is() { return "z-myz-card-info"; }
     static get encapsulation() { return "shadow"; }

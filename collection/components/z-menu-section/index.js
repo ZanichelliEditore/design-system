@@ -1,4 +1,5 @@
 import { Host, h } from "@stencil/core";
+import { KeyboardCode } from "../../beans";
 /**
  * A component to create submenus inside the ZMenu.
  * @slot - Label of the menu section.
@@ -6,9 +7,89 @@ import { Host, h } from "@stencil/core";
  */
 export class ZMenuSection {
     constructor() {
+        this.currentIndex = -1;
+        this.currentCanvasOpenStatus = false;
         this.active = undefined;
         this.open = undefined;
         this.hasContent = undefined;
+    }
+    canvasOpenStatusChanged(e) {
+        this.currentCanvasOpenStatus = e.detail;
+    }
+    handleKeyDown(e) {
+        if (e.code === KeyboardCode.ENTER) {
+            return;
+        }
+        if (this.open && !this.currentCanvasOpenStatus) {
+            this.handleNavigationSideArrow(e);
+        }
+        this.handleArrowsNav(e);
+    }
+    handleNavigationSideArrow(e) {
+        if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+            return;
+        }
+        if (e.code === KeyboardCode.ARROW_RIGHT) {
+            const nextElement = this.hostElement.parentElement.nextElementSibling;
+            if (nextElement) {
+                const menuButton = nextElement.shadowRoot.querySelector(".menu-label");
+                console.log(this.hostElement.parentElement);
+                menuButton.focus();
+            }
+            this.open = false;
+            nextElement.setAttribute("open", "true");
+        }
+        else if (e.code === KeyboardCode.ARROW_LEFT) {
+            const prevElement = this.hostElement.parentElement.previousElementSibling;
+            if (prevElement) {
+                const menuButton = prevElement.shadowRoot.querySelector(".menu-label");
+                menuButton.focus();
+            }
+            prevElement.setAttribute("open", "true");
+            this.open = false;
+        }
+    }
+    handleArrowsNav(e) {
+        const menuItems = Array.from(this.hostElement.querySelectorAll('[slot="section"]'));
+        if (this.open) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+                let nextFocusableItem;
+                // INFO: reset focus on all menu items
+                menuItems.forEach((item) => item.setAttribute("tabindex", "-1"));
+                if (e.code === KeyboardCode.ARROW_DOWN) {
+                    nextFocusableItem = this.getNextItem(menuItems, 1);
+                }
+                else if (e.code === KeyboardCode.ARROW_UP) {
+                    nextFocusableItem = this.getNextItem(menuItems, -1);
+                }
+                if (nextFocusableItem) {
+                    nextFocusableItem.setAttribute("tabindex", "0");
+                    nextFocusableItem.focus();
+                }
+            }
+            else if (e.code === KeyboardCode.ESC) {
+                this.focusToParentAndCloseMenu();
+            }
+            else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+                this.focusToParentAndCloseMenu();
+            }
+        }
+    }
+    getNextItem(menuItems, direction) {
+        if (this.currentIndex === -1) {
+            this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+            return menuItems[this.currentIndex];
+        }
+        this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+        return menuItems[this.currentIndex];
+    }
+    focusToParentAndCloseMenu() {
+        const menuButton = this.hostElement.shadowRoot.querySelector("button");
+        menuButton.focus();
+        this.currentIndex = -1;
+        this.open = false;
     }
     toggle() {
         if (!this.hasContent) {
@@ -29,7 +110,7 @@ export class ZMenuSection {
      * Check if some content slot is set.
      */
     checkContent() {
-        this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+        this.hasContent = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
     }
     /**
      * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
@@ -39,11 +120,18 @@ export class ZMenuSection {
         const labelElement = ev.target.assignedElements()[0];
         labelElement.dataset.text = (labelElement === null || labelElement === void 0 ? void 0 : labelElement.innerText) || null;
     }
+    focusFirstSectionItemOnKeyUp() {
+        const firstElement = this.hostElement.querySelectorAll('[slot="section"]')[0];
+        if (firstElement) {
+            firstElement.focus();
+            this.currentIndex = 0;
+        }
+    }
     componentWillLoad() {
         this.checkContent();
     }
     render() {
-        return (h(Host, { key: '7261f7c68d7e097fe0a70e6f8c0b513958605dbd', role: "menu", open: this.open }, h("button", { key: '74fd64a789a7f9ea93ec118dc2978809e70c5312', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: 'b8e32ae6fc27571d5318eb71ceddea6d87ca3ffa', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { key: '5500c12ff4f374564c03e887a69ceba287a8d577', name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { key: 'ff66588a6fa8fe8968ec9d7e12d6fac3bb1bb45f', class: "items" }, h("slot", { key: 'de19fdba5a89f0a048b6f8e824feacaa80bbe3fc', name: "item", onSlotchange: this.checkContent.bind(this) })))));
+        return (h(Host, { key: '1370ec8c9379a204ed8bfb387ef53f6ad976ce0f', role: "menu", open: this.open }, h("button", { key: '4a474f4f47b9f72f3621a4c1f043f287ebf98d66', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this), onKeyUp: this.focusFirstSectionItemOnKeyUp.bind(this) }, h("slot", { key: '1332d96212421fd936b1ee1e295c856219bfb1cc', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { key: '04b94f8f22bd56d16f7cdb3f394024c5726435e5', name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { key: '01353c9f9b57cce04361849e79c3264f5f106472', class: "items" }, h("slot", { key: '29379c69dff6189d4226246eb859dad6c67ca0ec', name: "section", onSlotchange: this.checkContent.bind(this) })))));
     }
     static get is() { return "z-menu-section"; }
     static get encapsulation() { return "shadow"; }
@@ -120,6 +208,18 @@ export class ZMenuSection {
     static get elementRef() { return "hostElement"; }
     static get listeners() {
         return [{
+                "name": "canvasOpenStatusChanged",
+                "method": "canvasOpenStatusChanged",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }, {
+                "name": "keydown",
+                "method": "handleKeyDown",
+                "target": undefined,
+                "capture": false,
+                "passive": false
+            }, {
                 "name": "click",
                 "method": "handleClick",
                 "target": "document",

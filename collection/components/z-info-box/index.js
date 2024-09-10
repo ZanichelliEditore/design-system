@@ -11,7 +11,7 @@ export class ZInfoBox {
         this.infoBoxClose.emit({ boxid: this.boxid });
     }
     render() {
-        return (h("div", { key: '52cbca4a972a1fb53f65bf86428ee23f8933b616', id: this.boxid }, h("slot", { key: '3b83aa34338ceb6c11f74a316bf50dd77bd0c662', name: "content" }), this.isclosable && (h("z-icon", { key: '2b3f8bbb5ce69105bddac3253047199028f4e2c0', name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() }))));
+        return (h("div", { key: '7b95574bc12ca15eb80f5a710f75e8bcff2ea0cd', id: this.boxid }, h("slot", { key: 'fcd4a9ae4a4efdae1e6a7aa89c77104344122a1a', name: "content" }), this.isclosable && (h("z-icon", { key: '9a757d25f508088be59f2c51ea5ac5c6067f579a', name: "multiply", "data-action": "infoBoxClose", onClick: () => this.emitInfoBoxClose() }))));
     }
     static get is() { return "z-info-box"; }
     static get encapsulation() { return "shadow"; }

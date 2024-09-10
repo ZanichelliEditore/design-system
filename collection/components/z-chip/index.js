@@ -9,11 +9,11 @@ export class ZChip {
         this.ariaLabel = "";
     }
     render() {
-        return (h("div", { key: '97f98567047b81864de0326e6ec89153d83cc1c1', class: {
+        return (h("div", { key: '53ee49e87ccaa13c3c80be83f799d48b5d43b09a', class: {
                 "z-chip-container": true,
                 "z-chip-interactive": !!this.interactiveIcon,
                 [this.type]: true,
-            }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { key: '45a3661a2cbda05351c56bbc9fd697fad9bc96ea', name: this.icon }), h("slot", { key: '9d81610f7d11777a0ab71772f35e610796d65e98' }), this.interactiveIcon && (h("button", { key: '53c13cdad61a96cb139c32923c469e9e1237bc15', type: "button", onClick: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { key: '0baf684cbd662f7b3cedbd2a7468215f896472c6', class: "interactive-icon", name: this.interactiveIcon })))));
+            }, "aria-disabled": this.disabled }, this.icon && h("z-icon", { key: 'd8d6c51f9aeeeec166898f263f75588f3c666cef', name: this.icon }), h("slot", { key: '3f1e2925b5e3ae370d4c37bcbdc95f142ff22a3f' }), this.interactiveIcon && (h("button", { key: '13b028125d5718b882351ab017418246e8bf900d', type: "button", onClick: () => this.interactiveIconClick.emit(), "aria-label": this.ariaLabel, disabled: this.disabled }, h("z-icon", { key: '913f66b93c948aeaf67e89a76d6870c26ce48a31', class: "interactive-icon", name: this.interactiveIcon })))));
     }
     static get is() { return "z-chip"; }
     static get encapsulation() { return "scoped"; }

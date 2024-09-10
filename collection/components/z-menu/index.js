@@ -1,4 +1,5 @@
 import { Host, h } from "@stencil/core";
+import { KeyboardCode } from "../../beans";
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -22,6 +23,103 @@ export class ZMenu {
         this.open = false;
         this.closed.emit();
     }
+    canvasOpenStatusChanged(e) {
+        this.currentCanvasOpenStatus = e.detail;
+    }
+    handleKeyDown(e) {
+        if (e.code === KeyboardCode.ENTER) {
+            return;
+        }
+        if (this.open && !this.currentCanvasOpenStatus) {
+            this.handleNavigationSideArrow(e);
+        }
+        this.handleArrowsNav(e);
+    }
+    handleNavigationSideArrow(e) {
+        if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+            return;
+        }
+        if (e.code === KeyboardCode.ARROW_RIGHT) {
+            const nextElement = this.hostElement.nextElementSibling;
+            if (!nextElement) {
+                const firstMenuItem = this.firstElMenu.shadowRoot.querySelector(".menu-label");
+                firstMenuItem.focus();
+                this.open = false;
+            }
+            if (nextElement && nextElement.tagName === "Z-MENU") {
+                const menuButton = nextElement.shadowRoot.querySelector(".menu-label");
+                menuButton.focus();
+                if (nextElement.children.length > 1) {
+                    nextElement.setAttribute("open", "true");
+                }
+                this.open = false;
+            }
+        }
+        else if (e.code === KeyboardCode.ARROW_LEFT) {
+            const prevElement = this.hostElement.previousElementSibling;
+            if (prevElement.tagName !== "Z-MENU") {
+                const lastElMenuItem = this.lastElMenu.shadowRoot.querySelector(".menu-label");
+                lastElMenuItem.focus();
+                this.open = false;
+            }
+            if (prevElement && prevElement.tagName === "Z-MENU") {
+                const menuButton = prevElement.shadowRoot.querySelector(".menu-label");
+                menuButton.focus();
+                if (prevElement.children.length > 1) {
+                    prevElement.setAttribute("open", "true");
+                }
+                this.open = false;
+            }
+        }
+    }
+    handleArrowsNav(e) {
+        const menuItems = Array.from(this.hostElement.querySelectorAll("[slot='item']"));
+        const newMenuItems = menuItems.map((el) => {
+            if (el.tagName === "Z-MENU-SECTION") {
+                return el.shadowRoot.querySelector("button");
+            }
+            return el;
+        });
+        if (this.open) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+                let nextFocusableItem;
+                // INFO: reset focus on all menu items
+                newMenuItems.forEach((item) => item.setAttribute("tabindex", "-1"));
+                if (e.code === KeyboardCode.ARROW_DOWN) {
+                    nextFocusableItem = this.getNextItem(newMenuItems, 1);
+                }
+                else if (e.code === KeyboardCode.ARROW_UP) {
+                    nextFocusableItem = this.getNextItem(newMenuItems, -1);
+                }
+                if (nextFocusableItem) {
+                    nextFocusableItem.setAttribute("tabindex", "0");
+                    nextFocusableItem.focus();
+                }
+            }
+            else if (e.code === KeyboardCode.ESC) {
+                this.focusToParentAndCloseMenu();
+            }
+            else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+                this.focusToParentAndCloseMenu();
+            }
+        }
+    }
+    getNextItem(menuItems, direction) {
+        if (this.currentIndex === -1) {
+            this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+            return menuItems[this.currentIndex];
+        }
+        this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+        return menuItems[this.currentIndex];
+    }
+    focusToParentAndCloseMenu() {
+        const menuButton = this.hostElement.shadowRoot.querySelector(".menu-label");
+        menuButton.focus();
+        this.currentIndex = -1;
+        this.open = false;
+    }
     onOpenChanged() {
         if (this.open) {
             this.reflow(true);
@@ -31,8 +129,10 @@ export class ZMenu {
         }
     }
     constructor() {
+        this.currentIndex = -1;
+        this.currentCanvasOpenStatus = false;
         this.active = undefined;
-        this.floating = false;
+        this.floating = true;
         this.open = false;
         this.verticalContext = false;
         this.hasHeader = undefined;
@@ -43,6 +143,9 @@ export class ZMenu {
         this.onItemsChange = this.onItemsChange.bind(this);
     }
     componentWillLoad() {
+        const menuItems = Array.from(this.hostElement.parentElement.querySelectorAll('[slot="menu"]'));
+        this.firstElMenu = menuItems[0];
+        this.lastElMenu = menuItems[menuItems.length - 1];
         this.checkContent();
     }
     /**
@@ -86,17 +189,25 @@ export class ZMenu {
         const items = this.hostElement.querySelectorAll("[slot=item]");
         items.forEach((item) => {
             item.setAttribute("role", "menuitem");
+            item.setAttribute("tabindex", "-1");
             item.dataset.text = item.textContent;
         });
     }
+    focusFirstItemOnKeyUp() {
+        const firstElement = this.hostElement.querySelectorAll("[slot='item']")[0];
+        if (firstElement) {
+            firstElement.focus();
+            this.currentIndex = 0;
+        }
+    }
     renderMenuLabel() {
         if (this.hasContent) {
-            return (h("button", { class: "menu-label", "aria-expanded": this.open ? "true" : "false", "aria-label": this.open ? "Chiudi menù" : "Apri menù", onClick: this.toggle }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }), h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" }))));
+            return (h("div", { class: "menu-wrapper" }, h("button", { class: "menu-label", "aria-expanded": this.open ? "true" : "false", "aria-label": this.open ? "Chiudi menù" : "Apri menù", onClick: this.toggle, onKeyUp: this.focusFirstItemOnKeyUp.bind(this) }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }), h("z-icon", { name: this.open ? "chevron-up" : "chevron-down" })))));
         }
-        return (h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange }))));
+        return (h("div", { class: "menu-wrapper" }, h("div", { class: "menu-label" }, h("div", { class: "menu-label-content" }, h("slot", { onSlotchange: this.onLabelSlotChange })))));
     }
     render() {
-        return (h(Host, { key: '675f13eb3d814743037d5e791afd82d8737ba57d' }, this.renderMenuLabel(), this.hasContent && (h("div", { key: '50ef2a4dbf031fa211bc818b7704d46acbe63446', class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { key: '9ed7520b00334a598c7664e0ccb1c4f8bfe3b858', class: "header" }, h("slot", { key: '6a41d2d5802d54bf192fd7f03586df1c933a7877', name: "header", onSlotchange: this.checkContent }))), h("div", { key: '7aa4c1c061559caac915866d1ae2acfe02dc3a8a', class: "items", role: "menu" }, h("slot", { key: '8494b984ad295b61d2cad61a25571220e74b8dff', name: "item", onSlotchange: this.onItemsChange }))))));
+        return (h(Host, { key: 'e2ab0535d927c4ef1dbaf75746a1e7ee1a87858a' }, this.renderMenuLabel(), this.hasContent && (h("div", { key: '3f0a5da5e77bd229ff0ee232afbbf0273d4245cf', class: "content", ref: (el) => (this.content = el) }, this.hasHeader && (h("header", { key: '4264de0204704ad5f16cb1b0617532220ab121fb', class: "header" }, h("slot", { key: '6b88411ff1c87fa1d12f2e6dedcec19605921df9', name: "header", onSlotchange: this.checkContent }))), h("div", { key: '4fab11ecc9b79b5b95d3238da7f25b05b6e36ec9', class: "items", role: "menu" }, h("slot", { key: '42d1e2006d0588e337a5cb9df4688081e128c9f9', name: "item", onSlotchange: this.onItemsChange }))))));
     }
     static get is() { return "z-menu"; }
     static get encapsulation() { return "shadow"; }
@@ -145,7 +256,7 @@ export class ZMenu {
                 },
                 "attribute": "floating",
                 "reflect": true,
-                "defaultValue": "false"
+                "defaultValue": "true"
             },
             "open": {
                 "type": "boolean",
@@ -236,6 +347,18 @@ export class ZMenu {
                 "name": "click",
                 "method": "handleClick",
                 "target": "document",
+                "capture": false,
+                "passive": false
+            }, {
+                "name": "canvasOpenStatusChanged",
+                "method": "canvasOpenStatusChanged",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }, {
+                "name": "keydown",
+                "method": "handleKeyDown",
+                "target": undefined,
                 "capture": false,
                 "passive": false
             }];

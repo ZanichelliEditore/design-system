@@ -20,7 +20,7 @@ export class ZTooltip {
         this.open = this.popoverEl.open;
     }
     render() {
-        return (h("z-popover", { key: 'ed88c22d97e3e84963b0d3b7c6ee03d401aa5ce8', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: '6b3cd438f4ab6cfb3459f67f9e8ea81b554a3ccb' })));
+        return (h("z-popover", { key: '2df25a3fa481ccc045d4a49f464c06d9d9c3e555', ref: (el) => (this.popoverEl = el), bindTo: this.bindTo, open: this.open, position: this.position, closable: this.closable, center: true, showArrow: true }, h("slot", { key: '136991637393809eba3d6c6fad0f44209b8c8960' })));
     }
     static get is() { return "z-tooltip"; }
     static get encapsulation() { return "shadow"; }

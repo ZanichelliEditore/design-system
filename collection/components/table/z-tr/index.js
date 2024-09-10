@@ -43,7 +43,7 @@ export class ZTr {
         this.updateColumns();
     }
     render() {
-        return (h(Host, { key: 'a7834f72abcf18e74ff16ff9dbbcb4e987f673df', role: "row", onClick: this.onRowClick.bind(this), expanded: this.expanded }, h("div", { key: 'badaec159c7abf449da9c7015fb2fa240ce14377', class: "z-tr--expand-button-container" }, this.expandable && (h("button", { key: '6e312e5e8f907d05968b636f6368cda6397214eb', "aria-expanded": this.expanded ? "true" : "false", "aria-label": this.expanded ? "Comprimi riga" : "Espandi riga", "aria-controls": this.expandableContentId, type: "button" }, h("z-icon", { key: 'e054cb205c4a81e1e88509300976133c21f27d0f', name: this.expanded ? "minus-circled" : "plus-circled" })))), h("slot", { key: '95b75f93a1c27d6245e8993dcdfeef3f614c1843', onSlotchange: this.updateColumns.bind(this) })));
+        return (h(Host, { key: '1048c6109f085ef7d6a2c80ee1f821378f1419eb', role: "row", onClick: this.onRowClick.bind(this), expanded: this.expanded }, h("div", { key: 'b4333edd3915db24134ec862e61e42af75544544', class: "z-tr--expand-button-container" }, this.expandable && (h("button", { key: 'f5d0233257d0ffd2d1221b850f9d33565b882bfe', "aria-expanded": this.expanded ? "true" : "false", "aria-label": this.expanded ? "Comprimi riga" : "Espandi riga", "aria-controls": this.expandableContentId, type: "button" }, h("z-icon", { key: '0c0e51bac7a95bab954450447b2bce3dfa0079b6', name: this.expanded ? "minus-circled" : "plus-circled" })))), h("slot", { key: 'f7af8227af6ec842ead9b12ad13a6d1df448c9a6', onSlotchange: this.updateColumns.bind(this) })));
     }
     static get is() { return "z-tr"; }
     static get encapsulation() { return "shadow"; }

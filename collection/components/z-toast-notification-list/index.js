@@ -36,7 +36,7 @@ export class ZToastNotificationList {
         }
     }
     render() {
-        return h("slot", { key: 'ead27e0dd8742e6008aa4fc6ffa4129cae868af8', name: "toasts" });
+        return h("slot", { key: 'c358a615637656bb5b4cd475af919c495a278da5', name: "toasts" });
     }
     static get is() { return "z-toast-notification-list"; }
     static get encapsulation() { return "shadow"; }

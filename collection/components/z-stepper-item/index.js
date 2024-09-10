@@ -15,7 +15,7 @@ export class ZStepperItem {
         return Object.assign(Object.assign(Object.assign(Object.assign({}, href), role), current), tabindex);
     }
     render() {
-        return (h(Host, { key: 'd760ab7aef2991d5ffc8754e4e03263c4c476a6d', role: "listitem" }, h("button", Object.assign({ key: '7fca3fa04459cdea8813db6382726cc601e4e3f8', class: "stepper-item", disabled: this.disabled }, this.getAttributes()), h("div", { key: 'c727b40105af8807c1b7fddf19243147bc2acdab', class: "indicator" }, this.checked ? h("z-icon", { name: "checkmark" }) : this.index), h("span", { key: 'f8d063aeeac60eb9adeaf65774b60ff07bb1c9ba' }, h("slot", { key: 'b0bd5470c318acc8037abb11b974a4cc1f057fd8' })))));
+        return (h(Host, { key: '0994d3d3a8e89f1a93f17cb71baff1c1581bf7e4', role: "listitem" }, h("button", Object.assign({ key: '14becf7e97de2bd909f61cc3aa09b64b45f7ab30', class: "stepper-item", disabled: this.disabled }, this.getAttributes()), h("div", { key: '69f3cd00d2eeaafa65037d939218b2665d34b62b', class: "indicator" }, this.checked ? h("z-icon", { name: "checkmark" }) : this.index), h("span", { key: '8d2ed47daa09ae26562bac42d262ba7c4c5320a4' }, h("slot", { key: '48004d92935fa78bd48df08a9eb3db11662a171b' })))));
     }
     static get is() { return "z-stepper-item"; }
     static get encapsulation() { return "shadow"; }

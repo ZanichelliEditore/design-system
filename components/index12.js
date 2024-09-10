@@ -1,7 +1,7 @@
 import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal/client';
 import { i as ListSize, m as ListType } from './index2.js';
 
-const stylesCss = ":host{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";
+const stylesCss = ":host{display:flex;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}";
 const ZListStyle0 = stylesCss;
 
 const ZList = /*@__PURE__*/ proxyCustomElement(class ZList extends HTMLElement {
@@ -25,7 +25,7 @@ const ZList = /*@__PURE__*/ proxyCustomElement(class ZList extends HTMLElement {
         this.setChildrenSizeType();
     }
     render() {
-        return (h(Host, { key: 'a5269da1127742a7a9e58e8b0e46174c4c990a39' }, h("slot", { key: 'ced862d8fb2e6e4d86212e9dd22ca1c12a184fe3' })));
+        return (h(Host, { key: '633a5d569f1cf8bb85c40da691e254fb9f78f6bd' }, h("slot", { key: 'bd1315c66e0dca81cfe6607f4a82245b94c84e6b' })));
     }
     get host() { return this; }
     static get style() { return ZListStyle0; }

@@ -16,11 +16,11 @@ export class ZPanelElem {
     }
     render() {
         const elemId = this.elemid ? this.elemid : "";
-        return (h("div", { key: 'bbae0bd29656529b2019a66668d6dfbf66b9b0a1', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { key: '620411ca326a5975d3cc21549cfc51a7d7eea519', "aria-hidden": "true", class: "panel-elem-icon" }, h("img", { key: '79a77af32280e5f1e58f794f07c1365da1fa30a7', src: this.imgurl, alt: this.imgalt }))), h("div", { key: '67ad3e575caab6d93bf8d0a17de138ae59fffb35', class: "panel-elem-link" }, h("a", { key: 'f79f44642cbceefd484bbe63e4af6ea03d197fec', class: {
+        return (h("div", { key: '7364ce8b1efc2b30e792693a93f41834a65dd7c6', class: "panel-elem-container" }, (this.imgurl || this.imgalt) && (h("div", { key: '815580b59284ea71764fd9f18b98be4ab69ff1e5', "aria-hidden": "true", class: "panel-elem-icon" }, h("img", { key: 'a736866758f35a8284310a5bc81d08f166aec78c', src: this.imgurl, alt: this.imgalt }))), h("div", { key: '1d154781e2bf59a9a6b1c8ddff324e035095c5ec', class: "panel-elem-link" }, h("a", { key: '3531d557c2145fa3fb96f13c2952d4c2c6e366b8', class: {
                 "z-link": true,
                 "z-link-disabled": this.isdisabled,
                 "z-link-icon": true,
-            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: '0f112223c94273b9baa33da513c60a51dba33e7b', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { key: '4ae5da7e8a2a92be4c801790a90b6907e7ffe6b3', class: "panel-elem-desc" }, h("slot", { key: '4c4e6872a2fe1cb443002a004b5aa1ce18a8f96f', name: this.descrSlotName })))));
+            }, id: elemId + "link_id", href: this.url, target: this.target }, h("z-icon", { key: 'dd6a4750589fe913eeb211025beebb3da7cfc8fd', height: 14, width: 14, name: this.linkicon }), this.linklabel)), this.descrSlotName && (h("div", { key: 'b2cbea114008c9f5c6a560c0e52f60ff9e6f7722', class: "panel-elem-desc" }, h("slot", { key: '73a350ea0ca8bc51e56a5a2879651883669a79b4', name: this.descrSlotName })))));
     }
     static get is() { return "z-panel-elem"; }
     static get encapsulation() { return "scoped"; }

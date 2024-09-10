@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{width:auto;height:340px}:host>div{position:relative;display:-ms-flexbox;display:flex;width:auto;height:340px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}";
+const stylesCss = ":host{width:auto;height:340px}:host>div{position:relative;display:flex;width:auto;height:340px;align-items:center;justify-content:center}";
 const ZMyzCardBodyStyle0 = stylesCss;
 
 const ZMyzCardBody = /*@__PURE__*/ proxyCustomElement(class ZMyzCardBody extends HTMLElement {
@@ -10,7 +10,7 @@ const ZMyzCardBody = /*@__PURE__*/ proxyCustomElement(class ZMyzCardBody extends
         this.__attachShadow();
     }
     render() {
-        return (h("div", { key: '6eaaf5ff0351e8844d3aa616e473712dafcff7fd' }, h("slot", { key: '2984020a0568593cf9dd47aac83c4890c53d7460', name: "alert" }), h("slot", { key: '85e70e9dcd8068d00bdb40e71acaffae88326225', name: "cover" })));
+        return (h("div", { key: 'dccc73da3128968555dc65848994a4f11ee6cea4' }, h("slot", { key: 'bc8948b5bd03b6c49db50a8aa0d46b1078ca328e', name: "alert" }), h("slot", { key: '747327ca24dba0f35ec49d1f85600a5eada44c9e', name: "cover" })));
     }
     static get style() { return ZMyzCardBodyStyle0; }
 }, [1, "z-myz-card-body"]);

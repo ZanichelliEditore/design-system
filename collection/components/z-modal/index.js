@@ -111,16 +111,16 @@ export class ZModal {
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: '15eba99f071f5b0b57743e44b916c4ea6970f07a', class: {
+        return (h("dialog", { key: 'a1e93e72fa4aa80d94192e1fb18bca7a50ad0aa3', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '82ac5037fd70c3661dce7bd34300dd249aa1e052', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '5346f87a3812911b434a2b9b95691e86ecaeb853', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '4885ed46b798305fc01456487c500aa89fbced3e', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '87d47369f0bb766cead5aee4889b0f7fbf96ded3' }, this.modaltitle && h("h1", { key: '79974d32cd15dc7c423f7cdd570f7eeb88c66b3f', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: 'da3e80cba34e51cf4c635839e7e989872144625f', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'a4fea6c1784848e10390553f879873a7140d87d3', class: {
+            }, id: this.modalid }, h("header", { key: 'ae7f3aa101e7a55276c4a07a58fd126da494ba83', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '6938cbb56171186773c6b2d14323bde7d2f40761' }, this.modaltitle && h("h1", { key: '0cc3ee46b3598ec91465c1f8668b399c0c32034f', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '453e07da973d95eed5e66c4768c86cfe47cadbf3', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'bb5a5facd7b854e172a4f0502f97a6fffc03552a', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: '2ff2465682aeb86fac11b7dd3edd788946295bc7', name: "modalContent" }))), h("div", { key: '1ad45c5b879fd7ae2d3d3560e7ad4199e8c0268d', class: {
+            }, id: "modal-content" }, h("slot", { key: '3c2b58be34c464e06065258e710853e716d415df', name: "modalContent" }))), h("div", { key: '2b0e3e016ba08aeb65307ead19d9ca2ca408a85d', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

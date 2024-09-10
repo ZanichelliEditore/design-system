@@ -6,7 +6,7 @@ export class ZMyzCardIcon {
         this.ariaLabel = "";
     }
     render() {
-        return (h("button", { key: 'd07c0ca573477aa1045a68da5f4fe528243ce36f', disabled: this.isdisabled, "aria-label": this.ariaLabel }, h("span", { key: 'd4fbc76e9d771efc6fba0f0f311e30261c4bb070' }, h("z-icon", { key: '7a27b69214edf71caff54e1b0619f1b8ce7f1003', name: this.icon, width: 16, height: 16 }))));
+        return (h("button", { key: '204f6d7ba43b9300ce8f4fbbd7d27849e7db1c8a', disabled: this.isdisabled, "aria-label": this.ariaLabel }, h("span", { key: '660c3c2bd313decba37ea630f83ce74c0b2f4153' }, h("z-icon", { key: '22fdf366571f73909d2411a0b745184a6d39b098', name: this.icon, width: 16, height: 16 }))));
     }
     static get is() { return "z-myz-card-icon"; }
     static get encapsulation() { return "shadow"; }

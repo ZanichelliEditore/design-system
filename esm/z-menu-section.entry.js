@@ -1,6 +1,7 @@
-import { r as registerInstance, c as createEvent, h, a as Host, g as getElement } from './index-ab5f1eaa.js';
+import { r as registerInstance, c as createEvent, h, a as Host, g as getElement } from './index-a2130b6a.js';
+import { g as KeyboardCode } from './index-b7dbacb4.js';
 
-const stylesCss = ":host{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:start;align-items:flex-start;-ms-flex-pack:center;justify-content:center;padding:0;font-family:var(--font-family-sans)}:host,::slotted(*),*{-webkit-box-sizing:border-box;box-sizing:border-box}::slotted(a){text-decoration:none}::slotted(*){color:var(--color-default-text);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host(:is([active],[open])) .label,.label:hover{border-color:var(--color-secondary01)}:host(:is([active],[open])) .label ::slotted(*),.label:focus:focus-visible ::slotted(*),.label:hover ::slotted(*){font-weight:var(--font-bd)}.label{display:-ms-flexbox;display:flex;width:100%;-ms-flex-align:center;align-items:center;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);border:0;border-bottom:var(--border-size-small) solid var(--color-surface05);margin:0;background:transparent;border-radius:0;cursor:pointer;text-align:left}::slotted([data-text]){display:-ms-inline-flexbox;display:inline-flex;-ms-flex-direction:column;flex-direction:column}::slotted([data-text])::after{overflow:hidden;height:0;content:attr(data-text);content:attr(data-text) / \"\";font-weight:var(--font-bd);pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;visibility:hidden}@media speech{::slotted([data-text])::after{display:none}}.label ::slotted(*){width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25}.label:focus:focus-visible{-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);outline:none}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:var(--color-default-icon)}.items{display:-ms-flexbox;display:flex;width:100%;-ms-flex-direction:column;flex-direction:column;padding:calc(var(--space-unit) / 2);padding-bottom:calc(var(--space-unit) * 1.5)}.items>::slotted([slot=\"item\"]){display:-ms-inline-flexbox;display:inline-flex;padding:calc(var(--space-unit) / 2);margin:0;font-size:var(--font-size-2);line-height:1.4;outline:none}.items>::slotted([slot=\"item\"]:focus:focus-visible){-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);color:var(--color-secondary01)}.items>::slotted([slot=\"item\"]:hover),.items>::slotted([slot=\"item\"]:focus:focus-visible),.items>::slotted([slot=\"item\"][active]){color:var(--color-secondary01);font-weight:var(--font-bd)}";
+const stylesCss = ":host{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0;font-family:var(--font-family-sans)}:host,::slotted(*),*{box-sizing:border-box}::slotted(a){text-decoration:none}::slotted(*){color:var(--color-default-text);font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host(:is([active],[open])) .label,.label:hover{border-color:var(--color-secondary01)}:host(:is([active],[open])) .label ::slotted(*),.label:focus:focus-visible ::slotted(*),.label:hover ::slotted(*){font-weight:var(--font-bd)}.label{display:flex;width:100%;align-items:center;padding:calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);border:0;border-bottom:var(--border-size-small) solid var(--color-surface05);margin:0;background:transparent;border-radius:0;cursor:pointer;text-align:left}::slotted([data-text]){display:inline-flex;flex-direction:column}::slotted([data-text])::after{overflow:hidden;height:0;content:attr(data-text);content:attr(data-text) / \"\";font-weight:var(--font-bd);pointer-events:none;user-select:none;visibility:hidden}@media speech{::slotted([data-text])::after{display:none}}.label ::slotted(*){width:100%;margin:0;font-size:var(--font-size-3);line-height:1.25}.label:focus:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none}.label z-icon{margin-left:calc(var(--space-unit) * 4);fill:var(--color-default-icon)}.items{display:flex;width:100%;flex-direction:column;padding:calc(var(--space-unit) / 2);padding-bottom:calc(var(--space-unit) * 1.5)}.items>::slotted([slot=\"section\"]){display:inline-flex;padding:calc(var(--space-unit) / 2);margin:0;font-size:var(--font-size-2);line-height:1.4;outline:none}.items>::slotted([slot=\"section\"]:focus:focus-visible){box-shadow:var(--shadow-focus-primary);color:var(--color-secondary01)}.items>::slotted([slot=\"section\"]:hover),.items>::slotted([slot=\"section\"]:focus:focus-visible),.items>::slotted([slot=\"section\"][active]){color:var(--color-secondary01);font-weight:var(--font-bd)}";
 const ZMenuSectionStyle0 = stylesCss;
 
 const ZMenuSection = class {
@@ -8,9 +9,89 @@ const ZMenuSection = class {
         registerInstance(this, hostRef);
         this.opened = createEvent(this, "opened", 7);
         this.closed = createEvent(this, "closed", 7);
+        this.currentIndex = -1;
+        this.currentCanvasOpenStatus = false;
         this.active = undefined;
         this.open = undefined;
         this.hasContent = undefined;
+    }
+    canvasOpenStatusChanged(e) {
+        this.currentCanvasOpenStatus = e.detail;
+    }
+    handleKeyDown(e) {
+        if (e.code === KeyboardCode.ENTER) {
+            return;
+        }
+        if (this.open && !this.currentCanvasOpenStatus) {
+            this.handleNavigationSideArrow(e);
+        }
+        this.handleArrowsNav(e);
+    }
+    handleNavigationSideArrow(e) {
+        if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+            return;
+        }
+        if (e.code === KeyboardCode.ARROW_RIGHT) {
+            const nextElement = this.hostElement.parentElement.nextElementSibling;
+            if (nextElement) {
+                const menuButton = nextElement.shadowRoot.querySelector(".menu-label");
+                console.log(this.hostElement.parentElement);
+                menuButton.focus();
+            }
+            this.open = false;
+            nextElement.setAttribute("open", "true");
+        }
+        else if (e.code === KeyboardCode.ARROW_LEFT) {
+            const prevElement = this.hostElement.parentElement.previousElementSibling;
+            if (prevElement) {
+                const menuButton = prevElement.shadowRoot.querySelector(".menu-label");
+                menuButton.focus();
+            }
+            prevElement.setAttribute("open", "true");
+            this.open = false;
+        }
+    }
+    handleArrowsNav(e) {
+        const menuItems = Array.from(this.hostElement.querySelectorAll('[slot="section"]'));
+        if (this.open) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+                let nextFocusableItem;
+                // INFO: reset focus on all menu items
+                menuItems.forEach((item) => item.setAttribute("tabindex", "-1"));
+                if (e.code === KeyboardCode.ARROW_DOWN) {
+                    nextFocusableItem = this.getNextItem(menuItems, 1);
+                }
+                else if (e.code === KeyboardCode.ARROW_UP) {
+                    nextFocusableItem = this.getNextItem(menuItems, -1);
+                }
+                if (nextFocusableItem) {
+                    nextFocusableItem.setAttribute("tabindex", "0");
+                    nextFocusableItem.focus();
+                }
+            }
+            else if (e.code === KeyboardCode.ESC) {
+                this.focusToParentAndCloseMenu();
+            }
+            else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+                this.focusToParentAndCloseMenu();
+            }
+        }
+    }
+    getNextItem(menuItems, direction) {
+        if (this.currentIndex === -1) {
+            this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+            return menuItems[this.currentIndex];
+        }
+        this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+        return menuItems[this.currentIndex];
+    }
+    focusToParentAndCloseMenu() {
+        const menuButton = this.hostElement.shadowRoot.querySelector("button");
+        menuButton.focus();
+        this.currentIndex = -1;
+        this.open = false;
     }
     toggle() {
         if (!this.hasContent) {
@@ -31,7 +112,7 @@ const ZMenuSection = class {
      * Check if some content slot is set.
      */
     checkContent() {
-        this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+        this.hasContent = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
     }
     /**
      * Sets slotted item text as `data-text` attribute value, to let CSS use it through `attr()`.
@@ -41,11 +122,18 @@ const ZMenuSection = class {
         const labelElement = ev.target.assignedElements()[0];
         labelElement.dataset.text = (labelElement === null || labelElement === void 0 ? void 0 : labelElement.innerText) || null;
     }
+    focusFirstSectionItemOnKeyUp() {
+        const firstElement = this.hostElement.querySelectorAll('[slot="section"]')[0];
+        if (firstElement) {
+            firstElement.focus();
+            this.currentIndex = 0;
+        }
+    }
     componentWillLoad() {
         this.checkContent();
     }
     render() {
-        return (h(Host, { key: '7261f7c68d7e097fe0a70e6f8c0b513958605dbd', role: "menu", open: this.open }, h("button", { key: '74fd64a789a7f9ea93ec118dc2978809e70c5312', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this) }, h("slot", { key: 'b8e32ae6fc27571d5318eb71ceddea6d87ca3ffa', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { key: '5500c12ff4f374564c03e887a69ceba287a8d577', name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { key: 'ff66588a6fa8fe8968ec9d7e12d6fac3bb1bb45f', class: "items" }, h("slot", { key: 'de19fdba5a89f0a048b6f8e824feacaa80bbe3fc', name: "item", onSlotchange: this.checkContent.bind(this) })))));
+        return (h(Host, { key: '1370ec8c9379a204ed8bfb387ef53f6ad976ce0f', role: "menu", open: this.open }, h("button", { key: '4a474f4f47b9f72f3621a4c1f043f287ebf98d66', class: "label", "aria-pressed": this.open ? "true" : "false", onClick: this.toggle.bind(this), onKeyUp: this.focusFirstSectionItemOnKeyUp.bind(this) }, h("slot", { key: '1332d96212421fd936b1ee1e295c856219bfb1cc', onSlotchange: this.onLabelSlotChange.bind(this) }), this.hasContent && h("z-icon", { key: '04b94f8f22bd56d16f7cdb3f394024c5726435e5', name: this.open ? "chevron-up" : "chevron-down" })), this.open && (h("div", { key: '01353c9f9b57cce04361849e79c3264f5f106472', class: "items" }, h("slot", { key: '29379c69dff6189d4226246eb859dad6c67ca0ec', name: "section", onSlotchange: this.checkContent.bind(this) })))));
     }
     get hostElement() { return getElement(this); }
 };

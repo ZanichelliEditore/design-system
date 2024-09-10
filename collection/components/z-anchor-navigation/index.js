@@ -49,7 +49,7 @@ export class ZAnchorNavigation {
         window.removeEventListener("hashchange", this.setCurrent);
     }
     render() {
-        return (h(Host, { key: '6869675f35b8ca58e36058d10ed89301d2b49034', collapsed: this.collapsed }, h("z-button", { key: 'd6bacaf89ac6731dacb2250793c7ffba4a43a989', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: '0c308debc3e444015e1c8733af628d0b7a5d8b6e', ref: (el) => (this.nav = el) }, h("slot", { key: '02b49c5a23db78d839ba6320f1cbbd770cfa6d3f' }))));
+        return (h(Host, { key: 'b4e85ef373611b9543bab61b0045437916d9cd09', collapsed: this.collapsed }, h("z-button", { key: '97dfa2f7f35db72615f5a263dd13d4c3db94c0b4', class: "toggle", variant: ButtonVariant.SECONDARY, icon: this.collapsed ? "chevron-up" : "chevron-down", onClick: this.toggleCollapsed.bind(this) }, "salta a"), h("nav", { key: '8e51117f3e341260b9a1794ff2432811dfba0683', ref: (el) => (this.nav = el) }, h("slot", { key: '2d1c7cece920f74947f5e07565498b162680d87b' }))));
     }
     static get is() { return "z-anchor-navigation"; }
     static get originalStyleUrls() {

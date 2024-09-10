@@ -24,10 +24,10 @@ export class ZAvatar {
         }
     }
     render() {
-        return (h(Host, { key: '63564a1499f36b406dcece1fd47bb0aa8e06ed6d', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
+        return (h(Host, { key: '4be97c710d33cc6dd35c1f0a7141b7f13c6e161f', class: { [this.size]: true, [`body-${this.getTextSize()}-sb`]: true }, style: {
                 color: `var(--${this.textColor})`,
                 backgroundColor: `var(--${this.backgroundColor})`,
-            } }, this.text && !this.image && h("span", { key: '9813952059608df9a5cdf74db7038aec2751dfa8' }, this.text.substring(0, 2)), this.image && (h("img", { key: 'd918f83b5212cb7618e30a0dc040f0c312341386', src: this.image, onError: () => (this.image = "") }))));
+            } }, this.text && !this.image && h("span", { key: 'af2d27fb007244f5830151e24e68cc757761d84e' }, this.text.substring(0, 2)), this.image && (h("img", { key: 'c507bc501c79eeb009e979242b5224a1fab85470', src: this.image, onError: () => (this.image = "") }))));
     }
     static get is() { return "z-avatar"; }
     static get encapsulation() { return "shadow"; }

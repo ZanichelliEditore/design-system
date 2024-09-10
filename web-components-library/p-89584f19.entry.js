@@ -1,0 +1,2 @@
+import{r as a,h as r,a as t}from"./p-cfa39bd3.js";import{t as s}from"./p-6037cdf3.js";const e=class{constructor(r){a(this,r);this.mode=s.POLITE}render(){return r(t,{key:"851bdac7b9b7c2dd4a5042a78cfacfe234051928","aria-live":this.mode,"aria-atomic":"true","aria-relevant":"additions"},r("slot",{key:"e3217c0633b68f55bd62c26fd1afb6d00dfe2708"}))}};export{e as z_aria_alert};
+//# sourceMappingURL=p-89584f19.entry.js.map

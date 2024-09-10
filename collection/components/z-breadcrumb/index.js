@@ -193,10 +193,10 @@ export class ZBreadcrumb {
         ];
     }
     render() {
-        return (h(Host, { key: 'bba9d5bf2b1316c4e29eebcc00cb23c3e6635a36', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '4d916bcbb730f4e3cd0d051b630336db7222aa30', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+        return (h(Host, { key: '103caf1740a6663402282211d961204bce9b8a70', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '6fea4845c60c77671d59abc70d9b4d10ce33c0f7', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
                 semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
                 underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-            } }, h("ol", { key: '654d8e9cad8417a155f1bc349b7b16687c8db96e' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
+            } }, h("ol", { key: '608d68e56a5810e77358afc316d5d4d721155628' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     static get is() { return "z-breadcrumb"; }
     static get encapsulation() { return "shadow"; }

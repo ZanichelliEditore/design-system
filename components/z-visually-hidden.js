@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);-webkit-clip-path:inset(50%);clip-path:inset(50%);white-space:nowrap}";
+const stylesCss = ":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}";
 const ZVisuallyHiddenStyle0 = stylesCss;
 
 const ZVisuallyHidden$1 = /*@__PURE__*/ proxyCustomElement(class ZVisuallyHidden extends HTMLElement {
@@ -10,7 +10,7 @@ const ZVisuallyHidden$1 = /*@__PURE__*/ proxyCustomElement(class ZVisuallyHidden
         this.__attachShadow();
     }
     render() {
-        return h("slot", { key: 'ae350dcba13aae6abc2f746555896c973baea496' });
+        return h("slot", { key: 'a99984e228cda9c10f7f96987a24ea9e1d695951' });
     }
     static get style() { return ZVisuallyHiddenStyle0; }
 }, [1, "z-visually-hidden"]);

@@ -3,7 +3,7 @@ import { f as InputStatus } from './index2.js';
 import { d as defineCustomElement$3 } from './index9.js';
 import { d as defineCustomElement$2 } from './index11.js';
 
-const stylesCss = "input:focus{-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);outline:none !important}:host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}.digits-container{display:-ms-flexbox;display:flex;-ms-flex-pack:start;justify-content:flex-start}input{width:calc(var(--space-unit) * 5);height:72px;-webkit-box-sizing:border-box;box-sizing:border-box;padding:0;caret-color:transparent;color:var(--color-surface05);font-family:var(--font-family-sans);font-size:32px;font-weight:300;text-align:center}input.error{border:1px solid;border-color:var(--color-error01);background-color:var(--color-error-inverse);border-radius:4px}input:not(:last-of-type){margin-right:var(--space-unit)}@media only screen and (min-width: 768px){input:not(:last-of-type){margin-right:calc(var(--space-unit) * 2)}}@media only screen and (min-width: 1025px){input{width:calc(var(--space-unit) * 6)}}";
+const stylesCss = "input:focus{box-shadow:var(--shadow-focus-primary);outline:none !important}:host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}.digits-container{display:flex;justify-content:flex-start}input{width:calc(var(--space-unit) * 5);height:72px;box-sizing:border-box;padding:0;caret-color:transparent;color:var(--color-surface05);font-family:var(--font-family-sans);font-size:32px;font-weight:300;text-align:center}input.error{border:1px solid;border-color:var(--color-error01);background-color:var(--color-error-inverse);border-radius:4px}input:not(:last-of-type){margin-right:var(--space-unit)}@media only screen and (min-width: 768px){input:not(:last-of-type){margin-right:calc(var(--space-unit) * 2)}}@media only screen and (min-width: 1025px){input{width:calc(var(--space-unit) * 6)}}";
 const ZOtpStyle0 = stylesCss;
 
 const ZOtp$1 = /*@__PURE__*/ proxyCustomElement(class ZOtp extends HTMLElement {
@@ -24,7 +24,7 @@ const ZOtp$1 = /*@__PURE__*/ proxyCustomElement(class ZOtp extends HTMLElement {
         this.otpRef = [...Array(this.inputNum)];
     }
     render() {
-        return (h("div", { key: 'fbf93bab3be1631c25a91ada084e944562c75f47', class: "otp-container" }, h("div", { key: '9c08739270a3875e3550a35c3660be90eb192d7c', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
+        return (h("div", { key: '501979362aafae33a4266f38a5785e0e328dba1b', class: "otp-container" }, h("div", { key: 'ca4b4646af395228586dd55ba5cb335b6492347b', class: "digits-container" }, this.otp.map((_val, i) => (h("input", { class: this.status == InputStatus.ERROR ? "error" : null, onKeyDown: (e) => {
                 if (e.keyCode > 47) {
                     this.otpRef[i].value = "";
                 }
@@ -35,7 +35,7 @@ const ZOtp$1 = /*@__PURE__*/ proxyCustomElement(class ZOtp extends HTMLElement {
             }, onInput: (e) => {
                 this.otp[i] = e.target.value;
                 this.emitInputChange(this.otp.join(""));
-            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: 'f1800b92331f15ab96cb7bf3c23c6d0164e2bee6', message: this.message, status: this.status })));
+            }, type: "text", minlength: "1", maxlength: "1", autoComplete: "off", ref: (el) => (this.otpRef[i] = el) })))), h("z-input-message", { key: 'ce018353101dac73e4dc0ec9d78918f614a85247', message: this.message, status: this.status })));
     }
     static get style() { return ZOtpStyle0; }
 }, [1, "z-otp", {

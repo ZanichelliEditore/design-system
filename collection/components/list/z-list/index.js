@@ -18,7 +18,7 @@ export class ZList {
         this.setChildrenSizeType();
     }
     render() {
-        return (h(Host, { key: 'a5269da1127742a7a9e58e8b0e46174c4c990a39' }, h("slot", { key: 'ced862d8fb2e6e4d86212e9dd22ca1c12a184fe3' })));
+        return (h(Host, { key: '633a5d569f1cf8bb85c40da691e254fb9f78f6bd' }, h("slot", { key: 'bd1315c66e0dca81cfe6607f4a82245b94c84e6b' })));
     }
     static get is() { return "z-list"; }
     static get encapsulation() { return "shadow"; }

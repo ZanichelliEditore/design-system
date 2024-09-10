@@ -22,14 +22,14 @@ export class ZToggleSwitch {
         this.emitToggleClick();
     }
     render() {
-        return (h(Host, { key: '1435f2d332c0a6ba1845640836e129eee281f1b0' }, h("input", { key: 'baea7ca82f300316bd418cadfc82718da7dc2f18', id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }), h("label", { key: '510a2f196cd5f67af2602c5c6e948e2f63395f6f', htmlFor: this.htmlid, class: {
+        return (h(Host, { key: 'cd90ad41b289f192e485c0cce90ae2a8057ddd7d' }, h("input", { key: '5cc5e59f8cc0cc0548b072e41149cf7dc31bbcd8', id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }), h("label", { key: '9774cc39f7ebe6bd02c5ce0e05d1b53075f4e426', htmlFor: this.htmlid, class: {
                 [this.labelPosition]: true,
                 disabled: this.disabled,
-            } }, h("span", { key: 'e32ef84026463fb9a99bcb303d0097ffed6ee994' }, h("slot", { key: '07344703d351893b5ab39e4e4a617e4038f1042a' })), h("span", { key: 'cec720a047a8fbc016048e9139639e04233f8f24', class: {
+            } }, h("span", { key: '074941585b8a5862f04bd2d404ab74c86bcaa250' }, h("slot", { key: '7fe6486df9479e76a7783646aed3e620f7f1d0f2' })), h("span", { key: 'd4bf4b3febdab1bf8e88c12e1c7aa421b020997c', class: {
                 container: true,
                 disabled: this.disabled,
                 checked: this.checked,
-            } }, h("span", { key: '4639384b98d6de8009678681d71d1097b2c687e6', class: "circle" }, this.checked && (h("z-icon", { key: 'd34f45d60cece7a6969be1a03ad51be4ab0b0f04', width: 12, height: 12, name: "checkmark" })))))));
+            } }, h("span", { key: 'c46c06ff10a35060945b9298a551cf66508a5450', class: "circle" }, this.checked && (h("z-icon", { key: '7ed667dc510d42e3e001ad8cb82b5c5f9d012583', width: 12, height: 12, name: "checkmark" })))))));
     }
     static get is() { return "z-toggle-switch"; }
     static get encapsulation() { return "scoped"; }

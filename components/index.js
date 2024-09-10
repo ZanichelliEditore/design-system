@@ -5,6 +5,7 @@ export { ZAccordion, defineCustomElement as defineCustomElementZAccordion } from
 export { ZAlert, defineCustomElement as defineCustomElementZAlert } from './z-alert.js';
 export { ZAnchorNavigation, defineCustomElement as defineCustomElementZAnchorNavigation } from './z-anchor-navigation.js';
 export { ZAppHeader, defineCustomElement as defineCustomElementZAppHeader } from './z-app-header.js';
+export { ZAppHeaderDeprecated, defineCustomElement as defineCustomElementZAppHeaderDeprecated } from './z-app-header-deprecated.js';
 export { ZAriaAlert, defineCustomElement as defineCustomElementZAriaAlert } from './z-aria-alert.js';
 export { ZAvatar, defineCustomElement as defineCustomElementZAvatar } from './z-avatar.js';
 export { ZBookCard, defineCustomElement as defineCustomElementZBookCard } from './z-book-card.js';
@@ -32,7 +33,9 @@ export { ZListElement, defineCustomElement as defineCustomElementZListElement } 
 export { ZListGroup, defineCustomElement as defineCustomElementZListGroup } from './z-list-group.js';
 export { ZLogo, defineCustomElement as defineCustomElementZLogo } from './z-logo.js';
 export { ZMenu, defineCustomElement as defineCustomElementZMenu } from './z-menu.js';
+export { ZMenuDeprecated, defineCustomElement as defineCustomElementZMenuDeprecated } from './z-menu-deprecated.js';
 export { ZMenuSection, defineCustomElement as defineCustomElementZMenuSection } from './z-menu-section.js';
+export { ZMenuSectionDeprecated, defineCustomElement as defineCustomElementZMenuSectionDeprecated } from './z-menu-section-deprecated.js';
 export { ZModal, defineCustomElement as defineCustomElementZModal } from './z-modal.js';
 export { ZMyzCard, defineCustomElement as defineCustomElementZMyzCard } from './z-myz-card.js';
 export { ZMyzCardAlert, defineCustomElement as defineCustomElementZMyzCardAlert } from './z-myz-card-alert.js';

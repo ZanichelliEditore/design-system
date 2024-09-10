@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
 
-const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.dragdrop{position:relative;display:-ms-flexbox;display:flex;height:228px;-ms-flex-direction:column;flex-direction:column;padding:calc(var(--space-unit) * 2);border-color:var(--color-surface04);background-color:var(--color-surface02);background-image:url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e\");border-radius:2px;color:var(--color-default-text)}:host>.dragdrop:focus-visible{-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary);outline:none !important}:host>.dragdrop.dragover *{pointer-events:none}:host>.dragdrop .dragover-container{position:absolute;z-index:10;top:0;left:0;display:none;width:100%;height:100%;background-color:var(--color-primary03);-webkit-box-shadow:var(--shadow-focus-primary);box-shadow:var(--shadow-focus-primary)}:host>.dragdrop .dragover-container .dragover-message{padding:10px 28px;background-color:var(--color-link-primary);color:var(--color-text-inverse)}:host>.dragdrop.dragover .dragover-container{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}";
+const stylesCss = ":host{font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>.dragdrop{position:relative;display:flex;height:228px;flex-direction:column;padding:calc(var(--space-unit) * 2);border-color:var(--color-surface04);background-color:var(--color-surface02);background-image:url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='2' ry='2' stroke='%23CACCCEFF' stroke-width='2' stroke-dasharray='15%2c 10%2c 14%2c 11' stroke-dashoffset='3' stroke-linecap='square'/%3e%3c/svg%3e\");border-radius:2px;color:var(--color-default-text)}:host>.dragdrop:focus-visible{box-shadow:var(--shadow-focus-primary);outline:none !important}:host>.dragdrop.dragover *{pointer-events:none}:host>.dragdrop .dragover-container{position:absolute;z-index:10;top:0;left:0;display:none;width:100%;height:100%;background-color:var(--color-primary03);box-shadow:var(--shadow-focus-primary)}:host>.dragdrop .dragover-container .dragover-message{padding:10px 28px;background-color:var(--color-link-primary);color:var(--color-text-inverse)}:host>.dragdrop.dragover .dragover-container{display:flex;align-items:center;justify-content:center}";
 const ZDragdropAreaStyle0 = stylesCss;
 
 const ZDragdropArea = /*@__PURE__*/ proxyCustomElement(class ZDragdropArea extends HTMLElement {
@@ -18,7 +18,7 @@ const ZDragdropArea = /*@__PURE__*/ proxyCustomElement(class ZDragdropArea exten
         return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
     }
     render() {
-        return (h("div", { key: '41334ac77bca3fb0d30518480b702c815d95b125', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
+        return (h("div", { key: '1b7b83c36eaed52bc0a7c1bd935aeb457199bd68', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
                 e.preventDefault();
                 this.dragDropContainer.classList.add("dragover");
             }, onDragLeave: () => {
@@ -29,7 +29,7 @@ const ZDragdropArea = /*@__PURE__*/ proxyCustomElement(class ZDragdropArea exten
                     this.dragDropContainer.classList.remove("dragover");
                     this.fileDroppedHandler(e.dataTransfer.files);
                 }
-            } }, this.renderOnDragOverMessage(), h("slot", { key: '83344ee14fcec799690b644fe0a56cc86e1b4476' })));
+            } }, this.renderOnDragOverMessage(), h("slot", { key: '45848602ab9f4c3318f506386d174cf8ec2fc84b' })));
     }
     static get style() { return ZDragdropAreaStyle0; }
 }, [1, "z-dragdrop-area", {

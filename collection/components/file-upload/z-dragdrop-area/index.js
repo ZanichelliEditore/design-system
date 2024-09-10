@@ -10,7 +10,7 @@ export class ZDragdropArea {
         return (h("div", { class: "dragover-container" }, h("div", { class: "dragover-message" }, h("span", { class: "body-2-sb" }, this.dragAndDropLabel))));
     }
     render() {
-        return (h("div", { key: '41334ac77bca3fb0d30518480b702c815d95b125', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
+        return (h("div", { key: '1b7b83c36eaed52bc0a7c1bd935aeb457199bd68', tabIndex: 0, ref: (val) => (this.dragDropContainer = val), class: "dragdrop", onDragOver: (e) => {
                 e.preventDefault();
                 this.dragDropContainer.classList.add("dragover");
             }, onDragLeave: () => {
@@ -21,7 +21,7 @@ export class ZDragdropArea {
                     this.dragDropContainer.classList.remove("dragover");
                     this.fileDroppedHandler(e.dataTransfer.files);
                 }
-            } }, this.renderOnDragOverMessage(), h("slot", { key: '83344ee14fcec799690b644fe0a56cc86e1b4476' })));
+            } }, this.renderOnDragOverMessage(), h("slot", { key: '45848602ab9f4c3318f506386d174cf8ec2fc84b' })));
     }
     static get is() { return "z-dragdrop-area"; }
     static get encapsulation() { return "shadow"; }

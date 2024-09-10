@@ -35,9 +35,9 @@ export class ZCoverHero {
         return (h("div", { class: "content-container" }, h("slot", { name: "content" })));
     }
     render() {
-        return (h(Host, { key: '782c8ef237b2744069752392ab29176ae65bf798' }, this.variant === CoverHeroVariant.STACKED &&
+        return (h(Host, { key: '0442ee31b5680684016e70c34f6fe5e2c3b9fce2' }, this.variant === CoverHeroVariant.STACKED &&
             this.contentPosition === CoverHeroContentPosition.TOP &&
-            this.renderContent(), h("div", { key: '97f1b49350218a75b19946a46190c63c15f70058', class: "main-container" }, h("div", { key: '2dc3210d8807b998ad1823bb2776d59a762f15dd', class: "cover-container" }, h("slot", { key: '2ab5b85aa02c25ee81ecafb3db91e0e57df549b3', name: "cover" })), h("slot", { key: 'a77f81fef651d1aae577079c4918cb26fb9af328', name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), this.variant === CoverHeroVariant.STACKED &&
+            this.renderContent(), h("div", { key: '06709aca22e8f925ed0a3fcb3f0bd4f6e25f5893', class: "main-container" }, h("div", { key: '1e963192dbb9782b11f196f21a9722accc42999d', class: "cover-container" }, h("slot", { key: '698d87aaf8c141a3a781e238e9b13619cc4c60d3', name: "cover" })), h("slot", { key: '5f92a6143b679620fdfe5149b2af891da718665d', name: "info-reveal" }), this.variant === CoverHeroVariant.OVERLAY && this.renderContent()), this.variant === CoverHeroVariant.STACKED &&
             this.contentPosition === CoverHeroContentPosition.BOTTOM &&
             this.renderContent()));
     }

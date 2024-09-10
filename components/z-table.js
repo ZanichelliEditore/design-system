@@ -2,7 +2,7 @@ import { proxyCustomElement, HTMLElement, h, Host } from '@stencil/core/internal
 import './index2.js';
 import './iconset.js';
 
-const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content}";
+const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 const ZTableStyle0 = stylesCss;
 
 const ZTable$1 = /*@__PURE__*/ proxyCustomElement(class ZTable extends HTMLElement {
@@ -36,7 +36,7 @@ const ZTable$1 = /*@__PURE__*/ proxyCustomElement(class ZTable extends HTMLEleme
         (_a = this.expandableMutationObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: '5f7370afd7912583561ac67baf5b70921c49eea2', expandable: this.expandable }, h("div", { key: '8cbf774ffe599cf49ed9377c2ff3c1e0e8d14e85', class: "table", role: "table" }, h("slot", { key: '318eceb0c4e486a49faab1fe7027acfa76456352' }))));
+        return (h(Host, { key: '2d8e50a74ff7ccf3c6dc4f5324a512177ad52f45', expandable: this.expandable }, h("div", { key: '5e1d9d44dc90ac06683bf5306f7eecadffe807fe', class: "table", role: "table" }, h("slot", { key: '12a615e336a4ad50390a2ab0b12b2d20b3503f06' }))));
     }
     get host() { return this; }
     static get style() { return ZTableStyle0; }

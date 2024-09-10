@@ -112,6 +112,8 @@ var KeyboardCode;
     KeyboardCode["ARROW_DOWN"] = "ArrowDown";
     KeyboardCode["BACKSPACE"] = "Backspace";
     KeyboardCode["DELETE"] = "Delete";
+    KeyboardCode["ARROW_RIGHT"] = "ArrowRight";
+    KeyboardCode["ARROW_LEFT"] = "ArrowLeft";
 })(KeyboardCode || (KeyboardCode = {}));
 var ThemeVariant;
 (function (ThemeVariant) {

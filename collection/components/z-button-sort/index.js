@@ -36,7 +36,7 @@ export class ZButtonSort {
         return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
     }
     render() {
-        return (h("button", { key: 'ec1021febf46cd3a012af1142e74157e16e6b363', title: this.setButtonTitle(), id: this.buttonid, class: { selected: this.isselected }, onClick: () => this.emitButtonSortClick() }, h("span", { key: '84013f6114589408dc62323285a1441c94fc9ddf', ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label), h("span", { key: 'bc938175d5453e7c59f577b92452d63658417e0a', class: "counter" }, this.counter && ` (${this.counter})`), h("span", { key: '10fba0801dcbc47569e79c81179d7a485dc3582e', class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { key: '51035628c557620d4681db63a6a1b6080b57275a', name: "caret-up-down", width: 16, height: 16 })));
+        return (h("button", { key: 'b6c328214c3d75310976a734cdaff34a47f5822c', title: this.setButtonTitle(), id: this.buttonid, class: { selected: this.isselected }, onClick: () => this.emitButtonSortClick() }, h("span", { key: '4bc5edbe60157542dbea6e1cc8d9e7d1da76ab38', ref: (el) => (this.ellipsis = el), class: "ellipsis" }, !this.sortasc && this.desclabel ? this.desclabel : this.label), h("span", { key: 'ae64bab422698547fe8767adb0793fa43741b754', class: "counter" }, this.counter && ` (${this.counter})`), h("span", { key: 'f109549ca43596ae840703a3444e5a2b6efbc9e6', class: "sort" }, this.sortasc ? this.sortlabelasc : this.sortlabeldesc), h("z-icon", { key: '3e81d1762cd1f385d72eb2079a41f13583fa036b', name: "caret-up-down", width: 16, height: 16 })));
     }
     static get is() { return "z-button-sort"; }
     static get encapsulation() { return "shadow"; }

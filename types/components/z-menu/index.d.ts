@@ -31,9 +31,19 @@ export declare class ZMenu {
     opened: EventEmitter;
     /** The menu has been closed. */
     closed: EventEmitter;
+    private currentIndex;
+    private currentCanvasOpenStatus;
+    private firstElMenu;
+    private lastElMenu;
     private toggle;
     /** Close the floating list when a click is performed outside of this Element. */
     handleClick(ev: MouseEvent): void;
+    canvasOpenStatusChanged(e: CustomEvent): void;
+    handleKeyDown(e: KeyboardEvent): void;
+    private handleNavigationSideArrow;
+    private handleArrowsNav;
+    private getNextItem;
+    private focusToParentAndCloseMenu;
     onOpenChanged(): void;
     constructor();
     componentWillLoad(): void;
@@ -56,6 +66,7 @@ export declare class ZMenu {
      * Set the item's inner text to the `data-text` attribute (this is for using bold text avoiding layout shifts).
      */
     private onItemsChange;
+    private focusFirstItemOnKeyUp;
     private renderMenuLabel;
     render(): HTMLZMenuElement;
 }

@@ -1,6 +1,6 @@
-import { r as registerInstance, h } from './index-ab5f1eaa.js';
+import { r as registerInstance, h } from './index-a2130b6a.js';
 
-const stylesCss = ":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);-webkit-clip-path:inset(50%);clip-path:inset(50%);white-space:nowrap}";
+const stylesCss = ":host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}";
 const ZVisuallyHiddenStyle0 = stylesCss;
 
 const ZVisuallyHidden = class {
@@ -8,7 +8,7 @@ const ZVisuallyHidden = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return h("slot", { key: 'ae350dcba13aae6abc2f746555896c973baea496' });
+        return h("slot", { key: 'a99984e228cda9c10f7f96987a24ea9e1d695951' });
     }
 };
 ZVisuallyHidden.style = ZVisuallyHiddenStyle0;

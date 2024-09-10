@@ -1,6 +1,6 @@
 import { proxyCustomElement, HTMLElement, h } from '@stencil/core/internal/client';
 
-const stylesCss = "img{display:block;max-width:100%;height:340px;margin:auto;-o-object-fit:cover;object-fit:cover}img.faded{opacity:0.3}";
+const stylesCss = "img{display:block;max-width:100%;height:340px;margin:auto;object-fit:cover}img.faded{opacity:0.3}";
 const ZMyzCardCoverStyle0 = stylesCss;
 
 const ZMyzCardCover = /*@__PURE__*/ proxyCustomElement(class ZMyzCardCover extends HTMLElement {
@@ -17,7 +17,7 @@ const ZMyzCardCover = /*@__PURE__*/ proxyCustomElement(class ZMyzCardCover exten
         this.img = this.defaultimg;
     }
     render() {
-        return (h("img", { key: 'd7131bee1289159c5f6e60d390cd6e0984ac776f', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
+        return (h("img", { key: 'adce1c44a87ce81718fa65d7e12cf44e02ffee8c', class: this.faded && "faded", onError: this.hadleOnImageError.bind(this), alt: this.titolo, src: this.img }));
     }
     static get style() { return ZMyzCardCoverStyle0; }
 }, [1, "z-myz-card-cover", {

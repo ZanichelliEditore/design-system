@@ -171,7 +171,7 @@ export class ZToastNotification {
             } }, h("div", { id: "flex-container", ref: (el) => (this.container = el) }, this.renderText(), this.renderButton()), this.renderCloseIcon()));
     }
     render() {
-        return (h(Host, { key: 'bf20c69f253b702092fe078443eedb9e86fe223a', style: {
+        return (h(Host, { key: '3553c94f59787f1fdbb0ea349578c61ebbda1c21', style: {
                 "--percentuale": `${this.percentage}%`,
             }, class: this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {

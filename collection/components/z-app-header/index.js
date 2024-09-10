@@ -1,67 +1,22 @@
-import { Host, h } from "@stencil/core";
-import { ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection } from "../../beans";
+import { Fragment, Host, h } from "@stencil/core";
+import { ButtonVariant, ControlSize, Device, KeyboardCode, OffCanvasVariant, TransitionDirection } from "../../beans";
+import { getDevice } from "../../utils/utils";
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 /**
  * @slot title - Slot for the main title
- * @slot subtitle - Slot for the bottom subtitle. It will not appear in stuck header.
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
- * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
- * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
- * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
- * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
- * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
- * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
- * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
- * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
- * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
- * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
- * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
- * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
- * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
- * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
- * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
- * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
- * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
- * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
- * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
- * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
- * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
- * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
- * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
- * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
- * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
- * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+ * @slot product-logo - To insert the product logo, it should be used with an img tag.
  * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
- * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
- * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
- * Defaults to `--app-header-typography-3-size`.
- * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
- * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-lineheight`.
- * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
- * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-tracking`.
  * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 export class ZAppHeader {
     constructor() {
+        this.currentIndex = -1;
         this.observer = SUPPORT_INTERSECTION_OBSERVER &&
             new IntersectionObserver(([entry]) => {
                 this._stuck = !entry.isIntersecting;
@@ -69,31 +24,77 @@ export class ZAppHeader {
                 threshold: 0.5,
             });
         this.stuck = false;
-        this.hero = undefined;
-        this.overlay = false;
-        this.flow = "auto";
-        this.drawerOpen = false;
+        this.enableOffcanvas = false;
         this.enableSearch = false;
         this.searchPlaceholder = "Cerca";
         this.searchString = "";
         this.searchPageUrl = undefined;
+        this.enableZLogo = true;
         this._stuck = false;
-        this.currentViewport = "mobile";
+        this.currentViewport = Device.MOBILE;
         this.menuLength = undefined;
+        this.drawerOpen = false;
         this.openDrawer = this.openDrawer.bind(this);
         this.closeDrawer = this.closeDrawer.bind(this);
         this.collectMenuElements = this.collectMenuElements.bind(this);
     }
     evaluateViewport() {
-        if (window.innerWidth < 768) {
-            this.currentViewport = "mobile";
+        this.currentViewport = getDevice();
+    }
+    handleKeyDown(e) {
+        if (e.code === KeyboardCode.ESC && this.drawerOpen) {
+            this.closeDrawer();
+            return;
         }
-        else if (window.innerWidth >= 768 && window.innerWidth < 1152) {
-            this.currentViewport = "tablet";
+        this.handleArrowsNav(e);
+    }
+    handleArrowsNav(e) {
+        if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP && this.enableOffcanvas) {
+            return;
+        }
+        if (document.activeElement.slot === "item") {
+            return;
+        }
+        const menuItems = Array.from(this.menuElements).map((el) => el.shadowRoot.querySelector(".menu-label"));
+        let nextFocusableItem;
+        if (this.enableOffcanvas || this._stuck) {
+            // INFO: reset focus on all menu items
+            menuItems.forEach((item) => item.setAttribute("tabindex", "-1"));
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.code === KeyboardCode.ARROW_DOWN) {
+                nextFocusableItem = this.getNextItem(menuItems, 1);
+            }
+            else if (e.code === KeyboardCode.ARROW_UP) {
+                nextFocusableItem = this.getNextItem(menuItems, -1);
+            }
         }
         else {
-            this.currentViewport = "desktop";
+            if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+                e.preventDefault();
+                return;
+            }
+            //INFO: reset focus on all menu items
+            menuItems.forEach((item) => item.setAttribute("tabindex", "-1"));
+            if (e.code === KeyboardCode.ARROW_RIGHT) {
+                nextFocusableItem = this.getNextItem(menuItems, 1);
+            }
+            else if (e.code === KeyboardCode.ARROW_LEFT) {
+                nextFocusableItem = this.getNextItem(menuItems, -1);
+            }
         }
+        if (nextFocusableItem) {
+            nextFocusableItem.setAttribute("tabindex", "0");
+            nextFocusableItem.focus();
+        }
+    }
+    getNextItem(menuItems, direction) {
+        if (this.currentIndex === -1) {
+            this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+            return menuItems[this.currentIndex];
+        }
+        this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+        return menuItems[this.currentIndex];
     }
     onStuck() {
         const scrollParent = this.scrollParent;
@@ -106,12 +107,32 @@ export class ZAppHeader {
         if (this.menuElements.length === 0) {
             return;
         }
-        const elements = this.menuElements;
-        elements.forEach((element) => {
+        this.menuElements.forEach((element) => {
             element.open = false;
             element.floating = !this.drawerOpen;
             element.verticalContext = this.drawerOpen;
+            element.setAttribute("role", "menuitem");
+            element.setAttribute("tabindex", "-1");
         });
+    }
+    onStuckMode() {
+        if (this.stuck) {
+            this.enableStuckObserver();
+        }
+        else {
+            this.disableStuckMode();
+        }
+    }
+    enableStuckObserver() {
+        if (this.observer) {
+            this.observer.observe(this.container);
+        }
+    }
+    disableStuckMode() {
+        this._stuck = false;
+        if (this.observer) {
+            this.observer.unobserve(this.container);
+        }
     }
     get title() {
         const titleElement = this.hostElement.querySelector('[slot="title"]');
@@ -128,70 +149,133 @@ export class ZAppHeader {
         return parent;
     }
     get canShowMenu() {
-        return this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
-    }
-    get canShowSearchbar() {
-        if (!this.enableSearch) {
-            return false;
-        }
-        // Always show the searchbar on desktop, even if a searchPageUrl is set
-        if (this.searchPageUrl) {
-            return this.currentViewport === "desktop";
-        }
-        return true;
-    }
-    /**
-     * Whether the header has a hero image, either as a prop or as a slot.
-     */
-    get hasHero() {
-        return !!this.hero || this.hostElement.querySelector("[slot=hero]") !== null;
+        return (!this.enableOffcanvas &&
+            this.menuElements.length > 0 &&
+            this.currentViewport !== Device.MOBILE &&
+            !this.drawerOpen);
     }
     openDrawer() {
         this.drawerOpen = true;
     }
     closeDrawer() {
         this.drawerOpen = false;
+        this.burgerButton.focus();
+        this.currentIndex = -1;
     }
     collectMenuElements() {
         const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
         this.menuLength = menuElements.length;
         this.setMenuFloatingMode();
     }
-    enableStuckObserver() {
-        if (this.observer) {
-            this.observer.observe(this.container);
+    isSlotPresent(slotName) {
+        const slot = this.hostElement.querySelector(`[slot="${slotName}"]`);
+        return !!slot;
+    }
+    renderSeachbar() {
+        const renderSearch = this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET ? true : false;
+        if (this.currentViewport === Device.MOBILE && !this.searchPageUrl && this._stuck) {
+            return;
+        }
+        if (this.searchPageUrl && (this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET)) {
+            return (h("z-button", { class: "search-page-button", variant: ButtonVariant.SECONDARY, href: this.searchPageUrl, icon: "search", size: ControlSize.X_SMALL }));
+        }
+        return (h("z-searchbar", { ref: (el) => (this.searchbar = el), value: this.searchString, placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: renderSearch, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: this.searchString.length < 3, onSearchTyping: (e) => (this.searchString = e.detail), onKeyDown: (e) => {
+                if (e.code === KeyboardCode.ARROW_RIGHT || e.code === KeyboardCode.ARROW_LEFT) {
+                    e.stopPropagation();
+                }
+            } }));
+    }
+    renderProductLogos() {
+        return (h(Fragment, null, this.enableZLogo && (h("img", { class: "z-logo", alt: "Logo Zanichelli" })), this.currentViewport !== Device.MOBILE && h("slot", { name: "product-logo" })));
+    }
+    renderMenuButton() {
+        return (this.menuLength > 0 &&
+            (this.enableOffcanvas || this._stuck || this.currentViewport === Device.MOBILE) && (h("button", { ref: (el) => (this.burgerButton = el), "aria-label": "Apri menu", "aria-haspopup": "menu", "aria-expanded": `${this.drawerOpen}`, "aria-controls": "menu-offcanvas", class: "drawer-trigger", onClick: this.openDrawer, onKeyUp: (ev) => {
+                if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
+                    this.closeMenuButton.focus();
+                }
+            } }, h("z-icon", { name: "burger-menu" }))));
+    }
+    renderOffcanvas() {
+        return (h("z-offcanvas", { variant: OffCanvasVariant.OVERLAY, transitiondirection: TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, h("div", { slot: "canvasContent" }, h("button", { ref: (el) => (this.closeMenuButton = el), class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, "aria-hidden": `${!this.drawerOpen}`, disabled: !this.drawerOpen }, h("z-icon", { name: "close" })), h("div", { class: "drawer-content", "aria-hidden": `${!this.drawerOpen}` }, h("slot", { name: "menu", onSlotchange: this.collectMenuElements })))));
+    }
+    renderStuck() {
+        return (h("div", { class: "heading-stuck" }, h("div", { class: "heading-stuck-content" }, this.renderMenuButton(), h("div", { class: "heading-title" }, this.renderProductLogos(), h("slot", { name: "stucked-title" }, this.title)), this.enableSearch && this.renderSeachbar())));
+    }
+    getWidthMenu() {
+        if (this.menuElements.length === 0) {
+            return;
+        }
+        return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 100);
+    }
+    focusToFirstItemMenu() {
+        const menuItems = Array.from(this.menuElements).map((el) => el.shadowRoot.querySelector(".menu-label"));
+        menuItems[0].focus();
+        this.currentIndex = 0;
+    }
+    handleFocusItem(e) {
+        const menuItems = Array.from(this.menuElements).map((el) => el.shadowRoot.querySelector(".menu-label"));
+        if (e.code === KeyboardCode.ARROW_DOWN ||
+            e.code === KeyboardCode.ARROW_UP ||
+            e.code === KeyboardCode.ENTER ||
+            e.code === KeyboardCode.TAB) {
+            return;
+        }
+        if (document.activeElement.tagName === "Z-MENU-SECTION" || document.activeElement.tagName === "Z-MENU") {
+            return;
+        }
+        if (this.enableSearch && this.currentIndex === 0) {
+            const input = this.searchbar.shadowRoot.querySelector("z-input input");
+            input.focus();
+            this.currentIndex = -1;
+        }
+        if (this.currentIndex !== -1) {
+            menuItems[this.currentIndex].focus();
         }
     }
-    disableStuckMode() {
-        this._stuck = false;
-        if (this.observer) {
-            this.observer.unobserve(this.container);
-        }
-    }
-    onStuckMode() {
-        if (this.stuck) {
-            this.enableStuckObserver();
-        }
-        else {
-            this.disableStuckMode();
-        }
-    }
-    renderSearchLinkButton() {
-        if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
-            return null;
-        }
-        return (h("z-button", { class: "search-page-button", variant: ButtonVariant.SECONDARY, href: this.searchPageUrl, icon: "search", size: ControlSize.X_SMALL }));
-    }
-    renderSeachbar(searchButtonIconOnly) {
-        return (h("z-searchbar", { value: this.searchString, placeholder: this.searchPlaceholder, showSearchButton: true, searchButtonIconOnly: searchButtonIconOnly, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: this.searchString.length < 3, onSearchTyping: (e) => (this.searchString = e.detail) }));
-    }
-    componentDidLoad() {
+    componentWillLoad() {
         this.collectMenuElements();
-        this.onStuckMode();
         this.evaluateViewport();
     }
+    componentDidLoad() {
+        this.onStuckMode();
+        if (this.enableOffcanvas) {
+            return;
+        }
+        const menuWidth = this.getWidthMenu();
+        const containerSidePadding = 50;
+        this.resizeObserver = new ResizeObserver((observer) => {
+            const containerWidth = observer[0].contentRect.width;
+            if (this.currentViewport === Device.MOBILE) {
+                return (this.enableOffcanvas = true);
+            }
+            if (menuWidth > containerWidth - containerSidePadding && !this.enableOffcanvas) {
+                this.enableOffcanvas = true;
+            }
+            else if (menuWidth <= containerWidth - containerSidePadding && this.enableOffcanvas) {
+                this.enableOffcanvas = false;
+            }
+        });
+        this.resizeObserver.observe(this.container);
+    }
+    disconnectedCallback() {
+        var _a;
+        (_a = this.resizeObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
+    }
     render() {
-        return (h(Host, { key: '6ef78f216bf32166c80027e6c8d8c3c8b46e11a4', "menu-length": this.menuLength }, this.hasHero && (h("div", { key: '097f49ab84c9c5a02b1919bbf0d8bea41a9e7475', class: "hero-container" }, h("slot", { key: 'e68c20961233eec80133281adfe2e5068de05ca9', name: "hero" }, this.hero && (h("img", { key: '3f639bca7f3c5ae1f9f1ea088f4f072a11b398fd', alt: "", src: this.hero }))))), h("div", { key: '7f9a9025ee6b36ce4ddf119fe29afc28cff3f575', class: "heading-panel", ref: (el) => (this.container = el) }, h("div", { key: 'bf9e7e0634b79f86f886dbad016c1ee7c3a2bd0c', class: "heading-container" }, h("div", { key: '5f105d5a5e0d1545b953049c2f10ea1e409c5dd3', class: "heading-subtitle" }, h("slot", { key: 'e5257749958900cbdf0da3abc97647a6ca199a9a', name: "top-subtitle" })), h("div", { key: 'cd422b72e4fa5a1ddb400d0af44a87e28e14e496', class: "heading-title" }, this.menuLength > 0 && (h("button", { key: '8d0fd05ecac894b7c123c2b1850636f5c42445bb', class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { key: '7d3c4426ed0cb81f5d871e1e9d4f0a08c6e4bd1a', name: "burger-menu" }))), h("slot", { key: 'eb4a376c9edf06a839e2eda8cae3ca9f5c0c98f7', name: "title" }), this.renderSearchLinkButton()), h("div", { key: 'ca4175ad587aaa14435112451e616b9d40f4058b', class: "heading-subtitle" }, h("slot", { key: '923548867c7ecf93e7e4d46cdd68aff309a301eb', name: "subtitle" }))), (this.canShowMenu || this.canShowSearchbar) && (h("div", { key: 'b424522341c597059c9be302d30c5af85c3c1d12', class: "menu-container" }, this.canShowMenu && (h("slot", { key: '97b5bd01961bb07d13dc16cdf0bda52ac7cf7261', name: "menu", onSlotchange: this.collectMenuElements })), this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")))), h("z-offcanvas", { key: '42d89b3e9697aaf5c0781d69c6aca4a1fe44c389', variant: OffCanvasVariant.OVERLAY, transitiondirection: TransitionDirection.RIGHT, open: this.drawerOpen, onCanvasOpenStatusChanged: (ev) => (this.drawerOpen = ev.detail) }, h("button", { key: '29e9eedfba19cca2316bdde81d52052164fe2003', class: "drawer-close", "aria-label": "Chiudi menu", onClick: this.closeDrawer, slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}`, disabled: !this.drawerOpen }, h("z-icon", { key: '3f63af4cc3fc4e632a797b16e8530affc6f9ea79', name: "close" })), h("div", { key: '9925e208c3a9f45eebbbb210ad5b23041201b239', class: "drawer-content", slot: "canvasContent", "aria-hidden": `${!this.drawerOpen}` }, h("slot", { key: 'b687cd86e3e6dcb1cd5c8c5ac535dfdf9d1b9dd2', name: "menu", onSlotchange: this.collectMenuElements }))), this._stuck && (h("div", { key: 'a5eedb131fd6a50dad224c5016990b5a9256764b', class: "heading-stuck" }, h("div", { key: '9747f43c0c824f3c98c299071f92fa7d0d695529', class: "heading-stuck-content" }, this.menuLength > 0 && (h("button", { key: 'ad7fadb424d1b59852bd6f7bbfc875555495c163', class: "drawer-trigger", "aria-label": "Apri menu", onClick: this.openDrawer }, h("z-icon", { key: '4dbe75545f5e15fac2bd81c6726294d6f848681c', name: "burger-menu" }))), h("div", { key: 'a22d676527aa51b34942547a36651d85163b85ac', class: "heading-title" }, h("slot", { key: 'ba141592baf287d65faa4624f9c32c04471073d5', name: "stucked-title" }, this.title)), this.renderSearchLinkButton(), this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false))))));
+        const hasTopSubtitle = this.isSlotPresent("top-subtitle");
+        return (h(Host, { key: '1b905f7f0c42a9688493a38353ad69282248dac3', "menu-length": this.menuLength }, h("div", { key: 'f69888ebf52067bc34385e3f455816594d9209a2', class: `heading-panel ${this.menuLength > 0 && !this.enableOffcanvas ? "has-menu" : ""}`, ref: (el) => (this.container = el) }, h("div", { key: '827f5ee62dd066de4b049453738f3a587ab34320', class: "heading-container" }, ((!this.enableSearch && this.currentViewport === Device.MOBILE) ||
+            this.currentViewport !== Device.MOBILE) && (h("div", { key: 'd520fb97f1fe09340b6265be94b09ff26dc0e9cf', class: `${this.enableOffcanvas ? "p-left" : ""}` }, h("slot", { key: 'a8f1d05fd7f71603f3b63c43317859ee8c5e37bf', name: "top-subtitle" }))), h("div", { key: 'ec1b3adc2e17d8713849166799c553122d1e7c80', class: "heading-title" }, this.renderMenuButton(), !hasTopSubtitle && !this._stuck && this.renderProductLogos(), h("slot", { key: '263a9099b08065da250a1d0c228caac435dc9dd7', name: "title" }), this.enableSearch && this.currentViewport !== Device.MOBILE && this.renderSeachbar()), this.enableSearch && this.currentViewport === Device.MOBILE && this.renderSeachbar()), this.canShowMenu && (h("div", { key: '2c952c6e1b1ec608f73f5c5210ab5b5331d379bf', class: "menu-container", onKeyUp: (e) => {
+                if (this.enableOffcanvas) {
+                    return;
+                }
+                if (this.currentIndex === -1) {
+                    this.focusToFirstItemMenu();
+                }
+                else {
+                    this.handleFocusItem(e);
+                }
+            }, role: "hidden", tabIndex: 0 }, h("slot", { key: '0b71f1d0aa78599592213f61ee49e68daad5d04f', name: "menu", onSlotchange: this.collectMenuElements })))), this.renderOffcanvas(), this._stuck && this.renderStuck()));
     }
     static get is() { return "z-app-header"; }
     static get encapsulation() { return "shadow"; }
@@ -225,26 +309,9 @@ export class ZAppHeader {
                 "reflect": true,
                 "defaultValue": "false"
             },
-            "hero": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Set the hero image source for the header.\nYou can also use a [slot=\"hero\"] node for advanced customization."
-                },
-                "attribute": "hero",
-                "reflect": false
-            },
-            "overlay": {
+            "enableOffcanvas": {
                 "type": "boolean",
-                "mutable": false,
+                "mutable": true,
                 "complexType": {
                     "original": "boolean",
                     "resolved": "boolean",
@@ -254,45 +321,9 @@ export class ZAppHeader {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Should place an overlay over the hero image.\nUseful for legibility purpose."
+                    "text": "the menu bar is not displayed and a burger icon appears to open the offcanvas menu"
                 },
-                "attribute": "overlay",
-                "reflect": true,
-                "defaultValue": "false"
-            },
-            "flow": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "\"auto\" | \"stack\" | \"offcanvas\"",
-                    "resolved": "\"auto\" | \"offcanvas\" | \"stack\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Control menu bar position in the header.\n- auto: the menu bar is positioned near the title\n- stack: the menu bar is positioned below the title\n- offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu"
-                },
-                "attribute": "flow",
-                "reflect": true,
-                "defaultValue": "\"auto\""
-            },
-            "drawerOpen": {
-                "type": "boolean",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "The opening state of the drawer."
-                },
-                "attribute": "drawer-open",
+                "attribute": "enable-offcanvas",
                 "reflect": true,
                 "defaultValue": "false"
             },
@@ -366,6 +397,24 @@ export class ZAppHeader {
                 },
                 "attribute": "search-page-url",
                 "reflect": false
+            },
+            "enableZLogo": {
+                "type": "boolean",
+                "mutable": false,
+                "complexType": {
+                    "original": "boolean",
+                    "resolved": "boolean",
+                    "references": {}
+                },
+                "required": false,
+                "optional": false,
+                "docs": {
+                    "tags": [],
+                    "text": "Enable laZ logo."
+                },
+                "attribute": "enable-z-logo",
+                "reflect": true,
+                "defaultValue": "true"
             }
         };
     }
@@ -373,7 +422,8 @@ export class ZAppHeader {
         return {
             "_stuck": {},
             "currentViewport": {},
-            "menuLength": {}
+            "menuLength": {},
+            "drawerOpen": {}
         };
     }
     static get events() {
@@ -414,6 +464,12 @@ export class ZAppHeader {
                 "target": "window",
                 "capture": false,
                 "passive": true
+            }, {
+                "name": "keydown",
+                "method": "handleKeyDown",
+                "target": undefined,
+                "capture": false,
+                "passive": false
             }];
     }
 }

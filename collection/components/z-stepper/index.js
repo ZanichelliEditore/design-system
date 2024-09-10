@@ -4,7 +4,7 @@ import { Host, h } from "@stencil/core";
  */
 export class ZStepper {
     render() {
-        return (h(Host, { key: '80b89caa35e9adb82ad413783b16eae491a26f48', role: "list" }, h("slot", { key: '140e35a55637873b1eee70d5a7a8c2b03af3eed7' })));
+        return (h(Host, { key: '5fbfa9cc1b0e6f672f054427828d56560059c160', role: "list" }, h("slot", { key: 'd2c5abd53c5c9e8569696aafb6101b7878e1a10c' })));
     }
     static get is() { return "z-stepper"; }
     static get encapsulation() { return "shadow"; }

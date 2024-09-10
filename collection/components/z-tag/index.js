@@ -11,9 +11,9 @@ export class ZTag {
         this.expandable = undefined;
     }
     render() {
-        return (h(Host, { key: '2b457c2a7462afa36499c0991a32436751b2b6d1', class: {
+        return (h(Host, { key: 'dab9210f7c3cfc75d0c009f4bc8a1841bdbc371b', class: {
                 expandable: this.expandable && !!this.icon,
-            } }, this.icon && h("z-icon", { key: '3f6b461a15c9221c658221894f62895bdbd8e108', name: this.icon }), h("div", { key: '0bb11571e1f99587a62e9d345fc731bf795656e5' }, h("slot", { key: '46ccbc8282a3611e7a3188651bbe96df1aacb5b2' }))));
+            } }, this.icon && h("z-icon", { key: 'e7dc02062a4c525977b3734540dd1c2f4b5375a3', name: this.icon }), h("div", { key: '9b72b749cddf039f2c92345e9b02061c322c3e58' }, h("slot", { key: 'df6fe3eaea544ad012168bce4049d0d7fa239944' }))));
     }
     static get is() { return "z-tag"; }
     static get encapsulation() { return "scoped"; }

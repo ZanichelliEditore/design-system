@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-5dc4a8de.js');
-const index$1 = require('./index-e3835c94.js');
+const index = require('./index-e801ae96.js');
+const index$1 = require('./index-bab7a651.js');
 
-const stylesCss = ":host{position:absolute;z-index:2;top:0;left:0;width:100%;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>z-alert{height:calc(var(--space-unit) * 6)}.relative-container{position:relative;display:grid;-ms-flex-align:center;align-items:center;padding:0;grid-column-gap:var(--space-unit);grid-template-columns:18px auto 46px;grid-template-rows:1fr;outline:none}.relative-container::-moz-focus-inner{border:0}.alert-external-wrapper.remove-alert{border:var(--border-size-medium) solid var(--color-surface02);border-top:none}:host div.add-alert{background:var(--color-success-inverse)}:host div.remove-alert{background:var(--color-warning-inverse)}:host div>.content-text{color:var(--color-surface05);font-size:14px;letter-spacing:0.16px;line-height:20px}:host div>.content-action{height:20px;color:var(--color-primary01);cursor:pointer;font-size:12px;font-weight:var(--font-sb);letter-spacing:0.32px;line-height:20px}:host div>z-icon{justify-self:center}";
+const stylesCss = ":host{position:absolute;z-index:2;top:0;left:0;width:100%;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host>z-alert{height:calc(var(--space-unit) * 6)}.relative-container{position:relative;display:grid;align-items:center;padding:0;grid-column-gap:var(--space-unit);grid-template-columns:18px auto 46px;grid-template-rows:1fr;outline:none}.relative-container::-moz-focus-inner{border:0}.alert-external-wrapper.remove-alert{border:var(--border-size-medium) solid var(--color-surface02);border-top:none}:host div.add-alert{background:var(--color-success-inverse)}:host div.remove-alert{background:var(--color-warning-inverse)}:host div>.content-text{color:var(--color-surface05);font-size:14px;letter-spacing:0.16px;line-height:20px}:host div>.content-action{height:20px;color:var(--color-primary01);cursor:pointer;font-size:12px;font-weight:var(--font-sb);letter-spacing:0.32px;line-height:20px}:host div>z-icon{justify-self:center}";
 const ZMyzCardAlertStyle0 = stylesCss;
 
 const ZMyzCardAlert = class {
@@ -56,7 +56,7 @@ const ZMyzCardAlert = class {
         }
     }
     render() {
-        return (index.h("div", { key: 'ee3f657b10628aa1d8b655fbad1f7f2d55d0cfcc', class: "alert-external-wrapper " + this.retrieveClass() }, index.h("z-alert", { key: 'f90c4944719e9d9842a159727be73e7d877aca9a', type: this.getAlertType() }, index.h("div", { key: '414b27076e7e807f79987b8d1bf57724ff7aba21', class: "relative-container" }, index.h("z-icon", { key: '4a17b0046552751eb1b4f78b666038a34950f669', name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), index.h("span", { key: 'dc7059e99b1cb56c47f0ce112f2dcabf0cdafb47', class: "content-text" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (index.h("span", { key: 'fe84b58a497310f2936b14fd06808717a572feb5', role: "button", tabindex: "0", class: "content-action", onClick: (e) => {
+        return (index.h("div", { key: 'e488b304fcdd145b3ce0ba375d36a997a646eec9', class: "alert-external-wrapper " + this.retrieveClass() }, index.h("z-alert", { key: '256f5d68375a9c8c187785cfdbd6272b8cc449f9', type: this.getAlertType() }, index.h("div", { key: '9f3d7e43b28f3fc92bf1e627475af9a9f0464799', class: "relative-container" }, index.h("z-icon", { key: '6c9e26abc686e0d6020d7c6398a8575e6e8ac543', name: this.iconname, width: 18, height: 18, class: this.retrieveClass() }), index.h("span", { key: 'b4b997286c4e5250c5b856f0d375ad49162c92df', class: "content-text" }, this.contenttext), this.actiontext && !!this.actiontext.trim().length && (index.h("span", { key: '18020fe9e8180577a168a25c0ba17464cedf70c0', role: "button", tabindex: "0", class: "content-action", onClick: (e) => {
                 this.handleActionButtonClick(e);
             }, onKeyPress: (e) => {
                 this.handleSpaceKeyPress(e);

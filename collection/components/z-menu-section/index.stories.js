@@ -14,17 +14,17 @@ export const WithItems = {
       <h3>Label</h3>
       <a
         href=""
-        slot="item"
+        slot="section"
         >Item 1</a
       >
       <a
         href=""
-        slot="item"
+        slot="section"
         >Item 2</a
       >
       <a
         href=""
-        slot="item"
+        slot="seection"
         active
         >Item 3 - active</a
       >

@@ -193,7 +193,7 @@ export class ZFileUpload {
         }))))));
     }
     render() {
-        return (h(Host, { key: '30d78f7ce88aa6e994de1355cf4bb8bbc79e6f85' }, h("div", { key: 'b95129c709a9161cb1c08bc39a308196fc26644d', class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { key: '2e0db26fa301fa0141ac14fe92f2a222f2a5f2c8', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: this.errorModalTitle, onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
+        return (h(Host, { key: '7520b5da6e58534cb4c732d0745424b9b6de6991' }, h("div", { key: 'fbdd488d4cfe2cc3a01f0d2e4abfea6df3b6c8c8', class: `container ${this.getType()}` }, this.mainTitle && this.renderTitle(), this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()), !!this.invalidFiles.size && (h("z-modal", { key: '26e02bd9c532f2c4b38ab94854875d8b8aba9058', modalid: `file-upload-${this.type}-error-modal`, tabIndex: 0, ref: (val) => (this.errorModal = val), modaltitle: this.errorModalTitle, onModalClose: () => (this.invalidFiles = new Map()), onModalBackgroundClick: () => (this.invalidFiles = new Map()) }, this.handleErrorModalContent()))));
     }
     static get is() { return "z-file-upload"; }
     static get encapsulation() { return "shadow"; }

@@ -301,7 +301,7 @@ export class ZPopover {
         this.onOpen();
     }
     render() {
-        return h("slot", { key: '06ccad911be5d149ace59bb4cd239648a9eeb5da' });
+        return h("slot", { key: '3c34ab8733a93885e6e2a9fd8b0f3607cafca402' });
     }
     static get is() { return "z-popover"; }
     static get encapsulation() { return "shadow"; }

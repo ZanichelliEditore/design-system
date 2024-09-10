@@ -223,7 +223,7 @@ export class ZSearchbar {
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: '9b84ef94161485bb7213116bbab6273d33e8e5cd', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '59f83333716c7914ad437f0c494916f8ba8c0240', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: 'af318a5b693c0048c368776744d9090bdebe6c8c', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: 'aba6d0bd87ba308a8f664ca5f86e5d0b96c734af', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     static get is() { return "z-searchbar"; }
     static get encapsulation() { return "shadow"; }

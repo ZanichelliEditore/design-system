@@ -33,7 +33,7 @@ export class ZMyzCardComponent {
         return elemClasses;
     }
     render() {
-        return (h("div", { key: '254e3f158fbaa9eae4c801cd491abe9227fdd1fb', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: '52145b4e99ae3616f767760faf97433d1e3047d8' })));
+        return (h("div", { key: '0513da0ab64e0db2c6f075c435ef3a9249501609', class: this.retrieveClass(), tabindex: "0" }, h("slot", { key: '3b208fff53e518e4e291e2aa3c0b70d939419690' })));
     }
     static get is() { return "z-myz-card"; }
     static get encapsulation() { return "shadow"; }

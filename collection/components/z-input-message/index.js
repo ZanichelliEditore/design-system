@@ -17,7 +17,7 @@ export class ZInputMessage {
         this.onMessageChange();
     }
     render() {
-        return (h(Host, Object.assign({ key: '94ef5066088cb9eed13a07ea360427f99504352c' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { key: '657b2370b4f114a60d57d0aeb0c42076a0a6d05c', name: this.statusIcons[this.status] }), h("span", { key: 'e999e55f209f358943ff20d86967f9e7bd9d876b', innerHTML: this.message })));
+        return (h(Host, Object.assign({ key: 'ab7d91f7f574f9fb29ab684cae2de0c0dd64f580' }, this.statusRole, { "aria-label": this.message }), this.statusIcons[this.status] && this.message && h("z-icon", { key: '592524f507e1d6cefb43815648880507e10806f2', name: this.statusIcons[this.status] }), h("span", { key: '96ca6506cfaa10d936543d9f370bcb58fa318b59', innerHTML: this.message })));
     }
     static get is() { return "z-input-message"; }
     static get encapsulation() { return "shadow"; }

@@ -14,6 +14,14 @@ export declare class ZMenuSection {
     opened: EventEmitter;
     /** The section has been closed. */
     closed: EventEmitter;
+    private currentIndex;
+    private currentCanvasOpenStatus;
+    canvasOpenStatusChanged(e: CustomEvent): void;
+    handleKeyDown(e: KeyboardEvent): void;
+    private handleNavigationSideArrow;
+    private handleArrowsNav;
+    private getNextItem;
+    private focusToParentAndCloseMenu;
     private toggle;
     /** Close the list when a click is performed outside of this Element. */
     handleClick(ev: MouseEvent): void;
@@ -26,6 +34,7 @@ export declare class ZMenuSection {
      * @param ev Slotchange event
      */
     private onLabelSlotChange;
+    private focusFirstSectionItemOnKeyUp;
     componentWillLoad(): void;
     render(): HTMLZMenuSectionElement;
 }

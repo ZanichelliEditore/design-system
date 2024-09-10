@@ -1,4 +1,4 @@
-import { type TemplateResult } from "lit";
+import { TemplateResult } from "lit";
 import { ZAppHeader } from ".";
 import { CSSVarsArguments } from "../../utils/storybook-utils";
 import "../z-menu-section/index";
@@ -12,19 +12,16 @@ declare const StoryMeta: {
     parameters: {
         layout: string;
     };
-    argTypes: {
-        flow: {
-            control: {
-                type: "inline-radio";
-            };
-            options: string[];
-        };
+    subcomponents: {
+        ZMenu: string;
+        ZMenuSection: string;
     };
     args: {
         "--app-header-content-max-width": string;
         enableSearch: false;
         searchPageUrl: string;
-        flow: "auto";
+        enableZLogo: false;
+        enableOffcanvas: false;
     };
 };
 export default StoryMeta;
@@ -36,7 +33,7 @@ export declare const Title: {
     };
     render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
 };
-export declare const Subtitle: {
+export declare const ProductLogo: {
     parameters: {
         controls: {
             exclude: string[];
@@ -44,7 +41,7 @@ export declare const Subtitle: {
     };
     render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
 };
-export declare const TopSubtitle: {
+export declare const TopTitle: {
     parameters: {
         controls: {
             exclude: string[];
@@ -52,20 +49,28 @@ export declare const TopSubtitle: {
     };
     render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
 };
-export declare const Menu: {
+export declare const MenuWithTopTitle: {
+    parameters: {
+        controls: {
+            exclude: string[];
+        };
+    };
+    args: {
+        enableOffcanvas: true;
+    };
     render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
 };
 export declare const LongTitle: {
-    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
-};
-export declare const VeryLongMenu: {
-    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
-};
-export declare const OffcanvasMenu: {
     parameters: {
         controls: {
             exclude: string[];
         };
+    };
+    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
+};
+export declare const OffcanvasMenu: {
+    args: {
+        enableOffcanvas: true;
     };
     render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
 };
@@ -76,31 +81,6 @@ export declare const Stuck: {
             inlineStories: boolean;
             iframeHeight: string;
         };
-    };
-    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
-};
-export declare const MaxWidth: {
-    args: {
-        "--app-header-content-max-width": string;
-    };
-    decorators: ((Story: import("@storybook/types").PartialStoryFn<import("@storybook/web-components").WebComponentsRenderer, ZAppHeaderStoriesArgs>) => TemplateResult<1>)[];
-    parameters: {
-        docs: {
-            inlineStories: boolean;
-            iframeHeight: string;
-        };
-    };
-    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
-};
-export declare const CoverHeroWithSlottedImage: {
-    args: {
-        overlay: true;
-        hero: string;
-    };
-    render: (args: ZAppHeaderStoriesArgs) => TemplateResult<1>;
-};
-export declare const Searchbar: {
-    parameters: {
         controls: {
             exclude: string[];
         };

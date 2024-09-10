@@ -396,8 +396,6 @@
 .z-grid {
   display: grid;
   width: 100%;
-  -webkit-column-gap: var(--grid-gutter);
-  -moz-column-gap: var(--grid-gutter);
   column-gap: var(--grid-gutter);
   grid-template-columns: repeat(var(--grid-columns), 1fr);
 
@@ -1393,33 +1391,25 @@
   z-index: 1;
   right: var(--z-fab-right-offset);
   bottom: var(--z-fab-bottom-offset);
-  display: -ms-flexbox;
   display: flex;
   max-width: 48px;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -ms-flex-align: center;
   align-items: center;
   padding: 14px;
   background-color: var(--color-primary01);
   border-radius: 24px;
-  -webkit-box-shadow: var(--shadow-4);
   box-shadow: var(--shadow-4);
   color: var(--color-text-inverse);
-  -webkit-column-gap: 0;
-  -moz-column-gap: 0;
   column-gap: 0;
   cursor: pointer;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
   line-height: 1.25;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .z-fab:focus {
-  -webkit-box-shadow: var(--shadow-focus-primary);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -1454,14 +1444,10 @@ a.z-fab {
 
 .z-fab.z-fab-extended {
   max-width: 100%;
-  -webkit-column-gap: var(--space-unit);
-  -moz-column-gap: var(--space-unit);
   column-gap: var(--space-unit);
 }
 
 .z-fab.z-fab-extended.z-fab-x-small {
-  -webkit-column-gap: calc(var(--space-unit) / 2);
-  -moz-column-gap: calc(var(--space-unit) / 2);
   column-gap: calc(var(--space-unit) / 2);
 }
 
@@ -1508,7 +1494,6 @@ a.z-fab {
 .z-fab > *:not(z-icon) {
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
 }
@@ -1520,8 +1505,6 @@ a.z-fab {
 @media (hover: hover) {
   .z-fab.z-fab-extendable:hover {
     max-width: 100%;
-    -webkit-column-gap: var(--space-unit);
-    -moz-column-gap: var(--space-unit);
     column-gap: var(--space-unit);
   }
 
@@ -1530,8 +1513,6 @@ a.z-fab {
   }
 
   .z-fab.z-fab-x-small.z-fab-extendable:hover {
-    -webkit-column-gap: calc(var(--space-unit) / 2);
-    -moz-column-gap: calc(var(--space-unit) / 2);
     column-gap: calc(var(--space-unit) / 2);
   }
 }
@@ -1545,7 +1526,6 @@ button.z-link {
 
 a.z-link,
 button.z-link {
-  display: -ms-inline-flexbox;
   display: inline-flex;
   color: var(--color-link-primary);
   cursor: pointer;
@@ -1574,7 +1554,6 @@ button.z-link:focus {
 
 a.z-link:focus,
 button.z-link:focus {
-  -webkit-box-shadow: var(--shadow-focus-primary);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -1613,7 +1592,6 @@ button.z-link.z-link-active.z-link-black {
 
 a.z-link.z-link-disabled,
 button.z-link.z-link-disabled {
-  -webkit-box-shadow: none;
   box-shadow: none;
   color: var(--color-disabled03);
   cursor: default;
@@ -1705,11 +1683,7 @@ button.z-link.z-link-icon {
   --z-icon-width: 1.125em;
   --z-icon-height: 1.125em;
 
-  -ms-flex-align: center;
-
   align-items: center;
-  -webkit-column-gap: 0.5em;
-  -moz-column-gap: 0.5em;
   column-gap: 0.5em;
 }
 
