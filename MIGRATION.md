@@ -11,8 +11,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v16.0.0](#v1600)
 
-  - [Nuova versione componente ZAppHeader](#Nuova-versione-componente-ZAppHeader)
-  - [Polyfill](#Polyfill)
+  - [Nuova versione componente z-app-header](#nuova-versione-componente-z-app-header)
+  - [Rimosso parametro buildEs5 dal config stencil.](#rimosso-parametro-buildes5-dal-config-stencil)
 
 - [v15.0.0](#v1500)
 
@@ -107,13 +107,23 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ## v16.0.0
 
-### Nuova versione componente ZAppHeader
+### Nuova versione componente z-app-header
 
 A partire da questa release è stato rivisto il componente `z-app-header`. Le modifiche sono breaking, per favorire un aggiornamento graduale, viene quindi mantenuta attiva la sua versione deprecated, anche per i suoi elementi interni.
 
-### Polyfill
+### Rimosso parametro buildEs5 dal config stencil.
 
-A partire da questa release il metodo applyPolyfill non sarà più esportato dalla libreria, quindi il suo utilizzo deve essere rimosso dalle applicazioni.
+L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che ne fanno uso.
+
+**Il metodo in precedenza usato in questo modo:**
+
+`applyPolyfills().then(() => {
+    defineCustomElements(window);
+});`
+
+**dovrà essere usato così:**
+
+`  defineCustomElements(window);`
 
 ## v15.0.0
 
