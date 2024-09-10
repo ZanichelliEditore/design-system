@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v16.0.0](#v1600)
+
+  - [Rimosso parametro buildEs5 dal config stencil.](#rimosso-parametro-buildes5-dal-config-stencil)
+
 - [v15.0.0](#v1500)
 
   - [Modifica header modale](#modifica-header-modale)
@@ -99,6 +103,22 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v16.0.0
+
+### Rimosso parametro buildEs5 dal config stencil.
+
+L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che ne fanno uso.
+
+**Il metodo in precedenza usato in questo modo:**
+
+`applyPolyfills().then(() => {
+    defineCustomElements(window);
+});`
+
+**dovrà essere usato così:**
+
+`  defineCustomElements(window);`
 
 ## v15.0.0
 
