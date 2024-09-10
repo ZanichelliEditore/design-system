@@ -112,6 +112,7 @@ img.z-logo {
 ::slotted([slot="title"]) {
   display: -webkit-box;
   overflow: hidden;
+  flex-grow: 1;
   padding-right: calc(var(--space-unit) * 2);
   -webkit-box-orient: vertical;
   font-size: var(--font-size-6);
@@ -178,7 +179,7 @@ img.z-logo {
 z-searchbar {
   z-index: 0;
   display: flex;
-  min-width: 100%;
+  width: 100%;
   align-items: center;
   padding-top: calc(var(--space-unit) * 2);
 }
@@ -211,7 +212,7 @@ z-searchbar {
 .heading-stuck .heading-title > *,
 ::slotted([slot="stucked-title"]) {
   font-size: var(--font-size-9);
-  letter-spacing: calc(-0.6 / 1em);
+  font-weight: var(--font-bd);
   line-height: 1.25;
 }
 
@@ -304,9 +305,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   z-searchbar {
-    min-width: 30%;
+    width: 30%;
     padding-top: 0;
-    margin-left: auto;
   }
 
   ::slotted([slot="title"]) {
