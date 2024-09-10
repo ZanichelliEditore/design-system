@@ -335,7 +335,11 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   .heading-panel {
     align-items: center;
-    padding: calc(var(--space-unit) * 1.5) var(--grid-margin) 0;
+    padding: calc(var(--space-unit) * 1.5) var(--grid-margin) calc(var(--space-unit) * 1.25);
+  }
+
+  .heading-panel.has-menu {
+    padding-bottom: 0;
   }
 
   :host(:not([enable-search="false"])[search-page-url]) .heading-panel .heading-container {

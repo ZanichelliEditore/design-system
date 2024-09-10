@@ -439,7 +439,7 @@ describe("Suite test ZAppHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-app-header  enable-z-logo="true" menu-length="6"  enable-search="true">
         <mock:shadow-root>
-          <div class="heading-panel">
+          <div class="has-menu heading-panel">
             <div class="heading-container">
               <div>
                 <slot name="top-subtitle"></slot>
