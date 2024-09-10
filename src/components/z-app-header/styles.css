@@ -1,42 +1,5 @@
 :host {
-  --app-header-typography-1-size: 24px;
-  --app-header-typography-2-size: 28px;
-  --app-header-typography-3-size: 32px;
-  --app-header-typography-4-size: 36px;
-  --app-header-typography-5-size: 42px;
-  --app-header-typography-6-size: 48px;
-  --app-header-typography-7-size: 54px;
-  --app-header-typography-8-size: 60px;
-  --app-header-typography-9-size: 68px;
-  --app-header-typography-10-size: 76px;
-  --app-header-typography-11-size: 84px;
-  --app-header-typography-12-size: 92px;
-  --app-header-typography-1-lineheight: 1.33;
-  --app-header-typography-2-lineheight: 1.29;
-  --app-header-typography-3-lineheight: 1.25;
-  --app-header-typography-4-lineheight: 1.24;
-  --app-header-typography-5-lineheight: 1.24;
-  --app-header-typography-6-lineheight: 1.25;
-  --app-header-typography-7-lineheight: 1.2;
-  --app-header-typography-8-lineheight: 1.26;
-  --app-header-typography-9-lineheight: 1.24;
-  --app-header-typography-10-lineheight: 1.26;
-  --app-header-typography-11-lineheight: 1.2;
-  --app-header-typography-12-lineheight: 1.2;
-  --app-header-typography-1-tracking: calc(-0.2 / 1em);
-  --app-header-typography-2-tracking: calc(-0.4 / 1em);
-  --app-header-typography-3-tracking: calc(-0.6 / 1em);
-  --app-header-typography-4-tracking: calc(-0.8 / 1em);
-  --app-header-typography-5-tracking: calc(-1 / 1em);
-  --app-header-typography-6-tracking: calc(-1.2 / 1em);
-  --app-header-typography-7-tracking: calc(-1.4 / 1em);
-  --app-header-typography-8-tracking: calc(-1.6 / 1em);
-  --app-header-typography-9-tracking: calc(-1.8 / 1em);
-  --app-header-typography-10-tracking: calc(-2 / 1em);
-  --app-header-typography-11-tracking: calc(-2.2 / 1em);
-  --app-header-typography-12-tracking: calc(-2.4 / 1em);
   --app-header-content-max-width: 100%;
-  --app-header-height: auto;
 
   /* Variable to set stuck header and drawer's top offset.
   Useful when something is absolutely positioned above the header. */
@@ -52,26 +15,17 @@
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--color-default-text);
 
-  /* Variable to customize the title's font size.
-  NOTE: Only use one of the exported `--app-header-typography-*-size` as a value. */
-  --app-header-title-font-size: var(--app-header-typography-3-size);
-
   /* Variable to customize the title's line-height.
   NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value
   and use the same level as the one of the font size. */
-  --app-header-title-lineheight: var(--app-header-typography-3-lineheight);
-
-  /* Variable to customize the title's letter-spacing.
-  NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value
-  and use the same level as the one of the font size. */
-  --app-header-title-letter-spacing: var(--app-header-typography-3-tracking);
+  --app-header-title-lineheight: 1.25;
 
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-default-text);
 
   position: relative;
   display: block;
-  height: var(--app-header-height);
+  box-shadow: 0 2px 4px 0 var(--shadow-color-base);
   color: var(--app-header-text-color);
 }
 
@@ -89,14 +43,9 @@
   flex-grow: 0;
   flex-shrink: 0;
   align-items: baseline;
-  padding: var(--grid-margin);
+  padding: calc(var(--space-unit) * 2);
   margin: 0 auto;
   background: var(--app-header-bg);
-  gap: calc(var(--space-unit) * 2) calc(var(--space-unit) * 5);
-}
-
-.hero-container + .heading-panel {
-  background: transparent;
 }
 
 :host(:empty) .heading-panel {
@@ -114,12 +63,43 @@
   justify-content: flex-start;
 }
 
+.heading-panel .heading-container {
+  flex-direction: column-reverse;
+}
+
+:host([enable-search]) .heading-panel .heading-container {
+  flex-direction: column;
+}
+
+:host(:not([enable-search="false"])[search-page-url]) .heading-panel .heading-container {
+  flex-direction: row;
+}
+
 .heading-title {
   display: flex;
-  max-width: 100%;
+  width: 100%;
   flex-direction: row;
-  align-items: flex-start;
-  column-gap: calc(var(--space-unit) * 2);
+  align-items: start;
+}
+
+img.z-logo {
+  content: url('data:image/svg+xml,<svg width="61" height="32" viewBox="0 0 61 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.9874 32C7.1595 32 0 24.8349 0 16C0 7.16513 7.1595 0 15.9874 0H45.0126C53.8405 0 61 7.16513 61 16C61 24.8349 53.8405 32 45.0126 32H15.9874Z" fill="%23E2011A"/><path d="M58.5435 15.9992C58.5435 23.4743 52.4892 29.5403 45.0129 29.5403C37.5367 29.5403 31.4824 23.4813 31.4824 15.9992C31.4824 8.51701 37.5367 2.45801 45.0129 2.45801C52.4892 2.45801 58.5435 8.51701 58.5435 15.9992Z" fill="white"/><path d="M40.7107 8.01862H49.8976V11.3158L44.139 21.7077H50.0384V24.6457H39.9785V21.4048L45.7371 10.9636H40.7107V8.01862Z" fill="%23E2011A"/><path d="M12.2914 24.6449C10.982 24.6449 10.271 23.8136 10.271 22.6722V7.04565H12.1718V22.9822H13.981V24.6449H12.2914Z" fill="white"/><path d="M25.6461 24.6448C24.2452 24.6448 23.675 23.7853 23.5342 22.6439H23.4145C22.8935 24.1446 21.5841 24.9266 19.8735 24.9266C17.2828 24.9266 15.7622 23.4964 15.7622 21.2137C15.7622 18.931 17.4236 17.6206 20.9928 17.6206H23.4145V16.4088C23.4145 14.6756 22.4641 13.7245 20.5141 13.7245C19.0428 13.7245 18.0642 14.4361 17.4025 15.5563L16.262 14.4854C16.9308 13.175 18.4021 12.0829 20.6126 12.0829C23.5623 12.0829 25.3152 13.6259 25.3152 16.2186V22.9751H26.7162V24.6378H25.6461V24.6448ZM23.4145 21.0799V19.0578H20.8942C18.733 19.0578 17.7545 19.7272 17.7545 20.9108V21.411C17.7545 22.6228 18.7049 23.3132 20.1762 23.3132C22.0558 23.3132 23.4074 22.341 23.4074 21.0799H23.4145Z" fill="white"/></svg>');
+}
+
+.heading-title > img.z-logo {
+  height: calc(var(--space-unit) * 3);
+  margin: 4px var(--space-unit) 0 0;
+}
+
+:host([stuck]) .heading-stuck .heading-title > img.z-logo {
+  margin-top: 0;
+}
+
+::slotted([slot="product-logo"]) {
+  width: 32px;
+  height: 32px;
+  margin-right: var(--space-unit);
+  border-radius: 50%;
 }
 
 ::slotted([slot="title"]),
@@ -127,48 +107,52 @@
 ::slotted([slot="stucked-title"]) {
   margin: 0;
   font-family: "IBM Plex Serif", serif;
-  font-weight: var(--font-bd);
 }
 
 ::slotted([slot="title"]) {
-  font-size: var(--app-header-title-font-size);
-  letter-spacing: var(--app-header-title-letter-spacing);
-  line-height: var(--app-header-title-lineheight);
+  display: -webkit-box;
+  overflow: hidden;
+  flex-grow: 1;
+  padding-right: calc(var(--space-unit) * 2);
+  -webkit-box-orient: vertical;
+  font-size: var(--font-size-6);
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: initial;
 }
 
-.heading-stuck .heading-title > *,
-::slotted([slot="stucked-title"]) {
-  font-size: var(--app-header-typography-3-size);
-  letter-spacing: var(--app-header-typography-3-tracking);
-  line-height: var(--app-header-typography-3-lineheight);
+:host(:not([menu-length="0"])) .p-left {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
-:host(:not([menu-length="0"])) .heading-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + (var(--space-unit) * 2));
-}
-
-::slotted([slot="top-subtitle"]),
-::slotted([slot="subtitle"]) {
-  margin: 0;
-  font-family: var(--font-family-sans);
-  font-size: 20px;
-  font-style: italic;
-  line-height: 26px;
-}
-
-::slotted([slot="subtitle"]) {
-  font-weight: 500;
+:host(:is([enable-offcanvas="true"]):not([menu-length="0"])) {
+  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
 }
 
 ::slotted([slot="top-subtitle"]) {
+  display: -webkit-box;
+  overflow: hidden;
+  max-width: 80%;
+  margin: 0;
+  -webkit-box-orient: vertical;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-style: italic;
   font-weight: 400;
+  -webkit-line-clamp: 2;
+  line-height: 18.2px;
+  white-space: initial;
 }
 
 .menu-container {
   display: flex;
   width: 100%;
   flex: 1 auto;
-  flex-flow: row wrap;
+  column-gap: calc(var(--space-unit) * 4);
+}
+
+.menu-container:focus:focus-visible {
+  outline: none;
 }
 
 :host([menu-length="0"]:not([enable-search])) .menu-container,
@@ -181,14 +165,23 @@
   z-index: 3;
 }
 
+.menu-container ::slotted([slot="menu"]:not(:last-child))::after {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--space-unit) * -2);
+  width: var(--border-size-small);
+  height: 1em;
+  background-color: currentcolor;
+  content: "";
+  transform: translateY(-50%);
+}
+
 z-searchbar {
   z-index: 0;
   display: flex;
-  width: auto;
-  min-width: calc(var(--space-unit) * 32);
-  flex: 1 auto;
+  width: 100%;
   align-items: center;
-  margin-left: auto;
+  padding-top: calc(var(--space-unit) * 2);
 }
 
 .heading-stuck {
@@ -210,7 +203,6 @@ z-searchbar {
   align-items: center;
   padding: var(--space-unit) var(--grid-margin);
   margin: 0 auto;
-  column-gap: calc(var(--space-unit) * 2);
 }
 
 .heading-stuck .heading-title {
@@ -218,9 +210,17 @@ z-searchbar {
 }
 
 .heading-stuck .heading-title > *,
-.heading-stuck .heading-title ::slotted([slot="stucked-title"]) {
+::slotted([slot="stucked-title"]) {
+  font-size: var(--font-size-9);
+  font-weight: var(--font-bd);
+  line-height: 1.25;
+}
+
+.heading-stuck .heading-title [name="stucked-title"] {
   display: block;
   overflow: hidden;
+  margin-right: calc(var(--space-unit) * 2);
+  font-size: var(--font-size-5);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -232,12 +232,17 @@ z-searchbar {
 .drawer-trigger {
   padding: 0;
   border: 0;
-  margin: 0;
+  margin-right: var(--space-unit);
   appearance: none;
   background: none;
   border-radius: 0;
   color: inherit;
   cursor: pointer;
+  outline: none;
+}
+
+.drawer-trigger:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 .drawer-trigger:focus-visible {
@@ -250,14 +255,6 @@ z-searchbar {
   --z-icon-height: var(--app-header-drawer-trigger-size);
 
   fill: currentcolor;
-}
-
-/* Simulate the height of the first line of text,
-to correctly align drawer icon and search page button with the title */
-.heading-container :is(.drawer-trigger, z-button.search-page-button) {
-  display: flex;
-  height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
-  align-items: center;
 }
 
 .heading-container z-button.search-page-button {
@@ -301,74 +298,57 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   box-shadow: var(--shadow-focus-primary);
 }
 
-.hero-container {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-:host([overlay]) .heading-panel .drawer-trigger z-icon,
-:host([overlay]) .heading-panel .heading-container,
-:host([overlay]) .heading-panel .menu-container {
-  color: var(--color-white);
-  fill: var(--color-white);
-}
-
-:host([overlay]) .heading-panel .menu-container ::slotted(z-menu) {
-  --z-menu-label-color: var(--color-white);
-}
-
-:host([overlay]) .hero-container::after {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-black);
-  content: "";
-  opacity: 0.5;
-}
-
-.hero-container img,
-.hero-container ::slotted(*) {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  -webkit-user-drag: none;
-}
-
 /* Tablet breakpoint */
 @media (min-width: 768px) {
-  :host {
-    --app-header-title-font-size: var(--app-header-typography-6-size);
-    --app-header-title-lineheight: var(--app-header-typography-6-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-6-tracking);
+  :host([enable-search]:not([search-page-url])) .heading-container .heading-title {
+    flex-wrap: nowrap;
+  }
+
+  z-searchbar {
+    width: 30%;
+    padding-top: 0;
+  }
+
+  ::slotted([slot="title"]) {
+    font-size: var(--font-size-9);
+  }
+
+  .heading-title {
+    align-items: center;
+  }
+
+  .heading-container .heading-title {
+    align-items: flex-start;
+  }
+
+  div.heading-container .heading-title button,
+  div.heading-container .heading-title z-searchbar,
+  div.heading-container .heading-title img,
+  div.heading-container .heading-title ::slotted([slot="product-logo"]),
+  div.heading-container .heading-title .search-page-button {
+    margin-top: var(--space-unit);
+  }
+
+  .heading-title > img.z-logo {
+    height: 32px;
   }
 
   .heading-panel {
-    flex-flow: row wrap;
     align-items: center;
-    padding-bottom: calc(var(--space-unit) * 2);
+    padding: calc(var(--space-unit) * 1.5) var(--grid-margin) calc(var(--space-unit) * 1.25);
   }
 
-  .heading-container {
+  .heading-panel.has-menu {
+    padding-bottom: 0;
+  }
+
+  :host(:not([enable-search="false"])[search-page-url]) .heading-panel .heading-container {
+    flex-direction: column;
+  }
+
+  .heading-panel .heading-container {
+    flex-direction: column;
     margin-right: auto;
-  }
-
-  :host(:is([flow="offcanvas"], [menu-length="0"])) :is(.heading-container, .menu-container) {
-    width: auto;
-  }
-
-  :host(:not([flow="offcanvas"])) .heading-subtitle {
-    padding-left: 0;
   }
 
   .menu-container {
@@ -377,61 +357,45 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   :host([menu-length="0"]) .menu-container:not(:empty) {
-    height: calc(var(--app-header-title-font-size) * var(--app-header-title-lineheight));
+    height: calc(var(--space-unit) * 4.5 * var(--app-header-title-lineheight));
   }
 
-  :host(:not([flow="offcanvas"])) .menu-container {
-    gap: var(--space-unit) calc(var(--space-unit) * 5);
+  :host(:not([enable-offcanvas="false"])) .menu-container {
+    margin-top: calc((var(--space-unit) * 1.75));
   }
 
-  :host(:not([flow="offcanvas"])) .heading-container .drawer-trigger {
+  :host(:not([enable-offcanvas])) .heading-container .drawer-trigger {
     display: none;
+  }
+
+  .heading-stuck .heading-title > *,
+  .heading-stuck .heading-title [name="stucked-title"] {
+    font-size: var(--font-size-8);
+  }
+
+  .heading-stuck-content {
+    padding: 6px var(--grid-margin);
+  }
+
+  ::slotted([slot="product-logo"]) {
+    margin-right: calc(var(--space-unit) * 1.5);
+  }
+
+  /* stylelint-disable-next-line selector-not-notation */
+  :host(:not([enable-offcanvas]):not([menu-length="0"])) {
+    padding-left: 0;
   }
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  :host {
-    --app-header-title-font-size: var(--app-header-typography-7-size);
-    --app-header-title-lineheight: var(--app-header-typography-7-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-7-tracking);
-  }
-
-  .heading-panel {
-    justify-content: flex-start;
-    padding-bottom: calc(var(--space-unit) * 3);
-  }
-
-  .heading-container,
-  .menu-container {
-    width: auto;
-  }
-
-  :host([flow="stack"]) .heading-panel {
-    flex-flow: column;
-    align-items: flex-start;
-  }
-
-  :host([flow="stack"]) .menu-container {
-    width: 100%;
-  }
-
-  :host(:not([flow="offcanvas"], [menu-length="0"])) .heading-panel {
-    row-gap: calc(var(--space-unit) * 3);
+  ::slotted([slot="product-logo"]) {
+    margin-right: var(--space-unit);
   }
 
   z-searchbar {
     min-width: calc(var(--space-unit) * 45);
     flex: initial;
-  }
-}
-
-/* Wide breakpoint */
-@media (min-width: 1366px) {
-  :host {
-    --app-header-title-font-size: var(--app-header-typography-9-size);
-    --app-header-title-lineheight: var(--app-header-typography-9-lineheight);
-    --app-header-title-letter-spacing: var(--app-header-typography-9-tracking);
   }
 }
 

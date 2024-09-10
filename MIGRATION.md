@@ -11,6 +11,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v16.0.0](#v1600)
 
+  - [Nuova versione componente z-app-header](#nuova-versione-componente-z-app-header)
   - [Rimosso parametro buildEs5 dal config stencil.](#rimosso-parametro-buildes5-dal-config-stencil)
 
 - [v15.0.0](#v1500)
@@ -105,6 +106,10 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
 ## v16.0.0
+
+### Nuova versione componente z-app-header
+
+A partire da questa release è stato rivisto il componente `z-app-header`. Le modifiche sono breaking, per favorire un aggiornamento graduale, viene quindi mantenuta attiva la sua versione deprecated, anche per i suoi elementi interni.
 
 ### Rimosso parametro buildEs5 dal config stencil.
 
