@@ -1,5 +1,5 @@
 import {Meta} from "@storybook/web-components";
-import {html, type TemplateResult} from "lit";
+import {TemplateResult, html} from "lit";
 import {ZAppHeader} from ".";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "../z-menu-section/index";
@@ -15,19 +15,16 @@ const StoryMeta = {
   parameters: {
     layout: "fullscreen",
   },
-  argTypes: {
-    flow: {
-      control: {
-        type: "inline-radio",
-      },
-      options: ["auto", "stack", "offcanvas"],
-    },
+  subcomponents: {
+    ZMenu: "z-menu",
+    ZMenuSection: "z-menu-section",
   },
   args: {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
-    "flow": "auto",
+    "enableZLogo": false,
+    "enableOffcanvas": false,
   },
 } satisfies Meta<ZAppHeaderStoriesArgs>;
 
@@ -54,12 +51,12 @@ const menuTemplate = (): TemplateResult => {
         <h3>Item 3</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.2</a
         >
       </z-menu-section>
@@ -67,12 +64,12 @@ const menuTemplate = (): TemplateResult => {
         <h3>Item 4</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.2</a
         >
       </z-menu-section>
@@ -88,16 +85,11 @@ const menuTemplate = (): TemplateResult => {
     >
       <a href>Menu label</a>
     </z-menu>
-  `;
-};
-
-const longMenuTemplate = (): TemplateResult => {
-  return html`
     <z-menu
       slot="menu"
       floating
     >
-      <h3>Not so short menu label</h3>
+      <h3>Menu label</h3>
       <a
         href=""
         slot="item"
@@ -112,12 +104,12 @@ const longMenuTemplate = (): TemplateResult => {
         <h3>Item 3</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.2</a
         >
       </z-menu-section>
@@ -125,12 +117,12 @@ const longMenuTemplate = (): TemplateResult => {
         <h3>Item 4</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.2</a
         >
       </z-menu-section>
@@ -159,12 +151,12 @@ const longMenuTemplate = (): TemplateResult => {
         <h3>Item 3</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 3.2</a
         >
       </z-menu-section>
@@ -172,247 +164,12 @@ const longMenuTemplate = (): TemplateResult => {
         <h3>Item 4</h3>
         <a
           href=""
-          slot="item"
+          slot="section"
           >Item 4.1</a
         >
         <a
           href=""
-          slot="item"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
-    </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="item"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="item"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="item"
+          slot="section"
           >Item 4.2</a
         >
       </z-menu-section>
@@ -430,40 +187,46 @@ type Story = Meta<ZAppHeaderStoriesArgs>;
 export const Title = {
   parameters: {
     controls: {
-      exclude: ["flow"],
+      exclude: ["enableOffcanvas"],
     },
   },
   render: (args) =>
     html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
     </z-app-header>`,
 } satisfies Story;
 
-export const Subtitle = {
+export const ProductLogo = {
   parameters: {
     controls: {
-      exclude: ["flow"],
+      exclude: ["enableOffcanvas"],
     },
   },
   render: (args) =>
     html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      <img
+        slot="product-logo"
+        src="src/assets/orientamento.svg"
+        alt=""
+      />
     </z-app-header>`,
 } satisfies Story;
 
-export const TopSubtitle = {
+export const TopTitle = {
   parameters: {
     controls: {
-      exclude: ["flow"],
+      exclude: ["enableOffcanvas", "enableZLogo"],
     },
   },
   render: (args) =>
@@ -477,64 +240,56 @@ export const TopSubtitle = {
     </z-app-header>`,
 } satisfies Story;
 
-export const Menu = {
+export const MenuWithTopTitle = {
+  parameters: {
+    controls: {
+      exclude: ["enableZLogo"],
+    },
+  },
+  args: {
+    enableOffcanvas: true,
+  },
   render: (args) =>
     html`<z-app-header
-      flow=${args.flow}
+      .enableOffcanvas=${args.enableOffcanvas}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
       <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
 
 export const LongTitle = {
+  parameters: {
+    controls: {
+      exclude: ["enableOffcanvas", "enableZLogo", "enableSearch", "searchPageUrl"],
+    },
+  },
   render: (args) =>
-    html`<z-app-header
-      flow=${args.flow}
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-    >
-      <h1 slot="title">Applicazione con nome veramente lungo che fa andare il menu a capo</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
+    html`<z-app-header style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}">
+      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
+      <h2 slot="top-subtitle">Jearl Walker, David Halliday, Robert Resnick</h2>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
 
-export const VeryLongMenu = {
-  render: (args) =>
-    html`<z-app-header
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      flow=${args.flow}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-    >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${longMenuTemplate()}
-    </z-app-header>`,
-} satisfies Story;
-
 export const OffcanvasMenu = {
-  parameters: {
-    controls: {
-      exclude: ["flow"],
-    },
+  args: {
+    enableOffcanvas: true,
   },
   render: (args) =>
     html`<z-app-header
-      flow="offcanvas"
+      .enableOffcanvas=${args.enableOffcanvas}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${longMenuTemplate()}
+      ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
 
@@ -550,93 +305,19 @@ export const Stuck = {
       inlineStories: false,
       iframeHeight: "400px",
     },
+    controls: {
+      exclude: ["enableOffcanvas"],
+    },
   },
   render: (args) =>
     html`<z-app-header
       stuck
-      .flow=${args.flow}
+      .enableZLogo=${args.enableZLogo}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
     >
       <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${longMenuTemplate()}
-    </z-app-header>`,
-} satisfies Story;
-
-export const MaxWidth = {
-  args: {
-    "--app-header-content-max-width": "1366px",
-  },
-  decorators: [
-    (Story) => html`
-      <div style="padding: 16px var(--grid-margin)">Scroll to see max width also in stuck header.</div>
-      <div style="height: 200vh">${Story()}</div>
-    `,
-  ],
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "400px",
-    },
-  },
-  render: (args) =>
-    html`<z-app-header
-      stuck
-      .flow=${args.flow}
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0;"
-    >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${menuTemplate()}
-    </z-app-header>`,
-} satisfies Story;
-
-export const CoverHeroWithSlottedImage = {
-  args: {
-    overlay: true,
-    hero: "",
-  },
-  render: (args) =>
-    html`<z-app-header
-      id="hero"
-      .overlay=${args.overlay}
-      .enableSearch=${args.enableSearch}
-      .searchPageUrl=${args.searchPageUrl}
-      .hero=${args.hero}
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-      flow=${args.flow}
-    >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
-      ${args.hero
-        ? ""
-        : html`<img
-            slot="hero"
-            src="https://miro.medium.com/max/2560/1*q8Lf442Gq2Wrb2aNr3urVg.jpeg"
-            alt=""
-          />`}
-      ${longMenuTemplate()}
-    </z-app-header>`,
-} satisfies Story;
-
-export const Searchbar = {
-  parameters: {
-    controls: {
-      exclude: ["searchPageUrl", "enableSearch"],
-    },
-  },
-  render: (args) =>
-    html`<z-app-header
-      flow=${args.flow}
-      enable-search
-      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
-    >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;
@@ -644,7 +325,7 @@ export const Searchbar = {
 export const SearchPageButton = {
   parameters: {
     controls: {
-      exclude: ["searchPageUrl", "enableSearch"],
+      exclude: ["searchPageUrl", "enableSearch", "enableOffcanvas"],
     },
   },
   decorators: [
@@ -657,8 +338,8 @@ export const SearchPageButton = {
   ],
   render: (args) =>
     html`<z-app-header
-      flow=${args.flow}
       enable-search
+      .enableZLogo=${args.enableZLogo}
       search-page-url="https://www.zanichelli.it"
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >

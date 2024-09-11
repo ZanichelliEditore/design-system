@@ -1,26 +1,26 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import {type ZMenu} from ".";
-import "../z-menu-section/index";
+import {type ZMenuDeprecated} from ".";
+import "../z-menu-section-deprecated/index";
 import "./index";
 
 const StoryMeta = {
-  title: "Zmenu/ZMenu",
+  title: "Deprecated/ZMenuDeprecated",
   component: "z-menu",
   args: {
     active: false,
     floating: true,
     verticalContext: false,
   },
-} satisfies Meta<ZMenu>;
+} satisfies Meta<ZMenuDeprecated>;
 
 export default StoryMeta;
 
-type Story = StoryObj<ZMenu>;
+type Story = StoryObj<ZMenuDeprecated>;
 
 export const FloatingContentLayout = {
   render: (args) => html`
-    <z-menu
+    <z-menu-deprecated
       .active=${args.active}
       .floating=${args.floating}
       .verticalContext=${args.verticalContext}
@@ -36,44 +36,44 @@ export const FloatingContentLayout = {
         slot="item"
         >Item 2</a
       >
-      <z-menu-section slot="item">
+      <z-menu-section-deprecated slot="item">
         <h3>Item 3</h3>
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 3.2</a
         >
-      </z-menu-section>
-      <z-menu-section slot="item">
+      </z-menu-section-deprecated>
+      <z-menu-section-deprecated slot="item">
         <h3>Item 4</h3>
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 4.1</a
         >
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 4.2</a
         >
-      </z-menu-section>
+      </z-menu-section-deprecated>
       <a
         href=""
         slot="item"
         >Item 5</a
       >
-    </z-menu>
+    </z-menu-deprecated>
   `,
 } satisfies Story;
 
 export const WithHeader = {
   render: (args) => html`
-    <z-menu
+    <z-menu-deprecated
       .active=${args.active}
       .floating=${args.floating}
       .verticalContext=${args.verticalContext}
@@ -94,25 +94,25 @@ export const WithHeader = {
         slot="item"
         >Item 2</a
       >
-      <z-menu-section slot="item">
+      <z-menu-section-deprecated slot="item">
         <h3>Item 3</h3>
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 3.1</a
         >
         <a
           href=""
-          slot="section"
+          slot="item"
           >Item 3.2</a
         >
-      </z-menu-section>
+      </z-menu-section-deprecated>
       <a
         href=""
         slot="item"
         >Item 4</a
       >
-    </z-menu>
+    </z-menu-deprecated>
   `,
 } satisfies Story;
 
@@ -123,7 +123,7 @@ export const ActiveWithoutItems = {
     },
   },
   render: (args) => html`
-    <z-menu
+    <z-menu-deprecated
       .active=${true}
       .verticalContext=${args.verticalContext}
     >
@@ -132,6 +132,6 @@ export const ActiveWithoutItems = {
         target="_blank"
         >Click me</a
       >
-    </z-menu>
+    </z-menu-deprecated>
   `,
 } satisfies Story;
