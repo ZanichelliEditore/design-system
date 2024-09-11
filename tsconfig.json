@@ -16,6 +16,6 @@
     "jsxFactory": "h",
     "skipLibCheck": true
   },
-  "include": ["src", "docs", ".storybook/elements"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

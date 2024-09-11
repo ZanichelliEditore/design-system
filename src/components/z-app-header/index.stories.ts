@@ -215,11 +215,10 @@ export const ProductLogo = {
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h1 slot="title">Applicazione</h1>
-      <img
+      <div
+        class="story-product-logo"
         slot="product-logo"
-        src="src/assets/orientamento.svg"
-        alt=""
-      />
+      ></div>
     </z-app-header>`,
 } satisfies Story;
 
