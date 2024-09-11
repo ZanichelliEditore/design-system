@@ -16,7 +16,6 @@ export class ZSearchbar {
         this.autocomplete = false;
         this.autocompleteMinChars = 3;
         this.resultsCount = undefined;
-        this.resultsEllipsis = true;
         this.searchHelperLabel = "Cerca {searchString}";
         this.resultsItems = undefined;
         this.sortResultsItems = false;
@@ -192,7 +191,7 @@ export class ZSearchbar {
         return listGroups;
     }
     renderItem(item, key, divider) {
-        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined, clickable: true, onClickItem: () => this.emitSearchItemClick(item) }, h("div", { class: "list-element" }, h("span", { class: { "item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category } }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : ""))));
+        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined }, h("div", { class: "list-element", onClick: () => this.emitSearchItemClick(item) }, h("span", { class: "item ellipsis" }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : "")), item.children && item.children.length > 0 ? (h("z-list", null, h("div", { class: "children-node" }, item.children.map((child, index) => this.renderItem(child, index, false))))) : null));
     }
     renderItemLabel(label) {
         if (!this.searchString) {
@@ -223,7 +222,7 @@ export class ZSearchbar {
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: 'af318a5b693c0048c368776744d9090bdebe6c8c', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: 'aba6d0bd87ba308a8f664ca5f86e5d0b96c734af', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: '9e8e62ecafdfd6f8a26c88ae89de0af9ae888bb3', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '19ea613b5434d4ceb27402c47f00e58ba2661859', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     static get is() { return "z-searchbar"; }
     static get encapsulation() { return "shadow"; }
@@ -361,24 +360,6 @@ export class ZSearchbar {
                 },
                 "attribute": "results-count",
                 "reflect": false
-            },
-            "resultsEllipsis": {
-                "type": "boolean",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Truncate results to single row"
-                },
-                "attribute": "results-ellipsis",
-                "reflect": false,
-                "defaultValue": "true"
             },
             "searchHelperLabel": {
                 "type": "string",
@@ -576,7 +557,7 @@ export class ZSearchbar {
                 },
                 "complexType": {
                     "original": "SearchbarItem",
-                    "resolved": "{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; }",
+                    "resolved": "{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; children?: Omit<SearchbarItem, \"category\" | \"subcategory\">[]; }",
                     "references": {
                         "SearchbarItem": {
                             "location": "import",

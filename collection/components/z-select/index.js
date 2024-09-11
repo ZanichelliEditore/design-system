@@ -265,10 +265,10 @@ export class ZSelect {
             }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
     }
     renderItem(item, key, lastItem) {
-        return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("div", { class: "list-element-container" }, item.icon && h("z-icon", { name: item.icon }), h("span", { class: {
+        return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("div", { class: "list-element-container" }, h("span", { class: {
                 "selected": !!item.selected,
                 "list-element-content": true,
-            }, innerHTML: item.name }))));
+            }, innerHTML: item.name }), item.icon && h("z-tag", { icon: item.icon }))));
     }
     listSizeType() {
         if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
@@ -314,7 +314,7 @@ export class ZSelect {
         return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (h("div", { key: '7cff5f68badfbedf3c8f6e9a5d8bbdaa89ed8a98', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: '16a8b264460cb21cd19258694e04f7c58ca5bc26', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     static get is() { return "z-select"; }
     static get encapsulation() { return "scoped"; }

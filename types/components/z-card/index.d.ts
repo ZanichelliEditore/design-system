@@ -25,7 +25,7 @@ export declare class ZCard {
     coverIcon: string;
     /** Enable shadow. Default: false. */
     showShadow: boolean;
-    /** Enable 'clickable' style like hover and focus style. */
+    /** Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. */
     clickable: boolean;
     host: HTMLZCardElement;
     hasCoverImage: boolean;
@@ -36,8 +36,8 @@ export declare class ZCard {
      */
     private renderColorCoverCard;
     /**
-     * Template for the content div.
+     * Template for the content.
      */
-    private renderContentDiv;
+    private renderContent;
     render(): HTMLZCardElement;
 }

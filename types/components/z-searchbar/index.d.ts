@@ -20,8 +20,6 @@ export declare class ZSearchbar {
     autocompleteMinChars?: number;
     /** Number of results shown - default all */
     resultsCount?: number;
-    /** Truncate results to single row */
-    resultsEllipsis?: boolean;
     /** Search helper text */
     searchHelperLabel?: string;
     /** Autocomplete results items */

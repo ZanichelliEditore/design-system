@@ -1,6 +1,7 @@
 :host {
   --z-searchbar-tag-text-color: var(--color-primary03);
   --z-searchbar-tag-bg: var(--color-hover-primary);
+  --z-searchbar-item-height: 44px;
 
   z-index: 15;
   display: flex;
@@ -12,6 +13,12 @@
 :host,
 * {
   box-sizing: border-box;
+}
+
+:host::part(list-item-container) {
+  display: block;
+  min-height: unset;
+  padding: 0;
 }
 
 .input-container {
@@ -78,12 +85,80 @@
 }
 
 .results z-list-element {
+  position: relative;
   display: block;
+}
+
+z-list-element > .item-search {
+  padding: var(--space-unit) 0;
+}
+
+z-list z-list-element::before {
+  position: absolute;
+  z-index: 100;
+  top: 5px;
+  left: -20px;
+  width: 8px;
+  height: 1em;
+  border-bottom: 1px solid var(--color-disabled01-icon);
+  border-left: 1px solid var(--color-disabled01-icon);
+  content: "";
+  cursor: pointer;
+}
+
+z-list z-list-element::after {
+  position: absolute;
+  z-index: 100;
+  top: 5px;
+  left: -20px;
+  width: 8px;
+  height: 100%;
+  border-left: 1px solid var(--color-disabled01-icon);
+  content: "";
+  cursor: pointer;
+}
+
+z-list z-list-element:last-child::after {
+  display: none;
+}
+
+z-list > z-list-element::before,
+z-list > z-list-element::after,
+z-list > z-list-group > z-list-element::before,
+z-list > z-list-group > z-list-element::after {
+  display: none;
+}
+
+z-list > div.children-node {
+  padding-left: calc(var(--space-unit) * 3);
 }
 
 .results z-list-element > .list-element {
   display: flex;
   justify-content: space-between;
+  padding: calc(var(--space-unit) * 1.25) 0;
+  cursor: pointer;
+}
+
+.results z-list-element > .list-element .item.ellipsis {
+  overflow: hidden;
+}
+
+.results z-list-element .list-element::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 44px;
+  content: "";
+  transform: translateX(-100%);
+}
+
+.results z-list-element > .list-element:hover,
+.results z-list-element > .list-element:hover::after {
+  background-color: var(--color-surface02);
+  cursor: pointer;
 }
 
 .results z-list-element > .list-element > z-tag {
@@ -107,7 +182,7 @@
   column-gap: calc(var(--space-unit) * 1.5);
   fill: var(--color-default-icon);
   font-size: var(--font-size-2);
-  line-height: var(--font-size-3);
+  line-height: var(--font-size-6);
 }
 
 .results .item.ellipsis > .item-label {
@@ -118,10 +193,6 @@
 
 .results .item > .item-label mark {
   background: var(--color-primary03);
-}
-
-.results .item.has-category {
-  padding-left: calc(var(--space-unit) * 3);
 }
 
 .results .item.item-search {
@@ -165,6 +236,10 @@
   .results .item.ellipsis > .item-label {
     height: 24px;
   }
+
+  .results z-list-element > .list-element > z-tag {
+    min-width: max-content;
+  }
 }
 
 /* Desktop breakpoint */
@@ -191,12 +266,20 @@
   --z-icon-width: 16px;
 }
 
-:host([size="small"])::part(list-item-container) {
-  min-height: calc(var(--space-unit) * 4.5);
-  padding: 0;
+:host([size="small"]) z-list-element > .list-element,
+:host([size="small"]) z-list-element > .item-search {
+  padding: calc(var(--space-unit) * 0.75) 0;
 }
 
-:host([size="x-small"])::part(list-item-container) {
-  min-height: calc(var(--space-unit) * 4);
-  padding: 0;
+:host([size="x-small"]) z-list-element > .list-element,
+:host([size="x-small"]) z-list-element > .item-search {
+  padding: calc(var(--space-unit) / 2) 0;
+}
+
+:host([size="small"]) z-list-element .list-element::after {
+  height: 36px;
+}
+
+:host([size="x-small"]) z-list-element .list-element::after {
+  height: 32px;
 }

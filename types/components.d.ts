@@ -425,7 +425,7 @@ export namespace Components {
      */
     interface ZCard {
         /**
-          * Enable 'clickable' style like hover and focus style.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
          */
         "clickable": boolean;
         /**
@@ -1605,10 +1605,6 @@ export namespace Components {
           * Number of results shown - default all
          */
         "resultsCount"?: number;
-        /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
         /**
           * Autocomplete results items
          */
@@ -3813,7 +3809,7 @@ declare namespace LocalJSX {
      */
     interface ZCard {
         /**
-          * Enable 'clickable' style like hover and focus style.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
          */
         "clickable"?: boolean;
         /**
@@ -5153,10 +5149,6 @@ declare namespace LocalJSX {
           * Number of results shown - default all
          */
         "resultsCount"?: number;
-        /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
         /**
           * Autocomplete results items
          */

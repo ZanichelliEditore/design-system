@@ -138,7 +138,6 @@ describe("Suite test ZSearchbar", () => {
                       role="option"
                       tabindex="0"
                       dividerType="element"
-                      clickable
                     >
                     <div class="list-element">
                       <span class="item ellipsis">
@@ -336,7 +335,6 @@ const resultsItems = () => `
       role="option"
       tabindex="0"
       dividerType="element"
-      clickable
     >
     <div class="list-element">
       <span class="item ellipsis">
@@ -350,7 +348,6 @@ const resultsItems = () => `
       role="option"
       tabindex="0"
       dividerType="element"
-      clickable
     >
     <div class="list-element">
       <span class="item ellipsis">
@@ -362,7 +359,6 @@ const resultsItems = () => `
       id="list-item-my-id-2"
       role="option"
       tabindex="0"
-      clickable
     >
     <div class="list-element">
       <span class="item ellipsis">
@@ -390,8 +386,8 @@ const showAllResults = () => `
     role="option"
     tabindex="0"
     id="list-item-my-id-show-all"
-    clickable
     color="color-primary01"
+    clickable
   >
     <div class="item-show-all">Vedi tutti i risultati</div>
   </z-list-element>

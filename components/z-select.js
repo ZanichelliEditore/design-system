@@ -1,15 +1,16 @@
 import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
 import { e as ControlSize, g as KeyboardCode, l as ListDividerType, i as ListSize } from './index2.js';
 import { r as randomId, b as boolean, a as getElementTree, h as handleKeyboardSubmit, d as getClickedElement } from './utils.js';
-import { d as defineCustomElement$8 } from './index6.js';
-import { d as defineCustomElement$7 } from './index9.js';
-import { d as defineCustomElement$6 } from './index10.js';
-import { d as defineCustomElement$5 } from './index11.js';
-import { d as defineCustomElement$4 } from './index12.js';
-import { d as defineCustomElement$3 } from './index13.js';
-import { d as defineCustomElement$2 } from './index14.js';
+import { d as defineCustomElement$9 } from './index6.js';
+import { d as defineCustomElement$8 } from './index9.js';
+import { d as defineCustomElement$7 } from './index10.js';
+import { d as defineCustomElement$6 } from './index11.js';
+import { d as defineCustomElement$5 } from './index12.js';
+import { d as defineCustomElement$4 } from './index13.js';
+import { d as defineCustomElement$3 } from './index14.js';
+import { d as defineCustomElement$2 } from './index24.js';
 
-const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-default-text);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}[size=\"small\"].sc-z-select-h,[size=\"x-small\"].sc-z-select-h{font-size:var(--font-size-2)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.fixed.sc-z-select{position:static}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select{display:flex;align-items:center;padding-left:calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.sc-z-select{display:block;padding:calc(var(--space-unit) * 0.5) 0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select+.list-element-content.sc-z-select{display:block;padding:calc(var(--space-unit) * 0.5) var(--space-unit)}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.sc-z-select{padding:0}[size=\"small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select{--z-icon-width:16px;--z-icon-height:16px}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select{--z-icon-width:14px;--z-icon-height:14px}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select+.list-element-content.sc-z-select{padding:0 var(--space-unit)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.z-list-group-title.sc-z-select{color:var(--gray800)}.reset-item.sc-z-select{color:var(--color-primary01);fill:var(--color-primary01)}.reset-item-content.sc-z-select{display:flex;align-items:center}.reset-item.reset-item-margin.sc-z-select .reset-item-content.sc-z-select{margin-left:calc(var(--space-unit))}.reset-item.sc-z-select .reset-item-content.sc-z-select>z-icon.sc-z-select{margin-right:var(--space-unit)}.reset-item.hide.sc-z-select{display:none}";
+const stylesCss = ".sc-z-select-h{display:inline-block;width:inherit;color:var(--color-default-text);font-family:var(--font-family-sans);font-size:var(--font-size-3);font-weight:var(--font-rg)}[size=\"small\"].sc-z-select-h,[size=\"x-small\"].sc-z-select-h{font-size:var(--font-size-2)}.select-wrapper.sc-z-select>z-input.sc-z-select{width:100%}.select-wrapper.sc-z-select>div.sc-z-select{position:relative}.select-wrapper.sc-z-select>div.closed.sc-z-select{overflow:hidden;height:0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select{position:absolute;width:100%;box-sizing:border-box;padding:calc(var(--space-unit) * 0.5) var(--space-unit);border:var(--border-size-small) solid var(--gray200);border-top:none;background:var(--color-surface01);outline:none}.select-wrapper.sc-z-select .closed.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:10}.select-wrapper.sc-z-select .open.sc-z-select .ul-scroll-wrapper.sc-z-select{z-index:20}.select-wrapper.sc-z-select .ul-scroll-wrapper.fixed.sc-z-select{position:static}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select{position:relative;overflow:auto;max-height:240px;padding:calc(var(--space-unit) * 0.5);outline:none;scrollbar-color:var(--color-primary01) transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar{width:10px;background:linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-track{background-color:transparent}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb{width:10px;background-color:var(--color-primary01);border-radius:var(--border-radius)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select>z-list.sc-z-select::-webkit-scrollbar-thumb:hover{background-color:var(--color-hover-primary)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select{display:flex;align-items:center;justify-content:space-between;padding-left:calc(var(--space-unit) * 1.5)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.sc-z-select{display:block;padding:calc(var(--space-unit) * 0.5) 0}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-tag.sc-z-select{margin-right:calc(var(--space-unit))}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select+.list-element-content.sc-z-select{display:block;padding:calc(var(--space-unit) * 0.5) var(--space-unit)}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.sc-z-select{padding:0}[size=\"small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select{--z-icon-width:16px;--z-icon-height:16px}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select{--z-icon-width:14px;--z-icon-height:14px}[size=\"x-small\"].sc-z-select-h .select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select>z-icon.sc-z-select+.list-element-content.sc-z-select{padding:0 var(--space-unit)}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select z-list.sc-z-select z-list-element.sc-z-select .list-element-container.sc-z-select .list-element-content.selected.sc-z-select{font-weight:bold}.select-wrapper.sc-z-select .ul-scroll-wrapper.sc-z-select .no-results.sc-z-select z-icon.sc-z-select{margin-right:var(--space-unit)}.z-list-group-title.sc-z-select{color:var(--gray800)}.reset-item.sc-z-select{color:var(--color-primary01);fill:var(--color-primary01)}.reset-item-content.sc-z-select{display:flex;align-items:center}.reset-item.reset-item-margin.sc-z-select .reset-item-content.sc-z-select{margin-left:calc(var(--space-unit))}.reset-item.sc-z-select .reset-item-content.sc-z-select>z-icon.sc-z-select{margin-right:var(--space-unit)}.reset-item.hide.sc-z-select{display:none}";
 const ZSelectStyle0 = stylesCss;
 
 const ZSelect$1 = /*@__PURE__*/ proxyCustomElement(class ZSelect extends HTMLElement {
@@ -280,10 +281,10 @@ const ZSelect$1 = /*@__PURE__*/ proxyCustomElement(class ZSelect extends HTMLEle
             }, onKeyDown: (e) => this.arrowsSelectNav(e, 0) }, h("div", { class: "reset-item-content" }, h("z-icon", { name: "multiply-circled" }), h("span", null, this.resetItem))));
     }
     renderItem(item, key, lastItem) {
-        return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("div", { class: "list-element-container" }, item.icon && h("z-icon", { name: item.icon }), h("span", { class: {
+        return (h("z-list-element", { clickable: !item.disabled, disabled: item.disabled, dividerType: lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT, role: "option", tabindex: item.disabled || !this.isOpen ? -1 : 0, "aria-selected": item.selected ? "true" : "false", id: `${this.htmlid}_${key}`, size: this.listSizeType(), onClickItem: () => this.selectItem(item, true), onKeyDown: (e) => this.arrowsSelectNav(e, key) }, h("div", { class: "list-element-container" }, h("span", { class: {
                 "selected": !!item.selected,
                 "list-element-content": true,
-            }, innerHTML: item.name }))));
+            }, innerHTML: item.name }), item.icon && h("z-tag", { icon: item.icon }))));
     }
     listSizeType() {
         if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
@@ -329,7 +330,7 @@ const ZSelect$1 = /*@__PURE__*/ proxyCustomElement(class ZSelect extends HTMLEle
         return (h("z-input-message", { message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size }));
     }
     render() {
-        return (h("div", { key: '7cff5f68badfbedf3c8f6e9a5d8bbdaa89ed8a98', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: '16a8b264460cb21cd19258694e04f7c58ca5bc26', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get element() { return this; }
     static get watchers() { return {
@@ -368,7 +369,7 @@ function defineCustomElement$1() {
     if (typeof customElements === "undefined") {
         return;
     }
-    const components = ["z-select", "z-divider", "z-icon", "z-input", "z-input-message", "z-list", "z-list-element", "z-list-group"];
+    const components = ["z-select", "z-divider", "z-icon", "z-input", "z-input-message", "z-list", "z-list-element", "z-list-group", "z-tag"];
     components.forEach(tagName => { switch (tagName) {
         case "z-select":
             if (!customElements.get(tagName)) {
@@ -377,35 +378,40 @@ function defineCustomElement$1() {
             break;
         case "z-divider":
             if (!customElements.get(tagName)) {
-                defineCustomElement$8();
+                defineCustomElement$9();
             }
             break;
         case "z-icon":
             if (!customElements.get(tagName)) {
-                defineCustomElement$7();
+                defineCustomElement$8();
             }
             break;
         case "z-input":
             if (!customElements.get(tagName)) {
-                defineCustomElement$6();
+                defineCustomElement$7();
             }
             break;
         case "z-input-message":
             if (!customElements.get(tagName)) {
-                defineCustomElement$5();
+                defineCustomElement$6();
             }
             break;
         case "z-list":
             if (!customElements.get(tagName)) {
-                defineCustomElement$4();
+                defineCustomElement$5();
             }
             break;
         case "z-list-element":
             if (!customElements.get(tagName)) {
-                defineCustomElement$3();
+                defineCustomElement$4();
             }
             break;
         case "z-list-group":
+            if (!customElements.get(tagName)) {
+                defineCustomElement$3();
+            }
+            break;
+        case "z-tag":
             if (!customElements.get(tagName)) {
                 defineCustomElement$2();
             }

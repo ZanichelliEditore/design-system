@@ -25,7 +25,6 @@ const StoryMeta = {
         "autocomplete": false,
         "autocompleteMinChars": 3,
         "resultsCount": null,
-        "resultsEllipsis": true,
         "searchHelperLabel": "Cerca {searchString}",
         "resultsItems": [
             {
@@ -62,7 +61,6 @@ export const Default = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}
@@ -112,7 +110,6 @@ export const Autocomplete = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}
@@ -182,7 +179,137 @@ export const AutocompleteWithComplexItems = {
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
-      results-ellipsis=${args.resultsEllipsis}
+      search-helper-label=${args.searchHelperLabel}
+      results-items=${JSON.stringify(args.resultsItems)}
+      sort-results-items=${JSON.stringify(args.sortResultsItems)}
+      value=${args.value}
+      placeholder=${args.placeholder}
+      htmlid=${args.htmlid}
+      style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}; --z-searchbar-tag-text-color: ${args["--z-searchbar-tag-text-color"]}; --z-searchbar-tag-bg: ${args["--z-searchbar-tag-bg"]}"
+      size=${args.size}
+      variant=${args.variant}
+    ></z-searchbar>
+  `,
+};
+export const AutocompleteWithComplexTreeItems = {
+    args: {
+        autocomplete: true,
+        htmlid: "myIdGroupedAutocomplete",
+        showSearchButton: false,
+        searchButtonIconOnly: false,
+        resultsItems: [
+            {
+                label: "first item",
+                icon: "download",
+                tag: {
+                    text: "Riservato all'insegnante",
+                    icon: "teacher",
+                },
+                category: "Category A",
+                subcategory: "Subcategory A1",
+                children: [
+                    {
+                        label: "first item - first child",
+                        icon: "download",
+                        tag: {
+                            text: "Riservato all'insegnante",
+                            icon: "teacher",
+                        },
+                        children: [
+                            {
+                                label: "first item - first child - first child lunghissssssssssssssss sssssssssssssssssss ssssssssssssssssssssssssssssss ssssssssssssssssssssssssssssssssssssssssssssssssssssimo",
+                                icon: "download",
+                                tag: {
+                                    text: "Riservato all'insegnante",
+                                    icon: "teacher",
+                                },
+                            },
+                            {
+                                label: "first item - first child - second child",
+                                icon: "download",
+                                tag: {
+                                    text: "Riservato all'insegnante",
+                                    icon: "teacher",
+                                },
+                            },
+                            {
+                                label: "first item - first child - third child",
+                                icon: "download",
+                                tag: {
+                                    text: "Riservato all'insegnante",
+                                    icon: "teacher",
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        label: "first item - second child",
+                        icon: "download",
+                        tag: {
+                            text: "Riservato all'insegnante",
+                            icon: "teacher",
+                        },
+                    },
+                ],
+            },
+            {
+                label: "second item",
+                icon: "collezioni",
+                category: "Category B",
+                subcategory: "Subcategory B1",
+            },
+            {
+                label: "third item",
+                icon: "dictonary",
+                category: "Category A",
+                subcategory: "Subcategory A2",
+            },
+            {
+                label: "fourth item",
+                icon: "exercises-online",
+                category: "Category A",
+                subcategory: "Subcategory A1",
+            },
+            {
+                label: "fifth item",
+                icon: "interactives-maps",
+                category: "Category A",
+                subcategory: "Subcategory A1",
+                children: [
+                    {
+                        label: "fifth item - first child",
+                        icon: "download",
+                        tag: {
+                            text: "Riservato all'insegnante",
+                            icon: "teacher",
+                        },
+                    },
+                    {
+                        label: "fifth item - second child",
+                        icon: "download",
+                        tag: {
+                            text: "Riservato all'insegnante",
+                            icon: "teacher",
+                        },
+                    },
+                ],
+            },
+            {
+                label: "sixth item",
+                icon: "textual-analysis",
+                category: "Category B",
+                subcategory: "Subcategory B1",
+            },
+        ],
+    },
+    render: (args) => html `
+    <z-searchbar
+      prevent-submit=${args.preventSubmit}
+      show-search-button=${args.showSearchButton}
+      search-button-icon-only=${args.searchButtonIconOnly}
+      autocomplete=${args.autocomplete}
+      autocomplete-min-chars=${args.autocompleteMinChars}
+      results-count=${args.resultsCount}
       search-helper-label=${args.searchHelperLabel}
       results-items=${JSON.stringify(args.resultsItems)}
       sort-results-items=${JSON.stringify(args.sortResultsItems)}

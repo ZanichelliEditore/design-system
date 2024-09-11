@@ -248,19 +248,29 @@ export const TextVariantWhiteBackgroundAndBordered = {
       </button>
     </z-card>`,
 };
-export const WithImageAndClick = {
+export const WithImageAndClickListener = {
+    parameters: {
+        controls: {
+            exclude: ["clickable", "showShadow"],
+        },
+    },
     render: (args) => html `
     <script>
+      window.cardClickCount = 0;
       document.getElementById("btn-card").addEventListener("click", (e) => {
-        // emit event, do stuff
-        alert("Click on card");
+        window.cardClickCount = window.cardClickCount + 1;
+        const alertBox = document.getElementById("click-alert-container");
+        if (!alertBox) {
+          return;
+        }
+
+        alertBox.innerText = "Card click count: " + window.cardClickCount;
       });
     </script>
     <z-card
       class="demo-card"
-      .variant="${args.variant}"
-      .showShadow="${args.showShadow}"
-      .clickable="${args.clickable}"
+      variant=${args.variant}
+      clickable
     >
       <img
         slot="cover"
@@ -287,6 +297,7 @@ export const WithImageAndClick = {
       <button slot="action"><z-icon name="share"></z-icon></button>
       <button slot="action"><z-icon name="delete"></z-icon></button>
     </z-card>
+    <div id="click-alert-container">Card click count: 0</div>
   `,
 };
 //# sourceMappingURL=index.stories.js.map

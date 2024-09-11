@@ -363,6 +363,7 @@ export type SearchbarItem = {
     };
     category?: string;
     subcategory?: string;
+    children?: Omit<SearchbarItem, "category" | "subcategory">[];
 };
 export type SearchbarGroupedItem = {
     [key: string]: SearchbarGroup;

@@ -37,20 +37,20 @@ export class ZCard {
         ];
     }
     /**
-     * Template for the content div.
+     * Template for the content.
      */
-    renderContentDiv() {
+    renderContent() {
         return (h("div", { class: "content" }, h("slot", { name: "metadata" }), h("slot", { name: "title" }), h("slot", { name: "text" }), h("div", { class: "actions" }, h("slot", { name: "action" }))));
     }
     render() {
         if (this.variant === CardVariant.TEXT) {
-            return h(Host, null, this.renderContentDiv());
+            return h(Host, null, this.renderContent());
         }
         if (this.variant === CardVariant.OVERLAY || this.hasCoverImage) {
             return (h(Host, null, h("div", { class: "cover-container" }, this.hasCoverImage && [
                 h("slot", { name: "cover" }),
                 this.variant !== CardVariant.OVERLAY && this.coverIcon && h("z-icon", { name: this.coverIcon }),
-            ], !this.hasCoverImage && h("div", { class: "color-cover" })), this.renderContentDiv()));
+            ], !this.hasCoverImage && h("div", { class: "color-cover" })), this.renderContent()));
         }
         return h(Host, null, this.renderColorCoverCard());
     }
@@ -138,7 +138,7 @@ export class ZCard {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Enable 'clickable' style like hover and focus style."
+                    "text": "Enable \"clickable\" styles like hover background and cursor, focus shadow on the whole card, etc."
                 },
                 "attribute": "clickable",
                 "reflect": true,

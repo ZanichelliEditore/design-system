@@ -65,6 +65,11 @@ export declare const TextVariantWhiteBackgroundAndBordered: {
     };
     render: (args: ZCardStoriesArgs) => import("lit-html").TemplateResult<1>;
 };
-export declare const WithImageAndClick: {
+export declare const WithImageAndClickListener: {
+    parameters: {
+        controls: {
+            exclude: string[];
+        };
+    };
     render: (args: ZCardStoriesArgs) => import("lit-html").TemplateResult<1>;
 };

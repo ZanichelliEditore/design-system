@@ -27,7 +27,6 @@ declare const StoryMeta: {
         autocomplete: false;
         autocompleteMinChars: number;
         resultsCount: any;
-        resultsEllipsis: true;
         searchHelperLabel: string;
         resultsItems: {
             label: string;
@@ -87,6 +86,70 @@ export declare const AutocompleteWithComplexItems: {
             icon: string;
             category: string;
             subcategory: string;
+            tag?: undefined;
+        })[];
+    };
+    render: (args: ZSearchbarStoriesArgs) => import("lit-html").TemplateResult<1>;
+};
+export declare const AutocompleteWithComplexTreeItems: {
+    args: {
+        autocomplete: true;
+        htmlid: string;
+        showSearchButton: false;
+        searchButtonIconOnly: false;
+        resultsItems: ({
+            label: string;
+            icon: string;
+            tag: {
+                text: string;
+                icon: string;
+            };
+            category: string;
+            subcategory: string;
+            children: ({
+                label: string;
+                icon: string;
+                tag: {
+                    text: string;
+                    icon: string;
+                };
+                children: {
+                    label: string;
+                    icon: string;
+                    tag: {
+                        text: string;
+                        icon: string;
+                    };
+                }[];
+            } | {
+                label: string;
+                icon: string;
+                tag: {
+                    text: string;
+                    icon: string;
+                };
+                children?: undefined;
+            })[];
+        } | {
+            label: string;
+            icon: string;
+            category: string;
+            subcategory: string;
+            tag?: undefined;
+            children?: undefined;
+        } | {
+            label: string;
+            icon: string;
+            category: string;
+            subcategory: string;
+            children: {
+                label: string;
+                icon: string;
+                tag: {
+                    text: string;
+                    icon: string;
+                };
+            }[];
             tag?: undefined;
         })[];
     };
