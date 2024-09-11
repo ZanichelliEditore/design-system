@@ -61,4 +61,25 @@ describe("z-select test end2end", () => {
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
   });
+
+  it("Should close the select list when pressing ESC key", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(`
+        <z-select
+          items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":false,"name":"item_3"}]'
+          label="this is the label"
+        ></z-select>
+    `);
+
+    await page.locator("z-select").click();
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
+
+    await page.keyboard.press("Escape");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
+  });
 });
