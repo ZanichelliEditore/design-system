@@ -394,9 +394,7 @@ export class ZSearchbar {
         </div>
         {item.children && item.children.length > 0 ? (
           <z-list>
-            <div style={{paddingLeft: "24px"}}>
-              {item.children.map((child, index) => this.renderItem(child, index, false))}
-            </div>
+            <div class="children-node">{item.children.map((child, index) => this.renderItem(child, index, false))}</div>
           </z-list>
         ) : null}
       </z-list-element>

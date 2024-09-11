@@ -90,7 +90,7 @@
 }
 
 z-list-element > .item-search {
-  padding: 8px 0;
+  padding: var(--space-unit) 0;
 }
 
 z-list z-list-element::before {
@@ -129,6 +129,10 @@ z-list > z-list-group > z-list-element::after {
   display: none;
 }
 
+z-list > div.children-node {
+  padding-left: calc(var(--space-unit) * 3);
+}
+
 .results z-list-element > .list-element {
   display: flex;
   justify-content: space-between;
@@ -154,8 +158,6 @@ z-list > z-list-group > z-list-element::after {
 .results z-list-element > .list-element:hover,
 .results z-list-element > .list-element:hover::after {
   background-color: var(--color-surface02);
-
-  /*   background-color: yellow; */
   cursor: pointer;
 }
 
@@ -266,12 +268,12 @@ z-list > z-list-group > z-list-element::after {
 
 :host([size="small"]) z-list-element > .list-element,
 :host([size="small"]) z-list-element > .item-search {
-  padding: 6px 0;
+  padding: calc(var(--space-unit) * 0.75) 0;
 }
 
 :host([size="x-small"]) z-list-element > .list-element,
 :host([size="x-small"]) z-list-element > .item-search {
-  padding: 4px 0;
+  padding: calc(var(--space-unit) / 2) 0;
 }
 
 :host([size="small"]) z-list-element .list-element::after {
