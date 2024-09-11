@@ -49,10 +49,6 @@ export class ZSearchbar {
   @Prop()
   resultsCount?: number;
 
-  /** Truncate results to single row */
-  @Prop()
-  resultsEllipsis?: boolean = true;
-
   /** Search helper text */
   @Prop()
   searchHelperLabel?: string = "Cerca {searchString}";
@@ -376,11 +372,12 @@ export class ZSearchbar {
         role="option"
         tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
-        clickable
-        onClickItem={() => this.emitSearchItemClick(item)}
       >
-        <div class="list-element">
-          <span class={{"item": true, "ellipsis": this.resultsEllipsis, "has-category": !!item.category}}>
+        <div
+          class="list-element"
+          onClick={() => this.emitSearchItemClick(item)}
+        >
+          <span class="item ellipsis">
             {item?.icon && (
               <z-icon
                 class="item-icon"
@@ -395,6 +392,11 @@ export class ZSearchbar {
           </span>
           {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
         </div>
+        {item.children && item.children.length > 0 ? (
+          <z-list>
+            <div class="children-node">{item.children.map((child, index) => this.renderItem(child, index, false))}</div>
+          </z-list>
+        ) : null}
       </z-list-element>
     );
   }

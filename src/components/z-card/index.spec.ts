@@ -115,15 +115,14 @@ describe("Suite test ZCard", () => {
     `);
   });
 
-  it("Test ZCard text variant", async () => {
+  it("Test render ZCard text variant", async () => {
     const page = await newSpecPage({
       components: [ZCard],
       html: `
         <z-card clickable variant="text" showshadow style="border: 1px solid black;">
           <h2 class="body-5" slot="metadata">metadata</h2>
           <h3 slot="title">Card title</h3>
-          <p class="body-3" slot="text">Some description for the content of the card. </p>
-
+          <p class="body-3" slot="text">Some description for the content of the card.</p>
           <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
           <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
         </z-card>
@@ -144,17 +143,17 @@ describe("Suite test ZCard", () => {
         </mock:shadow-root>
         <h2 class="body-5" slot="metadata">metadata</h2>
         <h3 slot="title">Card title</h3>
-        <p class="body-3" slot="text">Some description for the content of the card. </p>
+        <p class="body-3" slot="text">Some description for the content of the card.</p>
         <z-icon name="share" slot="action" fill="color-primary01"></z-icon>
         <z-icon name="delete" slot="action" fill="color-primary01"></z-icon>
       </z-card>
     `);
   });
 
-  it("Test ZCard clickable click", async () => {
+  it("Test ZCard click", async () => {
     const page = await newSpecPage({
       components: [ZCard],
-      html: `<z-card>
+      html: `<z-card clickable>
         <h2 class="body-5" slot="metadata">metadata</h2>
         <button id="btn" slot="title">Card title</button>
         <p class="body-3" slot="text">Description</p>
@@ -163,9 +162,32 @@ describe("Suite test ZCard", () => {
 
     const btn = page.body.querySelector("#btn") as HTMLButtonElement;
     const buttonClickedCallback = jest.fn();
-    page.doc.addEventListener("click", buttonClickedCallback);
+    btn.addEventListener("click", buttonClickedCallback);
     btn.click();
 
     expect(buttonClickedCallback).toHaveBeenCalled();
+  });
+
+  it("Should trigger the slotted action listener but not the one for ZCard", async () => {
+    const page = await newSpecPage({
+      components: [ZCard],
+      html: `<z-card>
+        <h2 class="body-5" slot="metadata">metadata</h2>
+        <button id="btn" slot="title">Card title</button>
+        <p class="body-3" slot="text">Description</p>
+        <button id="action-btn" slot="action"><z-icon name="gear" /></button>
+      </z-card>`,
+    });
+
+    const btn = page.body.querySelector("#btn") as HTMLButtonElement;
+    const onCardClick = jest.fn();
+    const action = page.body.querySelector("#action-btn") as HTMLButtonElement;
+    const onActionClick = jest.fn();
+    btn.addEventListener("click", onCardClick);
+    action.addEventListener("click", onActionClick);
+    action.click();
+
+    expect(onActionClick).toHaveBeenCalled();
+    expect(onCardClick).not.toHaveBeenCalled();
   });
 });

@@ -476,7 +476,6 @@ export class ZSelect {
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
         <div class="list-element-container">
-          {item.icon && <z-icon name={item.icon} />}
           <span
             class={{
               "selected": !!item.selected,
@@ -484,6 +483,8 @@ export class ZSelect {
             }}
             innerHTML={item.name}
           />
+
+          {item.icon && <z-tag icon={item.icon}></z-tag>}
         </div>
       </z-list-element>
     );
