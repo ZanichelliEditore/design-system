@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 16.0.0 (2024-09-10)
+
+## 15.1.4 (2024-09-04)
+
+
+### Features
+
+* tappable area on modal closing button ([fbf3b51](https://github.com/ZanichelliEditore/design-system/commit/fbf3b51f936fa9e5ce55e221cffe611757e5990f))
+
 ## 15.1.3 (2024-08-28)
 
 ## 15.1.2 (2024-08-02)

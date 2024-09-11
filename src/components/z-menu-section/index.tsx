@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {KeyboardCode} from "../../beans";
 
 /**
  * A component to create submenus inside the ZMenu.
@@ -31,6 +32,99 @@ export class ZMenuSection {
   @Event()
   closed: EventEmitter;
 
+  private currentIndex = -1;
+
+  private currentCanvasOpenStatus = false;
+
+  @Listen("canvasOpenStatusChanged", {target: "document"})
+  canvasOpenStatusChanged(e: CustomEvent): void {
+    this.currentCanvasOpenStatus = e.detail;
+  }
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ENTER) {
+      return;
+    }
+
+    if (this.open && !this.currentCanvasOpenStatus) {
+      this.handleNavigationSideArrow(e);
+    }
+
+    this.handleArrowsNav(e);
+  }
+
+  private handleNavigationSideArrow(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
+      return;
+    }
+    if (e.code === KeyboardCode.ARROW_RIGHT) {
+      const nextElement = this.hostElement.parentElement.nextElementSibling;
+      if (nextElement) {
+        const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        console.log(this.hostElement.parentElement);
+        menuButton.focus();
+      }
+      this.open = false;
+      nextElement.setAttribute("open", "true");
+    } else if (e.code === KeyboardCode.ARROW_LEFT) {
+      const prevElement = this.hostElement.parentElement.previousElementSibling;
+      if (prevElement) {
+        const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
+        menuButton.focus();
+      }
+      prevElement.setAttribute("open", "true");
+      this.open = false;
+    }
+  }
+
+  private handleArrowsNav(e: KeyboardEvent): void {
+    const menuItems = Array.from(this.hostElement.querySelectorAll('[slot="section"]')) as HTMLElement[];
+    if (this.open) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        let nextFocusableItem: HTMLElement;
+        // INFO: reset focus on all menu items
+        menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+
+        if (e.code === KeyboardCode.ARROW_DOWN) {
+          nextFocusableItem = this.getNextItem(menuItems, 1);
+        } else if (e.code === KeyboardCode.ARROW_UP) {
+          nextFocusableItem = this.getNextItem(menuItems, -1);
+        }
+
+        if (nextFocusableItem) {
+          nextFocusableItem.setAttribute("tabindex", "0");
+          nextFocusableItem.focus();
+        }
+      } else if (e.code === KeyboardCode.ESC) {
+        this.focusToParentAndCloseMenu();
+      } else if (e.shiftKey && e.code === KeyboardCode.TAB) {
+        this.focusToParentAndCloseMenu();
+      }
+    }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
+  }
+
+  private focusToParentAndCloseMenu(): void {
+    const menuButton = this.hostElement.shadowRoot.querySelector("button") as HTMLElement;
+    menuButton.focus();
+    this.currentIndex = -1;
+    this.open = false;
+  }
+
   private toggle(): void {
     if (!this.hasContent) {
       return;
@@ -55,7 +149,7 @@ export class ZMenuSection {
    * Check if some content slot is set.
    */
   private checkContent(): void {
-    this.hasContent = this.hostElement.querySelectorAll('[slot="item"]').length > 0;
+    this.hasContent = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
   }
 
   /**
@@ -65,6 +159,14 @@ export class ZMenuSection {
   private onLabelSlotChange(ev: Event): void {
     const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
     labelElement.dataset.text = labelElement?.innerText || null;
+  }
+
+  private focusFirstSectionItemOnKeyUp(): void {
+    const firstElement = this.hostElement.querySelectorAll('[slot="section"]')[0] as HTMLElement;
+    if (firstElement) {
+      firstElement.focus();
+      this.currentIndex = 0;
+    }
   }
 
   componentWillLoad(): void {
@@ -81,6 +183,7 @@ export class ZMenuSection {
           class="label"
           aria-pressed={this.open ? "true" : "false"}
           onClick={this.toggle.bind(this)}
+          onKeyUp={this.focusFirstSectionItemOnKeyUp.bind(this)}
         >
           <slot onSlotchange={this.onLabelSlotChange.bind(this)}></slot>
           {this.hasContent && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
@@ -88,7 +191,7 @@ export class ZMenuSection {
         {this.open && (
           <div class="items">
             <slot
-              name="item"
+              name="section"
               onSlotchange={this.checkContent.bind(this)}
             ></slot>
           </div>

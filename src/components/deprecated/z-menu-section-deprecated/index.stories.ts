@@ -1,48 +1,48 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import {type ZMenuSection} from ".";
+import {type ZMenuSectionDeprecated} from ".";
 import "./index";
 
 const StoryMeta = {
-  title: "ZMenu/ZMenuSection",
-  component: "z-menu-section",
+  title: "Deprecated/ZMenuSection",
+  component: "z-menu-section-deprecated",
   args: {
     active: false,
   },
-} satisfies Meta<ZMenuSection>;
+} satisfies Meta<ZMenuSectionDeprecated>;
 
 export default StoryMeta;
 
-type Story = StoryObj<ZMenuSection>;
+type Story = StoryObj<ZMenuSectionDeprecated>;
 
 export const WithItems = {
   render: (args) => html`
-    <z-menu-section .active=${args.active}>
+    <z-menu-section-deprecated .active=${args.active}>
       <h3>Label</h3>
       <a
         href=""
-        slot="section"
+        slot="item"
         >Item 1</a
       >
       <a
         href=""
-        slot="section"
+        slot="item"
         >Item 2</a
       >
       <a
         href=""
-        slot="seection"
+        slot="item"
         active
         >Item 3 - active</a
       >
-    </z-menu-section>
+    </z-menu-section-deprecated>
   `,
 } satisfies Story;
 
 export const WithoutItems = {
   render: (args) => html`
-    <z-menu-section .active=${args.active}>
+    <z-menu-section-deprecated .active=${args.active}>
       <h3>Label</h3>
-    </z-menu-section>
+    </z-menu-section-deprecated>
   `,
 } satisfies Story;

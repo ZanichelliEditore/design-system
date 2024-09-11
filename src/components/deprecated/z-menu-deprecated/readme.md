@@ -8,7 +8,7 @@
 | Property          | Attribute          | Description                                                                                                                                                                                | Type      | Default     |
 | ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
 | `active`          | `active`           | Flag to set the active status of the menu.                                                                                                                                                 | `boolean` | `undefined` |
-| `floating`        | `floating`         | Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.                                              | `boolean` | `true`      |
+| `floating`        | `floating`         | Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.                                              | `boolean` | `false`     |
 | `open`            | `open`             | The opening state of the menu.                                                                                                                                                             | `boolean` | `false`     |
 | `verticalContext` | `vertical-context` | Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements. | `boolean` | `false`     |
 
@@ -34,13 +34,13 @@
 
 ### Depends on
 
-- [z-icon](../z-icon)
+- [z-icon](../../z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-menu --> z-icon
-  style z-menu fill:#f9f,stroke:#333,stroke-width:4px
+  z-menu-deprecated --> z-icon
+  style z-menu-deprecated fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

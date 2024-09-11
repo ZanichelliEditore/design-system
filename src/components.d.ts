@@ -89,6 +89,44 @@ export namespace Components {
         "hideUnselected": boolean;
     }
     /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeader {
+        /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas": boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch": boolean;
+        /**
+          * Enable laZ logo.
+         */
+        "enableZLogo": boolean;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl": string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString": string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck": boolean;
+    }
+    /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
      * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
      * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -143,7 +181,7 @@ export namespace Components {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface ZAppHeader {
+    interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
          */
@@ -1019,9 +1057,39 @@ export namespace Components {
         "verticalContext": boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+         */
+        "open": boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext": boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
+        /**
+          * Active state
+         */
+        "active"?: boolean;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
         /**
           * Active state
          */
@@ -1941,6 +2009,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZAppHeaderDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAppHeaderDeprecatedElement;
+}
 export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
@@ -1997,9 +2069,17 @@ export interface ZMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuElement;
 }
+export interface ZMenuDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuDeprecatedElement;
+}
 export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuSectionElement;
+}
+export interface ZMenuSectionDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuSectionDeprecatedElement;
 }
 export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2141,6 +2221,31 @@ declare global {
         "sticking": any;
     }
     /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZAppHeaderElement: {
+        prototype: HTMLZAppHeaderElement;
+        new (): HTMLZAppHeaderElement;
+    };
+    interface HTMLZAppHeaderDeprecatedElementEventMap {
+        "sticking": any;
+    }
+    /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
      * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
      * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -2195,19 +2300,19 @@ declare global {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLZAppHeaderDeprecatedElement extends Components.ZAppHeaderDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLZAppHeaderElement: {
-        prototype: HTMLZAppHeaderElement;
-        new (): HTMLZAppHeaderElement;
+    var HTMLZAppHeaderDeprecatedElement: {
+        prototype: HTMLZAppHeaderDeprecatedElement;
+        new (): HTMLZAppHeaderDeprecatedElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2568,6 +2673,27 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
+    interface HTMLZMenuDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface HTMLZMenuDeprecatedElement extends Components.ZMenuDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuDeprecatedElement: {
+        prototype: HTMLZMenuDeprecatedElement;
+        new (): HTMLZMenuDeprecatedElement;
+    };
     interface HTMLZMenuSectionElementEventMap {
         "opened": any;
         "closed": any;
@@ -2588,6 +2714,27 @@ declare global {
     var HTMLZMenuSectionElement: {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
+    };
+    interface HTMLZMenuSectionDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface HTMLZMenuSectionDeprecatedElement extends Components.ZMenuSectionDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuSectionDeprecatedElement: {
+        prototype: HTMLZMenuSectionDeprecatedElement;
+        new (): HTMLZMenuSectionDeprecatedElement;
     };
     interface HTMLZModalElementEventMap {
         "modalClose": any;
@@ -3152,6 +3299,7 @@ declare global {
         "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
+        "z-app-header-deprecated": HTMLZAppHeaderDeprecatedElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
@@ -3179,7 +3327,9 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
+        "z-menu-deprecated": HTMLZMenuDeprecatedElement;
         "z-menu-section": HTMLZMenuSectionElement;
+        "z-menu-section-deprecated": HTMLZMenuSectionDeprecatedElement;
         "z-modal": HTMLZModalElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
@@ -3307,6 +3457,48 @@ declare namespace LocalJSX {
         "hideUnselected"?: boolean;
     }
     /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeader {
+        /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas"?: boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch"?: boolean;
+        /**
+          * Enable laZ logo.
+         */
+        "enableZLogo"?: boolean;
+        /**
+          * Emitted when the `stuck` state of the header changes
+         */
+        "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl"?: string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString"?: string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck"?: boolean;
+    }
+    /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
      * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
      * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -3361,7 +3553,7 @@ declare namespace LocalJSX {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface ZAppHeader {
+    interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
          */
@@ -3381,7 +3573,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the `stuck` state of the header changes
          */
-        "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
+        "onSticking"?: (event: ZAppHeaderDeprecatedCustomEvent<any>) => void;
         /**
           * Should place an overlay over the hero image. Useful for legibility purpose.
          */
@@ -4317,6 +4509,35 @@ declare namespace LocalJSX {
         "verticalContext"?: boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The menu has been closed.
+         */
+        "onClosed"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The menu has been opened.
+         */
+        "onOpened"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+         */
+        "open"?: boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext"?: boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
@@ -4332,6 +4553,23 @@ declare namespace LocalJSX {
           * The section has been opened.
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
+    }
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
+        /**
+          * Active state
+         */
+        "active"?: boolean;
+        /**
+          * The section has been closed.
+         */
+        "onClosed"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
+        /**
+          * The section has been opened.
+         */
+        "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
     /**
      * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
@@ -5335,6 +5573,7 @@ declare namespace LocalJSX {
         "z-alert": ZAlert;
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
+        "z-app-header-deprecated": ZAppHeaderDeprecated;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
@@ -5362,7 +5601,9 @@ declare namespace LocalJSX {
         "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
+        "z-menu-deprecated": ZMenuDeprecated;
         "z-menu-section": ZMenuSection;
+        "z-menu-section-deprecated": ZMenuSectionDeprecated;
         "z-modal": ZModal;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
@@ -5442,6 +5683,15 @@ declare module "@stencil/core" {
              */
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             /**
+             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+             */
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            /**
              * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
              * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
              * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
@@ -5496,7 +5746,7 @@ declare module "@stencil/core" {
              * Defaults to `--app-header-typography-3-tracking`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
-            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             /**
@@ -5560,9 +5810,17 @@ declare module "@stencil/core" {
              */
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             /**
+             * @cssprop --z-menu-label-color - Color of the label's text.
+             */
+            "z-menu-deprecated": LocalJSX.ZMenuDeprecated & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
+            /**
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            /**
+             * A component to create submenus inside the ZMenu.
+             */
+            "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             /**
              * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
              */
