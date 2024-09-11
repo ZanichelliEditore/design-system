@@ -1,65 +1,19 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, OffCanvasVariant, TransitionDirection} from "../../beans";
+import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {ButtonVariant, ControlSize, Device, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
+import {getDevice} from "../../utils/utils";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
 /**
  * @slot title - Slot for the main title
- * @slot subtitle - Slot for the bottom subtitle. It will not appear in stuck header.
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
- * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
- * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
- * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
- * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
- * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
- * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
- * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
- * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
- * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
- * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
- * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
- * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
- * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
- * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
- * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
- * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
- * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
- * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
- * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
- * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
- * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
- * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
- * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
- * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
- * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
- * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
- * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
- * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
- * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
- * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
+ * @slot product-logo - To insert the product logo, it should be used with an img tag.
  * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-height - Defaults to `auto`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
  * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
- * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
- * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
- * Defaults to `--app-header-typography-3-size`.
- * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
- * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-lineheight`.
- * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
- * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
- * Defaults to `--app-header-typography-3-tracking`.
  * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 @Component({
@@ -78,33 +32,10 @@ export class ZAppHeader {
   stuck = false;
 
   /**
-   * Set the hero image source for the header.
-   * You can also use a [slot="hero"] node for advanced customization.
+   * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
    */
-  @Prop()
-  hero: string;
-
-  /**
-   * Should place an overlay over the hero image.
-   * Useful for legibility purpose.
-   */
-  @Prop({reflect: true})
-  overlay = false;
-
-  /**
-   * Control menu bar position in the header.
-   * - auto: the menu bar is positioned near the title
-   * - stack: the menu bar is positioned below the title
-   * - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-   */
-  @Prop({reflect: true})
-  flow: "auto" | "stack" | "offcanvas" = "auto";
-
-  /**
-   * The opening state of the drawer.
-   */
-  @Prop({reflect: true})
-  drawerOpen = false;
+  @Prop({reflect: true, mutable: true})
+  enableOffcanvas = false;
 
   /**
    * Enable the search bar.
@@ -133,6 +64,12 @@ export class ZAppHeader {
   searchPageUrl: string;
 
   /**
+   * Enable laZ logo.
+   */
+  @Prop({reflect: true})
+  enableZLogo = true;
+
+  /**
    * The stuck state of the bar.
    */
   @State()
@@ -143,7 +80,7 @@ export class ZAppHeader {
    * Used to change the aspect of the search button (icon only) on mobile and tablet.
    */
   @State()
-  private currentViewport: "mobile" | "tablet" | "desktop" = "mobile";
+  private currentViewport: Device = Device.MOBILE;
 
   /**
    * Current count of menu items.
@@ -157,9 +94,26 @@ export class ZAppHeader {
   @Event()
   sticking: EventEmitter;
 
+  /**
+   * The opening state of the drawer.
+   */
+  @State()
+  private drawerOpen = false;
+
   private container?: HTMLDivElement;
 
-  private menuElements?: NodeListOf<HTMLElement>;
+  private menuElements?: NodeListOf<HTMLZMenuElement>;
+
+  private closeMenuButton: HTMLButtonElement;
+
+  private burgerButton: HTMLButtonElement;
+
+  private searchbar: HTMLZSearchbarElement;
+
+  /** Observer when the size of the element container changes */
+  private resizeObserver: ResizeObserver;
+
+  private currentIndex = -1;
 
   private observer?: IntersectionObserver =
     SUPPORT_INTERSECTION_OBSERVER &&
@@ -180,13 +134,73 @@ export class ZAppHeader {
 
   @Listen("resize", {target: "window", passive: true})
   evaluateViewport(): void {
-    if (window.innerWidth < 768) {
-      this.currentViewport = "mobile";
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1152) {
-      this.currentViewport = "tablet";
-    } else {
-      this.currentViewport = "desktop";
+    this.currentViewport = getDevice();
+  }
+
+  @Listen("keydown")
+  handleKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ESC && this.drawerOpen) {
+      this.closeDrawer();
+
+      return;
     }
+    this.handleArrowsNav(e);
+  }
+
+  private handleArrowsNav(e: KeyboardEvent): void {
+    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP && this.enableOffcanvas) {
+      return;
+    }
+
+    if (document.activeElement.slot === "item") {
+      return;
+    }
+
+    const menuItems = Array.from(this.menuElements).map(
+      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+    );
+
+    let nextFocusableItem: HTMLElement;
+    if (this.enableOffcanvas || this._stuck) {
+      // INFO: reset focus on all menu items
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.code === KeyboardCode.ARROW_DOWN) {
+        nextFocusableItem = this.getNextItem(menuItems, 1);
+      } else if (e.code === KeyboardCode.ARROW_UP) {
+        nextFocusableItem = this.getNextItem(menuItems, -1);
+      }
+    } else {
+      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
+        e.preventDefault();
+
+        return;
+      }
+      //INFO: reset focus on all menu items
+      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
+      if (e.code === KeyboardCode.ARROW_RIGHT) {
+        nextFocusableItem = this.getNextItem(menuItems, 1);
+      } else if (e.code === KeyboardCode.ARROW_LEFT) {
+        nextFocusableItem = this.getNextItem(menuItems, -1);
+      }
+    }
+    if (nextFocusableItem) {
+      nextFocusableItem.setAttribute("tabindex", "0");
+      nextFocusableItem.focus();
+    }
+  }
+
+  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
+    if (this.currentIndex === -1) {
+      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
+
+      return menuItems[this.currentIndex];
+    }
+
+    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
+
+    return menuItems[this.currentIndex];
   }
 
   @Watch("_stuck")
@@ -205,12 +219,35 @@ export class ZAppHeader {
       return;
     }
 
-    const elements = this.menuElements;
-    elements.forEach((element) => {
-      (element as HTMLZMenuElement).open = false;
-      (element as HTMLZMenuElement).floating = !this.drawerOpen;
-      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+    this.menuElements.forEach((element) => {
+      element.open = false;
+      element.floating = !this.drawerOpen;
+      element.verticalContext = this.drawerOpen;
+      element.setAttribute("role", "menuitem");
+      element.setAttribute("tabindex", "-1");
     });
+  }
+
+  @Watch("stuck")
+  onStuckMode(): void {
+    if (this.stuck) {
+      this.enableStuckObserver();
+    } else {
+      this.disableStuckMode();
+    }
+  }
+
+  private enableStuckObserver(): void {
+    if (this.observer) {
+      this.observer.observe(this.container);
+    }
+  }
+
+  private disableStuckMode(): void {
+    this._stuck = false;
+    if (this.observer) {
+      this.observer.unobserve(this.container);
+    }
   }
 
   private get title(): string {
@@ -232,27 +269,12 @@ export class ZAppHeader {
   }
 
   private get canShowMenu(): boolean {
-    return this.flow !== "offcanvas" && this.currentViewport !== "mobile" && !this.drawerOpen;
-  }
-
-  private get canShowSearchbar(): boolean {
-    if (!this.enableSearch) {
-      return false;
-    }
-
-    // Always show the searchbar on desktop, even if a searchPageUrl is set
-    if (this.searchPageUrl) {
-      return this.currentViewport === "desktop";
-    }
-
-    return true;
-  }
-
-  /**
-   * Whether the header has a hero image, either as a prop or as a slot.
-   */
-  private get hasHero(): boolean {
-    return !!this.hero || this.hostElement.querySelector("[slot=hero]") !== null;
+    return (
+      !this.enableOffcanvas &&
+      this.menuElements.length > 0 &&
+      this.currentViewport !== Device.MOBILE &&
+      !this.drawerOpen
+    );
   }
 
   private openDrawer(): void {
@@ -261,6 +283,8 @@ export class ZAppHeader {
 
   private closeDrawer(): void {
     this.drawerOpen = false;
+    this.burgerButton.focus();
+    this.currentIndex = -1;
   }
 
   private collectMenuElements(): void {
@@ -269,135 +293,104 @@ export class ZAppHeader {
     this.setMenuFloatingMode();
   }
 
-  private enableStuckObserver(): void {
-    if (this.observer) {
-      this.observer.observe(this.container);
-    }
+  private isSlotPresent(slotName: string): boolean {
+    const slot = this.hostElement.querySelector(`[slot="${slotName}"]`);
+
+    return !!slot;
   }
 
-  private disableStuckMode(): void {
-    this._stuck = false;
-    if (this.observer) {
-      this.observer.unobserve(this.container);
-    }
-  }
+  private renderSeachbar(): HTMLZSearchbarElement | HTMLZButtonElement {
+    const renderSearch =
+      this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET ? true : false;
 
-  @Watch("stuck")
-  onStuckMode(): void {
-    if (this.stuck) {
-      this.enableStuckObserver();
-    } else {
-      this.disableStuckMode();
-    }
-  }
-
-  private renderSearchLinkButton(): HTMLZButtonElement | null {
-    if (!this.enableSearch || !this.searchPageUrl || this.currentViewport === "desktop") {
-      return null;
+    if (this.currentViewport === Device.MOBILE && !this.searchPageUrl && this._stuck) {
+      return;
     }
 
-    return (
-      <z-button
-        class="search-page-button"
-        variant={ButtonVariant.SECONDARY}
-        href={this.searchPageUrl}
-        icon="search"
-        size={ControlSize.X_SMALL}
-      ></z-button>
-    );
-  }
+    if (this.searchPageUrl && (this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET)) {
+      return (
+        <z-button
+          class="search-page-button"
+          variant={ButtonVariant.SECONDARY}
+          href={this.searchPageUrl}
+          icon="search"
+          size={ControlSize.X_SMALL}
+        ></z-button>
+      );
+    }
 
-  private renderSeachbar(searchButtonIconOnly: boolean): HTMLZSearchbarElement {
     return (
       <z-searchbar
+        ref={(el) => (this.searchbar = el as HTMLZSearchbarElement)}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
-        searchButtonIconOnly={searchButtonIconOnly}
+        searchButtonIconOnly={renderSearch}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
         onSearchTyping={(e) => (this.searchString = e.detail)}
+        onKeyDown={(e) => {
+          if (e.code === KeyboardCode.ARROW_RIGHT || e.code === KeyboardCode.ARROW_LEFT) {
+            e.stopPropagation();
+          }
+        }}
       />
     );
   }
 
-  componentDidLoad(): void {
-    this.collectMenuElements();
-    this.onStuckMode();
-    this.evaluateViewport();
+  private renderProductLogos(): HTMLElement | null {
+    return (
+      <Fragment>
+        {this.enableZLogo && (
+          <img
+            class="z-logo"
+            alt="Logo Zanichelli"
+          />
+        )}
+        {this.currentViewport !== Device.MOBILE && <slot name="product-logo"></slot>}
+      </Fragment>
+    );
   }
 
-  render(): HTMLZAppHeaderElement {
+  private renderMenuButton(): HTMLButtonElement {
     return (
-      <Host menu-length={this.menuLength}>
-        {this.hasHero && (
-          <div class="hero-container">
-            <slot name="hero">
-              {this.hero && (
-                <img
-                  alt=""
-                  src={this.hero}
-                />
-              )}
-            </slot>
-          </div>
-        )}
-
-        <div
-          class="heading-panel"
-          ref={(el) => (this.container = el)}
+      this.menuLength > 0 &&
+      (this.enableOffcanvas || this._stuck || this.currentViewport === Device.MOBILE) && (
+        <button
+          ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
+          aria-label="Apri menu"
+          aria-haspopup="menu"
+          aria-expanded={`${this.drawerOpen}`}
+          aria-controls="menu-offcanvas"
+          class="drawer-trigger"
+          onClick={this.openDrawer}
+          onKeyUp={(ev: KeyboardEvent) => {
+            if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
+              this.closeMenuButton.focus();
+            }
+          }}
         >
-          <div class="heading-container">
-            <div class="heading-subtitle">
-              <slot name="top-subtitle"></slot>
-            </div>
-            <div class="heading-title">
-              {this.menuLength > 0 && (
-                <button
-                  class="drawer-trigger"
-                  aria-label="Apri menu"
-                  onClick={this.openDrawer}
-                >
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
-              )}
+          <z-icon name="burger-menu"></z-icon>
+        </button>
+      )
+    );
+  }
 
-              <slot name="title"></slot>
-
-              {this.renderSearchLinkButton()}
-            </div>
-
-            <div class="heading-subtitle">
-              <slot name="subtitle"></slot>
-            </div>
-          </div>
-
-          {(this.canShowMenu || this.canShowSearchbar) && (
-            <div class="menu-container">
-              {this.canShowMenu && (
-                <slot
-                  name="menu"
-                  onSlotchange={this.collectMenuElements}
-                ></slot>
-              )}
-
-              {this.canShowSearchbar && this.renderSeachbar(this.currentViewport !== "desktop")}
-            </div>
-          )}
-        </div>
-
-        <z-offcanvas
-          variant={OffCanvasVariant.OVERLAY}
-          transitiondirection={TransitionDirection.RIGHT}
-          open={this.drawerOpen}
-          onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
-        >
+  private renderOffcanvas(): HTMLZOffcanvasElement {
+    return (
+      <z-offcanvas
+        variant={OffCanvasVariant.OVERLAY}
+        transitiondirection={TransitionDirection.RIGHT}
+        open={this.drawerOpen}
+        onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
+      >
+        <div slot="canvasContent">
           <button
+            ref={(el) => (this.closeMenuButton = el as HTMLButtonElement)}
             class="drawer-close"
             aria-label="Chiudi menu"
             onClick={this.closeDrawer}
-            slot="canvasContent"
             aria-hidden={`${!this.drawerOpen}`}
             disabled={!this.drawerOpen}
           >
@@ -406,7 +399,6 @@ export class ZAppHeader {
 
           <div
             class="drawer-content"
-            slot="canvasContent"
             aria-hidden={`${!this.drawerOpen}`}
           >
             <slot
@@ -414,30 +406,159 @@ export class ZAppHeader {
               onSlotchange={this.collectMenuElements}
             ></slot>
           </div>
-        </z-offcanvas>
+        </div>
+      </z-offcanvas>
+    );
+  }
 
-        {this._stuck && (
-          <div class="heading-stuck">
-            <div class="heading-stuck-content">
-              {this.menuLength > 0 && (
-                <button
-                  class="drawer-trigger"
-                  aria-label="Apri menu"
-                  onClick={this.openDrawer}
-                >
-                  <z-icon name="burger-menu"></z-icon>
-                </button>
-              )}
-
-              <div class="heading-title">
-                <slot name="stucked-title">{this.title}</slot>
-              </div>
-
-              {this.renderSearchLinkButton()}
-              {this.canShowSearchbar && this.currentViewport === "desktop" && this.renderSeachbar(false)}
-            </div>
+  private renderStuck(): HTMLElement {
+    return (
+      <div class="heading-stuck">
+        <div class="heading-stuck-content">
+          {this.renderMenuButton()}
+          <div class="heading-title">
+            {this.renderProductLogos()}
+            <slot name="stucked-title">{this.title}</slot>
           </div>
-        )}
+          {this.enableSearch && this.renderSeachbar()}
+        </div>
+      </div>
+    );
+  }
+
+  private getWidthMenu(): number {
+    if (this.menuElements.length === 0) {
+      return;
+    }
+
+    return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 100);
+  }
+
+  private focusToFirstItemMenu(): void {
+    const menuItems = Array.from(this.menuElements).map(
+      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+    );
+
+    menuItems[0].focus();
+    this.currentIndex = 0;
+  }
+
+  private handleFocusItem(e): void {
+    const menuItems = Array.from(this.menuElements).map(
+      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
+    );
+
+    if (
+      e.code === KeyboardCode.ARROW_DOWN ||
+      e.code === KeyboardCode.ARROW_UP ||
+      e.code === KeyboardCode.ENTER ||
+      e.code === KeyboardCode.TAB
+    ) {
+      return;
+    }
+
+    if (document.activeElement.tagName === "Z-MENU-SECTION" || document.activeElement.tagName === "Z-MENU") {
+      return;
+    }
+
+    if (this.enableSearch && this.currentIndex === 0) {
+      const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
+      input.focus();
+      this.currentIndex = -1;
+    }
+
+    if (this.currentIndex !== -1) {
+      menuItems[this.currentIndex].focus();
+    }
+  }
+
+  componentWillLoad(): void {
+    this.collectMenuElements();
+    this.evaluateViewport();
+  }
+
+  componentDidLoad(): void {
+    this.onStuckMode();
+
+    if (this.enableOffcanvas) {
+      return;
+    }
+
+    const menuWidth = this.getWidthMenu();
+    const containerSidePadding = 50;
+    this.resizeObserver = new ResizeObserver((observer) => {
+      const containerWidth = observer[0].contentRect.width;
+      if (this.currentViewport === Device.MOBILE) {
+        return (this.enableOffcanvas = true);
+      }
+
+      if (menuWidth > containerWidth - containerSidePadding && !this.enableOffcanvas) {
+        this.enableOffcanvas = true;
+      } else if (menuWidth <= containerWidth - containerSidePadding && this.enableOffcanvas) {
+        this.enableOffcanvas = false;
+      }
+    });
+
+    this.resizeObserver.observe(this.container);
+  }
+
+  disconnectedCallback(): void {
+    this.resizeObserver?.disconnect();
+  }
+
+  render(): HTMLZAppHeaderElement {
+    const hasTopSubtitle = this.isSlotPresent("top-subtitle");
+
+    return (
+      <Host menu-length={this.menuLength}>
+        <div
+          class={`heading-panel ${this.menuLength > 0 && !this.enableOffcanvas ? "has-menu" : ""}`}
+          ref={(el) => (this.container = el)}
+        >
+          <div class="heading-container">
+            {((!this.enableSearch && this.currentViewport === Device.MOBILE) ||
+              this.currentViewport !== Device.MOBILE) && (
+              <div class={`${this.enableOffcanvas ? "p-left" : ""}`}>
+                <slot name="top-subtitle"></slot>
+              </div>
+            )}
+            <div class="heading-title">
+              {this.renderMenuButton()}
+              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
+              <slot name="title"></slot>
+              {this.enableSearch && this.currentViewport !== Device.MOBILE && this.renderSeachbar()}
+            </div>
+            {this.enableSearch && this.currentViewport === Device.MOBILE && this.renderSeachbar()}
+          </div>
+
+          {this.canShowMenu && (
+            <div
+              class="menu-container"
+              onKeyUp={(e) => {
+                if (this.enableOffcanvas) {
+                  return;
+                }
+
+                if (this.currentIndex === -1) {
+                  this.focusToFirstItemMenu();
+                } else {
+                  this.handleFocusItem(e);
+                }
+              }}
+              role="hidden"
+              tabIndex={0}
+            >
+              <slot
+                name="menu"
+                onSlotchange={this.collectMenuElements}
+              ></slot>
+            </div>
+          )}
+        </div>
+
+        {this.renderOffcanvas()}
+
+        {this._stuck && this.renderStuck()}
       </Host>
     );
   }
