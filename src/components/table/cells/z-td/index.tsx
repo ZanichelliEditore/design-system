@@ -95,6 +95,7 @@ export class ZTd {
               onClick={this.onMenuButtonClick.bind(this)}
             />
             <z-popover
+              class="cell-popover"
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
               bindTo={this.menuTrigger as HTMLElement}
               onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}

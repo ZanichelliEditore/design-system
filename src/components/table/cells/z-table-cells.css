@@ -45,6 +45,10 @@
   pointer-events: all;
 }
 
+:host .cell-popover {
+  z-index: 100;
+}
+
 @media (min-width: 768px) and (hover: hover) {
   :host([show-menu="hover"]) .cell--menu-container {
     opacity: 0;
