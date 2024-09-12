@@ -106,7 +106,7 @@ describe("z-select test end2end", () => {
     expect((await page.find("z-list-element span")).innerText).toBe("item_1");
   });
 
-  it("Should emit resetSelect event when enabling reset item", async () => {
+  it("Should emit resetSelect event when reset item is enabled and clicked", async () => {
     const page = await newE2EPage();
 
     await page.setContent(`
