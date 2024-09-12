@@ -34,10 +34,16 @@ export class ZTd {
   showMenu: VisibilityCondition = null;
 
   /**
-   * Set a the popover default position.
+   * Set the popover position, the default is "auto".
    */
   @Prop()
-  defaultPopoverPosition?: PopoverPosition = PopoverPosition.AUTO;
+  popoverPosition?: PopoverPosition = PopoverPosition.AUTO;
+
+  /**
+   * Should be set to `true` if the contextual menu is in the laze table.
+   */
+  @Prop()
+  isLazeMenu?: boolean = false;
 
   /**
    * Store the open state of the menu.
@@ -81,6 +87,10 @@ export class ZTd {
   render(): HTMLZTdElement {
     return (
       <Host
+        style={{
+          position: this.isLazeMenu && !this.popoverEl.open ? "relative" : undefined,
+          zIndex: this.isLazeMenu && !this.popoverEl.open ? "0" : undefined,
+        }}
         role="cell"
         menu-open={this.isMenuOpen}
       >
@@ -99,7 +109,7 @@ export class ZTd {
               ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
               bindTo={this.menuTrigger as HTMLElement}
               onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
-              position={this.defaultPopoverPosition}
+              position={this.popoverPosition}
             >
               <slot name="contextual-menu"></slot>
             </z-popover>
