@@ -1606,10 +1606,6 @@ export namespace Components {
          */
         "resultsCount"?: number;
         /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
-        /**
           * Autocomplete results items
          */
         "resultsItems"?: SearchbarItem[] | string;
@@ -5153,10 +5149,6 @@ declare namespace LocalJSX {
           * Number of results shown - default all
          */
         "resultsCount"?: number;
-        /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
         /**
           * Autocomplete results items
          */

@@ -13,3 +13,22 @@ it("Test ZButtonSort should emit buttonSortClick event", async () => {
   await page.waitForChanges();
   expect(clickEvent).toHaveReceivedEventDetail({sortAsc: false});
 });
+
+it("changes button label on click based on sortAsc event property", async () => {
+  const page = await newE2EPage({
+    html: '<z-button-sort label="ascending" desclabel="descending" sortasc="true" isselected="true"></z-button-sort>',
+  });
+  const btn = await page.find("z-button-sort >>> button");
+  const clickEvent = await page.spyOnEvent("buttonSortClick");
+  const btnText = await page.find("z-button-sort >>> button span.ellipsis");
+
+  await btn.click();
+  await page.waitForChanges();
+  expect(clickEvent).toHaveReceivedEventDetail({sortAsc: false});
+  expect(btnText).toEqualText("descending");
+
+  await btn.click();
+  await page.waitForChanges();
+  expect(clickEvent).toHaveReceivedEventDetail({sortAsc: true});
+  expect(btnText).toEqualText("ascending");
+});
