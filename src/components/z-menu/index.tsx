@@ -266,12 +266,19 @@ export class ZMenu {
    */
   private onItemsChange(): void {
     this.checkContent();
-    const items = this.hostElement.querySelectorAll<HTMLElement>("[slot=item]");
+    const items = Array.from(this.hostElement.querySelectorAll<HTMLElement>("[slot=item]"));
     items.forEach((item) => {
       item.setAttribute("role", "menuitem");
       item.setAttribute("tabindex", "-1");
       item.dataset.text = item.textContent;
     });
+    // enable tab navigation on the active item, if any. Otherwise, enable it on the first menu
+    const activeItem = items.find((item) => ("active" in item ? item.active : false));
+    if (activeItem) {
+      activeItem.setAttribute("tabindex", "0");
+    } else {
+      items[0].setAttribute("tabindex", "0");
+    }
   }
 
   private focusFirstItemOnKeyUp(): void {
@@ -282,13 +289,26 @@ export class ZMenu {
     }
   }
 
-  private renderMenuLabel(): HTMLButtonElement | HTMLDivElement {
-    if (this.hasContent) {
+  render(): HTMLZMenuElement {
+    if (!this.hasContent) {
       return (
+        <div class="menu-wrapper">
+          <div class="menu-label">
+            <div class="menu-label-content">
+              <slot onSlotchange={this.onLabelSlotChange}></slot>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <Host>
         <div class="menu-wrapper">
           <button
             class="menu-label"
-            aria-expanded={this.open ? "true" : "false"}
+            aria-expanded={`${this.open}`}
+            aria-haspopup={`${this.hasContent}`}
             aria-label={this.open ? "Chiudi menù" : "Apri menù"}
             onClick={this.toggle}
             onKeyUp={this.focusFirstItemOnKeyUp.bind(this)}
@@ -299,50 +319,30 @@ export class ZMenu {
             </div>
           </button>
         </div>
-      );
-    }
 
-    return (
-      <div class="menu-wrapper">
-        <div class="menu-label">
-          <div class="menu-label-content">
-            <slot onSlotchange={this.onLabelSlotChange}></slot>
+        <div
+          class="content"
+          ref={(el) => (this.content = el)}
+        >
+          {this.hasHeader && (
+            <header class="header">
+              <slot
+                name="header"
+                onSlotchange={this.checkContent}
+              ></slot>
+            </header>
+          )}
+
+          <div
+            class="items"
+            role="menu"
+          >
+            <slot
+              name="item"
+              onSlotchange={this.onItemsChange}
+            ></slot>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  render(): HTMLZMenuElement {
-    return (
-      <Host>
-        {this.renderMenuLabel()}
-
-        {this.hasContent && (
-          <div
-            class="content"
-            ref={(el) => (this.content = el)}
-          >
-            {this.hasHeader && (
-              <header class="header">
-                <slot
-                  name="header"
-                  onSlotchange={this.checkContent}
-                ></slot>
-              </header>
-            )}
-
-            <div
-              class="items"
-              role="menu"
-            >
-              <slot
-                name="item"
-                onSlotchange={this.onItemsChange}
-              ></slot>
-            </div>
-          </div>
-        )}
       </Host>
     );
   }

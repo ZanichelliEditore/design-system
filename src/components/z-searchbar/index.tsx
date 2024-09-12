@@ -156,7 +156,7 @@ export class ZSearchbar {
   }
 
   disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
+    this.resizeObserver?.disconnect();
   }
 
   componentDidLoad(): void {

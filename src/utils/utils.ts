@@ -1,6 +1,6 @@
 import {ChildNode} from "@stencil/core";
 import {Device, KeyboardCode} from "../beans/index";
-import {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
+import {Breakpoints} from "../constants/breakpoints";
 
 /**
  * Return boolean value for passed value if a boolean corresponding value is found
@@ -96,13 +96,17 @@ export function getSiblings(elem: HTMLElement): ChildNode[] {
   return siblings;
 }
 
+/**
+ * Get the current device type based on the window width.
+ * @returns {Device} - The current device type
+ */
 export function getDevice(): Device {
   switch (true) {
-    case window.innerWidth <= mobileBreakpoint:
+    case window.innerWidth <= Breakpoints.MOBILE:
       return Device.MOBILE;
-    case window.innerWidth <= tabletBreakpoint:
+    case window.innerWidth <= Breakpoints.TABLET:
       return Device.TABLET;
-    case window.innerWidth <= desktopBreakpoint:
+    case window.innerWidth <= Breakpoints.DESKTOP:
       return Device.DESKTOP;
     default:
       return Device.DESKTOP_WIDE;

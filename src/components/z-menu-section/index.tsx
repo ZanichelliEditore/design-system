@@ -22,7 +22,7 @@ export class ZMenuSection {
   open: boolean;
 
   @State()
-  hasContent: boolean;
+  hasItems: boolean;
 
   /** The section has been opened. */
   @Event()
@@ -126,7 +126,7 @@ export class ZMenuSection {
   }
 
   private toggle(): void {
-    if (!this.hasContent) {
+    if (!this.hasItems) {
       return;
     }
 
@@ -148,8 +148,20 @@ export class ZMenuSection {
   /**
    * Check if some content slot is set.
    */
-  private checkContent(): void {
-    this.hasContent = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
+  private onItemsChange(): void {
+    this.hasItems = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
+    const items = Array.from(this.hostElement.querySelectorAll<HTMLElement>("[slot='section']"));
+    items.forEach((item) => {
+      item.setAttribute("role", "menuitem");
+      item.setAttribute("tabindex", "-1");
+    });
+    // enable tab navigation on the active item, if any. Otherwise, enable it on the first menu
+    const activeItem = items.find((item) => ("active" in item ? item.active : false));
+    if (activeItem) {
+      activeItem.setAttribute("tabindex", "0");
+    } else {
+      items[0].setAttribute("tabindex", "0");
+    }
   }
 
   /**
@@ -170,30 +182,31 @@ export class ZMenuSection {
   }
 
   componentWillLoad(): void {
-    this.checkContent();
+    this.onItemsChange();
   }
 
   render(): HTMLZMenuSectionElement {
     return (
-      <Host
-        role="menu"
-        open={this.open}
-      >
+      <Host open={this.open}>
         <button
           class="label"
-          aria-pressed={this.open ? "true" : "false"}
+          aria-haspopup={`${this.hasItems}`}
+          aria-expanded={`${this.open}`}
           onClick={this.toggle.bind(this)}
           onKeyUp={this.focusFirstSectionItemOnKeyUp.bind(this)}
         >
           <slot onSlotchange={this.onLabelSlotChange.bind(this)}></slot>
-          {this.hasContent && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
+          {this.hasItems && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
         {this.open && (
-          <div class="items">
+          <div
+            class="items"
+            role="menu"
+          >
             <slot
               name="section"
-              onSlotchange={this.checkContent.bind(this)}
-            ></slot>
+              onSlotchange={this.onItemsChange.bind(this)}
+            />
           </div>
         )}
       </Host>

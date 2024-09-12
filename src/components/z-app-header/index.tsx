@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, Device, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
-import {getDevice} from "../../utils/utils";
+import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
+import {Breakpoints} from "../../constants/breakpoints";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -32,7 +32,7 @@ export class ZAppHeader {
   stuck = false;
 
   /**
-   * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+   * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
    */
   @Prop({reflect: true, mutable: true})
   enableOffcanvas = false;
@@ -70,29 +70,22 @@ export class ZAppHeader {
   enableZLogo = true;
 
   /**
+   * Emitted when the `stuck` state of the header changes
+   */
+  @Event()
+  sticking: EventEmitter;
+
+  /**
    * The stuck state of the bar.
    */
   @State()
   private _stuck = false;
 
   /**
-   * Current viewport.
-   * Used to change the aspect of the search button (icon only) on mobile and tablet.
-   */
-  @State()
-  private currentViewport: Device = Device.MOBILE;
-
-  /**
    * Current count of menu items.
    */
   @State()
-  menuLength: number;
-
-  /**
-   * Emitted when the `stuck` state of the header changes
-   */
-  @Event()
-  sticking: EventEmitter;
+  private menuLength: number;
 
   /**
    * The opening state of the drawer.
@@ -100,9 +93,17 @@ export class ZAppHeader {
   @State()
   private drawerOpen = false;
 
+  @State()
+  private isMobile = true;
+
+  @State()
+  private isTablet = false;
+
   private container?: HTMLDivElement;
 
-  private menuElements?: NodeListOf<HTMLZMenuElement>;
+  private menuContainer?: HTMLElement;
+
+  private menuElements?: HTMLZMenuElement[];
 
   private closeMenuButton: HTMLButtonElement;
 
@@ -110,31 +111,23 @@ export class ZAppHeader {
 
   private searchbar: HTMLZSearchbarElement;
 
-  /** Observer when the size of the element container changes */
-  private resizeObserver: ResizeObserver;
+  private menuResizeObserver: ResizeObserver;
 
   private currentIndex = -1;
 
-  private observer?: IntersectionObserver =
+  private stuckIntersecObserver?: IntersectionObserver =
     SUPPORT_INTERSECTION_OBSERVER &&
     new IntersectionObserver(
       ([entry]) => {
         this._stuck = !entry.isIntersecting;
       },
-      {
-        threshold: 0.5,
-      }
+      {threshold: 0.5}
     );
 
   constructor() {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.collectMenuElements = this.collectMenuElements.bind(this);
-  }
-
-  @Listen("resize", {target: "window", passive: true})
-  evaluateViewport(): void {
-    this.currentViewport = getDevice();
   }
 
   @Listen("keydown")
@@ -156,9 +149,7 @@ export class ZAppHeader {
       return;
     }
 
-    const menuItems = Array.from(this.menuElements).map(
-      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
-    );
+    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
 
     let nextFocusableItem: HTMLElement;
     if (this.enableOffcanvas || this._stuck) {
@@ -226,37 +217,27 @@ export class ZAppHeader {
       element.setAttribute("role", "menuitem");
       element.setAttribute("tabindex", "-1");
     });
+    // enable tab navigation on the active menu, if any. Otherwise, enable it on the first menu
+    const activeMenu = this.menuElements.find(({active}) => active);
+    if (activeMenu) {
+      activeMenu.setAttribute("tabindex", "0");
+    } else {
+      this.menuElements[0].setAttribute("tabindex", "0");
+    }
   }
 
   @Watch("stuck")
-  onStuckMode(): void {
+  onStuckChange(): void {
     if (this.stuck) {
-      this.enableStuckObserver();
+      this.stuckIntersecObserver?.observe(this.container);
     } else {
-      this.disableStuckMode();
-    }
-  }
-
-  private enableStuckObserver(): void {
-    if (this.observer) {
-      this.observer.observe(this.container);
-    }
-  }
-
-  private disableStuckMode(): void {
-    this._stuck = false;
-    if (this.observer) {
-      this.observer.unobserve(this.container);
+      this._stuck = false;
+      this.stuckIntersecObserver?.unobserve(this.container);
     }
   }
 
   private get title(): string {
-    const titleElement = this.hostElement.querySelector('[slot="title"]');
-    if (titleElement === null) {
-      return "";
-    }
-
-    return titleElement.textContent.trim();
+    return this.hostElement.querySelector('[slot="title"]')?.textContent.trim();
   }
 
   private get scrollParent(): Window | Element {
@@ -269,16 +250,12 @@ export class ZAppHeader {
   }
 
   private get canShowMenu(): boolean {
-    return (
-      !this.enableOffcanvas &&
-      this.menuElements.length > 0 &&
-      this.currentViewport !== Device.MOBILE &&
-      !this.drawerOpen
-    );
+    return !this.enableOffcanvas && this.menuElements.length > 0 && !this.isMobile && !this.drawerOpen;
   }
 
   private openDrawer(): void {
     this.drawerOpen = true;
+    this.closeMenuButton.focus();
   }
 
   private closeDrawer(): void {
@@ -288,26 +265,44 @@ export class ZAppHeader {
   }
 
   private collectMenuElements(): void {
-    const menuElements = (this.menuElements = this.hostElement.querySelectorAll('[slot="menu"]'));
-    this.menuLength = menuElements.length;
+    this.menuElements = Array.from(this.hostElement.querySelectorAll('[slot="menu"]'));
+    this.menuLength = this.menuElements.length;
     this.setMenuFloatingMode();
   }
 
-  private isSlotPresent(slotName: string): boolean {
-    const slot = this.hostElement.querySelector(`[slot="${slotName}"]`);
-
-    return !!slot;
-  }
-
-  private renderSeachbar(): HTMLZSearchbarElement | HTMLZButtonElement {
-    const renderSearch =
-      this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET ? true : false;
-
-    if (this.currentViewport === Device.MOBILE && !this.searchPageUrl && this._stuck) {
+  private setupMenuResizeObserver(): void {
+    if (this.enableOffcanvas) {
       return;
     }
 
-    if (this.searchPageUrl && (this.currentViewport === Device.MOBILE || this.currentViewport === Device.TABLET)) {
+    this.menuResizeObserver = new ResizeObserver((entries) => {
+      if (this.isMobile) {
+        this.enableOffcanvas = true;
+
+        return;
+      }
+
+      const menuWidth = this.menuContainer?.getBoundingClientRect().width;
+      const containerWidth = entries[0].contentBoxSize[0].inlineSize;
+      if (menuWidth > containerWidth && !this.enableOffcanvas) {
+        this.enableOffcanvas = true;
+      } else if (menuWidth <= containerWidth && this.enableOffcanvas) {
+        this.enableOffcanvas = false;
+      }
+    });
+    this.menuResizeObserver.observe(this.container);
+  }
+
+  private hasSlot(slotName: string): boolean {
+    return this.hostElement.querySelector(`[slot="${slotName}"]`) !== null;
+  }
+
+  private renderSeachbar(): HTMLZButtonElement | HTMLZSearchbarElement | undefined {
+    if (this.isMobile && !this.searchPageUrl && this._stuck) {
+      return;
+    }
+
+    if (this.searchPageUrl && (this.isMobile || this.isTablet)) {
       return (
         <z-button
           class="search-page-button"
@@ -315,7 +310,7 @@ export class ZAppHeader {
           href={this.searchPageUrl}
           icon="search"
           size={ControlSize.X_SMALL}
-        ></z-button>
+        />
       );
     }
 
@@ -325,7 +320,7 @@ export class ZAppHeader {
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
-        searchButtonIconOnly={renderSearch}
+        searchButtonIconOnly={this.isMobile || this.isTablet}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
@@ -348,7 +343,7 @@ export class ZAppHeader {
             alt="Logo Zanichelli"
           />
         )}
-        {this.currentViewport !== Device.MOBILE && <slot name="product-logo"></slot>}
+        {!this.isMobile && <slot name="product-logo"></slot>}
       </Fragment>
     );
   }
@@ -356,22 +351,17 @@ export class ZAppHeader {
   private renderMenuButton(): HTMLButtonElement {
     return (
       this.menuLength > 0 &&
-      (this.enableOffcanvas || this._stuck || this.currentViewport === Device.MOBILE) && (
+      (this.enableOffcanvas || this._stuck || this.isMobile) && (
         <button
           ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
           aria-label="Apri menu"
           aria-haspopup="menu"
           aria-expanded={`${this.drawerOpen}`}
-          aria-controls="menu-offcanvas"
+          aria-controls="offcanvas-menu"
           class="drawer-trigger"
           onClick={this.openDrawer}
-          onKeyUp={(ev: KeyboardEvent) => {
-            if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
-              this.closeMenuButton.focus();
-            }
-          }}
         >
-          <z-icon name="burger-menu"></z-icon>
+          <z-icon name="burger-menu" />
         </button>
       )
     );
@@ -380,6 +370,7 @@ export class ZAppHeader {
   private renderOffcanvas(): HTMLZOffcanvasElement {
     return (
       <z-offcanvas
+        id="offcanvas-menu"
         variant={OffCanvasVariant.OVERLAY}
         transitiondirection={TransitionDirection.RIGHT}
         open={this.drawerOpen}
@@ -394,7 +385,7 @@ export class ZAppHeader {
             aria-hidden={`${!this.drawerOpen}`}
             disabled={!this.drawerOpen}
           >
-            <z-icon name="close"></z-icon>
+            <z-icon name="close" />
           </button>
 
           <div
@@ -426,27 +417,15 @@ export class ZAppHeader {
     );
   }
 
-  private getWidthMenu(): number {
-    if (this.menuElements.length === 0) {
-      return;
-    }
-
-    return Array.from(this.menuElements).reduce((acc, item) => item.getBoundingClientRect().width + acc, 100);
-  }
-
   private focusToFirstItemMenu(): void {
-    const menuItems = Array.from(this.menuElements).map(
-      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
-    );
+    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
 
     menuItems[0].focus();
     this.currentIndex = 0;
   }
 
   private handleFocusItem(e): void {
-    const menuItems = Array.from(this.menuElements).map(
-      (el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement
-    );
+    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
 
     if (
       e.code === KeyboardCode.ARROW_DOWN ||
@@ -474,51 +453,38 @@ export class ZAppHeader {
 
   componentWillLoad(): void {
     this.collectMenuElements();
-    this.evaluateViewport();
+
+    const mobileMediaQuery = window.matchMedia(`(max-width: ${Breakpoints.MOBILE}px)`);
+    this.isMobile = mobileMediaQuery.matches;
+    mobileMediaQuery.addEventListener("change", (e) => (this.isMobile = e.matches));
+    const tabletMediaQuery = window.matchMedia(
+      `(min-width: ${Breakpoints.MOBILE + 1}px) and (max-width: ${Breakpoints.TABLET}px)`
+    );
+    this.isTablet = tabletMediaQuery.matches;
+    tabletMediaQuery.addEventListener("change", (e) => (this.isTablet = e.matches));
   }
 
   componentDidLoad(): void {
-    this.onStuckMode();
-
-    if (this.enableOffcanvas) {
-      return;
-    }
-
-    const menuWidth = this.getWidthMenu();
-    const containerSidePadding = 50;
-    this.resizeObserver = new ResizeObserver((observer) => {
-      const containerWidth = observer[0].contentRect.width;
-      if (this.currentViewport === Device.MOBILE) {
-        return (this.enableOffcanvas = true);
-      }
-
-      if (menuWidth > containerWidth - containerSidePadding && !this.enableOffcanvas) {
-        this.enableOffcanvas = true;
-      } else if (menuWidth <= containerWidth - containerSidePadding && this.enableOffcanvas) {
-        this.enableOffcanvas = false;
-      }
-    });
-
-    this.resizeObserver.observe(this.container);
+    this.onStuckChange();
+    this.setupMenuResizeObserver();
   }
 
   disconnectedCallback(): void {
-    this.resizeObserver?.disconnect();
+    this.menuResizeObserver?.disconnect();
   }
 
   render(): HTMLZAppHeaderElement {
-    const hasTopSubtitle = this.isSlotPresent("top-subtitle");
+    const hasTopSubtitle = this.hasSlot("top-subtitle");
 
     return (
       <Host menu-length={this.menuLength}>
         <div
-          class={`heading-panel ${this.menuLength > 0 && !this.enableOffcanvas ? "has-menu" : ""}`}
+          class={{"heading-panel": true, "has-menu": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
-            {((!this.enableSearch && this.currentViewport === Device.MOBILE) ||
-              this.currentViewport !== Device.MOBILE) && (
-              <div class={`${this.enableOffcanvas ? "p-left" : ""}`}>
+            {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
             )}
@@ -526,38 +492,40 @@ export class ZAppHeader {
               {this.renderMenuButton()}
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title"></slot>
-              {this.enableSearch && this.currentViewport !== Device.MOBILE && this.renderSeachbar()}
+              {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>
-            {this.enableSearch && this.currentViewport === Device.MOBILE && this.renderSeachbar()}
+            {this.enableSearch && this.isMobile && this.renderSeachbar()}
           </div>
 
-          {this.canShowMenu && (
-            <div
-              class="menu-container"
-              onKeyUp={(e) => {
-                if (this.enableOffcanvas) {
-                  return;
-                }
-
-                if (this.currentIndex === -1) {
-                  this.focusToFirstItemMenu();
-                } else {
-                  this.handleFocusItem(e);
-                }
-              }}
-              role="hidden"
-              tabIndex={0}
-            >
-              <slot
-                name="menu"
-                onSlotchange={this.collectMenuElements}
-              ></slot>
-            </div>
-          )}
+          <nav
+            ref={(el) => (this.menuContainer = el)}
+            class="menu-container"
+            aria-label={this.title || undefined}
+            onKeyUp={(e) => {
+              if (this.enableOffcanvas) {
+                return;
+              }
+              if (this.currentIndex === -1) {
+                this.focusToFirstItemMenu();
+              } else {
+                this.handleFocusItem(e);
+              }
+            }}
+          >
+            {this.canShowMenu && (
+              <div
+                role="menubar"
+                aria-label={this.title || undefined}
+              >
+                <slot
+                  name="menu"
+                  onSlotchange={this.collectMenuElements}
+                ></slot>
+              </div>
+            )}
+          </nav>
         </div>
-
         {this.renderOffcanvas()}
-
         {this._stuck && this.renderStuck()}
       </Host>
     );
