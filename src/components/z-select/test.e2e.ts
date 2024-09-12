@@ -125,4 +125,33 @@ describe("z-select test end2end", () => {
 
     expect(resetSelectEvent).toHaveReceivedEvent();
   });
+
+  it("Should select an item from the list using keyboard navigation", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(`
+      <z-select
+        items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":true,"name":"item_3"}]'
+        label="this is the label"
+      ></z-select>
+    `);
+
+    const select = await page.find("z-select");
+    expect(await select.callMethod("getValue")).toBe("item_2");
+
+    await (await page.find("body")).press("Tab");
+    await select.press("Enter");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
+
+    await select.press("ArrowDown");
+    await page.waitForChanges();
+
+    await select.press("Enter");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
+    expect(await select.callMethod("getValue")).toBe("item_1");
+  });
 });
