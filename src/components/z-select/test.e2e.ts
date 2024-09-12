@@ -82,4 +82,25 @@ describe("z-select test end2end", () => {
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
   });
+
+  it("Should filter the items list based on the input value", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(`
+      <z-select
+        items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":true,"name":"item_3"}]'
+        label="this is the label"
+        autocomplete="true"
+      ></z-select>
+    `);
+
+    await page.locator("z-select").click();
+    await page.waitForChanges();
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
+    expect((await page.$$("z-list-element")).length).toBe(3);
+
+    await (await page.find("z-select input")).press("1");
+
+    expect((await page.$$("z-list-element")).length).toBe(1);
+  });
 });
