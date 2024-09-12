@@ -100,8 +100,10 @@ describe("z-select test end2end", () => {
     expect((await page.$$("z-list-element")).length).toBe(3);
 
     await (await page.find("z-select input")).press("1");
+    await page.waitForChanges();
 
     expect((await page.$$("z-list-element")).length).toBe(1);
+    expect((await page.find("z-list-element span")).innerText).toBe("item_1");
   });
 
   it("Should emit resetSelect event when enabling reset item", async () => {
