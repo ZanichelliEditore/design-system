@@ -38,12 +38,14 @@
 
 ### Used by
 
- - [z-app-header](../navigation/z-app-header)
+ - [z-app-header](../z-app-header)
+ - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
 
 ### Graph
 ```mermaid
 graph TD;
   z-app-header --> z-offcanvas
+  z-app-header-deprecated --> z-offcanvas
   style z-offcanvas fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

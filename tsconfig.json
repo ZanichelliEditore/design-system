@@ -3,6 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["dom", "es2017"],
     "moduleResolution": "node",
@@ -15,6 +16,6 @@
     "jsxFactory": "h",
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src", "docs", ".storybook/elements"],
   "exclude": ["node_modules"]
 }

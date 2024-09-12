@@ -1,5 +1,5 @@
 import {ChildNode} from "@stencil/core";
-import {KeyboardCode, Device} from "../beans/index";
+import {Device, KeyboardCode} from "../beans/index";
 import {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
 export function format(first: string, middle: string, last: string): string {
@@ -140,4 +140,18 @@ export function colorFromId(id: number): string {
   }
 
   return `${prefix}${color.toString().padStart(2, "0")}`;
+}
+
+/**
+ * Check if the passed CSS selector is valid.
+ * @param selector CSS selector to validate
+ */
+export function isSelectorValid(selector: string): boolean {
+  try {
+    document.createDocumentFragment().querySelector(selector);
+
+    return true;
+  } catch {
+    return false;
+  }
 }

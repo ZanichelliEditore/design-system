@@ -1,0 +1,154 @@
+:host {
+  display: inline-block;
+  width: inherit;
+}
+
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}
+
+/* GENERAL */
+:host input::-ms-clear,
+:host input::-ms-reveal {
+  display: none;
+}
+
+input,
+textarea,
+.textarea-wrapper {
+  box-sizing: border-box;
+  border: var(--border-size-small) solid var(--gray700);
+  background: var(--color-input-field01);
+  border-radius: var(--border-radius-small);
+  color: var(--gray900);
+  fill: var(--gray900);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
+  outline: none;
+}
+
+:host([size="small"]) input,
+:host([size="small"]) textarea,
+:host([size="small"]) .textarea-wrapper,
+:host([size="x-small"]) input,
+:host([size="x-small"]) textarea,
+:host([size="x-small"]) .textarea-wrapper {
+  font-size: var(--font-size-2);
+}
+
+:host.cursor-select input {
+  cursor: pointer;
+}
+
+/* FOCUS */
+:host:not(.active-select) input:focus:focus-visible,
+:host:not([readonly="true"]) .textarea-wrapper:focus-within {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+input:focus:focus-visible,
+textarea:focus:focus-visible {
+  color: var(--color-input-field02);
+}
+
+:host.active-select input {
+  border: var(--border-size-small) solid var(--color-primary01);
+}
+
+:host.cursor-select input:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host input[readonly]:focus:focus-visible {
+  box-shadow: none;
+}
+
+/* FILLED */
+.filled {
+  border-color: var(--color-surface05);
+}
+
+/* STATUSES (success, warning, error) */
+.input-success {
+  border-color: var(--color-success01);
+  background: var(--color-success-inverse);
+  fill: var(--color-success01);
+}
+
+.input-error {
+  border-color: var(--color-error01);
+  background: var(--color-error-inverse);
+  fill: var(--color-error01);
+}
+
+.input-warning {
+  border-color: var(--color-warning01);
+  background: var(--color-warning-inverse);
+  fill: var(--color-warning01);
+}
+
+/* HOVER */
+input:not([readonly]):hover,
+.textarea-wrapper:hover {
+  outline: var(--border-size-medium) solid var(--gray700);
+  outline-offset: -2px;
+}
+
+/* READONLY */
+:host:not(.active-select) input[readonly],
+.readonly {
+  border-color: var(--color-disabled01);
+  fill: var(--color-disabled01);
+  pointer-events: none;
+}
+
+/* DISABLED */
+:host([disabled]:not([disabled="false"])) input,
+:host([disabled]:not([disabled="false"])) .textarea-wrapper,
+:host([disabled]:not([disabled="false"])) z-icon {
+  border-color: var(--color-disabled01);
+  box-shadow: none;
+  color: var(--color-disabled03);
+  fill: var(--color-disabled01);
+  pointer-events: none;
+}
+
+:host([disabled]:not([disabled="false"])) input:hover {
+  border-width: var(--border-size-small);
+}
+
+/* PLACEHOLDER */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text05);
+}
+
+::-webkit-textarea-placeholder {
+  color: var(--color-text05);
+}
+
+:-ms-textarea-placeholder {
+  color: var(--color-text05);
+}
+
+::placeholder {
+  color: var(--color-text05);
+}
+
+/* LABEL */
+label.input-label {
+  display: block;
+  padding-bottom: var(--space-unit);
+  color: var(--color-default-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+:host([disabled]:not([disabled="false"])) label.input-label {
+  color: var(--color-disabled03);
+}

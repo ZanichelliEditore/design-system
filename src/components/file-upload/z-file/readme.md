@@ -23,7 +23,7 @@
 ### Depends on
 
 - [z-popover](../../z-popover)
-- [z-chip](../../buttons/z-chip)
+- [z-chip](../../z-chip)
 
 ### Graph
 ```mermaid

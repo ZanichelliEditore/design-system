@@ -1,14 +1,14 @@
-import {Component, Prop, h, Watch, Listen, Element, State, Event, EventEmitter} from "@stencil/core";
-import {PopoverPosition, KeyboardCode} from "../../beans";
+import {Component, Element, Event, EventEmitter, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {KeyboardCode, PopoverPosition} from "../../beans";
 
 const DOCUMENT_ELEMENT = document.documentElement;
 
-function getParentElement(element: Element): ShadowRoot["host"] {
-  if ((element.parentNode as ShadowRoot).host) {
-    return (element.parentNode as ShadowRoot).host;
+function getParentElement(element: Element): Element {
+  if (element.parentNode === element.shadowRoot) {
+    return element.shadowRoot.host;
   }
 
-  return element.parentNode as Element;
+  return element.parentElement;
 }
 
 /**

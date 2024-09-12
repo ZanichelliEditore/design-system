@@ -1,0 +1,267 @@
+:host {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
+
+  --z-modal-content-padding: calc(var(--space-unit) * 2);
+}
+
+:host > dialog {
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+/* stylelint-disable selector-pseudo-class-no-unknown */
+:host > dialog:modal {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+:host > dialog::backdrop {
+  display: none;
+}
+
+/* polyfill style  */
+:host > dialog + .backdrop {
+  display: none;
+}
+
+:host > dialog:not([open]) {
+  display: none;
+}
+
+:host > dialog[open] {
+  display: block;
+}
+
+::slotted([slot="modalContent"]) {
+  padding: var(--z-modal-content-padding);
+}
+
+.modal-container {
+  z-index: 1010;
+  display: flex;
+  overflow: -moz-scrollbars-none;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.modal-container > .modal-content-scroll-outside {
+  overflow: auto;
+  background: var(--color-surface01);
+}
+
+.modal-container > header {
+  padding: calc(var(--space-unit) * 1.75) calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.75)
+    calc(var(--space-unit) * 2);
+  background: var(--color-surface02);
+}
+
+.modal-container > header button {
+  padding: 0;
+  border: none;
+  margin: 0;
+  margin-left: auto;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-container > header button:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
+.modal-container > header button::after {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  content: "";
+}
+
+.modal-container > header z-icon {
+  --z-icon-width: calc(var(--space-unit) * 2.25);
+  --z-icon-height: calc(var(--space-unit) * 2.25);
+
+  display: flex;
+  fill: var(--color-primary01-icon);
+}
+
+.modal-container > header > div {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  margin-right: calc(var(--space-unit) * 2);
+}
+
+.modal-container > header h1,
+.modal-container > header .subtitle {
+  padding: 0;
+  margin: 0;
+  color: var(--color-default-text);
+  font-weight: var(--font-sb);
+}
+
+.modal-container > header h1 {
+  font-size: var(--font-size-5);
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.modal-container > header .subtitle {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-rg);
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.modal-container > header > div > h1 *:empty {
+  display: none;
+}
+
+.modal-container > header h1 + .subtitle {
+  margin-top: calc(var(--space-unit) * 0.5);
+}
+
+.modal-container-scroll-inside > .modal-content-scroll-inside {
+  overflow: hidden auto;
+  flex: 1 auto;
+  background: var(--color-surface01);
+}
+
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar {
+  width: 10px;
+  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
+  border-radius: var(--border-radius);
+}
+
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar-thumb,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--color-primary01);
+}
+
+.modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar-thumb:hover,
+.modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-primary);
+}
+
+/* Firefox */
+.modal-container-scroll-inside .modal-content-scroll-inside,
+.modal-container-scroll-outside .modal-content-scroll-outside {
+  scrollbar-color: var(--color-primary01) transparent;
+}
+
+/* Tablet / Desktop */
+@media only screen and (min-width: 768px) {
+  .modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray900);
+    opacity: 0.7;
+  }
+
+  .modal-background.modal-background-scroll-outside {
+    position: sticky;
+  }
+
+  .modal-container-scroll-inside {
+    position: fixed;
+    top: calc(var(--space-unit) * 6);
+    left: 50%;
+    overflow: hidden;
+    width: auto;
+    min-width: calc(var(--space-unit) * 40);
+    height: auto;
+    min-height: calc(var(--space-unit) * 40);
+    max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
+    border-radius: var(--border-radius);
+    transform: translateX(-50%);
+  }
+
+  .modal-container-scroll-outside {
+    position: absolute;
+    top: calc(var(--space-unit) * 6);
+    left: 50%;
+    display: block;
+    overflow: initial;
+    width: auto;
+    min-width: calc(var(--space-unit) * 40);
+    height: auto;
+    min-height: calc(var(--space-unit) * 40);
+    max-height: calc(100vh - calc(var(--space-unit) * 6 * 2));
+    transform: translateX(-50%);
+  }
+
+  .modal-container > .modal-content-scroll-outside {
+    overflow: initial;
+  }
+
+  .modal-container-scroll-outside > header,
+  .modal-container-scroll-inside > header {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .modal-container-scroll-outside::after {
+    display: block;
+    height: calc(var(--space-unit) * 6);
+    content: " ";
+  }
+
+  .modal-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .modal-content-scroll-outside {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .modal-dialog::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1152px) {
+  .modal-container > header {
+    padding-top: calc(var(--space-unit) * 1.5);
+    padding-bottom: calc(var(--space-unit) * 1.5);
+  }
+
+  .modal-container > header h1 {
+    font-size: var(--font-size-6);
+    font-weight: var(--font-sb);
+    letter-spacing: 0;
+    line-height: 1.333;
+  }
+
+  .modal-container > header .subtitle {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-rg);
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  .modal-container > header h1 + .subtitle {
+    margin-top: 0;
+  }
+}

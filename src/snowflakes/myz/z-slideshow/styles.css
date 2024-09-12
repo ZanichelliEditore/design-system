@@ -93,6 +93,13 @@ footer .bullet-container .bullet.selected {
   background-color: var(--gray400);
 }
 
+main z-icon:focus,
+footer .bullet-container .bullet:focus {
+  border-radius: 50%;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 /* Tablet breakpoint */
 
 @media only screen and (min-width: 768px) {

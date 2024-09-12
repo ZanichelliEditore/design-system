@@ -1,5 +1,5 @@
-import {Component, h, Prop, Element, Watch, Event, EventEmitter, State, Host} from "@stencil/core";
-import {CarouselArrowsPosition, CarouselProgressMode, ButtonVariant} from "../../beans";
+import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {ButtonVariant, CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
 
 /**
  * ZCarousel component.

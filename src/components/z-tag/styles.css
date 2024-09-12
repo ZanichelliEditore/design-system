@@ -1,37 +1,38 @@
 :host {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
-  --z-tag-text-color: var(--color-primary03);
-  --z-tag-bg: var(--color-hover-primary);
 
   display: flex;
   width: fit-content;
   max-width: inherit;
   height: fit-content;
   max-height: inherit;
+  align-items: flex-start;
   padding: calc(var(--space-unit) / 2);
-  background-color: var(--z-tag-bg);
+  background-color: var(--z-tag-bg, var(--color-hover-primary));
   border-radius: var(--border-radius);
-  color: var(--z-tag-text-color);
-  fill: var(--z-tag-text-color);
+  color: var(--z-tag-text-color, var(--color-text-inverse));
+  fill: currentcolor;
   font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  letter-spacing: 0.32px;
   line-height: 14px;
   text-transform: uppercase;
 }
 
-:host > z-icon {
-  margin-right: var(--space-unit);
-}
-
 :host(.expandable) > z-icon {
-  margin-right: 0;
   transition: margin-right 0.3s ease-out;
 }
 
-:host(:not(.expandable)) > z-icon:not(:last-child),
-:host(.expandable:hover) > z-icon:not(:last-child) {
+:host(:not(.expandable)) > z-icon,
+:host(.expandable:hover) > z-icon {
   margin-right: var(--space-unit);
   transition: margin-right 0.3s ease-out 0s;
+}
+
+:host > z-icon:has(+ div:empty) {
+  margin-right: 0;
 }
 
 :host(.expandable) > div {

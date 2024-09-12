@@ -38,6 +38,11 @@
   cursor: pointer;
 }
 
+:host .text-container .upload-link:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none !important;
+}
+
 :host .text-container .upload-link-text {
   margin-bottom: var(--space-unit);
 }

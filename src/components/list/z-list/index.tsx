@@ -1,5 +1,4 @@
-import {Component, Element, h, Prop, Host} from "@stencil/core";
-
+import {Component, Element, Host, Prop, h} from "@stencil/core";
 import {ListSize, ListType} from "../../../beans";
 
 @Component({
@@ -23,10 +22,10 @@ export class ZList {
   listType?: ListType = ListType.NONE;
 
   /**
-   * [optional] Sets role of the element.
+   * Sets role of the element.
    */
   @Prop({reflect: true})
-  role?: string = "list";
+  role = "list";
 
   private setChildrenSizeType(): void {
     const children = this.host.children;

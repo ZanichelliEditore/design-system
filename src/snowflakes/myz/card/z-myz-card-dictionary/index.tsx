@@ -1,4 +1,4 @@
-import {Component, Prop, h, Listen, Event, EventEmitter} from "@stencil/core";
+import {Component, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
 import {ButtonSize, ButtonVariant} from "../../../../beans";
 
 /**

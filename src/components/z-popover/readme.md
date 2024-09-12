@@ -60,7 +60,7 @@ Popover component.
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-td](../table/cells/z-td)
  - [z-th](../table/cells/z-th)
- - [z-tooltip](../notification/z-tooltip)
+ - [z-tooltip](../z-tooltip)
 
 ### Graph
 ```mermaid

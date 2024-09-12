@@ -1,0 +1,19 @@
+import type {Meta, StoryObj} from "@storybook/web-components";
+import {html} from "lit";
+import {type {{properCase name~}} } from ".";
+import "./index";
+
+const StoryMeta = {
+  title: "{{properCase name}}",
+  component: "{{kebabCase name}}",
+  args: {},
+  argTypes: {},
+} satisfies Meta<{{properCase name}}>;
+
+export default StoryMeta;
+
+type Story = StoryObj<{{properCase name}}>;
+
+export const Default = {
+  render: (args) => html`<{{kebabCase name}}></{{kebabCase name}}>`,
+} satisfies Story;

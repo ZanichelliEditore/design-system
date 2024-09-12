@@ -183,6 +183,8 @@ export enum KeyboardCode {
   ARROW_DOWN = "ArrowDown",
   BACKSPACE = "Backspace",
   DELETE = "Delete",
+  ARROW_RIGHT = "ArrowRight",
+  ARROW_LEFT = "ArrowLeft",
 }
 
 export type SelectItem = {
@@ -289,12 +291,6 @@ export type DictionaryLicenseData = {
   expiring: boolean;
   installations: string;
 };
-
-export enum PocketStatus {
-  PREVIEW = "preview",
-  OPEN = "open",
-  CLOSED = "closed",
-}
 
 export enum ToastNotification {
   DARK = "dark",
@@ -424,6 +420,7 @@ export type SearchbarItem = {
   tag?: {icon?: string; text: string};
   category?: string;
   subcategory?: string;
+  children?: Omit<SearchbarItem, "category" | "subcategory">[];
 };
 
 export type SearchbarGroupedItem = {

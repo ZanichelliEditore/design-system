@@ -1,0 +1,26 @@
+:root {
+  --subject-art: #7b7b06;
+  --subject-art_image: #7b7b06;
+  --subject-biology: #438454;
+  --subject-chemistry: #ba5191;
+  --subject-civics: #000080;
+  --subject-computer_science: #10893e;
+  --subject-earth_science: #8d3eb2;
+  --subject-english: #c25353;
+  --subject-food_science: #38846b;
+  --subject-french: #c25353;
+  --subject-geography: #378092;
+  --subject-german: #c25353;
+  --subject-grammar: #be5926;
+  --subject-greek: #37818a;
+  --subject-history: #8b572a;
+  --subject-law: #b90000;
+  --subject-math: #266997;
+  --subject-natural_science: #318473;
+  --subject-physics: #4a7ba4;
+  --subject-science_middle_school: #3a7922;
+  --subject-spanish: #c25353;
+  --subject-technology: #138473;
+  --subject-topography: #ac6604;
+  --subject-technique: #752771;
+}

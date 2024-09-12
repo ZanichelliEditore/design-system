@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PocketStatus, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -66,7 +66,7 @@ export namespace Components {
         "type": AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -80,9 +80,51 @@ export namespace Components {
      */
     interface ZAnchorNavigation {
         /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent": boolean;
+        /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected": boolean;
+    }
+    /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeader {
+        /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas": boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch": boolean;
+        /**
+          * Enable laZ logo.
+         */
+        "enableZLogo": boolean;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl": string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder": string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString": string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck": boolean;
     }
     /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
@@ -139,7 +181,7 @@ export namespace Components {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface ZAppHeader {
+    interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
          */
@@ -319,7 +361,7 @@ export namespace Components {
         /**
           * defines role attribute, used for accessibility.
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -383,7 +425,7 @@ export namespace Components {
      */
     interface ZCard {
         /**
-          * Enable 'clickable' style like hover and focus style.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
          */
         "clickable": boolean;
         /**
@@ -609,6 +651,10 @@ export namespace Components {
          */
         "acceptedFormat"?: string;
         /**
+          * allowed file message
+         */
+        "allowedFilesMessage"?: string;
+        /**
           * Prop indicating the button variant
          */
         "buttonVariant"?: ButtonVariant;
@@ -620,6 +666,14 @@ export namespace Components {
           * drag & drop button label
          */
         "dragAndDropLabel"?: string;
+        /**
+          * error modal message
+         */
+        "errorModalMessage"?: string;
+        /**
+          * error modal title
+         */
+        "errorModalTitle"?: string;
         /**
           * Max file dimension in Megabyte
          */
@@ -648,6 +702,18 @@ export namespace Components {
           * upoload button label
          */
         "uploadBtnLabel"?: string;
+        /**
+          * upload clickable message
+         */
+        "uploadClickableMessage"?: string;
+        /**
+          * upload message
+         */
+        "uploadMessage"?: string;
+        /**
+          * loaded files label
+         */
+        "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -723,9 +789,9 @@ export namespace Components {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
-        "ariaExpanded"?: string;
+        "ariaExpanded": string;
         /**
           * the input aria-label
          */
@@ -811,9 +877,9 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
-        "role"?: string;
+        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
@@ -851,9 +917,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -913,9 +979,9 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
-        "role"?: string;
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -991,6 +1057,27 @@ export namespace Components {
         "verticalContext": boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The opening state of the menu.
+         */
+        "open": boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext": boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
@@ -999,20 +1086,18 @@ export namespace Components {
          */
         "active"?: boolean;
     }
-    interface ZMessagesPocket {
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
         /**
-          * number of messages
+          * Active state
          */
-        "messages": number;
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
+        "active"?: boolean;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -1259,7 +1344,7 @@ export namespace Components {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
          */
-        "ariaLabel"?: string;
+        "ariaLabel": string;
         /**
           * Navigation tabs orientation.
          */
@@ -1415,42 +1500,6 @@ export namespace Components {
          */
         "url": string;
     }
-    interface ZPocket {
-        /**
-          * close z-pocket
-         */
-        "close": () => Promise<void>;
-        /**
-          * open z-pocket
-         */
-        "open": () => Promise<void>;
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
-    }
-    interface ZPocketBody {
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-        /**
-          * pocket status
-         */
-        "status": PocketStatus;
-    }
-    interface ZPocketHeader {
-        /**
-          * pocket id
-         */
-        "pocketid": string;
-    }
-    interface ZPocketMessage {
-    }
     /**
      * Popover component.
      * @cssprop --z-popover-theme--surface - background color of the popover.
@@ -1556,10 +1605,6 @@ export namespace Components {
           * Number of results shown - default all
          */
         "resultsCount"?: number;
-        /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
         /**
           * Autocomplete results items
          */
@@ -1711,6 +1756,10 @@ export namespace Components {
     }
     interface ZStepperItem {
         /**
+          * The checked state of the item.
+         */
+        "checked": boolean;
+        /**
           * The disabled state of the item.
          */
         "disabled": boolean;
@@ -1738,7 +1787,7 @@ export namespace Components {
         "bordered": boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -1956,6 +2005,10 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
+export interface ZAppHeaderDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZAppHeaderDeprecatedElement;
+}
 export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
@@ -2012,9 +2065,17 @@ export interface ZMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuElement;
 }
+export interface ZMenuDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuDeprecatedElement;
+}
 export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuSectionElement;
+}
+export interface ZMenuSectionDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZMenuSectionDeprecatedElement;
 }
 export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2055,14 +2116,6 @@ export interface ZOtpCustomEvent<T> extends CustomEvent<T> {
 export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZPaginationElement;
-}
-export interface ZPocketCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPocketElement;
-}
-export interface ZPocketHeaderCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZPocketHeaderElement;
 }
 export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2142,7 +2195,7 @@ declare global {
         new (): HTMLZAlertElement;
     };
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -2161,6 +2214,31 @@ declare global {
         new (): HTMLZAnchorNavigationElement;
     };
     interface HTMLZAppHeaderElementEventMap {
+        "sticking": any;
+    }
+    /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZAppHeaderElement: {
+        prototype: HTMLZAppHeaderElement;
+        new (): HTMLZAppHeaderElement;
+    };
+    interface HTMLZAppHeaderDeprecatedElementEventMap {
         "sticking": any;
     }
     /**
@@ -2218,19 +2296,19 @@ declare global {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLZAppHeaderDeprecatedElement extends Components.ZAppHeaderDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLZAppHeaderElement: {
-        prototype: HTMLZAppHeaderElement;
-        new (): HTMLZAppHeaderElement;
+    var HTMLZAppHeaderDeprecatedElement: {
+        prototype: HTMLZAppHeaderDeprecatedElement;
+        new (): HTMLZAppHeaderDeprecatedElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2591,6 +2669,27 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
+    interface HTMLZMenuDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface HTMLZMenuDeprecatedElement extends Components.ZMenuDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuDeprecatedElement: {
+        prototype: HTMLZMenuDeprecatedElement;
+        new (): HTMLZMenuDeprecatedElement;
+    };
     interface HTMLZMenuSectionElementEventMap {
         "opened": any;
         "closed": any;
@@ -2612,17 +2711,35 @@ declare global {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
     };
-    interface HTMLZMessagesPocketElement extends Components.ZMessagesPocket, HTMLStencilElement {
+    interface HTMLZMenuSectionDeprecatedElementEventMap {
+        "opened": any;
+        "closed": any;
     }
-    var HTMLZMessagesPocketElement: {
-        prototype: HTMLZMessagesPocketElement;
-        new (): HTMLZMessagesPocketElement;
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface HTMLZMenuSectionDeprecatedElement extends Components.ZMenuSectionDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZMenuSectionDeprecatedElement: {
+        prototype: HTMLZMenuSectionDeprecatedElement;
+        new (): HTMLZMenuSectionDeprecatedElement;
     };
     interface HTMLZModalElementEventMap {
         "modalClose": any;
         "modalHeaderActive": any;
         "modalBackgroundClick": any;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2865,53 +2982,6 @@ declare global {
         prototype: HTMLZPanelElemElement;
         new (): HTMLZPanelElemElement;
     };
-    interface HTMLZPocketElementEventMap {
-        "pocketToggle": any;
-    }
-    interface HTMLZPocketElement extends Components.ZPocket, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZPocketElementEventMap>(type: K, listener: (this: HTMLZPocketElement, ev: ZPocketCustomEvent<HTMLZPocketElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZPocketElement: {
-        prototype: HTMLZPocketElement;
-        new (): HTMLZPocketElement;
-    };
-    interface HTMLZPocketBodyElement extends Components.ZPocketBody, HTMLStencilElement {
-    }
-    var HTMLZPocketBodyElement: {
-        prototype: HTMLZPocketBodyElement;
-        new (): HTMLZPocketBodyElement;
-    };
-    interface HTMLZPocketHeaderElementEventMap {
-        "pocketHeaderClick": any;
-        "pocketHeaderPan": any;
-    }
-    interface HTMLZPocketHeaderElement extends Components.ZPocketHeader, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZPocketHeaderElementEventMap>(type: K, listener: (this: HTMLZPocketHeaderElement, ev: ZPocketHeaderCustomEvent<HTMLZPocketHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZPocketHeaderElement: {
-        prototype: HTMLZPocketHeaderElement;
-        new (): HTMLZPocketHeaderElement;
-    };
-    interface HTMLZPocketMessageElement extends Components.ZPocketMessage, HTMLStencilElement {
-    }
-    var HTMLZPocketMessageElement: {
-        prototype: HTMLZPocketMessageElement;
-        new (): HTMLZPocketMessageElement;
-    };
     interface HTMLZPopoverElementEventMap {
         "positionChange": any;
         "openChange": any;
@@ -3045,7 +3115,7 @@ declare global {
         new (): HTMLZTableElement;
     };
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -3225,6 +3295,7 @@ declare global {
         "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
+        "z-app-header-deprecated": HTMLZAppHeaderDeprecatedElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
@@ -3252,8 +3323,9 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
+        "z-menu-deprecated": HTMLZMenuDeprecatedElement;
         "z-menu-section": HTMLZMenuSectionElement;
-        "z-messages-pocket": HTMLZMessagesPocketElement;
+        "z-menu-section-deprecated": HTMLZMenuSectionDeprecatedElement;
         "z-modal": HTMLZModalElement;
         "z-myz-card": HTMLZMyzCardElement;
         "z-myz-card-alert": HTMLZMyzCardAlertElement;
@@ -3274,10 +3346,6 @@ declare global {
         "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
         "z-panel-elem": HTMLZPanelElemElement;
-        "z-pocket": HTMLZPocketElement;
-        "z-pocket-body": HTMLZPocketBodyElement;
-        "z-pocket-header": HTMLZPocketHeaderElement;
-        "z-pocket-message": HTMLZPocketMessageElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-searchbar": HTMLZSearchbarElement;
@@ -3362,7 +3430,7 @@ declare namespace LocalJSX {
         "type"?: AlertType;
     }
     /**
-     * * Anchor navigation component.
+     * Anchor navigation component.
      * @example ```
      * <z-anchor-navigation>
      *  <div>
@@ -3376,9 +3444,55 @@ declare namespace LocalJSX {
      */
     interface ZAnchorNavigation {
         /**
+          * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
+         */
+        "autoCurrent"?: boolean;
+        /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected"?: boolean;
+    }
+    /**
+     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+     */
+    interface ZAppHeader {
+        /**
+          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+         */
+        "enableOffcanvas"?: boolean;
+        /**
+          * Enable the search bar.
+         */
+        "enableSearch"?: boolean;
+        /**
+          * Enable laZ logo.
+         */
+        "enableZLogo"?: boolean;
+        /**
+          * Emitted when the `stuck` state of the header changes
+         */
+        "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
+        /**
+          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
+         */
+        "searchPageUrl"?: string;
+        /**
+          * Placeholder text for the search bar.
+         */
+        "searchPlaceholder"?: string;
+        /**
+          * Search string for the search bar.
+         */
+        "searchString"?: string;
+        /**
+          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
+         */
+        "stuck"?: boolean;
     }
     /**
      * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
@@ -3435,7 +3549,7 @@ declare namespace LocalJSX {
      * Defaults to `--app-header-typography-3-tracking`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
-    interface ZAppHeader {
+    interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
          */
@@ -3455,7 +3569,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the `stuck` state of the header changes
          */
-        "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
+        "onSticking"?: (event: ZAppHeaderDeprecatedCustomEvent<any>) => void;
         /**
           * Should place an overlay over the hero image. Useful for legibility purpose.
          */
@@ -3695,7 +3809,7 @@ declare namespace LocalJSX {
      */
     interface ZCard {
         /**
-          * Enable 'clickable' style like hover and focus style.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
          */
         "clickable"?: boolean;
         /**
@@ -3945,6 +4059,10 @@ declare namespace LocalJSX {
          */
         "acceptedFormat"?: string;
         /**
+          * allowed file message
+         */
+        "allowedFilesMessage"?: string;
+        /**
           * Prop indicating the button variant
          */
         "buttonVariant"?: ButtonVariant;
@@ -3956,6 +4074,14 @@ declare namespace LocalJSX {
           * drag & drop button label
          */
         "dragAndDropLabel"?: string;
+        /**
+          * error modal message
+         */
+        "errorModalMessage"?: string;
+        /**
+          * error modal title
+         */
+        "errorModalTitle"?: string;
         /**
           * Max file dimension in Megabyte
          */
@@ -3980,6 +4106,18 @@ declare namespace LocalJSX {
           * upoload button label
          */
         "uploadBtnLabel"?: string;
+        /**
+          * upload clickable message
+         */
+        "uploadClickableMessage"?: string;
+        /**
+          * upload message
+         */
+        "uploadMessage"?: string;
+        /**
+          * loaded files label
+         */
+        "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
@@ -4059,7 +4197,7 @@ declare namespace LocalJSX {
          */
         "ariaControls"?: string;
         /**
-          * the input aria-expaded (optional): available for text, password, number, email
+          * the input aria-expaded: available for text, password, number, email
          */
         "ariaExpanded"?: string;
         /**
@@ -4167,7 +4305,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input role (optional)
+          * the input role
          */
         "role"?: string;
         /**
@@ -4207,7 +4345,7 @@ declare namespace LocalJSX {
          */
         "listType"?: ListType;
         /**
-          * [optional] Sets role of the element.
+          * Sets role of the element.
          */
         "role"?: string;
         /**
@@ -4281,7 +4419,7 @@ declare namespace LocalJSX {
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
-          * [optional] Sets element role.
+          * Sets element role.
          */
         "role"?: string;
         /**
@@ -4367,6 +4505,35 @@ declare namespace LocalJSX {
         "verticalContext"?: boolean;
     }
     /**
+     * @cssprop --z-menu-label-color - Color of the label's text.
+     */
+    interface ZMenuDeprecated {
+        /**
+          * Flag to set the active status of the menu.
+         */
+        "active"?: boolean;
+        /**
+          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
+         */
+        "floating"?: boolean;
+        /**
+          * The menu has been closed.
+         */
+        "onClosed"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The menu has been opened.
+         */
+        "onOpened"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
+        /**
+          * The opening state of the menu.
+         */
+        "open"?: boolean;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+         */
+        "verticalContext"?: boolean;
+    }
+    /**
      * A component to create submenus inside the ZMenu.
      */
     interface ZMenuSection {
@@ -4383,20 +4550,26 @@ declare namespace LocalJSX {
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
     }
-    interface ZMessagesPocket {
+    /**
+     * A component to create submenus inside the ZMenu.
+     */
+    interface ZMenuSectionDeprecated {
         /**
-          * number of messages
+          * Active state
          */
-        "messages"?: number;
+        "active"?: boolean;
         /**
-          * pocket id
+          * The section has been closed.
          */
-        "pocketid"?: string;
+        "onClosed"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
         /**
-          * pocket status
+          * The section has been opened.
          */
-        "status"?: PocketStatus;
+        "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
+    /**
+     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -4847,46 +5020,6 @@ declare namespace LocalJSX {
          */
         "url"?: string;
     }
-    interface ZPocket {
-        /**
-          * Emitted on pocket toggle, returns pocket id and status
-         */
-        "onPocketToggle"?: (event: ZPocketCustomEvent<any>) => void;
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-        /**
-          * pocket status
-         */
-        "status"?: PocketStatus;
-    }
-    interface ZPocketBody {
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-        /**
-          * pocket status
-         */
-        "status"?: PocketStatus;
-    }
-    interface ZPocketHeader {
-        /**
-          * Emitted on pocket header click
-         */
-        "onPocketHeaderClick"?: (event: ZPocketHeaderCustomEvent<any>) => void;
-        /**
-          * Emitted on pocket header pan
-         */
-        "onPocketHeaderPan"?: (event: ZPocketHeaderCustomEvent<any>) => void;
-        /**
-          * pocket id
-         */
-        "pocketid"?: string;
-    }
-    interface ZPocketMessage {
-    }
     /**
      * Popover component.
      * @cssprop --z-popover-theme--surface - background color of the popover.
@@ -5016,10 +5149,6 @@ declare namespace LocalJSX {
           * Number of results shown - default all
          */
         "resultsCount"?: number;
-        /**
-          * Truncate results to single row
-         */
-        "resultsEllipsis"?: boolean;
         /**
           * Autocomplete results items
          */
@@ -5167,6 +5296,10 @@ declare namespace LocalJSX {
     }
     interface ZStepperItem {
         /**
+          * The checked state of the item.
+         */
+        "checked"?: boolean;
+        /**
           * The disabled state of the item.
          */
         "disabled"?: boolean;
@@ -5194,7 +5327,7 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
     }
     /**
-     * Ztag  component.
+     * Ztag component.
      * @cssprop --z-tag-text-color - text and icon color using tokens.
      * @cssprop --z-tag-bg - background color of the z-tag.
      */
@@ -5432,6 +5565,7 @@ declare namespace LocalJSX {
         "z-alert": ZAlert;
         "z-anchor-navigation": ZAnchorNavigation;
         "z-app-header": ZAppHeader;
+        "z-app-header-deprecated": ZAppHeaderDeprecated;
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
@@ -5459,8 +5593,9 @@ declare namespace LocalJSX {
         "z-list-group": ZListGroup;
         "z-logo": ZLogo;
         "z-menu": ZMenu;
+        "z-menu-deprecated": ZMenuDeprecated;
         "z-menu-section": ZMenuSection;
-        "z-messages-pocket": ZMessagesPocket;
+        "z-menu-section-deprecated": ZMenuSectionDeprecated;
         "z-modal": ZModal;
         "z-myz-card": ZMyzCard;
         "z-myz-card-alert": ZMyzCardAlert;
@@ -5481,10 +5616,6 @@ declare namespace LocalJSX {
         "z-otp": ZOtp;
         "z-pagination": ZPagination;
         "z-panel-elem": ZPanelElem;
-        "z-pocket": ZPocket;
-        "z-pocket-body": ZPocketBody;
-        "z-pocket-header": ZPocketHeader;
-        "z-pocket-message": ZPocketMessage;
         "z-popover": ZPopover;
         "z-range-picker": ZRangePicker;
         "z-searchbar": ZSearchbar;
@@ -5530,7 +5661,7 @@ declare module "@stencil/core" {
             "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             /**
-             * * Anchor navigation component.
+             * Anchor navigation component.
              * @example ```
              * <z-anchor-navigation>
              *  <div>
@@ -5543,6 +5674,15 @@ declare module "@stencil/core" {
              * ```
              */
             "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
+            /**
+             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
+             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
+             */
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             /**
              * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
              * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
@@ -5598,7 +5738,7 @@ declare module "@stencil/core" {
              * Defaults to `--app-header-typography-3-tracking`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
-            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             /**
@@ -5662,10 +5802,20 @@ declare module "@stencil/core" {
              */
             "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             /**
+             * @cssprop --z-menu-label-color - Color of the label's text.
+             */
+            "z-menu-deprecated": LocalJSX.ZMenuDeprecated & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
+            /**
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
-            "z-messages-pocket": LocalJSX.ZMessagesPocket & JSXBase.HTMLAttributes<HTMLZMessagesPocketElement>;
+            /**
+             * A component to create submenus inside the ZMenu.
+             */
+            "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
+            /**
+             * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+             */
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
@@ -5699,10 +5849,6 @@ declare module "@stencil/core" {
              */
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
-            "z-pocket": LocalJSX.ZPocket & JSXBase.HTMLAttributes<HTMLZPocketElement>;
-            "z-pocket-body": LocalJSX.ZPocketBody & JSXBase.HTMLAttributes<HTMLZPocketBodyElement>;
-            "z-pocket-header": LocalJSX.ZPocketHeader & JSXBase.HTMLAttributes<HTMLZPocketHeaderElement>;
-            "z-pocket-message": LocalJSX.ZPocketMessage & JSXBase.HTMLAttributes<HTMLZPocketMessageElement>;
             /**
              * Popover component.
              * @cssprop --z-popover-theme--surface - background color of the popover.
@@ -5738,7 +5884,7 @@ declare module "@stencil/core" {
              */
             "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**
-             * Ztag  component.
+             * Ztag component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
              * @cssprop --z-tag-bg - background color of the z-tag.
              */
