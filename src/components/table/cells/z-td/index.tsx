@@ -81,10 +81,6 @@ export class ZTd {
   render(): HTMLZTdElement {
     return (
       <Host
-        style={{
-          position: !this.isMenuOpen ? "relative" : undefined,
-          zIndex: !this.isMenuOpen ? "0" : undefined,
-        }}
         role="cell"
         menu-open={this.isMenuOpen}
       >
