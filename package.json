@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "16.1.0",
+  "version": "16.2.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "mkdirp react && yarn build.wc && yarn build.react",
     "build-storybook": "yarn build && storybook build --config-dir .storybook . --output-dir storybook",
-    "build.react": "rimraf react/* && tsc --build tsconfig.react.json",
+    "build.react": "rimraf react && tsc --build tsconfig.react.json",
     "build.wc": "stencil build",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",

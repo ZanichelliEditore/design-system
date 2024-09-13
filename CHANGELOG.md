@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 16.2.0 (2024-09-13)
+
+
+### Features
+
+* add subjects colours tokens, icons and fix build.react script ([b6a535a](https://github.com/ZanichelliEditore/design-system/commit/b6a535a3479bbe3313fe9a7b5b586cdb37fab6d7))
+
 ## 16.1.0 (2024-09-11)
 
 ## 16.0.0 (2024-09-10)

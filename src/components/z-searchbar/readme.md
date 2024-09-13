@@ -15,7 +15,6 @@
 | `placeholder`          | `placeholder`             | Search input placeholder                                                      | `string`                                                                     | `undefined`                 |
 | `preventSubmit`        | `prevent-submit`          | Prevent submit action                                                         | `boolean`                                                                    | `false`                     |
 | `resultsCount`         | `results-count`           | Number of results shown - default all                                         | `number`                                                                     | `undefined`                 |
-| `resultsEllipsis`      | `results-ellipsis`        | Truncate results to single row                                                | `boolean`                                                                    | `true`                      |
 | `resultsItems`         | `results-items`           | Autocomplete results items                                                    | `SearchbarItem[] \| string`                                                  | `undefined`                 |
 | `searchButtonIconOnly` | `search-button-icon-only` | Set button icon without label                                                 | `boolean`                                                                    | `false`                     |
 | `searchHelperLabel`    | `search-helper-label`     | Search helper text                                                            | `string`                                                                     | `"Cerca {searchString}"`    |
@@ -28,11 +27,11 @@
 
 ## Events
 
-| Event             | Description                                    | Type                                                                                                                                           |
-| ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; }>` |
-| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                                                          |
-| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                                                          |
+| Event             | Description                                    | Type                                                                                                                                                                                                          |
+| ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `searchItemClick` | Emitted on search result click, return item    | `CustomEvent<{ label: string; id?: string; icon?: string; tag?: { icon?: string; text: string; }; category?: string; subcategory?: string; children?: Omit<SearchbarItem, "category" \| "subcategory">[]; }>` |
+| `searchSubmit`    | Emitted on search submit, return search string | `CustomEvent<string>`                                                                                                                                                                                         |
+| `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                                                                                                                         |
 
 
 ## Dependencies

@@ -62,7 +62,7 @@ ZCard component.
 
 | Property     | Attribute     | Description                                                                                                 | Type                                                                                  | Default     |
 | ------------ | ------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------- |
-| `clickable`  | `clickable`   | Enable 'clickable' style like hover and focus style.                                                        | `boolean`                                                                             | `false`     |
+| `clickable`  | `clickable`   | Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.            | `boolean`                                                                             | `false`     |
 | `coverIcon`  | `cover-icon`  | Name of the icon to place over the image cover                                                              | `string`                                                                              | `undefined` |
 | `showShadow` | `show-shadow` | Enable shadow. Default: false.                                                                              | `boolean`                                                                             | `false`     |
 | `variant`    | `variant`     | Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card. | `CardVariant.BORDER \| CardVariant.OVERLAY \| CardVariant.SHADOW \| CardVariant.TEXT` | `undefined` |
