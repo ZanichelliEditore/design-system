@@ -1815,6 +1815,10 @@ export namespace Components {
          */
         "colspan": number;
         /**
+          * Set the popover position, the default is "auto".
+         */
+        "popoverPosition"?: PopoverPosition;
+        /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
         "showMenu": VisibilityCondition;
@@ -5358,6 +5362,10 @@ declare namespace LocalJSX {
           * Emitted when the value of the `colspan` changes.
          */
         "onColspanChange"?: (event: ZTdCustomEvent<number>) => void;
+        /**
+          * Set the popover position, the default is "auto".
+         */
+        "popoverPosition"?: PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
