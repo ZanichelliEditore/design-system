@@ -1,5 +1,5 @@
 import { Host, h } from "@stencil/core";
-import { ButtonVariant, ControlSize } from "../../../../beans";
+import { ButtonVariant, ControlSize, PopoverPosition } from "../../../../beans";
 /**
  * ZTd component.
  * @slot - ZTd content.
@@ -9,6 +9,7 @@ export class ZTd {
         this.colspan = undefined;
         this.sticky = false;
         this.showMenu = null;
+        this.popoverPosition = PopoverPosition.AUTO;
         this.isMenuOpen = false;
     }
     updateColspan() {
@@ -28,7 +29,7 @@ export class ZTd {
         this.updateColspan();
     }
     render() {
-        return (h(Host, { key: '1fea1ea7d31da2e0042696d5c3036493ab0b173d', role: "cell", "menu-open": this.isMenuOpen }, h("slot", { key: 'a836a18a19decbe4b7fed5a6f038332c5c14cdd2' }), this.showMenu && (h("div", { key: '7d06355b81a0bac85f5e8248737881436a44e3d7', class: "cell--menu-container prevent-expand" }, h("z-button", { key: '4d039e48c2e30cfb522fda920ae3aaadaa3ef8ae', variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: this.onMenuButtonClick.bind(this) }), h("z-popover", { key: 'efa44a812bb9f7c9e18ab884fcf53685d90de52e', ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open) }, h("slot", { key: '010336ffd3977a84af2c616d300afc7001e225a4', name: "contextual-menu" }))))));
+        return (h(Host, { key: '36a62d2c751b3b889c7f69280418e95ff02192d5', role: "cell", "menu-open": this.isMenuOpen }, h("slot", { key: '6d593df3a5d84033f5ec055a00dc972d113ac4cb' }), this.showMenu && (h("div", { key: '77fbfdd8dc31fcfb6694461c8c0ed430323c3926', class: "cell--menu-container prevent-expand" }, h("z-button", { key: 'caf153b8ba5861b3dc7eabf966cdfdd9d3b197da', variant: ButtonVariant.TERTIARY, icon: "contextual-menu", size: ControlSize.X_SMALL, ref: (el) => (this.menuTrigger = el), onClick: this.onMenuButtonClick.bind(this) }), h("z-popover", { key: 'd89b8e0e5b8e622a6e9a08640bff28d64ff0eb07', class: "cell-popover", ref: (el) => (this.popoverEl = el), bindTo: this.menuTrigger, onOpenChange: (event) => (this.isMenuOpen = event.detail.open), position: this.popoverPosition }, h("slot", { key: '339066d4dd0d6d57ac2358e6a8105aa690b2ca06', name: "contextual-menu" }))))));
     }
     static get is() { return "z-td"; }
     static get encapsulation() { return "shadow"; }
@@ -102,6 +103,30 @@ export class ZTd {
                 "attribute": "show-menu",
                 "reflect": true,
                 "defaultValue": "null"
+            },
+            "popoverPosition": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "PopoverPosition",
+                    "resolved": "PopoverPosition.AUTO | PopoverPosition.BOTTOM | PopoverPosition.BOTTOM_LEFT | PopoverPosition.BOTTOM_RIGHT | PopoverPosition.LEFT | PopoverPosition.LEFT_BOTTOM | PopoverPosition.LEFT_TOP | PopoverPosition.RIGHT | PopoverPosition.RIGHT_BOTTOM | PopoverPosition.RIGHT_TOP | PopoverPosition.TOP | PopoverPosition.TOP_LEFT | PopoverPosition.TOP_RIGHT",
+                    "references": {
+                        "PopoverPosition": {
+                            "location": "import",
+                            "path": "../../../../beans",
+                            "id": "src/beans/index.tsx::PopoverPosition"
+                        }
+                    }
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Set the popover position, the default is \"auto\"."
+                },
+                "attribute": "popover-position",
+                "reflect": false,
+                "defaultValue": "PopoverPosition.AUTO"
             }
         };
     }

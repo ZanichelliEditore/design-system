@@ -2,12 +2,12 @@ import { r as registerInstance, h, a as Host, g as getElement } from './index-a2
 import './index-175661e6.js';
 import './index-b556b384.js';
 import './index-a81f1558.js';
-import './index-50bbb22e.js';
+import './index-fd7edd22.js';
 import './utils-8ade9e2d.js';
 import './index-b7dbacb4.js';
 import './breakpoints-680e0e56.js';
-import './index-292b4dd2.js';
-import './index-18018bb5.js';
+import './index-230d44a5.js';
+import './index-7a28ff39.js';
 
 const stylesCss = ":host{--z-table--cells-padding:calc(var(--space-unit) * 2);position:relative;display:block;overflow:auto;max-width:100%;box-sizing:border-box;background-color:var(--color-surface01)}:host([expandable]){--z-table--expand-button-size:40px}:host([bordered]){--z-table--cell-left-border:1px solid var(--color-surface03)}.table{min-width:max-content}";
 const ZTableStyle0 = stylesCss;

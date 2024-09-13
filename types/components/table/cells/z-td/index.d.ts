@@ -1,5 +1,5 @@
 import { EventEmitter } from "../../../../stencil-public-runtime";
-import { VisibilityCondition } from "../../../../beans";
+import { PopoverPosition, VisibilityCondition } from "../../../../beans";
 /**
  * ZTd component.
  * @slot - ZTd content.
@@ -20,6 +20,10 @@ export declare class ZTd {
      * Set a nullish value to hide the menu button.
      */
     showMenu: VisibilityCondition;
+    /**
+     * Set the popover position, the default is "auto".
+     */
+    popoverPosition?: PopoverPosition;
     /**
      * Store the open state of the menu.
      */
