@@ -25,19 +25,23 @@ const StoryMeta = {
         items: [
             {
                 id: "item_1",
+                name: "item_1",
                 selected: false,
             },
             {
                 id: "item_2",
+                name: "item_2",
                 selected: true,
             },
             {
                 id: "item_3",
+                name: "item_3",
                 selected: false,
                 disabled: true,
             },
             {
                 id: "item_4",
+                name: "item_4",
                 selected: false,
             },
         ],
@@ -87,33 +91,39 @@ export const Groups = {
         items: [
             {
                 id: "item_1",
+                name: "item_1",
                 selected: false,
                 category: "Gruppo 1",
             },
             {
                 id: "item_2",
+                name: "item_2",
                 selected: false,
                 category: "Gruppo 1",
             },
             {
                 id: "item_3",
+                name: "item_3",
                 selected: false,
                 category: "Gruppo 2",
                 disabled: true,
             },
             {
                 id: "item_4",
+                name: "item_4",
                 selected: false,
                 category: "Gruppo 2",
             },
             {
                 id: "item_5",
+                name: "item_5",
                 selected: false,
                 category: "Gruppo 3",
                 disabled: true,
             },
             {
                 id: "item_6",
+                name: "item_6",
                 selected: false,
                 category: "Gruppo 3",
             },
@@ -147,16 +157,19 @@ export const ZSelectWithIcons = {
         items: [
             {
                 id: "item_1",
+                name: "item_1",
                 selected: false,
                 icon: "teacher",
             },
             {
                 id: "item_2",
+                name: "item_2",
                 selected: false,
                 icon: "teacher",
             },
             {
                 id: "item_3",
+                name: "item_3",
                 selected: false,
                 disabled: true,
                 icon: "teacher",

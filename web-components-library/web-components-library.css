@@ -102,6 +102,7 @@
   --subject-biology: #438454;
   --subject-chemistry: #ba5191;
   --subject-civics: #000080;
+  --subject-communication: #1e90ff;
   --subject-computer_science: #10893e;
   --subject-earth_science: #8d3eb2;
   --subject-english: #c25353;
@@ -113,8 +114,10 @@
   --subject-greek: #37818a;
   --subject-history: #8b572a;
   --subject-law: #b90000;
+  --subject-latin: #8bb513;
   --subject-math: #266997;
   --subject-natural_science: #318473;
+  --subject-philosophy: #5a189a;
   --subject-physics: #4a7ba4;
   --subject-science_middle_school: #3a7922;
   --subject-spanish: #c25353;
