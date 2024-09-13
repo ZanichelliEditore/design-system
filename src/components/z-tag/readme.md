@@ -27,6 +27,7 @@ Ztag component.
 ### Used by
 
  - [z-searchbar](../z-searchbar)
+ - [z-select](../z-select)
 
 ### Depends on
 
@@ -37,6 +38,7 @@ Ztag component.
 graph TD;
   z-tag --> z-icon
   z-searchbar --> z-tag
+  z-select --> z-tag
   style z-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
