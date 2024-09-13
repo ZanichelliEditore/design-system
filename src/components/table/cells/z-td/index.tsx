@@ -40,12 +40,6 @@ export class ZTd {
   popoverPosition?: PopoverPosition = PopoverPosition.AUTO;
 
   /**
-   * Should be set to `true` if the contextual menu is in the laze table.
-   */
-  @Prop()
-  isLazeMenu?: boolean = false;
-
-  /**
    * Store the open state of the menu.
    */
   @State()
@@ -88,8 +82,8 @@ export class ZTd {
     return (
       <Host
         style={{
-          position: this.isLazeMenu && !this.popoverEl.open ? "relative" : undefined,
-          zIndex: this.isLazeMenu && !this.popoverEl.open ? "0" : undefined,
+          position: !this.isMenuOpen ? "relative" : undefined,
+          zIndex: !this.isMenuOpen ? "0" : undefined,
         }}
         role="cell"
         menu-open={this.isMenuOpen}
