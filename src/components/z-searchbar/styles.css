@@ -140,6 +140,11 @@ z-list > div.children-node {
   cursor: pointer;
 }
 
+.results z-list-element > .list-element:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 .results z-list-element > .list-element .item.ellipsis {
   overflow: hidden;
 }

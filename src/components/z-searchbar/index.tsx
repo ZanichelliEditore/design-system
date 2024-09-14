@@ -3,6 +3,7 @@ import {
   ButtonVariant,
   ControlSize,
   Device,
+  KeyboardCode,
   ListDividerType,
   SearchbarGroup,
   SearchbarGroupedItem,
@@ -97,12 +98,15 @@ export class ZSearchbar {
 
   private resizeObserver: ResizeObserver;
 
+  private items: HTMLElement[] = [];
+
   /** Emitted on search submit, return search string */
   @Event()
   searchSubmit: EventEmitter<string>;
 
   private emitSearchSubmit(): void {
     this.searchSubmit.emit(this.inputRef.value);
+    console.log("searchSubmit", this.inputRef.value);
   }
 
   /** Emitted on search typing, return search string */
@@ -119,6 +123,7 @@ export class ZSearchbar {
 
   private emitSearchItemClick(item: SearchbarItem): void {
     this.searchItemClick.emit(item);
+    console.log("item", item);
   }
 
   @Watch("resultsItems")
@@ -139,8 +144,16 @@ export class ZSearchbar {
   @Watch("searchString")
   watchSearchString(): void {
     this.emitSearchTyping(this.searchString);
+    this.items = [];
     if (!this.searchString) {
       this.currResultsCount = this.resultsCount;
+    }
+  }
+
+  @Watch("showResults")
+  watchShowResults(): void {
+    if (!this.showResults) {
+      this.items = [];
     }
   }
 
@@ -225,7 +238,7 @@ export class ZSearchbar {
     if (this.preventSubmit) {
       return;
     }
-
+    console.log("submit");
     this.emitSearchSubmit();
   }
 
@@ -258,7 +271,10 @@ export class ZSearchbar {
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.handleSubmit())}
+        onKeyUp={(e: KeyboardEvent) => {
+          handleEnterKeydSubmit(e, () => this.handleSubmit());
+          this.handleArrowsNavigation(e);
+        }}
         value={this.value}
         ariaLabel={this.placeholder}
         size={this.size}
@@ -365,17 +381,58 @@ export class ZSearchbar {
     return listGroups;
   }
 
+  private handleArrowsNavigation(e: KeyboardEvent): void {
+    const currentElement = e.target as HTMLElement;
+    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+
+    if (!arrows.includes(e.key as KeyboardCode)) {
+      e.preventDefault();
+
+      return;
+    }
+
+    if (!this.items.length) {
+      const list = this.element.shadowRoot.querySelector("z-list");
+      if (!list) {
+        return;
+      }
+
+      this.items = Array.from(list.querySelectorAll(".list-element"));
+    }
+
+    const currentIndex = this.items.indexOf(currentElement as HTMLZListElementElement);
+
+    if (e.key === KeyboardCode.ARROW_DOWN) {
+      e.preventDefault();
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < this.items.length) {
+        (this.items[nextIndex] as HTMLElement).focus();
+      }
+    }
+
+    if (e.key === KeyboardCode.ARROW_UP) {
+      e.preventDefault();
+      const prevIndex = currentIndex - 1;
+      if (prevIndex >= 0) {
+        (this.items[prevIndex] as HTMLElement).focus();
+      }
+    }
+  }
+
   private renderItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
     return (
       <z-list-element
         id={`list-item-${this.htmlid}-${key}`}
+        tabIndex={0}
         role="option"
-        tabindex={0}
         dividerType={divider ? ListDividerType.ELEMENT : undefined}
+        onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
       >
         <div
           class="list-element"
+          tabIndex={0}
           onClick={() => this.emitSearchItemClick(item)}
+          onKeyDown={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.emitSearchItemClick(item))}
         >
           <span class="item ellipsis">
             {item?.icon && (
@@ -436,22 +493,27 @@ export class ZSearchbar {
     return (
       <z-list-element
         role="option"
-        tabindex={0}
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
-        clickable
         id={`list-item-${this.htmlid}-search`}
-        onClickItem={() => this.emitSearchSubmit()}
+        onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
       >
-        <span class="item item-search">
-          <z-icon
-            class="search-icon"
-            name="left-magnifying-glass"
-          />
-          <span
-            class="item-label"
-            innerHTML={this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`)}
-          />
-        </span>
+        <div
+          tabindex={0}
+          onClick={() => this.emitSearchSubmit()}
+          onKeyDown={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.emitSearchSubmit())}
+          class="list-element"
+        >
+          <span class="item item-search">
+            <z-icon
+              class="search-icon"
+              name="left-magnifying-glass"
+            />
+            <span
+              class="item-label"
+              innerHTML={this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`)}
+            />
+          </span>
+        </div>
       </z-list-element>
     );
   }
