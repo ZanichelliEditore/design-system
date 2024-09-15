@@ -160,6 +160,10 @@ z-list > div.children-node {
   transform: translateX(-100%);
 }
 
+.results z-list-element .list-element.focused.hovered::after {
+  padding-left: 6px;
+}
+
 .results z-list-element > .list-element:hover,
 .results z-list-element > .list-element:hover::after {
   background-color: var(--color-surface02);

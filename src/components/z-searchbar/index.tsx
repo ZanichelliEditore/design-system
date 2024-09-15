@@ -278,6 +278,7 @@ export class ZSearchbar {
         value={this.value}
         ariaLabel={this.placeholder}
         size={this.size}
+        tabIndex={0}
       />
     );
   }
@@ -385,6 +386,14 @@ export class ZSearchbar {
     const currentElement = e.target as HTMLElement;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
 
+    /*     console.log("currentElement", currentElement);
+    if (e.key === "Tab" ) {
+      e.preventDefault();
+      (this.element.shadowRoot.querySelector("z-button button") as HTMLElement).focus();
+
+      return;
+    } */
+
     if (!arrows.includes(e.key as KeyboardCode)) {
       e.preventDefault();
 
@@ -400,6 +409,8 @@ export class ZSearchbar {
       this.items = Array.from(list.querySelectorAll(".list-element"));
     }
 
+    this.items.forEach((item) => item.classList.contains("focused") && item.classList.remove("focused"));
+
     const currentIndex = this.items.indexOf(currentElement as HTMLZListElementElement);
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
@@ -407,14 +418,22 @@ export class ZSearchbar {
       const nextIndex = currentIndex + 1;
       if (nextIndex < this.items.length) {
         (this.items[nextIndex] as HTMLElement).focus();
+        this.items[nextIndex].classList.add("focused");
       }
     }
 
     if (e.key === KeyboardCode.ARROW_UP) {
       e.preventDefault();
       const prevIndex = currentIndex - 1;
+      if (prevIndex < 0) {
+        this.element.shadowRoot.querySelector("input").focus();
+        this.element.shadowRoot
+          .querySelector("input")
+          .setSelectionRange(this.inputRef.value.length, this.inputRef.value.length);
+      }
       if (prevIndex >= 0) {
         (this.items[prevIndex] as HTMLElement).focus();
+        this.items[prevIndex].classList.add("focused");
       }
     }
   }
@@ -433,6 +452,14 @@ export class ZSearchbar {
           tabIndex={0}
           onClick={() => this.emitSearchItemClick(item)}
           onKeyDown={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.emitSearchItemClick(item))}
+          onMouseEnter={(e: MouseEvent) => {
+            const currentElement = e.target as HTMLElement;
+            currentElement.classList.add("hovered");
+          }}
+          onMouseLeave={(e: MouseEvent) => {
+            const currentElement = e.target as HTMLElement;
+            currentElement.classList.contains("hovered") && currentElement.classList.remove("hovered");
+          }}
         >
           <span class="item ellipsis">
             {item?.icon && (
