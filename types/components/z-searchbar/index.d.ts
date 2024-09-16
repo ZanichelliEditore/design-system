@@ -42,6 +42,7 @@ export declare class ZSearchbar {
     private resultsItemsList;
     private inputRef;
     private resizeObserver;
+    private items;
     /** Emitted on search submit, return search string */
     searchSubmit: EventEmitter<string>;
     private emitSearchSubmit;
@@ -55,6 +56,7 @@ export declare class ZSearchbar {
     watchResultsCount(): void;
     watchValue(): void;
     watchSearchString(): void;
+    watchShowResults(): void;
     disconnectedCallback(): void;
     componentDidLoad(): void;
     componentWillLoad(): void;
@@ -69,6 +71,7 @@ export declare class ZSearchbar {
     private renderResults;
     private renderResultsList;
     private renderItems;
+    private handleArrowsNavigation;
     private renderItem;
     private renderItemLabel;
     private renderItemCategory;

@@ -1,5 +1,5 @@
 import { Host, h } from "@stencil/core";
-import { ButtonVariant, ControlSize, Device, ListDividerType, } from "../../beans";
+import { ButtonVariant, ControlSize, Device, KeyboardCode, ListDividerType, } from "../../beans";
 import { getDevice, handleEnterKeydSubmit, randomId } from "../../utils/utils";
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -9,6 +9,7 @@ import { getDevice, handleEnterKeydSubmit, randomId } from "../../utils/utils";
 export class ZSearchbar {
     constructor() {
         this.resultsItemsList = null;
+        this.items = [];
         this.htmlid = `searchbar-${randomId()}`;
         this.preventSubmit = false;
         this.value = undefined;
@@ -48,8 +49,14 @@ export class ZSearchbar {
     }
     watchSearchString() {
         this.emitSearchTyping(this.searchString);
+        this.items = [];
         if (!this.searchString) {
             this.currResultsCount = this.resultsCount;
+        }
+    }
+    watchShowResults() {
+        if (!this.showResults) {
+            this.items = [];
         }
     }
     disconnectedCallback() {
@@ -137,7 +144,10 @@ export class ZSearchbar {
     renderInput() {
         return (h("z-input", { ref: (val) => {
                 this.inputRef = val;
-            }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => handleEnterKeydSubmit(e, () => this.handleSubmit()), value: this.value, ariaLabel: this.placeholder, size: this.size }));
+            }, message: false, placeholder: this.placeholder, onStopTyping: (e) => this.handleStopTyping(e), onKeyUp: (e) => {
+                handleEnterKeydSubmit(e, () => this.handleSubmit());
+                this.handleArrowsNavigation(e);
+            }, value: this.value, ariaLabel: this.placeholder, size: this.size, tabIndex: 0 }));
     }
     renderButton() {
         if (!this.showSearchButton) {
@@ -190,8 +200,53 @@ export class ZSearchbar {
         });
         return listGroups;
     }
+    handleArrowsNavigation(e) {
+        const currentElement = e.target;
+        const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+        if (!arrows.includes(e.key)) {
+            e.preventDefault();
+            return;
+        }
+        if (!this.items.length) {
+            const list = this.element.shadowRoot.querySelector("z-list");
+            if (!list) {
+                return;
+            }
+            this.items = Array.from(list.querySelectorAll(".list-element"));
+        }
+        this.items.forEach((item) => item.classList.contains("focused") && item.classList.remove("focused"));
+        const currentIndex = this.items.indexOf(currentElement);
+        if (e.key === KeyboardCode.ARROW_DOWN) {
+            e.preventDefault();
+            const nextIndex = currentIndex + 1;
+            if (nextIndex < this.items.length) {
+                this.items[nextIndex].focus();
+                this.items[nextIndex].classList.add("focused");
+            }
+        }
+        if (e.key === KeyboardCode.ARROW_UP) {
+            e.preventDefault();
+            const prevIndex = currentIndex - 1;
+            if (prevIndex < 0) {
+                this.element.shadowRoot.querySelector("input").focus();
+                this.element.shadowRoot
+                    .querySelector("input")
+                    .setSelectionRange(this.inputRef.value.length, this.inputRef.value.length);
+            }
+            if (prevIndex >= 0) {
+                this.items[prevIndex].focus();
+                this.items[prevIndex].classList.add("focused");
+            }
+        }
+    }
     renderItem(item, key, divider) {
-        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, role: "option", tabindex: 0, dividerType: divider ? ListDividerType.ELEMENT : undefined }, h("div", { class: "list-element", onClick: () => this.emitSearchItemClick(item) }, h("span", { class: "item ellipsis" }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : "")), item.children && item.children.length > 0 ? (h("z-list", null, h("div", { class: "children-node" }, item.children.map((child, index) => this.renderItem(child, index, false))))) : null));
+        return (h("z-list-element", { id: `list-item-${this.htmlid}-${key}`, tabIndex: 0, role: "option", dividerType: divider ? ListDividerType.ELEMENT : undefined, onKeyDown: (e) => this.handleArrowsNavigation(e) }, h("div", { class: "list-element", tabIndex: 0, onClick: () => this.emitSearchItemClick(item), onKeyDown: (e) => handleEnterKeydSubmit(e, () => this.emitSearchItemClick(item)), onMouseEnter: (e) => {
+                const currentElement = e.target;
+                currentElement.classList.add("hovered");
+            }, onMouseLeave: (e) => {
+                const currentElement = e.target;
+                currentElement.classList.contains("hovered") && currentElement.classList.remove("hovered");
+            } }, h("span", { class: "item ellipsis" }, (item === null || item === void 0 ? void 0 : item.icon) && (h("z-icon", { class: "item-icon", name: item.icon })), h("span", { class: "item-label", title: item.label, innerHTML: this.renderItemLabel(item.label) })), (item === null || item === void 0 ? void 0 : item.tag) && h("z-tag", { icon: item.tag.icon }, !this.isMobile ? item.tag.text : "")), item.children && item.children.length > 0 ? (h("z-list", null, h("div", { class: "children-node" }, item.children.map((child, index) => this.renderItem(child, index, false))))) : null));
     }
     renderItemLabel(label) {
         if (!this.searchString) {
@@ -209,7 +264,7 @@ export class ZSearchbar {
         if (!this.autocomplete || this.preventSubmit || !this.searchString) {
             return null;
         }
-        return (h("z-list-element", { role: "option", tabindex: 0, dividerType: hasDivider ? ListDividerType.ELEMENT : undefined, clickable: true, id: `list-item-${this.htmlid}-search`, onClickItem: () => this.emitSearchSubmit() }, h("span", { class: "item item-search" }, h("z-icon", { class: "search-icon", name: "left-magnifying-glass" }), h("span", { class: "item-label", innerHTML: this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`) }))));
+        return (h("z-list-element", { role: "option", dividerType: hasDivider ? ListDividerType.ELEMENT : undefined, id: `list-item-${this.htmlid}-search`, onKeyDown: (e) => this.handleArrowsNavigation(e) }, h("div", { tabindex: 0, onClick: () => this.emitSearchSubmit(), onKeyDown: (e) => handleEnterKeydSubmit(e, () => this.emitSearchSubmit()), class: "list-element" }, h("span", { class: "item item-search" }, h("z-icon", { class: "search-icon", name: "left-magnifying-glass" }), h("span", { class: "item-label", innerHTML: this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`) })))));
     }
     renderShowAllResults() {
         var _a, _b;
@@ -222,7 +277,7 @@ export class ZSearchbar {
         return (h("z-list-element", { role: "option", tabindex: 0, clickable: true, id: `list-item-${this.htmlid}-show-all`, onClickItem: () => (this.currResultsCount = 0), color: "color-primary01" }, h("div", { class: "item-show-all" }, "Vedi tutti i risultati")));
     }
     render() {
-        return (h(Host, { key: '9e8e62ecafdfd6f8a26c88ae89de0af9ae888bb3', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '19ea613b5434d4ceb27402c47f00e58ba2661859', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
+        return (h(Host, { key: '24d85cddae24efbb5b46874f9b4b10708942e10e', onFocus: () => (this.showResults = true), onClick: (e) => this.handleOutsideClick(e), class: { "has-submit": this.showSearchButton, "has-results": this.autocomplete } }, h("div", { key: '114d10bf9e947cccc6d69f571cc0de8db8cf3586', class: "input-container" }, this.renderInput(), this.renderResults()), this.renderButton()));
     }
     static get is() { return "z-searchbar"; }
     static get encapsulation() { return "shadow"; }
@@ -582,6 +637,9 @@ export class ZSearchbar {
             }, {
                 "propName": "searchString",
                 "methodName": "watchSearchString"
+            }, {
+                "propName": "showResults",
+                "methodName": "watchShowResults"
             }];
     }
     static get listeners() {

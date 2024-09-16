@@ -140,6 +140,11 @@ z-list > div.children-node {
   cursor: pointer;
 }
 
+.results z-list-element > .list-element:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 .results z-list-element > .list-element .item.ellipsis {
   overflow: hidden;
 }
@@ -153,6 +158,10 @@ z-list > div.children-node {
   height: 44px;
   content: "";
   transform: translateX(-100%);
+}
+
+.results z-list-element .list-element.focused.hovered::after {
+  padding-left: 6px;
 }
 
 .results z-list-element > .list-element:hover,

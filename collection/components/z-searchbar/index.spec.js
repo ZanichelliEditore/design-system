@@ -15,7 +15,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
           </div>
           <z-button size="big" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -31,7 +31,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-results" htmlid="my-id" autocomplete="true" prevent-submit="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -57,7 +57,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
           </div>
           <z-button size="big" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -87,7 +87,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -127,7 +127,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -136,10 +136,10 @@ describe("Suite test ZSearchbar", () => {
                     <z-list-element
                       id="list-item-my-id-0"
                       role="option"
-                      tabindex="0"
                       dividerType="element"
+                      tabindex="0"
                     >
-                    <div class="list-element">
+                    <div class="list-element" tabindex="0">
                       <span class="item ellipsis">
                         <z-icon class="item-icon" name="download"></z-icon>
                         <span class="item-label" title="item 1"><mark>item</mark> 1</span>
@@ -181,7 +181,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -220,7 +220,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <span class="item item-no-results">
@@ -264,7 +264,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -287,7 +287,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" size="small">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="small"></z-input>
+            <z-input tabindex="0" size="small"></z-input>
           </div>
           <z-button size="small" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -303,7 +303,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" variant="secondary">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
           </div>
           <z-button size="big" variant="secondary">CERCA</z-button>
         </mock:shadow-root>
@@ -319,7 +319,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" search-button-icon-only="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input tabindex="0" size="big"></z-input>
           </div>
           <z-button icon="search" size="big" variant="primary"></z-button>
         </mock:shadow-root>
@@ -336,7 +336,7 @@ const resultsItems = () => `
       tabindex="0"
       dividerType="element"
     >
-    <div class="list-element">
+    <div class="list-element" tabindex="0">
       <span class="item ellipsis">
         <z-icon class="item-icon" name="download"></z-icon>
         <span class="item-label" title="item 1"><mark>item</mark> 1</span>
@@ -349,7 +349,7 @@ const resultsItems = () => `
       tabindex="0"
       dividerType="element"
     >
-    <div class="list-element">
+    <div class="list-element" tabindex="0">
       <span class="item ellipsis">
         <span class="item-label" title="item 2"><mark>item</mark> 2</span>
       </span>
@@ -360,7 +360,7 @@ const resultsItems = () => `
       role="option"
       tabindex="0"
     >
-    <div class="list-element">
+    <div class="list-element" tabindex="0">
       <span class="item ellipsis">
         <span class="item-label" title="item 3"><mark>item</mark> 3</span>
       </span>
@@ -370,23 +370,23 @@ const resultsItems = () => `
 const searchHelper = (divider = true) => `
   <z-list-element
     role="option"
-    tabindex="0"
     ${divider ? `dividerType="element"` : ``}
     id="list-item-my-id-search"
-    clickable
   >
+    <div class="list-element" tabindex="0">
     <span class="item item-search">
       <z-icon class="search-icon" name="left-magnifying-glass"></z-icon>
       <span class="item-label">Cerca <mark>item</mark></span>
     </span>
+    </div>
   </z-list-element>
 `;
 const showAllResults = () => `
   <z-list-element
     role="option"
-    tabindex="0"
     id="list-item-my-id-show-all"
     color="color-primary01"
+    tabindex="0"
     clickable
   >
     <div class="item-show-all">Vedi tutti i risultati</div>
