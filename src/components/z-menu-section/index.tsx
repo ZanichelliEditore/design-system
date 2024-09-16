@@ -62,7 +62,6 @@ export class ZMenuSection {
       const nextElement = this.hostElement.parentElement.nextElementSibling;
       if (nextElement) {
         const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-        console.log(this.hostElement.parentElement);
         menuButton.focus();
       }
       this.open = false;
@@ -181,7 +180,7 @@ export class ZMenuSection {
     }
   }
 
-  componentWillLoad(): void {
+  connectedCallback(): void {
     this.onItemsChange();
   }
 
@@ -191,11 +190,12 @@ export class ZMenuSection {
         <button
           class="label"
           aria-haspopup={`${this.hasItems}`}
-          aria-expanded={`${this.open}`}
+          aria-expanded={`${!!this.open}`}
+          role="menuitem"
           onClick={this.toggle.bind(this)}
           onKeyUp={this.focusFirstSectionItemOnKeyUp.bind(this)}
         >
-          <slot onSlotchange={this.onLabelSlotChange.bind(this)}></slot>
+          <slot onSlotchange={this.onLabelSlotChange.bind(this)} />
           {this.hasItems && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
         {this.open && (

@@ -32,19 +32,12 @@
   background: transparent;
   border-radius: 0;
   color: inherit;
-  outline: none;
   text-align: left;
 }
 
 .menu-wrapper {
   display: flex;
   align-items: center;
-}
-
-.menu-wrapper:focus-visible,
-.menu-label-content:focus-visible,
-button:focus-visible {
-  outline: none;
 }
 
 button.menu-label {
@@ -76,7 +69,7 @@ button.menu-label {
   letter-spacing: normal;
 }
 
-:host .menu-label .menu-label-content ::slotted(*:not([slot]):focus:focus-visible) {
+.menu-label .menu-label-content ::slotted(*:not([slot]):focus:focus-visible) {
   box-shadow: none !important;
 }
 
@@ -142,12 +135,6 @@ when placed below the real text using `flex-direction: column`. */
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: inherit;
-  outline: none;
-}
-
-.menu-label .menu-label-content ::slotted(*),
-.menu-label .menu-label-content z-icon {
-  padding: var(--space-unit) 0;
 }
 
 .menu-label .menu-label-content z-icon {
@@ -210,7 +197,6 @@ when placed below the real text using `flex-direction: column`. */
   margin: 0;
   font-size: var(--font-size-3);
   line-height: 1.25;
-  outline: none;
 }
 
 .items > ::slotted([slot="item"]:focus:focus-visible) {

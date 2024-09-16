@@ -98,7 +98,7 @@ export namespace Components {
      */
     interface ZAppHeader {
         /**
-          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
         "enableOffcanvas": boolean;
         /**
@@ -1048,11 +1048,19 @@ export namespace Components {
          */
         "floating"?: boolean;
         /**
+          * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
+         */
+        "htmlTabindex": number;
+        /**
           * The opening state of the menu.
          */
         "open": boolean;
         /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+          * Focus the label interactive element if its tabindex is 0
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
          */
         "verticalContext": boolean;
     }
@@ -3466,7 +3474,7 @@ declare namespace LocalJSX {
      */
     interface ZAppHeader {
         /**
-          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
         "enableOffcanvas"?: boolean;
         /**
@@ -4492,6 +4500,10 @@ declare namespace LocalJSX {
          */
         "floating"?: boolean;
         /**
+          * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
+         */
+        "htmlTabindex"?: number;
+        /**
           * The menu has been closed.
          */
         "onClosed"?: (event: ZMenuCustomEvent<any>) => void;
@@ -4504,7 +4516,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
          */
         "verticalContext"?: boolean;
     }

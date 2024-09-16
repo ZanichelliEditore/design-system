@@ -15,17 +15,17 @@ describe("Suite test ZMenuSection", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-menu-section role="menu">
+      <z-menu-section>
         <mock:shadow-root>
-          <button aria-pressed="false" class="label">
+          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem">
             <slot></slot>
             <z-icon name="chevron-down"></z-icon>
           </button>
         </mock:shadow-root>
         <h3>Menu section label</h3>
-        <a href="#" slot="section">Item 1</a>
-        <a href="#" slot="section">Item 2</a>
-        <a href="#" slot="section">Item 3</a>
+        <a href="#" slot="section" role="menuitem" tabindex="0">Item 1</a>
+        <a href="#" slot="section" role="menuitem" tabindex="-1">Item 2</a>
+        <a href="#" slot="section" role="menuitem" tabindex="-1">Item 3</a>
     </z-menu-section>`);
   });
 

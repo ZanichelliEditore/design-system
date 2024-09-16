@@ -36,7 +36,7 @@ const menuTemplate = (): TemplateResult => {
       slot="menu"
       floating
     >
-      <h3>Menu label</h3>
+      <h3>Menu label 1</h3>
       <a
         href=""
         slot="item"
@@ -83,13 +83,13 @@ const menuTemplate = (): TemplateResult => {
       slot="menu"
       floating
     >
-      <a href>Menu label</a>
+      <a href>Menu label 2</a>
     </z-menu>
     <z-menu
       slot="menu"
       floating
     >
-      <h3>Menu label</h3>
+      <h3>Menu label 3</h3>
       <a
         href=""
         slot="item"
@@ -136,7 +136,7 @@ const menuTemplate = (): TemplateResult => {
       slot="menu"
       floating
     >
-      <h3>Menu label</h3>
+      <h3>Menu label 4</h3>
       <a
         href=""
         slot="item"

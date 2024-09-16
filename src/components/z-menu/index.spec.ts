@@ -23,7 +23,7 @@ describe("Suite test ZMenu", () => {
           </div>
         </div>
       </mock:shadow-root>
-      <h3>Menu label</h3>
+      <h3 tabindex="-1">Menu label</h3>
     </z-menu>`);
   });
 
@@ -42,7 +42,7 @@ describe("Suite test ZMenu", () => {
       <z-menu floating="" role="menu">
         <mock:shadow-root>
           <div class="menu-wrapper">
-            <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
+            <button aria-expanded="false" aria-haspopup="true" aria-label="Apri menù" class="menu-label" role="menuitem" tabindex="-1">
               <div class="menu-label-content">
                 <slot></slot>
                 <z-icon name="chevron-down"></z-icon>
@@ -80,7 +80,7 @@ describe("Suite test ZMenu", () => {
     <z-menu floating="" role="menu">
       <mock:shadow-root>
         <div class="menu-wrapper">
-          <button aria-expanded="false" aria-label="Apri menù" class="menu-label">
+          <button aria-expanded="false" aria-haspopup="true" aria-label="Apri menù" class="menu-label" role="menuitem" tabindex="-1">
             <div class="menu-label-content">
               <slot></slot>
               <z-icon name="chevron-down"></z-icon>
@@ -99,9 +99,9 @@ describe("Suite test ZMenu", () => {
       <a href="#" slot="item">
         Item 1
       </a>
-      <z-menu-section role="menu" slot="item">
+      <z-menu-section slot="item">
         <mock:shadow-root>
-          <button aria-pressed="false" class="label">
+          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem">
             <slot></slot>
             <z-icon name="chevron-down"></z-icon>
           </button>
@@ -109,10 +109,10 @@ describe("Suite test ZMenu", () => {
         <h3>
           Item 2
         </h3>
-        <a href="#" slot="section">
+        <a href="#" role="menuitem" slot="section" tabindex="0">
           Item 2.1
         </a>
-        <a href="#" slot="section">
+        <a href="#" role="menuitem" slot="section" tabindex="-1">
           Item 2.2
         </a>
       </z-menu-section>

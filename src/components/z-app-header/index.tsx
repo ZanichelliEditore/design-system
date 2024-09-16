@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Fragment, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 
@@ -103,96 +103,22 @@ export class ZAppHeader {
 
   private menuContainer?: HTMLElement;
 
-  private menuElements?: HTMLZMenuElement[];
+  private menuElements: HTMLZMenuElement[];
 
   private closeMenuButton: HTMLButtonElement;
 
   private burgerButton: HTMLButtonElement;
 
-  private searchbar: HTMLZSearchbarElement;
-
   private menuResizeObserver: ResizeObserver;
 
-  private currentIndex = -1;
-
-  private stuckIntersecObserver?: IntersectionObserver =
-    SUPPORT_INTERSECTION_OBSERVER &&
-    new IntersectionObserver(
-      ([entry]) => {
-        this._stuck = !entry.isIntersecting;
-      },
-      {threshold: 0.5}
-    );
-
-  constructor() {
-    this.openDrawer = this.openDrawer.bind(this);
-    this.closeDrawer = this.closeDrawer.bind(this);
-    this.collectMenuElements = this.collectMenuElements.bind(this);
-  }
-
-  @Listen("keydown")
-  handleKeyDown(e: KeyboardEvent): void {
-    if (e.code === KeyboardCode.ESC && this.drawerOpen) {
-      this.closeDrawer();
-
-      return;
-    }
-    this.handleArrowsNav(e);
-  }
-
-  private handleArrowsNav(e: KeyboardEvent): void {
-    if (e.code !== KeyboardCode.ARROW_DOWN && e.code !== KeyboardCode.ARROW_UP && this.enableOffcanvas) {
-      return;
-    }
-
-    if (document.activeElement.slot === "item") {
-      return;
-    }
-
-    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
-
-    let nextFocusableItem: HTMLElement;
-    if (this.enableOffcanvas || this._stuck) {
-      // INFO: reset focus on all menu items
-      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.code === KeyboardCode.ARROW_DOWN) {
-        nextFocusableItem = this.getNextItem(menuItems, 1);
-      } else if (e.code === KeyboardCode.ARROW_UP) {
-        nextFocusableItem = this.getNextItem(menuItems, -1);
-      }
-    } else {
-      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
-        e.preventDefault();
-
-        return;
-      }
-      //INFO: reset focus on all menu items
-      menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-      if (e.code === KeyboardCode.ARROW_RIGHT) {
-        nextFocusableItem = this.getNextItem(menuItems, 1);
-      } else if (e.code === KeyboardCode.ARROW_LEFT) {
-        nextFocusableItem = this.getNextItem(menuItems, -1);
-      }
-    }
-    if (nextFocusableItem) {
-      nextFocusableItem.setAttribute("tabindex", "0");
-      nextFocusableItem.focus();
-    }
-  }
-
-  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
-    if (this.currentIndex === -1) {
-      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
-
-      return menuItems[this.currentIndex];
-    }
-
-    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
-
-    return menuItems[this.currentIndex];
-  }
+  private stuckIntersecObserver?: IntersectionObserver = SUPPORT_INTERSECTION_OBSERVER
+    ? new IntersectionObserver(
+        ([entry]) => {
+          this._stuck = !entry.isIntersecting;
+        },
+        {threshold: 0.5}
+      )
+    : undefined;
 
   @Watch("_stuck")
   onStuck(): void {
@@ -210,20 +136,12 @@ export class ZAppHeader {
       return;
     }
 
-    this.menuElements.forEach((element) => {
+    this.menuElements.forEach((element, index) => {
       element.open = false;
       element.floating = !this.drawerOpen;
       element.verticalContext = this.drawerOpen;
-      element.setAttribute("role", "menuitem");
-      element.setAttribute("tabindex", "-1");
+      element.htmlTabindex = index === 0 ? 0 : -1;
     });
-    // enable tab navigation on the active menu, if any. Otherwise, enable it on the first menu
-    const activeMenu = this.menuElements.find(({active}) => active);
-    if (activeMenu) {
-      activeMenu.setAttribute("tabindex", "0");
-    } else {
-      this.menuElements[0].setAttribute("tabindex", "0");
-    }
   }
 
   @Watch("stuck")
@@ -253,6 +171,10 @@ export class ZAppHeader {
     return !this.enableOffcanvas && this.menuElements.length > 0 && !this.isMobile && !this.drawerOpen;
   }
 
+  private get activeItem(): HTMLZMenuElement {
+    return this.menuElements.find((el) => el.htmlTabindex === 0);
+  }
+
   private openDrawer(): void {
     this.drawerOpen = true;
     this.closeMenuButton.focus();
@@ -261,7 +183,6 @@ export class ZAppHeader {
   private closeDrawer(): void {
     this.drawerOpen = false;
     this.burgerButton.focus();
-    this.currentIndex = -1;
   }
 
   private collectMenuElements(): void {
@@ -270,6 +191,7 @@ export class ZAppHeader {
     this.setMenuFloatingMode();
   }
 
+  /** Automatically use offcanvas mode when the menubar doesn't fit in the header. */
   private setupMenuResizeObserver(): void {
     if (this.enableOffcanvas) {
       return;
@@ -297,6 +219,34 @@ export class ZAppHeader {
     return this.hostElement.querySelector(`[slot="${slotName}"]`) !== null;
   }
 
+  private moveFocus(current: HTMLZMenuElement, next: HTMLZMenuElement): void {
+    current.htmlTabindex = -1;
+    next.htmlTabindex = 0;
+    next.setFocus();
+  }
+
+  private handleMenubarKeydown(ev: KeyboardEvent): void {
+    if (!this.menuElements.some((elem) => elem.contains(ev.target as HTMLElement))) {
+      return;
+    }
+
+    const activeItem = this.activeItem;
+    const activeIndex = this.menuElements.indexOf(activeItem);
+    let newActive: HTMLZMenuElement;
+    switch (ev.key) {
+      case KeyboardCode.ARROW_RIGHT:
+        newActive =
+          activeIndex < this.menuElements.length - 1 ? this.menuElements[activeIndex + 1] : this.menuElements[0];
+        this.moveFocus(activeItem, newActive);
+        break;
+      case KeyboardCode.ARROW_LEFT:
+        newActive =
+          activeIndex > 0 ? this.menuElements[activeIndex - 1] : this.menuElements[this.menuElements.length - 1];
+        this.moveFocus(activeItem, newActive);
+        break;
+    }
+  }
+
   private renderSeachbar(): HTMLZButtonElement | HTMLZSearchbarElement | undefined {
     if (this.isMobile && !this.searchPageUrl && this._stuck) {
       return;
@@ -316,7 +266,6 @@ export class ZAppHeader {
 
     return (
       <z-searchbar
-        ref={(el) => (this.searchbar = el as HTMLZSearchbarElement)}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
@@ -325,11 +274,6 @@ export class ZAppHeader {
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
         onSearchTyping={(e) => (this.searchString = e.detail)}
-        onKeyDown={(e) => {
-          if (e.code === KeyboardCode.ARROW_RIGHT || e.code === KeyboardCode.ARROW_LEFT) {
-            e.stopPropagation();
-          }
-        }}
       />
     );
   }
@@ -343,7 +287,7 @@ export class ZAppHeader {
             alt="Logo Zanichelli"
           />
         )}
-        {!this.isMobile && <slot name="product-logo"></slot>}
+        {!this.isMobile && <slot name="product-logo" />}
       </Fragment>
     );
   }
@@ -395,7 +339,7 @@ export class ZAppHeader {
             <slot
               name="menu"
               onSlotchange={this.collectMenuElements}
-            ></slot>
+            />
           </div>
         </div>
       </z-offcanvas>
@@ -417,43 +361,17 @@ export class ZAppHeader {
     );
   }
 
-  private focusToFirstItemMenu(): void {
-    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
-
-    menuItems[0].focus();
-    this.currentIndex = 0;
-  }
-
-  private handleFocusItem(e): void {
-    const menuItems = this.menuElements.map((el) => el.shadowRoot.querySelector(".menu-label") as HTMLElement);
-
-    if (
-      e.code === KeyboardCode.ARROW_DOWN ||
-      e.code === KeyboardCode.ARROW_UP ||
-      e.code === KeyboardCode.ENTER ||
-      e.code === KeyboardCode.TAB
-    ) {
-      return;
-    }
-
-    if (document.activeElement.tagName === "Z-MENU-SECTION" || document.activeElement.tagName === "Z-MENU") {
-      return;
-    }
-
-    if (this.enableSearch && this.currentIndex === 0) {
-      const input = this.searchbar.shadowRoot.querySelector("z-input input") as HTMLInputElement;
-      input.focus();
-      this.currentIndex = -1;
-    }
-
-    if (this.currentIndex !== -1) {
-      menuItems[this.currentIndex].focus();
-    }
+  constructor() {
+    this.openDrawer = this.openDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
+    this.collectMenuElements = this.collectMenuElements.bind(this);
+    this.handleMenubarKeydown = this.handleMenubarKeydown.bind(this);
   }
 
   componentWillLoad(): void {
     this.collectMenuElements();
 
+    // mobile and tablet media queries listeners
     const mobileMediaQuery = window.matchMedia(`(max-width: ${Breakpoints.MOBILE}px)`);
     this.isMobile = mobileMediaQuery.matches;
     mobileMediaQuery.addEventListener("change", (e) => (this.isMobile = e.matches));
@@ -485,13 +403,13 @@ export class ZAppHeader {
           <div class="heading-container">
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
               <div class="top-subtitle">
-                <slot name="top-subtitle"></slot>
+                <slot name="top-subtitle" />
               </div>
             )}
             <div class="heading-title">
               {this.renderMenuButton()}
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
-              <slot name="title"></slot>
+              <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>
             {this.enableSearch && this.isMobile && this.renderSeachbar()}
@@ -501,16 +419,7 @@ export class ZAppHeader {
             ref={(el) => (this.menuContainer = el)}
             class="menu-container"
             aria-label={this.title || undefined}
-            onKeyUp={(e) => {
-              if (this.enableOffcanvas) {
-                return;
-              }
-              if (this.currentIndex === -1) {
-                this.focusToFirstItemMenu();
-              } else {
-                this.handleFocusItem(e);
-              }
-            }}
+            onKeyDown={this.handleMenubarKeydown}
           >
             {this.canShowMenu && (
               <div
@@ -520,7 +429,7 @@ export class ZAppHeader {
                 <slot
                   name="menu"
                   onSlotchange={this.collectMenuElements}
-                ></slot>
+                />
               </div>
             )}
           </nav>
