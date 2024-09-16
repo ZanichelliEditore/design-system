@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 16.2.2 (2024-09-16)
+
+
+### Bug Fixes
+
+* removed console.log ([4444d34](https://github.com/ZanichelliEditore/design-system/commit/4444d344c6eac1b8aa5a668e1f79ea7508bbb2d1))
+
 ## 16.2.1 (2024-09-13)
 
 ## 16.2.0 (2024-09-13)
