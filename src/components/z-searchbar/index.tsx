@@ -106,7 +106,6 @@ export class ZSearchbar {
 
   private emitSearchSubmit(): void {
     this.searchSubmit.emit(this.inputRef.value);
-    console.log("searchSubmit", this.inputRef.value);
   }
 
   /** Emitted on search typing, return search string */
@@ -123,7 +122,6 @@ export class ZSearchbar {
 
   private emitSearchItemClick(item: SearchbarItem): void {
     this.searchItemClick.emit(item);
-    console.log("item", item);
   }
 
   @Watch("resultsItems")
@@ -238,7 +236,6 @@ export class ZSearchbar {
     if (this.preventSubmit) {
       return;
     }
-    console.log("submit");
     this.emitSearchSubmit();
   }
 
@@ -385,14 +382,6 @@ export class ZSearchbar {
   private handleArrowsNavigation(e: KeyboardEvent): void {
     const currentElement = e.target as HTMLElement;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
-
-    /*     console.log("currentElement", currentElement);
-    if (e.key === "Tab" ) {
-      e.preventDefault();
-      (this.element.shadowRoot.querySelector("z-button button") as HTMLElement).focus();
-
-      return;
-    } */
 
     if (!arrows.includes(e.key as KeyboardCode)) {
       e.preventDefault();
