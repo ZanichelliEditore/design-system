@@ -29,6 +29,14 @@ export class ZTh {
   showMenu: VisibilityCondition = null;
 
   /**
+   * Enables the sorting button.
+   * Can be set to "hover" or "always" to show the button only on cell hover or always.
+   * Set a nullish value to hide the sort button.
+   */
+  @Prop({reflect: true})
+  showSorting: VisibilityCondition = null;
+
+  /**
    * Whether the cell should stick.
    */
   @Prop({reflect: true})
@@ -110,16 +118,18 @@ export class ZTh {
         role="columnheader"
         menu-open={this.isMenuOpen}
         aria-sort={this.ariaSortDirection}
+        onClick={this.showSorting ? this.handleSort.bind(this) : ""}
+        sortable={this.showSorting}
       >
         <slot></slot>
-        {this.sortDirection && (
+        {this.showSorting && (
           <button
-            class="z-th--sort-button"
+            class={{"z-th--sort-button": true, "sort-active": this.showSorting === VisibilityCondition.ALWAYS}}
             type="button"
             onClick={this.handleSort.bind(this)}
           >
             <z-icon
-              name={this.sortDirection === SortDirection.ASC ? "arrow-simple-up" : "arrow-simple-down"}
+              name={this.sortDirection === SortDirection.DESC ? "arrow-simple-up" : "arrow-simple-down"}
               width={14}
               height={14}
             />

@@ -14,6 +14,11 @@
 }
 
 .z-th--sort-button {
+  display: none;
+}
+
+:host(:hover) .z-th--sort-button,
+:host .sort-active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,9 +27,4 @@
   margin-top: auto;
   background-color: transparent;
   cursor: pointer;
-}
-
-.z-th--sort-button:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
