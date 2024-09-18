@@ -4,28 +4,22 @@
   /* Variable to set stuck header and drawer's top offset.
   Useful when something is absolutely positioned above the header. */
   --app-header-top-offset: 48px;
-  --app-header-drawer-trigger-size: calc(var(--space-unit) * 4);
 
   /* Variable to customize header background color. */
   --app-header-bg: var(--color-surface01);
 
-  /* Variable to customize stuck header background color. */
-  --app-header-stucked-bg: var(--color-surface01);
-
   /* Variable to customize text and icon color. */
   --app-header-text-color: var(--color-default-text);
 
-  /* Variable to customize the title's line-height.
-  NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value
-  and use the same level as the one of the font size. */
-  --app-header-title-lineheight: 1.25;
+  /* Variable to customize stuck header background color. */
+  --app-header-stucked-bg: var(--color-surface01);
 
   /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: var(--color-default-text);
 
   position: relative;
   display: block;
-  box-shadow: 0 2px 4px 0 var(--shadow-color-base);
+  box-shadow: var(--shadow-2);
   color: var(--app-header-text-color);
 }
 
@@ -35,6 +29,10 @@
 }
 
 .heading-panel {
+  /* Title's line height. */
+  --title-line-height: 1.333;
+  --title-font-size: var(--font-size-6);
+
   position: relative;
   display: flex;
   width: 100%;
@@ -63,7 +61,7 @@
   justify-content: flex-start;
 }
 
-.heading-panel.has-menu {
+.heading-panel.has-menubar {
   padding-bottom: 0;
 }
 
@@ -83,20 +81,19 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
 }
 
-img.z-logo {
+.z-logo {
+  display: flex;
+  height: calc(var(--title-font-size) * var(--title-line-height));
+  align-items: center;
+}
+
+.z-logo img {
+  height: var(--title-font-size);
+  margin: 0 var(--space-unit) 0 0;
   content: url('data:image/svg+xml,<svg width="61" height="32" viewBox="0 0 61 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.9874 32C7.1595 32 0 24.8349 0 16C0 7.16513 7.1595 0 15.9874 0H45.0126C53.8405 0 61 7.16513 61 16C61 24.8349 53.8405 32 45.0126 32H15.9874Z" fill="%23E2011A"/><path d="M58.5435 15.9992C58.5435 23.4743 52.4892 29.5403 45.0129 29.5403C37.5367 29.5403 31.4824 23.4813 31.4824 15.9992C31.4824 8.51701 37.5367 2.45801 45.0129 2.45801C52.4892 2.45801 58.5435 8.51701 58.5435 15.9992Z" fill="white"/><path d="M40.7107 8.01862H49.8976V11.3158L44.139 21.7077H50.0384V24.6457H39.9785V21.4048L45.7371 10.9636H40.7107V8.01862Z" fill="%23E2011A"/><path d="M12.2914 24.6449C10.982 24.6449 10.271 23.8136 10.271 22.6722V7.04565H12.1718V22.9822H13.981V24.6449H12.2914Z" fill="white"/><path d="M25.6461 24.6448C24.2452 24.6448 23.675 23.7853 23.5342 22.6439H23.4145C22.8935 24.1446 21.5841 24.9266 19.8735 24.9266C17.2828 24.9266 15.7622 23.4964 15.7622 21.2137C15.7622 18.931 17.4236 17.6206 20.9928 17.6206H23.4145V16.4088C23.4145 14.6756 22.4641 13.7245 20.5141 13.7245C19.0428 13.7245 18.0642 14.4361 17.4025 15.5563L16.262 14.4854C16.9308 13.175 18.4021 12.0829 20.6126 12.0829C23.5623 12.0829 25.3152 13.6259 25.3152 16.2186V22.9751H26.7162V24.6378H25.6461V24.6448ZM23.4145 21.0799V19.0578H20.8942C18.733 19.0578 17.7545 19.7272 17.7545 20.9108V21.411C17.7545 22.6228 18.7049 23.3132 20.1762 23.3132C22.0558 23.3132 23.4074 22.341 23.4074 21.0799H23.4145Z" fill="white"/></svg>');
-}
-
-.heading-title > img.z-logo {
-  height: calc(var(--space-unit) * 3);
-  margin: calc(var(--space-unit) / 2) var(--space-unit) 0 0;
-}
-
-:host([stuck]) .heading-stuck .heading-title > img.z-logo {
-  margin-top: 0;
 }
 
 ::slotted([slot="product-logo"]) {
@@ -107,8 +104,8 @@ img.z-logo {
 }
 
 ::slotted([slot="title"]),
-.heading-stuck .heading-title > *,
-::slotted([slot="stucked-title"]) {
+::slotted([slot="stucked-title"]),
+.stucked-title {
   margin: 0;
   font-family: var(--font-family-serif);
 }
@@ -118,19 +115,20 @@ img.z-logo {
   overflow: hidden;
   flex-grow: 1;
   -webkit-box-orient: vertical;
-  font-size: var(--font-size-6);
+  font-size: var(--title-font-size);
+  font-weight: var(--font-bd);
   -webkit-line-clamp: 2;
   line-clamp: 2;
+  line-height: var(--title-line-height);
   text-overflow: ellipsis;
-  white-space: initial;
 }
 
-:host([enable-search]) ::slotted([slot="title"]) {
-  margin-right: calc(var(--space-unit) * 2);
+:host([enable-search]) ::slotted([slot="title"]) + * {
+  margin-left: calc(var(--space-unit) * 2);
 }
 
 :host([enable-offcanvas]:not([menu-length="0"])) .top-subtitle {
-  padding-left: calc(var(--app-header-drawer-trigger-size) + var(--space-unit));
+  padding-left: calc(var(--space-unit) * 4 + var(--space-unit));
 }
 
 ::slotted([slot="top-subtitle"]) {
@@ -140,13 +138,11 @@ img.z-logo {
   margin: 0;
   -webkit-box-orient: vertical;
   font-family: var(--font-family-sans);
-  font-size: 14px;
+  font-size: var(--font-size-2);
   font-style: italic;
   font-weight: 400;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  line-height: 18.2px;
-  white-space: initial;
 }
 
 .menu-container {
@@ -210,30 +206,34 @@ z-searchbar {
 }
 
 .heading-stuck .heading-title {
-  overflow: hidden;
-}
+  --title-font-size: var(--font-size-5);
+  --title-line-height: 1.4;
 
-.heading-stuck .heading-title > *,
-::slotted([slot="stucked-title"]) {
-  font-size: var(--font-size-9);
+  overflow: hidden;
+  align-items: center;
   font-weight: var(--font-bd);
-  line-height: 1.25;
 }
 
-.heading-stuck .heading-title [name="stucked-title"] {
-  display: block;
-  overflow: hidden;
+.heading-stuck .heading-title:not(:last-child) {
   margin-right: calc(var(--space-unit) * 2);
-  font-size: var(--font-size-5);
+}
+
+.heading-stuck .stucked-title {
+  overflow: hidden;
+  font-size: var(--title-font-size);
+  line-height: var(--title-line-height);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.heading-stuck-content z-button {
+.heading-stuck-content z-button.search-page-button {
   margin-left: auto;
 }
 
 .drawer-trigger {
+  display: flex;
+  height: calc(var(--title-font-size) * var(--title-line-height));
+  align-items: center;
   padding: 0;
   border: 0;
   margin-right: var(--space-unit);
@@ -245,18 +245,13 @@ z-searchbar {
   outline: none;
 }
 
-.drawer-trigger:focus:focus-visible {
+.drawer-trigger:focus:focus-visible z-icon {
   box-shadow: var(--shadow-focus-primary);
-}
-
-.drawer-trigger:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
 }
 
 .drawer-trigger z-icon {
-  --z-icon-width: var(--app-header-drawer-trigger-size);
-  --z-icon-height: var(--app-header-drawer-trigger-size);
+  --z-icon-width: calc(var(--space-unit) * 4);
+  --z-icon-height: calc(var(--space-unit) * 4);
 
   fill: currentcolor;
 }
@@ -274,7 +269,6 @@ z-offcanvas[open] .drawer-content {
   width: 100%;
   flex: 1 auto;
   flex-direction: column;
-  row-gap: calc(var(--space-unit) * 2.5);
 }
 
 z-offcanvas[open] .drawer-content ::slotted(z-menu) {
@@ -282,8 +276,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 }
 
 .drawer-close {
-  --z-icon-width: var(--app-header-drawer-trigger-size);
-  --z-icon-height: var(--app-header-drawer-trigger-size);
+  --z-icon-width: calc(var(--space-unit) * 4);
+  --z-icon-height: calc(var(--space-unit) * 4);
 
   padding: 0;
   border: 0;
@@ -291,10 +285,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   appearance: none;
   background: transparent;
   border-radius: 0;
-  color: inherit;
   cursor: pointer;
   fill: currentcolor;
-  font-size: inherit;
   outline: none;
 }
 
@@ -305,6 +297,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 /* Tablet breakpoint */
 @media (min-width: 768px) {
   .heading-panel {
+    --title-font-size: var(--font-size-9);
+
     padding: calc(var(--space-unit) * 1.5) var(--grid-margin) calc(var(--space-unit) * 1.25);
   }
 
@@ -326,30 +320,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     padding-top: 0;
   }
 
-  ::slotted([slot="title"]) {
-    font-size: var(--font-size-9);
-  }
-
-  .heading-title {
-    align-items: center;
-  }
-
-  .heading-container .heading-title {
-    align-items: flex-start;
-  }
-
-  .heading-container .heading-title button,
-  .heading-container .heading-title z-searchbar,
-  .heading-container .heading-title img,
-  .heading-container .heading-title ::slotted([slot="product-logo"]),
-  .heading-container .heading-title .search-page-button {
-    margin-top: var(--space-unit);
-  }
-
-  .heading-title > img.z-logo {
-    height: 32px;
-  }
-
   .menu-container {
     flex: initial;
     align-items: center;
@@ -357,10 +327,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   .menu-container > [role="menubar"] {
     display: contents;
-  }
-
-  :host([menu-length="0"]) .menu-container:not(:empty) {
-    height: calc(var(--space-unit) * 4.5 * var(--app-header-title-lineheight));
   }
 
   :host(:not([enable-offcanvas])) .menu-container {
@@ -371,9 +337,9 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     display: none;
   }
 
-  .heading-stuck .heading-title > *,
-  .heading-stuck .heading-title [name="stucked-title"] {
-    font-size: var(--font-size-8);
+  .heading-stuck .heading-title {
+    --title-font-size: var(--font-size-8);
+    --title-line-height: 1.5;
   }
 
   .heading-stuck-content {

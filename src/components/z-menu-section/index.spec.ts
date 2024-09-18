@@ -17,7 +17,7 @@ describe("Suite test ZMenuSection", () => {
     expect(page.root).toEqualHtml(`
       <z-menu-section>
         <mock:shadow-root>
-          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem">
+          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem" tabindex="-1">
             <slot></slot>
             <z-icon name="chevron-down"></z-icon>
           </button>

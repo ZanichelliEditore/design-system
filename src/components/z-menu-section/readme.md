@@ -9,9 +9,10 @@ A component to create submenus inside the ZMenu.
 
 ## Properties
 
-| Property | Attribute | Description  | Type      | Default     |
-| -------- | --------- | ------------ | --------- | ----------- |
-| `active` | `active`  | Active state | `boolean` | `undefined` |
+| Property       | Attribute       | Description                                                                                                                                                    | Type      | Default     |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `active`       | `active`        | Active state                                                                                                                                                   | `boolean` | `undefined` |
+| `htmlTabindex` | `html-tabindex` | Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu). | `number`  | `-1`        |
 
 
 ## Events
@@ -20,6 +21,19 @@ A component to create submenus inside the ZMenu.
 | -------- | ---------------------------- | ------------------ |
 | `closed` | The section has been closed. | `CustomEvent<any>` |
 | `opened` | The section has been opened. | `CustomEvent<any>` |
+
+
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Focus the label interactive element if its tabindex is 0
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Slots

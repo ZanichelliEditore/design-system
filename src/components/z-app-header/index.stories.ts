@@ -313,7 +313,7 @@ export const Stuck = {
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
     >
-      <h1 slot="title">Applicazione</h1>
+      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;

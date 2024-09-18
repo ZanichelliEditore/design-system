@@ -101,7 +101,7 @@ describe("Suite test ZMenu", () => {
       </a>
       <z-menu-section slot="item">
         <mock:shadow-root>
-          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem">
+          <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem" tabindex="-1">
             <slot></slot>
             <z-icon name="chevron-down"></z-icon>
           </button>

@@ -1,6 +1,9 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 
+const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZMenuSectionElement =>
+  el.tagName === "Z-MENU-SECTION";
+
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
@@ -68,8 +71,8 @@ export class ZMenu {
   /** Animation frame request id. */
   private raf: number;
 
-  private get activeItem(): HTMLElement {
-    return this.items.find(({tabIndex}) => tabIndex === 0);
+  private get focusableItem(): HTMLElement | null {
+    return this.items.find((item) => (isZMenuSection(item) ? item.htmlTabindex === 0 : item.tabIndex === 0));
   }
 
   private toggle(): void {
@@ -124,8 +127,12 @@ export class ZMenu {
    */
   private setItemsA11yAttrs(): void {
     this.items.forEach((item, index) => {
-      item.setAttribute("role", "menuitem");
-      item.setAttribute("tabindex", index === 0 ? "0" : "-1");
+      if (isZMenuSection(item)) {
+        item.htmlTabindex = index === 0 ? 0 : -1;
+      } else {
+        item.setAttribute("role", "menuitem");
+        item.setAttribute("tabindex", index === 0 ? "0" : "-1");
+      }
     });
   }
 
@@ -133,16 +140,39 @@ export class ZMenu {
     this.checkContent();
     this.items = Array.from(this.host.children).filter(({slot}) => slot === "item") as HTMLElement[];
     this.setItemsA11yAttrs();
-    this.items.forEach((item) => (item.dataset.text = item.textContent));
+    this.items.forEach((item) => {
+      if (!isZMenuSection(item)) {
+        item.dataset.text = item.textContent;
+      }
+    });
   }
 
-  private moveFocus(current: HTMLElement, next: HTMLElement): void {
-    current.tabIndex = -1;
-    next.tabIndex = 0;
-    next.focus();
-    setTimeout(() => {
-      next.focus();
-    }, 0);
+  private moveFocus(current: HTMLElement | HTMLZMenuSectionElement, next: HTMLElement | HTMLZMenuSectionElement): void {
+    if (isZMenuSection(current)) {
+      current.htmlTabindex = -1;
+    } else {
+      current.tabIndex = -1;
+    }
+    if (isZMenuSection(next)) {
+      next.htmlTabindex = 0;
+      next.setFocus();
+    } else {
+      next.tabIndex = 0;
+      setTimeout(() => {
+        next.focus();
+      }, 0);
+    }
+  }
+
+  private onLabelKeydown(ev: KeyboardEvent): void {
+    if (ev.key === KeyboardCode.ENTER || ev.key === KeyboardCode.SPACE) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.toggle();
+      if (this.open) {
+        setTimeout(() => this.items[0].focus(), 100);
+      }
+    }
   }
 
   /** Focus the label interactive element if its tabindex is 0 */
@@ -159,9 +189,12 @@ export class ZMenu {
   @Watch("open")
   onOpenChanged(): void {
     if (this.open) {
-      this.reflow(true);
+      if (this.floating) {
+        this.reflow(true);
+      }
     } else {
       cancelAnimationFrame(this.raf);
+      this.setItemsA11yAttrs();
     }
   }
 
@@ -185,57 +218,63 @@ export class ZMenu {
   /** Close the floating list on focusout. */
   @Listen("focusout")
   onFocusout(ev: MouseEvent): void {
-    if (!this.floating || !this.open || this.host.contains(ev.relatedTarget as Element)) {
+    if (!this.open || this.host.contains(ev.relatedTarget as Element)) {
       return;
     }
 
-    this.reflow();
     this.open = false;
-    this.setItemsA11yAttrs();
     this.closed.emit();
   }
 
   @Listen("keydown")
   onKeyDown(ev: KeyboardEvent): void {
-    if (!this.hasContent) {
+    if (!this.hasContent || !this.open) {
       return;
     }
 
-    const currentIndex = this.items.indexOf(this.activeItem);
     switch (ev.key) {
       case KeyboardCode.ESC:
+        ev.stopPropagation();
         this.open = false;
+        this.setFocus();
         break;
       case KeyboardCode.ARROW_DOWN: {
         ev.stopPropagation();
-        if (!this.open) {
-          this.open = true;
-          setTimeout(() => {
-            this.items[0].focus();
-          }, 0);
-        } else {
-          const next =
-            currentIndex === this.items.length - 1
-              ? this.items[0]
-              : (this.activeItem.nextElementSibling as HTMLElement);
-          this.moveFocus(this.activeItem, next);
+        ev.preventDefault();
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        let next = this.items[currentIndex + 1];
+        if (!next) {
+          if (this.verticalContext) {
+            // don't navigate to the first item. leave the event propagate to the parent
+            this.setFocus();
+            this.open = false;
+            break;
+          }
+          // if the last item is already focused, navigate to the first one
+          next = this.items[0];
         }
+        this.moveFocus(this.focusableItem, next);
         break;
       }
       case KeyboardCode.ARROW_UP: {
         ev.stopPropagation();
-        if (!this.open) {
-          this.open = true;
+        ev.preventDefault();
+
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        let previous = this.items[currentIndex - 1];
+        if (!previous) {
+          if (this.verticalContext) {
+            // don't navigate to the last item. leave the event propagate to the parent
+            this.setFocus();
+            this.open = false;
+            break;
+          }
+          // if the first item is already focused, navigate to the last one
+          previous = this.items[this.items.length - 1];
         }
-        const next =
-          currentIndex === 0
-            ? this.items[this.items.length - 1]
-            : (this.activeItem.previousElementSibling as HTMLElement);
-        this.moveFocus(this.activeItem, next);
+        this.moveFocus(this.focusableItem, previous);
         break;
       }
-      default:
-        break;
     }
   }
 
@@ -244,6 +283,7 @@ export class ZMenu {
     this.checkContent = this.checkContent.bind(this);
     this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
+    this.onLabelKeydown = this.onLabelKeydown.bind(this);
   }
 
   connectedCallback(): void {
@@ -276,6 +316,7 @@ export class ZMenu {
             role="menuitem"
             tabindex={this.htmlTabindex}
             onClick={this.toggle}
+            onKeyDown={this.onLabelKeydown}
           >
             <div class="menu-label-content">
               <slot onSlotchange={this.onLabelSlotChange} />

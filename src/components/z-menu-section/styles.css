@@ -1,5 +1,5 @@
 :host {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -23,29 +23,35 @@
   font-weight: var(--font-rg);
 }
 
+.label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: var(--space-unit) 0;
+  border: 0;
+  border-bottom: var(--border-size-small) solid var(--color-surface03);
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
 :host(:is([active], [open])) .label,
+.label:focus:focus-visible,
 .label:hover {
   border-color: var(--color-secondary01);
+}
+
+.label:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 :host(:is([active], [open])) .label ::slotted(*),
 .label:focus:focus-visible ::slotted(*),
 .label:hover ::slotted(*) {
   font-weight: var(--font-bd);
-}
-
-.label {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2);
-  border: 0;
-  border-bottom: var(--border-size-small) solid var(--color-surface05);
-  margin: 0;
-  background: transparent;
-  border-radius: 0;
-  cursor: pointer;
-  text-align: left;
 }
 
 ::slotted([data-text]) {
@@ -80,12 +86,7 @@ when placed below the real text using `flex-direction: column`. */
   width: 100%;
   margin: 0;
   font-size: var(--font-size-3);
-  line-height: 1.25;
-}
-
-.label:focus:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
+  line-height: 1.5;
 }
 
 .label z-icon {
@@ -101,23 +102,27 @@ when placed below the real text using `flex-direction: column`. */
   padding-bottom: calc(var(--space-unit) * 1.5);
 }
 
-.items > ::slotted([slot="section"]) {
+::slotted([slot="section"]) {
   display: inline-flex;
   padding: calc(var(--space-unit) / 2);
   margin: 0;
-  font-size: var(--font-size-2);
-  line-height: 1.4;
+  font-size: var(--font-size-1);
+  line-height: 1.333;
   outline: none;
 }
 
-.items > ::slotted([slot="section"]:focus:focus-visible) {
+::slotted([slot="section"]:last-of-type) {
+  border: none;
+}
+
+::slotted([slot="section"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
   color: var(--color-secondary01);
 }
 
-.items > ::slotted([slot="section"]:hover),
-.items > ::slotted([slot="section"]:focus:focus-visible),
-.items > ::slotted([slot="section"][active]) {
+::slotted([slot="section"]:hover),
+::slotted([slot="section"]:focus:focus-visible),
+::slotted([slot="section"][active]) {
   color: var(--color-secondary01);
   font-weight: var(--font-bd);
 }

@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 
 /**
@@ -12,17 +12,27 @@ import {KeyboardCode} from "../../beans";
   shadow: true,
 })
 export class ZMenuSection {
-  @Element() hostElement: HTMLZMenuSectionElement;
+  @Element() host: HTMLZMenuSectionElement;
 
   /** Active state */
   @Prop({reflect: true})
   active?: boolean;
+
+  /**
+   * Tabindex value to set on the label button.
+   * Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
+   */
+  @Prop()
+  htmlTabindex = -1;
 
   @State()
   open: boolean;
 
   @State()
   hasItems: boolean;
+
+  @State()
+  items: HTMLElement[];
 
   /** The section has been opened. */
   @Event()
@@ -32,96 +42,10 @@ export class ZMenuSection {
   @Event()
   closed: EventEmitter;
 
-  private currentIndex = -1;
+  private label: HTMLButtonElement;
 
-  private currentCanvasOpenStatus = false;
-
-  @Listen("canvasOpenStatusChanged", {target: "document"})
-  canvasOpenStatusChanged(e: CustomEvent): void {
-    this.currentCanvasOpenStatus = e.detail;
-  }
-
-  @Listen("keydown")
-  handleKeyDown(e: KeyboardEvent): void {
-    if (e.code === KeyboardCode.ENTER) {
-      return;
-    }
-
-    if (this.open && !this.currentCanvasOpenStatus) {
-      this.handleNavigationSideArrow(e);
-    }
-
-    this.handleArrowsNav(e);
-  }
-
-  private handleNavigationSideArrow(e: KeyboardEvent): void {
-    if (e.code !== KeyboardCode.ARROW_RIGHT && e.code !== KeyboardCode.ARROW_LEFT) {
-      return;
-    }
-    if (e.code === KeyboardCode.ARROW_RIGHT) {
-      const nextElement = this.hostElement.parentElement.nextElementSibling;
-      if (nextElement) {
-        const menuButton = nextElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-        menuButton.focus();
-      }
-      this.open = false;
-      nextElement.setAttribute("open", "true");
-    } else if (e.code === KeyboardCode.ARROW_LEFT) {
-      const prevElement = this.hostElement.parentElement.previousElementSibling;
-      if (prevElement) {
-        const menuButton = prevElement.shadowRoot.querySelector(".menu-label") as HTMLElement;
-        menuButton.focus();
-      }
-      prevElement.setAttribute("open", "true");
-      this.open = false;
-    }
-  }
-
-  private handleArrowsNav(e: KeyboardEvent): void {
-    const menuItems = Array.from(this.hostElement.querySelectorAll('[slot="section"]')) as HTMLElement[];
-    if (this.open) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.code === KeyboardCode.ARROW_DOWN || e.code === KeyboardCode.ARROW_UP) {
-        let nextFocusableItem: HTMLElement;
-        // INFO: reset focus on all menu items
-        menuItems.forEach((item: HTMLElement) => item.setAttribute("tabindex", "-1"));
-
-        if (e.code === KeyboardCode.ARROW_DOWN) {
-          nextFocusableItem = this.getNextItem(menuItems, 1);
-        } else if (e.code === KeyboardCode.ARROW_UP) {
-          nextFocusableItem = this.getNextItem(menuItems, -1);
-        }
-
-        if (nextFocusableItem) {
-          nextFocusableItem.setAttribute("tabindex", "0");
-          nextFocusableItem.focus();
-        }
-      } else if (e.code === KeyboardCode.ESC) {
-        this.focusToParentAndCloseMenu();
-      } else if (e.shiftKey && e.code === KeyboardCode.TAB) {
-        this.focusToParentAndCloseMenu();
-      }
-    }
-  }
-
-  private getNextItem(menuItems: HTMLElement[], direction: number): HTMLElement {
-    if (this.currentIndex === -1) {
-      this.currentIndex = direction === 1 ? 0 : menuItems.length - 1;
-
-      return menuItems[this.currentIndex];
-    }
-
-    this.currentIndex = (this.currentIndex + direction + menuItems.length) % menuItems.length;
-
-    return menuItems[this.currentIndex];
-  }
-
-  private focusToParentAndCloseMenu(): void {
-    const menuButton = this.hostElement.shadowRoot.querySelector("button") as HTMLElement;
-    menuButton.focus();
-    this.currentIndex = -1;
-    this.open = false;
+  private get focusableItem(): HTMLElement {
+    return this.items.find(({tabIndex}) => tabIndex === 0);
   }
 
   private toggle(): void {
@@ -130,37 +54,24 @@ export class ZMenuSection {
     }
 
     this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
   }
 
-  /** Close the list when a click is performed outside of this Element. */
-  @Listen("click", {target: "document"})
-  handleClick(ev: MouseEvent): void {
-    if (!this.open || this.hostElement.contains(ev.target as Node)) {
+  private setItemsA11yAttrs(): void {
+    if (!this.hasItems) {
       return;
     }
 
-    this.open = false;
-    this.closed.emit();
-  }
-
-  /**
-   * Check if some content slot is set.
-   */
-  private onItemsChange(): void {
-    this.hasItems = this.hostElement.querySelectorAll('[slot="section"]').length > 0;
-    const items = Array.from(this.hostElement.querySelectorAll<HTMLElement>("[slot='section']"));
-    items.forEach((item) => {
+    this.items.forEach((item) => {
       item.setAttribute("role", "menuitem");
       item.setAttribute("tabindex", "-1");
     });
-    // enable tab navigation on the active item, if any. Otherwise, enable it on the first menu
-    const activeItem = items.find((item) => ("active" in item ? item.active : false));
-    if (activeItem) {
-      activeItem.setAttribute("tabindex", "0");
-    } else {
-      items[0].setAttribute("tabindex", "0");
-    }
+    this.items[0].setAttribute("tabindex", "0");
+  }
+
+  private onItemsChange(): void {
+    this.items = Array.from(this.host.querySelectorAll('[slot="section"]')) as HTMLElement[];
+    this.hasItems = this.items.length > 0;
+    this.setItemsA11yAttrs();
   }
 
   /**
@@ -169,15 +80,112 @@ export class ZMenuSection {
    */
   private onLabelSlotChange(ev: Event): void {
     const labelElement = (ev.target as HTMLSlotElement).assignedElements()[0] as HTMLElement;
-    labelElement.dataset.text = labelElement?.innerText || null;
+    labelElement.dataset.text = labelElement?.textContent;
   }
 
-  private focusFirstSectionItemOnKeyUp(): void {
-    const firstElement = this.hostElement.querySelectorAll('[slot="section"]')[0] as HTMLElement;
-    if (firstElement) {
-      firstElement.focus();
-      this.currentIndex = 0;
+  private moveFocus(current: HTMLElement, next: HTMLElement): void {
+    current.tabIndex = -1;
+    next.tabIndex = 0;
+    setTimeout(() => {
+      next.focus();
+    }, 100);
+  }
+
+  /** Focus the label interactive element if its tabindex is 0 */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.label.tabIndex === 0) {
+      setTimeout(() => {
+        this.label.focus();
+      }, 100);
     }
+  }
+
+  @Watch("open")
+  onOpenChange(): void {
+    if (!this.open) {
+      this.closed.emit();
+      this.setItemsA11yAttrs();
+    } else {
+      this.opened.emit();
+    }
+  }
+
+  @Watch("htmlTabindex")
+  onTabindexChange(): void {
+    this.label.tabIndex = this.htmlTabindex;
+  }
+
+  /** Close the list on focusout. */
+  @Listen("focusout")
+  onFocusout(ev: MouseEvent): void {
+    if (!this.open || this.host.contains(ev.relatedTarget as Element)) {
+      return;
+    }
+
+    this.open = false;
+  }
+
+  private onLabelKeydown(ev: KeyboardEvent): void {
+    if (ev.key === KeyboardCode.ENTER || ev.key === KeyboardCode.SPACE) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.toggle();
+      if (this.open) {
+        setTimeout(() => this.items[0].focus(), 100);
+      }
+    }
+  }
+
+  @Listen("keydown")
+  private onItemsKeydown(ev: KeyboardEvent): void {
+    if (!this.open) {
+      return;
+    }
+
+    switch (ev.key) {
+      case KeyboardCode.ESC:
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.open = false;
+        this.setFocus();
+        break;
+      case KeyboardCode.ARROW_DOWN: {
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        const next = this.items[currentIndex + 1];
+        if (!next) {
+          // do not handle the event if the last item is already focused
+          break;
+        }
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.moveFocus(this.focusableItem, next);
+        break;
+      }
+      case KeyboardCode.ARROW_UP: {
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        const previous = this.items[currentIndex - 1];
+        if (!previous) {
+          // go back to the label
+          ev.stopPropagation();
+          ev.preventDefault();
+          this.open = false;
+          this.setFocus();
+          break;
+        }
+        ev.stopPropagation();
+        this.moveFocus(this.focusableItem, previous);
+        break;
+      }
+    }
+  }
+
+  constructor() {
+    this.toggle = this.toggle.bind(this);
+    this.onItemsChange = this.onItemsChange.bind(this);
+    this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
+    this.onLabelKeydown = this.onLabelKeydown.bind(this);
+    this.onItemsKeydown = this.onItemsKeydown.bind(this);
   }
 
   connectedCallback(): void {
@@ -188,14 +196,16 @@ export class ZMenuSection {
     return (
       <Host open={this.open}>
         <button
+          ref={(el) => (this.label = el)}
           class="label"
           aria-haspopup={`${this.hasItems}`}
           aria-expanded={`${!!this.open}`}
           role="menuitem"
-          onClick={this.toggle.bind(this)}
-          onKeyUp={this.focusFirstSectionItemOnKeyUp.bind(this)}
+          tabindex={this.htmlTabindex}
+          onClick={this.toggle}
+          onKeyDown={this.onLabelKeydown}
         >
-          <slot onSlotchange={this.onLabelSlotChange.bind(this)} />
+          <slot onSlotchange={this.onLabelSlotChange} />
           {this.hasItems && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
         {this.open && (
@@ -205,7 +215,7 @@ export class ZMenuSection {
           >
             <slot
               name="section"
-              onSlotchange={this.onItemsChange.bind(this)}
+              onSlotchange={this.onItemsChange}
             />
           </div>
         )}

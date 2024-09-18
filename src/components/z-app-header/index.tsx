@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Fragment, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 
@@ -11,8 +11,8 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot product-logo - To insert the product logo, it should be used with an img tag.
  * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
  * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
- * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
  * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+ * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
  * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
  * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
@@ -101,9 +101,9 @@ export class ZAppHeader {
 
   private container?: HTMLDivElement;
 
-  private menuContainer?: HTMLElement;
+  private menuElements: HTMLZMenuElement[] = [];
 
-  private menuElements: HTMLZMenuElement[];
+  private menuWidth: number;
 
   private closeMenuButton: HTMLButtonElement;
 
@@ -136,11 +136,10 @@ export class ZAppHeader {
       return;
     }
 
-    this.menuElements.forEach((element, index) => {
+    this.menuElements.forEach((element) => {
       element.open = false;
       element.floating = !this.drawerOpen;
       element.verticalContext = this.drawerOpen;
-      element.htmlTabindex = index === 0 ? 0 : -1;
     });
   }
 
@@ -171,23 +170,30 @@ export class ZAppHeader {
     return !this.enableOffcanvas && this.menuElements.length > 0 && !this.isMobile && !this.drawerOpen;
   }
 
-  private get activeItem(): HTMLZMenuElement {
+  private get focusableMenu(): HTMLZMenuElement {
     return this.menuElements.find((el) => el.htmlTabindex === 0);
   }
 
   private openDrawer(): void {
     this.drawerOpen = true;
-    this.closeMenuButton.focus();
+    this.menuElements.forEach((element, index) => (element.htmlTabindex = index === 0 ? 0 : -1));
+    setTimeout(() => this.closeMenuButton.focus(), 100);
   }
 
   private closeDrawer(): void {
     this.drawerOpen = false;
-    this.burgerButton.focus();
+    setTimeout(() => this.burgerButton.focus(), 100);
   }
 
   private collectMenuElements(): void {
     this.menuElements = Array.from(this.hostElement.querySelectorAll('[slot="menu"]'));
+    this.menuElements.forEach((element, index) => (element.htmlTabindex = index === 0 ? 0 : -1));
     this.menuLength = this.menuElements.length;
+    if (!this.enableOffcanvas) {
+      this.menuWidth =
+        this.menuElements.reduce((acc, el) => acc + el.getBoundingClientRect().width, 0) +
+        (this.menuLength - 1) * 32 /* 32px is the gap between each menu item */;
+    }
     this.setMenuFloatingMode();
   }
 
@@ -204,11 +210,14 @@ export class ZAppHeader {
         return;
       }
 
-      const menuWidth = this.menuContainer?.getBoundingClientRect().width;
       const containerWidth = entries[0].contentBoxSize[0].inlineSize;
-      if (menuWidth > containerWidth && !this.enableOffcanvas) {
+      if (this.menuWidth === 0) {
+        return;
+      }
+
+      if (this.menuWidth > containerWidth && !this.enableOffcanvas) {
         this.enableOffcanvas = true;
-      } else if (menuWidth <= containerWidth && this.enableOffcanvas) {
+      } else if (this.menuWidth <= containerWidth && this.enableOffcanvas) {
         this.enableOffcanvas = false;
       }
     });
@@ -225,26 +234,31 @@ export class ZAppHeader {
     next.setFocus();
   }
 
+  @Listen("keydown")
   private handleMenubarKeydown(ev: KeyboardEvent): void {
     if (!this.menuElements.some((elem) => elem.contains(ev.target as HTMLElement))) {
       return;
     }
 
-    const activeItem = this.activeItem;
-    const activeIndex = this.menuElements.indexOf(activeItem);
-    let newActive: HTMLZMenuElement;
-    switch (ev.key) {
-      case KeyboardCode.ARROW_RIGHT:
-        newActive =
-          activeIndex < this.menuElements.length - 1 ? this.menuElements[activeIndex + 1] : this.menuElements[0];
-        this.moveFocus(activeItem, newActive);
-        break;
-      case KeyboardCode.ARROW_LEFT:
-        newActive =
-          activeIndex > 0 ? this.menuElements[activeIndex - 1] : this.menuElements[this.menuElements.length - 1];
-        this.moveFocus(activeItem, newActive);
-        break;
+    const current = this.focusableMenu;
+    const currentIndex = this.menuElements.indexOf(current);
+    let next: HTMLZMenuElement;
+    if (
+      (ev.key === KeyboardCode.ARROW_RIGHT && !current.verticalContext) ||
+      (ev.key === KeyboardCode.ARROW_DOWN && current.verticalContext)
+    ) {
+      next = currentIndex < this.menuElements.length - 1 ? this.menuElements[currentIndex + 1] : this.menuElements[0];
+    } else if (
+      (ev.key === KeyboardCode.ARROW_LEFT && !current.verticalContext) ||
+      (ev.key === KeyboardCode.ARROW_UP && current.verticalContext)
+    ) {
+      next = currentIndex > 0 ? this.menuElements[currentIndex - 1] : this.menuElements[this.menuElements.length - 1];
     }
+    if (!next) {
+      return;
+    }
+
+    this.moveFocus(current, next);
   }
 
   private renderSeachbar(): HTMLZButtonElement | HTMLZSearchbarElement | undefined {
@@ -282,10 +296,9 @@ export class ZAppHeader {
     return (
       <Fragment>
         {this.enableZLogo && (
-          <img
-            class="z-logo"
-            alt="Logo Zanichelli"
-          />
+          <span class="z-logo">
+            <img alt="Logo Zanichelli" />
+          </span>
         )}
         {!this.isMobile && <slot name="product-logo" />}
       </Fragment>
@@ -353,7 +366,9 @@ export class ZAppHeader {
           {this.renderMenuButton()}
           <div class="heading-title">
             {this.renderProductLogos()}
-            <slot name="stucked-title">{this.title}</slot>
+            <div class="stucked-title">
+              <slot name="stucked-title">{this.title}</slot>
+            </div>
           </div>
           {this.enableSearch && this.renderSeachbar()}
         </div>
@@ -397,7 +412,7 @@ export class ZAppHeader {
     return (
       <Host menu-length={this.menuLength}>
         <div
-          class={{"heading-panel": true, "has-menu": this.menuLength > 0 && !this.enableOffcanvas}}
+          class={{"heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
           <div class="heading-container">
@@ -416,10 +431,8 @@ export class ZAppHeader {
           </div>
 
           <nav
-            ref={(el) => (this.menuContainer = el)}
             class="menu-container"
             aria-label={this.title || undefined}
-            onKeyDown={this.handleMenubarKeydown}
           >
             {this.canShowMenu && (
               <div

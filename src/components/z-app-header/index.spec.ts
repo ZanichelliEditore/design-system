@@ -24,7 +24,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-              <img alt="Logo Zanichelli" class="z-logo">
+              <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -63,7 +63,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-              <img alt="Logo Zanichelli" class="z-logo">
+              <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -154,7 +154,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -202,7 +202,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
@@ -444,13 +444,13 @@ describe("Suite test ZAppHeader", () => {
     expect(page.root).toEqualHtml(`
       <z-app-header enable-z-logo="true" menu-length="6" enable-search="true">
         <mock:shadow-root>
-          <div class="has-menu heading-panel">
+          <div class="has-menubar heading-panel">
             <div class="heading-container">
               <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="product-logo"></slot>
                 <slot name="title"></slot>
                 <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
