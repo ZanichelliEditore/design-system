@@ -41,11 +41,8 @@
   outline-offset: -2px;
 }
 
-:host > div.open > div.header:focus:focus-visible {
-  box-shadow: none;
-}
-
 :host > div > div.header:focus:focus-visible {
+  z-index: 16;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -176,6 +173,11 @@
   line-height: 44px;
   text-align: center;
   text-transform: uppercase;
+}
+
+:host > div.open > div.open-combo-data > div > div.search > div > a:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 :host > div.open > div.open-combo-data > div > div.check-all-wrapper {
