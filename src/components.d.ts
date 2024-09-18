@@ -1853,6 +1853,10 @@ export namespace Components {
          */
         "showMenu": VisibilityCondition;
         /**
+          * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
+         */
+        "showSorting": VisibilityCondition;
+        /**
           * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
          */
         "sortDirection"?: SortDirection;
@@ -5404,6 +5408,10 @@ declare namespace LocalJSX {
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
          */
         "showMenu"?: VisibilityCondition;
+        /**
+          * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
+         */
+        "showSorting"?: VisibilityCondition;
         /**
           * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
          */

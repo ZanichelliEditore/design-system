@@ -115,10 +115,16 @@ export class ZTh {
   render(): HTMLZThElement {
     return (
       <Host
+        tabIndex="0"
         role="columnheader"
         menu-open={this.isMenuOpen}
         aria-sort={this.ariaSortDirection}
-        onClick={this.showSorting ? this.handleSort.bind(this) : ""}
+        onClick={() => {
+          if (this.showSorting) {
+            this.host.focus();
+            this.handleSort.bind(this);
+          }
+        }}
         sortable={this.showSorting}
       >
         <slot></slot>

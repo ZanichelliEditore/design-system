@@ -28,3 +28,8 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+:host(:focus) {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
