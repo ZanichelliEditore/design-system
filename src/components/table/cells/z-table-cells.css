@@ -1,7 +1,7 @@
 :host {
   position: relative;
   display: flex;
-  min-width: 128px;
+  max-width: 100%;
   box-sizing: border-box;
   align-items: center;
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));

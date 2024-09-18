@@ -3,7 +3,6 @@
   --columns: 1;
 
   display: grid;
-  min-width: max-content;
   box-sizing: border-box;
   grid-auto-flow: column;
   grid-template-columns: var(--z-table--expand-button-size, 0) repeat(var(--columns), minmax(128px, 1fr));
