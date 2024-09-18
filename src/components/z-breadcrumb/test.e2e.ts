@@ -84,3 +84,29 @@ it("Checks if mobile version is displayed correctly, item clicked without preven
 
   expect(page.url()).toBe("http://localhost:3333/link4");
 });
+
+it("Checks accessibility navigation", async () => {
+  const page = await newE2EPage({
+    html: `<z-breadcrumb>
+    <a href="https://www.zanichelli.it"></a>
+    <a href="./link1">Lingua inglese - Scuola secondaria di primo grado</a>
+    <a href="./link2">Lingua Inglese - Lessico e funzioni linguistiche e comunicative</a>
+    <a href="./link3">Il tempo libero e i luoghi del tempo libero</a>
+    <a href="./link4">Chiedere di descrivere le proprie vacanze</a>
+  </z-breadcrumb>`,
+  });
+
+  const elementToBeFocused = 3;
+  const breadcrumbNodes = await page.$$("z-breadcrumb >>> nav > ol > li");
+
+  for (let i = 0; i < elementToBeFocused; i++) {
+    await page.keyboard.press("Tab");
+  }
+
+  const focusedElement = await breadcrumbNodes[elementToBeFocused].$("a");
+  expect(focusedElement).not.toBeNull();
+  await focusedElement.press("Enter");
+
+  await page.waitForChanges();
+  expect(page.url()).toBe("http://localhost:3333/link3");
+});
