@@ -317,6 +317,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   z-searchbar {
     width: 30%;
+    height: calc(var(--title-font-size) * var(--title-line-height));
     padding-top: 0;
   }
 
