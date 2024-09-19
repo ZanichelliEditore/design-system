@@ -10,6 +10,7 @@
 
   position: relative;
   display: inline-flex;
+  height: fit-content;
   flex-direction: column;
 }
 
@@ -151,7 +152,7 @@ when placed below the real text using `flex-direction: column`. */
   display: none;
 }
 
-:host([floating]) .content {
+:host([floating]:not([vertical-context])) .content {
   position: absolute;
   top: 100%;
   left: 0;

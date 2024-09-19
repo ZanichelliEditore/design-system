@@ -138,7 +138,6 @@ export class ZAppHeader {
 
     this.menuElements.forEach((element) => {
       element.open = false;
-      element.floating = !this.drawerOpen;
       element.verticalContext = this.drawerOpen;
     });
   }
@@ -235,8 +234,21 @@ export class ZAppHeader {
     next.setFocus();
   }
 
+  @Listen("opened")
+  onMenuOpened(ev: CustomEvent): void {
+    if (!this.menuElements.includes(ev.target as HTMLZMenuElement)) {
+      return;
+    }
+
+    this.menuElements.forEach((menu) => {
+      if (menu !== ev.target) {
+        menu.open = false;
+      }
+    });
+  }
+
   @Listen("keydown")
-  private handleMenubarKeydown(ev: KeyboardEvent): void {
+  handleMenubarKeydown(ev: KeyboardEvent): void {
     if (!this.menuElements.some((elem) => elem.contains(ev.target as HTMLElement))) {
       return;
     }
@@ -381,7 +393,6 @@ export class ZAppHeader {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.collectMenuElements = this.collectMenuElements.bind(this);
-    this.handleMenubarKeydown = this.handleMenubarKeydown.bind(this);
   }
 
   componentWillLoad(): void {
