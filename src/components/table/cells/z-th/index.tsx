@@ -112,6 +112,21 @@ export class ZTh {
     this.updateColspan();
   }
 
+  componentDidLoad(): void {
+    this.host.style.zIndex = "0";
+
+    this.host.addEventListener("focus", this.handleFocus.bind(this));
+    this.host.addEventListener("blur", this.handleBlur.bind(this));
+  }
+
+  private handleFocus(): void {
+    this.host.style.zIndex = "1";
+  }
+
+  private handleBlur(): void {
+    this.host.style.zIndex = "0";
+  }
+
   render(): HTMLZThElement {
     return (
       <Host
