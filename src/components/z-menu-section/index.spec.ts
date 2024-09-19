@@ -23,7 +23,7 @@ describe("Suite test ZMenuSection", () => {
           </button>
         </mock:shadow-root>
         <h3>Menu section label</h3>
-        <a href="#" slot="section" role="menuitem" tabindex="0">Item 1</a>
+        <a href="#" slot="section" role="menuitem" tabindex="-1">Item 1</a>
         <a href="#" slot="section" role="menuitem" tabindex="-1">Item 2</a>
         <a href="#" slot="section" role="menuitem" tabindex="-1">Item 3</a>
     </z-menu-section>`);

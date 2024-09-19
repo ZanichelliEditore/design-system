@@ -6,12 +6,11 @@
 }
 
 :host {
+  --z-menu-label-color: ;
+
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  flex-shrink: 0;
-
-  --z-menu-label-color: var(--color-default-text);
 }
 
 ::slotted(a) {
@@ -46,7 +45,6 @@ button.menu-label {
 }
 
 .menu-label:focus-within {
-  z-index: 1;
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -68,10 +66,6 @@ button.menu-label {
 .menu-label:focus-within .menu-label-content z-icon {
   color: var(--color-primary01);
   letter-spacing: normal;
-}
-
-.menu-label .menu-label-content ::slotted(*:not([slot]):focus:focus-visible) {
-  box-shadow: none !important;
 }
 
 :host([vertical-context]) .menu-label-content {
@@ -137,7 +131,7 @@ when placed below the real text using `flex-direction: column`. */
   padding-bottom: 2px;
   margin: 0;
   appearance: none;
-  color: var(--z-menu-label-color);
+  color: var(--z-menu-label-color, var(--color-default-text));
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: inherit;

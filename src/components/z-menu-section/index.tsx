@@ -1,5 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
+import {containsElement} from "../../utils/utils";
 
 /**
  * A component to create submenus inside the ZMenu.
@@ -25,7 +26,8 @@ export class ZMenuSection {
   @Prop()
   htmlTabindex = -1;
 
-  @State()
+  /** The opening state of the section. */
+  @Prop()
   open: boolean;
 
   @State()
@@ -54,6 +56,7 @@ export class ZMenuSection {
     }
 
     this.open = !this.open;
+    this.setFocus();
   }
 
   private setItemsA11yAttrs(): void {
@@ -65,7 +68,6 @@ export class ZMenuSection {
       item.setAttribute("role", "menuitem");
       item.setAttribute("tabindex", "-1");
     });
-    this.items[0].setAttribute("tabindex", "0");
   }
 
   private onItemsChange(): void {
@@ -83,12 +85,26 @@ export class ZMenuSection {
     labelElement.dataset.text = labelElement?.textContent;
   }
 
-  private moveFocus(current: HTMLElement, next: HTMLElement): void {
-    current.tabIndex = -1;
-    next.tabIndex = 0;
+  private onLabelKeydown(ev: KeyboardEvent): void {
+    if (ev.key === KeyboardCode.ENTER || ev.key === KeyboardCode.SPACE) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.toggle();
+    }
+  }
+
+  /**
+   * Move focus and adjust the tabindex value of `receiver` and `current` elements,
+   * setting -1 to the `current` and 0 to the `receiver`, then focus the `receiver` element.
+   */
+  private moveFocus(receiver: HTMLElement, current?: HTMLElement): void {
+    receiver.tabIndex = 0;
     setTimeout(() => {
-      next.focus();
+      receiver.focus();
     }, 100);
+    if (current) {
+      current.tabIndex = -1;
+    }
   }
 
   /** Focus the label interactive element if its tabindex is 0 */
@@ -116,28 +132,17 @@ export class ZMenuSection {
     this.label.tabIndex = this.htmlTabindex;
   }
 
-  /** Close the list on focusout. */
-  @Listen("focusout")
-  onFocusout(ev: MouseEvent): void {
-    if (!this.open || this.host.contains(ev.relatedTarget as Element)) {
+  /** Close the list on external clicks. */
+  @Listen("click", {target: "document"})
+  onClick(ev: Event): void {
+    if (!this.open || containsElement(this.host, ev.target as Element)) {
       return;
     }
 
     this.open = false;
   }
 
-  private onLabelKeydown(ev: KeyboardEvent): void {
-    if (ev.key === KeyboardCode.ENTER || ev.key === KeyboardCode.SPACE) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      this.toggle();
-      if (this.open) {
-        setTimeout(() => this.items[0].focus(), 100);
-      }
-    }
-  }
-
-  @Listen("keydown")
+  @Listen("keydown", {capture: true})
   private onItemsKeydown(ev: KeyboardEvent): void {
     if (!this.open) {
       return;
@@ -147,34 +152,30 @@ export class ZMenuSection {
       case KeyboardCode.ESC:
         ev.preventDefault();
         ev.stopPropagation();
+        this.label.focus();
         this.open = false;
-        this.setFocus();
         break;
       case KeyboardCode.ARROW_DOWN: {
-        const currentIndex = this.items.indexOf(this.focusableItem);
-        const next = this.items[currentIndex + 1];
-        if (!next) {
-          // do not handle the event if the last item is already focused
-          break;
-        }
         ev.preventDefault();
         ev.stopPropagation();
-        this.moveFocus(this.focusableItem, next);
+        if (!this.focusableItem) {
+          this.moveFocus(this.items[0]);
+          break;
+        }
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        const receiver = this.items[currentIndex + 1];
+        this.moveFocus(receiver ?? this.items[0], this.focusableItem);
         break;
       }
       case KeyboardCode.ARROW_UP: {
-        const currentIndex = this.items.indexOf(this.focusableItem);
-        const previous = this.items[currentIndex - 1];
-        if (!previous) {
-          // go back to the label
-          ev.stopPropagation();
-          ev.preventDefault();
-          this.open = false;
-          this.setFocus();
+        if (!this.focusableItem) {
           break;
         }
         ev.stopPropagation();
-        this.moveFocus(this.focusableItem, previous);
+        ev.preventDefault();
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        const previous = this.items[currentIndex - 1];
+        this.moveFocus(previous ?? this.items[this.items.length - 1], this.focusableItem);
         break;
       }
     }

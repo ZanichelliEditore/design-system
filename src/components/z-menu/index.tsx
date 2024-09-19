@@ -1,5 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
+import {containsElement} from "../../utils/utils";
 
 const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZMenuSectionElement =>
   el.tagName === "Z-MENU-SECTION";
@@ -71,7 +72,7 @@ export class ZMenu {
   /** Animation frame request id. */
   private raf: number;
 
-  private get focusableItem(): HTMLElement | null {
+  private get focusableItem(): HTMLZMenuSectionElement | HTMLElement | null {
     return this.items.find((item) => (isZMenuSection(item) ? item.htmlTabindex === 0 : item.tabIndex === 0));
   }
 
@@ -81,7 +82,6 @@ export class ZMenu {
     }
 
     this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
   }
 
   /**
@@ -99,7 +99,7 @@ export class ZMenu {
    * @param live Should run the method on every refresh frame.
    */
   private reflow(live = false): void {
-    if (this.content) {
+    if (this.content && this.hasContent) {
       const {style} = this.content;
       const {left} = this.host.getBoundingClientRect();
       const widthPx = getComputedStyle(this.content).width;
@@ -121,17 +121,16 @@ export class ZMenu {
   }
 
   /**
-   * Set `menuitem` role to all menu items.
-   * Set 0 to the tabindex of the first item, -1 to the others.
-   * Set the item's inner text to the `data-text` attribute (this is for using bold text avoiding layout shifts).
+   * Set `menuitem` role to all menu items (ZMenuSection items already have it).
+   * Set -1 to the tabindex of the items.
    */
   private setItemsA11yAttrs(): void {
-    this.items.forEach((item, index) => {
+    this.items.forEach((item) => {
       if (isZMenuSection(item)) {
-        item.htmlTabindex = index === 0 ? 0 : -1;
+        item.htmlTabindex = -1;
       } else {
         item.setAttribute("role", "menuitem");
-        item.setAttribute("tabindex", index === 0 ? "0" : "-1");
+        item.setAttribute("tabindex", "-1");
       }
     });
   }
@@ -147,20 +146,31 @@ export class ZMenu {
     });
   }
 
-  private moveFocus(current: HTMLElement | HTMLZMenuSectionElement, next: HTMLElement | HTMLZMenuSectionElement): void {
+  /**
+   * Move focus and adjust the tabindex value of `receiver` and `current` elements,
+   * setting -1 to the `current` and 0 to the `receiver`, then focus the `receiver` element.
+   */
+  private moveFocus(
+    receiver: HTMLElement | HTMLZMenuSectionElement,
+    current?: HTMLElement | HTMLZMenuSectionElement
+  ): void {
+    if (isZMenuSection(receiver)) {
+      receiver.htmlTabindex = 0;
+      receiver.setFocus();
+    } else {
+      receiver.tabIndex = 0;
+      setTimeout(() => {
+        receiver.focus();
+      }, 0);
+    }
+    if (!current) {
+      return;
+    }
+
     if (isZMenuSection(current)) {
       current.htmlTabindex = -1;
     } else {
       current.tabIndex = -1;
-    }
-    if (isZMenuSection(next)) {
-      next.htmlTabindex = 0;
-      next.setFocus();
-    } else {
-      next.tabIndex = 0;
-      setTimeout(() => {
-        next.focus();
-      }, 0);
     }
   }
 
@@ -169,9 +179,6 @@ export class ZMenu {
       ev.preventDefault();
       ev.stopPropagation();
       this.toggle();
-      if (this.open) {
-        setTimeout(() => this.items[0].focus(), 100);
-      }
     }
   }
 
@@ -188,13 +195,22 @@ export class ZMenu {
 
   @Watch("open")
   onOpenChanged(): void {
-    if (this.open) {
-      if (this.floating) {
-        this.reflow(true);
-      }
-    } else {
+    if (!this.open) {
       cancelAnimationFrame(this.raf);
       this.setItemsA11yAttrs();
+      this.closed.emit();
+      this.items.forEach((item) => {
+        if (isZMenuSection(item) && item.open) {
+          item.open = false;
+        }
+      });
+
+      return;
+    }
+
+    this.opened.emit();
+    if (this.floating) {
+      this.reflow(true);
     }
   }
 
@@ -215,15 +231,14 @@ export class ZMenu {
     slottedLabel.tabIndex = this.htmlTabindex;
   }
 
-  /** Close the floating list on focusout. */
-  @Listen("focusout")
-  onFocusout(ev: MouseEvent): void {
-    if (!this.open || this.host.contains(ev.relatedTarget as Element)) {
+  /** Close the floating list on external clicks. */
+  @Listen("click", {target: "document"})
+  onClick(ev: Event): void {
+    if (!this.open || !this.floating || this.verticalContext || containsElement(this.host, ev.target as Element)) {
       return;
     }
 
     this.open = false;
-    this.closed.emit();
   }
 
   @Listen("keydown")
@@ -235,44 +250,29 @@ export class ZMenu {
     switch (ev.key) {
       case KeyboardCode.ESC:
         ev.stopPropagation();
+        ev.preventDefault();
         this.open = false;
         this.setFocus();
         break;
       case KeyboardCode.ARROW_DOWN: {
         ev.stopPropagation();
         ev.preventDefault();
-        const currentIndex = this.items.indexOf(this.focusableItem);
-        let next = this.items[currentIndex + 1];
-        if (!next) {
-          if (this.verticalContext) {
-            // don't navigate to the first item. leave the event propagate to the parent
-            this.setFocus();
-            this.open = false;
-            break;
-          }
-          // if the last item is already focused, navigate to the first one
-          next = this.items[0];
+        if (!this.focusableItem) {
+          this.moveFocus(this.items[0]);
+          break;
         }
-        this.moveFocus(this.focusableItem, next);
+        const currentIndex = this.items.indexOf(this.focusableItem);
+        const receiver = this.items[currentIndex + 1];
+        // if the last item is already focused, navigate to the first one
+        this.moveFocus(receiver ?? this.items[0], this.focusableItem);
         break;
       }
       case KeyboardCode.ARROW_UP: {
         ev.stopPropagation();
         ev.preventDefault();
-
         const currentIndex = this.items.indexOf(this.focusableItem);
-        let previous = this.items[currentIndex - 1];
-        if (!previous) {
-          if (this.verticalContext) {
-            // don't navigate to the last item. leave the event propagate to the parent
-            this.setFocus();
-            this.open = false;
-            break;
-          }
-          // if the first item is already focused, navigate to the last one
-          previous = this.items[this.items.length - 1];
-        }
-        this.moveFocus(this.focusableItem, previous);
+        const receiver = this.items[currentIndex - 1];
+        this.moveFocus(receiver ?? this.items[this.items.length - 1], this.focusableItem);
         break;
       }
     }

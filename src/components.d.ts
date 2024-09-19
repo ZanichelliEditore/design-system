@@ -1098,6 +1098,10 @@ export namespace Components {
          */
         "htmlTabindex": number;
         /**
+          * The opening state of the section.
+         */
+        "open": boolean;
+        /**
           * Focus the label interactive element if its tabindex is 0
          */
         "setFocus": () => Promise<void>;
@@ -4577,6 +4581,10 @@ declare namespace LocalJSX {
           * The section has been opened.
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
+        /**
+          * The opening state of the section.
+         */
+        "open"?: boolean;
     }
     /**
      * A component to create submenus inside the ZMenu.

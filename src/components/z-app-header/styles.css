@@ -167,7 +167,7 @@
 
 .menu-container ::slotted([slot="menu"]:not(:last-child))::after {
   position: absolute;
-  top: 50%;
+  top: calc(1.5em / 2); /* half the line-height of the label */
   right: calc(var(--space-unit) * -2);
   width: var(--border-size-small);
   height: 1em;
@@ -322,7 +322,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   .menu-container {
     flex: initial;
-    align-items: center;
   }
 
   .menu-container > [role="menubar"] {

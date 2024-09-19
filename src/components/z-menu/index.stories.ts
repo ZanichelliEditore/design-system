@@ -10,7 +10,6 @@ const StoryMeta = {
   args: {
     active: false,
     floating: true,
-    verticalContext: false,
   },
 } satisfies Meta<ZMenu>;
 
@@ -23,7 +22,6 @@ export const FloatingContentLayout = {
     <z-menu
       .active=${args.active}
       .floating=${args.floating}
-      .verticalContext=${args.verticalContext}
     >
       <h3>Menu label</h3>
       <a
@@ -76,7 +74,6 @@ export const WithHeader = {
     <z-menu
       .active=${args.active}
       .floating=${args.floating}
-      .verticalContext=${args.verticalContext}
     >
       <img
         slot="header"
@@ -122,11 +119,8 @@ export const ActiveWithoutItems = {
       exclude: ["floating"],
     },
   },
-  render: (args) => html`
-    <z-menu
-      .active=${true}
-      .verticalContext=${args.verticalContext}
-    >
+  render: () => html`
+    <z-menu .active=${true}>
       <a
         href="https://cataas.com/cat/gif"
         target="_blank"

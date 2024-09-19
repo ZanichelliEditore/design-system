@@ -155,3 +155,12 @@ export function isSelectorValid(selector: string): boolean {
     return false;
   }
 }
+
+/**
+ * Check if an element contains another element, checking both light and shadow DOM.
+ * @param ancestor Ancestor element
+ * @param descendant Descendant element
+ */
+export function containsElement(ancestor: HTMLElement, descendant: Node): boolean {
+  return ancestor.contains(descendant) || !!ancestor.shadowRoot?.contains(descendant);
+}

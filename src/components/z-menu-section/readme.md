@@ -13,6 +13,7 @@ A component to create submenus inside the ZMenu.
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `active`       | `active`        | Active state                                                                                                                                                   | `boolean` | `undefined` |
 | `htmlTabindex` | `html-tabindex` | Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu). | `number`  | `-1`        |
+| `open`         | `open`          | The opening state of the section.                                                                                                                              | `boolean` | `undefined` |
 
 
 ## Events

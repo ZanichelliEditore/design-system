@@ -230,6 +230,7 @@ export class ZAppHeader {
 
   private moveFocus(current: HTMLZMenuElement, next: HTMLZMenuElement): void {
     current.htmlTabindex = -1;
+    current.open = false;
     next.htmlTabindex = 0;
     next.setFocus();
   }

@@ -32,10 +32,7 @@ export default StoryMeta;
 
 const menuTemplate = (): TemplateResult => {
   return html`
-    <z-menu
-      slot="menu"
-      floating
-    >
+    <z-menu slot="menu">
       <h3>Menu label 1</h3>
       <a
         href=""
@@ -79,16 +76,10 @@ const menuTemplate = (): TemplateResult => {
         >Item 5</a
       >
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
+    <z-menu slot="menu">
       <a href>Menu label 2</a>
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
+    <z-menu slot="menu">
       <h3>Menu label 3</h3>
       <a
         href=""
@@ -132,10 +123,7 @@ const menuTemplate = (): TemplateResult => {
         >Item 5</a
       >
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
+    <z-menu slot="menu">
       <h3>Menu label 4</h3>
       <a
         href=""
