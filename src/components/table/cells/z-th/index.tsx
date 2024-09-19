@@ -86,6 +86,7 @@ export class ZTh {
 
   /**
    * Handle the click on the sort button.
+   * This method will also handle the z-index logic.
    * @fires sort
    */
   private handleSort(): void {
@@ -94,9 +95,16 @@ export class ZTh {
     }
 
     this.sortDirection = this.sortDirection === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC;
-    this.sort.emit({
-      sortDirection: this.sortDirection,
-    });
+
+    this.sort.emit({sortDirection: this.sortDirection});
+
+    const row = this.host.parentElement;
+    if (row) {
+      const zThElements = Array.from(row.querySelectorAll("z-th"));
+      zThElements.forEach((th) => (th.style.zIndex = "1"));
+    }
+
+    this.host.style.zIndex = "2";
   }
 
   @Watch("colspan")
@@ -112,21 +120,6 @@ export class ZTh {
     this.updateColspan();
   }
 
-  componentDidLoad(): void {
-    this.host.style.zIndex = "0";
-
-    this.host.addEventListener("focus", this.handleFocus.bind(this));
-    this.host.addEventListener("blur", this.handleBlur.bind(this));
-  }
-
-  private handleFocus(): void {
-    this.host.style.zIndex = "1";
-  }
-
-  private handleBlur(): void {
-    this.host.style.zIndex = "0";
-  }
-
   render(): HTMLZThElement {
     return (
       <Host
@@ -137,7 +130,7 @@ export class ZTh {
         onClick={() => {
           if (this.showSorting) {
             this.host.focus();
-            this.handleSort.bind(this);
+            this.handleSort();
           }
         }}
         sortable={this.showSorting}
