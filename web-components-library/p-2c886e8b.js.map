@@ -1,1 +1,0 @@
-{"version":3,"names":["mobileBreakpoint","tabletBreakpoint","desktopBreakpoint"],"sources":["src/constants/breakpoints.ts"],"sourcesContent":["const mobileBreakpoint = 767;\nconst tabletBreakpoint = 1052;\nconst desktopBreakpoint = 1365;\n\nexport {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint};\n"],"mappings":"MAAMA,EAAmB,I,MACnBC,EAAmB,K,MACnBC,EAAoB,Y","ignoreList":[]}

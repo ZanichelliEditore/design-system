@@ -1,1 +1,0 @@
-{"file":"index.js","mappings":";;;;MAEM,KAAK,GAAG;IACZ,WAAW;;;;;","names":[],"sources":["src/index.ts"],"sourcesContent":["import {colorFromId} from \"./utils/utils\";\n\nconst UTILS = {\n  colorFromId,\n};\n\nexport * from \"./beans\";\nexport * from \"./components\";\nexport {UTILS as Utils};\n"],"version":3}

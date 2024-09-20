@@ -1,1 +1,0 @@
-{"file":"breakpoints-680e0e56.js","mappings":"MAAM,gBAAgB,GAAG,IAAI;MACvB,gBAAgB,GAAG,KAAK;MACxB,iBAAiB,GAAG;;;;","names":[],"sources":["src/constants/breakpoints.ts"],"sourcesContent":["const mobileBreakpoint = 767;\nconst tabletBreakpoint = 1052;\nconst desktopBreakpoint = 1365;\n\nexport {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint};\n"],"version":3}
