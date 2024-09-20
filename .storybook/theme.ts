@@ -3,7 +3,7 @@ import {create} from "@storybook/theming/create";
 
 const branding = {
   brandTitle: "Design System — Zanichelli Editore",
-  brandImage: "./images/png/zanichelli-logo.png",
+  brandImage: "images/png/zanichelli-logo.png",
   brandUrl: "https://albe.zanichelli.it",
   brandTarget: "_blank",
 };
