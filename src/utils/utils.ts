@@ -2,10 +2,6 @@ import {ChildNode} from "@stencil/core";
 import {Device, KeyboardCode} from "../beans/index";
 import {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
 
-export function format(first: string, middle: string, last: string): string {
-  return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");
-}
-
 /**
  * Return boolean value for passed value if a boolean corresponding value is found
  * Return passed value otherwise
