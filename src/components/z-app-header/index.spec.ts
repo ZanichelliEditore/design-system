@@ -24,8 +24,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-              <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <slot name="product-logo"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -64,7 +63,6 @@ describe("Suite test ZAppHeader", () => {
               </div>
               <div class="heading-title">
               <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <slot name="product-logo"></slot>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -155,7 +153,9 @@ describe("Suite test ZAppHeader", () => {
               </div>
               <div class="heading-title">
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <slot name="product-logo"></slot>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -203,7 +203,9 @@ describe("Suite test ZAppHeader", () => {
               </div>
               <div class="heading-title">
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <slot name="product-logo"></slot>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -451,7 +453,9 @@ describe("Suite test ZAppHeader", () => {
               </div>
               <div class="heading-title">
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <slot name="product-logo"></slot>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
                 <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
               </div>

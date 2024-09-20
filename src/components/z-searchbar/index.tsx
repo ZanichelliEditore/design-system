@@ -275,7 +275,6 @@ export class ZSearchbar {
         value={this.value}
         ariaLabel={this.placeholder}
         size={this.size}
-        tabIndex={0}
       />
     );
   }

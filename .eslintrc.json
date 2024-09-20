@@ -21,7 +21,7 @@
     "prettier/prettier": "warn",
     "curly": "warn",
     "no-duplicate-imports": "error",
-    "no-console": "warn",
+    "no-console": ["warn", {"allow": ["warn", "error"]}],
     "constructor-super": "off",
     "no-fallthrough": "warn",
     "no-self-compare": "error",

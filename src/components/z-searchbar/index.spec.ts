@@ -18,7 +18,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
           </div>
           <z-button size="big" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -35,7 +35,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-results" htmlid="my-id" autocomplete="true" prevent-submit="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
           </div>
         </mock:shadow-root>
       </z-searchbar>
@@ -62,7 +62,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
           </div>
           <z-button size="big" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -93,7 +93,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -134,7 +134,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -189,7 +189,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -229,7 +229,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <span class="item item-no-results">
@@ -274,7 +274,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -298,7 +298,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" size="small">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="small"></z-input>
+            <z-input size="small"></z-input>
           </div>
           <z-button size="small" variant="primary">CERCA</z-button>
         </mock:shadow-root>
@@ -315,7 +315,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" variant="secondary">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
           </div>
           <z-button size="big" variant="secondary">CERCA</z-button>
         </mock:shadow-root>
@@ -332,7 +332,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" search-button-icon-only="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input tabindex="0" size="big"></z-input>
+            <z-input size="big"></z-input>
           </div>
           <z-button icon="search" size="big" variant="primary"></z-button>
         </mock:shadow-root>

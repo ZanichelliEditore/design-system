@@ -313,7 +313,11 @@ export class ZAppHeader {
             <img alt="Logo Zanichelli" />
           </span>
         )}
-        {!this.isMobile && <slot name="product-logo" />}
+        {this.hostElement.querySelector("[slot='product-logo']") && (
+          <span class="product-logo">
+            <slot name="product-logo" />
+          </span>
+        )}
       </Fragment>
     );
   }
