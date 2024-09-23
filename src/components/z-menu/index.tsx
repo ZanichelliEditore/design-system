@@ -1,6 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
-import {containsElement} from "../../utils/utils";
 
 const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZMenuSectionElement =>
   el.tagName === "Z-MENU-SECTION";
@@ -67,7 +66,7 @@ export class ZMenu {
 
   private content: HTMLElement;
 
-  private items: HTMLElement[];
+  private items: (HTMLElement | HTMLZMenuSectionElement)[];
 
   /** Animation frame request id. */
   private raf: number;
@@ -229,16 +228,6 @@ export class ZMenu {
     const slottedLabel = this.host.firstElementChild as HTMLElement;
     slottedLabel.role = "menuitem";
     slottedLabel.tabIndex = this.htmlTabindex;
-  }
-
-  /** Close the floating list on external clicks. */
-  @Listen("click", {target: "document"})
-  onClick(ev: Event): void {
-    if (!this.open || !this.floating || this.verticalContext || containsElement(this.host, ev.target as Element)) {
-      return;
-    }
-
-    this.open = false;
   }
 
   @Listen("keydown")

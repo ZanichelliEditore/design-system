@@ -1,6 +1,7 @@
 import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
+import {containsElement} from "../../utils/utils";
 
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
@@ -234,20 +235,19 @@ export class ZAppHeader {
     next.setFocus();
   }
 
-  @Listen("opened")
-  onMenuOpened(ev: CustomEvent): void {
-    if (!this.menuElements.includes(ev.target as HTMLZMenuElement)) {
-      return;
-    }
-
+  /** Close each menu except the one receiving focus/click */
+  @Listen("focusin", {target: "document", passive: true})
+  @Listen("click", {target: "document", passive: true})
+  manageMenus(ev: FocusEvent | PointerEvent): void {
     this.menuElements.forEach((menu) => {
-      if (menu !== ev.target) {
-        menu.open = false;
+      if (!menu.open || !menu.floating || menu.verticalContext || containsElement(menu, ev.target as Element)) {
+        return;
       }
+      menu.open = false;
     });
   }
 
-  @Listen("keydown")
+  @Listen("keydown", {passive: true})
   handleMenubarKeydown(ev: KeyboardEvent): void {
     if (!this.menuElements.some((elem) => elem.contains(ev.target as HTMLElement))) {
       return;

@@ -7,7 +7,6 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
-      polyfills: true,
       esmLoaderPath: "../loader",
     },
     reactOutputTarget({

@@ -1,6 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
-import {containsElement} from "../../utils/utils";
 
 /**
  * A component to create submenus inside the ZMenu.
@@ -27,7 +26,7 @@ export class ZMenuSection {
   htmlTabindex = -1;
 
   /** The opening state of the section. */
-  @Prop()
+  @Prop({mutable: true})
   open: boolean;
 
   @State()
@@ -130,16 +129,6 @@ export class ZMenuSection {
   @Watch("htmlTabindex")
   onTabindexChange(): void {
     this.label.tabIndex = this.htmlTabindex;
-  }
-
-  /** Close the list on external clicks. */
-  @Listen("click", {target: "document"})
-  onClick(ev: Event): void {
-    if (!this.open || containsElement(this.host, ev.target as Element)) {
-      return;
-    }
-
-    this.open = false;
   }
 
   @Listen("keydown", {capture: true})
