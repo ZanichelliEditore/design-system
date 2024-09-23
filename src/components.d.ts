@@ -1048,6 +1048,10 @@ export namespace Components {
          */
         "floating"?: boolean;
         /**
+          * Focus the last item.
+         */
+        "focusLastItem": () => Promise<void>;
+        /**
           * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
          */
         "htmlTabindex": number;
@@ -1056,7 +1060,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Focus the label interactive element if its tabindex is 0
+          * Set tabindex of the label to 0, then focus it.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1094,6 +1098,10 @@ export namespace Components {
          */
         "active"?: boolean;
         /**
+          * Focus the last item.
+         */
+        "focusLastItem": () => Promise<void>;
+        /**
           * Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
          */
         "htmlTabindex": number;
@@ -1102,7 +1110,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Focus the label interactive element if its tabindex is 0
+          * Set tabindex of the label to 0, then focus it.
          */
         "setFocus": () => Promise<void>;
     }

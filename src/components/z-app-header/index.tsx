@@ -228,11 +228,9 @@ export class ZAppHeader {
     return this.hostElement.querySelector(`[slot="${slotName}"]`) !== null;
   }
 
-  private moveFocus(current: HTMLZMenuElement, next: HTMLZMenuElement): void {
+  private moveFocus(current: HTMLZMenuElement, receiver: HTMLZMenuElement): void {
     current.htmlTabindex = -1;
-    current.open = false;
-    next.htmlTabindex = 0;
-    next.setFocus();
+    receiver.setFocus();
   }
 
   /** Close each menu except the one receiving focus/click */
@@ -255,23 +253,32 @@ export class ZAppHeader {
 
     const current = this.focusableMenu;
     const currentIndex = this.menuElements.indexOf(current);
-    let next: HTMLZMenuElement;
+    let receiver: HTMLZMenuElement;
     if (
       (ev.key === KeyboardCode.ARROW_RIGHT && !current.verticalContext) ||
       (ev.key === KeyboardCode.ARROW_DOWN && current.verticalContext)
     ) {
-      next = currentIndex < this.menuElements.length - 1 ? this.menuElements[currentIndex + 1] : this.menuElements[0];
+      receiver = this.menuElements[currentIndex + 1] ?? this.menuElements[0];
     } else if (
       (ev.key === KeyboardCode.ARROW_LEFT && !current.verticalContext) ||
       (ev.key === KeyboardCode.ARROW_UP && current.verticalContext)
     ) {
-      next = currentIndex > 0 ? this.menuElements[currentIndex - 1] : this.menuElements[this.menuElements.length - 1];
+      receiver = this.menuElements[currentIndex - 1] ?? this.menuElements[this.menuLength - 1];
     }
-    if (!next) {
+    if (!receiver) {
       return;
     }
 
-    this.moveFocus(current, next);
+    if (ev.key === KeyboardCode.ARROW_UP && current.verticalContext) {
+      if (receiver.open) {
+        current.htmlTabindex = -1;
+        receiver.focusLastItem();
+
+        return;
+      }
+    }
+
+    this.moveFocus(current, receiver);
   }
 
   private renderSeachbar(): HTMLZButtonElement | HTMLZSearchbarElement | undefined {

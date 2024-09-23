@@ -24,9 +24,19 @@
 
 ## Methods
 
+### `focusLastItem() => Promise<void>`
+
+Focus the last item.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setFocus() => Promise<void>`
 
-Focus the label interactive element if its tabindex is 0
+Set tabindex of the label to 0, then focus it.
 
 #### Returns
 

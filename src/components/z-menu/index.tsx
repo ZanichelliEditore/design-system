@@ -2,7 +2,7 @@ import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, Sta
 import {KeyboardCode} from "../../beans";
 
 const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZMenuSectionElement =>
-  el.tagName === "Z-MENU-SECTION";
+  el?.tagName === "Z-MENU-SECTION";
 
 /**
  * @slot - Menu label
@@ -121,15 +121,16 @@ export class ZMenu {
 
   /**
    * Set `menuitem` role to all menu items (ZMenuSection items already have it).
-   * Set -1 to the tabindex of the items.
+   * Set -1 to the tabindex of the items and 0 to the first one.
    */
   private setItemsA11yAttrs(): void {
-    this.items.forEach((item) => {
+    this.items.forEach((item, index) => {
+      const tabindex = index === 0 ? 0 : -1;
       if (isZMenuSection(item)) {
-        item.htmlTabindex = -1;
+        item.htmlTabindex = tabindex;
       } else {
         item.setAttribute("role", "menuitem");
-        item.setAttribute("tabindex", "-1");
+        item.tabIndex = tabindex;
       }
     });
   }
@@ -148,19 +149,19 @@ export class ZMenu {
   /**
    * Move focus and adjust the tabindex value of `receiver` and `current` elements,
    * setting -1 to the `current` and 0 to the `receiver`, then focus the `receiver` element.
+   * If the receiver is a ZMenuSection and it's open, focus its first focusable item.
    */
   private moveFocus(
     receiver: HTMLElement | HTMLZMenuSectionElement,
     current?: HTMLElement | HTMLZMenuSectionElement
   ): void {
     if (isZMenuSection(receiver)) {
-      receiver.htmlTabindex = 0;
       receiver.setFocus();
     } else {
       receiver.tabIndex = 0;
       setTimeout(() => {
         receiver.focus();
-      }, 0);
+      }, 100);
     }
     if (!current) {
       return;
@@ -179,24 +180,46 @@ export class ZMenu {
       ev.stopPropagation();
       this.toggle();
     }
-  }
 
-  /** Focus the label interactive element if its tabindex is 0 */
-  @Method()
-  async setFocus(): Promise<void> {
-    const tabbableLabel = this.hasContent ? this.labelButton : (this.host.firstElementChild as HTMLElement);
-    if (tabbableLabel?.tabIndex !== 0) {
+    if (!this.verticalContext) {
       return;
     }
 
-    tabbableLabel.focus();
+    if (ev.key === KeyboardCode.ARROW_RIGHT && !this.open) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.open = true;
+
+      return;
+    }
+
+    if (ev.key === KeyboardCode.ARROW_LEFT && this.open) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.open = false;
+    }
+  }
+
+  /** Set tabindex of the label to 0, then focus it. */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.htmlTabindex = 0;
+    const label = this.hasContent ? this.labelButton : (this.host.firstElementChild as HTMLElement);
+    label.focus();
+  }
+
+  /** Focus the last item. */
+  @Method()
+  async focusLastItem(): Promise<void> {
+    this.htmlTabindex = 0;
+    this.moveFocus(this.items[this.items.length - 1]);
   }
 
   @Watch("open")
   onOpenChanged(): void {
+    this.setItemsA11yAttrs();
     if (!this.open) {
       cancelAnimationFrame(this.raf);
-      this.setItemsA11yAttrs();
       this.closed.emit();
       this.items.forEach((item) => {
         if (isZMenuSection(item) && item.open) {
@@ -232,7 +255,7 @@ export class ZMenu {
 
   @Listen("keydown")
   onKeyDown(ev: KeyboardEvent): void {
-    if (!this.hasContent || !this.open) {
+    if (!this.hasContent) {
       return;
     }
 
@@ -244,23 +267,66 @@ export class ZMenu {
         this.setFocus();
         break;
       case KeyboardCode.ARROW_DOWN: {
-        ev.stopPropagation();
-        ev.preventDefault();
-        if (!this.focusableItem) {
+        if (this.verticalContext && document.activeElement === this.host && !this.open) {
+          break;
+        }
+
+        if (document.activeElement === this.host) {
+          if (!this.open) {
+            this.open = true;
+          }
+          ev.stopPropagation();
+          ev.preventDefault();
           this.moveFocus(this.items[0]);
           break;
         }
+
         const currentIndex = this.items.indexOf(this.focusableItem);
         const receiver = this.items[currentIndex + 1];
+        if (this.verticalContext && !receiver) {
+          break;
+        }
+
+        ev.stopPropagation();
+        ev.preventDefault();
         // if the last item is already focused, navigate to the first one
         this.moveFocus(receiver ?? this.items[0], this.focusableItem);
         break;
       }
       case KeyboardCode.ARROW_UP: {
+        if (this.verticalContext && document.activeElement === this.host) {
+          break;
+        }
+
+        if (document.activeElement === this.host) {
+          // open the menu and focus the last item
+          if (!this.open) {
+            this.open = true;
+          }
+          ev.stopPropagation();
+          ev.preventDefault();
+          this.moveFocus(this.items[this.items.length - 1], this.focusableItem);
+          break;
+        }
+
         ev.stopPropagation();
         ev.preventDefault();
         const currentIndex = this.items.indexOf(this.focusableItem);
         const receiver = this.items[currentIndex - 1];
+        if (!receiver && this.verticalContext) {
+          this.setFocus();
+          break;
+        }
+
+        if (isZMenuSection(receiver) && receiver.open) {
+          isZMenuSection(this.focusableItem)
+            ? (this.focusableItem.htmlTabindex = -1)
+            : (this.focusableItem.tabIndex = -1);
+          receiver.focusLastItem();
+          break;
+        }
+
+        // if the first item is already focused, navigate to the last one
         this.moveFocus(receiver ?? this.items[this.items.length - 1], this.focusableItem);
         break;
       }

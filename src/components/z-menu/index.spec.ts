@@ -109,7 +109,7 @@ describe("Suite test ZMenu", () => {
         <h3>
           Item 2
         </h3>
-        <a href="#" role="menuitem" slot="section" tabindex="-1">
+        <a href="#" role="menuitem" slot="section" tabindex="0">
           Item 2.1
         </a>
         <a href="#" role="menuitem" slot="section" tabindex="-1">

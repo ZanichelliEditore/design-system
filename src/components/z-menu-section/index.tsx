@@ -63,9 +63,9 @@ export class ZMenuSection {
       return;
     }
 
-    this.items.forEach((item) => {
+    this.items.forEach((item, index) => {
       item.setAttribute("role", "menuitem");
-      item.setAttribute("tabindex", "-1");
+      item.setAttribute("tabindex", index === 0 ? "0" : "-1");
     });
   }
 
@@ -106,14 +106,20 @@ export class ZMenuSection {
     }
   }
 
-  /** Focus the label interactive element if its tabindex is 0 */
+  /** Set tabindex of the label to 0, then focus it. */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.label.tabIndex === 0) {
-      setTimeout(() => {
-        this.label.focus();
-      }, 100);
-    }
+    this.htmlTabindex = 0;
+    setTimeout(() => {
+      this.label.focus();
+    }, 100);
+  }
+
+  /** Focus the last item. */
+  @Method()
+  async focusLastItem(): Promise<void> {
+    this.htmlTabindex = 0;
+    this.moveFocus(this.items[this.items.length - 1]);
   }
 
   @Watch("open")
@@ -131,40 +137,60 @@ export class ZMenuSection {
     this.label.tabIndex = this.htmlTabindex;
   }
 
-  @Listen("keydown", {capture: true})
+  @Listen("keydown")
   private onItemsKeydown(ev: KeyboardEvent): void {
-    if (!this.open) {
-      return;
-    }
-
     switch (ev.key) {
       case KeyboardCode.ESC:
+      case KeyboardCode.ARROW_LEFT:
+        if (!this.open) {
+          break;
+        }
         ev.preventDefault();
         ev.stopPropagation();
         this.label.focus();
         this.open = false;
         break;
-      case KeyboardCode.ARROW_DOWN: {
+      case KeyboardCode.ARROW_RIGHT:
+        if (this.open) {
+          break;
+        }
         ev.preventDefault();
         ev.stopPropagation();
-        if (!this.focusableItem) {
+        this.open = true;
+        break;
+      case KeyboardCode.ARROW_DOWN: {
+        if (!this.open) {
+          break;
+        }
+        if (document.activeElement === this.host) {
+          ev.preventDefault();
+          ev.stopPropagation();
           this.moveFocus(this.items[0]);
           break;
         }
         const currentIndex = this.items.indexOf(this.focusableItem);
         const receiver = this.items[currentIndex + 1];
-        this.moveFocus(receiver ?? this.items[0], this.focusableItem);
+        if (receiver) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          this.moveFocus(receiver, this.focusableItem);
+        }
         break;
       }
       case KeyboardCode.ARROW_UP: {
-        if (!this.focusableItem) {
+        if (!this.open || document.activeElement === this.host) {
           break;
         }
-        ev.stopPropagation();
-        ev.preventDefault();
         const currentIndex = this.items.indexOf(this.focusableItem);
-        const previous = this.items[currentIndex - 1];
-        this.moveFocus(previous ?? this.items[this.items.length - 1], this.focusableItem);
+        const receiver = this.items[currentIndex - 1];
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (receiver) {
+          this.moveFocus(receiver, this.focusableItem);
+        } else {
+          // since there isn't a previous item to focus, give the focus to the label element
+          this.setFocus();
+        }
         break;
       }
     }
