@@ -124,50 +124,55 @@ export class ZTh {
     return (
       <Host
         tabIndex="0"
-        role="columnheader"
         menu-open={this.isMenuOpen}
         aria-sort={this.ariaSortDirection}
-        onClick={() => {
-          if (this.showSorting) {
-            this.host.focus();
-            this.handleSort();
-          }
-        }}
         sortable={this.showSorting}
       >
-        <slot></slot>
-        {this.showSorting && (
-          <button
-            class={{"z-th--sort-button": true, "sort-active": this.showSorting === VisibilityCondition.ALWAYS}}
-            type="button"
-            onClick={this.handleSort.bind(this)}
-          >
-            <z-icon
-              name={this.sortDirection === SortDirection.DESC ? "arrow-simple-up" : "arrow-simple-down"}
-              width={14}
-              height={14}
-            />
-          </button>
-        )}
-        {this.showMenu && (
-          <div class="cell--menu-container">
-            <z-button
-              variant={ButtonVariant.TERTIARY}
-              icon="contextual-menu"
-              size={ControlSize.X_SMALL}
-              ref={(el) => (this.menuTrigger = el as HTMLElement)}
-              onClick={() => (this.popoverEl.open = !this.popoverEl.open)}
-            />
-            <z-popover
-              ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
-              bindTo={this.menuTrigger}
-              onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
-              position={this.popoverPosition}
-            >
-              <slot name="contextual-menu"></slot>
-            </z-popover>
+        <div
+          tabIndex={1}
+          class="zth-body"
+          onClick={() => {
+            if (this.showSorting) {
+              this.handleSort();
+            }
+          }}
+        >
+          <div class="z-th-content-container">
+            <slot></slot>
+            {this.showSorting && (
+              <button
+                class={{"z-th--sort-button": true, "sort-active": this.showSorting === VisibilityCondition.ALWAYS}}
+                type="button"
+                onClick={this.handleSort.bind(this)}
+              >
+                <z-icon
+                  name={this.sortDirection === SortDirection.DESC ? "arrow-simple-up" : "arrow-simple-down"}
+                  width={14}
+                  height={14}
+                />
+              </button>
+            )}
+            {this.showMenu && (
+              <div class="cell--menu-container">
+                <z-button
+                  variant={ButtonVariant.TERTIARY}
+                  icon="contextual-menu"
+                  size={ControlSize.X_SMALL}
+                  ref={(el) => (this.menuTrigger = el as HTMLElement)}
+                  onClick={() => (this.popoverEl.open = !this.popoverEl.open)}
+                />
+                <z-popover
+                  ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
+                  bindTo={this.menuTrigger}
+                  onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
+                  position={this.popoverPosition}
+                >
+                  <slot name="contextual-menu"></slot>
+                </z-popover>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </Host>
     );
   }

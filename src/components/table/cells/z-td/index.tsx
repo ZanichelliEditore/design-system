@@ -84,27 +84,32 @@ export class ZTd {
         role="cell"
         menu-open={this.isMenuOpen}
       >
-        <slot></slot>
-        {this.showMenu && (
-          <div class="cell--menu-container prevent-expand">
-            <z-button
-              variant={ButtonVariant.TERTIARY}
-              icon="contextual-menu"
-              size={ControlSize.X_SMALL}
-              ref={(el) => (this.menuTrigger = el as HTMLZButtonElement)}
-              onClick={this.onMenuButtonClick.bind(this)}
-            />
-            <z-popover
-              class="cell-popover"
-              ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
-              bindTo={this.menuTrigger as HTMLElement}
-              onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
-              position={this.popoverPosition}
-            >
-              <slot name="contextual-menu"></slot>
-            </z-popover>
-          </div>
-        )}
+        <div
+          class="cell--content-container"
+          style={this.showMenu && {justifyContent: "space-between"}}
+        >
+          <slot></slot>
+          {this.showMenu && (
+            <div class="cell--menu-container prevent-expand">
+              <z-button
+                variant={ButtonVariant.TERTIARY}
+                icon="contextual-menu"
+                size={ControlSize.X_SMALL}
+                ref={(el) => (this.menuTrigger = el as HTMLZButtonElement)}
+                onClick={this.onMenuButtonClick.bind(this)}
+              />
+              <z-popover
+                class="cell-popover"
+                ref={(el) => (this.popoverEl = el as HTMLZPopoverElement)}
+                bindTo={this.menuTrigger as HTMLElement}
+                onOpenChange={(event) => (this.isMenuOpen = event.detail.open)}
+                position={this.popoverPosition}
+              >
+                <slot name="contextual-menu"></slot>
+              </z-popover>
+            </div>
+          )}
+        </div>
       </Host>
     );
   }

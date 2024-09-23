@@ -3,11 +3,14 @@
 :host {
   background-color: var(--color-surface02);
   font-weight: var(--font-sb);
+  z-index: 1;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* :host([sticky]) {
+:host([sticky]) {
   background-color: var(--color-surface02);
-} */
+}
 
 :host([sortable]) {
   cursor: pointer;
@@ -29,7 +32,24 @@
   cursor: pointer;
 }
 
-:host(:focus) {
-  box-shadow: var(--shadow-focus-primary);
+.z-th-content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host > .zth-body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: calc(var(--space-unit) * 2);
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.zth-body:focus {
+  border: 2px solid var(--blue800);
   outline: none;
 }
