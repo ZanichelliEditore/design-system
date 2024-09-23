@@ -1,26 +1,25 @@
 :host {
-  --app-header-content-max-width: 100%;
+  --app-header-content-max-width: ;
 
   /* Variable to set stuck header and drawer's top offset.
   Useful when something is absolutely positioned above the header. */
-  --app-header-top-offset: 48px;
+  --app-header-top-offset: ;
 
   /* Variable to customize header background color. */
-  --app-header-bg: var(--color-surface01);
+  --app-header-bg: ;
 
   /* Variable to customize text and icon color. */
-  --app-header-text-color: var(--color-default-text);
+  --app-header-text-color: ;
 
   /* Variable to customize stuck header background color. */
-  --app-header-stucked-bg: var(--color-surface01);
+  --app-header-stucked-bg: ;
 
   /* Variable to customize stuck header's text and icon color. */
-  --app-header-stucked-text-color: var(--color-default-text);
+  --app-header-stucked-text-color: ;
 
   position: relative;
   display: block;
   box-shadow: var(--shadow-2);
-  color: var(--app-header-text-color);
 }
 
 :host,
@@ -36,7 +35,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: var(--app-header-content-max-width);
+  max-width: var(--app-header-content-max-width, 100%);
   flex-direction: column;
   flex-grow: 0;
   flex-shrink: 0;
@@ -111,7 +110,9 @@
 ::slotted([slot="stucked-title"]),
 .stucked-title {
   margin: 0;
+  color: var(--app-header-text-color, var(--gray950));
   font-family: var(--font-family-serif);
+  font-weight: var(--font-sb);
 }
 
 ::slotted([slot="title"]) {
@@ -120,7 +121,6 @@
   flex-grow: 1;
   -webkit-box-orient: vertical;
   font-size: var(--title-font-size);
-  font-weight: var(--font-bd);
   -webkit-line-clamp: 2;
   line-clamp: 2;
   line-height: var(--title-line-height);
@@ -141,10 +141,11 @@
   max-width: 80%;
   margin: 0;
   -webkit-box-orient: vertical;
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
   font-style: italic;
-  font-weight: 400;
+  font-weight: var(--font-rg);
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
@@ -191,19 +192,19 @@ z-searchbar {
 .heading-stuck {
   position: fixed;
   z-index: 20;
-  top: var(--app-header-top-offset);
+  top: var(--app-header-top-offset, 48px);
   left: 0;
   width: 100%;
   max-width: 100%;
   animation: slide-stuck-heading-in 250ms ease-out;
-  background: var(--app-header-stucked-bg);
+  background: var(--app-header-stucked-bg, var(--color-surface01));
   box-shadow: var(--shadow-2);
-  color: var(--app-header-stucked-text-color);
+  color: var(--app-header-stucked-text-color, var(--color-default-text));
 }
 
 .heading-stuck-content {
   display: flex;
-  max-width: var(--app-header-content-max-width);
+  max-width: var(--app-header-content-max-width, 100%);
   align-items: center;
   padding: var(--space-unit) var(--grid-margin);
   margin: 0 auto;
@@ -215,7 +216,6 @@ z-searchbar {
 
   overflow: hidden;
   align-items: center;
-  font-weight: var(--font-bd);
 }
 
 .heading-stuck .heading-title:not(:last-child) {
