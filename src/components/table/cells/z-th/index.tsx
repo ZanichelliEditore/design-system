@@ -137,7 +137,10 @@ export class ZTh {
             }
           }}
         >
-          <div class="z-th-content-container">
+          <div
+            class="z-th-content-container"
+            style={this.showMenu && {justifyContent: "space-between"}}
+          >
             <slot></slot>
             {this.showSorting && (
               <button
