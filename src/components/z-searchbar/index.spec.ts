@@ -93,7 +93,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input size="big" value="item"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -134,7 +134,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input size="big" value="item"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -189,7 +189,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input size="big" value="item"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
@@ -229,7 +229,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input size="big" value="item"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <span class="item item-no-results">
@@ -274,7 +274,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input size="big"></z-input>
+            <z-input size="big" value="item"></z-input>
             <div class="results-wrapper">
               <div class="results">
                 <z-list role="listbox" id="list-my-id">
