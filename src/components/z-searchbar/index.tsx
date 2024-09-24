@@ -90,6 +90,9 @@ export class ZSearchbar {
   @State()
   isMobile = false;
 
+  @State()
+  selectedItem?: SearchbarItem;
+
   @Element() element: HTMLZSearchbarElement;
 
   private resultsItemsList: SearchbarItem[] | undefined = null;
@@ -122,6 +125,8 @@ export class ZSearchbar {
 
   private emitSearchItemClick(item: SearchbarItem): void {
     this.searchItemClick.emit(item);
+    this.selectedItem = item;
+    this.searchString = "";
   }
 
   @Watch("resultsItems")
@@ -272,7 +277,7 @@ export class ZSearchbar {
           handleEnterKeydSubmit(e, () => this.handleSubmit());
           this.handleArrowsNavigation(e);
         }}
-        value={this.value}
+        value={this.searchString || this.selectedItem?.label}
         ariaLabel={this.placeholder}
         size={this.size}
       />
