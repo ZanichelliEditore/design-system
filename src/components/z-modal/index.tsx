@@ -1,7 +1,7 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
 import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../beans";
-import {mobileBreakpoint} from "../../constants/breakpoints";
+import {Breakpoints} from "../../constants/breakpoints";
 
 const FOCUSABLE_ELEMENTS_SELECTOR =
   ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
@@ -78,7 +78,7 @@ export class ZModal {
   }
 
   private handlePageOverflow(): void {
-    const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
+    const mobileMediaQuery = window.matchMedia(`(max-width: ${Breakpoints.MOBILE}px)`);
     document.body.style["overflow-y"] = mobileMediaQuery.matches ? "hidden" : "";
   }
 

@@ -207,9 +207,9 @@ export class ZAppHeaderDeprecated {
 
     const elements = this.menuElements;
     elements.forEach((element) => {
-      (element as HTMLZMenuElement).open = false;
-      (element as HTMLZMenuElement).floating = !this.drawerOpen;
-      (element as HTMLZMenuElement).verticalContext = this.drawerOpen;
+      (element as HTMLZMenuDeprecatedElement).open = false;
+      (element as HTMLZMenuDeprecatedElement).floating = !this.drawerOpen;
+      (element as HTMLZMenuDeprecatedElement).verticalContext = this.drawerOpen;
     });
   }
 

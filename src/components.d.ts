@@ -91,14 +91,14 @@ export namespace Components {
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
-          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
         "enableOffcanvas": boolean;
         /**
@@ -1048,11 +1048,23 @@ export namespace Components {
          */
         "floating"?: boolean;
         /**
+          * Focus the last item.
+         */
+        "focusLastItem": () => Promise<void>;
+        /**
+          * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
+         */
+        "htmlTabindex": number;
+        /**
           * The opening state of the menu.
          */
         "open": boolean;
         /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+          * Set tabindex of the label to 0, then focus it.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
          */
         "verticalContext": boolean;
     }
@@ -1085,6 +1097,22 @@ export namespace Components {
           * Active state
          */
         "active"?: boolean;
+        /**
+          * Focus the last item.
+         */
+        "focusLastItem": () => Promise<void>;
+        /**
+          * Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
+         */
+        "htmlTabindex": number;
+        /**
+          * The opening state of the section.
+         */
+        "open": boolean;
+        /**
+          * Set tabindex of the label to 0, then focus it.
+         */
+        "setFocus": () => Promise<void>;
     }
     /**
      * A component to create submenus inside the ZMenu.
@@ -2223,8 +2251,8 @@ declare global {
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
@@ -3459,14 +3487,14 @@ declare namespace LocalJSX {
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
      * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
      * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
      * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
         /**
-          * the menu bar is not displayed and a burger icon appears to open the offcanvas menu
+          * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
         "enableOffcanvas"?: boolean;
         /**
@@ -4492,6 +4520,10 @@ declare namespace LocalJSX {
          */
         "floating"?: boolean;
         /**
+          * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
+         */
+        "htmlTabindex"?: number;
+        /**
           * The menu has been closed.
          */
         "onClosed"?: (event: ZMenuCustomEvent<any>) => void;
@@ -4504,7 +4536,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
+          * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
          */
         "verticalContext"?: boolean;
     }
@@ -4546,6 +4578,10 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
+          * Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
+         */
+        "htmlTabindex"?: number;
+        /**
           * The section has been closed.
          */
         "onClosed"?: (event: ZMenuSectionCustomEvent<any>) => void;
@@ -4553,6 +4589,10 @@ declare namespace LocalJSX {
           * The section has been opened.
          */
         "onOpened"?: (event: ZMenuSectionCustomEvent<any>) => void;
+        /**
+          * The opening state of the section.
+         */
+        "open"?: boolean;
     }
     /**
      * A component to create submenus inside the ZMenu.
@@ -5685,8 +5725,8 @@ declare module "@stencil/core" {
             /**
              * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
              * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
              * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
+             * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */

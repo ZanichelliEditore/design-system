@@ -32,11 +32,8 @@ export default StoryMeta;
 
 const menuTemplate = (): TemplateResult => {
   return html`
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
+    <z-menu slot="menu">
+      <h3>Menu label 1</h3>
       <a
         href=""
         slot="item"
@@ -79,17 +76,11 @@ const menuTemplate = (): TemplateResult => {
         >Item 5</a
       >
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <a href>Menu label</a>
+    <z-menu slot="menu">
+      <a href>Menu label 2</a>
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
+    <z-menu slot="menu">
+      <h3>Menu label 3</h3>
       <a
         href=""
         slot="item"
@@ -132,11 +123,8 @@ const menuTemplate = (): TemplateResult => {
         >Item 5</a
       >
     </z-menu>
-    <z-menu
-      slot="menu"
-      floating
-    >
-      <h3>Menu label</h3>
+    <z-menu slot="menu">
+      <h3>Menu label 4</h3>
       <a
         href=""
         slot="item"
@@ -245,9 +233,6 @@ export const MenuWithTopTitle = {
       exclude: ["enableZLogo"],
     },
   },
-  args: {
-    enableOffcanvas: true,
-  },
   render: (args) =>
     html`<z-app-header
       .enableOffcanvas=${args.enableOffcanvas}
@@ -316,7 +301,7 @@ export const Stuck = {
       .searchPageUrl=${args.searchPageUrl}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}; --app-header-top-offset: 0"
     >
-      <h1 slot="title">Applicazione</h1>
+      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;

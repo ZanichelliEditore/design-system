@@ -156,7 +156,7 @@ export class ZSearchbar {
   }
 
   disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
+    this.resizeObserver?.disconnect();
   }
 
   componentDidLoad(): void {
@@ -275,7 +275,6 @@ export class ZSearchbar {
         value={this.value}
         ariaLabel={this.placeholder}
         size={this.size}
-        tabIndex={0}
       />
     );
   }

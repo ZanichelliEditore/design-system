@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {BookCardVariant} from "../../beans";
-import {mobileBreakpoint} from "../../constants/breakpoints";
+import {Breakpoints} from "../../constants/breakpoints";
 import {randomId} from "../../utils/utils";
 
 /**
@@ -121,7 +121,7 @@ export class ZBookCard {
   componentWillLoad(): void {
     this.id = `id-${randomId()}`;
 
-    const mobileMediaQuery = window.matchMedia(`(max-width: ${mobileBreakpoint}px)`);
+    const mobileMediaQuery = window.matchMedia(`(max-width: ${Breakpoints.MOBILE}px)`);
     this.isMobile = mobileMediaQuery.matches;
     mobileMediaQuery.onchange = (mql) => (this.isMobile = mql.matches);
   }
