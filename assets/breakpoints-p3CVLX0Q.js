@@ -1,0 +1,1 @@
+var T=(E=>(E[E.MOBILE=767]="MOBILE",E[E.TABLET=1151]="TABLET",E[E.DESKTOP=1365]="DESKTOP",E))(T||{});export{T as B};
