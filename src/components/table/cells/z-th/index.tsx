@@ -97,14 +97,6 @@ export class ZTh {
     this.sortDirection = this.sortDirection === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC;
 
     this.sort.emit({sortDirection: this.sortDirection});
-
-    const row = this.host.parentElement;
-    if (row) {
-      const zThElements = Array.from(row.querySelectorAll("z-th"));
-      zThElements.forEach((th) => (th.style.zIndex = "1"));
-    }
-
-    this.host.style.zIndex = "2";
   }
 
   @Watch("colspan")
@@ -123,25 +115,16 @@ export class ZTh {
   render(): HTMLZThElement {
     return (
       <Host
-        role="columnHeader"
+        role="columnheader"
         menu-open={this.isMenuOpen}
         aria-sort={this.ariaSortDirection}
         sortable={this.showSorting}
       >
-        <div
-          tabIndex={1}
-          class="zth-body"
-          style={this.showMenu && {justifyContent: "space-between"}}
-          onClick={() => {
-            if (this.showSorting) {
-              this.handleSort();
-            }
-          }}
-        >
+        <div class="cell--content">
           <slot></slot>
           {this.showSorting && (
             <button
-              class={{"z-th--sort-button": true, "sort-active": this.showSorting === VisibilityCondition.ALWAYS}}
+              class="z-th--sort-button"
               type="button"
               onClick={this.handleSort.bind(this)}
             >

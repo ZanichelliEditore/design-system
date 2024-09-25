@@ -2,11 +2,15 @@
   position: relative;
   display: flex;
   max-width: 100%;
-  box-sizing: border-box;
   align-items: center;
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
   background-color: var(--color-surface01);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
+}
+
+:host,
+* {
+  box-sizing: border-box;
 }
 
 :host([sticky]) {
@@ -17,11 +21,23 @@
   box-shadow: 8px 0 16px -8px var(--shadow-color-base);
 }
 
-.cell--content-container {
+:host([menu-open]) {
+  z-index: 2;
+}
+
+.cell--content {
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
+}
+
+:host([show-menu]) .cell--content {
+  column-gap: var(--space-unit);
+}
+
+.cell--menu-container {
+  margin-left: auto;
 }
 
 :host(:not([show-menu])) .cell--menu-container {
@@ -31,6 +47,7 @@
 
 :host(:is([show-menu], [menu-open])) .cell--menu-container,
 :host([show-menu]) .cell--menu-container:focus-within {
+  z-index: 1;
   opacity: 1;
   pointer-events: all;
 }
@@ -46,6 +63,7 @@
   }
 
   :host([show-menu="hover"]:hover) .cell--menu-container {
+    z-index: 1;
     opacity: 1;
     pointer-events: all;
   }

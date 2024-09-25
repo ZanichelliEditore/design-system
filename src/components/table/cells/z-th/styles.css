@@ -2,46 +2,53 @@
 
 :host {
   z-index: 1;
-  box-sizing: border-box;
   padding: 0;
   background-color: var(--color-surface02);
   font-weight: var(--font-sb);
 }
 
-:host([sticky]) {
-  background-color: var(--color-surface02);
-}
-
-:host([sortable]) {
-  cursor: pointer;
-}
-
-.z-th--sort-button {
-  display: none;
-}
-
-:host(:hover) .z-th--sort-button,
-:host .sort-active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: none;
-  margin-top: auto;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-:host > .zth-body {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  align-items: center;
+.cell--content {
   padding: calc(var(--space-unit) * 2);
 }
 
-.zth-body:focus {
-  border: 2px solid var(--blue800);
+:host([show-sorting]) .cell--content {
+  column-gap: var(--space-unit);
+}
+
+.z-th--sort-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
   outline: none;
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  :host([show-sorting="hover"]) .z-th--sort-button {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  :host([show-sorting="hover"]:hover) .z-th--sort-button,
+  :host([show-sorting="hover"]) .z-th--sort-button:focus:focus-visible,
+  :host([show-sorting="always"]) .z-th--sort-button {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+:host([show-sorting="hover"]:hover) .z-th--sort-button::after,
+:host([show-sorting="hover"]) .z-th--sort-button:focus:focus-visible::after,
+:host([show-sorting="always"]) .z-th--sort-button::after {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 10px);
+  background-color: transparent;
+  content: "";
+}
+
+.z-th--sort-button:focus:focus-visible::after {
+  box-shadow: var(--shadow-focus-primary);
 }

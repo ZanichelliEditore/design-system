@@ -84,10 +84,7 @@ export class ZTd {
         role="cell"
         menu-open={this.isMenuOpen}
       >
-        <div
-          class="cell--content-container"
-          style={this.showMenu && {justifyContent: "space-between"}}
-        >
+        <div class="cell--content">
           <slot></slot>
           {this.showMenu && (
             <div class="cell--menu-container prevent-expand">
