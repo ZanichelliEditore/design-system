@@ -62,6 +62,12 @@ export class ZTh {
   isMenuOpen = false;
 
   /**
+   * Store the active state for sorting.
+   */
+  @State()
+  isSortingActive = false;
+
+  /**
    * Sort event fired when the user clicks on the sort button.
    * The sorting logic must be implemented by the app.
    * You can set an `id` on the `z-th` to easly identify the column in the event listener.
@@ -91,10 +97,13 @@ export class ZTh {
    */
   private handleSort(): void {
     if (!this.sortDirection) {
+      this.isSortingActive = false;
+
       return;
     }
 
     this.sortDirection = this.sortDirection === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC;
+    this.isSortingActive = true;
 
     this.sort.emit({sortDirection: this.sortDirection});
   }
@@ -124,7 +133,10 @@ export class ZTh {
           <slot></slot>
           {this.showSorting && (
             <button
-              class="z-th--sort-button"
+              class={{
+                "z-th--sort-button": true,
+                "z-th--sort-button--active": this.isSortingActive,
+              }}
               type="button"
               onClick={this.handleSort.bind(this)}
             >

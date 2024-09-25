@@ -49,6 +49,7 @@
   content: "";
 }
 
-.z-th--sort-button:focus:focus-visible::after {
+.z-th--sort-button:focus:focus-visible::after,
+.z-th--sort-button--active::after {
   box-shadow: var(--shadow-focus-primary);
 }
