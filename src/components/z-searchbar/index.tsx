@@ -235,6 +235,7 @@ export class ZSearchbar {
   private handleStopTyping(e: CustomEvent): void {
     e.stopPropagation();
     this.searchString = e.detail.value;
+    if (this.selectedItem) this.selectedItem = undefined;
   }
 
   private handleSubmit(): void {
