@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 import {PopoverPosition, ZChipType} from "../../../beans";
-import {tabletBreakpoint} from "../../../constants/breakpoints";
+import {Breakpoints} from "../../../constants/breakpoints";
 
 @Component({
   tag: "z-file",
@@ -56,7 +56,7 @@ export class ZFile {
   }
 
   componentDidLoad(): void {
-    if (this.elementHasEllipsis() && window.innerWidth > tabletBreakpoint) {
+    if (this.elementHasEllipsis() && window.innerWidth > Breakpoints.TABLET) {
       this.allowPopover = true;
     }
 

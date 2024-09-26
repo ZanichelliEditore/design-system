@@ -20,17 +20,17 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-              <img alt="Logo Zanichelli" class="z-logo">
-                <slot name="product-logo"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
             </div>
+            <nav class="menu-container"></nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -58,17 +58,17 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-              <img alt="Logo Zanichelli" class="z-logo">
-                <slot name="product-logo"></slot>
+              <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
             </div>
+            <nav aria-label="Titolo di test" class="menu-container"></nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -100,15 +100,16 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <slot name="title"></slot>
               </div>
             </div>
+            <nav aria-label="Titolo di test" class="menu-container"></nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -147,17 +148,20 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
-                <slot name="product-logo"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
               </div>
             </div>
+            <nav aria-label="Titolo di test" class="menu-container"></nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -190,21 +194,24 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header  enable-z-logo="true" menu-length="0" stuck>
+      <z-app-header enable-z-logo="true" menu-length="0" stuck>
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
-                <slot name="product-logo"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
               </div>
             </div>
+            <nav aria-label="Titolo di test" class="menu-container"></nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -437,25 +444,29 @@ describe("Suite test ZAppHeader", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-app-header  enable-z-logo="true" menu-length="6"  enable-search="true">
+      <z-app-header enable-z-logo="true" menu-length="6" enable-search="true">
         <mock:shadow-root>
-          <div class="has-menu heading-panel">
+          <div class="has-menubar heading-panel">
             <div class="heading-container">
-              <div>
+              <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
-                <img alt="Logo Zanichelli" class="z-logo">
-                <slot name="product-logo"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
                 <slot name="title"></slot>
                 <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
               </div>
             </div>
-            <div class="menu-container" role="hidden" tabindex="0">
-              <slot name="menu"></slot>
-            </div>
+            <nav class="menu-container" aria-label="Titolo di test">
+              <div aria-label="Titolo di test" role="menubar">
+                <slot name="menu"></slot>
+              </div>
+            </nav>
           </div>
-          <z-offcanvas transitiondirection="right" variant="overlay">
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
             <div slot="canvasContent">
               <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
                 <z-icon name="close"></z-icon>
@@ -470,12 +481,12 @@ describe("Suite test ZAppHeader", () => {
           Titolo di test
         </h1>
         <img alt="" slot="product-logo" src="https://picsum.photos/id/237/320/320">
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <a href="">
             Menu label
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <h3>
             Not so short menu label
           </h3>
@@ -511,7 +522,7 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <h3>
             Not so short menu label
           </h3>
@@ -547,12 +558,12 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <a href="">
             Menu label
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <h3>
             Not so short menu label
           </h3>
@@ -588,7 +599,7 @@ describe("Suite test ZAppHeader", () => {
             Item 5
           </a>
         </z-menu>
-        <z-menu floating="" role="menuitem" slot="menu" tabindex="-1">
+        <z-menu floating="" slot="menu">
           <h3>
             Not so short menu label
           </h3>

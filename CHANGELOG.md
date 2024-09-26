@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 16.3.1 (2024-09-24)
+
+## 16.3.0 (2024-09-18)
+
+
+### Features
+
+* add subjects colours tokens and icons ([aeb1490](https://github.com/ZanichelliEditore/design-system/commit/aeb1490167838d010181bffac4927636f9fc119a))
+
 ## 16.2.2 (2024-09-16)
 
 

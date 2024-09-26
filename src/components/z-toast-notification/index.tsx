@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ToastNotification, ToastNotificationTransition} from "../../beans";
-import {mobileBreakpoint} from "../../constants/breakpoints";
+import {Breakpoints} from "../../constants/breakpoints";
 
 import Hammer from "hammerjs";
 
@@ -107,7 +107,7 @@ export class ZToastNotification {
   }
 
   componentWillLoad(): void {
-    this.isMobile = window.innerWidth <= mobileBreakpoint;
+    this.isMobile = window.innerWidth <= Breakpoints.MOBILE;
     this.validateAutoclose();
     this.percentage = 0;
   }

@@ -44,7 +44,6 @@ it("Tests z-combobox search", async () => {
   const clickEvent = await page.spyOnEvent("comboboxChange");
 
   const checkbox = await filteredListElems[0].find("z-input div input");
-  console.log(checkbox);
   await checkbox.click();
   await page.waitForChanges();
 

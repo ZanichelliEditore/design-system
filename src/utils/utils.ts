@@ -1,10 +1,6 @@
 import {ChildNode} from "@stencil/core";
 import {Device, KeyboardCode} from "../beans/index";
-import {desktopBreakpoint, mobileBreakpoint, tabletBreakpoint} from "../constants/breakpoints";
-
-export function format(first: string, middle: string, last: string): string {
-  return (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "");
-}
+import {Breakpoints} from "../constants/breakpoints";
 
 /**
  * Return boolean value for passed value if a boolean corresponding value is found
@@ -100,13 +96,17 @@ export function getSiblings(elem: HTMLElement): ChildNode[] {
   return siblings;
 }
 
+/**
+ * Get the current device type based on the window width.
+ * @returns {Device} - The current device type
+ */
 export function getDevice(): Device {
   switch (true) {
-    case window.innerWidth <= mobileBreakpoint:
+    case window.innerWidth <= Breakpoints.MOBILE:
       return Device.MOBILE;
-    case window.innerWidth <= tabletBreakpoint:
+    case window.innerWidth <= Breakpoints.TABLET:
       return Device.TABLET;
-    case window.innerWidth <= desktopBreakpoint:
+    case window.innerWidth <= Breakpoints.DESKTOP:
       return Device.DESKTOP;
     default:
       return Device.DESKTOP_WIDE;
@@ -154,4 +154,13 @@ export function isSelectorValid(selector: string): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * Check if an element contains another element, checking both light and shadow DOM.
+ * @param ancestor Ancestor element
+ * @param descendant Descendant element
+ */
+export function containsElement(ancestor: HTMLElement, descendant: Node): boolean {
+  return ancestor.contains(descendant) || !!ancestor.shadowRoot?.contains(descendant);
 }

@@ -1,6 +1,3 @@
-/** @jsx React.createElement */
-/** @jsxFrag React.Fragment */
-
 import {PresetColor, PureArgsTable, SortType} from "@storybook/blocks";
 import {Badge, Spaced} from "@storybook/components";
 import {includeConditionalArg} from "@storybook/csf";
