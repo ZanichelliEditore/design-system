@@ -273,6 +273,7 @@ export class ZSearchbar {
         ref={(val) => {
           this.inputRef = val;
         }}
+        htmlid={`input-${this.htmlid}`}
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
@@ -294,12 +295,14 @@ export class ZSearchbar {
 
     const iconProp = this.searchButtonIconOnly ? {icon: "search"} : null;
     const buttonLabel = this.searchButtonIconOnly ? "" : "CERCA";
+    const ariaLabel = this.searchButtonIconOnly ? {"aria-label": "CERCA"} : null;
     const defaultProps = {
       disabled: this.preventSubmit,
       variant: this.variant,
       size: this.size,
       onClick: () => this.handleSubmit(),
       ...iconProp,
+      ...ariaLabel,
     };
 
     return <z-button {...defaultProps}>{buttonLabel}</z-button>;
