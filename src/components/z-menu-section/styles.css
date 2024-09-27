@@ -37,6 +37,10 @@
   text-align: left;
 }
 
+:host(:last-child:not([open])) .label {
+  border-bottom: none;
+}
+
 :host(:is([active], [open])) .label,
 .label:focus:focus-visible,
 .label:hover {
@@ -100,6 +104,10 @@ when placed below the real text using `flex-direction: column`. */
   flex-direction: column;
   padding: calc(var(--space-unit) / 2);
   padding-bottom: calc(var(--space-unit) * 1.5);
+}
+
+.items[hidden] {
+  display: none;
 }
 
 ::slotted([slot="section"]) {

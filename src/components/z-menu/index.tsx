@@ -126,11 +126,9 @@ export class ZMenu {
   private setItemsA11yAttrs(): void {
     this.items.forEach((item, index) => {
       const tabindex = index === 0 ? 0 : -1;
-      if (isZMenuSection(item)) {
-        item.htmlTabindex = tabindex;
-      } else {
+      this.setItemTabindex(item, tabindex);
+      if (!isZMenuSection(item)) {
         item.setAttribute("role", "menuitem");
-        item.tabIndex = tabindex;
       }
     });
   }
@@ -144,6 +142,14 @@ export class ZMenu {
         item.dataset.text = item.textContent;
       }
     });
+  }
+
+  private setItemTabindex(item: HTMLElement | HTMLZMenuSectionElement, tabIndex: number): void {
+    if (isZMenuSection(item)) {
+      item.htmlTabindex = tabIndex;
+    } else {
+      item.tabIndex = tabIndex;
+    }
   }
 
   /**
@@ -167,11 +173,12 @@ export class ZMenu {
       return;
     }
 
-    if (isZMenuSection(current)) {
-      current.htmlTabindex = -1;
-    } else {
-      current.tabIndex = -1;
-    }
+    this.setItemTabindex(current, -1);
+  }
+
+  private onLabelClick(): void {
+    this.toggle();
+    this.setFocus();
   }
 
   private onLabelKeydown(ev: KeyboardEvent): void {
@@ -179,6 +186,11 @@ export class ZMenu {
       ev.preventDefault();
       ev.stopPropagation();
       this.toggle();
+      if (this.open) {
+        this.moveFocus(this.items[0]);
+      }
+
+      return;
     }
 
     if (!this.verticalContext) {
@@ -189,14 +201,7 @@ export class ZMenu {
       ev.preventDefault();
       ev.stopPropagation();
       this.open = true;
-
-      return;
-    }
-
-    if (ev.key === KeyboardCode.ARROW_LEFT && this.open) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      this.open = false;
+      this.moveFocus(this.items[0]);
     }
   }
 
@@ -208,16 +213,23 @@ export class ZMenu {
     label.focus();
   }
 
-  /** Focus the last item. */
+  /**
+   * Focus the last item.
+   */
   @Method()
   async focusLastItem(): Promise<void> {
-    this.htmlTabindex = 0;
-    this.moveFocus(this.items[this.items.length - 1]);
+    const lastItem = this.items[this.items.length - 1];
+    if (isZMenuSection(lastItem) && lastItem.open) {
+      lastItem.focusLastItem();
+
+      return;
+    }
+
+    this.moveFocus(lastItem);
   }
 
   @Watch("open")
   onOpenChanged(): void {
-    this.setItemsA11yAttrs();
     if (!this.open) {
       cancelAnimationFrame(this.raf);
       this.closed.emit();
@@ -230,6 +242,7 @@ export class ZMenu {
       return;
     }
 
+    this.setItemsA11yAttrs();
     this.opened.emit();
     if (this.floating) {
       this.reflow(true);
@@ -261,50 +274,56 @@ export class ZMenu {
 
     switch (ev.key) {
       case KeyboardCode.ESC:
+        if (!this.open) {
+          break;
+        }
         ev.stopPropagation();
         ev.preventDefault();
         this.open = false;
         this.setFocus();
         break;
       case KeyboardCode.ARROW_DOWN: {
-        if (this.verticalContext && document.activeElement === this.host && !this.open) {
-          break;
-        }
-
         if (document.activeElement === this.host) {
+          if (this.verticalContext && !this.open) {
+            break;
+          }
+
+          ev.stopPropagation();
+          ev.preventDefault();
           if (!this.open) {
             this.open = true;
           }
-          ev.stopPropagation();
-          ev.preventDefault();
           this.moveFocus(this.items[0]);
           break;
         }
 
         const currentIndex = this.items.indexOf(this.focusableItem);
-        const receiver = this.items[currentIndex + 1];
-        if (this.verticalContext && !receiver) {
+        if (this.verticalContext && currentIndex === this.items.length - 1) {
+          // navigation is going to leave this menu. restore tabindex to the label and let the parent handle it
+          this.setItemTabindex(this.items[currentIndex], -1);
+          this.htmlTabindex = 0;
           break;
         }
 
         ev.stopPropagation();
         ev.preventDefault();
+        const receiver = this.items[currentIndex + 1];
         // if the last item is already focused, navigate to the first one
         this.moveFocus(receiver ?? this.items[0], this.focusableItem);
         break;
       }
       case KeyboardCode.ARROW_UP: {
-        if (this.verticalContext && document.activeElement === this.host) {
-          break;
-        }
-
         if (document.activeElement === this.host) {
+          if (this.verticalContext) {
+            break;
+          }
+
+          ev.stopPropagation();
+          ev.preventDefault();
           // open the menu and focus the last item
           if (!this.open) {
             this.open = true;
           }
-          ev.stopPropagation();
-          ev.preventDefault();
           this.moveFocus(this.items[this.items.length - 1], this.focusableItem);
           break;
         }
@@ -312,24 +331,33 @@ export class ZMenu {
         ev.stopPropagation();
         ev.preventDefault();
         const currentIndex = this.items.indexOf(this.focusableItem);
-        const receiver = this.items[currentIndex - 1];
-        if (!receiver && this.verticalContext) {
+        if (currentIndex === 0 && this.verticalContext) {
+          this.setItemTabindex(this.focusableItem, -1);
           this.setFocus();
           break;
         }
 
+        const receiver = this.items[currentIndex - 1] ?? this.items[this.items.length - 1];
+        // if the receiver is a ZMenuSection and it's open, focus its last item
         if (isZMenuSection(receiver) && receiver.open) {
-          isZMenuSection(this.focusableItem)
-            ? (this.focusableItem.htmlTabindex = -1)
-            : (this.focusableItem.tabIndex = -1);
+          this.setItemTabindex(this.focusableItem, -1);
           receiver.focusLastItem();
           break;
         }
 
-        // if the first item is already focused, navigate to the last one
-        this.moveFocus(receiver ?? this.items[this.items.length - 1], this.focusableItem);
+        this.moveFocus(receiver, this.focusableItem);
         break;
       }
+      case KeyboardCode.ARROW_LEFT:
+        if (!this.open || !this.verticalContext) {
+          break;
+        }
+
+        // close the menu and focus the label
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.open = false;
+        this.setFocus();
     }
   }
 
@@ -337,6 +365,7 @@ export class ZMenu {
     this.toggle = this.toggle.bind(this);
     this.checkContent = this.checkContent.bind(this);
     this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
+    this.onLabelClick = this.onLabelClick.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
     this.onLabelKeydown = this.onLabelKeydown.bind(this);
   }
@@ -369,8 +398,8 @@ export class ZMenu {
             aria-haspopup={`${this.hasContent}`}
             aria-label={this.open ? "Chiudi menù" : "Apri menù"}
             role="menuitem"
-            tabindex={this.htmlTabindex}
-            onClick={this.toggle}
+            tabIndex={this.htmlTabindex}
+            onClick={this.onLabelClick}
             onKeyDown={this.onLabelKeydown}
           >
             <div class="menu-label-content">
