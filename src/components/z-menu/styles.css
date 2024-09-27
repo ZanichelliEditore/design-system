@@ -26,9 +26,12 @@
 
 .menu-label {
   position: relative;
+  display: flex;
   width: 100%;
+  align-items: center;
   padding: 0;
   border: 0;
+  border-bottom: var(--border-size-large) solid transparent;
   margin: 0;
   background: transparent;
   border-radius: 0;
@@ -36,58 +39,39 @@
   text-align: left;
 }
 
-.menu-wrapper {
-  display: flex;
-  align-items: center;
-}
-
 button.menu-label {
   cursor: pointer;
 }
 
-.menu-label:focus-within {
+.menu-label:focus-visible,
+div.menu-label:focus-within {
   box-shadow: var(--shadow-focus-primary);
 }
 
-.menu-label .menu-label-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-bottom: var(--border-size-large) solid transparent;
-}
-
-:host(:is([active], [open])) .menu-label-content,
-.menu-label:focus-within .menu-label-content {
+:host(:is([active], [open])) .menu-label ::slotted(*),
+.menu-label:focus-visible ::slotted(*),
+div.menu-label:focus-within ::slotted(*) {
   color: var(--color-primary01);
   font-weight: var(--font-bd);
 }
 
-:host(:is([active], [open])) .menu-label-content ::slotted(*),
-.menu-label:focus-within .menu-label-content ::slotted(*),
-.menu-label:focus-within .menu-label-content z-icon {
-  color: var(--color-primary01);
-  letter-spacing: normal;
-}
-
-:host([vertical-context]) .menu-label-content {
+:host([vertical-context]) .menu-label {
   padding: var(--space-unit) 0;
   border-width: var(--border-size-small);
   border-color: var(--color-surface03);
 }
 
-:host([vertical-context]) .menu-label-content ::slotted(*) {
-  padding: 0;
-}
-
-:host(:is([active], [open])) .menu-label .menu-label-content,
-.menu-label .menu-label-content:hover,
-.menu-label:focus-within .menu-label-content {
+:host(:is([active], [open])) .menu-label,
+.menu-label:hover,
+.menu-label:focus-visible,
+div.menu-label:focus-within {
   border-color: var(--color-secondary01);
 }
 
-:host([vertical-context]:is([active], [open])) .menu-label .menu-label-content::after,
+:host([vertical-context]:is([active], [open])) .menu-label::after,
 :host([vertical-context]) .menu-label:hover::after,
-:host([vertical-context]) .menu-label:focus-within .menu-label-content::after {
+:host([vertical-context]) .menu-label:focus-visible::after,
+:host([vertical-context]) div.menu-label:focus-within::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -95,6 +79,29 @@ button.menu-label {
   height: var(--border-size-large);
   background-color: var(--color-secondary01);
   content: "";
+}
+
+:host([vertical-context]) .menu-label ::slotted(*) {
+  padding: 0;
+}
+
+.menu-label ::slotted(*) {
+  display: inline-flex;
+  width: 100%;
+  min-width: fit-content;
+  padding-bottom: 2px;
+  margin: 0;
+  appearance: none;
+  color: var(--z-menu-label-color, var(--color-default-text));
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-3);
+  font-weight: inherit;
+  line-height: 1.5;
+}
+
+.menu-label z-icon {
+  margin-left: calc(var(--space-unit) * 1.5);
+  fill: var(--color-default-icon);
 }
 
 /* Prevents layout shifts on font-weight changes.
@@ -123,25 +130,6 @@ when placed below the real text using `flex-direction: column`. */
 ::slotted([data-text]:not([slot])) {
   display: inline-flex;
   flex-direction: column;
-}
-
-.menu-label .menu-label-content ::slotted(*) {
-  display: inline-flex;
-  width: 100%;
-  min-width: fit-content;
-  padding-bottom: 2px;
-  margin: 0;
-  appearance: none;
-  color: var(--z-menu-label-color, var(--color-default-text));
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size-3);
-  font-weight: inherit;
-  line-height: 1.5;
-}
-
-.menu-label .menu-label-content z-icon {
-  margin-left: calc(var(--space-unit) * 1.5);
-  fill: var(--color-default-icon);
 }
 
 .content {

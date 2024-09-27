@@ -378,36 +378,28 @@ export class ZMenu {
   render(): HTMLDivElement | HTMLZMenuElement {
     if (!this.hasContent) {
       return (
-        <div class="menu-wrapper">
-          <div class="menu-label">
-            <div class="menu-label-content">
-              <slot onSlotchange={this.onLabelSlotChange} />
-            </div>
-          </div>
+        <div class="menu-label">
+          <slot onSlotchange={this.onLabelSlotChange} />
         </div>
       );
     }
 
     return (
       <Host>
-        <div class="menu-wrapper">
-          <button
-            ref={(el) => (this.labelButton = el)}
-            class="menu-label"
-            aria-expanded={`${!!this.open}`}
-            aria-haspopup={`${this.hasContent}`}
-            aria-label={this.open ? "Chiudi menù" : "Apri menù"}
-            role="menuitem"
-            tabIndex={this.htmlTabindex}
-            onClick={this.onLabelClick}
-            onKeyDown={this.onLabelKeydown}
-          >
-            <div class="menu-label-content">
-              <slot onSlotchange={this.onLabelSlotChange} />
-              <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
-            </div>
-          </button>
-        </div>
+        <button
+          ref={(el) => (this.labelButton = el)}
+          class="menu-label"
+          aria-expanded={`${!!this.open}`}
+          aria-haspopup={`${this.hasContent}`}
+          aria-label={this.open ? "Chiudi menù" : "Apri menù"}
+          role="menuitem"
+          tabIndex={this.htmlTabindex}
+          onClick={this.onLabelClick}
+          onKeyDown={this.onLabelKeydown}
+        >
+          <slot onSlotchange={this.onLabelSlotChange} />
+          <z-icon name={this.open ? "chevron-up" : "chevron-down"} />
+        </button>
 
         <div
           class="content"
