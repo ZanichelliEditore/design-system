@@ -93,6 +93,8 @@ describe("z-searchbar test end2end", () => {
     await page.waitForChanges();
     await page.waitForEvent("searchTyping");
 
+    expect(await page.find("z-searchbar >>> div.results-wrapper")).not.toBeNull();
+
     const item = await page.find("z-searchbar >>> #list-item-myIdAutocomplete-0");
     expect(item).not.toBeNull();
 
@@ -100,5 +102,7 @@ describe("z-searchbar test end2end", () => {
     await page.waitForChanges();
 
     expect(searchItemClickEvent).toHaveReceivedEvent();
+    expect(searchItemClickEvent.events[0].detail.label).toEqual(item.innerText);
+    expect(await page.find("z-searchbar >>> div.results-wrapper")).toBeNull();
   });
 });
