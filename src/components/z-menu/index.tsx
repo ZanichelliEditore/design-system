@@ -1,5 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
+import {containsElement} from "../../utils/utils";
 
 const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZMenuSectionElement =>
   el?.tagName === "Z-MENU-SECTION";
@@ -264,6 +265,27 @@ export class ZMenu {
     const slottedLabel = this.host.firstElementChild as HTMLElement;
     slottedLabel.role = "menuitem";
     slottedLabel.tabIndex = this.htmlTabindex;
+  }
+
+  /**
+   * Set tabindex to -1 to all siblings of the clicked item.
+   */
+  @Listen("click", {target: "document"})
+  onItemClick(ev: MouseEvent): void {
+    const clickedItem = this.items.find((item) => containsElement(item, ev.target as HTMLElement));
+    if (clickedItem) {
+      this.items.forEach((item) => {
+        if (item === clickedItem) {
+          return;
+        }
+
+        if (isZMenuSection(item)) {
+          item.htmlTabindex = -1;
+        } else {
+          item.tabIndex = -1;
+        }
+      });
+    }
   }
 
   @Listen("keydown")

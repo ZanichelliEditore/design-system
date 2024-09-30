@@ -238,27 +238,22 @@ export class ZAppHeader {
       return;
     }
 
-    if ((ev.target as HTMLElement).closest("z-menu")) {
-      if (ev.shiftKey) {
-        return;
-      }
-
+    const closestMenu = (ev.target as HTMLElement).closest("z-menu");
+    if (closestMenu) {
       ev.preventDefault();
       ev.stopPropagation();
+      // restore tabindex to the zmenu containing the focused element
+      closestMenu.htmlTabindex = 0;
       this.closeDrawerButton.focus();
     } else if (ev.target === this.closeDrawerButton) {
-      if (!ev.shiftKey) {
-        return;
-      }
-
       ev.preventDefault();
       ev.stopPropagation();
-      const lastMenu = this.menuElements[this.menuLength - 1];
-      if (lastMenu.open) {
-        this.focusableMenu.htmlTabindex = -1;
-        lastMenu.focusLastItem();
+      if (ev.shiftKey) {
+        // give focus to the last open menu if any or the last menu otherwhise
+        (this.menuElements.filter((menu) => menu.open).pop() ?? this.menuElements[this.menuLength - 1]).setFocus();
       } else {
-        this.moveFocus(this.focusableMenu, lastMenu);
+        // give focus to the first open menu if any or the first menu otherwhise
+        (this.menuElements.find((menu) => menu.open) ?? this.menuElements[0]).setFocus();
       }
     }
   }
@@ -267,19 +262,22 @@ export class ZAppHeader {
   @Listen("focusin", {target: "document", passive: true})
   @Listen("click", {target: "document", passive: true})
   manageMenus(ev: FocusEvent | PointerEvent): void {
-    this.menuElements.forEach((menu) => {
-      if (containsElement(menu, ev.target as Element)) {
-        return;
-      }
+    const targetMenu = this.menuElements.find((menu) => containsElement(menu, ev.target as Element));
+    if (targetMenu) {
+      this.menuElements.forEach((menu) => {
+        if (menu === targetMenu) {
+          return;
+        }
 
-      menu.htmlTabindex = -1;
-      if (!menu.verticalContext) {
+        menu.htmlTabindex = -1;
+        if (!this.drawerOpen) {
+          menu.open = false;
+        }
+      });
+    } else if (!this.drawerOpen) {
+      this.menuElements.forEach((menu) => {
         menu.open = false;
-      }
-    });
-    // restore tabindex to the first menu if all menus are closed and with tabindex -1
-    if (this.menuElements.every((menu) => menu.htmlTabindex === -1 && menu.open === false)) {
-      this.menuElements[0].htmlTabindex = 0;
+      });
     }
   }
 

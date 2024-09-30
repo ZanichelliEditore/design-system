@@ -234,7 +234,7 @@ export class ZMenuSection {
           aria-expanded={`${!!this.open}`}
           role="menuitem"
           tabindex={this.htmlTabindex}
-          onClick={this.toggle}
+          onClick={this.onLabelClick}
           onKeyDown={this.onLabelKeydown}
         >
           <slot onSlotchange={this.onLabelSlotChange} />
