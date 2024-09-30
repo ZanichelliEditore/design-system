@@ -90,6 +90,9 @@ export class ZSearchbar {
   @State()
   isMobile = false;
 
+  @State()
+  selectedItem?: SearchbarItem;
+
   @Element() element: HTMLZSearchbarElement;
 
   private resultsItemsList: SearchbarItem[] | undefined = null;
@@ -122,6 +125,8 @@ export class ZSearchbar {
 
   private emitSearchItemClick(item: SearchbarItem): void {
     this.searchItemClick.emit(item);
+    this.selectedItem = item;
+    this.searchString = "";
   }
 
   @Watch("resultsItems")
@@ -230,6 +235,9 @@ export class ZSearchbar {
   private handleStopTyping(e: CustomEvent): void {
     e.stopPropagation();
     this.searchString = e.detail.value;
+    if (this.selectedItem) {
+      this.selectedItem = undefined;
+    }
   }
 
   private handleSubmit(): void {
@@ -265,6 +273,7 @@ export class ZSearchbar {
         ref={(val) => {
           this.inputRef = val;
         }}
+        htmlid={`input-${this.htmlid}`}
         message={false}
         placeholder={this.placeholder}
         onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
@@ -272,7 +281,7 @@ export class ZSearchbar {
           handleEnterKeydSubmit(e, () => this.handleSubmit());
           this.handleArrowsNavigation(e);
         }}
-        value={this.value}
+        value={this.searchString || this.selectedItem?.label}
         ariaLabel={this.placeholder}
         size={this.size}
       />
@@ -286,12 +295,14 @@ export class ZSearchbar {
 
     const iconProp = this.searchButtonIconOnly ? {icon: "search"} : null;
     const buttonLabel = this.searchButtonIconOnly ? "" : "CERCA";
+    const ariaLabel = this.searchButtonIconOnly ? {"aria-label": "CERCA"} : null;
     const defaultProps = {
       disabled: this.preventSubmit,
       variant: this.variant,
       size: this.size,
       onClick: () => this.handleSubmit(),
       ...iconProp,
+      ...ariaLabel,
     };
 
     return <z-button {...defaultProps}>{buttonLabel}</z-button>;
