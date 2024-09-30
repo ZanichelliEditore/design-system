@@ -120,7 +120,7 @@ export const Title = {
       .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
-      <h1 slot="title">Applicazione</h1>
+      <a href="zanichelli.it" slot="title">Applicazione</h1>
     </z-app-header>`,
 } satisfies Story;
 

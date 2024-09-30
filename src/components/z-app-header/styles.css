@@ -137,6 +137,10 @@
   text-overflow: ellipsis;
 }
 
+::slotted(a:is([slot="title"], [slot="stucked-title"])) {
+  text-decoration: none;
+}
+
 :host([enable-search]) ::slotted([slot="title"]) + * {
   margin-left: calc(var(--space-unit) * 2);
 }
