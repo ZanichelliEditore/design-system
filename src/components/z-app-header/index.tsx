@@ -71,6 +71,12 @@ export class ZAppHeader {
   enableZLogo = true;
 
   /**
+   * The opening state of the drawer.
+   */
+  @Prop({mutable: true})
+  drawerOpen = false;
+
+  /**
    * Emitted when the `stuck` state of the header changes
    */
   @Event()
@@ -87,12 +93,6 @@ export class ZAppHeader {
    */
   @State()
   private menuLength: number;
-
-  /**
-   * The opening state of the drawer.
-   */
-  @State()
-  private drawerOpen = false;
 
   @State()
   private isMobile = true;
@@ -145,6 +145,10 @@ export class ZAppHeader {
 
   @Watch("stuck")
   onStuckChange(): void {
+    if (!this.container) {
+      return;
+    }
+
     if (this.stuck) {
       this.stuckIntersecObserver?.observe(this.container);
     } else {

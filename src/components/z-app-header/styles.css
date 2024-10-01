@@ -42,7 +42,7 @@
   align-items: baseline;
   padding: calc(var(--space-unit) * 2);
   margin: 0 auto;
-  background: var(--app-header-bg);
+  background: var(--app-header-bg, var(--color-surface01));
 }
 
 :host(:empty) .heading-panel {
@@ -128,7 +128,6 @@
 ::slotted([slot="title"]) {
   display: -webkit-box;
   overflow: hidden;
-  flex-grow: 1;
   -webkit-box-orient: vertical;
   font-size: var(--title-font-size);
   -webkit-line-clamp: 2;
@@ -271,6 +270,10 @@ z-searchbar {
 
 .drawer-content {
   display: none;
+}
+
+z-offcanvas {
+  --z-offcanvas--top-space: var(--app-header-top-offset);
 }
 
 z-offcanvas[open] .drawer-content {
