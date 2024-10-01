@@ -30,142 +30,77 @@ const StoryMeta = {
 
 export default StoryMeta;
 
+const menuItemsTemplate = (): TemplateResult => {
+  return html`<a
+      href=""
+      slot="item"
+      >Item 1</a
+    >
+    <z-menu-section slot="item">
+      <h3>Item 2</h3>
+      <a
+        href=""
+        slot="section"
+        >Item 2.1</a
+      >
+      <a
+        href=""
+        slot="section"
+        >Item 2.2</a
+      >
+    </z-menu-section>
+    <z-menu-section slot="item">
+      <h3>Item 3</h3>
+      <a
+        href=""
+        slot="section"
+        >Item 3.1</a
+      >
+      <a
+        href=""
+        slot="section"
+        >Item 3.2</a
+      >
+    </z-menu-section>
+    <a
+      href=""
+      slot="item"
+      >Item 4</a
+    >
+    <z-menu-section slot="item">
+      <h3>Item 5</h3>
+      <a
+        href=""
+        slot="section"
+        >Item 5.1</a
+      >
+      <a
+        href=""
+        slot="section"
+        >Item 5.2</a
+      >
+    </z-menu-section>`;
+};
+
 const menuTemplate = (): TemplateResult => {
   return html`
     <z-menu slot="menu">
       <h3>Menu label 1</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
+      ${menuItemsTemplate()}
     </z-menu>
+
     <z-menu slot="menu">
       <a href>Menu label 2</a>
     </z-menu>
+
     <z-menu slot="menu">
       <h3>Menu label 3</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
+      ${menuItemsTemplate()}
     </z-menu>
+
     <z-menu slot="menu">
       <h3>Menu label 4</h3>
-      <a
-        href=""
-        slot="item"
-        >Item 1</a
-      >
-      <a
-        href=""
-        slot="item"
-        >Item 2</a
-      >
-      <z-menu-section slot="item">
-        <h3>Item 3</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 3.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 3.2</a
-        >
-      </z-menu-section>
-      <z-menu-section slot="item">
-        <h3>Item 4</h3>
-        <a
-          href=""
-          slot="section"
-          >Item 4.1</a
-        >
-        <a
-          href=""
-          slot="section"
-          >Item 4.2</a
-        >
-      </z-menu-section>
-      <a
-        href=""
-        slot="item"
-        >Item 5</a
-      >
+      ${menuItemsTemplate()}
     </z-menu>
   `;
 };
@@ -185,7 +120,7 @@ export const Title = {
       .enableZLogo=${args.enableZLogo}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
-      <h1 slot="title">Applicazione</h1>
+      <a href="zanichelli.it" slot="title">Applicazione</h1>
     </z-app-header>`,
 } satisfies Story;
 

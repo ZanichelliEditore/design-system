@@ -55,7 +55,6 @@ export class ZMenuSection {
     }
 
     this.open = !this.open;
-    this.setFocus();
   }
 
   private setItemsA11yAttrs(): void {
@@ -63,9 +62,9 @@ export class ZMenuSection {
       return;
     }
 
-    this.items.forEach((item, index) => {
+    this.items.forEach((item) => {
       item.setAttribute("role", "menuitem");
-      item.setAttribute("tabindex", index === 0 ? "0" : "-1");
+      item.tabIndex = -1;
     });
   }
 
@@ -84,11 +83,19 @@ export class ZMenuSection {
     labelElement.dataset.text = labelElement?.textContent;
   }
 
+  private onLabelClick(): void {
+    this.toggle();
+    this.setFocus();
+  }
+
   private onLabelKeydown(ev: KeyboardEvent): void {
     if (ev.key === KeyboardCode.ENTER || ev.key === KeyboardCode.SPACE) {
       ev.preventDefault();
       ev.stopPropagation();
       this.toggle();
+      if (this.open) {
+        this.focustFirstItem();
+      }
     }
   }
 
@@ -106,6 +113,16 @@ export class ZMenuSection {
     }
   }
 
+  private focustFirstItem(): void {
+    this.moveFocus(this.items[0]);
+  }
+
+  /** Focus the last item. */
+  @Method()
+  async focusLastItem(): Promise<void> {
+    this.moveFocus(this.items[this.items.length - 1]);
+  }
+
   /** Set tabindex of the label to 0, then focus it. */
   @Method()
   async setFocus(): Promise<void> {
@@ -115,18 +132,11 @@ export class ZMenuSection {
     }, 100);
   }
 
-  /** Focus the last item. */
-  @Method()
-  async focusLastItem(): Promise<void> {
-    this.htmlTabindex = 0;
-    this.moveFocus(this.items[this.items.length - 1]);
-  }
-
   @Watch("open")
   onOpenChange(): void {
     if (!this.open) {
-      this.closed.emit();
       this.setItemsA11yAttrs();
+      this.closed.emit();
     } else {
       this.opened.emit();
     }
@@ -147,7 +157,7 @@ export class ZMenuSection {
         }
         ev.preventDefault();
         ev.stopPropagation();
-        this.label.focus();
+        this.moveFocus(this.label, this.focusableItem);
         this.open = false;
         break;
       case KeyboardCode.ARROW_RIGHT:
@@ -157,6 +167,7 @@ export class ZMenuSection {
         ev.preventDefault();
         ev.stopPropagation();
         this.open = true;
+        this.focustFirstItem();
         break;
       case KeyboardCode.ARROW_DOWN: {
         if (!this.open) {
@@ -165,7 +176,7 @@ export class ZMenuSection {
         if (document.activeElement === this.host) {
           ev.preventDefault();
           ev.stopPropagation();
-          this.moveFocus(this.items[0]);
+          this.focustFirstItem();
           break;
         }
         const currentIndex = this.items.indexOf(this.focusableItem);
@@ -174,6 +185,9 @@ export class ZMenuSection {
           ev.preventDefault();
           ev.stopPropagation();
           this.moveFocus(receiver, this.focusableItem);
+        } else {
+          this.htmlTabindex = 0;
+          this.focusableItem.tabIndex = -1;
         }
         break;
       }
@@ -189,6 +203,7 @@ export class ZMenuSection {
           this.moveFocus(receiver, this.focusableItem);
         } else {
           // since there isn't a previous item to focus, give the focus to the label element
+          this.focusableItem.tabIndex = -1;
           this.setFocus();
         }
         break;
@@ -200,6 +215,7 @@ export class ZMenuSection {
     this.toggle = this.toggle.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
     this.onLabelSlotChange = this.onLabelSlotChange.bind(this);
+    this.onLabelClick = this.onLabelClick.bind(this);
     this.onLabelKeydown = this.onLabelKeydown.bind(this);
     this.onItemsKeydown = this.onItemsKeydown.bind(this);
   }
@@ -214,27 +230,26 @@ export class ZMenuSection {
         <button
           ref={(el) => (this.label = el)}
           class="label"
-          aria-haspopup={`${this.hasItems}`}
+          aria-haspopup={`${!!this.hasItems}`}
           aria-expanded={`${!!this.open}`}
           role="menuitem"
           tabindex={this.htmlTabindex}
-          onClick={this.toggle}
+          onClick={this.onLabelClick}
           onKeyDown={this.onLabelKeydown}
         >
           <slot onSlotchange={this.onLabelSlotChange} />
           {this.hasItems && <z-icon name={this.open ? "chevron-up" : "chevron-down"} />}
         </button>
-        {this.open && (
-          <div
-            class="items"
-            role="menu"
-          >
-            <slot
-              name="section"
-              onSlotchange={this.onItemsChange}
-            />
-          </div>
-        )}
+        <div
+          class="items"
+          role="menu"
+          hidden={!this.open}
+        >
+          <slot
+            name="section"
+            onSlotchange={this.onItemsChange}
+          />
+        </div>
       </Host>
     );
   }
