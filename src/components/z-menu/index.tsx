@@ -67,7 +67,7 @@ export class ZMenu {
 
   private content: HTMLElement;
 
-  private items: (HTMLElement | HTMLZMenuSectionElement)[];
+  private items: (HTMLElement | HTMLZMenuSectionElement)[] = [];
 
   /** Animation frame request id. */
   private raf: number;
@@ -99,6 +99,10 @@ export class ZMenu {
    * @param live Should run the method on every refresh frame.
    */
   private reflow(live = false): void {
+    if (!this.floating) {
+      return;
+    }
+
     if (this.content && this.hasContent) {
       const {style} = this.content;
       const {left} = this.host.getBoundingClientRect();
@@ -118,6 +122,14 @@ export class ZMenu {
   private checkContent(): void {
     this.hasHeader = !!this.host.querySelectorAll("[slot=header]").length;
     this.hasContent = !!this.host.querySelectorAll("[slot=item]").length || this.hasHeader;
+  }
+
+  private setItemTabindex(item: HTMLElement | HTMLZMenuSectionElement, tabIndex: number): void {
+    if (isZMenuSection(item)) {
+      item.htmlTabindex = tabIndex;
+    } else {
+      item.tabIndex = tabIndex;
+    }
   }
 
   /**
@@ -143,14 +155,6 @@ export class ZMenu {
         item.dataset.text = item.textContent;
       }
     });
-  }
-
-  private setItemTabindex(item: HTMLElement | HTMLZMenuSectionElement, tabIndex: number): void {
-    if (isZMenuSection(item)) {
-      item.htmlTabindex = tabIndex;
-    } else {
-      item.tabIndex = tabIndex;
-    }
   }
 
   /**
@@ -252,11 +256,7 @@ export class ZMenu {
 
   @Watch("htmlTabindex")
   setLabelA11yAttrs(): void {
-    if (this.hasContent && !this.labelButton) {
-      return;
-    }
-
-    if (this.hasContent) {
+    if (this.hasContent && this.labelButton) {
       this.labelButton.tabIndex = this.htmlTabindex;
 
       return;
@@ -392,9 +392,9 @@ export class ZMenu {
     this.onLabelKeydown = this.onLabelKeydown.bind(this);
   }
 
-  connectedCallback(): void {
-    this.onItemsChange();
+  componentWillLoad(): void {
     this.setLabelA11yAttrs();
+    this.onItemsChange();
   }
 
   render(): HTMLDivElement | HTMLZMenuElement {

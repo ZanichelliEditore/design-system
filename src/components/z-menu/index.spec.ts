@@ -47,7 +47,7 @@ describe("Suite test ZMenu", () => {
             </div>
           </div>
         </mock:shadow-root>
-        <h3>Menu label</h3>
+        <h3 tabindex="-1">Menu label</h3>
         <a href="#" slot="item">Item 1</a>
         <a href="#" slot="item">Item 2</a>
         <a href="#" slot="item">Item 3</a>
@@ -81,12 +81,8 @@ describe("Suite test ZMenu", () => {
             </div>
           </div>
         </mock:shadow-root>
-        <h3>
-          Menu label
-        </h3>
-        <a href="#" slot="item">
-          Item 1
-        </a>
+        <h3 tabindex="-1">Menu label</h3>
+        <a href="#" slot="item">Item 1</a>
         <z-menu-section slot="item">
           <mock:shadow-root>
             <button aria-expanded="false" aria-haspopup="true" class="label" role="menuitem" tabindex="-1">

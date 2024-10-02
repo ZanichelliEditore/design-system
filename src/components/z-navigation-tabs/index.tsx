@@ -171,16 +171,20 @@ export class ZNavigationTabs {
   onTabSelected(): void {
     this.tabs.forEach((tab, i) => {
       const zicon = tab.querySelector("z-icon");
-      const strokeIcon = zicon?.getAttribute("name").replace("-filled", "");
+      const strokeIcon = zicon?.name.replace("-filled", "");
       if (i !== this.selectedTab) {
         tab.setAttribute("aria-selected", "false");
         tab.tabIndex = -1;
-        zicon?.setAttribute("name", strokeIcon);
+        if (zicon) {
+          zicon.name = strokeIcon;
+        }
 
         return;
       }
 
-      zicon?.setAttribute("name", `${strokeIcon}-filled`);
+      if (zicon) {
+        zicon.name = `${strokeIcon}-filled`;
+      }
       tab.setAttribute("aria-selected", "true");
     });
     this.selected.emit(this.selectedTab);
