@@ -32,7 +32,7 @@ describe("z-popover test end2end", () => {
   });
 
   it("toggle popover on click", async () => {
-    const openChange = await page.spyOnEvent("openChange");
+    const openChange = await popover.spyOnEvent("openChange");
     expect(await popover.isVisible()).toEqual(false);
     await iconTrigger.click();
     expect(openChange).toHaveReceivedEventDetail({open: true});
@@ -44,7 +44,7 @@ describe("z-popover test end2end", () => {
   });
 
   it("change position popover", async () => {
-    const positionChange = await page.spyOnEvent("positionChange");
+    const positionChange = await popover.spyOnEvent("positionChange");
     await iconTrigger.click();
     await page.waitForChanges();
     popover.setAttribute("position", "top_left");
