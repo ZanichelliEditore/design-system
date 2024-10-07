@@ -222,11 +222,9 @@ or via link tag:
 You can use the library by importing the custom elements from npm package:
 
 ```javascript
-import {defineCustomElements, applyPolyfills} from "@zanichelli/albe-web-components/loader";
+import {defineCustomElements} from "@zanichelli/albe-web-components/loader";
 
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
+defineCustomElements(window);
 ```
 
 or via a script tag:
@@ -251,18 +249,16 @@ Then use the relative tag as a usual component in your markup.
 
 Albe's Web Components come with automatically generated React bindings. This means that you can use Web Components in a React application without the need to wrap component references, with full intellisense support thanks to TypeScript definition files for bindings.
 
-You still need to import and run polyfills, then you can import Component references from the React submodule:
+Import components reference from the React submodule:
 
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
 import "@zanichelli/albe-web-components/www/build/web-components-library.css";
-import {defineCustomElements, applyPolyfills} from "@zanichelli/albe-web-components/loader";
+import {defineCustomElements} from "@zanichelli/albe-web-components/loader";
 import {ZButton} from "@zanichelli/albe-web-components/react";
 
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
+defineCustomElements(window);
 
 ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 ```

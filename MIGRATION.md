@@ -11,8 +11,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v16.0.0](#v1600)
 
-  - [Nuova versione componente z-app-header](#nuova-versione-componente-z-app-header)
-  - [Rimosso parametro buildEs5 dal config stencil.](#rimosso-parametro-buildes5-dal-config-stencil)
+  - [Nuova versione componente ZAppHeader](#nuova-versione-componente-zappheader)
+  - [Rimosso parametro buildEs5 dalla config di Stencil](#rimosso-parametro-buildes5-dalla-config-di-stencil)
 
 - [v15.0.0](#v1500)
 
@@ -107,23 +107,37 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ## v16.0.0
 
-### Nuova versione componente z-app-header
+### Nuova versione componente ZAppHeader
 
-A partire da questa release è stato rivisto il componente `z-app-header`. Le modifiche sono breaking, per favorire un aggiornamento graduale, viene quindi mantenuta attiva la sua versione deprecated, anche per i suoi elementi interni.
+Il componente `ZAppHeader` e i suoi sottocomponenti `ZMenu` e `ZMenuSection` sono stati rivisitati con modifiche breaking. Le modifiche da attenzionare sono:
 
-### Rimosso parametro buildEs5 dal config stencil.
+- `ZAppHeader`:
+  - rimosso lo slot `subtitle`: non è più previsto un sottotilo ma solo il `top-subtitle`
+  - rimossa la prop `hero`: non è più prevista la variante con immagine di sfondo
+  - rimossa la prop `overlay`: non più necessaria senza l'immagine di sfondo
+  - rimossa la prop `flow`: il flusso del contenuto è gestito dal componente e non è più previsto il menu a destra
+  - rimosse le CSS properties relative alla tipografia (`--app-header-typography-1-size`, `--app-header-typography-1-lineheight`, `--app-header-typography-1-tracking`, `--app-header-title-font-size`, `--app-header-title-lineheight`, `--app-header-title-letter-spacing` ...): le dimensioni del testo sono gestite dal componente
+  - rimossa la CSS property `--app-header-height`
+  - rimossa la CSS property `--app-header-drawer-trigger-size`
+- `ZMenuSection`: lo slot `item` ha cambiato nome in `section` per distinguerlo più facilmente da quello di `ZMenu`
 
-L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che ne fanno uso.
+### Rimosso parametro buildEs5 dalla config di Stencil
 
-**Il metodo in precedenza usato in questo modo:**
+L'aggiornamento di `Stencil` alla versione `4` nella libreria rimuove i polyfills (`v2.10.0`) pertanto è necessario aggiornare le applicazioni che fanno uso del metodo `applyPolyfills`.
 
-`applyPolyfills().then(() => {
-    defineCustomElements(window);
-});`
+Il metodo, in precedenza usato in questo modo
 
-**dovrà essere usato così:**
+```js
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+```
 
-`  defineCustomElements(window);`
+**non dovrà più essere invocato**, quindi il codice precedente diventerà
+
+```js
+defineCustomElements(window);
+```
 
 ## v15.0.0
 

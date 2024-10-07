@@ -21,9 +21,12 @@ describe("Suite test ZMenuSection", () => {
             <slot></slot>
             <z-icon name="chevron-down"></z-icon>
           </button>
+          <div class="items" hidden role="menu">
+            <slot name="section"></slot>
+          </div>
         </mock:shadow-root>
         <h3>Menu section label</h3>
-        <a href="#" slot="section" role="menuitem" tabindex="0">Item 1</a>
+        <a href="#" slot="section" role="menuitem" tabindex="-1">Item 1</a>
         <a href="#" slot="section" role="menuitem" tabindex="-1">Item 2</a>
         <a href="#" slot="section" role="menuitem" tabindex="-1">Item 3</a>
     </z-menu-section>`);

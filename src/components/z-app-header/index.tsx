@@ -71,6 +71,12 @@ export class ZAppHeader {
   enableZLogo = true;
 
   /**
+   * The opening state of the drawer.
+   */
+  @Prop({mutable: true})
+  drawerOpen = false;
+
+  /**
    * Emitted when the `stuck` state of the header changes
    */
   @Event()
@@ -88,12 +94,6 @@ export class ZAppHeader {
   @State()
   private menuLength: number;
 
-  /**
-   * The opening state of the drawer.
-   */
-  @State()
-  private drawerOpen = false;
-
   @State()
   private isMobile = true;
 
@@ -106,7 +106,7 @@ export class ZAppHeader {
 
   private menuWidth: number;
 
-  private closeMenuButton: HTMLButtonElement;
+  private closeDrawerButton: HTMLButtonElement;
 
   private burgerButton: HTMLButtonElement;
 
@@ -145,6 +145,10 @@ export class ZAppHeader {
 
   @Watch("stuck")
   onStuckChange(): void {
+    if (!this.container) {
+      return;
+    }
+
     if (this.stuck) {
       this.stuckIntersecObserver?.observe(this.container);
     } else {
@@ -177,7 +181,7 @@ export class ZAppHeader {
   private openDrawer(): void {
     this.drawerOpen = true;
     this.menuElements.forEach((element, index) => (element.htmlTabindex = index === 0 ? 0 : -1));
-    setTimeout(() => this.closeMenuButton.focus(), 100);
+    setTimeout(() => this.menuElements[0].setFocus(), 400); /* wait for the 400ms offcanvas transition */
   }
 
   private closeDrawer(): void {
@@ -233,20 +237,62 @@ export class ZAppHeader {
     receiver.setFocus();
   }
 
-  /** Close each menu except the one receiving focus/click */
+  private onOffcanvasKeydown(ev: KeyboardEvent): void {
+    if (ev.key !== KeyboardCode.TAB || !this.drawerOpen) {
+      return;
+    }
+
+    const closestMenu = (ev.target as HTMLElement).closest("z-menu");
+    if (closestMenu) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      // restore tabindex to the zmenu containing the focused element
+      closestMenu.htmlTabindex = 0;
+      this.closeDrawerButton.focus();
+    } else if (ev.target === this.closeDrawerButton) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (ev.shiftKey) {
+        // give focus to the last open menu if any or the last menu otherwhise
+        (this.menuElements.filter((menu) => menu.open).pop() ?? this.menuElements[this.menuLength - 1]).setFocus();
+      } else {
+        // give focus to the first open menu if any or the first menu otherwhise
+        (this.menuElements.find((menu) => menu.open) ?? this.menuElements[0]).setFocus();
+      }
+    }
+  }
+
+  /** Close each menu except the one receiving focus/click, if any */
   @Listen("focusin", {target: "document", passive: true})
   @Listen("click", {target: "document", passive: true})
   manageMenus(ev: FocusEvent | PointerEvent): void {
-    this.menuElements.forEach((menu) => {
-      if (!menu.open || !menu.floating || menu.verticalContext || containsElement(menu, ev.target as Element)) {
-        return;
-      }
-      menu.open = false;
-    });
+    const targetMenu = this.menuElements.find((menu) => containsElement(menu, ev.target as Element));
+    if (targetMenu) {
+      this.menuElements.forEach((menu) => {
+        if (menu === targetMenu) {
+          return;
+        }
+
+        menu.htmlTabindex = -1;
+        if (!this.drawerOpen) {
+          menu.open = false;
+        }
+      });
+    } else if (!this.drawerOpen) {
+      this.menuElements.forEach((menu) => {
+        menu.open = false;
+      });
+    }
   }
 
   @Listen("keydown", {passive: true})
-  handleMenubarKeydown(ev: KeyboardEvent): void {
+  handleKeydown(ev: KeyboardEvent): void {
+    if (ev.key === KeyboardCode.ESC && this.drawerOpen) {
+      this.closeDrawer();
+
+      return;
+    }
+
     if (!this.menuElements.some((elem) => elem.contains(ev.target as HTMLElement))) {
       return;
     }
@@ -335,11 +381,11 @@ export class ZAppHeader {
       (this.enableOffcanvas || this._stuck || this.isMobile) && (
         <button
           ref={(el) => (this.burgerButton = el as HTMLButtonElement)}
+          class="drawer-trigger"
           aria-label="Apri menu"
           aria-haspopup="menu"
           aria-expanded={`${this.drawerOpen}`}
           aria-controls="offcanvas-menu"
-          class="drawer-trigger"
           onClick={this.openDrawer}
         >
           <z-icon name="burger-menu" />
@@ -356,10 +402,11 @@ export class ZAppHeader {
         transitiondirection={TransitionDirection.RIGHT}
         open={this.drawerOpen}
         onCanvasOpenStatusChanged={(ev) => (this.drawerOpen = ev.detail)}
+        onKeyDown={this.onOffcanvasKeydown}
       >
         <div slot="canvasContent">
           <button
-            ref={(el) => (this.closeMenuButton = el as HTMLButtonElement)}
+            ref={(el) => (this.closeDrawerButton = el)}
             class="drawer-close"
             aria-label="Chiudi menu"
             onClick={this.closeDrawer}
@@ -404,6 +451,7 @@ export class ZAppHeader {
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
     this.collectMenuElements = this.collectMenuElements.bind(this);
+    this.onOffcanvasKeydown = this.onOffcanvasKeydown.bind(this);
   }
 
   componentWillLoad(): void {

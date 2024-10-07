@@ -98,6 +98,10 @@ export namespace Components {
      */
     interface ZAppHeader {
         /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen": boolean;
+        /**
           * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
         "enableOffcanvas": boolean;
@@ -3497,6 +3501,10 @@ declare namespace LocalJSX {
      * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
      */
     interface ZAppHeader {
+        /**
+          * The opening state of the drawer.
+         */
+        "drawerOpen"?: boolean;
         /**
           * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
          */
