@@ -237,7 +237,6 @@ export class ZCarousel {
   private setupItems(): void {
     this.items = Array.from(this.host.children) as HTMLLIElement[];
     this.items.forEach((item) => {
-      item.setAttribute("role", "group");
       item.setAttribute("aria-roledescription", "slide");
     });
   }
@@ -273,7 +272,6 @@ export class ZCarousel {
       <Host>
         <div
           class="z-carousel-container"
-          role="group"
           aria-roledescription="carousel"
           aria-label={this.label || "Carousel"}
         >
