@@ -44,10 +44,15 @@ export class ZTh {
 
   /**
    * Current sorting direction.
-   * Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
    */
   @Prop({mutable: true})
   sortDirection?: SortDirection;
+
+  /**
+   * Sorted state of the column.
+   */
+  @Prop({reflect: true, mutable: true})
+  sorted = false;
 
   /**
    * Set popover position.
@@ -60,12 +65,6 @@ export class ZTh {
    */
   @State()
   isMenuOpen = false;
-
-  /**
-   * Store the active state for sorting.
-   */
-  @State()
-  isSortingActive = false;
 
   /**
    * Sort event fired when the user clicks on the sort button.
@@ -92,18 +91,17 @@ export class ZTh {
 
   /**
    * Handle the click on the sort button.
-   * This method will also handle the z-index logic.
    * @fires sort
    */
   private handleSort(): void {
     if (!this.sortDirection) {
-      this.isSortingActive = false;
+      this.sorted = false;
 
       return;
     }
 
     this.sortDirection = this.sortDirection === SortDirection.ASC ? SortDirection.DESC : SortDirection.ASC;
-    this.isSortingActive = true;
+    this.sorted = true;
 
     this.sort.emit({sortDirection: this.sortDirection});
   }
@@ -133,10 +131,7 @@ export class ZTh {
           <slot></slot>
           {this.showSorting && (
             <button
-              class={{
-                "z-th--sort-button": true,
-                "z-th--sort-button--active": this.isSortingActive,
-              }}
+              class="z-th--sort-button"
               type="button"
               onClick={this.handleSort.bind(this)}
             >
