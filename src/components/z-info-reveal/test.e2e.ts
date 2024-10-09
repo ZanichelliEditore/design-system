@@ -6,12 +6,14 @@ describe("z-info-reveal test end2end", () => {
       html: "<z-info-reveal><div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></z-info-reveal>",
     });
 
+    const infoReveal = await page.find("z-info-reveal");
     const infoRevealPanel = await page.find("z-info-reveal >>> .z-info-reveal-panel");
     const infoRevealTrigger = await page.find("z-info-reveal >>> .z-info-reveal-trigger");
 
     await infoRevealTrigger.click();
     await page.waitForChanges();
     await infoRevealPanel.waitForVisible();
+    expect(infoReveal).toHaveAttribute("open");
   });
 
   it("Close info reveal using x button", async () => {
@@ -19,6 +21,7 @@ describe("z-info-reveal test end2end", () => {
       html: "<z-info-reveal><div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></z-info-reveal>",
     });
 
+    const infoReveal = await page.find("z-info-reveal");
     const infoRevealPanel = await page.find("z-info-reveal >>> .z-info-reveal-panel");
     const infoRevealTrigger = await page.find("z-info-reveal >>> .z-info-reveal-trigger");
 
@@ -31,6 +34,8 @@ describe("z-info-reveal test end2end", () => {
     await page.waitForChanges();
 
     await infoRevealPanel.waitForNotVisible();
+    expect(infoReveal).not.toHaveAttribute("open");
+    expect(infoRevealPanel).toHaveAttribute("hidden");
   });
 
   it("Close with keydown press", async () => {
@@ -38,6 +43,7 @@ describe("z-info-reveal test end2end", () => {
       html: "<z-info-reveal><div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></z-info-reveal>",
     });
 
+    const infoReveal = await page.find("z-info-reveal");
     const infoRevealPanel = await page.find("z-info-reveal >>> .z-info-reveal-panel");
     const infoRevealTrigger = await page.find("z-info-reveal >>> .z-info-reveal-trigger");
 
@@ -49,5 +55,7 @@ describe("z-info-reveal test end2end", () => {
     await page.waitForChanges();
 
     await infoRevealPanel.waitForNotVisible();
+    expect(infoReveal).not.toHaveAttribute("open");
+    expect(infoRevealPanel).toHaveAttribute("hidden");
   });
 });
