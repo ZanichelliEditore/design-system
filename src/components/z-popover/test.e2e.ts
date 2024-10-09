@@ -38,9 +38,8 @@ describe("z-popover test end2end", () => {
     expect(openChange).toHaveReceivedEventDetail({open: true});
     await page.waitForChanges();
     expect(await popover.isVisible()).toEqual(true);
-    await iconTrigger.click();
+    await (await page.find("body")).click();
     expect(openChange).toHaveReceivedEventDetail({open: false});
-    await page.waitForChanges();
   });
 
   it("change position popover", async () => {
@@ -50,5 +49,16 @@ describe("z-popover test end2end", () => {
     popover.setAttribute("position", "top_left");
     await page.waitForChanges();
     expect(positionChange).toHaveReceivedEventDetail({position: "top_left"});
+  });
+
+  it("should not close the popover when clicking outside if the closable prop is set to false", async () => {
+    const openChange = await popover.spyOnEvent("openChange");
+    await iconTrigger.click();
+    expect(openChange).toHaveReceivedEventDetail({open: true});
+    await page.waitForChanges();
+    popover.setAttribute("closable", "false");
+    await page.waitForChanges();
+    await (await page.find("body")).click();
+    expect(openChange).toHaveReceivedEventDetail({open: true});
   });
 });
