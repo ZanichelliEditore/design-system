@@ -1885,9 +1885,17 @@ export namespace Components {
          */
         "showMenu": VisibilityCondition;
         /**
-          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+          * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
+         */
+        "showSorting": VisibilityCondition;
+        /**
+          * Current sorting direction.
          */
         "sortDirection"?: SortDirection;
+        /**
+          * Sorted state of the column.
+         */
+        "sorted": boolean | null;
         /**
           * Whether the cell should stick.
          */
@@ -5453,9 +5461,17 @@ declare namespace LocalJSX {
          */
         "showMenu"?: VisibilityCondition;
         /**
-          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+          * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
+         */
+        "showSorting"?: VisibilityCondition;
+        /**
+          * Current sorting direction.
          */
         "sortDirection"?: SortDirection;
+        /**
+          * Sorted state of the column.
+         */
+        "sorted"?: boolean | null;
         /**
           * Whether the cell should stick.
          */

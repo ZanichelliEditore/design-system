@@ -262,6 +262,17 @@ export const CellsWithContextualMenu = {
  * Clicking the button will fire the `sort` event with the `sortDirection` as detail.
  */
 export const SortAction = {
+  argTypes: {
+    showSorting: {
+      options: Object.values(VisibilityCondition),
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
+  args: {
+    showSorting: VisibilityCondition.HOVER,
+  },
   render: (args) =>
     html`<z-table
       class="z-table-demo"
@@ -272,15 +283,20 @@ export const SortAction = {
     >
       <z-thead>
         <z-tr>
-          <z-th>Colonna 1</z-th>
           <z-th
             .sortDirection=${SortDirection.ASC}
             .showMenu=${VisibilityCondition.HOVER}
+            .showSorting=${args.showSorting}
           >
-            Colonna 2 con menu e sorting
+            Colonna 1 con menu e sorting
             <div slot="contextual-menu">Contenuto del popover</div>
           </z-th>
-          <z-th .sortDirection=${SortDirection.DESC}>Colonna 3 con sorting</z-th>
+          <z-th>Colonna 2</z-th>
+          <z-th
+            .sortDirection=${SortDirection.DESC}
+            .showSorting=${args.showSorting}
+            >Colonna 3 con sorting</z-th
+          >
         </z-tr>
       </z-thead>
       <z-tbody>${repeat([...new Array(3)], () => html`<z-tr>${cellsTemplate(3)}</z-tr>`)}</z-tbody>

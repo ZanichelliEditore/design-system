@@ -1,12 +1,16 @@
 :host {
   position: relative;
   display: flex;
-  min-width: 128px;
-  box-sizing: border-box;
+  max-width: 100%;
   align-items: center;
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
   background-color: var(--color-surface01);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
+}
+
+:host,
+* {
+  box-sizing: border-box;
 }
 
 :host([sticky]) {
@@ -17,21 +21,23 @@
   box-shadow: 8px 0 16px -8px var(--shadow-color-base);
 }
 
-/* Leave the space for the menu button */
-:host([show-menu])::after {
-  display: inline-block;
+:host([menu-open]) {
+  z-index: 2;
+}
+
+.cell--content {
+  display: flex;
+  width: 100%;
   height: 100%;
-  margin-right: calc(var(--space-unit) * 4);
-  background: transparent;
-  content: "";
-  user-select: none;
+  align-items: center;
+}
+
+:host([show-menu]) .cell--content {
+  column-gap: var(--space-unit);
 }
 
 .cell--menu-container {
-  position: absolute;
-  z-index: 1;
-  top: var(--space-unit);
-  right: var(--space-unit);
+  margin-left: auto;
 }
 
 :host(:not([show-menu])) .cell--menu-container {
@@ -41,6 +47,7 @@
 
 :host(:is([show-menu], [menu-open])) .cell--menu-container,
 :host([show-menu]) .cell--menu-container:focus-within {
+  z-index: 1;
   opacity: 1;
   pointer-events: all;
 }
@@ -56,6 +63,7 @@
   }
 
   :host([show-menu="hover"]:hover) .cell--menu-container {
+    z-index: 1;
     opacity: 1;
     pointer-events: all;
   }
