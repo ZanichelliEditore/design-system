@@ -1889,9 +1889,13 @@ export namespace Components {
          */
         "showSorting": VisibilityCondition;
         /**
-          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+          * Current sorting direction.
          */
         "sortDirection"?: SortDirection;
+        /**
+          * Sorted state of the column.
+         */
+        "sorted": boolean;
         /**
           * Whether the cell should stick.
          */
@@ -5461,9 +5465,13 @@ declare namespace LocalJSX {
          */
         "showSorting"?: VisibilityCondition;
         /**
-          * Current sorting direction. Set `SortDirection.ASC` or `SortDirection.DESC` to show the sort icon.
+          * Current sorting direction.
          */
         "sortDirection"?: SortDirection;
+        /**
+          * Sorted state of the column.
+         */
+        "sorted"?: boolean;
         /**
           * Whether the cell should stick.
          */

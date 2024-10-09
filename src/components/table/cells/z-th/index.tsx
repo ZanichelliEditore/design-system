@@ -131,7 +131,7 @@ export class ZTh {
           <slot></slot>
           {this.showSorting && (
             <button
-              class="z-th--sort-button"
+              class={{"z-th--sort-button": true, "z-th--sort-button--active": this.sorted === true}}
               type="button"
               onClick={this.handleSort.bind(this)}
             >
