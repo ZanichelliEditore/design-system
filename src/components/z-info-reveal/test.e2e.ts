@@ -14,6 +14,7 @@ describe("z-info-reveal test end2end", () => {
     await page.waitForChanges();
     await infoRevealPanel.waitForVisible();
     expect(infoReveal).toHaveAttribute("open");
+    expect(infoRevealPanel).not.toHaveAttribute("hidden");
   });
 
   it("Close info reveal using x button", async () => {
