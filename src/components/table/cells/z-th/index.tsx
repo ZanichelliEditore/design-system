@@ -52,7 +52,7 @@ export class ZTh {
    * Sorted state of the column.
    */
   @Prop({reflect: true, mutable: true})
-  sorted = false;
+  sorted: boolean | null = false;
 
   /**
    * Set popover position.
@@ -131,7 +131,7 @@ export class ZTh {
           <slot></slot>
           {this.showSorting && (
             <button
-              class={{"z-th--sort-button": true, "z-th--sort-button--active": this.sorted === true}}
+              class="z-th--sort-button"
               type="button"
               onClick={this.handleSort.bind(this)}
             >

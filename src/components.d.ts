@@ -1895,7 +1895,7 @@ export namespace Components {
         /**
           * Sorted state of the column.
          */
-        "sorted": boolean;
+        "sorted": boolean | null;
         /**
           * Whether the cell should stick.
          */
@@ -5471,7 +5471,7 @@ declare namespace LocalJSX {
         /**
           * Sorted state of the column.
          */
-        "sorted"?: boolean;
+        "sorted"?: boolean | null;
         /**
           * Whether the cell should stick.
          */
