@@ -3,7 +3,7 @@
 :host {
   z-index: 1;
   padding: 0;
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
   font-weight: var(--font-sb);
 }
 

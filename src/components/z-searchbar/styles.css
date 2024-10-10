@@ -166,7 +166,7 @@ z-list > div.children-node {
 
 .results z-list-element > .list-element:hover,
 .results z-list-element > .list-element:hover::after {
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
   cursor: pointer;
 }
 
