@@ -47,7 +47,7 @@ header.temp {
 }
 
 .faded {
-  border-bottom: var(--border-size-medium) solid var(--color-surface02);
+  border-bottom: var(--border-size-medium) solid var(--color-background);
 }
 
 .faded.real,

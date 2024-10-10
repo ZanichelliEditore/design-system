@@ -113,7 +113,7 @@ button.dots {
 }
 
 .hidden-paths-popover {
-  --z-popover-theme--surface: var(--color-surface02);
+  --z-popover-theme--surface: var(--color-background);
   --z-popover-padding: 0;
 }
 
