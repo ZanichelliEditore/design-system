@@ -1427,15 +1427,11 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
-         */
-        "skipLoadAnimation": boolean;
-        /**
-          * open content transitioning in a specified direction left | right. Default: left
+          * Open the content transitioning to a specified direction. The `up` direction is supported only for `overlay` variant.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
+          * Offcanvas variant. `overlay`: The offcanvas covers the page content putting an overlay. `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -4967,15 +4963,11 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
-         */
-        "skipLoadAnimation"?: boolean;
-        /**
-          * open content transitioning in a specified direction left | right. Default: left
+          * Open the content transitioning to a specified direction. The `up` direction is supported only for `overlay` variant.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
+          * Offcanvas variant. `overlay`: The offcanvas covers the page content putting an overlay. `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
          */
         "variant"?: OffCanvasVariant;
     }
