@@ -6,13 +6,26 @@
   background-color: var(--blue100);
 }
 
+#offcanvas-story-container .offcanvas-close {
+  --z-icon-width: 32px;
+  --z-icon-height: 32px;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 #offcanvas-story-container.offcanvas-left {
   justify-content: flex-end;
 }
 
 .offcanvas-story-content {
+  display: flex;
   width: 100%;
   height: 70vh;
+  align-items: center;
+  justify-content: center;
   margin: calc(var(--space-unit) * 2);
   background-color: var(--yellow500);
 }

@@ -2,15 +2,11 @@
   --z-offcanvas--container-width: ;
   --z-offcanvas--top-space: ;
 
-  display: flex;
-  min-width: 100%;
-  height: 100%;
+  width: 0;
+  min-width: 0;
+  height: 0;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-}
-
-:host([transitiondirection="left"]) {
-  justify-content: flex-end;
 }
 
 :host([transitiondirection="up"]) {
@@ -24,8 +20,13 @@
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+:host([open]) {
   display: flex;
-  height: calc(100% - var(--z-offcanvas--top-space, 0));
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
 }
 
 .canvas-container {
@@ -71,17 +72,17 @@
 
 :host([variant="overlay"], [transitiondirection="up"]) > .canvas-background {
   position: absolute;
+  display: none;
   width: 100%;
   height: 100%;
   background-color: var(--gray900);
   inset: 0;
   opacity: 0;
-  visibility: hidden;
 }
 
 :host([open][variant="overlay"], [open][transitiondirection="up"]) > .canvas-background {
+  display: block;
   opacity: 0.7;
-  visibility: visible;
 }
 
 .canvas-container > .canvas-content {
@@ -114,15 +115,22 @@
 
 /* Tablet / Desktop */
 @media (min-width: 768px) {
-  :host {
+  :host([open][variant="pushcontent"]) {
+    width: auto;
     min-width: auto;
+  }
+
+  :host([variant="overlay"][open]) {
+    height: calc(100% - var(--z-offcanvas--top-space, 0));
+  }
+
+  :host([transitiondirection="left"]) {
+    justify-content: flex-end;
   }
 
   .canvas-container {
     width: max(var(--z-offcanvas--container-width, 375px), 375px);
     min-width: 375px;
-    height: auto;
-    min-height: calc(var(--space-unit) * 40);
   }
 
   :host([transitiondirection="up"]) > .canvas-container {
@@ -130,8 +138,6 @@
   }
 
   :host([variant="pushcontent"]:not([open])) > .canvas-container {
-    width: 0;
-    min-width: 0;
     transition:
       min-width 0.4s ease-out,
       width 0.4s ease-out;

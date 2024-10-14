@@ -87,12 +87,13 @@ export class ZOffcanvas {
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        {(this.variant == OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP) && (
-          <div
-            class="canvas-background"
-            onClick={() => (this.open = false)}
-          ></div>
-        )}
+        {(this.variant == OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP) &&
+          this.open && (
+            <div
+              class="canvas-background"
+              onClick={() => (this.open = false)}
+            ></div>
+          )}
       </Host>
     );
   }
