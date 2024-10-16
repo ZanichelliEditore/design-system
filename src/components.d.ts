@@ -1421,17 +1421,22 @@ export namespace Components {
          */
         "type": NotificationType;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface ZOffcanvas {
         /**
           * Whether the offcanvas is open. Default: false
          */
         "open": boolean;
         /**
-          * Open the content transitioning to a specified direction. The `up` direction is supported only for `overlay` variant.
+          * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. `overlay`: The offcanvas covers the page content putting an overlay. `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -2965,6 +2970,11 @@ declare global {
     interface HTMLZOffcanvasElementEventMap {
         "canvasOpenStatusChanged": any;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4953,6 +4963,11 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface ZOffcanvas {
         /**
           * emitted when `open` prop changes
@@ -4963,11 +4978,11 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Open the content transitioning to a specified direction. The `up` direction is supported only for `overlay` variant.
+          * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. `overlay`: The offcanvas covers the page content putting an overlay. `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -5906,6 +5921,11 @@ declare module "@stencil/core" {
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            /**
+             * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+             * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+             * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+             */
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**

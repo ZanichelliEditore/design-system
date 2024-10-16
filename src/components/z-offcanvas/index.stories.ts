@@ -6,7 +6,8 @@ import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "./index";
 import "./index.stories.css";
 
-type ZOffcanvasStoriesArgs = ZOffcanvas & CSSVarsArguments<"z-offcanvas--top-space" | "--z-offcanvas--container-width">;
+type ZOffcanvasStoriesArgs = ZOffcanvas &
+  CSSVarsArguments<"z-offcanvas--top-space" | "--z-offcanvas--container-width" | "--z-offcanvas--container-height">;
 
 const StoryMeta = {
   title: "ZOffcanvas",
@@ -29,6 +30,12 @@ const StoryMeta = {
 
       offcanvas.open = false;
     },
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: "600px",
+      },
+    },
   },
   argTypes: {
     variant: {
@@ -47,7 +54,7 @@ const StoryMeta = {
   args: {
     "open": true,
     "variant": OffCanvasVariant.PUSHCONTENT,
-    "--z-offcanvas--top-space": "0",
+    "--z-offcanvas--top-space": "0px",
     "--z-offcanvas--container-width": "375px",
   },
 } satisfies Meta<ZOffcanvasStoriesArgs>;
@@ -119,6 +126,9 @@ export const TransitionDirectionUp = {
       exclude: ["variant", "transitiondirection", "--z-offcanvas--top-space", "--z-offcanvas--container-width"],
     },
   },
+  args: {
+    "--z-offcanvas--container-height": "90%",
+  },
   render: (args, context) =>
     html`<div id="offcanvas-story-container">
       <div class="offcanvas-story-content">
@@ -128,6 +138,7 @@ export const TransitionDirectionUp = {
         .open=${args.open}
         .variant=${OffCanvasVariant.OVERLAY}
         .transitiondirection=${TransitionDirection.UP}
+        style="--z-offcanvas--container-height: ${args["--z-offcanvas--container-height"]}"
       >
         <div slot="canvasContent">
           <button
