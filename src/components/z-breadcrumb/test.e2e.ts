@@ -1,5 +1,4 @@
 import {newE2EPage} from "@stencil/core/testing";
-import {ElementHandle} from "puppeteer";
 
 it("Checks emit clickOnNode event on anchor tag click if prevent-follow-url is true", async () => {
   const page = await newE2EPage({
@@ -13,7 +12,7 @@ it("Checks emit clickOnNode event on anchor tag click if prevent-follow-url is t
   });
 
   const clickEvent = await page.spyOnEvent("clickOnNode");
-  const link = (await page.$("z-breadcrumb >>> nav > ol > li:last-child > a")) as ElementHandle<Element>;
+  const link = await page.$("z-breadcrumb >>> nav > ol > li:last-child > a");
 
   await link.click();
 
