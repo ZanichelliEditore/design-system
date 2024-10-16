@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [vx.0.0](#vx00)
+
+  - [Revisione token dei temi](#revisione-token-temi)
+
 - [v16.0.0](#v1600)
 
   - [Nuova versione componente ZAppHeader](#nuova-versione-componente-zappheader)
@@ -104,6 +108,27 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## vx.0.0
+
+### Revisione token dei temi
+
+#### Tema default
+
+Il tema di default ha subito le seguenti modifiche:
+
+- `surface05` passa da `gray800` a `gray900`
+- `surface04` passa da `gray600` a `gray700`
+- `surface03` passa da `gray200` a `gray300`
+- `surface02` passa da `gray50` a `gray100` (per mantenere la situazione attuale, si può usare il token `background`)
+- i token `active-surface` e `selected-surface` sono stati eliminati (sostituirli con `surface03`)
+- inoltre vengono modificati i seguenti token secondary (sostituire `secondary02` e `secondary03` con `secondary01`):
+  - `secondary01`: `red500`
+  - `secondary02`: `red25`
+  - `secondary03`: `red50`
+  - `active-secondary`: `red400`
+  - `pressed-secondary`: `red400`
+  - `hover-secondary`: `red800`
 
 ## v16.0.0
 
