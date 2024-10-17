@@ -53,10 +53,6 @@
   transform: translateY(0);
 }
 
-:host([variant="pushcontent"]) {
-  display: contents;
-}
-
 :host([variant="pushcontent"]) > .canvas-container {
   position: relative;
   height: 100%;
