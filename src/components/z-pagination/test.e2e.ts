@@ -1,7 +1,7 @@
 import {newE2EPage} from "@stencil/core/testing";
 
 describe("z-pagination test end2end", () => {
-  it("Emit pageChanged event", async () => {
+  it("Emit pageChanged event clicking on last page", async () => {
     const page = await newE2EPage();
     await page.setContent(`
 			<z-pagination total-pages="10"></z-pagination>
@@ -20,23 +20,22 @@ describe("z-pagination test end2end", () => {
     expect(await page.find("z-pagination >>> button.page-button[data-page='10'][data-current]")).not.toBeNull();
   });
 
-  it("Check label exists", async () => {
+  it("Check arrows navigation", async () => {
     const page = await newE2EPage();
     await page.setContent(`
-			<z-pagination total-pages="10" label="Pagina"></z-pagination>
+			<z-pagination total-pages="10"></z-pagination>
 		`);
-    const label = await page.find("z-pagination .page-label");
-    expect(label).not.toBeNull();
-    expect(label).toEqualText("Pagina");
-  });
+    const previous = await page.find("z-pagination .navigation-button:first-child");
+    const next = await page.find("z-pagination .navigation-button:last-child");
+    const pageChanged = await page.spyOnEvent("pageChanged");
 
-  it("Check that arrows are not visible when nav-arrows is false", async () => {
-    const page = await newE2EPage();
-    await page.setContent(`
-			<z-pagination total-pages="10" nav-arrows="false"></z-pagination>
-		`);
-    const paginationButton = await page.find("z-pagination .navigation-button");
-    expect(paginationButton).toBeNull();
+    await previous.click();
+    await page.waitForChanges();
+    expect(pageChanged).not.toHaveReceivedEvent();
+
+    await next.click();
+    await page.waitForChanges();
+    expect(pageChanged).toHaveReceivedEventDetail(2);
   });
 
   it("Check skip 3 pages", async () => {
@@ -83,7 +82,7 @@ describe("z-pagination test end2end", () => {
     expect(pageChanged).toHaveReceivedEventDetail(10);
   });
 
-  it("Check currentPage prop with 5 visible elements", async () => {
+  it("Check keyboard navigation", async () => {
     const page = await newE2EPage();
     await page.setContent(`
 			<z-pagination total-pages="10" visible-pages="5" current-page="4"></z-pagination>
@@ -92,6 +91,20 @@ describe("z-pagination test end2end", () => {
 
     const buttonsInFirstChunk = await page.$$("z-pagination .pages-chunk:first-child button");
     expect(buttonsInFirstChunk).toHaveLength(5);
+
+    const pageChanged = await page.spyOnEvent("pageChanged");
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+    await page.keyboard.press("Enter");
+    await page.waitForChanges();
+    expect(pageChanged).toHaveReceivedEventDetail(3);
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+    await page.keyboard.press("Enter");
+    await page.waitForChanges();
+    expect(pageChanged).toHaveReceivedEventDetail(1);
   });
 
   it("Check go to page", async () => {
