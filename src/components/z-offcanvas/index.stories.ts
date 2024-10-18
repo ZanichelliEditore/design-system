@@ -155,19 +155,22 @@ export const TransitionDirectionUp = {
 export const PushContent = {
   parameters: {
     controls: {
-      exclude: ["variant", "transitiondirection", "--z-offcanvas--top-space"],
+      exclude: ["variant", "--z-offcanvas--top-space"],
     },
+  },
+  args: {
+    transitiondirection: TransitionDirection.RIGHT,
   },
   render: (args, context) =>
     html`<div
-      class="pushcontent-story"
+      class="pushcontent-story ${args.transitiondirection}"
       id="offcanvas-story-container"
     >
       <z-offcanvas
         .open=${args.open}
         .variant=${OffCanvasVariant.PUSHCONTENT}
-        .transitiondirection=${TransitionDirection.RIGHT}
-        style="--z-offcanvas--container-height: ${args["--z-offcanvas--container-height"]}"
+        .transitiondirection=${args.transitiondirection}
+        style="--z-offcanvas--container-width: ${args["--z-offcanvas--container-width"]}"
       >
         <div slot="canvasContent">
           <button
@@ -181,9 +184,7 @@ export const PushContent = {
       </z-offcanvas>
 
       <div class="offcanvas-story-content">
-        <div>
-          <z-button .onclick=${context.parameters.openOffcanvas}>Apri offcanvas</z-button>
-        </div>
+        <z-button .onclick=${context.parameters.openOffcanvas}>Apri offcanvas</z-button>
       </div>
     </div>`,
 } satisfies Story;

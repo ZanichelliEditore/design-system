@@ -1,8 +1,9 @@
 import {Component, Event, EventEmitter, h, Host, Prop, State, Watch} from "@stencil/core";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
+
 /**
  * @slot canvasContent - Slot for the offcanvas content.
- * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+ * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
  * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
  * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
  */
@@ -17,6 +18,7 @@ export class ZOffcanvas {
    * Offcanvas variant.
    * - `overlay`: The offcanvas covers the page content putting an overlay.
    * - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+   * > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
    */
   @Prop({reflect: true})
   variant?: OffCanvasVariant = OffCanvasVariant.PUSHCONTENT;
@@ -40,19 +42,36 @@ export class ZOffcanvas {
   @State()
   private skipAnimation = this.open;
 
+  private canvasContainer: HTMLElement;
+
+  /**
+   * Hide the body overflow when the offcanvas is open.
+   */
   @Watch("variant")
-  @Watch("open")
   private handlePageOverflow(): void {
     const overflow =
       this.variant === OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP
         ? "overflow-y"
         : "overflow-x";
+
     document.body.style[overflow] = this.open ? "hidden" : "";
   }
 
   @Watch("open")
   onOpenChanged(): void {
     this.canvasOpenStatusChanged.emit(this.open);
+
+    if (!this.open) {
+      // when the offcanvas is closing, wait for the transitionend event to end before handling the body overflow
+      const listenerCallback = (): void => {
+        this.handlePageOverflow();
+        this.canvasContainer.removeEventListener("transitionend", listenerCallback);
+      };
+
+      this.canvasContainer?.addEventListener("transitionend", listenerCallback);
+    } else {
+      this.handlePageOverflow();
+    }
   }
 
   componentDidLoad(): void {
@@ -76,6 +95,7 @@ export class ZOffcanvas {
         <div
           class="canvas-container"
           role="presentation"
+          ref={(el) => (this.canvasContainer = el)}
         >
           <div
             class="canvas-content"

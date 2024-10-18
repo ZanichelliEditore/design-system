@@ -1422,7 +1422,7 @@ export namespace Components {
         "type": NotificationType;
     }
     /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
      * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
      * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
      */
@@ -1436,7 +1436,7 @@ export namespace Components {
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -2971,7 +2971,7 @@ declare global {
         "canvasOpenStatusChanged": any;
     }
     /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
      * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
      * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
      */
@@ -4964,7 +4964,7 @@ declare namespace LocalJSX {
         "type"?: NotificationType;
     }
     /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
      * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
      * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
      */
@@ -4982,7 +4982,7 @@ declare namespace LocalJSX {
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -5922,7 +5922,7 @@ declare module "@stencil/core" {
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             /**
-             * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas. Useful when there is some fixed element above the offcanvas. Default: `0`.
+             * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
              * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
              * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
              */

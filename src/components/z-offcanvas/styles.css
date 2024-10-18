@@ -53,16 +53,22 @@
   transform: translateY(0);
 }
 
-:host([variant="pushcontent"]) > .canvas-container {
+:host([variant="pushcontent"]:not([transitiondirection="up"])) > .canvas-container {
   position: relative;
+  width: 100%;
   height: 100%;
 }
 
 :host([variant="pushcontent"]:not([open])) > .canvas-container {
   width: 0;
   min-width: 0;
-  transition: 0.4s ease-out;
-  transition-property: width, min-width;
+  transition: width 0.4s ease-out, min-width 0.4s ease-out;
+}
+
+:host([variant="pushcontent"][transitiondirection="left"]) > .canvas-container {
+  /* the `width` transition is by default from right to left, which is the opposite of what we want it.
+  Setting the container to float to the right fixes it. */
+  float: right;
 }
 
 :host([skip-animation]) > .canvas-container {
