@@ -55,7 +55,6 @@
 
 :host([variant="pushcontent"]:not([transitiondirection="up"])) > .canvas-container {
   position: relative;
-  width: 100%;
   height: 100%;
 }
 
