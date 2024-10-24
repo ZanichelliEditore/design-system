@@ -41,7 +41,7 @@ describe("Suite test ZOffcanvas", () => {
     `);
   });
 
-  it("Should force overlay presence when transitiondirection is set to 'up'", async () => {
+  it("Should force overlay presence when 'transitiondirection' is set to 'up'", async () => {
     const page = await newSpecPage({
       components: [ZOffcanvas],
       html: `<z-offcanvas open skip-animation variant="pushcontent" transitiondirection="up">
