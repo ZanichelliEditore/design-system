@@ -335,6 +335,7 @@ export enum ZAriaAlertMode {
 export enum TransitionDirection {
   LEFT = "left",
   RIGHT = "right",
+  UP = "up",
 }
 
 export enum OffCanvasVariant {
