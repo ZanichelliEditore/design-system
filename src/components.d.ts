@@ -1432,6 +1432,11 @@ export namespace Components {
          */
         "open": boolean;
         /**
+          * Skip the opening transition when the offcanvas is already open at the first render.
+          * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
+         */
+        "skipLoadAnimation": boolean;
+        /**
           * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */
         "transitiondirection"?: TransitionDirection;
@@ -4977,6 +4982,11 @@ declare namespace LocalJSX {
           * Whether the offcanvas is open. Default: false
          */
         "open"?: boolean;
+        /**
+          * Skip the opening transition when the offcanvas is already open at the first render.
+          * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
+         */
+        "skipLoadAnimation"?: boolean;
         /**
           * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */

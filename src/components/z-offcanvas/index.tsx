@@ -34,6 +34,14 @@ export class ZOffcanvas {
   @Prop({reflect: true})
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
+  /**
+   * Skip the opening transition when the offcanvas is already open at the first render.
+   * @deprecated This prop is not needed anymore, the component will automatically skip the transition
+   *  when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
+   */
+  @Prop()
+  skipLoadAnimation = false;
+
   /** emitted when `open` prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
