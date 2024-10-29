@@ -7,7 +7,7 @@
 .type-scale {
   display: grid;
   align-items: baseline;
-  column-gap: var(--space-unit);
+  gap: var(--space-unit);
   grid-template-columns: max-content max-content max-content;
   text-align: left;
 }
@@ -25,15 +25,4 @@
 
 .typography-classes > * {
   gap: calc(var(--space-unit) * 2);
-}
-
-.section-title-classes {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--space-unit) * 4);
-}
-
-.section-title-classes code {
-  padding: var(--space-unit);
-  color: var(--color-default-text);
 }

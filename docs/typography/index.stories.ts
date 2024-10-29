@@ -44,6 +44,14 @@ const scaleProps = [
 ];
 
 export const TypeScale = {
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: "300px",
+      },
+    },
+  },
   argTypes: {
     fontWeight: {
       options: ["--font-lt", "--font-rg", "--font-sb", "--font-bd"],
@@ -75,8 +83,30 @@ export const TypeScale = {
 const headingLevels = 4;
 const bodyLevels = 5;
 const interactiveLevels = 3;
+const sectionTitleLevels = 6;
 const getWeightSuffix = (weight: string | null): string => (weight ? `-${weight}` : "");
 
+/**
+ * `.heading-1` and `.heading-2` classes automatically scale in size starting from desktop viewport.
+ * Typography classes (except for `helper`) can also be used with a viewport prefix (`mobile`, `tablet`, `desktop`, `wide`)
+ * to apply the styles only on specific viewport sizes.
+ * For example:
+ *
+ * ```
+ * <p class="mobile-body-3 tablet-body-2 body-1">Lorem ipsum...</p>
+ * ```
+ *
+ * will apply the `body-3` style on mobile, `body-2` on tablet, and `body-1` on desktop and wide viewports.
+ *
+ * Section titles are also available as CSS custom properties:
+ * those properties are meant to be used with the "font" shorthand property. For example:
+ *
+ * ```
+ * h4 {
+ *  font: var(--z-section-title-4);
+ * }
+ * ```
+ */
 export const TypographyClasses = {
   argTypes: {
     headingWeight: {
@@ -107,6 +137,15 @@ export const TypographyClasses = {
   },
   render: (args) =>
     html`<div class="typography-classes">
+      <div class="section-title-classes">
+        ${Array.from({length: sectionTitleLevels}, (_, i) => i + 1).map(
+          (level) =>
+            html`<div class="typography-group">
+              <div class="z-section-title-${level}">Section title ${level}</div>
+              <div class="body-5-sb">.z-section-title-${level} / --z-section-title-${level}</div>
+            </div>`
+        )}
+      </div>
       <div class="heading-classes">
         ${Array.from({length: headingLevels}, (_, i) => i + 1).map(
           (level) => html`
@@ -162,25 +201,5 @@ export const TypographyClasses = {
           <div class="body-5-sb">.helper${getWeightSuffix(args.fontWeight)}</div>
         </div>
       </div>
-    </div>`,
-} satisfies StoryObj;
-
-const sectionTitleLevels = 6;
-
-export const SectionTitle = {
-  render: () => html`
-    <div class="section-title-classes">
-      ${Array.from({length: sectionTitleLevels}, (_, i) => i + 1).map(
-        (level) =>
-          html`<div>
-            <div class="z-section-title-${level}">Section title ${level}</div>
-            <div class="body-5-sb">.z-section-title-${level} / --z-section-title-${level}</div>
-          </div>`
-      )}
-      <div>
-        <p>The CSS custom properties are meant to be used with the "font" shorthand property. For example:</p>
-        <code class="theme-dark">font: var(--z-section-title-1);</code>
-      </div>
-    </div>
-  `,
+    </div> `,
 } satisfies StoryObj;
