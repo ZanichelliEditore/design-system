@@ -103,7 +103,7 @@ const getWeightSuffix = (weight: string | null): string => (weight ? `-${weight}
  *
  * ```
  * h4 {
- *  font: var(--z-section-title-4);
+ *  font: var(--section-title-4);
  * }
  * ```
  */
@@ -141,8 +141,8 @@ export const TypographyClasses = {
         ${Array.from({length: sectionTitleLevels}, (_, i) => i + 1).map(
           (level) =>
             html`<div class="typography-group">
-              <div class="z-section-title-${level}">Section title ${level}</div>
-              <div class="body-5-sb">.z-section-title-${level} / --z-section-title-${level}</div>
+              <div class="section-title-${level}">Section title ${level}</div>
+              <div class="body-5-sb">.section-title-${level} / --section-title-${level}</div>
             </div>`
         )}
       </div>

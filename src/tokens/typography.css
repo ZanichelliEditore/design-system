@@ -29,12 +29,12 @@
   --font-size-17: 5.75rem; /* 92px */
 
   /* cssprops to use with `font` shorthand property */
-  --z-section-title-1: var(--font-sb) var(--font-size-11) / 0.9166 var(--font-family-serif);
-  --z-section-title-2: var(--font-sb) var(--font-size-10) / 1.1904 var(--font-family-serif);
-  --z-section-title-3: var(--font-sb) var(--font-size-9) / 1.222 var(--font-family-serif);
-  --z-section-title-4: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);
-  --z-section-title-5: var(--font-sb) var(--font-size-7) / 1.2857 var(--font-family-serif);
-  --z-section-title-6: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --section-title-1: var(--font-sb) var(--font-size-11) / 0.9166 var(--font-family-serif);
+  --section-title-2: var(--font-sb) var(--font-size-10) / 1.1904 var(--font-family-serif);
+  --section-title-3: var(--font-sb) var(--font-size-9) / 1.222 var(--font-family-serif);
+  --section-title-4: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);
+  --section-title-5: var(--font-sb) var(--font-size-7) / 1.2857 var(--font-family-serif);
+  --section-title-6: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif);
 }
 
 /* Typography classes */
@@ -139,53 +139,29 @@
   line-height: 1.333;
 }
 
-/* font-weight variants */
-.heading-1-lt,
-.heading-2-lt,
-.heading-3-lt,
-.heading-4-lt {
-  font-weight: var(--font-lt);
-}
-
-.heading-1-sb,
-.heading-2-sb,
-.heading-3-sb,
-.heading-4-sb,
-.body-1-sb,
-.body-2-sb,
-.body-3-sb,
-.body-4-sb,
-.body-5-sb,
-.interactive-1-sb,
-.interactive-2-sb,
-.interactive-3-sb,
-.helper-sb {
-  font-weight: var(--font-sb);
-}
-
 /* section title */
-.z-section-title-1 {
-  font: var(--z-section-title-1);
+.section-title-1 {
+  font: var(--section-title-1);
 }
 
-.z-section-title-2 {
-  font: var(--z-section-title-2);
+.section-title-2 {
+  font: var(--section-title-2);
 }
 
-.z-section-title-3 {
-  font: var(--z-section-title-3);
+.section-title-3 {
+  font: var(--section-title-3);
 }
 
-.z-section-title-4 {
-  font: var(--z-section-title-4);
+.section-title-4 {
+  font: var(--section-title-4);
 }
 
-.z-section-title-5 {
-  font: var(--z-section-title-5);
+.section-title-5 {
+  font: var(--section-title-5);
 }
 
-.z-section-title-6 {
-  font: var(--z-section-title-6);
+.section-title-6 {
+  font: var(--section-title-6);
 }
 
 /* heading-1/2 for desktop and wide viewports */
@@ -301,28 +277,28 @@
     line-height: 1.333;
   }
 
-  .mobile-z-section-title-1 {
-    font: var(--z-section-title-1);
+  .mobile-section-title-1 {
+    font: var(--section-title-1);
   }
 
-  .mobile-z-section-title-2 {
-    font: var(--z-section-title-2);
+  .mobile-section-title-2 {
+    font: var(--section-title-2);
   }
 
-  .mobile-z-section-title-3 {
-    font: var(--z-section-title-3);
+  .mobile-section-title-3 {
+    font: var(--section-title-3);
   }
 
-  .mobile-z-section-title-4 {
-    font: var(--z-section-title-4);
+  .mobile-section-title-4 {
+    font: var(--section-title-4);
   }
 
-  .mobile-z-section-title-5 {
-    font: var(--z-section-title-5);
+  .mobile-section-title-5 {
+    font: var(--section-title-5);
   }
 
-  .mobile-z-section-title-6 {
-    font: var(--z-section-title-6);
+  .mobile-section-title-6 {
+    font: var(--section-title-6);
   }
 }
 
@@ -419,28 +395,28 @@
     line-height: 1.333;
   }
 
-  .tablet-z-section-title-1 {
-    font: var(--z-section-title-1);
+  .tablet-section-title-1 {
+    font: var(--section-title-1);
   }
 
-  .tablet-z-section-title-2 {
-    font: var(--z-section-title-2);
+  .tablet-section-title-2 {
+    font: var(--section-title-2);
   }
 
-  .tablet-z-section-title-3 {
-    font: var(--z-section-title-3);
+  .tablet-section-title-3 {
+    font: var(--section-title-3);
   }
 
-  .tablet-z-section-title-4 {
-    font: var(--z-section-title-4);
+  .tablet-section-title-4 {
+    font: var(--section-title-4);
   }
 
-  .tablet-z-section-title-5 {
-    font: var(--z-section-title-5);
+  .tablet-section-title-5 {
+    font: var(--section-title-5);
   }
 
-  .tablet-z-section-title-6 {
-    font: var(--z-section-title-6);
+  .tablet-section-title-6 {
+    font: var(--section-title-6);
   }
 }
 
@@ -537,28 +513,28 @@
     line-height: 1.333;
   }
 
-  .desktop-z-section-title-1 {
-    font: var(--z-section-title-1);
+  .desktop-section-title-1 {
+    font: var(--section-title-1);
   }
 
-  .desktop-z-section-title-2 {
-    font: var(--z-section-title-2);
+  .desktop-section-title-2 {
+    font: var(--section-title-2);
   }
 
-  .desktop-z-section-title-3 {
-    font: var(--z-section-title-3);
+  .desktop-section-title-3 {
+    font: var(--section-title-3);
   }
 
-  .desktop-z-section-title-4 {
-    font: var(--z-section-title-4);
+  .desktop-section-title-4 {
+    font: var(--section-title-4);
   }
 
-  .desktop-z-section-title-5 {
-    font: var(--z-section-title-5);
+  .desktop-section-title-5 {
+    font: var(--section-title-5);
   }
 
-  .desktop-z-section-title-6 {
-    font: var(--z-section-title-6);
+  .desktop-section-title-6 {
+    font: var(--section-title-6);
   }
 }
 
@@ -655,27 +631,51 @@
     line-height: 1.333;
   }
 
-  .wide-z-section-title-1 {
-    font: var(--z-section-title-1);
+  .wide-section-title-1 {
+    font: var(--section-title-1);
   }
 
-  .wide-z-section-title-2 {
-    font: var(--z-section-title-2);
+  .wide-section-title-2 {
+    font: var(--section-title-2);
   }
 
-  .wide-z-section-title-3 {
-    font: var(--z-section-title-3);
+  .wide-section-title-3 {
+    font: var(--section-title-3);
   }
 
-  .wide-z-section-title-4 {
-    font: var(--z-section-title-4);
+  .wide-section-title-4 {
+    font: var(--section-title-4);
   }
 
-  .wide-z-section-title-5 {
-    font: var(--z-section-title-5);
+  .wide-section-title-5 {
+    font: var(--section-title-5);
   }
 
-  .wide-z-section-title-6 {
-    font: var(--z-section-title-6);
+  .wide-section-title-6 {
+    font: var(--section-title-6);
   }
+}
+
+/* font-weight variants */
+.heading-1-lt,
+.heading-2-lt,
+.heading-3-lt,
+.heading-4-lt {
+  font-weight: var(--font-lt);
+}
+
+.heading-1-sb,
+.heading-2-sb,
+.heading-3-sb,
+.heading-4-sb,
+.body-1-sb,
+.body-2-sb,
+.body-3-sb,
+.body-4-sb,
+.body-5-sb,
+.interactive-1-sb,
+.interactive-2-sb,
+.interactive-3-sb,
+.helper-sb {
+  font-weight: var(--font-sb);
 }
