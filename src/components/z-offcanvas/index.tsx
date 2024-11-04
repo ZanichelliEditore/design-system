@@ -48,7 +48,7 @@ export class ZOffcanvas {
 
   /** Used to skip the opening transition when the offcanvas is already open at the first render. */
   @State()
-  private skipAnimation = this.open;
+  private skipAnimation = false;
 
   private canvasContainer: HTMLElement;
 
@@ -82,8 +82,18 @@ export class ZOffcanvas {
     }
   }
 
+  componentWillLoad(): void {
+    if (this.open) {
+      this.skipAnimation = true;
+    }
+  }
+
   componentDidLoad(): void {
     this.handlePageOverflow();
+  }
+
+  componentDidRender(): void {
+    this.skipAnimation = false;
   }
 
   connectedCallback(): void {

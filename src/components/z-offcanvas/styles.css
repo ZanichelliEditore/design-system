@@ -7,8 +7,12 @@
   font-weight: var(--font-rg);
 }
 
+:host([variant="pushcontent"]:not([transitiondirection="up"])) {
+  overflow: hidden;
+  flex: none; /* Prevent unwanted width changes in flex containers */
+}
+
 .canvas-container {
-  z-index: 1001;
   display: flex;
   overflow: hidden;
   min-width: 100%;
@@ -47,6 +51,10 @@
   bottom: 0;
   height: var(--z-offcanvas--container-height, 90%);
   transform: translateY(100%);
+}
+
+:host([transitiondirection="up"], [variant="overlay"]) > .canvas-container {
+  z-index: 1001;
 }
 
 :host([open][transitiondirection="up"]) > .canvas-container {

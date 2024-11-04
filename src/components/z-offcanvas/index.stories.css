@@ -38,10 +38,6 @@
 }
 
 @media (max-width: 767px) {
-  #offcanvas-story-container.pushcontent-story z-offcanvas {
-    flex: none;
-  }
-
   #offcanvas-story-container.pushcontent-story z-offcanvas[open] {
     width: 100%;
   }
