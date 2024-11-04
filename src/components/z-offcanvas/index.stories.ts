@@ -86,7 +86,8 @@ export const OverlayTransitionDirectionRight = {
         </div>
       </z-offcanvas>
       <div class="offcanvas-story-content">
-        <z-button .onclick=${context.parameters.openOffcanvas}>Apri offcanvas</z-button>
+        <div class="heading-2-sb">Page content</div>
+        ${DEMO_TEXT}
       </div>
     </div>`,
 } satisfies Story;
@@ -95,7 +96,8 @@ export const OverlayTransitionDirectionLeft = {
   render: (args, context) =>
     html`<div id="offcanvas-story-container">
       <div class="offcanvas-story-content">
-        <z-button .onclick=${context.parameters.openOffcanvas}>Apri offcanvas</z-button>
+        <div class="heading-2-sb">Page content</div>
+        ${DEMO_TEXT}
       </div>
       <z-offcanvas
         .variant=${OffCanvasVariant.OVERLAY}
@@ -184,7 +186,8 @@ export const PushContent = {
       </z-offcanvas>
 
       <div class="offcanvas-story-content">
-        <z-button .onclick=${context.parameters.openOffcanvas}>Apri offcanvas</z-button>
+        <div class="heading-2-sb">Page content</div>
+        ${DEMO_TEXT}
       </div>
     </div>`,
 } satisfies Story;
