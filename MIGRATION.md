@@ -12,6 +12,23 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [vx.0.0](#vx00)
 
   - [Revisione token dei temi](#revisione-token-temi)
+  - [Aggiornamento stili link](#aggiornamento-stili-link)
+    - [color-link-primary diventa color-text-link-blue](#color-link-primary-diventa-color-text-link-blue)
+    - [color-hover-link diventa color-text-link-blue-hover](#color-hover-link-diventa-color-text-link-blue-hover)
+    - [color-active-link diventa color-text-link-blue-active](#color-active-link-diventa-color-text-link-blue-active)
+    - [color-visited-link diventa color-text-link-blue-visited](#color-visited-link-diventa-color-text-link-blue-visited)
+    - [color-pressed-link diventa color-text-link-blue-pressed](#color-pressed-link-diventa-color-text-link-blue-pressed)
+    - [color-inverse-link diventa color-text-link-inverse](#color-inverse-link-diventa-color-text-link-inverse)
+    - [color-inverse-hover-link diventa color-text-link-inverse](#color-inverse-hover-link-diventa-color-text-link-inverse)
+    - [color-inverse-active-link diventa color-text-link-inverse](#color-inverse-active-link-diventa-color-text-link-inverse)
+    - [color-inverse-pressed-link diventa color-text-link-inverse](#color-inverse-pressed-link-diventa-color-text-link-inverse)
+    - [color-inverse-visited-link diventa color-text-link-inverse](#color-inverse-visited-link-diventa-color-text-link-inverse)
+    - [aggiunto color-text-link-red](#aggiunto-color-text-link-red)
+    - [aggiunto color-text-link-hover](#aggiunto-color-text-link-hover)
+    - [aggiunto color-text-link-active](#aggiunto-color-text-link-active)
+    - [aggiunto color-text-link-visited](#aggiunto-color-text-link-visited)
+    - [aggiunto color-text-link-pressed](#aggiunto-color-text-link-pressed)
+    - [aggiunto color-text-link-default](#aggiunto-color-text-link-default)
 
 - [v16.0.0](#v1600)
 
