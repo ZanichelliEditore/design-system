@@ -29,8 +29,8 @@ a.z-link:hover,
 button.z-link:hover,
 a.z-link:focus,
 button.z-link:focus {
-  color: var(--color-hover-link);
-  fill: var(--color-hover-link);
+  color: var(--color-text-link-blue-hover);
+  fill: var(--color-text-link-blue-hover);
 }
 
 a.z-link:focus,
@@ -43,26 +43,26 @@ a.z-link:active,
 button.z-link:active,
 a.z-link.z-link-active:active,
 button.z-link.z-link-active:active {
-  color: var(--color-pressed-link);
-  fill: var(--color-pressed-link);
+  color: var(--color-text-link-blue-pressed);
+  fill: var(--color-text-link-blue-pressed);
 }
 
 a.z-link:visited,
 button.z-link:visited {
-  color: var(--color-visited-link);
-  fill: var(--color-visited-link);
+  color: var(--color-text-link-blue-visited);
+  fill: var(--color-text-link-blue-visited);
 }
 
 a.z-link.z-link-active,
 button.z-link.z-link-active {
-  color: var(--color-active-link);
-  fill: var(--color-active-link);
+  color: var(--color-text-link-blue-active);
+  fill: var(--color-text-link-blue-active);
 }
 
 a.z-link.z-link-active.z-link-inverse,
 button.z-link.z-link-active.z-link-inverse {
-  color: var(--color-inverse-active-link);
-  fill: var(--color-inverse-active-link);
+  color: var(--color-text-link-inverse);
+  fill: var(--color-text-link-inverse);
 }
 
 a.z-link.z-link-active.z-link-black,
@@ -89,28 +89,28 @@ button.z-link.z-link-underline {
 
 a.z-link.z-link-inverse,
 button.z-link.z-link-inverse {
-  color: var(--color-inverse-link);
-  fill: var(--color-inverse-link);
+  color: var(--color-text-link-inverse);
+  fill: var(--color-text-link-inverse);
 }
 
 a.z-link.z-link-inverse:hover,
 button.z-link.z-link-inverse:hover {
-  color: var(--color-inverse-hover-link);
-  fill: var(--color-inverse-hover-link);
+  color: var(--color-text-link-inverse);
+  fill: var(--color-text-link-inverse);
 }
 
 a.z-link.z-link-inverse:active,
 button.z-link.z-link-inverse:active,
 a.z-link.z-link-inverse:focus,
 button.z-link.z-link-inverse:focus {
-  color: var(--color-inverse-pressed-link);
-  fill: var(--color-inverse-pressed-link);
+  color: var(--color-text-link-inverse);
+  fill: var(--color-text-link-inverse);
 }
 
 a.z-link.z-link-inverse:visited,
 button.z-link.z-link-inverse:visited {
-  color: var(--color-inverse-visited-link);
-  fill: var(--color-inverse-visited-link);
+  color: var(--color-text-link-inverse);
+  fill: var(--color-text-link-inverse);
 }
 
 a.z-link.z-link-black,

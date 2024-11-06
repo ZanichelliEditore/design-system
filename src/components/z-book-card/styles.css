@@ -233,9 +233,9 @@
   align-items: center;
   justify-content: center;
   padding: calc(var(--space-unit) * 1) 0;
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   cursor: pointer;
-  fill: var(--color-link-primary);
+  fill: var(--color-text-link-blue);
   font-size: var(--font-size-2);
   font-weight: var(--font-sb);
   gap: var(--space-unit);
