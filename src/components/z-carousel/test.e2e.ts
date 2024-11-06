@@ -28,10 +28,10 @@ describe("z-carousel non single mode tests", () => {
   it('Checks correct rendering and scrolling of a carousel with arrows-position="over", truthy fixed-arrows property and no title, no infinite navigation', async () => {
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} arrows-position="over" fixed-arrows="">
-               <li><div style=${liStyle}>1</div></li>
-               <li><div style=${liStyle}>2</div></li>
-               <li><div style=${liStyle}>3</div></li>
-             </z-carousel>`,
+        <li><div style=${liStyle}>1</div></li>
+        <li><div style=${liStyle}>2</div></li>
+        <li><div style=${liStyle}>3</div></li>
+      </z-carousel>`,
     });
     await page.setViewport(viewportSize);
 
@@ -78,10 +78,10 @@ describe("z-carousel non single mode tests", () => {
   it('Checks correct rendering and scrolling of a carousel with arrows-position="bottom", truthy fixed-arrows property, with title and infinite navigation', async () => {
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} arrows-position="bottom" label="titolo" infinite="">
-               <li><div style=${liStyle}>1</div></li>
-               <li><div style=${liStyle}>2</div></li>
-               <li><div style=${liStyle}>3</div></li>
-             </z-carousel>`,
+        <li><div style=${liStyle}>1</div></li>
+        <li><div style=${liStyle}>2</div></li>
+        <li><div style=${liStyle}>3</div></li>
+      </z-carousel>`,
     });
     await page.setViewport(viewportSize);
 
@@ -133,10 +133,10 @@ describe("z-carousel single mode tests", () => {
   it('Checks correct rendering and scrolling of a carousel with arrows-position="bottom", no progress mode set and no infinite navigation', async () => {
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} single="" arrows-position="bottom">
-               <li><div style=${liStyle}>1</div></li>
-               <li><div style=${liStyle}>2</div></li>
-               <li><div style=${liStyle}>3</div></li>
-             </z-carousel>`,
+        <li><div style=${liStyle}>1</div></li>
+        <li><div style=${liStyle}>2</div></li>
+        <li><div style=${liStyle}>3</div></li>
+      </z-carousel>`,
     });
     await page.setViewport(viewportSize);
 
@@ -145,8 +145,9 @@ describe("z-carousel single mode tests", () => {
     const footer = await page.find("z-carousel >>> .z-carousel-footer");
     expect(footer).not.toBeNull();
     const footerZButtons = await footer.findAll("z-button");
+    const footerChildren = await page.findAll("z-carousel >>> .z-carousel-footer > *");
     // if no progress mode is set I will find only 2 arrow buttons in the footer
-    expect(footerZButtons.length).toBe(footer.children.length);
+    expect(footerZButtons.length).toBe(footerChildren.length);
 
     const prevArrow = footerZButtons[0];
     const nextArrow = footerZButtons[1];
@@ -178,10 +179,10 @@ describe("z-carousel single mode tests", () => {
   it('Checks correct rendering and scrolling of a carousel with arrows-position="over", progress mode set to "numbers", truthy fixed-arrows property and infinite navigation', async () => {
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} single="" arrows-position="over" fixed-arrows="" infinite="" progress-mode="numbers">
-               <li><div style=${liStyle}>1</div></li>
-               <li><div style=${liStyle}>2</div></li>
-               <li><div style=${liStyle}>3</div></li>
-             </z-carousel>`,
+        <li><div style=${liStyle}>1</div></li>
+        <li><div style=${liStyle}>2</div></li>
+        <li><div style=${liStyle}>3</div></li>
+      </z-carousel>`,
     });
     await page.setViewport(viewportSize);
 
@@ -241,10 +242,10 @@ describe("z-carousel single mode tests", () => {
 
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} single="" arrows-position="over" fixed-arrows="" infinite="" progress-mode="dots">
-               <li><div style=${liStyle}>1</div></li>
-               <li><div style=${liStyle}>2</div></li>
-               <li><div style=${liStyle}>3</div></li>
-             </z-carousel>`,
+        <li><div style=${liStyle}>1</div></li>
+        <li><div style=${liStyle}>2</div></li>
+        <li><div style=${liStyle}>3</div></li>
+      </z-carousel>`,
     });
     await page.setViewport(viewportSize);
 
