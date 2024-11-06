@@ -25,9 +25,4 @@
   --color-pressed-primary: var(--gray800);
   --color-highlight: var(--gray950);
   --shadow-focus-primary: 0 0 0 2px var(--color-white), 0 0 2px 5px var(--color-highlight);
-  --color-link-primary: var(--gray950);
-  --color-hover-link: var(--gray800);
-  --color-active-link: var(--gray800);
-  --color-pressed-link: var(--gray400);
-  --color-visited-link: var(--gray800);
 }
