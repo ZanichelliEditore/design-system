@@ -547,8 +547,10 @@ export const Stuck = {
   ],
   parameters: {
     docs: {
-      inlineStories: false,
-      iframeHeight: "400px",
+      story: {
+        inline: false,
+        iframeHeight: "400px",
+      },
     },
   },
   render: (args) =>

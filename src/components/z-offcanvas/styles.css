@@ -1,189 +1,141 @@
 :host {
   --z-offcanvas--container-width: ;
+  --z-offcanvas--container-height: ;
   --z-offcanvas--top-space: ;
 
-  min-width: 100%;
-  height: 100%;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 }
 
+:host([variant="pushcontent"]:not([transitiondirection="up"])) {
+  overflow: hidden;
+}
+
 .canvas-container {
   display: flex;
-  overflow: -moz-scrollbars-none;
   overflow: hidden;
   min-width: 100%;
   height: 100%;
-  flex-direction: column;
   background: var(--color-surface01);
+  transition: transform 0.4s ease-out;
 }
 
-:host([variant="pushcontent"]) {
-  display: none;
-}
-
-:host([open]) {
-  display: flex;
-  visibility: visible;
-}
-
-:host(:not([open])) {
-  visibility: hidden;
-}
-
-:host([variant="overlay"]) {
+:host > * {
   position: fixed;
-  z-index: 1000;
   top: var(--z-offcanvas--top-space, 0);
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  height: calc(100% - var(--z-offcanvas--top-space, 0));
 }
 
-:host([variant="overlay"][transitiondirection="left"]) {
-  justify-content: end;
+:host([open]) > * {
+  height: calc(100% - var(--z-offcanvas--top-space, 0px));
 }
 
-:host([variant="overlay"]) > .canvas-container {
-  z-index: 1010;
+:host([transitiondirection="right"]) > .canvas-container {
+  transform: translateX(-100%);
 }
 
-:host([variant="overlay"]) .canvas-background {
-  position: absolute;
-  left: 0;
+:host([transitiondirection="left"]) > .canvas-container {
+  transform: translateX(100%);
+}
+
+:host([open][transitiondirection="right"]) > .canvas-container,
+:host([open][transitiondirection="left"]) > .canvas-container {
+  transform: translateX(0);
+}
+
+:host([transitiondirection="up"]) > .canvas-container {
+  top: auto;
+  bottom: 0;
+  height: var(--z-offcanvas--container-height, 90%);
+  transform: translateY(100%);
+}
+
+:host([transitiondirection="up"], [variant="overlay"]) > .canvas-container {
+  z-index: 1001;
+}
+
+:host([open][transitiondirection="up"]) > .canvas-container {
+  transform: translateY(0);
+}
+
+:host([variant="pushcontent"]:not([transitiondirection="up"])) > .canvas-container {
+  position: relative;
+  height: 100%;
+}
+
+:host([variant="pushcontent"]:not([open])) {
+  display: none;
+}
+
+:host([skip-animation]) > .canvas-container {
+  transition: none;
+}
+
+.canvas-background {
+  z-index: 1000;
   width: 100%;
   height: 100%;
   background-color: var(--gray900);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+:host([open]) > .canvas-background {
   opacity: 0.7;
 }
 
 .canvas-container > .canvas-content {
-  overflow: auto;
+  overflow: hidden auto;
   flex: 1 auto;
   padding: 0 calc(var(--space-unit) * 2);
   margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0;
-  overflow-x: hidden;
-}
-
-:host([variant="overlay"]) > .canvas-container > .canvas-content {
-  padding: 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
-  margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) 0 0;
 }
 
 /* Webkit Scrollbar */
 .canvas-container .canvas-content::-webkit-scrollbar {
-  width: 10px;
-  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
-  border-radius: var(--border-radius);
-}
-
-.canvas-container .canvas-content::-webkit-scrollbar-track {
-  background-color: transparent;
+  width: 6px;
+  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar-thumb {
-  width: 10px;
   background-color: var(--color-primary01);
-  border-radius: var(--border-radius);
 }
 
 .canvas-container .canvas-content::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover-primary);
 }
 
-/* Firefox */
-.canvas-container .canvas-content {
-  scrollbar-color: var(--color-primary01) transparent;
-}
-
-/* Mobile */
-@media only screen and (max-width: 767px) {
-  :host([open][transitiondirection="left"]:not(.skip-animation)) > .canvas-container {
-    animation: enter-right 0.4s ease-out;
-  }
-
-  :host([open][transitiondirection="right"]:not(.skip-animation)) > .canvas-container {
-    animation: enter-left 0.4s ease-out;
+/* Firefox scrollbar */
+@supports not selector(.canvas-content::-webkit-scrollbar-track) {
+  .canvas-container .canvas-content {
+    scrollbar-color: var(--color-primary01) transparent;
   }
 }
 
 /* Tablet / Desktop */
-@media only screen and (min-width: 768px) {
-  :host {
-    min-width: auto;
+@media (min-width: 768px) {
+  :host([variant="pushcontent"]:not([transitiondirection="up"])) {
+    flex: none; /* Prevent unwanted width changes in flex containers */
   }
 
   .canvas-container {
-    width: auto;
-    min-width: max(var(--z-offcanvas--container-width), 375px);
-    max-width: max(var(--z-offcanvas--container-width), 375px);
-    height: auto;
-    min-height: calc(var(--space-unit) * 40);
+    width: max(var(--z-offcanvas--container-width, 375px), 375px);
+    min-width: 375px;
   }
 
-  :host(:not([variant="overlay"])[open]:not(.skip-animation)) {
-    width: auto;
-    animation: grow 0.4s ease-out;
-  }
-}
-
-/* ANIMATION */
-
-@keyframes grow {
-  from {
-    width: 0;
+  :host([transitiondirection="up"]) > .canvas-container {
+    width: 100%;
   }
 
-  to {
-    width: max(var(--z-offcanvas--container-width), 375px);
-  }
-}
-
-@keyframes enter-left {
-  from {
-    transform: translateX(-100%);
+  :host([transitiondirection="right"]) > .canvas-container {
+    right: auto;
+    left: 0;
   }
 
-  to {
-    transform: translateX(0);
+  :host([transitiondirection="left"]) > .canvas-container {
+    right: 0;
+    left: auto;
   }
-}
-
-@keyframes enter-right {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-:host([open][variant="overlay"][transitiondirection="left"]:not(.skip-animation)) > .canvas-container {
-  animation: enter-right 0.4s ease-out;
-}
-
-:host([open][transitiondirection="right"]:not(.skip-animation)) > .canvas-container {
-  animation: enter-left 0.4s ease-out;
-}
-
-:host(:not([open])[variant="overlay"][transitiondirection="right"]) > .canvas-container {
-  transform: translateX(-100%);
-  transition:
-    visibility 0.4s ease-out,
-    transform 0.4s ease-out;
-}
-
-:host(:not([open])[variant="overlay"][transitiondirection="left"]) > .canvas-container {
-  transform: translateX(100%);
-  transition:
-    visibility 0.4s ease-out,
-    transform 0.4s ease-out;
-}
-
-:host(:not([open])[variant="overlay"]) .canvas-background {
-  transition: visibility 0.4s ease-out;
-  visibility: hidden;
 }

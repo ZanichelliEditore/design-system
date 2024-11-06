@@ -12,12 +12,12 @@
 
 ## Properties
 
-| Property              | Attribute             | Description                                                                                               | Type                                                       | Default                        |
-| --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------ |
-| `open`                | `open`                | Whether the offcanvas is open. Default: false                                                             | `boolean`                                                  | `false`                        |
-| `skipLoadAnimation`   | `skip-load-animation` | Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`. | `boolean`                                                  | `false`                        |
-| `transitiondirection` | `transitiondirection` | open content transitioning in a specified direction left \| right. Default: left                          | `TransitionDirection.LEFT \| TransitionDirection.RIGHT`    | `TransitionDirection.LEFT`     |
-| `variant`             | `variant`             | Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent                    | `OffCanvasVariant.OVERLAY \| OffCanvasVariant.PUSHCONTENT` | `OffCanvasVariant.PUSHCONTENT` |
+| Property              | Attribute             | Description                                                                                                                                                                                                                                                                                                                                                                    | Type                                                                              | Default                        |
+| --------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------ |
+| `open`                | `open`                | Whether the offcanvas is open. Default: false                                                                                                                                                                                                                                                                                                                                  | `boolean`                                                                         | `false`                        |
+| `skipLoadAnimation`   | `skip-load-animation` | <span style="color:red">**[DEPRECATED]**</span> This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.<br/><br/>Skip the opening transition when the offcanvas is already open at the first render.                                                | `boolean`                                                                         | `false`                        |
+| `transitiondirection` | `transitiondirection` | Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.                                                                                                                                                                                                                                 | `TransitionDirection.LEFT \| TransitionDirection.RIGHT \| TransitionDirection.UP` | `TransitionDirection.LEFT`     |
+| `variant`             | `variant`             | Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition. | `OffCanvasVariant.OVERLAY \| OffCanvasVariant.PUSHCONTENT`                        | `OffCanvasVariant.PUSHCONTENT` |
 
 
 ## Events
@@ -29,9 +29,9 @@
 
 ## Slots
 
-| Slot              | Description                |
-| ----------------- | -------------------------- |
-| `"canvasContent"` | Slot for the main content. |
+| Slot              | Description                     |
+| ----------------- | ------------------------------- |
+| `"canvasContent"` | Slot for the offcanvas content. |
 
 
 ## Dependencies
