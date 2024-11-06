@@ -7,16 +7,6 @@
   background-color: var(--blue100);
 }
 
-#offcanvas-story-container .offcanvas-close {
-  --z-icon-width: 32px;
-  --z-icon-height: 32px;
-
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 #offcanvas-story-container.left {
   flex-direction: row-reverse;
   justify-content: flex-end;

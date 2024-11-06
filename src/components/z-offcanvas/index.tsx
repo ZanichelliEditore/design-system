@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, h, Host, Prop, State, Watch} from "@stencil/core";
+import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 
 /**
@@ -19,6 +19,7 @@ export class ZOffcanvas {
    * - `overlay`: The offcanvas covers the page content putting an overlay.
    * - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
    * > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
+   * Also, the `pushcontent` variant doesn't have the open/close transition.
    */
   @Prop({reflect: true})
   variant?: OffCanvasVariant = OffCanvasVariant.PUSHCONTENT;
@@ -51,6 +52,20 @@ export class ZOffcanvas {
   private skipAnimation = false;
 
   private canvasContainer: HTMLElement;
+
+  /**
+   * Stop the event default behavior and propagation when the offcanvas is closed.
+   */
+  @Listen("click", {capture: true})
+  @Listen("focusin", {capture: true})
+  stopEvent(event: Event): void {
+    if (this.open) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+  }
 
   /**
    * Hide the body overflow when the offcanvas is open.
@@ -108,7 +123,7 @@ export class ZOffcanvas {
     return (
       <Host
         skip-animation={this.skipAnimation}
-        inert={!this.open}
+        aria-hidden={!this.open ? "true" : null}
       >
         <div
           class="canvas-container"
@@ -122,13 +137,12 @@ export class ZOffcanvas {
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        {(this.variant == OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP) &&
-          this.open && (
-            <div
-              class="canvas-background"
-              onClick={() => (this.open = false)}
-            ></div>
-          )}
+        {(this.variant == OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP) && (
+          <div
+            class="canvas-background"
+            onClick={() => (this.open = false)}
+          ></div>
+        )}
       </Host>
     );
   }

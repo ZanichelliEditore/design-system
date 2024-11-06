@@ -11,7 +11,7 @@ describe("ZOffcanvas", () => {
     const offcanvas = await page.find("z-offcanvas");
     const overlay = await offcanvas.find(".canvas-background");
     await overlay.click();
-    page.waitForChanges();
+    await page.waitForChanges();
     expect(offcanvas).not.toHaveAttribute("open");
   });
 });

@@ -1441,7 +1441,7 @@ export namespace Components {
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -4992,7 +4992,7 @@ declare namespace LocalJSX {
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
          */
         "variant"?: OffCanvasVariant;
     }
