@@ -8,9 +8,9 @@ button.z-link {
 a.z-link,
 button.z-link {
   display: inline-flex;
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   cursor: pointer;
-  fill: var(--color-link-primary);
+  fill: var(--color-text-link-blue);
   font-family: var(--font-family-sans);
   line-height: inherit;
   text-decoration: none;
