@@ -129,12 +129,12 @@ I seguenti token dei link hanno subito modifiche:
 
 I seguenti token dei link sono stati aggiunti:
 
-- `color-text-link-red` : `red500`
-- `color-text-link-hover` : `red800`
-- `color-text-link-active` : `red800`
-- `color-text-link-visited` : `red800`
-- `color-text-link-pressed` : `red400`
-- `color-text-link-default` : `gray900`
+- `color-text-link-red`: `red500`
+- `color-text-link-hover`: `red800`
+- `color-text-link-active`: `red800`
+- `color-text-link-visited`: `red800`
+- `color-text-link-pressed`: `red400`
+- `color-text-link-default`: `gray900`
 
 ### Revisione token dei temi
 
