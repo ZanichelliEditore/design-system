@@ -11,24 +11,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [vx.0.0](#vx00)
 
-  - [Revisione token dei temi](#revisione-token-temi)
   - [Aggiornamento stili link](#aggiornamento-stili-link)
-    - [color-link-primary diventa color-text-link-blue](#color-link-primary-diventa-color-text-link-blue)
-    - [color-hover-link diventa color-text-link-blue-hover](#color-hover-link-diventa-color-text-link-blue-hover)
-    - [color-active-link diventa color-text-link-blue-active](#color-active-link-diventa-color-text-link-blue-active)
-    - [color-visited-link diventa color-text-link-blue-visited](#color-visited-link-diventa-color-text-link-blue-visited)
-    - [color-pressed-link diventa color-text-link-blue-pressed](#color-pressed-link-diventa-color-text-link-blue-pressed)
-    - [color-inverse-link diventa color-text-link-inverse](#color-inverse-link-diventa-color-text-link-inverse)
-    - [color-inverse-hover-link diventa color-text-link-inverse](#color-inverse-hover-link-diventa-color-text-link-inverse)
-    - [color-inverse-active-link diventa color-text-link-inverse](#color-inverse-active-link-diventa-color-text-link-inverse)
-    - [color-inverse-pressed-link diventa color-text-link-inverse](#color-inverse-pressed-link-diventa-color-text-link-inverse)
-    - [color-inverse-visited-link diventa color-text-link-inverse](#color-inverse-visited-link-diventa-color-text-link-inverse)
-    - [aggiunto color-text-link-red](#aggiunto-color-text-link-red)
-    - [aggiunto color-text-link-hover](#aggiunto-color-text-link-hover)
-    - [aggiunto color-text-link-active](#aggiunto-color-text-link-active)
-    - [aggiunto color-text-link-visited](#aggiunto-color-text-link-visited)
-    - [aggiunto color-text-link-pressed](#aggiunto-color-text-link-pressed)
-    - [aggiunto color-text-link-default](#aggiunto-color-text-link-default)
+  - [Revisione token dei temi](#revisione-token-temi)
 
 - [v16.0.0](#v1600)
 
@@ -127,6 +111,30 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
 ## vx.0.0
+
+### Aggiornamento stili link
+
+I seguenti token dei link hanno subito modifiche:
+
+- `color-link-primary` diventa `color-text-link-blue`
+- `color-hover-link` diventa `color-text-link-blue-hover`
+- `color-active-link` diventa `color-text-link-blue-active`
+- `color-visited-link` diventa `color-text-link-blue-visited`
+- `color-pressed-link` diventa `color-text-link-blue-pressed`
+- `color-inverse-link` diventa `color-text-link-inverse`
+- `color-inverse-hover-link` diventa `color-text-link-inverse`
+- `color-inverse-active-link` diventa `color-text-link-inverse`
+- `color-inverse-pressed-link` diventa `color-text-link-inverse`
+- `color-inverse-visited-link` diventa `color-text-link-inverse`
+
+I seguenti token dei link sono stati aggiunti:
+
+- `color-text-link-red` : `red500`
+- `color-text-link-hover` : `red800`
+- `color-text-link-active` : `red800`
+- `color-text-link-visited` : `red800`
+- `color-text-link-pressed` : `red400`
+- `color-text-link-default` : `gray900`
 
 ### Revisione token dei temi
 
