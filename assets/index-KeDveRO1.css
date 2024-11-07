@@ -1,1 +1,0 @@
-#offcanvas-story-container{display:flex;height:100vh;background-color:var(--blue100)}#offcanvas-story-container.offcanvas-left{justify-content:flex-end}#offcanvas-boxes-container{display:flex;flex-wrap:wrap;padding:calc(var(--space-unit) * 2);gap:calc(var(--space-unit) * 2)}#offcanvas-boxes-container>div{width:150px;height:150px;background-color:var(--yellow500)}
