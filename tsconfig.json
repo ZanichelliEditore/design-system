@@ -16,6 +16,6 @@
     "jsxFactory": "h",
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src", "docs"],
   "exclude": ["node_modules"]
 }

@@ -44,7 +44,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetical",
-        order: ["Migration", "Colors", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
+        order: ["Migration", "Colors", "Typography", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
       },
     },
     controls: {sort: "alpha"},

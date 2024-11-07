@@ -97,6 +97,7 @@ div.menu-label:focus-within {
   font-size: var(--font-size-3);
   font-weight: inherit;
   line-height: 1.5;
+  white-space: nowrap;
 }
 
 .menu-label z-icon {
