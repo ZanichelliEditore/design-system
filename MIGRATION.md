@@ -121,19 +121,15 @@ I seguenti token dei link hanno subito modifiche:
 - `color-active-link` diventa `color-text-link-blue-active`
 - `color-visited-link` diventa `color-text-link-blue-visited`
 - `color-pressed-link` diventa `color-text-link-blue-pressed`
-- `color-inverse-link` diventa `color-text-link-inverse`
-- `color-inverse-hover-link` diventa `color-text-link-inverse`
-- `color-inverse-active-link` diventa `color-text-link-inverse`
-- `color-inverse-pressed-link` diventa `color-text-link-inverse`
-- `color-inverse-visited-link` diventa `color-text-link-inverse`
+- `color-inverse-link` e `color-inverse-hover/active/pressed/visited-link` diventano `color-text-link-inverse`
 
 I seguenti token dei link sono stati aggiunti:
 
 - `color-text-link-red`: `red500`
-- `color-text-link-hover`: `red800`
-- `color-text-link-active`: `red800`
-- `color-text-link-visited`: `red800`
-- `color-text-link-pressed`: `red400`
+- `color-text-link-red-hover`: `red800`
+- `color-text-link-red-active`: `red800`
+- `color-text-link-red-visited`: `red800`
+- `color-text-link-red-pressed`: `red400`
 - `color-text-link-default`: `gray900`
 
 ### Revisione token dei temi

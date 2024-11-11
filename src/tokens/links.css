@@ -5,10 +5,10 @@
   --color-text-link-blue-visited: var(--blue800);
   --color-text-link-blue-pressed: var(--blue400);
   --color-text-link-red: var(--red500);
-  --color-text-link-hover: var(--red800);
-  --color-text-link-active: var(--red800);
-  --color-text-link-visited: var(--red800);
-  --color-text-link-pressed: var(--red400);
+  --color-text-link-red-hover: var(--red800);
+  --color-text-link-red-active: var(--red800);
+  --color-text-link-red-visited: var(--red800);
+  --color-text-link-red-pressed: var(--red400);
   --color-text-link-inverse: var(--color-white);
   --color-text-link-default: var(--gray900);
 }
