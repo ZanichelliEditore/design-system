@@ -29,18 +29,6 @@ button.z-link:focus {
   outline: none;
 }
 
-a.z-link.z-link-active:active,
-button.z-link.z-link-active:active {
-  color: var(--color-text-link-blue-pressed);
-  fill: var(--color-text-link-blue-pressed);
-}
-
-a.z-link.z-link-active,
-button.z-link.z-link-active {
-  color: var(--color-text-link-blue-active);
-  fill: var(--color-text-link-blue-active);
-}
-
 a.z-link.z-link-active.z-link-inverse,
 button.z-link.z-link-active.z-link-inverse {
   color: var(--color-text-link-inverse);
@@ -89,6 +77,20 @@ button.z-link:visited {
   fill: var(--color-text-link-default);
 }
 
+a.z-link.z-link-active,
+button.z-link.z-link-active,
+a.z-link.z-link-active:hover,
+button.z-link.z-link-active:hover,
+a.z-link.z-link-active:focus,
+button.z-link.z-link-active:focus,
+a.z-link.z-link-active:active,
+button.z-link.z-link-active:active,
+a.z-link.z-link-active:visited,
+button.z-link.z-link-active:visited {
+  color: var(--color-text-link-default);
+  fill: var(--color-text-link-default);
+}
+
 a.z-link.z-link-blue,
 button.z-link.z-link-blue {
   color: var(--color-text-link-blue);
@@ -97,6 +99,18 @@ button.z-link.z-link-blue {
 
 a.z-link.z-link-red,
 button.z-link.z-link-red {
+  color: var(--color-text-link-red);
+  fill: var(--color-text-link-red);
+}
+
+a.z-link.z-link-blue.z-link-active,
+button.z-link.z-link-blue.z-link-active {
+  color: var(--color-text-link-blue);
+  fill: var(--color-text-link-blue);
+}
+
+a.z-link.z-link-red.z-link-active,
+button.z-link.z-link-red.z-link-active {
   color: var(--color-text-link-red);
   fill: var(--color-text-link-red);
 }
@@ -131,16 +145,16 @@ a.z-link.z-link-blue:active,
 button.z-link.z-link-blue:active,
 a.z-link.z-link-blue:focus,
 button.z-link.z-link-blue:focus {
-  color: var(color-text-link-blue-active);
-  fill: var(color-text-link-blue-active);
+  color: var(--color-text-link-blue-active);
+  fill: var(--color-text-link-blue-active);
 }
 
 a.z-link.z-link-red:active,
 button.z-link.z-link-red:active,
 a.z-link.z-link-red:focus,
 button.z-link.z-link-red:focus {
-  color: var(color-text-link-red-active);
-  fill: var(color-text-link-red-active);
+  color: var(--color-text-link-red-active);
+  fill: var(--color-text-link-red-active);
 }
 
 a.z-link.z-link-inverse:visited,

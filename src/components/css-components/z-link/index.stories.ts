@@ -8,7 +8,7 @@ export default {
   title: "ZLink",
   argTypes: {
     "colorVariant": {
-      options: ["default", "z-link-black", "z-link-white"],
+      options: ["default", "z-link-black", "z-link-white", "z-link-blue", "z-link-red"],
       control: {
         type: "inline-radio",
       },
@@ -33,8 +33,6 @@ export default {
     "colorVariant": "default",
     "text": "Zanichelli.it",
     "icon": null,
-    "z-link-blue": false,
-    "z-link-red": false,
     "z-link-active": false,
     "z-link-inverse": false,
     "z-link-disabled": false,
@@ -46,8 +44,8 @@ export default {
 
 const getClasses = (args): ClassInfo => ({
   "z-link": true,
-  "z-link-blue": args["z-link-blue"],
-  "z-link-red": args["z-link-red"],
+  "z-link-blue": args.colorVariant === "z-link-blue",
+  "z-link-red": args.colorVariant === "z-link-red",
   "z-link-black": args.colorVariant === "z-link-black",
   "z-link-white": args.colorVariant === "z-link-white",
   "z-link-active": args["z-link-active"],
