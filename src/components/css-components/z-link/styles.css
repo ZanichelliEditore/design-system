@@ -8,9 +8,7 @@ button.z-link {
 a.z-link,
 button.z-link {
   display: inline-flex;
-  color: var(--color-text-link-blue);
   cursor: pointer;
-  fill: var(--color-text-link-blue);
   font-family: var(--font-family-sans);
   line-height: inherit;
   text-decoration: none;
@@ -25,32 +23,16 @@ button.z-link:active {
   text-decoration: underline;
 }
 
-a.z-link:hover,
-button.z-link:hover,
-a.z-link:focus,
-button.z-link:focus {
-  color: var(--color-text-link-blue-hover);
-  fill: var(--color-text-link-blue-hover);
-}
-
 a.z-link:focus,
 button.z-link:focus {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
 
-a.z-link:active,
-button.z-link:active,
 a.z-link.z-link-active:active,
 button.z-link.z-link-active:active {
   color: var(--color-text-link-blue-pressed);
   fill: var(--color-text-link-blue-pressed);
-}
-
-a.z-link:visited,
-button.z-link:visited {
-  color: var(--color-text-link-blue-visited);
-  fill: var(--color-text-link-blue-visited);
 }
 
 a.z-link.z-link-active,
@@ -93,10 +75,48 @@ button.z-link.z-link-inverse {
   fill: var(--color-text-link-inverse);
 }
 
+a.z-link,
+button.z-link,
+a.z-link:hover,
+button.z-link:hover,
+a.z-link:focus,
+button.z-link:focus,
+a.z-link:active,
+button.z-link:active,
+a.z-link:visited,
+button.z-link:visited {
+  color: var(--color-text-link-default);
+  fill: var(--color-text-link-default);
+}
+
+a.z-link.z-link-blue,
+button.z-link.z-link-blue {
+  color: var(--color-text-link-blue);
+  fill: var(--color-text-link-blue);
+}
+
+a.z-link.z-link-red,
+button.z-link.z-link-red {
+  color: var(--color-text-link-red);
+  fill: var(--color-text-link-red);
+}
+
 a.z-link.z-link-inverse:hover,
 button.z-link.z-link-inverse:hover {
   color: var(--color-text-link-inverse);
   fill: var(--color-text-link-inverse);
+}
+
+a.z-link.z-link-blue:hover,
+button.z-link.z-link-blue:hover {
+  color: var(--color-text-link-blue-hover);
+  fill: var(--color-text-link-blue-hover);
+}
+
+a.z-link.z-link-red:hover,
+button.z-link.z-link-red:hover {
+  color: var(--color-text-link-red-hover);
+  fill: var(--color-text-link-red-hover);
 }
 
 a.z-link.z-link-inverse:active,
@@ -107,10 +127,38 @@ button.z-link.z-link-inverse:focus {
   fill: var(--color-text-link-inverse);
 }
 
+a.z-link.z-link-blue:active,
+button.z-link.z-link-blue:active,
+a.z-link.z-link-blue:focus,
+button.z-link.z-link-blue:focus {
+  color: var(color-text-link-blue-active);
+  fill: var(color-text-link-blue-active);
+}
+
+a.z-link.z-link-red:active,
+button.z-link.z-link-red:active,
+a.z-link.z-link-red:focus,
+button.z-link.z-link-red:focus {
+  color: var(color-text-link-red-active);
+  fill: var(color-text-link-red-active);
+}
+
 a.z-link.z-link-inverse:visited,
 button.z-link.z-link-inverse:visited {
   color: var(--color-text-link-inverse);
   fill: var(--color-text-link-inverse);
+}
+
+a.z-link.z-link-blue:visited,
+button.z-link.z-link-blue:visited {
+  color: var(--color-text-link-blue-visited);
+  fill: var(--color-text-link-blue-visited);
+}
+
+a.z-link.z-link-red:visited,
+button.z-link.z-link-red:visited {
+  color: var(--color-text-link-red-visited);
+  fill: var(--color-text-link-red-visited);
 }
 
 a.z-link.z-link-black,

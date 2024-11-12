@@ -132,6 +132,13 @@ I seguenti token dei link sono stati aggiunti:
 - `color-text-link-red-pressed`: `red400`
 - `color-text-link-default`: `gray900`
 
+Le seguenti classi css sono state state aggiunte:
+
+- `z-link-blue` con i rispettivi token per gli stati di hover/active/focus/visited
+- `z-link-red` con i rispettivi token per gli stati di hover/active/focus/visited
+
+Il token `color-text-link-default` rappresenta il colore di default per i link in ogni loro stato
+
 ### Revisione token dei temi
 
 #### Tema default

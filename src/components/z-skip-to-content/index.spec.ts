@@ -22,7 +22,7 @@ describe("Suite test ZSkipToContent", () => {
     expect(page.root).toEqualHtml(`
       <z-skip-to-content class="dark" links="[{&quot;ariaLabel&quot;: &quot;vai al link1&quot;, &quot;label&quot;:&quot;vai al link1&quot;, &quot;href&quot;:&quot;#link1&quot;}]" variant="dark">
         <div class="link-container">
-          <a aria-label="vai al link1" class="body-1-sb link-invisible z-link z-link-underline z-link-white" href="#link1" id="skip-to-content-0">
+          <a aria-label="vai al link1" class="body-1-sb link-invisible z-link z-link-blue z-link-underline z-link-white" href="#link1" id="skip-to-content-0">
             vai al link1
           </a>
       </z-skip-to-content>

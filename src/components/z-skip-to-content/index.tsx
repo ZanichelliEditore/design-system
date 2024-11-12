@@ -88,6 +88,7 @@ export class ZSkipToContent {
                 class={{
                   "body-1-sb": true,
                   "z-link": true,
+                  "z-link-blue": true,
                   "z-link-underline": true,
                   "z-link-white": this.variant === ThemeVariant.DARK,
                   "z-link-black": this.variant !== ThemeVariant.DARK,
