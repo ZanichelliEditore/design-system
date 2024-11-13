@@ -61,26 +61,22 @@ button.z-link.z-link-disabled {
 
 a.z-link,
 button.z-link,
-a.z-link:hover,
-button.z-link:hover,
-a.z-link:focus,
-button.z-link:focus,
-a.z-link:active,
-button.z-link:active,
-a.z-link:visited,
-button.z-link:visited {
-  color: var(--color-text-link-default);
-  fill: var(--color-text-link-default);
-}
-
 a.z-link.z-link-active,
 button.z-link.z-link-active,
+a.z-link:hover,
+button.z-link:hover,
 a.z-link.z-link-active:hover,
 button.z-link.z-link-active:hover,
+a.z-link:focus,
+button.z-link:focus,
 a.z-link.z-link-active:focus,
 button.z-link.z-link-active:focus,
+a.z-link:active,
+button.z-link:active,
 a.z-link.z-link-active:active,
 button.z-link.z-link-active:active,
+a.z-link:visited,
+button.z-link:visited,
 a.z-link.z-link-active:visited,
 button.z-link.z-link-active:visited {
   color: var(--color-text-link-default);
@@ -88,35 +84,23 @@ button.z-link.z-link-active:visited {
 }
 
 a.z-link.z-link-blue,
-button.z-link.z-link-blue {
-  color: var(--color-text-link-blue);
-  fill: var(--color-text-link-blue);
-}
-
-a.z-link.z-link-red,
-button.z-link.z-link-red {
-  color: var(--color-text-link-red);
-  fill: var(--color-text-link-red);
-}
-
-a.z-link.z-link-inverse,
-button.z-link.z-link-inverse {
-  color: var(--color-text-link-inverse);
-  fill: var(--color-text-link-inverse);
-}
-
+button.z-link.z-link-blue,
 a.z-link.z-link-blue.z-link-active,
 button.z-link.z-link-blue.z-link-active {
   color: var(--color-text-link-blue);
   fill: var(--color-text-link-blue);
 }
 
+a.z-link.z-link-red,
+button.z-link.z-link-red,
 a.z-link.z-link-red.z-link-active,
 button.z-link.z-link-red.z-link-active {
   color: var(--color-text-link-red);
   fill: var(--color-text-link-red);
 }
 
+a.z-link.z-link-inverse,
+button.z-link.z-link-inverse,
 a.z-link.z-link-inverse.z-link-active,
 button.z-link.z-link-inverse.z-link-active {
   color: var(--color-text-link-inverse);
