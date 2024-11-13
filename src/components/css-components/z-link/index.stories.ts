@@ -8,7 +8,7 @@ export default {
   title: "ZLink",
   argTypes: {
     "colorVariant": {
-      options: ["default", "z-link-blue", "z-link-red", "z-link-inverse"],
+      options: ["z-link", "z-link-blue", "z-link-red", "z-link-inverse"],
       control: {
         type: "inline-radio",
       },
@@ -30,7 +30,7 @@ export default {
     },
   },
   args: {
-    "colorVariant": "default",
+    "colorVariant": "z-link",
     "text": "Zanichelli.it",
     "icon": null,
     "z-link-active": false,
