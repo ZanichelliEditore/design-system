@@ -11,6 +11,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [vx.0.0](#vx00)
 
+  - [Aggiornamento stili link](#aggiornamento-stili-link)
   - [Revisione token dei temi](#revisione-token-temi)
 
 - [v16.0.0](#v1600)
@@ -110,6 +111,33 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
 ## vx.0.0
+
+### Aggiornamento stili link
+
+I seguenti token dei link hanno subito modifiche:
+
+- `color-link-primary` diventa `color-text-link-blue`
+- `color-hover-link` diventa `color-text-link-blue-hover`
+- `color-active-link` diventa `color-text-link-blue-active`
+- `color-visited-link` diventa `color-text-link-blue-visited`
+- `color-pressed-link` diventa `color-text-link-blue-pressed`
+- `color-inverse-link` e `color-inverse-hover/active/pressed/visited-link` diventano `color-text-link-inverse`
+
+I seguenti token dei link sono stati aggiunti:
+
+- `color-text-link-red`: `red500`
+- `color-text-link-red-hover`: `red800`
+- `color-text-link-red-active`: `red800`
+- `color-text-link-red-visited`: `red800`
+- `color-text-link-red-pressed`: `red400`
+- `color-text-link-default`: `gray900`
+
+Le seguenti classi css sono state state aggiunte:
+
+- `z-link-blue` con i rispettivi token per gli stati di hover/active/focus/visited
+- `z-link-red` con i rispettivi token per gli stati di hover/active/focus/visited
+
+Il token `color-text-link-default` rappresenta il colore di default per i link in ogni loro stato
 
 ### Revisione token dei temi
 

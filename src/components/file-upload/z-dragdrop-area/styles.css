@@ -45,7 +45,7 @@
 
 :host > .dragdrop .dragover-container .dragover-message {
   padding: 10px 28px;
-  background-color: var(--color-link-primary);
+  background-color: var(--color-primary01);
   color: var(--color-text-inverse);
 }
 
