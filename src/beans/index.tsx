@@ -459,6 +459,8 @@ export enum BookCardVariant {
   EXPANDED = "expanded",
   COMPACT = "compact",
   SEARCH = "search",
+  LANDSCAPE = "landscape",
+  PORTRAIT = "portrait",
 }
 
 export enum AccordionVariant {

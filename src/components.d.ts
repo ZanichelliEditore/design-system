@@ -263,6 +263,62 @@ export namespace Components {
          */
         "authors"?: string;
         /**
+          * Cover URL
+         */
+        "cover": string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel": string;
+        /**
+          * Card main title
+         */
+        "operaTitle": string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label - expanded and search variant only
+         */
+        "ribbon"?: string;
+        /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "ribbonIcon"?: string;
+        /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "ribbonInteractive"?: boolean;
+        /**
+          * Card variant: landscape, portrait
+         */
+        "variant": BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
+        "volumeTitle"?: string;
+    }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
+    interface ZBookCardDeprecated {
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
           * [optional] Borderless card - compact variant only
          */
         "borderless"?: boolean;
@@ -2063,6 +2119,10 @@ export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
 }
+export interface ZBookCardDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBookCardDeprecatedElement;
+}
 export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBreadcrumbElement;
@@ -2394,6 +2454,29 @@ declare global {
     var HTMLZBookCardElement: {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
+    };
+    interface HTMLZBookCardDeprecatedElementEventMap {
+        "ribbonClick": any;
+    }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
+    interface HTMLZBookCardDeprecatedElement extends Components.ZBookCardDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZBookCardDeprecatedElement: {
+        prototype: HTMLZBookCardDeprecatedElement;
+        new (): HTMLZBookCardDeprecatedElement;
     };
     interface HTMLZBreadcrumbElementEventMap {
         "clickOnNode": BreadcrumbPath["path"];
@@ -3354,6 +3437,7 @@ declare global {
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
+        "z-book-card-deprecated": HTMLZBookCardDeprecatedElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -3690,6 +3774,66 @@ declare namespace LocalJSX {
          */
         "authors"?: string;
         /**
+          * Cover URL
+         */
+        "cover"?: string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel"?: string;
+        /**
+          * click on interactive ribbon
+         */
+        "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * Card main title
+         */
+        "operaTitle"?: string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "operaTitleTag"?: string;
+        /**
+          * [optional] Ribbon label - expanded and search variant only
+         */
+        "ribbon"?: string;
+        /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "ribbonIcon"?: string;
+        /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "ribbonInteractive"?: boolean;
+        /**
+          * Card variant: landscape, portrait
+         */
+        "variant"?: BookCardVariant;
+        /**
+          * [optional] Card subtitle
+         */
+        "volumeTitle"?: string;
+    }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
+    interface ZBookCardDeprecated {
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
           * [optional] Borderless card - compact variant only
          */
         "borderless"?: boolean;
@@ -3712,7 +3856,7 @@ declare namespace LocalJSX {
         /**
           * click on interactive ribbon
          */
-        "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        "onRibbonClick"?: (event: ZBookCardDeprecatedCustomEvent<any>) => void;
         /**
           * Card main title
          */
@@ -5658,6 +5802,7 @@ declare namespace LocalJSX {
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
+        "z-book-card-deprecated": ZBookCardDeprecated;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
         "z-button-sort": ZButtonSort;
@@ -5837,6 +5982,13 @@ declare module "@stencil/core" {
              * @cssprop --z-book-card-compact-height - compact card custom height
              */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            /**
+             * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+             * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+             * @cssprop --z-book-card-compact-width - compact card custom width
+             * @cssprop --z-book-card-compact-height - compact card custom height
+             */
+            "z-book-card-deprecated": LocalJSX.ZBookCardDeprecated & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;

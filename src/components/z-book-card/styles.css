@@ -169,21 +169,91 @@
 
 /* EXPANDED STYLES */
 
-:host > article.expanded {
-  width: 100%;
-  min-width: 328px;
-  padding: calc(var(--space-unit) * 2);
-  padding-bottom: 0;
-}
+:host > article.landscape {
+  width: 635px;
+  height: 428px;
+  border: solid var(--border-size-medium) var(--color-surface03);
+  background-color: aquamarine;
+  border-radius: var(--border-radius);
 
-:host > article.expanded div.header {
-  display: flex;
-  flex-flow: row nowrap;
-  align-content: stretch;
-  align-items: top;
-  justify-content: space-between;
-  margin-bottom: var(--space-unit);
-  white-space: nowrap;
+  /* background: var(--color-surface01); */
+
+  .main-content {
+    display: flex;
+    height: 300px;
+    padding: calc(var(--space-unit) * 2);
+    background-color: cadetblue;
+    gap: calc(var(--space-unit) * 2);
+
+    .cover {
+      width: 221px;
+      background-color: coral;
+      border-radius: var(--border-radius);
+    }
+
+    .card-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: yellowgreen;
+      gap: calc(var(--space-unit) * 2);
+
+      .book-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: violet;
+
+        .authors-title-icon-section {
+          display: flex;
+          gap: calc(var(--space-unit) * 2);
+
+          .authors-title {
+            flex: 1;
+            background-color: orange;
+
+            .authors {
+              display: -webkit-box;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              font-size: var(--font-size-2);
+              font-weight: var(--font-rg);
+              letter-spacing: 0.16px;
+              -webkit-line-clamp: 1;
+              line-clamp: 1;
+              line-height: 1.4;
+              text-overflow: ellipsis;
+            }
+
+            .opera-title {
+              display: -webkit-box;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              font-size: var(--font-size-4);
+              font-weight: var(--font-sb);
+              -webkit-line-clamp: 2;
+              line-clamp: 2;
+              line-height: 1.5;
+              text-overflow: ellipsis;
+            }
+          }
+
+          .icon {
+            width: 28px;
+            height: 28px;
+            padding: calc(var(--space-unit) / 2);
+            background-color: yellow;
+          }
+        }
+      }
+
+      .ebook {
+        height: 100px;
+        background-color: rgb(127 208 255);
+      }
+    }
+  }
 }
 
 :host > article.expanded div.cover div.img-wrapper {
