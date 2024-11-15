@@ -7,10 +7,10 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="expanded"></z-book-card>`,
+      html: `<z-book-card-deprecated variant="expanded"></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="expanded">
+      <z-book-card-deprecated variant="expanded">
         <mock:shadow-root>
           <article class="expanded">
           <div class="wrapper">
@@ -42,7 +42,7 @@ describe("Suite test ZBookCard", () => {
           </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -50,7 +50,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card
+      html: `<z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -62,10 +62,10 @@ describe("Suite test ZBookCard", () => {
         ribbon-icon="info"
         ribbon-interactive="true"
         opera-title-tag="h1"
-      ></z-book-card>`,
+      ></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card
+      <z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -116,7 +116,7 @@ describe("Suite test ZBookCard", () => {
           </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -124,7 +124,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card
+      html: `<z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -135,10 +135,10 @@ describe("Suite test ZBookCard", () => {
         ribbon-icon="info"
         ribbon-interactive="true"
         opera-title-tag="h1"
-      ></z-book-card>`,
+      ></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card
+      <z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -187,7 +187,7 @@ describe("Suite test ZBookCard", () => {
           </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -195,14 +195,14 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="expanded">
+      html: `<z-book-card-deprecated variant="expanded">
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
         <a class="z-link" slot="resources">Resource link</a>
-      </z-book-card>`,
+      </z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="expanded">
+      <z-book-card-deprecated variant="expanded">
         <mock:shadow-root>
           <article class="expanded">
           <div class="wrapper">
@@ -237,7 +237,7 @@ describe("Suite test ZBookCard", () => {
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
         <a class="z-link" slot="resources">Resource link</a>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -245,7 +245,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card
+      html: `<z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -255,10 +255,10 @@ describe("Suite test ZBookCard", () => {
         isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
-      ></z-book-card>`,
+      ></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card
+      <z-book-card-deprecated
         variant="expanded"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -296,7 +296,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -304,12 +304,12 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
+      html: `<z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
         <a class="z-link" slot="resources">Resource link</a>
-      </z-book-card>`,
+      </z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="expanded" opera-title="Matematica.azzurro">
+      <z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
         <mock:shadow-root>
           <article class="expanded">
             <div class="wrapper">
@@ -345,7 +345,7 @@ describe("Suite test ZBookCard", () => {
           </article>
         </mock:shadow-root>
         <a class="z-link"slot="resources">Resource link</a>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -353,14 +353,14 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia(true);
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="expanded" opera-title="Matematica.azzurro">
+      html: `<z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
         <a class="z-link" slot="resources">Resource link</a>
-      </z-book-card>`,
+      </z-book-card-deprecated>`,
     });
     page.rootInstance.showResources = true;
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="expanded" opera-title="Matematica.azzurro">
+      <z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
         <mock:shadow-root>
           <article class="expanded">
             <div class="wrapper">
@@ -396,7 +396,7 @@ describe("Suite test ZBookCard", () => {
           </article>
         </mock:shadow-root>
         <a class="z-link" slot="resources">Resource link</a>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -404,10 +404,10 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="search"></z-book-card>`,
+      html: `<z-book-card-deprecated variant="search"></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="search">
+      <z-book-card-deprecated variant="search">
         <mock:shadow-root>
           <article class="search">
           <div class="wrapper-container">
@@ -433,7 +433,7 @@ describe("Suite test ZBookCard", () => {
           </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -441,7 +441,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card
+      html: `<z-book-card-deprecated
         variant="search"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -451,10 +451,10 @@ describe("Suite test ZBookCard", () => {
         isbn-label="(ed. cartacea)"
         ribbon="ADOTTATO"
         opera-title-tag="h1"
-      ></z-book-card>`,
+      ></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" isbn-label="(ed. cartacea)" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
+      <z-book-card-deprecated authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi" cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg" isbn="9788808930552" isbn-label="(ed. cartacea)" opera-title="Matematica.azzurro" opera-title-tag="h1" ribbon="ADOTTATO" variant="search" volume-title="Volume 3 con Tutor">
         <mock:shadow-root>
           <article class="search">
           <div class="wrapper-container">
@@ -499,7 +499,7 @@ describe("Suite test ZBookCard", () => {
           </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -507,7 +507,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="search">
+      html: `<z-book-card-deprecated variant="search">
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
         <div slot="footer-cta">
@@ -515,11 +515,11 @@ describe("Suite test ZBookCard", () => {
             Leggi il libro online
           </z-button>
         </div>
-      </z-book-card>`,
+      </z-book-card-deprecated>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="search">
+      <z-book-card-deprecated variant="search">
         <mock:shadow-root>
           <article class="search">
           <div class="wrapper-container">
@@ -554,7 +554,7 @@ describe("Suite test ZBookCard", () => {
             Leggi il libro online
           </z-button>
         </div>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -562,10 +562,10 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="compact"></z-book-card>`,
+      html: `<z-book-card-deprecated variant="compact"></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="compact">
+      <z-book-card-deprecated variant="compact">
         <mock:shadow-root>
           <article class="compact">
             <div class="wrapper">
@@ -583,7 +583,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -591,7 +591,7 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card
+      html: `<z-book-card-deprecated
               variant="compact"
               cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
               opera-title="Matematica.azzurro"
@@ -601,10 +601,10 @@ describe("Suite test ZBookCard", () => {
               isbn-label="(ed. cartacea)"
               opera-title-tag="h1"
               borderless="true"
-      ></z-book-card>`,
+      ></z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card
+      <z-book-card-deprecated
         variant="compact"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
         opera-title="Matematica.azzurro"
@@ -638,7 +638,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 
@@ -646,13 +646,13 @@ describe("Suite test ZBookCard", () => {
     mockMatchMedia();
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
-      html: `<z-book-card variant="compact">
+      html: `<z-book-card-deprecated variant="compact">
         <z-button slot="footer-cta">cta 1</z-button>
         <z-button slot="footer-cta">cta 2</z-button>
-      </z-book-card>`,
+      </z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-book-card variant="compact">
+      <z-book-card-deprecated variant="compact">
         <mock:shadow-root>
           <article class="compact">
             <div class="wrapper">
@@ -672,7 +672,7 @@ describe("Suite test ZBookCard", () => {
         </mock:shadow-root>
         <z-button slot="footer-cta">cta 1</z-button>
         <z-button slot="footer-cta">cta 2</z-button>
-      </z-book-card>
+      </z-book-card-deprecated>
     `);
   });
 });
