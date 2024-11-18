@@ -164,15 +164,15 @@ export class ZBookCard {
             <div class="book-data">
               <div class="authors-title-icon-section">
                 <div class="authors-title">
-                  <div class="authors">{this.authors}</div>
-                  <div class="opera-title">{this.operaTitle}</div>
+                  <div class="authors body-4">{this.authors}</div>
+                  <div class="opera-title body-2-sb">{this.operaTitle}</div>
                 </div>
                 <div class="icon"></div>
               </div>
               <div class="isbn-link-section">
                 <div class="isbn-tags-section">
-                  <div class="volume-title">{this.volumeTitle}</div>
-                  <div class="isbn">{this.isbn}</div>
+                  <div class="volume-title body-4">{this.volumeTitle}</div>
+                  <div class="isbn body-4-sb">{this.isbn}</div>
                   <div class="tags">{this.renderTags()}</div>
                 </div>
                 <div class="link-section">
@@ -190,7 +190,7 @@ export class ZBookCard {
                       ></z-icon>
                     </a>
                   </div>
-                  <div class="adoption-tag">adottato</div>
+                  <div class="adoption-tag body-5-sb">adottato</div>
                 </div>
               </div>
             </div>

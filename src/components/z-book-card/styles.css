@@ -7,156 +7,11 @@
   --z-book-card-compact-height: 568px;
 }
 
-:host > article {
-  display: block;
-  width: 100%;
-  max-width: 360px;
-  box-sizing: border-box;
-  border: var(--border-size-medium) solid var(--color-surface03);
-  background-color: var(--color-surface01);
-  border-radius: var(--border-radius);
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-}
-
-:host > article div.cover {
-  position: relative;
-}
-
-:host > article div.cover div.img-wrapper {
-  display: flex;
-  overflow: hidden;
-  border: var(--border-size-small) solid var(--color-surface03);
-  line-height: 0;
-}
-
-:host > article div.cover div.img-wrapper img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  align-self: flex-end;
-}
-
-:host > article div.cover .ribbon {
-  position: absolute;
-  z-index: 10;
-  top: calc(var(--space-unit) * 2);
-  left: calc(var(--space-unit) * -2);
-  display: flex;
-  max-width: 100%;
-  height: calc(var(--space-unit) * 4);
-  box-sizing: border-box;
-  align-items: center;
-  padding: 0 calc(var(--space-unit) * 2);
-  border: var(--border-size-medium) solid var(--color-surface01);
-  background: var(--z-book-card-ribbon-background-color);
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  box-shadow: var(--shadow-2);
-  color: var(--color-text-inverse);
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-sb);
-  line-height: initial;
-}
-
-:host > article div.cover .ribbon.interactive:hover {
-  cursor: pointer;
-}
-
-:host > article div.cover .ribbon.interactive:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
-:host > article div.cover .ribbon span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: nowrap;
-}
-
-:host > article div.cover .ribbon::before {
-  position: absolute;
-  bottom: -12px;
-  left: -2px;
-  width: 0;
-  height: 0;
-  border-top: 10px solid var(--z-book-card-ribbon-shadow-color);
-  border-left: 16px solid transparent;
-  content: "";
-}
-
-:host > article div.cover .ribbon z-icon {
-  margin-right: var(--space-unit);
-}
-
-:host > article div.content {
-  margin: var(--space-unit) 0;
-  border-radius: var(--border-radius);
-}
-
-:host > article .title {
-  display: flex;
-  height: 100%;
-  align-self: center;
-  color: var(--color-default-text);
-  font-size: var(--font-size-4);
-  font-weight: var(--font-sb);
-  line-height: 1.5;
-}
-
-:host > article .title * {
-  all: unset;
-}
-
-:host > article div.subtitle {
-  color: var(--color-default-text);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-rg);
-  line-height: 1.4;
-}
-
-:host > article div.authors {
-  color: var(--color-default-text);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-rg);
-  line-height: 1.33;
-}
-
-:host > article div.isbn {
-  overflow: hidden;
-  color: var(--color-default-text);
-  font-size: var(--font-size-2);
-  line-height: 1.33;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: nowrap;
-}
-
-:host > article div.isbn > .code {
-  font-weight: var(--font-sb);
-}
-
-:host > article ::slotted([slot="tags"]) {
-  margin-bottom: var(--space-unit);
-}
-
-:host > article ::slotted([slot="header-cta"]) {
-  --z-icon-width: 20px;
-  --z-icon-height: 20px;
-
-  padding: var(--space-unit);
-  cursor: pointer;
-  fill: var(--color-primary01-icon);
-}
-
-:host > article ::slotted([slot="header-cta"]:focus) {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
-}
-
 /* EXPANDED STYLES */
+
+:host > article {
+  font-family: var(--font-family-sans);
+}
 
 :host > article.landscape {
   width: 635px;
@@ -208,12 +63,8 @@
               overflow: hidden;
               margin-bottom: calc(var(--space-unit) / 2);
               -webkit-box-orient: vertical;
-              font-size: var(--font-size-2);
-              font-weight: var(--font-rg);
-              letter-spacing: 0.16px;
               -webkit-line-clamp: 1;
               line-clamp: 1;
-              line-height: 1.4;
               text-overflow: ellipsis;
             }
 
@@ -221,11 +72,8 @@
               display: -webkit-box;
               overflow: hidden;
               -webkit-box-orient: vertical;
-              font-size: var(--font-size-4);
-              font-weight: var(--font-sb);
               -webkit-line-clamp: 2;
               line-clamp: 2;
-              line-height: 1.5;
               text-overflow: ellipsis;
             }
           }
@@ -263,10 +111,6 @@
               padding: calc(var(--space-unit) / 2) var(--space-unit);
               background-color: var(--green100);
               border-radius: 100px;
-              font-size: var(--font-size-1);
-              font-weight: var(--font-sb);
-              letter-spacing: 0.32px;
-              line-height: 1.333;
               text-transform: uppercase;
             }
           }
