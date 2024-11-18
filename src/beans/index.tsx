@@ -463,6 +463,11 @@ export enum BookCardVariant {
   PORTRAIT = "portrait",
 }
 
+export type CardTag = {
+  label: string;
+  active: boolean;
+};
+
 export enum AccordionVariant {
   DEFAULT = "default",
   BACKGROUND = "background",

@@ -37,6 +37,7 @@
  - [z-accordion](../z-accordion)
  - [z-app-header](../z-app-header)
  - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
+ - [z-book-card](../z-book-card)
  - [z-book-card-deprecated](../z-book-card-deprecated)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-button](../z-button)
@@ -79,6 +80,7 @@ graph TD;
   z-accordion --> z-icon
   z-app-header --> z-icon
   z-app-header-deprecated --> z-icon
+  z-book-card --> z-icon
   z-book-card-deprecated --> z-icon
   z-breadcrumb --> z-icon
   z-button --> z-icon

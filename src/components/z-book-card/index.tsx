@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Prop, State, h} from "@stencil/core";
-import {BookCardVariant} from "../../beans";
+import {BookCardVariant, CardTag} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 
 /**
@@ -14,7 +14,7 @@ import {Breakpoints} from "../../constants/breakpoints";
  */
 @Component({
   tag: "z-book-card",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../css-components/z-link/styles.css", "../../tokens/typography.css"],
   shadow: true,
 })
 export class ZBookCard {
@@ -66,7 +66,7 @@ export class ZBookCard {
    * [optional] Ribbon label - expanded and search variant only
    */
   @Prop()
-  ribbon?: string;
+  tags?: CardTag[] | string;
 
   /**
    * [optional] Ribbon icon - expanded and search variant only
@@ -143,6 +143,18 @@ export class ZBookCard {
     }
   }
 
+  private renderTags(): HTMLDivElement[] {
+    let tags = [];
+
+    if (typeof this.tags === "string") {
+      tags = JSON.parse(this.tags);
+    }
+
+    return tags.map((tag) => {
+      return <z-tag>{tag.label}</z-tag>;
+    });
+  }
+
   private renderLandscape(): HTMLDivElement {
     return (
       <Fragment>
@@ -158,8 +170,28 @@ export class ZBookCard {
                 <div class="icon"></div>
               </div>
               <div class="isbn-link-section">
-                <div class="isbn-tags-section"></div>
-                <div class="link-section"></div>
+                <div class="isbn-tags-section">
+                  <div class="volume-title">{this.volumeTitle}</div>
+                  <div class="isbn">{this.isbn}</div>
+                  <div class="tags">{this.renderTags()}</div>
+                </div>
+                <div class="link-section">
+                  <div class="catalog-link">
+                    <a
+                      href="#"
+                      class="z-link z-link-icon body-4-sb"
+                    >
+                      Scheda catalogo
+                      <z-icon
+                        name="arrow-quad-north-east"
+                        height={16}
+                        width={16}
+                        fill="color-primary01-icon"
+                      ></z-icon>
+                    </a>
+                  </div>
+                  <div class="adoption-tag">adottato</div>
+                </div>
               </div>
             </div>
             <div class="ebook"></div>
