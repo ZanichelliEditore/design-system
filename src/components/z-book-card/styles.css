@@ -119,8 +119,25 @@
       }
 
       .ebook {
-        height: 80px;
-        background-color: rgb(127 208 255);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-unit);
+        background-color: var(--color-primary02);
+        border-radius: var(--border-radius);
+        gap: var(--space-unit);
+
+        .app-name {
+          display: flex;
+          align-items: center;
+          padding: calc(var(--space-unit) / 2) 0;
+          font-family: var(--font-family-serif);
+          gap: calc(var(--space-unit) / 2);
+
+          .laz {
+            color: var(--red500);
+          }
+        }
       }
     }
   }

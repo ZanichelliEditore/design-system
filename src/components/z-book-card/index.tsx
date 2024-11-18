@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Prop, State, h} from "@stencil/core";
-import {BookCardVariant, CardTag} from "../../beans";
+import {BookCardVariant, CardTag, ControlSize} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 
 /**
@@ -194,7 +194,23 @@ export class ZBookCard {
                 </div>
               </div>
             </div>
-            <div class="ebook"></div>
+            <div class="ebook">
+              <div class="ebook-app">
+                <div class="app-name">
+                  <img
+                    src="https://placehold.co/24"
+                    alt=""
+                  />
+                  <div class="body-4-sb">
+                    <span class="laz">laZ</span> Ebook
+                  </div>
+                </div>
+                <div class="app-description body-5">
+                  Anche nella versione libro liquido con <span class="body-5-sb">strumento di lettura immersiva</span>
+                </div>
+              </div>
+              <z-button size={ControlSize.X_SMALL}>leggi ebook</z-button>
+            </div>
           </div>
         </div>
         <slot name="apps"></slot>

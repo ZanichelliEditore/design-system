@@ -40,7 +40,7 @@ export class ZBookCardApp {
 
   private renderLaz(): HTMLSpanElement | null {
     if (this.laz) {
-      return <span class="laz">laz </span>;
+      return <span class="laz">laZ </span>;
     }
 
     return null;
@@ -54,7 +54,7 @@ export class ZBookCardApp {
             src={this.icon}
             alt={`logo ${this.name}`}
           />
-          <div class="name">
+          <div class="name body-4-sb">
             {this.renderLaz()}
             {this.name}
           </div>
