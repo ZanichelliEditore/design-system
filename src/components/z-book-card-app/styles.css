@@ -1,7 +1,8 @@
 :host > div {
   display: flex;
   width: 315px;
-  height: 32px;
+  height: 48px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-unit) calc(var(--space-unit) * 1.5);
