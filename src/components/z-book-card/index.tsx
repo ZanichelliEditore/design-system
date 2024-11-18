@@ -197,7 +197,7 @@ export class ZBookCard {
             <div class="ebook"></div>
           </div>
         </div>
-        <div class="apps"></div>
+        <slot name="apps"></slot>
       </Fragment>
     );
   }

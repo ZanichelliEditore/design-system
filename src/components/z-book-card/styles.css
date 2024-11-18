@@ -15,7 +15,8 @@
 
 :host > article.landscape {
   width: 635px;
-  height: 428px;
+  min-height: 332px;
+  max-height: 428px;
   border: solid var(--border-size-medium) var(--color-surface03);
   background-color: aquamarine;
   border-radius: var(--border-radius);
