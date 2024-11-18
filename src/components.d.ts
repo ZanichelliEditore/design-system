@@ -253,13 +253,25 @@ export namespace Components {
     }
     interface ZBookCard {
         /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "adopted"?: boolean;
+        /**
           * [optional] Authors
          */
         "authors"?: string;
         /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "catalogUrl"?: string;
+        /**
           * Cover URL
          */
         "cover": string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "ebookUrl"?: string;
         /**
           * [optional] Fallback cover URL
          */
@@ -269,25 +281,9 @@ export namespace Components {
          */
         "isbn"?: string;
         /**
-          * [optional] ISBN label
+          * [optional] Card main title
          */
-        "isbnLabel": string;
-        /**
-          * Card main title
-         */
-        "operaTitle": string;
-        /**
-          * [optional] [accessibility] Card title HTML tag
-         */
-        "operaTitleTag"?: string;
-        /**
-          * [optional] Ribbon icon - expanded and search variant only
-         */
-        "ribbonIcon"?: string;
-        /**
-          * [optional] Ribbon interactive - expanded and search variant only
-         */
-        "ribbonInteractive"?: boolean;
+        "operaTitle"?: string;
         /**
           * [optional] Ribbon label - expanded and search variant only
          */
@@ -3781,13 +3777,25 @@ declare namespace LocalJSX {
     }
     interface ZBookCard {
         /**
+          * [optional] Ribbon icon - expanded and search variant only
+         */
+        "adopted"?: boolean;
+        /**
           * [optional] Authors
          */
         "authors"?: string;
         /**
+          * [optional] Ribbon interactive - expanded and search variant only
+         */
+        "catalogUrl"?: string;
+        /**
           * Cover URL
          */
         "cover"?: string;
+        /**
+          * [optional] [accessibility] Card title HTML tag
+         */
+        "ebookUrl"?: string;
         /**
           * [optional] Fallback cover URL
          */
@@ -3797,29 +3805,13 @@ declare namespace LocalJSX {
          */
         "isbn"?: string;
         /**
-          * [optional] ISBN label
-         */
-        "isbnLabel"?: string;
-        /**
           * click on interactive ribbon
          */
         "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
-          * Card main title
+          * [optional] Card main title
          */
         "operaTitle"?: string;
-        /**
-          * [optional] [accessibility] Card title HTML tag
-         */
-        "operaTitleTag"?: string;
-        /**
-          * [optional] Ribbon icon - expanded and search variant only
-         */
-        "ribbonIcon"?: string;
-        /**
-          * [optional] Ribbon interactive - expanded and search variant only
-         */
-        "ribbonInteractive"?: boolean;
         /**
           * [optional] Ribbon label - expanded and search variant only
          */

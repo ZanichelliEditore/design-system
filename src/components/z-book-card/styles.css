@@ -43,8 +43,9 @@
           display: flex;
           flex: 1;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
           background-color: violet;
+          gap: calc(var(--space-unit) * 2);
 
           .authors-title-icon-section {
             display: flex;
@@ -72,13 +73,6 @@
                 line-clamp: 2;
                 text-overflow: ellipsis;
               }
-            }
-
-            .icon {
-              width: 28px;
-              height: 28px;
-              padding: calc(var(--space-unit) / 2);
-              background-color: yellow;
             }
           }
 
