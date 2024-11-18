@@ -307,6 +307,28 @@ export namespace Components {
          */
         "volumeTitle"?: string;
     }
+    interface ZBookCardApp {
+        /**
+          * App icon url
+         */
+        "icon": string;
+        /**
+          * Info text to show as popover
+         */
+        "info"?: string;
+        /**
+          * Show or hide laZ prefix before app name
+         */
+        "laz": boolean;
+        /**
+          * link to the app website
+         */
+        "link": string;
+        /**
+          * App name
+         */
+        "name": string;
+    }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
      * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
@@ -2455,6 +2477,12 @@ declare global {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
     };
+    interface HTMLZBookCardAppElement extends Components.ZBookCardApp, HTMLStencilElement {
+    }
+    var HTMLZBookCardAppElement: {
+        prototype: HTMLZBookCardAppElement;
+        new (): HTMLZBookCardAppElement;
+    };
     interface HTMLZBookCardDeprecatedElementEventMap {
         "ribbonClick": any;
     }
@@ -3437,6 +3465,7 @@ declare global {
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
+        "z-book-card-app": HTMLZBookCardAppElement;
         "z-book-card-deprecated": HTMLZBookCardDeprecatedElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
@@ -3821,6 +3850,28 @@ declare namespace LocalJSX {
           * [optional] Card subtitle
          */
         "volumeTitle"?: string;
+    }
+    interface ZBookCardApp {
+        /**
+          * App icon url
+         */
+        "icon"?: string;
+        /**
+          * Info text to show as popover
+         */
+        "info"?: string;
+        /**
+          * Show or hide laZ prefix before app name
+         */
+        "laz"?: boolean;
+        /**
+          * link to the app website
+         */
+        "link"?: string;
+        /**
+          * App name
+         */
+        "name"?: string;
     }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
@@ -5802,6 +5853,7 @@ declare namespace LocalJSX {
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
+        "z-book-card-app": ZBookCardApp;
         "z-book-card-deprecated": ZBookCardDeprecated;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
@@ -5982,6 +6034,7 @@ declare module "@stencil/core" {
              * @cssprop --z-book-card-compact-height - compact card custom height
              */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            "z-book-card-app": LocalJSX.ZBookCardApp & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
             /**
              * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
              * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color

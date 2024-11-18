@@ -1,0 +1,38 @@
+:host > div {
+  display: flex;
+  width: 315px;
+  height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  gap: calc(var(--space-unit) * 2);
+
+  .app {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: var(--space-unit);
+
+    .name {
+      font-family: var(--font-family-serif);
+      font-weight: var(--font-sb);
+
+      .laz {
+        color: var(--red500);
+      }
+    }
+  }
+
+  z-icon {
+    cursor: pointer;
+  }
+
+  z-icon.info {
+    padding: var(--space-unit);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
