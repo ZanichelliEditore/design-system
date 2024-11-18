@@ -7,10 +7,6 @@ import {Breakpoints} from "../../constants/breakpoints";
  * @slot header-cta - header CTA (e.g. bookmark icon - extended and search variant only)
  * @slot tags - card tags (extended and search variant only)
  * @slot footer-cta - footer cta button (search and compact variant only)
- * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
- * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
- * @cssprop --z-book-card-compact-width - compact card custom width
- * @cssprop --z-book-card-compact-height - compact card custom height
  */
 @Component({
   tag: "z-book-card",

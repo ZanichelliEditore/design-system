@@ -251,12 +251,6 @@ export namespace Components {
          */
         "textColor"?: string;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -2457,12 +2451,6 @@ declare global {
     interface HTMLZBookCardElementEventMap {
         "ribbonClick": any;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3791,12 +3779,6 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -6027,12 +6009,6 @@ declare module "@stencil/core" {
             "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
-            /**
-             * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-             * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-             * @cssprop --z-book-card-compact-width - compact card custom width
-             * @cssprop --z-book-card-compact-height - compact card custom height
-             */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             "z-book-card-app": LocalJSX.ZBookCardApp & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
             /**
