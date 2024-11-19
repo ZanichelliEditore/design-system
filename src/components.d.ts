@@ -255,7 +255,7 @@ export namespace Components {
         /**
           * [optional] Ribbon icon - expanded and search variant only
          */
-        "adopted"?: boolean;
+        "adoption"?: boolean;
         /**
           * [optional] Authors
          */
@@ -3779,7 +3779,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Ribbon icon - expanded and search variant only
          */
-        "adopted"?: boolean;
+        "adoption"?: boolean;
         /**
           * [optional] Authors
          */

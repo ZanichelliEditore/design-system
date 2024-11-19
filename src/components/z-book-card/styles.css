@@ -1,4 +1,5 @@
 :host > article {
+  color: var(--color-default-text);
   font-family: var(--font-family-sans);
 }
 
@@ -82,6 +83,16 @@
                 flex-flow: wrap;
                 margin-top: calc(var(--space-unit) / 2);
                 gap: var(--space-unit);
+
+                z-tag.active {
+                  --z-tag-bg: var(--color-primary03);
+                  --z-tag-text-color: var(--color-default-text);
+                }
+
+                z-tag.disabled {
+                  --z-tag-bg: var(--color-surface03);
+                  --z-tag-text-color: var(--color-default-text);
+                }
               }
             }
 

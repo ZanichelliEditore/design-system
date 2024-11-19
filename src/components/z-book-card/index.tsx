@@ -61,7 +61,7 @@ export class ZBookCard {
    * [optional] Ribbon icon - expanded and search variant only
    */
   @Prop()
-  adopted?: boolean = false;
+  adoption?: boolean = false;
 
   /**
    * [optional] Ribbon interactive - expanded and search variant only
@@ -106,7 +106,7 @@ export class ZBookCard {
     }
 
     return tags.map((tag) => {
-      return <z-tag>{tag.label}</z-tag>;
+      return <z-tag class={tag.active ? "active" : "disabled"}>{tag.label}</z-tag>;
     });
   }
 
@@ -147,7 +147,7 @@ export class ZBookCard {
                       </a>
                     )}
                   </div>
-                  {this.adopted && <div class="adoption-tag body-5-sb">adottato</div>}
+                  {this.adoption && <div class="adoption-tag body-5-sb">adottato</div>}
                 </div>
               </div>
             </div>

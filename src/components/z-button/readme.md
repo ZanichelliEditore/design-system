@@ -36,6 +36,7 @@
  - [z-anchor-navigation](../z-anchor-navigation)
  - [z-app-header](../z-app-header)
  - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
+ - [z-book-card](../z-book-card)
  - [z-carousel](../z-carousel)
  - [z-file-upload](../file-upload/z-file-upload)
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
@@ -55,6 +56,7 @@ graph TD;
   z-anchor-navigation --> z-button
   z-app-header --> z-button
   z-app-header-deprecated --> z-button
+  z-book-card --> z-button
   z-carousel --> z-button
   z-file-upload --> z-button
   z-myz-card-dictionary --> z-button
