@@ -9,14 +9,12 @@
     min-height: 332px;
     max-height: 428px;
     border: solid var(--border-size-medium) var(--color-surface03);
-    background-color: aquamarine;
     border-radius: var(--border-radius);
 
     .main-content {
       display: flex;
       height: 300px;
       padding: calc(var(--space-unit) * 2);
-      background-color: cadetblue;
       gap: calc(var(--space-unit) * 2);
 
       .cover {
@@ -36,7 +34,6 @@
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
-        background-color: yellowgreen;
         gap: calc(var(--space-unit) * 2);
 
         .book-data {
@@ -44,7 +41,6 @@
           flex: 1;
           flex-direction: column;
           justify-content: flex-start;
-          background-color: violet;
           gap: calc(var(--space-unit) * 2);
 
           .authors-title-icon-section {
@@ -53,7 +49,6 @@
 
             .authors-title {
               flex: 1;
-              background-color: orange;
 
               .authors {
                 display: -webkit-box;
@@ -77,8 +72,6 @@
           }
 
           .isbn-link-section {
-            background-color: rgb(121 143 121);
-
             .isbn-tags-section {
               margin-bottom: calc(var(--space-unit) * 2);
 
@@ -94,6 +87,7 @@
 
             .link-section {
               display: flex;
+              align-items: center;
               justify-content: space-between;
               gap: var(--space-unit);
 
@@ -129,6 +123,10 @@
           }
         }
       }
+    }
+
+    ::slotted([slot="apps"]) {
+      border-top: solid var(--border-size-small) var(--color-surface03);
     }
   }
 }
