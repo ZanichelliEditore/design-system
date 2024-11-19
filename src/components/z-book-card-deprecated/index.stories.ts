@@ -18,7 +18,7 @@ type ZBookCardStoriesArgs = ZBookCardDeprecated & {
     | "z-book-card-compact-height"
   >;
 const StoryMeta = {
-  title: "ZBookCard",
+  title: "ZBookCardDeprecated",
   component: "z-book-card",
   argTypes: {
     "variant": {
@@ -69,7 +69,7 @@ export const AllProps = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -89,7 +89,7 @@ export const AllProps = {
         "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
         "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
       })}
-    ></z-book-card>`,
+    ></z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedTags = {
@@ -99,7 +99,7 @@ export const SlottedTags = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -126,7 +126,7 @@ export const SlottedTags = {
         >EDI</z-tag
       >
       <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedResources = {
@@ -136,7 +136,7 @@ export const SlottedResources = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -175,7 +175,7 @@ export const SlottedResources = {
         style="width:100%; margin-bottom: 16px;"
         >Resource CTA mock</z-button
       >
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedHeaderCta = {
@@ -185,7 +185,7 @@ export const SlottedHeaderCta = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -210,7 +210,7 @@ export const SlottedHeaderCta = {
         name="star-empty"
         slot="header-cta"
       ></z-icon>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedFooterCta = {
@@ -220,7 +220,7 @@ export const SlottedFooterCta = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -255,7 +255,7 @@ export const SlottedFooterCta = {
           Leggi il libro online
         </z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const ExpandedVariant = {
@@ -265,7 +265,7 @@ export const ExpandedVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="expanded"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -312,7 +312,7 @@ export const ExpandedVariant = {
         slot="header-cta"
         tabindex="0"
       ></z-icon>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SearchVariant = {
@@ -322,7 +322,7 @@ export const SearchVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="search"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -360,7 +360,7 @@ export const SearchVariant = {
           Leggi il libro online
         </z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const CompactVariant = {
@@ -377,7 +377,7 @@ export const CompactVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="compact"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -422,5 +422,5 @@ export const CompactVariant = {
           size="x-small"
         ></z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
