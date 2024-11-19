@@ -11,6 +11,14 @@ it("Checks emit clickOnNode event on anchor tag click if prevent-follow-url is t
   </z-breadcrumb>`,
   });
 
+  await page.setViewport({
+    width: 1366,
+    height: 0,
+    deviceScaleFactor: 1,
+  });
+
+  await page.waitForChanges();
+
   const clickEvent = await page.spyOnEvent("clickOnNode");
   const link = await page.$("z-breadcrumb >>> nav > ol > li:last-child > a");
 
