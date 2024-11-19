@@ -2,10 +2,8 @@ import {Component, Element, Event, EventEmitter, Fragment, Prop, h} from "@stenc
 import {BookCardVariant, CardTag, ControlSize} from "../../beans";
 
 /**
- * @slot resources - books resources (extended variant only)
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
- * @slot tags - card tags (extended and search variant only)
- * @slot footer-cta - footer cta button (search and compact variant only)
+ * @slot apps - list of card-related apps
  */
 @Component({
   tag: "z-book-card",
