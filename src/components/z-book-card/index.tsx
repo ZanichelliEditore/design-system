@@ -52,22 +52,28 @@ export class ZBookCard {
   isbn?: string;
 
   /**
-   * [optional] Ribbon label - expanded and search variant only
+   * [optional] Tags
    */
   @Prop()
   tags?: CardTag[] | string;
 
   /**
-   * [optional] Ribbon icon - expanded and search variant only
+   * [optional] Show adoption badge
    */
   @Prop()
   adoption?: boolean = false;
 
   /**
-   * [optional] Ribbon interactive - expanded and search variant only
+   * [optional] Show catalog link to correspondent resource
    */
   @Prop()
   catalogUrl?: string;
+
+  /**
+   * [optional] Show link to the ebook
+   */
+  @Prop()
+  ebookUrl?: string;
 
   /**
    * [optional] Fallback cover URL
@@ -75,15 +81,13 @@ export class ZBookCard {
   @Prop()
   fallbackCover?: string;
 
-  /**
-   * [optional] [accessibility] Card title HTML tag
-   */
-  @Prop()
-  ebookUrl?: string;
-
-  /** click on interactive ribbon */
+  /** click on tag */
   @Event()
-  ribbonClick: EventEmitter;
+  tagClick: EventEmitter;
+
+  private emitTagClick(): void {
+    this.tagClick.emit();
+  }
 
   componentWillLoad(): void {}
 
@@ -106,7 +110,14 @@ export class ZBookCard {
     }
 
     return tags.map((tag) => {
-      return <z-tag class={tag.active ? "active" : "disabled"}>{tag.label}</z-tag>;
+      return (
+        <z-tag
+          class={tag.active ? "active" : "disabled"}
+          onClick={() => this.emitTagClick()}
+        >
+          {tag.label}
+        </z-tag>
+      );
     });
   }
 

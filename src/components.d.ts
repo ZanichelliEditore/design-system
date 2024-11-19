@@ -2445,7 +2445,7 @@ declare global {
         new (): HTMLZAvatarElement;
     };
     interface HTMLZBookCardElementEventMap {
-        "ribbonClick": any;
+        "tagClick": any;
     }
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3805,9 +3805,9 @@ declare namespace LocalJSX {
          */
         "isbn"?: string;
         /**
-          * click on interactive ribbon
+          * click on tag
          */
-        "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
           * [optional] Card main title
          */

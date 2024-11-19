@@ -24,9 +24,9 @@
 
 ## Events
 
-| Event         | Description                 | Type               |
-| ------------- | --------------------------- | ------------------ |
-| `ribbonClick` | click on interactive ribbon | `CustomEvent<any>` |
+| Event      | Description  | Type               |
+| ---------- | ------------ | ------------------ |
+| `tagClick` | click on tag | `CustomEvent<any>` |
 
 
 ## Slots
