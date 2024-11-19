@@ -1,4 +1,5 @@
 :host > article {
+  background-color: var(--color-surface01);
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
 }
