@@ -253,7 +253,7 @@ export namespace Components {
     }
     interface ZBookCard {
         /**
-          * [optional] Ribbon icon - expanded and search variant only
+          * [optional] Show adoption badge
          */
         "adoption"?: boolean;
         /**
@@ -261,7 +261,7 @@ export namespace Components {
          */
         "authors"?: string;
         /**
-          * [optional] Ribbon interactive - expanded and search variant only
+          * [optional] Show catalog link to correspondent resource
          */
         "catalogUrl"?: string;
         /**
@@ -269,7 +269,7 @@ export namespace Components {
          */
         "cover": string;
         /**
-          * [optional] [accessibility] Card title HTML tag
+          * [optional] Show link to the ebook
          */
         "ebookUrl"?: string;
         /**
@@ -285,7 +285,7 @@ export namespace Components {
          */
         "operaTitle"?: string;
         /**
-          * [optional] Ribbon label - expanded and search variant only
+          * [optional] Tags
          */
         "tags"?: CardTag[] | string;
         /**
@@ -3777,7 +3777,7 @@ declare namespace LocalJSX {
     }
     interface ZBookCard {
         /**
-          * [optional] Ribbon icon - expanded and search variant only
+          * [optional] Show adoption badge
          */
         "adoption"?: boolean;
         /**
@@ -3785,7 +3785,7 @@ declare namespace LocalJSX {
          */
         "authors"?: string;
         /**
-          * [optional] Ribbon interactive - expanded and search variant only
+          * [optional] Show catalog link to correspondent resource
          */
         "catalogUrl"?: string;
         /**
@@ -3793,7 +3793,7 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
-          * [optional] [accessibility] Card title HTML tag
+          * [optional] Show link to the ebook
          */
         "ebookUrl"?: string;
         /**
@@ -3813,7 +3813,7 @@ declare namespace LocalJSX {
          */
         "operaTitle"?: string;
         /**
-          * [optional] Ribbon label - expanded and search variant only
+          * [optional] Tags
          */
         "tags"?: CardTag[] | string;
         /**

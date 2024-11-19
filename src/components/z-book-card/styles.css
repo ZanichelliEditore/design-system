@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  max-width: fit-content;
+}
+
 :host > article {
   background-color: var(--color-surface01);
   color: var(--color-default-text);
@@ -10,12 +15,13 @@
     width: 635px;
     min-height: 332px;
     max-height: 428px;
+    box-sizing: border-box;
     border: solid var(--border-size-medium) var(--color-surface03);
     border-radius: var(--border-radius);
 
     .main-content {
       display: flex;
-      height: 300px;
+      height: 296px;
       padding: calc(var(--space-unit) * 2);
       gap: calc(var(--space-unit) * 2);
 
