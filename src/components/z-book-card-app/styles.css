@@ -23,12 +23,14 @@
     }
   }
 
-  z-icon {
-    cursor: pointer;
-  }
+  z-info-reveal {
+    --z-info-reveal-panel-width: 250px;
 
-  z-icon.info {
-    padding: var(--space-unit);
+    font-family: var(--font-family-sans);
+
+    --color-surface05: var(--color-surface01);
+    --color-text-inverse: var(--color-primary01);
+    --color-inverse-icon: var(--color-primary01);
   }
 
   a {

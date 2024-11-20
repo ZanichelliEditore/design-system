@@ -303,13 +303,13 @@ export namespace Components {
          */
         "icon": string;
         /**
-          * Info text to show as popover
+          * Info text to show as inforeveal
          */
         "info"?: string;
         /**
           * Show or hide laZ prefix before app name
          */
-        "laz": boolean;
+        "laz"?: boolean;
         /**
           * link to the app website
          */
@@ -3841,7 +3841,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * Info text to show as popover
+          * Info text to show as inforeveal
          */
         "info"?: string;
         /**

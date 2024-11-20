@@ -1,4 +1,5 @@
 import {Component, Element, Prop, h} from "@stencil/core";
+import {ControlSize, InfoRevealPosition} from "../../beans";
 
 @Component({
   tag: "z-book-card-app",
@@ -24,10 +25,10 @@ export class ZBookCardApp {
    * Show or hide laZ prefix before app name
    */
   @Prop()
-  laz = true;
+  laz? = true;
 
   /**
-   * Info text to show as popover
+   * Info text to show as inforeveal
    */
   @Prop()
   info?: string;
@@ -59,13 +60,16 @@ export class ZBookCardApp {
             {this.name}
           </div>
         </div>
-        <z-icon
-          name="info"
-          width={16}
-          height={16}
-          fill="color-primary01-icon"
-          class="info"
-        ></z-icon>
+        {this.info && (
+          <z-info-reveal
+            icon="info"
+            size={ControlSize.X_SMALL}
+            position={InfoRevealPosition.TOP_RIGHT}
+            class="info body-5"
+          >
+            <div>{this.info}</div>
+          </z-info-reveal>
+        )}
         <a href={this.link}>
           <z-icon
             name="chevron-right"
