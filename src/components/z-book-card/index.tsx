@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Prop, h} from "@stencil/core";
-import {BookCardVariant, CardTag, ControlSize} from "../../beans";
+import {BookCardVariant, CardTag, ControlSize, TagEvent} from "../../beans";
 
 /**
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
@@ -77,8 +77,8 @@ export class ZBookCard {
   @Event()
   ebookClick: EventEmitter;
 
-  private emitTagClick(): void {
-    this.tagClick.emit();
+  private emitTagClick(e: TagEvent): void {
+    this.tagClick.emit(e);
   }
 
   private emitCatalogClick(): void {
@@ -102,7 +102,12 @@ export class ZBookCard {
     return (
       <z-tag
         class={state}
-        onClick={() => this.emitTagClick()}
+        onClick={() =>
+          this.emitTagClick({
+            tag: label,
+            state,
+          })
+        }
       >
         {label}
       </z-tag>

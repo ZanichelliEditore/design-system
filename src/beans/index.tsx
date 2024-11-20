@@ -468,6 +468,11 @@ export enum CardTag {
   DISABLED = "disabled",
 }
 
+export type TagEvent = {
+  tag: string;
+  state: string;
+};
+
 export enum AccordionVariant {
   DEFAULT = "default",
   BACKGROUND = "background",
