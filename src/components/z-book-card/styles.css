@@ -51,7 +51,7 @@
           justify-content: flex-start;
           gap: calc(var(--space-unit) * 2);
 
-          .authors-title-icon-section {
+          .authors-title-cta-section {
             display: flex;
             gap: calc(var(--space-unit) * 2);
 
@@ -79,7 +79,7 @@
             }
           }
 
-          .isbn-link-section {
+          .isbn-tags-link-section {
             .isbn-tags-section {
               margin-bottom: calc(var(--space-unit) * 2);
 

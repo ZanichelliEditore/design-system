@@ -269,7 +269,7 @@ export namespace Components {
          */
         "cover": string;
         /**
-          * [optional] Show link to the ebook
+          * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
         /**
@@ -281,7 +281,7 @@ export namespace Components {
          */
         "isbn"?: string;
         /**
-          * [optional] Card main title
+          * [optional] Opera title
          */
         "operaTitle"?: string;
         /**
@@ -293,7 +293,7 @@ export namespace Components {
          */
         "variant": BookCardVariant;
         /**
-          * [optional] Card subtitle
+          * [optional] Volume title
          */
         "volumeTitle"?: string;
     }
@@ -3795,7 +3795,7 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
-          * [optional] Show link to the ebook
+          * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
         /**
@@ -3819,7 +3819,7 @@ declare namespace LocalJSX {
          */
         "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
-          * [optional] Card main title
+          * [optional] Opera title
          */
         "operaTitle"?: string;
         /**
@@ -3831,7 +3831,7 @@ declare namespace LocalJSX {
          */
         "variant"?: BookCardVariant;
         /**
-          * [optional] Card subtitle
+          * [optional] Volume title
          */
         "volumeTitle"?: string;
     }

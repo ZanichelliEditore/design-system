@@ -13,69 +13,47 @@ import {BookCardVariant, CardTag, ControlSize} from "../../beans";
 export class ZBookCard {
   @Element() hostElement: HTMLZBookCardElement;
 
-  /**
-   * Card variant: landscape, portrait
-   */
+  /** Card variant: landscape, portrait */
   @Prop()
   variant: BookCardVariant = BookCardVariant.PORTRAIT;
 
-  /**
-   * Cover URL
-   */
+  /** Cover URL */
   @Prop()
   cover: string;
 
-  /**
-   * [optional] Authors
-   */
+  /** [optional] Authors */
   @Prop()
   authors?: string;
 
-  /**
-   * [optional] Card main title
-   */
+  /** [optional] Opera title */
   @Prop()
   operaTitle?: string;
 
-  /**
-   * [optional] Card subtitle
-   */
+  /** [optional] Volume title */
   @Prop()
   volumeTitle?: string;
 
-  /**
-   * [optional] Main ISBN
-   */
+  /** [optional] Main ISBN */
   @Prop()
   isbn?: string;
 
-  /**
-   * [optional] Tags
-   */
+  /** [optional] Tags */
   @Prop()
   tags?: CardTag[] | string;
 
-  /**
-   * [optional] Show adoption badge
-   */
+  /** [optional] Show adoption badge */
   @Prop()
   adoption?: boolean = false;
 
-  /**
-   * [optional] Show catalog link to correspondent resource
-   */
+  /** [optional] Show catalog link to correspondent resource */
   @Prop()
   catalogUrl?: string;
 
-  /**
-   * [optional] Show link to the ebook
-   */
+  /** [optional] Show link to the ebook resource */
   @Prop()
   ebookUrl?: string;
 
-  /**
-   * [optional] Fallback cover URL
-   */
+  /** [optional] Fallback cover URL */
   @Prop()
   fallbackCover?: string;
 
@@ -102,10 +80,6 @@ export class ZBookCard {
   private emitEbookClick(): void {
     this.ebookClick.emit();
   }
-
-  componentWillLoad(): void {}
-
-  componentDidLoad(): void {}
 
   private renderCard(): HTMLDivElement {
     switch (this.variant) {
@@ -158,14 +132,14 @@ export class ZBookCard {
           {this.renderCover()}
           <div class="card-info">
             <div class="book-data">
-              <div class="authors-title-icon-section">
+              <div class="authors-title-cta-section">
                 <div class="authors-title">
                   {this.authors && <div class="authors body-4">{this.authors}</div>}
                   {this.operaTitle && <div class="opera-title body-2-sb">{this.operaTitle}</div>}
                 </div>
                 <slot name="cta"></slot>
               </div>
-              <div class="isbn-link-section">
+              <div class="isbn-tags-link-section">
                 <div class="isbn-tags-section">
                   {this.volumeTitle && <div class="volume-title body-4">{this.volumeTitle}</div>}
                   {this.isbn && <div class="isbn body-4-sb">{this.isbn}</div>}
@@ -195,7 +169,7 @@ export class ZBookCard {
             </div>
             {this.ebookUrl && (
               <div class="ebook">
-                <div class="ebook-app">
+                <div>
                   <div class="app-name">
                     <img
                       src="https://placehold.co/24"
@@ -205,7 +179,7 @@ export class ZBookCard {
                       <span class="laz">laZ</span> Ebook
                     </div>
                   </div>
-                  <div class="app-description body-5">
+                  <div class="body-5">
                     Anche nella versione libro liquido con <span class="body-5-sb">strumento di lettura immersiva</span>
                   </div>
                 </div>

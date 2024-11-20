@@ -10,7 +10,7 @@
 | Property | Attribute | Description                             | Type      | Default     |
 | -------- | --------- | --------------------------------------- | --------- | ----------- |
 | `icon`   | `icon`    | App icon url                            | `string`  | `undefined` |
-| `info`   | `info`    | Info text to show as popover            | `string`  | `undefined` |
+| `info`   | `info`    | Info text to show as inforeveal         | `string`  | `undefined` |
 | `laz`    | `laz`     | Show or hide laZ prefix before app name | `boolean` | `true`      |
 | `link`   | `link`    | link to the app website                 | `string`  | `undefined` |
 | `name`   | `name`    | App name                                | `string`  | `undefined` |
@@ -20,12 +20,15 @@
 
 ### Depends on
 
+- [z-info-reveal](../z-info-reveal)
 - [z-icon](../z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-book-card-app --> z-info-reveal
   z-book-card-app --> z-icon
+  z-info-reveal --> z-icon
   style z-book-card-app fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
