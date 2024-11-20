@@ -257,6 +257,10 @@ export namespace Components {
          */
         "adoption"?: boolean;
         /**
+          * [optional] Annotated tag
+         */
+        "annotated"?: CardTag;
+        /**
           * [optional] Authors
          */
         "authors"?: string;
@@ -273,6 +277,10 @@ export namespace Components {
          */
         "ebookUrl"?: string;
         /**
+          * [optional] EDI tag
+         */
+        "edi"?: CardTag;
+        /**
           * [optional] Fallback cover URL
          */
         "fallbackCover"?: string;
@@ -285,9 +293,9 @@ export namespace Components {
          */
         "operaTitle"?: string;
         /**
-          * [optional] Tags
+          * [optional] Annotated tag
          */
-        "tags"?: CardTag[] | string;
+        "teacherVersion"?: CardTag;
         /**
           * Card variant: landscape, portrait
          */
@@ -3783,6 +3791,10 @@ declare namespace LocalJSX {
          */
         "adoption"?: boolean;
         /**
+          * [optional] Annotated tag
+         */
+        "annotated"?: CardTag;
+        /**
           * [optional] Authors
          */
         "authors"?: string;
@@ -3798,6 +3810,10 @@ declare namespace LocalJSX {
           * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
+        /**
+          * [optional] EDI tag
+         */
+        "edi"?: CardTag;
         /**
           * [optional] Fallback cover URL
          */
@@ -3823,9 +3839,9 @@ declare namespace LocalJSX {
          */
         "operaTitle"?: string;
         /**
-          * [optional] Tags
+          * [optional] Annotated tag
          */
-        "tags"?: CardTag[] | string;
+        "teacherVersion"?: CardTag;
         /**
           * Card variant: landscape, portrait
          */

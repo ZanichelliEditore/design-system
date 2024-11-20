@@ -37,9 +37,17 @@ export class ZBookCard {
   @Prop()
   isbn?: string;
 
-  /** [optional] Tags */
+  /** [optional] EDI tag */
   @Prop()
-  tags?: CardTag[] | string;
+  edi?: CardTag;
+
+  /** [optional] Annotated tag */
+  @Prop()
+  annotated?: CardTag;
+
+  /** [optional] Annotated tag */
+  @Prop()
+  teacherVersion?: CardTag;
 
   /** [optional] Show adoption badge */
   @Prop()
@@ -90,23 +98,37 @@ export class ZBookCard {
     }
   }
 
-  private renderTags(): HTMLDivElement[] {
-    let tags = [];
+  private renderTag(label: string, state: string): HTMLDivElement {
+    return (
+      <z-tag
+        class={state}
+        onClick={() => this.emitTagClick()}
+      >
+        {label}
+      </z-tag>
+    );
+  }
 
-    if (typeof this.tags === "string") {
-      tags = JSON.parse(this.tags);
+  private renderTags(): HTMLDivElement[] | null {
+    const tags = [];
+
+    if (this.edi && Object.values(CardTag).includes(this.edi)) {
+      tags.push(this.renderTag("edi", this.edi));
     }
 
-    return tags.map((tag) => {
-      return (
-        <z-tag
-          class={tag.active ? "active" : "disabled"}
-          onClick={() => this.emitTagClick()}
-        >
-          {tag.label}
-        </z-tag>
-      );
-    });
+    if (this.annotated && Object.values(CardTag).includes(this.annotated)) {
+      tags.push(this.renderTag("annotata", this.annotated));
+    }
+
+    if (this.teacherVersion && Object.values(CardTag).includes(this.teacherVersion)) {
+      tags.push(this.renderTag("versione insegnante", this.teacherVersion));
+    }
+
+    if (tags.length > 0) {
+      return <div class="tags">{tags}</div>;
+    }
+
+    return null;
   }
 
   private renderCover(): HTMLDivElement {
@@ -143,7 +165,7 @@ export class ZBookCard {
                 <div class="isbn-tags-section">
                   {this.volumeTitle && <div class="volume-title body-4">{this.volumeTitle}</div>}
                   {this.isbn && <div class="isbn body-4-sb">{this.isbn}</div>}
-                  {this.tags && <div class="tags">{this.renderTags()}</div>}
+                  {this.renderTags()}
                 </div>
                 <div class="link-section">
                   <div class="catalog-link">

@@ -463,10 +463,10 @@ export enum BookCardVariant {
   PORTRAIT = "portrait",
 }
 
-export type CardTag = {
-  label: string;
-  active: boolean;
-};
+export enum CardTag {
+  ACTIVE = "active",
+  DISABLED = "disabled",
+}
 
 export enum AccordionVariant {
   DEFAULT = "default",
