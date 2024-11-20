@@ -83,8 +83,24 @@ export class ZBookCard {
   @Event()
   tagClick: EventEmitter;
 
+  /** click on catalog link */
+  @Event()
+  catalogClick: EventEmitter;
+
+  /** click on ebook link */
+  @Event()
+  ebookClick: EventEmitter;
+
   private emitTagClick(): void {
     this.tagClick.emit();
+  }
+
+  private emitCatalogClick(): void {
+    this.catalogClick.emit();
+  }
+
+  private emitEbookClick(): void {
+    this.ebookClick.emit();
   }
 
   componentWillLoad(): void {}
@@ -119,6 +135,22 @@ export class ZBookCard {
     });
   }
 
+  private renderCover(): HTMLDivElement {
+    return (
+      <div class="cover">
+        <img
+          src={this.cover}
+          onError={() => {
+            if (this.fallbackCover) {
+              this.cover = this.fallbackCover;
+            }
+          }}
+          aria-hidden="true"
+        />
+      </div>
+    );
+  }
+
   private renderLandscape(): HTMLDivElement {
     return (
       <Fragment>
@@ -145,6 +177,7 @@ export class ZBookCard {
                       <a
                         href={this.catalogUrl}
                         class="z-link z-link-icon body-4-sb"
+                        onClick={() => this.emitCatalogClick()}
                       >
                         Scheda catalogo
                         <z-icon
@@ -179,6 +212,7 @@ export class ZBookCard {
                 <z-button
                   size={ControlSize.X_SMALL}
                   href={this.ebookUrl}
+                  onClick={() => this.emitEbookClick()}
                 >
                   leggi ebook
                 </z-button>
@@ -193,22 +227,6 @@ export class ZBookCard {
 
   private renderPortrait(): HTMLDivElement {
     return <div class="wrapper"></div>;
-  }
-
-  private renderCover(): HTMLDivElement {
-    return (
-      <div class="cover">
-        <img
-          src={this.cover}
-          onError={() => {
-            if (this.fallbackCover) {
-              this.cover = this.fallbackCover;
-            }
-          }}
-          aria-hidden="true"
-        />
-      </div>
-    );
   }
 
   render(): HTMLZBookCardElement {

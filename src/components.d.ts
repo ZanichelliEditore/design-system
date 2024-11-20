@@ -2446,6 +2446,8 @@ declare global {
     };
     interface HTMLZBookCardElementEventMap {
         "tagClick": any;
+        "catalogClick": any;
+        "ebookClick": any;
     }
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3804,6 +3806,14 @@ declare namespace LocalJSX {
           * [optional] Main ISBN
          */
         "isbn"?: string;
+        /**
+          * click on catalog link
+         */
+        "onCatalogClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * click on ebook link
+         */
+        "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
           * click on tag
          */
