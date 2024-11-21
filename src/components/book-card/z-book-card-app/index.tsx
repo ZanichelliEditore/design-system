@@ -1,9 +1,9 @@
 import {Component, Element, Prop, h} from "@stencil/core";
-import {ControlSize, InfoRevealPosition} from "../../beans";
+import {ControlSize, InfoRevealPosition} from "../../../beans";
 
 @Component({
   tag: "z-book-card-app",
-  styleUrls: ["styles.css", "../css-components/z-link/styles.css", "../../tokens/typography.css"],
+  styleUrls: ["styles.css", "../../css-components/z-link/styles.css", "../../../tokens/typography.css"],
   shadow: true,
 })
 export class ZBookCardApp {

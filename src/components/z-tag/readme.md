@@ -26,7 +26,7 @@ Ztag component.
 
 ### Used by
 
- - [z-book-card](../z-book-card)
+ - [z-book-card](../book-card/z-book-card)
  - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
 

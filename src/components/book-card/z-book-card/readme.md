@@ -45,9 +45,9 @@
 
 ### Depends on
 
-- [z-tag](../z-tag)
-- [z-icon](../z-icon)
-- [z-button](../z-button)
+- [z-tag](../../z-tag)
+- [z-icon](../../z-icon)
+- [z-button](../../z-button)
 
 ### Graph
 ```mermaid

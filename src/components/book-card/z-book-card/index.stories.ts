@@ -1,11 +1,11 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZBookCard} from ".";
-import {BookCardVariant, CardTagStatus} from "../../beans";
+import {BookCardVariant, CardTagStatus} from "../../../beans";
+import "../../z-button/index";
+import "../../z-icon/index";
+import "../../z-tag/index";
 import "../z-book-card-app/index";
-import "../z-button/index";
-import "../z-icon/index";
-import "../z-tag/index";
 import "./index";
 
 type ZBookCardStoriesArgs = ZBookCard & {

@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Prop, h} from "@stencil/core";
-import {BookCardVariant, CardTagEvent, CardTagStatus, ControlSize} from "../../beans";
+import {BookCardVariant, CardTagEvent, CardTagStatus, ControlSize} from "../../../beans";
 
 /**
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
@@ -7,7 +7,7 @@ import {BookCardVariant, CardTagEvent, CardTagStatus, ControlSize} from "../../b
  */
 @Component({
   tag: "z-book-card",
-  styleUrls: ["styles.css", "../css-components/z-link/styles.css", "../../tokens/typography.css"],
+  styleUrls: ["styles.css", "../../css-components/z-link/styles.css", "../../../tokens/typography.css"],
   shadow: true,
 })
 export class ZBookCard {

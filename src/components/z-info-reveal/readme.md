@@ -33,7 +33,7 @@ Info reveal component.
 
 ### Used by
 
- - [z-book-card-app](../z-book-card-app)
+ - [z-book-card-app](../book-card/z-book-card-app)
 
 ### Depends on
 

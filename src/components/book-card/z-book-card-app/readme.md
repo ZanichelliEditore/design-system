@@ -20,8 +20,8 @@
 
 ### Depends on
 
-- [z-info-reveal](../z-info-reveal)
-- [z-icon](../z-icon)
+- [z-info-reveal](../../z-info-reveal)
+- [z-icon](../../z-icon)
 
 ### Graph
 ```mermaid
