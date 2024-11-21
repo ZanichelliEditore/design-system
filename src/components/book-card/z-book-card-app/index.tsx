@@ -53,7 +53,7 @@ export class ZBookCardApp {
         <div class="app">
           <img
             src={this.logo}
-            alt={`logo ${this.name}`}
+            aria-hidden="true"
           />
           <div class="name body-4-sb">
             {this.renderLaz()}
