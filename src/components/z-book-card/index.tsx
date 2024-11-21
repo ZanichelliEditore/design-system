@@ -98,13 +98,13 @@ export class ZBookCard {
     }
   }
 
-  private renderTag(label: string, state: string): HTMLDivElement {
+  private renderTag(label: string, state: string, id: string): HTMLDivElement {
     return (
       <z-tag
         class={state}
         onClick={() =>
           this.emitTagClick({
-            tag: label,
+            tag: id,
             state,
           })
         }
@@ -118,15 +118,15 @@ export class ZBookCard {
     const tags = [];
 
     if (this.edi && Object.values(CardTagStatus).includes(this.edi)) {
-      tags.push(this.renderTag("edi", this.edi));
+      tags.push(this.renderTag("edi", this.edi, "edi"));
     }
 
     if (this.annotated && Object.values(CardTagStatus).includes(this.annotated)) {
-      tags.push(this.renderTag("annotata", this.annotated));
+      tags.push(this.renderTag("annotata", this.annotated, "annotated"));
     }
 
     if (this.teacherVersion && Object.values(CardTagStatus).includes(this.teacherVersion)) {
-      tags.push(this.renderTag("versione insegnante", this.teacherVersion));
+      tags.push(this.renderTag("versione insegnante", this.teacherVersion, "teacherVersion"));
     }
 
     if (tags.length > 0) {
