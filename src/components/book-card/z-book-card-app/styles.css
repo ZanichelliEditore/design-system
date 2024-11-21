@@ -14,8 +14,20 @@
     align-items: center;
     gap: var(--space-unit);
 
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
     .name {
+      display: -webkit-box;
+      overflow: hidden;
+      height: 20px;
+      -webkit-box-orient: vertical;
       font-family: var(--font-family-serif);
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      text-overflow: ellipsis;
 
       .laz {
         color: var(--red500);

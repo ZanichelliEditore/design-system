@@ -307,10 +307,6 @@ export namespace Components {
     }
     interface ZBookCardApp {
         /**
-          * App icon url
-         */
-        "icon": string;
-        /**
           * Info text to show as inforeveal
          */
         "info"?: string;
@@ -322,6 +318,10 @@ export namespace Components {
           * link to the app website
          */
         "link": string;
+        /**
+          * App logo url
+         */
+        "logo": string;
         /**
           * App name
          */
@@ -3853,10 +3853,6 @@ declare namespace LocalJSX {
     }
     interface ZBookCardApp {
         /**
-          * App icon url
-         */
-        "icon"?: string;
-        /**
           * Info text to show as inforeveal
          */
         "info"?: string;
@@ -3868,6 +3864,10 @@ declare namespace LocalJSX {
           * link to the app website
          */
         "link"?: string;
+        /**
+          * App logo url
+         */
+        "logo"?: string;
         /**
           * App name
          */

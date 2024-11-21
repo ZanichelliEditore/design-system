@@ -10,10 +10,10 @@ export class ZBookCardApp {
   @Element() hostElement: HTMLZBookCardAppElement;
 
   /**
-   * App icon url
+   * App logo url
    */
   @Prop()
-  icon: string;
+  logo: string;
 
   /**
    * App name
@@ -52,7 +52,7 @@ export class ZBookCardApp {
       <div>
         <div class="app">
           <img
-            src={this.icon}
+            src={this.logo}
             alt={`logo ${this.name}`}
           />
           <div class="name body-4-sb">
