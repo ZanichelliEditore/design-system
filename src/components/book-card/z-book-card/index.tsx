@@ -65,6 +65,10 @@ export class ZBookCard {
   @Prop()
   fallbackCover?: string;
 
+  /** [optional] Set a specific h level as html tag for opera title */
+  @Prop()
+  operaTitleHtmlTag?: string;
+
   /** click on tag */
   @Event()
   tagClick: EventEmitter;
@@ -96,6 +100,19 @@ export class ZBookCard {
       case BookCardVariant.PORTRAIT:
         return this.renderPortrait();
     }
+  }
+
+  private renderOperaTitle(): HTMLDivElement {
+    const title = this.operaTitleHtmlTag
+      ? `<${this.operaTitleHtmlTag}>${this.operaTitle}</${this.operaTitleHtmlTag}>`
+      : this.operaTitle;
+
+    return (
+      <div
+        class="opera-title body-2-sb"
+        innerHTML={title}
+      />
+    );
   }
 
   private renderTag(label: string, state: string, id: string): HTMLDivElement {
@@ -215,7 +232,7 @@ export class ZBookCard {
               <div class="authors-title-cta-section">
                 <div class="authors-title">
                   <div class="authors body-4">{this.authors}</div>
-                  <div class="opera-title body-2-sb">{this.operaTitle}</div>
+                  {this.renderOperaTitle()}
                 </div>
                 <slot name="cta"></slot>
               </div>

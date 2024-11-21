@@ -293,6 +293,10 @@ export namespace Components {
          */
         "operaTitle"?: string;
         /**
+          * [optional] Set a specific h level as html tag for opera title
+         */
+        "operaTitleHtmlTag"?: string;
+        /**
           * [optional] Annotated tag
          */
         "teacherVersion"?: CardTagStatus;
@@ -3838,6 +3842,10 @@ declare namespace LocalJSX {
           * [optional] Opera title
          */
         "operaTitle"?: string;
+        /**
+          * [optional] Set a specific h level as html tag for opera title
+         */
+        "operaTitleHtmlTag"?: string;
         /**
           * [optional] Annotated tag
          */

@@ -61,6 +61,7 @@ const StoryMeta = {
     catalogUrl: "https://www.zanichelli.it/ricerca/prodotti/matematica-multimediale-blu3ed?qid=9788808710932",
     ebookUrl: "https://www.zanichelli.it/ricerca",
     fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
+    operaTitleHtmlTag: null,
     theme: "theme-default",
   },
 } satisfies Meta<ZBookCardStoriesArgs>;
@@ -85,6 +86,7 @@ export const Card = {
       catalog-url=${args.catalogUrl}
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
+      opera-title-html-tag=${args.operaTitleHtmlTag}
       class=${args.theme}
     ></z-book-card>`,
 } satisfies Story;
@@ -105,6 +107,7 @@ export const WithSlottedContent = {
       catalog-url=${args.catalogUrl}
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
+      opera-title-html-tag=${args.operaTitleHtmlTag}
       class=${args.theme}
     >
       <div slot="cta">
