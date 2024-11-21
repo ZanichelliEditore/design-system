@@ -86,11 +86,23 @@
               margin-bottom: calc(var(--space-unit) * 2);
 
               .volume-title {
+                display: -webkit-box;
+                overflow: hidden;
                 height: 20px;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                text-overflow: ellipsis;
               }
 
               .isbn {
+                display: -webkit-box;
+                overflow: hidden;
                 height: 20px;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                text-overflow: ellipsis;
               }
 
               .tags {
