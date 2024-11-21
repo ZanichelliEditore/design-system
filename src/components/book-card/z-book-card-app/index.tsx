@@ -70,7 +70,10 @@ export class ZBookCardApp {
             <div>{this.info}</div>
           </z-info-reveal>
         )}
-        <a href={this.link}>
+        <a
+          class="z-link z-link-icon"
+          href={this.link}
+        >
           <z-icon
             name="chevron-right"
             width={16}

@@ -32,9 +32,4 @@
     --color-text-inverse: var(--color-primary01);
     --color-inverse-icon: var(--color-primary01);
   }
-
-  a {
-    display: flex;
-    align-items: center;
-  }
 }
