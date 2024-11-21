@@ -2,11 +2,11 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {ZBookCardDeprecated} from ".";
-import {BookCardVariant} from "../../../beans";
+import {BookCardDeprecatedVariant} from "../../../beans";
 import {CSSVarsArguments, getColorTokenArgConfig} from "../../../utils/storybook-utils";
-import "../z-button/index";
-import "../z-icon/index";
-import "../z-tag/index";
+import "../../z-button/index";
+import "../../z-icon/index";
+import "../../z-tag/index";
 import "./index";
 
 type ZBookCardStoriesArgs = ZBookCardDeprecated & {
@@ -25,7 +25,7 @@ const StoryMeta = {
       control: {
         type: "inline-radio",
       },
-      options: Object.values(BookCardVariant),
+      options: Object.values(BookCardDeprecatedVariant),
     },
     "theme": {
       control: {
@@ -37,7 +37,7 @@ const StoryMeta = {
     "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),
   },
   args: {
-    "variant": BookCardVariant.EXPANDED,
+    "variant": BookCardDeprecatedVariant.EXPANDED,
     "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
     "operaTitle": "Matematica.azzurro",
     "volumeTitle": "Volume 3 con Tutor",
