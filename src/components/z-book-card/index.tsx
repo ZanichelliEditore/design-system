@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Prop, h} from "@stencil/core";
-import {BookCardVariant, CardTag, ControlSize, TagEvent} from "../../beans";
+import {BookCardVariant, CardTagEvent, CardTagStatus, ControlSize} from "../../beans";
 
 /**
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
@@ -39,15 +39,15 @@ export class ZBookCard {
 
   /** [optional] EDI tag */
   @Prop()
-  edi?: CardTag;
+  edi?: CardTagStatus;
 
   /** [optional] Annotated tag */
   @Prop()
-  annotated?: CardTag;
+  annotated?: CardTagStatus;
 
   /** [optional] Annotated tag */
   @Prop()
-  teacherVersion?: CardTag;
+  teacherVersion?: CardTagStatus;
 
   /** [optional] Show adoption badge */
   @Prop()
@@ -77,7 +77,7 @@ export class ZBookCard {
   @Event()
   ebookClick: EventEmitter;
 
-  private emitTagClick(e: TagEvent): void {
+  private emitTagClick(e: CardTagEvent): void {
     this.tagClick.emit(e);
   }
 
@@ -117,15 +117,15 @@ export class ZBookCard {
   private renderTags(): HTMLDivElement[] | null {
     const tags = [];
 
-    if (this.edi && Object.values(CardTag).includes(this.edi)) {
+    if (this.edi && Object.values(CardTagStatus).includes(this.edi)) {
       tags.push(this.renderTag("edi", this.edi));
     }
 
-    if (this.annotated && Object.values(CardTag).includes(this.annotated)) {
+    if (this.annotated && Object.values(CardTagStatus).includes(this.annotated)) {
       tags.push(this.renderTag("annotata", this.annotated));
     }
 
-    if (this.teacherVersion && Object.values(CardTag).includes(this.teacherVersion)) {
+    if (this.teacherVersion && Object.values(CardTagStatus).includes(this.teacherVersion)) {
       tags.push(this.renderTag("versione insegnante", this.teacherVersion));
     }
 

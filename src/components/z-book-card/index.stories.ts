@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZBookCard} from ".";
-import {BookCardVariant, CardTag} from "../../beans";
+import {BookCardVariant, CardTagStatus} from "../../beans";
 import "../z-book-card-app/index";
 import "../z-button/index";
 import "../z-icon/index";
@@ -26,19 +26,19 @@ const StoryMeta = {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTag), null],
+      options: [...Object.values(CardTagStatus), null],
     },
     annotated: {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTag), null],
+      options: [...Object.values(CardTagStatus), null],
     },
     teacherVersion: {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTag), null],
+      options: [...Object.values(CardTagStatus), null],
     },
     theme: {
       control: {
