@@ -39,7 +39,7 @@
  - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
  - [z-book-card](../z-book-card)
  - [z-book-card-app](../z-book-card-app)
- - [z-book-card-deprecated](../z-book-card-deprecated)
+ - [z-book-card-deprecated](../deprecated/z-book-card-deprecated)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-button](../z-button)
  - [z-button-sort](../z-button-sort)

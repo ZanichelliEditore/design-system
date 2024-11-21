@@ -1,7 +1,7 @@
 import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
-import {BookCardVariant} from "../../beans";
-import {Breakpoints} from "../../constants/breakpoints";
-import {randomId} from "../../utils/utils";
+import {BookCardVariant} from "../../../beans";
+import {Breakpoints} from "../../../constants/breakpoints";
+import {randomId} from "../../../utils/utils";
 
 /**
  * @slot resources - books resources (extended variant only)
