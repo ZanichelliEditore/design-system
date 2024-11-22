@@ -37,6 +37,10 @@ export class ZBookCard {
   @Prop()
   isbn?: string;
 
+  /** [optional] ISBN label */
+  @Prop()
+  isbnLabel = "";
+
   /** [optional] EDI tag */
   @Prop()
   edi?: CardTagStatus;
@@ -115,6 +119,10 @@ export class ZBookCard {
     );
   }
 
+  private renderIsbnLabel(): HTMLDivElement | null {
+    return this.isbnLabel ? <span class="body-4">{this.isbnLabel}</span> : null;
+  }
+
   private renderTag(label: string, state: string, id: string): HTMLDivElement {
     return (
       <z-tag
@@ -177,6 +185,7 @@ export class ZBookCard {
         height="20"
         viewBox="0 0 20 20"
         fill="none"
+        aria-hidden="true"
       >
         <g clip-path="url(#clip0_11996_224)">
           <path
@@ -231,7 +240,12 @@ export class ZBookCard {
             <div class="book-data">
               <div class="authors-title-cta-section">
                 <div class="authors-title">
-                  <div class="authors body-4">{this.authors}</div>
+                  <div
+                    class="authors body-4"
+                    aria-description="autori"
+                  >
+                    {this.authors}
+                  </div>
                   {this.renderOperaTitle()}
                 </div>
                 <slot name="cta"></slot>
@@ -239,7 +253,12 @@ export class ZBookCard {
               <div class="isbn-tags-link-section">
                 <div class="isbn-tags-section">
                   <div class="volume-title body-4">{this.volumeTitle}</div>
-                  <div class="isbn body-4-sb">{this.isbn}</div>
+                  <div
+                    class="isbn body-4-sb"
+                    aria-description={`isbn ${this.isbnLabel}`}
+                  >
+                    {this.isbn} {this.renderIsbnLabel()}
+                  </div>
                   <div class="tags">{this.renderTags()}</div>
                 </div>
                 <div class="link-section">

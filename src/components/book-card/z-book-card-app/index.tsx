@@ -22,6 +22,12 @@ export class ZBookCardApp {
   name: string;
 
   /**
+   * link to the app website
+   */
+  @Prop()
+  link: string;
+
+  /**
    * Show or hide laZ prefix before app name
    */
   @Prop()
@@ -32,12 +38,6 @@ export class ZBookCardApp {
    */
   @Prop()
   info?: string;
-
-  /**
-   * link to the app website
-   */
-  @Prop()
-  link: string;
 
   private renderLaz(): HTMLSpanElement | null {
     if (this.laz) {
@@ -53,7 +53,7 @@ export class ZBookCardApp {
         <div class="app">
           <img
             src={this.logo}
-            aria-hidden="true"
+            alt=""
           />
           <div class="name body-4-sb">
             {this.renderLaz()}

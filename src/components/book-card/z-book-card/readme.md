@@ -18,6 +18,7 @@
 | `edi`               | `edi`                  | [optional] EDI tag                                            | `CardTagStatus.ACTIVE \| CardTagStatus.DISABLED`        | `undefined`                |
 | `fallbackCover`     | `fallback-cover`       | [optional] Fallback cover URL                                 | `string`                                                | `undefined`                |
 | `isbn`              | `isbn`                 | [optional] Main ISBN                                          | `string`                                                | `undefined`                |
+| `isbnLabel`         | `isbn-label`           | [optional] ISBN label                                         | `string`                                                | `""`                       |
 | `operaTitle`        | `opera-title`          | [optional] Opera title                                        | `string`                                                | `undefined`                |
 | `operaTitleHtmlTag` | `opera-title-html-tag` | [optional] Set a specific h level as html tag for opera title | `string`                                                | `undefined`                |
 | `teacherVersion`    | `teacher-version`      | [optional] Annotated tag                                      | `CardTagStatus.ACTIVE \| CardTagStatus.DISABLED`        | `undefined`                |

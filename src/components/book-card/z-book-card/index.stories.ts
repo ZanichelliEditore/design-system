@@ -54,10 +54,11 @@ const StoryMeta = {
     volumeTitle: "Volume 3 con Tutor",
     authors: "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
     isbn: "9788808930552",
+    isbnLabel: "(ed. cartacea)",
     adoption: true,
-    edi: null,
-    annotated: null,
-    teacherVersion: null,
+    edi: CardTagStatus.ACTIVE,
+    annotated: CardTagStatus.ACTIVE,
+    teacherVersion: CardTagStatus.DISABLED,
     catalogUrl: "https://www.zanichelli.it/ricerca/prodotti/matematica-multimediale-blu3ed?qid=9788808710932",
     ebookUrl: "https://www.zanichelli.it/ricerca",
     fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
@@ -79,6 +80,7 @@ export const Card = {
       opera-title=${args.operaTitle}
       volume-title=${args.volumeTitle}
       isbn=${args.isbn}
+      isbn-label=${args.isbnLabel}
       edi=${args.edi}
       annotated=${args.annotated}
       teacher-version=${args.teacherVersion}
@@ -100,6 +102,7 @@ export const WithSlottedContent = {
       opera-title=${args.operaTitle}
       volume-title=${args.volumeTitle}
       isbn=${args.isbn}
+      isbn-label=${args.isbnLabel}
       edi=${args.edi}
       annotated=${args.annotated}
       teacher-version=${args.teacherVersion}

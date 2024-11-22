@@ -289,6 +289,10 @@ export namespace Components {
          */
         "isbn"?: string;
         /**
+          * [optional] ISBN label
+         */
+        "isbnLabel": string;
+        /**
           * [optional] Opera title
          */
         "operaTitle"?: string;
@@ -3826,6 +3830,10 @@ declare namespace LocalJSX {
           * [optional] Main ISBN
          */
         "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel"?: string;
         /**
           * click on catalog link
          */
