@@ -41,7 +41,7 @@
     font-family: var(--font-family-sans);
 
     --color-surface05: var(--color-surface01);
-    --color-text-inverse: var(--color-primary01);
+    --color-text-inverse: var(--color-default-text);
     --color-inverse-icon: var(--color-primary01);
   }
 }
