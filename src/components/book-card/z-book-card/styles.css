@@ -126,6 +126,10 @@
                   --z-tag-bg: var(--color-surface03);
                   --z-tag-text-color: var(--color-default-text);
                 }
+
+                z-tag.interactive {
+                  cursor: pointer;
+                }
               }
             }
 
@@ -182,7 +186,7 @@
 
 /* Desktop breakpoint */
 
-/* 
+/*
 @media (min-width: 1152px) {
 } */
 

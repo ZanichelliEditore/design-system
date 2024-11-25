@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardTagStatus, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardTagStatus, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -259,7 +259,7 @@ export namespace Components {
         /**
           * [optional] Annotated tag
          */
-        "annotated"?: CardTagStatus;
+        "annotated"?: BookCardTag | string;
         /**
           * [optional] Authors
          */
@@ -279,7 +279,7 @@ export namespace Components {
         /**
           * [optional] EDI tag
          */
-        "edi"?: CardTagStatus;
+        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -301,9 +301,9 @@ export namespace Components {
          */
         "operaTitleHtmlTag"?: string;
         /**
-          * [optional] Annotated tag
+          * [optional] Teacher version tag
          */
-        "teacherVersion"?: CardTagStatus;
+        "teacherVersion"?: BookCardTag | string;
         /**
           * Card variant: landscape, portrait
          */
@@ -2464,6 +2464,7 @@ declare global {
         "tagClick": any;
         "catalogClick": any;
         "ebookClick": any;
+        "immersiveReaderClick": any;
     }
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3801,7 +3802,7 @@ declare namespace LocalJSX {
         /**
           * [optional] Annotated tag
          */
-        "annotated"?: CardTagStatus;
+        "annotated"?: BookCardTag | string;
         /**
           * [optional] Authors
          */
@@ -3821,7 +3822,7 @@ declare namespace LocalJSX {
         /**
           * [optional] EDI tag
          */
-        "edi"?: CardTagStatus;
+        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -3843,6 +3844,10 @@ declare namespace LocalJSX {
          */
         "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
+          * click on immersive reader
+         */
+        "onImmersiveReaderClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
           * click on tag
          */
         "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
@@ -3855,9 +3860,9 @@ declare namespace LocalJSX {
          */
         "operaTitleHtmlTag"?: string;
         /**
-          * [optional] Annotated tag
+          * [optional] Teacher version tag
          */
-        "teacherVersion"?: CardTagStatus;
+        "teacherVersion"?: BookCardTag | string;
         /**
           * Card variant: landscape, portrait
          */

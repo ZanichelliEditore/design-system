@@ -1,5 +1,5 @@
-import {Component, Element, Event, EventEmitter, Fragment, Prop, h} from "@stencil/core";
-import {BookCardVariant, CardTagEvent, CardTagStatus, ControlSize} from "../../../beans";
+import {Component, Element, Event, EventEmitter, Fragment, Prop, State, Watch, h} from "@stencil/core";
+import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, ControlSize} from "../../../beans";
 
 /**
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
@@ -43,15 +43,15 @@ export class ZBookCard {
 
   /** [optional] EDI tag */
   @Prop()
-  edi?: CardTagStatus;
+  edi?: BookCardTag | string;
 
   /** [optional] Annotated tag */
   @Prop()
-  annotated?: CardTagStatus;
+  annotated?: BookCardTag | string;
 
-  /** [optional] Annotated tag */
+  /** [optional] Teacher version tag */
   @Prop()
-  teacherVersion?: CardTagStatus;
+  teacherVersion?: BookCardTag | string;
 
   /** [optional] Show adoption badge */
   @Prop()
@@ -73,6 +73,10 @@ export class ZBookCard {
   @Prop()
   operaTitleHtmlTag?: string;
 
+  @State() ediTag;
+  @State() annotatedTag;
+  @State() teacherVersionTag;
+
   /** click on tag */
   @Event()
   tagClick: EventEmitter;
@@ -85,7 +89,33 @@ export class ZBookCard {
   @Event()
   ebookClick: EventEmitter;
 
-  private emitTagClick(e: CardTagEvent): void {
+  /** click on immersive reader */
+  @Event()
+  immersiveReaderClick: EventEmitter;
+
+  @Watch("edi")
+  watchEdi(): void {
+    this.ediTag = typeof this.edi === "string" ? JSON.parse(this.edi) : this.edi;
+  }
+
+  @Watch("annotated")
+  watchAnnotated(): void {
+    this.annotatedTag = typeof this.annotated === "string" ? JSON.parse(this.annotated) : this.annotated;
+  }
+
+  @Watch("teacherVersion")
+  watchTeacherVersion(): void {
+    this.teacherVersionTag =
+      typeof this.teacherVersion === "string" ? JSON.parse(this.teacherVersion) : this.teacherVersion;
+  }
+
+  componentWillLoad(): void {
+    this.watchEdi();
+    this.watchAnnotated();
+    this.watchTeacherVersion();
+  }
+
+  private emitTagClick(e: BookCardTagEvent): void {
     this.tagClick.emit(e);
   }
 
@@ -95,6 +125,10 @@ export class ZBookCard {
 
   private emitEbookClick(): void {
     this.ebookClick.emit();
+  }
+
+  private emitImmersiveReaderClick(): void {
+    this.immersiveReaderClick.emit();
   }
 
   private renderCard(): HTMLDivElement {
@@ -123,14 +157,18 @@ export class ZBookCard {
     return this.isbnLabel ? <span class="body-4">{this.isbnLabel}</span> : null;
   }
 
-  private renderTag(label: string, state: string, id: string): HTMLDivElement {
+  private renderTag(label: string, tag: BookCardTag, id: string): HTMLDivElement {
+    console.log(label, tag, id);
     return (
       <z-tag
-        class={state}
+        class={{[tag.status]: true, interactive: tag.interactive}}
+        role={tag.interactive ? "button" : undefined}
+        tabIndex={tag.interactive ? 0 : undefined}
         onClick={() =>
+          tag.interactive &&
           this.emitTagClick({
             tag: id,
-            state,
+            state: tag.status,
           })
         }
       >
@@ -142,16 +180,16 @@ export class ZBookCard {
   private renderTags(): HTMLDivElement[] | null {
     const tags = [];
 
-    if (this.edi && Object.values(CardTagStatus).includes(this.edi)) {
-      tags.push(this.renderTag("edi", this.edi, "edi"));
+    if (this.edi && Object.values(BookCardTagStatus).includes(this.ediTag.status)) {
+      tags.push(this.renderTag("edi", this.ediTag, "edi"));
     }
 
-    if (this.annotated && Object.values(CardTagStatus).includes(this.annotated)) {
-      tags.push(this.renderTag("annotata", this.annotated, "annotated"));
+    if (this.annotated && Object.values(BookCardTagStatus).includes(this.annotatedTag.status)) {
+      tags.push(this.renderTag("annotata", this.annotatedTag, "annotated"));
     }
 
-    if (this.teacherVersion && Object.values(CardTagStatus).includes(this.teacherVersion)) {
-      tags.push(this.renderTag("versione insegnante", this.teacherVersion, "teacherVersion"));
+    if (this.teacherVersion && Object.values(BookCardTagStatus).includes(this.teacherVersionTag.status)) {
+      tags.push(this.renderTag("versione insegnante", this.teacherVersionTag, "teacherVersion"));
     }
 
     if (tags.length > 0) {
@@ -266,7 +304,7 @@ export class ZBookCard {
                     {this.catalogUrl && (
                       <a
                         href={this.catalogUrl}
-                        class="z-link z-link-icon body-4-sb"
+                        class="z-link z-link-icon body-4-sb immersive-reader"
                         onClick={() => this.emitCatalogClick()}
                       >
                         Scheda catalogo
@@ -284,31 +322,38 @@ export class ZBookCard {
               </div>
             </div>
             <div class="ebook-container">
-              {this.ebookUrl && (
-                <div class="ebook">
-                  <div>
-                    <div class="app-name">
-                      {this.renderLaZEbookLogo()}
-                      <div class="body-4-sb">
-                        <span class="laz">laZ</span> Ebook
+              <slot name="ebook">
+                {this.ebookUrl && (
+                  <div class="ebook">
+                    <div>
+                      <div class="app-name">
+                        {this.renderLaZEbookLogo()}
+                        <div class="body-4-sb">
+                          <span class="laz">laZ</span> Ebook
+                        </div>
+                      </div>
+                      <div class="body-5">
+                        Anche nella versione libro liquido con{" "}
+                        <span
+                          class="body-5-sb immersive-reader"
+                          onClick={() => this.emitImmersiveReaderClick()}
+                        >
+                          strumento di lettura immersiva
+                        </span>
                       </div>
                     </div>
-                    <div class="body-5">
-                      Anche nella versione libro liquido con{" "}
-                      <span class="body-5-sb">strumento di lettura immersiva</span>
-                    </div>
+                    <z-button
+                      size={ControlSize.X_SMALL}
+                      href={this.ebookUrl}
+                      onClick={() => this.emitEbookClick()}
+                      role="link"
+                      aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
+                    >
+                      leggi ebook
+                    </z-button>
                   </div>
-                  <z-button
-                    size={ControlSize.X_SMALL}
-                    href={this.ebookUrl}
-                    onClick={() => this.emitEbookClick()}
-                    role="link"
-                    aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
-                  >
-                    leggi ebook
-                  </z-button>
-                </div>
-              )}
+                )}
+              </slot>
             </div>
           </div>
         </div>

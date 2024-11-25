@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZBookCard} from ".";
-import {BookCardVariant, CardTagStatus} from "../../../beans";
+import {BookCardTagStatus, BookCardVariant} from "../../../beans";
 import "../../z-button/index";
 import "../../z-icon/index";
 import "../../z-tag/index";
@@ -26,19 +26,22 @@ const StoryMeta = {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTagStatus), null],
+      // TODO: FIX!!
+      options: [...Object.values(BookCardTagStatus), null],
     },
     annotated: {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTagStatus), null],
+      // TODO: FIX!!
+      options: [...Object.values(BookCardTagStatus), null],
     },
     teacherVersion: {
       control: {
         type: "inline-radio",
       },
-      options: [...Object.values(CardTagStatus), null],
+      // TODO: FIX!!
+      options: [...Object.values(BookCardTagStatus), null],
     },
     theme: {
       control: {
@@ -56,9 +59,9 @@ const StoryMeta = {
     isbn: "9788808930552",
     isbnLabel: "(ed. cartacea)",
     adoption: true,
-    edi: CardTagStatus.ACTIVE,
-    annotated: CardTagStatus.ACTIVE,
-    teacherVersion: CardTagStatus.DISABLED,
+    // edi: BookCardTagStatus.ACTIVE,
+    // annotated: BookCardTagStatus.ACTIVE,
+    // teacherVersion: BookCardTagStatus.DISABLED,
     catalogUrl: "https://www.zanichelli.it/ricerca/prodotti/matematica-multimediale-blu3ed?qid=9788808710932",
     ebookUrl: "https://www.zanichelli.it/ricerca",
     fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
