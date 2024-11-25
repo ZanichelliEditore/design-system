@@ -31,6 +31,10 @@ Info reveal component.
 
 ## Dependencies
 
+### Used by
+
+ - [z-book-card-app](../book-card/z-book-card-app)
+
 ### Depends on
 
 - [z-icon](../z-icon)
@@ -39,6 +43,7 @@ Info reveal component.
 ```mermaid
 graph TD;
   z-info-reveal --> z-icon
+  z-book-card-app --> z-info-reveal
   style z-info-reveal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

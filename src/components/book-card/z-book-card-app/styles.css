@@ -1,0 +1,47 @@
+:host > div {
+  display: flex;
+  width: 315px;
+  height: 47px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  gap: calc(var(--space-unit) * 2);
+
+  .app {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: var(--space-unit);
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .name {
+      display: -webkit-box;
+      overflow: hidden;
+      height: 20px;
+      -webkit-box-orient: vertical;
+      font-family: var(--font-family-serif);
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      text-overflow: ellipsis;
+
+      .laz {
+        color: var(--red500);
+      }
+    }
+  }
+
+  z-info-reveal {
+    --z-info-reveal-panel-width: 250px;
+
+    font-family: var(--font-family-sans);
+
+    --color-surface05: var(--color-surface01);
+    --color-text-inverse: var(--color-default-text);
+    --color-inverse-icon: var(--color-primary01);
+  }
+}
