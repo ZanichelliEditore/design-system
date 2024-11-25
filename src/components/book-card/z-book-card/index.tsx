@@ -302,6 +302,8 @@ export class ZBookCard {
                     size={ControlSize.X_SMALL}
                     href={this.ebookUrl}
                     onClick={() => this.emitEbookClick()}
+                    role="link"
+                    aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
                   >
                     leggi ebook
                   </z-button>
