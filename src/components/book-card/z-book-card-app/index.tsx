@@ -73,6 +73,7 @@ export class ZBookCardApp {
         <a
           class="z-link z-link-icon"
           href={this.link}
+          aria-label={this.name}
         >
           <z-icon
             name="chevron-right"

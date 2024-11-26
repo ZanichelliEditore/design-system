@@ -1,7 +1,16 @@
+:host {
+  display: block;
+  width: inherit;
+  min-width: 300px;
+  height: inherit;
+  min-height: 32px;
+  background-color: var(--color-surface01);
+}
+
 :host > div {
   display: flex;
-  width: 315px;
-  height: 47px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;

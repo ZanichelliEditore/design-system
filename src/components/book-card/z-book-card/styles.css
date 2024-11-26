@@ -87,7 +87,7 @@
 
           .isbn-tags-link-section {
             .isbn-tags-section {
-              margin-bottom: calc(var(--space-unit) * 2);
+              margin-bottom: var(--space-unit);
 
               .volume-title {
                 display: -webkit-box;
@@ -114,7 +114,7 @@
                 overflow: hidden;
                 height: 22px;
                 flex-flow: wrap;
-                margin-top: calc(var(--space-unit) / 2);
+                padding: calc(var(--space-unit) / 2) 0;
                 gap: var(--space-unit);
 
                 z-tag.active {
@@ -129,6 +129,11 @@
 
                 z-tag.interactive {
                   cursor: pointer;
+                }
+
+                z-tag:focus {
+                  box-shadow: var(--shadow-focus-primary);
+                  outline: none;
                 }
               }
             }

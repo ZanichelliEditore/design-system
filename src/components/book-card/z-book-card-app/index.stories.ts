@@ -10,7 +10,7 @@ import "./index";
 type ZBookCardAppStoriesArgs = ZBookCardApp;
 
 const StoryMeta = {
-  title: "ZBookCardApp",
+  title: "ZBookCard/ZBookCardApp",
   component: "z-book-card-app",
   argTypes: {},
   args: {

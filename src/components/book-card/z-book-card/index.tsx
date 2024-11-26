@@ -73,9 +73,14 @@ export class ZBookCard {
   @Prop()
   operaTitleHtmlTag?: string;
 
-  @State() ediTag;
-  @State() annotatedTag;
-  @State() teacherVersionTag;
+  @State()
+  ediTag;
+
+  @State()
+  annotatedTag;
+
+  @State()
+  teacherVersionTag;
 
   /** click on tag */
   @Event()
@@ -158,7 +163,6 @@ export class ZBookCard {
   }
 
   private renderTag(label: string, tag: BookCardTag, id: string): HTMLDivElement {
-    console.log(label, tag, id);
     return (
       <z-tag
         class={{[tag.status]: true, interactive: tag.interactive}}

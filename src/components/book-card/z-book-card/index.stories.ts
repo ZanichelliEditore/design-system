@@ -13,7 +13,7 @@ type ZBookCardStoriesArgs = ZBookCard & {
 };
 
 const StoryMeta = {
-  title: "ZBookCard",
+  title: "ZBookCard/ZBookCard",
   component: "z-book-card",
   argTypes: {
     variant: {
@@ -24,24 +24,18 @@ const StoryMeta = {
     },
     edi: {
       control: {
-        type: "inline-radio",
+        type: "object",
       },
-      // TODO: FIX!!
-      options: [...Object.values(BookCardTagStatus), null],
     },
     annotated: {
       control: {
-        type: "inline-radio",
+        type: "object",
       },
-      // TODO: FIX!!
-      options: [...Object.values(BookCardTagStatus), null],
     },
     teacherVersion: {
       control: {
-        type: "inline-radio",
+        type: "object",
       },
-      // TODO: FIX!!
-      options: [...Object.values(BookCardTagStatus), null],
     },
     theme: {
       control: {
@@ -59,9 +53,9 @@ const StoryMeta = {
     isbn: "9788808930552",
     isbnLabel: "(ed. cartacea)",
     adoption: true,
-    // edi: BookCardTagStatus.ACTIVE,
-    // annotated: BookCardTagStatus.ACTIVE,
-    // teacherVersion: BookCardTagStatus.DISABLED,
+    edi: {status: BookCardTagStatus.ACTIVE, interactive: true},
+    annotated: {status: BookCardTagStatus.DISABLED, interactive: true},
+    teacherVersion: {status: BookCardTagStatus.ACTIVE, interactive: false},
     catalogUrl: "https://www.zanichelli.it/ricerca/prodotti/matematica-multimediale-blu3ed?qid=9788808710932",
     ebookUrl: "https://www.zanichelli.it/ricerca",
     fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
@@ -84,9 +78,9 @@ export const Card = {
       volume-title=${args.volumeTitle}
       isbn=${args.isbn}
       isbn-label=${args.isbnLabel}
-      edi=${args.edi}
-      annotated=${args.annotated}
-      teacher-version=${args.teacherVersion}
+      edi=${JSON.stringify(args.edi)}
+      annotated=${JSON.stringify(args.annotated)}
+      teacher-version=${JSON.stringify(args.teacherVersion)}
       adoption=${args.adoption}
       catalog-url=${args.catalogUrl}
       ebook-url=${args.ebookUrl}
@@ -106,9 +100,9 @@ export const WithSlottedContent = {
       volume-title=${args.volumeTitle}
       isbn=${args.isbn}
       isbn-label=${args.isbnLabel}
-      edi=${args.edi}
-      annotated=${args.annotated}
-      teacher-version=${args.teacherVersion}
+      edi=${JSON.stringify(args.edi)}
+      annotated=${JSON.stringify(args.annotated)}
+      teacher-version=${JSON.stringify(args.teacherVersion)}
       adoption=${args.adoption}
       catalog-url=${args.catalogUrl}
       ebook-url=${args.ebookUrl}
@@ -124,6 +118,13 @@ export const WithSlottedContent = {
           height="20"
         ></z-icon>
       </div>
+      <div slot="ebook">
+        <z-button
+          variant="secondary"
+          size="x-small"
+          >custom ebook button</z-button
+        >
+      </div>
       <div
         slot="apps"
         style="display: flex; flex-wrap: wrap"
@@ -133,27 +134,28 @@ export const WithSlottedContent = {
           name="Tutor di matematica"
           info="test test"
           link="http://localhost"
-          style="border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
           name="Esercizi"
           info="test test"
           link="http://localhost"
-          style="border-bottom: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-bottom: 1px solid #d6d6d6"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
           name="Mappe"
           info="test test"
           link="http://localhost"
-          style="border-right: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-right: 1px solid #d6d6d6"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
           name="Scrittura"
           info="test test"
           link="http://localhost"
+          style="width:315px; height:47px;"
         ></z-book-card-app>
       </div>
     </z-book-card>`,
