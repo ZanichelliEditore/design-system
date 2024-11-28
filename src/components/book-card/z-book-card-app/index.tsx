@@ -50,7 +50,10 @@ export class ZBookCardApp {
   render(): HTMLZBookCardAppElement {
     return (
       <div>
-        <div class="app">
+        <a
+          class="app z-link"
+          href={this.link}
+        >
           <img
             src={this.logo}
             alt=""
@@ -59,7 +62,7 @@ export class ZBookCardApp {
             {this.renderLaz()}
             {this.name}
           </div>
-        </div>
+        </a>
         {this.info && (
           <z-info-reveal
             icon="info"

@@ -211,7 +211,7 @@ export class ZBookCard {
     );
   }
 
-  private renderLaZEbookLogo(): SVGElement {
+  private renderLaZEbookLogo(): HTMLImageElement {
     return (
       <img
         class="ebook-logo"
