@@ -3,6 +3,7 @@ import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, Contr
 
 /**
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
+ * @slot ebook - main action slot on the card (as default, it shows laZ ebook link)
  * @slot apps - list of card-related apps
  */
 @Component({
