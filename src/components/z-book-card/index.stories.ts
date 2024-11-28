@@ -10,7 +10,7 @@ import "../z-tag/index";
 import "./index";
 
 type ZBookCardStoriesArgs = ZBookCard & {
-  theme: "theme-default" | "theme-dark" | "theme-black-yellow";
+  theme: "theme-default" | "theme-dark" | "theme-black-yellow" | "theme-red";
 } & CSSVarsArguments<
     | "z-book-card-ribbon-background-color"
     | "z-book-card-ribbon-shadow-color"
@@ -31,7 +31,7 @@ const StoryMeta = {
       control: {
         type: "inline-radio",
       },
-      options: ["theme-default", "theme-dark", "theme-black-yellow"],
+      options: ["theme-default", "theme-dark", "theme-black-yellow", "theme-red"],
     },
     "--z-book-card-ribbon-background-color": getColorTokenArgConfig(),
     "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),

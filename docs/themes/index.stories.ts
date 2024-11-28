@@ -11,7 +11,7 @@ export default {
       control: {
         type: "inline-radio",
       },
-      options: ["theme-default", "theme-black-yellow", "theme-dark"],
+      options: ["theme-default", "theme-black-yellow", "theme-dark", "theme-red"],
     },
   },
   args: {
