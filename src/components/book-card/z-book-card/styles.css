@@ -4,198 +4,244 @@
 }
 
 :host > article {
+  width: 304px;
+  min-height: 686px;
+  box-sizing: border-box;
+  padding: var(--space-unit) 0;
+  border: solid var(--border-size-medium) var(--color-surface03);
   background-color: var(--color-surface01);
+  border-radius: var(--border-radius);
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
-}
 
-/* Tablet breakpoint */
-@media (min-width: 768px) {
-  :host > article.landscape {
-    width: 635px;
-    min-height: 332px;
-    max-height: 428px;
-    box-sizing: border-box;
-    border: solid var(--border-size-medium) var(--color-surface03);
-    border-radius: var(--border-radius);
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-unit) * 2);
 
-    .main-content {
+    .cover {
       display: flex;
-      height: 296px;
-      padding: calc(var(--space-unit) * 2);
+      overflow: hidden;
+      height: 378px;
+      margin: 0 var(--space-unit);
+      border-radius: var(--border-radius);
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        align-self: end;
+      }
+    }
+
+    .card-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 var(--space-unit);
       gap: calc(var(--space-unit) * 2);
 
-      .cover {
-        display: flex;
-        overflow: hidden;
-        width: 221px;
-        border-radius: var(--border-radius);
-
-        img {
-          max-width: 100%;
-          max-height: 100%;
-          align-self: end;
-        }
-      }
-
-      .card-info {
+      .book-data {
         display: flex;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
-        gap: calc(var(--space-unit) * 2);
+        gap: var(--space-unit);
 
-        .book-data {
-          display: flex;
-          flex: 1;
-          flex-direction: column;
-          justify-content: space-between;
+        .authors-title-cta-section {
+          display: grid;
+          column-gap: calc(var(--space-unit) * 2);
+          grid-template-areas:
+            "authors authors"
+            "title cta";
+          grid-template-columns: auto 24px;
 
-          .authors-title-cta-section {
-            display: flex;
-            gap: calc(var(--space-unit) * 2);
-
-            .authors-title {
-              flex: 1;
-
-              .authors {
-                display: -webkit-box;
-                overflow: hidden;
-                height: 20px;
-                margin-bottom: calc(var(--space-unit) / 2);
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                line-clamp: 1;
-                text-overflow: ellipsis;
-              }
-
-              .opera-title {
-                display: -webkit-box;
-                overflow: hidden;
-                height: 54px;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                line-clamp: 2;
-                text-overflow: ellipsis;
-
-                * {
-                  all: unset;
-                }
-              }
-            }
+          .authors {
+            display: -webkit-box;
+            overflow: hidden;
+            height: 20px;
+            margin-bottom: calc(var(--space-unit) / 2);
+            -webkit-box-orient: vertical;
+            grid-area: authors;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            text-overflow: ellipsis;
           }
 
-          .isbn-tags-link-section {
-            .isbn-tags-section {
-              margin-bottom: var(--space-unit);
+          .opera-title {
+            display: -webkit-box;
+            overflow: hidden;
+            height: 54px;
+            -webkit-box-orient: vertical;
+            grid-area: title;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            text-overflow: ellipsis;
 
-              .volume-title {
-                display: -webkit-box;
-                overflow: hidden;
-                height: 20px;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                line-clamp: 1;
-                text-overflow: ellipsis;
-              }
-
-              .isbn {
-                display: -webkit-box;
-                overflow: hidden;
-                height: 20px;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                line-clamp: 1;
-                text-overflow: ellipsis;
-              }
-
-              .tags {
-                display: flex;
-                overflow: hidden;
-                height: 22px;
-                flex-flow: wrap;
-                padding: calc(var(--space-unit) / 2) 0;
-                gap: var(--space-unit);
-
-                z-tag.active {
-                  --z-tag-bg: var(--color-primary03);
-                  --z-tag-text-color: var(--color-default-text);
-                }
-
-                z-tag.disabled {
-                  --z-tag-bg: var(--color-surface03);
-                  --z-tag-text-color: var(--color-default-text);
-                }
-
-                z-tag.interactive {
-                  cursor: pointer;
-                }
-
-                z-tag:focus {
-                  box-shadow: var(--shadow-focus-primary);
-                  outline: none;
-                }
-              }
-            }
-
-            .link-section {
-              display: flex;
-              height: 24px;
-              align-items: center;
-              justify-content: space-between;
-              gap: var(--space-unit);
-
-              .adoption-tag {
-                padding: calc(var(--space-unit) / 2) var(--space-unit);
-                background-color: var(--green100);
-                border-radius: 100px;
-                text-transform: uppercase;
-              }
+            * {
+              all: unset;
             }
           }
         }
 
-        .ebook-container {
-          height: 76px;
+        .isbn-tags-link-section {
+          .isbn-tags-section {
+            margin-bottom: var(--space-unit);
 
-          .ebook {
+            .volume-title {
+              display: -webkit-box;
+              overflow: hidden;
+              height: 20px;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              line-clamp: 1;
+              text-overflow: ellipsis;
+            }
+
+            .isbn {
+              display: -webkit-box;
+              overflow: hidden;
+              height: 20px;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              line-clamp: 1;
+              text-overflow: ellipsis;
+            }
+
+            .tags {
+              display: flex;
+              overflow: hidden;
+              height: 22px;
+              flex-flow: wrap;
+              padding: calc(var(--space-unit) / 2) 0 var(--space-unit);
+              gap: var(--space-unit);
+
+              z-tag.active {
+                --z-tag-bg: var(--color-primary03);
+                --z-tag-text-color: var(--color-default-text);
+              }
+
+              z-tag.disabled {
+                --z-tag-bg: var(--color-surface03);
+                --z-tag-text-color: var(--color-default-text);
+              }
+
+              z-tag.interactive {
+                cursor: pointer;
+              }
+
+              z-tag:focus {
+                box-shadow: var(--shadow-focus-primary);
+                outline: none;
+              }
+            }
+          }
+
+          .link-section {
             display: flex;
+            height: 24px;
             align-items: center;
             justify-content: space-between;
-            padding: var(--space-unit);
-            background-color: var(--color-primary02);
-            border-radius: var(--border-radius);
             gap: var(--space-unit);
 
-            .app-name {
-              display: flex;
-              align-items: center;
-              padding: calc(var(--space-unit) / 2) 0;
-              font-family: var(--font-family-serif);
-              gap: calc(var(--space-unit) / 2);
+            .adoption-tag {
+              padding: calc(var(--space-unit) / 2) var(--space-unit);
+              background-color: var(--green100);
+              border-radius: 100px;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
 
-              .laz {
-                color: var(--red500);
-              }
+      .ebook-container {
+        height: 64px;
+
+        .ebook {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: calc(var(--space-unit) * 2) var(--space-unit);
+          background-color: var(--color-primary02);
+          border-radius: var(--border-radius);
+          gap: var(--space-unit);
+
+          .app-name {
+            display: flex;
+            align-items: center;
+            padding: calc(var(--space-unit) / 2) 0;
+            font-family: var(--font-family-serif);
+            gap: calc(var(--space-unit) / 2);
+
+            .laz {
+              color: var(--red500);
             }
           }
         }
       }
     }
+  }
 
-    ::slotted([slot="apps"]) {
-      border-top: solid var(--border-size-small) var(--color-surface03);
-    }
+  ::slotted([slot="cta"]) {
+    grid-area: cta;
+  }
+
+  ::slotted([slot="apps"]) {
+    border-top: solid var(--border-size-small) var(--color-surface03);
   }
 }
 
-/* Desktop breakpoint */
+:host > article.landscape {
+  width: 635px;
+  min-height: 332px;
+  max-height: 428px;
+  padding: 0;
 
-/*
-@media (min-width: 1152px) {
-} */
+  .main-content {
+    height: 296px;
+    flex-direction: row;
+    padding: calc(var(--space-unit) * 2);
 
-/* Wide breakpoint */
+    .cover {
+      display: flex;
+      overflow: hidden;
+      width: 221px;
+      height: auto;
+      margin: 0;
+    }
 
-/* @media (min-width: 1366px) {
-} */
+    .card-info {
+      margin: 0;
+
+      .book-data {
+        gap: unset;
+
+        .authors-title-cta-section {
+          grid-template-areas:
+            "authors cta"
+            "title title";
+
+          .authors {
+            margin-bottom: var(--space-unit);
+          }
+        }
+
+        .isbn-tags-link-section {
+          .isbn-tags-section {
+            .tags {
+              padding: calc(var(--space-unit) / 2) 0;
+            }
+          }
+        }
+      }
+
+      .ebook-container {
+        height: 76px;
+
+        .ebook {
+          padding: var(--space-unit);
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Fragment, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, ControlSize} from "../../../beans";
 
 /**
@@ -136,15 +136,6 @@ export class ZBookCard {
     this.immersiveReaderClick.emit();
   }
 
-  private renderCard(): HTMLDivElement {
-    switch (this.variant) {
-      case BookCardVariant.LANDSCAPE:
-        return this.renderLandscape();
-      case BookCardVariant.PORTRAIT:
-        return this.renderPortrait();
-    }
-  }
-
   private renderOperaTitle(): HTMLDivElement {
     const title = this.operaTitleHtmlTag
       ? `<${this.operaTitleHtmlTag}>${this.operaTitle}</${this.operaTitleHtmlTag}>`
@@ -273,23 +264,25 @@ export class ZBookCard {
     );
   }
 
-  private renderLandscape(): HTMLDivElement {
+  render(): HTMLZBookCardElement {
     return (
-      <Fragment>
+      <article
+        class={{
+          [this.variant]: true,
+        }}
+      >
         <div class="main-content">
           {this.renderCover()}
           <div class="card-info">
             <div class="book-data">
               <div class="authors-title-cta-section">
-                <div class="authors-title">
-                  <div
-                    class="authors body-4"
-                    aria-description="autori"
-                  >
-                    {this.authors}
-                  </div>
-                  {this.renderOperaTitle()}
+                <div
+                  class="authors body-4"
+                  aria-description="autori"
+                >
+                  {this.authors}
                 </div>
+                {this.renderOperaTitle()}
                 <slot name="cta"></slot>
               </div>
               <div class="isbn-tags-link-section">
@@ -336,15 +329,17 @@ export class ZBookCard {
                           <span class="laz">laZ</span> Ebook
                         </div>
                       </div>
-                      <div class="body-5">
-                        Anche nella versione libro liquido con{" "}
-                        <span
-                          class="body-5-sb immersive-reader"
-                          onClick={() => this.emitImmersiveReaderClick()}
-                        >
-                          strumento di lettura immersiva
-                        </span>
-                      </div>
+                      {this.variant === BookCardVariant.LANDSCAPE && (
+                        <div class="body-5">
+                          Anche nella versione libro liquido con{" "}
+                          <span
+                            class="body-5-sb immersive-reader"
+                            onClick={() => this.emitImmersiveReaderClick()}
+                          >
+                            strumento di lettura immersiva
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <z-button
                       size={ControlSize.X_SMALL}
@@ -362,22 +357,6 @@ export class ZBookCard {
           </div>
         </div>
         <slot name="apps"></slot>
-      </Fragment>
-    );
-  }
-
-  private renderPortrait(): HTMLDivElement {
-    return <div class="wrapper"></div>;
-  }
-
-  render(): HTMLZBookCardElement {
-    return (
-      <article
-        class={{
-          [this.variant]: true,
-        }}
-      >
-        {this.renderCard()}
       </article>
     );
   }
