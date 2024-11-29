@@ -63,6 +63,7 @@ export class ZBookCardApp {
           href={this.link}
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
           onClick={() => this.emitAppClick()}
+          target="_blank"
         >
           {this.logo && (
             <img
@@ -90,6 +91,7 @@ export class ZBookCardApp {
           href={this.link}
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
           onClick={() => this.emitAppClick()}
+          target="_blank"
         >
           <z-icon
             name="chevron-right"
