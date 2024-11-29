@@ -167,6 +167,14 @@ export class ZBookCard {
             state: tag.status,
           })
         }
+        onKeyUp={(e: KeyboardEvent) =>
+          tag.interactive &&
+          e.key === "Enter" &&
+          this.emitTagClick({
+            tag: id,
+            state: tag.status,
+          })
+        }
       >
         {label}
       </z-tag>
