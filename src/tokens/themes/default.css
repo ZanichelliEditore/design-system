@@ -41,7 +41,7 @@
   --color-disabled02-icon: var(--gray100);
   --color-hover-primary-icon: var(--blue800);
   --color-active-primary-icon: var(--blue400);
-  --color-input-field01: var(--color-white);
+  --color-form-background: var(--color-white);
   --color-input-field02: var(--blue500);
   --color-hover-primary: var(--blue800);
   --color-hover-primary-text: var(--color-black);
