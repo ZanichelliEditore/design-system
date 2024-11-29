@@ -193,10 +193,6 @@
   grid-area: cta;
 }
 
-::slotted([slot="apps"]) {
-  border-top: solid var(--border-size-small) var(--color-surface03);
-}
-
 :host > article.landscape {
   width: 635px;
   min-height: 332px;
