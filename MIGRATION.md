@@ -13,7 +13,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
   - [Aggiornamento stili link](#aggiornamento-stili-link)
   - [Revisione token dei temi](#revisione-token-temi)
-  - [Modifica nome token --color-input-field01](#modifica-nome-token)
+  - [Modifica token input](#modifica-token-input)
 
 - [v16.0.0](#v1600)
 
@@ -159,9 +159,10 @@ Il tema di default ha subito le seguenti modifiche:
   - `pressed-secondary`: `red400`
   - `hover-secondary`: `red800`
 
-### Modifica nome token `--color-input-field01`
+### Modifica token input
 
 Il token `--color-input-field01` cambia nome in `--color-form-background`, mentre il colore rimane invariato.
+Il token `--color-input-field02` è stato rimosso.
 
 ## v16.0.0
 
