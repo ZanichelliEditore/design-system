@@ -16,6 +16,13 @@
 | `name`   | `name`    | App name                                | `string`  | `undefined` |
 
 
+## Events
+
+| Event      | Description       | Type               |
+| ---------- | ----------------- | ------------------ |
+| `appClick` | click on app link | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on

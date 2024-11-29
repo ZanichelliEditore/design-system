@@ -2147,6 +2147,10 @@ export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
 }
+export interface ZBookCardAppCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBookCardAppElement;
+}
 export interface ZBookCardDeprecatedCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardDeprecatedElement;
@@ -2480,7 +2484,18 @@ declare global {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
     };
+    interface HTMLZBookCardAppElementEventMap {
+        "appClick": any;
+    }
     interface HTMLZBookCardAppElement extends Components.ZBookCardApp, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZBookCardAppElement: {
         prototype: HTMLZBookCardAppElement;
@@ -3893,6 +3908,10 @@ declare namespace LocalJSX {
           * App name
          */
         "name"?: string;
+        /**
+          * click on app link
+         */
+        "onAppClick"?: (event: ZBookCardAppCustomEvent<any>) => void;
     }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color

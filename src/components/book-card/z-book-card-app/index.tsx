@@ -1,4 +1,4 @@
-import {Component, Element, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {ControlSize, InfoRevealPosition} from "../../../beans";
 
 @Component({
@@ -39,6 +39,14 @@ export class ZBookCardApp {
   @Prop()
   info?: string;
 
+  /** click on app link */
+  @Event()
+  appClick: EventEmitter;
+
+  private emitAppClick(): void {
+    this.appClick.emit();
+  }
+
   private renderLaz(): HTMLSpanElement | null {
     if (this.laz) {
       return <span class="laz">laZ </span>;
@@ -54,6 +62,7 @@ export class ZBookCardApp {
           class="app z-link"
           href={this.link}
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
+          onClick={() => this.emitAppClick()}
         >
           {this.logo && (
             <img
@@ -80,6 +89,7 @@ export class ZBookCardApp {
           class="z-link z-link-icon"
           href={this.link}
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
+          onClick={() => this.emitAppClick()}
         >
           <z-icon
             name="chevron-right"
