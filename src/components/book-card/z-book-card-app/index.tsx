@@ -53,6 +53,7 @@ export class ZBookCardApp {
         <a
           class="app z-link"
           href={this.link}
+          aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
         >
           <img
             src={this.logo}
@@ -76,7 +77,7 @@ export class ZBookCardApp {
         <a
           class="z-link z-link-icon"
           href={this.link}
-          aria-label={this.name}
+          aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
         >
           <z-icon
             name="chevron-right"
