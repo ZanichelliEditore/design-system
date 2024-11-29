@@ -329,7 +329,7 @@ export namespace Components {
         /**
           * App logo url
          */
-        "logo": string;
+        "logo"?: string;
         /**
           * App name
          */

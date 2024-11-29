@@ -38,10 +38,11 @@
 
 ## Slots
 
-| Slot     | Description                                            |
-| -------- | ------------------------------------------------------ |
-| `"apps"` | list of card-related apps                              |
-| `"cta"`  | to the right of authors and title (e.g. bookmark icon) |
+| Slot      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+| `"apps"`  | list of card-related apps                                          |
+| `"cta"`   | to the right of authors and title (e.g. bookmark icon)             |
+| `"ebook"` | main action slot on the card (as default, it shows laZ ebook link) |
 
 
 ## Dependencies

@@ -13,7 +13,7 @@ export class ZBookCardApp {
    * App logo url
    */
   @Prop()
-  logo: string;
+  logo?: string;
 
   /**
    * App name
@@ -55,10 +55,12 @@ export class ZBookCardApp {
           href={this.link}
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
         >
-          <img
-            src={this.logo}
-            alt=""
-          />
+          {this.logo && (
+            <img
+              src={this.logo}
+              alt=""
+            />
+          )}
           <div class="name body-4-sb">
             {this.renderLaz()}
             {this.name}
