@@ -40,7 +40,6 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 var(--space-unit);
   gap: calc(var(--space-unit) * 2);
 }
 
@@ -49,6 +48,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0 var(--space-unit);
   gap: var(--space-unit);
 }
 
@@ -214,11 +214,8 @@
   margin: 0;
 }
 
-:host > article.landscape .main-content .card-info {
-  margin: 0;
-}
-
 :host > article.landscape .main-content .card-info .book-data {
+  margin: 0;
   gap: unset;
 }
 
