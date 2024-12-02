@@ -185,10 +185,6 @@
   color: var(--red500);
 }
 
-:host > article .main-content .card-info .ebook-container .ebook .immersive-reader {
-  cursor: pointer;
-}
-
 ::slotted([slot="cta"]) {
   grid-area: cta;
 }

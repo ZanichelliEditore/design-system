@@ -296,12 +296,13 @@ export class ZBookCard {
                       {this.variant === BookCardVariant.LANDSCAPE && (
                         <div class="body-5">
                           Anche nella versione libro liquido con{" "}
-                          <span
-                            class="body-5-sb immersive-reader"
+                          <button
+                            class="body-5-sb immersive-reader z-link"
                             onClick={() => this.emitImmersiveReaderClick()}
+                            tabIndex={0}
                           >
                             strumento di lettura immersiva
-                          </span>
+                          </button>
                         </div>
                       )}
                     </div>
