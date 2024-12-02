@@ -19,7 +19,7 @@ textarea,
 .textarea-wrapper {
   box-sizing: border-box;
   border: var(--border-size-small) solid var(--gray700);
-  background: var(--color-input-field01);
+  background: var(--color-form-background);
   border-radius: var(--border-radius-small);
   color: var(--gray900);
   fill: var(--gray900);
@@ -50,7 +50,7 @@ textarea,
 
 input:focus:focus-visible,
 textarea:focus:focus-visible {
-  color: var(--color-input-field02);
+  color: var(--color-primary01);
 }
 
 :host.active-select input {
