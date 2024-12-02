@@ -219,15 +219,6 @@ export class ZBookCard {
     );
   }
 
-  private renderLaZEbookLogo(): HTMLImageElement {
-    return (
-      <img
-        class="ebook-logo"
-        aria-hidden="true"
-      />
-    );
-  }
-
   render(): HTMLZBookCardElement {
     return (
       <article
@@ -265,7 +256,7 @@ export class ZBookCard {
                     {this.catalogUrl && (
                       <a
                         href={this.catalogUrl}
-                        class="z-link z-link-icon body-4-sb immersive-reader"
+                        class="z-link z-link-icon body-4-sb"
                         onClick={() => this.emitCatalogClick()}
                       >
                         Scheda catalogo
@@ -288,7 +279,10 @@ export class ZBookCard {
                   <div class="ebook">
                     <div>
                       <div class="app-name">
-                        {this.renderLaZEbookLogo()}
+                        <img
+                          class="ebook-logo"
+                          aria-hidden="true"
+                        />
                         <div class="body-4-sb">
                           <span class="laz">laZ</span> Ebook
                         </div>
