@@ -117,7 +117,9 @@
   overflow: hidden;
   height: 22px;
   flex-flow: wrap;
-  padding: calc(var(--space-unit) / 2) 0 var(--space-unit);
+  align-items: center;
+  padding: var(--space-unit);
+  margin: calc(calc(var(--space-unit) / 2) * -1) calc(var(--space-unit) * -1) 0;
   gap: var(--space-unit);
 }
 
@@ -223,7 +225,7 @@
 }
 
 :host > article.landscape .main-content .card-info .book-data .isbn-tags-link-section .isbn-tags-section .tags {
-  padding: calc(var(--space-unit) / 2) 0;
+  margin: calc(calc(var(--space-unit) / 2) * -1) calc(var(--space-unit) * -1);
 }
 
 :host > article.landscape .main-content .card-info .ebook-container {
