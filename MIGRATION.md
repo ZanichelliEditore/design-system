@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v17.0.0](#v1700)
+
+  - [Refactor componente `z-book-card`](#refactor-componente-zbookcard)
+
 - [v16.0.0](#v1600)
 
   - [Nuova versione componente ZAppHeader](#nuova-versione-componente-zappheader)
@@ -104,6 +108,27 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v17.0.0
+
+### Refactor componente `ZBookCard`
+
+La versione attuale del componente è stata mantenuta con il nuovo nome `z-book-card-deprecated`.
+La nuova versione è disponibile in due varianti, `landscape` e `portrait`, che sono i valori da passare alla prop `variant`.
+Le prop `ribbon`, `ribbonIcon`, `ribbonInteractive`, `borderless` sono state eliminate.
+La prop `operaTitleTag` cambia nome in `operaTitleHtmlTag`.
+Sono state aggiunte le prop `edi`, `annotated`, `teacherVersion` per gestire i tag: accettano un oggetto di questo tipo
+
+```
+{
+  status: "active"|"disabled";
+  interactive: boolean;
+}
+```
+
+Dove `status` definisce lo stile del tag, mentre `interactive` gestisce il click dell'utente.
+È stata aggiunta la prop `adoption` che gestisce il badge dei libri adottati.
+Le nuove prop `catalogUrl` e `ebookUrl` gestiscono rispettivamente i link al catalogo Zanichelli e al libro digitale.
 
 ## v16.0.0
 
