@@ -127,7 +127,7 @@ export const WithSlottedContent = {
       </div>
       <div
         slot="apps"
-        style="display: flex; flex-wrap: wrap"
+        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6"
       >
         <z-book-card-app
           icon="https://placehold.co/24"
@@ -148,7 +148,7 @@ export const WithSlottedContent = {
           name="Mappe"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-right: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
