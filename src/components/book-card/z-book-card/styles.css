@@ -54,7 +54,7 @@
 
 :host > article .main-content .card-info .book-data .authors-title-cta-section {
   display: grid;
-  column-gap: calc(var(--space-unit) * 2);
+  column-gap: var(--space-unit);
   grid-template-areas:
     "authors authors"
     "title cta";
@@ -216,6 +216,7 @@
 }
 
 :host > article.landscape .main-content .card-info .book-data .authors-title-cta-section {
+  column-gap: calc(var(--space-unit) * 2);
   grid-template-areas:
     "authors cta"
     "title title";
