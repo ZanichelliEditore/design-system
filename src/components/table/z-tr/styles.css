@@ -52,7 +52,7 @@
 
 :host([expanded]) .z-tr--expand-button-container,
 :host([expanded]) ::slotted(*) {
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
 }
 
 .z-tr--expand-button-container {

@@ -10,7 +10,7 @@
   flex-direction: column;
   padding: calc(var(--space-unit) * 2);
   border-color: var(--color-surface04);
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
 
   /* Native CSS properties don't support the customization of border-style.
   Therefore, we use a trick with an SVG image inside background-image property.
@@ -45,7 +45,7 @@
 
 :host > .dragdrop .dragover-container .dragover-message {
   padding: 10px 28px;
-  background-color: var(--color-link-primary);
+  background-color: var(--color-primary01);
   color: var(--color-text-inverse);
 }
 

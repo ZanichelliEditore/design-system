@@ -17,7 +17,7 @@
   padding: 0 calc(var(--space-unit) * 1.5);
   border: var(--border-size-small) solid var(--color-surface04);
   margin: 0;
-  background-color: var(--color-input-field01);
+  background-color: var(--color-form-background);
   border-radius: var(--border-radius-small);
   cursor: pointer;
 }
@@ -103,7 +103,7 @@
   padding: var(--space-unit) calc(var(--space-unit) * 2);
   border: var(--border-size-small) solid var(--gray200);
   border-top: 0;
-  background-color: var(--color-input-field01);
+  background-color: var(--color-form-background);
   border-radius: 0;
 }
 
