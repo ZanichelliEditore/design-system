@@ -1,6 +1,7 @@
 :host {
   display: block;
   max-width: fit-content;
+  border-radius: var(--border-radius);
 }
 
 :host > article {
