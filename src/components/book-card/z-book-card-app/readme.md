@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZBookCardApp component
+
 ## Properties
 
 | Property | Attribute | Description                             | Type      | Default     |

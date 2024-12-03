@@ -127,7 +127,7 @@ export const WithSlottedContent = {
       </div>
       <div
         slot="apps"
-        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6"
+        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6;"
       >
         <z-book-card-app
           icon="https://placehold.co/24"

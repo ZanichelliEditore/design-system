@@ -14,7 +14,8 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  padding: var(--z-book-card-app-padding-y, calc(var(--space-unit) * 1.5))
+    var(--z-book-card-app-padding-x, var(--space-unit));
   gap: calc(var(--space-unit) * 2);
 }
 

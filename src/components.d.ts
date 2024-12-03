@@ -313,6 +313,11 @@ export namespace Components {
          */
         "volumeTitle"?: string;
     }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
     interface ZBookCardApp {
         /**
           * Info text to show as inforeveal
@@ -2487,6 +2492,11 @@ declare global {
     interface HTMLZBookCardAppElementEventMap {
         "appClick": any;
     }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
     interface HTMLZBookCardAppElement extends Components.ZBookCardApp, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3887,6 +3897,11 @@ declare namespace LocalJSX {
          */
         "volumeTitle"?: string;
     }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
     interface ZBookCardApp {
         /**
           * Info text to show as inforeveal
@@ -6068,6 +6083,11 @@ declare module "@stencil/core" {
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            /**
+             * ZBookCardApp component
+             * @cssprop --z-book-card-app-padding-x - set left and right padding
+             * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+             */
             "z-book-card-app": LocalJSX.ZBookCardApp & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
             /**
              * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
