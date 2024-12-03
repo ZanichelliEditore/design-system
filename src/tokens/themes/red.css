@@ -41,8 +41,4 @@
   --color-hover-icon: var(--color-black);
   --color-inverse-icon: var(--color-white);
   --color-pressed-icon: var(--gray700);
-
-  /* forms */
-  --color-input-field01: var(--color-white);
-  --color-input-field02: var(--color-white);
 }
