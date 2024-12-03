@@ -127,35 +127,35 @@ export const WithSlottedContent = {
       </div>
       <div
         slot="apps"
-        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6;"
+        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
       >
         <z-book-card-app
           icon="https://placehold.co/24"
           name="Tutor di matematica"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
           name="Esercizi"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-bottom: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
-          name="Mappe"
+          name="Mappe Mappe Mappe Mappe Mappe"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
+          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app
         ><z-book-card-app
           icon="https://placehold.co/24"
           name="Scrittura"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px;"
+          style="width:315px; height:47px;; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app>
       </div>
     </z-book-card>`,
