@@ -140,6 +140,12 @@
         ],
         "no-duplicate-imports": "off"
       }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
     }
   ]
 }

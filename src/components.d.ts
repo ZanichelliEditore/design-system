@@ -683,7 +683,7 @@ export namespace Components {
          */
         "fileMaxSize"?: number;
         /**
-          * get array of uploaded files
+          * Get the list of uploaded files
          */
         "getFiles": () => Promise<File[]>;
         /**
@@ -691,11 +691,15 @@ export namespace Components {
          */
         "hasFileSection"?: boolean;
         /**
+          * Value to set on the file input's `name` attribute (for use with forms)
+         */
+        "inputName"?: string;
+        /**
           * Title
          */
         "mainTitle"?: string;
         /**
-          * remove file from the array
+          * Remove a previously uploaded file
          */
         "removeFile": (fileName: string) => Promise<void>;
         /**
@@ -4149,6 +4153,10 @@ declare namespace LocalJSX {
           * uploaded files history rendering
          */
         "hasFileSection"?: boolean;
+        /**
+          * Value to set on the file input's `name` attribute (for use with forms)
+         */
+        "inputName"?: string;
         /**
           * Title
          */
