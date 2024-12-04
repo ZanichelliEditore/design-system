@@ -1,12 +1,10 @@
 :host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-}
-
-:host > .container {
-  display: flex;
-  flex-direction: column;
 }
 
 :host .modal-wrapper {
@@ -47,68 +45,50 @@
   margin-bottom: var(--space-unit);
 }
 
-input#file-elem {
+:host input[type="file"] {
   display: none;
 }
 
-#title {
-  display: inline-block;
-  margin: calc(var(--space-unit) * 2.5) 0 calc(var(--space-unit) * 4);
-  font-size: calc(var(--space-unit) * 3);
-  font-weight: var(--font-sb);
+:host #title + * {
+  margin-top: var(--space-unit);
 }
 
-:host > .container > z-button {
-  display: inline-block;
+:host > * + z-button {
   margin-top: calc(var(--space-unit) * 3);
 }
 
-:host > .container > .files-container.hidden {
+:host > .files-container.hidden {
   display: none;
 }
 
-:host > .container > .files-container > .heading-4-sb {
+:host > .files-container > .uploaded-files-label {
   display: inline-block;
   margin: calc(var(--space-unit) * 3) 0;
-  font-size: calc(var(--space-unit) * 2);
-  font-weight: var(--font-sb);
 }
 
-:host([type="dragdrop"]) > .container > .files-container > .heading-4-sb {
+:host([type="dragdrop"]) > .files-container > .uploaded-files-label {
   margin-top: 0;
   margin-bottom: calc(var(--space-unit) * 3);
 }
 
-:host > .container > .files-container > .files-wrapper {
+:host > .files-container > .files-wrapper {
   display: flex;
   flex-wrap: wrap;
   column-gap: calc(var(--space-unit) * 2);
   row-gap: calc(var(--space-unit) * 2);
 }
 
-:host > .container > .files-container > z-divider {
+:host > .files-container > z-divider {
   margin-top: calc(var(--space-unit) * 3);
   margin-bottom: 0;
 }
 
-:host([type="dragdrop"]) > .container > .files-container > z-divider {
+:host([type="dragdrop"]) > .files-container > z-divider {
   margin: calc(var(--space-unit) * 3) 0;
 }
 
-:host .error-message {
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.16%;
-  line-height: 20px;
-  text-align: left;
-}
-
-:host .error-message > .file-name {
-  font-weight: 600;
-}
-
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   :host > .container > z-button {
     align-self: flex-start;
   }
@@ -118,7 +98,7 @@ input#file-elem {
   }
 }
 
-@media only screen and (min-width: 1152px) {
+@media (min-width: 1152px) {
   :host .modal-wrapper {
     padding: calc(var(--space-unit) * 4);
   }

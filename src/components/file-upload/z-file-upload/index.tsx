@@ -5,7 +5,8 @@ import {getDevice} from "../../../utils/utils";
 @Component({
   tag: "z-file-upload",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
@@ -31,10 +32,6 @@ export class ZFileUpload {
   /** Description */
   @Prop()
   description?: string;
-
-  /** Files added by the user */
-  @State()
-  files: File[] = [];
 
   /** upoload button label */
   @Prop()
@@ -72,30 +69,28 @@ export class ZFileUpload {
   @Prop()
   hasFileSection?: boolean = true;
 
+  /** Value to set on the file input's `name` attribute (for use with forms) */
+  @Prop()
+  inputName? = "z-file-upload";
+
+  /** Files added by the user */
+  @State()
+  files: File[] = [];
+
   /** List of files not allowed to be uploaded */
   @State()
-  invalidFiles: Map<string, string[]>;
+  invalidFiles: Map<string, string[]> = new Map<string, string[]>();
 
-  @Element() el: HTMLZFileUploadElement;
+  @Element() host: HTMLZFileUploadElement;
 
   private input: HTMLInputElement;
 
-  private button: HTMLZButtonElement;
-
   private errorModal: HTMLZModalElement;
-
-  private uploadLink: HTMLSpanElement;
-
-  private inputAttributes = {
-    type: "file",
-    id: "file-elem",
-    multiple: true,
-  };
 
   /** Listen removeFile event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener(e: CustomEvent): void {
-    this.removeFileHandler(e.detail);
+  onFileRemoved(e: CustomEvent): void {
+    this.removeFile(e.detail);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
@@ -106,12 +101,7 @@ export class ZFileUpload {
   }
 
   componentDidUpdate(): void {
-    this.handleAccessibility();
     this.invalidFiles.size && this.errorModal.focus();
-  }
-
-  componentWillLoad(): void {
-    this.invalidFiles = new Map<string, string[]>();
   }
 
   /** Emitted when user select one or more files */
@@ -124,19 +114,15 @@ export class ZFileUpload {
     }
   }
 
-  /** get array of uploaded files */
+  /** Get the list of uploaded files */
   @Method()
   async getFiles(): Promise<File[]> {
     return this.files;
   }
 
-  /** remove file from the array */
+  /** Remove a previously uploaded file */
   @Method()
   async removeFile(fileName: string): Promise<void> {
-    this.removeFileHandler(fileName);
-  }
-
-  private removeFileHandler(fileName: string): void {
     const files = this.files;
     const file = files.find((file) => file.name === fileName);
     if (file) {
@@ -154,17 +140,6 @@ export class ZFileUpload {
     }
 
     return this.type;
-  }
-
-  private handleAccessibility(): void {
-    const lastFile = this.el.querySelector("z-file:last-child z-chip button");
-    if (this.files.length > 0 && lastFile) {
-      (lastFile as HTMLElement).focus();
-    } else {
-      this.getType() === ZFileUploadType.DEFAULT
-        ? this.button.querySelector("button").focus()
-        : this.uploadLink.focus();
-    }
   }
 
   private checkFiles(files: File[]): Map<string, string[]> {
@@ -198,15 +173,29 @@ export class ZFileUpload {
     return errors;
   }
 
-  private renderTitle(): HTMLElement {
-    return <span id="title">{this.mainTitle}</span>;
+  private renderTitle(): HTMLElement | undefined {
+    return this.mainTitle ? (
+      <div
+        id="title"
+        class="heading-2-sb"
+      >
+        {this.mainTitle}
+      </div>
+    ) : undefined;
   }
 
-  private renderDescription(cssClass): HTMLElement {
-    return <span class={cssClass}>{this.description}</span>;
+  private renderDescription(cssClass): HTMLElement | undefined {
+    return this.description ? (
+      <span
+        id="description"
+        class={cssClass}
+      >
+        {this.description}
+      </span>
+    ) : undefined;
   }
 
-  private renderAllowedFileExtensions(): HTMLElement {
+  private renderAllowedFilesMessage(): HTMLElement {
     let fileFormatString = "";
     let fileWeightString = "";
 
@@ -222,17 +211,14 @@ export class ZFileUpload {
       fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`;
     }
 
-    const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
+    const defaultMessage =
+      fileFormatString || fileWeightString ? `Puoi allegare file${fileFormatString}${fileWeightString}.` : undefined;
 
-    return (
-      <span class="body-3">
-        {this.allowedFilesMessage
-          ? this.allowedFilesMessage
-          : fileFormatString || fileWeightString
-            ? finalString
-            : null}
-      </span>
-    );
+    if (!this.allowedFilesMessage && !defaultMessage) {
+      return;
+    }
+
+    return <span class="allowed-files-message body-3">{this.allowedFilesMessage || defaultMessage}</span>;
   }
 
   private renderFileSection(): HTMLElement {
@@ -241,8 +227,8 @@ export class ZFileUpload {
     }
 
     return (
-      <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <span class="heading-4-sb">{this.uploadedFilesLabel}</span>
+      <section class={{"files-container": true, "hidden": !this.files.length}}>
+        <span class="uploaded-files-label heading-4-sb">{this.uploadedFilesLabel}</span>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
@@ -254,7 +240,9 @@ export class ZFileUpload {
   private renderInput(): HTMLInputElement {
     return (
       <input
-        {...this.inputAttributes}
+        type="file"
+        name={this.inputName}
+        multiple
         onChange={() => this.fileInputHandler()}
         accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
@@ -264,7 +252,6 @@ export class ZFileUpload {
 
   private renderUploadButton(): unknown[] {
     return [
-      this.renderInput(),
       <z-button
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
@@ -276,10 +263,10 @@ export class ZFileUpload {
         id="fileSelect"
         variant={this.buttonVariant}
         icon="upload"
-        ref={(val) => (this.button = val)}
       >
         {this.uploadBtnLabel}
       </z-button>,
+      this.renderInput(),
     ];
   }
 
@@ -297,7 +284,6 @@ export class ZFileUpload {
               this.input.click();
             }
           }}
-          ref={(val) => (this.uploadLink = val)}
         >
           {this.uploadClickableMessage}
         </span>{" "}
@@ -309,7 +295,7 @@ export class ZFileUpload {
   private renderDefaultMode(): unknown[] {
     return [
       this.renderDescription("body-3-sb"),
-      this.renderAllowedFileExtensions(),
+      this.renderAllowedFilesMessage(),
       this.renderFileSection(),
       this.renderUploadButton(),
     ];
@@ -322,7 +308,7 @@ export class ZFileUpload {
         <div class="text-container">
           {this.renderDescription("body-1")}
           {this.renderUploadLink()}
-          {this.renderAllowedFileExtensions()}
+          {this.renderAllowedFilesMessage()}
         </div>
       </z-dragdrop-area>,
     ];
@@ -332,8 +318,8 @@ export class ZFileUpload {
     const bothErrors = value[0] && value[1] ? " e " : "";
 
     return (
-      <span class="error-message">
-        Il file <span class="file-name">{key}</span> {value[1] ?? ""}
+      <span class="error-message body-4">
+        Il file <span class="body-4-sb">{key}</span> {value[1] ?? ""}
         {bothErrors}
         {value[0] ?? ""}.
       </span>
@@ -360,11 +346,9 @@ export class ZFileUpload {
 
   render(): HTMLZFileUploadElement {
     return (
-      <Host>
-        <div class={`container ${this.getType()}`}>
-          {this.mainTitle && this.renderTitle()}
-          {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
-        </div>
+      <Host class={this.getType()}>
+        {this.renderTitle()}
+        {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         {!!this.invalidFiles.size && (
           <z-modal
             modalid={`file-upload-${this.type}-error-modal`}

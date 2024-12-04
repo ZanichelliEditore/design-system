@@ -677,7 +677,7 @@ describe("Suite test ZBookCard", () => {
   });
 });
 
-const mockMatchMedia = (matches: boolean = false) => {
+const mockMatchMedia = (matches = false) => {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: jest.fn().mockImplementation((query) => ({

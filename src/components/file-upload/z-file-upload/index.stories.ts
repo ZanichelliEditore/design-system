@@ -56,8 +56,7 @@ export const Default = {
       >
       </z-file-upload>
       <script>
-        let uploaderDefault = document.querySelector("z-file-upload");
-        let fileNumber = 0;
+        fileNumber = 0;
         document.addEventListener("fileInput", (e) => {
           fileNumber++;
           const item = e.detail;
@@ -65,7 +64,7 @@ export const Default = {
           chip.setAttribute("slot", "files");
           chip.setAttribute("file-number", fileNumber);
           chip.setAttribute("file-name", item.name);
-          uploaderDefault.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;
@@ -91,14 +90,13 @@ export const Dragdrop = {
       >
       </z-file-upload>
       <script>
-        const uploaderDragdrop = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
           const chip = document.createElement("Z-FILE");
           chip.setAttribute("slot", "files");
           chip.setAttribute("filetype", item.type);
           chip.setAttribute("file-name", item.name);
-          uploaderDragdrop.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;
@@ -140,14 +138,13 @@ export const DragdropEnglish = {
       >
       </z-file-upload>
       <script>
-        const uploaderDragdrop = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
           const chip = document.createElement("Z-FILE");
           chip.setAttribute("slot", "files");
           chip.setAttribute("filetype", item.type);
           chip.setAttribute("file-name", item.name);
-          uploaderDragdrop.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;
