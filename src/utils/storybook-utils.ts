@@ -145,7 +145,7 @@ export function getThemeTokenValue(themeClass: string, token: `--${string}`): st
 
   return value instanceof CSSVariableReferenceValue
     ? getComputedStyle(document.documentElement).getPropertyValue(value.variable)
-    : (value?.toString() ?? undefined);
+    : value?.toString() ?? undefined;
 }
 
 /**

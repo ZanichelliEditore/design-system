@@ -28,6 +28,7 @@ const StoryMeta = {
     description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
     uploadBtnLabel: "allega",
     hasFileSection: true,
+    showErrors: true,
   },
 } satisfies Meta<ZFileUpload>;
 
@@ -46,6 +47,7 @@ export const Default = {
       </h4>
       <z-file-upload
         type=${ZFileUploadType.DEFAULT}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .buttonVariant=${args.buttonVariant}
@@ -53,8 +55,7 @@ export const Default = {
         .acceptedFormat=${args.acceptedFormat}
         .mainTitle=${args.mainTitle}
         .uploadBtnLabel=${args.uploadBtnLabel}
-      >
-      </z-file-upload>
+      />
       <script>
         fileNumber = 0;
         document.addEventListener("fileInput", (e) => {
@@ -81,14 +82,14 @@ export const Dragdrop = {
       <br />
       <z-file-upload
         type=${ZFileUploadType.DRAGDROP}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .fileMaxSize=${args.fileMaxSize}
         .acceptedFormat=${args.acceptedFormat}
         .mainTitle=${args.mainTitle}
         .dragAndDropLabel=${args.dragAndDropLabel}
-      >
-      </z-file-upload>
+      />
       <script>
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
@@ -122,6 +123,7 @@ export const DragdropEnglish = {
       <br />
       <z-file-upload
         type=${ZFileUploadType.DRAGDROP}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .fileMaxSize=${args.fileMaxSize}
@@ -135,8 +137,7 @@ export const DragdropEnglish = {
         .errorModalMessage=${args.errorModalMessage}
         .uploadedFilesLabel=${args.uploadedFilesLabel}
         .uploadBtnLabel=${args.uploadBtnLabel}
-      >
-      </z-file-upload>
+      />
       <script>
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
