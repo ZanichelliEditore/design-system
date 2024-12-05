@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZBookCardApp component
+
 ## Properties
 
 | Property | Attribute | Description                             | Type      | Default     |
@@ -14,6 +18,13 @@
 | `link`   | `link`    | link to the app website                 | `string`  | `undefined` |
 | `logo`   | `logo`    | App logo url                            | `string`  | `undefined` |
 | `name`   | `name`    | App name                                | `string`  | `undefined` |
+
+
+## Events
+
+| Event      | Description       | Type               |
+| ---------- | ----------------- | ------------------ |
+| `appClick` | click on app link | `CustomEvent<any>` |
 
 
 ## Dependencies

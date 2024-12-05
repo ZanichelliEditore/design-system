@@ -1,6 +1,11 @@
-import {Component, Element, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {ControlSize, InfoRevealPosition} from "../../../beans";
 
+/**
+ * ZBookCardApp component
+ * @cssprop --z-book-card-app-padding-x - set left and right padding
+ * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+ */
 @Component({
   tag: "z-book-card-app",
   styleUrls: ["styles.css", "../../css-components/z-link/styles.css", "../../../tokens/typography.css"],
@@ -13,7 +18,7 @@ export class ZBookCardApp {
    * App logo url
    */
   @Prop()
-  logo: string;
+  logo?: string;
 
   /**
    * App name
@@ -39,6 +44,14 @@ export class ZBookCardApp {
   @Prop()
   info?: string;
 
+  /** click on app link */
+  @Event()
+  appClick: EventEmitter;
+
+  private emitAppClick(): void {
+    this.appClick.emit();
+  }
+
   private renderLaz(): HTMLSpanElement | null {
     if (this.laz) {
       return <span class="laz">laZ </span>;
@@ -50,16 +63,24 @@ export class ZBookCardApp {
   render(): HTMLZBookCardAppElement {
     return (
       <div>
-        <div class="app">
-          <img
-            src={this.logo}
-            alt=""
-          />
+        <a
+          class="app z-link"
+          href={this.link}
+          aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
+          onClick={() => this.emitAppClick()}
+          target="_blank"
+        >
+          {this.logo && (
+            <img
+              src={this.logo}
+              alt=""
+            />
+          )}
           <div class="name body-4-sb">
             {this.renderLaz()}
             {this.name}
           </div>
-        </div>
+        </a>
         {this.info && (
           <z-info-reveal
             icon="info"
@@ -73,6 +94,9 @@ export class ZBookCardApp {
         <a
           class="z-link z-link-icon"
           href={this.link}
+          aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
+          onClick={() => this.emitAppClick()}
+          target="_blank"
         >
           <z-icon
             name="chevron-right"

@@ -466,12 +466,17 @@ export enum BookCardDeprecatedVariant {
   SEARCH = "search",
 }
 
-export enum CardTagStatus {
+export type BookCardTag = {
+  status: BookCardTagStatus;
+  interactive: boolean;
+};
+
+export enum BookCardTagStatus {
   ACTIVE = "active",
   DISABLED = "disabled",
 }
 
-export type CardTagEvent = {
+export type BookCardTagEvent = {
   tag: string;
   state: string;
 };
