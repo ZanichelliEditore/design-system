@@ -9,9 +9,10 @@
 
 :host .modal-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
   padding: calc(var(--space-unit) * 2);
+  row-gap: calc(var(--space-unit) * 2);
 }
 
 :host .modal-wrapper > .files-wrapper {
@@ -25,15 +26,13 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-}
-
-:host .text-container .body-1 {
   text-align: center;
 }
 
 :host .text-container .upload-link {
   color: var(--color-text-link-blue);
   cursor: pointer;
+  text-decoration: underline;
 }
 
 :host .text-container .upload-link:focus-visible {
@@ -49,12 +48,16 @@
   display: none;
 }
 
-:host #title + * {
-  margin-top: var(--space-unit);
+:host #title:not(:last-child) {
+  margin-bottom: var(--space-unit);
 }
 
 :host > * + z-button {
   margin-top: calc(var(--space-unit) * 3);
+}
+
+:host > .files-container {
+  margin-bottom: calc(var(--space-unit) * 3);
 }
 
 :host > .files-container.hidden {
@@ -63,12 +66,12 @@
 
 :host > .files-container > .uploaded-files-label {
   display: inline-block;
-  margin: calc(var(--space-unit) * 3) 0;
+  margin: calc(var(--space-unit) * 2) 0;
 }
 
 :host([type="dragdrop"]) > .files-container > .uploaded-files-label {
   margin-top: 0;
-  margin-bottom: calc(var(--space-unit) * 3);
+  margin-bottom: calc(var(--space-unit) * 2);
 }
 
 :host > .files-container > .files-wrapper {
@@ -76,15 +79,6 @@
   flex-wrap: wrap;
   column-gap: calc(var(--space-unit) * 2);
   row-gap: calc(var(--space-unit) * 2);
-}
-
-:host > .files-container > z-divider {
-  margin-top: calc(var(--space-unit) * 3);
-  margin-bottom: 0;
-}
-
-:host([type="dragdrop"]) > .files-container > z-divider {
-  margin: calc(var(--space-unit) * 3) 0;
 }
 
 /* Tablet breakpoint */

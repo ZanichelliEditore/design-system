@@ -11,14 +11,10 @@ describe("Suite test ZDragdropArea", () => {
     expect(page.root).toEqualHtml(`
       <z-dragdrop-area drag-and-drop-label="Rilascia i file in questa area per allegarli.">
         <mock:shadow-root>
-          <div class="dragdrop" tabindex="0">
-            <div class="dragover-container">
-              <div class="dragover-message">
-                <span class="body-2-sb">Rilascia i file in questa area per allegarli.</span>
-              </div>
-            </div>
-            <slot></slot>
+          <div class="dragover-container">
+            <z-button>Rilascia i file in questa area per allegarli.</z-button>
           </div>
+          <slot></slot>
         </mock:shadow-root>
       </z-dragdrop-area>
     `);
@@ -36,14 +32,10 @@ describe("Suite test ZDragdropArea", () => {
     expect(page.root).toEqualHtml(`
       <z-dragdrop-area drag-and-drop-label="Rilascia i file in questa area per allegarli.">
         <mock:shadow-root>
-          <div class="dragdrop" tabindex="0">
-            <div class="dragover-container">
-              <div class="dragover-message">
-                <span class="body-2-sb">Rilascia i file in questa area per allegarli.</span>
-              </div>
-            </div>
-            <slot></slot>
+          <div class="dragover-container">
+            <z-button>Rilascia i file in questa area per allegarli.</z-button>
           </div>
+          <slot></slot>
         </mock:shadow-root>
         <span slot="description">
           Vuoi allegare un file per chiarire meglio la tua richiesta?
