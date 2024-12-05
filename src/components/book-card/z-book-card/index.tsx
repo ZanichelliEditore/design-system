@@ -256,6 +256,7 @@ export class ZBookCard {
                     {this.catalogUrl && (
                       <a
                         href={this.catalogUrl}
+                        target="_blank"
                         class="z-link z-link-icon body-4-sb"
                         onClick={() => this.emitCatalogClick()}
                       >
@@ -303,6 +304,7 @@ export class ZBookCard {
                     <z-button
                       size={ControlSize.X_SMALL}
                       href={this.ebookUrl}
+                      target="_blank"
                       onClick={() => this.emitEbookClick()}
                       role="link"
                       aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
