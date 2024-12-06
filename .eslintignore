@@ -6,5 +6,4 @@ loader
 internals
 stencil.config.ts
 **/*.js
-**/*.spec.ts
 **/*.e2e.ts

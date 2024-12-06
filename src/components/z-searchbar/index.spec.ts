@@ -383,7 +383,7 @@ const resultsItems = () => `
     </z-list-element>
   </z-list-group>`;
 
-const searchHelper = (divider: boolean = true) => `
+const searchHelper = (divider = true) => `
   <z-list-element
     role="option"
     ${divider ? `dividerType="element"` : ``}

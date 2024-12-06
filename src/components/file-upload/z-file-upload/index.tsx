@@ -1,11 +1,13 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h} from "@stencil/core";
-import {ButtonVariant, Device, DividerSize, ZFileUploadType} from "../../../beans";
-import {getDevice} from "../../../utils/utils";
+import {ButtonVariant, ZFileUploadType} from "../../../beans";
+
+export type ZFileUploadError = {cause: "format" | "size"; message: string};
 
 @Component({
   tag: "z-file-upload",
   styleUrl: "styles.css",
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class ZFileUpload {
   /** Prop indicating the file upload type - can be default or dragdrop */
@@ -31,10 +33,6 @@ export class ZFileUpload {
   /** Description */
   @Prop()
   description?: string;
-
-  /** Files added by the user */
-  @State()
-  files: File[] = [];
 
   /** upoload button label */
   @Prop()
@@ -72,141 +70,148 @@ export class ZFileUpload {
   @Prop()
   hasFileSection?: boolean = true;
 
-  /** List of files not allowed to be uploaded */
-  @State()
-  invalidFiles: Map<string, string[]>;
+  /** Value to set on the file input's `name` attribute (for use with forms) */
+  @Prop()
+  inputName? = "z-file-upload";
 
-  @Element() el: HTMLZFileUploadElement;
+  /**
+   * Whether to show errors in the internal modal or leave the handling to the app.
+   * Errors will still be emitted.
+   */
+  @Prop()
+  showErrors = true;
+
+  /** Internal store of the component type. It will change when viewport goes from desktop to tablet/mobile and vice versa */
+  @State()
+  private _type: ZFileUploadType = this.type;
+
+  /** Files added by the user */
+  @State()
+  files: File[] = [];
+
+  /** Map of files whose upload caused an error and the relative errors, with the cause and a message */
+  @State()
+  invalidFiles: Map<string, ZFileUploadError[]> = new Map<string, ZFileUploadError[]>();
+
+  /** Emitted when user select one or more files */
+  @Event()
+  fileInput: EventEmitter<File>;
+
+  /**
+   * Emits an array of error messages related to one or more files not allowed.
+   * Emitted when some file is dropped or selected.
+   */
+  @Event()
+  fileError: EventEmitter<{file: string; errors: ZFileUploadError[]}>;
+
+  @Element() host: HTMLZFileUploadElement;
 
   private input: HTMLInputElement;
 
-  private button: HTMLZButtonElement;
-
   private errorModal: HTMLZModalElement;
 
-  private uploadLink: HTMLSpanElement;
-
-  private inputAttributes = {
-    type: "file",
-    id: "file-elem",
-    multiple: true,
-  };
-
-  /** Listen removeFile event sent from z-file component */
+  /** Listen `removeFile` event sent from z-file component */
   @Listen("removeFile")
-  removeFileListener(e: CustomEvent): void {
-    this.removeFileHandler(e.detail);
+  onFileRemoved(e: CustomEvent): void {
+    this.removeFile(e.detail);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
   @Listen("fileDropped")
   fileDroppedListener(e: CustomEvent): void {
     this.input.files = e.detail;
-    this.fileInputHandler();
+    this.checkFilesValidity(this.input.files);
   }
 
-  componentDidUpdate(): void {
-    this.handleAccessibility();
-    this.invalidFiles.size && this.errorModal.focus();
-  }
-
-  componentWillLoad(): void {
-    this.invalidFiles = new Map<string, string[]>();
-  }
-
-  /** Emitted when user select one or more files */
-  @Event()
-  fileInput: EventEmitter;
-
-  private fileInputHandler(): void {
-    if (this.input.files.length) {
-      this.invalidFiles = this.checkFiles(Array.from(this.input.files));
-    }
-  }
-
-  /** get array of uploaded files */
+  /** Get the list of uploaded files */
   @Method()
   async getFiles(): Promise<File[]> {
     return this.files;
   }
 
-  /** remove file from the array */
+  /** Remove a previously uploaded file */
   @Method()
   async removeFile(fileName: string): Promise<void> {
-    this.removeFileHandler(fileName);
-  }
-
-  private removeFileHandler(fileName: string): void {
     const files = this.files;
-    const file = files.find((file) => file.name === fileName);
-    if (file) {
-      const index = files.indexOf(file);
-      if (index >= 0) {
-        files.splice(index, 1);
-        this.files = [...files];
-      }
+    const index = files.findIndex((file) => file.name === fileName);
+    if (index >= 0) {
+      files.splice(index, 1);
+      this.files = [...files];
     }
   }
 
-  private getType(): ZFileUploadType {
-    if (getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE) {
-      return ZFileUploadType.DEFAULT;
+  private checkFilesValidity(files: FileList): Map<string, string[]> {
+    if (!files.length) {
+      return;
     }
 
-    return this.type;
-  }
-
-  private handleAccessibility(): void {
-    const lastFile = this.el.querySelector("z-file:last-child z-chip button");
-    if (this.files.length > 0 && lastFile) {
-      (lastFile as HTMLElement).focus();
-    } else {
-      this.getType() === ZFileUploadType.DEFAULT
-        ? this.button.querySelector("button").focus()
-        : this.uploadLink.focus();
-    }
-  }
-
-  private checkFiles(files: File[]): Map<string, string[]> {
-    const errors = new Map<string, string[]>();
-    const sizeErrorString = `supera il limite di ${this.fileMaxSize}MB`;
-    const formatErrorString = " ha un formato non supportato";
-    files.forEach((file: File) => {
+    Array.from(files).forEach((file: File) => {
       const fileSize = file.size / 1024 / 1024;
       const fileFormatOk = this.acceptedFormat
         .split(",")
         .some((ext: string) => file.name.toLowerCase().endsWith(ext.trim()));
       const fileSizeOk = fileSize <= this.fileMaxSize;
-      if (fileSizeOk && fileFormatOk) {
-        if (!this.files.find((f) => f.name === file.name)) {
-          this.files.push(file);
-          this.fileInput.emit(file);
-          this.input.value = "";
-        }
+      if (fileSizeOk && fileFormatOk && !this.files.find((f) => f.name === file.name)) {
+        this.files = [...this.files, file];
+        this.fileInput.emit(file);
+        this.input.value = "";
 
         return;
       }
-      errors.set(file.name, []);
-      if (!fileSizeOk) {
-        errors.get(file.name).push(sizeErrorString);
-      }
-      if (!fileFormatOk) {
-        errors.get(file.name).push(formatErrorString);
-      }
+
+      const sizeError = `Il file ${file.name} supera il limite di ${this.fileMaxSize}MB`;
+      const formatError = `Il file ${file.name} ha un formato non supportato`;
+      const errors = [
+        !fileSizeOk && {cause: "size" as const, message: sizeError},
+        !fileFormatOk && {cause: "format" as const, message: formatError},
+      ].filter(Boolean);
+      this.invalidFiles.set(file.name, errors);
+      this.invalidFiles = new Map(this.invalidFiles); // trigger state update
+      this.fileError.emit({file: file.name, errors});
     });
-
-    return errors;
   }
 
-  private renderTitle(): HTMLElement {
-    return <span id="title">{this.mainTitle}</span>;
+  private resetErrors(): void {
+    this.invalidFiles = new Map<string, ZFileUploadError[]>();
   }
 
-  private renderDescription(cssClass): HTMLElement {
-    return <span class={cssClass}>{this.description}</span>;
+  private onFilesChange(e: Event): void {
+    this.checkFilesValidity((e.target as HTMLInputElement).files);
   }
 
-  private renderAllowedFileExtensions(): HTMLElement {
+  componentWillLoad(): void {
+    // force default type on mobile and tablet viewport
+    const mql = window.matchMedia("(max-width: 1151px)");
+    this._type = mql.matches ? ZFileUploadType.DEFAULT : this.type;
+    mql.addEventListener("change", (e) => {
+      this._type = e.matches ? ZFileUploadType.DEFAULT : this.type;
+    });
+  }
+
+  componentDidUpdate(): void {
+    if (!this.showErrors || !this.invalidFiles.size) {
+      return;
+    }
+
+    this.errorModal.open();
+  }
+
+  private renderDescription(cssClass): HTMLElement | undefined {
+    if (!this.description) {
+      return;
+    }
+
+    return (
+      <span
+        id="description"
+        class={cssClass}
+      >
+        {this.description}
+      </span>
+    );
+  }
+
+  private renderAllowedFilesMessage(): HTMLElement {
     let fileFormatString = "";
     let fileWeightString = "";
 
@@ -222,17 +227,14 @@ export class ZFileUpload {
       fileWeightString = ` per un massimo di ${this.fileMaxSize}MB di peso`;
     }
 
-    const finalString = `Puoi allegare file${fileFormatString}${fileWeightString}.`;
+    const defaultMessage =
+      fileFormatString || fileWeightString ? `Puoi allegare file${fileFormatString}${fileWeightString}.` : undefined;
 
-    return (
-      <span class="body-3">
-        {this.allowedFilesMessage
-          ? this.allowedFilesMessage
-          : fileFormatString || fileWeightString
-            ? finalString
-            : null}
-      </span>
-    );
+    if (!this.allowedFilesMessage && !defaultMessage) {
+      return;
+    }
+
+    return <span class="allowed-files-message body-3">{this.allowedFilesMessage || defaultMessage}</span>;
   }
 
   private renderFileSection(): HTMLElement {
@@ -241,12 +243,11 @@ export class ZFileUpload {
     }
 
     return (
-      <section class={`files-container ${!this.files.length ? "hidden" : ""}`}>
-        <span class="heading-4-sb">{this.uploadedFilesLabel}</span>
+      <section class={{"files-container": true, "hidden": !this.files.length}}>
+        <div class="uploaded-files-label heading-3-sb">{this.uploadedFilesLabel}</div>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
-        <z-divider size={DividerSize.MEDIUM} />
       </section>
     );
   }
@@ -254,8 +255,10 @@ export class ZFileUpload {
   private renderInput(): HTMLInputElement {
     return (
       <input
-        {...this.inputAttributes}
-        onChange={() => this.fileInputHandler()}
+        type="file"
+        name={this.inputName}
+        multiple
+        onChange={(e) => this.onFilesChange(e)}
         accept={this.acceptedFormat}
         ref={(val) => (this.input = val)}
       />
@@ -264,7 +267,6 @@ export class ZFileUpload {
 
   private renderUploadButton(): unknown[] {
     return [
-      this.renderInput(),
       <z-button
         onClick={() => this.input.click()}
         onKeyPress={(e) => {
@@ -276,10 +278,10 @@ export class ZFileUpload {
         id="fileSelect"
         variant={this.buttonVariant}
         icon="upload"
-        ref={(val) => (this.button = val)}
       >
         {this.uploadBtnLabel}
       </z-button>,
+      this.renderInput(),
     ];
   }
 
@@ -297,7 +299,6 @@ export class ZFileUpload {
               this.input.click();
             }
           }}
-          ref={(val) => (this.uploadLink = val)}
         >
           {this.uploadClickableMessage}
         </span>{" "}
@@ -309,7 +310,7 @@ export class ZFileUpload {
   private renderDefaultMode(): unknown[] {
     return [
       this.renderDescription("body-3-sb"),
-      this.renderAllowedFileExtensions(),
+      this.renderAllowedFilesMessage(),
       this.renderFileSection(),
       this.renderUploadButton(),
     ];
@@ -322,59 +323,50 @@ export class ZFileUpload {
         <div class="text-container">
           {this.renderDescription("body-1")}
           {this.renderUploadLink()}
-          {this.renderAllowedFileExtensions()}
+          {this.renderAllowedFilesMessage()}
         </div>
       </z-dragdrop-area>,
     ];
   }
 
-  private formatErrorString(key, value): string {
-    const bothErrors = value[0] && value[1] ? " e " : "";
+  private renderFileErrors(): HTMLElement[] {
+    return Array.from(this.invalidFiles).map(([fileName, errors]) => {
+      const prefix = `Il file ${fileName}`;
 
-    return (
-      <span class="error-message">
-        Il file <span class="file-name">{key}</span> {value[1] ?? ""}
-        {bothErrors}
-        {value[0] ?? ""}.
-      </span>
-    );
-  }
-
-  private handleErrorModalContent(): HTMLDivElement {
-    return (
-      <div slot="modalContent">
-        <div class="modal-wrapper">
-          <div class="files">
-            {this.errorModalMessage ? (
-              <span class="body-3">{this.errorModalMessage}</span>
-            ) : (
-              Array.from(this.invalidFiles).map(([key, value]) => {
-                return <span class="body-3">{this.formatErrorString(key, value)}</span>;
-              })
-            )}
-          </div>
-        </div>
-      </div>
-    );
+      return (
+        <span class="error-message">
+          Il file <span class="body-3-sb">{fileName}</span>
+          {errors.map(({message}) => message.replace(prefix, "")).join(" e ")}.
+        </span>
+      );
+    });
   }
 
   render(): HTMLZFileUploadElement {
     return (
       <Host>
-        <div class={`container ${this.getType()}`}>
-          {this.mainTitle && this.renderTitle()}
-          {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
-        </div>
-        {!!this.invalidFiles.size && (
+        {this.mainTitle && (
+          <div
+            id="title"
+            class="heading-3-sb"
+          >
+            {this.mainTitle}
+          </div>
+        )}
+        {this._type == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
+        {!!this.invalidFiles.size && this.showErrors && (
           <z-modal
             modalid={`file-upload-${this.type}-error-modal`}
-            tabIndex={0}
             ref={(val) => (this.errorModal = val)}
             modaltitle={this.errorModalTitle}
-            onModalClose={() => (this.invalidFiles = new Map<string, string[]>())}
-            onModalBackgroundClick={() => (this.invalidFiles = new Map<string, string[]>())}
+            onModalClose={() => this.resetErrors()}
+            onModalBackgroundClick={() => this.resetErrors()}
           >
-            {this.handleErrorModalContent()}
+            <div slot="modalContent">
+              <div class="modal-wrapper body-3">
+                {this.errorModalMessage ? this.errorModalMessage : this.renderFileErrors()}
+              </div>
+            </div>
           </z-modal>
         )}
       </Host>

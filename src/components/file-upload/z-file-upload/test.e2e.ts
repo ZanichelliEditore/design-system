@@ -19,7 +19,7 @@ describe("z-file-upload test end2end", () => {
     await page.waitForChanges();
 
     // simulate upload of file
-    const button = await page.find("z-file-upload >>> div z-button >>> button");
+    const button = await page.find("z-file-upload z-button button");
     button.click();
     const fileChooser = await page.waitForFileChooser();
 
@@ -46,7 +46,7 @@ describe("z-file-upload test end2end", () => {
     const zfu = await page.find("z-file-upload");
 
     // simulate upload of file
-    const button = await page.find("z-file-upload >>> div z-button >>> button");
+    const button = await page.find("z-file-upload z-button button");
     button.click();
     const fileChooser = await page.waitForFileChooser();
 

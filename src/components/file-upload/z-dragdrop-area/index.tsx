@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, Event, EventEmitter, Host, Prop, State, h} from "@stencil/core";
 
 @Component({
   tag: "z-dragdrop-area",
@@ -10,50 +10,40 @@ export class ZDragdropArea {
   @Prop()
   dragAndDropLabel: string;
 
+  /** State that indicates if the user is dragging a file over the drag & drop area */
+  @State()
+  dragging = false;
+
   /** Emitted when user drop one or more files */
   @Event()
   fileDropped: EventEmitter;
 
-  private fileDroppedHandler(files: FileList): void {
-    this.fileDropped.emit(files);
+  private onDrop(e: DragEvent): void {
+    e.preventDefault();
+    this.dragging = false;
+    if (e.dataTransfer.files.length) {
+      this.fileDropped.emit(e.dataTransfer.files);
+    }
   }
 
-  private dragDropContainer: HTMLDivElement;
-
-  private renderOnDragOverMessage(): HTMLDivElement {
+  render(): HTMLZDragdropAreaElement {
     return (
-      <div class="dragover-container">
-        <div class="dragover-message">
-          <span class="body-2-sb">{this.dragAndDropLabel}</span>
-        </div>
-      </div>
-    );
-  }
-
-  render(): HTMLDivElement {
-    return (
-      <div
-        tabIndex={0}
-        ref={(val) => (this.dragDropContainer = val)}
-        class="dragdrop"
+      <Host
+        class={{dragover: this.dragging}}
         onDragOver={(e) => {
           e.preventDefault();
-          this.dragDropContainer.classList.add("dragover");
+          this.dragging = true;
         }}
         onDragLeave={() => {
-          this.dragDropContainer.classList.remove("dragover");
+          this.dragging = false;
         }}
-        onDrop={(e) => {
-          e.preventDefault();
-          if (e.dataTransfer.files.length) {
-            this.dragDropContainer.classList.remove("dragover");
-            this.fileDroppedHandler(e.dataTransfer.files);
-          }
-        }}
+        onDrop={this.onDrop.bind(this)}
       >
-        {this.renderOnDragOverMessage()}
+        <div class="dragover-container">
+          <z-button>{this.dragAndDropLabel}</z-button>
+        </div>
         <slot />
-      </div>
+      </Host>
     );
   }
 }
