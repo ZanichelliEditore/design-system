@@ -68,6 +68,7 @@ export class ZPanelElem {
               "z-link": true,
               "z-link-disabled": this.isdisabled,
               "z-link-icon": true,
+              "z-link-blue": true,
             }}
             id={elemId + "link_id"}
             href={this.url}

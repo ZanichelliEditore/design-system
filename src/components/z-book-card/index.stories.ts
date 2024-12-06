@@ -158,7 +158,7 @@ export const SlottedResources = {
       })}
     >
       <a
-        class="z-link z-link-icon"
+        class="z-link z-link-blue z-link-icon"
         slot="resources"
         style="width:100%; margin-bottom: 6px;"
       >
@@ -290,7 +290,7 @@ export const ExpandedVariant = {
       >
       <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
       <a
-        class="z-link z-link-icon"
+        class="z-link z-link-blue z-link-icon"
         slot="resources"
         style="width:100%; margin-bottom: 6px;"
       >

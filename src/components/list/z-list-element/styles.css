@@ -4,8 +4,8 @@
 
 :host > .container {
   --background-color-list-element: var(--color-surface01);
-  --background-hover-color-list-element: var(--color-surface02);
-  --background-active-color-list-element: var(--color-surface02);
+  --background-hover-color-list-element: var(--color-background);
+  --background-active-color-list-element: var(--color-background);
 
   display: flex;
   box-sizing: border-box;

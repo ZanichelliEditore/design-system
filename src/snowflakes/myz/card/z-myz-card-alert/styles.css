@@ -28,7 +28,7 @@
 }
 
 .alert-external-wrapper.remove-alert {
-  border: var(--border-size-medium) solid var(--color-surface02);
+  border: var(--border-size-medium) solid var(--color-background);
   border-top: none;
 }
 
