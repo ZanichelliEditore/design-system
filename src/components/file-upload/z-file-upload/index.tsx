@@ -1,6 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h} from "@stencil/core";
-import {ButtonVariant, Device, ZFileUploadType} from "../../../beans";
-import {getDevice} from "../../../utils/utils";
+import {ButtonVariant, ZFileUploadType} from "../../../beans";
 
 export type ZFileUploadError = {cause: "format" | "size"; message: string};
 
@@ -82,6 +81,10 @@ export class ZFileUpload {
   @Prop()
   showErrors = true;
 
+  /** Internal store of the component type. It will change when viewport goes from desktop to tablet/mobile and vice versa */
+  @State()
+  private _type: ZFileUploadType = this.type;
+
   /** Files added by the user */
   @State()
   files: File[] = [];
@@ -130,22 +133,11 @@ export class ZFileUpload {
   @Method()
   async removeFile(fileName: string): Promise<void> {
     const files = this.files;
-    const file = files.find((file) => file.name === fileName);
-    if (file) {
-      const index = files.indexOf(file);
-      if (index >= 0) {
-        files.splice(index, 1);
-        this.files = [...files];
-      }
+    const index = files.findIndex((file) => file.name === fileName);
+    if (index >= 0) {
+      files.splice(index, 1);
+      this.files = [...files];
     }
-  }
-
-  private getType(): ZFileUploadType {
-    if (getDevice() !== Device.DESKTOP && getDevice() !== Device.DESKTOP_WIDE) {
-      return ZFileUploadType.DEFAULT;
-    }
-
-    return this.type;
   }
 
   private checkFilesValidity(files: FileList): Map<string, string[]> {
@@ -187,6 +179,15 @@ export class ZFileUpload {
     this.checkFilesValidity((e.target as HTMLInputElement).files);
   }
 
+  componentWillLoad(): void {
+    // force default type on mobile and tablet viewport
+    const mql = window.matchMedia("(max-width: 1151px)");
+    this._type = mql.matches ? ZFileUploadType.DEFAULT : this.type;
+    mql.addEventListener("change", (e) => {
+      this._type = e.matches ? ZFileUploadType.DEFAULT : this.type;
+    });
+  }
+
   componentDidUpdate(): void {
     if (!this.showErrors || !this.invalidFiles.size) {
       return;
@@ -196,14 +197,18 @@ export class ZFileUpload {
   }
 
   private renderDescription(cssClass): HTMLElement | undefined {
-    return this.description ? (
+    if (!this.description) {
+      return;
+    }
+
+    return (
       <span
         id="description"
         class={cssClass}
       >
         {this.description}
       </span>
-    ) : undefined;
+    );
   }
 
   private renderAllowedFilesMessage(): HTMLElement {
@@ -239,7 +244,7 @@ export class ZFileUpload {
 
     return (
       <section class={{"files-container": true, "hidden": !this.files.length}}>
-        <span class="uploaded-files-label heading-3-sb">{this.uploadedFilesLabel}</span>
+        <div class="uploaded-files-label heading-3-sb">{this.uploadedFilesLabel}</div>
         <div class="files-wrapper">
           <slot name="files" />
         </div>
@@ -339,7 +344,7 @@ export class ZFileUpload {
 
   render(): HTMLZFileUploadElement {
     return (
-      <Host class={this.getType()}>
+      <Host>
         {this.mainTitle && (
           <div
             id="title"
@@ -348,7 +353,7 @@ export class ZFileUpload {
             {this.mainTitle}
           </div>
         )}
-        {this.getType() == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
+        {this._type == ZFileUploadType.DEFAULT ? this.renderDefaultMode() : this.renderDragDropMode()}
         {!!this.invalidFiles.size && this.showErrors && (
           <z-modal
             modalid={`file-upload-${this.type}-error-modal`}
