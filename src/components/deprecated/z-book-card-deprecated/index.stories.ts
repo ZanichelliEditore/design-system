@@ -31,7 +31,7 @@ const StoryMeta = {
       control: {
         type: "inline-radio",
       },
-      options: ["theme-default", "theme-dark", "theme-black-yellow"],
+      options: ["theme-default", "theme-dark", "theme-black-yellow", "theme-red"],
     },
     "--z-book-card-ribbon-background-color": getColorTokenArgConfig(),
     "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),

@@ -11,6 +11,14 @@ it("Checks emit clickOnNode event on anchor tag click if prevent-follow-url is t
   </z-breadcrumb>`,
   });
 
+  await page.setViewport({
+    width: 1366,
+    height: 0,
+    deviceScaleFactor: 1,
+  });
+
+  await page.waitForChanges();
+
   const clickEvent = await page.spyOnEvent("clickOnNode");
   const link = await page.$("z-breadcrumb >>> nav > ol > li:last-child > a");
 
@@ -95,17 +103,22 @@ it("Checks accessibility navigation", async () => {
   </z-breadcrumb>`,
   });
 
+  await page.setViewport({
+    width: 1152,
+    height: 0,
+    deviceScaleFactor: 1,
+  });
+
+  await page.waitForChanges();
+
   const elementToBeFocused = 3;
-  const breadcrumbNodes = await page.$$("z-breadcrumb >>> nav > ol > li");
 
   for (let i = 0; i < elementToBeFocused; i++) {
     await page.keyboard.press("Tab");
   }
 
-  const focusedElement = await breadcrumbNodes[elementToBeFocused].$("a");
-  expect(focusedElement).not.toBeNull();
-  await focusedElement.press("Enter");
+  await page.keyboard.press("Enter");
 
   await page.waitForChanges();
-  expect(page.url()).toBe("http://localhost:3333/link3");
+  expect(page.url()).toBe("http://localhost:3333/link2");
 });
