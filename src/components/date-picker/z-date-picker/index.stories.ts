@@ -28,7 +28,7 @@ const StoryMeta = {
   render: (args) => html`
     <script>
       document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
-        const input = document.getElementById("output");
+        const input = document.getElementById("output-${args.datePickerId}");
         input.innerHTML = "[" + e.detail + "]";
       });
     </script>
@@ -45,7 +45,7 @@ const StoryMeta = {
       <div class="story-output-container">
         <span>OUTPUT:</span>
         <br />
-        <span id="output" />
+        <span id="output-${args.datePickerId}" />
       </div>
     </div>
   `,
@@ -66,6 +66,7 @@ export const DateAndTime: Story = {
   args: {
     datePickerId: "picker-02",
     label: "ZDatePicker with date and time",
+    mode: ZDatePickerMode.DATE_TIME,
   },
 } satisfies Story;
 
@@ -73,6 +74,7 @@ export const MonthsOnly: Story = {
   args: {
     datePickerId: "picker-03",
     label: "ZDatePicker with only months",
+    mode: ZDatePickerMode.MONTHS,
   },
 } satisfies Story;
 
@@ -84,7 +86,7 @@ export const CustomToggle: Story = {
   render: (args) => html`
     <script>
       document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
-        const input = document.getElementById("output");
+        const input = document.getElementById("output-${args.datePickerId}");
         input.innerHTML = "[" + e.detail + "]";
       });
     </script>
@@ -102,7 +104,7 @@ export const CustomToggle: Story = {
       <div class="story-output-container">
         <span>OUTPUT:</span>
         <br />
-        <span id="output" />
+        <span id="output-${args.datePickerId}" />
       </div>
     </div>
   `,
