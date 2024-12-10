@@ -23,609 +23,192 @@
       nomodule
       src="/build/web-components-library.js"
     ></script>
-    <style>
-      .resources-mock {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 64px 40px 40px;
-        column-gap: 16px;
-      }
-      .resource-mock {
-        border-top: 1px solid var(--color-surface03);
-      }
-      .resource:nth-child(2),
-      .resource:nth-child(3) {
-        border-top: 0;
-      }
-      .ebook-mock {
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        border-bottom: 1px solid var(--color-surface03);
-      }
-      .ebook-mock-wrap {
-        border-left: 8px solid var(--color-primary01);
-        border-radius: 4px 0px 0px 4px;
-        padding-left: 8px;
-        line-height: 14px;
-        height: 56px;
-        overflow: hidden;
-        margin-bottom: 8px;
-      }
-      .ebook-mock a {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: stretch;
-        font-size: var(--font-size-2);
-        font-weight: var(--font-sb);
-        color: var(--color-primary01);
-      }
-      .ebook-mock img.laz-ebook {
-        height: 20px;
-      }
-      .ebook-mock span.laz-description {
-        display: block;
-        font-size: var(--font-size-1);
-        margin-top: 4px;
-      }
-
-      .footer-cta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .footer-cta z-icon {
-        fill: var(--color-primary01);
-      }
-    </style>
   </head>
 
   <body style="margin: 0; padding: 16px; background-color: #aaa">
-    <h2>Extended Variant</h2>
+    <h2>Landscape Variant</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 16px">
       <z-book-card
-        variant="expanded"
+        variant="landscape"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         opera-title="Matematica.azzurro"
         volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
       >
-        <z-icon
-          slot="header-cta"
-          name="star-empty"
-        ></z-icon>
-        <z-tag
-          slot="tags"
-          style="--z-tag-bg: var(--avatar-C18)"
-          >EDI</z-tag
-        >
-        <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
         <div
-          class="resources-mock"
-          slot="resources"
+          slot="apps"
+          style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6"
         >
-          <div class="resource ebook-mock">
-            <div class="ebook-mock-wrap">
-              <a tabindex="0"
-                >Leggi l'ebook su
-                <img
-                  class="laz-ebook"
-                  src="https://staticmy.zanichelli.it/dashboard/images/laZEbook.svg"
-              /></a>
-              <span class="laz-description">Online e offline<br />anche in versione liquida con lettura immersiva</span>
-            </div>
-          </div>
-          <div class="resource resource-mock">
-            <a
-              href="#"
-              class="z-link"
-              >MOCK 1</a
-            >
-          </div>
-          <div class="resource resource-mock">
-            <a
-              href="#"
-              class="z-link"
-              >MOCK 2</a
-            >
-          </div>
-          <div class="resource resource-mock"><button class="z-link">MOCK 3</button></div>
-          <div class="resource resource-mock">
-            <a
-              href="#"
-              class="z-link"
-              >MOCK 4</a
-            >
-          </div>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Risorse per l'insegnante"
+            info="test test"
+            link="http://localhost"
+            laz="false"
+            style="
+              width: 315px;
+              height: 47px;
+              border-right: 1px solid #d6d6d6;
+              border-bottom: 1px solid #d6d6d6;
+              --z-book-card-app-padding-x: 16px;
+            "
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Tutor di matematica"
+            info="test test"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Mappe"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-right: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Scrittura"
+            link="http://localhost"
+            style="width: 315px; height: 47px; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
         </div>
       </z-book-card>
 
       <z-book-card
-        variant="expanded"
+        variant="landscape"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro"
+        volume-title="Volume 3 con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor"
+        isbn="9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552"
+        edi='{"status":"active","interactive":true}'
+        annotated='{"status":"disabled","interactive":true}'
+        teacher-version='{"status":"active","interactive":false}'
+        adoption="true"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
       >
-        <z-icon
-          name="star-empty"
-          slot="header-cta"
-          role="button"
-          tabindex="0"
-        ></z-icon>
-        <z-tag
-          slot="tags"
-          tabindex="0"
-          >UN TAG TABBABILE</z-tag
-        >
-        <z-tag slot="tags">DUE TAG</z-tag>
-        <z-tag slot="tags">TRE TAG</z-tag>
-        <z-tag slot="tags">QUATTRO TAG</z-tag>
-        <z-tag slot="tags">CINQUE TAG</z-tag>
-
-        <div slot="resources">
-          <div class="">MOCK 1</div>
-          <div class="">MOCK 2</div>
-          <div class="">MOCK 3</div>
-        </div>
       </z-book-card>
 
       <z-book-card
-        variant="expanded"
-        cover="fail.jpg"
-        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
-        opera-title="lo Zingarelli 2024"
+        variant="landscape"
+        cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        isbn="9788808930552"
+        ebook-url="https://my.zanichelli.it"
       >
+        <div slot="ebook">EBOOK SLOT</div>
       </z-book-card>
     </div>
 
-    <h2>Search Variant</h2>
+    <h2>Portrait Variant</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <z-book-card
+        variant="portrait"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        isbn="9788808930552"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
+      >
+        <div
+          slot="apps"
+          style="display: flex; flex-wrap: wrap"
+        >
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Risorse per l'insegnante"
+            info="test test"
+            link="http://localhost"
+            laz="false"
+            style="width: 315px; height: 47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6"
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Tutor di matematica"
+            info="test test"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-bottom: 1px solid #d6d6d6"
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Mappe"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-right: 1px solid #d6d6d6"
+          ></z-book-card-app>
+          <z-book-card-app
+            icon="https://placehold.co/24"
+            name="Scrittura"
+            link="http://localhost"
+            style="width: 315px; height: 47px"
+          ></z-book-card-app>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="portrait"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro"
+        volume-title="Volume 3 con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor"
+        isbn="9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552"
+        edi='{"status":"active","interactive":true}'
+        annotated='{"status":"disabled","interactive":true}'
+        teacher-version='{"status":"active","interactive":false}'
+        adoption="true"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
+      >
+      </z-book-card>
+
+      <z-book-card
+        variant="portrait"
+        cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        isbn="9788808930552"
+        ebook-url="https://my.zanichelli.it"
+      >
+        <div slot="ebook">EBOOK SLOT</div>
+      </z-book-card>
+    </div>
+
     <div>
-      <div style="display: flex; flex-wrap: wrap; gap: 16px">
-        <z-book-card
-          variant="search"
-          cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-          opera-title="Matematica.azzurro"
-          volume-title="Volume 3 con Tutor"
-          authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-          isbn="9788808930552"
-          ribbon="ADOTTATO"
-          opera-title-tag="h1"
-        >
-          <z-icon
-            slot="header-cta"
-            name="star-empty"
-          ></z-icon>
-          <z-tag
-            slot="tags"
-            style="--z-tag-bg: var(--avatar-C18)"
-            >EDI</z-tag
-          >
-          <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
-          <div
-            class="resources-mock"
-            slot="resources"
-          >
-            <div class="resource ebook-mock">
-              <div class="ebook-mock-wrap">
-                <a tabindex="0"
-                  >Leggi l'ebook su
-                  <img
-                    class="laz-ebook"
-                    src="https://staticmy.zanichelli.it/dashboard/images/laZEbook.svg"
-                /></a>
-                <span class="laz-description"
-                  >Online e offline<br />anche in versione liquida con lettura immersiva</span
-                >
-              </div>
-            </div>
-            <div class="resource resource-mock">
-              <a
-                href="#"
-                class="z-link"
-                >MOCK 1</a
-              >
-            </div>
-            <div class="resource resource-mock">
-              <a
-                href="#"
-                class="z-link"
-                >MOCK 2</a
-              >
-            </div>
-            <div class="resource resource-mock"><button>MOCK 3</button></div>
-            <div class="resource resource-mock">
-              <a
-                href="#"
-                class="z-link"
-                >MOCK 4</a
-              >
-            </div>
-          </div>
-          <div slot="footer-cta">
-            <z-button
-              href="http://dizionari.zanichelli.it"
-              target="_blank"
-              variant="secondary"
-              size="x-small"
-            >
-              Leggi il libro online
-            </z-button>
-          </div>
-        </z-book-card>
-
-        <z-book-card
-          variant="search"
-          cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-          opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-          volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-          authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-          isbn="9788808930552"
-        >
-          <z-icon
-            name="star-empty"
-            slot="header-cta"
-            role="button"
-            tabindex="0"
-          ></z-icon>
-          <z-tag
-            slot="tags"
-            tabindex="0"
-            >UN TAG TABBABILE</z-tag
-          >
-          <z-tag slot="tags">DUE TAG</z-tag>
-          <z-tag slot="tags">TRE TAG</z-tag>
-          <z-tag slot="tags">QUATTRO TAG</z-tag>
-          <z-tag slot="tags">CINQUE TAG</z-tag>
-
-          <div slot="resources">
-            <div class="">MOCK 1</div>
-            <div class="">MOCK 2</div>
-            <div class="">MOCK 3</div>
-          </div>
-          <div slot="footer-cta">
-            <z-button
-              href="http://dizionari.zanichelli.it"
-              target="_blank"
-              variant="secondary"
-              size="x-small"
-            >
-              Leggi il libro online
-            </z-button>
-          </div>
-        </z-book-card>
-
-        <z-book-card
-          variant="search"
-          cover="fail.jpg"
-          fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
-          opera-title="lo Zingarelli 2024"
-        >
-        </z-book-card>
-      </div>
-    </div>
-
-    <h2>Compact Variant</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px">
-      <z-book-card
-        variant="compact"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        cover="fail.jpg"
-        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
-        opera-title="lo Zingarelli 2024"
-      >
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; background: var(--color-white)">
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        cover="fail.jpg"
-        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
-        opera-title="lo Zingarelli 2024"
-      >
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; background: var(--gray800)">
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        class="theme-dark"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        class="theme-dark"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        class="theme-dark"
-        cover="fail.jpg"
-        fallback-cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
-        opera-title="lo Zingarelli 2024"
-      >
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        class="theme-dark"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
-        opera-title="Matematica.azzurro"
-        volume-title="Volume 3 con Tutor"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-        ribbon="ADOTTATO"
-        opera-title-tag="h1"
-      >
-        <div
-          slot="footer-cta"
-          class="footer-cta"
-        >
-          <z-button
-            variant="secondary"
-            size="x-small"
-            >CALL TO ACTION
-          </z-button>
-          <z-icon
-            name="arrow-quad-north-east"
-            width="24"
-            height="24"
-            tabindex="0"
-          ></z-icon>
-        </div>
-      </z-book-card>
-
-      <z-book-card
-        variant="compact"
-        borderless="true"
-        class="theme-dark"
-        style="--z-book-card-compact-width: 220px; --z-book-card-compact-height: 530px"
-        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
-        opera-title="Somos 2030 con un titolo lungo lunghissimo lunghissimissimo che va su almeno tre righe ma noi lo tagliamo"
-        volume-title="Titolo titolo lungo lungho lungo e ancora lungo luuuuuungo ma ancora non basta perché devo andare su tre righe"
-        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
-        isbn="9788808930552"
-      >
-        <z-button
-          slot="footer-cta"
-          variant="secondary"
-          size="x-small"
-          >CALL TO ACTION
-        </z-button>
-      </z-book-card>
+      <h2>App</h2>
+      <z-book-card-app
+        icon="https://placehold.co/24"
+        name="Risorse per l'insegnante"
+        info="test test"
+        link="http://localhost"
+        laz="false"
+      ></z-book-card-app>
+      <br />
+      <z-book-card-app
+        icon="https://placehold.co/24"
+        name="Risorse per l'insegnante"
+        info="test test"
+        link="http://localhost"
+        laz="false"
+        style="height: 64px; width: 500px"
+      ></z-book-card-app>
+      <br />
+      <z-book-card-app
+        icon="https://placehold.co/24"
+        name="Risorse per l'insegnante"
+        info="test test"
+        link="http://localhost"
+        laz="false"
+        style="height: 32px; width: 300px"
+      ></z-book-card-app>
     </div>
   </body>
 </html>
