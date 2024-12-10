@@ -618,6 +618,14 @@ export namespace Components {
           * [Optional] datepicker mode: date, datetime, only months
          */
         "mode": ZDatePickerMode;
+        /**
+          * [Optional] the datepicker input name
+         */
+        "name"?: string;
+        /**
+          * [Optional] the datepicker input value
+         */
+        "value"?: string;
     }
     interface ZDivider {
         /**
@@ -4070,9 +4078,17 @@ declare namespace LocalJSX {
          */
         "mode"?: ZDatePickerMode;
         /**
+          * [Optional] the datepicker input name
+         */
+        "name"?: string;
+        /**
           * emitted when date changes, returns selected date
          */
         "onDateSelect"?: (event: ZDatePickerCustomEvent<any>) => void;
+        /**
+          * [Optional] the datepicker input value
+         */
+        "value"?: string;
     }
     interface ZDivider {
         /**

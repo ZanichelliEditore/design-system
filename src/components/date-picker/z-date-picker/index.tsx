@@ -30,6 +30,14 @@ export class ZDatePicker {
   @Prop()
   mode: ZDatePickerMode = ZDatePickerMode.DATE;
 
+  /** [Optional] the datepicker input name */
+  @Prop()
+  name?: string = undefined;
+
+  /** [Optional] the datepicker input value */
+  @Prop()
+  value?: string = undefined;
+
   @State()
   flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
 
@@ -200,6 +208,8 @@ export class ZDatePicker {
         <input
           class="hidden-input"
           data-input
+          name={this.name}
+          value={this.value}
         ></input>
         <slot name="toggle"></slot>
       </div>
@@ -217,8 +227,9 @@ export class ZDatePicker {
           type={InputType.TEXT}
           icon="event"
           message={false}
+          name={this.name}
           tabindex="0"
-          value=""
+          value={this.value}
           onStopTyping={(value) => {
             this.onStopTyping(value);
           }}

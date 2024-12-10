@@ -40,6 +40,7 @@ const StoryMeta = {
           id=${args.datePickerId}
           ariaLabel=${args.ariaLabel}
           label=${args.label}
+          value=${args.value}
         ></z-date-picker>
       </div>
       <div class="story-output-container">
@@ -59,6 +60,8 @@ export const Date: Story = {
   args: {
     datePickerId: "picker-01",
     label: "ZDatePicker with date",
+    value: "2021-01-01",
+    name: "date-picker",
   },
 } satisfies Story;
 
@@ -67,6 +70,8 @@ export const DateAndTime: Story = {
     datePickerId: "picker-02",
     label: "ZDatePicker with date and time",
     mode: ZDatePickerMode.DATE_TIME,
+    value: "05-12-2024 - 12:01",
+    name: "date-time-picker",
   },
 } satisfies Story;
 
@@ -75,6 +80,8 @@ export const MonthsOnly: Story = {
     datePickerId: "picker-03",
     label: "ZDatePicker with only months",
     mode: ZDatePickerMode.MONTHS,
+    value: "12-2024",
+    name: "month-picker",
   },
 } satisfies Story;
 
@@ -82,6 +89,8 @@ export const CustomToggle: Story = {
   args: {
     datePickerId: "picker-04",
     label: "date picker",
+    value: "25-01-2024",
+    name: "date-toogle-picker",
   },
   render: (args) => html`
     <script>
@@ -98,8 +107,10 @@ export const CustomToggle: Story = {
           id=${args.datePickerId}
           ariaLabel=${args.ariaLabel}
           label=${args.label}
-          ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
+          value=${args.value}
         >
+          <z-button slot="toggle">Open ZDatePicker</z-button>
+        </z-date-picker>
       </div>
       <div class="story-output-container">
         <span>OUTPUT:</span>
