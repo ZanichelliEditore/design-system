@@ -1,47 +1,66 @@
+:host {
+  display: block;
+  width: inherit;
+  min-width: 300px;
+  height: inherit;
+  min-height: 32px;
+  background-color: var(--color-surface01);
+}
+
 :host > div {
   display: flex;
-  width: 315px;
-  height: 47px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  padding: var(--z-book-card-app-padding-y, calc(var(--space-unit) * 1.5))
+    var(--z-book-card-app-padding-x, var(--space-unit));
   gap: calc(var(--space-unit) * 2);
+}
 
-  .app {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    gap: var(--space-unit);
+:host > div .app {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-unit);
+}
 
-    img {
-      width: 24px;
-      height: 24px;
-    }
+:host > div .app.z-link {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .name {
-      display: -webkit-box;
-      overflow: hidden;
-      height: 20px;
-      -webkit-box-orient: vertical;
-      font-family: var(--font-family-serif);
-      -webkit-line-clamp: 1;
-      line-clamp: 1;
-      text-overflow: ellipsis;
+:host > div .app.z-link:focus {
+  text-decoration: none;
+}
 
-      .laz {
-        color: var(--red500);
-      }
-    }
-  }
+:host > div .app img {
+  width: 24px;
+  height: 24px;
+}
 
-  z-info-reveal {
-    --z-info-reveal-panel-width: 250px;
+:host > div .app .name {
+  display: -webkit-box;
+  overflow: hidden;
+  height: 20px;
+  -webkit-box-orient: vertical;
+  font-family: var(--font-family-serif);
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  text-overflow: ellipsis;
+}
 
-    font-family: var(--font-family-sans);
+:host > div .app .name .laz {
+  color: var(--red500);
+}
 
-    --color-surface05: var(--color-surface01);
-    --color-text-inverse: var(--color-default-text);
-    --color-inverse-icon: var(--color-primary01);
-  }
+:host > div z-info-reveal {
+  --z-info-reveal-panel-width: 250px;
+
+  font-family: var(--font-family-sans);
+
+  --color-surface05: var(--color-surface01);
+  --color-text-inverse: var(--color-default-text);
+  --color-inverse-icon: var(--color-primary01);
 }
