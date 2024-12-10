@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "16.3.5",
+  "version": "16.5.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -81,7 +81,7 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^26.0.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
-    "typescript": "^5.4.3",
+    "typescript": "~5.4.0",
     "vite": "^5.2.11"
   },
   "peerDependencies": {

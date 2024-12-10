@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
@@ -251,13 +251,102 @@ export namespace Components {
          */
         "textColor"?: string;
     }
+    interface ZBookCard {
+        /**
+          * [optional] Show adoption badge
+         */
+        "adoption"?: boolean;
+        /**
+          * [optional] Annotated tag
+         */
+        "annotated"?: BookCardTag | string;
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
+          * [optional] Show catalog link to correspondent resource
+         */
+        "catalogUrl"?: string;
+        /**
+          * Cover URL
+         */
+        "cover": string;
+        /**
+          * [optional] Show link to the ebook resource
+         */
+        "ebookUrl"?: string;
+        /**
+          * [optional] EDI tag
+         */
+        "edi"?: BookCardTag | string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel": string;
+        /**
+          * [optional] Opera title
+         */
+        "operaTitle"?: string;
+        /**
+          * [optional] Set a specific h level as html tag for opera title
+         */
+        "operaTitleHtmlTag"?: string;
+        /**
+          * [optional] Teacher version tag
+         */
+        "teacherVersion"?: BookCardTag | string;
+        /**
+          * Card variant: landscape, portrait
+         */
+        "variant": BookCardVariant;
+        /**
+          * [optional] Volume title
+         */
+        "volumeTitle"?: string;
+    }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
+    interface ZBookCardApp {
+        /**
+          * Info text to show as inforeveal
+         */
+        "info"?: string;
+        /**
+          * Show or hide laZ prefix before app name
+         */
+        "laz"?: boolean;
+        /**
+          * link to the app website
+         */
+        "link": string;
+        /**
+          * App logo url
+         */
+        "logo"?: string;
+        /**
+          * App name
+         */
+        "name": string;
+    }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
      * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
      * @cssprop --z-book-card-compact-width - compact card custom width
      * @cssprop --z-book-card-compact-height - compact card custom height
      */
-    interface ZBookCard {
+    interface ZBookCardDeprecated {
         /**
           * [optional] Authors
          */
@@ -305,7 +394,7 @@ export namespace Components {
         /**
           * Card variant: expanded, compact, search
          */
-        "variant": BookCardVariant;
+        "variant": BookCardDeprecatedVariant;
         /**
           * [optional] Card subtitle
          */
@@ -1421,21 +1510,27 @@ export namespace Components {
          */
         "type": NotificationType;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface ZOffcanvas {
         /**
           * Whether the offcanvas is open. Default: false
          */
         "open": boolean;
         /**
-          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
+          * Skip the opening transition when the offcanvas is already open at the first render.
+          * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
          */
         "skipLoadAnimation": boolean;
         /**
-          * open content transitioning in a specified direction left | right. Default: left
+          * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -2057,6 +2152,14 @@ export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
 }
+export interface ZBookCardAppCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBookCardAppElement;
+}
+export interface ZBookCardDeprecatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZBookCardDeprecatedElement;
+}
 export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBreadcrumbElement;
@@ -2367,14 +2470,11 @@ declare global {
         new (): HTMLZAvatarElement;
     };
     interface HTMLZBookCardElementEventMap {
-        "ribbonClick": any;
+        "tagClick": any;
+        "catalogClick": any;
+        "ebookClick": any;
+        "immersiveReaderClick": any;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2388,6 +2488,51 @@ declare global {
     var HTMLZBookCardElement: {
         prototype: HTMLZBookCardElement;
         new (): HTMLZBookCardElement;
+    };
+    interface HTMLZBookCardAppElementEventMap {
+        "appClick": any;
+    }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
+    interface HTMLZBookCardAppElement extends Components.ZBookCardApp, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZBookCardAppElement: {
+        prototype: HTMLZBookCardAppElement;
+        new (): HTMLZBookCardAppElement;
+    };
+    interface HTMLZBookCardDeprecatedElementEventMap {
+        "ribbonClick": any;
+    }
+    /**
+     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
+     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
+     * @cssprop --z-book-card-compact-width - compact card custom width
+     * @cssprop --z-book-card-compact-height - compact card custom height
+     */
+    interface HTMLZBookCardDeprecatedElement extends Components.ZBookCardDeprecated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZBookCardDeprecatedElement: {
+        prototype: HTMLZBookCardDeprecatedElement;
+        new (): HTMLZBookCardDeprecatedElement;
     };
     interface HTMLZBreadcrumbElementEventMap {
         "clickOnNode": BreadcrumbPath["path"];
@@ -2969,6 +3114,11 @@ declare global {
     interface HTMLZOffcanvasElementEventMap {
         "canvasOpenStatusChanged": any;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3343,6 +3493,8 @@ declare global {
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
+        "z-book-card-app": HTMLZBookCardAppElement;
+        "z-book-card-deprecated": HTMLZBookCardDeprecatedElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -3667,13 +3819,122 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
+    interface ZBookCard {
+        /**
+          * [optional] Show adoption badge
+         */
+        "adoption"?: boolean;
+        /**
+          * [optional] Annotated tag
+         */
+        "annotated"?: BookCardTag | string;
+        /**
+          * [optional] Authors
+         */
+        "authors"?: string;
+        /**
+          * [optional] Show catalog link to correspondent resource
+         */
+        "catalogUrl"?: string;
+        /**
+          * Cover URL
+         */
+        "cover"?: string;
+        /**
+          * [optional] Show link to the ebook resource
+         */
+        "ebookUrl"?: string;
+        /**
+          * [optional] EDI tag
+         */
+        "edi"?: BookCardTag | string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
+          * [optional] Main ISBN
+         */
+        "isbn"?: string;
+        /**
+          * [optional] ISBN label
+         */
+        "isbnLabel"?: string;
+        /**
+          * click on catalog link
+         */
+        "onCatalogClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * click on ebook link
+         */
+        "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * click on immersive reader
+         */
+        "onImmersiveReaderClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * click on tag
+         */
+        "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * [optional] Opera title
+         */
+        "operaTitle"?: string;
+        /**
+          * [optional] Set a specific h level as html tag for opera title
+         */
+        "operaTitleHtmlTag"?: string;
+        /**
+          * [optional] Teacher version tag
+         */
+        "teacherVersion"?: BookCardTag | string;
+        /**
+          * Card variant: landscape, portrait
+         */
+        "variant"?: BookCardVariant;
+        /**
+          * [optional] Volume title
+         */
+        "volumeTitle"?: string;
+    }
+    /**
+     * ZBookCardApp component
+     * @cssprop --z-book-card-app-padding-x - set left and right padding
+     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+     */
+    interface ZBookCardApp {
+        /**
+          * Info text to show as inforeveal
+         */
+        "info"?: string;
+        /**
+          * Show or hide laZ prefix before app name
+         */
+        "laz"?: boolean;
+        /**
+          * link to the app website
+         */
+        "link"?: string;
+        /**
+          * App logo url
+         */
+        "logo"?: string;
+        /**
+          * App name
+         */
+        "name"?: string;
+        /**
+          * click on app link
+         */
+        "onAppClick"?: (event: ZBookCardAppCustomEvent<any>) => void;
+    }
     /**
      * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
      * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
      * @cssprop --z-book-card-compact-width - compact card custom width
      * @cssprop --z-book-card-compact-height - compact card custom height
      */
-    interface ZBookCard {
+    interface ZBookCardDeprecated {
         /**
           * [optional] Authors
          */
@@ -3701,7 +3962,7 @@ declare namespace LocalJSX {
         /**
           * click on interactive ribbon
          */
-        "onRibbonClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        "onRibbonClick"?: (event: ZBookCardDeprecatedCustomEvent<any>) => void;
         /**
           * Card main title
          */
@@ -3725,7 +3986,7 @@ declare namespace LocalJSX {
         /**
           * Card variant: expanded, compact, search
          */
-        "variant"?: BookCardVariant;
+        "variant"?: BookCardDeprecatedVariant;
         /**
           * [optional] Card subtitle
          */
@@ -4957,6 +5218,11 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
+    /**
+     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+     */
     interface ZOffcanvas {
         /**
           * emitted when `open` prop changes
@@ -4967,15 +5233,16 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Whether to skip the initial animation. Useful when the initial value of the `open` prop is set to `true`.
+          * Skip the opening transition when the offcanvas is already open at the first render.
+          * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
          */
         "skipLoadAnimation"?: boolean;
         /**
-          * open content transitioning in a specified direction left | right. Default: left
+          * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
          */
         "transitiondirection"?: TransitionDirection;
         /**
-          * Offcanvas variant. Can be one `overlay` or `pushcontent`. Default variant: pushcontent
+          * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
          */
         "variant"?: OffCanvasVariant;
     }
@@ -5641,6 +5908,8 @@ declare namespace LocalJSX {
         "z-aria-alert": ZAriaAlert;
         "z-avatar": ZAvatar;
         "z-book-card": ZBookCard;
+        "z-book-card-app": ZBookCardApp;
+        "z-book-card-deprecated": ZBookCardDeprecated;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
         "z-button-sort": ZButtonSort;
@@ -5813,13 +6082,20 @@ declare module "@stencil/core" {
             "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+            "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            /**
+             * ZBookCardApp component
+             * @cssprop --z-book-card-app-padding-x - set left and right padding
+             * @cssprop --z-book-card-app-padding-y - set top and bottom padding
+             */
+            "z-book-card-app": LocalJSX.ZBookCardApp & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
             /**
              * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
              * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
              * @cssprop --z-book-card-compact-width - compact card custom width
              * @cssprop --z-book-card-compact-height - compact card custom height
              */
-            "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            "z-book-card-deprecated": LocalJSX.ZBookCardDeprecated & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
@@ -5914,6 +6190,11 @@ declare module "@stencil/core" {
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            /**
+             * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+             * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+             * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
+             */
             "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**

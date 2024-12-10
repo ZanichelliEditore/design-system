@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 16.5.0 (2024-12-05)
+
+## 16.4.2 (2024-12-03)
+
+
+### Features
+
+* add book-author icons ([dff7b6b](https://github.com/ZanichelliEditore/design-system/commit/dff7b6b0963fe61912ed3a4b4895f3e4d1cb0a01))
+
+## 16.4.1 (2024-11-22)
+
+## 16.4.0 (2024-11-07)
+
+
+### Bug Fixes
+
+* prevent text wrap on z-menu labels ([b4edb46](https://github.com/ZanichelliEditore/design-system/commit/b4edb468b9af4cb9398a47c079b50bf98599f529))
+
+## 16.3.6 (2024-10-25)
+
 ## 16.3.5 (2024-10-09)
 
 ## 16.3.4 (2024-10-09)

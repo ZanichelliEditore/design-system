@@ -8,7 +8,7 @@
 }
 
 .cell--content {
-  padding: calc(var(--space-unit) * 2);
+  padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
 }
 
 :host([show-sorting]) .cell--content {

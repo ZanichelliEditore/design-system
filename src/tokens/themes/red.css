@@ -1,0 +1,44 @@
+.theme-red {
+  --color-background: var(--gray50);
+
+  /* primary */
+  --color-active-primary-icon: var(--red400);
+  --color-active-primary: var(--red400);
+  --color-hover-primary-icon: var(--red800);
+  --color-hover-primary: var(--red800);
+  --color-pressed-primary: var(--red400);
+  --color-primary01-icon: var(--red500);
+  --color-primary02: var(--red25);
+  --color-primary03: var(--red50);
+  --color-primary01: var(--red500);
+
+  /* secondary */
+  --color-active-secondary: var(--gray400);
+  --color-hover-secondary: var(--gray800);
+  --color-pressed-secondary: var(--gray400);
+  --color-secondary01: var(--gray500);
+  --color-secondary02: var(--gray25);
+  --color-secondary03: var(--gray50);
+
+  /* surface */
+  --color-surface01: var(--color-white);
+  --color-surface02: var(--gray100);
+  --color-surface03: var(--gray300);
+  --color-surface04: var(--gray700);
+  --color-surface05: var(--gray900);
+
+  /* text */
+  --color-default-text: var(--gray900);
+  --color-hover-text: var(--color-black);
+  --color-pressed-text: var(--gray700);
+  --color-text-inverse: var(--color-white);
+  --color-text02: var(--gray100);
+  --color-text03: var(--gray300);
+  --color-text05: var(--gray500);
+
+  /* icons */
+  --color-default-icon: var(--gray900);
+  --color-hover-icon: var(--color-black);
+  --color-inverse-icon: var(--color-white);
+  --color-pressed-icon: var(--gray700);
+}

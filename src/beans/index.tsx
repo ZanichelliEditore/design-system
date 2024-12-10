@@ -335,6 +335,7 @@ export enum ZAriaAlertMode {
 export enum TransitionDirection {
   LEFT = "left",
   RIGHT = "right",
+  UP = "up",
 }
 
 export enum OffCanvasVariant {
@@ -455,10 +456,30 @@ export enum VisibilityCondition {
 }
 
 export enum BookCardVariant {
+  LANDSCAPE = "landscape",
+  PORTRAIT = "portrait",
+}
+
+export enum BookCardDeprecatedVariant {
   EXPANDED = "expanded",
   COMPACT = "compact",
   SEARCH = "search",
 }
+
+export type BookCardTag = {
+  status: BookCardTagStatus;
+  interactive: boolean;
+};
+
+export enum BookCardTagStatus {
+  ACTIVE = "active",
+  DISABLED = "disabled",
+}
+
+export type BookCardTagEvent = {
+  tag: string;
+  state: string;
+};
 
 export enum AccordionVariant {
   DEFAULT = "default",

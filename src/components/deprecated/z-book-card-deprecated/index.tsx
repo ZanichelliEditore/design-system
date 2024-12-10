@@ -1,7 +1,7 @@
 import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
-import {BookCardVariant} from "../../beans";
-import {Breakpoints} from "../../constants/breakpoints";
-import {randomId} from "../../utils/utils";
+import {BookCardDeprecatedVariant} from "../../../beans";
+import {Breakpoints} from "../../../constants/breakpoints";
+import {randomId} from "../../../utils/utils";
 
 /**
  * @slot resources - books resources (extended variant only)
@@ -14,18 +14,18 @@ import {randomId} from "../../utils/utils";
  * @cssprop --z-book-card-compact-height - compact card custom height
  */
 @Component({
-  tag: "z-book-card",
+  tag: "z-book-card-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZBookCard {
-  @Element() hostElement: HTMLZBookCardElement;
+export class ZBookCardDeprecated {
+  @Element() hostElement: HTMLZBookCardDeprecatedElement;
 
   /**
    * Card variant: expanded, compact, search
    */
   @Prop()
-  variant: BookCardVariant;
+  variant: BookCardDeprecatedVariant;
 
   /**
    * Cover URL
@@ -131,7 +131,7 @@ export class ZBookCard {
   }
 
   private handleResources(): void {
-    if (this.variant !== BookCardVariant.EXPANDED || !this.isMobile) {
+    if (this.variant !== BookCardDeprecatedVariant.EXPANDED || !this.isMobile) {
       return;
     }
     this.hasResources = this.hostElement.querySelectorAll("[slot=resources]")?.length > 0;
@@ -143,11 +143,11 @@ export class ZBookCard {
 
   private renderCard(): HTMLDivElement {
     switch (this.variant) {
-      case BookCardVariant.EXPANDED:
+      case BookCardDeprecatedVariant.EXPANDED:
         return this.isMobile ? this.renderMobileExpandedCard() : this.renderExpandedCard();
-      case BookCardVariant.COMPACT:
+      case BookCardDeprecatedVariant.COMPACT:
         return this.renderCompactCard();
-      case BookCardVariant.SEARCH:
+      case BookCardDeprecatedVariant.SEARCH:
         return this.renderSearchCard();
     }
   }
@@ -245,7 +245,7 @@ export class ZBookCard {
   private renderCover(): HTMLDivElement {
     return (
       <div class="cover">
-        {this.ribbon && this.variant !== BookCardVariant.COMPACT && this.renderRibbon()}
+        {this.ribbon && this.variant !== BookCardDeprecatedVariant.COMPACT && this.renderRibbon()}
         <div class="img-wrapper">
           <img
             src={this.cover}
@@ -377,7 +377,7 @@ export class ZBookCard {
     );
   }
 
-  render(): HTMLZBookCardElement {
+  render(): HTMLZBookCardDeprecatedElement {
     return (
       <article
         class={{

@@ -1,7 +1,11 @@
-import {Component, Event, EventEmitter, h, Host, Prop, Watch} from "@stencil/core";
+import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
+
 /**
- * @slot canvasContent - Slot for the main content.
+ * @slot canvasContent - Slot for the offcanvas content.
+ * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+ * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+ * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
  */
 @Component({
   tag: "z-offcanvas",
@@ -12,8 +16,10 @@ import {OffCanvasVariant, TransitionDirection} from "../../beans";
 export class ZOffcanvas {
   /**
    * Offcanvas variant.
-   * Can be one `overlay` or `pushcontent`.
-   * Default variant: pushcontent
+   * - `overlay`: The offcanvas covers the page content putting an overlay.
+   * - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content.
+   * > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly.
+   * Also, the `pushcontent` variant doesn't have the open/close transition.
    */
   @Prop({reflect: true})
   variant?: OffCanvasVariant = OffCanvasVariant.PUSHCONTENT;
@@ -22,34 +28,91 @@ export class ZOffcanvas {
   @Prop({reflect: true, mutable: true})
   open = false;
 
-  /** open content transitioning in a specified direction left | right. Default: left */
+  /**
+   * Open the content transitioning to a specified direction.
+   * The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
+   */
   @Prop({reflect: true})
   transitiondirection?: TransitionDirection = TransitionDirection.LEFT;
 
   /**
-   * Whether to skip the initial animation.
-   * Useful when the initial value of the `open` prop is set to `true`.
+   * Skip the opening transition when the offcanvas is already open at the first render.
+   * @deprecated This prop is not needed anymore, the component will automatically skip the transition
+   *  when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
    */
-  @Prop({mutable: true})
+  @Prop()
   skipLoadAnimation = false;
 
   /** emitted when `open` prop changes */
   @Event()
   canvasOpenStatusChanged: EventEmitter;
 
-  @Watch("open")
-  onOpenChanged(): void {
-    if (!this.open && this.skipLoadAnimation) {
-      this.skipLoadAnimation = false;
+  /** Used to skip the opening transition when the offcanvas is already open at the first render. */
+  @State()
+  private skipAnimation = false;
+
+  private canvasContainer: HTMLElement;
+
+  /**
+   * Stop the event default behavior and propagation when the offcanvas is closed.
+   */
+  @Listen("click", {capture: true})
+  @Listen("focusin", {capture: true})
+  stopEvent(event: Event): void {
+    if (this.open) {
+      return;
     }
 
-    this.handlePageOverflow();
-    this.canvasOpenStatusChanged.emit(this.open);
+    event.preventDefault();
+    event.stopPropagation();
   }
 
+  /**
+   * Hide the body overflow when the offcanvas is open.
+   */
+  @Watch("variant")
   private handlePageOverflow(): void {
-    const overflow = this.variant === OffCanvasVariant.OVERLAY ? "overflow-y" : "overflow-x";
+    const overflow =
+      this.variant === OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP
+        ? "overflow-y"
+        : "overflow-x";
+
     document.body.style[overflow] = this.open ? "hidden" : "";
+  }
+
+  @Watch("open")
+  onOpenChanged(): void {
+    this.canvasOpenStatusChanged.emit(this.open);
+
+    if (!this.open) {
+      // when the offcanvas is closing, wait for the transitionend event to end before handling the body overflow
+      const listenerCallback = (): void => {
+        this.handlePageOverflow();
+        this.canvasContainer.removeEventListener("transitionend", listenerCallback);
+      };
+
+      this.canvasContainer?.addEventListener("transitionend", listenerCallback);
+    } else {
+      this.handlePageOverflow();
+    }
+  }
+
+  componentWillLoad(): void {
+    if (this.open) {
+      this.skipAnimation = true;
+    }
+  }
+
+  componentDidLoad(): void {
+    this.handlePageOverflow();
+  }
+
+  componentDidRender(): void {
+    this.skipAnimation = false;
+  }
+
+  connectedCallback(): void {
+    this.handlePageOverflow();
   }
 
   disconnectedCallback(): void {
@@ -58,23 +121,25 @@ export class ZOffcanvas {
 
   render(): HTMLZOffcanvasElement {
     return (
-      <Host class={{"skip-animation": this.skipLoadAnimation}}>
+      <Host
+        skip-animation={this.skipAnimation}
+        aria-hidden={!this.open ? "true" : null}
+      >
         <div
-          role="presentation"
           class="canvas-container"
-          onTransitionEnd={() => this.handlePageOverflow()}
+          role="presentation"
+          ref={(el) => (this.canvasContainer = el)}
         >
           <div
-            role="presentation"
             class="canvas-content"
+            role="presentation"
           >
             <slot name="canvasContent"></slot>
           </div>
         </div>
-        {this.variant == OffCanvasVariant.OVERLAY && (
+        {(this.variant == OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP) && (
           <div
             class="canvas-background"
-            data-action="canvasBackground"
             onClick={() => (this.open = false)}
           ></div>
         )}
