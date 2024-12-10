@@ -198,7 +198,7 @@ describe("Suite test ZBookCard", () => {
       html: `<z-book-card-deprecated variant="expanded">
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
-        <a class="z-link" slot="resources">Resource link</a>
+        <a class="z-link z-link-blue" slot="resources">Resource link</a>
       </z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -236,7 +236,7 @@ describe("Suite test ZBookCard", () => {
         </mock:shadow-root>
         <z-icon slot="header-cta" name="star-empty"></z-icon>
         <z-tag slot="tags">EDI</z-tag>
-        <a class="z-link" slot="resources">Resource link</a>
+        <a class="z-link z-link-blue" slot="resources">Resource link</a>
       </z-book-card-deprecated>
     `);
   });
@@ -305,7 +305,7 @@ describe("Suite test ZBookCard", () => {
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
       html: `<z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
-        <a class="z-link" slot="resources">Resource link</a>
+      <a class="z-link z-link-blue" slot="resources">Resource link</a>
       </z-book-card-deprecated>`,
     });
     expect(page.root).toEqualHtml(`
@@ -344,7 +344,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-        <a class="z-link"slot="resources">Resource link</a>
+        <a class="z-link z-link-blue"slot="resources">Resource link</a>
       </z-book-card-deprecated>
     `);
   });
@@ -354,7 +354,7 @@ describe("Suite test ZBookCard", () => {
     const page = await newSpecPage({
       components: [ZBookCardDeprecated],
       html: `<z-book-card-deprecated variant="expanded" opera-title="Matematica.azzurro">
-        <a class="z-link" slot="resources">Resource link</a>
+      <a class="z-link z-link-blue" slot="resources">Resource link</a>
       </z-book-card-deprecated>`,
     });
     page.rootInstance.showResources = true;
@@ -395,7 +395,7 @@ describe("Suite test ZBookCard", () => {
             </div>
           </article>
         </mock:shadow-root>
-        <a class="z-link" slot="resources">Resource link</a>
+        <a class="z-link z-link-blue" slot="resources">Resource link</a>
       </z-book-card-deprecated>
     `);
   });

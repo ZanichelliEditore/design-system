@@ -23,7 +23,7 @@ div.temp {
 
 /* HIDDEN status */
 div.faded {
-  border: var(--border-size-medium) solid var(--color-surface02);
+  border: var(--border-size-medium) solid var(--color-background);
 }
 
 /* HIGHLIGHTED status */

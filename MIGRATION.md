@@ -12,6 +12,9 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v17.0.0](#v1700)
 
   - [Refactor componente `z-book-card`](#refactor-componente-zbookcard)
+  - [Aggiornamento stili link](#aggiornamento-stili-link)
+  - [Revisione token dei temi](#revisione-token-temi)
+  - [Modifica token input](#modifica-token-input)
 
 - [v16.0.0](#v1600)
 
@@ -129,6 +132,57 @@ Sono state aggiunte le prop `edi`, `annotated`, `teacherVersion` per gestire i t
 Dove `status` definisce lo stile del tag, mentre `interactive` gestisce il click dell'utente.
 È stata aggiunta la prop `adoption` che gestisce il badge dei libri adottati.
 Le nuove prop `catalogUrl` e `ebookUrl` gestiscono rispettivamente i link al catalogo Zanichelli e al libro digitale.
+
+### Aggiornamento stili link
+
+I seguenti token dei link hanno subito modifiche:
+
+- `color-link-primary` diventa `color-text-link-blue`
+- `color-hover-link` diventa `color-text-link-blue-hover`
+- `color-active-link` diventa `color-text-link-blue-active`
+- `color-visited-link` diventa `color-text-link-blue-visited`
+- `color-pressed-link` diventa `color-text-link-blue-pressed`
+- `color-inverse-link` e `color-inverse-hover/active/pressed/visited-link` diventano `color-text-link-inverse`
+
+I seguenti token dei link sono stati aggiunti:
+
+- `color-text-link-red`: `red500`
+- `color-text-link-red-hover`: `red800`
+- `color-text-link-red-active`: `red800`
+- `color-text-link-red-visited`: `red800`
+- `color-text-link-red-pressed`: `red400`
+- `color-text-link-default`: `gray900`
+
+Le seguenti classi css sono state state aggiunte:
+
+- `z-link-blue` con i rispettivi token per gli stati di hover/active/focus/visited
+- `z-link-red` con i rispettivi token per gli stati di hover/active/focus/visited
+
+Il token `color-text-link-default` rappresenta il colore di default per i link in ogni loro stato
+
+### Revisione token dei temi
+
+#### Tema default
+
+Il tema di default ha subito le seguenti modifiche:
+
+- `surface05` passa da `gray800` a `gray900`
+- `surface04` passa da `gray600` a `gray700`
+- `surface03` passa da `gray200` a `gray300`
+- `surface02` passa da `gray50` a `gray100` (per mantenere la situazione attuale, si può usare il token `background`)
+- i token `active-surface` e `selected-surface` sono stati eliminati (sostituirli con `surface03`)
+- inoltre vengono modificati i seguenti token secondary (sostituire `secondary02` e `secondary03` con `secondary01`):
+  - `secondary01`: `red500`
+  - `secondary02`: `red25`
+  - `secondary03`: `red50`
+  - `active-secondary`: `red400`
+  - `pressed-secondary`: `red400`
+  - `hover-secondary`: `red800`
+
+### Modifica token input
+
+Il token `--color-input-field01` cambia nome in `--color-form-background`, mentre il colore rimane invariato.
+Il token `--color-input-field02` è stato rimosso.
 
 ## v16.0.0
 

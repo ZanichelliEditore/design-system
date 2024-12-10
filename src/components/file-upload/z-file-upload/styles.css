@@ -34,7 +34,7 @@
 }
 
 :host .text-container .upload-link {
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   cursor: pointer;
 }
 

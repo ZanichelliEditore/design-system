@@ -91,7 +91,7 @@ a.z-fab {
 .z-fab.z-fab-surface02 {
   --z-fab-icon-fill: var(--color-primary01-icon);
 
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
   color: var(--color-primary01-icon);
 }
 
