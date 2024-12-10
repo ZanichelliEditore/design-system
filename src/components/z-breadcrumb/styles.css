@@ -52,7 +52,7 @@ button:focus {
 }
 
 a {
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   white-space: nowrap;
 }
 
@@ -85,7 +85,7 @@ z-icon {
   --z-icon-height: 16px;
 
   display: block;
-  fill: var(--color-link-primary);
+  fill: var(--color-text-link-blue);
 }
 
 z-icon.separator {
@@ -97,7 +97,7 @@ z-icon.separator {
 
 button.dots {
   display: inline-block;
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   cursor: pointer;
 }
 
@@ -113,7 +113,7 @@ button.dots {
 }
 
 .hidden-paths-popover {
-  --z-popover-theme--surface: var(--color-surface02);
+  --z-popover-theme--surface: var(--color-background);
   --z-popover-padding: 0;
 }
 

@@ -50,7 +50,7 @@ footer {
   width: 100%;
   height: 56px;
   align-items: center;
-  border-top: var(--border-size-medium) solid var(--color-surface02);
+  border-top: var(--border-size-medium) solid var(--color-background);
   grid-template: 2 / 2;
   grid-template-areas: "center center" "left right";
 }
@@ -105,7 +105,7 @@ footer .bullet-container .bullet:focus {
 @media only screen and (min-width: 768px) {
   footer {
     height: 76px;
-    border-top: var(--border-size-medium) solid var(--color-surface02);
+    border-top: var(--border-size-medium) solid var(--color-background);
     grid-template: 1 / 1fr 2fr 1fr;
     grid-template-areas: "left center right";
   }

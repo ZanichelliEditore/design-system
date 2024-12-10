@@ -1,16 +1,16 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
-import {ZBookCard} from ".";
-import {BookCardVariant} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import "../z-button/index";
-import "../z-icon/index";
-import "../z-tag/index";
+import {ZBookCardDeprecated} from ".";
+import {BookCardDeprecatedVariant} from "../../../beans";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../../utils/storybook-utils";
+import "../../z-button/index";
+import "../../z-icon/index";
+import "../../z-tag/index";
 import "./index";
 
-type ZBookCardStoriesArgs = ZBookCard & {
-  theme: "theme-default" | "theme-dark" | "theme-black-yellow" | "theme-red";
+type ZBookCardStoriesArgs = ZBookCardDeprecated & {
+  theme: "theme-default" | "theme-dark" | "theme-black-yellow";
 } & CSSVarsArguments<
     | "z-book-card-ribbon-background-color"
     | "z-book-card-ribbon-shadow-color"
@@ -18,14 +18,14 @@ type ZBookCardStoriesArgs = ZBookCard & {
     | "z-book-card-compact-height"
   >;
 const StoryMeta = {
-  title: "ZBookCard",
+  title: "ZBookCardDeprecated",
   component: "z-book-card",
   argTypes: {
     "variant": {
       control: {
         type: "inline-radio",
       },
-      options: Object.values(BookCardVariant),
+      options: Object.values(BookCardDeprecatedVariant),
     },
     "theme": {
       control: {
@@ -37,7 +37,7 @@ const StoryMeta = {
     "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),
   },
   args: {
-    "variant": BookCardVariant.EXPANDED,
+    "variant": BookCardDeprecatedVariant.EXPANDED,
     "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
     "operaTitle": "Matematica.azzurro",
     "volumeTitle": "Volume 3 con Tutor",
@@ -69,7 +69,7 @@ export const AllProps = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -89,7 +89,7 @@ export const AllProps = {
         "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
         "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,
       })}
-    ></z-book-card>`,
+    ></z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedTags = {
@@ -99,7 +99,7 @@ export const SlottedTags = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -126,7 +126,7 @@ export const SlottedTags = {
         >EDI</z-tag
       >
       <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedResources = {
@@ -136,7 +136,7 @@ export const SlottedResources = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -158,7 +158,7 @@ export const SlottedResources = {
       })}
     >
       <a
-        class="z-link z-link-icon"
+        class="z-link z-link-blue z-link-icon"
         slot="resources"
         style="width:100%; margin-bottom: 6px;"
       >
@@ -175,7 +175,7 @@ export const SlottedResources = {
         style="width:100%; margin-bottom: 16px;"
         >Resource CTA mock</z-button
       >
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedHeaderCta = {
@@ -185,7 +185,7 @@ export const SlottedHeaderCta = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -210,7 +210,7 @@ export const SlottedHeaderCta = {
         name="star-empty"
         slot="header-cta"
       ></z-icon>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SlottedFooterCta = {
@@ -220,7 +220,7 @@ export const SlottedFooterCta = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant=${args.variant}
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -255,7 +255,7 @@ export const SlottedFooterCta = {
           Leggi il libro online
         </z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const ExpandedVariant = {
@@ -265,7 +265,7 @@ export const ExpandedVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="expanded"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -290,7 +290,7 @@ export const ExpandedVariant = {
       >
       <z-tag slot="tags">VERSIONE INSEGNANTE</z-tag>
       <a
-        class="z-link z-link-icon"
+        class="z-link z-link-blue z-link-icon"
         slot="resources"
         style="width:100%; margin-bottom: 6px;"
       >
@@ -312,7 +312,7 @@ export const ExpandedVariant = {
         slot="header-cta"
         tabindex="0"
       ></z-icon>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const SearchVariant = {
@@ -322,7 +322,7 @@ export const SearchVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="search"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -360,7 +360,7 @@ export const SearchVariant = {
           Leggi il libro online
         </z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;
 
 export const CompactVariant = {
@@ -377,7 +377,7 @@ export const CompactVariant = {
     },
   },
   render: (args) =>
-    html`<z-book-card
+    html`<z-book-card-deprecated
       variant="compact"
       cover=${args.cover}
       opera-title=${args.operaTitle}
@@ -422,5 +422,5 @@ export const CompactVariant = {
           size="x-small"
         ></z-button>
       </div>
-    </z-book-card>`,
+    </z-book-card-deprecated>`,
 } satisfies Story;

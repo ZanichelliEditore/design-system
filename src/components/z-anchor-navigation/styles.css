@@ -55,7 +55,7 @@ z-anchor-navigation nav > * {
 
 z-anchor-navigation nav > [data-current] {
   border-left-color: var(--color-primary01);
-  color: var(--color-link-primary);
+  color: var(--color-text-link-blue);
   font-weight: var(--font-sb);
 }
 
@@ -105,7 +105,7 @@ z-anchor-navigation nav button {
     z-anchor-navigation nav > *:hover {
       border-left-color: var(--color-hover-secondary);
       background-color: var(--color-hover-surface);
-      color: var(--color-hover-link);
+      color: var(--color-text-link-blue-hover);
     }
   }
 

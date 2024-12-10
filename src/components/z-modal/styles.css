@@ -57,7 +57,7 @@
 .modal-container > header {
   padding: calc(var(--space-unit) * 1.75) calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.75)
     calc(var(--space-unit) * 2);
-  background: var(--color-surface02);
+  background: var(--color-background);
 }
 
 .modal-container > header button {
