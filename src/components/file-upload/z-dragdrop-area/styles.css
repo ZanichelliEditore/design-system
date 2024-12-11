@@ -1,42 +1,40 @@
 :host {
   position: relative;
   display: flex;
+  width: 772px;
   max-width: 100%;
-  height: 242px;
+  height: 232px;
   flex-direction: column;
   align-items: center;
   padding: calc(var(--space-unit) * 3);
   background-color: var(--color-surface02);
   background-image: repeating-linear-gradient(
       0deg,
-      var(--color-active-surface),
-      var(--color-active-surface) 12px,
+      var(--color-surface03),
+      var(--color-surface03) 12px,
       transparent 12px,
-      transparent 21px,
-      var(--color-active-surface) 21px
+      transparent 20px
     ),
     repeating-linear-gradient(
       90deg,
-      var(--color-active-surface),
-      var(--color-active-surface) 12px,
+      var(--color-surface03),
+      var(--color-surface03) 12px,
       transparent 12px,
-      transparent 21px,
-      var(--color-active-surface) 21px
+      transparent 20px
     ),
     repeating-linear-gradient(
-      var(--color-active-surface),
-      var(--color-active-surface) 12px,
+      180deg,
+      var(--color-surface03),
+      var(--color-surface03) 12px,
       transparent 12px,
-      transparent 21px,
-      var(--color-active-surface) 21px
+      transparent 20px
     ),
     repeating-linear-gradient(
       270deg,
-      var(--color-active-surface),
-      var(--color-active-surface) 12px,
+      var(--color-surface03),
+      var(--color-surface03) 12px,
       transparent 12px,
-      transparent 21px,
-      var(--color-active-surface) 21px
+      transparent 20px
     );
   background-position:
     0 0,
