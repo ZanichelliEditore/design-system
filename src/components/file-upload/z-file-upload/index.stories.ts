@@ -28,6 +28,7 @@ const StoryMeta = {
     description: "Vuoi allegare un file per chiarire meglio la tua richiesta?",
     uploadBtnLabel: "allega",
     hasFileSection: true,
+    showErrors: true,
   },
 } satisfies Meta<ZFileUpload>;
 
@@ -46,6 +47,7 @@ export const Default = {
       </h4>
       <z-file-upload
         type=${ZFileUploadType.DEFAULT}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .buttonVariant=${args.buttonVariant}
@@ -53,11 +55,9 @@ export const Default = {
         .acceptedFormat=${args.acceptedFormat}
         .mainTitle=${args.mainTitle}
         .uploadBtnLabel=${args.uploadBtnLabel}
-      >
-      </z-file-upload>
+      />
       <script>
-        let uploaderDefault = document.querySelector("z-file-upload");
-        let fileNumber = 0;
+        fileNumber = 0;
         document.addEventListener("fileInput", (e) => {
           fileNumber++;
           const item = e.detail;
@@ -65,7 +65,7 @@ export const Default = {
           chip.setAttribute("slot", "files");
           chip.setAttribute("file-number", fileNumber);
           chip.setAttribute("file-name", item.name);
-          uploaderDefault.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;
@@ -82,23 +82,22 @@ export const Dragdrop = {
       <br />
       <z-file-upload
         type=${ZFileUploadType.DRAGDROP}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .fileMaxSize=${args.fileMaxSize}
         .acceptedFormat=${args.acceptedFormat}
         .mainTitle=${args.mainTitle}
         .dragAndDropLabel=${args.dragAndDropLabel}
-      >
-      </z-file-upload>
+      />
       <script>
-        const uploaderDragdrop = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
           const chip = document.createElement("Z-FILE");
           chip.setAttribute("slot", "files");
           chip.setAttribute("filetype", item.type);
           chip.setAttribute("file-name", item.name);
-          uploaderDragdrop.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;
@@ -124,6 +123,7 @@ export const DragdropEnglish = {
       <br />
       <z-file-upload
         type=${ZFileUploadType.DRAGDROP}
+        .showErrors=${args.showErrors}
         .hasFileSection=${args.hasFileSection}
         description="${args.description}"
         .fileMaxSize=${args.fileMaxSize}
@@ -137,17 +137,15 @@ export const DragdropEnglish = {
         .errorModalMessage=${args.errorModalMessage}
         .uploadedFilesLabel=${args.uploadedFilesLabel}
         .uploadBtnLabel=${args.uploadBtnLabel}
-      >
-      </z-file-upload>
+      />
       <script>
-        const uploaderDragdrop = document.querySelector("z-file-upload");
         document.addEventListener("fileInput", (e) => {
           const item = e.detail;
           const chip = document.createElement("Z-FILE");
           chip.setAttribute("slot", "files");
           chip.setAttribute("filetype", item.type);
           chip.setAttribute("file-name", item.name);
-          uploaderDragdrop.appendChild(chip);
+          document.querySelector("z-file-upload")?.appendChild(chip);
         });
       </script>`,
 } satisfies Story;

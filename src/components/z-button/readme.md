@@ -38,6 +38,7 @@
  - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
  - [z-book-card](../book-card/z-book-card)
  - [z-carousel](../z-carousel)
+ - [z-dragdrop-area](../file-upload/z-dragdrop-area)
  - [z-file-upload](../file-upload/z-file-upload)
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../z-pagination)
@@ -58,6 +59,7 @@ graph TD;
   z-app-header-deprecated --> z-button
   z-book-card --> z-button
   z-carousel --> z-button
+  z-dragdrop-area --> z-button
   z-file-upload --> z-button
   z-myz-card-dictionary --> z-button
   z-pagination --> z-button

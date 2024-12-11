@@ -7,9 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
+import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
+export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
 export namespace Components {
     /**
@@ -772,7 +774,7 @@ export namespace Components {
          */
         "fileMaxSize"?: number;
         /**
-          * get array of uploaded files
+          * Get the list of uploaded files
          */
         "getFiles": () => Promise<File[]>;
         /**
@@ -780,13 +782,21 @@ export namespace Components {
          */
         "hasFileSection"?: boolean;
         /**
+          * Value to set on the file input's `name` attribute (for use with forms)
+         */
+        "inputName"?: string;
+        /**
           * Title
          */
         "mainTitle"?: string;
         /**
-          * remove file from the array
+          * Remove a previously uploaded file
          */
         "removeFile": (fileName: string) => Promise<void>;
+        /**
+          * Whether to show errors in the internal modal or leave the handling to the app. Errors will still be emitted.
+         */
+        "showErrors": boolean;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
@@ -2717,7 +2727,8 @@ declare global {
         new (): HTMLZFileElement;
     };
     interface HTMLZFileUploadElementEventMap {
-        "fileInput": any;
+        "fileInput": File;
+        "fileError": {file: string; errors: ZFileUploadError[]};
     }
     interface HTMLZFileUploadElement extends Components.ZFileUpload, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZFileUploadElementEventMap>(type: K, listener: (this: HTMLZFileUploadElement, ev: ZFileUploadCustomEvent<HTMLZFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4400,13 +4411,25 @@ declare namespace LocalJSX {
          */
         "hasFileSection"?: boolean;
         /**
+          * Value to set on the file input's `name` attribute (for use with forms)
+         */
+        "inputName"?: string;
+        /**
           * Title
          */
         "mainTitle"?: string;
         /**
+          * Emits an array of error messages related to one or more files not allowed. Emitted when some file is dropped or selected.
+         */
+        "onFileError"?: (event: ZFileUploadCustomEvent<{file: string; errors: ZFileUploadError[]}>) => void;
+        /**
           * Emitted when user select one or more files
          */
-        "onFileInput"?: (event: ZFileUploadCustomEvent<any>) => void;
+        "onFileInput"?: (event: ZFileUploadCustomEvent<File>) => void;
+        /**
+          * Whether to show errors in the internal modal or leave the handling to the app. Errors will still be emitted.
+         */
+        "showErrors"?: boolean;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
          */
