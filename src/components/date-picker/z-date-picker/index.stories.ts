@@ -60,8 +60,7 @@ export const Date: Story = {
   args: {
     datePickerId: "picker-01",
     label: "ZDatePicker with date",
-    value: "2021-01-01",
-    name: "date-picker",
+    value: "25-12-2024",
   },
 } satisfies Story;
 
