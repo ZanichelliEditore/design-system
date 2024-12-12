@@ -24,6 +24,7 @@ z-anchor-navigation nav a {
   color: inherit;
   font-weight: inherit;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow-clip-margin: content-box;
   text-decoration: none;
 }
@@ -37,6 +38,7 @@ z-anchor-navigation nav * a:not(:only-child) {
     display: inline-block;
     overflow: hidden;
     -webkit-line-clamp: none;
+    line-clamp: none;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -44,7 +46,7 @@ z-anchor-navigation nav * a:not(:only-child) {
 
 z-anchor-navigation nav > * {
   position: relative;
-  border-left: var(--border-size-large) solid var(--color-surface04);
+  border-left: var(--border-size-large) solid var(--color-surface05);
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
   transition:
@@ -103,7 +105,7 @@ z-anchor-navigation nav button {
     }
 
     z-anchor-navigation nav > *:hover {
-      border-left-color: var(--color-hover-secondary);
+      border-left-color: var(--color-hover-primary);
       background-color: var(--color-hover-surface);
       color: var(--color-text-link-blue-hover);
     }
