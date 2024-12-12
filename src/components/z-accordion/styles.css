@@ -45,7 +45,7 @@ summary {
 
   position: relative;
   display: flex;
-  height: var(--summary-height);
+  min-height: var(--summary-height);
   align-items: center;
   padding: var(--summary-y-padding) var(--z-accordion-right-padding) var(--summary-y-padding)
     var(--z-accordion-left-padding);
@@ -53,6 +53,11 @@ summary {
   column-gap: var(--space-unit);
   cursor: pointer;
   list-style: none;
+}
+
+/* remove marker on safari */
+summary::-webkit-details-marker {
+  display: none;
 }
 
 :host([size="x-small"]) summary {
