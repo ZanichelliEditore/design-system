@@ -44,7 +44,7 @@
 :host(:is([active], [open])) .label,
 .label:focus:focus-visible,
 .label:hover {
-  border-color: var(--color-secondary01);
+  border-color: var(--color-primary01);
 }
 
 .label:focus:focus-visible {
@@ -125,12 +125,12 @@ when placed below the real text using `flex-direction: column`. */
 
 ::slotted([slot="section"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
-  color: var(--color-secondary01);
+  color: var(--color-primary01);
 }
 
 ::slotted([slot="section"]:hover),
 ::slotted([slot="section"]:focus:focus-visible),
 ::slotted([slot="section"][active]) {
-  color: var(--color-secondary01);
+  color: var(--color-primary01);
   font-weight: var(--font-bd);
 }

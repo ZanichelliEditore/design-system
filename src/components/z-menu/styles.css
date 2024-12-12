@@ -65,7 +65,7 @@ div.menu-label:focus-within ::slotted(*) {
 .menu-label:hover,
 .menu-label:focus-visible,
 div.menu-label:focus-within {
-  border-color: var(--color-secondary01);
+  border-color: var(--color-primary01);
 }
 
 :host([vertical-context]:is([active], [open])) .menu-label::after,
@@ -77,7 +77,7 @@ div.menu-label:focus-within {
   left: 0;
   width: 100%;
   height: var(--border-size-large);
-  background-color: var(--color-secondary01);
+  background-color: var(--color-primary01);
   content: "";
 }
 
@@ -206,6 +206,6 @@ when placed below the real text using `flex-direction: column`. */
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:focus:focus-visible),
 .items > ::slotted([slot="item"]:active) {
-  border-color: var(--color-secondary01);
+  border-color: var(--color-primary01);
   font-weight: var(--font-bd);
 }

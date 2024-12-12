@@ -75,7 +75,7 @@
 }
 
 :host > div > div.content-wrapper > section > span.license-heading > span.expired {
-  color: var(--color-secondary01);
+  color: var(--color-primary01);
   font-size: 12px;
   font-weight: 600;
 }

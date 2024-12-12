@@ -87,7 +87,7 @@ button.menu-label {
 .menu-label .menu-label-content:hover::after,
 .menu-label:focus-within .menu-label-content::after {
   height: var(--border-size-large);
-  background-color: var(--color-secondary01);
+  background-color: var(--color-primary01);
 }
 
 /* Prevents layout shifts on font-weight changes.
@@ -212,6 +212,6 @@ when placed below the real text using `flex-direction: column`. */
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:focus:focus-visible),
 .items > ::slotted([slot="item"]:active) {
-  border-color: var(--color-secondary01);
+  border-color: var(--color-primary01);
   font-weight: var(--font-bd);
 }

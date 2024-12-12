@@ -150,14 +150,14 @@ z-navigation-tabs > nav > button[disabled] {
 
 z-navigation-tabs > nav > :not([disabled]):hover,
 nav > [aria-selected="true"] {
-  color: var(--color-hover-secondary);
+  color: var(--color-hover-primary);
   fill: currentcolor;
 }
 
 z-navigation-tabs > nav > :not([disabled]):hover::after,
 nav > [aria-selected="true"]::after {
   position: absolute;
-  background-color: var(--color-hover-secondary);
+  background-color: var(--color-hover-primary);
   content: "";
 }
 

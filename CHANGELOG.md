@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 17.0.2 (2024-12-12)
+
+
+### Bug Fixes
+
+* secondary color on deprecated/snowflake components ([30695b6](https://github.com/ZanichelliEditore/design-system/commit/30695b6c1c301709cfab82306961660afb30df1e))
+
+## 17.0.1 (2024-12-12)
+
 ## 17.0.0 (2024-12-10)
 
 ## 16.5.0 (2024-12-05)

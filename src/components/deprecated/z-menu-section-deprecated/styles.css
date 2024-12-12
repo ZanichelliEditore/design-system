@@ -25,7 +25,7 @@
 
 :host(:is([active], [open])) .label,
 .label:hover {
-  border-color: var(--color-secondary01);
+  border-color: var(--color-primary01);
 }
 
 :host(:is([active], [open])) .label ::slotted(*),
@@ -112,12 +112,12 @@ when placed below the real text using `flex-direction: column`. */
 
 .items > ::slotted([slot="item"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
-  color: var(--color-secondary01);
+  color: var(--color-primary01);
 }
 
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:focus:focus-visible),
 .items > ::slotted([slot="item"][active]) {
-  color: var(--color-secondary01);
+  color: var(--color-primary01);
   font-weight: var(--font-bd);
 }
