@@ -28,7 +28,7 @@ const StoryMeta = {
   render: (args) => html`
     <script>
       document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
-        const input = document.getElementById("output");
+        const input = document.getElementById("output-${args.datePickerId}");
         input.innerHTML = "[" + e.detail + "]";
       });
     </script>
@@ -40,12 +40,13 @@ const StoryMeta = {
           id=${args.datePickerId}
           ariaLabel=${args.ariaLabel}
           label=${args.label}
+          value=${args.value}
         ></z-date-picker>
       </div>
       <div class="story-output-container">
         <span>OUTPUT:</span>
         <br />
-        <span id="output" />
+        <span id="output-${args.datePickerId}" />
       </div>
     </div>
   `,
@@ -59,6 +60,7 @@ export const Date: Story = {
   args: {
     datePickerId: "picker-01",
     label: "ZDatePicker with date",
+    value: "25-12-2024",
   },
 } satisfies Story;
 
@@ -66,6 +68,9 @@ export const DateAndTime: Story = {
   args: {
     datePickerId: "picker-02",
     label: "ZDatePicker with date and time",
+    mode: ZDatePickerMode.DATE_TIME,
+    value: "05-12-2024 - 12:01",
+    name: "date-time-picker",
   },
 } satisfies Story;
 
@@ -73,6 +78,9 @@ export const MonthsOnly: Story = {
   args: {
     datePickerId: "picker-03",
     label: "ZDatePicker with only months",
+    mode: ZDatePickerMode.MONTHS,
+    value: "12-2024",
+    name: "month-picker",
   },
 } satisfies Story;
 
@@ -80,11 +88,13 @@ export const CustomToggle: Story = {
   args: {
     datePickerId: "picker-04",
     label: "date picker",
+    value: "25-01-2024",
+    name: "date-toogle-picker",
   },
   render: (args) => html`
     <script>
       document.getElementById("${args.datePickerId}").addEventListener("dateSelect", (e) => {
-        const input = document.getElementById("output");
+        const input = document.getElementById("output-${args.datePickerId}");
         input.innerHTML = "[" + e.detail + "]";
       });
     </script>
@@ -96,13 +106,15 @@ export const CustomToggle: Story = {
           id=${args.datePickerId}
           ariaLabel=${args.ariaLabel}
           label=${args.label}
-          ><z-button slot="toggle">Open ZDatePicker</z-button></z-date-picker
+          value=${args.value}
         >
+          <z-button slot="toggle">Open ZDatePicker</z-button>
+        </z-date-picker>
       </div>
       <div class="story-output-container">
         <span>OUTPUT:</span>
         <br />
-        <span id="output" />
+        <span id="output-${args.datePickerId}" />
       </div>
     </div>
   `,
