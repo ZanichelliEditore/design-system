@@ -257,7 +257,7 @@ export class ZBookCard {
                       <a
                         href={this.catalogUrl}
                         target="_blank"
-                        class="z-link z-link-icon body-4-sb"
+                        class="z-link z-link-blue z-link-icon body-4-sb"
                         onClick={() => this.emitCatalogClick()}
                       >
                         Scheda catalogo

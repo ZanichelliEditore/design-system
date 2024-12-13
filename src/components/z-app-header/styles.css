@@ -195,6 +195,7 @@
   height: 1em;
   background-color: currentcolor;
   content: "";
+  font-size: var(--font-size-3);
   transform: translateY(-50%);
 }
 

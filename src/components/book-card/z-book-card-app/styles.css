@@ -49,6 +49,7 @@
   -webkit-line-clamp: 1;
   line-clamp: 1;
   text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 :host > div .app .name .laz {
