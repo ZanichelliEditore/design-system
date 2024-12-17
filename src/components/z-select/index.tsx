@@ -418,7 +418,6 @@ export class ZSelect {
             class={{
               disabled: this.disabled,
               readonly: this.readonly,
-              filled: !!this.selectedItem,
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
@@ -569,6 +568,7 @@ export class ZSelect {
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
+        disabled={this.disabled}
       />
     );
   }

@@ -15,6 +15,7 @@
   --color-surface04: var(--gray100);
   --color-surface05: var(--color-white);
   --color-default-text: var(--gray100);
+  --color-text-link-default: var(--gray100);
   --color-text02: var(--gray900);
   --color-text03: var(--gray700);
   --color-text05: var(--gray500);
@@ -50,8 +51,11 @@
   --color-inverse-warning: var(--yellow700);
   --color-hover-warning: var(--yellow50);
   --color-inverse-hover-warning: var(--yellow300);
+  --shadow-focus-primary: 0 0 0 2px var(--gray800), 0 0 2px 5px var(--blue25);
+
+  /* forms */
+  --color-form-active-primary: var(--gray800);
+  --color-form-hover-primary: var(--gray800);
 
   background: var(--color-surface01);
-
-  --shadow-focus-primary: 0 0 0 2px var(--gray800), 0 0 2px 5px var(--blue25);
 }

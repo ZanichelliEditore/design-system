@@ -15,6 +15,10 @@ export class ZInputMessage {
   @Prop({reflect: true})
   status?: InputStatus;
 
+  /** input disabled status (optional) */
+  @Prop({reflect: true})
+  disabled?: boolean;
+
   private statusIcons = {
     success: "checkmark-circle",
     error: "multiply-circled",

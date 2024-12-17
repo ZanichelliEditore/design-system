@@ -41,4 +41,8 @@
   --color-hover-icon: var(--color-black);
   --color-inverse-icon: var(--color-white);
   --color-pressed-icon: var(--gray700);
+
+  /* forms */
+  --color-form-active-primary: var(--red400);
+  --color-form-hover-primary: var(--red800);
 }

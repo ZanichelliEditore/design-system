@@ -41,7 +41,6 @@
   --color-disabled02-icon: var(--gray100);
   --color-hover-primary-icon: var(--blue800);
   --color-active-primary-icon: var(--blue400);
-  --color-form-background: var(--color-white);
   --color-hover-primary: var(--blue800);
   --color-hover-primary-text: var(--color-black);
   --color-hover-secondary: var(--red800);
@@ -72,4 +71,24 @@
   --color-inverse-error: var(--red50);
   --color-inverse-success: var(--green50);
   --color-inverse-warning: var(--yellow50);
+
+  /* forms */
+  --color-form-default-text: var(--gray900);
+  --color-form-disabled-text: var(--gray500);
+  --color-form-background: var(--color-white);
+  --color-form-surface03: var(--gray200);
+  --color-form-surface04: var(--gray600);
+  --color-form-disabled01-icon: var(--gray500);
+  --color-form-placeholder-text: var(--gray500);
+  --color-form-default-icon: var(--gray900);
+  --color-form-warning01: var(--yellow500);
+  --color-form-hover-warning: var(--yellow800);
+  --color-form-inverse-warning: var(--yellow50);
+  --color-form-active-primary: var(--blue400);
+  --color-form-hover-primary: var(--blue800);
+  --color-form-disabled03: var(--gray500);
+  --color-form-success01: var(--green500);
+  --color-form-inverse-success: var(--green50);
+  --color-form-hover-error: var(--red800);
+  --color-form-inverse-error: var(--red50);
 }

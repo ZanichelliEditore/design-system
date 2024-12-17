@@ -9,10 +9,6 @@
   placeholder="Cerca Autore"
 ></z-input>
 <z-input
-  label="filled"
-  value="testo testo testo"
-></z-input>
-<z-input
   label="disabled"
   placeholder="placeholder"
   disabled
@@ -56,11 +52,6 @@
   type="textarea"
   label="default"
   placeholder="Cerca Autore"
-></z-input>
-<z-input
-  type="textarea"
-  label="filled"
-  value="testo testo testo"
 ></z-input>
 <z-input
   type="textarea"

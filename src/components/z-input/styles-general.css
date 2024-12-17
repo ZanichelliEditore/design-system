@@ -18,11 +18,11 @@ input,
 textarea,
 .textarea-wrapper {
   box-sizing: border-box;
-  border: var(--border-size-small) solid var(--gray700);
+  border: var(--border-size-small) solid var(--color-form-surface04);
   background: var(--color-form-background);
   border-radius: var(--border-radius-small);
-  color: var(--gray900);
-  fill: var(--gray900);
+  color: var(--color-form-default-text);
+  fill: var(--color-form-default-icon);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
@@ -42,6 +42,13 @@ textarea,
   cursor: pointer;
 }
 
+/* HOVER */
+input:not([readonly]):hover,
+.textarea-wrapper:hover {
+  outline: var(--border-size-medium) solid var(--color-form-surface04);
+  outline-offset: -2px;
+}
+
 /* FOCUS */
 :host:not(.active-select) input:focus:focus-visible,
 :host:not([readonly="true"]) .textarea-wrapper:focus-within {
@@ -50,11 +57,22 @@ textarea,
 
 input:focus:focus-visible,
 textarea:focus:focus-visible {
-  color: var(--color-primary01);
+  border: var(--border-size-small) solid var(--color-form-active-primary);
+  color: var(--color-form-active-primary);
+}
+
+input:focus:focus-visible:hover,
+textarea:focus:focus-visible:hover {
+  outline-color: var(--color-form-active-primary);
+}
+
+input:focus:focus-visible + .icons-wrapper,
+textarea:focus:focus-visible + .icons-wrapper {
+  fill: var(--color-form-active-primary);
 }
 
 :host.active-select input {
-  border: var(--border-size-small) solid var(--color-primary01);
+  border: var(--border-size-small) solid var(--color-form-active-primary);
 }
 
 :host.cursor-select input:focus:focus-visible {
@@ -65,42 +83,46 @@ textarea:focus:focus-visible {
   box-shadow: none;
 }
 
-/* FILLED */
-.filled {
-  border-color: var(--color-surface05);
-}
-
 /* STATUSES (success, warning, error) */
 .input-success {
-  border-color: var(--color-success01);
-  background: var(--color-success-inverse);
-  fill: var(--color-success01);
+  border-color: var(--color-form-success01);
+  background: var(--color-form-inverse-success);
+}
+
+.input-success:focus:focus-visible + .icons-wrapper,
+.input-success + .icons-wrapper {
+  fill: var(--color-form-success01);
 }
 
 .input-error {
-  border-color: var(--color-error01);
-  background: var(--color-error-inverse);
-  fill: var(--color-error01);
+  border-color: var(--color-form-hover-error);
+  background: var(--color-form-inverse-error);
+}
+
+.input-error:focus:focus-visible + .icons-wrapper,
+.input-error + .icons-wrapper {
+  fill: var(--color-form-hover-error);
 }
 
 .input-warning {
-  border-color: var(--color-warning01);
+  border-color: var(--color-form-hover-warning);
   background: var(--color-warning-inverse);
-  fill: var(--color-warning01);
 }
 
-/* HOVER */
-input:not([readonly]):hover,
-.textarea-wrapper:hover {
-  outline: var(--border-size-medium) solid var(--gray700);
-  outline-offset: -2px;
+.input-warning:focus:focus-visible + .icons-wrapper,
+.input-warning + .icons-wrapper {
+  fill: var(--color-form-hover-warning);
+}
+
+:is(.input-success, .input-error, .input-warning):focus:focus-visible {
+  color: var(--color-form-default-text);
 }
 
 /* READONLY */
 :host:not(.active-select) input[readonly],
 .readonly {
-  border-color: var(--color-disabled01);
-  fill: var(--color-disabled01);
+  border-color: var(--color-form-surface03);
+  fill: var(--color-form-disabled01-icon);
   pointer-events: none;
 }
 
@@ -108,10 +130,10 @@ input:not([readonly]):hover,
 :host([disabled]:not([disabled="false"])) input,
 :host([disabled]:not([disabled="false"])) .textarea-wrapper,
 :host([disabled]:not([disabled="false"])) z-icon {
-  border-color: var(--color-disabled01);
+  border-color: var(--color-form-disabled03);
   box-shadow: none;
-  color: var(--color-disabled03);
-  fill: var(--color-disabled01);
+  color: var(--color-form-disabled-text);
+  fill: var(--color-form-disabled01-icon);
   pointer-events: none;
 }
 
@@ -122,19 +144,19 @@ input:not([readonly]):hover,
 /* PLACEHOLDER */
 input::placeholder,
 textarea::placeholder {
-  color: var(--color-text05);
+  color: var(--color-form-placeholder-text);
 }
 
 ::-webkit-textarea-placeholder {
-  color: var(--color-text05);
+  color: var(--color-form-placeholder-text);
 }
 
 :-ms-textarea-placeholder {
-  color: var(--color-text05);
+  color: var(--color-form-placeholder-text);
 }
 
 ::placeholder {
-  color: var(--color-text05);
+  color: var(--color-form-placeholder-text);
 }
 
 /* LABEL */

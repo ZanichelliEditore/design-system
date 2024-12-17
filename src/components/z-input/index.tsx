@@ -268,7 +268,6 @@ export class ZInput {
       maxlength: this.maxlength,
       class: {
         [`input-${this.status}`]: !!this.status,
-        filled: !!this.value,
       },
       autocomplete: this.autocomplete,
       onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
@@ -463,6 +462,7 @@ export class ZInput {
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
+        disabled={this.disabled}
       />
     );
   }

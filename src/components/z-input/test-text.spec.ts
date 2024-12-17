@@ -79,7 +79,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -100,7 +100,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" type='text' htmlid='test' placeholder='placeholder' size='big' value='value' aria-label='label'>
           <div class="text-wrapper">
             <div>
-              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
+              <input class="has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' aria-label="label" />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -122,7 +122,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input disabled class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input disabled class="has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -144,7 +144,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input readonly class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input readonly class="has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
                     <z-icon class="big" name="multiply"></z-icon>
@@ -166,7 +166,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -189,7 +189,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="filled input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
+              <input class="input-success has-clear-icon" type='text' id='test' placeholder='placeholder' value='value' />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -275,7 +275,7 @@ describe("Suite test ZInput - text", () => {
       <z-input htmlid="id" hasclearicon="true" size="big" value="value">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="filled has-clear-icon" type="text" value="value" />
+              <input id="id" class="has-clear-icon" type="text" value="value" />
               <span class="icons-wrapper">
                 <button type="button" class="icon-button reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -299,7 +299,7 @@ describe("Suite test ZInput - text", () => {
       <z-input htmlid="id" hasclearicon="false" size="big" value="value">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="filled" type="text" value="value" />
+              <input id="id" class=" type="text" value="value" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden icon-button reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
