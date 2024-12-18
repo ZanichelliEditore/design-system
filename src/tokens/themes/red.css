@@ -7,10 +7,9 @@
   --color-hover-primary-icon: var(--red800);
   --color-hover-primary: var(--red800);
   --color-pressed-primary: var(--red400);
-  --color-primary01-icon: var(--red500);
+  --color-primary01: var(--red500);
   --color-primary02: var(--red25);
   --color-primary03: var(--red50);
-  --color-primary01: var(--red500);
 
   /* secondary */
   --color-active-secondary: var(--gray400);
@@ -41,6 +40,7 @@
   --color-hover-icon: var(--color-black);
   --color-inverse-icon: var(--color-white);
   --color-pressed-icon: var(--gray700);
+  --color-primary01-icon: var(--red500);
 
   /* forms */
   --color-form-active-primary: var(--red400);
