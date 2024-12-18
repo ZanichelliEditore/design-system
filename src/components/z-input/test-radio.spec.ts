@@ -1,5 +1,4 @@
 import {newSpecPage} from "@stencil/core/testing";
-
 import {ZInput} from "./index";
 
 describe("Suite test ZInput - radio", () => {
@@ -10,14 +9,12 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" size="big">
-
-          <div class="radio-wrapper">
-            <input id="radioid" type="radio" />
-            <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
-            </label>
-          </div>
-
+        <div class="radio-wrapper">
+          <input id="radioid" type="radio" />
+          <label htmlFor="radioid" class="radio-label after">
+            <z-icon name="radio-button" class="big"></z-icon>
+          </label>
+        </div>
       </z-input>
     `);
   });
@@ -29,15 +26,13 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" name="name" value="value" label="radio label" size="big">
-
-          <div class="radio-wrapper">
-            <input id="radioid" type="radio" name="name" value="value" />
-            <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
-              <span>radio label</span>
-            </label>
-          </div>
-
+        <div class="radio-wrapper">
+          <input id="radioid" type="radio" name="name" value="value" />
+          <label htmlFor="radioid" class="radio-label after">
+            <z-icon name="radio-button" class="big"></z-icon>
+            <span>radio label</span>
+          </label>
+        </div>
       </z-input>
     `);
   });
@@ -49,14 +44,12 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" checked size="big">
-
-          <div class="radio-wrapper">
-            <input id="radioid" type="radio" checked />
-            <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button-checked" aria-hidden="true" class="big"></z-icon>
-            </label>
-          </div>
-
+        <div class="radio-wrapper">
+          <input id="radioid" type="radio" checked />
+          <label htmlFor="radioid" class="radio-label after">
+            <z-icon name="radio-button-checked" class="big"></z-icon>
+          </label>
+        </div>
       </z-input>
     `);
   });
@@ -68,14 +61,12 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" label-position="left" size="big">
-
-          <div class="radio-wrapper">
-            <input id="radioid" type="radio" />
-            <label htmlFor="radioid" class="radio-label before">
-              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
-            </label>
-          </div>
-
+        <div class="radio-wrapper">
+          <input id="radioid" type="radio" />
+          <label htmlFor="radioid" class="radio-label before">
+            <z-icon name="radio-button" class="big"></z-icon>
+          </label>
+        </div>
       </z-input>
     `);
   });
@@ -87,14 +78,12 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input htmlid="radioid" type="radio" disabled size="big">
-
-          <div class="radio-wrapper">
-            <input id="radioid" type="radio" disabled />
-            <label htmlFor="radioid" class="radio-label after">
-              <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
-            </label>
-          </div>
-
+        <div class="radio-wrapper">
+          <input id="radioid" type="radio" disabled />
+          <label htmlFor="radioid" class="radio-label after">
+            <z-icon name="radio-button" class="big"></z-icon>
+          </label>
+        </div>
       </z-input>
     `);
   });
@@ -106,14 +95,12 @@ describe("Suite test ZInput - radio", () => {
     });
     expect(page.root).toEqualHtml(`
         <z-input htmlid="radioid" type="radio" readonly size="big">
-
-            <div class="radio-wrapper">
-              <input id="radioid" type="radio" readonly />
-              <label htmlFor="radioid" class="radio-label after">
-                <z-icon name="radio-button" aria-hidden="true" class="big"></z-icon>
-              </label>
-            </div>
-
+          <div class="radio-wrapper">
+            <input id="radioid" type="radio" readonly />
+            <label htmlFor="radioid" class="radio-label after">
+              <z-icon name="radio-button" class="big"></z-icon>
+            </label>
+          </div>
         </z-input>
       `);
   });
