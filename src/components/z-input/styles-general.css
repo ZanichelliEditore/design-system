@@ -3,6 +3,10 @@
   width: inherit;
 }
 
+:host * {
+  box-sizing: border-box;
+}
+
 input::-ms-clear,
 input::-ms-reveal {
   display: none;
@@ -15,13 +19,8 @@ input::-ms-reveal {
 }
 
 input,
-textarea,
-.textarea-wrapper {
-  box-sizing: border-box;
-  border: var(--border-size-small) solid var(--color-form-surface04);
+textarea {
   background: var(--color-form-background);
-  border-radius: var(--border-radius-small);
-  color: var(--color-form-default-text);
   fill: var(--color-form-default-icon);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
@@ -29,12 +28,17 @@ textarea,
   outline: none;
 }
 
+input,
+.textarea-wrapper {
+  border: var(--border-size-small) solid var(--color-form-surface04);
+  border-radius: var(--border-radius-small);
+  color: var(--color-form-default-text);
+}
+
 :host([size="small"]) input,
 :host([size="small"]) textarea,
-:host([size="small"]) .textarea-wrapper,
 :host([size="x-small"]) input,
-:host([size="x-small"]) textarea,
-:host([size="x-small"]) .textarea-wrapper {
+:host([size="x-small"]) textarea {
   font-size: var(--font-size-2);
 }
 
@@ -44,30 +48,25 @@ textarea,
 
 /* HOVER */
 input:not([readonly]):hover,
-.textarea-wrapper:hover {
+.textarea-wrapper:not(.readonly):hover {
   outline: var(--border-size-medium) solid var(--color-form-surface04);
   outline-offset: -2px;
 }
 
 /* FOCUS */
 :host:not(.active-select) input:focus:focus-visible,
-:host:not([readonly="true"]) .textarea-wrapper:focus-within {
+.textarea-wrapper:focus-within {
+  border-color: var(--color-form-active-primary);
   box-shadow: var(--shadow-focus-primary);
-}
-
-input:focus:focus-visible,
-textarea:focus:focus-visible {
-  border: var(--border-size-small) solid var(--color-form-active-primary);
   color: var(--color-form-active-primary);
 }
 
-input:focus:focus-visible:hover,
-textarea:focus:focus-visible:hover {
+:host input:focus:focus-visible:hover,
+.textarea-wrapper:not(.readonly):focus-within:hover {
   outline-color: var(--color-form-active-primary);
 }
 
-input:focus:focus-visible + .icons-wrapper,
-textarea:focus:focus-visible + .icons-wrapper {
+:host input:focus:focus-visible + .icons-wrapper {
   fill: var(--color-form-active-primary);
 }
 
@@ -120,16 +119,16 @@ textarea:focus:focus-visible + .icons-wrapper {
 
 /* READONLY */
 :host:not(.active-select) input[readonly],
-.readonly {
+.textarea-wrapper.readonly {
   border-color: var(--color-form-surface03);
   fill: var(--color-form-disabled01-icon);
   pointer-events: none;
 }
 
 /* DISABLED */
-:host([disabled]:not([disabled="false"])) input,
-:host([disabled]:not([disabled="false"])) .textarea-wrapper,
-:host([disabled]:not([disabled="false"])) z-icon {
+:host([disabled]) input,
+:host([disabled]) .textarea-wrapper,
+:host([disabled]) z-icon {
   border-color: var(--color-form-disabled03);
   box-shadow: none;
   color: var(--color-form-disabled-text);
@@ -137,7 +136,7 @@ textarea:focus:focus-visible + .icons-wrapper {
   pointer-events: none;
 }
 
-:host([disabled]:not([disabled="false"])) input:hover {
+:host([disabled]) input:hover {
   border-width: var(--border-size-small);
 }
 
@@ -171,6 +170,6 @@ label.input-label {
   text-transform: uppercase;
 }
 
-:host([disabled]:not([disabled="false"])) label.input-label {
+:host([disabled]) label.input-label {
   color: var(--color-disabled03);
 }

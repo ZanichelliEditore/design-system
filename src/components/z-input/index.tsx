@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, h} from "@stencil/core";
-import {Host, JSXBase} from "@stencil/core/internal";
+import {Fragment, Host, JSXBase} from "@stencil/core/internal";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
 import {boolean, randomId} from "../../utils/utils";
 
@@ -397,17 +397,10 @@ export class ZInput {
     }
 
     return (
-      <button
-        type="button"
-        class="icon-button input-icon"
-        tabIndex={-1}
-        aria-hidden="true"
-      >
-        <z-icon
-          name={this.icon}
-          class={this.size}
-        />
-      </button>
+      <z-icon
+        name={this.icon}
+        class={{[this.size]: true, "input-icon": true}}
+      />
     );
   }
 
@@ -420,7 +413,7 @@ export class ZInput {
     return (
       <button
         type="button"
-        class={`icon-button reset-icon ${hidden ? "hidden" : ""}`}
+        class={{"reset-icon": true, "input-icon": true, hidden}}
         aria-label="cancella il contenuto dell'input"
         onClick={() => {
           this.inputRef.value = "";
@@ -439,7 +432,7 @@ export class ZInput {
     return (
       <button
         type="button"
-        class="icon-button toggle-password-icon"
+        class="input-icon toggle-password-icon"
         disabled={this.disabled}
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
@@ -473,26 +466,25 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
-    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
 
     return (
-      <div class="text-wrapper">
+      <Fragment>
         {this.renderLabel()}
         <div
           class={{
-            ...(attributes.class as Record<string, boolean>),
+            ...(attributes.class as {[className: string]: boolean}),
             "textarea-wrapper": true,
-            "readonly": attributes.readonly as boolean,
+            "readonly": !!attributes.readonly,
           }}
         >
           <textarea
             {...attributes}
-            {...ariaLabel}
+            aria-label={this.ariaLabel || undefined}
             {...this.getRoleAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
-      </div>
+      </Fragment>
     );
   }
 
@@ -531,7 +523,6 @@ export class ZInput {
         >
           <z-icon
             name={this.checked ? "checkbox-checked" : "checkbox"}
-            aria-hidden="true"
             class={this.size}
           />
           {this.label && <span innerHTML={this.label}></span>}
@@ -569,7 +560,6 @@ export class ZInput {
         >
           <z-icon
             name={this.checked ? "radio-button-checked" : "radio-button"}
-            aria-hidden="true"
             class={this.size}
           />
           {this.label && <span innerHTML={this.label} />}
