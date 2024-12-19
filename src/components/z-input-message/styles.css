@@ -3,7 +3,7 @@
   min-height: calc(var(--space-unit) * 2.5);
   align-items: start;
   margin-top: var(--space-unit);
-  color: var(--color-text05);
+  color: var(--color-default-text);
   fill: currentcolor;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
@@ -17,15 +17,15 @@
 }
 
 :host([status="success"]) {
-  color: var(--color-text-success);
+  color: var(--color-success01);
 }
 
 :host([status="error"]) {
-  color: var(--color-text-error);
+  color: var(--color-hover-error);
 }
 
 :host([status="warning"]) {
-  color: var(--color-warning02);
+  color: var(--color-hover-warning);
 }
 
 :host(:focus) {
@@ -45,4 +45,9 @@
   --z-icon-width: 14px;
   --z-icon-height: 14px;
   --z-icon-right-margin: calc(var(--space-unit) * 0.5);
+}
+
+:host([disabled]) {
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
 }

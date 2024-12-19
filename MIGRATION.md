@@ -13,7 +13,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
   - [Refactor componente `z-book-card`](#refactor-componente-zbookcard)
   - [Aggiornamento stili link](#aggiornamento-stili-link)
-  - [Revisione token dei temi](#revisione-token-temi)
+  - [Revisione token dei temi](#revisione-token-dei-temi)
+    - [Tema default](#tema-default)
   - [Modifica token input](#modifica-token-input)
 
 - [v16.0.0](#v1600)

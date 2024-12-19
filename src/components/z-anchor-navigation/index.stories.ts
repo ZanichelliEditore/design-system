@@ -61,7 +61,10 @@ export const Default = {
         </a>
       </z-anchor-navigation>
       <div>
-        <div id="first-section">
+        <div
+          class="section"
+          id="first-section"
+        >
           <h4>First section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -81,7 +84,10 @@ export const Default = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="second-section">
+        <div
+          class="section"
+          id="second-section"
+        >
           <h4>Second section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -101,7 +107,10 @@ export const Default = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="third-section">
+        <div
+          class="section"
+          id="third-section"
+        >
           <h4>Third section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
@@ -121,7 +130,10 @@ export const Default = {
           </p>
         </div>
         <div class="separator"></div>
-        <div id="fourth-section">
+        <div
+          class="section"
+          id="fourth-section"
+        >
           <h4>Fourth section</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in

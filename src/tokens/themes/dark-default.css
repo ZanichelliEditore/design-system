@@ -1,57 +1,73 @@
 .theme-dark {
+  background: var(--color-surface01);
+
+  --shadow-focus-primary: 0 0 0 2px var(--gray900), 0 0 2px 5px var(--blue25);
+
+  /* primary */
+  --color-active-primary: var(--gray25);
+  --color-hover-primary: var(--gray100);
+  --color-pressed-primary: var(--gray25);
   --color-primary01: var(--color-white);
   --color-primary02: var(--gray800);
   --color-primary03: var(--gray700);
-  --color-hover-primary: var(--gray100);
-  --color-pressed-primary: var(--gray25);
+
+  /* secondary */
+  --color-hover-secondary: var(--red200);
   --color-secondary01: var(--red500);
   --color-secondary02: var(--red900);
   --color-secondary03: var(--red800);
-  --color-hover-secondary: var(--red200);
-  --color-active-primary: var(--gray25);
+
+  /* surface */
   --color-surface01: var(--gray900);
   --color-surface02: var(--gray700);
   --color-surface03: var(--gray300);
   --color-surface04: var(--gray100);
   --color-surface05: var(--color-white);
+
+  /* text */
   --color-default-text: var(--gray100);
+  --color-hover-text: var(--gray300);
+  --color-pressed-text: var(--gray300);
+  --color-text-inverse: var(--gray900);
+  --color-text-link-default: var(--gray100);
   --color-text02: var(--gray900);
   --color-text03: var(--gray700);
   --color-text05: var(--gray500);
-  --color-text-inverse: var(--gray900);
-  --color-pressed-text: var(--gray300);
-  --color-hover-text: var(--gray300);
-  --color-disabled01: var(--gray700);
-  --color-disabled02: var(--gray900);
-  --color-primary01-icon: var(--color-white);
+
+  /* icons */
+  --color-active-primary-icon: var(--gray300);
   --color-disabled01-icon: var(--gray700);
   --color-disabled02-icon: var(--gray900);
-  --color-pressed-icon: var(--gray300);
   --color-hover-icon: var(--gray300);
-  --color-active-primary-icon: var(--gray300);
   --color-hover-primary-icon: var(--gray300);
-  --color-default-icon: var(--gray100);
-  --color-error01: var(--red50);
-  --color-error02: var(--red50);
+  --color-pressed-icon: var(--gray300);
+  --color-primary01-icon: var(--color-white);
+
+  /* status */
   --color-danger01: var(--red50);
   --color-danger02: var(--red50);
-  --color-text-error: var(--red50);
-  --color-inverse-error: var(--red700);
-  --color-hover-error: var(--red300);
+  --color-default-icon: var(--gray100);
+  --color-disabled01: var(--gray700);
+  --color-disabled02: var(--gray900);
+  --color-error01: var(--red50);
+  --color-error02: var(--red50);
   --color-hover-danger: var(--red300);
+  --color-hover-error: var(--red300);
+  --color-hover-success: var(--green300);
+  --color-hover-warning: var(--yellow50);
+  --color-inverse-error: var(--red700);
+  --color-inverse-hover-error: var(--red50);
+  --color-inverse-hover-success: var(--green50);
+  --color-inverse-hover-warning: var(--yellow300);
+  --color-inverse-success: var(--green700);
+  --color-inverse-warning: var(--yellow700);
   --color-success01: var(--green50);
   --color-success02: var(--green50);
-  --color-inverse-success: var(--green700);
-  --color-hover-success: var(--green300);
-  --color-inverse-hover-success: var(--green50);
-  --color-inverse-hover-error: var(--red50);
+  --color-text-error: var(--red50);
   --color-warning01: var(--yellow300);
   --color-warning02: var(--yellow300);
-  --color-inverse-warning: var(--yellow700);
-  --color-hover-warning: var(--yellow50);
-  --color-inverse-hover-warning: var(--yellow300);
 
-  background: var(--color-surface01);
-
-  --shadow-focus-primary: 0 0 0 2px var(--gray800), 0 0 2px 5px var(--blue25);
+  /* forms */
+  --color-form-active-primary: var(--gray800);
+  --color-form-hover-primary: var(--gray800);
 }

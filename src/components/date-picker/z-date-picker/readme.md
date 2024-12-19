@@ -11,6 +11,8 @@
 | `datePickerId` | `date-picker-id` | unique id                                               | `string`                                                                      | `undefined`            |
 | `label`        | `label`          | z-input label                                           | `string`                                                                      | `undefined`            |
 | `mode`         | `mode`           | [Optional] datepicker mode: date, datetime, only months | `ZDatePickerMode.DATE \| ZDatePickerMode.DATE_TIME \| ZDatePickerMode.MONTHS` | `ZDatePickerMode.DATE` |
+| `name`         | `name`           | [Optional] the datepicker input name                    | `string`                                                                      | `undefined`            |
+| `value`        | `value`          | [Optional] the datepicker input value                   | `string`                                                                      | `undefined`            |
 
 
 ## Events

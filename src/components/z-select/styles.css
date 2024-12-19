@@ -16,6 +16,10 @@
   width: 100%;
 }
 
+.select-wrapper > z-input .input-icon {
+  cursor: pointer;
+}
+
 .select-wrapper > div {
   position: relative;
 }
@@ -29,10 +33,9 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
-  padding: calc(var(--space-unit) * 0.5) var(--space-unit);
-  border: var(--border-size-small) solid var(--gray200);
   border-top: none;
-  background: var(--color-surface01);
+  background: var(--color-form-background);
+  box-shadow: var(--shadow-2);
   outline: none;
 }
 
@@ -52,7 +55,7 @@
   position: relative;
   overflow: auto;
   max-height: 240px;
-  padding: calc(var(--space-unit) * 0.5);
+  padding: 0 calc(var(--space-unit) * 1.5);
   outline: none;
 
   /* Firefox scrollbar */
@@ -79,24 +82,22 @@
   background-color: var(--color-hover-primary);
 }
 
+.select-wrapper .ul-scroll-wrapper z-list z-list-element[disabled] {
+  color: var(--color-form-disabled03);
+}
+
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: calc(var(--space-unit) * 1.5);
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  column-gap: var(--space-unit);
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container .list-element-content {
-  display: block;
-  padding: calc(var(--space-unit) * 0.5) 0;
-}
-
-.select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container > z-tag {
-  margin-right: calc(var(--space-unit));
+  margin-right: auto;
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container > z-icon + .list-element-content {
-  display: block;
   padding: calc(var(--space-unit) * 0.5) var(--space-unit);
 }
 
@@ -132,7 +133,7 @@
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container .list-element-content.selected {
-  font-weight: bold;
+  font-weight: var(--font-sb);
 }
 
 .select-wrapper .ul-scroll-wrapper .no-results z-icon {
@@ -140,12 +141,12 @@
 }
 
 .z-list-group-title {
-  color: var(--gray800);
+  color: var(--color-default-text);
 }
 
 .reset-item {
   color: var(--color-primary01);
-  fill: var(--color-primary01);
+  fill: var(--color-primary01-icon);
 }
 
 .reset-item-content {
@@ -154,7 +155,7 @@
 }
 
 .reset-item.reset-item-margin .reset-item-content {
-  margin-left: calc(var(--space-unit));
+  margin-left: var(--space-unit);
 }
 
 .reset-item .reset-item-content > z-icon {

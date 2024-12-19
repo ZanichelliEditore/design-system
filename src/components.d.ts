@@ -1014,6 +1014,10 @@ export namespace Components {
     }
     interface ZInputMessage {
         /**
+          * input disabled status (optional)
+         */
+        "disabled"?: boolean;
+        /**
           * input helper message
          */
         "message": string;
@@ -4678,6 +4682,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface ZInputMessage {
+        /**
+          * input disabled status (optional)
+         */
+        "disabled"?: boolean;
         /**
           * input helper message
          */

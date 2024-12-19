@@ -1,7 +1,7 @@
 .text-wrapper > div {
   position: relative;
   z-index: 1;
-  fill: var(--gray900);
+  fill: var(--color-form-default-icon);
 }
 
 .text-wrapper > div > input {
@@ -39,7 +39,8 @@
   transform: translateY(-50%);
 }
 
-.text-wrapper .icons-wrapper > button.icon-button {
+.text-wrapper .icons-wrapper > button.input-icon {
+  display: flex;
   padding: 0;
   border: 0;
   background: none;
@@ -48,33 +49,33 @@
   pointer-events: initial;
 }
 
-.text-wrapper .icons-wrapper > button.icon-button + button.icon-button {
+.text-wrapper .icons-wrapper > .input-icon + .input-icon {
   margin-left: calc(var(--space-unit) * 0.5);
 }
 
-.text-wrapper .icons-wrapper > button.icon-button.hidden {
+.text-wrapper .icons-wrapper > button.input-icon.hidden {
   display: none;
 }
 
-.text-wrapper .icons-wrapper > button.icon-button.reset-icon,
-.text-wrapper .icons-wrapper > button.icon-button.toggle-password-icon {
+.text-wrapper .icons-wrapper > button.reset-icon,
+.text-wrapper .icons-wrapper > button.toggle-password-icon {
   cursor: pointer;
 }
 
-.text-wrapper .icons-wrapper > button.icon-button > z-icon {
+.text-wrapper .icons-wrapper > .input-icon {
   --z-icon-width: 18px;
   --z-icon-height: 18px;
 
   display: block;
 }
 
-.text-wrapper .icons-wrapper > button.icon-button > z-icon.small,
-.text-wrapper .icons-wrapper > button.icon-button > z-icon.x-small {
+.text-wrapper .icons-wrapper > .input-icon.small,
+.text-wrapper .icons-wrapper > .input-icon.x-small {
   --z-icon-width: 16px;
   --z-icon-height: 16px;
 }
 
-.text-wrapper .icons-wrapper > button.icon-button:focus {
+.text-wrapper .icons-wrapper > button.input-icon:focus {
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
 }

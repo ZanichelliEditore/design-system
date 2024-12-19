@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {boolean, containsElement, getClickedElement, handleKeyboardSubmit, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -9,7 +9,7 @@ import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, random
   scoped: true,
 })
 export class ZSelect {
-  @Element() element: HTMLZSelectElement;
+  @Element() host: HTMLZSelectElement;
 
   /** the id of the input element */
   @Prop()
@@ -95,7 +95,6 @@ export class ZSelect {
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
-    this.selectItem = this.selectItem.bind(this);
     this.handleSelectFocus = this.handleSelectFocus.bind(this);
   }
 
@@ -216,17 +215,14 @@ export class ZSelect {
     }
   }
 
-  private selectItem(item: null | SelectItem, selected: boolean): void {
-    if (item && item.disabled) {
+  private selectItem(selected: null | SelectItem): void {
+    if (selected?.disabled) {
       return;
     }
 
     this.itemsList = this.mapSelectedItemToItemsArray();
-    this.itemsList = this.itemsList.map((i: SelectItem) => {
-      i.selected = false;
-      if (i.id === item?.id) {
-        i.selected = selected;
-      }
+    this.itemsList.forEach((i: SelectItem) => {
+      i.selected = i.id === selected?.id;
 
       return i;
     });
@@ -234,6 +230,7 @@ export class ZSelect {
     this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
 
     this.emitOptionSelect();
+    this.toggleSelectUl(true);
 
     if (this.searchString) {
       this.searchString = null;
@@ -276,10 +273,7 @@ export class ZSelect {
   }
 
   private focusSelectItem(index: number): void {
-    const focusElem: HTMLLIElement = this.element.querySelector(`#${this.htmlid}_${index}`);
-    if (focusElem) {
-      focusElem.focus();
-    }
+    this.host.querySelector<HTMLLIElement>(`#${this.htmlid}_${index}`)?.focus();
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -294,7 +288,7 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.element.querySelector(`#${this.htmlid}_input`) as HTMLInputElement).focus();
+        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement).focus();
       }
     }
 
@@ -303,9 +297,7 @@ export class ZSelect {
   }
 
   private handleInputClick(e: MouseEvent | KeyboardEvent): void {
-    const cp = e.composedPath();
-    const clearIcon = cp.find((item: HTMLElement) => item.classList && item.classList.contains("reset-icon"));
-    if (clearIcon) {
+    if ((e.target as HTMLElement).closest(".reset-icon")) {
       e.stopPropagation();
 
       return;
@@ -315,6 +307,11 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
+    const clickedElement = getClickedElement();
+    if (clickedElement?.hasAttribute("disabled")) {
+      return;
+    }
+
     if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
 
@@ -325,20 +322,15 @@ export class ZSelect {
       return;
     }
 
-    const tree = getElementTree(getClickedElement());
-    const parent = tree.find((elem: HTMLElement) => {
-      return elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`;
-    });
-
-    if (!parent) {
-      this.toggleSelectUl(e instanceof MouseEvent ? true : false);
+    if (!containsElement(this.host, clickedElement)) {
+      this.toggleSelectUl(e instanceof MouseEvent);
     }
   }
 
   private scrollToLetter(letter: string): void {
-    const foundItem = this.itemsList.find((item: SelectItem) => item.name.charAt(0) === letter);
-    if (foundItem) {
-      this.focusSelectItem(this.itemsList.indexOf(foundItem));
+    const foundItem = this.itemsList.findIndex((item: SelectItem) => item.name.charAt(0) === letter);
+    if (foundItem > -1) {
+      this.focusSelectItem(foundItem);
     }
   }
 
@@ -371,7 +363,7 @@ export class ZSelect {
           this.handleInputClick(e);
         }}
         onKeyUp={(e: KeyboardEvent) => {
-          if (e.keyCode !== 13) {
+          if (e.key !== KeyboardCode.ENTER) {
             e.preventDefault();
           }
           handleKeyboardSubmit(e, this.toggleSelectUl);
@@ -397,16 +389,12 @@ export class ZSelect {
 
   private renderSelectUl(): HTMLDivElement {
     return (
-      <div
-        class={this.isOpen ? "open" : "closed"}
-        tabindex="-1"
-      >
+      <div class={this.isOpen ? "open" : "closed"}>
         <div
           class={{
             "ul-scroll-wrapper": true,
             "fixed": this.isfixed,
           }}
-          tabindex="-1"
         >
           <z-list
             role="listbox"
@@ -418,7 +406,6 @@ export class ZSelect {
             class={{
               disabled: this.disabled,
               readonly: this.readonly,
-              filled: !!this.selectedItem,
               [`input-${this.status}`]: !this.isOpen && !!this.status,
             }}
           >
@@ -472,11 +459,11 @@ export class ZSelect {
         aria-selected={item.selected ? "true" : "false"}
         id={`${this.htmlid}_${key}`}
         size={this.listSizeType()}
-        onClickItem={() => this.selectItem(item, true)}
+        onClickItem={() => this.selectItem(item)}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
         <div class="list-element-container">
-          <span
+          <div
             class={{
               "selected": !!item.selected,
               "list-element-content": true,
@@ -546,13 +533,13 @@ export class ZSelect {
   private renderNoSearchResults(): HTMLZListElementElement {
     return (
       <z-list-element
-        color="blue500"
+        color="color-primary01"
         class="no-results"
         size={this.listSizeType()}
       >
         <z-icon
           name="multiply-circle"
-          fill="blue500"
+          fill="color-primary01-icon"
         />
         {this.noresultslabel}
       </z-list-element>
@@ -569,6 +556,7 @@ export class ZSelect {
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
+        disabled={this.disabled}
       />
     );
   }
