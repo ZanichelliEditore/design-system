@@ -1,0 +1,15 @@
+.z-scrollbar-story {
+  display: flex;
+  width: 220px;
+  height: 220px;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+}
+
+.scrollbar-container {
+  overflow: auto;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+}
