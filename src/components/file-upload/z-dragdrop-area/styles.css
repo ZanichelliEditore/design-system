@@ -1,8 +1,7 @@
 :host {
   position: relative;
   display: flex;
-  width: 772px;
-  max-width: 100%;
+  width: 100%;
   height: 232px;
   flex-direction: column;
   align-items: center;
