@@ -1,15 +1,62 @@
 import {html} from "lit";
 import "./index.stories.css";
 
-export default {
+/**
+ * <p>If applied to elements with CSS property "overflow:scroll", the class will apply to both the vertical AND the horizontal scrollbars. To avoid this, use "overflow-y" instead.</p>
+ * Bear in mind that the scrollbar behaves in different ways depending on the browser: <br />
+ *    <ul>
+ *      <li>Chrome desktop + Android + MS Edge + opera:
+ *        <ul>
+ *          <li>primary color scrollbar thumb with right angles</li>
+ *          <li>gray scrollbar track</li>
+ *          <li>thumb gets darker on hover</li>
+ *          <li>thumb doesn't bounce when at end of track</li>
+ *        </ul>
+ *      </li>
+ *      <li>Safari on Mac + chromium 69 (booktab):
+ *        <ul>
+ *          <li>thumb bounces when at end of track</li>
+ *        </ul>
+ *      </li>
+ *      <li>Safari on iPad:
+ *        <ul>
+ *          <li>no scrollbars</li>
+ *        </ul>
+ *      </li>
+ *      <li>Chrome on iPad:
+ *        <ul>
+ *          <li>gray, narrower thumb</li>
+ *          <li>no track</li>
+ *        </ul>
+ *      </li>
+ *      <li>Firefox desktop:
+ *        <ul>
+ *          <li>thumb has border radius</li>
+ *          <li>no track</li>
+ *          <li>thumb gets wider on hover</li>
+ *        </ul>
+ *      </li>
+ *      <li>Firefox on Android:
+ *        <ul>
+ *          <li>th scrollbar disappears if you're not actively scrolling</li>
+ *          <li>thumb has border radius</li>
+ *          <li>no track</li>
+ *        </ul>
+ *      </li>
+ *      <li>Samsung browser:
+ *        <ul>
+ *          <li>no side margins</li>
+ *        </ul>
+ *      </li>
+ *    </ul>
+ */
+const StoryMeta = {
   title: "ZScrollbar",
+}
 
-  parameters: {
-    layout: "fullscreen",
-  },
-};
+export default StoryMeta;
 
-export const ZScrollbar = {
+export const Default = {
   render: (args) => html`
     <div class="z-scrollbar-story">
       <div class="scrollbar-container themes ${args.theme} z-scrollbar">
@@ -25,4 +72,4 @@ export const ZScrollbar = {
       </div>
     </div>
   `,
-};
+}
