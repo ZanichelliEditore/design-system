@@ -52,7 +52,7 @@ import "./index.stories.css";
  */
 const StoryMeta = {
   title: "ZScrollbar",
-}
+};
 
 export default StoryMeta;
 
@@ -72,4 +72,4 @@ export const Default = {
       </div>
     </div>
   `,
-}
+};

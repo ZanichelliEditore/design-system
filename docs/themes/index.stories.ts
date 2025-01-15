@@ -27,7 +27,8 @@ export const Themes = {
   render: (args) => html`
     <div class="colors-story themes ${args.theme}">
       <p>
-        Currently available color themes: <strong>default</strong>, <strong>black-yellow</strong>, <strong>dark</strong>, and <strong>red</strong>
+        Currently available color themes: <strong>default</strong>, <strong>black-yellow</strong>,
+        <strong>dark</strong>, and <strong>red</strong>
       </p>
       <p>On this page you can see the value of the color tokens for each theme, by switching it from the controls.</p>
       <div class="tokens-container">
