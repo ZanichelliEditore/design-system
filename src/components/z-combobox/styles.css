@@ -111,7 +111,6 @@
   overflow: auto;
   max-height: 235px;
   padding: 0;
-  scrollbar-color: var(--color-primary01) transparent;
 }
 
 :host > div.open > div.open-combo-data > z-input {
@@ -126,14 +125,23 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
-  border-radius: var(--border-radius);
+  width: 6px;
+  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
 }
 
 ::-webkit-scrollbar-thumb {
-  width: 10px;
   background-color: var(--color-primary01);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-primary);
+}
+
+/* Firefox scrollbar */
+@supports not selector(::-webkit-scrollbar-track) {
+  :host {
+    scrollbar-color: var(--color-primary01) transparent;
+  }
 }
 
 :host > div.open > z-input {
@@ -155,7 +163,6 @@
   overflow: auto;
   max-height: 180px;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
-  scrollbar-color: var(--color-primary01) transparent;
 }
 
 :host > div.open > div.open-combo-data > div > div.search > div {

@@ -479,6 +479,10 @@ export class ZInput {
         >
           <textarea
             {...attributes}
+            class={{
+              ...(attributes.class as {[className: string]: boolean}),
+              "z-scrollbar": true,
+            }}
             aria-label={this.ariaLabel || undefined}
             {...this.getRoleAttribute()}
           ></textarea>
