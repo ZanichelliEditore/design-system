@@ -227,15 +227,23 @@ z-list-element > .list-element .item.ellipsis {
   overflow: hidden;
 }
 
+/* Si può cancellare quello sotto per list-item-1 ?? */
 z-list-element .list-element::after {
   position: absolute;
-  top: 8px;
+  top: 0;
   right: -1px;
   display: block;
   width: 100%;
   height: 40px;
   content: "";
   transform: translateX(-100%);
+}
+
+/* per rimuovere il fottuto padding del z-list-element (da faresolo quando la prop hasTreItemè true */
+:host::part(list-item-container) {
+  display: block;
+  min-height: unset;
+  padding: 0;
 }
 
 z-list-element #list-item-1.list-element::after {
