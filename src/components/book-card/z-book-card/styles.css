@@ -53,7 +53,7 @@
 
 :host > article .main-content .cover ::slotted([slot="preview"]) {
   min-height: 80px;
-  max-height: 336px;
+  max-height: calc(336px - var(--space-unit) * 2);
 }
 
 :host > article .main-content .card-info {
@@ -236,9 +236,9 @@
   margin: 0;
 }
 
-:host > article .landscape .main-content .cover ::slotted([slot="preview"]) {
-  min-height: 80px;
-  max-height: 256px;
+:host > article.landscape .main-content .cover ::slotted([slot="preview"]) {
+  max-height: 80px;
+  max-height: calc(256px - var(--space-unit) * 2);
 }
 
 :host > article.landscape .main-content .card-info .book-data {
