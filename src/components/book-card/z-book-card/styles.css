@@ -45,7 +45,6 @@
   padding: var(--space-unit);
   background-color: var(--avatar-C19);
   color: var(--color-white);
-  text-align: center;
 }
 
 :host > article .main-content .cover ::slotted([slot="preview"]) {
