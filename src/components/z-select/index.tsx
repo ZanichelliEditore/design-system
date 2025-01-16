@@ -505,10 +505,9 @@ export class ZSelect {
 
       if (this.hasTreeItems) {
         return this.renderSelectTreeItems(item, itemKey, lastItem);
-        // eslint-disable-next-line
-      } else {
-        return this.renderItem(item, itemKey, lastItem);
       }
+
+      return this.renderItem(item, itemKey, lastItem);
     });
   }
 
