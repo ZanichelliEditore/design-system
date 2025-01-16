@@ -215,6 +215,7 @@ export class ZBookCard {
           }}
           aria-hidden="true"
         />
+        <slot name="preview"></slot>
       </div>
     );
   }

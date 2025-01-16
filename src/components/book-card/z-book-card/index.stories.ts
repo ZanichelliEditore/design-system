@@ -90,6 +90,43 @@ export const Card = {
     ></z-book-card>`,
 } satisfies Story;
 
+export const WithPreviewSlot = {
+  render: (args) =>
+    html`<z-book-card
+      variant=${args.variant}
+      cover=${args.cover}
+      authors=${args.authors}
+      opera-title=${args.operaTitle}
+      volume-title=${args.volumeTitle}
+      isbn=${args.isbn}
+      isbn-label=${args.isbnLabel}
+      edi=${JSON.stringify(args.edi)}
+      annotated=${JSON.stringify(args.annotated)}
+      teacher-version=${JSON.stringify(args.teacherVersion)}
+      adoption=${args.adoption}
+      catalog-url=${args.catalogUrl}
+      ebook-url=${args.ebookUrl}
+      fallback-cover=${args.fallbackCover}
+      opera-title-html-tag=${args.operaTitleHtmlTag}
+      class=${args.theme}
+    >
+      <div
+        slot="preview"
+        style="
+            font-family: IBM Plex Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0.052px;
+            text-transform: uppercase;
+          "
+      >
+        Anteprima del libro senza risorse multimediali
+      </div>
+    </z-book-card>`,
+} satisfies Story;
+
 export const WithSlottedContent = {
   render: (args) =>
     html`<z-book-card

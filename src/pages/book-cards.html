@@ -79,6 +79,69 @@
 
       <z-book-card
         variant="landscape"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40066.9788808930552.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        isbn="9788808930552"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
+      >
+        <div
+          slot="preview"
+          style="
+            font-family: IBM Plex Sans;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0.052px;
+            text-transform: uppercase;
+          "
+        >
+          Anteprima del libro senza risorse multimediali
+        </div>
+        <div
+          slot="apps"
+          style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6"
+        >
+          <z-book-card-app
+            name="Risorse per l'insegnante"
+            link="http://localhost"
+            laz="false"
+            style="
+              width: 315px;
+              height: 47px;
+              border-right: 1px solid #d6d6d6;
+              border-bottom: 1px solid #d6d6d6;
+              --z-book-card-app-padding-x: 16px;
+            "
+          ></z-book-card-app>
+          <z-book-card-app
+            logo="https://placehold.co/24"
+            name="Tutor di matematica"
+            info="test test"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
+          <z-book-card-app
+            name="Intelligenza Artificiale"
+            info="sadsa"
+            logo="https://appswitcher-configurations.s3.eu-west-1.amazonaws.com/icons/6752c3a3478ba_sito_del_libro.svg"
+            link="http://localhost"
+            style="width: 315px; height: 47px; border-right: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
+          <z-book-card-app
+            logo="https://placehold.co/24"
+            name="Scrittura"
+            link="http://localhost"
+            style="width: 315px; height: 47px; --z-book-card-app-padding-x: 16px"
+          ></z-book-card-app>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="landscape"
         cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         opera-title="Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro"
@@ -170,6 +233,49 @@
 
       <z-book-card
         variant="portrait"
+        cover="https://s3-eu-west-1.amazonaws.com/staticmy.zanichelli.it/copertine/dashboard/m40001.9788808404619.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi, Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro Matematica.azzurro"
+        volume-title="Volume 3 con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor con Tutor"
+        isbn="9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552 9788808930552"
+        edi='{"status":"active","interactive":true}'
+        annotated='{"status":"disabled","interactive":true}'
+        teacher-version='{"status":"active","interactive":false}'
+        adoption="true"
+        catalog-url="https://www.zanichelli.it"
+        ebook-url="https://my.zanichelli.it"
+      >
+        <div slot="preview">
+          <div
+            style="
+              font-family: IBM Plex Sans;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 20px;
+              letter-spacing: 0.052px;
+              text-transform: uppercase;
+            "
+          >
+            Anteprima del libro senza risorse multimediali
+          </div>
+          <div
+            style="
+              font-family: IBM Plex Sans;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 18px; /* 128.571% */
+              letter-spacing: 0.052px;
+            "
+          >
+            Capitolo 8 - Le frazioni algebriche e le equazioni fratte
+          </div>
+        </div>
+      </z-book-card>
+
+      <z-book-card
+        variant="portrait"
         cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
         authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
         opera-title="Matematica.azzurro"
@@ -177,6 +283,19 @@
         isbn="9788808930552"
         ebook-url="https://my.zanichelli.it"
       >
+        <div slot="ebook">EBOOK SLOT</div>
+      </z-book-card>
+
+      <z-book-card
+        variant="portrait"
+        cover="http://dizionari.zanichelli.it/images/opere/ZING2024/ZING2024_copertina.jpg"
+        authors="Massimo Bergamini, Anna Trifone, Graziella Barozzi"
+        opera-title="Matematica.azzurro"
+        volume-title="Volume 3 con Tutor"
+        isbn="9788808930552"
+        ebook-url="https://my.zanichelli.it"
+      >
+        <div slot="preview"></div>
         <div slot="ebook">EBOOK SLOT</div>
       </z-book-card>
     </div>
