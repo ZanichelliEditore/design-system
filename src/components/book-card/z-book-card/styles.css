@@ -40,14 +40,11 @@
 ::slotted([slot="preview"]) {
   position: absolute;
   bottom: 0;
-  display: flex;
+  overflow: hidden;
   width: calc(100% - var(--space-unit) * 2);
-  flex-direction: column;
-  justify-content: center;
   padding: var(--space-unit);
   background-color: var(--avatar-C19);
   color: var(--color-white);
-  gap: calc(var(--space-unit) / 4);
   text-align: center;
 }
 
@@ -237,7 +234,7 @@
 }
 
 :host > article.landscape .main-content .cover ::slotted([slot="preview"]) {
-  max-height: 80px;
+  min-height: 80px;
   max-height: calc(256px - var(--space-unit) * 2);
 }
 
