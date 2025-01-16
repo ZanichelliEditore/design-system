@@ -524,6 +524,7 @@ export class ZSelect {
         // onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
       >
         <div
+          id={`list-item-${key}`}
           class="list-element"
           tabIndex={0}
           onClick={() => this.selectItem(item)}

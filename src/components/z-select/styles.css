@@ -230,7 +230,18 @@ z-list-element > .list-element .item.ellipsis {
 z-list-element .list-element::after {
   position: absolute;
   top: 8px;
-  right: -2px;
+  right: -1px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  content: "";
+  transform: translateX(-100%);
+}
+
+z-list-element #list-item-1.list-element::after {
+  position: absolute;
+  top: 0;
+  right: -1px;
   display: block;
   width: 100%;
   height: 40px;
