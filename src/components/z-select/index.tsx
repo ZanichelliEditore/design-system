@@ -67,6 +67,10 @@ export class ZSelect {
   @Prop()
   hasGroupItems?: boolean;
 
+  /** */
+  @Prop()
+  hasTreeItems?: boolean;
+
   /** When fixed, it occupies space and pushes down next elements. */
   @Prop()
   isfixed?: boolean = false;
@@ -485,7 +489,8 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+  // eslint-disable-next-line
+  private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
@@ -498,8 +503,64 @@ export class ZSelect {
       const lastItem = array.length === key + 1;
       const itemKey = this.resetItem ? key + 1 : key;
 
-      return this.renderItem(item, itemKey, lastItem);
+      if (this.hasTreeItems) {
+        return this.renderSelectTreeItems(item, itemKey, lastItem);
+        // eslint-disable-next-line
+      } else {
+        return this.renderItem(item, itemKey, lastItem);
+      }
     });
+  }
+
+  private renderSelectTreeItems(item: SelectItem, key: number, divider?: boolean): HTMLZListElementElement[] {
+    const hasDivider = divider || !item.children?.length;
+
+    return (
+      <z-list-element
+        id={`list-item-${this.htmlid}-${key}`}
+        tabIndex={0}
+        role="option"
+        dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
+        // onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
+      >
+        <div
+          class="list-element"
+          tabIndex={0}
+          onClick={() => this.selectItem(item)}
+          onKeyDown={() => this.selectItem(item)}
+          onMouseEnter={(e: MouseEvent) => {
+            const currentElement = e.target as HTMLElement;
+            currentElement.classList.add("hovered");
+          }}
+          onMouseLeave={(e: MouseEvent) => {
+            const currentElement = e.target as HTMLElement;
+            currentElement.classList.contains("hovered") && currentElement.classList.remove("hovered");
+          }}
+        >
+          <span class="item ellipsis">
+            {item?.icon && (
+              <z-icon
+                class="item-icon"
+                name={item.icon}
+              />
+            )}
+            <span
+              class="item-label"
+              title={item.name}
+              innerHTML={item.name}
+            />
+          </span>
+          {item.icon && <z-tag icon={item.icon}></z-tag>}
+        </div>
+        {item.children && item.children.length > 0 ? (
+          <z-list>
+            <div class="children-node">
+              {item.children.map((child, index) => this.renderSelectTreeItems(child, index, false))}
+            </div>
+          </z-list>
+        ) : null}
+      </z-list-element>
+    );
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {

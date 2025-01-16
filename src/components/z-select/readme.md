@@ -11,6 +11,7 @@
 | `autocomplete`   | `autocomplete`    | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
 | `disabled`       | `disabled`        | the input is disabled                                                          | `boolean`                                                         | `false`              |
 | `hasGroupItems`  | `has-group-items` |                                                                                | `boolean`                                                         | `undefined`          |
+| `hasTreeItems`   | `has-tree-items`  |                                                                                | `boolean`                                                         | `undefined`          |
 | `htmlid`         | `htmlid`          | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |
 | `htmltitle`      | `htmltitle`       | the input html title (optional)                                                | `string`                                                          | `undefined`          |
 | `isfixed`        | `isfixed`         | When fixed, it occupies space and pushes down next elements.                   | `boolean`                                                         | `false`              |

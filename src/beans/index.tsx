@@ -194,6 +194,7 @@ export type SelectItem = {
   icon?: string;
   disabled?: boolean;
   category?: string;
+  children?: SelectItem[];
 };
 
 export enum ThemeVariant {
