@@ -187,25 +187,57 @@ export class ZSelect {
 
   private filterItems(searchString: string): void {
     const prevList = this.mapSelectedItemToItemsArray();
+
     if (!searchString?.length) {
       this.itemsList = prevList;
+      return;
+    }
+
+    if (this.hasTreeItems) {
+      this.itemsList = this.filterTree(prevList, searchString);
     } else {
       this.itemsList = prevList
-        .filter((item: SelectItem) => {
-          return item.name.toUpperCase().includes(searchString.toUpperCase());
-        })
+        .filter((item: SelectItem) => item.name.toUpperCase().includes(searchString.toUpperCase()))
         .map((item: SelectItem) => {
-          const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
-          const end = start + searchString.length;
-          const newName =
-            item.name.substring(0, start) +
-            `<strong>${item.name.substring(start, end)}</strong>` +
-            item.name.substring(end, item.name.length);
-          item.name = newName;
-
+          item.name = this.getHighlightedText(item.name, searchString);
           return item;
         });
     }
+  }
+
+  private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
+    return items
+      .map((item) => {
+        const match = item.name.toUpperCase().includes(searchString.toUpperCase());
+
+        const newItem: SelectItem = {...item};
+
+        if (newItem.children && newItem.children.length > 0) {
+          newItem.children = this.filterTree(newItem.children, searchString);
+        }
+
+        if (match) {
+          newItem.name = this.getHighlightedText(newItem.name, searchString);
+        }
+
+        if (match || (newItem.children && newItem.children.length > 0)) {
+          return newItem;
+        }
+
+        return null;
+      })
+      .filter((item) => item !== null) as SelectItem[];
+  }
+
+  private getHighlightedText(text: string, search: string): string {
+    const upperText = text.toUpperCase();
+    const upperSearch = search.toUpperCase();
+    const start = upperText.indexOf(upperSearch);
+
+    if (start === -1) return text;
+
+    const end = start + search.length;
+    return text.substring(0, start) + `<strong>${text.substring(start, end)}</strong>` + text.substring(end);
   }
 
   private hasAutocomplete(): boolean {
