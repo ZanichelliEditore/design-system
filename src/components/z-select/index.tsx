@@ -105,7 +105,8 @@ export class ZSelect {
   @Watch("items")
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
+
+    this.selectedItem = this.findSelectedItem(this.itemsList);
   }
 
   @Listen("ariaDescendantFocus")
@@ -135,7 +136,12 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItem = this.itemsList.find((item: SelectItem) => values.includes(item.id));
+    // Per la struttura ad albero, aggiorniamo ricorsivamente la selezione
+    this.itemsList = this.getInitialItemsArray();
+    if (values.length) {
+      this.updateSelection(this.itemsList, values[0]);
+    }
+    this.selectedItem = this.findSelectedItem(this.itemsList);
   }
 
   /** Emitted on select option selection, returns select id, selected item id */
@@ -256,20 +262,42 @@ export class ZSelect {
     }
   }
 
+  private updateSelection(items: SelectItem[], selectedId: string): void {
+    items.forEach((item) => {
+      item.selected = item.id === selectedId;
+      if (item.children && item.children.length > 0) {
+        this.updateSelection(item.children, selectedId);
+      }
+    });
+  }
+
+  private findSelectedItem(items: SelectItem[]): SelectItem | null {
+    for (const item of items) {
+      if (item.selected) {
+        return item;
+      }
+      if (item.children && item.children.length > 0) {
+        const found = this.findSelectedItem(item.children);
+        if (found) {
+          return found;
+        }
+      }
+    }
+    return null;
+  }
+
   private selectItem(selected: null | SelectItem): void {
     if (selected?.disabled) {
       return;
     }
 
-    this.itemsList = this.mapSelectedItemToItemsArray();
-    this.itemsList.forEach((i: SelectItem) => {
-      i.selected = i.id === selected?.id;
+    this.itemsList = this.getInitialItemsArray();
 
-      return i;
-    });
+    if (selected) {
+      this.updateSelection(this.itemsList, selected.id);
+    }
 
-    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
-
+    this.selectedItem = this.findSelectedItem(this.itemsList);
     this.emitOptionSelect();
     this.toggleSelectUl(true);
 
@@ -526,7 +554,6 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  // eslint-disable-next-line
   private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
@@ -557,7 +584,6 @@ export class ZSelect {
         tabIndex={0}
         role="option"
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
-        // onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
       >
         <div
           id={`list-item-${key}`}
@@ -582,7 +608,10 @@ export class ZSelect {
               />
             )}
             <span
-              class="item-label"
+              class={{
+                "item-label": true,
+                "selected": !!item.selected, // Aggiungi la classe "selected" se l'item è selezionato
+              }}
               title={item.name}
               innerHTML={item.name}
             />

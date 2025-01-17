@@ -266,3 +266,7 @@ z-list-element > .list-element:hover::after {
   background-color: var(--color-background);
   cursor: pointer;
 }
+
+.item-label.selected {
+  font-weight: bold;
+}
