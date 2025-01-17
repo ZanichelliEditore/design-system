@@ -283,6 +283,7 @@ export class ZSelect {
         }
       }
     }
+
     return null;
   }
 
@@ -554,6 +555,7 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
+  //eslint-disable-next-line
   private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
@@ -584,6 +586,7 @@ export class ZSelect {
         tabIndex={0}
         role="option"
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
+        // onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
       >
         <div
           id={`list-item-${key}`}
@@ -610,7 +613,7 @@ export class ZSelect {
             <span
               class={{
                 "item-label": true,
-                "selected": !!item.selected, // Aggiungi la classe "selected" se l'item è selezionato
+                "selected": !!item.selected,
               }}
               title={item.name}
               innerHTML={item.name}
