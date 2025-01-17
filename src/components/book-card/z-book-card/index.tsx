@@ -5,6 +5,7 @@ import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, Contr
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
  * @slot ebook - main action slot on the card (as default, it shows laZ ebook link)
  * @slot apps - list of card-related apps
+ * @slot coverOverlay - to be shown on top of book cover
  */
 @Component({
   tag: "z-book-card",
@@ -215,6 +216,7 @@ export class ZBookCard {
           }}
           aria-hidden="true"
         />
+        <slot name="coverOverlay"></slot>
       </div>
     );
   }
