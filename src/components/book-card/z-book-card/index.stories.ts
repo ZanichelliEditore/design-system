@@ -90,7 +90,7 @@ export const Card = {
     ></z-book-card>`,
 } satisfies Story;
 
-export const WithPreviewSlot = {
+export const WithcoverOverlaySlot = {
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
@@ -111,7 +111,7 @@ export const WithPreviewSlot = {
       class=${args.theme}
     >
       <div
-        slot="preview"
+        slot="coverOverlay"
         style="
             font-family: IBM Plex Sans;
             font-size: 14px;

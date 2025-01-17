@@ -37,19 +37,20 @@
   align-self: end;
 }
 
-::slotted([slot="preview"]) {
+::slotted([slot="coverOverlay"]) {
   position: absolute;
   bottom: 0;
   overflow: hidden;
-  width: calc(100% - var(--space-unit) * 2);
+  width: 100%;
+  box-sizing: border-box;
   padding: var(--space-unit);
   background-color: var(--avatar-C19);
   color: var(--color-white);
 }
 
-:host > article .main-content .cover ::slotted([slot="preview"]) {
+:host > article .main-content .cover ::slotted([slot="coverOverlay"]) {
   min-height: 80px;
-  max-height: calc(336px - var(--space-unit) * 2);
+  max-height: 336px;
 }
 
 :host > article .main-content .card-info {
@@ -232,9 +233,9 @@
   margin: 0;
 }
 
-:host > article.landscape .main-content .cover ::slotted([slot="preview"]) {
+:host > article.landscape .main-content .cover ::slotted([slot="coverOverlay"]) {
   min-height: 80px;
-  max-height: calc(256px - var(--space-unit) * 2);
+  max-height: 256px;
 }
 
 :host > article.landscape .main-content .card-info .book-data {
