@@ -190,6 +190,7 @@ export class ZSelect {
 
     if (!searchString?.length) {
       this.itemsList = prevList;
+
       return;
     }
 
@@ -200,6 +201,7 @@ export class ZSelect {
         .filter((item: SelectItem) => item.name.toUpperCase().includes(searchString.toUpperCase()))
         .map((item: SelectItem) => {
           item.name = this.getHighlightedText(item.name, searchString);
+
           return item;
         });
     }
@@ -234,9 +236,12 @@ export class ZSelect {
     const upperSearch = search.toUpperCase();
     const start = upperText.indexOf(upperSearch);
 
-    if (start === -1) return text;
+    if (start === -1) {
+      return text;
+    }
 
     const end = start + search.length;
+
     return text.substring(0, start) + `<strong>${text.substring(start, end)}</strong>` + text.substring(end);
   }
 
