@@ -582,11 +582,12 @@ export class ZSelect {
 
     return (
       <z-list-element
+        size={ListSize.NONE}
         id={`list-item-${this.htmlid}-${key}`}
-        tabIndex={0}
+        tabindex={item.disabled || !this.isOpen ? -1 : 0}
         role="option"
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
-        // onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
         <div
           id={`list-item-${key}`}
