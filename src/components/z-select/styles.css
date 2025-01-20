@@ -263,6 +263,7 @@ z-list-element .list-element.focused.hovered::after {
 
 z-list-element > .list-element:hover,
 z-list-element > .list-element:hover::after {
+  z-index: -1;
   background-color: var(--color-background);
   cursor: pointer;
 }

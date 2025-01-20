@@ -589,12 +589,12 @@ export class ZSelect {
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
-        <div
+        <div  
           id={`list-item-${key}`}
           class="list-element"
-          tabIndex={0}
+          tabIndex={item.disabled || !this.isOpen ? -1 : 0}
           onClick={() => this.selectItem(item)}
-          onKeyDown={() => this.selectItem(item)}
+          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
           onMouseEnter={(e: MouseEvent) => {
             const currentElement = e.target as HTMLElement;
             currentElement.classList.add("hovered");
