@@ -703,4 +703,91 @@ describe("Suite test ZSelect", () => {
         </z-select>
       `);
   });
+
+  it("Test render ZSelect con alberatura", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select
+      htmlid="checkid"
+      placeholder="select here"
+      label="default"
+      items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false,"children":[{"id":"item_0_1","name":"sotto elemento 1","selected":false},{"id":"item_0_2","name":"sotto elemento 2","selected":false}]},{"id":"item_1","name":"primo elemento","selected":false}]'
+    ></z-select>`,
+    });
+
+    page.rootInstance.isOpen = true;
+    await page.waitForChanges();
+
+    expect(page.root).toEqualHtml(`
+    <z-select
+      htmlid="checkid"
+      placeholder="select here"
+      label="default"
+      items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false,"children":[{"id":"item_0_1","name":"sotto elemento 1","selected":false},{"id":"item_0_2","name":"sotto elemento 2","selected":false}]},{"id":"item_1","name":"primo elemento","selected":false}]'
+    >
+      <div class="select-wrapper">
+        <z-input
+          class="cursor-select active-select"
+          label="default"
+          id="checkid_input"
+          htmlid="checkid_select_input"
+          placeholder="select here"
+          icon="caret-up"
+          readonly=""
+          aria-label=""
+          aria-autocomplete="none"
+          aria-expanded="true"
+          aria-controls="checkid_list"
+          role="combobox"
+          size="big"
+        ></z-input>
+        <div class="open">
+          <div class="ul-scroll-wrapper">
+            <z-list
+              role="listbox"
+              aria-label="default"
+              tabindex="0"
+              id="checkid_list"
+              size="medium"
+            >
+              <z-list-element
+                clickable=""
+                aria-selected="false"
+                dividertype="element"
+                role="option"
+                tabindex="0"
+                class=""
+                id="checkid_0"
+                size="medium"
+              >
+                <div class="list-element-container">
+                  <div class="list-element-content">
+                    SELECT HERE questa opzione con etichetta lunga lunghissima
+                  </div>
+                </div>
+              </z-list-element>
+              <z-list-element
+                clickable=""
+                aria-selected="false"
+                dividertype="header"
+                role="option"
+                tabindex="0"
+                class=""
+                id="checkid_1"
+                size="medium"
+              >
+                <div class="list-element-container">
+                  <div class="list-element-content">
+                    primo elemento
+                  </div>
+                </div>
+              </z-list-element>
+            </z-list>
+          </div>
+        </div>
+        <z-input-message class="big"></z-input-message>
+      </div>
+    </z-select>
+  `);
+  });
 });
