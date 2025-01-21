@@ -97,6 +97,24 @@ export class ZSelect {
 
   private itemsList: SelectItem[] = [];
 
+  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
+    const flatItems: {item: SelectItem; key: number}[] = [];
+    let index = 0;
+
+    function flatten(items: SelectItem[]): void {
+      items.forEach((item) => {
+        flatItems.push({item, key: index++});
+        if (item.children) {
+          flatten(item.children);
+        }
+      });
+    }
+
+    flatten(items);
+
+    return flatItems;
+  }
+
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.handleSelectFocus = this.handleSelectFocus.bind(this);
@@ -321,29 +339,33 @@ export class ZSelect {
       this.toggleSelectUl();
     }
 
-    let index: number;
+    const flatItems = this.flattenTreeItems(this.itemsList);
+
+    const currentIndex = flatItems.findIndex((item) => item.key === key);
+    let newIndex: number;
 
     if (this.resetItem) {
       if (e.key === KeyboardCode.ARROW_DOWN) {
-        index = key + 1 === this.itemsList.length + 1 ? +!showResetIcon : key + 1;
+        newIndex = currentIndex + 1 === flatItems.length + 1 ? +!showResetIcon : currentIndex + 1;
       } else if (e.key === KeyboardCode.ARROW_UP) {
-        index = key <= +!showResetIcon ? this.itemsList.length : key - 1;
+        newIndex = currentIndex <= +!showResetIcon ? flatItems.length - 1 : currentIndex - 1;
       }
     }
 
     if (!this.resetItem) {
       if (e.key === KeyboardCode.ARROW_DOWN) {
-        index = key + 1 === this.itemsList.length ? 0 : key + 1;
+        newIndex = currentIndex + 1 === flatItems.length ? 0 : currentIndex + 1;
       } else if (e.key === KeyboardCode.ARROW_UP) {
-        index = key <= 0 ? this.itemsList.length - 1 : key - 1;
+        newIndex = currentIndex <= 0 ? flatItems.length - 1 : currentIndex - 1;
       }
     }
 
-    this.focusSelectItem(index);
+    const newKey = flatItems[newIndex].key;
+    this.focusSelectItem(newKey);
   }
 
-  private focusSelectItem(index: number): void {
-    this.host.querySelector<HTMLLIElement>(`#${this.htmlid}_${index}`)?.focus();
+  private focusSelectItem(key: number): void {
+    this.host.querySelector<HTMLLIElement>(`#${this.htmlid}_${key}`)?.focus();
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -570,31 +592,30 @@ export class ZSelect {
       const itemKey = this.resetItem ? key + 1 : key;
 
       if (this.hasTreeItems) {
-        return this.renderSelectTreeItems(item, itemKey, lastItem);
+        return this.renderTreeItems(item, itemKey, lastItem);
       }
 
       return this.renderItem(item, itemKey, lastItem);
     });
   }
 
-  private renderSelectTreeItems(item: SelectItem, key: number, divider?: boolean): HTMLZListElementElement[] {
+  private renderTreeItems(item: SelectItem, key: number, divider?: boolean): HTMLZListElementElement[] {
     const hasDivider = divider || !item.children?.length;
 
     return (
       <z-list-element
         size={ListSize.NONE}
-        id={`list-item-${this.htmlid}-${key}`}
-        tabindex={item.disabled || !this.isOpen ? -1 : 0}
-        role="option"
+        id={`${this.htmlid}_${key}`}
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
+        tabIndex={0}
+        role="option"
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
       >
-        <div  
-          id={`list-item-${key}`}
+        <div
+          id={`${this.htmlid}-${key}`}
           class="list-element"
-          tabIndex={item.disabled || !this.isOpen ? -1 : 0}
+          tabIndex={-1}
           onClick={() => this.selectItem(item)}
-          onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
           onMouseEnter={(e: MouseEvent) => {
             const currentElement = e.target as HTMLElement;
             currentElement.classList.add("hovered");
@@ -625,7 +646,7 @@ export class ZSelect {
         {item.children && item.children.length > 0 ? (
           <z-list>
             <div class="children-node">
-              {item.children.map((child, index) => this.renderSelectTreeItems(child, index, false))}
+              {item.children.map((child, index) => this.renderTreeItems(child, index, false))}
             </div>
           </z-list>
         ) : null}

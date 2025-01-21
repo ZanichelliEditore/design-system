@@ -218,7 +218,7 @@ z-list-element > .list-element {
   cursor: pointer;
 }
 
-z-list-element > .list-element:focus-visible {
+z-list-element > .list-element:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -270,4 +270,9 @@ z-list-element > .list-element:hover::after {
 
 .item-label.selected {
   font-weight: bold;
+}
+
+z-list-element:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
