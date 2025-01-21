@@ -55,6 +55,10 @@ export class ZBookCard {
   @Prop()
   teacherVersion?: BookCardTag | string;
 
+  /** [optional] Show reflowable description */
+  @Prop()
+  reflowable?: boolean = false;
+
   /** [optional] Show adoption badge */
   @Prop()
   adoption?: boolean = false;
@@ -290,7 +294,7 @@ export class ZBookCard {
                           <span class="laz">laZ</span> Ebook
                         </div>
                       </div>
-                      {this.variant === BookCardVariant.LANDSCAPE && (
+                      {this.variant === BookCardVariant.LANDSCAPE && this.reflowable && (
                         <div class="body-5">
                           Anche nella versione libro liquido con{" "}
                           <button
