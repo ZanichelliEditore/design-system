@@ -97,24 +97,6 @@ export class ZSelect {
 
   private itemsList: SelectItem[] = [];
 
-  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
-    const flatItems: {item: SelectItem; key: number}[] = [];
-    let index = 0;
-
-    function flatten(items: SelectItem[]): void {
-      items.forEach((item) => {
-        flatItems.push({item, key: index++});
-        if (item.children) {
-          flatten(item.children);
-        }
-      });
-    }
-
-    flatten(items);
-
-    return flatItems;
-  }
-
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
     this.handleSelectFocus = this.handleSelectFocus.bind(this);
@@ -322,6 +304,24 @@ export class ZSelect {
     if (this.searchString) {
       this.searchString = null;
     }
+  }
+
+  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
+    const flatItems: {item: SelectItem; key: number}[] = [];
+    let index = 0;
+
+    function flatten(items: SelectItem[]): void {
+      items.forEach((item) => {
+        flatItems.push({item, key: index++});
+        if (item.children) {
+          flatten(item.children);
+        }
+      });
+    }
+
+    flatten(items);
+
+    return flatItems;
   }
 
   private arrowsSelectNav(e: KeyboardEvent, key: number): void {
