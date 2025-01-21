@@ -259,5 +259,6 @@
 }
 
 :host > article.landscape .main-content .card-info .ebook-container .ebook {
+  height: 60px;
   padding: var(--space-unit);
 }
