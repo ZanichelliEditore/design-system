@@ -154,7 +154,6 @@ export class ZSelect {
       values = value;
     }
 
-    // Per la struttura ad albero, aggiorniamo ricorsivamente la selezione
     this.itemsList = this.getInitialItemsArray();
     if (values.length) {
       this.updateSelection(this.itemsList, values[0]);
