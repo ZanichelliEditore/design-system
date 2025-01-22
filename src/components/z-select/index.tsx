@@ -523,7 +523,7 @@ export class ZSelect {
         tabindex="0"
         aria-selected="false"
         id={`${this.htmlid}_${this.resetItem ? "0" : "none"}`}
-        size={this.listSizeType()}
+        size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         onClickItem={() => {
           this.selectedItem = null;
           this.searchString = null;
@@ -531,7 +531,12 @@ export class ZSelect {
         }}
         onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
       >
-        <div class="reset-item-content">
+        <div
+          class={{
+            "reset-item-content": true,
+            "tree-list-reset-item": this.hasTreeItems,
+          }}
+        >
           <z-icon name="multiply-circled" />
           <span>{this.resetItem}</span>
         </div>

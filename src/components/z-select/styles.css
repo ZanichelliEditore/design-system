@@ -166,6 +166,10 @@
   display: none;
 }
 
+.tree-list-reset-item {
+  padding: var(--space-unit) 0;
+}
+
 z-list-element {
   position: relative;
   display: block;
@@ -261,7 +265,7 @@ z-list-element:focus {
 .item.ellipsis {
   display: inline-block;
   overflow: hidden;
-  width: 200px;
+  max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
