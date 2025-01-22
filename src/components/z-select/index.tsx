@@ -617,13 +617,23 @@ export class ZSelect {
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
         tabIndex={0}
         role="option"
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+        onKeyDown={(e: KeyboardEvent) => {
+          this.arrowsSelectNav(e, key);
+          if (e.key === KeyboardCode.ENTER) {
+            this.selectItem(item);
+          }
+        }}
       >
         <div
           id={`${this.htmlid}-${key}`}
           class="list-element"
           tabIndex={-1}
           onClick={() => this.selectItem(item)}
+          onKeyDown={(e: KeyboardEvent) => {
+            if (e.key === KeyboardCode.ENTER) {
+              this.selectItem(item);
+            }
+          }}
           onMouseEnter={(e: MouseEvent) => {
             const currentElement = e.target as HTMLElement;
             currentElement.classList.add("hovered");
