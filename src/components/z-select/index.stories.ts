@@ -273,96 +273,6 @@ export const ZSelectWithTreeItems = {
           },
         ],
       },
-      {
-        name: "¡Trato hecho! – Segunda edición",
-        id: "2000062389",
-        category: "¡Trato hecho! – Segunda edición",
-        selected: false,
-        children: [
-          {
-            name: "¡Trato hecho! – Segunda edición",
-            id: "2000062390",
-            selected: false,
-          },
-        ],
-      },
-      {
-        name: "@d litteram. Corso di lingua e cultura latina, ed. arancione",
-        id: "2000047506",
-        category: "@d litteram. Corso di lingua e cultura latina, ed. arancione",
-        selected: false,
-        children: [
-          {
-            name: "Volume 1",
-            id: "2000047507",
-            selected: false,
-          },
-          {
-            name: "Volume 2",
-            id: "2000047508",
-            selected: false,
-          },
-        ],
-      },
-      {
-        name: "@d litteram. Corso di lingua e cultura latina.",
-        id: "2000045215",
-        category: "@d litteram. Corso di lingua e cultura latina.",
-        selected: false,
-        children: [
-          {
-            name: "Esercizi 1",
-            id: "2000045216",
-            selected: false,
-          },
-          {
-            name: "Esercizi 2",
-            id: "2000045217",
-            selected: false,
-          },
-        ],
-      },
-      {
-        name: "#Terra - Edizione azzurra",
-        id: "2000049753",
-        category: "#Terra - Edizione azzurra",
-        selected: false,
-        children: [
-          {
-            name: "Volume 1",
-            id: "2000049754",
-            selected: false,
-          },
-          {
-            name: "Volume 2",
-            id: "2000049755",
-            selected: false,
-          },
-        ],
-      },
-      {
-        name: "#Terra - Edizione azzurra (2 ed.)",
-        id: "2000096902",
-        category: "#Terra - Edizione azzurra (2 ed.)",
-        selected: false,
-        children: [
-          {
-            name: "Volume 1",
-            id: "2000096903",
-            selected: false,
-          },
-          {
-            name: "Volume 1 con Chimica",
-            id: "2000096904",
-            selected: false,
-          },
-          {
-            name: "Volume 2",
-            id: "2000096905",
-            selected: false,
-          },
-        ],
-      },
     ] as SelectItem[],
   },
   render: (args) => html`
@@ -377,9 +287,12 @@ export const ZSelectWithTreeItems = {
       autocomplete=${args.autocomplete}
       noresultslabel=${args.noresultslabel}
       disabled=${args.disabled}
+      readonly=${args.readonly}
       htmlid=${args.htmlid}
       htmltitle=${args.htmltitle}
       reset-item=${args.resetItem}
+      isfixed=${args.isfixed}
+      size=${args.size}
       .hasTreeItems=${args.hasTreeItems}
     ></z-select>
   `,

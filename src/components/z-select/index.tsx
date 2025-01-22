@@ -569,6 +569,10 @@ export class ZSelect {
   }
 
   private listSizeType(): ListSize {
+    if (this.hasTreeItems) {
+      return ListSize.NONE;
+    }
+
     if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
       return ListSize.SMALL;
     }
@@ -603,7 +607,7 @@ export class ZSelect {
 
     return (
       <z-list-element
-        size={ListSize.NONE}
+        size={this.listSizeType()}
         id={`${this.htmlid}_${key}`}
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
         tabIndex={0}

@@ -257,3 +257,11 @@ z-list-element:focus {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
+
+.item.ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
