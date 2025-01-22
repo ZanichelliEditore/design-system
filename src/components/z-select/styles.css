@@ -178,7 +178,7 @@ z-list-element {
 z-list z-list-element::before {
   position: absolute;
   z-index: 100;
-  top: 0;
+  top: 3px;
   left: -15px;
   width: 8px;
   height: 1em;
@@ -191,7 +191,7 @@ z-list z-list-element::before {
 z-list z-list-element::after {
   position: absolute;
   z-index: 100;
-  top: 0;
+  top: 5px;
   left: -15px;
   width: 8px;
   height: 100%;

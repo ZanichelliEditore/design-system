@@ -238,7 +238,7 @@ describe("z-carousel single mode tests", () => {
     };
 
     const blue = "rgb(0, 86, 193)";
-    const gray = "rgb(194, 194, 194)";
+    const gray = "rgb(214, 214, 214)";
 
     const page = await newE2EPage({
       html: `<z-carousel style=${carouselSize} single="" arrows-position="over" fixed-arrows="" infinite="" progress-mode="dots">
