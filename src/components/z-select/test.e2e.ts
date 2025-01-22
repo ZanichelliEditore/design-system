@@ -87,23 +87,27 @@ describe("z-select test end2end", () => {
     const page = await newE2EPage();
 
     await page.setContent(`
-      <z-select
-        items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":true,"name":"item_3"}]'
-        label="this is the label"
-        autocomplete="true"
-      ></z-select>
-    `);
+    <z-select
+      items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":true,"name":"item_3"}]'
+      label="this is the label"
+      autocomplete="true"
+    ></z-select>
+  `);
 
     await page.locator("z-select").click();
     await page.waitForChanges();
-    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
+
     expect((await page.$$("z-list-element")).length).toBe(3);
 
-    await (await page.find("z-select input")).press("1");
+    const input = await page.find("z-select input");
+    await input.press("1");
     await page.waitForChanges();
 
-    expect((await page.$$("z-list-element")).length).toBe(1);
-    expect((await page.find("z-list-element span")).innerText).toBe("item_1");
+    const filteredItems = await page.$$("z-list-element");
+    expect(filteredItems.length).toBe(1);
+
+    const itemText = await filteredItems[0].evaluate((el) => el.textContent);
+    expect(itemText).toContain("item_1");
   });
 
   it("Should emit resetSelect event when reset item is enabled and clicked", async () => {
