@@ -612,6 +612,9 @@ export class ZSelect {
 
     return (
       <z-list-element
+        class={{
+          "grouped-tree-parent-node": this.hasGroupItems,
+        }}
         size={this.listSizeType()}
         id={`${this.htmlid}_${key}`}
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
@@ -672,7 +675,49 @@ export class ZSelect {
     );
   }
 
+  private renderGroupedTree(): HTMLZListGroupElement[] {
+    let globalKey = this.resetItem ? 1 : 0;
+
+    const grouped = this.itemsList.reduce(
+      (acc, item) => {
+        const category = item.category || "Altra categoria";
+        acc[category] = acc[category] || [];
+        acc[category].push(item);
+
+        return acc;
+      },
+      {} as Record<string, SelectItem[]>
+    );
+
+    return Object.entries(grouped).map(([category, items]) => {
+      return (
+        <z-list-group
+          divider-type={ListDividerType.ELEMENT}
+          hasTreeItems={true}
+        >
+          <span
+            class="body-3-sb z-list-group-title"
+            slot="header-title"
+          >
+            {category}
+          </span>
+          <z-list>
+            {items.map((item) => {
+              globalKey++;
+
+              return this.renderTreeItems(item, globalKey, !item.children?.length);
+            })}
+          </z-list>
+        </z-list-group>
+      );
+    });
+  }
+
   private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+    if (this.hasTreeItems) {
+      return this.renderGroupedTree();
+    }
+
     const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
       const lastItem = array.length === index + 1;
@@ -705,7 +750,7 @@ export class ZSelect {
       <z-list-element
         color="color-primary01"
         class="no-results"
-        size={this.listSizeType()}
+        size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
       >
         <z-icon
           name="multiply-circle"

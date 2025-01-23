@@ -215,6 +215,11 @@ z-list > div.children-node {
   padding-left: calc(var(--space-unit) * 2);
 }
 
+z-list-element.grouped-tree-parent-node {
+  padding-top: 0;
+  padding-left: calc(var(--space-unit) * 2);
+}
+
 z-list-element > .list-element {
   display: flex;
   justify-content: space-between;

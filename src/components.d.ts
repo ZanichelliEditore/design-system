@@ -1115,6 +1115,7 @@ export namespace Components {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
          */
@@ -4797,6 +4798,7 @@ declare namespace LocalJSX {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
          */
