@@ -613,7 +613,7 @@ export class ZSelect {
     return (
       <z-list-element
         class={{
-          "grouped-tree-parent-node": this.hasGroupItems,
+          "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
         }}
         size={this.listSizeType()}
         id={`${this.htmlid}_${key}`}
