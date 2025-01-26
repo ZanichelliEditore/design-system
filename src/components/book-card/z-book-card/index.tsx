@@ -1,11 +1,13 @@
-import {Component, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
-import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, ControlSize} from "../../../beans";
+import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
- * @slot cta - to the right of authors and title (e.g. bookmark icon)
- * @slot ebook - main action slot on the card (as default, it shows laZ ebook link)
- * @slot apps - list of card-related apps
- * @slot coverOverlay - to be shown on top of book cover
+ * @slot cta - top right cta (e.g. bookmark icon)
+ * @slot ebook - as default, it shows laZ ebook link
+ * @slot tags - tags section, default empty
+ * @slot chip - chip, beside catalog url, default empty
+ * @slot apps - list of card-related apps, default empty
+ * @slot coverOverlay - purple layer on top of book cover
  */
 @Component({
   tag: "z-book-card",
@@ -16,24 +18,24 @@ export class ZBookCard {
   @Element() hostElement: HTMLZBookCardElement;
 
   /** Card variant: landscape, portrait */
-  @Prop()
+  @Prop({reflect: true})
   variant: BookCardVariant = BookCardVariant.PORTRAIT;
 
   /** Cover URL */
   @Prop()
   cover: string;
 
+  /** Title (usually opera title) */
+  @Prop()
+  title: string;
+
+  /** [optional] Subtitle (usually volume title) */
+  @Prop()
+  subtitle?: string;
+
   /** [optional] Authors */
   @Prop()
   authors?: string;
-
-  /** [optional] Opera title */
-  @Prop()
-  operaTitle?: string;
-
-  /** [optional] Volume title */
-  @Prop()
-  volumeTitle?: string;
 
   /** [optional] Main ISBN */
   @Prop()
@@ -43,25 +45,29 @@ export class ZBookCard {
   @Prop()
   isbnLabel = "";
 
-  /** [optional] EDI tag */
+  /** [optional] year */
   @Prop()
-  edi?: BookCardTag | string;
+  year?: string;
 
-  /** [optional] Annotated tag */
-  @Prop()
-  annotated?: BookCardTag | string;
+  // /** [optional] EDI tag */
+  // @Prop()
+  // edi?: BookCardTag | string;
 
-  /** [optional] Teacher version tag */
-  @Prop()
-  teacherVersion?: BookCardTag | string;
+  // /** [optional] Annotated tag */
+  // @Prop()
+  // annotated?: BookCardTag | string;
 
-  /** [optional] Show reflowable description */
-  @Prop()
-  reflowable?: boolean = false;
+  // /** [optional] Teacher version tag */
+  // @Prop()
+  // teacherVersion?: BookCardTag | string;
 
-  /** [optional] Show adoption badge */
-  @Prop()
-  adoption?: boolean = false;
+  // /** [optional] Show reflowable description */
+  // @Prop()
+  // reflowable?: boolean = false;
+
+  // /** [optional] Show adoption badge */
+  // @Prop()
+  // adoption?: boolean = false;
 
   /** [optional] Show catalog link to correspondent resource */
   @Prop()
@@ -77,20 +83,20 @@ export class ZBookCard {
 
   /** [optional] Set a specific h level as html tag for opera title */
   @Prop()
-  operaTitleHtmlTag?: string;
+  titleHtmlTag?: string;
 
-  @State()
-  ediTag;
+  // @State()
+  // ediTag;
 
-  @State()
-  annotatedTag;
+  // @State()
+  // annotatedTag;
 
-  @State()
-  teacherVersionTag;
+  // @State()
+  // teacherVersionTag;
 
-  /** click on tag */
-  @Event()
-  tagClick: EventEmitter;
+  // /** click on tag */
+  // @Event()
+  // tagClick: EventEmitter;
 
   /** click on catalog link */
   @Event()
@@ -100,35 +106,35 @@ export class ZBookCard {
   @Event()
   ebookClick: EventEmitter;
 
-  /** click on immersive reader */
-  @Event()
-  immersiveReaderClick: EventEmitter;
+  // /** click on immersive reader */
+  // @Event()
+  // immersiveReaderClick: EventEmitter;
 
-  @Watch("edi")
-  watchEdi(): void {
-    this.ediTag = typeof this.edi === "string" ? JSON.parse(this.edi) : this.edi;
-  }
+  // @Watch("edi")
+  // watchEdi(): void {
+  //   this.ediTag = typeof this.edi === "string" ? JSON.parse(this.edi) : this.edi;
+  // }
 
-  @Watch("annotated")
-  watchAnnotated(): void {
-    this.annotatedTag = typeof this.annotated === "string" ? JSON.parse(this.annotated) : this.annotated;
-  }
+  // @Watch("annotated")
+  // watchAnnotated(): void {
+  //   this.annotatedTag = typeof this.annotated === "string" ? JSON.parse(this.annotated) : this.annotated;
+  // }
 
-  @Watch("teacherVersion")
-  watchTeacherVersion(): void {
-    this.teacherVersionTag =
-      typeof this.teacherVersion === "string" ? JSON.parse(this.teacherVersion) : this.teacherVersion;
-  }
+  // @Watch("teacherVersion")
+  // watchTeacherVersion(): void {
+  //   this.teacherVersionTag =
+  //     typeof this.teacherVersion === "string" ? JSON.parse(this.teacherVersion) : this.teacherVersion;
+  // }
 
-  componentWillLoad(): void {
-    this.watchEdi();
-    this.watchAnnotated();
-    this.watchTeacherVersion();
-  }
+  // componentWillLoad(): void {
+  //   this.watchEdi();
+  //   this.watchAnnotated();
+  //   this.watchTeacherVersion();
+  // }
 
-  private emitTagClick(e: BookCardTagEvent): void {
-    this.tagClick.emit(e);
-  }
+  // private emitTagClick(e: BookCardTagEvent): void {
+  //   this.tagClick.emit(e);
+  // }
 
   private emitCatalogClick(): void {
     this.catalogClick.emit();
@@ -138,75 +144,58 @@ export class ZBookCard {
     this.ebookClick.emit();
   }
 
-  private emitImmersiveReaderClick(): void {
-    this.immersiveReaderClick.emit();
-  }
+  // private emitImmersiveReaderClick(): void {
+  //   this.immersiveReaderClick.emit();
+  // }
 
-  private renderOperaTitle(): HTMLDivElement {
-    const title = this.operaTitleHtmlTag
-      ? `<${this.operaTitleHtmlTag}>${this.operaTitle}</${this.operaTitleHtmlTag}>`
-      : this.operaTitle;
+  // private renderTag(label: string, tag: BookCardTag, id: string): HTMLDivElement {
+  //   return (
+  //     <z-tag
+  //       class={{[tag.status]: true, interactive: tag.interactive}}
+  //       role={tag.interactive ? "button" : undefined}
+  //       tabIndex={tag.interactive ? 0 : undefined}
+  //       onClick={() =>
+  //         tag.interactive &&
+  //         this.emitTagClick({
+  //           tag: id,
+  //           state: tag.status,
+  //         })
+  //       }
+  //       onKeyUp={(e: KeyboardEvent) =>
+  //         tag.interactive &&
+  //         e.key === "Enter" &&
+  //         this.emitTagClick({
+  //           tag: id,
+  //           state: tag.status,
+  //         })
+  //       }
+  //     >
+  //       {label}
+  //     </z-tag>
+  //   );
+  // }
 
-    return (
-      <div
-        class="opera-title body-2-sb"
-        innerHTML={title}
-      />
-    );
-  }
+  // private renderTags(): HTMLDivElement[] | null {
+  //   const tags = [];
 
-  private renderIsbnLabel(): HTMLDivElement | null {
-    return this.isbnLabel ? <span class="body-4">{this.isbnLabel}</span> : null;
-  }
+  //   if (this.edi && Object.values(BookCardTagStatus).includes(this.ediTag.status)) {
+  //     tags.push(this.renderTag("edi", this.ediTag, "edi"));
+  //   }
 
-  private renderTag(label: string, tag: BookCardTag, id: string): HTMLDivElement {
-    return (
-      <z-tag
-        class={{[tag.status]: true, interactive: tag.interactive}}
-        role={tag.interactive ? "button" : undefined}
-        tabIndex={tag.interactive ? 0 : undefined}
-        onClick={() =>
-          tag.interactive &&
-          this.emitTagClick({
-            tag: id,
-            state: tag.status,
-          })
-        }
-        onKeyUp={(e: KeyboardEvent) =>
-          tag.interactive &&
-          e.key === "Enter" &&
-          this.emitTagClick({
-            tag: id,
-            state: tag.status,
-          })
-        }
-      >
-        {label}
-      </z-tag>
-    );
-  }
+  //   if (this.annotated && Object.values(BookCardTagStatus).includes(this.annotatedTag.status)) {
+  //     tags.push(this.renderTag("annotata", this.annotatedTag, "annotated"));
+  //   }
 
-  private renderTags(): HTMLDivElement[] | null {
-    const tags = [];
+  //   if (this.teacherVersion && Object.values(BookCardTagStatus).includes(this.teacherVersionTag.status)) {
+  //     tags.push(this.renderTag("versione insegnante", this.teacherVersionTag, "teacherVersion"));
+  //   }
 
-    if (this.edi && Object.values(BookCardTagStatus).includes(this.ediTag.status)) {
-      tags.push(this.renderTag("edi", this.ediTag, "edi"));
-    }
+  //   if (tags.length > 0) {
+  //     return tags;
+  //   }
 
-    if (this.annotated && Object.values(BookCardTagStatus).includes(this.annotatedTag.status)) {
-      tags.push(this.renderTag("annotata", this.annotatedTag, "annotated"));
-    }
-
-    if (this.teacherVersion && Object.values(BookCardTagStatus).includes(this.teacherVersionTag.status)) {
-      tags.push(this.renderTag("versione insegnante", this.teacherVersionTag, "teacherVersion"));
-    }
-
-    if (tags.length > 0) {
-      return tags;
-    }
-
-    return null;
-  }
+  //   return null;
+  // }
 
   private renderCover(): HTMLDivElement {
     return (
@@ -225,106 +214,141 @@ export class ZBookCard {
     );
   }
 
+  private renderYear(): null | HTMLDivElement {
+    if (!this.year) return null;
+
+    return (
+      <div
+        class="year one-line body-4"
+        aria-description="anno"
+      >
+        {this.year}
+      </div>
+    );
+  }
+
+  private renderAuthors(): null | HTMLDivElement {
+    if (!this.authors) return null;
+
+    return (
+      <div
+        class="authors one-line body-4"
+        aria-description="autori"
+      >
+        {this.authors}
+      </div>
+    );
+  }
+
+  private rendertitle(): HTMLDivElement {
+    const title = this.titleHtmlTag ? `<${this.titleHtmlTag}>${this.title}</${this.titleHtmlTag}>` : this.title;
+
+    return (
+      <div
+        class="opera-title two-lines body-2-sb"
+        innerHTML={title}
+      />
+    );
+  }
+
+  private rendersubtitle(): null | HTMLDivElement {
+    if (!this.subtitle) return null;
+
+    return <div class="volume-title one-line body-4">{this.subtitle}</div>;
+  }
+
+  private renderIsbn(): null | HTMLDivElement {
+    if (!this.isbn) return null;
+
+    <div
+      class="isbn one-line body-4-sb"
+      aria-description={`isbn ${this.isbnLabel}`}
+    >
+      {this.isbn} {this.isbnLabel ? <span class="body-4">{this.isbnLabel}</span> : null}
+    </div>;
+  }
+
+  private renderCatalogUrl(): null | HTMLAnchorElement {
+    if (!this.catalogUrl) return null;
+
+    return (
+      <a
+        href={this.catalogUrl}
+        target="_blank"
+        class="z-link z-link-blue z-link-icon body-4-sb"
+        onClick={() => this.emitCatalogClick()}
+      >
+        Scheda catalogo
+        <z-icon
+          name="arrow-quad-north-east"
+          height={16}
+          width={16}
+          fill="color-primary01-icon"
+        ></z-icon>
+      </a>
+    );
+  }
+
+  private renderEbook(): null | HTMLDivElement {
+    if (!this.ebookUrl) return null;
+
+    return (
+      <div class="ebook">
+        <div>
+          <div class="app-name">
+            <img
+              class="ebook-logo"
+              aria-hidden="true"
+            />
+            <div class="body-4-sb">
+              <span class="laz">laZ</span> Ebook
+            </div>
+          </div>
+        </div>
+        <z-button
+          size={ControlSize.X_SMALL}
+          href={this.ebookUrl}
+          target="_blank"
+          onClick={() => this.emitEbookClick()}
+          role="link"
+          aria-description={`leggi l'ebook ${this.title} su laZ Ebook`}
+        >
+          leggi ebook
+        </z-button>
+      </div>
+    );
+  }
+
   render(): HTMLZBookCardElement {
     return (
-      <article
-        class={{
-          [this.variant]: true,
-        }}
+      <Host
+      // class={{
+      //   [this.variant]: true,
+      // }}
       >
         <div class="main-content">
           {this.renderCover()}
           <div class="card-info">
-            <div class="book-data">
-              <div class="authors-title-cta-section">
-                <div
-                  class="authors body-4"
-                  aria-description="autori"
-                >
-                  {this.authors}
-                </div>
-                {this.renderOperaTitle()}
-                <slot name="cta"></slot>
-              </div>
-              <div class="isbn-tags-link-section">
-                <div class="isbn-tags-section">
-                  <div class="volume-title body-4">{this.volumeTitle}</div>
-                  <div
-                    class="isbn body-4-sb"
-                    aria-description={`isbn ${this.isbnLabel}`}
-                  >
-                    {this.isbn} {this.renderIsbnLabel()}
-                  </div>
-                  <div class="tags">{this.renderTags()}</div>
-                </div>
-                <div class="link-section">
-                  <div class="catalog-link">
-                    {this.catalogUrl && (
-                      <a
-                        href={this.catalogUrl}
-                        target="_blank"
-                        class="z-link z-link-blue z-link-icon body-4-sb"
-                        onClick={() => this.emitCatalogClick()}
-                      >
-                        Scheda catalogo
-                        <z-icon
-                          name="arrow-quad-north-east"
-                          height={16}
-                          width={16}
-                          fill="color-primary01-icon"
-                        ></z-icon>
-                      </a>
-                    )}
-                  </div>
-                  {this.adoption && <div class="adoption-tag body-5-sb">adottato</div>}
-                </div>
+            <div class="top">
+              {this.renderYear()}
+              {this.renderAuthors()}
+              {this.rendertitle()}
+              <slot name="cta"></slot>
+              {this.rendersubtitle()}
+              {this.renderIsbn()}
+              <slot name="tags"></slot>
+              <div class="catalog-chip">
+                {this.renderCatalogUrl()}
+                <slot name="chip"></slot>
               </div>
             </div>
-            <div class="ebook-container">
-              <slot name="ebook">
-                {this.ebookUrl && (
-                  <div class="ebook">
-                    <div>
-                      <div class="app-name">
-                        <img
-                          class="ebook-logo"
-                          aria-hidden="true"
-                        />
-                        <div class="body-4-sb">
-                          <span class="laz">laZ</span> Ebook
-                        </div>
-                      </div>
-                      {this.variant === BookCardVariant.LANDSCAPE && this.reflowable && (
-                        <div class="body-5">
-                          Anche nella versione libro liquido con{" "}
-                          <button
-                            class="body-5-sb immersive-reader z-link"
-                            onClick={() => this.emitImmersiveReaderClick()}
-                            tabIndex={0}
-                          >
-                            strumento di lettura immersiva
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                    <z-button
-                      size={ControlSize.X_SMALL}
-                      href={this.ebookUrl}
-                      target="_blank"
-                      onClick={() => this.emitEbookClick()}
-                      role="link"
-                      aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
-                    >
-                      leggi ebook
-                    </z-button>
-                  </div>
-                )}
-              </slot>
+            <div class="bottom">
+              <slot name="ebook">{this.renderEbook()}</slot>
             </div>
           </div>
         </div>
         <slot name="apps"></slot>
-      </article>
+      </Host>
     );
   }
 }
