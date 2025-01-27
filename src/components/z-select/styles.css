@@ -259,7 +259,8 @@ z-list-element:focus {
   white-space: nowrap;
 }
 
-z-list-element.grouped-tree-parent-node > .list-element:hover::after {
+z-list > z-list-element.grouped-tree-parent-node > .list-element:hover::after,
+z-list > z-list-group > z-list-element.grouped-tree-parent-node > .list-element:hover::after {
   position: absolute;
   z-index: -1;
   top: 8px;
@@ -281,4 +282,18 @@ z-list-element > .list-element:hover::after {
   height: 40px;
   content: "";
   transform: translateX(-100%);
+}
+
+.children-node z-list-element::before,
+.children-node z-list-element::after {
+  left: -15px;
+}
+
+.children-node .children-node z-list-element::before,
+.children-node .children-node z-list-element::after {
+  left: -15px;
+}
+
+.children-node > z-list-element {
+  padding: 0;
 }

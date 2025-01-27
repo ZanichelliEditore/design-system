@@ -61,6 +61,7 @@ const StoryMeta = {
     autocomplete: false,
     noresultslabel: "Nessun risultato",
     hasGroupItems: false,
+    hasTreeItems: false,
     resetItem: "",
     isfixed: false,
   },
@@ -212,64 +213,72 @@ export const ZSelectWithTreeItems = {
     hasGroupItems: false,
     items: [
       {
-        name: "¡Acción!",
-        id: "2000047831",
-        category: "¡Acción!",
+        id: "padre",
+        name: "Padre",
         selected: false,
+        category: "Sezione",
         children: [
           {
-            name: "Unidades 0-6",
-            id: "2000047832",
+            id: "figlio1aa",
+            name: "Figlio",
             selected: false,
+            children: [],
           },
           {
-            name: "Unidades 07-12",
-            id: "2000047833",
-            selected: false,
-          },
-          {
-            name: "Unidades 13-18",
-            id: "2000047834",
+            id: "figlio1b",
+            name: "Figlio 2",
             selected: false,
           },
         ],
       },
       {
-        name: "¡Buen Viaje!",
-        id: "2000056919",
-        category: "¡Buen Viaje!",
+        id: "padre1",
+        name: "Padre 1",
         selected: false,
+        category: "Sezione 1",
         children: [
           {
-            name: "¡Buen Viaje!",
-            id: "2000056920",
+            id: "figlio1a",
+            name: "Figlio 1A",
+            selected: false,
+            children: [
+              {
+                id: "nipote1a-1",
+                name: "Nipote 1A-1",
+                selected: false,
+              },
+              {
+                id: "nipote1a-2",
+                name: "Nipote 1A-2 (disabilitato)",
+                selected: false,
+                disabled: true,
+              },
+            ],
+          },
+          {
+            id: "figlio1b",
+            name: "Figlio 1B",
             selected: false,
           },
         ],
       },
       {
-        name: "¡Buen viaje! - Quarta edizione",
-        id: "2000184931",
-        category: "¡Buen viaje! - Quarta edizione",
+        id: "padre3",
+        name: "Padre 3",
         selected: false,
+        category: "Altra sezione",
         children: [
           {
-            name: "¡Buen viaje! - Quarta edizione",
-            id: "2000184932",
+            id: "figlio3a",
+            name: "Figlio 3A",
             selected: false,
-          },
-        ],
-      },
-      {
-        name: "¡Trato hecho!",
-        id: "2000045832",
-        category: "¡Trato hecho!",
-        selected: false,
-        children: [
-          {
-            name: "¡Trato hecho!",
-            id: "2000045833",
-            selected: false,
+            children: [
+              {
+                id: "nipote3a-1",
+                name: "Nipote 3A-1",
+                selected: false,
+              },
+            ],
           },
         ],
       },
@@ -304,64 +313,72 @@ export const ZSelectWithGroupsAndTreeItems = {
     hasGroupItems: true,
     items: [
       {
-        name: "¡Acción!",
-        id: "2000047831",
-        category: "¡Acción!",
+        id: "padre",
+        name: "Padre",
         selected: false,
+        category: "Sezione",
         children: [
           {
-            name: "Unidades 0-6",
-            id: "2000047832",
+            id: "figlio1aa",
+            name: "Figlio",
             selected: false,
+            children: [],
           },
           {
-            name: "Unidades 07-12",
-            id: "2000047833",
-            selected: false,
-          },
-          {
-            name: "Unidades 13-18",
-            id: "2000047834",
+            id: "figlio1b",
+            name: "Figlio 2",
             selected: false,
           },
         ],
       },
       {
-        name: "¡Buen Viaje!",
-        id: "2000056919",
-        category: "¡Buen Viaje!",
+        id: "padre1",
+        name: "Padre 1",
         selected: false,
+        category: "Sezione 1",
         children: [
           {
-            name: "¡Buen Viaje!",
-            id: "2000056920",
+            id: "figlio1a",
+            name: "Figlio 1A",
+            selected: false,
+            children: [
+              {
+                id: "nipote1a-1",
+                name: "Nipote 1A-1",
+                selected: false,
+              },
+              {
+                id: "nipote1a-2",
+                name: "Nipote 1A-2 (disabilitato)",
+                selected: false,
+                disabled: true,
+              },
+            ],
+          },
+          {
+            id: "figlio1b",
+            name: "Figlio 1B",
             selected: false,
           },
         ],
       },
       {
-        name: "¡Buen viaje! - Quarta edizione",
-        id: "2000184931",
-        category: "¡Buen viaje! - Quarta edizione",
+        id: "padre3",
+        name: "Padre 3",
         selected: false,
+        category: "Altra sezione",
         children: [
           {
-            name: "¡Buen viaje! - Quarta edizione",
-            id: "2000184932",
+            id: "figlio3a",
+            name: "Figlio 3A",
             selected: false,
-          },
-        ],
-      },
-      {
-        name: "¡Trato hecho!",
-        id: "2000045832",
-        category: "¡Trato hecho!",
-        selected: false,
-        children: [
-          {
-            name: "¡Trato hecho!",
-            id: "2000045833",
-            selected: false,
+            children: [
+              {
+                id: "nipote3a-1",
+                name: "Nipote 3A-1",
+                selected: false,
+              },
+            ],
           },
         ],
       },
