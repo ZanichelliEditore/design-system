@@ -87,7 +87,9 @@ export class ZBookCard {
   }
 
   private renderYear(): null | HTMLDivElement {
-    if (!this.year) return null;
+    if (!this.year) {
+      return null;
+    }
 
     return (
       <div
@@ -100,7 +102,9 @@ export class ZBookCard {
   }
 
   private renderAuthors(): null | HTMLDivElement {
-    if (!this.authors) return null;
+    if (!this.authors) {
+      return null;
+    }
 
     return (
       <div class="cta-wrapper">
@@ -132,13 +136,17 @@ export class ZBookCard {
   }
 
   private renderVolumeTitle(): null | HTMLDivElement {
-    if (!this.volumeTitle) return null;
+    if (!this.volumeTitle) {
+      return null;
+    }
 
     return <div class="volume-title ellipsis body-4">{this.volumeTitle}</div>;
   }
 
   private renderIsbn(): null | HTMLDivElement {
-    if (!this.isbn) return null;
+    if (!this.isbn) {
+      return null;
+    }
 
     return (
       <div
@@ -151,7 +159,9 @@ export class ZBookCard {
   }
 
   private renderEbook(): null | HTMLDivElement {
-    if (!this.ebookUrl) return null;
+    if (!this.ebookUrl) {
+      return null;
+    }
 
     return (
       <div class="ebook">

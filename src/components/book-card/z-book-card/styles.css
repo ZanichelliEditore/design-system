@@ -8,7 +8,6 @@
   --z-book-card-authors-word-break: break-all;
 
   display: block;
-  border-radius: var(--border-radius);
   width: 304px;
   box-sizing: border-box;
   border: solid var(--border-size-medium) var(--color-surface03);
@@ -20,11 +19,11 @@
 
 :host .main-content {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-unit);
-  box-sizing: border-box;
-  padding: var(--space-unit);
   height: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: var(--space-unit);
+  gap: var(--space-unit);
 }
 
 :host .main-content .cover {
@@ -32,8 +31,8 @@
   display: flex;
   overflow: hidden;
   height: var(--z-book-card-portrait-cover-height);
-  border-radius: var(--border-radius);
   background: var(--color-white);
+  border-radius: var(--border-radius);
 }
 
 :host .main-content .cover img {
@@ -86,36 +85,36 @@
 :host .main-content .card-info .top .ellipsis {
   display: -webkit-box;
   overflow: hidden;
+  height: 20px;
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  line-height: 20px;
   -webkit-line-clamp: 1;
   line-clamp: 1;
-  height: 20px;
+  line-height: 20px;
+  text-overflow: ellipsis;
   word-break: break-all;
 }
 
 :host .main-content .card-info .top .ellipsis.opera-title {
-  line-height: 24px;
+  height: calc(24 * var(--z-book-card-title-lines));
   -webkit-line-clamp: var(--z-book-card-title-lines);
   line-clamp: var(--z-book-card-title-lines);
-  height: calc(20 * var(--z-book-card-title-lines));
+  line-height: 24px;
   word-break: var(--z-book-card-title-word-break);
 }
 
 :host .main-content .card-info .top .ellipsis.volume-title {
-  line-height: 20px;
+  height: calc(20 * var(--z-book-card-subtitle-lines));
   -webkit-line-clamp: var(--z-book-card-subtitle-lines);
   line-clamp: var(--z-book-card-subtitle-lines);
-  height: calc(20 * var(--z-book-card-subtitle-lines));
+  line-height: 20px;
   word-break: var(--z-book-card-subtitle-word-break);
 }
 
 :host .main-content .card-info .top .ellipsis.authors {
-  line-height: 20px;
+  height: calc(20 * var(--z-book-card-authors-lines));
   -webkit-line-clamp: var(--z-book-card-authors-lines);
   line-clamp: var(--z-book-card-authors-lines);
-  height: calc(20 * var(--z-book-card-authors-lines));
+  line-height: 20px;
   word-break: var(--z-book-card-authors-word-break);
 }
 
@@ -169,10 +168,10 @@
 
 :host([variant="landscape"]) .main-content {
   height: 332px;
-  flex-direction: row;
-  gap: calc(var(--space-unit) * 2);
-  padding: calc(var(--space-unit) * 2);
   box-sizing: border-box;
+  flex-direction: row;
+  padding: calc(var(--space-unit) * 2);
+  gap: calc(var(--space-unit) * 2);
 }
 
 :host([variant="landscape"]) .main-content .cover {
