@@ -591,8 +591,10 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
-    if (this.hasGroupItems) {
+    if (this.hasGroupItems && !this.hasTreeItems) {
       return this.renderSelectGroupItems();
+    } else if (this.hasGroupItems && this.hasTreeItems) {
+      return this.renderGroupedTree();
     }
 
     return this.itemsList.map((item: SelectItem, key, array) => {
@@ -714,10 +716,6 @@ export class ZSelect {
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
-    if (this.hasTreeItems) {
-      return this.renderGroupedTree();
-    }
-
     const newData = this.itemsList.reduce((group, item, index, array) => {
       const {category} = item;
       const lastItem = array.length === index + 1;

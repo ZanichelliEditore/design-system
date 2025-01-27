@@ -297,3 +297,96 @@ export const ZSelectWithTreeItems = {
     ></z-select>
   `,
 } satisfies Story;
+
+export const ZSelectWithGroupsAndTreeItems = {
+  args: {
+    hasTreeItems: true,
+    hasGroupItems: true,
+    items: [
+      {
+        name: "¡Acción!",
+        id: "2000047831",
+        category: "¡Acción!",
+        selected: false,
+        children: [
+          {
+            name: "Unidades 0-6",
+            id: "2000047832",
+            selected: false,
+          },
+          {
+            name: "Unidades 07-12",
+            id: "2000047833",
+            selected: false,
+          },
+          {
+            name: "Unidades 13-18",
+            id: "2000047834",
+            selected: false,
+          },
+        ],
+      },
+      {
+        name: "¡Buen Viaje!",
+        id: "2000056919",
+        category: "¡Buen Viaje!",
+        selected: false,
+        children: [
+          {
+            name: "¡Buen Viaje!",
+            id: "2000056920",
+            selected: false,
+          },
+        ],
+      },
+      {
+        name: "¡Buen viaje! - Quarta edizione",
+        id: "2000184931",
+        category: "¡Buen viaje! - Quarta edizione",
+        selected: false,
+        children: [
+          {
+            name: "¡Buen viaje! - Quarta edizione",
+            id: "2000184932",
+            selected: false,
+          },
+        ],
+      },
+      {
+        name: "¡Trato hecho!",
+        id: "2000045832",
+        category: "¡Trato hecho!",
+        selected: false,
+        children: [
+          {
+            name: "¡Trato hecho!",
+            id: "2000045833",
+            selected: false,
+          },
+        ],
+      },
+    ] as SelectItem[],
+  },
+  render: (args) => html`
+    <z-select
+      items=${JSON.stringify(args.items)}
+      label=${args.label}
+      aria-label=${args.ariaLabel}
+      placeholder=${args.placeholder}
+      name=${args.name}
+      status=${args.status}
+      message=${args.message}
+      autocomplete=${args.autocomplete}
+      noresultslabel=${args.noresultslabel}
+      disabled=${args.disabled}
+      readonly=${args.readonly}
+      htmlid=${args.htmlid}
+      htmltitle=${args.htmltitle}
+      reset-item=${args.resetItem}
+      isfixed=${args.isfixed}
+      size=${args.size}
+      .hasTreeItems=${args.hasTreeItems}
+      .hasGroupItems=${args.hasGroupItems}
+    ></z-select>
+  `,
+} satisfies Story;
