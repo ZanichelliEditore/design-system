@@ -1,12 +1,16 @@
 :host {
+  --z-book-card-portrait-cover-height: 378px;
+  --z-book-card-title-lines: 2;
+  --z-book-card-title-word-break: initial;
+  --z-book-card-subtitle-lines: 1;
+  --z-book-card-subtitle-word-break: break-all;
+  --z-book-card-authors-lines: 1;
+  --z-book-card-authors-word-break: break-all;
+
   display: block;
-  /* max-width: fit-content; */
   border-radius: var(--border-radius);
-  /* TODO: variabile */
   width: 304px;
-  /* min-height: 686px; */
   box-sizing: border-box;
-  /* padding: var(--space-unit); */
   border: solid var(--border-size-medium) var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: var(--border-radius);
@@ -17,23 +21,19 @@
 :host .main-content {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-unit) * 2);
+  gap: var(--space-unit);
   box-sizing: border-box;
   padding: var(--space-unit);
   height: 100%;
-
-  background: pink;
 }
 
 :host .main-content .cover {
   position: relative;
   display: flex;
   overflow: hidden;
-  height: 378px;
-  /* margin: 0 var(--space-unit); */
+  height: var(--z-book-card-portrait-cover-height);
   border-radius: var(--border-radius);
-
-  background: red;
+  background: var(--color-white);
 }
 
 :host .main-content .cover img {
@@ -64,156 +64,76 @@
   flex-direction: column;
   justify-content: space-between;
   gap: calc(var(--space-unit) * 2);
-
-  background: yellow;
 }
 
 :host .main-content .card-info .top {
-  /* display: flex;
-  flex: 1;
+  display: flex;
   flex-direction: column;
+  gap: calc(var(--space-unit) * 2);
+}
+
+:host .main-content .card-info .top ::slotted([slot="tags"]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit);
+}
+
+:host .main-content .card-info .top ::slotted([slot="data"]) {
+  display: flex;
   justify-content: space-between;
-  margin: 0 var(--space-unit);
-  gap: var(--space-unit); */
-
-  background: lime;
 }
 
-/* :host .main-content .card-info .top .authors-title-cta-section {
-  display: grid;
-  column-gap: var(--space-unit);
-  grid-template-areas:
-    "authors authors"
-    "title cta";
-  grid-template-columns: auto 24px;
-} */
-
-/* :host .main-content .card-info .top .authors-title-cta-section .authors {
+:host .main-content .card-info .top .ellipsis {
   display: -webkit-box;
   overflow: hidden;
-  height: 20px;
-  margin-bottom: calc(var(--space-unit) / 2);
   -webkit-box-orient: vertical;
-  grid-area: authors;
+  text-overflow: ellipsis;
+  line-height: 20px;
   -webkit-line-clamp: 1;
   line-clamp: 1;
-  text-overflow: ellipsis;
-  word-break: break-all;
-} */
-
-:host .main-content .card-info .top .one-line {
-  display: -webkit-box;
-  overflow: hidden;
   height: 20px;
-  /* margin-bottom: calc(var(--space-unit) / 2); */
-  -webkit-box-orient: vertical;
-  /* grid-area: authors; */
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  text-overflow: ellipsis;
   word-break: break-all;
-
-  background: grey;
 }
 
-:host .main-content .card-info .top .two-lines {
-  display: -webkit-box;
-  overflow: hidden;
-  max-height: 54px;
-  -webkit-box-orient: vertical;
-  grid-area: title;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  text-overflow: ellipsis;
+:host .main-content .card-info .top .ellipsis.opera-title {
+  line-height: 24px;
+  -webkit-line-clamp: var(--z-book-card-title-lines);
+  line-clamp: var(--z-book-card-title-lines);
+  height: calc(20 * var(--z-book-card-title-lines));
+  word-break: var(--z-book-card-title-word-break);
+}
+
+:host .main-content .card-info .top .ellipsis.volume-title {
+  line-height: 20px;
+  -webkit-line-clamp: var(--z-book-card-subtitle-lines);
+  line-clamp: var(--z-book-card-subtitle-lines);
+  height: calc(20 * var(--z-book-card-subtitle-lines));
+  word-break: var(--z-book-card-subtitle-word-break);
+}
+
+:host .main-content .card-info .top .ellipsis.authors {
+  line-height: 20px;
+  -webkit-line-clamp: var(--z-book-card-authors-lines);
+  line-clamp: var(--z-book-card-authors-lines);
+  height: calc(20 * var(--z-book-card-authors-lines));
+  word-break: var(--z-book-card-authors-word-break);
 }
 
 :host .main-content .card-info .top .opera-title * {
   all: unset;
 }
 
-:host .main-content .card-info .top .catalog-chip {
+:host .main-content .cta-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--space-unit) / 2);
+}
+
+:host .main-content .card-info .top .link-chip-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-/* :host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section {
-  margin-bottom: var(--space-unit);
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .volume-title {
-  display: -webkit-box;
-  overflow: hidden;
-  height: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  text-overflow: ellipsis;
-  word-break: break-all;
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .isbn {
-  display: -webkit-box;
-  overflow: hidden;
-  height: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  text-overflow: ellipsis;
-  word-break: break-all;
-} */
-
-/* :host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags {
-  display: flex;
-  overflow: hidden;
-  height: 22px;
-  flex-flow: wrap;
-  align-items: center;
-  padding: var(--space-unit);
-  margin: calc(calc(var(--space-unit) / 2) * -1) calc(var(--space-unit) * -1) 0;
-  gap: var(--space-unit);
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags z-tag.active {
-  --z-tag-bg: var(--color-primary03);
-  --z-tag-text-color: var(--color-default-text);
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags z-tag.disabled {
-  --z-tag-bg: var(--color-surface03);
-  --z-tag-text-color: var(--color-default-text);
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags z-tag.interactive {
-  cursor: pointer;
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags z-tag:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-} */
-
-/* :host .main-content .card-info .top .isbn-tags-link-section .link-section {
-  display: flex;
-  height: 24px;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-unit);
-}
-
-:host .main-content .card-info .top .isbn-tags-link-section .link-section .adoption-tag {
-  padding: calc(var(--space-unit) / 2) var(--space-unit);
-  background-color: var(--green100);
-  border-radius: 100px;
-  text-transform: uppercase;
-} */
-
-:host .main-content .card-info .bottom {
-  /* height: 64px; */
-
-  background: salmon;
-}
-
-/* TODO: occhio al tema scuro */
 :host .main-content .card-info .bottom .ebook {
   display: flex;
   align-items: center;
@@ -240,10 +160,6 @@
   color: var(--red500);
 }
 
-/* ::slotted([slot="cta"]) {
-  grid-area: cta;
-} */
-
 :host([variant="landscape"]) {
   width: 635px;
   min-height: 332px;
@@ -254,6 +170,7 @@
 :host([variant="landscape"]) .main-content {
   height: 332px;
   flex-direction: row;
+  gap: calc(var(--space-unit) * 2);
   padding: calc(var(--space-unit) * 2);
   box-sizing: border-box;
 }
@@ -271,27 +188,6 @@
   max-height: 256px;
 }
 
-/* :host([variant='landscape']) .main-content .card-info .top {
-  margin: 0;
-  gap: unset;
+:host([variant="landscape"]) .main-content .card-info .top {
+  gap: var(--space-unit);
 }
-
-:host([variant='landscape']) .main-content .card-info .top .authors-title-cta-section {
-  column-gap: calc(var(--space-unit) * 2);
-  grid-template-areas:
-    "authors cta"
-    "title title";
-} */
-
-/* :host([variant='landscape']) .main-content .card-info .top .isbn-tags-link-section .isbn-tags-section .tags {
-  margin: calc(calc(var(--space-unit) / 2) * -1) calc(var(--space-unit) * -1);
-} */
-
-/* :host([variant='landscape']) .main-content .card-info .bottom {
-  height: 76px;
-}
-
-:host([variant='landscape']) .main-content .card-info .bottom .ebook {
-  height: 60px;
-  padding: var(--space-unit);
-} */

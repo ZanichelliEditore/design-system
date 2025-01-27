@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -255,21 +255,9 @@ export namespace Components {
     }
     interface ZBookCard {
         /**
-          * [optional] Show adoption badge
-         */
-        "adoption"?: boolean;
-        /**
-          * [optional] Annotated tag
-         */
-        "annotated"?: BookCardTag | string;
-        /**
           * [optional] Authors
          */
         "authors"?: string;
-        /**
-          * [optional] Show catalog link to correspondent resource
-         */
-        "catalogUrl"?: string;
         /**
           * Cover URL
          */
@@ -278,10 +266,6 @@ export namespace Components {
           * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
-        /**
-          * [optional] EDI tag
-         */
-        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -295,29 +279,25 @@ export namespace Components {
          */
         "isbnLabel": string;
         /**
-          * [optional] Opera title
+          * Opera title (card title)
          */
-        "operaTitle"?: string;
+        "operaTitle": string;
         /**
           * [optional] Set a specific h level as html tag for opera title
          */
-        "operaTitleHtmlTag"?: string;
-        /**
-          * [optional] Show reflowable description
-         */
-        "reflowable"?: boolean;
-        /**
-          * [optional] Teacher version tag
-         */
-        "teacherVersion"?: BookCardTag | string;
+        "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
          */
         "variant": BookCardVariant;
         /**
-          * [optional] Volume title
+          * [optional] Volume title (card subvolume)
          */
         "volumeTitle"?: string;
+        /**
+          * [optional] year
+         */
+        "year"?: string;
     }
     /**
      * ZBookCardApp component
@@ -2496,10 +2476,7 @@ declare global {
         new (): HTMLZAvatarElement;
     };
     interface HTMLZBookCardElementEventMap {
-        "tagClick": any;
-        "catalogClick": any;
         "ebookClick": any;
-        "immersiveReaderClick": any;
     }
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3848,21 +3825,9 @@ declare namespace LocalJSX {
     }
     interface ZBookCard {
         /**
-          * [optional] Show adoption badge
-         */
-        "adoption"?: boolean;
-        /**
-          * [optional] Annotated tag
-         */
-        "annotated"?: BookCardTag | string;
-        /**
           * [optional] Authors
          */
         "authors"?: string;
-        /**
-          * [optional] Show catalog link to correspondent resource
-         */
-        "catalogUrl"?: string;
         /**
           * Cover URL
          */
@@ -3871,10 +3836,6 @@ declare namespace LocalJSX {
           * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
-        /**
-          * [optional] EDI tag
-         */
-        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -3888,45 +3849,29 @@ declare namespace LocalJSX {
          */
         "isbnLabel"?: string;
         /**
-          * click on catalog link
-         */
-        "onCatalogClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
           * click on ebook link
          */
         "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
-          * click on immersive reader
-         */
-        "onImmersiveReaderClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
-          * click on tag
-         */
-        "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
-          * [optional] Opera title
+          * Opera title (card title)
          */
         "operaTitle"?: string;
         /**
           * [optional] Set a specific h level as html tag for opera title
          */
-        "operaTitleHtmlTag"?: string;
-        /**
-          * [optional] Show reflowable description
-         */
-        "reflowable"?: boolean;
-        /**
-          * [optional] Teacher version tag
-         */
-        "teacherVersion"?: BookCardTag | string;
+        "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
          */
         "variant"?: BookCardVariant;
         /**
-          * [optional] Volume title
+          * [optional] Volume title (card subvolume)
          */
         "volumeTitle"?: string;
+        /**
+          * [optional] year
+         */
+        "year"?: string;
     }
     /**
      * ZBookCardApp component
