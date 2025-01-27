@@ -131,7 +131,7 @@ export class ZOffcanvas {
           ref={(el) => (this.canvasContainer = el)}
         >
           <div
-            class="canvas-content"
+            class="canvas-content z-scrollbar"
             role="presentation"
           >
             <slot name="canvasContent"></slot>

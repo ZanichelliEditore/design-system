@@ -495,9 +495,10 @@ export class ZSelect {
             aria-multiselectable={false}
             size={this.listSizeType()}
             class={{
-              disabled: this.disabled,
-              readonly: this.readonly,
+              "disabled": this.disabled,
+              "readonly": this.readonly,
               [`input-${this.status}`]: !this.isOpen && !!this.status,
+              "z-scrollbar": true,
             }}
           >
             {this.resetItem && this.renderResetItem()}

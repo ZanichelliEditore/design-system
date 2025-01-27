@@ -5,6 +5,7 @@ import {BookCardTag, BookCardTagEvent, BookCardTagStatus, BookCardVariant, Contr
  * @slot cta - to the right of authors and title (e.g. bookmark icon)
  * @slot ebook - main action slot on the card (as default, it shows laZ ebook link)
  * @slot apps - list of card-related apps
+ * @slot coverOverlay - to be shown on top of book cover
  */
 @Component({
   tag: "z-book-card",
@@ -53,6 +54,10 @@ export class ZBookCard {
   /** [optional] Teacher version tag */
   @Prop()
   teacherVersion?: BookCardTag | string;
+
+  /** [optional] Show reflowable description */
+  @Prop()
+  reflowable?: boolean = false;
 
   /** [optional] Show adoption badge */
   @Prop()
@@ -215,6 +220,7 @@ export class ZBookCard {
           }}
           aria-hidden="true"
         />
+        <slot name="coverOverlay"></slot>
       </div>
     );
   }
@@ -288,7 +294,7 @@ export class ZBookCard {
                           <span class="laz">laZ</span> Ebook
                         </div>
                       </div>
-                      {this.variant === BookCardVariant.LANDSCAPE && (
+                      {this.variant === BookCardVariant.LANDSCAPE && this.reflowable && (
                         <div class="body-5">
                           Anche nella versione libro liquido con{" "}
                           <button

@@ -23,6 +23,7 @@
 }
 
 :host > article .main-content .cover {
+  position: relative;
   display: flex;
   overflow: hidden;
   height: 378px;
@@ -34,6 +35,22 @@
   max-width: 100%;
   max-height: 100%;
   align-self: end;
+}
+
+::slotted([slot="coverOverlay"]) {
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-unit);
+  background-color: var(--avatar-C19);
+  color: var(--color-white);
+}
+
+:host > article .main-content .cover ::slotted([slot="coverOverlay"]) {
+  min-height: 80px;
+  max-height: 336px;
 }
 
 :host > article .main-content .card-info {
@@ -216,6 +233,11 @@
   margin: 0;
 }
 
+:host > article.landscape .main-content .cover ::slotted([slot="coverOverlay"]) {
+  min-height: 80px;
+  max-height: 256px;
+}
+
 :host > article.landscape .main-content .card-info .book-data {
   margin: 0;
   gap: unset;
@@ -237,5 +259,6 @@
 }
 
 :host > article.landscape .main-content .card-info .ebook-container .ebook {
+  height: 60px;
   padding: var(--space-unit);
 }

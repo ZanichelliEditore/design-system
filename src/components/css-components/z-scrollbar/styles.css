@@ -1,0 +1,20 @@
+/* Webkit Scrollbar */
+.z-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
+}
+
+.z-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary01);
+}
+
+.z-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-primary);
+}
+
+/* Firefox scrollbar */
+@supports not selector(.z-scrollbar::-webkit-scrollbar-track) {
+  .z-scrollbar {
+    scrollbar-color: var(--color-primary01) transparent;
+  }
+}

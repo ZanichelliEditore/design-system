@@ -35,6 +35,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="-1"
                     id="checkid_list"
                     size="medium"
+                    class="z-scrollbar"
                   >
                     <z-list-element
                       clickable=""
@@ -92,6 +93,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
+                    class="z-scrollbar"
                   >
                     <z-list-element
                       clickable=""
@@ -163,6 +165,7 @@ describe("Suite test ZSelect", () => {
                   tabindex="0"
                   id="checkid_list"
                   size="medium"
+                  class="z-scrollbar"
                 >
                   <z-list-element
                     clickable=""
@@ -235,7 +238,7 @@ describe("Suite test ZSelect", () => {
                     aria-label="default"
                     tabindex="-1"
                     id="checkid_list"
-                    class="disabled readonly"
+                    class="disabled readonly z-scrollbar"
                     size="medium"
                   >
                     <z-list-element
@@ -308,7 +311,7 @@ describe("Suite test ZSelect", () => {
                       aria-label="default"
                       tabindex="-1"
                       id="checkid_list"
-                      class="input-success"
+                      class="input-success z-scrollbar"
                       size="medium"
                     >
                       <z-list-element
@@ -381,6 +384,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
+                    class="z-scrollbar"
                   >
                     <z-list-element
                       clickable=""
@@ -451,6 +455,7 @@ describe("Suite test ZSelect", () => {
                   tabindex="0"
                   id="checkid_list"
                   size="medium"
+                  class="z-scrollbar"
                 >
                   <z-list-element
                     clickable=""
@@ -503,7 +508,7 @@ describe("Suite test ZSelect", () => {
             <z-input class="active-select"aria-autocomplete="list"  aria-controls="checkid_list" role="combobox" aria-label="" aria-expanded="true" label="default" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here"></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
-                <z-list id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
+                <z-list class="z-scrollbar" id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
                   <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_0" role="option" size="medium" tabindex="0">
                   <div class="list-element-container">
                     <div class="list-element-content">
@@ -537,7 +542,7 @@ describe("Suite test ZSelect", () => {
             <z-input aria-expanded="true" aria-label="" aria-autocomplete="list" aria-controls="checkid_list" role="combobox" class="active-select" hasclearicon="" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
-                <z-list id="checkid_list" role="listbox" aria-label="default" size="medium" tabindex="0">
+                <z-list id="checkid_list" role="listbox" aria-label="default" size="medium" tabindex="0" class="z-scrollbar">
                   <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_0" role="option" tabindex="0">
                     <div class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
@@ -595,6 +600,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
+                    class="z-scrollbar"
                   >
                     <z-list-element
                       clickable=""
@@ -665,6 +671,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     id="checkid_list"
                     size="medium"
+                    class="z-scrollbar"
                   >
                     <z-list-element
                       clickable=""

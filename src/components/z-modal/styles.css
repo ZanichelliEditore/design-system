@@ -138,14 +138,12 @@
 
 .modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar,
 .modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar {
-  width: 10px;
-  background: linear-gradient(to right, transparent 0 3px, var(--gray200) 3px 7px, transparent 7px 10px);
-  border-radius: var(--border-radius);
+  width: 6px;
+  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
 }
 
 .modal-container-scroll-inside > .modal-content-scroll-inside::-webkit-scrollbar-thumb,
 .modal-container-scroll-outside > .modal-content-scroll-outside::-webkit-scrollbar-thumb {
-  width: 10px;
   background-color: var(--color-primary01);
 }
 
@@ -155,9 +153,11 @@
 }
 
 /* Firefox */
-.modal-container-scroll-inside .modal-content-scroll-inside,
-.modal-container-scroll-outside .modal-content-scroll-outside {
-  scrollbar-color: var(--color-primary01) transparent;
+@supports not selector(::-webkit-scrollbar-track) {
+  .modal-container-scroll-inside .modal-content-scroll-inside,
+  .modal-container-scroll-outside .modal-content-scroll-outside {
+    scrollbar-color: var(--color-primary01) transparent;
+  }
 }
 
 /* Tablet / Desktop */

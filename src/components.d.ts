@@ -303,6 +303,10 @@ export namespace Components {
          */
         "operaTitleHtmlTag"?: string;
         /**
+          * [optional] Show reflowable description
+         */
+        "reflowable"?: boolean;
+        /**
           * [optional] Teacher version tag
          */
         "teacherVersion"?: BookCardTag | string;
@@ -3912,6 +3916,10 @@ declare namespace LocalJSX {
           * [optional] Set a specific h level as html tag for opera title
          */
         "operaTitleHtmlTag"?: string;
+        /**
+          * [optional] Show reflowable description
+         */
+        "reflowable"?: boolean;
         /**
           * [optional] Teacher version tag
          */

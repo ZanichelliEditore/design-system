@@ -21,6 +21,7 @@
 | `isbnLabel`         | `isbn-label`           | [optional] ISBN label                                         | `string`                                                         | `""`                       |
 | `operaTitle`        | `opera-title`          | [optional] Opera title                                        | `string`                                                         | `undefined`                |
 | `operaTitleHtmlTag` | `opera-title-html-tag` | [optional] Set a specific h level as html tag for opera title | `string`                                                         | `undefined`                |
+| `reflowable`        | `reflowable`           | [optional] Show reflowable description                        | `boolean`                                                        | `false`                    |
 | `teacherVersion`    | `teacher-version`      | [optional] Teacher version tag                                | `string \| { status: BookCardTagStatus; interactive: boolean; }` | `undefined`                |
 | `variant`           | `variant`              | Card variant: landscape, portrait                             | `BookCardVariant.LANDSCAPE \| BookCardVariant.PORTRAIT`          | `BookCardVariant.PORTRAIT` |
 | `volumeTitle`       | `volume-title`         | [optional] Volume title                                       | `string`                                                         | `undefined`                |
@@ -38,11 +39,12 @@
 
 ## Slots
 
-| Slot      | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
-| `"apps"`  | list of card-related apps                                          |
-| `"cta"`   | to the right of authors and title (e.g. bookmark icon)             |
-| `"ebook"` | main action slot on the card (as default, it shows laZ ebook link) |
+| Slot             | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| `"apps"`         | list of card-related apps                                          |
+| `"coverOverlay"` | to be shown on top of book cover                                   |
+| `"cta"`          | to the right of authors and title (e.g. bookmark icon)             |
+| `"ebook"`        | main action slot on the card (as default, it shows laZ ebook link) |
 
 
 ## Dependencies

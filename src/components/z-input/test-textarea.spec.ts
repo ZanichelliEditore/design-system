@@ -12,7 +12,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" size="big">
         <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
         <div class="textarea-wrapper">
-          <textarea id="test" placeholder="placeholder" value="value"></textarea>
+          <textarea id="test" placeholder="placeholder" value="value" class="z-scrollbar"></textarea>
         </div>
       </z-input>
     `);
@@ -27,7 +27,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input message="false" type="textarea" htmlid="test" placeholder="placeholder" value="value" label="label" disabled readonly size="big">
         <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
         <div class="textarea-wrapper readonly">
-          <textarea disabled readonly id="test" placeholder="placeholder" value="value"></textarea>
+          <textarea disabled readonly id="test" placeholder="placeholder" value="value" class="z-scrollbar"></textarea>
         </div>
       </z-input>
     `);
@@ -42,7 +42,7 @@ describe("Suite test ZInput - textarea", () => {
       <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" size="big" status="error" message="error message" value="value">
         <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
         <div class="textarea-wrapper input-error">
-          <textarea class="input-error" id="test" placeholder="placeholder" value="value"></textarea>
+          <textarea class="input-error z-scrollbar" id="test" placeholder="placeholder" value="value"></textarea>
         </div>
         <z-input-message class="big" message="error message" status="error"></z-input-message>
       </z-input>
