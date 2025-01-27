@@ -754,6 +754,7 @@ describe("Suite test ZSelect", () => {
               role="listbox"
               aria-label="default"
               tabindex="0"
+              class="z-scrollbar"
               id="checkid_list"
               size="medium"
             >
