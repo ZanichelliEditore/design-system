@@ -258,10 +258,6 @@ z-list-element.grouped-tree-parent-node .list-element::after {
   transform: translateX(-100%);
 }
 
-z-list-element .list-element.focused.hovered::after {
-  padding-left: 6px;
-}
-
 z-list-element > .list-element:hover,
 z-list-element > .list-element:hover::after {
   z-index: -1;
@@ -284,11 +280,6 @@ z-list-element:focus {
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-z-list-element > .list-element:hover {
-  background-color: var(--color-background);
-  cursor: pointer;
 }
 
 z-list-element.grouped-tree-parent-node > .list-element:hover::after {
