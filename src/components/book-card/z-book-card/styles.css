@@ -7,9 +7,10 @@
   --z-book-card-authors-lines: 1;
   --z-book-card-authors-word-break: break-all;
 
-  display: block;
+  display: flex;
   width: 304px;
   box-sizing: border-box;
+  flex-direction: column;
   border: solid var(--border-size-medium) var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: var(--border-radius);
@@ -189,4 +190,11 @@
 
 :host([variant="landscape"]) .main-content .card-info .top {
   gap: var(--space-unit);
+}
+
+@media (max-width: 767px) {
+  :host([variant="portrait"]) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
