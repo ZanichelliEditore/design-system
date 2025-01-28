@@ -1082,6 +1082,10 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * [optional] Sets element as tree item.
+         */
+        "hasTreeItems"?: boolean;
+        /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */
         "htmlTabindex"?: number | null;
@@ -4759,6 +4763,10 @@ declare namespace LocalJSX {
           * [optional] Sets expandable style to element.
          */
         "expandableStyle"?: ExpandableListStyle;
+        /**
+          * [optional] Sets element as tree item.
+         */
+        "hasTreeItems"?: boolean;
         /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */

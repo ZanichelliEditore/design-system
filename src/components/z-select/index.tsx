@@ -619,23 +619,17 @@ export class ZSelect {
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
         }}
         size={this.listSizeType()}
-        id={`${this.htmlid}_${key}`}
         dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
-        tabIndex={0}
-        role="option"
-        onKeyDown={(e: KeyboardEvent) => {
-          this.arrowsSelectNav(e, key);
-          if (e.key === KeyboardCode.ENTER) {
-            this.selectItem(item);
-          }
-        }}
+        hasTreeItems={this.hasTreeItems}
       >
         <div
           id={`${this.htmlid}-${key}`}
+          role="option"
           class="list-element"
-          tabIndex={-1}
+          tabIndex={0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
+            this.arrowsSelectNav(e, key);
             if (e.key === KeyboardCode.ENTER) {
               this.selectItem(item);
             }

@@ -131,6 +131,12 @@ export class ZListElement {
   listType?: ListType = ListType.NONE;
 
   /**
+   * [optional] Sets element as tree item.
+   */
+  @Prop()
+  hasTreeItems?: boolean;
+
+  /**
    * Sets element role.
    */
   @Prop({reflect: true})
@@ -276,7 +282,7 @@ export class ZListElement {
         onFocus={() => this.ariaDescendantFocus.emit(this.listElementId)}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
-        tabIndex={this.htmlTabindex}
+        tabIndex={this.hasTreeItems ? undefined : this.htmlTabindex}
       >
         <div
           class="container"
