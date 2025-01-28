@@ -133,6 +133,7 @@ export const WithSlottedContent = {
           height="20"
         ></z-icon>
       </div>
+
       <div slot="ebook">
         <z-button
           variant="primary"
@@ -140,10 +141,12 @@ export const WithSlottedContent = {
           >custom ebook button</z-button
         >
       </div>
+
       <div slot="tags">
         <z-tag style="--z-tag-bg: var(--gray500);">EDIZIONE DIGITALE INSEGNANTE</z-tag>
         <z-tag style="--z-tag-bg: var(--blue50); --z-tag-text-color: var(--gray950);">BES</z-tag>
       </div>
+
       <div slot="data">
         <a
           href="https://www.zanichelli.it"
@@ -162,39 +165,25 @@ export const WithSlottedContent = {
           ADOTTATO
         </div>
       </div>
+
       <div
         slot="apps"
-        style="display: flex; flex-wrap: wrap; border-top: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
+        style="display: flex; flex-wrap: wrap;"
       >
         <z-book-card-app
           icon="https://placehold.co/24"
-          name="Tutor di matematica"
+          name="Tutor di matematica matematica"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app>
         <z-book-card-app
           icon="https://placehold.co/24"
           name="Esercizi"
           info="test test"
           link="http://localhost"
-          style="width:315px; height:47px; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
-        ></z-book-card-app>
-        <z-book-card-app
-          icon="https://placehold.co/24"
-          name="Mappe Mappe Mappe Mappe Mappe"
-          info="test test"
-          link="http://localhost"
-          style="width:315px; height:47px; border-right: 1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; --z-book-card-app-padding-x: 16px;"
-        ></z-book-card-app>
-        <z-book-card-app
-          icon="https://placehold.co/24"
-          name="Scrittura"
-          info="test test"
-          link="http://localhost"
-          style="width:315px; height:47px;; --z-book-card-app-padding-x: 16px;"
         ></z-book-card-app>
       </div>
+
       <div
         slot="coverOverlay"
         class="body-4-sb"
@@ -202,5 +191,19 @@ export const WithSlottedContent = {
       >
         ANTEPRIMA DEL LIBRO SENZA RISORSE MULTIMEDIALI
       </div>
+
+      <style>
+        z-book-card-app {
+          --z-book-card-app-padding-x: 8px;
+          width: 100%;
+          max-width: 100%;
+          height: 47px;
+
+          @media (min-width: 768px) {
+            --z-book-card-app-padding-x: 16px;
+            width: 315px;
+          }
+        }
+      </style>
     </z-book-card>`,
 } satisfies Story;
