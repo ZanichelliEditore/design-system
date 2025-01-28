@@ -611,7 +611,7 @@ export class ZSelect {
   }
 
   private renderTreeItems(item: SelectItem, key: number, divider?: boolean): HTMLZListElementElement[] {
-    const hasDivider = divider || !item.children?.length;
+    const hasDivider = divider && !item.children?.length;
 
     return (
       <z-list-element
@@ -670,7 +670,7 @@ export class ZSelect {
         {item.children && item.children.length > 0 ? (
           <z-list>
             <div class="children-node">
-              {item.children.map((child, index) => this.renderTreeItems(child, index, false))}
+              {item.children.map((child, index, arr) => this.renderTreeItems(child, index, index === arr.length - 1))}
             </div>
           </z-list>
         ) : null}
