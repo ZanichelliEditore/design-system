@@ -332,37 +332,6 @@ export const ZSelectWithGroupsAndTreeItems = {
         ],
       },
       {
-        id: "padre1",
-        name: "Padre 1",
-        selected: false,
-        category: "Sezione 1",
-        children: [
-          {
-            id: "figlio1a",
-            name: "Figlio 1A",
-            selected: false,
-            children: [
-              {
-                id: "nipote1a-1",
-                name: "Nipote 1A-1",
-                selected: false,
-              },
-              {
-                id: "nipote1a-2",
-                name: "Nipote 1A-2 (disabilitato)",
-                selected: false,
-                disabled: true,
-              },
-            ],
-          },
-          {
-            id: "figlio1b",
-            name: "Figlio 1B",
-            selected: false,
-          },
-        ],
-      },
-      {
         id: "padre3",
         name: "Padre 3",
         selected: false,

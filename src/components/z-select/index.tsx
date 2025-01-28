@@ -338,40 +338,38 @@ export class ZSelect {
       this.toggleSelectUl();
     }
 
+    // 1) Ottengo l'array piatto
     const flatItems = this.flattenTreeItems(this.itemsList);
 
-    let currentIndex: number;
+    // 2) Se ho un reset item e va mostrato, lo aggiungo come primo
+    //    con id univoco
+    if (this.resetItem && showResetIcon) {
+      flatItems.unshift({
+        item: {id: "__RESET_ITEM__"} as SelectItem,
+        key: -1,
+      });
+    }
 
-    if (typeof idOrReset === "number") {
-      currentIndex = 0;
+    // 3) Converto "0" => "__RESET_ITEM__" se si tratta del reset
+    const currentId = typeof idOrReset === "number" ? "__RESET_ITEM__" : idOrReset;
+
+    // 4) Trovo l'indice di dove sono
+    const currentIndex = flatItems.findIndex((f) => f.item.id === currentId);
+    if (currentIndex === -1) {
+      return;
+    }
+
+    const lastIndex = flatItems.length - 1;
+    let newIndex = currentIndex;
+
+    if (e.key === KeyboardCode.ARROW_DOWN) {
+      newIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
     } else {
-      currentIndex = flatItems.findIndex((f) => f.item.id === idOrReset);
-      if (currentIndex === -1) {
-        return;
-      }
+      newIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
     }
 
-    let newIndex: number;
-
-    if (this.resetItem) {
-      if (e.key === KeyboardCode.ARROW_DOWN) {
-        newIndex = currentIndex + 1 === flatItems.length + 1 ? +!showResetIcon : currentIndex + 1;
-      } else {
-        newIndex = currentIndex <= +!showResetIcon ? flatItems.length - 1 : currentIndex - 1;
-      }
-    } else {
-      // eslint-disable-next-line
-      if (e.key === KeyboardCode.ARROW_DOWN) {
-        newIndex = currentIndex + 1 === flatItems.length ? 0 : currentIndex + 1;
-      } else {
-        newIndex = currentIndex <= 0 ? flatItems.length - 1 : currentIndex - 1;
-      }
-    }
-
-    if (flatItems[newIndex]) {
-      const newItemId = flatItems[newIndex].item.id;
-      this.focusSelectItem(newItemId);
-    }
+    const newItemId = flatItems[newIndex].item.id;
+    this.focusSelectItem(newItemId);
   }
 
   private focusSelectItem(itemId: string): void {
@@ -390,7 +388,7 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement).focus();
+        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement)?.focus();
       }
     }
 
@@ -593,7 +591,7 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  // eslint-disable-next-line
+  //eslint-disable-next-line
   private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
@@ -629,7 +627,7 @@ export class ZSelect {
         hasTreeItems={this.hasTreeItems}
       >
         <div
-          id={`${this.htmlid}_${item.id}`} // (MODIFICATO) usiamo item.id
+          id={`${this.htmlid}_${item.id}`}
           role="option"
           class="list-element"
           tabIndex={0}
