@@ -8,6 +8,13 @@ import {BookCardVariant, ControlSize} from "../../../beans";
  * @slot data - external link and pill, default empty
  * @slot apps - list of card-related apps, default empty
  * @slot coverOverlay - purple layer on top of book cover
+ * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+ * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+ * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+ * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+ * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+ * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+ * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
  */
 @Component({
   tag: "z-book-card",

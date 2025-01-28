@@ -253,6 +253,15 @@ export namespace Components {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -2478,6 +2487,15 @@ declare global {
     interface HTMLZBookCardElementEventMap {
         "ebookClick": any;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3823,6 +3841,15 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -6082,6 +6109,15 @@ declare module "@stencil/core" {
             "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+            /**
+             * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+             * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+             * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+             * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+             * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+             * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+             * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+             */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             /**
              * ZBookCardApp component
