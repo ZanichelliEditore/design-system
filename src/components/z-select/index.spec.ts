@@ -44,7 +44,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="-1"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -102,7 +102,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -116,7 +116,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_1"
+                      id="checkid_key_1"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -174,7 +174,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     tabindex="0"
                     class=""
-                    id="checkid_item_0"
+                    id="checkid_key_0"
                     size="medium"
                   >
                   <div class="list-element-container">
@@ -188,7 +188,7 @@ describe("Suite test ZSelect", () => {
                     tabindex="0"
                     aria-selected="true"
                     class=""
-                    id="checkid_item_1"
+                    id="checkid_key_1"
                     size="medium"
                   >
                   <div class="list-element-container">
@@ -248,7 +248,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="-1"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -262,7 +262,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="-1"
                       class=""
-                      id="checkid_item_1"
+                      id="checkid_key_1"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -321,7 +321,7 @@ describe("Suite test ZSelect", () => {
                         role="option"
                         tabindex="-1"
                         class=""
-                        id="checkid_item_0"
+                        id="checkid_key_0"
                         size="medium"
                       >
                       <div class="list-element-container">
@@ -335,7 +335,7 @@ describe("Suite test ZSelect", () => {
                         role="option"
                         tabindex="-1"
                         class=""
-                        id="checkid_item_1"
+                        id="checkid_key_1"
                         size="medium"
                       >
                       <div class="list-element-container">
@@ -393,7 +393,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -406,7 +406,7 @@ describe("Suite test ZSelect", () => {
                       dividertype="header"
                       role="option"
                       tabindex="-1"
-                      id="checkid_item_1"
+                      id="checkid_key_1"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -464,7 +464,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     tabindex="0"
                     class=""
-                    id="checkid_item_0"
+                    id="checkid_key_0"
                     size="medium"
                   >
                   <div class="list-element-container">
@@ -478,7 +478,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     tabindex="0"
                     class=""
-                    id="checkid_item_1"
+                    id="checkid_key_1"
                     size="medium"
                   >
                   <div class="list-element-container">
@@ -509,7 +509,7 @@ describe("Suite test ZSelect", () => {
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list class="z-scrollbar" id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
-                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_item_0" role="option" size="medium" tabindex="0">
+                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_0" role="option" size="medium" tabindex="0">
                   <div class="list-element-container">
                     <div class="list-element-content">
                       SELECT HERE questa
@@ -543,7 +543,7 @@ describe("Suite test ZSelect", () => {
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list id="checkid_list" role="listbox" aria-label="default" size="medium" tabindex="0" class="z-scrollbar">
-                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_0" role="option" tabindex="0">
+                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_key_-1" role="option" tabindex="0">
                     <div class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
                       <span>
@@ -551,7 +551,7 @@ describe("Suite test ZSelect", () => {
                       </span>
                     </div>
                   </z-list-element>
-                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_item_0" role="option" size="medium" tabindex="0">
+                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_key_0" role="option" size="medium" tabindex="0">
                   <div class="list-element-container">
                     <div class="list-element-content selected">
                       SELECT HERE questa opzione con etichetta lunga lunghissima
@@ -609,7 +609,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -623,7 +623,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_1"
+                      id="checkid_key_1"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -680,7 +680,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_0"
+                      id="checkid_key_0"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -695,7 +695,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       tabindex="0"
                       class=""
-                      id="checkid_item_1"
+                      id="checkid_key_1"
                       size="medium"
                     >
                     <div class="list-element-container">
@@ -765,7 +765,7 @@ describe("Suite test ZSelect", () => {
                 role="option"
                 tabindex="0"
                 class=""
-                id="checkid_item_0"
+                id="checkid_key_0"
                 size="medium"
               >
                 <div class="list-element-container">
@@ -781,7 +781,7 @@ describe("Suite test ZSelect", () => {
                 role="option"
                 tabindex="0"
                 class=""
-                id="checkid_item_1"
+                id="checkid_key_3"
                 size="medium"
               >
                 <div class="list-element-container">

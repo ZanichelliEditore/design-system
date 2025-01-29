@@ -95,7 +95,14 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
+  @State()
+  private flattenedList: {item: SelectItem; key: number}[] = [];
+
   private itemsList: SelectItem[] = [];
+
+  private itemIdKeyMap: Record<string, number> = {};
+
+  private readonly resetKey = -1;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -107,6 +114,12 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
+
+    this.flattenedList = this.flattenTreeItems(this.itemsList);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
   }
 
   @Listen("ariaDescendantFocus")
@@ -327,6 +340,7 @@ export class ZSelect {
   private arrowsSelectNav(e: KeyboardEvent, idOrReset: string | number): void {
     const showResetIcon = this.resetItem && !!this.selectedItem;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+
     if (!arrows.includes(e.key as KeyboardCode)) {
       return;
     }
@@ -334,46 +348,46 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
-    if (!this.isOpen) {
-      this.toggleSelectUl();
-    }
+    const flatItems = [...this.flattenedList];
 
-    // 1) Ottengo l'array piatto
-    const flatItems = this.flattenTreeItems(this.itemsList);
-
-    // 2) Se ho un reset item e va mostrato, lo aggiungo come primo
-    //    con id univoco
     if (this.resetItem && showResetIcon) {
       flatItems.unshift({
         item: {id: "__RESET_ITEM__"} as SelectItem,
-        key: -1,
+        key: this.resetKey,
       });
     }
 
-    // 3) Converto "0" => "__RESET_ITEM__" se si tratta del reset
-    const currentId = typeof idOrReset === "number" ? "__RESET_ITEM__" : idOrReset;
+    let currentIndex: number;
+    if (typeof idOrReset === "number") {
+      currentIndex = flatItems.findIndex((f) => f.key === idOrReset);
+    } else {
+      const k = this.itemIdKeyMap[idOrReset];
+      currentIndex = flatItems.findIndex((f) => f.key === k);
+    }
 
-    // 4) Trovo l'indice di dove sono
-    const currentIndex = flatItems.findIndex((f) => f.item.id === currentId);
-    if (currentIndex === -1) {
-      return;
+    if (!this.isOpen) {
+      this.toggleSelectUl();
+
+      if (currentIndex === -1) {
+        currentIndex = -1;
+      }
     }
 
     const lastIndex = flatItems.length - 1;
+
     let newIndex = currentIndex;
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
       newIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
     } else {
-      newIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
+      newIndex = currentIndex <= 0 ? lastIndex : currentIndex - 1;
     }
 
-    const newItemId = flatItems[newIndex].item.id;
-    this.focusSelectItem(newItemId);
+    this.focusSelectItem(flatItems[newIndex].key);
   }
 
-  private focusSelectItem(itemId: string): void {
-    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_${itemId}`)?.focus();
+  private focusSelectItem(key: number): void {
+    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_key_${key}`)?.focus();
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -430,7 +444,7 @@ export class ZSelect {
   private scrollToLetter(letter: string): void {
     const foundItem = this.itemsList.findIndex((item: SelectItem) => item.name.charAt(0) === letter);
     if (foundItem > -1) {
-      this.focusSelectItem(this.itemsList[foundItem].id);
+      this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
   }
 
@@ -469,7 +483,13 @@ export class ZSelect {
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
         onKeyDown={(e: KeyboardEvent) => {
-          return this.arrowsSelectNav(e, this.selectedItem ? this.selectedItem.id : this.resetItem ? 0 : "");
+          const current = this.selectedItem
+            ? this.itemIdKeyMap[this.selectedItem.id]
+            : this.resetItem
+              ? this.resetKey
+              : "";
+
+          return this.arrowsSelectNav(e, current);
         }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
@@ -529,14 +549,14 @@ export class ZSelect {
         role="option"
         tabindex="0"
         aria-selected="false"
-        id={`${this.htmlid}_${this.resetItem ? "0" : "none"}`}
+        id={`${this.htmlid}_key_${this.resetKey}`}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         onClickItem={() => {
           this.selectedItem = null;
           this.searchString = null;
           this.emitResetSelect();
         }}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
       >
         <div
           class={{
@@ -552,6 +572,8 @@ export class ZSelect {
   }
 
   private renderItem(item: SelectItem, lastItem: boolean): HTMLZListElementElement {
+    const thisItemKey = this.itemIdKeyMap[item.id];
+
     return (
       <z-list-element
         clickable={!item.disabled}
@@ -560,10 +582,10 @@ export class ZSelect {
         role="option"
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
         aria-selected={item.selected ? "true" : "false"}
-        id={`${this.htmlid}_${item.id}`}
+        id={`${this.htmlid}_key_${thisItemKey}`}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item)}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, item.id)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, thisItemKey)}
       >
         <div class="list-element-container">
           <div
@@ -616,6 +638,7 @@ export class ZSelect {
 
   private renderTreeItems(item: SelectItem, divider?: boolean): HTMLZListElementElement[] {
     const hasDivider = divider && !item.children?.length;
+    const thisItemKey = this.itemIdKeyMap[item.id];
 
     return (
       <z-list-element
@@ -627,13 +650,13 @@ export class ZSelect {
         hasTreeItems={this.hasTreeItems}
       >
         <div
-          id={`${this.htmlid}_${item.id}`}
+          id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
           tabIndex={0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
-            this.arrowsSelectNav(e, item.id);
+            this.arrowsSelectNav(e, thisItemKey);
             if (e.key === KeyboardCode.ENTER) {
               this.selectItem(item);
             }
@@ -700,29 +723,28 @@ export class ZSelect {
           >
             {category}
           </span>
-          <z-list>
-            {items.map((item) => {
-              return this.renderTreeItems(item, !item.children?.length);
-            })}
-          </z-list>
+          <z-list>{items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1))}</z-list>
         </z-list-group>
       );
     });
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement[] {
-    const newData = this.itemsList.reduce((group, item, index, array) => {
-      const {category} = item;
-      const lastItem = array.length === index + 1;
-      const zListItem = this.renderItem(item, lastItem);
+    const newData = this.itemsList.reduce(
+      (group, item, index, array) => {
+        const {category} = item;
+        const lastItem = array.length === index + 1;
+        const zListItem = this.renderItem(item, lastItem);
 
-      group[category] = group[category] ?? [];
-      group[category].push(zListItem);
+        group[category] = group[category] ?? [];
+        group[category].push(zListItem);
 
-      return group;
-    }, {});
+        return group;
+      },
+      {} as Record<string, HTMLZListElementElement[]>
+    );
 
-    return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+    return Object.entries(newData).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
