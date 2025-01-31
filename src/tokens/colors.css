@@ -1,9 +1,6 @@
 @import "palette/index.css";
 
 :root {
-  --color-error-default: #7e0a00;
-  --color-success-default: #417505;
-  --color-warning-default: #f6bb3b;
   --color-black: #000;
   --color-white: #fff;
 }
