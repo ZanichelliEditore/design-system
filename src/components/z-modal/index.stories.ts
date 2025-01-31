@@ -21,6 +21,7 @@ const StoryMeta = {
     "alertdialog": false,
     "closable": true,
     "scrollInside": true,
+    "lockPageScroll": true,
     "--z-modal-content-padding": "var(--space-unit)",
   },
   decorators: [
@@ -55,6 +56,7 @@ export const ShortText = {
       alertdialog=${args.alertdialog}
       closable=${args.closable}
       scroll-inside=${args.scrollInside}
+      lock-page-scroll=${args.lockPageScroll}
       style="--z-modal-content-padding: ${args["--z-modal-content-padding"]}"
     >
       <div slot="modalContent">
@@ -80,6 +82,7 @@ export const LongText = {
       alertdialog=${args.alertdialog}
       closable=${args.closable}
       scroll-inside=${args.scrollInside}
+      lock-page-scroll=${args.lockPageScroll}
       style="--z-modal-content-padding: ${args["--z-modal-content-padding"]}"
     >
       <div slot="modalContent">

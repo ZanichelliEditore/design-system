@@ -44,6 +44,9 @@ export class ZModal {
   @Prop()
   scrollInside?: boolean = true;
 
+  @Prop()
+  lockPageScroll?: boolean = true;
+
   private dialog: HTMLDialogElement;
 
   @Element() host: HTMLZModalElement;
@@ -76,6 +79,12 @@ export class ZModal {
     }
   }
 
+  componentWillLoad(): void {
+    if (this.lockPageScroll) {
+      document.body.style.overflow = "hidden";
+    }
+  }
+
   componentDidLoad(): void {
     if (typeof window.HTMLDialogElement !== "function") {
       /* workaround to fix `registerDialog` in test environment:
@@ -91,10 +100,19 @@ export class ZModal {
     }
   }
 
+  disconnectedCallback(): void {
+    if (this.lockPageScroll && document.body.style.overflow === "hidden") {
+      document.body.style.overflow = "";
+    }
+  }
+
   /** open modal */
   @Method()
   async open(): Promise<void> {
     this.dialog?.showModal();
+    if (this.lockPageScroll) {
+      document.body.style.overflow = "hidden";
+    }
   }
 
   /** close modal */
@@ -102,6 +120,9 @@ export class ZModal {
   async close(): Promise<void> {
     if (this.closable) {
       this.dialog?.close();
+      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
+        document.body.style.overflow = "";
+      }
     }
   }
 

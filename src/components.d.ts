@@ -1250,6 +1250,7 @@ export namespace Components {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
+        "blockPageScroll"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
          */
@@ -4951,6 +4952,7 @@ declare namespace LocalJSX {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
+        "blockPageScroll"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
          */
