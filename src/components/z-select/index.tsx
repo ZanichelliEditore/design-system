@@ -625,20 +625,25 @@ export class ZSelect {
       return this.renderGroupedTree();
     }
 
-    return this.itemsList.map((item: SelectItem, key, array) => {
-      const lastItem = array.length === key + 1;
+    return this.itemsList.map((item: SelectItem, index, array) => {
+      const isLastItem = index === array.length - 1;
+      const parentHasSiblings = array.length > 1;
 
       if (this.hasTreeItems) {
-        return this.renderTreeItems(item, lastItem);
+        return this.renderTreeItems(item, isLastItem, parentHasSiblings);
       }
 
-      return this.renderItem(item, lastItem);
+      return this.renderItem(item, isLastItem);
     });
   }
 
-  private renderTreeItems(item: SelectItem, divider?: boolean): HTMLZListElementElement[] {
-    const hasDivider = divider && !item.children?.length;
+  private renderTreeItems(
+    item: SelectItem,
+    isLastChild: boolean,
+    parentHasSiblings: boolean
+  ): HTMLZListElementElement[] {
     const thisItemKey = this.itemIdKeyMap[item.id];
+    const hasDivider = isLastChild && !parentHasSiblings;
 
     return (
       <z-list-element
@@ -661,14 +666,6 @@ export class ZSelect {
               this.selectItem(item);
             }
           }}
-          onMouseEnter={(e: MouseEvent) => {
-            const currentElement = e.target as HTMLElement;
-            currentElement.classList.add("hovered");
-          }}
-          onMouseLeave={(e: MouseEvent) => {
-            const currentElement = e.target as HTMLElement;
-            currentElement.classList.contains("hovered") && currentElement.classList.remove("hovered");
-          }}
         >
           <span class="item ellipsis">
             {item?.icon && (
@@ -683,7 +680,7 @@ export class ZSelect {
                 "selected": !!item.selected,
               }}
               title={item.name}
-              innerHTML={item.name}
+              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
             />
           </span>
           {item.icon && <z-tag icon={item.icon}></z-tag>}
@@ -691,7 +688,9 @@ export class ZSelect {
         {item.children && item.children.length > 0 ? (
           <z-list>
             <div class="children-node">
-              {item.children.map((child, index, arr) => this.renderTreeItems(child, index === arr.length - 1))}
+              {item.children.map((child, index, arr) =>
+                this.renderTreeItems(child, index === arr.length - 1, arr.length > 1)
+              )}
             </div>
           </z-list>
         ) : null}
@@ -712,6 +711,8 @@ export class ZSelect {
     );
 
     return Object.entries(grouped).map(([category, items]) => {
+      const parentHasSiblings = items.length > 1;
+
       return (
         <z-list-group
           divider-type={ListDividerType.ELEMENT}
@@ -723,7 +724,9 @@ export class ZSelect {
           >
             {category}
           </span>
-          <z-list>{items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1))}</z-list>
+          <z-list>
+            {items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings))}
+          </z-list>
         </z-list-group>
       );
     });

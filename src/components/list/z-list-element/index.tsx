@@ -285,7 +285,7 @@ export class ZListElement {
         tabIndex={this.hasTreeItems ? undefined : this.htmlTabindex}
       >
         <div
-          class="container"
+          class={this.hasTreeItems ? "tree-element-container" : "container"}
           style={{color: `var(--${this.color})`}}
           tabindex="-1"
           id={`z-list-element-id-${this.listElementId}`}
