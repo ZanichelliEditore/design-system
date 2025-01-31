@@ -651,7 +651,7 @@ export class ZSelect {
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
         }}
         size={this.listSizeType()}
-        dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
+        dividerType={hasDivider || (!this.hasGroupItems && isLastChild) ? ListDividerType.ELEMENT : undefined}
         hasTreeItems={this.hasTreeItems}
       >
         <div
