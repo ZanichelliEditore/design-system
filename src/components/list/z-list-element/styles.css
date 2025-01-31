@@ -99,3 +99,8 @@
   display: flex;
   align-items: center;
 }
+
+:host .z-tree-list-divider {
+  position: absolute;
+  left: 0;
+}

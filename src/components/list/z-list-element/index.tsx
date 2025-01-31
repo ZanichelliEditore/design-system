@@ -299,6 +299,7 @@ export class ZListElement {
         </div>
         {this.dividerType === ListDividerType.ELEMENT && (
           <z-divider
+            class={{"z-tree-list-divider": this.hasTreeItems}}
             color={this.dividerColor}
             size={this.dividerSize}
           />
