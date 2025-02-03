@@ -1211,6 +1211,13 @@
     rehype-slug "^6.0.0"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-themes@^8.5.3":
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-themes/-/addon-themes-8.5.3.tgz#a935e37076271e4641331960b9fb37e9af90dc7b"
+  integrity sha512-wGlrAxU/9WF/CA4EV9VDzWbi4fPKdUweHmAPcnuiU0xG/zEIIL4o2fDr0+9tTctjJfVHgkrsHk74BpP14j+p9g==
+  dependencies:
+    ts-dedent "^2.0.0"
+
 "@storybook/addon-viewport@^8.3.0":
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-8.3.0.tgz#30ec8e38ebbe22dfb0886f2b853ea90fa365309e"
