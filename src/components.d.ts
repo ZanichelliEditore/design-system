@@ -1250,7 +1250,6 @@ export namespace Components {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
-        "blockPageScroll"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
          */
@@ -1263,6 +1262,10 @@ export namespace Components {
           * aria-label for close button (optional)
          */
         "closeButtonLabel": string;
+        /**
+          * if true, the page scroll is locked when the modal is open (optional, default is true)
+         */
+        "lockPageScroll"?: boolean;
         /**
           * unique id
          */
@@ -4952,7 +4955,6 @@ declare namespace LocalJSX {
           * add role "alertdialog" to dialog (optional, default is false)
          */
         "alertdialog"?: boolean;
-        "blockPageScroll"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
          */
@@ -4961,6 +4963,10 @@ declare namespace LocalJSX {
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
+        /**
+          * if true, the page scroll is locked when the modal is open (optional, default is true)
+         */
+        "lockPageScroll"?: boolean;
         /**
           * unique id
          */

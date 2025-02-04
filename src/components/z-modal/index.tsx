@@ -44,6 +44,7 @@ export class ZModal {
   @Prop()
   scrollInside?: boolean = true;
 
+  /** if true, the page scroll is locked when the modal is open (optional, default is true) */
   @Prop()
   lockPageScroll?: boolean = true;
 
@@ -58,6 +59,9 @@ export class ZModal {
   private emitModalClose(): void {
     if (this.closable) {
       this.modalClose.emit({modalid: this.modalid});
+      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
+        document.body.style.overflow = "";
+      }
     }
   }
 
@@ -76,6 +80,9 @@ export class ZModal {
   private emitBackgroundClick(): void {
     if (this.closable) {
       this.modalBackgroundClick.emit({modalid: this.modalid});
+      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
+        document.body.style.overflow = "";
+      }
     }
   }
 
