@@ -512,7 +512,11 @@ describe("Suite test ZSelect", () => {
                   <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_0" role="option" size="medium" tabindex="0">
                   <div class="list-element-container">
                     <div class="list-element-content">
-                      SELECT HERE questa opzione con etichetta lunga lunghissima
+                      SELECT HERE questa
+                      <strong>
+                        opzione
+                      </strong>
+                      con etichetta lunga lunghissima
                     </div>
                   </div>
                   </z-list-element>
@@ -774,7 +778,7 @@ describe("Suite test ZSelect", () => {
                 aria-selected="false" 
                 clickable="" 
                 dividertype="header" 
-                id="checkid_key_1" 
+                id="checkid_key_3" 
                 role="option" 
                 size="medium" 
                 tabindex="0"
