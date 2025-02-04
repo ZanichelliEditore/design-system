@@ -208,21 +208,19 @@ export class ZSelect {
 
     if (!searchString?.length) {
       this.itemsList = prevList;
-
-      return;
-    }
-
-    if (this.hasTreeItems) {
+    } else if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString);
     } else {
-      this.itemsList = prevList
-        .filter((item: SelectItem) => item.name.toUpperCase().includes(searchString.toUpperCase()))
-        .map((item: SelectItem) => {
-          item.name = this.getHighlightedText(item.name, searchString);
-
-          return item;
-        });
+      this.itemsList = prevList.filter((item: SelectItem) =>
+        item.name.toUpperCase().includes(searchString.toUpperCase())
+      );
     }
+
+    this.flattenedList = this.itemsList.map((item, index) => ({item, key: index}));
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
   }
 
   private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
