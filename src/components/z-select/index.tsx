@@ -346,7 +346,7 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
-    const flatItems = [...this.flattenedList];
+    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled); // Filtra gli elementi disabilitati
 
     if (this.resetItem && showResetIcon) {
       flatItems.unshift({
@@ -376,9 +376,13 @@ export class ZSelect {
     let newIndex = currentIndex;
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
-      newIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
+      do {
+        newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
+      } while (flatItems[newIndex].item.disabled); // Salta gli elementi disabilitati
     } else {
-      newIndex = currentIndex <= 0 ? lastIndex : currentIndex - 1;
+      do {
+        newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
+      } while (flatItems[newIndex].item.disabled); // Salta gli elementi disabilitati
     }
 
     this.focusSelectItem(flatItems[newIndex].key);
