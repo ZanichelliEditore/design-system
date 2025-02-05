@@ -103,4 +103,5 @@
 :host .z-tree-list-divider {
   position: absolute;
   left: 0;
+  z-index: 100;
 }
