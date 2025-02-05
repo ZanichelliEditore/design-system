@@ -208,7 +208,6 @@ export class ZSelect {
 
     if (!searchString?.length) {
       this.itemsList = prevList;
-      this.flattenedList = this.flattenTreeItems(this.itemsList);
 
       return;
     }
