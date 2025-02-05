@@ -15,15 +15,16 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                                                            | Type      | Default           |
-| ------------------ | -------------------- | ---------------------------------------------------------------------- | --------- | ----------------- |
-| `alertdialog`      | `alertdialog`        | add role "alertdialog" to dialog (optional, default is false)          | `boolean` | `false`           |
-| `closable`         | `closable`           | if true, the modal is closable (optional, default is true)             | `boolean` | `true`            |
-| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                                 | `string`  | `"chiudi modale"` |
-| `modalid`          | `modalid`            | unique id                                                              | `string`  | `undefined`       |
-| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                                    | `string`  | `undefined`       |
-| `modaltitle`       | `modaltitle`         | title text (optional)                                                  | `string`  | `undefined`       |
-| `scrollInside`     | `scroll-inside`      | if true, the modal can scroll inside, if false the viewport can scroll | `boolean` | `true`            |
+| Property           | Attribute            | Description                                                                           | Type      | Default           |
+| ------------------ | -------------------- | ------------------------------------------------------------------------------------- | --------- | ----------------- |
+| `alertdialog`      | `alertdialog`        | add role "alertdialog" to dialog (optional, default is false)                         | `boolean` | `false`           |
+| `closable`         | `closable`           | if true, the modal is closable (optional, default is true)                            | `boolean` | `true`            |
+| `closeButtonLabel` | `close-button-label` | aria-label for close button (optional)                                                | `string`  | `"chiudi modale"` |
+| `lockPageScroll`   | `lock-page-scroll`   | if true, the page scroll is locked when the modal is open (optional, default is true) | `boolean` | `true`            |
+| `modalid`          | `modalid`            | unique id                                                                             | `string`  | `undefined`       |
+| `modalsubtitle`    | `modalsubtitle`      | subtitle (optional)                                                                   | `string`  | `undefined`       |
+| `modaltitle`       | `modaltitle`         | title text (optional)                                                                 | `string`  | `undefined`       |
+| `scrollInside`     | `scroll-inside`      | if true, the modal can scroll inside, if false the viewport can scroll                | `boolean` | `true`            |
 
 
 ## Events
