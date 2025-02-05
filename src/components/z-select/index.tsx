@@ -641,7 +641,7 @@ export class ZSelect {
       const parentHasSiblings = array.length > 1;
 
       if (this.hasTreeItems) {
-        return this.renderTreeItems(item, isLastItem, parentHasSiblings);
+        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true);
       }
 
       return this.renderItem(item, isLastItem);
@@ -651,10 +651,18 @@ export class ZSelect {
   private renderTreeItems(
     item: SelectItem,
     isLastChild: boolean,
-    parentHasSiblings: boolean
+    parentHasSiblings: boolean,
+    isTopLevel?: boolean
   ): HTMLZListElementElement[] {
     const thisItemKey = this.itemIdKeyMap[item.id];
-    const hasDivider = isLastChild && !parentHasSiblings;
+
+    const hasDivider = this.hasGroupItems
+      ? isLastChild && !parentHasSiblings
+        ? ListDividerType.ELEMENT
+        : undefined
+      : isTopLevel && parentHasSiblings && !isLastChild
+        ? ListDividerType.ELEMENT
+        : undefined;
 
     return (
       <z-list-element
@@ -664,7 +672,7 @@ export class ZSelect {
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
         }}
         size={this.listSizeType()}
-        dividerType={hasDivider || (!this.hasGroupItems && isLastChild) ? ListDividerType.ELEMENT : undefined}
+        dividerType={hasDivider}
         hasTreeItems={this.hasTreeItems}
       >
         <div
@@ -702,7 +710,12 @@ export class ZSelect {
           <z-list>
             <div class="children-node">
               {item.children.map((child, index, arr) =>
-                this.renderTreeItems(child, index === arr.length - 1, arr.length > 1)
+                this.renderTreeItems(
+                  child,
+                  index === arr.length - 1,
+                  arr.length > 1,
+                  false // isTopLevel = false for children
+                )
               )}
             </div>
           </z-list>
@@ -723,12 +736,12 @@ export class ZSelect {
       {} as Record<string, SelectItem[]>
     );
 
-    return Object.entries(grouped).map(([category, items]) => {
+    return Object.entries(grouped).map(([category, items], index, entries) => {
       const parentHasSiblings = items.length > 1;
 
       return (
         <z-list-group
-          divider-type={ListDividerType.ELEMENT}
+          divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
           hasTreeItems={true}
         >
           <span
