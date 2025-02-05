@@ -658,6 +658,8 @@ export class ZSelect {
 
     return (
       <z-list-element
+        clickable={!item.disabled}
+        disabled={item.disabled}
         class={{
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
         }}

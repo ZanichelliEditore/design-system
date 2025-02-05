@@ -235,8 +235,8 @@ z-list-element.grouped-tree-parent-node .list-element::after {
   transform: translateX(-100%);
 }
 
-z-list-element > .list-element:hover,
-z-list-element > .list-element:hover::after {
+z-list-element:not([disabled]) > .list-element:hover,
+z-list-element:not([disabled]) > .list-element:hover::after {
   z-index: -1;
   background-color: var(--color-background);
   cursor: pointer;
