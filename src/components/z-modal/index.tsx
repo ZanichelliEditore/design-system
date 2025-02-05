@@ -59,8 +59,8 @@ export class ZModal {
   private emitModalClose(): void {
     if (this.closable) {
       this.modalClose.emit({modalid: this.modalid});
-      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
-        document.body.style.overflow = "";
+      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
+        document.body.style.overflowY = "";
       }
     }
   }
@@ -80,15 +80,9 @@ export class ZModal {
   private emitBackgroundClick(): void {
     if (this.closable) {
       this.modalBackgroundClick.emit({modalid: this.modalid});
-      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
-        document.body.style.overflow = "";
+      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
+        document.body.style.overflowY = "";
       }
-    }
-  }
-
-  componentWillLoad(): void {
-    if (this.lockPageScroll) {
-      document.body.style.overflow = "hidden";
     }
   }
 
@@ -105,11 +99,14 @@ export class ZModal {
     } else {
       this.open();
     }
+    if (this.lockPageScroll) {
+      requestAnimationFrame(() => (document.body.style.overflowY = "hidden"));
+    }
   }
 
   disconnectedCallback(): void {
-    if (this.lockPageScroll && document.body.style.overflow === "hidden") {
-      document.body.style.overflow = "";
+    if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
+      document.body.style.overflowY = "";
     }
   }
 
@@ -118,7 +115,7 @@ export class ZModal {
   async open(): Promise<void> {
     this.dialog?.showModal();
     if (this.lockPageScroll) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     }
   }
 
@@ -127,8 +124,8 @@ export class ZModal {
   async close(): Promise<void> {
     if (this.closable) {
       this.dialog?.close();
-      if (this.lockPageScroll && document.body.style.overflow === "hidden") {
-        document.body.style.overflow = "";
+      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
+        document.body.style.overflowY = "";
       }
     }
   }
