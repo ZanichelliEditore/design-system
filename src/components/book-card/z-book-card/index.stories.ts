@@ -10,7 +10,8 @@ import "../../z-tag/index";
 import "../z-book-card-app/index";
 import "./index";
 
-type ZBookCardStoriesArgs = ZBookCard & CSSVarsArguments<
+type ZBookCardStoriesArgs = ZBookCard &
+  CSSVarsArguments<
     | "--z-book-card-portrait-cover-height"
     | "--z-book-card-title-lines"
     | "--z-book-card-title-word-break"
