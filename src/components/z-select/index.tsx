@@ -208,6 +208,7 @@ export class ZSelect {
 
     if (!searchString?.length) {
       this.itemsList = prevList;
+      this.flattenedList = this.flattenTreeItems(this.itemsList);
 
       return;
     }
@@ -223,6 +224,12 @@ export class ZSelect {
           return item;
         });
     }
+
+    this.flattenedList = this.flattenTreeItems(this.itemsList);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
   }
 
   private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
@@ -348,7 +355,7 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
-    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled); // Filtra gli elementi disabilitati
+    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled);
 
     if (this.resetItem && showResetIcon) {
       flatItems.unshift({
@@ -380,11 +387,11 @@ export class ZSelect {
     if (e.key === KeyboardCode.ARROW_DOWN) {
       do {
         newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
-      } while (flatItems[newIndex].item.disabled); // Salta gli elementi disabilitati
+      } while (flatItems[newIndex].item.disabled);
     } else {
       do {
         newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
-      } while (flatItems[newIndex].item.disabled); // Salta gli elementi disabilitati
+      } while (flatItems[newIndex].item.disabled);
     }
 
     this.focusSelectItem(flatItems[newIndex].key);
