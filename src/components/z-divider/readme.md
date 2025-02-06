@@ -20,6 +20,7 @@
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
  - [z-section-title](../z-section-title)
+ - [z-select](../z-select)
 
 ### Graph
 ```mermaid
@@ -28,6 +29,7 @@ graph TD;
   z-list-element --> z-divider
   z-list-group --> z-divider
   z-section-title --> z-divider
+  z-select --> z-divider
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
