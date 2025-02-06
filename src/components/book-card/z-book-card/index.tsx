@@ -165,11 +165,7 @@ export class ZBookCard {
     );
   }
 
-  private renderEbook(): null | HTMLDivElement {
-    if (!this.ebookUrl) {
-      return null;
-    }
-
+  private renderEbook(): HTMLDivElement {
     return (
       <div class="ebook">
         <div>
@@ -218,9 +214,7 @@ export class ZBookCard {
               <slot name="tags"></slot>
               <slot name="data"></slot>
             </div>
-            <div class="bottom">
-              <slot name="ebook">{this.renderEbook()}</slot>
-            </div>
+            <slot name="ebook">{!!this.ebookUrl && <div class="bottom">{this.renderEbook()}</div>}</slot>
           </div>
         </div>
         <slot name="apps"></slot>
