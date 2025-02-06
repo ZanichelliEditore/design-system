@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v18.0.0](#v1800)
+
+  - [Refactor componente `z-book-card`](#refactor-componente-zbookcard-v2)
+
 - [v17.0.0](#v1700)
 
   - [Refactor componente `z-book-card`](#refactor-componente-zbookcard)
@@ -112,6 +116,18 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v18.0.0
+
+### Refactor componente `ZBookCard` V2
+
+- Tutte le prop sono diventate opzionali, ad esclusione di `variant`, `cover` e `operaTitle`.
+- Le prop `edi`, `annotated`, `teacherVersion` sono state sostituite dallo slot `tags`.
+- Le prop `adoption` e `catalogUrl` sono state sostituite dallo slot `data`.
+- La prop `reflowable` è stata rimossa.
+- La prop `operaTitleHtmlTag` è stata cambiata in `titleHtmlTag`.
+- È stata aggiunta la prop `year`.
+- È ora possibile customizzare l'ingombro di titolo, sottotitolo e autori tramite variabili css.
 
 ## v17.0.0
 
