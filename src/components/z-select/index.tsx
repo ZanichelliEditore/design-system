@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, containsElement, getClickedElement, handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -446,7 +446,11 @@ export class ZSelect {
       return;
     }
 
-    if (!containsElement(this.host, clickedElement)) {
+    if (
+      !getElementTree(clickedElement).find(
+        (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
+      )
+    ) {
       this.toggleSelectUl(e instanceof MouseEvent);
     }
   }
