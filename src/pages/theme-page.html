@@ -1,0 +1,97 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Albe test application</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script
+      type="module"
+      src="/build/web-components-library.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="/build/web-components-library.js"
+    ></script>
+    <style>
+      body {
+        background-color: var(--color-surface02);
+      }
+      main {
+        max-width: 1440px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      main > * {
+        margin-top: calc(var(--space-unit) * 2);
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: calc(var(--space-unit) * 2);
+        margin-bottom: calc(var(--space-unit) * 2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <z-app-header>
+        <h1 slot="title">Theme page</h1>
+      </z-app-header>
+    </header>
+    <main
+      class="theme-default"
+      style="overflow: hidden; margin-top: calc(var(--space-unit) * 2)"
+    >
+      <z-section-title divider-position="after">
+        <div slot="primary-title">In questa pagina puoi testare i componenti con i vari temi</div>
+      </z-section-title>
+      <section class="container">
+        <z-button
+          class="theme-default"
+          onclick="selectTheme('theme-default')"
+          >Tema Default</z-button
+        >
+        <z-button
+          class="theme-red"
+          onclick="selectTheme('theme-red')"
+          >Tema red</z-button
+        >
+        <z-button
+          class="theme-dark"
+          onclick="selectTheme('theme-dark')"
+          >Tema dark</z-button
+        >
+        <z-button
+          class="theme-black-yellow"
+          onclick="selectTheme('theme-black-yellow')"
+          >Tema black yellow</z-button
+        >
+      </section>
+      <z-section-title divider-position="after">
+        <div slot="primary-title">Inserisci qui i componenti da testare</div>
+      </z-section-title>
+    </main>
+  </body>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <script>
+    function selectTheme(themeType) {
+      document.querySelector("main").classList = themeType;
+    }
+  </script>
+</html>
