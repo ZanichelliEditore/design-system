@@ -656,12 +656,14 @@ export class ZSelect {
     const thisItemKey = this.itemIdKeyMap[item.id];
 
     const hasDivider = this.hasGroupItems
-      ? isLastChild && !parentHasSiblings
-        ? ListDividerType.ELEMENT
-        : undefined
-      : isTopLevel && parentHasSiblings && !isLastChild
-        ? ListDividerType.ELEMENT
-        : undefined;
+      ? undefined
+      : this.hasGroupItems
+        ? isLastChild && !parentHasSiblings
+          ? ListDividerType.ELEMENT
+          : undefined
+        : isTopLevel && parentHasSiblings && !isLastChild
+          ? ListDividerType.ELEMENT
+          : undefined;
 
     return (
       <z-list-element
@@ -752,6 +754,7 @@ export class ZSelect {
           <z-list>
             {items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings))}
           </z-list>
+          {index !== entries.length - 1 && <z-divider style={{zIndex: "100"}} />}
         </z-list-group>
       );
     });
