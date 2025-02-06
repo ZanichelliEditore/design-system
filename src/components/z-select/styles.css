@@ -224,6 +224,21 @@ z-list-element .list-element::after {
   transform: translateX(-100%);
 }
 
+z-list-element.tree-search-item {
+  padding-top: 0;
+}
+
+z-list-element.tree-search-item .list-element::after {
+  position: absolute;
+  top: 8px;
+  right: -25px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  content: "";
+  transform: translateX(-100%);
+}
+
 z-list-element.grouped-tree-parent-node .list-element::after {
   position: absolute;
   top: 8px;
@@ -260,6 +275,7 @@ z-list-element:focus {
 }
 
 z-list > z-list-element.grouped-tree-parent-node > .list-element:hover::after,
+z-list-element.tree-search-item .list-element:hover::after,
 z-list > z-list-group > z-list-element.grouped-tree-parent-node > .list-element:hover::after {
   position: absolute;
   z-index: -1;

@@ -675,6 +675,7 @@ export class ZSelect {
         disabled={item.disabled}
         class={{
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
+          "tree-search-item": this.hasGroupItems && isTopLevel && !item.children?.length && !!this.searchString,
         }}
         size={this.listSizeType()}
         dividerType={hasDivider}
@@ -756,7 +757,7 @@ export class ZSelect {
             {category}
           </span>
           <z-list>
-            {items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings))}
+            {items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true))}
           </z-list>
           {index !== entries.length - 1 && <z-divider style={{zIndex: "100"}} />}
         </z-list-group>
