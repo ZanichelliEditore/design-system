@@ -61,6 +61,7 @@ const StoryMeta = {
     autocomplete: false,
     noresultslabel: "Nessun risultato",
     hasGroupItems: false,
+    hasTreeItems: false,
     resetItem: "",
     isfixed: false,
   },
@@ -202,6 +203,145 @@ export const ZSelectWithIcons = {
       reset-item=${args.resetItem}
       isfixed=${args.isfixed}
       size=${args.size}
+    ></z-select>
+  `,
+} satisfies Story;
+
+export const ZSelectWithTreeItems = {
+  args: {
+    hasTreeItems: true,
+    hasGroupItems: false,
+    items: [
+      {
+        id: "padre",
+        name: "Padre",
+        selected: false,
+        category: "Sezione",
+        children: [
+          {
+            id: "figlio1aa",
+            name: "Figlio",
+            selected: false,
+            children: [],
+          },
+          {
+            id: "figlio1b",
+            name: "Figlio 2",
+            selected: false,
+          },
+        ],
+      },
+      {
+        id: "padre3",
+        name: "Padre 3",
+        selected: false,
+        category: "Altra sezione",
+        children: [
+          {
+            id: "figlio3a",
+            name: "Figlio 3A",
+            selected: false,
+            children: [
+              {
+                id: "nipote3a-1",
+                name: "Nipote 3A-1",
+                selected: false,
+              },
+            ],
+          },
+        ],
+      },
+    ] as SelectItem[],
+  },
+  render: (args) => html`
+    <z-select
+      items=${JSON.stringify(args.items)}
+      label=${args.label}
+      aria-label=${args.ariaLabel}
+      placeholder=${args.placeholder}
+      name=${args.name}
+      status=${args.status}
+      message=${args.message}
+      autocomplete=${args.autocomplete}
+      noresultslabel=${args.noresultslabel}
+      disabled=${args.disabled}
+      readonly=${args.readonly}
+      htmlid=${args.htmlid}
+      htmltitle=${args.htmltitle}
+      reset-item=${args.resetItem}
+      isfixed=${args.isfixed}
+      size=${args.size}
+      .hasTreeItems=${args.hasTreeItems}
+    ></z-select>
+  `,
+} satisfies Story;
+
+export const ZSelectWithGroupsAndTreeItems = {
+  args: {
+    hasTreeItems: true,
+    hasGroupItems: false,
+    items: [
+      {
+        id: "padre",
+        name: "Padre",
+        selected: false,
+        category: "Sezione",
+        children: [
+          {
+            id: "figlio1aa",
+            name: "Figlio",
+            selected: false,
+            children: [],
+          },
+          {
+            id: "figlio1b",
+            name: "Figlio 2",
+            selected: false,
+          },
+        ],
+      },
+      {
+        id: "padre3",
+        name: "Padre 3",
+        selected: false,
+        category: "Altra sezione",
+        children: [
+          {
+            id: "figlio3a",
+            name: "Figlio 3A",
+            selected: false,
+            children: [
+              {
+                id: "nipote3a-1",
+                name: "Nipote 3A-1",
+                selected: false,
+              },
+            ],
+          },
+        ],
+      },
+    ] as SelectItem[],
+  },
+  render: (args) => html`
+    <z-select
+      items=${JSON.stringify(args.items)}
+      label=${args.label}
+      aria-label=${args.ariaLabel}
+      placeholder=${args.placeholder}
+      name=${args.name}
+      status=${args.status}
+      message=${args.message}
+      autocomplete=${args.autocomplete}
+      noresultslabel=${args.noresultslabel}
+      disabled=${args.disabled}
+      readonly=${args.readonly}
+      htmlid=${args.htmlid}
+      htmltitle=${args.htmltitle}
+      reset-item=${args.resetItem}
+      isfixed=${args.isfixed}
+      size=${args.size}
+      .hasGroupItems=${args.hasGroupItems}
+      .hasTreeItems=${args.hasTreeItems}
     ></z-select>
   `,
 } satisfies Story;

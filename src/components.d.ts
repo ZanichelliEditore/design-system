@@ -1082,6 +1082,10 @@ export namespace Components {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * [optional] Sets element as tree item.
+         */
+        "hasTreeItems"?: boolean;
+        /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */
         "htmlTabindex"?: number | null;
@@ -1119,6 +1123,10 @@ export namespace Components {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] check for tree items in grouped lists
+         */
+        "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
          */
@@ -1828,6 +1836,7 @@ export namespace Components {
          */
         "getValue": () => Promise<string>;
         "hasGroupItems"?: boolean;
+        "hasTreeItems"?: boolean;
         /**
           * the id of the input element
          */
@@ -4755,6 +4764,10 @@ declare namespace LocalJSX {
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
+          * [optional] Sets element as tree item.
+         */
+        "hasTreeItems"?: boolean;
+        /**
           * set tabindex to Host tag (optional). Defaults to 0.
          */
         "htmlTabindex"?: number | null;
@@ -4804,6 +4817,10 @@ declare namespace LocalJSX {
           * [optional] Sets the position where to insert the divider.
          */
         "dividerType"?: ListDividerType;
+        /**
+          * [optional] check for tree items in grouped lists
+         */
+        "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
          */
@@ -5593,6 +5610,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "hasGroupItems"?: boolean;
+        "hasTreeItems"?: boolean;
         /**
           * the id of the input element
          */

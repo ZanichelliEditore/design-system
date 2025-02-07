@@ -19,3 +19,8 @@
 :host > .z-list-group-header-container.has-header > z-divider {
   margin-top: var(--space-unit);
 }
+
+:host > .grouped-tree-list-header {
+  padding-top: var(--space-unit);
+  padding-bottom: 0;
+}

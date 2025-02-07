@@ -11,6 +11,7 @@
 | `autocomplete`   | `autocomplete`    | the input has autocomplete option                                              | `boolean`                                                         | `false`              |
 | `disabled`       | `disabled`        | the input is disabled                                                          | `boolean`                                                         | `false`              |
 | `hasGroupItems`  | `has-group-items` |                                                                                | `boolean`                                                         | `undefined`          |
+| `hasTreeItems`   | `has-tree-items`  |                                                                                | `boolean`                                                         | `undefined`          |
 | `htmlid`         | `htmlid`          | the id of the input element                                                    | `string`                                                          | ``id-${randomId()}`` |
 | `htmltitle`      | `htmltitle`       | the input html title (optional)                                                | `string`                                                          | `undefined`          |
 | `isfixed`        | `isfixed`         | When fixed, it occupies space and pushes down next elements.                   | `boolean`                                                         | `false`              |
@@ -83,6 +84,7 @@ Type: `Promise<void>`
 - [z-icon](../z-icon)
 - [z-tag](../z-tag)
 - [z-list-group](../list/z-list-group)
+- [z-divider](../z-divider)
 - [z-input-message](../z-input-message)
 
 ### Graph
@@ -94,6 +96,7 @@ graph TD;
   z-select --> z-icon
   z-select --> z-tag
   z-select --> z-list-group
+  z-select --> z-divider
   z-select --> z-input-message
   z-input --> z-icon
   z-input --> z-input-message

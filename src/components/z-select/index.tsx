@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, containsElement, getClickedElement, handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -67,6 +67,10 @@ export class ZSelect {
   @Prop()
   hasGroupItems?: boolean;
 
+  /** */
+  @Prop()
+  hasTreeItems?: boolean;
+
   /** When fixed, it occupies space and pushes down next elements. */
   @Prop()
   isfixed?: boolean = false;
@@ -91,7 +95,14 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
+  @State()
+  private flattenedList: {item: SelectItem; key: number}[] = [];
+
   private itemsList: SelectItem[] = [];
+
+  private itemIdKeyMap: Record<string, number> = {};
+
+  private readonly resetKey = -1;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -101,7 +112,14 @@ export class ZSelect {
   @Watch("items")
   watchItems(): void {
     this.itemsList = this.getInitialItemsArray();
-    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
+
+    this.selectedItem = this.findSelectedItem(this.itemsList);
+
+    this.flattenedList = this.flattenTreeItems(this.itemsList);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
   }
 
   @Listen("ariaDescendantFocus")
@@ -131,7 +149,11 @@ export class ZSelect {
       values = value;
     }
 
-    this.selectedItem = this.itemsList.find((item: SelectItem) => values.includes(item.id));
+    this.itemsList = this.getInitialItemsArray();
+    if (values.length) {
+      this.updateSelection(this.itemsList, values[0]);
+    }
+    this.selectedItem = this.findSelectedItem(this.itemsList);
   }
 
   /** Emitted on select option selection, returns select id, selected item id */
@@ -183,25 +205,68 @@ export class ZSelect {
 
   private filterItems(searchString: string): void {
     const prevList = this.mapSelectedItemToItemsArray();
+
     if (!searchString?.length) {
       this.itemsList = prevList;
+
+      return;
+    }
+
+    if (this.hasTreeItems) {
+      this.itemsList = this.filterTree(prevList, searchString);
     } else {
       this.itemsList = prevList
-        .filter((item: SelectItem) => {
-          return item.name.toUpperCase().includes(searchString.toUpperCase());
-        })
+        .filter((item: SelectItem) => item.name.toUpperCase().includes(searchString.toUpperCase()))
         .map((item: SelectItem) => {
-          const start = item.name.toUpperCase().indexOf(searchString.toUpperCase());
-          const end = start + searchString.length;
-          const newName =
-            item.name.substring(0, start) +
-            `<strong>${item.name.substring(start, end)}</strong>` +
-            item.name.substring(end, item.name.length);
-          item.name = newName;
+          item.name = this.getHighlightedText(item.name, searchString);
 
           return item;
         });
     }
+
+    this.flattenedList = this.flattenTreeItems(this.itemsList);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
+  }
+
+  private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
+    return items
+      .map((item) => {
+        const match = item.name.toUpperCase().includes(searchString.toUpperCase());
+
+        const newItem: SelectItem = {...item};
+
+        if (newItem.children && newItem.children.length > 0) {
+          newItem.children = this.filterTree(newItem.children, searchString);
+        }
+
+        if (match) {
+          newItem.name = this.getHighlightedText(newItem.name, searchString);
+        }
+
+        if (match || (newItem.children && newItem.children.length > 0)) {
+          return newItem;
+        }
+
+        return null;
+      })
+      .filter((item) => item !== null) as SelectItem[];
+  }
+
+  private getHighlightedText(text: string, search: string): string {
+    const upperText = text.toUpperCase();
+    const upperSearch = search.toUpperCase();
+    const start = upperText.indexOf(upperSearch);
+
+    if (start === -1) {
+      return text;
+    }
+
+    const end = start + search.length;
+
+    return text.substring(0, start) + `<strong>${text.substring(start, end)}</strong>` + text.substring(end);
   }
 
   private hasAutocomplete(): boolean {
@@ -215,20 +280,43 @@ export class ZSelect {
     }
   }
 
+  private updateSelection(items: SelectItem[], selectedId: string): void {
+    items.forEach((item) => {
+      item.selected = item.id === selectedId;
+      if (item.children && item.children.length > 0) {
+        this.updateSelection(item.children, selectedId);
+      }
+    });
+  }
+
+  private findSelectedItem(items: SelectItem[]): SelectItem | null {
+    for (const item of items) {
+      if (item.selected) {
+        return item;
+      }
+      if (item.children && item.children.length > 0) {
+        const found = this.findSelectedItem(item.children);
+        if (found) {
+          return found;
+        }
+      }
+    }
+
+    return null;
+  }
+
   private selectItem(selected: null | SelectItem): void {
     if (selected?.disabled) {
       return;
     }
 
-    this.itemsList = this.mapSelectedItemToItemsArray();
-    this.itemsList.forEach((i: SelectItem) => {
-      i.selected = i.id === selected?.id;
+    this.itemsList = this.getInitialItemsArray();
 
-      return i;
-    });
+    if (selected) {
+      this.updateSelection(this.itemsList, selected.id);
+    }
 
-    this.selectedItem = this.itemsList.find((item: SelectItem) => item.selected);
-
+    this.selectedItem = this.findSelectedItem(this.itemsList);
     this.emitOptionSelect();
     this.toggleSelectUl(true);
 
@@ -237,9 +325,28 @@ export class ZSelect {
     }
   }
 
-  private arrowsSelectNav(e: KeyboardEvent, key: number): void {
+  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
+    const flatItems: {item: SelectItem; key: number}[] = [];
+    let index = 0;
+
+    function flatten(subItems: SelectItem[]): void {
+      subItems.forEach((itm) => {
+        flatItems.push({item: itm, key: index++});
+        if (itm.children && itm.children.length > 0) {
+          flatten(itm.children);
+        }
+      });
+    }
+
+    flatten(items);
+
+    return flatItems;
+  }
+
+  private arrowsSelectNav(e: KeyboardEvent, idOrReset: string | number): void {
     const showResetIcon = this.resetItem && !!this.selectedItem;
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
+
     if (!arrows.includes(e.key as KeyboardCode)) {
       return;
     }
@@ -247,33 +354,50 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
+    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled);
+
+    if (this.resetItem && showResetIcon) {
+      flatItems.unshift({
+        item: {id: "__RESET_ITEM__"} as SelectItem,
+        key: this.resetKey,
+      });
+    }
+
+    let currentIndex: number;
+    if (typeof idOrReset === "number") {
+      currentIndex = flatItems.findIndex((f) => f.key === idOrReset);
+    } else {
+      const k = this.itemIdKeyMap[idOrReset];
+      currentIndex = flatItems.findIndex((f) => f.key === k);
+    }
+
     if (!this.isOpen) {
       this.toggleSelectUl();
-    }
 
-    let index: number;
-
-    if (this.resetItem) {
-      if (e.key === KeyboardCode.ARROW_DOWN) {
-        index = key + 1 === this.itemsList.length + 1 ? +!showResetIcon : key + 1;
-      } else if (e.key === KeyboardCode.ARROW_UP) {
-        index = key <= +!showResetIcon ? this.itemsList.length : key - 1;
+      if (currentIndex === -1) {
+        currentIndex = -1;
       }
     }
 
-    if (!this.resetItem) {
-      if (e.key === KeyboardCode.ARROW_DOWN) {
-        index = key + 1 === this.itemsList.length ? 0 : key + 1;
-      } else if (e.key === KeyboardCode.ARROW_UP) {
-        index = key <= 0 ? this.itemsList.length - 1 : key - 1;
-      }
+    const lastIndex = flatItems.length - 1;
+
+    let newIndex = currentIndex;
+
+    if (e.key === KeyboardCode.ARROW_DOWN) {
+      do {
+        newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
+      } while (flatItems[newIndex].item.disabled);
+    } else {
+      do {
+        newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
+      } while (flatItems[newIndex].item.disabled);
     }
 
-    this.focusSelectItem(index);
+    this.focusSelectItem(flatItems[newIndex].key);
   }
 
-  private focusSelectItem(index: number): void {
-    this.host.querySelector<HTMLLIElement>(`#${this.htmlid}_${index}`)?.focus();
+  private focusSelectItem(key: number): void {
+    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_key_${key}`)?.focus();
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -288,7 +412,7 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement).focus();
+        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement)?.focus();
       }
     }
 
@@ -322,7 +446,11 @@ export class ZSelect {
       return;
     }
 
-    if (!containsElement(this.host, clickedElement)) {
+    if (
+      !getElementTree(clickedElement).find(
+        (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
+      )
+    ) {
       this.toggleSelectUl(e instanceof MouseEvent);
     }
   }
@@ -330,7 +458,7 @@ export class ZSelect {
   private scrollToLetter(letter: string): void {
     const foundItem = this.itemsList.findIndex((item: SelectItem) => item.name.charAt(0) === letter);
     if (foundItem > -1) {
-      this.focusSelectItem(foundItem);
+      this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
   }
 
@@ -369,10 +497,13 @@ export class ZSelect {
           handleKeyboardSubmit(e, this.toggleSelectUl);
         }}
         onKeyDown={(e: KeyboardEvent) => {
-          return this.arrowsSelectNav(
-            e,
-            this.selectedItem ? this.itemsList.indexOf(this.selectedItem) : this.resetItem ? 0 : -1
-          );
+          const current = this.selectedItem
+            ? this.itemIdKeyMap[this.selectedItem.id]
+            : this.resetItem
+              ? this.resetKey
+              : "";
+
+          return this.arrowsSelectNav(e, current);
         }}
         onInputChange={(e: CustomEvent) => {
           this.handleInputChange(e);
@@ -432,16 +563,21 @@ export class ZSelect {
         role="option"
         tabindex="0"
         aria-selected="false"
-        id={`${this.htmlid}_${this.resetItem ? "0" : "none"}`}
-        size={this.listSizeType()}
+        id={`${this.htmlid}_key_${this.resetKey}`}
+        size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         onClickItem={() => {
           this.selectedItem = null;
           this.searchString = null;
           this.emitResetSelect();
         }}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, 0)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
       >
-        <div class="reset-item-content">
+        <div
+          class={{
+            "reset-item-content": true,
+            "tree-list-reset-item": this.hasTreeItems,
+          }}
+        >
           <z-icon name="multiply-circled" />
           <span>{this.resetItem}</span>
         </div>
@@ -449,7 +585,9 @@ export class ZSelect {
     );
   }
 
-  private renderItem(item: SelectItem, key: number, lastItem: boolean): HTMLZListElementElement {
+  private renderItem(item: SelectItem, lastItem: boolean): HTMLZListElementElement {
+    const thisItemKey = this.itemIdKeyMap[item.id];
+
     return (
       <z-list-element
         clickable={!item.disabled}
@@ -458,10 +596,10 @@ export class ZSelect {
         role="option"
         tabindex={item.disabled || !this.isOpen ? -1 : 0}
         aria-selected={item.selected ? "true" : "false"}
-        id={`${this.htmlid}_${key}`}
+        id={`${this.htmlid}_key_${thisItemKey}`}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item)}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, key)}
+        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, thisItemKey)}
       >
         <div class="list-element-container">
           <div
@@ -471,7 +609,6 @@ export class ZSelect {
             }}
             innerHTML={item.name}
           />
-
           {item.icon && <z-tag icon={item.icon}></z-tag>}
         </div>
       </z-list-element>
@@ -479,6 +616,10 @@ export class ZSelect {
   }
 
   private listSizeType(): ListSize {
+    if (this.hasTreeItems) {
+      return ListSize.NONE;
+    }
+
     if (this.size === ControlSize.SMALL || this.size === ControlSize.X_SMALL) {
       return ListSize.SMALL;
     }
@@ -486,37 +627,169 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  private renderSelectUlItems(): HTMLZListElementElement | HTMLZListElementElement[] {
+  //eslint-disable-next-line
+  private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
 
-    if (this.hasGroupItems) {
+    if (this.hasGroupItems && !this.hasTreeItems) {
       return this.renderSelectGroupItems();
+    } else if (this.hasGroupItems && this.hasTreeItems) {
+      return this.renderGroupedTree();
     }
 
-    return this.itemsList.map((item: SelectItem, key, array) => {
-      const lastItem = array.length === key + 1;
-      const itemKey = this.resetItem ? key + 1 : key;
+    return this.itemsList.map((item: SelectItem, index, array) => {
+      const isLastItem = index === array.length - 1;
+      const parentHasSiblings = array.length > 1;
 
-      return this.renderItem(item, itemKey, lastItem);
+      if (this.hasTreeItems) {
+        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true);
+      }
+
+      return this.renderItem(item, isLastItem);
     });
   }
 
-  private renderSelectGroupItems(): HTMLZListElementElement | HTMLZListElementElement[] {
-    const newData = this.itemsList.reduce((group, item, index, array) => {
-      const {category} = item;
-      const lastItem = array.length === index + 1;
-      const itemKey = this.resetItem ? index + 1 : index;
-      const zListItem = this.renderItem(item, itemKey, lastItem);
+  private renderTreeItems(
+    item: SelectItem,
+    isLastChild: boolean,
+    parentHasSiblings: boolean,
+    isTopLevel?: boolean
+  ): HTMLZListElementElement[] {
+    const thisItemKey = this.itemIdKeyMap[item.id];
 
-      group[category] = group[category] ?? [];
-      group[category].push(zListItem);
+    const hasDivider = this.hasGroupItems
+      ? undefined
+      : this.hasGroupItems
+        ? isLastChild && !parentHasSiblings
+          ? ListDividerType.ELEMENT
+          : undefined
+        : isTopLevel && parentHasSiblings && !isLastChild
+          ? ListDividerType.ELEMENT
+          : undefined;
 
-      return group;
-    }, {});
+    return (
+      <z-list-element
+        clickable={!item.disabled}
+        disabled={item.disabled}
+        class={{
+          "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
+          "tree-search-item": this.hasGroupItems && isTopLevel && !item.children?.length && !!this.searchString,
+        }}
+        size={this.listSizeType()}
+        dividerType={hasDivider}
+        hasTreeItems={this.hasTreeItems}
+      >
+        <div
+          id={`${this.htmlid}_key_${thisItemKey}`}
+          role="option"
+          class="list-element"
+          tabIndex={0}
+          onClick={() => this.selectItem(item)}
+          onKeyDown={(e: KeyboardEvent) => {
+            this.arrowsSelectNav(e, thisItemKey);
+            if (e.key === KeyboardCode.ENTER) {
+              this.selectItem(item);
+            }
+          }}
+        >
+          <span class="item ellipsis">
+            {item?.icon && (
+              <z-icon
+                class="item-icon"
+                name={item.icon}
+              />
+            )}
+            <span
+              class={{
+                "item-label": true,
+                "selected": !!item.selected,
+              }}
+              title={item.name}
+              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
+            />
+          </span>
+          {item.icon && <z-tag icon={item.icon}></z-tag>}
+        </div>
+        {item.children && item.children.length > 0 ? (
+          <z-list>
+            <div class="children-node">
+              {item.children.map((child, index, arr) =>
+                this.renderTreeItems(
+                  child,
+                  index === arr.length - 1,
+                  arr.length > 1,
+                  false // isTopLevel = false for children
+                )
+              )}
+            </div>
+          </z-list>
+        ) : null}
+      </z-list-element>
+    );
+  }
 
-    return Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
+  private renderGroupedTree(): HTMLZListGroupElement[] {
+    const grouped = this.itemsList.reduce(
+      (acc, item) => {
+        const category = item.category || "Altra categoria";
+        acc[category] = acc[category] || [];
+        acc[category].push(item);
+
+        return acc;
+      },
+      {} as Record<string, SelectItem[]>
+    );
+
+    return Object.entries(grouped).map(([category, items], index, entries) => {
+      const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
+      // const parentHasSiblings = items.length > 1;
+
+      return (
+        <z-list-group
+          divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
+          hasTreeItems={true}
+        >
+          <span
+            class="body-3-sb z-list-group-title"
+            slot="header-title"
+          >
+            {category}
+          </span>
+          <z-list>
+            {items.map((item, i, arr) => [
+              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true),
+              i < arr.length - 1 ? (
+                <z-divider
+                  key={`divider-${i}`}
+                  style={{zIndex: "100", height: "var(--border-size-small)"}}
+                />
+              ) : null,
+            ])}
+          </z-list>
+          {index !== entries.length - 1 && <z-divider style={{zIndex: "100", height: "var(--border-size-small)"}} />}
+        </z-list-group>
+      );
+    });
+  }
+
+  private renderSelectGroupItems(): HTMLZListElementElement[] {
+    const newData = this.itemsList.reduce(
+      (group, item, index, array) => {
+        const {category} = item;
+        const lastItem = array.length === index + 1;
+        const zListItem = this.renderItem(item, lastItem);
+
+        group[category] = group[category] ?? [];
+        group[category].push(zListItem);
+
+        return group;
+      },
+      {} as Record<string, HTMLZListElementElement[]>
+    );
+
+    return Object.entries(newData).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
@@ -536,7 +809,7 @@ export class ZSelect {
       <z-list-element
         color="color-primary01"
         class="no-results"
-        size={this.listSizeType()}
+        size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
       >
         <z-icon
           name="multiply-circle"
