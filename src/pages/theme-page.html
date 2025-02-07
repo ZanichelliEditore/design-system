@@ -44,16 +44,13 @@
     </style>
   </head>
 
-  <body>
+  <body class="theme-default">
     <header>
       <z-app-header>
         <h1 slot="title">Theme page</h1>
       </z-app-header>
     </header>
-    <main
-      class="theme-default"
-      style="overflow: hidden; margin-top: calc(var(--space-unit) * 2)"
-    >
+    <main style="overflow: hidden; margin-top: calc(var(--space-unit) * 2)">
       <z-section-title divider-position="after">
         <div slot="primary-title">In questa pagina puoi testare i componenti con i vari temi</div>
       </z-section-title>
@@ -82,6 +79,9 @@
       <z-section-title divider-position="after">
         <div slot="primary-title">Inserisci qui i componenti da testare</div>
       </z-section-title>
+      <section>
+        <!-- Insert here the components to test -->
+      </section>
     </main>
   </body>
   <style>
@@ -91,7 +91,7 @@
   </style>
   <script>
     function selectTheme(themeType) {
-      document.querySelector("main").classList = themeType;
+      document.body.classList = themeType;
     }
   </script>
 </html>
