@@ -743,7 +743,8 @@ export class ZSelect {
     );
 
     return Object.entries(grouped).map(([category, items], index, entries) => {
-      const parentHasSiblings = items.length > 1;
+      const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
+      // const parentHasSiblings = items.length > 1;
 
       return (
         <z-list-group
@@ -757,7 +758,15 @@ export class ZSelect {
             {category}
           </span>
           <z-list>
-            {items.map((item, i, arr) => this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true))}
+            {items.map((item, i, arr) => [
+              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true),
+              i < arr.length - 1 ? (
+                <z-divider
+                  key={`divider-${i}`}
+                  style={{zIndex: "100"}}
+                />
+              ) : null,
+            ])}
           </z-list>
           {index !== entries.length - 1 && <z-divider style={{zIndex: "100"}} />}
         </z-list-group>
