@@ -279,7 +279,7 @@ export const ZSelectWithTreeItems = {
 export const ZSelectWithGroupsAndTreeItems = {
   args: {
     hasTreeItems: true,
-    hasGroupItems: true,
+    hasGroupItems: false,
     items: [
       {
         id: "padre",
@@ -340,8 +340,8 @@ export const ZSelectWithGroupsAndTreeItems = {
       reset-item=${args.resetItem}
       isfixed=${args.isfixed}
       size=${args.size}
-      .hasTreeItems=${args.hasTreeItems}
       .hasGroupItems=${args.hasGroupItems}
+      .hasTreeItems=${args.hasTreeItems}
     ></z-select>
   `,
 } satisfies Story;
