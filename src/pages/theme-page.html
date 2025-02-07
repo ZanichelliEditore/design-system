@@ -24,16 +24,10 @@
       src="/build/web-components-library.js"
     ></script>
     <style>
-      body {
-        background-color: var(--color-surface02);
-      }
       main {
         max-width: 1440px;
         margin: 0 auto;
-        overflow: hidden;
-      }
-      main > * {
-        margin-top: calc(var(--space-unit) * 2);
+        padding: calc(var(--space-unit) * 2);
       }
       .container {
         display: grid;
@@ -50,10 +44,7 @@
         <h1 slot="title">Theme page</h1>
       </z-app-header>
     </header>
-    <main style="overflow: hidden; margin-top: calc(var(--space-unit) * 2)">
-      <z-section-title divider-position="after">
-        <div slot="primary-title">In questa pagina puoi testare i componenti con i vari temi</div>
-      </z-section-title>
+    <main>
       <section class="container">
         <z-button
           class="theme-default"
@@ -76,9 +67,12 @@
           >Tema black yellow</z-button
         >
       </section>
-      <z-section-title divider-position="after">
-        <div slot="primary-title">Inserisci qui i componenti da testare</div>
-      </z-section-title>
+      <z-info-box
+        divider-position="after"
+        isclosable="false"
+      >
+        <div slot="content">In questa pagina puoi testare i componenti con i vari temi</div>
+      </z-info-box>
       <section>
         <!-- Insert here the components to test -->
       </section>
