@@ -94,33 +94,24 @@ describe("z-modal test end2end", () => {
   it("Adds overflowY hidden to body when lock-page-scroll is true and removes it when user close modal", async () => {
     const page = await newE2EPage();
     await page.setContent(`
-    <main>
-      <z-modal
-      modalid='modal1'
-      modaltitle='Titolo modale'
-      modalsubtitle='Sottotitolo modale'
-      close-button-label='Chiudi'
-      alertdialog='false'
-      closable='true'
-      scroll-inside='true'
-      lock-page-scroll='true'
-    >
-      <div slot="modalContent">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <br />
-        <z-button onclick="closeZModal()">close</z-button>
-      </div>
-    </z-modal>
-    <z-button onclick="openZModal()">apri modale</z-button>
-    </main>
-    <script>
-      function openZModal() {
-        document.querySelector("z-modal").open();
-      }
-      function closeZModal() {
-        document.querySelector("z-modal").close();
-      }
-    </script>
+        <main>
+          <z-modal modalid='modal1' modaltitle='Titolo modale' modalsubtitle='Sottotitolo modale' close-button-label='Chiudi'
+            alertdialog='false' closable='true' scroll-inside='true' lock-page-scroll='true'>
+            <div slot="modalContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <z-button onclick="closeZModal()">close</z-button>
+            </div>
+          </z-modal>
+          <z-button onclick="openZModal()">apri modale</z-button>
+        </main>
+        <script>
+          function openZModal() {
+            document.querySelector("z-modal").open();
+          }
+          function closeZModal() {
+            document.querySelector("z-modal").close();
+          }
+        </script>
 `);
     await page.waitForSelector("z-modal");
 
@@ -137,37 +128,28 @@ describe("z-modal test end2end", () => {
     expect(bodyStyle1).toBe("");
   });
 
-  it("Adds overflowY hidden to body when lock-page-scroll is true, removes it when click on background and adds it again when user open reopen modal", async () => {
+  it("Adds overflowY hidden to body when lock-page-scroll is true, removes it when click on background and adds it again when user reopen modal", async () => {
     const page = await newE2EPage();
     await page.setContent(`
-    <main>
-      <input class="other-element" />
-      <z-modal
-      modalid='modal1'
-      modaltitle='Titolo modale'
-      modalsubtitle='Sottotitolo modale'
-      close-button-label='Chiudi'
-      alertdialog='false'
-      closable='true'
-      scroll-inside='true'
-      lock-page-scroll='true'
-    >
-      <div slot="modalContent">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <br />
-        <z-button onclick="closeZModal()">close</z-button>
-      </div>
-    </z-modal>
-    <z-button id="open-modal" onclick="openZModal()">apri modale</z-button>
-    </main>
-    <script>
-      function openZModal() {
-        document.querySelector("z-modal").open();
-      }
-      function closeZModal() {
-        document.querySelector("z-modal").close();
-      }
-    </script>
+        <main>
+          <input class="other-element" />
+          <z-modal modalid='modal1' modaltitle='Titolo modale' modalsubtitle='Sottotitolo modale' close-button-label='Chiudi'
+            alertdialog='false' closable='true' scroll-inside='true' lock-page-scroll='true'>
+            <div slot="modalContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <z-button onclick="closeZModal()">close</z-button>
+            </div>
+          </z-modal>
+          <z-button id="open-modal" onclick="openZModal()">apri modale</z-button>
+        </main>
+        <script>
+          function openZModal() {
+            document.querySelector("z-modal").open();
+          }
+          function closeZModal() {
+            document.querySelector("z-modal").close();
+          }
+        </script>
     `);
 
     const bodyStyle = await page.evaluate(() => document.body.style.overflowY);
@@ -189,5 +171,24 @@ describe("z-modal test end2end", () => {
     const bodyStyle2 = await page.evaluate(() => document.body.style.overflowY);
 
     expect(bodyStyle2).toBe("hidden");
+  });
+
+  it("Does not add overflowY hidden to body when lock-page-scroll is false", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+        <main>
+          <z-modal modalid='modal1' modaltitle='Titolo modale' modalsubtitle='Sottotitolo modale' close-button-label='Chiudi'
+            alertdialog='false' closable='true' scroll-inside='true' lock-page-scroll='false'>
+            <div slot="modalContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <z-button onclick="closeZModal()">close</z-button>
+            </div>
+          </z-modal>
+        </main>
+    `);
+
+    const bodyStyle = await page.evaluate(() => document.body.style.overflowY);
+
+    expect(bodyStyle).toBe("");
   });
 });

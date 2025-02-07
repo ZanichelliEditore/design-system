@@ -59,9 +59,7 @@ export class ZModal {
   private emitModalClose(): void {
     if (this.closable) {
       this.modalClose.emit({modalid: this.modalid});
-      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
-        document.body.style.overflowY = "";
-      }
+      this.resetPageScroll();
     }
   }
 
@@ -80,9 +78,13 @@ export class ZModal {
   private emitBackgroundClick(): void {
     if (this.closable) {
       this.modalBackgroundClick.emit({modalid: this.modalid});
-      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
-        document.body.style.overflowY = "";
-      }
+      this.resetPageScroll();
+    }
+  }
+
+  private resetPageScroll(): void {
+    if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
+      document.body.style.overflowY = "";
     }
   }
 
@@ -105,9 +107,7 @@ export class ZModal {
   }
 
   disconnectedCallback(): void {
-    if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
-      document.body.style.overflowY = "";
-    }
+    this.resetPageScroll();
   }
 
   /** open modal */
@@ -124,9 +124,7 @@ export class ZModal {
   async close(): Promise<void> {
     if (this.closable) {
       this.dialog?.close();
-      if (this.lockPageScroll && document.body.style.overflowY === "hidden") {
-        document.body.style.overflowY = "";
-      }
+      this.resetPageScroll();
     }
   }
 
