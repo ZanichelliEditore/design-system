@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
-import {ControlSize, DividerSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
+import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
 import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
 
 @Component({
@@ -763,18 +763,12 @@ export class ZSelect {
               i < arr.length - 1 ? (
                 <z-divider
                   key={`divider-${i}`}
-                  style={{zIndex: "100"}}
-                  size={DividerSize.SMALL}
+                  style={{zIndex: "100", height: "var(--border-size-small)"}}
                 />
               ) : null,
             ])}
           </z-list>
-          {index !== entries.length - 1 && (
-            <z-divider
-              style={{zIndex: "100"}}
-              size={DividerSize.SMALL}
-            />
-          )}
+          {index !== entries.length - 1 && <z-divider style={{zIndex: "100", height: "var(--border-size-small)"}} />}
         </z-list-group>
       );
     });
