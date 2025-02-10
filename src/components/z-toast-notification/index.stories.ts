@@ -92,6 +92,7 @@ export const SlottedButton = {
         <z-button
           slot="button"
           size="small"
+          variant="tertiary"
           >button</z-button
         >
       </z-toast-notification>
