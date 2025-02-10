@@ -194,6 +194,7 @@ export type SelectItem = {
   icon?: string;
   disabled?: boolean;
   category?: string;
+  children?: SelectItem[];
 };
 
 export enum ThemeVariant {
@@ -228,6 +229,7 @@ export enum ListSize {
   MEDIUM = "medium",
   LARGE = "large",
   X_LARGE = "x-large",
+  NONE = "none",
 }
 
 export enum ExpandableListStyle {

@@ -131,6 +131,12 @@ export class ZListElement {
   listType?: ListType = ListType.NONE;
 
   /**
+   * [optional] Sets element as tree item.
+   */
+  @Prop()
+  hasTreeItems?: boolean;
+
+  /**
    * Sets element role.
    */
   @Prop({reflect: true})
@@ -276,10 +282,10 @@ export class ZListElement {
         onFocus={() => this.ariaDescendantFocus.emit(this.listElementId)}
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
-        tabIndex={this.htmlTabindex}
+        tabIndex={this.hasTreeItems ? undefined : this.htmlTabindex}
       >
         <div
-          class="container"
+          class={this.hasTreeItems ? "tree-element-container" : "container"}
           style={{color: `var(--${this.color})`}}
           tabindex="-1"
           id={`z-list-element-id-${this.listElementId}`}
@@ -293,6 +299,7 @@ export class ZListElement {
         </div>
         {this.dividerType === ListDividerType.ELEMENT && (
           <z-divider
+            class={{"z-tree-list-divider": this.hasTreeItems}}
             color={this.dividerColor}
             size={this.dividerSize}
           />

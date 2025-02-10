@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                                         | Type                                                                      | Default           |
-| ---------- | ----------- | --------------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
-| `listType` | `list-type` | [optional] type of the list marker for each element | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                 | `ListType.NONE`   |
-| `role`     | `role`      | Sets role of the element.                           | `string`                                                                  | `"list"`          |
-| `size`     | `size`      | [optional] Sets size of inside elements.            | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM` |
+| Property   | Attribute   | Description                                         | Type                                                                                       | Default           |
+| ---------- | ----------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------- |
+| `listType` | `list-type` | [optional] type of the list marker for each element | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                                  | `ListType.NONE`   |
+| `role`     | `role`      | Sets role of the element.                           | `string`                                                                                   | `"list"`          |
+| `size`     | `size`      | [optional] Sets size of inside elements.            | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.NONE \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM` |
 
 
 ## Dependencies

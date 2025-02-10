@@ -28,6 +28,11 @@
   padding: var(--space-unit) 0;
 }
 
+:host([size="medium"]) > .tree-element-container {
+  padding-top: var(--space-unit);
+  padding-bottom: 0;
+}
+
 :host([size="large"]) > .container {
   min-height: calc(var(--space-unit) * 7);
   padding: calc(var(--space-unit) * 2) 0;
@@ -93,4 +98,10 @@
 .z-list-content-container {
   display: flex;
   align-items: center;
+}
+
+:host .z-tree-list-divider {
+  position: absolute;
+  z-index: 100;
+  left: 0;
 }

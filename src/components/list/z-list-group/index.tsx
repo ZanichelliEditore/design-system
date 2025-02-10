@@ -39,6 +39,12 @@ export class ZListGroup {
   @Prop({reflect: true})
   listType?: ListType = ListType.NONE;
 
+  /**
+   * [optional] check for tree items in grouped lists
+   */
+  @Prop()
+  hasTreeItems?: boolean;
+
   private hasHeader: boolean;
 
   componentDidLoad(): void {
@@ -65,7 +71,8 @@ export class ZListGroup {
         <div
           class={{
             "z-list-group-header-container": true,
-            "has-header": this.hasHeader,
+            "has-header": this.hasHeader && !this.hasTreeItems,
+            "grouped-tree-list-header": this.hasTreeItems,
           }}
         >
           <slot name="header-title" />
