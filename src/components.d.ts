@@ -1271,6 +1271,10 @@ export namespace Components {
          */
         "closeButtonLabel": string;
         /**
+          * if true, the page scroll is locked when the modal is open (optional, default is true)
+         */
+        "lockPageScroll"?: boolean;
+        /**
           * unique id
          */
         "modalid": string;
@@ -4976,6 +4980,10 @@ declare namespace LocalJSX {
           * aria-label for close button (optional)
          */
         "closeButtonLabel"?: string;
+        /**
+          * if true, the page scroll is locked when the modal is open (optional, default is true)
+         */
+        "lockPageScroll"?: boolean;
         /**
           * unique id
          */
