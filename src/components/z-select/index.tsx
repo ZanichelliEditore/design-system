@@ -695,12 +695,6 @@ export class ZSelect {
           }}
         >
           <span class="item ellipsis">
-            {item?.icon && (
-              <z-icon
-                class="item-icon"
-                name={item.icon}
-              />
-            )}
             <span
               class={{
                 "item-label": true,
