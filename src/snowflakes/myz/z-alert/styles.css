@@ -13,16 +13,16 @@
 }
 
 :host > .success {
-  background: var(--color-success-inverse);
-  fill: var(--color-success01);
+  background: var(--color-inverse-success);
+  fill: var(--color-default-success);
 }
 
 :host > .warning {
-  background: var(--color-warning-inverse);
-  fill: var(--color-warning01);
+  background: var(--color-inverse-warning);
+  fill: var(--color-default-warning);
 }
 
 :host > .error {
-  background: var(--color-error-inverse);
-  fill: var(--color-error01);
+  background: var(--color-inverse-error);
+  fill: var(--color-default-error);
 }

@@ -8,7 +8,7 @@ button {
   border-color: transparent;
   background-color: var(--color-surface01);
   border-radius: var(--border-radius);
-  box-shadow: 0 0 4px 0 rgb(0 0 0 / 20%);
+  box-shadow: var(--shadow-2);
   color: var(--color-primary01);
   cursor: pointer;
   fill: var(--color-primary01);

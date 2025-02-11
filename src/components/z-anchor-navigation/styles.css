@@ -49,7 +49,7 @@ z-anchor-navigation nav * a:not(:only-child) {
 
 z-anchor-navigation nav > * {
   position: relative;
-  border-left: var(--border-size-large) solid var(--color-surface05);
+  border-left: var(--border-size-large) solid var(--color-default-icon);
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
   transition:
@@ -103,13 +103,14 @@ z-anchor-navigation nav button {
   @media (hover: hover) {
     /* ...show them only hovering/focusing the anchor */
     z-anchor-navigation nav > :is([data-current], :hover, :focus, :focus-within) > :is(z-button, button) {
+      fill: var(--color-default-icon);
       opacity: 1;
       pointer-events: unset;
     }
 
     z-anchor-navigation nav > *:hover {
       border-left-color: var(--color-hover-primary);
-      background-color: var(--color-surface02);
+      background-color: var(--color-background);
       color: var(--color-hover-primary);
     }
   }

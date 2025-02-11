@@ -81,12 +81,12 @@
 }
 
 :host([pressed]:not([disabled])) .indicator {
-  border-color: var(--color-active-primary);
-  background: var(--color-active-primary);
+  border-color: var(--color-hover-primary);
+  background: var(--color-hover-primary);
   color: var(--color-text-inverse);
 }
 
-:host(:not([disabled]):focus-within) .indicator {
+:host([href]:not([disabled]):focus-within) .indicator {
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -102,12 +102,12 @@
 }
 
 :host([checked]:not([disabled])) .indicator {
-  border-color: var(--color-success-default);
-  color: var(--color-success-default);
+  border-color: var(--color-default-success);
+  color: var(--color-default-success);
 }
 
 :host([checked]:not([disabled])) .indicator z-icon {
-  fill: var(--color-success-default);
+  fill: var(--color-default-success);
 }
 
 :host([checked]) .indicator z-icon > svg {

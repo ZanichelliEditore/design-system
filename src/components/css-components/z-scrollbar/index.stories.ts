@@ -57,9 +57,9 @@ const StoryMeta = {
 export default StoryMeta;
 
 export const Default = {
-  render: (args) => html`
+  render: () => html`
     <div class="z-scrollbar-story">
-      <div class="scrollbar-container themes ${args.theme} z-scrollbar">
+      <div class="scrollbar-container z-scrollbar">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sodales purus et congue pellentesque. Sed quis
           venenatis nibh. Cras ut velit vel nisl cursus euismod ac quis lorem. In eget nisl lectus. Quisque id nibh in

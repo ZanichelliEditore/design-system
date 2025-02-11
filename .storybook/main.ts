@@ -13,7 +13,7 @@ const config = {
     "../src/**/index.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: ["@storybook/addon-docs", "@storybook/addon-viewport", "storybook-addon-stencil"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-viewport", "@storybook/addon-themes", "storybook-addon-stencil"],
 } satisfies StorybookConfig;
 
 export default config;

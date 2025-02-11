@@ -28,8 +28,8 @@ input {
 
 input.error {
   border: 1px solid;
-  border-color: var(--color-error01);
-  background-color: var(--color-error-inverse);
+  border-color: var(--color-default-error);
+  background-color: var(--color-inverse-error);
   border-radius: 4px;
 }
 

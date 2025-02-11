@@ -21,7 +21,7 @@ const StoryMeta = {
     "alertdialog": false,
     "closable": true,
     "scrollInside": true,
-    "--z-modal-content-padding": "var(--space-unit)",
+    "--z-modal-content-padding": "calc(var(--space-unit) * 2)",
   },
   decorators: [
     (Story) => html`

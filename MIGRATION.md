@@ -12,6 +12,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v18.0.0](#v1800)
 
   - [Refactor componente `z-book-card`](#refactor-componente-zbookcard-v2)
+  - [Modifiche ai token dei temi](#modifiche-ai-token-dei-temi)
 
 - [v17.0.0](#v1700)
 
@@ -128,6 +129,42 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - La prop `operaTitleHtmlTag` è stata cambiata in `titleHtmlTag`.
 - È stata aggiunta la prop `year`.
 - È ora possibile customizzare l'ingombro di titolo, sottotitolo e autori tramite variabili css.
+
+### Modifiche ai token dei temi
+
+Il valore di alcuni token dei temi è stato modificato, come da design, e i componenti sono stati allineati ad usare i token corretti. Molti token non più utilizzati sono stati rimossi:
+
+- `--color-text-success`
+- `--color-text-warning`
+- `--color-active-light`
+- `--color-active-tertiary`
+- `--color-hover-tertiary`
+- `--color-hover-primary-text`
+- `--color-hover-surface`
+- `--color-ghost01`
+- `--color-ghost02`
+- `--color-highlight`
+- `--color-hover-light`
+- `--color-selected-light`
+- `--color-error-default`: sostituire con `--color-default-error`
+- `--color-success-default`: sostituire con `--color-default-success`
+- `--color-warning-default`: sostituire con `--color-default-warning`
+- `--color-error-inverse`: sostituire con `--color-inverse-error`
+- `--color-success-inverse`: sostituire con `--color-inverse-success`
+- `--color-warning-inverse`: sostituire con `--color-inverse-warning`
+- `--color-text-error`: sostituire con `--color-hover-error`
+- `--color-danger01`: sostituire con `--color-hover-error`
+- `--color-danger02`: sostituire con `--color-hover-error`
+- `--color-error01`: sostituire con `--color-hover-error`
+- `--color-error02`: sostituire con `--color-hover-error`
+- `--color-hover-danger`: sostituire con `--color-default-error`
+- `--color-success01`: sostituire con `--color-default-success`
+- `--color-success02`: sostituire con `--color-default-success`
+- `--color-text-error`: sostituire con `--color-hover-error`
+- `--color-warning01`: sostituire con `--color-default-warning`
+- `--color-warning02`: sostituire con `--color-default-warning`
+
+Il token `--color-hover-error` cambia valore da `--red500` a `--red800`, dove usato verificare che sia ancora coerente e, se necessario, sostituire con `--color-default-error`.
 
 ## v17.0.0
 

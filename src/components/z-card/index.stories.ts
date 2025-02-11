@@ -212,7 +212,7 @@ export const TextVariantPrimaryBackground = {
   `,
 } satisfies Story;
 
-export const TextVariantWhiteBackgroundAndBordered = {
+export const TextVariantSurfaceBackgroundAndBordered = {
   args: {
     "--z-card--text-border": "2px solid var(--gray800)",
     "--z-card--text-border-radius": "4px",
@@ -230,7 +230,7 @@ export const TextVariantWhiteBackgroundAndBordered = {
       .showShadow="${args.showShadow}"
       .clickable="${args.clickable}"
       style=${styleMap({
-        "--z-card--text-background": `var(--color-white)`,
+        "--z-card--text-background": `var(--color-surface01)`,
         "--z-card--text-border": `${args["--z-card--text-border"]}`,
         "--z-card--text-border-radius": `${args["--z-card--text-border-radius"]}`,
         "--z-card--text-padding": `${args["--z-card--text-padding"]}`,

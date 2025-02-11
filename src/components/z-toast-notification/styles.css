@@ -228,15 +228,15 @@ z-icon:focus {
 }
 
 :host > #external-container.error {
-  background: var(--color-danger01);
+  background: var(--color-default-error);
 }
 
 :host > #external-container.success {
-  background: var(--color-success01);
+  background: var(--color-default-success);
 }
 
 :host > #external-container.warning {
-  background: var(--color-warning01);
+  background: var(--color-default-warning);
 }
 
 :host > #external-container.warning #icon {
@@ -244,7 +244,7 @@ z-icon:focus {
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   :host {
     width: unset;
     max-width: 50vw;
@@ -260,7 +260,7 @@ z-icon:focus {
 }
 
 /* Wide breakpoint */
-@media only screen and (min-width: 1366px) {
+@media (min-width: 1366px) {
   :host {
     width: unset;
     max-width: 33vw;

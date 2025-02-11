@@ -193,7 +193,7 @@
   right: calc(var(--space-unit) * -2);
   width: var(--border-size-small);
   height: 1em;
-  background-color: currentcolor;
+  background-color: var(--color-default-icon);
   content: "";
   font-size: var(--font-size-3);
   transform: translateY(-50%);

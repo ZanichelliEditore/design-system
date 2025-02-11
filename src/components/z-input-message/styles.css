@@ -17,7 +17,7 @@
 }
 
 :host([status="success"]) {
-  color: var(--color-success01);
+  color: var(--color-hover-success);
 }
 
 :host([status="error"]) {

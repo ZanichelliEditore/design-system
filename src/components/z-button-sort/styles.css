@@ -23,7 +23,7 @@ button::-moz-focus-inner {
 button:hover {
   border-color: var(--color-hover-primary);
   color: var(--color-hover-primary);
-  fill: var(--color-hover-primary);
+  fill: var(--color-hover-primary-icon);
 }
 
 button:focus {
@@ -37,14 +37,14 @@ button:active {
   border-color: var(--color-pressed-primary);
   box-shadow: var(--shadow-2);
   color: var(--color-pressed-primary);
-  fill: var(--color-pressed-primary);
+  fill: var(--color-active-primary-icon);
 }
 
 button.selected {
-  border-color: var(--color-active-primary);
-  background-color: var(--color-active-primary);
+  border-color: var(--color-hover-primary);
+  background-color: var(--color-hover-primary);
   color: var(--color-text-inverse);
-  fill: var(--color-text-inverse);
+  fill: var(--color-inverse-icon);
 }
 
 button > span.ellipsis {

@@ -33,11 +33,11 @@
 }
 
 :host div.add-alert {
-  background: var(--color-success-inverse);
+  background: var(--color-inverse-success);
 }
 
 :host div.remove-alert {
-  background: var(--color-warning-inverse);
+  background: var(--color-inverse-warning);
 }
 
 :host div > .content-text {

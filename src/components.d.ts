@@ -1240,7 +1240,7 @@ export namespace Components {
         "active"?: boolean;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface ZModal {
         /**
@@ -2958,7 +2958,7 @@ declare global {
         "modalBackgroundClick": any;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4933,7 +4933,7 @@ declare namespace LocalJSX {
         "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface ZModal {
         /**
@@ -6216,7 +6216,7 @@ declare module "@stencil/core" {
              */
             "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             /**
-             * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+             * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
              */
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;

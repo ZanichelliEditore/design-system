@@ -9,16 +9,15 @@ import "../../z-icon/index";
 import "../../z-tag/index";
 import "./index";
 
-type ZBookCardStoriesArgs = ZBookCardDeprecated & {
-  theme: "theme-default" | "theme-dark" | "theme-black-yellow";
-} & CSSVarsArguments<
+type ZBookCardStoriesArgs = ZBookCardDeprecated &
+  CSSVarsArguments<
     | "z-book-card-ribbon-background-color"
     | "z-book-card-ribbon-shadow-color"
     | "z-book-card-compact-width"
     | "z-book-card-compact-height"
   >;
 const StoryMeta = {
-  title: "ZBookCardDeprecated",
+  title: "Deprecated/ZBookCardDeprecated",
   component: "z-book-card",
   argTypes: {
     "variant": {
@@ -26,12 +25,6 @@ const StoryMeta = {
         type: "inline-radio",
       },
       options: Object.values(BookCardDeprecatedVariant),
-    },
-    "theme": {
-      control: {
-        type: "inline-radio",
-      },
-      options: ["theme-default", "theme-dark", "theme-black-yellow", "theme-red"],
     },
     "--z-book-card-ribbon-background-color": getColorTokenArgConfig(),
     "--z-book-card-ribbon-shadow-color": getColorTokenArgConfig(),
@@ -50,7 +43,6 @@ const StoryMeta = {
     "borderless": false,
     "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
     "operaTitleTag": "h1",
-    "theme": "theme-default",
     "--z-book-card-ribbon-background-color": "var(--avatar-C08)",
     "--z-book-card-ribbon-shadow-color": "var(--green950)",
     "--z-book-card-compact-width": "262px",
@@ -82,7 +74,6 @@ export const AllProps = {
       ribbon-interactive=${args.ribbonInteractive}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
         "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
@@ -112,7 +103,6 @@ export const SlottedTags = {
       ribbon-interactive=${args.ribbonInteractive}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
         "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
@@ -149,7 +139,6 @@ export const SlottedResources = {
       ribbon-interactive=${args.ribbonInteractive}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
         "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
@@ -198,7 +187,6 @@ export const SlottedHeaderCta = {
       ribbon-interactive=${args.ribbonInteractive}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
         "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
@@ -233,7 +221,6 @@ export const SlottedFooterCta = {
       ribbon-interactive=${args.ribbonInteractive}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-ribbon-background-color": `${args["--z-book-card-ribbon-background-color"]}`,
         "--z-book-card-ribbon-shadow-color": `${args["--z-book-card-ribbon-shadow-color"]}`,
@@ -388,7 +375,6 @@ export const CompactVariant = {
       isbn-label=${args.isbnLabel}
       fallback-cover=${args.fallbackCover}
       opera-title-tag=${args.operaTitleTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-compact-width": `${args["--z-book-card-compact-width"]}`,
         "--z-book-card-compact-height": `${args["--z-book-card-compact-height"]}`,

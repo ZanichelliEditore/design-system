@@ -1,5 +1,5 @@
 :root {
-  --shadow-color-base: rgb(66 69 72 / 35%);
+  --shadow-color-base: rgb(61 61 61 / 35%);
   --shadow-inset-2: inset 0 2px 4px 0 var(--shadow-color-base);
   --shadow-inset-4: inset 0 4px 8px 0 var(--shadow-color-base);
   --shadow-0: 0 0 0 0 var(--shadow-color-base);

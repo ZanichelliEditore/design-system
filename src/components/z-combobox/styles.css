@@ -101,10 +101,11 @@
   position: relative;
   z-index: 12;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
-  border: var(--border-size-small) solid var(--gray200);
+  border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: 0;
   background-color: var(--color-form-background);
   border-radius: 0;
+  box-shadow: var(--shadow-2);
 }
 
 :host > div.open > div.open-combo-data > div > div {
@@ -154,9 +155,8 @@
 
 :host > div.open > div.open-combo-data > div > div.search {
   overflow: hidden;
-  max-height: auto;
+  max-height: none;
   margin-top: 0;
-  box-shadow: 1px 1px 4px 2px rgb(217 222 227 / 50%);
 }
 
 :host > div.open > div.open-combo-data > div > div.search > ul {

@@ -10,9 +10,8 @@ import "../../z-tag/index";
 import "../z-book-card-app/index";
 import "./index";
 
-type ZBookCardStoriesArgs = ZBookCard & {
-  theme: "theme-default" | "theme-dark" | "theme-black-yellow";
-} & CSSVarsArguments<
+type ZBookCardStoriesArgs = ZBookCard &
+  CSSVarsArguments<
     | "--z-book-card-portrait-cover-height"
     | "--z-book-card-title-lines"
     | "--z-book-card-title-word-break"
@@ -31,12 +30,6 @@ const StoryMeta = {
         type: "inline-radio",
       },
       options: Object.values(BookCardVariant),
-    },
-    "theme": {
-      control: {
-        type: "inline-radio",
-      },
-      options: ["theme-default", "theme-dark", "theme-black-yellow"],
     },
     "--z-book-card-portrait-cover-height": {control: {type: "text"}},
     "--z-book-card-title-lines": {control: {type: "text"}},
@@ -58,7 +51,6 @@ const StoryMeta = {
     "ebookUrl": "https://www.zanichelli.it/ricerca",
     "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
     "titleHtmlTag": null,
-    "theme": "theme-default",
     "--z-book-card-portrait-cover-height": "378px",
     "--z-book-card-title-lines": "2",
     "--z-book-card-title-word-break": "initial",
@@ -87,7 +79,6 @@ export const Card = {
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
       title-html-tag=${args.titleHtmlTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
         "--z-book-card-title-lines": args["--z-book-card-title-lines"],
@@ -114,7 +105,6 @@ export const WithSlottedContent = {
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
       title-html-tag=${args.titleHtmlTag}
-      class=${args.theme}
       style=${styleMap({
         "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
         "--z-book-card-title-lines": args["--z-book-card-title-lines"],

@@ -13,7 +13,7 @@ import "./style.stories.css";
  * No slot is rendered inside the latter.
  * Like the other use case, don't pass a custom label to the first child because it will be overwritten by the default home value.
  * This mode can be also used by SEO non-relevant application.
- * @example```html
+ * @example```
  * <z-breadcrumb>
  *  <a href="./home_link"></a>
  *  <a href="./link1">link1</a>

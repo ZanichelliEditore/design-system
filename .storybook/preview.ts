@@ -1,3 +1,4 @@
+import {withThemeByClassName} from "@storybook/addon-themes";
 import {type Preview} from "@storybook/web-components";
 import "../src/global.css";
 import DocTemplate from "./elements/docs-template";
@@ -55,6 +56,19 @@ const preview: Preview = {
     },
   },
   tags: ["autodocs"],
+  decorators: [
+    (story, context) =>
+      withThemeByClassName({
+        themes: {
+          "Default": "",
+          "Dark": "theme-dark",
+          "Red": "theme-red",
+          "Black-yellow": "theme-black-yellow",
+        },
+        defaultTheme: "Default",
+        parentSelector: context.viewMode === "docs" ? ".docs-story" : "body",
+      })(story, context) as ReturnType<typeof story>,
+  ],
 } satisfies Preview;
 
 export default preview;

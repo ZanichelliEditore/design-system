@@ -3,11 +3,11 @@
   min-height: 28px;
   align-items: center;
   padding: 0 calc(var(--space-unit) * 1.5);
-  border: var(--border-size-small) solid var(--gray400);
+  border: var(--border-size-small) solid var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: 14px;
   color: var(--color-default-text);
-  fill: var(--color-default-text);
+  fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: 14px;
   line-height: 28px;
@@ -29,12 +29,8 @@
   margin-right: calc(var(--space-unit) / 2);
 }
 
-:host > .z-chip-container:not([aria-disabled]):hover > z-icon:first-child {
-  fill: var(--color-default-icon);
-}
-
 :host > .z-chip-container .interactive-icon {
-  fill: var(--color-primary01);
+  fill: var(--color-primary01-icon);
 }
 
 :host > .z-chip-container:not([aria-disabled]) .interactive-icon:hover {
@@ -61,7 +57,7 @@
 
 :host > button:not([disabled]):active:hover .interactive-icon {
   color: var(--color-primary01);
-  fill: var(--color-primary01);
+  fill: var(--color-primary01-icon);
 }
 
 :host > .z-chip-container > z-icon,
