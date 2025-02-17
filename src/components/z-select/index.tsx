@@ -633,138 +633,31 @@ export class ZSelect {
       return this.renderNoSearchResults();
     }
 
-    if (this.hasGroupItems && !this.hasTreeItems) {
+    if (this.hasTreeItems) {
+      return (
+        <z-tree-list
+          htmlid={this.htmlid}
+          itemIdKeyMap={this.itemIdKeyMap}
+          hasGroupItems={this.hasGroupItems}
+          hasTreeItems={this.hasTreeItems}
+          items={this.itemsList}
+          listSizeType={() => this.listSizeType()}
+          handleItemSelect={(item) => this.selectItem(item)}
+          handleArrowKeyNav={(e, id) => this.arrowsSelectNav(e, id)}
+          noResultsLabel={this.noresultslabel}
+        />
+      );
+    }
+
+    // Keep existing non-tree rendering logic for regular select items
+    if (this.hasGroupItems) {
       return this.renderSelectGroupItems();
-    } else if (this.hasGroupItems && this.hasTreeItems) {
-      return this.renderGroupedTree();
     }
 
     return this.itemsList.map((item: SelectItem, index, array) => {
       const isLastItem = index === array.length - 1;
-      const parentHasSiblings = array.length > 1;
-
-      if (this.hasTreeItems) {
-        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true);
-      }
 
       return this.renderItem(item, isLastItem);
-    });
-  }
-
-  private renderTreeItems(
-    item: SelectItem,
-    isLastChild: boolean,
-    parentHasSiblings: boolean,
-    isTopLevel?: boolean
-  ): HTMLZListElementElement[] {
-    const thisItemKey = this.itemIdKeyMap[item.id];
-
-    const hasDivider = this.hasGroupItems
-      ? undefined
-      : this.hasGroupItems
-        ? isLastChild && !parentHasSiblings
-          ? ListDividerType.ELEMENT
-          : undefined
-        : isTopLevel && parentHasSiblings && !isLastChild
-          ? ListDividerType.ELEMENT
-          : undefined;
-
-    return (
-      <z-list-element
-        clickable={!item.disabled}
-        disabled={item.disabled}
-        class={{
-          "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
-          "tree-search-item": this.hasGroupItems && isTopLevel && !item.children?.length && !!this.searchString,
-        }}
-        size={this.listSizeType()}
-        dividerType={hasDivider}
-        hasTreeItems={this.hasTreeItems}
-      >
-        <div
-          id={`${this.htmlid}_key_${thisItemKey}`}
-          role="option"
-          class="list-element"
-          tabIndex={0}
-          onClick={() => this.selectItem(item)}
-          onKeyDown={(e: KeyboardEvent) => {
-            this.arrowsSelectNav(e, thisItemKey);
-            if (e.key === KeyboardCode.ENTER) {
-              this.selectItem(item);
-            }
-          }}
-        >
-          <span class="item ellipsis">
-            <span
-              class={{
-                "item-label": true,
-                "selected": !!item.selected,
-              }}
-              title={item.name}
-              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
-            />
-          </span>
-          {item.icon && <z-tag icon={item.icon}></z-tag>}
-        </div>
-        {item.children && item.children.length > 0 ? (
-          <z-list>
-            <div class="children-node">
-              {item.children.map((child, index, arr) =>
-                this.renderTreeItems(
-                  child,
-                  index === arr.length - 1,
-                  arr.length > 1,
-                  false // isTopLevel = false for children
-                )
-              )}
-            </div>
-          </z-list>
-        ) : null}
-      </z-list-element>
-    );
-  }
-
-  private renderGroupedTree(): HTMLZListGroupElement[] {
-    const grouped = this.itemsList.reduce(
-      (acc, item) => {
-        const category = item.category || "Altra categoria";
-        acc[category] = acc[category] || [];
-        acc[category].push(item);
-
-        return acc;
-      },
-      {} as Record<string, SelectItem[]>
-    );
-
-    return Object.entries(grouped).map(([category, items], index, entries) => {
-      const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
-      // const parentHasSiblings = items.length > 1;
-
-      return (
-        <z-list-group
-          divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
-          hasTreeItems={true}
-        >
-          <span
-            class="body-3-sb z-list-group-title"
-            slot="header-title"
-          >
-            {category}
-          </span>
-          <z-list>
-            {items.map((item, i, arr) => [
-              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true),
-              i < arr.length - 1 ? (
-                <z-divider
-                  key={`divider-${i}`}
-                  style={{zIndex: "100", height: "var(--border-size-small)"}}
-                />
-              ) : null,
-            ])}
-          </z-list>
-          {index !== entries.length - 1 && <z-divider style={{zIndex: "100", height: "var(--border-size-small)"}} />}
-        </z-list-group>
-      );
     });
   }
 

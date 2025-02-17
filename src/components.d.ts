@@ -2172,6 +2172,44 @@ export namespace Components {
          */
         "expandable": boolean;
     }
+    interface ZTreeList {
+        /**
+          * Handler for arrow navigation
+         */
+        "handleArrowKeyNav": (e: KeyboardEvent, idOrReset: string | number) => void;
+        /**
+          * Handler for item selection
+         */
+        "handleItemSelect": (selected: null | SelectItem) => void;
+        /**
+          * Whether items are grouped by category
+         */
+        "hasGroupItems"?: boolean;
+        /**
+          * Whether items have a tree structure
+         */
+        "hasTreeItems"?: boolean;
+        /**
+          * The id of the input element
+         */
+        "htmlid": string;
+        /**
+          * Map of item IDs to their keys
+         */
+        "itemIdKeyMap": Record<string, number>;
+        /**
+          * List of items to display
+         */
+        "items": SelectItem[];
+        /**
+          * Function to determine list size
+         */
+        "listSizeType": () => ListSize;
+        /**
+          * Optional no results message
+         */
+        "noResultsLabel"?: string;
+    }
     interface ZVisuallyHidden {
     }
 }
@@ -3518,6 +3556,12 @@ declare global {
         prototype: HTMLZTrElement;
         new (): HTMLZTrElement;
     };
+    interface HTMLZTreeListElement extends Components.ZTreeList, HTMLStencilElement {
+    }
+    var HTMLZTreeListElement: {
+        prototype: HTMLZTreeListElement;
+        new (): HTMLZTreeListElement;
+    };
     interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
     }
     var HTMLZVisuallyHiddenElement: {
@@ -3604,6 +3648,7 @@ declare global {
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
+        "z-tree-list": HTMLZTreeListElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
@@ -5978,6 +6023,44 @@ declare namespace LocalJSX {
          */
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
+    interface ZTreeList {
+        /**
+          * Handler for arrow navigation
+         */
+        "handleArrowKeyNav"?: (e: KeyboardEvent, idOrReset: string | number) => void;
+        /**
+          * Handler for item selection
+         */
+        "handleItemSelect"?: (selected: null | SelectItem) => void;
+        /**
+          * Whether items are grouped by category
+         */
+        "hasGroupItems"?: boolean;
+        /**
+          * Whether items have a tree structure
+         */
+        "hasTreeItems"?: boolean;
+        /**
+          * The id of the input element
+         */
+        "htmlid"?: string;
+        /**
+          * Map of item IDs to their keys
+         */
+        "itemIdKeyMap"?: Record<string, number>;
+        /**
+          * List of items to display
+         */
+        "items"?: SelectItem[];
+        /**
+          * Function to determine list size
+         */
+        "listSizeType"?: () => ListSize;
+        /**
+          * Optional no results message
+         */
+        "noResultsLabel"?: string;
+    }
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -6060,6 +6143,7 @@ declare namespace LocalJSX {
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
+        "z-tree-list": ZTreeList;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -6361,6 +6445,7 @@ declare module "@stencil/core" {
              * to prevent the row from expanding.
              */
             "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
+            "z-tree-list": LocalJSX.ZTreeList & JSXBase.HTMLAttributes<HTMLZTreeListElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
