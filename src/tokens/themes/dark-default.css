@@ -50,16 +50,16 @@
   --color-primary01-icon: var(--color-white);
 
   /* alert */
-  --color-default-error: var(--red50);
-  --color-default-success: var(--green50);
-  --color-default-warning: var(--yellow50);
-  --color-hover-error: var(--red200);
-  --color-hover-success: var(--green200);
-  --color-hover-warning: var(--yellow200);
+  --color-default-error: var(--red200);
+  --color-default-success: var(--green200);
+  --color-default-warning: var(--yellow200);
+  --color-hover-error: var(--red50);
+  --color-hover-success: var(--green50);
+  --color-hover-warning: var(--yellow50);
   --color-inverse-error: var(--red800);
-  --color-inverse-hover-error: var(--red50);
-  --color-inverse-hover-success: var(--green50);
-  --color-inverse-hover-warning: var(--yellow50);
+  --color-inverse-hover-error: var(--red200);
+  --color-inverse-hover-success: var(--green200);
+  --color-inverse-hover-warning: var(--yellow200);
   --color-inverse-success: var(--green800);
   --color-inverse-warning: var(--yellow800);
 

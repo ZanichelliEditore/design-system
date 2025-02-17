@@ -1,6 +1,5 @@
 import {Component, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {ComboItem, ControlSize, InputType, KeyboardCode, ListDividerType, ListSize} from "../../beans";
-import {ZMyzListItem} from "../../snowflakes/myz/list/z-myz-list-item";
 import {handleKeyboardSubmit, randomId} from "../../utils/utils";
 import {ZInput} from "../z-input";
 
@@ -283,7 +282,7 @@ export class ZCombobox {
     this.isopen = !this.isopen;
   }
 
-  private getComboboxA11yAttributes(): Record<string, unknown> {
+  private getComboboxA11yAttributes(): Record<string, string> {
     return {
       "role": "combobox",
       "aria-label": this.label,
@@ -350,7 +349,7 @@ export class ZCombobox {
     );
   }
 
-  private renderItem(item: ComboItem, index: number, length: number): ZMyzListItem {
+  private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
     return (
       <z-list-element
         id={item.id}
@@ -437,21 +436,16 @@ export class ZCombobox {
 
   private renderNoSearchResults(): HTMLUListElement {
     return (
-      <ul role="none">
-        <z-myz-list-item
-          id="no-results"
-          text={this.noresultslabel}
-          listitemid="no-results"
-          icon="multiply-circle"
-          class={this.size}
-        />
-      </ul>
+      <div class="no-results">
+        <z-icon name="multiply-circle" />
+        <span>{this.noresultslabel}</span>
+      </div>
     );
   }
 
   private renderCloseButton(): HTMLDivElement {
     return (
-      <div>
+      <div class="close-search">
         <a
           onClick={() => this.closeFilterItems()}
           onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, this.closeFilterItems)}
