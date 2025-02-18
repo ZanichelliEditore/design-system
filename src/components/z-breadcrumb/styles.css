@@ -65,6 +65,7 @@ a.missing-path {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--line-clamp-mobile);
+  line-clamp: var(--line-clamp-mobile);
   text-overflow: ellipsis;
   white-space: initial;
 }
@@ -136,6 +137,7 @@ button.dots {
 @media (min-width: 768px) {
   .text-ellipsis {
     -webkit-line-clamp: var(--line-clamp-popover);
+    line-clamp: var(--line-clamp-popover);
   }
 }
 

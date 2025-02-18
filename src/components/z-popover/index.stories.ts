@@ -9,6 +9,8 @@ import "../z-icon/index";
 import "./index";
 import "./index.stories.css";
 
+type ZPopoverStoriesArgs = ZPopover & CSSVarsArguments<"--z-popover-theme--surface" | "--z-popover-theme--text">;
+
 /**
  * To be sure the AUTO algorithm finds the right container when calculating the position, set its container's position to `position: relative;`
  */
@@ -29,15 +31,16 @@ const StoryMeta = {
     "--z-popover-theme--surface": "var(--color-surface01)",
     "--z-popover-theme--text": "var(--color-default-text)",
   },
-} satisfies Meta<ZPopover & CSSVarsArguments<"--z-popover-theme--surface" | "--z-popover-theme--text">>;
+} satisfies Meta<ZPopoverStoriesArgs>;
 
 export default StoryMeta;
 
-type Story = StoryObj<ZPopover>;
+type Story = StoryObj<ZPopoverStoriesArgs>;
 
 export const ContextualMenuLike = {
   args: {
-    position: PopoverPosition.RIGHT_BOTTOM,
+    "--z-popover-theme--surface": "transparent",
+    "position": PopoverPosition.RIGHT_BOTTOM,
   },
   render: (args) => html`
     <div class="popover-container">

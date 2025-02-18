@@ -6,17 +6,6 @@ import "./index.stories.css";
 
 export default {
   title: "Colors",
-  argTypes: {
-    theme: {
-      control: {
-        type: "inline-radio",
-      },
-      options: ["theme-default", "theme-black-yellow", "theme-dark", "theme-red"],
-    },
-  },
-  args: {
-    theme: "theme-default",
-  },
   parameters: {
     layout: "fullscreen",
   },
@@ -24,13 +13,16 @@ export default {
 };
 
 export const Themes = {
-  render: (args) => html`
-    <div class="colors-story themes ${args.theme}">
+  render: (_, context) => html`
+    <div class="colors-story themes">
       <p>
         Currently available color themes: <strong>default</strong>, <strong>black-yellow</strong>,
         <strong>dark</strong>, and <strong>red</strong>
       </p>
-      <p>On this page you can see the value of the color tokens for each theme, by switching it from the controls.</p>
+      <p>
+        On this page you can see the value of the color tokens for each theme. Switch the theme from the list in the
+        toolbar.
+      </p>
       <div class="tokens-container">
         <z-section-title divider-position="after">
           <div slot="primary-title">Color tokens</div>
@@ -48,7 +40,7 @@ export const Themes = {
                       style="background-color: var(${token})"
                     ></div>
                     <div class="interactive-2">
-                      ${getThemeTokenValue(args.theme, token) ??
+                      ${getThemeTokenValue(`theme-${context.globals.theme.toLowerCase()}`, token) ??
                       getComputedStyle(document.documentElement).getPropertyValue(token)}
                     </div>
                   </div>

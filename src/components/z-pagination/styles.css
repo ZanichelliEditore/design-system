@@ -45,7 +45,7 @@ z-pagination .pagination-bar button {
   justify-content: center;
   border: none;
   margin: 0;
-  background-color: var(--color-surface02);
+  background-color: var(--color-background);
   color: var(--color-primary01);
   cursor: pointer;
   font-family: inherit;

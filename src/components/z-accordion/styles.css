@@ -11,7 +11,7 @@
   --z-accordion-disabled-label-color: var(--color-text03);
   --z-accordion-content-bg: var(--color-surface01);
   --z-accordion-content-fg: var(--color-default-text);
-  --z-accordion-hover-color: var(--color-surface03);
+  --z-accordion-hover-color: var(--color-surface02);
   --z-accordion-left-padding: calc(var(--space-unit) * 2);
   --z-accordion-right-padding: var(--space-unit);
   --z-accordion-label-font-weight: var(--font-sb);

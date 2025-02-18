@@ -2,7 +2,7 @@
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
-  --z-modal-content-padding: calc(var(--space-unit) * 2);
+  --z-modal-content-padding: ;
 }
 
 :host > dialog {
@@ -23,7 +23,7 @@
   display: none;
 }
 
-/* polyfill style  */
+/* polyfill style */
 :host > dialog + .backdrop {
   display: none;
 }
@@ -37,7 +37,7 @@
 }
 
 ::slotted([slot="modalContent"]) {
-  padding: var(--z-modal-content-padding);
+  padding: var(--z-modal-content-padding, calc(var(--space-unit) * 2));
 }
 
 .modal-container {
@@ -55,8 +55,7 @@
 }
 
 .modal-container > header {
-  padding: calc(var(--space-unit) * 1.75) calc(var(--space-unit) * 2) calc(var(--space-unit) * 1.75)
-    calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.75) calc(var(--space-unit) * 2);
   background: var(--color-background);
 }
 
@@ -241,7 +240,7 @@
 }
 
 /* Desktop */
-@media only screen and (min-width: 1152px) {
+@media (min-width: 1152px) {
   .modal-container > header {
     padding-top: calc(var(--space-unit) * 1.5);
     padding-bottom: calc(var(--space-unit) * 1.5);
