@@ -12,7 +12,7 @@
   list-style: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   :host {
     padding: 0 calc(var(--space-unit) * 2);
   }

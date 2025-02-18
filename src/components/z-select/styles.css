@@ -1,7 +1,7 @@
 :host {
   display: inline-block;
   width: inherit;
-  color: var(--color-default-text);
+  color: var(--color-form-default-text);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
@@ -49,6 +49,12 @@
 
 .select-wrapper .ul-scroll-wrapper.fixed {
   position: static;
+}
+
+.select-wrapper z-list {
+  --background-color-list-element: var(--color-form-background);
+  --background-hover-color-list-element: var(--color-form-surface03);
+  --background-active-color-list-element: var(--color-form-surface03);
 }
 
 .select-wrapper .ul-scroll-wrapper > z-list {
@@ -118,12 +124,12 @@
 }
 
 .z-list-group-title {
-  color: var(--color-default-text);
+  color: var(--color-form-default-text);
 }
 
 .reset-item {
-  color: var(--color-primary01);
-  fill: var(--color-primary01-icon);
+  color: var(--color-form-active-primary);
+  fill: var(--color-form-active-primary);
 }
 
 .reset-item-content {
@@ -159,8 +165,8 @@ z-list z-list-element::before {
   left: -15px;
   width: 8px;
   height: 1em;
-  border-bottom: 1px solid var(--color-disabled01-icon);
-  border-left: 1px solid var(--color-disabled01-icon);
+  border-bottom: 1px solid var(--color-form-disabled01-icon);
+  border-left: 1px solid var(--color-form-disabled01-icon);
   content: "";
   cursor: pointer;
 }
@@ -172,7 +178,7 @@ z-list z-list-element::after {
   left: -15px;
   width: 8px;
   height: 100%;
-  border-left: 1px solid var(--color-disabled01-icon);
+  border-left: 1px solid var(--color-form-disabled01-icon);
   content: "";
   cursor: pointer;
 }
@@ -253,7 +259,7 @@ z-list-element.grouped-tree-parent-node .list-element::after {
 z-list-element:not([disabled]) > .list-element:hover,
 z-list-element:not([disabled]) > .list-element:hover::after {
   z-index: -1;
-  background-color: var(--color-background);
+  background-color: var(--color-form-surface03);
   cursor: pointer;
 }
 

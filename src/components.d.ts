@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardTag, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -253,23 +253,20 @@ export namespace Components {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface ZBookCard {
-        /**
-          * [optional] Show adoption badge
-         */
-        "adoption"?: boolean;
-        /**
-          * [optional] Annotated tag
-         */
-        "annotated"?: BookCardTag | string;
         /**
           * [optional] Authors
          */
         "authors"?: string;
-        /**
-          * [optional] Show catalog link to correspondent resource
-         */
-        "catalogUrl"?: string;
         /**
           * Cover URL
          */
@@ -278,10 +275,6 @@ export namespace Components {
           * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
-        /**
-          * [optional] EDI tag
-         */
-        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -295,29 +288,25 @@ export namespace Components {
          */
         "isbnLabel": string;
         /**
-          * [optional] Opera title
+          * Opera title (card title)
          */
-        "operaTitle"?: string;
+        "operaTitle": string;
         /**
           * [optional] Set a specific h level as html tag for opera title
          */
-        "operaTitleHtmlTag"?: string;
-        /**
-          * [optional] Show reflowable description
-         */
-        "reflowable"?: boolean;
-        /**
-          * [optional] Teacher version tag
-         */
-        "teacherVersion"?: BookCardTag | string;
+        "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
          */
         "variant": BookCardVariant;
         /**
-          * [optional] Volume title
+          * [optional] Volume title (card subvolume)
          */
         "volumeTitle"?: string;
+        /**
+          * [optional] year
+         */
+        "year"?: string;
     }
     /**
      * ZBookCardApp component
@@ -1251,7 +1240,7 @@ export namespace Components {
         "active"?: boolean;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface ZModal {
         /**
@@ -2509,11 +2498,17 @@ declare global {
         new (): HTMLZAvatarElement;
     };
     interface HTMLZBookCardElementEventMap {
-        "tagClick": any;
-        "catalogClick": any;
         "ebookClick": any;
-        "immersiveReaderClick": any;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2967,7 +2962,7 @@ declare global {
         "modalBackgroundClick": any;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3859,23 +3854,20 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
+    /**
+     * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+     * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+     * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+     * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+     * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+     * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+     * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+     */
     interface ZBookCard {
-        /**
-          * [optional] Show adoption badge
-         */
-        "adoption"?: boolean;
-        /**
-          * [optional] Annotated tag
-         */
-        "annotated"?: BookCardTag | string;
         /**
           * [optional] Authors
          */
         "authors"?: string;
-        /**
-          * [optional] Show catalog link to correspondent resource
-         */
-        "catalogUrl"?: string;
         /**
           * Cover URL
          */
@@ -3884,10 +3876,6 @@ declare namespace LocalJSX {
           * [optional] Show link to the ebook resource
          */
         "ebookUrl"?: string;
-        /**
-          * [optional] EDI tag
-         */
-        "edi"?: BookCardTag | string;
         /**
           * [optional] Fallback cover URL
          */
@@ -3901,45 +3889,29 @@ declare namespace LocalJSX {
          */
         "isbnLabel"?: string;
         /**
-          * click on catalog link
-         */
-        "onCatalogClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
           * click on ebook link
          */
         "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
-          * click on immersive reader
-         */
-        "onImmersiveReaderClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
-          * click on tag
-         */
-        "onTagClick"?: (event: ZBookCardCustomEvent<any>) => void;
-        /**
-          * [optional] Opera title
+          * Opera title (card title)
          */
         "operaTitle"?: string;
         /**
           * [optional] Set a specific h level as html tag for opera title
          */
-        "operaTitleHtmlTag"?: string;
-        /**
-          * [optional] Show reflowable description
-         */
-        "reflowable"?: boolean;
-        /**
-          * [optional] Teacher version tag
-         */
-        "teacherVersion"?: BookCardTag | string;
+        "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
          */
         "variant"?: BookCardVariant;
         /**
-          * [optional] Volume title
+          * [optional] Volume title (card subvolume)
          */
         "volumeTitle"?: string;
+        /**
+          * [optional] year
+         */
+        "year"?: string;
     }
     /**
      * ZBookCardApp component
@@ -4965,7 +4937,7 @@ declare namespace LocalJSX {
         "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
     /**
-     * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
      */
     interface ZModal {
         /**
@@ -6163,6 +6135,15 @@ declare module "@stencil/core" {
             "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+            /**
+             * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
+             * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
+             * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
+             * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
+             * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
+             * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
+             * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+             */
             "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             /**
              * ZBookCardApp component
@@ -6243,7 +6224,7 @@ declare module "@stencil/core" {
              */
             "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             /**
-             * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+             * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
              */
             "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;

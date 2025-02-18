@@ -4,15 +4,15 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  color: var(--color-form-default-text);
-  fill: var(--color-form-active-primary);
+  color: var(--color-default-text);
+  fill: var(--color-primary01);
   font-family: var(--font-family-sans);
 }
 
 .radio-wrapper:hover,
 .checkbox-wrapper:hover {
-  color: var(--color-form-hover-primary);
-  fill: currentcolor;
+  color: var(--color-hover-primary);
+  fill: var(--color-hover-primary-icon);
 }
 
 .radio-wrapper > input,
@@ -120,11 +120,11 @@
 /* disabled */
 .radio-wrapper > input:disabled + .radio-label,
 .checkbox-wrapper > input:disabled + .checkbox-label {
-  color: var(--color-form-disabled-text);
+  color: var(--color-disabled03);
 }
 
 .radio-wrapper > input:disabled + .radio-label > z-icon,
 .checkbox-wrapper > input:disabled + .checkbox-label > z-icon {
   cursor: default;
-  fill: var(--color-form-disabled01-icon);
+  fill: var(--color-disabled01);
 }

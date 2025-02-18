@@ -3,14 +3,15 @@
 }
 
 :host > .container {
-  --background-color-list-element: var(--color-surface01);
-  --background-hover-color-list-element: var(--color-background);
-  --background-active-color-list-element: var(--color-background);
+  --background-color-list-element: ;
+  --background-hover-color-list-element: ;
+  --background-active-color-list-element: ;
 
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
+  background-color: var(--background-color-list-element, var(--color-surface01));
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
   outline: none;
@@ -52,7 +53,7 @@
 
 :host([expandable]:hover) > .container,
 :host([clickable]:hover) > .container {
-  background-color: var(--background-hover-color-list-element);
+  background-color: var(--background-hover-color-list-element, var(--color-background));
 }
 
 :host([expandable]:focus:focus-visible) > .container,
@@ -66,7 +67,7 @@
 
 :host([expandable]:active) > .container,
 :host([clickable]:active) > .container {
-  background-color: var(--background-active-color-list-element);
+  background-color: var(--background-active-color-list-element, var(--color-background));
 }
 
 :host([align-button="left"][expandable]) > .container > .z-list-element-container {

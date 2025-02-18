@@ -1,6 +1,5 @@
 .theme-dark {
-  background: var(--color-surface01);
-
+  --color-background: var(--gray900);
   --shadow-focus-primary: 0 0 0 2px var(--gray900), 0 0 2px 5px var(--blue25);
 
   /* primary */
@@ -29,45 +28,58 @@
   --color-hover-text: var(--gray300);
   --color-pressed-text: var(--gray300);
   --color-text-inverse: var(--gray900);
-  --color-text-link-default: var(--gray100);
   --color-text02: var(--gray900);
   --color-text03: var(--gray700);
   --color-text05: var(--gray500);
 
+  /* disabled */
+  --color-disabled01: var(--gray700);
+  --color-disabled02: var(--gray900);
+  --color-disabled03: var(--gray500);
+
   /* icons */
   --color-active-primary-icon: var(--gray300);
+  --color-default-icon: var(--gray100);
   --color-disabled01-icon: var(--gray700);
   --color-disabled02-icon: var(--gray900);
+  --color-disabled03-icon: var(--gray500);
   --color-hover-icon: var(--gray300);
   --color-hover-primary-icon: var(--gray300);
+  --color-inverse-icon: var(--gray900);
   --color-pressed-icon: var(--gray300);
   --color-primary01-icon: var(--color-white);
 
-  /* status */
-  --color-danger01: var(--red50);
-  --color-danger02: var(--red50);
-  --color-default-icon: var(--gray100);
-  --color-disabled01: var(--gray700);
-  --color-disabled02: var(--gray900);
-  --color-error01: var(--red50);
-  --color-error02: var(--red50);
-  --color-hover-danger: var(--red300);
-  --color-hover-error: var(--red300);
-  --color-hover-success: var(--green300);
+  /* alert */
+  --color-default-error: var(--red200);
+  --color-default-success: var(--green200);
+  --color-default-warning: var(--yellow200);
+  --color-hover-error: var(--red50);
+  --color-hover-success: var(--green50);
   --color-hover-warning: var(--yellow50);
-  --color-inverse-error: var(--red700);
-  --color-inverse-hover-error: var(--red50);
-  --color-inverse-hover-success: var(--green50);
-  --color-inverse-hover-warning: var(--yellow300);
-  --color-inverse-success: var(--green700);
-  --color-inverse-warning: var(--yellow700);
-  --color-success01: var(--green50);
-  --color-success02: var(--green50);
-  --color-text-error: var(--red50);
-  --color-warning01: var(--yellow300);
-  --color-warning02: var(--yellow300);
+  --color-inverse-error: var(--red800);
+  --color-inverse-hover-error: var(--red200);
+  --color-inverse-hover-success: var(--green200);
+  --color-inverse-hover-warning: var(--yellow200);
+  --color-inverse-success: var(--green800);
+  --color-inverse-warning: var(--yellow800);
 
   /* forms */
   --color-form-active-primary: var(--gray800);
   --color-form-hover-primary: var(--gray800);
+
+  /* links */
+  --color-text-link-blue-active: var(--color-white);
+  --color-text-link-blue-hover: var(--color-white);
+  --color-text-link-blue-pressed: var(--color-white);
+  --color-text-link-blue-visited: var(--color-white);
+  --color-text-link-blue: var(--color-white);
+  --color-text-link-default: var(--color-white);
+  --color-text-link-inverse: var(--gray900);
+  --color-text-link-red-active: var(--color-white);
+  --color-text-link-red-hover: var(--color-white);
+  --color-text-link-red-pressed: var(--color-white);
+  --color-text-link-red-visited: var(--color-white);
+  --color-text-link-red: var(--color-white);
+
+  background: var(--color-background);
 }

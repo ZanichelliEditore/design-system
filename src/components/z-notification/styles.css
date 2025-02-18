@@ -22,15 +22,15 @@
 }
 
 :host([type="success"]) {
-  background: var(--color-success-inverse);
+  background: var(--color-inverse-success);
 }
 
 :host([type="warning"]) {
-  background: var(--color-warning-inverse);
+  background: var(--color-inverse-warning);
 }
 
 :host([type="error"]) {
-  background: var(--color-error-inverse);
+  background: var(--color-inverse-error);
 }
 
 .status-icon,
@@ -43,15 +43,15 @@
 }
 
 :host([type="success"]) .status-icon {
-  fill: var(--color-success01);
+  fill: var(--color-default-success);
 }
 
 :host([type="warning"]) .status-icon {
-  fill: var(--color-warning02);
+  fill: var(--color-default-warning);
 }
 
 :host([type="error"]) .status-icon {
-  fill: var(--color-error01);
+  fill: var(--color-default-error);
 }
 
 :host > button,

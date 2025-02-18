@@ -81,7 +81,7 @@
 }
 
 :host > div > div.content-wrapper > section > span.license-heading > span.expiring {
-  color: var(--color-warning01);
+  color: var(--color-hover-warning);
   font-size: 12px;
   font-weight: 600;
 }

@@ -1,5 +1,7 @@
 :host {
   display: block;
+  color: var(--color-form-default-text);
+  fill: var(--color-form-default-icon);
   font-family: var(--font-family-sans);
 }
 
@@ -15,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 calc(var(--space-unit) * 1.5);
-  border: var(--border-size-small) solid var(--color-surface04);
+  border: var(--border-size-small) solid var(--color-form-surface04);
   margin: 0;
   background-color: var(--color-form-background);
   border-radius: var(--border-radius-small);
@@ -37,7 +39,7 @@
 }
 
 :host > div > .header:hover {
-  outline: var(--border-size-medium) solid var(--color-surface04);
+  outline: var(--border-size-medium) solid var(--color-form-surface04);
   outline-offset: -2px;
 }
 
@@ -50,7 +52,6 @@
 :host > div > .header > p.body-3 {
   padding: var(--space-unit) 0;
   margin: 0;
-  color: var(--color-default-text);
 }
 
 :host > div > .header > p.body-3 > span {
@@ -58,7 +59,7 @@
 }
 
 :host > div > .header > z-icon {
-  fill: var(--color-default-icon);
+  fill: var(--color-form-default-icon);
   transform: rotate(360deg);
   transition: all 200ms linear;
 }
@@ -70,7 +71,7 @@
 }
 
 :host > div.open > .header {
-  border: var(--border-size-small) solid var(--color-primary01);
+  border: var(--border-size-small) solid var(--color-form-active-primary);
   border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
 }
 
@@ -79,20 +80,20 @@
 }
 
 :host > div.disabled .header {
-  border-color: var(--color-disabled01);
-  fill: var(--color-disabled01);
+  border-color: var(--color-form-disabled03);
+  fill: var(--color-form-disabled01-icon);
 }
 
 :host > div.disabled .header > p.body-3 {
-  color: var(--color-disabled03);
+  color: var(--color-form-disabled03);
 }
 
 :host > div.disabled .header > z-icon:last-child {
-  fill: var(--color-disabled01);
+  fill: var(--color-form-disabled01-icon);
 }
 
 :host > div.open > .header > z-icon {
-  fill: var(--color-default-icon);
+  fill: var(--color-form-default-icon);
   transform: rotate(180deg);
   transition: all 200ms linear;
 }
@@ -101,10 +102,15 @@
   position: relative;
   z-index: 12;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
-  border: var(--border-size-small) solid var(--gray200);
+  border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: 0;
   background-color: var(--color-form-background);
   border-radius: 0;
+  box-shadow: var(--shadow-2);
+}
+
+:host .open .open-combo-data z-input .input-label {
+  color: var(--color-form-default-text);
 }
 
 :host > div.open > div.open-combo-data > div > div {
@@ -122,6 +128,12 @@
   max-height: 235px;
   padding: 0 3px; /* needed for checkbox focus shadow */
   margin: 0;
+}
+
+:host .open-combo-data z-list-element {
+  --background-color-list-element: var(--color-form-background);
+  --background-hover-color-list-element: var(--color-form-surface03);
+  --background-active-color-list-element: var(--color-form-surface03);
 }
 
 ::-webkit-scrollbar {
@@ -149,14 +161,13 @@
   z-index: 1;
   width: 238px;
   margin: 0 calc(var(--space-unit) * 2);
-  color: var(--color-primary01);
+  color: var(--color-form-active-primary);
 }
 
 :host > div.open > div.open-combo-data > div > div.search {
   overflow: hidden;
-  max-height: auto;
+  max-height: none;
   margin-top: 0;
-  box-shadow: 1px 1px 4px 2px rgb(217 222 227 / 50%);
 }
 
 :host > div.open > div.open-combo-data > div > div.search > ul {
@@ -165,15 +176,21 @@
   padding: var(--space-unit) calc(var(--space-unit) * 2);
 }
 
-:host > div.open > div.open-combo-data > div > div.search > div {
+:host .open .open-combo-data .search .no-results {
+  display: flex;
+  align-items: center;
+  column-gap: var(--space-unit);
+}
+
+:host > .open > .open-combo-data .search .close-search {
   display: flex;
   justify-content: center;
 }
 
-:host > div.open > div.open-combo-data > div > div.search > div > a {
+:host > div.open > div.open-combo-data > div > div.search .close-search > a {
   display: inline-block;
   height: 44px;
-  color: var(--color-primary01);
+  color: var(--color-form-active-primary);
   cursor: pointer;
   font-size: 14px;
   font-weight: var(--font-sb);
@@ -182,7 +199,7 @@
   text-transform: uppercase;
 }
 
-:host > div.open > div.open-combo-data > div > div.search > div > a:focus:focus-visible {
+:host > div.open > div.open-combo-data > div > div.search .close-search > a:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }

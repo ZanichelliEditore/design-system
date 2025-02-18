@@ -26,7 +26,6 @@ Ztag component.
 
 ### Used by
 
- - [z-book-card](../book-card/z-book-card)
  - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
 
@@ -38,7 +37,6 @@ Ztag component.
 ```mermaid
 graph TD;
   z-tag --> z-icon
-  z-book-card --> z-tag
   z-searchbar --> z-tag
   z-select --> z-tag
   style z-tag fill:#f9f,stroke:#333,stroke-width:4px

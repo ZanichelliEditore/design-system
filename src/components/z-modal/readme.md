@@ -61,10 +61,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                 | Description                  |
-| -------------------- | ---------------------------- |
-| `"modalCloseButton"` | accept custom close button   |
-| `"modalContent"`     | set the content of the modal |
+| Slot                 | Description                       |
+| -------------------- | --------------------------------- |
+| `"modalCloseButton"` | slot for custom close button      |
+| `"modalContent"`     | slot for the content of the modal |
 
 
 ## Dependencies
