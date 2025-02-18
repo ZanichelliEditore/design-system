@@ -132,7 +132,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 ### Modifiche ai token dei temi
 
-Il valore di alcuni token dei temi è stato modificato, come da design, e i componenti sono stati allineati ad usare i token corretti. Molti token non più utilizzati sono stati rimossi:
+Il valore di alcuni token dei temi è stato modificato, come da design, e i componenti sono stati modificati per usare i token corretti. Molti token non più utilizzati sono stati rimossi.
+Per i seguenti token valutare nelle app caso per caso con cosa sostituirli:
 
 - `--color-text-success`
 - `--color-text-warning`
@@ -146,6 +147,9 @@ Il valore di alcuni token dei temi è stato modificato, come da design, e i comp
 - `--color-highlight`
 - `--color-hover-light`
 - `--color-selected-light`
+
+Per i seguenti token si suggeriscono le seguenti modifiche ma va comunque controllato se il valore suggerito va bene:
+
 - `--color-error-default`: sostituire con `--color-default-error`
 - `--color-success-default`: sostituire con `--color-default-success`
 - `--color-warning-default`: sostituire con `--color-default-warning`
@@ -164,7 +168,7 @@ Il valore di alcuni token dei temi è stato modificato, come da design, e i comp
 - `--color-warning01`: sostituire con `--color-default-warning`
 - `--color-warning02`: sostituire con `--color-default-warning`
 
-Il token `--color-hover-error` cambia valore da `--red500` a `--red800`, dove usato verificare che sia ancora coerente e, se necessario, sostituire con `--color-default-error`.
+Il token `--color-hover-error` cambia valore da `--red500` a `--red800`. Dove usato verificare che vada bene e, se serve ancora il `--red500`, sostituire con `--color-default-error`.
 
 ## v17.0.0
 
