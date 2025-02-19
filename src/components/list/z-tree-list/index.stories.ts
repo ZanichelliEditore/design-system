@@ -44,7 +44,7 @@ const StoryMeta = {
   },
   args: {
     clickable: false,
-    boldParents: false,
+    boldParents: true,
     items: sampleItems,
   },
 } satisfies Meta;
