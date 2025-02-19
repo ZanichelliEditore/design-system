@@ -1,4 +1,4 @@
-import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {TreeListItem} from "../../../beans";
 
 @Component({
@@ -21,6 +21,16 @@ export class ZTreeList {
   @Prop()
   boldParents: boolean;
 
+  /** Emitted on item click */
+  @Event()
+  itemClicked: EventEmitter<TreeListItem>;
+
+  private handleClick(item: TreeListItem): void {
+    this.itemClicked.emit(item);
+    // eslint-disable-next-line no-console
+    console.log("clicked");
+  }
+
   private renderTreeList(item: TreeListItem, depth?: number): HTMLZListElementElement {
     depth = depth || 0;
 
@@ -33,11 +43,9 @@ export class ZTreeList {
           class={{
             "list-element": true,
             "link-clickable": this.clickable,
-            "link-not-clickable": !this.clickable,
           }}
           tabIndex={0}
-          //eslint-disable-next-line
-          onClick={() => console.log("clicked")}
+          onClick={() => this.handleClick(item)}
           href={item.url}
         >
           <span class="item ellipsis">
@@ -45,6 +53,7 @@ export class ZTreeList {
               <z-icon
                 width={16}
                 height={16}
+                fill={this.clickable ? "color-primary01" : ""}
                 class="item-icon"
                 name={item.icon}
               />

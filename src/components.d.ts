@@ -2357,6 +2357,10 @@ export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTrElement;
 }
+export interface ZTreeListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTreeListElement;
+}
 declare global {
     interface HTMLZAccordionElementEventMap {
         "toggled": boolean;
@@ -3532,7 +3536,18 @@ declare global {
         prototype: HTMLZTrElement;
         new (): HTMLZTrElement;
     };
+    interface HTMLZTreeListElementEventMap {
+        "itemClicked": TreeListItem;
+    }
     interface HTMLZTreeListElement extends Components.ZTreeList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTreeListElementEventMap>(type: K, listener: (this: HTMLZTreeListElement, ev: ZTreeListCustomEvent<HTMLZTreeListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTreeListElementEventMap>(type: K, listener: (this: HTMLZTreeListElement, ev: ZTreeListCustomEvent<HTMLZTreeListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTreeListElement: {
         prototype: HTMLZTreeListElement;
@@ -6012,6 +6027,10 @@ declare namespace LocalJSX {
           * Items to render
          */
         "items"?: TreeListItem[];
+        /**
+          * Emitted on item click
+         */
+        "onItemClicked"?: (event: ZTreeListCustomEvent<TreeListItem>) => void;
     }
     interface ZVisuallyHidden {
     }

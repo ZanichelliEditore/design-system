@@ -57,6 +57,14 @@ z-list-element > .list-element {
   text-decoration: none;
 }
 
+z-list-element > .list-element.link-clickable {
+  color: var(--color-text-link-blue);
+}
+
+z-list-element > .list-element.link-clickable:hover {
+  text-decoration: underline;
+}
+
 z-list-element > .list-element:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
