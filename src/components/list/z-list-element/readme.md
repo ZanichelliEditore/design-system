@@ -49,6 +49,7 @@
  - [z-combobox](../../z-combobox)
  - [z-searchbar](../../z-searchbar)
  - [z-select](../../z-select)
+ - [z-tree-list](../z-tree-list)
 
 ### Depends on
 
@@ -64,6 +65,7 @@ graph TD;
   z-combobox --> z-list-element
   z-searchbar --> z-list-element
   z-select --> z-list-element
+  z-tree-list --> z-list-element
   style z-list-element fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

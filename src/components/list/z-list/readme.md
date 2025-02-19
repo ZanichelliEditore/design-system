@@ -19,6 +19,7 @@
  - [z-breadcrumb](../../z-breadcrumb)
  - [z-searchbar](../../z-searchbar)
  - [z-select](../../z-select)
+ - [z-tree-list](../z-tree-list)
 
 ### Graph
 ```mermaid
@@ -26,6 +27,7 @@ graph TD;
   z-breadcrumb --> z-list
   z-searchbar --> z-list
   z-select --> z-list
+  z-tree-list --> z-list
   style z-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
