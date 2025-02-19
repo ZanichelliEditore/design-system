@@ -25,10 +25,14 @@ export class ZTreeList {
   @Event()
   itemClicked: EventEmitter<TreeListItem>;
 
+  private htmlTag: string;
+
   private handleClick(item: TreeListItem): void {
     this.itemClicked.emit(item);
-    // eslint-disable-next-line no-console
-    console.log("clicked");
+  }
+
+  componentWillLoad(): void {
+    this.htmlTag = this.clickable ? "a" : "span";
   }
 
   private renderTreeList(item: TreeListItem, depth?: number): HTMLZListElementElement {
@@ -40,15 +44,15 @@ export class ZTreeList {
         disabled={item.disabled}
         hasTreeItems={true}
       >
-        <a
+        <this.htmlTag
           class={{
             "list-element": true,
-            "z-link": true,
+            "z-link": this.clickable,
             "link-clickable": this.clickable,
           }}
           tabIndex={0}
-          onClick={this.clickable ? () => this.handleClick(item) : undefined}
-          href={this.clickable ? item.url : undefined}
+          onClick={() => this.handleClick(item)}
+          href={item.url}
         >
           <span class="item ellipsis">
             {item?.icon && (
@@ -69,7 +73,7 @@ export class ZTreeList {
               innerHTML={item.name}
             />
           </span>
-        </a>
+        </this.htmlTag>
         {item.children && item.children.length > 0 ? (
           <z-list>
             <div class="children-node">{item.children.map((child) => this.renderTreeList(child, depth + 1))}</div>

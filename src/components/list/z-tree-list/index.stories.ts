@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from "@storybook/web-components";
-import {html} from "lit";
+import {TemplateResult, html} from "lit";
 import "./index";
 
 const sampleItems = [
@@ -44,19 +44,48 @@ const StoryMeta = {
   },
   args: {
     clickable: false,
-    boldParents: true,
+    boldParents: false,
     items: sampleItems,
   },
 } satisfies Meta;
 
 export default StoryMeta;
 
-export const Default: StoryObj = {
-  render: (args) =>
-    html`<z-tree-list
-      .items=${args.items}
-      clickable=${args.clickable}
-      bold-parents=${args.boldParents}
-      @itemClicked=${(event: CustomEvent) => console.log("Item clicked:", event.detail)}
-    ></z-tree-list>`,
+const Template = (args): TemplateResult =>
+  html`<z-tree-list
+    .items=${args.items}
+    clickable=${args.clickable}
+    bold-parents=${args.boldParents}
+  ></z-tree-list>`;
+
+export const Base: StoryObj = {
+  args: {
+    clickable: false,
+    boldParents: false,
+  },
+  render: Template,
+};
+
+export const BoldParents: StoryObj = {
+  args: {
+    clickable: false,
+    boldParents: true,
+  },
+  render: Template,
+};
+
+export const Clickable: StoryObj = {
+  args: {
+    clickable: true,
+    boldParents: false,
+  },
+  render: Template,
+};
+
+export const ClickableAndBold: StoryObj = {
+  args: {
+    clickable: true,
+    boldParents: true,
+  },
+  render: Template,
 };
