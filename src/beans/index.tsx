@@ -487,3 +487,12 @@ export enum AccordionVariant {
   DEFAULT = "default",
   BACKGROUND = "background",
 }
+
+export type TreeListItem = {
+  id: string;
+  name: string;
+  url: string;
+  icon?: string;
+  disabled?: boolean;
+  children?: TreeListItem[];
+};
