@@ -65,11 +65,6 @@ z-list-element > .list-element.link-clickable:hover {
   text-decoration: underline;
 }
 
-z-list-element > .list-element:focus:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-}
-
 z-list-element > .list-element .item.ellipsis {
   overflow: hidden;
 }
@@ -95,11 +90,6 @@ z-list-element .list-element::after {
 
 .item-label.bold-parent {
   font-weight: 600;
-}
-
-z-list-element:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
 
 .item.ellipsis {

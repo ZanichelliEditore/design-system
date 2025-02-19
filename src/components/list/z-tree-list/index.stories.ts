@@ -43,7 +43,7 @@ const StoryMeta = {
     items: {control: "object"},
   },
   args: {
-    clickable: true,
+    clickable: false,
     boldParents: false,
     items: sampleItems,
   },

@@ -36,6 +36,7 @@ export class ZTreeList {
 
     return (
       <z-list-element
+        clickable={this.clickable}
         disabled={item.disabled}
         hasTreeItems={true}
       >
@@ -46,8 +47,8 @@ export class ZTreeList {
             "link-clickable": this.clickable,
           }}
           tabIndex={0}
-          onClick={() => this.handleClick(item)}
-          href={item.url}
+          onClick={this.clickable ? () => this.handleClick(item) : undefined}
+          href={this.clickable ? item.url : undefined}
         >
           <span class="item ellipsis">
             {item?.icon && (
