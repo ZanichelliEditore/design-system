@@ -468,21 +468,6 @@ export enum BookCardDeprecatedVariant {
   SEARCH = "search",
 }
 
-export type BookCardTag = {
-  status: BookCardTagStatus;
-  interactive: boolean;
-};
-
-export enum BookCardTagStatus {
-  ACTIVE = "active",
-  DISABLED = "disabled",
-}
-
-export type BookCardTagEvent = {
-  tag: string;
-  state: string;
-};
-
 export enum AccordionVariant {
   DEFAULT = "default",
   BACKGROUND = "background",

@@ -3,7 +3,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background: var(--color-background);
+  background: var(--color-surface02);
   border-radius: var(--border-radius);
   transform: translate3d(0, 0, 0);
 }
@@ -15,9 +15,9 @@
   animation: progress 1.6s ease-in-out infinite;
   background-image: linear-gradient(
     90deg,
-    var(--color-background) 0%,
+    var(--color-surface02) 0%,
     var(--color-surface03) 95%,
-    var(--color-background) 100%
+    var(--color-surface02) 100%
   );
   content: "";
   filter: blur(6px);

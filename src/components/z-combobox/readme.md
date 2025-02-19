@@ -67,7 +67,6 @@
 - [z-list-element](../list/z-list-element)
 - [z-input](../z-input)
 - [z-list-group](../list/z-list-group)
-- [z-myz-list-item](../../snowflakes/myz/list/z-myz-list-item)
 
 ### Graph
 ```mermaid
@@ -76,14 +75,12 @@ graph TD;
   z-combobox --> z-list-element
   z-combobox --> z-input
   z-combobox --> z-list-group
-  z-combobox --> z-myz-list-item
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
   z-list-group --> z-divider
-  z-myz-list-item --> z-icon
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

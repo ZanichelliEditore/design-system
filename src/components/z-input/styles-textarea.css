@@ -2,6 +2,9 @@
   width: 100%;
   height: 100%;
   padding: calc(var(--space-unit) * 1.5);
+}
+
+.textarea-wrapper:not(.input-error, .input-success, .input-warning) {
   background-color: var(--color-form-background);
 }
 

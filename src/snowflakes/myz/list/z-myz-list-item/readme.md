@@ -39,7 +39,6 @@
 
 ### Used by
 
- - [z-combobox](../../../../components/z-combobox)
  - [z-myz-list](../z-myz-list)
 
 ### Depends on
@@ -50,7 +49,6 @@
 ```mermaid
 graph TD;
   z-myz-list-item --> z-icon
-  z-combobox --> z-myz-list-item
   z-myz-list --> z-myz-list-item
   style z-myz-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

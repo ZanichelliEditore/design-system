@@ -6,9 +6,9 @@ const FOCUSABLE_ELEMENTS_SELECTOR =
   ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
 
 /**
- * @slot modalCloseButton - accept custom close button
- * @slot modalContent - set the content of the modal
- * @cssprop --z-modal-content-padding - set a default padding for the modal content slot to 16px
+ * @slot modalCloseButton - slot for custom close button
+ * @slot modalContent - slot for the content of the modal
+ * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
  */
 @Component({
   tag: "z-modal",
