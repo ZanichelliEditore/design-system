@@ -2173,8 +2173,17 @@ export namespace Components {
         "expandable": boolean;
     }
     interface ZTreeList {
+        /**
+          * First parents was semi bold
+         */
         "boldParents": boolean;
+        /**
+          * Items is clickable
+         */
         "clickable": boolean;
+        /**
+          * Items to render
+         */
         "items": TreeListItem[];
     }
     interface ZVisuallyHidden {
@@ -5991,8 +6000,17 @@ declare namespace LocalJSX {
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
     interface ZTreeList {
+        /**
+          * First parents was semi bold
+         */
         "boldParents"?: boolean;
+        /**
+          * Items is clickable
+         */
         "clickable"?: boolean;
+        /**
+          * Items to render
+         */
         "items"?: TreeListItem[];
     }
     interface ZVisuallyHidden {

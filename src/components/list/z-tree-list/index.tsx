@@ -9,19 +9,21 @@ import {TreeListItem} from "../../../beans";
 export class ZTreeList {
   @Element() host: HTMLZTreeListElement;
 
-  /* Items to render */
+  /** Items to render */
   @Prop()
   items: TreeListItem[] = [];
 
-  /* Items is clickable */
+  /** Items is clickable */
   @Prop()
   clickable: boolean;
 
-  /* First parents was semi bold */
+  /** First parents was semi bold */
   @Prop()
   boldParents: boolean;
 
-  private renderTreeList(item: TreeListItem, depth: number = 0): HTMLZListElementElement {
+  private renderTreeList(item: TreeListItem, depth?: number): HTMLZListElementElement {
+    depth = depth || 0;
+
     return (
       <z-list-element
         disabled={item.disabled}
@@ -34,6 +36,7 @@ export class ZTreeList {
             "link-not-clickable": !this.clickable,
           }}
           tabIndex={0}
+          //eslint-disable-next-line
           onClick={() => console.log("clicked")}
           href={item.url}
         >
