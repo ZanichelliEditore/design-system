@@ -58,7 +58,7 @@ z-list-element > .list-element {
 }
 
 z-list-element > .list-element.link-clickable {
-  color: var(--color-text-link-blue);
+  color: var(--color-primary01);
 }
 
 z-list-element > .list-element.link-clickable:hover {

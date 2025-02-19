@@ -42,6 +42,7 @@ export class ZTreeList {
         <a
           class={{
             "list-element": true,
+            "z-link": true,
             "link-clickable": this.clickable,
           }}
           tabIndex={0}
