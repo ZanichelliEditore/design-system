@@ -24,7 +24,7 @@ describe("Suite test ZTreeList", () => {
     const listElements = page.root.shadowRoot.querySelectorAll("z-list-element");
     expect(listElements.length).toBe(1);
     const anchor = listElements[0].querySelector("a");
-    // In caso non clickable non dovrebbe essere renderizzato href
+
     expect(anchor.getAttribute("href")).toBeNull();
     expect(anchor.classList.contains("link-clickable")).toBe(false);
   });
@@ -39,7 +39,7 @@ describe("Suite test ZTreeList", () => {
     await page.waitForChanges();
 
     const anchor = page.root.shadowRoot.querySelector("a");
-    // Ora, se clickable è true, href deve essere correttamente impostato
+
     expect(anchor.getAttribute("href")).toBe("/click");
     expect(anchor.classList.contains("link-clickable")).toBe(true);
   });
