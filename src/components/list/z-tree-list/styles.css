@@ -5,7 +5,7 @@
 z-list-element {
   position: relative;
   display: block;
-  padding-top: calc(var(--space-unit) * 1.25);
+  padding-top: var(--space-unit);
 }
 
 z-list z-list-element::before {
