@@ -48,7 +48,7 @@ describe("Suite test ZTreeList", () => {
     const items: TreeListItem[] = [{id: "item2", name: "Clickable Item", url: "/click"}];
     const page = await newSpecPage({
       components: [ZTreeList],
-      html: `<z-tree-list></z-tree-list>`, // rimosso l'attributo clickable
+      html: `<z-tree-list></z-tree-list>`,
     });
     page.root.items = items;
     await page.waitForChanges();
