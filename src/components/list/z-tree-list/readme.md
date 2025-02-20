@@ -7,17 +7,16 @@
 
 ## Properties
 
-| Property    | Attribute   | Description        | Type             | Default     |
-| ----------- | ----------- | ------------------ | ---------------- | ----------- |
-| `clickable` | `clickable` | Items is clickable | `boolean`        | `undefined` |
-| `items`     | --          | Items to render    | `TreeListItem[]` | `[]`        |
+| Property | Attribute | Description     | Type             | Default |
+| -------- | --------- | --------------- | ---------------- | ------- |
+| `items`  | --        | Items to render | `TreeListItem[]` | `[]`    |
 
 
 ## Events
 
-| Event         | Description           | Type                                                                                                                                    |
-| ------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `itemClicked` | Emitted on item click | `CustomEvent<{ id: string; name: string; url: string; icon?: string; disabled?: boolean; bold?: boolean; children?: TreeListItem[]; }>` |
+| Event             | Description           | Type                                                                                                                |
+| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `treeItemClicked` | Emitted on item click | `CustomEvent<{ id: string; name: string; url: string; icon?: string; bold?: boolean; children?: TreeListItem[]; }>` |
 
 
 ## Dependencies

@@ -478,7 +478,6 @@ export type TreeListItem = {
   name: string;
   url: string;
   icon?: string;
-  disabled?: boolean;
   bold?: boolean;
   children?: TreeListItem[];
 };

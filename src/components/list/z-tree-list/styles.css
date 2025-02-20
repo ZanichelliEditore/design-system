@@ -88,7 +88,7 @@ z-list-element .list-element::after {
   line-height: 20px;
 }
 
-.item-label.bold-parent {
+.item-label.bold-item {
   font-weight: var(--font-sb);
 }
 

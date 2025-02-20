@@ -44,6 +44,20 @@ describe("Suite test ZTreeList", () => {
     expect(element.classList.contains("link-clickable")).toBe(true);
   });
 
+  it("applies clickable class when item has url", async () => {
+    const items: TreeListItem[] = [{id: "item2", name: "Clickable Item", url: "/click"}];
+    const page = await newSpecPage({
+      components: [ZTreeList],
+      html: `<z-tree-list></z-tree-list>`, // rimosso l'attributo clickable
+    });
+    page.root.items = items;
+    await page.waitForChanges();
+
+    const element = page.root.shadowRoot.querySelector("a");
+    expect(element.getAttribute("href")).toBe("/click");
+    expect(element.classList.contains("link-clickable")).toBe(true);
+  });
+
   it("renders children items recursively", async () => {
     const items: TreeListItem[] = [
       {
@@ -72,7 +86,7 @@ describe("Suite test ZTreeList", () => {
     expect(listElements.length).toBe(4);
   });
 
-  it("applies bold style to first level items when bold-parents is true", async () => {
+  it("applies bold style to first level items when bold-items is true", async () => {
     const items: TreeListItem[] = [{id: "item3", name: "Parent", url: "/parent", bold: true}];
     const page = await newSpecPage({
       components: [ZTreeList],
@@ -82,10 +96,10 @@ describe("Suite test ZTreeList", () => {
     await page.waitForChanges();
 
     const labelSpan = page.root.shadowRoot.querySelector(".item-label");
-    expect(labelSpan.classList.contains("bold-parent")).toBe(true);
+    expect(labelSpan.classList.contains("bold-item")).toBe(true);
   });
 
-  it("does not apply bold style when bold-parents is false", async () => {
+  it("does not apply bold style when bold-items is false", async () => {
     const items: TreeListItem[] = [{id: "item5", name: "No Bold", url: "/nobold", bold: false}];
     const page = await newSpecPage({
       components: [ZTreeList],
@@ -95,20 +109,20 @@ describe("Suite test ZTreeList", () => {
     await page.waitForChanges();
 
     const labelSpan = page.root.shadowRoot.querySelector(".item-label");
-    expect(labelSpan.classList.contains("bold-parent")).toBe(false);
+    expect(labelSpan.classList.contains("bold-item")).toBe(false);
   });
 
-  it("emits itemClicked event on link click", async () => {
+  it("emits treeItemClicked event on link click", async () => {
     const items: TreeListItem[] = [{id: "item4", name: "Clickable Item", url: "/click"}];
     const page = await newSpecPage({
       components: [ZTreeList],
-      html: `<z-tree-list clickable></z-tree-list>`,
+      html: `<z-tree-list></z-tree-list>`,
     });
     page.root.items = items;
     await page.waitForChanges();
 
     let eventEmitted = false;
-    page.root.addEventListener("itemClicked", (event: CustomEvent) => {
+    page.root.addEventListener("treeItemClicked", (event: CustomEvent) => {
       eventEmitted = true;
       expect(event.detail.name).toBe("Clickable Item");
     });

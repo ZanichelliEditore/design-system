@@ -13,47 +13,40 @@ export class ZTreeList {
   @Prop()
   items: TreeListItem[] = [];
 
-  /** Items is clickable */
-  @Prop()
-  clickable: boolean;
-
   /** Emitted on item click */
   @Event()
-  itemClicked: EventEmitter<TreeListItem>;
+  treeItemClicked: EventEmitter<TreeListItem>;
 
   private htmlTag: string;
 
-  componentWillLoad(): void {
-    this.htmlTag = this.clickable ? "a" : "span";
-  }
-
   private handleClick(item: TreeListItem): void {
-    this.itemClicked.emit({id: item.id, name: item.name, url: item.url});
+    this.treeItemClicked.emit({id: item.id, name: item.name, url: item.url});
   }
 
   private renderTreeList(item: TreeListItem): HTMLZListElementElement {
+    this.htmlTag = item.url ? "a" : "span";
+
     return (
       <z-list-element
-        clickable={this.clickable}
-        disabled={item.disabled}
+        clickable={!!item.url}
         hasTreeItems={true}
       >
         <this.htmlTag
           class={{
             "list-element": true,
-            "z-link": this.clickable && !item.disabled,
-            "link-clickable": this.clickable && !item.disabled,
+            "z-link": !!item.url,
+            "link-clickable": !!item.url,
           }}
           tabIndex={0}
           onClick={() => this.handleClick(item)}
-          href={this.clickable ? item.url : undefined}
+          href={item.url ? item.url : undefined}
         >
           <span class="item ellipsis">
             {item?.icon && (
               <z-icon
                 width={16}
                 height={16}
-                fill={this.clickable ? "color-primary01" : ""}
+                fill={item.url ? "color-primary01" : "color-default-icon"}
                 class="item-icon"
                 name={item.icon}
               />
@@ -61,11 +54,12 @@ export class ZTreeList {
             <span
               class={{
                 "item-label": true,
-                "bold-parent": item.bold,
+                "bold-item": item.bold,
               }}
               title={item.name}
-              innerHTML={item.name}
-            />
+            >
+              {item.name}
+            </span>
           </span>
         </this.htmlTag>
         {item.children && item.children.length > 0 ? (

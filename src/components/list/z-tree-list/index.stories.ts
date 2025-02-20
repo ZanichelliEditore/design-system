@@ -6,6 +6,33 @@ const sampleItems = [
   {
     name: "Parent 1",
     icon: "folder",
+    children: [
+      {
+        name: "Child 1.1",
+        icon: "book",
+      },
+      {
+        name: "Child 1.2",
+        icon: "book",
+      },
+    ],
+  },
+  {
+    name: "Parent 2",
+    icon: "folder",
+    children: [
+      {
+        name: "Child 2.1",
+        icon: "book",
+      },
+    ],
+  },
+];
+
+const clickableItems = [
+  {
+    name: "Parent 1",
+    icon: "folder",
     url: "#",
     children: [
       {
@@ -43,7 +70,6 @@ const StoryMeta = {
     items: {control: "object"},
   },
   args: {
-    clickable: false,
     boldParents: false,
     items: sampleItems,
   },
@@ -74,7 +100,6 @@ const Template = (args): TemplateResult => {
 
 export const Base: StoryObj = {
   args: {
-    clickable: false,
     boldParents: false,
   },
   render: Template,
@@ -82,7 +107,6 @@ export const Base: StoryObj = {
 
 export const BoldParents: StoryObj = {
   args: {
-    clickable: false,
     boldParents: true,
   },
   render: Template,
@@ -90,16 +114,16 @@ export const BoldParents: StoryObj = {
 
 export const Clickable: StoryObj = {
   args: {
-    clickable: true,
     boldParents: false,
+    items: clickableItems,
   },
   render: Template,
 };
 
 export const ClickableAndBoldParents: StoryObj = {
   args: {
-    clickable: true,
     boldParents: true,
+    items: clickableItems,
   },
   render: Template,
 };
