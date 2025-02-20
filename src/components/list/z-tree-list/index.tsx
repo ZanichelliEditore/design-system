@@ -9,11 +9,11 @@ import {TreeListItem} from "../../../beans";
 export class ZTreeList {
   @Element() host: HTMLZTreeListElement;
 
-  /** Items to render */
+  /** Items to render, if they have the url property they will be rendered as clickable links */
   @Prop()
   items: TreeListItem[] = [];
 
-  /** Emitted on item click */
+  /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
   treeItemClicked: EventEmitter<TreeListItem>;
 
