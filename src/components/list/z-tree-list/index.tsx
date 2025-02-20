@@ -23,12 +23,12 @@ export class ZTreeList {
 
   private htmlTag: string;
 
-  private handleClick(item: TreeListItem): void {
-    this.itemClicked.emit({id: item.id, name: item.name, url: item.url});
-  }
-
   componentWillLoad(): void {
     this.htmlTag = this.clickable ? "a" : "span";
+  }
+
+  private handleClick(item: TreeListItem): void {
+    this.itemClicked.emit({id: item.id, name: item.name, url: item.url});
   }
 
   private renderTreeList(item: TreeListItem): HTMLZListElementElement {

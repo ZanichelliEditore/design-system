@@ -2163,10 +2163,6 @@ export namespace Components {
     }
     interface ZTreeList {
         /**
-          * First parents was semi bold
-         */
-        "boldParents": boolean;
-        /**
           * Items is clickable
          */
         "clickable": boolean;
@@ -5987,10 +5983,6 @@ declare namespace LocalJSX {
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
     interface ZTreeList {
-        /**
-          * First parents was semi bold
-         */
-        "boldParents"?: boolean;
         /**
           * Items is clickable
          */
