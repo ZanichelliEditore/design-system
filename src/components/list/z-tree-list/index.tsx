@@ -28,6 +28,7 @@ export class ZTreeList {
 
     return (
       <z-list-element
+        class={!item.icon ? "no-icon-elm" : ""}
         clickable={!!item.url}
         hasTreeItems={true}
       >
@@ -54,6 +55,7 @@ export class ZTreeList {
             <span
               class={{
                 "item-label": true,
+                "no-icon-label": !item.icon,
                 "bold-item": item.bold,
               }}
               title={item.name}

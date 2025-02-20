@@ -109,3 +109,11 @@ z-list-element .list-element::after {
 .item-icon {
   margin-right: var(--space-unit);
 }
+
+.no-icon-label {
+  padding-left: 8px;
+}
+
+.children-node > z-list-element.no-icon-elm {
+  padding-left: 0;
+}

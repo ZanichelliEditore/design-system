@@ -61,6 +61,34 @@ const clickableItems = [
   },
 ];
 
+const otherItemsVariants = [
+  {
+    name: "Parent 1",
+    bold: true,
+    children: [
+      {
+        name: "Child 1.1",
+        bold: false,
+      },
+      {
+        name: "Child 1.2",
+        bold: false,
+      },
+    ],
+  },
+  {
+    name: "Parent 2",
+    url: "#",
+    children: [
+      {
+        name: "Child 2.1",
+        bold: true,
+        url: "#",
+      },
+    ],
+  },
+];
+
 const StoryMeta = {
   title: "ZList/ZTreeList",
   component: "z-tree-list",
@@ -124,6 +152,13 @@ export const ClickableAndBoldParents: StoryObj = {
   args: {
     boldParents: true,
     items: clickableItems,
+  },
+  render: Template,
+};
+
+export const OtherVariants: StoryObj = {
+  args: {
+    items: otherItemsVariants,
   },
   render: Template,
 };
