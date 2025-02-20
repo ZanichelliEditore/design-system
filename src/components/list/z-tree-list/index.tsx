@@ -15,7 +15,7 @@ export class ZTreeList {
 
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
-  treeItemClicked: EventEmitter<TreeListItem>;
+  treeItemClicked: EventEmitter<{id: string; name: string; url: string}>;
 
   private htmlTag: string;
 
