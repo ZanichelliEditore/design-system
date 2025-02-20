@@ -25,7 +25,7 @@ describe("Suite test ZTreeList", () => {
     expect(listElements.length).toBe(1);
     // Utilizziamo 'span' perchè clickable non è settato
     const element = listElements[0].querySelector("span");
-    expect(element.getAttribute("href")).toBe("/item1");
+    expect(element.getAttribute("href")).toBe(null);
     expect(element.classList.contains("link-clickable")).toBe(false);
   });
 
@@ -73,10 +73,10 @@ describe("Suite test ZTreeList", () => {
   });
 
   it("applies bold style to first level items when bold-parents is true", async () => {
-    const items: TreeListItem[] = [{id: "item3", name: "Parent", url: "/parent"}];
+    const items: TreeListItem[] = [{id: "item3", name: "Parent", url: "/parent", bold: true}];
     const page = await newSpecPage({
       components: [ZTreeList],
-      html: `<z-tree-list bold-parents></z-tree-list>`,
+      html: `<z-tree-list></z-tree-list>`,
     });
     page.root.items = items;
     await page.waitForChanges();
@@ -86,7 +86,7 @@ describe("Suite test ZTreeList", () => {
   });
 
   it("does not apply bold style when bold-parents is false", async () => {
-    const items: TreeListItem[] = [{id: "item5", name: "No Bold", url: "/nobold"}];
+    const items: TreeListItem[] = [{id: "item5", name: "No Bold", url: "/nobold", bold: false}];
     const page = await newSpecPage({
       components: [ZTreeList],
       html: `<z-tree-list></z-tree-list>`,

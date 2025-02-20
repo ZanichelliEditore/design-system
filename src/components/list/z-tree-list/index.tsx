@@ -17,10 +17,6 @@ export class ZTreeList {
   @Prop()
   clickable: boolean;
 
-  /** First parents was semi bold */
-  @Prop()
-  boldParents: boolean;
-
   /** Emitted on item click */
   @Event()
   itemClicked: EventEmitter<TreeListItem>;
@@ -28,16 +24,14 @@ export class ZTreeList {
   private htmlTag: string;
 
   private handleClick(item: TreeListItem): void {
-    this.itemClicked.emit(item);
+    this.itemClicked.emit({id: item.id, name: item.name, url: item.url});
   }
 
   componentWillLoad(): void {
     this.htmlTag = this.clickable ? "a" : "span";
   }
 
-  private renderTreeList(item: TreeListItem, depth?: number): HTMLZListElementElement {
-    depth = depth || 0;
-
+  private renderTreeList(item: TreeListItem): HTMLZListElementElement {
     return (
       <z-list-element
         clickable={this.clickable}
@@ -47,12 +41,12 @@ export class ZTreeList {
         <this.htmlTag
           class={{
             "list-element": true,
-            "z-link": this.clickable,
-            "link-clickable": this.clickable,
+            "z-link": this.clickable && !item.disabled,
+            "link-clickable": this.clickable && !item.disabled,
           }}
           tabIndex={0}
           onClick={() => this.handleClick(item)}
-          href={item.url}
+          href={this.clickable ? item.url : undefined}
         >
           <span class="item ellipsis">
             {item?.icon && (
@@ -67,7 +61,7 @@ export class ZTreeList {
             <span
               class={{
                 "item-label": true,
-                "bold-parent": this.boldParents && depth === 0,
+                "bold-parent": item.bold,
               }}
               title={item.name}
               innerHTML={item.name}
@@ -76,7 +70,7 @@ export class ZTreeList {
         </this.htmlTag>
         {item.children && item.children.length > 0 ? (
           <z-list>
-            <div class="children-node">{item.children.map((child) => this.renderTreeList(child, depth + 1))}</div>
+            <div class="children-node">{item.children.map((child) => this.renderTreeList(child))}</div>
           </z-list>
         ) : null}
       </z-list-element>

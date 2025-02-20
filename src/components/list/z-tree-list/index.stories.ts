@@ -51,12 +51,26 @@ const StoryMeta = {
 
 export default StoryMeta;
 
-const Template = (args): TemplateResult =>
-  html`<z-tree-list
-    .items=${args.items}
+const Template = (args): TemplateResult => {
+  const processedItems = args.boldParents
+    ? args.items.map((item) => {
+        const newItem = {...item, bold: true};
+        if (newItem.children && Array.isArray(newItem.children)) {
+          newItem.children = newItem.children.map((child) => ({
+            ...child,
+            bold: false,
+          }));
+        }
+
+        return newItem;
+      })
+    : args.items;
+
+  return html`<z-tree-list
+    .items=${processedItems}
     clickable=${args.clickable}
-    bold-parents=${args.boldParents}
   ></z-tree-list>`;
+};
 
 export const Base: StoryObj = {
   args: {
@@ -82,7 +96,7 @@ export const Clickable: StoryObj = {
   render: Template,
 };
 
-export const ClickableAndBold: StoryObj = {
+export const ClickableAndBoldParents: StoryObj = {
   args: {
     clickable: true,
     boldParents: true,
