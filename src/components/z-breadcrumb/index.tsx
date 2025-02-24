@@ -133,8 +133,14 @@ export class ZBreadcrumb {
       this.anchorElements = Array.from(this.hostElement.shadowRoot.querySelectorAll("z-list-group a"));
     }
 
-    if (this.viewPortWidth !== Device.MOBILE && this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
-      this.hasOverflow = true;
+    if (this.viewPortWidth !== Device.MOBILE) {
+      requestAnimationFrame(() => {
+        if (this.wrapElement.scrollWidth > this.wrapElement.clientWidth) {
+          if (!this.hasOverflow) {
+            this.hasOverflow = true;
+          }
+        }
+      });
     }
   }
 
