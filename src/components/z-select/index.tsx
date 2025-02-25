@@ -442,11 +442,10 @@ export class ZSelect {
       return this.toggleSelectUl(true);
     }
 
-    if (e instanceof KeyboardEvent && e.key === KeyboardCode.ENTER) {
-      return;
-    }
-
-    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB && e.key !== KeyboardCode.ENTER) {
+    if (
+      (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB && e.key !== KeyboardCode.ENTER) ||
+      (e instanceof KeyboardEvent && e.key === KeyboardCode.ENTER)
+    ) {
       return;
     }
 
