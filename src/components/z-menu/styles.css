@@ -73,7 +73,7 @@ div.menu-label:focus-within {
 :host([vertical-context]) .menu-label:focus-visible::after,
 :host([vertical-context]) div.menu-label:focus-within::after {
   position: absolute;
-  bottom: 0;
+  bottom: calc(var(--border-size-small) * -1);
   left: 0;
   width: 100%;
   height: var(--border-size-large);

@@ -144,6 +144,10 @@ export class ZMenuSection {
 
   @Watch("htmlTabindex")
   onTabindexChange(): void {
+    if (!this.label) {
+      return;
+    }
+
     this.label.tabIndex = this.htmlTabindex;
   }
 
