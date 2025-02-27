@@ -115,6 +115,13 @@
   color: var(--color-disabled03);
 }
 
+.theme-dark :host([variant="secondary"]) .z-button--container,
+.theme-dark :host([variant="secondary"]) .z-button--container:hover,
+.theme-dark :host([variant="secondary"]) .z-button--container:active,
+.theme-dark :host([variant="secondary"][disabled]:not([disabled="false"])) .z-button--container {
+  background-color: transparent;
+}
+
 :host([variant="tertiary"]) .z-button--container {
   border-color: var(--color-primary02);
   background-color: var(--color-primary02);
