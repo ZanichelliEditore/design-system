@@ -81,11 +81,15 @@ z-list-element .list-element::after {
 }
 
 .item-label {
+  overflow: hidden;
+  flex-grow: 1;
   font-size: var(--font-size-2);
   font-style: normal;
   font-weight: var(--font-rg);
   letter-spacing: 0.052px;
   line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .item-label.bold-item {

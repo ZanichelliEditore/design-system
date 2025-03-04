@@ -2163,7 +2163,7 @@ export namespace Components {
     }
     interface ZTreeList {
         /**
-          * Items to render
+          * Items to render, if they have the url property they will be rendered as clickable links
          */
         "items": TreeListItem[];
     }
@@ -3524,7 +3524,7 @@ declare global {
         new (): HTMLZTrElement;
     };
     interface HTMLZTreeListElementEventMap {
-        "treeItemClicked": TreeListItem;
+        "treeItemClicked": {id: string; name: string; url: string};
     }
     interface HTMLZTreeListElement extends Components.ZTreeList, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZTreeListElementEventMap>(type: K, listener: (this: HTMLZTreeListElement, ev: ZTreeListCustomEvent<HTMLZTreeListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5980,13 +5980,13 @@ declare namespace LocalJSX {
     }
     interface ZTreeList {
         /**
-          * Items to render
+          * Items to render, if they have the url property they will be rendered as clickable links
          */
         "items"?: TreeListItem[];
         /**
-          * Emitted on item click
+          * Emitted on item click, it return the id, name and url of the clicked item
          */
-        "onTreeItemClicked"?: (event: ZTreeListCustomEvent<TreeListItem>) => void;
+        "onTreeItemClicked"?: (event: ZTreeListCustomEvent<{id: string; name: string; url: string}>) => void;
     }
     interface ZVisuallyHidden {
     }
