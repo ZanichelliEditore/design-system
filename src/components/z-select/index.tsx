@@ -232,6 +232,10 @@ export class ZSelect {
   }
 
   private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
+    if (!items) {
+      return [];
+    }
+
     return items
       .map((item) => {
         const match = item.name.toUpperCase().includes(searchString.toUpperCase());
@@ -281,23 +285,27 @@ export class ZSelect {
   }
 
   private updateSelection(items: SelectItem[], selectedId: string): void {
-    items.forEach((item) => {
-      item.selected = item.id === selectedId;
-      if (item.children && item.children.length > 0) {
-        this.updateSelection(item.children, selectedId);
-      }
-    });
+    if (items) {
+      items.forEach((item) => {
+        item.selected = item.id === selectedId;
+        if (item.children && item.children.length > 0) {
+          this.updateSelection(item.children, selectedId);
+        }
+      });
+    }
   }
 
   private findSelectedItem(items: SelectItem[]): SelectItem | null {
-    for (const item of items) {
-      if (item.selected) {
-        return item;
-      }
-      if (item.children && item.children.length > 0) {
-        const found = this.findSelectedItem(item.children);
-        if (found) {
-          return found;
+    if (items) {
+      for (const item of items) {
+        if (item.selected) {
+          return item;
+        }
+        if (item.children && item.children.length > 0) {
+          const found = this.findSelectedItem(item.children);
+          if (found) {
+            return found;
+          }
         }
       }
     }
