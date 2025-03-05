@@ -71,7 +71,7 @@ const otherItemsVariants = [
         bold: false,
       },
       {
-        name: "Child 1.2 tantooooooo tantoooooo tantooooooo lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+        name: "Child 1.2",
         bold: false,
       },
     ],
