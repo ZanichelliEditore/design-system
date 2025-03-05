@@ -142,11 +142,10 @@
 
 :host > #external-container {
   display: flex;
-  min-height: 52px;
   box-sizing: border-box;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2);
   border-radius: var(--border-size-large);
   box-shadow: var(--shadow-3);
   font-family: var(--font-family-sans);
@@ -189,6 +188,9 @@
 }
 
 :host > #external-container #icon {
+  display: flex;
+  height: 20px;
+  align-items: center;
   margin-left: calc(var(--space-unit) * 2);
   cursor: pointer;
   fill: var(--color-inverse-icon);

@@ -90,28 +90,28 @@
 
 :host([variant="secondary"]) .z-button--container {
   border-color: var(--color-primary01);
-  background-color: var(--color-surface01);
+  background-color: var(--color-button-secondary);
   color: var(--color-primary01);
 }
 
 @media (hover: hover) {
   :host([variant="secondary"]) .z-button--container:hover {
     border-color: var(--color-hover-primary);
-    background-color: var(--color-surface01);
+    background-color: var(--color-button-secondary);
     color: var(--color-hover-primary);
   }
 }
 
 :host([variant="secondary"]) .z-button--container:active {
   border-color: var(--color-pressed-primary);
-  background-color: var(--color-surface01);
+  background-color: var(--color-button-secondary);
   box-shadow: var(--shadow-2);
   color: var(--color-pressed-primary);
 }
 
 :host([variant="secondary"][disabled]:not([disabled="false"])) .z-button--container {
   border-color: var(--color-disabled01);
-  background-color: var(--color-surface01);
+  background-color: var(--color-button-secondary);
   color: var(--color-disabled03);
 }
 
