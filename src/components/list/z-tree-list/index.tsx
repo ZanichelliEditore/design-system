@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Prop, Watch, h} from "@stencil/core";
 import {TreeListItem} from "../../../beans";
 
 @Component({
@@ -11,13 +11,24 @@ export class ZTreeList {
 
   /** Items to render, if they have the url property they will be rendered as clickable links */
   @Prop()
-  items: TreeListItem[] = [];
+  items: TreeListItem[] | string;
 
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
   treeItemClicked: EventEmitter<{id: string; name: string; url: string}>;
 
+  private parsedItems: TreeListItem[] = [];
+
   private htmlTag: string;
+
+  @Watch("items")
+  watchItems(): void {
+    this.parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items || [];
+  }
+
+  componentWillLoad(): void {
+    this.watchItems();
+  }
 
   private handleClick(item: TreeListItem): void {
     this.treeItemClicked.emit({id: item.id, name: item.name, url: item.url});
@@ -74,6 +85,6 @@ export class ZTreeList {
   }
 
   render(): HTMLZTreeListElement {
-    return <Host class="tree-list">{this.items.map((item) => this.renderTreeList(item))}</Host>;
+    return <Host class="tree-list">{this.parsedItems.map((item) => this.renderTreeList(item))}</Host>;
   }
 }

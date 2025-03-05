@@ -121,3 +121,8 @@ z-list-element .list-element::after {
 .children-node > z-list-element.no-icon-elm {
   padding-left: 0;
 }
+
+z-list-element > .list-element:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}

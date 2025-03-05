@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type             | Default |
-| -------- | --------- | --------------- | ---------------- | ------- |
-| `items`  | --        | Items to render | `TreeListItem[]` | `[]`    |
+| Property | Attribute | Description                                                                             | Type                       | Default     |
+| -------- | --------- | --------------------------------------------------------------------------------------- | -------------------------- | ----------- |
+| `items`  | `items`   | Items to render, if they have the url property they will be rendered as clickable links | `TreeListItem[] \| string` | `undefined` |
 
 
 ## Events
 
-| Event             | Description           | Type                                                                                                                |
-| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `treeItemClicked` | Emitted on item click | `CustomEvent<{ id: string; name: string; url: string; icon?: string; bold?: boolean; children?: TreeListItem[]; }>` |
+| Event             | Description                                                               | Type                                                      |
+| ----------------- | ------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `treeItemClicked` | Emitted on item click, it return the id, name and url of the clicked item | `CustomEvent<{ id: string; name: string; url: string; }>` |
 
 
 ## Dependencies

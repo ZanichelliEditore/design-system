@@ -93,7 +93,6 @@ const StoryMeta = {
   title: "ZList/ZTreeList",
   component: "z-tree-list",
   argTypes: {
-    clickable: {control: "boolean"},
     boldParents: {control: "boolean"},
     items: {control: "object"},
   },
@@ -120,10 +119,7 @@ const Template = (args): TemplateResult => {
       })
     : args.items;
 
-  return html`<z-tree-list
-    .items=${processedItems}
-    clickable=${args.clickable}
-  ></z-tree-list>`;
+  return html`<z-tree-list items=${JSON.stringify(processedItems)}></z-tree-list>`;
 };
 
 export const Base: StoryObj = {

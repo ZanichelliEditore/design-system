@@ -2165,7 +2165,7 @@ export namespace Components {
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
-        "items": TreeListItem[];
+        "items": TreeListItem[] | string;
     }
     interface ZVisuallyHidden {
     }
@@ -5982,7 +5982,7 @@ declare namespace LocalJSX {
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
-        "items"?: TreeListItem[];
+        "items"?: TreeListItem[] | string;
         /**
           * Emitted on item click, it return the id, name and url of the clicked item
          */
