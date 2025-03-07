@@ -52,7 +52,7 @@ export class ZTreeList {
           tabIndex={item.url ? 0 : -1}
           onClick={() => this.handleClick(item)}
           onKeyUp={(event: KeyboardEvent) => {
-            if (event.key === KeyboardCode.ENTER || event.code === KeyboardCode.SPACE) {
+            if (event.code === KeyboardCode.ENTER || event.code === KeyboardCode.SPACE) {
               this.handleClick(item);
             }
           }}
