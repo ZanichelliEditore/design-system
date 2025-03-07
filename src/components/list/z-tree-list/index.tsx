@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, Watch, h} from "@stencil/core";
-import {TreeListItem} from "../../../beans";
+import {KeyboardCode, TreeListItem} from "../../../beans";
 
 @Component({
   tag: "z-tree-list",
@@ -11,7 +11,7 @@ export class ZTreeList {
 
   /** Items to render, if they have the url property they will be rendered as clickable links */
   @Prop()
-  items: TreeListItem[] | string;
+  items: TreeListItem[] | string = [];
 
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
@@ -23,7 +23,7 @@ export class ZTreeList {
 
   @Watch("items")
   watchItems(): void {
-    this.parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items || [];
+    this.parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
   componentWillLoad(): void {
@@ -40,21 +40,26 @@ export class ZTreeList {
     return (
       <z-list-element
         class={!item.icon ? "no-icon-elm" : ""}
-        clickable={!!item.url}
+        clickable={Boolean(item.url)}
         hasTreeItems={true}
       >
         <this.htmlTag
           class={{
             "list-element": true,
-            "z-link": !!item.url,
-            "link-clickable": !!item.url,
+            "z-link": Boolean(item.url),
+            "link-clickable": Boolean(item.url),
           }}
-          tabIndex={0}
+          tabIndex={item.url ? 0 : -1}
           onClick={() => this.handleClick(item)}
-          href={item.url ? item.url : undefined}
+          onKeyUp={(event: KeyboardEvent) => {
+            if (event.key === KeyboardCode.ENTER || event.code === KeyboardCode.SPACE) {
+              this.handleClick(item);
+            }
+          }}
+          href={item.url}
         >
           <span class="item ellipsis">
-            {item?.icon && (
+            {item.icon && (
               <z-icon
                 width={16}
                 height={16}
