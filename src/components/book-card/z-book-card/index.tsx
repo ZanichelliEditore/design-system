@@ -175,7 +175,7 @@ export class ZBookCard {
               aria-hidden="true"
             />
             <div class="body-4-sb">
-              <span class="laz">laZ</span> Ebook
+              <span>laZ</span> Ebook
             </div>
           </div>
         </div>
