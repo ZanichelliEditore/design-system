@@ -439,6 +439,10 @@ export namespace Components {
          */
         "htmlid"?: string;
         /**
+          * defines role attribute, used for accessibility.
+         */
+        "htmlrole"?: string;
+        /**
           * `z-icon` name to use (optional).
          */
         "icon"?: string;
@@ -447,7 +451,8 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * defines role attribute, used for accessibility.
+          * **Deprecated:** Use `htmlrole` instead.
+          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
          */
         "role": string;
         /**
@@ -4056,6 +4061,10 @@ declare namespace LocalJSX {
          */
         "htmlid"?: string;
         /**
+          * defines role attribute, used for accessibility.
+         */
+        "htmlrole"?: string;
+        /**
           * `z-icon` name to use (optional).
          */
         "icon"?: string;
@@ -4064,7 +4073,8 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * defines role attribute, used for accessibility.
+          * **Deprecated:** Use `htmlrole` instead.
+          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
          */
         "role"?: string;
         /**

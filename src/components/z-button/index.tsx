@@ -18,9 +18,16 @@ export class ZButton {
   @Prop({reflect: true})
   ariaLabel = "";
 
-  /** defines role attribute, used for accessibility. */
+  /**
+   * **Deprecated:** Use `htmlrole` instead.
+   * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
+   */
   @Prop()
   role = "";
+
+  /** defines role attribute, used for accessibility. */
+  @Prop()
+  htmlrole?: string;
 
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()
@@ -89,8 +96,8 @@ export class ZButton {
         aria-label={this.ariaLabel}
         name={this.name}
         type={this.type}
-        role={this.role}
         disabled={this.disabled}
+        role={this.htmlrole ?? this.role}
       >
         {this.icon && <z-icon name={this.icon} />}
         <slot />

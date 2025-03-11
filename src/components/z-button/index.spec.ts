@@ -10,7 +10,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary">
-        <button role="" aria-label="" class="z-button--container" type="button"></button>
+        <button aria-label="" class="z-button--container" type="button" role=""></button>
       </z-button>
     `);
   });
@@ -22,20 +22,20 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="Open" size="big" variant="primary">
-        <button role="" aria-label="Open" type="button" class="z-button--container z-button--has-text">
+        <button aria-label="Open" type="button" class="z-button--container z-button--has-text" role="">
           text
         </button>
       </z-button>
     `);
   });
 
-  it("Test render ZButton con role=link", async () => {
+  it("Test render ZButton con htmlrole=link", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button role="link">link</z-button>`,
+      html: `<z-button htmlrole="link">link</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button aria-label="" role="link" size="big" variant="primary">
+      <z-button aria-label="" htmlrole="link" size="big" variant="primary">
         <button aria-label="" role="link" type="button" class="z-button--container z-button--has-text">
           link
         </button>
@@ -50,7 +50,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary" icon="icon">
-        <button role="" aria-label="" type="button" class="z-button--container">
+        <button aria-label="" type="button" class="z-button--container" role="">
           <z-icon name="icon"></z-icon>
         </button>
       </z-button>
@@ -64,7 +64,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="secondary">
-        <button role="" aria-label="" type="button" class="z-button--container"></button>
+        <button aria-label="" type="button" class="z-button--container" role=""></button>
       </z-button>
     `);
   });
@@ -76,7 +76,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="small" variant="primary">
-        <button role="" aria-label="" type="button" class="z-button--container"></button>
+        <button aria-label="" type="button" class="z-button--container" role=""></button>
       </z-button>
     `);
   });
@@ -88,7 +88,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary" disabled>
-        <button role="" aria-label="" type="button" class="z-button--container" disabled></button>
+        <button aria-label="" type="button" class="z-button--container" role="" disabled></button>
       </z-button>
     `);
   });
