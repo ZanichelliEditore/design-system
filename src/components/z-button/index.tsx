@@ -97,7 +97,7 @@ export class ZButton {
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        role={this.htmlrole ?? this.role}
+        role={this.htmlrole || this.role || undefined}
       >
         {this.icon && <z-icon name={this.icon} />}
         <slot />

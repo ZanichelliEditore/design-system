@@ -10,7 +10,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary">
-        <button aria-label="" class="z-button--container" type="button" role=""></button>
+        <button aria-label="" class="z-button--container" type="button"></button>
       </z-button>
     `);
   });
@@ -22,7 +22,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="Open" size="big" variant="primary">
-        <button aria-label="Open" type="button" class="z-button--container z-button--has-text" role="">
+        <button aria-label="Open" type="button" class="z-button--container z-button--has-text">
           text
         </button>
       </z-button>
@@ -50,7 +50,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary" icon="icon">
-        <button aria-label="" type="button" class="z-button--container" role="">
+        <button aria-label="" type="button" class="z-button--container">
           <z-icon name="icon"></z-icon>
         </button>
       </z-button>
@@ -64,7 +64,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="secondary">
-        <button aria-label="" type="button" class="z-button--container" role=""></button>
+        <button aria-label="" type="button" class="z-button--container"></button>
       </z-button>
     `);
   });
@@ -76,7 +76,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="small" variant="primary">
-        <button aria-label="" type="button" class="z-button--container" role=""></button>
+        <button aria-label="" type="button" class="z-button--container"></button>
       </z-button>
     `);
   });
@@ -88,7 +88,7 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button aria-label="" size="big" variant="primary" disabled>
-        <button aria-label="" type="button" class="z-button--container" role="" disabled></button>
+        <button aria-label="" type="button" class="z-button--container" disabled></button>
       </z-button>
     `);
   });
