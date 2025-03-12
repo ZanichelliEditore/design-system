@@ -184,7 +184,7 @@ export class ZBookCard {
           href={this.ebookUrl}
           target="_blank"
           onClick={() => this.emitEbookClick()}
-          role="link"
+          htmlrole="link"
           aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
         >
           leggi ebook
