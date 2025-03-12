@@ -174,9 +174,7 @@ export class ZBookCard {
               class="ebook-logo"
               aria-hidden="true"
             />
-            <div class="body-4-sb">
-              <span>laZ</span> Ebook
-            </div>
+            <div class="body-4-sb">laZ Ebook</div>
           </div>
         </div>
         <z-button
