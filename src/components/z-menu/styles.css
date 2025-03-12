@@ -205,7 +205,9 @@ when placed below the real text using `flex-direction: column`. */
 
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:focus:focus-visible),
-.items > ::slotted([slot="item"]:active) {
+.items > ::slotted([slot="item"]:active),
+.items > ::slotted([slot="item"][active]),
+.items > ::slotted([slot="item"][data-active]) {
   border-color: var(--color-primary01);
   font-weight: var(--font-bd);
 }

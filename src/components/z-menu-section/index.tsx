@@ -4,7 +4,7 @@ import {KeyboardCode} from "../../beans";
 /**
  * A component to create submenus inside the ZMenu.
  * @slot - Label of the menu section.
- * @slot section - Single entry of the menu section. Set the same slot name to different elements to put many of them. Add the `active` attribute to a slotted element to highlight it.
+ * @slot section - Single entry of the menu section. Set the same slot name to different elements to put many of them. Add the `data-active` attribute to a slotted element to highlight it (`active` also works but `data-active` is preferable).
  */
 @Component({
   tag: "z-menu-section",

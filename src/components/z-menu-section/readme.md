@@ -49,10 +49,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|             | Label of the menu section.                                                                                                                                           |
-| `"section"` | Single entry of the menu section. Set the same slot name to different elements to put many of them. Add the `active` attribute to a slotted element to highlight it. |
+| Slot        | Description                                                                                                                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             | Label of the menu section.                                                                                                                                                                                                      |
+| `"section"` | Single entry of the menu section. Set the same slot name to different elements to put many of them. Add the `data-active` attribute to a slotted element to highlight it (`active` also works but `data-active` is preferable). |
 
 
 ## Dependencies
