@@ -174,9 +174,7 @@ export class ZBookCard {
               class="ebook-logo"
               aria-hidden="true"
             />
-            <div class="body-4-sb">
-              <span class="laz">laZ</span> Ebook
-            </div>
+            <div class="body-4-sb">laZ Ebook</div>
           </div>
         </div>
         <z-button
@@ -184,7 +182,7 @@ export class ZBookCard {
           href={this.ebookUrl}
           target="_blank"
           onClick={() => this.emitEbookClick()}
-          role="link"
+          htmlrole="link"
           aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
         >
           leggi ebook
