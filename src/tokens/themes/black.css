@@ -16,8 +16,8 @@
   --color-secondary03: var(--gray100);
 
   /* icons */
-  --color-active-primary-icon: var(--gray300);
-  --color-hover-primary-icon: var(--gray300);
+  --color-active-primary-icon: var(--gray600);
+  --color-hover-primary-icon: var(--gray700);
   --color-primary01-icon: var(--gray950);
 
   /* forms */
