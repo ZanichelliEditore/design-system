@@ -1,0 +1,48 @@
+.theme-black {
+  /* primary */
+  --color-active-primary: var(--gray600);
+  --color-hover-primary: var(--gray700);
+  --color-pressed-primary: var(--gray600);
+  --color-primary01: var(--gray950);
+  --color-primary02: var(--gray100);
+  --color-primary03: var(--gray200);
+
+  /* secondary */
+  --color-active-secondary: var(--gray400);
+  --color-hover-secondary: var(--gray700);
+  --color-pressed-secondary: var(--gray400);
+  --color-secondary01: var(--gray800);
+  --color-secondary02: var(--gray800);
+  --color-secondary03: var(--gray100);
+
+  /* icons */
+  --color-active-primary-icon: var(--gray300);
+  --color-hover-primary-icon: var(--gray300);
+  --color-primary01-icon: var(--gray950);
+
+  /* forms */
+  --color-form-active-primary: var(--gray600);
+  --color-form-hover-primary: var(--gray700);
+}
+
+/* --- Black theme variants --- Use them in combination with `theme-black` css class: `<div class="theme-black theme-black--red">` */
+
+.theme-black.theme-black--red {
+  /* secondary */
+  --color-active-secondary: var(--red400);
+  --color-hover-secondary: var(--red800);
+  --color-pressed-secondary: var(--red400);
+  --color-secondary01: var(--red500);
+  --color-secondary02: var(--red25);
+  --color-secondary03: var(--red50);
+}
+
+.theme-black.theme-black--yellow {
+  /* secondary */
+  --color-active-secondary: var(--yellow400);
+  --color-hover-secondary: var(--yellow800);
+  --color-pressed-secondary: var(--yellow400);
+  --color-secondary01: var(--yellow500);
+  --color-secondary02: var(--yellow25);
+  --color-secondary03: var(--yellow50);
+}
