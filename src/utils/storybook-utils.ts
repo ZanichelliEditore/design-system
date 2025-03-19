@@ -29,6 +29,18 @@ function getRootCssProperties(): string[] {
 }
 
 /**
+ * Transform a `cssText` string, with the content of a rule, to an object.
+ */
+function mapStyle(cssText: string): Record<string, string> {
+  return Object.fromEntries(
+    cssText
+      .split(";")
+      .filter(Boolean)
+      .map((declaration) => declaration.trim().split(": "))
+  );
+}
+
+/**
  * Get Design System color tokens.
  * Can be used in components stories controls as follows:
  * @example ```
@@ -118,34 +130,40 @@ export function getColorVarsLabels(): OptionsConfig["labels"] {
 }
 
 /**
- * Get Design System themes tokens.
+ * Get Design System theme's color tokens.
+ * @param name Name of the theme, like `theme-black`.
+ * @param variant Variant of the theme, like `theme-black--red`.
  */
-export function getThemesColorTokens(): `--color${string}`[] {
-  const colorTokens = getRootCssProperties().filter((token): token is `--color${string}` =>
-    token.startsWith("--color")
-  );
-
-  // remove duplicates
-  return [...new Set(colorTokens)];
-}
-
-/**
- * Get the value of a token for a given theme.
- * @param themeClass CSS class name of the theme
- * @param token Token name to get the value of
- * @returns The value of the token for the given theme.
- */
-export function getThemeTokenValue(themeClass: string, token: `--${string}`): string | undefined {
-  const themeStyle = Array.from(document.styleSheets)
+export function getThemeColorTokens(
+  name: string,
+  variant: string | undefined = undefined
+): Record<CSSCustomProp, CSSCustomProp> {
+  const themeClass = name.startsWith(".") ? name : `.${name}`;
+  const themeVariantClass = variant ? (variant.startsWith(".") ? variant : `.${variant}`) : undefined;
+  const theme = Array.from(document.styleSheets)
     .flatMap((sheet) => Array.from(sheet.cssRules))
     .filter((rule): rule is CSSStyleRule => rule instanceof CSSStyleRule)
-    .find((rule) => rule.selectorText.includes(themeClass));
+    .filter((rule) => {
+      const selectorTargets = rule.selectorText.split(",").map((selector) => selector.trim());
 
-  const value = themeStyle.styleMap.get(token)?.[0] as CSSStyleValue | undefined;
+      return selectorTargets.includes(themeClass) || selectorTargets.includes(themeClass + (themeVariantClass ?? ""));
+    })
+    .reduce((store, rule) => {
+      const styleObj = mapStyle(rule.style.cssText);
+      // remove all non-color properties
+      for (const key of Object.keys(styleObj)) {
+        if (!key.startsWith("--color")) {
+          delete styleObj[key];
+        } else {
+          // remove `var()` call from the value
+          styleObj[key] = styleObj[key].replace(/^var\((.+)\)/, "$1");
+        }
+      }
 
-  return value instanceof CSSVariableReferenceValue
-    ? getComputedStyle(document.documentElement).getPropertyValue(value.variable)
-    : (value?.toString() ?? undefined);
+      return {...store, ...styleObj};
+    }, {});
+
+  return theme;
 }
 
 /**

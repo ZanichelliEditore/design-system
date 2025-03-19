@@ -4,6 +4,15 @@ import "../src/global.css";
 import DocTemplate from "./elements/docs-template";
 import {lightTheme} from "./theme";
 
+const THEMES_MAP = {
+  "Default": "theme-default",
+  "Dark": "theme-dark",
+  "Black": "theme-black",
+  "Black--red": "theme-black theme-black--red",
+  "Black--yellow": "theme-black theme-black--yellow",
+  "Red": "theme-red",
+};
+
 const preview: Preview = {
   parameters: {
     viewport: {
@@ -54,17 +63,13 @@ const preview: Preview = {
       page: DocTemplate,
       theme: lightTheme,
     },
+    themes: THEMES_MAP,
   },
   tags: ["autodocs"],
   decorators: [
     (story, context) =>
       withThemeByClassName({
-        themes: {
-          "Default": "",
-          "Dark": "theme-dark",
-          "Red": "theme-red",
-          "Black-yellow": "theme-black-yellow",
-        },
+        themes: THEMES_MAP,
         defaultTheme: "Default",
         parentSelector: context.viewMode === "docs" ? ".docs-story" : "body",
       })(story, context) as ReturnType<typeof story>,
