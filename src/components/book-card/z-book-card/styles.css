@@ -63,7 +63,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  gap: calc(var(--space-unit) * 2);
+  gap: var(--space-unit);
 }
 
 :host .main-content .card-info .top {
@@ -162,13 +162,11 @@
 :host([variant="landscape"]) {
   width: 635px;
   min-height: max(332px, 20.75rem);
-  max-height: max(432px, 27rem);
   padding: 0;
 }
 
 :host([variant="landscape"]) .main-content {
-  height: 20.75rem;
-  min-height: 332px;
+  min-height: max(332px, 20.75rem);
   box-sizing: border-box;
   flex-direction: row;
   padding: calc(var(--space-unit) * 2);
@@ -188,8 +186,12 @@
   max-height: 256px;
 }
 
+:host([variant="landscape"]) .main-content .card-info {
+  gap: calc(var(--space-unit) / 2);
+}
+
 :host([variant="landscape"]) .main-content .card-info .top {
-  gap: var(--space-unit);
+  gap: calc(var(--space-unit) / 2);
 }
 
 @media (max-width: 767px) {
