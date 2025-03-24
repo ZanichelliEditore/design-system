@@ -36,14 +36,15 @@
 }
 
 :host > div .app img {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
+  min-height: 32px;
 }
 
 :host > div .app .name {
   display: -webkit-box;
   overflow: hidden;
-  height: 20px;
+  height: 1.4rem;
   -webkit-box-orient: vertical;
   font-family: var(--font-family-serif);
   -webkit-line-clamp: 1;
@@ -58,10 +59,16 @@
 
 :host > div z-info-reveal {
   --z-info-reveal-panel-width: 250px;
+  --trigger-icon-size-x-small: 1rem;
 
   font-family: var(--font-family-sans);
 
   --color-surface05: var(--color-surface01);
   --color-text-inverse: var(--color-default-text);
   --color-inverse-icon: var(--color-primary01);
+}
+
+:host z-icon {
+  --z-icon-width: 1rem;
+  --z-icon-height: 1rem;
 }

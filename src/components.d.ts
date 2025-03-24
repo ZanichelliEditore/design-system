@@ -861,6 +861,9 @@ export namespace Components {
     /**
      * Info reveal component.
      * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
+     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
+     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface ZInfoReveal {
         /**
@@ -2805,6 +2808,9 @@ declare global {
     /**
      * Info reveal component.
      * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
+     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
+     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
     }
@@ -4515,6 +4521,9 @@ declare namespace LocalJSX {
     /**
      * Info reveal component.
      * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
+     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
+     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface ZInfoReveal {
         /**
@@ -6209,6 +6218,9 @@ declare module "@stencil/core" {
             /**
              * Info reveal component.
              * @cssprop --z-info-reveal-panel-width - Width of the info panel.
+             * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
+             * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
+             * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
              */
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
