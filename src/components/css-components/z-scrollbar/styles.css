@@ -1,7 +1,6 @@
 /* Webkit Scrollbar */
 .z-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
+  width: 0;
 }
 
 .z-scrollbar::-webkit-scrollbar-thumb {
@@ -10,6 +9,12 @@
 
 .z-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover-primary);
+}
+
+.z-scrollbar:hover::-webkit-scrollbar,
+.z-scrollbar:active::-webkit-scrollbar {
+  width: 6px;
+  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
 }
 
 /* Firefox scrollbar */
