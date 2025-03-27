@@ -96,7 +96,7 @@
 }
 
 :host .main-content .card-info .top .ellipsis.opera-title {
-  height: calc(1.5rem * var(--z-book-card-title-lines));
+  height: calc(1.5 * var(--z-book-card-title-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-title-lines);
   line-clamp: var(--z-book-card-title-lines);
   line-height: 1.5rem;
@@ -104,7 +104,7 @@
 }
 
 :host .main-content .card-info .top .ellipsis.volume-title {
-  height: calc(1.4rem * var(--z-book-card-subtitle-lines));
+  height: calc(1.4 * var(--z-book-card-subtitle-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-subtitle-lines);
   line-clamp: var(--z-book-card-subtitle-lines);
   line-height: 1.4rem;
@@ -112,7 +112,7 @@
 }
 
 :host .main-content .card-info .top .ellipsis.authors {
-  height: calc(1.4rem * var(--z-book-card-authors-lines));
+  height: calc(1.4 * var(--z-book-card-authors-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-authors-lines);
   line-clamp: var(--z-book-card-authors-lines);
   line-height: 1.4rem;
