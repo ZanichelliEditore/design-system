@@ -13,11 +13,11 @@ export class ZIcon {
 
   /** icon height (optional) */
   @Prop()
-  height?: number;
+  height?: number | string;
 
   /** icon width (optional) */
   @Prop()
-  width?: number;
+  width?: number | string;
 
   /** icon id (optional) */
   @Prop()

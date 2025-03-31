@@ -6,9 +6,9 @@
 }
 
 :host svg:not([width]) {
-  width: var(--z-icon-width, 18px);
+  width: var(--z-icon-width, 1.125rem);
 }
 
 :host svg:not([height]) {
-  height: var(--z-icon-height, 18px);
+  height: var(--z-icon-height, 1.125rem);
 }

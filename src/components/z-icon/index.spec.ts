@@ -68,7 +68,7 @@ describe("Suite test ZIcon", () => {
     `);
   });
 
-  it("Test render ZIcon con polygon con dimensioni", async () => {
+  it("Test render ZIcon con polygon con dimensioni pixels", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
       html: `<z-icon name="chevron-down" iconid="zicon" width="10" height="10"></z-icon>`,
@@ -77,6 +77,22 @@ describe("Suite test ZIcon", () => {
       <z-icon name="chevron-down" iconid="zicon" width="10" height="10" aria-hidden="true">
         <mock:shadow-root>
           <svg fill="" viewBox="0 0 1000 1000" width='10' height='10' id="zicon">
+            <path d="${ICONS["chevron-down"]}"></path>
+          </svg>
+        </mock:shadow-root>
+      </z-icon>
+    `);
+  });
+
+  it("Test render ZIcon con polygon con dimensioni rem", async () => {
+    const page = await newSpecPage({
+      components: [ZIcon],
+      html: `<z-icon name="chevron-down" iconid="zicon" width="2rem" height="2rem"></z-icon>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-icon name="chevron-down" iconid="zicon" width="2rem" height="2rem" aria-hidden="true">
+        <mock:shadow-root>
+          <svg fill="" viewBox="0 0 1000 1000" width='2rem' height='2rem' id="zicon">
             <path d="${ICONS["chevron-down"]}"></path>
           </svg>
         </mock:shadow-root>
