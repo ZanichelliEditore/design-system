@@ -113,7 +113,7 @@ export class ZFileUpload {
   /** Listen `removeFile` event sent from z-file component */
   @Listen("removeFile")
   onFileRemoved(e: CustomEvent): void {
-    this.removeFile(e.detail);
+    this.removeFile(e.detail.fileName);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
