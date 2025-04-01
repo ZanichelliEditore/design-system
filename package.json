@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "18.1.0",
+  "version": "18.1.1",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
