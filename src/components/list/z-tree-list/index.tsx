@@ -89,6 +89,9 @@ export class ZTreeList {
         class={!item.icon ? "no-icon-elm" : ""}
         clickable={Boolean(item.url)}
         hasTreeItems={true}
+        role="treeitem"
+        aria-expanded={item.children?.length > 0 ? false : undefined}
+        aria-label={item.name}
       >
         <this.htmlTag
           class={{
@@ -129,7 +132,7 @@ export class ZTreeList {
           </span>
         </this.htmlTag>
         {item.children?.length > 0 && (
-          <z-list>
+          <z-list role="group">
             <div class="children-node">{item.children.map((child) => this.renderTreeList(child))}</div>
           </z-list>
         )}
