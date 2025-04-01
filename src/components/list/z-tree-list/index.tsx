@@ -38,14 +38,39 @@ export class ZTreeList {
     return Array.from(this.host.shadowRoot.querySelectorAll('a[tabindex="0"]'));
   }
 
-  private handleArrowNav(event: KeyboardEvent): void {
-    if (event.code === KeyboardCode.ARROW_DOWN || event.code === KeyboardCode.ARROW_UP) {
-      event.preventDefault();
-      const focusableElements = this.getFocusableElements();
-      const currentIndex = focusableElements.indexOf(event.target as HTMLElement);
-      if (currentIndex === -1) {
+  private getAncestor(element: HTMLElement, levels: number): HTMLElement | null {
+    let ancestor: HTMLElement | null = element;
+
+    for (let i = 0; i < levels; i++) {
+      ancestor = ancestor?.parentElement;
+      if (!ancestor) {
         return;
       }
+    }
+
+    return ancestor;
+  }
+
+  private handleArrowNav(event: KeyboardEvent): void {
+    const focusableElements = this.getFocusableElements();
+    const currentIndex = focusableElements.indexOf(event.target as HTMLElement);
+    if (currentIndex === -1) {
+      return;
+    }
+
+    if (event.code === KeyboardCode.ARROW_LEFT) {
+      event.preventDefault();
+      const ancestor = this.getAncestor(focusableElements[currentIndex], 4);
+
+      if (!ancestor?.children[0]) {
+        return;
+      }
+
+      (ancestor.children[0] as HTMLElement).focus();
+    }
+
+    if (event.code === KeyboardCode.ARROW_DOWN || event.code === KeyboardCode.ARROW_UP) {
+      event.preventDefault();
 
       const nextIndex = currentIndex + (event.code === KeyboardCode.ARROW_DOWN ? 1 : -1);
       if (nextIndex < 0 || nextIndex >= focusableElements.length) {
