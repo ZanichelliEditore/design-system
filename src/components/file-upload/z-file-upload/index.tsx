@@ -93,6 +93,10 @@ export class ZFileUpload {
   @State()
   invalidFiles: Map<string, ZFileUploadError[]> = new Map<string, ZFileUploadError[]>();
 
+  /** Input ref */
+  @State()
+  private input: HTMLInputElement;
+
   /** Emitted when user select one or more files */
   @Event()
   fileInput: EventEmitter<File>;
@@ -106,14 +110,12 @@ export class ZFileUpload {
 
   @Element() host: HTMLZFileUploadElement;
 
-  private input: HTMLInputElement;
-
   private errorModal: HTMLZModalElement;
 
   /** Listen `removeFile` event sent from z-file component */
   @Listen("removeFile")
   onFileRemoved(e: CustomEvent): void {
-    this.removeFile(e.detail);
+    this.removeFile(e.detail.fileName);
   }
 
   /** Listen fileDropped event sent from z-dragdrop-area component */
