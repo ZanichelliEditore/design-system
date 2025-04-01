@@ -100,8 +100,6 @@ export class ZBookCardApp {
         >
           <z-icon
             name="chevron-right"
-            width={16}
-            height={16}
             fill="color-primary01-icon"
           ></z-icon>
         </a>

@@ -63,7 +63,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  gap: calc(var(--space-unit) * 2);
+  gap: var(--space-unit);
 }
 
 :host .main-content .card-info .top {
@@ -86,36 +86,36 @@
 :host .main-content .card-info .top .ellipsis {
   display: -webkit-box;
   overflow: hidden;
-  height: 20px;
+  height: 1.4rem;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-clamp: 1;
-  line-height: 20px;
+  line-height: 1.4rem;
   text-overflow: ellipsis;
   word-break: break-all;
 }
 
 :host .main-content .card-info .top .ellipsis.opera-title {
-  height: calc(24 * var(--z-book-card-title-lines));
+  height: calc(1.5 * var(--z-book-card-title-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-title-lines);
   line-clamp: var(--z-book-card-title-lines);
-  line-height: 24px;
+  line-height: 1.5rem;
   word-break: var(--z-book-card-title-word-break);
 }
 
 :host .main-content .card-info .top .ellipsis.volume-title {
-  height: calc(20 * var(--z-book-card-subtitle-lines));
+  height: calc(1.4 * var(--z-book-card-subtitle-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-subtitle-lines);
   line-clamp: var(--z-book-card-subtitle-lines);
-  line-height: 20px;
+  line-height: 1.4rem;
   word-break: var(--z-book-card-subtitle-word-break);
 }
 
 :host .main-content .card-info .top .ellipsis.authors {
-  height: calc(20 * var(--z-book-card-authors-lines));
+  height: calc(1.4 * var(--z-book-card-authors-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-authors-lines);
   line-clamp: var(--z-book-card-authors-lines);
-  line-height: 20px;
+  line-height: 1.4rem;
   word-break: var(--z-book-card-authors-word-break);
 }
 
@@ -136,6 +136,7 @@
 
 :host .main-content .card-info .bottom .ebook {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-unit);
@@ -153,18 +154,19 @@
 }
 
 :host .main-content .card-info .bottom .ebook .app-name .ebook-logo {
-  content: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 fill=%22none%22 aria-hidden=%22true%22%3E%3Cg clip-path=%22url(%23clip0_11996_224)%22%3E%3Cpath d=%22M14.6644 0.469604H5.00141C2.33305 0.469604 0.169922 2.63274 0.169922 5.3011V14.9641C0.169922 17.6324 2.33305 19.7956 5.00141 19.7956H14.6644C17.3328 19.7956 19.4959 17.6324 19.4959 14.9641V5.3011C19.4959 2.63274 17.3328 0.469604 14.6644 0.469604Z%22 fill=%22%23E2011A%22/%3E%3Cpath d=%22M15.9523 13.3536H12.7313C11.6861 13.3536 10.6683 13.6934 9.83241 14.3199C8.99657 13.6934 7.97873 13.3536 6.93352 13.3536H3.71252V5.30115H6.93352C7.97873 5.30115 8.99657 5.64096 9.83241 6.26745C10.6683 5.64096 11.6861 5.30115 12.7313 5.30115H15.9523V13.3536Z%22 fill=%22white%22/%3E%3Cpath d=%22M15.9523 14.3201H3.71252V14.9643H15.9523V14.3201Z%22 fill=%22black%22/%3E%3Cpath d=%22M8.22229 10.732V8.24543C8.22229 7.97165 8.51057 7.79449 8.75375 7.91689L11.2404 9.16019C11.5109 9.29548 11.5109 9.682 11.2404 9.81728L8.75375 11.0606C8.50896 11.183 8.22229 11.0058 8.22229 10.732Z%22 fill=%22black%22/%3E%3Cpath d=%22M4.35704 7.87826C5.42438 7.87826 6.28963 7.013 6.28963 5.94566C6.28963 4.87831 5.42438 4.01306 4.35704 4.01306C3.28969 4.01306 2.42444 4.87831 2.42444 5.94566C2.42444 7.013 3.28969 7.87826 4.35704 7.87826Z%22 fill=%22black%22/%3E%3Cpath d=%22M5.6454 5.62354H3.0686V6.26773H5.6454V5.62354Z%22 fill=%22white%22/%3E%3Cpath d=%22M4.67917 4.65723H4.03497V7.23402H4.67917V4.65723Z%22 fill=%22white%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id=%22clip0_11996_224%22%3E%3Crect width=%2219.326%22 height=%2219.326%22 fill=%22white%22 transform=%22translate(0.169922 0.469604)%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  width: 1.5rem;
+  height: 1.5rem;
+  content: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22none%22 aria-hidden=%22true%22%3E%3Cg clip-path=%22url(%23clip0_11996_224)%22%3E%3Cpath d=%22M14.6644 0.469604H5.00141C2.33305 0.469604 0.169922 2.63274 0.169922 5.3011V14.9641C0.169922 17.6324 2.33305 19.7956 5.00141 19.7956H14.6644C17.3328 19.7956 19.4959 17.6324 19.4959 14.9641V5.3011C19.4959 2.63274 17.3328 0.469604 14.6644 0.469604Z%22 fill=%22%23E2011A%22/%3E%3Cpath d=%22M15.9523 13.3536H12.7313C11.6861 13.3536 10.6683 13.6934 9.83241 14.3199C8.99657 13.6934 7.97873 13.3536 6.93352 13.3536H3.71252V5.30115H6.93352C7.97873 5.30115 8.99657 5.64096 9.83241 6.26745C10.6683 5.64096 11.6861 5.30115 12.7313 5.30115H15.9523V13.3536Z%22 fill=%22white%22/%3E%3Cpath d=%22M15.9523 14.3201H3.71252V14.9643H15.9523V14.3201Z%22 fill=%22black%22/%3E%3Cpath d=%22M8.22229 10.732V8.24543C8.22229 7.97165 8.51057 7.79449 8.75375 7.91689L11.2404 9.16019C11.5109 9.29548 11.5109 9.682 11.2404 9.81728L8.75375 11.0606C8.50896 11.183 8.22229 11.0058 8.22229 10.732Z%22 fill=%22black%22/%3E%3Cpath d=%22M4.35704 7.87826C5.42438 7.87826 6.28963 7.013 6.28963 5.94566C6.28963 4.87831 5.42438 4.01306 4.35704 4.01306C3.28969 4.01306 2.42444 4.87831 2.42444 5.94566C2.42444 7.013 3.28969 7.87826 4.35704 7.87826Z%22 fill=%22black%22/%3E%3Cpath d=%22M5.6454 5.62354H3.0686V6.26773H5.6454V5.62354Z%22 fill=%22white%22/%3E%3Cpath d=%22M4.67917 4.65723H4.03497V7.23402H4.67917V4.65723Z%22 fill=%22white%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id=%22clip0_11996_224%22%3E%3Crect width=%2219.326%22 height=%2219.326%22 fill=%22white%22 transform=%22translate(0.169922 0.469604)%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 }
 
 :host([variant="landscape"]) {
   width: 635px;
-  min-height: 332px;
-  max-height: 432px;
+  min-height: max(332px, 20.75rem);
   padding: 0;
 }
 
 :host([variant="landscape"]) .main-content {
-  height: 332px;
+  min-height: max(332px, 20.75rem);
   box-sizing: border-box;
   flex-direction: row;
   padding: calc(var(--space-unit) * 2);
@@ -175,7 +177,7 @@
   display: flex;
   overflow: hidden;
   width: 221px;
-  height: auto;
+  height: 300px;
   margin: 0;
 }
 
@@ -184,8 +186,12 @@
   max-height: 256px;
 }
 
+:host([variant="landscape"]) .main-content .card-info {
+  gap: calc(var(--space-unit) / 2);
+}
+
 :host([variant="landscape"]) .main-content .card-info .top {
-  gap: var(--space-unit);
+  gap: calc(var(--space-unit) / 2);
 }
 
 @media (max-width: 767px) {

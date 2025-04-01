@@ -66,11 +66,11 @@ button:focus:focus-visible {
 }
 
 :host([size="small"]) > .z-info-reveal-trigger z-icon {
-  --trigger-icon-size: 18px;
+  --trigger-icon-size: var(--trigger-icon-size-small, 18px);
 }
 
 :host([size="x-small"]) > .z-info-reveal-trigger z-icon {
-  --trigger-icon-size: 16px;
+  --trigger-icon-size: var(--trigger-icon-size-x-small, 16px);
 }
 
 .z-info-reveal-panel {
