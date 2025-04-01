@@ -93,6 +93,10 @@ export class ZFileUpload {
   @State()
   invalidFiles: Map<string, ZFileUploadError[]> = new Map<string, ZFileUploadError[]>();
 
+  /** Input ref */
+  @State()
+  private input: HTMLInputElement;
+
   /** Emitted when user select one or more files */
   @Event()
   fileInput: EventEmitter<File>;
@@ -105,8 +109,6 @@ export class ZFileUpload {
   fileError: EventEmitter<{file: string; errors: ZFileUploadError[]}>;
 
   @Element() host: HTMLZFileUploadElement;
-
-  private input: HTMLInputElement;
 
   private errorModal: HTMLZModalElement;
 
