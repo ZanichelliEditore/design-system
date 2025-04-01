@@ -2162,6 +2162,9 @@ export namespace Components {
         "expandable": boolean;
     }
     interface ZTreeList {
+        /**
+          * Items to render, if they have the url property they will be rendered as clickable links
+         */
         "items": TreeListItem[] | string;
     }
     interface ZVisuallyHidden {
@@ -5976,7 +5979,13 @@ declare namespace LocalJSX {
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
     interface ZTreeList {
+        /**
+          * Items to render, if they have the url property they will be rendered as clickable links
+         */
         "items"?: TreeListItem[] | string;
+        /**
+          * Emitted on item click, it return the id, name and url of the clicked item
+         */
         "onTreeItemClicked"?: (event: ZTreeListCustomEvent<{id: string; name: string; url: string}>) => void;
     }
     interface ZVisuallyHidden {
