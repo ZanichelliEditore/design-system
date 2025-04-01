@@ -12,8 +12,8 @@ z-list-element::before,
 z-list-element::after {
   position: absolute;
   z-index: 100;
-  top: 2px;
-  left: -8px;
+  top: 0.125rem;
+  left: -0.5rem;
   content: "";
 }
 
@@ -69,7 +69,7 @@ z-list-element > .list-element .item.ellipsis {
 z-list-element .list-element::after {
   position: absolute;
   top: 0;
-  right: -1px;
+  right: -0.0625rem;
   display: block;
   width: 100%;
   height: calc(var(--space-unit) * 5);
@@ -83,8 +83,8 @@ z-list-element .list-element::after {
   font-size: var(--font-size-2);
   font-style: normal;
   font-weight: var(--font-rg);
-  letter-spacing: 0.052px;
-  line-height: 20px;
+  letter-spacing: 0.0032rem;
+  line-height: 1.25rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -103,7 +103,7 @@ z-list-element .list-element::after {
 
 .children-node > z-list-element {
   padding: 0;
-  padding-top: 2px;
+  padding-top: 0.125;
   padding-left: calc(var(--space-unit) * 1.25);
 }
 
@@ -129,7 +129,7 @@ z-list-element > .list-element:focus:focus-visible {
 @media (max-width: 767px) {
   z-list-element::before,
   z-list-element::after {
-    top: 3px;
+    top: 0.1875rem;
   }
 
   z-list z-list-element::before {

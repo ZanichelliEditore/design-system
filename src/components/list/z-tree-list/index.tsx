@@ -34,6 +34,28 @@ export class ZTreeList {
     this.treeItemClicked.emit({id: item.id, name: item.name, url: item.url});
   }
 
+  private getFocusableElements(): HTMLElement[] {
+    return Array.from(this.host.shadowRoot.querySelectorAll('a[tabindex="0"]'));
+  }
+
+  private handleKeyDown(event: KeyboardEvent): void {
+    if (event.code === KeyboardCode.ARROW_DOWN || event.code === KeyboardCode.ARROW_UP) {
+      event.preventDefault();
+      const focusableElements = this.getFocusableElements();
+      const currentIndex = focusableElements.indexOf(event.target as HTMLElement);
+      if (currentIndex === -1) {
+        return;
+      }
+
+      const nextIndex = currentIndex + (event.code === KeyboardCode.ARROW_DOWN ? 1 : -1);
+      if (nextIndex < 0 || nextIndex >= focusableElements.length) {
+        return;
+      }
+
+      focusableElements[nextIndex].focus();
+    }
+  }
+
   private renderTreeList(item: TreeListItem): HTMLZListElementElement {
     this.htmlTag = item.url ? "a" : "span";
 
@@ -56,6 +78,7 @@ export class ZTreeList {
               this.handleClick(item);
             }
           }}
+          onKeyDown={(event: KeyboardEvent) => this.handleKeyDown(event)}
           href={item.url}
         >
           <span class="item ellipsis">
@@ -80,11 +103,11 @@ export class ZTreeList {
             </span>
           </span>
         </this.htmlTag>
-        {item.children && item.children.length > 0 ? (
+        {item.children?.length > 0 && (
           <z-list>
             <div class="children-node">{item.children.map((child) => this.renderTreeList(child))}</div>
           </z-list>
-        ) : null}
+        )}
       </z-list-element>
     );
   }
