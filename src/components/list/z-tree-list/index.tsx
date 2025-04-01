@@ -38,7 +38,7 @@ export class ZTreeList {
     return Array.from(this.host.shadowRoot.querySelectorAll('a[tabindex="0"]'));
   }
 
-  private handleKeyDown(event: KeyboardEvent): void {
+  private handleArrowNav(event: KeyboardEvent): void {
     if (event.code === KeyboardCode.ARROW_DOWN || event.code === KeyboardCode.ARROW_UP) {
       event.preventDefault();
       const focusableElements = this.getFocusableElements();
@@ -78,7 +78,7 @@ export class ZTreeList {
               this.handleClick(item);
             }
           }}
-          onKeyDown={(event: KeyboardEvent) => this.handleKeyDown(event)}
+          onKeyDown={(event: KeyboardEvent) => this.handleArrowNav(event)}
           href={item.url}
         >
           <span class="item ellipsis">
