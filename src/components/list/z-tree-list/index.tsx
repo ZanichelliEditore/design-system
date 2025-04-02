@@ -14,8 +14,8 @@ export class ZTreeList {
   items: TreeListItem[] | string = [];
 
   /** Used for correct accessibility values */
-  @Prop()
-  htlmAriaLabelledby: string;
+  @Prop({reflect: true})
+  htmlAriaLabelledby: string;
 
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
@@ -111,7 +111,8 @@ export class ZTreeList {
         class={!item.icon ? "no-icon-elm" : ""}
         clickable={Boolean(item.url)}
         hasTreeItems={true}
-        role={item.url ? "treeitem" : "none"}
+        role={item.url && "treeitem"}
+        aria-hidden={item.url ? undefined : "true"}
         aria-expanded={item.children?.length > 0 ? false : undefined}
         aria-level={level}
         aria-label={item.name}
@@ -158,7 +159,8 @@ export class ZTreeList {
           <z-list role="none">
             <div
               class="children-node"
-              role={item.url ? "treeitem" : "none"}
+              role={item.url && "treeitem"}
+              aria-hidden={item.url ? undefined : "true"}
             >
               {item.children.map((child) => this.renderTreeList(child, level + 1))}
             </div>
@@ -175,12 +177,14 @@ export class ZTreeList {
       <Host
         class="tree-list"
         role={hasClickableItems ? "navigation" : "none"}
-        aria-labelledby={this.htlmAriaLabelledby}
+        aria-hidden={hasClickableItems ? undefined : "true"}
+        aria-labelledby={this.htmlAriaLabelledby}
       >
         <div
           tabIndex={-1}
           role={hasClickableItems ? "tree" : "none"}
-          aria-labelledby={this.htlmAriaLabelledby}
+          aria-hidden={hasClickableItems ? undefined : "true"}
+          aria-labelledby={this.htmlAriaLabelledby}
         >
           {this.parsedItems.map((item) => this.renderTreeList(item))}
         </div>

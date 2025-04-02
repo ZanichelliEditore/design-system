@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                             | Type                       | Default |
-| -------- | --------- | --------------------------------------------------------------------------------------- | -------------------------- | ------- |
-| `items`  | `items`   | Items to render, if they have the url property they will be rendered as clickable links | `TreeListItem[] \| string` | `[]`    |
+| Property             | Attribute              | Description                                                                             | Type                       | Default     |
+| -------------------- | ---------------------- | --------------------------------------------------------------------------------------- | -------------------------- | ----------- |
+| `htmlAriaLabelledby` | `html-aria-labelledby` | Used for correct accessibility values                                                   | `string`                   | `undefined` |
+| `items`              | `items`                | Items to render, if they have the url property they will be rendered as clickable links | `TreeListItem[] \| string` | `[]`        |
 
 
 ## Events

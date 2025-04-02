@@ -2165,7 +2165,7 @@ export namespace Components {
         /**
           * Used for correct accessibility values
          */
-        "htlmAriaLabelledby": string;
+        "htmlAriaLabelledby": string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
@@ -5986,7 +5986,7 @@ declare namespace LocalJSX {
         /**
           * Used for correct accessibility values
          */
-        "htlmAriaLabelledby"?: string;
+        "htmlAriaLabelledby"?: string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
