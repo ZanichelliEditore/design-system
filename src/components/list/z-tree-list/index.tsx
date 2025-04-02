@@ -13,9 +13,13 @@ export class ZTreeList {
   @Prop()
   items: TreeListItem[] | string = [];
 
-  /** Used for correct accessibility values */
+  /** Used for aria-labelledby attribute, sets name in "navigation" */
   @Prop({reflect: true})
   htmlAriaLabelledby: string;
+
+  /** Used for aria-label attribute, sets name in "tree" */
+  @Prop({reflect: true})
+  htmlSectionTitle: string;
 
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
@@ -106,16 +110,13 @@ export class ZTreeList {
   private renderTreeList(item: TreeListItem, level = 1): HTMLZListElementElement {
     this.htmlTag = item.url ? "a" : "span";
 
-    return (
+    const treeListContent = (
       <z-list-element
         class={!item.icon ? "no-icon-elm" : ""}
         clickable={Boolean(item.url)}
         hasTreeItems={true}
-        role={item.url && "treeitem"}
-        aria-hidden={item.url ? undefined : "true"}
-        aria-expanded={item.children?.length > 0 ? false : undefined}
-        aria-level={level}
-        aria-label={item.name}
+        role="none"
+        aria-hidden={undefined}
       >
         <this.htmlTag
           class={{
@@ -131,6 +132,11 @@ export class ZTreeList {
             }
           }}
           onKeyDown={(event: KeyboardEvent) => this.handleArrowNav(event)}
+          role={item.url ? "treeitem" : undefined}
+          aria-hidden={item.url ? undefined : "true"}
+          aria-expanded={item.children?.length > 0 && true}
+          aria-level={level}
+          aria-label={item.name}
           href={item.url}
         >
           <span class="item ellipsis">
@@ -156,7 +162,7 @@ export class ZTreeList {
           </span>
         </this.htmlTag>
         {item.children?.length > 0 && (
-          <z-list role="none">
+          <z-list role="group">
             <div
               class="children-node"
               role={item.url && "treeitem"}
@@ -168,6 +174,21 @@ export class ZTreeList {
         )}
       </z-list-element>
     );
+
+    // Se l'elemento ha figli, contenitore con ruolo "navigation"
+    if (item.children?.length > 0) {
+      return (
+        <div
+          role="navigation"
+          aria-label={item.name}
+          class="tree-section"
+        >
+          {treeListContent}
+        </div>
+      );
+    }
+
+    return treeListContent;
   }
 
   render(): HTMLZTreeListElement {
@@ -184,7 +205,7 @@ export class ZTreeList {
           tabIndex={-1}
           role={hasClickableItems ? "tree" : "none"}
           aria-hidden={hasClickableItems ? undefined : "true"}
-          aria-labelledby={this.htmlAriaLabelledby}
+          aria-label={this.htmlSectionTitle}
         >
           {this.parsedItems.map((item) => this.renderTreeList(item))}
         </div>

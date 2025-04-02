@@ -2163,9 +2163,13 @@ export namespace Components {
     }
     interface ZTreeList {
         /**
-          * Used for correct accessibility values
+          * Used for aria-labelledby attribute, sets name in "navigation"
          */
         "htmlAriaLabelledby": string;
+        /**
+          * Used for aria-label attribute, sets name in "tree"
+         */
+        "htmlSectionTitle": string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
@@ -5984,9 +5988,13 @@ declare namespace LocalJSX {
     }
     interface ZTreeList {
         /**
-          * Used for correct accessibility values
+          * Used for aria-labelledby attribute, sets name in "navigation"
          */
         "htmlAriaLabelledby"?: string;
+        /**
+          * Used for aria-label attribute, sets name in "tree"
+         */
+        "htmlSectionTitle"?: string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
