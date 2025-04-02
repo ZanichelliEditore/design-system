@@ -2163,6 +2163,10 @@ export namespace Components {
     }
     interface ZTreeList {
         /**
+          * Used for correct accessibility values
+         */
+        "htlmAriaLabelledby": string;
+        /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */
         "items": TreeListItem[] | string;
@@ -5979,6 +5983,10 @@ declare namespace LocalJSX {
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
     interface ZTreeList {
+        /**
+          * Used for correct accessibility values
+         */
+        "htlmAriaLabelledby"?: string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
          */

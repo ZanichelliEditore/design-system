@@ -13,6 +13,10 @@ export class ZTreeList {
   @Prop()
   items: TreeListItem[] | string = [];
 
+  /** Used for correct accessibility values */
+  @Prop()
+  htlmAriaLabelledby: string;
+
   /** Emitted on item click, it return the id, name and url of the clicked item */
   @Event()
   treeItemClicked: EventEmitter<{id: string; name: string; url: string}>;
@@ -99,7 +103,7 @@ export class ZTreeList {
     }
   }
 
-  private renderTreeList(item: TreeListItem, level: number = 1): HTMLZListElementElement {
+  private renderTreeList(item: TreeListItem, level = 1): HTMLZListElementElement {
     this.htmlTag = item.url ? "a" : "span";
 
     return (
@@ -107,7 +111,7 @@ export class ZTreeList {
         class={!item.icon ? "no-icon-elm" : ""}
         clickable={Boolean(item.url)}
         hasTreeItems={true}
-        role="treeitem"
+        role={item.url ? "treeitem" : "none"}
         aria-expanded={item.children?.length > 0 ? false : undefined}
         aria-level={level}
         aria-label={item.name}
@@ -151,8 +155,13 @@ export class ZTreeList {
           </span>
         </this.htmlTag>
         {item.children?.length > 0 && (
-          <z-list role="group">
-            <div class="children-node">{item.children.map((child) => this.renderTreeList(child, level + 1))}</div>
+          <z-list role="none">
+            <div
+              class="children-node"
+              role={item.url ? "treeitem" : "none"}
+            >
+              {item.children.map((child) => this.renderTreeList(child, level + 1))}
+            </div>
           </z-list>
         )}
       </z-list-element>
@@ -160,12 +169,21 @@ export class ZTreeList {
   }
 
   render(): HTMLZTreeListElement {
+    const hasClickableItems = this.parsedItems.some((item) => !!item.url);
+
     return (
       <Host
         class="tree-list"
-        role="navigation"
+        role={hasClickableItems ? "navigation" : "none"}
+        aria-labelledby={this.htlmAriaLabelledby}
       >
-        <div role="tree">{this.parsedItems.map((item) => this.renderTreeList(item))}</div>
+        <div
+          tabIndex={-1}
+          role={hasClickableItems ? "tree" : "none"}
+          aria-labelledby={this.htlmAriaLabelledby}
+        >
+          {this.parsedItems.map((item) => this.renderTreeList(item))}
+        </div>
       </Host>
     );
   }
