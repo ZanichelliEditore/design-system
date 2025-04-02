@@ -54,19 +54,9 @@ export class ZTreeList {
   private handleArrowNav(event: KeyboardEvent): void {
     const focusableElements = this.getFocusableElements();
     const currentIndex = focusableElements.indexOf(event.target as HTMLElement);
+
     if (currentIndex === -1) {
       return;
-    }
-
-    if (event.code === KeyboardCode.ARROW_LEFT) {
-      event.preventDefault();
-      const ancestor = this.getAncestor(focusableElements[currentIndex], 4);
-
-      if (!ancestor?.children[0]) {
-        return;
-      }
-
-      (ancestor.children[0] as HTMLElement).focus();
     }
 
     if (event.code === KeyboardCode.ARROW_DOWN || event.code === KeyboardCode.ARROW_UP) {
@@ -78,6 +68,34 @@ export class ZTreeList {
       }
 
       focusableElements[nextIndex].focus();
+    }
+
+    if (event.code === KeyboardCode.ARROW_LEFT) {
+      event.preventDefault();
+      const ancestor = this.getAncestor(focusableElements[currentIndex], 4);
+
+      if (
+        !ancestor.children[0] ||
+        (ancestor.children[0].tagName.toLowerCase() !== "a" && ancestor.getAttribute("tabindex") === null)
+      ) {
+        return;
+      }
+
+      (ancestor.children[0] as HTMLElement).focus();
+    }
+
+    if (event.code === KeyboardCode.ARROW_RIGHT) {
+      event.preventDefault();
+
+      const parentElm = (event.target as HTMLElement).closest("z-list-element") as HTMLElement;
+      const childrenContainer = parentElm.querySelector("z-list") as HTMLElement;
+      const firstChild = childrenContainer.querySelector('a[tabindex="0"]') as HTMLElement;
+
+      if (!firstChild) {
+        return;
+      }
+
+      firstChild.focus();
     }
   }
 
