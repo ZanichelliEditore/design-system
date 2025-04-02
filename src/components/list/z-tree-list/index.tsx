@@ -99,7 +99,7 @@ export class ZTreeList {
     }
   }
 
-  private renderTreeList(item: TreeListItem): HTMLZListElementElement {
+  private renderTreeList(item: TreeListItem, level: number = 1): HTMLZListElementElement {
     this.htmlTag = item.url ? "a" : "span";
 
     return (
@@ -109,6 +109,7 @@ export class ZTreeList {
         hasTreeItems={true}
         role="treeitem"
         aria-expanded={item.children?.length > 0 ? false : undefined}
+        aria-level={level}
         aria-label={item.name}
       >
         <this.htmlTag
@@ -151,7 +152,7 @@ export class ZTreeList {
         </this.htmlTag>
         {item.children?.length > 0 && (
           <z-list role="group">
-            <div class="children-node">{item.children.map((child) => this.renderTreeList(child))}</div>
+            <div class="children-node">{item.children.map((child) => this.renderTreeList(child, level + 1))}</div>
           </z-list>
         )}
       </z-list-element>
@@ -159,6 +160,13 @@ export class ZTreeList {
   }
 
   render(): HTMLZTreeListElement {
-    return <Host class="tree-list">{this.parsedItems.map((item) => this.renderTreeList(item))}</Host>;
+    return (
+      <Host
+        class="tree-list"
+        role="navigation"
+      >
+        <div role="tree">{this.parsedItems.map((item) => this.renderTreeList(item))}</div>
+      </Host>
+    );
   }
 }
