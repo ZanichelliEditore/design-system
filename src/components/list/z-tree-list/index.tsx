@@ -60,6 +60,12 @@ export class ZTreeList {
   }
 
   private handleArrowNav(event: KeyboardEvent): void {
+    if (event.code === KeyboardCode.TAB) {
+      event.preventDefault();
+
+      return;
+    }
+
     const focusableElements = this.getFocusableElements();
     const currentIndex = focusableElements.indexOf(event.target as HTMLElement);
 
