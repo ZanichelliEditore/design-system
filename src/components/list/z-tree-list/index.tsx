@@ -83,6 +83,7 @@ export class ZTreeList {
       const ancestor = this.getAncestor(focusableElements[currentIndex], 4);
 
       if (
+        !ancestor ||
         !ancestor.children[0] ||
         (ancestor.children[0].tagName.toLowerCase() !== "a" && ancestor.getAttribute("tabindex") === null)
       ) {
@@ -96,7 +97,17 @@ export class ZTreeList {
       event.preventDefault();
 
       const parentElm = (event.target as HTMLElement).closest("z-list-element") as HTMLElement;
+
+      if (!parentElm) {
+        return;
+      }
+
       const childrenContainer = parentElm.querySelector("z-list") as HTMLElement;
+
+      if (!childrenContainer) {
+        return;
+      }
+
       const firstChild = childrenContainer.querySelector('a[tabindex="0"]') as HTMLElement;
 
       if (!firstChild) {
