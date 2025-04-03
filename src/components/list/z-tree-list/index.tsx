@@ -107,11 +107,12 @@ export class ZTreeList {
     }
   }
 
-  private renderTreeList(item: TreeListItem, level = 1): HTMLZListElementElement {
+  private renderTreeList(item: TreeListItem, key: string, level = 1): HTMLZListElementElement {
     this.htmlTag = item.url ? "a" : "span";
 
     const treeListContent = (
       <z-list-element
+        id={key}
         class={!item.icon ? "no-icon-elm" : ""}
         clickable={Boolean(item.url)}
         hasTreeItems={true}
@@ -163,30 +164,13 @@ export class ZTreeList {
         </this.htmlTag>
         {item.children?.length > 0 && (
           <z-list role="group">
-            <div
-              class="children-node"
-              role={item.url && "treeitem"}
-              aria-hidden={item.url ? undefined : "true"}
-            >
-              {item.children.map((child) => this.renderTreeList(child, level + 1))}
+            <div class="children-node">
+              {item.children.map((child, key) => this.renderTreeList(child, `${key}`, level + 1))}
             </div>
           </z-list>
         )}
       </z-list-element>
     );
-
-    // Se l'elemento ha figli, contenitore con ruolo "navigation"
-    if (item.children?.length > 0) {
-      return (
-        <div
-          role="navigation"
-          aria-label={item.name}
-          class="tree-section"
-        >
-          {treeListContent}
-        </div>
-      );
-    }
 
     return treeListContent;
   }
@@ -207,7 +191,7 @@ export class ZTreeList {
           aria-hidden={hasClickableItems ? undefined : "true"}
           aria-label={this.htmlSectionTitle}
         >
-          {this.parsedItems.map((item) => this.renderTreeList(item))}
+          {this.parsedItems.map((item, key) => this.renderTreeList(item, `${key}`))}
         </div>
       </Host>
     );
