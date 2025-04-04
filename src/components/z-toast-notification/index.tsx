@@ -225,7 +225,7 @@ export class ZToastNotification {
         id="text"
         ref={(el) => (this.toastText = el as HTMLElement)}
       >
-        <span class="title">{this.heading}</span>
+        {this.heading && <span class="title">{this.heading}</span>}
         <span class="message">{this.message}</span>
       </div>
     );

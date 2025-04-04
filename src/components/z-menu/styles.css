@@ -73,7 +73,7 @@ div.menu-label:focus-within {
 :host([vertical-context]) .menu-label:focus-visible::after,
 :host([vertical-context]) div.menu-label:focus-within::after {
   position: absolute;
-  bottom: 0;
+  bottom: calc(var(--border-size-small) * -1);
   left: 0;
   width: 100%;
   height: var(--border-size-large);
@@ -205,7 +205,9 @@ when placed below the real text using `flex-direction: column`. */
 
 .items > ::slotted([slot="item"]:hover),
 .items > ::slotted([slot="item"]:focus:focus-visible),
-.items > ::slotted([slot="item"]:active) {
+.items > ::slotted([slot="item"]:active),
+.items > ::slotted([slot="item"][active]),
+.items > ::slotted([slot="item"][data-active]) {
   border-color: var(--color-primary01);
   font-weight: var(--font-bd);
 }

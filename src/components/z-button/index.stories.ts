@@ -13,7 +13,7 @@ const StoryMeta = {
     disabled: false,
     icon: "download",
     ariaLabel: "Clicca sul bottone",
-    role: "button",
+    htmlrole: "button",
   },
   argTypes: {
     variant: {
@@ -32,7 +32,7 @@ const StoryMeta = {
       disabled=${args.disabled}
       icon=${args.icon}
       .ariaLabel=${args.ariaLabel}
-      role=${args.role}
+      htmlrole=${args.htmlrole}
     >
       Click me
     </z-button>`,
@@ -76,7 +76,7 @@ export const IconOnly = {
       disabled=${args.disabled}
       icon=${args.icon}
       .ariaLabel=${args.ariaLabel}
-      role=${args.role}
+      htmlrole=${args.htmlrole}
     />`,
 } satisfies Story;
 
@@ -94,7 +94,7 @@ export const LinkButton = {
       disabled=${args.disabled}
       icon=${args.icon}
       .ariaLabel=${args.ariaLabel}
-      role=${args.role}
+      htmlrole=${args.htmlrole}
       href=${args.href}
       target=${args.target}
     >

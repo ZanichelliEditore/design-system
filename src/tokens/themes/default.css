@@ -18,6 +18,7 @@
   --color-secondary01: var(--red500);
   --color-secondary02: var(--red25);
   --color-secondary03: var(--red50);
+  --color-button-secondary: var(--color-surface01);
 
   /* surface */
   --color-surface01: var(--color-white);

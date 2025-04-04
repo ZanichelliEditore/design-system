@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.1.1 (2025-04-01)
+
+## 18.1.0 (2025-03-18)
+
+## 18.0.2 (2025-03-12)
+
+
+### Bug Fixes
+
+* correctly handle menu items' active state ([e8073be](https://github.com/ZanichelliEditore/design-system/commit/e8073beeddec98924f626797c88792d90b2d0391))
+
+## 18.0.1 (2025-02-27)
+
+
+### Bug Fixes
+
+* some color and minor fixes ([f0cef36](https://github.com/ZanichelliEditore/design-system/commit/f0cef36303735c45c369b6e752d965dba29dfb4e))
+
 ## 18.0.0 (2025-02-18)
 
 ## 17.2.1 (2025-02-17)

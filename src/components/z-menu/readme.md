@@ -47,11 +47,11 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot       | Description                                                                                                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            | Menu label                                                                                                                                                                                   |
-| `"header"` | Header to display as the first entry of the open menu.                                                                                                                                       |
-| `"item"`   | Single entry of the section. Can be slotted multiple times to insert items onto the menu. Set the `active` HTML attribute on the element to highlight it. Use `z-menu-section` for submenus. |
+| Slot       | Description                                                                                                                                                                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|            | Menu label                                                                                                                                                                                                                                              |
+| `"header"` | Header to display as the first entry of the open menu.                                                                                                                                                                                                  |
+| `"item"`   | Single entry of the section. Can be slotted multiple times to insert items onto the menu. Set the `data-active` HTML attribute on the element to highlight it (`active` also works but `data-active` is preferable). Use `z-menu-section` for submenus. |
 
 
 ## Dependencies
