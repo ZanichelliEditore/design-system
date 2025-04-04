@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -2169,6 +2169,20 @@ export namespace Components {
          */
         "expandable": boolean;
     }
+    interface ZTreeList {
+        /**
+          * Used for aria-labelledby attribute, sets name in "navigation"
+         */
+        "htmlAriaLabelledby": string;
+        /**
+          * Used for aria-label attribute, sets name in "tree"
+         */
+        "htmlSectionTitle": string;
+        /**
+          * Items to render, if they have the url property they will be rendered as clickable links
+         */
+        "items": TreeListItem[] | string;
+    }
     interface ZVisuallyHidden {
     }
 }
@@ -2339,6 +2353,10 @@ export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
 export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTrElement;
+}
+export interface ZTreeListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTreeListElement;
 }
 declare global {
     interface HTMLZAccordionElementEventMap {
@@ -3524,6 +3542,23 @@ declare global {
         prototype: HTMLZTrElement;
         new (): HTMLZTrElement;
     };
+    interface HTMLZTreeListElementEventMap {
+        "treeItemClicked": {id: string; name: string; url: string};
+    }
+    interface HTMLZTreeListElement extends Components.ZTreeList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTreeListElementEventMap>(type: K, listener: (this: HTMLZTreeListElement, ev: ZTreeListCustomEvent<HTMLZTreeListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTreeListElementEventMap>(type: K, listener: (this: HTMLZTreeListElement, ev: ZTreeListCustomEvent<HTMLZTreeListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZTreeListElement: {
+        prototype: HTMLZTreeListElement;
+        new (): HTMLZTreeListElement;
+    };
     interface HTMLZVisuallyHiddenElement extends Components.ZVisuallyHidden, HTMLStencilElement {
     }
     var HTMLZVisuallyHiddenElement: {
@@ -3610,6 +3645,7 @@ declare global {
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
+        "z-tree-list": HTMLZTreeListElement;
         "z-visually-hidden": HTMLZVisuallyHiddenElement;
     }
 }
@@ -5969,6 +6005,24 @@ declare namespace LocalJSX {
          */
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
     }
+    interface ZTreeList {
+        /**
+          * Used for aria-labelledby attribute, sets name in "navigation"
+         */
+        "htmlAriaLabelledby"?: string;
+        /**
+          * Used for aria-label attribute, sets name in "tree"
+         */
+        "htmlSectionTitle"?: string;
+        /**
+          * Items to render, if they have the url property they will be rendered as clickable links
+         */
+        "items"?: TreeListItem[] | string;
+        /**
+          * Emitted on item click, it return the id, name and url of the clicked item
+         */
+        "onTreeItemClicked"?: (event: ZTreeListCustomEvent<{id: string; name: string; url: string}>) => void;
+    }
     interface ZVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -6051,6 +6105,7 @@ declare namespace LocalJSX {
         "z-toggle-switch": ZToggleSwitch;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
+        "z-tree-list": ZTreeList;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -6364,6 +6419,7 @@ declare module "@stencil/core" {
              * to prevent the row from expanding.
              */
             "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
+            "z-tree-list": LocalJSX.ZTreeList & JSXBase.HTMLAttributes<HTMLZTreeListElement>;
             "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }

@@ -283,6 +283,7 @@ export class ZListElement {
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
         tabIndex={this.hasTreeItems ? undefined : this.htmlTabindex}
+        role={this.hasTreeItems ? "none" : this.role}
       >
         <div
           class={this.hasTreeItems ? "tree-element-container" : "container"}
