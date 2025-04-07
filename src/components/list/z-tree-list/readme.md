@@ -9,7 +9,8 @@
 
 | Property             | Attribute              | Description                                                                             | Type                       | Default     |
 | -------------------- | ---------------------- | --------------------------------------------------------------------------------------- | -------------------------- | ----------- |
-| `htmlAriaLabelledby` | `html-aria-labelledby` | Used for correct accessibility values                                                   | `string`                   | `undefined` |
+| `htmlAriaLabelledby` | `html-aria-labelledby` | Used for aria-labelledby attribute, sets name in "navigation"                           | `string`                   | `undefined` |
+| `htmlSectionTitle`   | `html-section-title`   | Used for aria-label attribute, sets name in "tree"                                      | `string`                   | `undefined` |
 | `items`              | `items`                | Items to render, if they have the url property they will be rendered as clickable links | `TreeListItem[] \| string` | `[]`        |
 
 
