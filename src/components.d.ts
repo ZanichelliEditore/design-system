@@ -834,7 +834,7 @@ export namespace Components {
         /**
           * icon height (optional)
          */
-        "height"?: number;
+        "height"?: number | string;
         /**
           * icon id (optional)
          */
@@ -846,7 +846,7 @@ export namespace Components {
         /**
           * icon width (optional)
          */
-        "width"?: number;
+        "width"?: number | string;
     }
     interface ZInfoBox {
         /**
@@ -4526,7 +4526,7 @@ declare namespace LocalJSX {
         /**
           * icon height (optional)
          */
-        "height"?: number;
+        "height"?: number | string;
         /**
           * icon id (optional)
          */
@@ -4538,7 +4538,7 @@ declare namespace LocalJSX {
         /**
           * icon width (optional)
          */
-        "width"?: number;
+        "width"?: number | string;
     }
     interface ZInfoBox {
         /**
