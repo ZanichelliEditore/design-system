@@ -1,5 +1,5 @@
 import {newSpecPage} from "@stencil/core/testing";
-import {ZSectionTitleDividerPosition} from "../../beans";
+import {ZSectionTitleDividerPosition} from "../../../beans";
 import {ZSectionTitle} from "./index";
 
 describe("Suite test ZNotification", () => {

@@ -1,14 +1,18 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZSectionTitle} from ".";
-import {ZSectionTitleDividerPosition} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {ZSectionTitleDividerPosition} from "../../../beans";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../../utils/storybook-utils";
 import "./index";
 
 type ZSectionTitleStoriesArgs = ZSectionTitle & CSSVarsArguments<"z-section-title--divider-color">;
 
+/**
+ * ⚠️ This component is **deprecated** and may be removed soon.
+ * Use the typography tokens or classes instead (see `Typography/Typography classes` section).
+ */
 const StoryMeta = {
-  title: "ZSectionTitle",
+  title: "Deprecated/ZSectionTitle",
   component: "z-section-title",
   argTypes: {
     "dividerPosition": {

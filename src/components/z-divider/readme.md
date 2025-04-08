@@ -19,7 +19,7 @@
  - [z-breadcrumb](../z-breadcrumb)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
- - [z-section-title](../z-section-title)
+ - [z-section-title](../deprecated/z-section-title)
  - [z-select](../z-select)
 
 ### Graph

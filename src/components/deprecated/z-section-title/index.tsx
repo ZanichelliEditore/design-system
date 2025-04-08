@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop} from "@stencil/core";
-import {DividerSize, ZSectionTitleDividerPosition} from "../../beans";
+import {DividerSize, ZSectionTitleDividerPosition} from "../../../beans";
 
 /**
  * Section title component.

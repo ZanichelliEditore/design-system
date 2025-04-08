@@ -28,7 +28,7 @@ An optional secondary title can be put over the primary one.
 
 ### Depends on
 
-- [z-divider](../z-divider)
+- [z-divider](../../z-divider)
 
 ### Graph
 ```mermaid

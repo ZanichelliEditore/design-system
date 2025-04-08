@@ -1,6 +1,6 @@
 import {StoryObj} from "@storybook/web-components";
 import {html} from "lit";
-import "../../src/components/z-section-title/index";
+import "../../src/components/deprecated/z-section-title/index";
 import {getPalettes, getThemeColorTokens} from "../../src/utils/storybook-utils";
 import "./index.stories.css";
 
