@@ -21,13 +21,13 @@
 
 ## Properties
 
-| Property | Attribute | Description            | Type     | Default     |
-| -------- | --------- | ---------------------- | -------- | ----------- |
-| `fill`   | `fill`    | icon fill (optional)   | `string` | `undefined` |
-| `height` | `height`  | icon height (optional) | `number` | `undefined` |
-| `iconid` | `iconid`  | icon id (optional)     | `string` | `undefined` |
-| `name`   | `name`    | icon name              | `string` | `undefined` |
-| `width`  | `width`   | icon width (optional)  | `number` | `undefined` |
+| Property | Attribute | Description            | Type               | Default     |
+| -------- | --------- | ---------------------- | ------------------ | ----------- |
+| `fill`   | `fill`    | icon fill (optional)   | `string`           | `undefined` |
+| `height` | `height`  | icon height (optional) | `number \| string` | `undefined` |
+| `iconid` | `iconid`  | icon id (optional)     | `string`           | `undefined` |
+| `name`   | `name`    | icon name              | `string`           | `undefined` |
+| `width`  | `width`   | icon width (optional)  | `number \| string` | `undefined` |
 
 
 ## Dependencies
