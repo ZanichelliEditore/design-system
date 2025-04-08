@@ -73,6 +73,7 @@
  - [z-toggle-button](../z-toggle-button)
  - [z-toggle-switch](../z-toggle-switch)
  - [z-tr](../table/z-tr)
+ - [z-tree-list](../list/z-tree-list)
 
 ### Graph
 ```mermaid
@@ -116,6 +117,7 @@ graph TD;
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
   z-tr --> z-icon
+  z-tree-list --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
