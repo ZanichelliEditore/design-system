@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.2.1 (2025-04-09)
+
+
+### Bug Fixes
+
+* fix z-date-picker capturing target ([2acbe8f](https://github.com/ZanichelliEditore/design-system/commit/2acbe8f79acfd9b9a764f30aad5f2f3eb8bc1046))
+
 ## 18.2.0 (2025-04-08)
 
 ## 18.1.1 (2025-04-01)
