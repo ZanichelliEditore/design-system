@@ -56,7 +56,7 @@ export class ZDatePicker {
     this.dateSelect.emit(date);
   }
 
-  @Listen("keydown", {target: "body", capture: true})
+  @Listen("keydown", {capture: true})
   handleKeyDown(ev: KeyboardEvent): void {
     if (ev.key === "Escape") {
       this.picker?.close();
