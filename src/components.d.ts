@@ -86,6 +86,10 @@ export namespace Components {
          */
         "autoCurrent": boolean;
         /**
+          * Sets the label of the button displayed on mobile viewport when the anchor navigation is collapsed
+         */
+        "collapsedLabel": string;
+        /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected": boolean;
@@ -3725,6 +3729,10 @@ declare namespace LocalJSX {
           * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
          */
         "autoCurrent"?: boolean;
+        /**
+          * Sets the label of the button displayed on mobile viewport when the anchor navigation is collapsed
+         */
+        "collapsedLabel"?: string;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
