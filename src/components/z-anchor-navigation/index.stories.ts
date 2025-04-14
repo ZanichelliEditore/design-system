@@ -11,6 +11,7 @@ const StoryMeta = {
   component: "z-anchor-navigation",
   args: {
     hideUnselected: false,
+    collapsedLabel: "salta a",
   },
 } satisfies Meta<ZAnchorNavigation>;
 
@@ -19,7 +20,10 @@ export default StoryMeta;
 export const Default = {
   render: (args) => html`
     <div class="z-anchor-navigation-story-wrapper">
-      <z-anchor-navigation .hideUnselected=${args.hideUnselected}>
+      <z-anchor-navigation
+        collapsed-label=${args.collapsedLabel}
+        .hideUnselected=${args.hideUnselected}
+      >
         <div>
           <a
             href="#first-section"
@@ -219,6 +223,7 @@ export const AutoCurrentDisabling = {
     </div>
     <div class="z-anchor-navigation-story-wrapper">
       <z-anchor-navigation
+        collapsed-label=${args.collapsedLabel}
         .hideUnselected=${args.hideUnselected}
         .autoCurrent=${args.autoCurrent}
       >
