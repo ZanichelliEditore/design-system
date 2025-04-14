@@ -300,6 +300,28 @@
   .mobile-section-title-6 {
     font: var(--section-title-6);
   }
+
+  .mobile-heading-1-lt,
+  .mobile-heading-2-lt,
+  .mobile-heading-3-lt,
+  .mobile-heading-4-lt {
+    font-weight: var(--font-lt);
+  }
+
+  .mobile-heading-1-sb,
+  .mobile-heading-2-sb,
+  .mobile-heading-3-sb,
+  .mobile-heading-4-sb,
+  .mobile-body-1-sb,
+  .mobile-body-2-sb,
+  .mobile-body-3-sb,
+  .mobile-body-4-sb,
+  .mobile-body-5-sb,
+  .mobile-interactive-1-sb,
+  .mobile-interactive-2-sb,
+  .mobile-interactive-3-sb {
+    font-weight: var(--font-sb);
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1151px) {
@@ -417,6 +439,28 @@
 
   .tablet-section-title-6 {
     font: var(--section-title-6);
+  }
+
+  .tablet-heading-1-lt,
+  .tablet-heading-2-lt,
+  .tablet-heading-3-lt,
+  .tablet-heading-4-lt {
+    font-weight: var(--font-lt);
+  }
+
+  .tablet-heading-1-sb,
+  .tablet-heading-2-sb,
+  .tablet-heading-3-sb,
+  .tablet-heading-4-sb,
+  .tablet-body-1-sb,
+  .tablet-body-2-sb,
+  .tablet-body-3-sb,
+  .tablet-body-4-sb,
+  .tablet-body-5-sb,
+  .tablet-interactive-1-sb,
+  .tablet-interactive-2-sb,
+  .tablet-interactive-3-sb {
+    font-weight: var(--font-sb);
   }
 }
 
@@ -536,6 +580,28 @@
   .desktop-section-title-6 {
     font: var(--section-title-6);
   }
+
+  .desktop-heading-1-lt,
+  .desktop-heading-2-lt,
+  .desktop-heading-3-lt,
+  .desktop-heading-4-lt {
+    font-weight: var(--font-lt);
+  }
+
+  .desktop-heading-1-sb,
+  .desktop-heading-2-sb,
+  .desktop-heading-3-sb,
+  .desktop-heading-4-sb,
+  .desktop-body-1-sb,
+  .desktop-body-2-sb,
+  .desktop-body-3-sb,
+  .desktop-body-4-sb,
+  .desktop-body-5-sb,
+  .desktop-interactive-1-sb,
+  .desktop-interactive-2-sb,
+  .desktop-interactive-3-sb {
+    font-weight: var(--font-sb);
+  }
 }
 
 @media (min-width: 1366px) {
@@ -653,6 +719,28 @@
 
   .wide-section-title-6 {
     font: var(--section-title-6);
+  }
+
+  .wide-heading-1-lt,
+  .wide-heading-2-lt,
+  .wide-heading-3-lt,
+  .wide-heading-4-lt {
+    font-weight: var(--font-lt);
+  }
+
+  .wide-heading-1-sb,
+  .wide-heading-2-sb,
+  .wide-heading-3-sb,
+  .wide-heading-4-sb,
+  .wide-body-1-sb,
+  .wide-body-2-sb,
+  .wide-body-3-sb,
+  .wide-body-4-sb,
+  .wide-body-5-sb,
+  .wide-interactive-1-sb,
+  .wide-interactive-2-sb,
+  .wide-interactive-3-sb {
+    font-weight: var(--font-sb);
   }
 }
 
