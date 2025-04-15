@@ -39,6 +39,12 @@ export class ZAnchorNavigation {
   autoCurrent = true;
 
   /**
+   * Sets the label of the button displayed on mobile viewport when the anchor navigation is collapsed
+   */
+  @Prop()
+  collapsedLabel = "salta a";
+
+  /**
    * Whether the mobile list is collapsed.
    */
   @State()
@@ -91,7 +97,7 @@ export class ZAnchorNavigation {
           icon={this.collapsed ? "chevron-up" : "chevron-down"}
           onClick={this.toggleCollapsed.bind(this)}
         >
-          salta a
+          {this.collapsedLabel}
         </z-button>
         <nav ref={(el) => (this.nav = el)}>
           <slot></slot>
