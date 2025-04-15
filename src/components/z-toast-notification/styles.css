@@ -142,10 +142,10 @@
 
 :host > #external-container {
   display: flex;
+  min-height: calc(var(--space-unit) * 8.5);
   box-sizing: border-box;
-  align-items: flex-start;
   justify-content: space-between;
-  padding: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) 14px calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   border-radius: var(--border-size-large);
   box-shadow: var(--shadow-3);
   font-family: var(--font-family-sans);
@@ -154,58 +154,50 @@
   letter-spacing: 0.16px;
 }
 
-:host > #external-container.mobile-wrapped > #icon {
-  align-self: flex-start;
-}
-
-:host > #external-container.several-lines-padding {
-  padding: calc(var(--space-unit) * 2);
-}
-
-:host > #external-container > #flex-container {
+:host > #external-container > #inner-container {
   display: flex;
   width: 100%;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-:host > #external-container #text {
-  margin-right: calc(var(--space-unit) * 2);
+:host > #external-container #inner-container #text {
+  padding: var(--space-unit) 0;
   color: var(--color-text-inverse);
   letter-spacing: 0.16px;
   line-height: 20px;
-  text-align: left;
+  text-align: start;
 }
 
-:host > #external-container #text > .title {
+:host > #external-container #inner-container #text > .title {
   margin-right: calc(var(--space-unit) / 2);
-  font-weight: 600;
+  font-weight: var(--font-sb);
 }
 
-:host > #external-container.mobile-wrapped #button ::slotted(z-button) {
-  margin-top: calc(var(--space-unit) * 2);
+:host > #external-container #inner-container ::slotted([slot="button"]) {
+  margin-top: var(--space-unit);
 }
 
 :host > #external-container #icon {
-  display: flex;
-  height: 20px;
-  align-items: center;
-  margin-left: calc(var(--space-unit) * 2);
+  padding-top: var(--space-unit);
+  margin: 0 calc(var(--space-unit) / 4);
   cursor: pointer;
   fill: var(--color-inverse-icon);
 }
 
-z-icon {
-  display: inline-block;
-  vertical-align: 0;
+:host > #external-container #icon:focus-within {
+  margin: 0;
 }
 
-z-icon:focus {
+:host > #external-container #icon z-icon {
+  margin: 0 0 0 14px;
+}
+
+:host > #external-container #icon z-icon:focus {
+  display: inline-block;
   padding: calc(var(--space-unit) / 4);
   border-radius: 50%;
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
 }
 
 :host > #external-container.dark {
@@ -252,19 +244,18 @@ z-icon:focus {
     max-width: 50vw;
   }
 
-  :host > #external-container > #flex-container {
-    flex-wrap: nowrap;
+  :host > #external-container #inner-container {
+    flex-direction: row;
   }
 
-  :host > #external-container #text {
-    width: 100%;
+  :host > #external-container #inner-container ::slotted([slot="button"]) {
+    margin: 0 0 0 calc(var(--space-unit) * 2);
   }
 }
 
 /* Wide breakpoint */
 @media (min-width: 1366px) {
   :host {
-    width: unset;
     max-width: 33vw;
   }
 }

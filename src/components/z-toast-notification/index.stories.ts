@@ -5,6 +5,9 @@ import {ToastNotification, ToastNotificationTransition} from "../../beans";
 import "../z-button/index";
 import "./index";
 
+const longText =
+  "Testo decisamente lungo, che non sta su 1 sola riga. Questo testo occupa varie righe ed è un esempio di come vengono posizionati gli elementi in caso di testo lungo.";
+
 const template = (args): TemplateResult =>
   html`<div class="toast-container">
     <z-toast-notification
@@ -19,6 +22,7 @@ const template = (args): TemplateResult =>
       transition="${args.transition}"
     ></z-toast-notification>
   </div>`;
+
 const StoryMeta = {
   title: "ZToastNotification",
   component: "z-toast-notification",
@@ -49,6 +53,7 @@ const StoryMeta = {
   },
   render: (args) => template(args),
 } satisfies Meta<ZToastNotification>;
+
 export default StoryMeta;
 
 type Story = StoryObj<ZToastNotification>;
@@ -60,15 +65,17 @@ export const SlideInLeft = {
   },
 } satisfies Story;
 
-export const SlideInDown = {
+export const SlideInDownNoCloseButton = {
   args: {
     transition: ToastNotificationTransition.SLIDE_IN_DOWN,
+    closebutton: false,
   },
 } satisfies Story;
 
-export const SlideInUp = {
+export const SlideInUpLongText = {
   args: {
     transition: ToastNotificationTransition.SLIDE_IN_UP,
+    message: longText,
   },
 } satisfies Story;
 
@@ -81,6 +88,33 @@ export const SlottedButton = {
       <z-toast-notification
         heading="${args.heading}"
         message="${args.message}"
+        closebutton="${args.closebutton}"
+        autoclose="${args.autoclose}"
+        pauseonfocusloss="${args.pauseonfocusloss}"
+        type="${args.type}"
+        isdraggable="${args.isdraggable}"
+        draggablepercentage="${args.draggablepercentage}"
+        transition="${args.transition}"
+      >
+        <z-button
+          slot="button"
+          size="small"
+          variant="tertiary"
+          >button</z-button
+        >
+      </z-toast-notification>
+    </div>`,
+} satisfies Story;
+
+export const SlottedButtonLongText = {
+  args: {
+    transition: ToastNotificationTransition.SLIDE_IN_DOWN,
+  },
+  render: (args) =>
+    html`<div class="toast-container slotted-button">
+      <z-toast-notification
+        heading="Titolo abbastanza lungo"
+        message=${longText}
         closebutton="${args.closebutton}"
         autoclose="${args.autoclose}"
         pauseonfocusloss="${args.pauseonfocusloss}"

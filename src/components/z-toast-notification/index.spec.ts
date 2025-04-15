@@ -12,11 +12,13 @@ describe("Suite test ZToastNotification", () => {
     <z-toast-notification closebutton="true" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div id="external-container" tabindex="0">
-          <div id="text">
-            <span class="message"></span>
-          </div>
-          <div id="button">
-            <slot name="button"></slot>
+          <div id="inner-container">
+            <div id="text">
+              <span class="message"></span>
+            </div>
+            <div id="button">
+              <slot name="button"></slot>
+            </div>
           </div>
           <div id="icon">
             <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
@@ -44,16 +46,18 @@ describe("Suite test ZToastNotification", () => {
     <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div class="dark" id="external-container" tabindex="0">
-          <div id="text">
-            <span class="title">
-              Titolo
-            </span>
-            <span class="message">
-              descrizione della notifica
-            </span>
-          </div>
-          <div id="button">
-            <slot name="button"></slot>
+          <div id="inner-container">
+            <div id="text">
+              <span class="title">
+                Titolo
+              </span>
+              <span class="message">
+                descrizione della notifica
+              </span>
+            </div>
+            <div id="button">
+              <slot name="button"></slot>
+            </div>
           </div>
           <div id="icon">
             <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
@@ -83,16 +87,18 @@ describe("Suite test ZToastNotification", () => {
     <z-toast-notification class="slide-in-down" closebutton="true" draggablepercentage="10" heading="Titolo" message="descrizione della notifica" transition="slide-in-down" type="dark" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
       <mock:shadow-root>
         <div class="dark" id="external-container" tabindex="0">
-          <div id="text">
-            <span class="title">
-              Titolo
-            </span>
-            <span class="message">
-              descrizione della notifica
-            </span>
-          </div>
-          <div id="button">
-            <slot name="button"></slot>
+          <div id="inner-container">
+            <div id="text">
+              <span class="title">
+                Titolo
+              </span>
+              <span class="message">
+                descrizione della notifica
+              </span>
+            </div>
+            <div id="button">
+              <slot name="button"></slot>
+            </div>
           </div>
           <div id="icon">
             <z-icon height="15" name="multiply-circled" tabindex="0" width="15"></z-icon>
