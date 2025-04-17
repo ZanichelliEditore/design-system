@@ -1,19 +1,24 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
+import {styleMap} from "lit/directives/style-map.js";
 import {type ZPagination} from ".";
+import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "./index";
 
-const StoryMeta: Meta<ZPagination> = {
+type ZPaginationStoriesArgs = ZPagination &
+  CSSVarsArguments<"--z-pagination-background-color" | "--z-pagination-background-color-hover">;
+
+const StoryMeta = {
   title: "ZPagination",
   component: "z-pagination",
   argTypes: {
-    totalPages: {
+    "totalPages": {
       control: {
         type: "number",
         min: 1,
       },
     },
-    visiblePages: {
+    "visiblePages": {
       control: {
         type: "number",
         min: 1,
@@ -23,34 +28,38 @@ const StoryMeta: Meta<ZPagination> = {
         truthy: false,
       },
     },
-    skip: {
+    "skip": {
       control: {
         type: "number",
         min: 1,
       },
     },
-    edges: {
+    "edges": {
       if: {
         arg: "split",
         truthy: false,
       },
     },
-    split: {
+    "split": {
       control: {
         type: "number",
         min: 1,
       },
     },
+    "--z-pagination-background-color": getColorTokenArgConfig(),
+    "--z-pagination-background-color-hover": getColorTokenArgConfig(),
   },
   args: {
-    label: "",
-    navArrows: true,
-    totalPages: 201,
-    visiblePages: 5,
-    goToPage: false,
-    split: undefined,
-    skip: 0,
-    edges: false,
+    "label": "",
+    "navArrows": true,
+    "totalPages": 201,
+    "visiblePages": 5,
+    "goToPage": false,
+    "split": undefined,
+    "skip": 0,
+    "edges": false,
+    "--z-pagination-background-color": "var(--color-background)",
+    "--z-pagination-background-color-hover": "var(--color-surface01)",
   },
   render: (args) => html`
     <z-pagination
@@ -61,9 +70,13 @@ const StoryMeta: Meta<ZPagination> = {
       .skip=${args.skip}
       .goToPage=${args.goToPage}
       .edges=${args.edges}
+      style=${styleMap({
+        "--z-pagination-background-color": args["--z-pagination-background-color"],
+        "--z-pagination-background-color-hover": args["--z-pagination-background-color-hover"],
+      })}
     ></z-pagination>
   `,
-} satisfies Meta<ZPagination>;
+} satisfies Meta<ZPaginationStoriesArgs>;
 
 export default StoryMeta;
 

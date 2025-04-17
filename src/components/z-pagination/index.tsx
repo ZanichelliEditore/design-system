@@ -3,6 +3,8 @@ import {InputType} from "../../beans";
 
 /**
  * Pagination bar component.
+ * @cssprop --z-pagination-background-color - backgrounf of the pagination's tabs. The default is --color-background
+ * @cssprop --z-pagination-background-color-hover - backgrounf of the pagination's tabs on hover or focus. The default is --color-surface01
  */
 @Component({
   tag: "z-pagination",

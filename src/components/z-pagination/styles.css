@@ -1,6 +1,8 @@
 z-pagination {
   --z-pagination--page-button-width: 64px;
   --z-pagination--pages-container-max-width: 100%;
+  --z-pagination-background-color: var(--color-background);
+  --z-pagination-background-color-hover: var(--color-surface01);
 
   display: flex;
   max-width: 100%;
@@ -45,7 +47,7 @@ z-pagination .pagination-bar button {
   justify-content: center;
   border: none;
   margin: 0;
-  background-color: var(--color-background);
+  background-color: var(--z-pagination-background-color);
   color: var(--color-primary01);
   cursor: pointer;
   font-family: inherit;
@@ -176,7 +178,7 @@ z-pagination .mobile-go-to-page > span {
 
 @media (hover: hover) {
   z-pagination .pagination-bar button:hover {
-    background-color: var(--color-surface01);
+    background-color: var(--z-pagination-background-color-hover);
   }
 
   z-pagination .pagination-bar .page-button:hover {
