@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.3.1 (2025-04-18)
+
+
+### Bug Fixes
+
+* **LAZE-1362:** fix elements positioning ([e9d8b7e](https://github.com/ZanichelliEditore/design-system/commit/e9d8b7e1f5bce14f46e80e1b14204a1cf27373d0))
+
 ## 18.3.0 (2025-04-15)
 
 ## 18.2.1 (2025-04-09)
