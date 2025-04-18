@@ -54,6 +54,14 @@ export class ZRangePicker {
   @Prop()
   lastPickerPlaceholder = "";
 
+  /** First picker value */
+  @Prop()
+  firstPickerValue?: string;
+
+  /** Last picker value */
+  @Prop()
+  lastPickerValue?: string;
+
   @State()
   flatpickrPosition: ZDatePickerPosition = ZDatePickerPosition.BOTTOM;
 
@@ -443,6 +451,7 @@ export class ZRangePicker {
           <div class={`${this.rangePickerId}-1-container`}>
             <z-input
               {...zInputProps}
+              value={this.firstPickerValue}
               placeholder={this.firstPickerPlaceholder}
               readonly={this.firstPickerReadOnly}
               data-input="data-input"
@@ -460,6 +469,7 @@ export class ZRangePicker {
           <div class={`${this.rangePickerId}-2-container`}>
             <z-input
               {...zInputProps}
+              value={this.lastPickerValue}
               placeholder={this.lastPickerPlaceholder}
               readonly={this.lastPickerReadOnly}
               data-input="data-input"
