@@ -358,6 +358,7 @@ export class ZPagination {
 
     this.setPagesContainerWidth();
     this.setMobile();
+    this.scrollToPage();
   }
 
   render(): HTMLZPaginationElement {
