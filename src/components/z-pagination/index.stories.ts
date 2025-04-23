@@ -28,6 +28,12 @@ const StoryMeta = {
         truthy: false,
       },
     },
+    "currentPage": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+    },
     "skip": {
       control: {
         type: "number",
@@ -54,6 +60,7 @@ const StoryMeta = {
     "navArrows": true,
     "totalPages": 201,
     "visiblePages": 5,
+    "currentPage": 1,
     "goToPage": false,
     "split": undefined,
     "skip": 0,
@@ -68,6 +75,7 @@ const StoryMeta = {
       .totalPages=${args.totalPages}
       .visiblePages=${args.visiblePages}
       .skip=${args.skip}
+      .currentPage=${args.currentPage}
       .goToPage=${args.goToPage}
       .edges=${args.edges}
       style=${styleMap({
