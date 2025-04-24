@@ -71,59 +71,63 @@ type Story = StoryObj<ZInput>;
 
 export const AllProps = {
   render: (args) => html`
-    <z-input
-      type=${args.type}
-      label=${args.label}
-      aria-label=${args.ariaLabel}
-      .labelPosition=${args.labelPosition}
-      placeholder=${args.placeholder}
-      value=${args.value}
-      name=${args.name}
-      status=${args.status}
-      message=${args.message}
-      icon=${args.icon}
-      .disabled=${args.disabled}
-      .readonly=${args.readonly}
-      .required=${args.required}
-      .checked=${args.checked}
-      hasclearicon=${args.hasclearicon}
-      htmlid=${args.htmlid}
-      htmltitle=${args.htmltitle}
-      .autocomplete=${args.autocomplete}
-      min=${args.min}
-      minlength=${args.minlength}
-      max=${args.max}
-      maxlength=${args.maxlength}
-      step=${args.step}
-      pattern=${args.pattern}
-      size=${args.size}
-    ></z-input>
+    <div style="width:50%">
+      <z-input
+        type=${args.type}
+        label=${args.label}
+        aria-label=${args.ariaLabel}
+        .labelPosition=${args.labelPosition}
+        placeholder=${args.placeholder}
+        value=${args.value}
+        name=${args.name}
+        status=${args.status}
+        message=${args.message}
+        icon=${args.icon}
+        .disabled=${args.disabled}
+        .readonly=${args.readonly}
+        .required=${args.required}
+        .checked=${args.checked}
+        hasclearicon=${args.hasclearicon}
+        htmlid=${args.htmlid}
+        htmltitle=${args.htmltitle}
+        .autocomplete=${args.autocomplete}
+        min=${args.min}
+        minlength=${args.minlength}
+        max=${args.max}
+        maxlength=${args.maxlength}
+        step=${args.step}
+        pattern=${args.pattern}
+        size=${args.size}
+      ></z-input>
+    </div>
   `,
 } satisfies Story;
 
 export const ZInputText = {
   render: (args) => html`
-    <z-input
-      type=${args.type}
-      label=${args.label}
-      aria-label=${args.ariaLabel}
-      placeholder=${args.placeholder}
-      value=${args.value}
-      name=${args.name}
-      status=${args.status}
-      message=${args.message}
-      icon=${args.icon}
-      .disabled=${args.disabled}
-      .readonly=${args.readonly}
-      .required=${args.required}
-      hasclearicon=${args.hasclearicon}
-      htmlid=${args.htmlid}
-      htmltitle=${args.htmltitle}
-      .autocomplete=${args.autocomplete}
-      size=${args.size}
-      minlength=${args.minlength}
-      maxlength=${args.maxlength}
-    ></z-input>
+    <div style="width:50%">
+      <z-input
+        type=${args.type}
+        label=${args.label}
+        aria-label=${args.ariaLabel}
+        placeholder=${args.placeholder}
+        value=${args.value}
+        name=${args.name}
+        status=${args.status}
+        message=${args.message}
+        icon=${args.icon}
+        .disabled=${args.disabled}
+        .readonly=${args.readonly}
+        .required=${args.required}
+        hasclearicon=${args.hasclearicon}
+        htmlid=${args.htmlid}
+        htmltitle=${args.htmltitle}
+        .autocomplete=${args.autocomplete}
+        size=${args.size}
+        minlength=${args.minlength}
+        maxlength=${args.maxlength}
+      ></z-input>
+    </div>
   `,
   parameters: {
     controls: {
