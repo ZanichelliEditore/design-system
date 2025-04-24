@@ -268,7 +268,6 @@ export class ZInput {
       maxlength: this.maxlength,
       class: {
         [`input-${this.status}`]: !!this.status,
-        ellipsis: !this.value,
       },
       autocomplete: this.autocomplete,
       onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
@@ -343,7 +342,7 @@ export class ZInput {
     if (this.icon || type === InputType.PASSWORD) {
       Object.assign(attr.class, {"has-icon": true});
     }
-    if (this.hasclearicon && type != InputType.NUMBER) {
+    if (this.hasclearicon && type != InputType.NUMBER && !!this.value) {
       Object.assign(attr.class, {"has-clear-icon": true});
     }
 

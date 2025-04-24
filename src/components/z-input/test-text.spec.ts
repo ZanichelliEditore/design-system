@@ -15,7 +15,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="big">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-clear-icon ellipsis" type="text" />
+              <input id="id" type="text" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="big" name="multiply"></z-icon>
@@ -36,7 +36,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="small">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-clear-icon ellipsis" type="text" />
+              <input id="id" type="text" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="small" name="multiply"></z-icon>
@@ -57,7 +57,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="x-small">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-clear-icon ellipsis" type="text" />
+              <input id="id" type="text" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="x-small" name="multiply"></z-icon>
@@ -223,7 +223,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="big" type="password">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-clear-icon has-icon ellipsis" type="password" />
+              <input id="id" class="has-icon" type="password" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -249,7 +249,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="big" type="password">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-clear-icon has-icon ellipsis" type="text" />
+              <input id="id" class="has-icon" type="text" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -323,7 +323,7 @@ describe("Suite test ZInput - text", () => {
       <z-input htmlid="id" icon="pdf" size="big">
           <div class="text-wrapper">
             <div>
-              <input id="id" class="has-icon has-clear-icon ellipsis" type="text" />
+              <input id="id" class="has-icon" type="text" />
               <span class="icons-wrapper">
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -346,7 +346,7 @@ describe("Suite test ZInput - text", () => {
       <z-input htmlid="test" max="10" message="false" min="1" size="big" step="2" type="number">
         <div class="text-wrapper">
           <div>
-            <input id="test" class="ellipsis" max="10" min="1" step="2" type="number">
+            <input id="test" max="10" min="1" step="2" type="number">
             <span class="icons-wrapper">
               <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="big" name="multiply"></z-icon>

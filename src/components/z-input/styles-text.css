@@ -12,12 +12,6 @@
   margin: 0;
 }
 
-.text-wrapper > div > input.ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 :host([size="small"]) .text-wrapper > div > input {
   height: calc(var(--space-unit) * 4.5);
 }
