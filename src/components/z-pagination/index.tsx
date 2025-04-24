@@ -157,17 +157,19 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   private scrollToPage(): void {
+    const container = this.host.querySelector(".pages-container") as HTMLElement;
     const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
+    const navBtn = this.host.querySelector(".navigation-button") as HTMLElement;
+
+    const wContainer = container.getBoundingClientRect().width;
+    const wNavBtn = navBtn.getBoundingClientRect().width;
+    const wPageBtn = pageBtn.getBoundingClientRect().width;
 
     if (!pageBtn) {
       return;
     }
 
-    pageBtn.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    container.scrollLeft = this.currentPage * wPageBtn - wNavBtn - wContainer / 2;
   }
 
   /**
