@@ -75,7 +75,7 @@ button:focus:focus-visible {
 
 .z-info-reveal-panel {
   position: absolute;
-  z-index: 99;
+  z-index: 19;
   display: flex;
   width: var(--z-info-reveal-panel-width);
   height: fit-content;
@@ -122,12 +122,9 @@ button:focus:focus-visible {
 
 @media (max-width: 767px) {
   .z-info-reveal-panel {
-    position: fixed;
     top: auto !important;
     bottom: auto !important;
-    left: var(--grid-margin) !important;
-    width: calc(100% - (var(--grid-margin) * 2)) !important;
-    max-width: none !important;
+    width: calc(var(--z-info-reveal-panel-width) - (var(--grid-margin) * 4)) !important;
     margin-top: calc(var(--trigger-size) * -1);
   }
 }
