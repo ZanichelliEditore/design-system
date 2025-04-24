@@ -268,6 +268,7 @@ export class ZInput {
       maxlength: this.maxlength,
       class: {
         [`input-${this.status}`]: !!this.status,
+        ellipsis: !this.value,
       },
       autocomplete: this.autocomplete,
       onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
