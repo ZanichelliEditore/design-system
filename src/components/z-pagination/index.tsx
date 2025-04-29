@@ -161,15 +161,15 @@ export class ZPagination {
     const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
     const navBtn = this.host.querySelector(".navigation-button") as HTMLElement;
 
-    const wContainer = container.getBoundingClientRect().width;
-    const wNavBtn = navBtn.getBoundingClientRect().width;
-    const wPageBtn = pageBtn.getBoundingClientRect().width;
-
-    if (!pageBtn) {
+    if (!pageBtn || !container) {
       return;
     }
 
-    container.scrollLeft = this.currentPage * wPageBtn - wNavBtn - wContainer / 2;
+    const containerWidth = container.getBoundingClientRect().width;
+    const pageBtnWidth = pageBtn.getBoundingClientRect().width;
+    const navBtnWidth = navBtn?.getBoundingClientRect()?.width ?? 0;
+
+    container.scrollLeft = this.currentPage * pageBtnWidth - navBtnWidth - containerWidth / 2;
   }
 
   /**
