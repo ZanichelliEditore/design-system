@@ -1,0 +1,10 @@
+.z-label {
+  display: block;
+  padding-bottom: var(--space-unit);
+  color: var(--color-default-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-sb);
+  text-align: left;
+  text-transform: uppercase;
+}
