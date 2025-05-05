@@ -1,3 +1,5 @@
+@import "../css-components/z-label/styles.css";
+
 :host {
   display: block;
   color: var(--color-form-default-text);
@@ -109,7 +111,7 @@
   box-shadow: var(--shadow-2);
 }
 
-:host .open .open-combo-data z-input .input-label {
+:host .open .open-combo-data z-input .z-label {
   color: var(--color-form-default-text);
 }
 
