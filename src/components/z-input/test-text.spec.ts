@@ -77,7 +77,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label">
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -120,7 +120,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" disabled>
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input disabled class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -142,7 +142,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" value="value" label="label" readonly size="big">
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input readonly class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -164,7 +164,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" message="helper message">
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -187,7 +187,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="success" message="success message">
           <div class="text-wrapper">
-            <label class="body-5-sb input-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
               <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">

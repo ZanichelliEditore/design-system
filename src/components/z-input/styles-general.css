@@ -159,18 +159,6 @@ textarea::placeholder {
   color: var(--color-form-placeholder-text);
 }
 
-/* LABEL */
-label.input-label {
-  display: block;
-  padding-bottom: var(--space-unit);
-  color: var(--color-default-text);
-  font-family: var(--font-family-sans);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-sb);
-  text-align: left;
-  text-transform: uppercase;
-}
-
-:host([disabled]:not([disabled="false"])) label.input-label {
+:host([disabled]:not([disabled="false"])) label.z-label {
   color: var(--color-disabled03);
 }

@@ -430,7 +430,7 @@ export class ZPagination {
         </div>
         {this.goToPage && (
           <div class="go-to-page">
-            <span class="label body-5-sb">Vai a pagina:</span>
+            <span class="z-label body-5-sb">Vai a pagina:</span>
             <div class="inputs">
               <z-input
                 class="go-to-page-input"
