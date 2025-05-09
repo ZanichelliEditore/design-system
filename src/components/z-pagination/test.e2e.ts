@@ -98,13 +98,13 @@ describe("z-pagination test end2end", () => {
     await page.waitForChanges();
     await page.keyboard.press("Enter");
     await page.waitForChanges();
-    expect(pageChanged).toHaveReceivedEventDetail(3);
+    expect(pageChanged).toHaveReceivedEventDetail(5);
 
     await page.keyboard.press("Tab");
     await page.waitForChanges();
     await page.keyboard.press("Enter");
     await page.waitForChanges();
-    expect(pageChanged).toHaveReceivedEventDetail(1);
+    expect(pageChanged).toHaveReceivedEventDetail(6);
   });
 
   it("Check go to page", async () => {

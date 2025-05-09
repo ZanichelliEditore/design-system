@@ -1589,6 +1589,8 @@ export namespace Components {
     }
     /**
      * Pagination bar component.
+     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
+     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface ZPagination {
         /**
@@ -3223,6 +3225,8 @@ declare global {
     }
     /**
      * Pagination bar component.
+     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
+     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5381,6 +5385,8 @@ declare namespace LocalJSX {
     }
     /**
      * Pagination bar component.
+     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
+     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface ZPagination {
         /**
@@ -6346,6 +6352,8 @@ declare module "@stencil/core" {
             "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**
              * Pagination bar component.
+             * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
+             * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
              */
             "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
