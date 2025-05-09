@@ -1717,6 +1717,10 @@ export namespace Components {
          */
         "firstPickerReadOnly": boolean;
         /**
+          * First picker value
+         */
+        "firstPickerValue"?: string;
+        /**
           * readonly mode
          */
         "lastPickerPlaceholder": string;
@@ -1724,6 +1728,10 @@ export namespace Components {
           * readonly mode
          */
         "lastPickerReadOnly": boolean;
+        /**
+          * Last picker value
+         */
+        "lastPickerValue"?: string;
         /**
           * [Optional] datepicker mode: date or datetime
          */
@@ -5521,6 +5529,10 @@ declare namespace LocalJSX {
          */
         "firstPickerReadOnly"?: boolean;
         /**
+          * First picker value
+         */
+        "firstPickerValue"?: string;
+        /**
           * readonly mode
          */
         "lastPickerPlaceholder"?: string;
@@ -5528,6 +5540,10 @@ declare namespace LocalJSX {
           * readonly mode
          */
         "lastPickerReadOnly"?: boolean;
+        /**
+          * Last picker value
+         */
+        "lastPickerValue"?: string;
         /**
           * [Optional] datepicker mode: date or datetime
          */
