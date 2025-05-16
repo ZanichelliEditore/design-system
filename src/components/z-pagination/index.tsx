@@ -3,6 +3,8 @@ import {InputType} from "../../beans";
 
 /**
  * Pagination bar component.
+ * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
+ * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
  */
 @Component({
   tag: "z-pagination",
@@ -155,17 +157,19 @@ export class ZPagination {
    * Scroll to the left the chunk of pages containing the current page.
    */
   private scrollToPage(): void {
+    const container = this.host.querySelector(".pages-container") as HTMLElement;
     const pageBtn = this.host.querySelector(`[data-page="${this.currentPage}"]`) as HTMLElement;
+    const navBtn = this.host.querySelector(".navigation-button") as HTMLElement;
 
-    if (!pageBtn) {
+    if (!pageBtn || !container) {
       return;
     }
 
-    pageBtn.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    const containerWidth = container.getBoundingClientRect().width;
+    const pageBtnWidth = pageBtn.getBoundingClientRect().width;
+    const navBtnWidth = navBtn?.getBoundingClientRect()?.width ?? 0;
+
+    container.scrollLeft = this.currentPage * pageBtnWidth - navBtnWidth - containerWidth / 2;
   }
 
   /**
@@ -356,6 +360,7 @@ export class ZPagination {
 
     this.setPagesContainerWidth();
     this.setMobile();
+    this.scrollToPage();
   }
 
   render(): HTMLZPaginationElement {
