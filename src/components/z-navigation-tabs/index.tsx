@@ -100,16 +100,28 @@ export class ZNavigationTabs {
    * Scroll into view to center the tab.
    */
   private scrollToTab(tabElement: HTMLElement): void {
-    const scrollOptions = (
-      this.orientation === NavigationTabsOrientation.HORIZONTAL
-        ? {block: "nearest", inline: "center"}
-        : {block: "center", inline: "nearest"}
-    ) as ScrollIntoViewOptions;
+    const container = tabElement.parentElement;
 
-    tabElement.scrollIntoView({
-      behavior: "smooth",
-      ...scrollOptions,
-    });
+    if (!container) {
+      return;
+    }
+
+    setTimeout(() => {
+      const isHorizontal = this.orientation === NavigationTabsOrientation.HORIZONTAL;
+
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = tabElement.getBoundingClientRect();
+
+      const offset = isHorizontal ? tabRect.left - containerRect.left : tabRect.top - containerRect.top;
+      const containerSize = isHorizontal ? container.clientWidth : container.clientHeight;
+      const tabSize = isHorizontal ? tabElement.clientWidth : tabElement.clientHeight;
+      const scrollAmount = offset - containerSize / 2 + tabSize / 2;
+
+      container.scrollTo({
+        [isHorizontal ? "left" : "top"]: container[isHorizontal ? "scrollLeft" : "scrollTop"] + scrollAmount,
+        behavior: "smooth",
+      });
+    }, 100);
   }
 
   /**
