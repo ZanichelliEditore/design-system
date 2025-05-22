@@ -490,6 +490,7 @@ export class ZSelect {
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={this.hasAutocomplete()}
         message={false}
+        name={this.name}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}

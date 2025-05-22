@@ -54,6 +54,7 @@ const StoryMeta = {
     status: null,
     message: "helper text",
     size: ControlSize.BIG,
+    name: "select-name",
     disabled: false,
     readonly: false,
     htmlid: "",
