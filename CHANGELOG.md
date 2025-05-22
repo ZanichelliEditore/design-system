@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.3.3 (2025-05-22)
+
+
+### Bug Fixes
+
+* let z-select pass the name attribute to the inner z-input ([3d83d64](https://github.com/ZanichelliEditore/design-system/commit/3d83d6441cd69eda746cde78d3c04fabc8dd318d))
+
 ## 18.3.2 (2025-05-06)
 
 ## 18.3.1 (2025-04-18)
