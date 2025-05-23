@@ -31,12 +31,14 @@ ZBookCardApp component
 
 ### Depends on
 
+- [z-popover](../../z-popover)
 - [z-info-reveal](../../z-info-reveal)
 - [z-icon](../../z-icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  z-book-card-app --> z-popover
   z-book-card-app --> z-info-reveal
   z-book-card-app --> z-icon
   z-info-reveal --> z-icon

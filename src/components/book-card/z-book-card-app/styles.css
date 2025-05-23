@@ -19,6 +19,15 @@
   gap: calc(var(--space-unit) * 2);
 }
 
+:host z-popover {
+  --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
+  --z-popover-padding: calc(var(--space-unit) / 2);
+
+  z-index: 1;
+  margin: -1px 0 0 40px;
+}
+
 :host > div .app {
   display: flex;
   flex: 1;

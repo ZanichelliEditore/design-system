@@ -55,6 +55,7 @@ Popover component.
 
 ### Used by
 
+ - [z-book-card-app](../book-card/z-book-card-app)
  - [z-breadcrumb](../z-breadcrumb)
  - [z-file](../file-upload/z-file)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
@@ -65,6 +66,7 @@ Popover component.
 ### Graph
 ```mermaid
 graph TD;
+  z-book-card-app --> z-popover
   z-breadcrumb --> z-popover
   z-file --> z-popover
   z-myz-card-info --> z-popover

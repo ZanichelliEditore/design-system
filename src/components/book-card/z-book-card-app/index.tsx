@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
-import {ControlSize, InfoRevealPosition} from "../../../beans";
+import {ControlSize, InfoRevealPosition, PopoverPosition} from "../../../beans";
 
 /**
  * ZBookCardApp component
@@ -48,16 +48,41 @@ export class ZBookCardApp {
   @Event()
   appClick: EventEmitter;
 
+  private popover: HTMLZPopoverElement;
+
+  private appNameElem: HTMLDivElement;
+
+  private appNameText: HTMLDivElement;
+
+  private appNameLaz: HTMLDivElement;
+
   private emitAppClick(): void {
     this.appClick.emit();
   }
 
+  private elementHasEllipsis(): boolean {
+    return this.appNameElem.offsetWidth < this.appNameLaz?.offsetWidth + this.appNameText.offsetWidth;
+  }
+
   private renderLaz(): HTMLSpanElement | null {
     if (this.laz) {
-      return <span class="laz">laZ </span>;
+      return (
+        <span
+          ref={(val) => (this.appNameLaz = val as HTMLDivElement)}
+          class="laz"
+        >
+          laZ{" "}
+        </span>
+      );
     }
 
     return null;
+  }
+
+  private togglePopover(): void {
+    if (!this.popover.open) {
+      this.popover.open = true;
+    }
   }
 
   render(): HTMLZBookCardAppElement {
@@ -69,6 +94,9 @@ export class ZBookCardApp {
           aria-label={`vai a ${this.laz ? "laz" : ""} ${this.name}`}
           onClick={() => this.emitAppClick()}
           target="_blank"
+          onMouseOver={() => {
+            this.elementHasEllipsis() && this.togglePopover();
+          }}
         >
           {this.logo && (
             <img
@@ -76,9 +104,21 @@ export class ZBookCardApp {
               alt=""
             />
           )}
-          <div class="name body-4-sb">
+          <div
+            class="name body-4-sb"
+            ref={(val) => (this.appNameElem = val as HTMLDivElement)}
+          >
             {this.renderLaz()}
-            {this.name}
+            <span ref={(val) => (this.appNameText = val as HTMLDivElement)}>{this.name}</span>
+            <z-popover
+              bindTo={this.appNameElem}
+              position={PopoverPosition.BOTTOM_RIGHT}
+              ref={(val) => (this.popover = val as HTMLZPopoverElement)}
+              closable
+              showArrow
+            >
+              <div>{this.name}</div>
+            </z-popover>
           </div>
         </a>
         {this.info && (
