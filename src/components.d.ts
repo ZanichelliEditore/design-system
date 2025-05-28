@@ -1749,6 +1749,14 @@ export namespace Components {
          */
         "author"?: string;
         /**
+          * The subtitle of the opera.
+         */
+        "cardSubtitle": string;
+        /**
+          * The title of the opera.
+         */
+        "cardTitle": string;
+        /**
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
         "cover"?: string;
@@ -1761,17 +1769,9 @@ export namespace Components {
          */
         "isInfoPage": boolean;
         /**
-          * The subtitle of the opera.
-         */
-        "operaSubtitle": string;
-        /**
           * Tags associated with the opera. This is a string array that can be used to display tags in the component.
          */
         "operaTags"?: string[];
-        /**
-          * The title of the opera.
-         */
-        "operaTitle": string;
         /**
           * The label for the volumes. This is used to display the number of volumes or a related message.
          */
@@ -5602,6 +5602,14 @@ declare namespace LocalJSX {
          */
         "author"?: string;
         /**
+          * The subtitle of the opera.
+         */
+        "cardSubtitle"?: string;
+        /**
+          * The title of the opera.
+         */
+        "cardTitle"?: string;
+        /**
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
         "cover"?: string;
@@ -5614,17 +5622,9 @@ declare namespace LocalJSX {
          */
         "isInfoPage"?: boolean;
         /**
-          * The subtitle of the opera.
-         */
-        "operaSubtitle"?: string;
-        /**
           * Tags associated with the opera. This is a string array that can be used to display tags in the component.
          */
         "operaTags"?: string[];
-        /**
-          * The title of the opera.
-         */
-        "operaTitle"?: string;
         /**
           * The label for the volumes. This is used to display the number of volumes or a related message.
          */

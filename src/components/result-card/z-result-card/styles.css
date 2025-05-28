@@ -29,7 +29,7 @@
   white-space: nowrap;
 }
 
-.opera-title {
+.card-title {
   display: -webkit-box;
   overflow: hidden;
   min-width: 0;
@@ -46,7 +46,7 @@
   word-break: break-word;
 }
 
-.opera-subtitle {
+.card-subtitle {
   overflow: hidden;
   color: var(--color-default-text);
   text-overflow: ellipsis;
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 768px) {
-  .opera-title {
+  .card-title {
     display: block;
     overflow: hidden;
     max-height: unset;

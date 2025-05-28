@@ -18,13 +18,13 @@ export class ZResultCard {
    * The title of the opera.
    */
   @Prop()
-  operaTitle: string;
+  cardTitle: string;
 
   /**
    * The subtitle of the opera.
    */
   @Prop()
-  operaSubtitle: string;
+  cardSubtitle: string;
 
   /**
    * Tags associated with the opera.
@@ -85,8 +85,8 @@ export class ZResultCard {
         </div>
         <div class="info-container">
           <div class="author-label">{this.author}</div>
-          <div class="opera-title">{this.operaTitle}</div>
-          <div class="opera-subtitle">{this.operaSubtitle}</div>
+          <div class="card-title">{this.cardTitle}</div>
+          <div class="card-subtitle">{this.cardSubtitle}</div>
           <div class="tags-container">
             <slot name="tags"></slot>
           </div>
