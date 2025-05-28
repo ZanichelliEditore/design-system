@@ -12,7 +12,7 @@ export class ZResultCard {
    * The author of the opera.
    */
   @Prop()
-  author: string;
+  author?: string;
 
   /**
    * The title of the opera.
@@ -31,21 +31,21 @@ export class ZResultCard {
    * This is a string array that can be used to display tags in the component.
    */
   @Prop()
-  operaTags: string[];
+  operaTags?: string[];
 
   /**
    * The label for the volumes.
    * This is used to display the number of volumes or a related message.
    */
   @Prop()
-  volumesLabel: string;
+  volumesLabel?: string;
 
   /**
    * The URL of the cover image.
    * This is used to display the cover image of the opera.
    */
   @Prop()
-  cover: string;
+  cover?: string;
 
   /**
    * Indicates whether the card has multiple covers.
@@ -61,7 +61,7 @@ export class ZResultCard {
   @Prop()
   isInfoPage = false;
 
-  render(): HTMLZResultCardElement {
+  private renderOperaCard = (): HTMLZResultCardElement => {
     return (
       <Host
         onClick={() => {
@@ -96,5 +96,25 @@ export class ZResultCard {
         </div>
       </Host>
     );
+  };
+
+  private renderInfoCard = (): HTMLZResultCardElement => {
+    return (
+      <Host
+        onClick={() => {
+          console.log("Card clicked");
+        }}
+      >
+        <div>Info Card</div>
+      </Host>
+    );
+  };
+
+  render(): HTMLZResultCardElement {
+    if (this.isInfoPage) {
+      return this.renderInfoCard();
+    }
+
+    return this.renderOperaCard();
   }
 }

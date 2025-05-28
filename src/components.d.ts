@@ -1747,11 +1747,11 @@ export namespace Components {
         /**
           * The author of the opera.
          */
-        "author": string;
+        "author"?: string;
         /**
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
-        "cover": string;
+        "cover"?: string;
         /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
@@ -1767,7 +1767,7 @@ export namespace Components {
         /**
           * Tags associated with the opera. This is a string array that can be used to display tags in the component.
          */
-        "operaTags": string[];
+        "operaTags"?: string[];
         /**
           * The title of the opera.
          */
@@ -1775,7 +1775,7 @@ export namespace Components {
         /**
           * The label for the volumes. This is used to display the number of volumes or a related message.
          */
-        "volumesLabel": string;
+        "volumesLabel"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
