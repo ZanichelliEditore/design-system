@@ -4,7 +4,7 @@
   min-width: 0;
   max-width: 500px;
   height: 175px;
-  border: 1px solid var(--color-surface02);
+  border: 2px solid var(--color-surface02);
   border-radius: var(--border-size-large);
   font-family: var(--font-family-sans);
 }
