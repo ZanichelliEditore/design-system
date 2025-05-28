@@ -1,0 +1,72 @@
+.z-cover-container {
+  position: relative;
+  display: flex;
+  width: 115px;
+  height: 175px;
+  align-items: center;
+  padding: var(--space-unit);
+}
+
+.z-cover-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Base sizes for single cover */
+.z-cover-shadow,
+.z-cover-img {
+  width: 115px;
+  min-width: 115px;
+  max-width: 115px;
+  height: 160px;
+  min-height: 160px;
+  max-height: 160px;
+}
+
+/* Scaled sizes for multiple covers */
+.z-cover-container.has-multiple .z-cover-shadow,
+.z-cover-container.has-multiple .z-cover-img {
+  width: 95px;
+  min-width: 95px;
+  max-width: 95px;
+  height: 140px;
+  min-height: 140px;
+  max-height: 140px;
+}
+
+.z-cover-shadow {
+  position: absolute;
+  z-index: 1;
+  background: #e0e0e0;
+  border-radius: var(--border-size-large);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.z-shadow-1 {
+  z-index: 1;
+  top: var(--space-unit);
+  right: var(--space-unit);
+  border: 1px solid var(--gray200);
+}
+
+.z-shadow-2 {
+  z-index: 0;
+  top: calc(var(--space-unit) * 2);
+  right: calc(var(--space-unit) * 2);
+  border: 1px solid var(--gray200);
+}
+
+.z-cover-img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  object-fit: cover;
+}
+
+.z-cover-container.has-multiple .z-cover-img {
+  right: 0;
+}

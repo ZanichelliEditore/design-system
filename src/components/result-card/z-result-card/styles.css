@@ -1,0 +1,63 @@
+:host {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 500px;
+  height: 175px;
+  border: 1px solid var(--color-surface02);
+  border-radius: var(--border-size-large);
+  font-family: var(--font-family-sans);
+}
+
+.info-container {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: var(--space-unit);
+}
+
+.author-label {
+  overflow: hidden;
+  color: var(--color-default-text);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-rg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opera-title {
+  display: -webkit-box;
+  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: var(--space-unit);
+  margin-bottom: 4px;
+  -webkit-box-orient: vertical;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-bd);
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+.tags-container {
+  display: flex;
+  margin-top: var(--space-unit);
+  gap: var(--space-unit);
+}
+
+.volumes-label {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+  .opera-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
