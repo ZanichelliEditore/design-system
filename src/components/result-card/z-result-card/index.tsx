@@ -63,7 +63,11 @@ export class ZResultCard {
 
   render(): HTMLZResultCardElement {
     return (
-      <Host>
+      <Host
+        onClick={() => {
+          console.log("Card clicked");
+        }}
+      >
         <div class={`z-cover-container ${this.hasMultipleCovers ? "has-multiple" : ""}`}>
           <div class="z-cover-stack">
             {this.hasMultipleCovers && (
