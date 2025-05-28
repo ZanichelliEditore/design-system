@@ -86,7 +86,9 @@ export class ZResultCard {
           <div class="tags-container">
             <slot name="tags"></slot>
           </div>
-          <span class="volumes-label">{this.volumesLabel}</span>
+          <div class="volumes-label">
+            <slot name="volumes"></slot>
+          </div>
         </div>
       </Host>
     );
