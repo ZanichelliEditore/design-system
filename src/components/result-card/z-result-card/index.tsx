@@ -72,8 +72,8 @@ export class ZResultCard {
           <div class="z-cover-stack">
             {this.hasMultipleCovers && (
               <div>
-                <div class="z-cover-shadow z-shadow-2"></div>
-                <div class="z-cover-shadow z-shadow-1"></div>
+                <div class="z-cover-shadow z-shadow-2" />
+                <div class="z-cover-shadow z-shadow-1" />
               </div>
             )}
             <img
@@ -84,7 +84,7 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          <div class="author-label">{this.author}</div>
+          {this.author && <div class="author-label">{this.author}</div>}
           <div class="card-title">{this.cardTitle}</div>
           <div class="card-subtitle">{this.cardSubtitle}</div>
           <div class="tags-container">
@@ -101,11 +101,25 @@ export class ZResultCard {
   private renderInfoCard = (): HTMLZResultCardElement => {
     return (
       <Host
+        class="info-card"
         onClick={() => {
           console.log("Card clicked");
         }}
       >
-        <div>Info Card</div>
+        <div class="info-icon-column">
+          <div class="info-icon-container">
+            <z-icon
+              class="info-icon"
+              name="link"
+              width={18}
+              height={18}
+            />
+          </div>
+        </div>
+        <div class="info-container">
+          <div class="card-title info-title">{this.cardTitle}</div>
+          <div class="card-subtitle info-subtitle">{this.cardSubtitle}</div>
+        </div>
       </Host>
     );
   };

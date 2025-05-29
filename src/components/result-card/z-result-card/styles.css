@@ -68,6 +68,66 @@
   font-size: var(--font-size-1);
 }
 
+:host(.info-card) {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  height: 75px;
+}
+
+.info-icon-column {
+  display: flex;
+  width: 50px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon-container {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: calc(var(--space-unit) * 3);
+  background-color: var(--gray50);
+  border-radius: var(--border-size-large);
+}
+
+.card-title.info-title {
+  display: -webkit-box;
+  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 2.4em;
+  margin-top: 0;
+  margin-bottom: 4px;
+  -webkit-box-orient: vertical;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-bd);
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.card-subtitle.info-subtitle {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.info-icon {
+  width: 18px; /* modificato per match con le props nel tsx */
+  height: 18px; /* modificato per match con le props nel tsx */
+  color: var(--color-default-text);
+}
+
 @media (max-width: 768px) {
   .card-title {
     display: block;
@@ -78,5 +138,13 @@
     line-height: normal;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .card-title.info-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    white-space: normal;
   }
 }
