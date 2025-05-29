@@ -1767,7 +1767,7 @@ export namespace Components {
         /**
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
-        "isInfoPage": boolean;
+        "isInfoCard": boolean;
         /**
           * Tags associated with the opera. This is a string array that can be used to display tags in the component.
          */
@@ -5620,7 +5620,7 @@ declare namespace LocalJSX {
         /**
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
-        "isInfoPage"?: boolean;
+        "isInfoCard"?: boolean;
         /**
           * Tags associated with the opera. This is a string array that can be used to display tags in the component.
          */

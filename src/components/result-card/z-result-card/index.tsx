@@ -1,4 +1,4 @@
-import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {Component, Element, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-result-card",
@@ -59,15 +59,11 @@ export class ZResultCard {
    * This can be used to apply specific styles or behaviors for info pages.
    */
   @Prop()
-  isInfoPage = false;
+  isInfoCard = false;
 
   private renderOperaCard = (): HTMLZResultCardElement => {
     return (
-      <Host
-        onClick={() => {
-          console.log("Card clicked");
-        }}
-      >
+      <Host tabIndex={0}>
         <div class={`z-cover-container ${this.hasMultipleCovers ? "has-multiple" : ""}`}>
           <div class="z-cover-stack">
             {this.hasMultipleCovers && (
@@ -101,10 +97,8 @@ export class ZResultCard {
   private renderInfoCard = (): HTMLZResultCardElement => {
     return (
       <Host
+        tabIndex={0}
         class="info-card"
-        onClick={() => {
-          console.log("Card clicked");
-        }}
       >
         <div class="info-icon-column">
           <div class="info-icon-container">
@@ -125,7 +119,7 @@ export class ZResultCard {
   };
 
   render(): HTMLZResultCardElement {
-    if (this.isInfoPage) {
+    if (this.isInfoCard) {
       return this.renderInfoCard();
     }
 

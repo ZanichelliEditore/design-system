@@ -5,10 +5,24 @@
   min-width: 0;
   max-width: 500px;
   height: 175px;
+  max-height: 175px;
+  padding: var(--space-unit);
   border: 2px solid var(--color-surface02);
   border-radius: var(--border-size-large);
   cursor: pointer;
   font-family: var(--font-family-sans);
+}
+
+:host(:focus:focus-visible) {
+  z-index: 1;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host(.info-card:focus:focus-visible) {
+  z-index: 1;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 .info-container {
@@ -17,7 +31,7 @@
   min-width: 0;
   flex: 1;
   flex-direction: column;
-  padding: var(--space-unit);
+  padding-left: calc(var(--space-unit) * 2);
 }
 
 .author-label {
@@ -89,7 +103,7 @@
   height: 34px;
   align-items: center;
   justify-content: center;
-  margin-bottom: calc(var(--space-unit) * 3);
+  margin-bottom: calc(var(--space-unit) * 4.5);
   background-color: var(--gray50);
   border-radius: var(--border-size-large);
 }
@@ -123,8 +137,8 @@
 }
 
 .info-icon {
-  width: 18px; /* modificato per match con le props nel tsx */
-  height: 18px; /* modificato per match con le props nel tsx */
+  width: 18px;
+  height: 18px;
   color: var(--color-default-text);
 }
 
