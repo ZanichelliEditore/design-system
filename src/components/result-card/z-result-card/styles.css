@@ -3,7 +3,6 @@
   overflow: hidden;
   width: 100%;
   min-width: 0;
-  max-width: 500px;
   height: 175px;
   max-height: 175px;
   padding: var(--space-unit);
@@ -69,6 +68,8 @@
 
 .tags-container {
   display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
   margin-top: var(--space-unit);
   gap: var(--space-unit);
 }
@@ -85,7 +86,6 @@
 :host(.info-card) {
   display: flex;
   width: 100%;
-  max-width: 500px;
   height: 75px;
 }
 
