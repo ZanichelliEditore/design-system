@@ -9,22 +9,22 @@ export class ZResultCard {
   @Element() hostElement: HTMLZResultCardElement;
 
   /**
-   * The author of the opera.
-   */
-  @Prop()
-  author?: string;
-
-  /**
-   * The title of the opera.
+   * The title of the card.
    */
   @Prop()
   cardTitle: string;
 
   /**
-   * The subtitle of the opera.
+   * The subtitle of the card.
    */
   @Prop()
   cardSubtitle: string;
+
+  /**
+   * The author of the opera.
+   */
+  @Prop()
+  author?: string;
 
   /**
    * The URL of the cover image.

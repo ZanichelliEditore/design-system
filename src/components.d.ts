@@ -1749,11 +1749,11 @@ export namespace Components {
          */
         "author"?: string;
         /**
-          * The subtitle of the opera.
+          * The subtitle of the card.
          */
         "cardSubtitle": string;
         /**
-          * The title of the opera.
+          * The title of the card.
          */
         "cardTitle": string;
         /**
@@ -5594,11 +5594,11 @@ declare namespace LocalJSX {
          */
         "author"?: string;
         /**
-          * The subtitle of the opera.
+          * The subtitle of the card.
          */
         "cardSubtitle"?: string;
         /**
-          * The title of the opera.
+          * The title of the card.
          */
         "cardTitle"?: string;
         /**
