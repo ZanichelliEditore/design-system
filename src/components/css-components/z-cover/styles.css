@@ -28,9 +28,9 @@
   width: 95px;
   min-width: 95px;
   max-width: 95px;
-  height: 157px;
-  min-height: 157px;
-  max-height: 157px;
+  height: 155px;
+  min-height: 155px;
+  max-height: 155px;
 }
 
 .z-cover-shadow {
@@ -38,21 +38,20 @@
   z-index: 1;
   background: #e0e0e0;
   border-radius: var(--border-size-large);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .z-shadow-1 {
   z-index: 1;
   top: var(--space-unit);
   right: var(--space-unit);
-  border: 1px solid var(--gray200);
+  border: 2px solid var(--gray200);
 }
 
 .z-shadow-2 {
   z-index: 0;
   top: calc(var(--space-unit) * 2);
   right: calc(var(--space-unit) * 2);
-  border: 1px solid var(--gray200);
+  border: 2px solid var(--gray200);
 }
 
 .z-cover-img {
@@ -60,8 +59,8 @@
   z-index: 2;
   top: 0;
   right: 0;
+  border: 1px solid var(--gray200);
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
   object-fit: cover;
   object-position: left;
 }
