@@ -85,11 +85,8 @@
 :host(.info-card) {
   display: flex;
   width: 100%;
-  height: 75px;
-}
-
-:host(.info-card) .info-container {
-  justify-content: space-between;
+  height: calc(75px - var(--space-unit) * 2);
+  max-height: calc(75px - var(--space-unit) * 2);
 }
 
 .info-icon-column {
@@ -106,7 +103,7 @@
   height: 34px;
   align-items: center;
   justify-content: center;
-  margin-bottom: calc(var(--space-unit) * 4.5);
+  margin-bottom: calc(var(--space-unit) * 3);
   background-color: var(--gray50);
   border-radius: var(--border-size-large);
 }
