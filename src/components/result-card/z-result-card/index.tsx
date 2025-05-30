@@ -27,20 +27,6 @@ export class ZResultCard {
   cardSubtitle: string;
 
   /**
-   * Tags associated with the opera.
-   * This is a string array that can be used to display tags in the component.
-   */
-  @Prop()
-  operaTags?: string[];
-
-  /**
-   * The label for the volumes.
-   * This is used to display the number of volumes or a related message.
-   */
-  @Prop()
-  volumesLabel?: string;
-
-  /**
    * The URL of the cover image.
    * This is used to display the cover image of the opera.
    */

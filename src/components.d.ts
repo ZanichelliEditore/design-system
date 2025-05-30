@@ -1768,14 +1768,6 @@ export namespace Components {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard": boolean;
-        /**
-          * Tags associated with the opera. This is a string array that can be used to display tags in the component.
-         */
-        "operaTags"?: string[];
-        /**
-          * The label for the volumes. This is used to display the number of volumes or a related message.
-         */
-        "volumesLabel"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -5621,14 +5613,6 @@ declare namespace LocalJSX {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard"?: boolean;
-        /**
-          * Tags associated with the opera. This is a string array that can be used to display tags in the component.
-         */
-        "operaTags"?: string[];
-        /**
-          * The label for the volumes. This is used to display the number of volumes or a related message.
-         */
-        "volumesLabel"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
