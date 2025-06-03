@@ -68,26 +68,6 @@ export const MultipleCovers: Story = {
   `,
 };
 
-export const InfoCard: Story = {
-  args: {
-    ...args,
-    cardTitle: "Info Card Title",
-    cardSubtitle:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt maximus tellus, eget dapibus nulla blandit sed. Nullam augue ipsum, mattis sit amet diam ut, finibus posuere libero. Fusce nec erat eu risus fermentum mattis.",
-    isInfoCard: true,
-  },
-  render: (args) => html`
-    <z-result-card
-      .cardTitle=${args.cardTitle}
-      .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
-      .cover=${args.cover}
-      .hasMultipleCovers=${args.hasMultipleCovers}
-      .isInfoCard=${args.isInfoCard}
-    />
-  `,
-};
-
 export const LongTitleAndSubtitle: Story = {
   args: {
     ...args,
@@ -112,12 +92,32 @@ export const LongTitleAndSubtitle: Story = {
   `,
 };
 
-export const NoAuthorTagsAndVolumes: Story = {
+export const OnlyTitleAndSubtitle: Story = {
   args: {
     ...args,
     author: undefined,
   },
 
+  render: (args) => html`
+    <z-result-card
+      .cardTitle=${args.cardTitle}
+      .cardSubtitle=${args.cardSubtitle}
+      .author=${args.author}
+      .cover=${args.cover}
+      .hasMultipleCovers=${args.hasMultipleCovers}
+      .isInfoCard=${args.isInfoCard}
+    />
+  `,
+};
+
+export const InfoCard: Story = {
+  args: {
+    ...args,
+    cardTitle: "Info Card Title",
+    cardSubtitle:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt maximus tellus, eget dapibus nulla blandit sed. Nullam augue ipsum, mattis sit amet diam ut, finibus posuere libero. Fusce nec erat eu risus fermentum mattis.",
+    isInfoCard: true,
+  },
   render: (args) => html`
     <z-result-card
       .cardTitle=${args.cardTitle}
