@@ -47,6 +47,46 @@ export class ZResultCard {
   @Prop()
   isInfoCard = false;
 
+  private authorRef: HTMLElement;
+
+  private titleRef: HTMLElement;
+
+  private subtitleRef: HTMLElement;
+
+  private setEllipsisTitle(el: HTMLElement): void {
+    if (!el) {
+      return;
+    }
+
+    const isTruncated = el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+
+    if (isTruncated) {
+      el.setAttribute("title", el.textContent.trim());
+    } else {
+      el.removeAttribute("title");
+    }
+  }
+
+  componentDidRender(): void {
+    this.setEllipsisTitle(this.authorRef);
+    this.setEllipsisTitle(this.titleRef);
+    this.setEllipsisTitle(this.subtitleRef);
+  }
+
+  private resizeHandler = (): void => {
+    this.setEllipsisTitle(this.authorRef);
+    this.setEllipsisTitle(this.titleRef);
+    this.setEllipsisTitle(this.subtitleRef);
+  };
+
+  componentDidLoad(): void {
+    window.addEventListener("resize", this.resizeHandler);
+  }
+
+  disconnectedCallback(): void {
+    window.removeEventListener("resize", this.resizeHandler);
+  }
+
   private renderOperaCard = (): HTMLZResultCardElement => {
     return (
       <Host tabIndex={0}>
@@ -66,9 +106,26 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          {this.author && <div class="author-label">{this.author}</div>}
-          <div class="card-title">{this.cardTitle}</div>
-          <div class="card-subtitle">{this.cardSubtitle}</div>
+          {this.author && (
+            <div
+              class="author-label"
+              ref={(el) => (this.authorRef = el as HTMLElement)}
+            >
+              {this.author}
+            </div>
+          )}
+          <div
+            class="card-title"
+            ref={(el) => (this.titleRef = el as HTMLElement)}
+          >
+            {this.cardTitle}
+          </div>
+          <div
+            class="card-subtitle"
+            ref={(el) => (this.subtitleRef = el as HTMLElement)}
+          >
+            {this.cardSubtitle}
+          </div>
           <div class="tags-container">
             <slot name="tags"></slot>
           </div>
@@ -97,18 +154,24 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          <div class="card-title info-title">{this.cardTitle}</div>
-          <div class="card-subtitle info-subtitle">{this.cardSubtitle}</div>
+          <div
+            class="card-title info-title"
+            ref={(el) => (this.titleRef = el as HTMLElement)}
+          >
+            {this.cardTitle}
+          </div>
+          <div
+            class="card-subtitle info-subtitle"
+            ref={(el) => (this.subtitleRef = el as HTMLElement)}
+          >
+            {this.cardSubtitle}
+          </div>
         </div>
       </Host>
     );
   };
 
   render(): HTMLZResultCardElement {
-    if (this.isInfoCard) {
-      return this.renderInfoCard();
-    }
-
-    return this.renderOperaCard();
+    return this.isInfoCard ? this.renderInfoCard() : this.renderOperaCard();
   }
 }
