@@ -92,8 +92,8 @@
 :host(.info-card) {
   display: flex;
   width: 100%;
-  height: calc(75px - var(--space-unit) * 2);
-  max-height: calc(75px - var(--space-unit) * 2);
+  height: calc(76px - var(--space-unit) * 2);
+  max-height: calc(76px - var(--space-unit) * 2);
 }
 
 .info-icon-column {

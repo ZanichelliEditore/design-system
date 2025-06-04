@@ -58,7 +58,22 @@ export class ZResultCard {
       return;
     }
 
-    const isTruncated = el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+    // Check if element uses line-clamp
+    const style = window.getComputedStyle(el);
+    const hasLineClamp = style.getPropertyValue("-webkit-line-clamp") !== "none";
+
+    let isTruncated;
+    if (hasLineClamp) {
+      // For elements with line-clamp, check if content height exceeds line-clamp height
+      const lineHeight = parseInt(style.lineHeight);
+      const maxLines = parseInt(style.getPropertyValue("-webkit-line-clamp"));
+      const maxHeight = lineHeight * maxLines;
+
+      isTruncated = el.scrollHeight > maxHeight;
+    } else {
+      // Original check for elements without line-clamp
+      isTruncated = el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight;
+    }
 
     if (isTruncated) {
       el.setAttribute("title", el.textContent.trim());
