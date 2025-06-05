@@ -53,7 +53,7 @@ export class ZResultCard {
 
   private subtitleRef: HTMLElement;
 
-  private setEllipsisTitle(el: HTMLElement): void {
+  private setTooltipTitle(el: HTMLElement): void {
     if (!el) {
       return;
     }
@@ -83,15 +83,15 @@ export class ZResultCard {
   }
 
   componentDidRender(): void {
-    this.setEllipsisTitle(this.authorRef);
-    this.setEllipsisTitle(this.titleRef);
-    this.setEllipsisTitle(this.subtitleRef);
+    this.setTooltipTitle(this.authorRef);
+    this.setTooltipTitle(this.titleRef);
+    this.setTooltipTitle(this.subtitleRef);
   }
 
   private resizeHandler = (): void => {
-    this.setEllipsisTitle(this.authorRef);
-    this.setEllipsisTitle(this.titleRef);
-    this.setEllipsisTitle(this.subtitleRef);
+    this.setTooltipTitle(this.authorRef);
+    this.setTooltipTitle(this.titleRef);
+    this.setTooltipTitle(this.subtitleRef);
   };
 
   componentDidLoad(): void {
