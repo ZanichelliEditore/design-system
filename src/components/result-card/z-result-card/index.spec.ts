@@ -22,9 +22,9 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="author-label">Test author</div>
-                        <div class="card-title">Opera title single cover</div>
-                        <div class="card-subtitle">Opera subtitle single cover</div>
+                        <span class="author-label">Test author</span>
+                        <span class="card-title">Opera title single cover</span>
+                        <span class="card-subtitle">Opera subtitle single cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
                         </div>
@@ -62,9 +62,9 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="author-label">Test author</div>
-                        <div class="card-title">Opera title multiple cover</div>
-                        <div class="card-subtitle">Opera subtitle multiple cover</div>
+                        <span class="author-label">Test author</span>
+                        <span class="card-title">Opera title multiple cover</span>
+                        <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
                         </div>
@@ -101,8 +101,8 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="card-title">Opera title multiple cover</div>
-                        <div class="card-subtitle">Opera subtitle multiple cover</div>
+                        <span class="card-title">Opera title multiple cover</span>
+                        <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
                         </div>
@@ -137,9 +137,9 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="author-label">Test author</div>
-                        <div class="card-title">Opera with tags</div>
-                        <div class="card-subtitle">Subtitle with tags</div>
+                        <span class="author-label">Test author</span>
+                        <span class="card-title">Opera with tags</span>
+                        <span class="card-subtitle">Subtitle with tags</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
                         </div>
@@ -175,9 +175,9 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="author-label">Test author</div>
-                        <div class="card-title">Opera with volumes</div>
-                        <div class="card-subtitle">Subtitle with volumes</div>
+                        <span class="author-label">Test author</span>
+                        <span class="card-title">Opera with volumes</span>
+                        <span class="card-subtitle">Subtitle with volumes</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
                         </div>
@@ -210,8 +210,8 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <div class="card-title info-title">Info Title</div>
-                        <div class="card-subtitle info-subtitle">Info Subtitle</div>
+                        <span class="card-title info-title">Info Title</span>
+                        <span class="card-subtitle info-subtitle">Info Subtitle</span>
                     </div>
                 </mock:shadow-root>
             </z-result-card>

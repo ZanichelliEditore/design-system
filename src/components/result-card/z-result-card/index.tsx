@@ -122,25 +122,25 @@ export class ZResultCard {
         </div>
         <div class="info-container">
           {this.author && (
-            <div
+            <span
               class="author-label"
               ref={(el) => (this.authorRef = el as HTMLElement)}
             >
               {this.author}
-            </div>
+            </span>
           )}
-          <div
+          <span
             class="card-title"
             ref={(el) => (this.titleRef = el as HTMLElement)}
           >
             {this.cardTitle}
-          </div>
-          <div
+          </span>
+          <span
             class="card-subtitle"
             ref={(el) => (this.subtitleRef = el as HTMLElement)}
           >
             {this.cardSubtitle}
-          </div>
+          </span>
           <div class="tags-container">
             <slot name="tags"></slot>
           </div>
@@ -169,18 +169,18 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          <div
+          <span
             class="card-title info-title"
             ref={(el) => (this.titleRef = el as HTMLElement)}
           >
             {this.cardTitle}
-          </div>
-          <div
+          </span>
+          <span
             class="card-subtitle info-subtitle"
             ref={(el) => (this.subtitleRef = el as HTMLElement)}
           >
             {this.cardSubtitle}
-          </div>
+          </span>
         </div>
       </Host>
     );
