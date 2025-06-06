@@ -36,7 +36,7 @@
 .z-cover-shadow {
   position: absolute;
   z-index: 1;
-  background: #e0e0e0;
+  background: var(--gray100);
   border-radius: var(--border-size-large);
 }
 
@@ -44,14 +44,14 @@
   z-index: 1;
   top: var(--space-unit);
   right: var(--space-unit);
-  border: 2px solid var(--gray200);
+  border: var(--border-size-medium) solid var(--gray200);
 }
 
 .z-shadow-2 {
   z-index: 0;
   top: calc(var(--space-unit) * 2);
   right: calc(var(--space-unit) * 2);
-  border: 2px solid var(--gray200);
+  border: var(--border-size-medium) solid var(--gray200);
 }
 
 .z-cover-img {
@@ -59,7 +59,7 @@
   z-index: 2;
   top: 0;
   right: 0;
-  border: 1px solid var(--gray200);
+  border: var(--border-size-small) var(--gray200);
   border-radius: 6px;
   object-fit: cover;
   object-position: left;

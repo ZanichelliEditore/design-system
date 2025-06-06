@@ -5,6 +5,6 @@
   align-items: center;
   justify-content: center;
   padding: calc(var(--space-unit) * 2);
-  background-color: #f5f5f5;
+  background-color: var(--gray50);
   border-radius: var(--border-size-large);
 }
