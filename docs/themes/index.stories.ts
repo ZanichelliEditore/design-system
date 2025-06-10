@@ -14,7 +14,8 @@ export default {
 
 export const Themes = {
   render: (_, context) => {
-    const [currentTheme, currentThemeVariant] = context.parameters.themes[context.globals.theme].split(" ");
+    const [currentTheme, currentThemeVariant] =
+      context.parameters.themes[context.globals.theme || "Default"].split(" ");
     const themeColorTokens = getThemeColorTokens(currentTheme, currentThemeVariant);
     const defaultTheme = getThemeColorTokens("theme-default");
 
