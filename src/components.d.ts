@@ -1743,6 +1743,32 @@ export namespace Components {
          */
         "secondLabel"?: string;
     }
+    interface ZResultCard {
+        /**
+          * The author of the opera.
+         */
+        "author"?: string;
+        /**
+          * The subtitle of the card.
+         */
+        "cardSubtitle": string;
+        /**
+          * The title of the card.
+         */
+        "cardTitle": string;
+        /**
+          * The URL of the cover image. This is used to display the cover image of the opera.
+         */
+        "cover"?: string;
+        /**
+          * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
+         */
+        "hasMultipleCovers": boolean;
+        /**
+          * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
+         */
+        "isInfoCard": boolean;
+    }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
      * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
@@ -3290,6 +3316,12 @@ declare global {
         prototype: HTMLZRangePickerElement;
         new (): HTMLZRangePickerElement;
     };
+    interface HTMLZResultCardElement extends Components.ZResultCard, HTMLStencilElement {
+    }
+    var HTMLZResultCardElement: {
+        prototype: HTMLZResultCardElement;
+        new (): HTMLZResultCardElement;
+    };
     interface HTMLZSearchbarElementEventMap {
         "searchSubmit": string;
         "searchTyping": string;
@@ -3633,6 +3665,7 @@ declare global {
         "z-panel-elem": HTMLZPanelElemElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
+        "z-result-card": HTMLZResultCardElement;
         "z-searchbar": HTMLZSearchbarElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
@@ -5555,6 +5588,32 @@ declare namespace LocalJSX {
          */
         "secondLabel"?: string;
     }
+    interface ZResultCard {
+        /**
+          * The author of the opera.
+         */
+        "author"?: string;
+        /**
+          * The subtitle of the card.
+         */
+        "cardSubtitle"?: string;
+        /**
+          * The title of the card.
+         */
+        "cardTitle"?: string;
+        /**
+          * The URL of the cover image. This is used to display the cover image of the opera.
+         */
+        "cover"?: string;
+        /**
+          * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
+         */
+        "hasMultipleCovers"?: boolean;
+        /**
+          * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
+         */
+        "isInfoCard"?: boolean;
+    }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
      * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
@@ -6099,6 +6158,7 @@ declare namespace LocalJSX {
         "z-panel-elem": ZPanelElem;
         "z-popover": ZPopover;
         "z-range-picker": ZRangePicker;
+        "z-result-card": ZResultCard;
         "z-searchbar": ZSearchbar;
         "z-section-title": ZSectionTitle;
         "z-select": ZSelect;
@@ -6366,6 +6426,7 @@ declare module "@stencil/core" {
              */
             "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
+            "z-result-card": LocalJSX.ZResultCard & JSXBase.HTMLAttributes<HTMLZResultCardElement>;
             /**
              * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
              * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
