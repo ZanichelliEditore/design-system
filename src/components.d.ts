@@ -1745,9 +1745,9 @@ export namespace Components {
     }
     interface ZResultCard {
         /**
-          * The author of the opera.
+          * The authors of the opera.
          */
-        "author"?: string;
+        "authors"?: string;
         /**
           * The subtitle of the card.
          */
@@ -5590,9 +5590,9 @@ declare namespace LocalJSX {
     }
     interface ZResultCard {
         /**
-          * The author of the opera.
+          * The authors of the opera.
          */
-        "author"?: string;
+        "authors"?: string;
         /**
           * The subtitle of the card.
          */

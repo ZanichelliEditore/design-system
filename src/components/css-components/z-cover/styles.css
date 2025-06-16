@@ -66,5 +66,6 @@
 }
 
 .z-cover-container.has-multiple .z-cover-img {
-  right: 0;
+  top: 2px;
+  left: calc(var(--space-unit) * 2);
 }

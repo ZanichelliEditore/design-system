@@ -21,10 +21,10 @@ export class ZResultCard {
   cardSubtitle: string;
 
   /**
-   * The author of the opera.
+   * The authors of the opera.
    */
   @Prop()
-  author?: string;
+  authors?: string;
 
   /**
    * The URL of the cover image.
@@ -47,7 +47,7 @@ export class ZResultCard {
   @Prop()
   isInfoCard = false;
 
-  private authorRef: HTMLElement;
+  private authorsRef: HTMLElement;
 
   private titleRef: HTMLElement;
 
@@ -83,13 +83,13 @@ export class ZResultCard {
   }
 
   componentDidRender(): void {
-    this.setTooltipTitle(this.authorRef);
+    this.setTooltipTitle(this.authorsRef);
     this.setTooltipTitle(this.titleRef);
     this.setTooltipTitle(this.subtitleRef);
   }
 
   private resizeHandler = (): void => {
-    this.setTooltipTitle(this.authorRef);
+    this.setTooltipTitle(this.authorsRef);
     this.setTooltipTitle(this.titleRef);
     this.setTooltipTitle(this.subtitleRef);
   };
@@ -121,12 +121,12 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          {this.author && (
+          {this.authors && (
             <span
-              class="author-label"
-              ref={(el) => (this.authorRef = el as HTMLElement)}
+              class="authors-label"
+              ref={(el) => (this.authorsRef = el as HTMLElement)}
             >
-              {this.author}
+              {this.authors}
             </span>
           )}
           <span

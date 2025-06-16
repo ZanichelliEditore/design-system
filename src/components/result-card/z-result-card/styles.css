@@ -6,7 +6,7 @@
   height: 175px;
   max-height: 175px;
   padding: var(--space-unit);
-  border: 2px solid var(--color-surface02);
+  border: var(--border-size-medium) solid var(--color-surface02);
   border-radius: var(--border-size-large);
   cursor: pointer;
   font-family: var(--font-family-sans);
@@ -33,7 +33,7 @@
   padding-left: calc(var(--space-unit) * 2);
 }
 
-.author-label {
+.authors-label {
   overflow: hidden;
   color: var(--color-default-text);
   font-size: var(--font-size-2);

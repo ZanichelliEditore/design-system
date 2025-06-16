@@ -6,7 +6,7 @@ describe("Suite test ZResultCard", () => {
     const page = await newSpecPage({
       components: [ZResultCard],
       html: `<z-result-card 
-                  author="Test author"
+                  authors="Test author"
                   card-title="Opera title single cover" 
                   card-subtitle="Opera subtitle single cover"
                   cover="test-cover.jpg"
@@ -14,7 +14,7 @@ describe("Suite test ZResultCard", () => {
     });
 
     expect(page.root).toEqualHtml(`
-            <z-result-card author="Test author" card-title="Opera title single cover" card-subtitle="Opera subtitle single cover" cover="test-cover.jpg" tabindex="0">
+            <z-result-card authors="Test author" card-title="Opera title single cover" card-subtitle="Opera subtitle single cover" cover="test-cover.jpg" tabindex="0">
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
@@ -22,7 +22,7 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="author-label">Test author</span>
+                        <span class="authors-label">Test author</span>
                         <span class="card-title">Opera title single cover</span>
                         <span class="card-subtitle">Opera subtitle single cover</span>
                         <div class="tags-container">
@@ -41,7 +41,7 @@ describe("Suite test ZResultCard", () => {
     const page = await newSpecPage({
       components: [ZResultCard],
       html: `<z-result-card 
-                author="Test author"
+                authors="Test author"
                 card-title="Opera title multiple cover" 
                 card-subtitle="Opera subtitle multiple cover"
                 cover="test-cover.jpg"
@@ -50,7 +50,7 @@ describe("Suite test ZResultCard", () => {
     });
 
     expect(page.root).toEqualHtml(`
-            <z-result-card author="Test author" card-title="Opera title multiple cover" card-subtitle="Opera subtitle multiple cover" cover="test-cover.jpg" has-multiple-covers="true" tabindex="0">
+            <z-result-card authors="Test author" card-title="Opera title multiple cover" card-subtitle="Opera subtitle multiple cover" cover="test-cover.jpg" has-multiple-covers="true" tabindex="0">
                 <mock:shadow-root>
                     <div class="z-cover-container has-multiple">
                         <div class="z-cover-stack">
@@ -62,7 +62,7 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="author-label">Test author</span>
+                        <span class="authors-label">Test author</span>
                         <span class="card-title">Opera title multiple cover</span>
                         <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
@@ -77,7 +77,7 @@ describe("Suite test ZResultCard", () => {
         `);
   });
 
-  it("Test render ZResultCard without author", async () => {
+  it("Test render ZResultCard without authors", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
       html: `<z-result-card 
@@ -119,7 +119,7 @@ describe("Suite test ZResultCard", () => {
     const page = await newSpecPage({
       components: [ZResultCard],
       html: `<z-result-card 
-                author="Test author"
+                authors="Test author"
                 card-title="Opera with tags" 
                 card-subtitle="Subtitle with tags"
                 cover="test-cover.jpg">
@@ -129,7 +129,7 @@ describe("Suite test ZResultCard", () => {
     });
 
     expect(page.root).toEqualHtml(`
-            <z-result-card author="Test author" card-title="Opera with tags" card-subtitle="Subtitle with tags" cover="test-cover.jpg" tabindex="0">
+            <z-result-card authors="Test author" card-title="Opera with tags" card-subtitle="Subtitle with tags" cover="test-cover.jpg" tabindex="0">
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
@@ -137,7 +137,7 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="author-label">Test author</span>
+                        <span class="authors-label">Test author</span>
                         <span class="card-title">Opera with tags</span>
                         <span class="card-subtitle">Subtitle with tags</span>
                         <div class="tags-container">
@@ -158,7 +158,7 @@ describe("Suite test ZResultCard", () => {
     const page = await newSpecPage({
       components: [ZResultCard],
       html: `<z-result-card 
-                author="Test author"
+                authors="Test author"
                 card-title="Opera with volumes" 
                 card-subtitle="Subtitle with volumes"
                 cover="test-cover.jpg">
@@ -167,7 +167,7 @@ describe("Suite test ZResultCard", () => {
     });
 
     expect(page.root).toEqualHtml(`
-            <z-result-card author="Test author" card-title="Opera with volumes" card-subtitle="Subtitle with volumes" cover="test-cover.jpg" tabindex="0">
+            <z-result-card authors="Test author" card-title="Opera with volumes" card-subtitle="Subtitle with volumes" cover="test-cover.jpg" tabindex="0">
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
@@ -175,7 +175,7 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="author-label">Test author</span>
+                        <span class="authors-label">Test author</span>
                         <span class="card-title">Opera with volumes</span>
                         <span class="card-subtitle">Subtitle with volumes</span>
                         <div class="tags-container">

@@ -8,7 +8,7 @@ const StoryMeta: Meta = {
   argTypes: {
     cardTitle: {control: "text"},
     cardSubtitle: {control: "text"},
-    author: {control: "text"},
+    authors: {control: "text"},
     cover: {control: "text"},
     hasMultipleCovers: {control: "boolean"},
     isInfoCard: {control: "boolean"},
@@ -22,7 +22,7 @@ type Story = StoryObj;
 const args = {
   cardTitle: "Title",
   cardSubtitle: "Subtitle",
-  author: "John Doe",
+  authors: "John Doe",
   cover: "https://place.abh.ai/s3fs-public/placeholder/DSC_0199_400x400.JPG",
   hasMultipleCovers: false,
   isInfoCard: false,
@@ -37,7 +37,7 @@ export const SingleCover: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
+      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -57,11 +57,12 @@ export const MultipleCovers: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
+      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
     >
+      <span slot="tags">Example tag</span>
       <span slot="tags">Example tag</span>
       <span slot="volumes">2 volumes</span>
     </z-result-card>
@@ -81,7 +82,7 @@ export const LongTitleAndSubtitle: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
+      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -102,7 +103,7 @@ export const OnlyTitleAndSubtitle: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
+      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -122,7 +123,7 @@ export const InfoCard: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .author=${args.author}
+      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
