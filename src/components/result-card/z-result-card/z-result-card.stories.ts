@@ -103,7 +103,6 @@ export const OnlyTitleAndSubtitle: Story = {
     <z-result-card
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
-      .authors=${args.authors}
       .cover=${args.cover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
