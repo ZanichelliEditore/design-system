@@ -15,12 +15,12 @@
 /* Base sizes for single cover */
 .z-cover-shadow,
 .z-cover-img {
-  width: 119px;
-  min-width: 119px;
-  max-width: 119px;
-  height: 158px;
-  min-height: 158px;
-  max-height: 158px;
+  width: 117px;
+  min-width: 117px;
+  max-width: 117px;
+  height: 156px;
+  min-height: 156px;
+  max-height: 156px;
 }
 
 /* Scaled sizes for multiple covers */

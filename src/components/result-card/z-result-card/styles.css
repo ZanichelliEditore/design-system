@@ -3,8 +3,8 @@
   overflow: hidden;
   width: 100%;
   min-width: 0;
-  height: calc(175px - var(--space-unit) * 2);
-  max-height: calc(175px - var(--space-unit) * 2);
+  height: calc(174px - var(--space-unit) * 2);
+  max-height: calc(174px - var(--space-unit) * 2);
   padding: var(--space-unit);
   border: var(--border-size-medium) solid var(--color-surface02);
   border-radius: var(--border-size-large);
