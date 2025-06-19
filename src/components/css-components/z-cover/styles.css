@@ -1,9 +1,10 @@
 .z-cover-container {
   position: relative;
   display: flex;
-  width: 115px;
-  height: 175px;
+  width: 119px;
+  height: 158px;
   align-items: center;
+  justify-items: center;
 }
 
 .z-cover-stack {
@@ -14,44 +15,43 @@
 /* Base sizes for single cover */
 .z-cover-shadow,
 .z-cover-img {
-  width: 115px;
-  min-width: 115px;
-  max-width: 115px;
-  height: 175px;
-  min-height: 175px;
-  max-height: 175px;
+  width: 119px;
+  min-width: 119px;
+  max-width: 119px;
+  height: 158px;
+  min-height: 158px;
+  max-height: 158px;
 }
 
 /* Scaled sizes for multiple covers */
 .z-cover-container.has-multiple .z-cover-shadow,
 .z-cover-container.has-multiple .z-cover-img {
-  width: 95px;
-  min-width: 95px;
-  max-width: 95px;
-  height: 155px;
-  min-height: 155px;
-  max-height: 155px;
+  width: 107px;
+  min-width: 107px;
+  max-width: 107px;
+  height: 142px;
+  min-height: 142px;
+  max-height: 142px;
 }
 
 .z-cover-shadow {
   position: absolute;
   z-index: 1;
-  background: var(--gray100);
-  border-radius: var(--border-size-large);
+  background-color: var(--color-white);
 }
 
 .z-shadow-1 {
   z-index: 1;
   top: var(--space-unit);
-  right: var(--space-unit);
-  border: var(--border-size-medium) solid var(--gray200);
+  right: 6px;
+  border: var(--border-size-small) solid black;
 }
 
 .z-shadow-2 {
   z-index: 0;
   top: calc(var(--space-unit) * 2);
-  right: calc(var(--space-unit) * 2);
-  border: var(--border-size-medium) solid var(--gray200);
+  right: 12px;
+  border: var(--border-size-small) solid black;
 }
 
 .z-cover-img {
@@ -59,13 +59,11 @@
   z-index: 2;
   top: 0;
   right: 0;
-  border: var(--border-size-small) var(--gray200);
-  border-radius: 6px;
+  border: var(--border-size-small) solid black;
   object-fit: cover;
   object-position: left;
 }
 
 .z-cover-container.has-multiple .z-cover-img {
-  top: 2px;
-  left: calc(var(--space-unit) * 2);
+  left: 10px;
 }
