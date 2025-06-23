@@ -343,16 +343,18 @@ export class ZSelect {
     const flatItems: {item: SelectItem; key: number}[] = [];
     let index = 0;
 
-    function flatten(subItems: SelectItem[]): void {
+    const flatten = (subItems: SelectItem[]): void => {
       subItems.forEach((itm) => {
         flatItems.push({item: itm, key: index++});
         if (itm.children && itm.children.length > 0) {
           flatten(itm.children);
         }
       });
-    }
+    };
 
-    flatten(items);
+    if (items) {
+      flatten(items);
+    }
 
     return flatItems;
   }
