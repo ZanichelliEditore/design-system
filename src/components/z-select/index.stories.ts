@@ -281,45 +281,60 @@ export const ZSelectWithGroupsAndTreeItems = {
   args: {
     hasTreeItems: true,
     hasGroupItems: false,
+    showChildrenOfMatchingParent: false,
     items: [
       {
-        id: "padre",
-        name: "Padre",
+        id: "padreA",
+        name: "Padre A",
         selected: false,
         category: "Sezione",
         children: [
           {
-            id: "figlio1aa",
-            name: "Figlio",
+            id: "figlioA1",
+            name: "Figlio A1",
             selected: false,
             children: [],
           },
           {
-            id: "figlio1b",
-            name: "Figlio 2",
+            id: "figlioA2",
+            name: "Figlio A2",
             selected: false,
           },
         ],
       },
       {
-        id: "padre3",
-        name: "Padre 3",
+        id: "padreB",
+        name: "Padre B",
         selected: false,
         category: "Altra sezione",
         children: [
           {
-            id: "figlio3a",
-            name: "Figlio 3A",
+            id: "figlioB1",
+            name: "Figlio B1",
             selected: false,
             children: [
               {
-                id: "nipote3a-1",
-                name: "Nipote 3A-1",
+                id: "nipoteB1",
+                name: "Nipote B1",
                 selected: false,
+                children: [
+                  {
+                    id: "pronipoteB1",
+                    name: "Pronipote B1",
+                    selected: false,
+                  },
+                ],
               },
             ],
           },
         ],
+      },
+      {
+        id: "altro",
+        name: "Altro",
+        selected: false,
+        category: "Altra sezione",
+        children: [],
       },
     ] as SelectItem[],
   },
@@ -343,6 +358,7 @@ export const ZSelectWithGroupsAndTreeItems = {
       size=${args.size}
       .hasGroupItems=${args.hasGroupItems}
       .hasTreeItems=${args.hasTreeItems}
+      .showChildrenOfMatchingParent=${args.showChildrenOfMatchingParent}
     ></z-select>
   `,
 } satisfies Story;

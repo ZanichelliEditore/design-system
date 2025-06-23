@@ -1890,6 +1890,10 @@ export namespace Components {
          */
         "setValue": (value: string | string[]) => Promise<void>;
         /**
+          * If true and an item matches the search string, children of matching item are shown even if they don't match the search string
+         */
+        "showChildrenOfMatchingParent"?: boolean;
+        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
@@ -5709,6 +5713,10 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         "resetItem"?: string;
+        /**
+          * If true and an item matches the search string, children of matching item are shown even if they don't match the search string
+         */
+        "showChildrenOfMatchingParent"?: boolean;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
