@@ -63,6 +63,7 @@
  - [z-notification](../z-notification)
  - [z-pagination](../z-pagination)
  - [z-panel-elem](../z-panel-elem)
+ - [z-result-card](../result-card/z-result-card)
  - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
  - [z-slideshow](../../snowflakes/myz/z-slideshow)
@@ -107,6 +108,7 @@ graph TD;
   z-notification --> z-icon
   z-pagination --> z-icon
   z-panel-elem --> z-icon
+  z-result-card --> z-icon
   z-searchbar --> z-icon
   z-select --> z-icon
   z-slideshow --> z-icon
