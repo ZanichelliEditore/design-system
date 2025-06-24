@@ -26,12 +26,12 @@
 /* Scaled sizes for multiple covers */
 .z-cover-container.has-multiple .z-cover-shadow,
 .z-cover-container.has-multiple .z-cover-img {
-  width: 107px;
-  min-width: 107px;
-  max-width: 107px;
-  height: 142px;
-  min-height: 142px;
-  max-height: 142px;
+  width: 105px;
+  min-width: 105px;
+  max-width: 105px;
+  height: 140px;
+  min-height: 140px;
+  max-height: 140px;
 }
 
 .z-cover-shadow {
@@ -65,5 +65,5 @@
 }
 
 .z-cover-container.has-multiple .z-cover-img {
-  left: 10px;
+  left: 12px;
 }
