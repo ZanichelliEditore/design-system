@@ -33,10 +33,10 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
 
-      - name: Install dependencies (timed)
+      - name: Install dependencies (debug mode)
         run: |
-          echo "Running yarn install with moderate logging..."
-          time yarn install --inline-builds --json
+          echo "Running yarn install with debug output..."
+          YARN_DEBUG=true time yarn install --inline-builds
 
       - name: Prepare package
         run: |
