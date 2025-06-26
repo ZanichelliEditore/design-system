@@ -33,10 +33,14 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
 
-      - name: Install dependencies (debug mode)
+      - name: Install dependencies (verbose + postinstall insight)
         run: |
-          echo "Running yarn install with debug output..."
-          YARN_DEBUG=true time yarn install --inline-builds
+          echo "🔧 Installing dependencies with verbose logging..."
+          time yarn install --verbose
+
+          echo ""
+          echo "🔍 Packages with postinstall scripts (possible slowdown points):"
+          find node_modules -name package.json -exec jq -r 'select(.scripts.postinstall != null) | "\(.name): \(.scripts.postinstall)"' {} \; || echo "❌ No postinstall scripts found"
 
       - name: Prepare package
         run: |
