@@ -71,6 +71,10 @@ export class ZSelect {
   @Prop()
   hasTreeItems?: boolean;
 
+  /** If true and an item matches the search string, children of matching item are shown even if they don't match the search string  */
+  @Prop()
+  showChildrenOfMatchingParent?: boolean;
+
   /** When fixed, it occupies space and pushes down next elements. */
   @Prop()
   isfixed?: boolean = false;
@@ -213,7 +217,7 @@ export class ZSelect {
     }
 
     if (this.hasTreeItems) {
-      this.itemsList = this.filterTree(prevList, searchString);
+      this.itemsList = this.filterTree(prevList, searchString, false);
     } else {
       this.itemsList = prevList
         .filter((item: SelectItem) => item.name.toUpperCase().includes(searchString.toUpperCase()))
@@ -231,7 +235,7 @@ export class ZSelect {
     });
   }
 
-  private filterTree(items: SelectItem[], searchString: string): SelectItem[] {
+  private filterTree(items: SelectItem[], searchString: string, matchingParent: boolean): SelectItem[] {
     if (!items) {
       return [];
     }
@@ -241,16 +245,18 @@ export class ZSelect {
         const match = item.name.toUpperCase().includes(searchString.toUpperCase());
 
         const newItem: SelectItem = {...item};
-
         if (newItem.children && newItem.children.length > 0) {
-          newItem.children = this.filterTree(newItem.children, searchString);
+          newItem.children = this.filterTree(newItem.children, searchString, match);
         }
 
         if (match) {
           newItem.name = this.getHighlightedText(newItem.name, searchString);
         }
-
-        if (match || (newItem.children && newItem.children.length > 0)) {
+        if (
+          match ||
+          (newItem.children && newItem.children.length > 0) ||
+          (this.showChildrenOfMatchingParent && matchingParent)
+        ) {
           return newItem;
         }
 
@@ -337,16 +343,18 @@ export class ZSelect {
     const flatItems: {item: SelectItem; key: number}[] = [];
     let index = 0;
 
-    function flatten(subItems: SelectItem[]): void {
+    const flatten = (subItems: SelectItem[]): void => {
       subItems.forEach((itm) => {
         flatItems.push({item: itm, key: index++});
         if (itm.children && itm.children.length > 0) {
           flatten(itm.children);
         }
       });
-    }
+    };
 
-    flatten(items);
+    if (items) {
+      flatten(items);
+    }
 
     return flatItems;
   }
