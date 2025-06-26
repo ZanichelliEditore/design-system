@@ -23,6 +23,7 @@ jobs:
   rc:
     if: ${{ github.ref_name != 'master' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v4
@@ -31,10 +32,17 @@ jobs:
           check-latest: true
           registry-url: "https://registry.npmjs.org"
           always-auth: true
+
+      - name: Install dependencies (timed)
+        run: |
+          echo "Running yarn install with moderate logging..."
+          time yarn install --inline-builds --json
+
       - name: Prepare package
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
+
       - name: Publish to npm
         run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
         env:
