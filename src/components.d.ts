@@ -427,9 +427,9 @@ export namespace Components {
     }
     interface ZButton {
         /**
-          * defines a string value that labels an interactive element, used for accessibility.
+          * defines a string value that labels the internal interactive element. Used for accessibility.
          */
-        "ariaLabel": string;
+        "ariaLabel": string | undefined;
         /**
           * HTML button disabled attribute.
          */
@@ -4136,9 +4136,9 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
-          * defines a string value that labels an interactive element, used for accessibility.
+          * defines a string value that labels the internal interactive element. Used for accessibility.
          */
-        "ariaLabel"?: string;
+        "ariaLabel"?: string | undefined;
         /**
           * HTML button disabled attribute.
          */
