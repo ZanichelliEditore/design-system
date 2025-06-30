@@ -36,14 +36,16 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           always-auth: true
 
-      - name: Install dependencies (verbose output with postinstall insight)
+      - name: Install dependencies with heartbeat logging
         run: |
-          echo "***** Installing dependencies with verbose logging *****"
-          time yarn install --verbose
+          echo "***** Starting yarn install with periodic heartbeat logging *****"
 
-          echo ""
-          echo "***** Checking for packages with postinstall scripts *****"
-          find node_modules -name package.json -exec jq -r 'select(.scripts.postinstall != null) | "\(.name): \(.scripts.postinstall)"' {} \; || echo "No postinstall scripts found."
+          (while true; do echo "[HEARTBEAT] yarn install still running at $(date '+%H:%M:%S')"; sleep 1; done) &
+          HEARTBEAT_PID=$!
+
+          time yarn install
+
+          kill $HEARTBEAT_PID
 
       - name: Prepare package
         run: |
