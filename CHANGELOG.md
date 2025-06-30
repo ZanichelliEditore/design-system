@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.4.0](https://github.com/ZanichelliEditore/design-system/compare/v18.3.4...v18.4.0) (2025-06-30)
+
+
+### Features
+
+* add ZResultCard componente and ZCover css component ([81c1f69](https://github.com/ZanichelliEditore/design-system/commit/81c1f69d224163f95a112a9e6db136ef68432c3b))
+* **DS-902:** show parent's children in autocompletable z-select when parent matches search string ([995ba5e](https://github.com/ZanichelliEditore/design-system/commit/995ba5ed12e8f6efc36c1e87632f4e90b64292e8))
+
+
+### Bug Fixes
+
+* **LAZE-1394:** check if items array in flattenTreeItems is null before cycling it ([87dc33d](https://github.com/ZanichelliEditore/design-system/commit/87dc33dbdbab24547604140b957abf9c548addb4))
+* storybook themes page ([f45ec2a](https://github.com/ZanichelliEditore/design-system/commit/f45ec2a3f17fc9440405ce2cd67fe76bf60c9f8a))
+
+## [18.4.0](https://github.com/ZanichelliEditore/design-system/compare/v18.3.4...v18.4.0) (2025-06-30)
+
+
+### Features
+
+* add ZResultCard componente and ZCover css component ([81c1f69](https://github.com/ZanichelliEditore/design-system/commit/81c1f69d224163f95a112a9e6db136ef68432c3b))
+* **DS-902:** show parent's children in autocompletable z-select when parent matches search string ([995ba5e](https://github.com/ZanichelliEditore/design-system/commit/995ba5ed12e8f6efc36c1e87632f4e90b64292e8))
+
+
+### Bug Fixes
+
+* **LAZE-1394:** check if items array in flattenTreeItems is null before cycling it ([87dc33d](https://github.com/ZanichelliEditore/design-system/commit/87dc33dbdbab24547604140b957abf9c548addb4))
+* storybook themes page ([f45ec2a](https://github.com/ZanichelliEditore/design-system/commit/f45ec2a3f17fc9440405ce2cd67fe76bf60c9f8a))
+
 ## 18.3.4 (2025-05-27)
 
 ## 18.3.3 (2025-05-22)
