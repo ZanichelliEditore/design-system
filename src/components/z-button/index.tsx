@@ -14,9 +14,9 @@ import {ButtonSize, ButtonType, ButtonVariant, ControlSize} from "../../beans";
 export class ZButton {
   @Element() hostElement: HTMLZButtonElement;
 
-  /** defines a string value that labels an interactive element, used for accessibility. */
-  @Prop({reflect: true})
-  ariaLabel = "";
+  /** defines a string value that labels the internal interactive element. Used for accessibility. */
+  @Prop()
+  ariaLabel: string | undefined = undefined;
 
   /**
    * **Deprecated:** Use `htmlrole` instead.
@@ -80,7 +80,7 @@ export class ZButton {
       return (
         <a
           {...this.getAttributes()}
-          aria-label={this.ariaLabel}
+          aria-label={this.ariaLabel || undefined}
           href={this.href}
           target={this.target}
         >
@@ -93,7 +93,7 @@ export class ZButton {
     return (
       <button
         {...this.getAttributes()}
-        aria-label={this.ariaLabel}
+        aria-label={this.ariaLabel || undefined}
         name={this.name}
         type={this.type}
         disabled={this.disabled}
