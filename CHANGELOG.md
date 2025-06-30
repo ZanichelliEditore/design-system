@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove reflection of the ariaLabel prop in zbutton component, to prevent problematic a11y tree ([432ae56](https://github.com/ZanichelliEditore/design-system/commit/432ae56ffa6c5ea8a11716879c396d666f8a98ff))
+
+## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove reflection of the ariaLabel prop in zbutton component, to prevent problematic a11y tree ([432ae56](https://github.com/ZanichelliEditore/design-system/commit/432ae56ffa6c5ea8a11716879c396d666f8a98ff))
+
+## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove reflection of the ariaLabel prop in zbutton component, to prevent problematic a11y tree ([432ae56](https://github.com/ZanichelliEditore/design-system/commit/432ae56ffa6c5ea8a11716879c396d666f8a98ff))
+
+## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove reflection of the ariaLabel prop in zbutton component, to prevent problematic a11y tree ([432ae56](https://github.com/ZanichelliEditore/design-system/commit/432ae56ffa6c5ea8a11716879c396d666f8a98ff))
+
+## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* remove reflection of the ariaLabel prop in zbutton component, to prevent problematic a11y tree ([432ae56](https://github.com/ZanichelliEditore/design-system/commit/432ae56ffa6c5ea8a11716879c396d666f8a98ff))
+
 ## [18.4.0](https://github.com/ZanichelliEditore/design-system/compare/v18.3.4...v18.4.0) (2025-06-30)
 
 
