@@ -148,6 +148,11 @@ export enum InputStatus {
 }
 
 export enum PopoverPosition {
+  /** @deprecated This value is not needed anymore as the popover will always try to position itself automatically based on available space.
+   *
+   * Passing `AUTO` is the same as not passing any position value.
+   * Use any of the other values to explicitly set the preferred position of the popover.
+   */
   AUTO = "auto",
   TOP = "top",
   RIGHT = "right",
