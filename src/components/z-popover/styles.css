@@ -1,23 +1,29 @@
 :host {
-  --z-popover-theme--surface: var(--color-surface01);
-  --z-popover-theme--text: var(--color-default-text);
-  --z-popover-padding: 0;
-  --z-popover-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
+  --z-popover-theme--surface: ;
+  --z-popover-theme--text: ;
+  --z-popover-padding: ;
+  --z-popover-shadow-filter: ;
 
-  position: relative;
+  position: absolute;
   display: none;
   min-width: calc(var(--space-unit) * 8);
+  max-width: 100%;
   min-height: calc(var(--space-unit) * 4);
+  max-height: 100%;
   align-items: center;
   justify-content: center;
-  padding: var(--z-popover-padding);
-  background: var(--z-popover-theme--surface);
+  padding: var(--z-popover-padding, 0);
+  background: var(--z-popover-theme--surface, var(--color-surface01));
   border-radius: var(--border-radius-small);
-  color: var(--z-popover-theme--text);
+  color: var(--z-popover-theme--text, var(--color-default-text));
   fill: currentcolor;
-  filter: var(--z-popover-shadow-filter);
+  filter: var(--z-popover-shadow-filter, drop-shadow(0 1px 2px var(--shadow-color-base)));
   font-family: var(--font-family-sans);
   text-align: center;
+}
+
+:host([open]:not([current-position])) {
+  visibility: hidden;
 }
 
 :host([open][current-position]),
@@ -63,7 +69,7 @@
   display: block;
   width: var(--arrow-size);
   height: var(--arrow-size);
-  background: var(--z-popover-theme--surface);
+  background: var(--z-popover-theme--surface, var(--color-surface01));
   content: "";
   transform: rotate(45deg);
 }
