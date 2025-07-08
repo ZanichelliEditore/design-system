@@ -74,15 +74,19 @@ const StoryMeta = {
   component: "z-popover",
   argTypes: {
     "position": {
-      options: Object.values(PopoverPosition).filter((value) => value !== PopoverPosition.AUTO),
+      options: [null, ...Object.values(PopoverPosition).filter((value) => value !== PopoverPosition.AUTO)],
       control: {
         type: "select",
+        labels: {
+          null: "-",
+        },
       },
     },
     "--z-popover-theme--surface": getColorTokenArgConfig(),
     "--z-popover-theme--text": getColorTokenArgConfig(),
   },
   args: {
+    "position": null,
     "--z-popover-theme--surface": "var(--color-surface01)",
     "--z-popover-theme--text": "var(--color-default-text)",
     "--z-popover-padding": "0",
@@ -98,7 +102,6 @@ type Story = StoryObj<ZPopoverStoriesArgs>;
 
 export const Demo = {
   args: {
-    "position": PopoverPosition.RIGHT,
     "--z-popover-padding": "var(--space-unit)",
     "--z-popover-shadow-filter": "drop-shadow(0 1px 2px var(--shadow-color-base))",
     "center": false,

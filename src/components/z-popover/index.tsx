@@ -137,7 +137,7 @@ export class ZPopover {
    * The popover will automatically search another position if not enough space is available for the preferred position.
    * If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise.
    */
-  @Prop({reflect: true})
+  @Prop({reflect: true, mutable: true})
   position?: PopoverPosition = PopoverPosition.TOP;
 
   /**
@@ -243,7 +243,8 @@ export class ZPopover {
       newValue = PopoverPosition.TOP;
     }
 
-    this.currentPosition = newValue ?? PopoverPosition.TOP;
+    this.position = newValue;
+    this.currentPosition = newValue;
     this.positionChange.emit({position: this.currentPosition});
     this.setPosition();
   }
