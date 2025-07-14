@@ -1,6 +1,7 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../../beans";
 
+import DOMPurify from "dompurify";
 import Hammer from "hammerjs";
 
 @Component({
@@ -206,7 +207,12 @@ export class ZToastNotification {
         <div id="inner-container">
           <div id="text">
             {this.heading && <span class="title">{this.heading}</span>}
-            <span class="message">{this.message}</span>
+            {this.message && (
+              <span
+                class="message"
+                innerHTML={DOMPurify.sanitize(this.message)}
+              ></span>
+            )}
           </div>
           <div id="button">
             <slot name="button" />

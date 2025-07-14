@@ -13,9 +13,7 @@ describe("Suite test ZToastNotification", () => {
       <mock:shadow-root>
         <div id="external-container" tabindex="0">
           <div id="inner-container">
-            <div id="text">
-              <span class="message"></span>
-            </div>
+            <div id="text"></div>
             <div id="button">
               <slot name="button"></slot>
             </div>
