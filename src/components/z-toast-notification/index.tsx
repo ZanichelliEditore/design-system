@@ -211,7 +211,7 @@ export class ZToastNotification {
               <span
                 class="message"
                 innerHTML={DOMPurify.sanitize(this.message)}
-              ></span>
+              />
             )}
           </div>
           <div id="button">
