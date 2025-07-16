@@ -9,7 +9,7 @@ describe("Suite test ZToastNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <z-toast-notification closebutton="true" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
+    <z-toast-notification closebutton="true" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
         <mock:shadow-root>
           <div id="external-container" tabindex="0">
             <div id="inner-container">

@@ -91,11 +91,18 @@ export class ZToastNotification {
   @Event()
   toastClose: EventEmitter;
 
-  private emitToastClose(cssClass: string): void {
+  private emitToastClose(cssClass: string, stopTimer: boolean): void {
+    if (stopTimer && this.timeoutHandle) {
+      clearTimeout(this.timeoutHandle);
+    }
     this.timeoutHandle = null;
     this.elapsedTime = null;
-    this.hostElement.classList.add(cssClass);
     this.toastClose.emit();
+    if (cssClass) {
+      this.hostElement.classList.add(cssClass);
+    } else {
+      this.hostElement.parentNode.removeChild(this.hostElement);
+    }
   }
 
   componentWillLoad(): void {
@@ -105,8 +112,13 @@ export class ZToastNotification {
 
   componentDidLoad(): void {
     this.startTime = Date.now();
-    if (this.autoclose && this.pauseonfocusloss) {
-      document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
+    if (this.autoclose) {
+      if (this.pauseonfocusloss) {
+        document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
+      }
+      if (!this.transition) {
+        this.startClosingTimeout(this.autoclose);
+      }
     }
 
     this.isdraggable && this.handleSlideOutDragAnimation();
@@ -136,6 +148,8 @@ export class ZToastNotification {
         return ToastNotificationTransition.SLIDE_OUT_RIGHT;
       case ToastNotificationTransition.SLIDE_IN_RIGHT:
         return ToastNotificationTransition.SLIDE_OUT_LEFT;
+      default:
+        return null;
     }
   }
 
@@ -154,7 +168,9 @@ export class ZToastNotification {
     this.sliderManager.on("pan", (e) => {
       this.percentage = this.calculateDraggedPercentage(e);
       this.hostElement.style.transition = "none";
-      this.hostElement.classList.remove(this.transition);
+      if (this.transition) {
+        this.hostElement.classList.remove(this.transition);
+      }
       const translateObj = {
         translate: `translateX(${this.percentage}%)`,
         translateBack: "translateX(0)",
@@ -165,7 +181,7 @@ export class ZToastNotification {
         this.hostElement.style.transform = translateObj.translate;
         if (Math.abs(this.percentage) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
-          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right");
+          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right", true);
         }
       }
 
@@ -194,7 +210,7 @@ export class ZToastNotification {
   }
 
   private startClosingTimeout(time: number): void {
-    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass()), time);
+    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass(), false), time);
   }
 
   private renderContent(): HTMLDivElement {
@@ -223,11 +239,11 @@ export class ZToastNotification {
               name="multiply-circled"
               width={15}
               height={15}
-              onClick={() => this.emitToastClose(this.mapSlideOutClass())}
+              onClick={() => this.emitToastClose(this.mapSlideOutClass(), true)}
               onKeyPress={(e) => {
                 if (e.code == KeyboardCode.SPACE || e.code == KeyboardCode.ENTER) {
                   e.preventDefault();
-                  this.emitToastClose(this.mapSlideOutClass());
+                  this.emitToastClose(this.mapSlideOutClass(), true);
                 }
               }}
             />
@@ -241,7 +257,7 @@ export class ZToastNotification {
     return (
       <Host
         style={{"--percentuale": `${this.percentage}%`}}
-        class={this.transition ? this.transition : ToastNotificationTransition.SLIDE_IN_DOWN}
+        class={this.transition ? this.transition : ""}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);
