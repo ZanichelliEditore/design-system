@@ -209,7 +209,7 @@ export class ZToastNotification {
             {this.heading && <span class="title">{this.heading}</span>}
             <span
               class="message"
-              innerHTML={DOMPurify.sanitize(this.message)}
+              innerHTML={DOMPurify.sanitize(this.message || " ")}
             />
           </div>
           <div id="button">

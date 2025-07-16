@@ -5,18 +5,16 @@ describe("Suite test ZToastNotification", () => {
   it("Test render ZToastNotification vuoto", async () => {
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification closebutton="true" message="descrizione della notifica"></z-toast-notification>`,
+      html: `<z-toast-notification closebutton="true"></z-toast-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification closebutton="true" message="descrizione della notifica" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
+    <z-toast-notification closebutton="true" class="slide-in-down" style="--percentuale: 0%; undefined: rgba(0,0,0,0);">
         <mock:shadow-root>
           <div id="external-container" tabindex="0">
             <div id="inner-container">
               <div id="text">
-                <span class="message">
-                  descrizione della notifica
-                </span>
+              <span class="message"></span>
               </div>
               <div id="button">
                 <slot name="button"></slot>
