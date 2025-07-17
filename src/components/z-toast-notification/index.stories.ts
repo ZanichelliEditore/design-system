@@ -49,7 +49,6 @@ const StoryMeta = {
     type: ToastNotification.DARK,
     isdraggable: true,
     draggablepercentage: 80,
-    transition: ToastNotificationTransition.SLIDE_IN_RIGHT,
   },
   render: (args) => template(args),
 } satisfies Meta<ZToastNotification>;
@@ -57,7 +56,13 @@ const StoryMeta = {
 export default StoryMeta;
 
 type Story = StoryObj<ZToastNotification>;
-export const SlideInRight = {} satisfies Story;
+export const NoSlideIn = {} satisfies Story;
+
+export const SlideInRight = {
+  args: {
+    transition: ToastNotificationTransition.SLIDE_IN_RIGHT,
+  },
+} satisfies Story;
 
 export const SlideInLeft = {
   args: {
