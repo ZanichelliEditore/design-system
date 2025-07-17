@@ -56,7 +56,11 @@ const StoryMeta = {
 export default StoryMeta;
 
 type Story = StoryObj<ZToastNotification>;
-export const NoSlideIn = {} satisfies Story;
+export const NoSlideIn = {
+  args: {
+    message: "Messaggio con <b>grassetto</b> e altro <i>html</i> renderizzato",
+  },
+} satisfies Story;
 
 export const SlideInRight = {
   args: {
