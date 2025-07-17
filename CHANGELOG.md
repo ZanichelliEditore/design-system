@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.4.3 (2025-07-17)
+
 ## 18.4.2 (2025-07-17)
 
 ## [18.4.1](https://github.com/ZanichelliEditore/design-system/compare/v18.4.0...v18.4.1) (2025-06-30)
