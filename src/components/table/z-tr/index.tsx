@@ -86,8 +86,9 @@ export class ZTr {
     return (
       <Host
         role="row"
-        onClick={this.onRowClick.bind(this)}
+        tabIndex={0}
         expanded={this.expanded}
+        onClick={this.onRowClick.bind(this)}
       >
         <div class="z-tr--expand-button-container">
           {this.expandable && (

@@ -55,6 +55,19 @@
   background-color: var(--color-background);
 }
 
+:host(:focus) {
+  position: relative;
+  z-index: 20;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host(:hover) {
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 4px -2px var(--shadow-color-base, rgb(0 0 0 / 20%));
+}
+
 .z-tr--expand-button-container {
   display: flex;
   align-items: center;

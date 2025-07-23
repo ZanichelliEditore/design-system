@@ -83,6 +83,7 @@ export class ZTd {
       <Host
         role="cell"
         menu-open={this.isMenuOpen}
+        tabIndex={0}
       >
         <div class="cell--content">
           <slot></slot>
