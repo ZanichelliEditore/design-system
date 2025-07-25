@@ -50,8 +50,3 @@
   background-color: transparent;
   content: "";
 }
-
-:host([sorted]) .z-th--sort-button::after,
-.z-th--sort-button:focus:focus-visible::after {
-  box-shadow: var(--shadow-focus-primary);
-}
