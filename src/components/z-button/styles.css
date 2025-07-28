@@ -4,6 +4,7 @@
   --z-icon-width: 16px;
   --z-icon-height: 16px;
   --z-icon-right-margin: 0;
+  --z-icon-left-margin: 0;
 }
 
 :host([disabled]:not([disabled="false"])) {
@@ -20,6 +21,7 @@
   border-width: var(--border-size-medium);
   border-style: solid;
   border-radius: var(--border-radius);
+  column-gap: var(--space-unit);
   cursor: pointer;
   fill: currentcolor;
   font-family: var(--font-family-sans);
@@ -42,8 +44,8 @@
   padding: 0 calc(var(--space-unit) * 2);
 }
 
-:host .z-button--container.z-button--has-text z-icon {
-  --z-icon-right-margin: var(--space-unit);
+:host([icon-position="right"]) .z-button--container.z-button--has-text {
+  flex-direction: row-reverse;
 }
 
 :host([size="big"]) .z-button--container {

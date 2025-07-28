@@ -1,6 +1,6 @@
 import {Component, Element, Prop, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {ButtonSize, ButtonType, ButtonVariant, ControlSize} from "../../beans";
+import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "../../beans";
 
 /**
  * @slot - button label
@@ -61,6 +61,10 @@ export class ZButton {
   @Prop()
   icon?: string;
 
+  /** the input icon position. Defaults to `left` */
+  @Prop({reflect: true})
+  iconPosition?: IconPosition = IconPosition.LEFT;
+
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
   @Prop({reflect: true})
   size?: ButtonSize | ControlSize = ControlSize.BIG;
@@ -75,6 +79,10 @@ export class ZButton {
     };
   }
 
+  private renderIcon(): JSX.Element | undefined {
+    return this.icon && <z-icon name={this.icon} />;
+  }
+
   render(): HTMLAnchorElement | HTMLButtonElement {
     if (this.href) {
       return (
@@ -84,7 +92,7 @@ export class ZButton {
           href={this.href}
           target={this.target}
         >
-          {this.icon && <z-icon name={this.icon} />}
+          {this.renderIcon()}
           <slot />
         </a>
       );
@@ -99,7 +107,7 @@ export class ZButton {
         disabled={this.disabled}
         role={this.htmlrole || this.role || undefined}
       >
-        {this.icon && <z-icon name={this.icon} />}
+        {this.renderIcon()}
         <slot />
       </button>
     );
