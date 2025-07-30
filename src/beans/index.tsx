@@ -486,3 +486,8 @@ export type TreeListItem = {
   bold?: boolean;
   children?: TreeListItem[];
 };
+
+export enum IconPosition {
+  LEFT = "left",
+  RIGHT = "right",
+}

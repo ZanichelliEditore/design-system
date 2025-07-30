@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZButton} from ".";
-import {ButtonVariant, ControlSize} from "../../beans";
+import {ButtonVariant, ControlSize, IconPosition} from "../../beans";
 import "./index";
 
 const StoryMeta = {
@@ -12,6 +12,7 @@ const StoryMeta = {
     size: ControlSize.BIG,
     disabled: false,
     icon: "download",
+    iconPosition: IconPosition.LEFT,
     ariaLabel: "Clicca sul bottone",
     htmlrole: "button",
   },
@@ -24,6 +25,10 @@ const StoryMeta = {
       options: Object.values(ControlSize),
       control: {type: "inline-radio"},
     },
+    iconPosition: {
+      options: Object.values(IconPosition),
+      control: {type: "inline-radio"},
+    },
   },
   render: (args) =>
     html`<z-button
@@ -31,6 +36,7 @@ const StoryMeta = {
       size=${args.size}
       disabled=${args.disabled}
       icon=${args.icon}
+      .iconPosition=${args.iconPosition}
       .ariaLabel=${args.ariaLabel}
       htmlrole=${args.htmlrole}
     >
@@ -75,6 +81,7 @@ export const IconOnly = {
       size=${args.size}
       disabled=${args.disabled}
       icon=${args.icon}
+      .iconPosition=${args.iconPosition}
       .ariaLabel=${args.ariaLabel}
       htmlrole=${args.htmlrole}
     />`,
@@ -93,6 +100,7 @@ export const LinkButton = {
       size=${args.size}
       disabled=${args.disabled}
       icon=${args.icon}
+      .iconPosition=${args.iconPosition}
       .ariaLabel=${args.ariaLabel}
       htmlrole=${args.htmlrole}
       href=${args.href}
@@ -100,4 +108,11 @@ export const LinkButton = {
     >
       Go to wikipedia
     </z-button>`,
+} satisfies Story;
+
+export const IconRight = {
+  args: {
+    icon: "arrow-right",
+    iconPosition: IconPosition.RIGHT,
+  },
 } satisfies Story;

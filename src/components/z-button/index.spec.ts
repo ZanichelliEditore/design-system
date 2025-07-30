@@ -9,7 +9,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary">
+      <z-button icon-position="left" size="big" variant="primary">
         <button class="z-button--container" type="button"></button>
       </z-button>
     `);
@@ -21,7 +21,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button aria-label="Open">text</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button aria-label="Open" size="big" variant="primary">
+      <z-button aria-label="Open" icon-position="left" size="big" variant="primary">
         <button aria-label="Open" type="button" class="z-button--container z-button--has-text">
           text
         </button>
@@ -35,7 +35,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button htmlrole="link">link</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button htmlrole="link" size="big" variant="primary">
+      <z-button htmlrole="link" icon-position="left" size="big" variant="primary">
         <button role="link" type="button" class="z-button--container z-button--has-text">
           link
         </button>
@@ -49,7 +49,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button icon="icon"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" icon="icon">
+      <z-button size="big" variant="primary" icon="icon" icon-position="left">
         <button type="button" class="z-button--container">
           <z-icon name="icon"></z-icon>
         </button>
@@ -63,7 +63,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button variant="secondary"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="secondary">
+      <z-button icon-position="left" size="big" variant="secondary">
         <button type="button" class="z-button--container"></button>
       </z-button>
     `);
@@ -75,7 +75,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button size="small"></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="small" variant="primary">
+      <z-button icon-position="left" size="small" variant="primary">
         <button type="button" class="z-button--container"></button>
       </z-button>
     `);
@@ -87,7 +87,7 @@ describe("Suite test ZButton", () => {
       html: `<z-button disabled></z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" disabled>
+      <z-button icon-position="left" size="big" variant="primary" disabled>
         <button type="button" class="z-button--container" disabled></button>
       </z-button>
     `);
@@ -100,11 +100,19 @@ describe("Suite test ZButton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-button size="big" variant="primary" href="https://wikipedia.com">
+      <z-button icon-position="left" size="big" variant="primary" href="https://wikipedia.com">
         <a href="https://wikipedia.com" class="z-button--container z-button--has-text">
           link
         </a>
       </z-button>
     `);
+  });
+
+  it("Test render ZButton with icon position right for row-reverse", async () => {
+    const page = await newSpecPage({
+      components: [ZButton],
+      html: `<z-button icon="icon" icon-position="right">Text</z-button>`,
+    });
+    expect(page.root.getAttribute("icon-position")).toBe("right");
   });
 });
