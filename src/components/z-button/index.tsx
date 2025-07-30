@@ -61,7 +61,7 @@ export class ZButton {
   @Prop()
   icon?: string;
 
-  /** the input icon position. Defaults to `left` */
+  /** the button icon position. Defaults to `left` */
   @Prop({reflect: true})
   iconPosition?: IconPosition = IconPosition.LEFT;
 
