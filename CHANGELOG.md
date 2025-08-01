@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.5.1-RC](https://github.com/ZanichelliEditore/design-system/compare/v18.5.0...v18.5.1-RC) (2025-08-01)
+
+
+### Features
+
+* add icon-position property + update styles ([82b63b5](https://github.com/ZanichelliEditore/design-system/commit/82b63b5ba4a1e98e4d85b673f7e0a5c978f46370))
+
+
+### Bug Fixes
+
+* fix iconPosition desc in readme and components.d.ts ([5022676](https://github.com/ZanichelliEditore/design-system/commit/50226763afab41b4e3bb224cf42bfe64030e5384))
+* removed nested css rules ([8e3fc5a](https://github.com/ZanichelliEditore/design-system/commit/8e3fc5a53f7146ab906434eff814723390ba23bb))
+
 ## 18.5.0 (2025-07-25)
 
 ## 18.4.3 (2025-07-17)
