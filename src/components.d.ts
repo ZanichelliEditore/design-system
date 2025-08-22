@@ -451,7 +451,7 @@ export namespace Components {
          */
         "icon"?: string;
         /**
-          * the input icon position. Defaults to `left`
+          * the button icon position. Defaults to `left`
          */
         "iconPosition"?: IconPosition;
         /**
@@ -4174,7 +4174,7 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * the input icon position. Defaults to `left`
+          * the button icon position. Defaults to `left`
          */
         "iconPosition"?: IconPosition;
         /**
