@@ -116,34 +116,17 @@ yarn lint-fix.stylelint
 
 ## Release
 
-In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [standard-version](https://github.com/conventional-changelog/standard-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
+In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
 
-Standard-version automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
+`commit-and-tag-version` automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
 
-**Publish a new version on NPM registry**
+**Publish a release using GitHub actions**
 
-- Make sure you are logged in NPM
-- Make sure you built the components with `yarn build`
-- Run standard-version:
-
-```
-yarn release
-```
-
-**Specify a version**
-
-If you want to select a version or the update type, you can use the `--release-as` flag:
-
-```
-yarn release --release-as minor
-yarn release --release-as 1.1.0
-```
-
-In general, you can pass any flag supported by standard-version, please refer to their [CLI usage](https://github.com/conventional-changelog/standard-version#cli-usage) documentation.
-
-**Publish the new release on GitHub**
-
-You need to [manually create the GitHub release](https://github.com/ZanichelliEditore/design-system/releases/new) in order to update the Storybook documentation.
+- Access GitHub and log in as an authorized user
+- Go to the repository in the section [New release version](https://github.com/ZanichelliEditore/design-system/actions/workflows/release.yml)
+- Click on `Run workflow` (on the right in the blue box)
+- To release a **latest version:** choose master as the branch and select the version type (patch, minor, major) from the dropdown, then click on the `Run workflow` button.
+- To release a **release candidate version** specify the branch, the version tag and the version name, then click the button. In this case, the branch needs to be different from `master`, otherwise the action will publish a latest version anyway, ignoring version and tag names.
 
 ---
 
