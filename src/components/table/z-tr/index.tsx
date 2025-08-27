@@ -90,6 +90,10 @@ export class ZTr {
         expanded={this.expanded}
         onClick={this.onRowClick.bind(this)}
       >
+        <div
+          class="z-tr--focus-overlay"
+          aria-hidden="true"
+        ></div>
         <div class="z-tr--expand-button-container">
           {this.expandable && (
             <button

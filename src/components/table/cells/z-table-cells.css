@@ -25,12 +25,6 @@
   z-index: 2;
 }
 
-:host(:focus) {
-  z-index: 20;
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-}
-
 .cell--content {
   display: flex;
   width: 100%;
