@@ -116,9 +116,9 @@ yarn lint-fix.stylelint
 
 ## Release
 
-In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [standard-version](https://github.com/conventional-changelog/standard-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
+In this repository we follow the [Conventional Commits Specification](https://www.conventionalcommits.org/) and we use [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) to update the [CHANGELOG.md](./CHANGELOG.md) when publishing a new version of the package to NPM.
 
-Standard-version automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
+`commit-and-tag-version` automatically detects the type of the update (patch, minor or major) following the [Semantic Versioning](https://semver.org/) specification.
 
 **Publish a release using GitHub actions**
 
@@ -126,7 +126,7 @@ Standard-version automatically detects the type of the update (patch, minor or m
 - Go to the repository in the section [New release version](https://github.com/ZanichelliEditore/design-system/actions/workflows/release.yml)
 - Click on `Run workflow` (on the right in the blue box)
 - To release a **latest version:** choose master as the branch and select the version type (patch, minor, major) from the dropdown, then click on the `Run workflow` button.
-- To release a **release candidate version** specify the branch, the version tag and the version name, then click the button.
+- To release a **release candidate version** specify the branch, the version tag and the version name, then click the button. In this case, the branch needs to be different from `master`, otherwise the action will publish a latest version anyway, ignoring version and tag names.
 
 ---
 
