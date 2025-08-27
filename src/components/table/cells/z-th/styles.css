@@ -16,11 +16,20 @@
 }
 
 .z-th--sort-button {
+  position: relative;
   padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
   outline: none;
+}
+
+.z-th--sort-button:focus,
+.z-th--sort-button:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  opacity: 1;
+  outline: none;
+  pointer-events: all;
 }
 
 @media (min-width: 768px) and (hover: hover) {

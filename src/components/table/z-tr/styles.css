@@ -1,12 +1,11 @@
 :host {
-  position: relative; /* necessario per overlay assoluto */
+  position: relative;
   display: grid;
   width: 100%;
   box-sizing: border-box;
   grid-auto-flow: column;
   grid-template-columns: var(--z-table--expand-button-size, 0) repeat(var(--columns), minmax(128px, 1fr));
 
-  /* number of columns of the row. will be set in component's ts code */
   --columns: 1;
 }
 
@@ -106,7 +105,7 @@
   right: 0;
   left: 0;
   width: 100%;
-  border-radius: 4px; /* opzionale */
+  border-radius: 4px;
   box-shadow: none;
   inset: 0;
   outline: none;
