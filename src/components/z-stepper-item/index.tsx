@@ -9,31 +9,31 @@ export class ZStepperItem {
   /**
    * The number of the step item.
    */
-  @Prop({attribute: "index"})
+  @Prop({reflect: true})
   index: number;
 
   /**
    * The href to navigate on click.
    */
-  @Prop({attribute: "href"})
+  @Prop({reflect: true})
   href: string;
 
   /**
    * The pressed state of the item.
    */
-  @Prop({attribute: "pressed"})
+  @Prop({reflect: true})
   pressed: boolean;
 
   /**
    * The checked state of the item.
    */
-  @Prop({attribute: "checked"})
+  @Prop({reflect: true})
   checked: boolean;
 
   /**
    * The disabled state of the item.
    */
-  @Prop({attribute: "disabled"})
+  @Prop({reflect: true})
   disabled: boolean;
 
   private getAttributes(): Record<string, unknown> {
