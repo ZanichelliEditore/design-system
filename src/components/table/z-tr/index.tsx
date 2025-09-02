@@ -78,6 +78,23 @@ export class ZTr {
     this.expand.emit({expanded: this.expanded});
   }
 
+  private onKeyDown(event: KeyboardEvent): void {
+    if (!this.expandable) {
+      return;
+    }
+
+    const active = document.activeElement;
+    if (active !== this.host) {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.expanded = !this.expanded;
+      this.expand.emit({expanded: this.expanded});
+    }
+  }
+
   componentWillLoad(): void {
     this.updateColumns();
   }
@@ -89,6 +106,7 @@ export class ZTr {
         tabIndex={0}
         expanded={this.expanded}
         onClick={this.onRowClick.bind(this)}
+        onKeyDown={this.onKeyDown.bind(this)}
       >
         <div
           class="z-tr--focus-overlay"
@@ -97,6 +115,7 @@ export class ZTr {
         <div class="z-tr--expand-button-container">
           {this.expandable && (
             <button
+              tabIndex={-1}
               aria-expanded={this.expanded ? "true" : "false"}
               aria-label={this.expanded ? "Comprimi riga" : "Espandi riga"}
               aria-controls={this.expandableContentId}
