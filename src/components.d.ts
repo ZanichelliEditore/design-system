@@ -2081,6 +2081,7 @@ export namespace Components {
      * ZThead component.
      */
     interface ZThead {
+        "isFocusable": boolean;
         /**
           * If true, the header will be stuck to the top of the table.
          */
@@ -5960,6 +5961,7 @@ declare namespace LocalJSX {
      * ZThead component.
      */
     interface ZThead {
+        "isFocusable"?: boolean;
         /**
           * If true, the header will be stuck to the top of the table.
          */

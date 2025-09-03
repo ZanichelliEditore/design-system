@@ -7,7 +7,7 @@
   min-width: max-content;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 8px;
+  padding: var(--space-unit);
   background-color: var(--color-surface01);
 }
 

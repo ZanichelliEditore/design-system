@@ -224,7 +224,7 @@ export const CellsWithContextualMenu = {
         "--z-table--cells-padding": args["--z-table--cells-padding"],
       })}
     >
-      <z-thead>
+      <z-thead focusable="true">
         <z-tr>
           <z-th>Colonna 1</z-th>
           <z-th
@@ -281,7 +281,7 @@ export const SortAction = {
         "--z-table--cells-padding": args["--z-table--cells-padding"],
       })}
     >
-      <z-thead>
+      <z-thead focusable="true">
         <z-tr>
           <z-th
             .sortDirection=${SortDirection.ASC}
