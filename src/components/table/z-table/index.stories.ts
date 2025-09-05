@@ -5,6 +5,7 @@ import {styleMap} from "lit/directives/style-map.js";
 import {type ZTable} from ".";
 import {PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
 import {CSSVarsArguments} from "../../../utils/storybook-utils";
+import {boolean} from "../../../utils/utils";
 import "../../z-button/index";
 import "./index";
 import "./index.stories.css";
@@ -196,6 +197,7 @@ export const Sticky = {
  */
 export const CellsWithContextualMenu = {
   argTypes: {
+    isFocusable: boolean,
     showMenu: {
       control: {
         type: "inline-radio",
@@ -213,6 +215,7 @@ export const CellsWithContextualMenu = {
     },
   },
   args: {
+    isFocusable: true,
     showMenu: VisibilityCondition.HOVER,
     popoverPosition: PopoverPosition.AUTO,
   },
@@ -224,7 +227,7 @@ export const CellsWithContextualMenu = {
         "--z-table--cells-padding": args["--z-table--cells-padding"],
       })}
     >
-      <z-thead>
+      <z-thead .isFocusable=${args.isFocusable}>
         <z-tr>
           <z-th>Colonna 1</z-th>
           <z-th
@@ -263,6 +266,7 @@ export const CellsWithContextualMenu = {
  */
 export const SortAction = {
   argTypes: {
+    isFocusable: boolean,
     showSorting: {
       options: Object.values(VisibilityCondition),
       control: {
@@ -271,6 +275,7 @@ export const SortAction = {
     },
   },
   args: {
+    isFocusable: true,
     showSorting: VisibilityCondition.HOVER,
   },
   render: (args) =>
@@ -281,7 +286,7 @@ export const SortAction = {
         "--z-table--cells-padding": args["--z-table--cells-padding"],
       })}
     >
-      <z-thead>
+      <z-thead .isFocusable=${args.isFocusable}>
         <z-tr>
           <z-th
             .sortDirection=${SortDirection.ASC}
