@@ -21,14 +21,14 @@ export class ZThead {
   /**
    * The element is focusable
    */
-  @Prop()
-  isFocusable = true;
+  @Prop({reflect: true})
+  isFocusable = false;
 
   render(): HTMLZTheadElement {
     return (
       <Host
         role="rowgroup"
-        tabIndex={this.host.getAttribute("focusable") === "true" ? 0 : -1}
+        tabIndex={this.isFocusable ? 0 : -1}
       >
         <slot></slot>
       </Host>
