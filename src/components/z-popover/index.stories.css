@@ -1,15 +1,14 @@
 .popover-container {
   position: relative;
-  display: flex;
+  display: inline-flex;
   width: 100%;
-  min-height: 400px;
+  height: 200px;
   align-items: center;
   justify-content: center;
-  background: var(--gray200);
 }
 
-.popover-content {
-  text-align: left;
+.popover-container-tooltip z-popover {
+  --z-popover-padding: var(--space-unit);
 }
 
 .popover-container z-icon#trigger {
