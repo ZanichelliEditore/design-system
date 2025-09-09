@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.5.4 (2025-09-09)
+
+
+### Bug Fixes
+
+* **DS-905:** fix focus on ZTable elements ([4864a76](https://github.com/ZanichelliEditore/design-system/commit/4864a76a0b3cfea10d0717ac577d00ffe293ab94))
+
 ## 18.5.3 (2025-09-02)
 
 ## [18.5.2](https://github.com/ZanichelliEditore/design-system/compare/v18.5.1...v18.5.2) (2025-08-26)
