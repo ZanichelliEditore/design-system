@@ -3,7 +3,7 @@
   display: flex;
   max-width: 100%;
   align-items: center;
-  padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
+  padding: calc(var(--z-table--cells-padding, calc(var(--space-unit) * 2)));
   background-color: var(--color-surface01);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
 }
@@ -23,12 +23,6 @@
 
 :host([menu-open]) {
   z-index: 2;
-}
-
-:host(:focus) {
-  z-index: 20;
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
 
 .cell--content {

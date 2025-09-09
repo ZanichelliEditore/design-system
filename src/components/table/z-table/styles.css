@@ -4,8 +4,10 @@
   position: relative;
   display: block;
   overflow: auto;
+  min-width: max-content;
   max-width: 100%;
   box-sizing: border-box;
+  padding: var(--space-unit);
   background-color: var(--color-surface01);
 }
 

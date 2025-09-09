@@ -18,7 +18,10 @@ export class ZTfoot {
 
   render(): void {
     return (
-      <Host role="rowgroup">
+      <Host
+        role="rowgroup"
+        tabIndex={-1}
+      >
         <slot></slot>
       </Host>
     );

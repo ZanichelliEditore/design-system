@@ -1,11 +1,12 @@
 :host {
-  /* number of columns of the row. will be set in component's ts code */
-  --columns: 1;
-
+  position: relative;
   display: grid;
+  width: 100%;
   box-sizing: border-box;
   grid-auto-flow: column;
   grid-template-columns: var(--z-table--expand-button-size, 0) repeat(var(--columns), minmax(128px, 1fr));
+
+  --columns: 1;
 }
 
 * {
@@ -55,17 +56,17 @@
   background-color: var(--color-background);
 }
 
+:host(:hover) {
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 4px -2px var(--shadow-color-base, rgb(0 0 0 / 20%));
+}
+
 :host(:focus) {
   position: relative;
   z-index: 20;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
-}
-
-:host(:hover) {
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 4px 4px -2px var(--shadow-color-base, rgb(0 0 0 / 20%));
 }
 
 .z-tr--expand-button-container {
@@ -96,4 +97,33 @@
 .z-tr--expand-button-container button z-icon {
   --z-icon-width: 16px;
   --z-icon-height: 16px;
+}
+
+.z-tr--focus-overlay {
+  position: absolute;
+  z-index: 30;
+  right: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: none;
+  inset: 0;
+  outline: none;
+  pointer-events: none;
+  transition: box-shadow 0.2s;
+}
+
+:host(:focus) .z-tr--focus-overlay {
+  box-shadow:
+    0 0 0 2px var(--shadow-focus-primary),
+    var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host(:focus) ::slotted(*) {
+  border-bottom: none;
+}
+
+:host(:focus) .z-tr--expand-button-container {
+  border-bottom: none;
 }

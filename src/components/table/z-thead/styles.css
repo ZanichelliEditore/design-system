@@ -17,3 +17,8 @@
   top: 0;
   box-shadow: 0 2px 4px -2px var(--shadow-color-base);
 }
+
+:host(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
