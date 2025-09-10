@@ -107,6 +107,7 @@ export class ZBookCard {
         <slot name="coverOverlay"></slot>
       </div>
     );
+
     return this.ebookUrl ? (
       <a
         class="cover-link"
