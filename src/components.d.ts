@@ -2574,6 +2574,8 @@ declare global {
     };
     interface HTMLZBookCardElementEventMap {
         "ebookClick": any;
+        "coverClick": any;
+        "titleClick": any;
     }
     /**
      * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
@@ -4003,9 +4005,17 @@ declare namespace LocalJSX {
          */
         "isbnLabel"?: string;
         /**
+          * click on cover link
+         */
+        "onCoverClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
           * click on ebook link
          */
         "onEbookClick"?: (event: ZBookCardCustomEvent<any>) => void;
+        /**
+          * click on title link
+         */
+        "onTitleClick"?: (event: ZBookCardCustomEvent<any>) => void;
         /**
           * Opera title (card title)
          */

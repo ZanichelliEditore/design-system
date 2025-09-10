@@ -36,6 +36,11 @@
   border-radius: var(--border-radius);
 }
 
+:host .main-content a.cover-link:focus {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 :host .main-content .cover img {
   max-width: 100%;
   max-height: 100%;
@@ -102,6 +107,10 @@
   line-height: 1.5rem;
   word-break: var(--z-book-card-title-word-break);
 }
+
+/* :host .main-content .card-info .top .ellipsis.opera-title a::focus {
+  box-shadow: var(--shadow-focus-primary);
+} */
 
 :host .main-content .card-info .top .ellipsis.volume-title {
   height: calc(1.4 * var(--z-book-card-subtitle-lines)) rem;

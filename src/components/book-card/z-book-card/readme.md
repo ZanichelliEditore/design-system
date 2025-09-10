@@ -26,7 +26,9 @@
 
 | Event        | Description         | Type               |
 | ------------ | ------------------- | ------------------ |
+| `coverClick` | click on cover link | `CustomEvent<any>` |
 | `ebookClick` | click on ebook link | `CustomEvent<any>` |
+| `titleClick` | click on title link | `CustomEvent<any>` |
 
 
 ## Slots
