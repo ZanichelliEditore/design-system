@@ -89,11 +89,6 @@
   visibility: var(--show-expandable-button, hidden);
 }
 
-.z-tr--expand-button-container button:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-}
-
 .z-tr--expand-button-container button z-icon {
   --z-icon-width: 16px;
   --z-icon-height: 16px;
