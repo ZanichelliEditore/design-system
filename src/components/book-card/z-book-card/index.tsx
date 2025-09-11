@@ -18,7 +18,7 @@ import {BookCardVariant, ControlSize} from "../../../beans";
  */
 @Component({
   tag: "z-book-card",
-  styleUrls: ["styles.css", "../../../tokens/typography.css"],
+  styleUrls: ["styles.css", "../../../tokens/typography.css", "../../css-components/z-link/styles.css"],
   shadow: true,
 })
 export class ZBookCard {
@@ -56,7 +56,7 @@ export class ZBookCard {
   @Prop()
   year?: string;
 
-  /** [optional] Show link to the ebook resource */
+  /** [optional] Show link to the ebook resource. Set title and cover as clickable, opening a new tab to the ebook resource */
   @Prop()
   ebookUrl?: string;
 
@@ -72,12 +72,28 @@ export class ZBookCard {
   @Event()
   ebookClick: EventEmitter;
 
+  /** click on cover link */
+  @Event()
+  coverClick: EventEmitter;
+
+  /** click on title link */
+  @Event()
+  titleClick: EventEmitter;
+
   private emitEbookClick(): void {
     this.ebookClick.emit();
   }
 
+  private emitCoverClick(): void {
+    this.coverClick.emit();
+  }
+
+  private emitTitleClick(): void {
+    this.titleClick.emit();
+  }
+
   private renderCover(): HTMLDivElement {
-    return (
+    const cover = (
       <div class="cover">
         <img
           src={this.cover}
@@ -90,6 +106,19 @@ export class ZBookCard {
         />
         <slot name="coverOverlay"></slot>
       </div>
+    );
+
+    return this.ebookUrl ? (
+      <a
+        class="cover-link"
+        href={this.ebookUrl}
+        onClick={() => this.emitCoverClick()}
+        target="_blank"
+      >
+        {cover}
+      </a>
+    ) : (
+      cover
     );
   }
 
@@ -131,12 +160,27 @@ export class ZBookCard {
       ? `<${this.titleHtmlTag}>${this.operaTitle}</${this.titleHtmlTag}>`
       : this.operaTitle;
 
+    const operaTitle = (
+      <div
+        class="opera-title ellipsis body-2-sb"
+        innerHTML={title}
+      />
+    );
+
     return (
       <div class="cta-wrapper">
-        <div
-          class="opera-title ellipsis body-2-sb"
-          innerHTML={title}
-        />
+        {this.ebookUrl ? (
+          <a
+            class="z-link"
+            href={this.ebookUrl}
+            onClick={() => this.emitTitleClick()}
+            target="_blank"
+          >
+            {operaTitle}
+          </a>
+        ) : (
+          operaTitle
+        )}
         {this.variant === BookCardVariant.PORTRAIT ? this.renderCtaSlot() : null}
       </div>
     );
