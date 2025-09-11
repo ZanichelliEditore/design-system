@@ -113,6 +113,7 @@ export class ZBookCard {
         class="cover-link"
         href={this.ebookUrl}
         onClick={() => this.emitCoverClick()}
+        target="_blank"
       >
         {cover}
       </a>
@@ -173,6 +174,7 @@ export class ZBookCard {
             class="z-link"
             href={this.ebookUrl}
             onClick={() => this.emitTitleClick()}
+            target="_blank"
           >
             {operaTitle}
           </a>

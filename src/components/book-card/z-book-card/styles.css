@@ -36,7 +36,8 @@
   border-radius: var(--border-radius);
 }
 
-:host .main-content a.cover-link:focus {
+:host .main-content a.cover-link:focus-visible {
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
