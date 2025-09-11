@@ -56,7 +56,7 @@ export class ZBookCard {
   @Prop()
   year?: string;
 
-  /** [optional] Show link to the ebook resource */
+  /** [optional] Show link to the ebook resource. Set title and cover as clickable, opening a new tab to the ebook resource */
   @Prop()
   ebookUrl?: string;
 
