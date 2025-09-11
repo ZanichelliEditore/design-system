@@ -108,10 +108,6 @@
   word-break: var(--z-book-card-title-word-break);
 }
 
-/* :host .main-content .card-info .top .ellipsis.opera-title a::focus {
-  box-shadow: var(--shadow-focus-primary);
-} */
-
 :host .main-content .card-info .top .ellipsis.volume-title {
   height: calc(1.4 * var(--z-book-card-subtitle-lines)) rem;
   -webkit-line-clamp: var(--z-book-card-subtitle-lines);
