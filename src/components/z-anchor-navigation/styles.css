@@ -86,11 +86,11 @@ z-anchor-navigation nav button {
 }
 
 @media (min-width: 768px) {
-  z-anchor-navigation z-button.toggle {
+  z-anchor-navigation:not([is-collapsed]) z-button.toggle {
     display: none !important;
   }
 
-  z-anchor-navigation nav {
+  z-anchor-navigation:not([is-collapsed]) nav {
     display: flex;
   }
 

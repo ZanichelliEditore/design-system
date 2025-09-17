@@ -45,6 +45,12 @@ export class ZAnchorNavigation {
   collapsedLabel = "salta a";
 
   /**
+   * Whether to collapsed anchorexplicitly navigation
+   */
+  @Prop({reflect: true})
+  isCollapsed = false;
+
+  /**
    * Whether the mobile list is collapsed.
    */
   @State()
@@ -90,7 +96,10 @@ export class ZAnchorNavigation {
 
   render(): HTMLZAnchorNavigationElement {
     return (
-      <Host collapsed={this.collapsed}>
+      <Host
+        collapsed={this.collapsed}
+        is-collapsed={this.isCollapsed}
+      >
         <z-button
           class="toggle"
           variant={ButtonVariant.SECONDARY}
