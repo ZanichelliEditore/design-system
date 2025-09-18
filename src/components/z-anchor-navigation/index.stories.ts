@@ -12,6 +12,7 @@ const StoryMeta = {
   args: {
     hideUnselected: false,
     collapsedLabel: "salta a",
+    isCollapsed: false,
   },
 } satisfies Meta<ZAnchorNavigation>;
 
@@ -23,6 +24,7 @@ export const Default = {
       <z-anchor-navigation
         collapsed-label=${args.collapsedLabel}
         .hideUnselected=${args.hideUnselected}
+        .isCollapsed=${args.isCollapsed}
       >
         <div>
           <a

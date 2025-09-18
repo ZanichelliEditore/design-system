@@ -47,7 +47,7 @@ export class ZAnchorNavigation {
   /**
    * Whether to collapsed anchor navigation explicitly
    */
-  @Prop()
+  @Prop({reflect: true})
   isCollapsed = false;
 
   /**
@@ -96,10 +96,7 @@ export class ZAnchorNavigation {
 
   render(): HTMLZAnchorNavigationElement {
     return (
-      <Host
-        collapsed={this.collapsed}
-        is-collapsed={this.isCollapsed}
-      >
+      <Host collapsed={this.collapsed}>
         <z-button
           class="toggle"
           variant={ButtonVariant.SECONDARY}
