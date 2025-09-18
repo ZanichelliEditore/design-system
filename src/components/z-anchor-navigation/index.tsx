@@ -45,9 +45,9 @@ export class ZAnchorNavigation {
   collapsedLabel = "salta a";
 
   /**
-   * Whether to collapsed anchorexplicitly navigation
+   * Whether to collapsed anchor navigation explicitly
    */
-  @Prop({reflect: true})
+  @Prop()
   isCollapsed = false;
 
   /**
