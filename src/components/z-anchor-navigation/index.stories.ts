@@ -20,7 +20,7 @@ export default StoryMeta;
 
 export const Default = {
   render: (args) => html`
-    <div class="z-anchor-navigation-story-wrapper">
+    <div class="z-anchor-navigation-story-wrapper ${args.isCollapsed ? "collapsed" : ""}">
       <z-anchor-navigation
         collapsed-label=${args.collapsedLabel}
         .hideUnselected=${args.hideUnselected}

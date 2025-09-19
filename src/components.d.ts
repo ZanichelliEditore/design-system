@@ -94,7 +94,7 @@ export namespace Components {
          */
         "hideUnselected": boolean;
         /**
-          * Whether to collapsed anchor navigation explicitly
+          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
          */
         "isCollapsed": boolean;
     }
@@ -3803,7 +3803,7 @@ declare namespace LocalJSX {
          */
         "hideUnselected"?: boolean;
         /**
-          * Whether to collapsed anchor navigation explicitly
+          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
          */
         "isCollapsed"?: boolean;
     }
