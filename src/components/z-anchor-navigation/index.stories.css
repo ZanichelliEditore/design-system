@@ -55,7 +55,7 @@
     flex-direction: row;
   }
 
-  .z-anchor-navigation-story-wrapper z-anchor-navigation {
+  .z-anchor-navigation-story-wrapper:not(.collapsed) z-anchor-navigation {
     position: sticky;
     max-width: 20%;
   }
