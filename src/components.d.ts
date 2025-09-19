@@ -93,6 +93,10 @@ export namespace Components {
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected": boolean;
+        /**
+          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+         */
+        "isCollapsed": boolean;
     }
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
@@ -3798,6 +3802,10 @@ declare namespace LocalJSX {
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
          */
         "hideUnselected"?: boolean;
+        /**
+          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+         */
+        "isCollapsed"?: boolean;
     }
     /**
      * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.

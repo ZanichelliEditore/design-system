@@ -1,4 +1,5 @@
-.z-anchor-navigation-story-wrapper {
+.z-anchor-navigation-story-wrapper,
+.z-anchor-navigation-story-wrapper.collapsed {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -54,7 +55,7 @@
     flex-direction: row;
   }
 
-  .z-anchor-navigation-story-wrapper z-anchor-navigation {
+  .z-anchor-navigation-story-wrapper:not(.collapsed) z-anchor-navigation {
     position: sticky;
     max-width: 20%;
   }

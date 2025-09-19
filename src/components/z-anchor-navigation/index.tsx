@@ -45,6 +45,13 @@ export class ZAnchorNavigation {
   collapsedLabel = "salta a";
 
   /**
+   * Explicitly collapse anchor navigation.
+   * If false will collapse automatically only on mobile.
+   */
+  @Prop({reflect: true})
+  isCollapsed = false;
+
+  /**
    * Whether the mobile list is collapsed.
    */
   @State()
