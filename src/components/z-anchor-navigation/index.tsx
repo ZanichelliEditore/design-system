@@ -1,5 +1,5 @@
 import {Component, Element, h, Host, Prop, State} from "@stencil/core";
-import {ButtonVariant} from "../../beans";
+import {ButtonVariant, ControlSize} from "../../beans";
 
 /**
  * Anchor navigation component.
@@ -100,6 +100,7 @@ export class ZAnchorNavigation {
       <Host collapsed={this.collapsed}>
         <z-button
           class="toggle"
+          size={ControlSize.SMALL}
           variant={ButtonVariant.SECONDARY}
           icon={this.collapsed ? "chevron-up" : "chevron-down"}
           onClick={this.toggleCollapsed.bind(this)}
