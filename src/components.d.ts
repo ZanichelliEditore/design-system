@@ -1679,10 +1679,11 @@ export namespace Components {
     /**
      * Popover component.
      * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * It supports various positions and can automatically adjust it based on available space.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - It is preferrable to put the popover element near the bound element, in the same container.
+     * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
+     * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -3304,10 +3305,11 @@ declare global {
     /**
      * Popover component.
      * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * It supports various positions and can automatically adjust it based on available space.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - It is preferrable to put the popover element near the bound element, in the same container.
+     * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
+     * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -5548,10 +5550,11 @@ declare namespace LocalJSX {
     /**
      * Popover component.
      * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * It supports various positions and can automatically adjust it based on available space.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - It is preferrable to put the popover element near the bound element, in the same container.
+     * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
+     * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -5575,7 +5578,7 @@ declare namespace LocalJSX {
          */
         "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
-          * Position change event.
+          * Fired when the position changes.
          */
         "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
@@ -6477,10 +6480,11 @@ declare module "@stencil/core" {
             /**
              * Popover component.
              * This component displays a popover that can be bound to an element.
-             * It supports various positions and can automatically adjust its position based on available space.
+             * It supports various positions and can automatically adjust it based on available space.
              * Notes:
-             * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-             * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+             * - It is preferrable to put the popover element near the bound element, in the same container.
+             * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
+             * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
              * @cssprop --z-popover-theme--surface - background color of the popover.
              * @cssprop --z-popover-theme--text - foreground color of the popover.
              * @cssprop --z-popover-padding - padding of the popover.

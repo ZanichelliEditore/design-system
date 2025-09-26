@@ -1,125 +1,133 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, PopoverPosition} from "../../beans";
 
-const DOCUMENT_ELEMENT = document.documentElement;
+// const DOCUMENT_ELEMENT = document.documentElement;
 
 type Offsets = {top: number; right: number; bottom: number; left: number};
-type ElementSizes = {width: number; height: number};
+// type ElementSizes = {width: number; height: number};
 /** Centering offset modifier. 0 for no offset, 0.5 for centering. */
 type OffsetModifier = 0 | 0.5;
 
-function getParentElement(element: Element): Element {
-  if (element.parentNode === element.shadowRoot) {
-    return element.shadowRoot.host;
-  }
+// function getParentElement(element: Element): Element {
+//   if (element.parentNode === element.shadowRoot) {
+//     return element.shadowRoot.host;
+//   }
 
-  return element.parentElement;
-}
+//   return element.parentElement;
+// }
 
 /**
- * Find the closest scrollable parent of a node.
+ * Find all scrollable parents of an element (nearest first) and include DOCUMENT_ELEMENT as last fallback.
+ * This returns an array of HTMLElements ordered from the nearest scrollable parent to the documentElement.
+ */
+// function findScrollableParents(element: Element): HTMLElement[] {
+//   const parents: HTMLElement[] = [];
+//   let parent = getParentElement(element);
+
+//   while (parent && parent !== DOCUMENT_ELEMENT) {
+//     const style = window.getComputedStyle(parent);
+//     const {overflow, overflowX, overflowY} = style;
+
+//     const isHidden = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
+
+//     const isScrollable =
+//       (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+//       (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible");
+
+//     if (isHidden || isScrollable) {
+//       parents.push(parent as HTMLElement);
+//     }
+
+//     parent = getParentElement(parent);
+//   }
+
+//   // Always include documentElement as the last bounding container
+//   parents.push(DOCUMENT_ELEMENT as HTMLElement);
+
+//   return parents;
+// }
+
+/**
+ * Compute element offsets and sizes relative to an optional offset parent.
  *
- * @param {Element} element The node
+ * This function returns the computed top/left position of the provided element
+ * by summing offsetLeft/offsetTop up the chain of offsetParents until an
+ * optional `relativeOffsetParent` is reached (or there are no more
+ * offsetParents). It also accounts for CSS `transform` translations when
+ * DOMMatrix is available and handles the document body specially to consider
+ * children margins and page scroll.
+ *
+ * Returns an object with { top, right, bottom, left, width, height } where
+ * right/bottom are computed relative to the final parent width/height.
+ *
+ * @param element The target element to measure.
+ * @param relativeOffsetParent Optional: stop accumulating offsets when this parent is reached.
  */
-function findScrollableParent(element: Element): Element {
-  let parent = getParentElement(element);
+// function computeElementOffsets(element: HTMLElement, relativeOffsetParent?: HTMLElement): Offsets & ElementSizes {
+//   const rect = element.getBoundingClientRect();
+//   const body = element.ownerDocument.body;
+//   const {width, height} = rect;
 
-  while (parent && parent !== DOCUMENT_ELEMENT) {
-    const style = window.getComputedStyle(parent);
-    const {overflow, overflowX, overflowY} = style;
+//   let top = 0;
+//   let left = 0;
+//   let offsetParent = element;
 
-    // Check for hidden overflow first (early return)
-    if (overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden") {
-      return parent;
-    }
+//   while (offsetParent && offsetParent !== relativeOffsetParent) {
+//     left += offsetParent.offsetLeft;
 
-    // Only check scrollable if overflow is not visible
-    const isOverflowNotVisible = overflow !== "visible";
-    const isOverflowYNotVisible = overflowY !== "visible";
-    const isOverflowXNotVisible = overflowX !== "visible";
+//     // body sometimes has offsetTop == 0 but still has an offset because of children margins!
+//     if (offsetParent === body) {
+//       top += offsetParent.getBoundingClientRect().top + window.scrollY;
+//     } else {
+//       top += offsetParent.offsetTop;
+//     }
 
-    if (
-      (parent.scrollHeight > parent.clientHeight && isOverflowNotVisible && isOverflowYNotVisible) ||
-      (parent.scrollWidth > parent.clientWidth && isOverflowNotVisible && isOverflowXNotVisible)
-    ) {
-      return parent;
-    }
+//     // Handle CSS transforms only when DOMMatrix is available
+//     if (window.DOMMatrix) {
+//       const style = window.getComputedStyle(offsetParent);
+//       const {transform} = style;
 
-    parent = getParentElement(parent);
-  }
+//       if (transform && transform !== "none") {
+//         const domMatrix = new DOMMatrix(transform);
+//         left += domMatrix.m41;
+//         if (offsetParent !== body) {
+//           top += domMatrix.m42;
+//         }
+//       }
+//     }
 
-  return DOCUMENT_ELEMENT;
-}
+//     if (!offsetParent.offsetParent) {
+//       break;
+//     }
 
-/**
- * Calculate computed offset.
- * It includes matrix transformations.
- * @param element The target element.
- * @param targetParentOffset The relative offset parent.
- */
-function computeOffset(element: HTMLElement, targetParentOffset?: HTMLElement): Offsets & ElementSizes {
-  const rect = element.getBoundingClientRect();
-  const {width, height} = rect;
+//     offsetParent = offsetParent.offsetParent as HTMLElement;
+//   }
 
-  let top = 0;
-  let left = 0;
-  let offsetParent = element;
+//   let parentWidth: number;
+//   let parentHeight: number;
+//   if (offsetParent === body) {
+//     parentWidth = window.innerWidth;
+//     parentHeight = window.innerHeight;
+//   } else {
+//     parentWidth = offsetParent.offsetWidth;
+//     parentHeight = offsetParent.offsetHeight;
+//   }
 
-  while (offsetParent && offsetParent !== targetParentOffset) {
-    left += offsetParent.offsetLeft;
+//   const right = parentWidth - left - width;
+//   const bottom = parentHeight - top - height;
 
-    // document.body sometimes has offsetTop == 0 but still has an offset because of children margins!
-    if (offsetParent === document.body) {
-      top += offsetParent.getBoundingClientRect().top + window.scrollY;
-    } else {
-      top += offsetParent.offsetTop;
-    }
-
-    // Handle CSS transforms only when DOMMatrix is available
-    if (window.DOMMatrix) {
-      const style = window.getComputedStyle(offsetParent);
-      const {transform} = style;
-
-      if (transform && transform !== "none") {
-        const domMatrix = new DOMMatrix(transform);
-        left += domMatrix.m41;
-        if (offsetParent !== document.body) {
-          top += domMatrix.m42;
-        }
-      }
-    }
-
-    if (!offsetParent.offsetParent) {
-      break;
-    }
-
-    offsetParent = offsetParent.offsetParent as HTMLElement;
-  }
-
-  let parentWidth: number;
-  let parentHeight: number;
-  if (offsetParent === document.body) {
-    parentWidth = window.innerWidth;
-    parentHeight = window.innerHeight;
-  } else {
-    parentWidth = offsetParent.offsetWidth;
-    parentHeight = offsetParent.offsetHeight;
-  }
-
-  const right = parentWidth - left - width;
-  const bottom = parentHeight - top - height;
-
-  return {top, right, bottom, left, width, height};
-}
+//   return {top, right, bottom, left, width, height};
+// }
 
 /**
  * Popover component.
  * This component displays a popover that can be bound to an element.
- * It supports various positions and can automatically adjust its position based on available space.
+ * It supports various positions and can automatically adjust it based on available space.
  *
  * Notes:
- * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
- * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+ * - It is preferrable to put the popover element near the bound element, in the same container.
+ * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
+ * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
  *
  * @cssprop --z-popover-theme--surface - background color of the popover.
  * @cssprop --z-popover-theme--text - foreground color of the popover.
@@ -180,7 +188,7 @@ export class ZPopover {
   currentPosition?: PopoverPosition;
 
   /**
-   * Position change event.
+   * Fired when the position changes.
    */
   @Event()
   positionChange: EventEmitter;
@@ -219,21 +227,20 @@ export class ZPopover {
     const eventPath = e.composedPath();
     if (!eventPath.includes(this.host)) {
       const target = e.target as HTMLElement;
-      let triggerElemClicked = false;
+      let isBoundElementClicked = false;
 
       if (typeof this.bindTo === "string") {
-        triggerElemClicked = !!target.closest(this.bindTo);
+        isBoundElementClicked = !!target.closest(this.bindTo);
       } else if (this.bindTo) {
-        triggerElemClicked = this.bindTo.contains(target);
+        isBoundElementClicked = this.bindTo.contains(target);
       }
 
-      if (triggerElemClicked) {
+      if (isBoundElementClicked) {
         // stop propagation if the click was on the trigger element to prevent close and reopen glitches
         e.stopPropagation();
       }
 
       this.open = false;
-      this.positionChange.emit({position: this.currentPosition});
     }
   }
 
@@ -245,7 +252,6 @@ export class ZPopover {
 
     this.position = newValue;
     this.currentPosition = newValue;
-    this.positionChange.emit({position: this.currentPosition});
     this.setPosition();
   }
 
@@ -335,17 +341,20 @@ export class ZPopover {
    * Takes into account offsetModifier for centering.
    * @param desiredPosition The desired position of the popover.
    * @param availableSpace The available space around the bound element.
-   * @param boundElemSizes The sizes of the bound element.
+   * @param boundElement The sizes of the bound element.
    * @param offsetModifier The modifier to apply to the offset for centering.
    */
   private getOptimalPopoverPosition(
     desiredPosition: PopoverPosition,
     availableSpace: Offsets,
-    boundElemSizes: ElementSizes,
+    boundElement: HTMLElement,
     offsetModifier: OffsetModifier
   ): PopoverPosition {
     const hostWidth = this.host.offsetWidth;
     const hostHeight = this.host.offsetHeight;
+
+    const boundElementWidth = boundElement.getBoundingClientRect().width;
+    const boundElementHeight = boundElement.getBoundingClientRect().height;
 
     // Check if the desired position has enough space
     const fits = (pos: PopoverPosition): boolean => {
@@ -357,7 +366,7 @@ export class ZPopover {
               availableSpace.left,
               availableSpace.right,
               hostWidth,
-              boundElemSizes.width,
+              boundElementWidth,
               offsetModifier
             )
           );
@@ -365,13 +374,13 @@ export class ZPopover {
         case PopoverPosition.TOP_RIGHT:
           return (
             availableSpace.top >= hostHeight &&
-            this.hasOffsetSpace(availableSpace.right, hostWidth, boundElemSizes.width, offsetModifier)
+            this.hasOffsetSpace(availableSpace.right, hostWidth, boundElementWidth, offsetModifier)
           );
 
         case PopoverPosition.TOP_LEFT:
           return (
             availableSpace.top >= hostHeight &&
-            this.hasOffsetSpace(availableSpace.left, hostWidth, boundElemSizes.width, offsetModifier)
+            this.hasOffsetSpace(availableSpace.left, hostWidth, boundElementWidth, offsetModifier)
           );
 
         case PopoverPosition.RIGHT:
@@ -381,7 +390,7 @@ export class ZPopover {
               availableSpace.top,
               availableSpace.bottom,
               hostHeight,
-              boundElemSizes.height,
+              boundElementHeight,
               offsetModifier
             )
           );
@@ -389,13 +398,13 @@ export class ZPopover {
         case PopoverPosition.RIGHT_BOTTOM:
           return (
             availableSpace.right >= hostWidth &&
-            this.hasOffsetSpace(availableSpace.bottom, hostHeight, boundElemSizes.height, offsetModifier)
+            this.hasOffsetSpace(availableSpace.bottom, hostHeight, boundElementHeight, offsetModifier)
           );
 
         case PopoverPosition.RIGHT_TOP:
           return (
             availableSpace.right >= hostWidth &&
-            this.hasOffsetSpace(availableSpace.top, hostHeight, boundElemSizes.height, offsetModifier)
+            this.hasOffsetSpace(availableSpace.top, hostHeight, boundElementHeight, offsetModifier)
           );
 
         case PopoverPosition.BOTTOM:
@@ -405,7 +414,7 @@ export class ZPopover {
               availableSpace.left,
               availableSpace.right,
               hostWidth,
-              boundElemSizes.width,
+              boundElementWidth,
               offsetModifier
             )
           );
@@ -413,13 +422,13 @@ export class ZPopover {
         case PopoverPosition.BOTTOM_LEFT:
           return (
             availableSpace.bottom >= hostHeight &&
-            this.hasOffsetSpace(availableSpace.left, hostWidth, boundElemSizes.width, offsetModifier)
+            this.hasOffsetSpace(availableSpace.left, hostWidth, boundElementWidth, offsetModifier)
           );
 
         case PopoverPosition.BOTTOM_RIGHT:
           return (
             availableSpace.bottom >= hostHeight &&
-            this.hasOffsetSpace(availableSpace.right, hostWidth, boundElemSizes.width, offsetModifier)
+            this.hasOffsetSpace(availableSpace.right, hostWidth, boundElementWidth, offsetModifier)
           );
 
         case PopoverPosition.LEFT:
@@ -429,7 +438,7 @@ export class ZPopover {
               availableSpace.top,
               availableSpace.bottom,
               hostHeight,
-              boundElemSizes.height,
+              boundElementHeight,
               offsetModifier
             )
           );
@@ -437,13 +446,13 @@ export class ZPopover {
         case PopoverPosition.LEFT_TOP:
           return (
             availableSpace.left >= hostWidth &&
-            this.hasOffsetSpace(availableSpace.top, hostHeight, boundElemSizes.height, offsetModifier)
+            this.hasOffsetSpace(availableSpace.top, hostHeight, boundElementHeight, offsetModifier)
           );
 
         case PopoverPosition.LEFT_BOTTOM:
           return (
             availableSpace.left >= hostWidth &&
-            this.hasOffsetSpace(availableSpace.bottom, hostHeight, boundElemSizes.height, offsetModifier)
+            this.hasOffsetSpace(availableSpace.bottom, hostHeight, boundElementHeight, offsetModifier)
           );
 
         default:
@@ -520,141 +529,145 @@ export class ZPopover {
   }
 
   /**
-   * Calculate available space around the bound element
+   * Calculate available space around the element bound with the popover, based on its `offsetParent`.
+   * The most common use case is to set `position: relative` on the nearest scrollable container, so that the popover can correctly calculate available space when the container is scrolled.
+   * Not setting `position: relative` on any container will make the popover calculate available space relative to the viewport, which can cause unexpected positioning.
    */
-  private calculateAvailableSpace(
-    boundElementRect: Offsets & ElementSizes,
-    scrollContainer: HTMLElement,
-    scrollingBoundingRect: DOMRect
-  ): {top: number; right: number; bottom: number; left: number} {
-    const top = boundElementRect.top - scrollContainer.scrollTop;
-    const bottom =
-      scrollingBoundingRect.height - (boundElementRect.top + boundElementRect.height) + scrollContainer.scrollTop;
-    const left = boundElementRect.left - scrollContainer.scrollLeft;
-    const right =
-      scrollingBoundingRect.width - (boundElementRect.left + boundElementRect.width) + scrollContainer.scrollLeft;
-
-    const overflowBottom = Math.max(0, scrollingBoundingRect.top + scrollingBoundingRect.height - window.innerHeight);
-    const overflowRight = Math.max(0, scrollingBoundingRect.left + scrollingBoundingRect.width - window.innerWidth);
+  private calculateAvailableSpace(boundElement: HTMLElement): {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  } {
+    const boundElementRect = boundElement.getBoundingClientRect();
+    const offsetParent = (boundElement.offsetParent ?? this.host.ownerDocument.body) as HTMLElement;
+    const offsetParentRect = offsetParent.getBoundingClientRect();
 
     return {
-      top: Math.min(top, top + scrollingBoundingRect.top),
-      bottom: Math.min(bottom, bottom - overflowBottom),
-      left: Math.min(left, left + scrollingBoundingRect.left),
-      right: Math.min(right, right - overflowRight),
+      top: boundElementRect.top - offsetParentRect.top,
+      right: offsetParentRect.width - boundElementRect.right,
+      bottom: offsetParentRect.bottom - boundElementRect.bottom,
+      left: boundElementRect.left - offsetParentRect.left,
     };
   }
 
   /**
-   * Calculate relative offsets for positioning
-   */
-  private calculateRelativeOffsets(
-    boundElementRect: Offsets,
-    relativeBoundingRect: Offsets
-  ): {top: number; right: number; bottom: number; left: number} {
-    return {
-      top: boundElementRect.top - relativeBoundingRect.top,
-      right: boundElementRect.right - relativeBoundingRect.right,
-      bottom: boundElementRect.bottom - relativeBoundingRect.bottom,
-      left: boundElementRect.left - relativeBoundingRect.left,
-    };
-  }
-
-  /**
-   * Apply positioning styles based on position
+   * Apply positioning styles based on position.
    */
   private applyPositionStyles(
     position: PopoverPosition,
-    style: CSSStyleDeclaration,
-    offsets: Offsets,
-    boundElementSizes: ElementSizes,
+    boundElement: HTMLElement,
     availableSpace: Offsets,
     offsetModifier: OffsetModifier,
     arrowModifier: number
   ): void {
-    const distanceFromBound = 8; // 8px is the distance of the popover from the bound element
+    const boundElementWidth = boundElement.getBoundingClientRect().width;
+    const boundElementHeight = boundElement.getBoundingClientRect().height;
+    /** 8px is the distance of the popover from the bound element */
+    const distanceFromBound = 8;
+    const hostStyle = this.host.style;
+    const boundElementOffsets = this.calculateRelativeOffsets(boundElement);
+
+
+    // TODO: valutare se impostere `visibility: hidden` durante l'applicazione degli stili per poi togierlo alla fine ed evitare di vedere il popover spostarsi mentre si apre
+
     // Reset all positioning properties
-    style.top = "auto";
-    style.right = "auto";
-    style.bottom = "auto";
-    style.left = "auto";
-    style.maxWidth = "";
-    style.maxHeight = "";
+    hostStyle.top = "auto";
+    hostStyle.right = "auto";
+    hostStyle.bottom = "auto";
+    hostStyle.left = "auto";
+    hostStyle.maxWidth = "";
+    hostStyle.maxHeight = "";
 
     switch (position) {
       case PopoverPosition.TOP:
       case PopoverPosition.TOP_RIGHT:
-        style.bottom = `${offsets.bottom + boundElementSizes.height}px`;
-        style.left = `${offsets.left + boundElementSizes.width * offsetModifier - (position === PopoverPosition.TOP_RIGHT ? arrowModifier : 0)}px`;
-        style.maxHeight = `${availableSpace.top - distanceFromBound}px`;
+        hostStyle.bottom = `${boundElementOffsets.bottom + boundElementHeight}px`;
+        hostStyle.left = `${boundElementOffsets.left + boundElementWidth * offsetModifier - (position === PopoverPosition.TOP_RIGHT ? arrowModifier : 0)}px`;
+        hostStyle.maxHeight = `${availableSpace.top - distanceFromBound}px`;
         if (position === PopoverPosition.TOP_RIGHT) {
-          style.maxWidth = `${availableSpace.right + boundElementSizes.width * offsetModifier}px`;
+          hostStyle.maxWidth = `${availableSpace.right + boundElementWidth * offsetModifier}px`;
         }
         break;
 
       case PopoverPosition.TOP_LEFT:
-        style.right = `${offsets.right + boundElementSizes.width * offsetModifier - arrowModifier}px`;
-        style.bottom = `${offsets.bottom + boundElementSizes.height}px`;
-        style.maxWidth = `${availableSpace.left}px`;
-        style.maxHeight = `${availableSpace.top - distanceFromBound}px`;
+        hostStyle.right = `${boundElementOffsets.right + boundElementWidth * offsetModifier - arrowModifier}px`;
+        hostStyle.bottom = `${boundElementOffsets.bottom}px`;
+        hostStyle.maxWidth = `${availableSpace.left}px`;
+        hostStyle.maxHeight = `${availableSpace.top - distanceFromBound}px`;
         break;
 
       case PopoverPosition.BOTTOM:
       case PopoverPosition.BOTTOM_RIGHT:
-        style.top = `${offsets.top + boundElementSizes.height}px`;
-        style.left = `${offsets.left + boundElementSizes.width * offsetModifier - (position === PopoverPosition.BOTTOM_RIGHT ? arrowModifier : 0)}px`;
-        style.maxHeight = `${availableSpace.bottom - distanceFromBound}px`;
+        hostStyle.top = `${boundElementOffsets.top + boundElementHeight}px`;
+        hostStyle.left = `${boundElementOffsets.left + boundElementWidth * offsetModifier - (position === PopoverPosition.BOTTOM_RIGHT ? arrowModifier : 0)}px`;
+        hostStyle.maxHeight = `${availableSpace.bottom - distanceFromBound}px`;
         if (position === PopoverPosition.BOTTOM_RIGHT) {
-          style.maxWidth = `${availableSpace.right + boundElementSizes.width * offsetModifier}px`;
+          hostStyle.maxWidth = `${availableSpace.right + boundElementWidth * offsetModifier}px`;
         }
         break;
 
       case PopoverPosition.BOTTOM_LEFT:
-        style.top = `${offsets.top + boundElementSizes.height}px`;
-        style.right = `${offsets.right + boundElementSizes.width * offsetModifier - arrowModifier}px`;
-        style.maxWidth = `${availableSpace.left}px`;
-        style.maxHeight = `${availableSpace.bottom - distanceFromBound}px`;
+        hostStyle.top = `${boundElementOffsets.top + boundElementHeight}px`;
+        hostStyle.right = `${boundElementOffsets.right + boundElementWidth * offsetModifier - arrowModifier}px`;
+        hostStyle.maxWidth = `${availableSpace.left}px`;
+        hostStyle.maxHeight = `${availableSpace.bottom - distanceFromBound}px`;
         break;
 
       case PopoverPosition.RIGHT:
       case PopoverPosition.RIGHT_BOTTOM:
-        style.top = `${offsets.top + boundElementSizes.height * offsetModifier - (position === PopoverPosition.RIGHT_BOTTOM ? arrowModifier : 0)}px`;
-        style.left = `${offsets.left + boundElementSizes.width}px`;
-        style.maxWidth = `${availableSpace.right - distanceFromBound}px`;
+        hostStyle.top = `${boundElementOffsets.top + boundElementHeight * offsetModifier - (position === PopoverPosition.RIGHT_BOTTOM ? arrowModifier : 0)}px`;
+        hostStyle.left = `${boundElementOffsets.left + boundElementWidth}px`;
+        hostStyle.maxWidth = `${availableSpace.right - distanceFromBound}px`;
         if (position === PopoverPosition.RIGHT) {
-          style.maxHeight = `${Math.min(availableSpace.top + availableSpace.bottom + boundElementSizes.height, window.innerHeight - 20)}px`;
+          hostStyle.maxHeight = `${Math.min(availableSpace.top + availableSpace.bottom + boundElementHeight, window.innerHeight - 20)}px`;
         } else {
-          style.maxHeight = `${availableSpace.bottom + boundElementSizes.height * offsetModifier}px`;
+          hostStyle.maxHeight = `${availableSpace.bottom + boundElementHeight * offsetModifier}px`;
         }
         break;
 
       case PopoverPosition.RIGHT_TOP:
-        style.bottom = `${offsets.bottom + boundElementSizes.height * offsetModifier - arrowModifier}px`;
-        style.left = `${offsets.left + boundElementSizes.width}px`;
-        style.maxWidth = `${availableSpace.right - distanceFromBound}px`;
+        hostStyle.bottom = `${boundElementOffsets.bottom + boundElementHeight * offsetModifier - arrowModifier}px`;
+        hostStyle.left = `${boundElementOffsets.left + boundElementWidth}px`;
+        hostStyle.maxWidth = `${availableSpace.right - distanceFromBound}px`;
         if (position === PopoverPosition.RIGHT_TOP) {
-          style.maxHeight = `${availableSpace.top + boundElementSizes.height * offsetModifier}px`;
+          hostStyle.maxHeight = `${availableSpace.top + boundElementHeight * offsetModifier}px`;
         }
         break;
 
       case PopoverPosition.LEFT:
       case PopoverPosition.LEFT_BOTTOM:
-        style.top = `${offsets.top + boundElementSizes.height * offsetModifier - (position === PopoverPosition.LEFT_BOTTOM ? arrowModifier : 0)}px`;
-        style.right = `${offsets.right + boundElementSizes.width}px`;
-        style.maxWidth = `${availableSpace.left - distanceFromBound}px`;
+        hostStyle.top = `${availableSpace.top + boundElementHeight * offsetModifier - (position === PopoverPosition.LEFT_BOTTOM ? arrowModifier : 0)}px`;
+        hostStyle.right = `${availableSpace.right + boundElementWidth}px`;
+        hostStyle.maxWidth = `${availableSpace.left - distanceFromBound}px`;
         if (position === PopoverPosition.LEFT_BOTTOM) {
-          style.maxHeight = `${availableSpace.bottom + boundElementSizes.height * offsetModifier}px`;
+          hostStyle.maxHeight = `${availableSpace.bottom + boundElementHeight * offsetModifier}px`;
         }
         break;
 
       case PopoverPosition.LEFT_TOP:
-        style.right = `${offsets.right + boundElementSizes.width}px`;
-        style.bottom = `${offsets.bottom + boundElementSizes.height * offsetModifier - arrowModifier}px`;
-        style.maxWidth = `${availableSpace.left - distanceFromBound}px`;
+        hostStyle.right = `${availableSpace.right + boundElementWidth}px`;
+        hostStyle.bottom = `${availableSpace.bottom + boundElementHeight * offsetModifier - arrowModifier}px`;
+        hostStyle.maxWidth = `${availableSpace.left - distanceFromBound}px`;
         if (position === PopoverPosition.LEFT_TOP) {
-          style.maxHeight = `${availableSpace.top + boundElementSizes.height * offsetModifier}px`;
+          hostStyle.maxHeight = `${availableSpace.top + boundElementHeight * offsetModifier}px`;
         }
         break;
+    }
+  }
+
+  /**
+   * Calculate the distance of the bound element from the edges of the relative ancestor.
+   * @param boundElement The element to which the popover is bound.
+   */
+  private calculateRelativeOffsets(boundElement: HTMLElement): Offsets {
+    const offsetParent = (boundElement.offsetParent ?? this.host.ownerDocument.body) as HTMLElement;
+
+    return {
+      top: boundElement.offsetTop,
+      left: boundElement.offsetLeft,
+      right: offsetParent.offsetWidth - (boundElement.offsetLeft + boundElement.offsetWidth),
+      bottom: offsetParent.offsetHeight - (boundElement.offsetTop + boundElement.offsetHeight),
     }
   }
 
@@ -675,31 +688,21 @@ export class ZPopover {
       return;
     }
 
-    const scrollContainer = findScrollableParent(boundElement) as HTMLElement;
-    const scrollingBoundingRect = scrollContainer.getBoundingClientRect();
-    const offsetContainer = this.host.offsetParent as HTMLElement;
-
-    const relativeBoundingRect = offsetContainer
-      ? computeOffset(offsetContainer, scrollContainer)
-      : {top: 0, right: 0, bottom: 0, left: 0};
-    const boundElementRect = computeOffset(boundElement, scrollContainer);
-
-    const availableSpace = this.calculateAvailableSpace(boundElementRect, scrollContainer, scrollingBoundingRect);
-    const offsets = this.calculateRelativeOffsets(boundElementRect, relativeBoundingRect);
+    const availableSpace = this.calculateAvailableSpace(boundElement);
     const offsetModifier = this.center ? 0.5 : 0;
-    const arrowModifier = this.showArrow && this.center ? 8 : 0; // 8px is the distance of the arrow center from the edge of the popover
+    /** 8px is the distance between the arrow center and the edge of the popover */
+    const arrowModifier = this.showArrow && this.center ? 8 : 0;
+    const position = this.getOptimalPopoverPosition(this.position, availableSpace, boundElement, offsetModifier);
 
-    const position = this.getOptimalPopoverPosition(
-      this.position,
+    this.applyPositionStyles(
+      position,
+      boundElement,
       availableSpace,
-      {width: boundElementRect.width, height: boundElementRect.height},
-      offsetModifier
+      offsetModifier,
+      arrowModifier
     );
-
-    const style = this.host.style;
-    this.applyPositionStyles(position, style, offsets, boundElementRect, availableSpace, offsetModifier, arrowModifier);
-
     this.currentPosition = position;
+    this.positionChange.emit({position: this.currentPosition});
   }
 
   componentWillLoad(): void {

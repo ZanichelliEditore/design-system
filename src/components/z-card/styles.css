@@ -161,6 +161,10 @@ Unfortunately the `aspect-ratio` property is still experimental */
   border-radius: var(--z-card--text-border-radius);
 }
 
+:host([variant="text"]) [slot='text']::before {
+  border-radius: var(--z-card--text-border-radius);
+}
+
 :host([show-shadow]) > .content,
 :host([variant="border"]) > .content,
 :host([variant="shadow"]) > .content {
