@@ -4,12 +4,8 @@
   --z-popover-padding: ;
   --z-popover-shadow-filter: ;
 
-  position: absolute;
+  position: fixed;
   display: none;
-  min-width: calc(var(--space-unit) * 8);
-  max-width: 100%;
-  min-height: calc(var(--space-unit) * 4);
-  max-height: 100%;
   align-items: center;
   justify-content: center;
   padding: var(--z-popover-padding, 0);

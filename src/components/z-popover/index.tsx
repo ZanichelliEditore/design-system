@@ -1,123 +1,61 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, PopoverPosition} from "../../beans";
 
-// const DOCUMENT_ELEMENT = document.documentElement;
-
 type Offsets = {top: number; right: number; bottom: number; left: number};
-// type ElementSizes = {width: number; height: number};
 /** Centering offset modifier. 0 for no offset, 0.5 for centering. */
 type OffsetModifier = 0 | 0.5;
 
-// function getParentElement(element: Element): Element {
-//   if (element.parentNode === element.shadowRoot) {
-//     return element.shadowRoot.host;
-//   }
+function getParentElement(element: Element): Element {
+  if (element.parentNode === element.shadowRoot) {
+    return element.shadowRoot.host;
+  }
 
-//   return element.parentElement;
-// }
-
-/**
- * Find all scrollable parents of an element (nearest first) and include DOCUMENT_ELEMENT as last fallback.
- * This returns an array of HTMLElements ordered from the nearest scrollable parent to the documentElement.
- */
-// function findScrollableParents(element: Element): HTMLElement[] {
-//   const parents: HTMLElement[] = [];
-//   let parent = getParentElement(element);
-
-//   while (parent && parent !== DOCUMENT_ELEMENT) {
-//     const style = window.getComputedStyle(parent);
-//     const {overflow, overflowX, overflowY} = style;
-
-//     const isHidden = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
-
-//     const isScrollable =
-//       (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
-//       (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible");
-
-//     if (isHidden || isScrollable) {
-//       parents.push(parent as HTMLElement);
-//     }
-
-//     parent = getParentElement(parent);
-//   }
-
-//   // Always include documentElement as the last bounding container
-//   parents.push(DOCUMENT_ELEMENT as HTMLElement);
-
-//   return parents;
-// }
+  return element.parentElement;
+}
 
 /**
- * Compute element offsets and sizes relative to an optional offset parent.
- *
- * This function returns the computed top/left position of the provided element
- * by summing offsetLeft/offsetTop up the chain of offsetParents until an
- * optional `relativeOffsetParent` is reached (or there are no more
- * offsetParents). It also accounts for CSS `transform` translations when
- * DOMMatrix is available and handles the document body specially to consider
- * children margins and page scroll.
- *
- * Returns an object with { top, right, bottom, left, width, height } where
- * right/bottom are computed relative to the final parent width/height.
- *
- * @param element The target element to measure.
- * @param relativeOffsetParent Optional: stop accumulating offsets when this parent is reached.
+ * Find the nearest ancestor of an element to take as a reference for positioning.
+ * The chosen ancestor is the first to have an overflow set to hidden or is scrollable.
+ * Falls back to the `offsetParent` of the element (the closest positioned ancestor, for example the one with `position: relative`).
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
  */
-// function computeElementOffsets(element: HTMLElement, relativeOffsetParent?: HTMLElement): Offsets & ElementSizes {
-//   const rect = element.getBoundingClientRect();
-//   const body = element.ownerDocument.body;
-//   const {width, height} = rect;
+function findScrollableParent(element: HTMLElement): HTMLElement {
+  let parent = getParentElement(element);
 
-//   let top = 0;
-//   let left = 0;
-//   let offsetParent = element;
+  while (parent && parent !== element.ownerDocument.documentElement) {
+    const style = window.getComputedStyle(parent);
+    const {overflow, overflowX, overflowY} = style;
+    const hasHiddenOverflow = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
+    const isScrollable =
+      (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible");
 
-//   while (offsetParent && offsetParent !== relativeOffsetParent) {
-//     left += offsetParent.offsetLeft;
+    if (!hasHiddenOverflow && isScrollable) {
+      return parent as HTMLElement;
+    }
 
-//     // body sometimes has offsetTop == 0 but still has an offset because of children margins!
-//     if (offsetParent === body) {
-//       top += offsetParent.getBoundingClientRect().top + window.scrollY;
-//     } else {
-//       top += offsetParent.offsetTop;
-//     }
+    parent = getParentElement(parent);
+  }
 
-//     // Handle CSS transforms only when DOMMatrix is available
-//     if (window.DOMMatrix) {
-//       const style = window.getComputedStyle(offsetParent);
-//       const {transform} = style;
+  return element.ownerDocument.documentElement;
+}
 
-//       if (transform && transform !== "none") {
-//         const domMatrix = new DOMMatrix(transform);
-//         left += domMatrix.m41;
-//         if (offsetParent !== body) {
-//           top += domMatrix.m42;
-//         }
-//       }
-//     }
+/**
+ * Check if the element is visible within the container.
+ * @param element The element to check.
+ * @param container The container to check against, which must be the nearest scrollable ancestor.
+ */
+function isElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
+  const elemRect = element.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
 
-//     if (!offsetParent.offsetParent) {
-//       break;
-//     }
-
-//     offsetParent = offsetParent.offsetParent as HTMLElement;
-//   }
-
-//   let parentWidth: number;
-//   let parentHeight: number;
-//   if (offsetParent === body) {
-//     parentWidth = window.innerWidth;
-//     parentHeight = window.innerHeight;
-//   } else {
-//     parentWidth = offsetParent.offsetWidth;
-//     parentHeight = offsetParent.offsetHeight;
-//   }
-
-//   const right = parentWidth - left - width;
-//   const bottom = parentHeight - top - height;
-
-//   return {top, right, bottom, left, width, height};
-// }
+  return (
+    elemRect.bottom > containerRect.top &&
+    elemRect.top < containerRect.bottom &&
+    elemRect.right > containerRect.left &&
+    elemRect.left < containerRect.right
+  );
+}
 
 /**
  * Popover component.
@@ -302,10 +240,10 @@ export class ZPopover {
     availableLeft: number,
     availableRight: number,
     hostWidth: number,
-    boundWidth: number,
+    boundElementWidth: number,
     offsetModifier: OffsetModifier
   ): boolean {
-    const requiredSpace = (hostWidth - boundWidth) * (1 - offsetModifier);
+    const requiredSpace = (hostWidth - boundElementWidth) * (1 - offsetModifier);
 
     return (
       availableLeft >= requiredSpace - this.spaceTolerance && availableRight >= requiredSpace - this.spaceTolerance
@@ -316,10 +254,10 @@ export class ZPopover {
     availableTop: number,
     availableBottom: number,
     hostHeight: number,
-    boundHeight: number,
+    boundElementHeight: number,
     offsetModifier: OffsetModifier
   ): boolean {
-    const requiredSpace = (hostHeight - boundHeight) * (1 - offsetModifier);
+    const requiredSpace = (hostHeight - boundElementHeight) * (1 - offsetModifier);
 
     return (
       availableTop >= requiredSpace - this.spaceTolerance && availableBottom >= requiredSpace - this.spaceTolerance
@@ -329,10 +267,10 @@ export class ZPopover {
   private hasOffsetSpace(
     availableSpace: number,
     hostSize: number,
-    boundSize: number,
+    boundElementSize: number,
     offsetModifier: OffsetModifier
   ): boolean {
-    return availableSpace >= hostSize - boundSize * (1 - offsetModifier) - this.spaceTolerance;
+    return availableSpace >= hostSize - boundElementSize * (1 - offsetModifier) - this.spaceTolerance;
   }
 
   /**
@@ -529,9 +467,14 @@ export class ZPopover {
   }
 
   /**
-   * Calculate available space around the element bound with the popover, based on its `offsetParent`.
-   * The most common use case is to set `position: relative` on the nearest scrollable container, so that the popover can correctly calculate available space when the container is scrolled.
-   * Not setting `position: relative` on any container will make the popover calculate available space relative to the viewport, which can cause unexpected positioning.
+   * Calculate available space around the element bound with the popover, based on its nearest scrollable ancestor.
+   *
+   * If the scrollable parent is the documentElement or body, we calculate offsets relative to the viewport,
+   * otherwise we calculate offsets relative to the scrollable parent.
+   * This allows the popover to be positioned correctly within scrollable containers without being affected by the rest of the page.
+   * Calculations for `right` and `bottom` can be a little bit confusing because boundingRect.right and .bottom may not be what you expect,
+   * for more information see the explanation in the docs.
+   * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect#return_value
    */
   private calculateAvailableSpace(boundElement: HTMLElement): {
     top: number;
@@ -540,19 +483,42 @@ export class ZPopover {
     left: number;
   } {
     const boundElementRect = boundElement.getBoundingClientRect();
-    const offsetParent = (boundElement.offsetParent ?? this.host.ownerDocument.body) as HTMLElement;
-    const offsetParentRect = offsetParent.getBoundingClientRect();
+    const scrollableParent = findScrollableParent(boundElement);
+    const scrollableParentRect = scrollableParent.getBoundingClientRect();
+    const hasNestedScrollableParent =
+      scrollableParent !== boundElement.ownerDocument.documentElement &&
+      scrollableParent !== boundElement.ownerDocument.body;
+
+    const deltaTop = hasNestedScrollableParent ? scrollableParentRect.top : 0;
+    const deltaRight = hasNestedScrollableParent ? window.innerWidth - scrollableParentRect.right : 0;
+    const deltaBottom = hasNestedScrollableParent ? window.innerHeight - scrollableParentRect.bottom : 0;
+    const deltaLeft = hasNestedScrollableParent ? scrollableParentRect.left : 0;
 
     return {
-      top: boundElementRect.top - offsetParentRect.top,
-      right: offsetParentRect.width - boundElementRect.right,
-      bottom: offsetParentRect.bottom - boundElementRect.bottom,
-      left: boundElementRect.left - offsetParentRect.left,
+      top: boundElementRect.top - deltaTop,
+      right: window.innerWidth - boundElementRect.right - deltaRight,
+      bottom: window.innerHeight - boundElementRect.bottom - deltaBottom,
+      left: boundElementRect.left - deltaLeft,
     };
   }
 
   /**
-   * Apply positioning styles based on position.
+   * Calculate the space around an element relative to the viewport.
+   * @param element The element to calculate offsets for.
+   */
+  private calculateElementOffsets(element: HTMLElement): Offsets {
+    const elementRect = element.getBoundingClientRect();
+
+    return {
+      top: elementRect.top,
+      right: window.innerWidth - elementRect.right,
+      bottom: window.innerHeight - elementRect.bottom,
+      left: elementRect.left,
+    };
+  }
+
+  /**
+   * Apply positioning styles based on passed position.
    */
   private applyPositionStyles(
     position: PopoverPosition,
@@ -561,13 +527,12 @@ export class ZPopover {
     offsetModifier: OffsetModifier,
     arrowModifier: number
   ): void {
-    const boundElementWidth = boundElement.getBoundingClientRect().width;
-    const boundElementHeight = boundElement.getBoundingClientRect().height;
+    const boundElementWidth = boundElement.offsetWidth;
+    const boundElementHeight = boundElement.offsetHeight;
     /** 8px is the distance of the popover from the bound element */
     const distanceFromBound = 8;
     const hostStyle = this.host.style;
-    const boundElementOffsets = this.calculateRelativeOffsets(boundElement);
-
+    const boundElementOffsets = this.calculateElementOffsets(boundElement);
 
     // TODO: valutare se impostere `visibility: hidden` durante l'applicazione degli stili per poi togierlo alla fine ed evitare di vedere il popover spostarsi mentre si apre
 
@@ -657,21 +622,6 @@ export class ZPopover {
   }
 
   /**
-   * Calculate the distance of the bound element from the edges of the relative ancestor.
-   * @param boundElement The element to which the popover is bound.
-   */
-  private calculateRelativeOffsets(boundElement: HTMLElement): Offsets {
-    const offsetParent = (boundElement.offsetParent ?? this.host.ownerDocument.body) as HTMLElement;
-
-    return {
-      top: boundElement.offsetTop,
-      left: boundElement.offsetLeft,
-      right: offsetParent.offsetWidth - (boundElement.offsetLeft + boundElement.offsetWidth),
-      bottom: offsetParent.offsetHeight - (boundElement.offsetTop + boundElement.offsetHeight),
-    }
-  }
-
-  /**
    * Set the position of the popover.
    */
   private setPosition(): void {
@@ -688,19 +638,20 @@ export class ZPopover {
       return;
     }
 
+    if (!isElementVisibleInContainer(boundElement, findScrollableParent(boundElement))) {
+      // If the bound element is not visible, hide the popover too
+      this.open = false;
+
+      return;
+    }
+
     const availableSpace = this.calculateAvailableSpace(boundElement);
     const offsetModifier = this.center ? 0.5 : 0;
     /** 8px is the distance between the arrow center and the edge of the popover */
     const arrowModifier = this.showArrow && this.center ? 8 : 0;
     const position = this.getOptimalPopoverPosition(this.position, availableSpace, boundElement, offsetModifier);
 
-    this.applyPositionStyles(
-      position,
-      boundElement,
-      availableSpace,
-      offsetModifier,
-      arrowModifier
-    );
+    this.applyPositionStyles(position, boundElement, availableSpace, offsetModifier, arrowModifier);
     this.currentPosition = position;
     this.positionChange.emit({position: this.currentPosition});
   }
