@@ -32,20 +32,26 @@
   display: flex;
   overflow: hidden;
   height: var(--z-book-card-portrait-cover-height);
+  align-items: flex-end;
   background: var(--color-white);
   border-radius: var(--border-radius);
 }
 
-:host .main-content a.cover-link:focus-visible {
+:host .main-content .cover:focus-within {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host .main-content .cover a {
+  display: inline-flex;
   outline: none;
 }
 
 :host .main-content .cover img {
   max-width: 100%;
   max-height: 100%;
-  align-self: end;
+  outline: none;
 }
 
 ::slotted([slot="coverOverlay"]) {
