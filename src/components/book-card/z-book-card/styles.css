@@ -37,7 +37,7 @@
   border-radius: var(--border-radius);
 }
 
-:host .main-content .cover:focus-within {
+:host .main-content .cover:has(a:focus) {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
