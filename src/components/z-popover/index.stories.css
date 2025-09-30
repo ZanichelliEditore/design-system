@@ -14,8 +14,7 @@
 }
 
 .popover-content {
-  max-width: 400px;
-  max-height: 150px;
+  width: 200px;
   text-align: left;
 }
 
@@ -44,5 +43,11 @@
       justify-content: center;
       background-color: tomato;
     }
+  }
+}
+
+@media (width < 768px) {
+  .popover-container {
+    min-width: unset;
   }
 }

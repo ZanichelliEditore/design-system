@@ -24,7 +24,7 @@
 
 :host([open][current-position]),
 :host([open="true"][current-position]) {
-  display: flex;
+  display: block;
 }
 
 :host([center][current-position="top"]),
@@ -141,9 +141,4 @@
 :host([center][current-position="left"])::before {
   top: var(--arrow-center-x-offset);
   bottom: auto;
-}
-
-::slotted(*) {
-  overflow: auto;
-  flex: 1 auto;
 }
