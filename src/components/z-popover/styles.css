@@ -6,6 +6,8 @@
 
   position: fixed;
   display: none;
+  max-width: calc(100% - var(--grid-margin) * 2);
+  max-height: calc(100% - var(--grid-margin) * 2);
   align-items: center;
   justify-content: center;
   padding: var(--z-popover-padding, 0);

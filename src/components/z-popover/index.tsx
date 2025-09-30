@@ -227,17 +227,17 @@ export class ZPopover {
 
   // Clockwise order of positions.
   private static readonly positionOrder: PopoverPosition[] = [
-    PopoverPosition.TOP_RIGHT,
     PopoverPosition.TOP,
+    PopoverPosition.TOP_RIGHT,
     PopoverPosition.TOP_LEFT,
-    PopoverPosition.RIGHT_BOTTOM,
     PopoverPosition.RIGHT,
+    PopoverPosition.RIGHT_BOTTOM,
     PopoverPosition.RIGHT_TOP,
-    PopoverPosition.BOTTOM_LEFT,
     PopoverPosition.BOTTOM,
+    PopoverPosition.BOTTOM_LEFT,
     PopoverPosition.BOTTOM_RIGHT,
-    PopoverPosition.LEFT_TOP,
     PopoverPosition.LEFT,
+    PopoverPosition.LEFT_TOP,
     PopoverPosition.LEFT_BOTTOM,
   ] as const;
 
@@ -264,7 +264,8 @@ export class ZPopover {
     }
 
     return (
-      availableRight >= requiredSideSpace - this.spaceTolerance && availableLeft >= requiredSideSpace - this.spaceTolerance
+      availableRight >= requiredSideSpace - this.spaceTolerance &&
+      availableLeft >= requiredSideSpace - this.spaceTolerance
     );
   }
 
@@ -495,17 +496,21 @@ export class ZPopover {
       scrollableParent !== boundElement.ownerDocument.body;
     const documentWidth = boundElement.ownerDocument.documentElement.clientWidth;
     const documentHeight = boundElement.ownerDocument.documentElement.clientHeight;
+    const safeSpace = 8; // extra space to avoid popover being too close to the edges
 
+    // These deltas represent the offset between the scrollable parent and the viewport.
+    // They are used to adjust the available space calculations when the scrollable parent is not the document or body,
+    // to try to fit the popover inside the scrollable parent.
     const deltaTop = hasNestedScrollableParent ? scrollableParentRect.top : 0;
     const deltaRight = hasNestedScrollableParent ? documentWidth - scrollableParentRect.right : 0;
     const deltaBottom = hasNestedScrollableParent ? documentHeight - scrollableParentRect.bottom : 0;
     const deltaLeft = hasNestedScrollableParent ? scrollableParentRect.left : 0;
 
     return {
-      top: boundElementRect.top - deltaTop,
-      right: documentWidth - boundElementRect.right - deltaRight,
-      bottom: documentHeight - boundElementRect.bottom - deltaBottom,
-      left: boundElementRect.left - deltaLeft,
+      top: boundElementRect.top - deltaTop - safeSpace,
+      right: documentWidth - boundElementRect.right - deltaRight - safeSpace,
+      bottom: documentHeight - boundElementRect.bottom - deltaBottom - safeSpace,
+      left: boundElementRect.left - deltaLeft - safeSpace,
     };
   }
 
@@ -538,8 +543,6 @@ export class ZPopover {
     const arrowModifier = this.showArrow && this.center ? 8 : 0;
     const hostStyle = this.host.style;
     const boundElementOffsets = this.calculateElementOffsets(boundElement);
-    const documentWidth = boundElement.ownerDocument.documentElement.clientWidth;
-    const documentHeight = boundElement.ownerDocument.documentElement.clientHeight;
 
     let maxWidth: number;
     let maxHeight: number;
@@ -551,8 +554,8 @@ export class ZPopover {
     hostStyle.right = "auto";
     hostStyle.bottom = "auto";
     hostStyle.left = "auto";
-    hostStyle.maxWidth = "100%";
-    hostStyle.maxHeight = "100%";
+    delete hostStyle.maxWidth;
+    delete hostStyle.maxHeight;
 
     switch (position) {
       case PopoverPosition.TOP:
@@ -628,8 +631,8 @@ export class ZPopover {
 
     if (getDevice() !== Device.MOBILE) {
       // Only force max sizes on non-mobile viewports
-      hostStyle.maxWidth = maxWidth > documentWidth ? `${documentWidth - 16}px` : `${maxWidth}px`; // 16px margin from viewport edges
-      hostStyle.maxHeight = maxHeight > documentHeight ? `${documentHeight - 16}px` : `${maxHeight}px`; // 16px margin from viewport edges
+      hostStyle.maxWidth = `${maxWidth}px`;
+      hostStyle.maxHeight = `${maxHeight}px`;
     }
   }
 
