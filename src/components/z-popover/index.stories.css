@@ -27,7 +27,7 @@
 }
 
 .popover-container-tooltip {
-  height: 2000px;
+  height: 1000px;
 
   .popover-internal-container {
     overflow: auto;

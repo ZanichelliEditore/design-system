@@ -1,80 +1,18 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {Device, KeyboardCode, PopoverPosition} from "../../beans";
-import {getDevice} from "../../utils/utils";
+import {containsElement, findScrollableParent, getDevice, isElementVisibleInContainer} from "../../utils/utils";
 
 /** Centering offset modifier. 0 for no offset, 0.5 for centering. */
 type OffsetModifier = 0 | 0.5;
 type Offsets = {top: number; right: number; bottom: number; left: number};
 
-function getParentElement(element: Element): Element {
-  if (element.parentNode === element.shadowRoot) {
-    return element.shadowRoot.host;
-  }
-
-  return element.parentElement;
-}
-
-/**
- * Find the nearest ancestor of an element to take as a reference for positioning.
- * The chosen ancestor is the first to have an overflow set to hidden or is scrollable.
- * Falls back to the `offsetParent` of the element (the closest positioned ancestor, for example the one with `position: relative`).
- * @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
- */
-function findScrollableParent(element: HTMLElement): HTMLElement {
-  let parent = getParentElement(element);
-
-  while (parent && parent !== element.ownerDocument.documentElement) {
-    const style = window.getComputedStyle(parent);
-    const {overflow, overflowX, overflowY} = style;
-    const hasHiddenOverflow = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
-    const isScrollable =
-      (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
-      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible");
-
-    if (!hasHiddenOverflow && isScrollable) {
-      return parent as HTMLElement;
-    }
-
-    parent = getParentElement(parent);
-  }
-
-  return element.ownerDocument.documentElement;
-}
-
-/**
- * Check if the element is visible within the container or in the viewport.
- * @param element The element to check.
- * @param container The container to check against, which must be the nearest scrollable ancestor.
- */
-function isElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
-  const elemRect = element.getBoundingClientRect();
-  const containerRect = container.getBoundingClientRect();
-  const documentWidth = element.ownerDocument.documentElement.clientWidth;
-  const documentHeight = element.ownerDocument.documentElement.clientHeight;
-
-  // Check if element is visible in container
-  const isVisibleInContainer =
-    elemRect.bottom > containerRect.top &&
-    elemRect.top < containerRect.bottom &&
-    elemRect.right > containerRect.left &&
-    elemRect.left < containerRect.right;
-
-  // Check if element is visible in viewport
-  const isVisibleInViewport =
-    elemRect.bottom > 0 && elemRect.top < documentHeight && elemRect.right > 0 && elemRect.left < documentWidth;
-
-  return isVisibleInContainer && isVisibleInViewport;
-}
-
 /**
  * Popover component.
- * This component displays a popover that can be bound to an element.
- * It supports various positions and can automatically adjust it based on available space.
+ * This component displays a popover bound to an element.
+ * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
  *
  * Notes:
- * - It is preferrable to put the popover element near the bound element, in the same container.
- * - To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
- * - Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+ * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
  *
  * @cssprop --z-popover-theme--surface - background color of the popover.
  * @cssprop --z-popover-theme--text - foreground color of the popover.
@@ -152,6 +90,9 @@ export class ZPopover {
 
   private readonly spaceTolerance = 3; // 3px tolerance for space calculations
 
+  /** The element bound to the popover. */
+  private boundElement?: HTMLElement;
+
   @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: KeyboardEvent): void {
     if (this.closable && e.key === KeyboardCode.ESC) {
@@ -166,63 +107,59 @@ export class ZPopover {
    */
   @Listen("click", {target: "body", capture: true})
   handleOutsideClick(e: MouseEvent): void {
-    if (!this.closable || !this.open) {
+    const target = e.target as Element;
+    if (!this.closable || !this.open || containsElement(this.host, target)) {
       return;
     }
 
-    const eventPath = e.composedPath();
-    if (!eventPath.includes(this.host)) {
-      const target = e.target as HTMLElement;
-      let isBoundElementClicked = false;
-
-      if (typeof this.bindTo === "string") {
-        isBoundElementClicked = !!target.closest(this.bindTo);
-      } else if (this.bindTo) {
-        isBoundElementClicked = this.bindTo.contains(target);
-      }
-
-      if (isBoundElementClicked) {
-        // stop propagation if the click was on the trigger element to prevent close and reopen glitches
-        e.stopPropagation();
-      }
-
-      this.open = false;
+    if (containsElement(this.boundElement, target)) {
+      // stop propagation if the click was on the trigger element to prevent close and reopen glitches
+      e.stopPropagation();
     }
+    this.open = false;
   }
 
   @Watch("position")
   validatePosition(newValue: PopoverPosition): void {
     if (!Object.values(PopoverPosition).includes(newValue as PopoverPosition) || newValue === PopoverPosition.AUTO) {
       newValue = PopoverPosition.TOP;
+      this.position = newValue;
     }
-
-    this.position = newValue;
     this.currentPosition = newValue;
-    this.setPosition();
+    if (this.open) {
+      this.setPosition();
+    }
   }
 
   /**
-   * Setup popover behaviors on opening.
+   * Setup popover behaviors when `open` changes.
    */
   @Watch("open")
   onOpen(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
-
-    if (this.open) {
-      const setPosition = (): void => {
-        if (this.open) {
-          this.setPosition();
-          this.animationFrameRequestId = requestAnimationFrame(setPosition);
-        }
-      };
-
-      // call `setPosition` after a tick to ensure the DOM is ready and sizes are available
-      setTimeout(() => {
-        setPosition();
-      }, 0);
+    this.openChange.emit({open: this.open});
+    if (!this.open) {
+      return;
     }
 
-    this.openChange.emit({open: this.open});
+    const setPosition = (): void => {
+      if (!this.open) {
+        return;
+      }
+
+      this.setPosition();
+      this.animationFrameRequestId = requestAnimationFrame(setPosition);
+    };
+
+    // call `setPosition` after a tick to ensure the DOM is ready and sizes are available
+    setTimeout(() => {
+      setPosition();
+    }, 0);
+  }
+
+  @Watch("bindTo")
+  onBindingChange(): void {
+    this.findBoundElement();
   }
 
   // Clockwise order of positions.
@@ -244,6 +181,16 @@ export class ZPopover {
   /** Returns the offset modifier to use in calculations to align the popover with the bound element. */
   private get offsetModifier(): OffsetModifier {
     return this.center ? 0.5 : 0;
+  }
+
+  private findBoundElement(): void {
+    if (typeof this.bindTo === "string") {
+      this.boundElement = this.host.ownerDocument.querySelector(this.bindTo) as HTMLElement;
+    } else if (this.bindTo) {
+      this.boundElement = this.bindTo;
+    } else {
+      this.boundElement = this.host.parentElement as HTMLElement;
+    }
   }
 
   /**
@@ -311,17 +258,12 @@ export class ZPopover {
    * Takes into account offsetModifier for centering.
    * @param desiredPosition The desired position of the popover.
    * @param availableSpace The available space around the bound element.
-   * @param boundElement The sizes of the bound element.
    */
-  private getOptimalPopoverPosition(
-    desiredPosition: PopoverPosition,
-    availableSpace: Offsets,
-    boundElement: HTMLElement
-  ): PopoverPosition {
+  private getOptimalPopoverPosition(desiredPosition: PopoverPosition, availableSpace: Offsets): PopoverPosition {
     const hostWidth = this.host.offsetWidth;
     const hostHeight = this.host.offsetHeight;
-    const boundElementWidth = boundElement.getBoundingClientRect().width;
-    const boundElementHeight = boundElement.getBoundingClientRect().height;
+    const boundElementWidth = this.boundElement.getBoundingClientRect().width;
+    const boundElementHeight = this.boundElement.getBoundingClientRect().height;
     const offsetModifier = this.offsetModifier;
 
     /** Check if there is enough space to fit the popover in the desired position */
@@ -332,67 +274,56 @@ export class ZPopover {
             availableSpace.top >= hostHeight - this.spaceTolerance &&
             this.hasCenteredHorizontalSpace(availableSpace.left, availableSpace.right, hostWidth, boundElementWidth)
           );
-
         case PopoverPosition.TOP_RIGHT:
           return (
             availableSpace.top >= hostHeight &&
             this.hasEnoughSideSpace(availableSpace.right, hostWidth, boundElementWidth, offsetModifier)
           );
-
         case PopoverPosition.TOP_LEFT:
           return (
             availableSpace.top >= hostHeight &&
             this.hasEnoughSideSpace(availableSpace.left, hostWidth, boundElementWidth, offsetModifier)
           );
-
         case PopoverPosition.RIGHT:
           return (
             availableSpace.right >= hostWidth &&
             this.hasCenteredVerticalSpace(availableSpace.top, availableSpace.bottom, hostHeight, boundElementHeight)
           );
-
         case PopoverPosition.RIGHT_BOTTOM:
           return (
             availableSpace.right >= hostWidth &&
             this.hasEnoughSideSpace(availableSpace.bottom, hostHeight, boundElementHeight, offsetModifier)
           );
-
         case PopoverPosition.RIGHT_TOP:
           return (
             availableSpace.right >= hostWidth &&
             this.hasEnoughSideSpace(availableSpace.top, hostHeight, boundElementHeight, offsetModifier)
           );
-
         case PopoverPosition.BOTTOM:
           return (
             availableSpace.bottom >= hostHeight &&
             this.hasCenteredHorizontalSpace(availableSpace.left, availableSpace.right, hostWidth, boundElementWidth)
           );
-
         case PopoverPosition.BOTTOM_LEFT:
           return (
             availableSpace.bottom >= hostHeight &&
             this.hasEnoughSideSpace(availableSpace.left, hostWidth, boundElementWidth, offsetModifier)
           );
-
         case PopoverPosition.BOTTOM_RIGHT:
           return (
             availableSpace.bottom >= hostHeight &&
             this.hasEnoughSideSpace(availableSpace.right, hostWidth, boundElementWidth, offsetModifier)
           );
-
         case PopoverPosition.LEFT:
           return (
             availableSpace.left >= hostWidth &&
             this.hasCenteredVerticalSpace(availableSpace.top, availableSpace.bottom, hostHeight, boundElementHeight)
           );
-
         case PopoverPosition.LEFT_TOP:
           return (
             availableSpace.left >= hostWidth &&
             this.hasEnoughSideSpace(availableSpace.top, hostHeight, boundElementHeight, offsetModifier)
           );
-
         case PopoverPosition.LEFT_BOTTOM:
           return (
             availableSpace.left >= hostWidth &&
@@ -475,27 +406,17 @@ export class ZPopover {
   /**
    * Calculate available space around the element bound with the popover, based on its nearest scrollable ancestor.
    *
-   * If the scrollable parent is the `documentElement` or `body`, calculate offsets relative to the viewport,
-   * otherwise we calculate offsets relative to the scrollable parent.
-   * This allows the popover to be positioned correctly within scrollable containers without being affected by the rest of the page.
-   * Calculations for `right` and `bottom` can be a little bit confusing because boundingRect.right and .bottom may not be what you expect,
-   * for more information see the explanation in the docs.
+   * Calculations for `right` and `bottom` can be a little bit confusing because `boundingRect.right` and `bottom` may not be what you expect...
+   * For more information see the explanation in the docs.
    * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect#return_value
    */
-  private calculateAvailableSpace(boundElement: HTMLElement): {
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-  } {
-    const boundElementRect = boundElement.getBoundingClientRect();
-    const scrollableParent = findScrollableParent(boundElement);
+  private calculateAvailableSpace(): Offsets {
+    const boundElementRect = this.boundElement.getBoundingClientRect();
+    const scrollableParent = findScrollableParent(this.boundElement);
     const scrollableParentRect = scrollableParent.getBoundingClientRect();
-    const hasNestedScrollableParent =
-      scrollableParent !== boundElement.ownerDocument.documentElement &&
-      scrollableParent !== boundElement.ownerDocument.body;
-    const documentWidth = boundElement.ownerDocument.documentElement.clientWidth;
-    const documentHeight = boundElement.ownerDocument.documentElement.clientHeight;
+    const hasNestedScrollableParent = scrollableParent !== this.boundElement.ownerDocument.documentElement;
+    const documentWidth = this.boundElement.ownerDocument.documentElement.clientWidth;
+    const documentHeight = this.boundElement.ownerDocument.documentElement.clientHeight;
     const safeSpace = 8; // extra space to avoid popover being too close to the edges
 
     // These deltas represent the offset between the scrollable parent and the viewport.
@@ -519,13 +440,13 @@ export class ZPopover {
    */
   private calculateElementOffsets(element: HTMLElement): Offsets {
     const elementRect = element.getBoundingClientRect();
-    const documentWidth = element.ownerDocument.documentElement.clientWidth;
-    const documentHeight = element.ownerDocument.documentElement.clientHeight;
+    const viewportWidth = element.ownerDocument.documentElement.clientWidth;
+    const viewportHeight = element.ownerDocument.documentElement.clientHeight;
 
     return {
       top: elementRect.top,
-      right: documentWidth - elementRect.right,
-      bottom: documentHeight - elementRect.bottom,
+      right: viewportWidth - elementRect.right,
+      bottom: viewportHeight - elementRect.bottom,
       left: elementRect.left,
     };
   }
@@ -533,29 +454,19 @@ export class ZPopover {
   /**
    * Apply positioning styles based on passed position.
    */
-  private applyPositionStyles(position: PopoverPosition, boundElement: HTMLElement, availableSpace: Offsets): void {
-    const boundElementWidth = boundElement.offsetWidth;
-    const boundElementHeight = boundElement.offsetHeight;
+  private applyPositionStyles(position: PopoverPosition, availableSpace: Offsets): void {
+    const boundElementWidth = this.boundElement.offsetWidth;
+    const boundElementHeight = this.boundElement.offsetHeight;
     /** Distance between the popover and the bound element */
     const distanceFromBound = 8;
     const offsetModifier = this.offsetModifier;
     /** Distance between the arrow center and the popover edge. Needed to align the center of the arrow with the center of the bound element when `showArrow` and `center` are enabled. */
     const arrowModifier = this.showArrow && this.center ? 8 : 0;
     const hostStyle = this.host.style;
-    const boundElementOffsets = this.calculateElementOffsets(boundElement);
+    const boundElementOffsets = this.calculateElementOffsets(this.boundElement);
 
     let maxWidth: number;
     let maxHeight: number;
-
-    // TODO: valutare se impostere `visibility: hidden` durante l'applicazione degli stili per poi togierlo alla fine ed evitare di vedere il popover spostarsi mentre si apre
-
-    // Reset all positioning properties
-    hostStyle.top = "auto";
-    hostStyle.right = "auto";
-    hostStyle.bottom = "auto";
-    hostStyle.left = "auto";
-    delete hostStyle.maxWidth;
-    delete hostStyle.maxHeight;
 
     switch (position) {
       case PopoverPosition.TOP:
@@ -613,8 +524,8 @@ export class ZPopover {
 
       case PopoverPosition.LEFT:
       case PopoverPosition.LEFT_BOTTOM:
-        hostStyle.top = `${availableSpace.top + boundElementHeight * offsetModifier - (position === PopoverPosition.LEFT_BOTTOM ? arrowModifier : 0)}px`;
-        hostStyle.right = `${availableSpace.right + boundElementWidth}px`;
+        hostStyle.top = `${boundElementOffsets.top + boundElementHeight * offsetModifier - (position === PopoverPosition.LEFT_BOTTOM ? arrowModifier : 0)}px`;
+        hostStyle.right = `${boundElementOffsets.right + boundElementWidth}px`;
         maxWidth = availableSpace.left - distanceFromBound;
         if (position === PopoverPosition.LEFT_BOTTOM) {
           maxHeight = availableSpace.bottom + boundElementHeight * offsetModifier;
@@ -622,8 +533,8 @@ export class ZPopover {
         break;
 
       case PopoverPosition.LEFT_TOP:
-        hostStyle.right = `${availableSpace.right + boundElementWidth}px`;
-        hostStyle.bottom = `${availableSpace.bottom + boundElementHeight * offsetModifier - arrowModifier}px`;
+        hostStyle.right = `${boundElementOffsets.right + boundElementWidth}px`;
+        hostStyle.bottom = `${boundElementOffsets.bottom + boundElementHeight * offsetModifier - arrowModifier}px`;
         maxWidth = availableSpace.left - distanceFromBound;
         maxHeight = availableSpace.top + boundElementHeight * offsetModifier;
         break;
@@ -640,41 +551,48 @@ export class ZPopover {
    * Set the position of the popover.
    */
   private setPosition(): void {
-    let boundElement: HTMLElement;
-    if (typeof this.bindTo === "string") {
-      boundElement = this.host.ownerDocument.querySelector(this.bindTo) as HTMLElement;
-    } else if (this.bindTo) {
-      boundElement = this.bindTo;
-    } else {
-      boundElement = this.host.parentElement as HTMLElement;
-    }
-
-    if (!boundElement) {
+    if (!this.boundElement) {
       return;
     }
 
-    if (!isElementVisibleInContainer(boundElement, findScrollableParent(boundElement))) {
+    if (!isElementVisibleInContainer(this.boundElement, findScrollableParent(this.boundElement))) {
       // If the bound element is not visible, hide the popover too
       this.open = false;
 
       return;
     }
 
-    const availableSpace = this.calculateAvailableSpace(boundElement);
-    const position = this.getOptimalPopoverPosition(this.position, availableSpace, boundElement);
+    // Set initial visibility to hidden while calculating position...
+    this.host.style.visibility = "hidden";
 
-    this.applyPositionStyles(position, boundElement, availableSpace);
+    // Reset all positioning properties
+    this.host.style.top = "auto";
+    this.host.style.right = "auto";
+    this.host.style.bottom = "auto";
+    this.host.style.left = "auto";
+    this.host.style.maxWidth = "";
+    this.host.style.maxHeight = "";
+
+    const availableSpace = this.calculateAvailableSpace();
+    const position = this.getOptimalPopoverPosition(this.position, availableSpace);
+
+    this.applyPositionStyles(position, availableSpace);
     this.currentPosition = position;
     this.positionChange.emit({position: this.currentPosition});
+
+    // ...then restore the visibility
+    this.host.style.visibility = "visible";
   }
 
   componentWillLoad(): void {
     this.validatePosition(this.position);
-    this.onOpen();
   }
 
   componentDidLoad(): void {
-    this.setPosition();
+    this.findBoundElement();
+    if (this.open) {
+      this.onOpen();
+    }
   }
 
   disconnectedCallback(): void {

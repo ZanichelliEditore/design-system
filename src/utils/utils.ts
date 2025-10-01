@@ -164,3 +164,66 @@ export function isSelectorValid(selector: string): boolean {
 export function containsElement(ancestor: HTMLElement, descendant: Node): boolean {
   return ancestor.contains(descendant) || !!ancestor.shadowRoot?.contains(descendant);
 }
+
+/** Get the parent of passed element, accounting for shadow DOM.
+ * @param element The element whose parent is to be found.
+ */
+export function getParentElement(element: Element): Element {
+  if (element.parentNode === element.shadowRoot) {
+    return element.shadowRoot.host;
+  }
+
+  return element.parentElement;
+}
+
+/**
+ * Find the nearest ancestor of an element to take as a reference for positioning.
+ * The chosen ancestor is the first to have an overflow set to hidden or is scrollable.
+ * Falls back to the `offsetParent` of the element (the closest positioned ancestor, for example the one with `position: relative`).
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+ */
+export function findScrollableParent(element: HTMLElement): HTMLElement {
+  let parent = getParentElement(element);
+
+  while (parent && parent !== element.ownerDocument.documentElement) {
+    const style = window.getComputedStyle(parent);
+    const {overflow, overflowX, overflowY} = style;
+    const hasHiddenOverflow = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
+    const isScrollable =
+      (parent.scrollHeight > parent.clientHeight && overflow !== "visible" && overflowY !== "visible") ||
+      (parent.scrollWidth > parent.clientWidth && overflow !== "visible" && overflowX !== "visible");
+
+    if (!hasHiddenOverflow && isScrollable) {
+      return parent as HTMLElement;
+    }
+
+    parent = getParentElement(parent);
+  }
+
+  return element.ownerDocument.documentElement;
+}
+
+/**
+ * Check if the element is visible within the container or in the viewport.
+ * @param element The element to check.
+ * @param container The container to check against, which must be the nearest scrollable ancestor.
+ */
+export function isElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
+  const elemRect = element.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+  const documentWidth = element.ownerDocument.documentElement.clientWidth;
+  const documentHeight = element.ownerDocument.documentElement.clientHeight;
+
+  // Check if element is visible in container
+  const isVisibleInContainer =
+    elemRect.bottom > containerRect.top &&
+    elemRect.top < containerRect.bottom &&
+    elemRect.right > containerRect.left &&
+    elemRect.left < containerRect.right;
+
+  // Check if element is visible in viewport
+  const isVisibleInViewport =
+    elemRect.bottom > 0 && elemRect.top < documentHeight && elemRect.right > 0 && elemRect.left < documentWidth;
+
+  return isVisibleInContainer && isVisibleInViewport;
+}
