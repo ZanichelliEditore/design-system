@@ -33,9 +33,7 @@ export class ZPopover {
   @Prop({reflect: true, mutable: true})
   position?: PopoverPosition = PopoverPosition.TOP;
 
-  /**
-   * The open state of the popover.
-   */
+  /** The open state of the popover. */
   @Prop({reflect: true, mutable: true})
   open = false;
 
@@ -46,15 +44,11 @@ export class ZPopover {
   @Prop()
   bindTo?: string | HTMLElement;
 
-  /**
-   * Whether to show popover's arrow.
-   */
+  /** Whether to show popover's arrow. */
   @Prop({reflect: true})
   showArrow = false;
 
-  /**
-   * Whether to center the popup on the main side (according to "position").
-   */
+  /** Whether to center the popup on the main side (according to "position"). */
   @Prop({reflect: true})
   center = false;
 
@@ -67,7 +61,7 @@ export class ZPopover {
 
   /**
    * The current position of the popover.
-   * It differs from `position` only when calculated automatically (position=auto) or when the position is recalculated for space reasons.
+   * It differs from `position` only when calculated automatically for space reasons.
    */
   @State()
   currentPosition?: PopoverPosition;
@@ -100,15 +94,11 @@ export class ZPopover {
   /** Last bounding rect of the bound element to detect changes and eventually invalidate the caches. */
   private lastBoundRect?: DOMRect;
 
-  /**
-   * Fired when the position changes.
-   */
+  /** Fired when the position changes. */
   @Event()
   positionChange: EventEmitter;
 
-  /**
-   * Open change event.
-   */
+  /** Open change event. */
   @Event()
   openChange: EventEmitter;
 
@@ -150,9 +140,7 @@ export class ZPopover {
     }
   }
 
-  /**
-   * Setup popover behaviors when `open` changes.
-   */
+  /** Setup popover behaviors when `open` changes. */
   @Watch("open")
   onOpen(): void {
     cancelAnimationFrame(this.animationFrameRequestId);
@@ -364,9 +352,7 @@ export class ZPopover {
     return this.findBestFallbackPosition(availableSpace);
   }
 
-  /**
-   * Find the best fallback position based on available space when no position fits perfectly
-   */
+  /** Find the best fallback position based on available space when no position fits perfectly. */
   private findBestFallbackPosition(availableSpace: Offsets): PopoverPosition {
     // Determine which horizontal and vertical direction has the most available space
     const bestHorizontalDirection =
@@ -454,9 +440,7 @@ export class ZPopover {
     return this.cachedAvailableSpace;
   }
 
-  /**
-   * Calculate the space around an element relative to the viewport.
-   */
+  /** Calculate the space around an element relative to the viewport. */
   private calculateElementOffsets(element: HTMLElement): Offsets {
     const elementRect = element.getBoundingClientRect();
     const viewportWidth = element.ownerDocument.documentElement.clientWidth;
@@ -470,9 +454,7 @@ export class ZPopover {
     };
   }
 
-  /**
-   * Apply positioning styles based on passed position.
-   */
+  /** Apply positioning styles based on passed position. */
   private applyPositionStyles(position: PopoverPosition, availableSpace: Offsets): void {
     const boundElementWidth = this.boundElement.offsetWidth;
     const boundElementHeight = this.boundElement.offsetHeight;
@@ -566,9 +548,7 @@ export class ZPopover {
     }
   }
 
-  /**
-   * Set the position of the popover.
-   */
+  /** Set the position of the popover. */
   private setPosition(): void {
     if (!this.boundElement) {
       return;
