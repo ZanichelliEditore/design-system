@@ -210,20 +210,25 @@ export function findScrollableParent(element: HTMLElement): HTMLElement {
  */
 export function isElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
   const elemRect = element.getBoundingClientRect();
-  const containerRect = container.getBoundingClientRect();
   const documentWidth = element.ownerDocument.documentElement.clientWidth;
   const documentHeight = element.ownerDocument.documentElement.clientHeight;
 
-  // Check if element is visible in container
+  // Check if element is visible in viewport
+  const isVisibleInViewport =
+    elemRect.bottom > 0 && elemRect.top < documentHeight && elemRect.right > 0 && elemRect.left < documentWidth;
+
+  // If container is the document element, only check viewport visibility
+  if (container === element.ownerDocument.documentElement || container === element.ownerDocument.body) {
+    return isVisibleInViewport;
+  }
+
+  // For other containers, check both container and viewport visibility
+  const containerRect = container.getBoundingClientRect();
   const isVisibleInContainer =
     elemRect.bottom > containerRect.top &&
     elemRect.top < containerRect.bottom &&
     elemRect.right > containerRect.left &&
     elemRect.left < containerRect.right;
-
-  // Check if element is visible in viewport
-  const isVisibleInViewport =
-    elemRect.bottom > 0 && elemRect.top < documentHeight && elemRect.right > 0 && elemRect.left < documentWidth;
 
   return isVisibleInContainer && isVisibleInViewport;
 }

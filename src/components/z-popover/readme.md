@@ -30,13 +30,11 @@ To be sure the algorithm finds the right container, when calculating the positio
 ## Overview
 
 Popover component.
-This component displays a popover that can be bound to an element.
-It supports various positions and can automatically adjust it based on available space.
+This component displays a popover bound to an element.
+It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
 
 Notes:
-- It is preferrable to put the popover element near the bound element, in the same container.
-- To ensure the positioning algorithm correctly calculates the available space around the popover, it may be necessary to set `position: relative` on one of its ancestor containers. It becomes more important when there are one or more scrollable containers; in that case set `position: relative` on the nearest container with `overflow: auto` or `overflow: scroll`.
-- Consider manually adjusting the size of the slotted element (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+- If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
 
 ## Properties
 

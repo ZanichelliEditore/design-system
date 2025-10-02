@@ -12,6 +12,7 @@
   background: var(--z-popover-theme--surface, var(--color-surface01));
   border-radius: var(--border-radius-small);
   color: var(--z-popover-theme--text, var(--color-default-text));
+  fill: currentcolor;
   filter: var(--z-popover-shadow-filter, drop-shadow(0 1px 2px var(--shadow-color-base)));
   text-align: center;
 }
