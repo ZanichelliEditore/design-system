@@ -72,6 +72,34 @@ export class ZPopover {
   @State()
   currentPosition?: PopoverPosition;
 
+  @Element() host: HTMLZPopoverElement;
+
+  // Clockwise order of positions.
+  private static readonly positionOrder: PopoverPosition[] = [
+    PopoverPosition.TOP,
+    PopoverPosition.TOP_RIGHT,
+    PopoverPosition.TOP_LEFT,
+    PopoverPosition.RIGHT,
+    PopoverPosition.RIGHT_BOTTOM,
+    PopoverPosition.RIGHT_TOP,
+    PopoverPosition.BOTTOM,
+    PopoverPosition.BOTTOM_LEFT,
+    PopoverPosition.BOTTOM_RIGHT,
+    PopoverPosition.LEFT,
+    PopoverPosition.LEFT_TOP,
+    PopoverPosition.LEFT_BOTTOM,
+  ] as const;
+
+  private animationFrameRequestId?: number;
+  /** space tolerance for space calculations */
+  private readonly spaceTolerance = 3;
+  /** The element bound to the popover. */
+  private boundElement?: HTMLElement;
+  /** Cached available space around the bound element to avoid unnecessary recalculations */
+  private cachedAvailableSpace?: Offsets;
+  /** Last bounding rect of the bound element to detect changes and eventually invalidate the caches. */
+  private lastBoundRect?: DOMRect;
+
   /**
    * Fired when the position changes.
    */
@@ -83,15 +111,6 @@ export class ZPopover {
    */
   @Event()
   openChange: EventEmitter;
-
-  @Element() host: HTMLZPopoverElement;
-
-  private animationFrameRequestId?: number;
-
-  private readonly spaceTolerance = 3; // 3px tolerance for space calculations
-
-  /** The element bound to the popover. */
-  private boundElement?: HTMLElement;
 
   @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: KeyboardEvent): void {
@@ -161,22 +180,6 @@ export class ZPopover {
   onBindingChange(): void {
     this.findBoundElement();
   }
-
-  // Clockwise order of positions.
-  private static readonly positionOrder: PopoverPosition[] = [
-    PopoverPosition.TOP,
-    PopoverPosition.TOP_RIGHT,
-    PopoverPosition.TOP_LEFT,
-    PopoverPosition.RIGHT,
-    PopoverPosition.RIGHT_BOTTOM,
-    PopoverPosition.RIGHT_TOP,
-    PopoverPosition.BOTTOM,
-    PopoverPosition.BOTTOM_LEFT,
-    PopoverPosition.BOTTOM_RIGHT,
-    PopoverPosition.LEFT,
-    PopoverPosition.LEFT_TOP,
-    PopoverPosition.LEFT_BOTTOM,
-  ] as const;
 
   /** Returns the offset modifier to use in calculations to align the popover with the bound element. */
   private get offsetModifier(): OffsetModifier {
@@ -412,6 +415,20 @@ export class ZPopover {
    */
   private calculateAvailableSpace(): Offsets {
     const boundElementRect = this.boundElement.getBoundingClientRect();
+
+    if (
+      this.lastBoundRect &&
+      this.lastBoundRect.x === boundElementRect.x &&
+      this.lastBoundRect.y === boundElementRect.y &&
+      this.lastBoundRect.width === boundElementRect.width &&
+      this.lastBoundRect.height === boundElementRect.height &&
+      this.cachedAvailableSpace
+    ) {
+      // If the bound element's rect hasn't changed, return the cached rect
+      return this.cachedAvailableSpace;
+    }
+
+    this.lastBoundRect = boundElementRect;
     const scrollableParent = findScrollableParent(this.boundElement);
     const scrollableParentRect = scrollableParent.getBoundingClientRect();
     const hasNestedScrollableParent = scrollableParent !== this.boundElement.ownerDocument.documentElement;
@@ -427,12 +444,14 @@ export class ZPopover {
     const deltaBottom = hasNestedScrollableParent ? documentHeight - scrollableParentRect.bottom : 0;
     const deltaLeft = hasNestedScrollableParent ? scrollableParentRect.left : 0;
 
-    return {
+    this.cachedAvailableSpace = {
       top: boundElementRect.top - deltaTop - safeSpace,
       right: documentWidth - boundElementRect.right - deltaRight - safeSpace,
       bottom: documentHeight - boundElementRect.bottom - deltaBottom - safeSpace,
       left: boundElementRect.left - deltaLeft - safeSpace,
     };
+
+    return this.cachedAvailableSpace;
   }
 
   /**
@@ -542,8 +561,8 @@ export class ZPopover {
 
     if (getDevice() !== Device.MOBILE) {
       // Only force max sizes on non-mobile viewports
-      hostStyle.maxWidth = `${maxWidth}px`;
-      hostStyle.maxHeight = `${maxHeight}px`;
+      hostStyle.maxWidth = maxWidth ? `${maxWidth}px` : "";
+      hostStyle.maxHeight = maxHeight ? `${maxHeight}px` : "";
     }
   }
 
@@ -562,16 +581,17 @@ export class ZPopover {
       return;
     }
 
-    // Set initial visibility to hidden while calculating position...
-    this.host.style.visibility = "hidden";
-
-    // Reset all positioning properties
-    this.host.style.top = "auto";
-    this.host.style.right = "auto";
-    this.host.style.bottom = "auto";
-    this.host.style.left = "auto";
-    this.host.style.maxWidth = "";
-    this.host.style.maxHeight = "";
+    Object.assign(this.host.style, {
+      // Reset all positioning properties
+      top: "auto",
+      right: "auto",
+      bottom: "auto",
+      left: "auto",
+      maxWidth: "",
+      maxHeight: "",
+      // Set initial visibility to hidden while calculating position...
+      visibility: "hidden",
+    });
 
     const availableSpace = this.calculateAvailableSpace();
     const position = this.getOptimalPopoverPosition(this.position, availableSpace);
