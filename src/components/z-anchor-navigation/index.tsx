@@ -97,7 +97,10 @@ export class ZAnchorNavigation {
 
   render(): HTMLZAnchorNavigationElement {
     return (
-      <Host collapsed={this.collapsed} class="z-scrollbar">
+      <Host
+        collapsed={this.collapsed}
+        class="z-scrollbar"
+      >
         <z-button
           class="toggle"
           size={ControlSize.SMALL}

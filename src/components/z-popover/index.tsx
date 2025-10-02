@@ -85,12 +85,16 @@ export class ZPopover {
   ] as const;
 
   private animationFrameRequestId?: number;
+
   /** space tolerance for space calculations */
   private readonly spaceTolerance = 3;
+
   /** The element bound to the popover. */
   private boundElement?: HTMLElement;
+
   /** Cached available space around the bound element to avoid unnecessary recalculations */
   private cachedAvailableSpace?: Offsets;
+
   /** Last bounding rect of the bound element to detect changes and eventually invalidate the caches. */
   private lastBoundRect?: DOMRect;
 
