@@ -332,8 +332,7 @@ export class ZSelect {
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
     this.emitOptionSelect();
-    this.toggleSelectUl(true);
-
+    this.toggleSelectUl();
     if (this.searchString) {
       this.searchString = null;
     }
@@ -430,6 +429,11 @@ export class ZSelect {
       if (selfFocusOnClose) {
         (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement)?.focus();
       }
+
+      if (this.selectedItem && this.searchString) {
+        this.searchString = null;
+        this.filterItems(this.searchString);
+      }
     }
 
     this.focusedItemId = "";
@@ -496,7 +500,7 @@ export class ZSelect {
         aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
         aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
         icon={this.isOpen ? "caret-up" : "caret-down"}
-        hasclearicon={this.hasAutocomplete()}
+        hasclearicon={false}
         message={false}
         name={this.name}
         disabled={this.disabled}

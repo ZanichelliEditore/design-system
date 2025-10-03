@@ -128,7 +128,7 @@
 
 :host > div.open > div.open-combo-data > div > div > ul {
   max-height: 235px;
-  padding: 0 3px; /* needed for checkbox focus shadow */
+  padding: 0 6px; /* needed for checkbox focus shadow */
   margin: 0;
 }
 
