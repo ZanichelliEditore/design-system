@@ -15,9 +15,13 @@ type ZPopoverStoriesArgs = ZPopover &
     "--z-popover-theme--surface" | "--z-popover-theme--text" | "--z-popover-padding" | "--z-popover-shadow-filter"
   >;
 
-const onTriggerClick = (): void => {
-  const popover = document.querySelector("z-popover");
-  if (popover.open) {
+const onTriggerClick = (event: MouseEvent): void => {
+  const popover = (event.target as HTMLElement).closest(".popover-container")?.querySelector("z-popover");
+  if (!popover) {
+    return;
+  }
+
+  if (popover?.open) {
     popover.open = false;
   } else {
     popover.open = true;
@@ -60,7 +64,7 @@ const makeDraggable = (element: HTMLElement): void => {
     }
 
     setTimeout(() => {
-      onTriggerClick();
+      onTriggerClick({...event, target: element});
     }, 0);
   });
 
@@ -99,6 +103,12 @@ const StoryMeta = {
   },
   parameters: {
     onTriggerClick,
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 500,
+      },
+    },
   },
 } satisfies Meta<ZPopoverStoriesArgs>;
 

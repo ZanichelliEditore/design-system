@@ -153,18 +153,18 @@ export class ZPopover {
       return;
     }
 
-    const setPosition = (): void => {
+    const updatePositionLoop = (): void => {
       if (!this.open) {
         return;
       }
 
       this.setPosition();
-      this.animationFrameRequestId = requestAnimationFrame(setPosition);
+      this.animationFrameRequestId = requestAnimationFrame(updatePositionLoop);
     };
 
     // call `setPosition` after a tick to ensure the DOM is ready and sizes are available
     setTimeout(() => {
-      setPosition();
+      updatePositionLoop();
     }, 0);
   }
 
