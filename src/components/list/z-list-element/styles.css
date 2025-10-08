@@ -63,11 +63,6 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([clickable]:not([expandable])) > .container.clicked {
-  position: relative;
-  box-shadow: var(--shadow-focus-primary);
-}
-
 :host([expandable]:active) > .container,
 :host([clickable]:active) > .container {
   background-color: var(--background-active-color-list-element, var(--color-background));
