@@ -61,7 +61,8 @@
   position: relative;
   overflow: auto;
   max-height: 240px;
-  padding: 0 calc(var(--space-unit) * 1.5);
+  padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+  margin: calc(var(--space-unit) * -1) 0;
   outline: none;
 }
 
@@ -265,11 +266,6 @@ z-list-element:not([disabled]) > .list-element:hover::after {
 
 .item-label.selected {
   font-weight: bold;
-}
-
-z-list-element:focus {
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
 
 .item.ellipsis {
