@@ -59,6 +59,7 @@
 :host([expandable]:focus:focus-visible) > .container,
 :host([clickable]:focus:focus-visible) > .container {
   position: relative;
+  z-index: 1;
   box-shadow: var(--shadow-focus-primary);
 }
 
