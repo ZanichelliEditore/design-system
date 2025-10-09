@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
-import {type ZPopover} from ".";
+import {ZPopover} from ".";
 import {PopoverPosition} from "../../beans";
 import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import "../list/z-list-element/index";
@@ -15,9 +15,13 @@ type ZPopoverStoriesArgs = ZPopover &
     "--z-popover-theme--surface" | "--z-popover-theme--text" | "--z-popover-padding" | "--z-popover-shadow-filter"
   >;
 
-const onTriggerClick = (): void => {
-  const popover = document.querySelector("z-popover");
-  if (popover.open) {
+const onTriggerClick = (event: MouseEvent): void => {
+  const popover = (event.target as HTMLElement).closest(".popover-container")?.querySelector("z-popover");
+  if (!popover) {
+    return;
+  }
+
+  if (popover?.open) {
     popover.open = false;
   } else {
     popover.open = true;
@@ -25,50 +29,56 @@ const onTriggerClick = (): void => {
 };
 
 /**
- * Simple drag and drop utility for an HTMLElement.
+ * Simple drag and drop utility.
  * @param element The element to make draggable.
  */
-const makeDraggable = (element: HTMLElement, container: HTMLElement): void => {
+const makeDraggable = (element: HTMLElement): void => {
+  if (element.draggable) {
+    return;
+  }
+
   let offsetX = 0;
   let offsetY = 0;
-  let isDragging = false;
+  let dragging = false;
+  let clickPosition = {x: 0, y: 0};
 
-  const onMouseDown = (event: MouseEvent): void => {
-    isDragging = true;
-    offsetX = event.clientX - element.getBoundingClientRect().left;
-    offsetY = event.clientY - element.getBoundingClientRect().top;
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-    element.style.position = "absolute";
-    element.style.zIndex = "1000";
-  };
+  element.style.position = "absolute";
+  element.draggable = true;
 
-  const onMouseMove = (event: MouseEvent): void => {
-    if (!isDragging) {
+  element.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dragging = true;
+    offsetX = element.offsetLeft - event.clientX;
+    offsetY = element.offsetTop - event.clientY;
+    clickPosition = {x: event.clientX, y: event.clientY};
+  });
+
+  document.addEventListener("mouseup", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dragging = false;
+
+    if (clickPosition.x !== event.clientX || clickPosition.y !== event.clientY) {
       return;
     }
 
-    const safeTop = Math.max(event.clientY - offsetY, 0);
-    const safeY = Math.min(safeTop, container.clientHeight - element.clientHeight);
-    const safeLeft = Math.max(event.clientX - offsetX, 0);
-    const safeX = Math.min(safeLeft, container.clientWidth - element.clientWidth);
+    setTimeout(() => {
+      onTriggerClick({...event, target: element});
+    }, 0);
+  });
 
-    element.style.left = `${safeX}px`;
-    element.style.top = `${safeY}px`;
-  };
-
-  const onMouseUp = (): void => {
-    isDragging = false;
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-  };
-
-  element.addEventListener("mousedown", onMouseDown);
+  document.addEventListener("mousemove", (event) => {
+    if (dragging) {
+      const container = element.parentElement;
+      const left = Math.max(Math.min(event.clientX + offsetX, container.clientWidth - element.offsetWidth), 0);
+      const top = Math.max(Math.min(event.clientY + offsetY, container.clientHeight - element.offsetHeight), 0);
+      element.style.left = `${left}px`;
+      element.style.top = `${top}px`;
+    }
+  });
 };
 
-/**
- * To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
- */
 const StoryMeta = {
   title: "ZPopover",
   component: "z-popover",
@@ -93,6 +103,12 @@ const StoryMeta = {
   },
   parameters: {
     onTriggerClick,
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 500,
+      },
+    },
   },
 } satisfies Meta<ZPopoverStoriesArgs>;
 
@@ -106,18 +122,18 @@ export const Demo = {
     "--z-popover-shadow-filter": "drop-shadow(0 1px 2px var(--shadow-color-base))",
     "center": false,
     "showArrow": false,
+    "closable": true,
   },
-  render: (args, {parameters}) => {
+  render: (args) => {
     document.addEventListener("DOMContentLoaded", () => {
-      const trigger = document.querySelector("#trigger");
-      const container = document.querySelector(".popover-container");
-      if (trigger && container) {
-        makeDraggable(trigger as HTMLElement, container as HTMLElement);
+      const trigger = document.querySelector("#demo-trigger");
+      if (trigger) {
+        makeDraggable(trigger as HTMLElement);
       }
     });
 
     return html`
-      <div class="popover-container popover-container-tooltip">
+      <div class="popover-container">
         <z-popover
           style=${styleMap({
             "--z-popover-theme--surface": args["--z-popover-theme--surface"],
@@ -125,9 +141,9 @@ export const Demo = {
             "--z-popover-padding": args["--z-popover-padding"],
           })}
           .position=${args.position}
-          center="true"
-          show-arrow="true"
-          bind-to="#trigger"
+          .center=${args.center}
+          .showArrow=${args.showArrow}
+          bind-to="#demo-trigger"
         >
           <div class="popover-content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
@@ -135,9 +151,8 @@ export const Demo = {
           </div>
         </z-popover>
         <z-button
-          id="trigger"
+          id="demo-trigger"
           icon="plus-filled"
-          .onclick=${parameters.onTriggerClick}
         ></z-button>
       </div>
       <p class="heading-2">You can move the button to see the positioning adaptation while the popover is open.</p>
@@ -177,7 +192,7 @@ export const ContextualMenuLike = {
   `,
 } satisfies Story;
 
-export const TooltipLike = {
+export const Tooltip = {
   args: {
     "position": PopoverPosition.RIGHT,
     "--z-popover-padding": "var(--space-unit)",
@@ -205,5 +220,40 @@ export const TooltipLike = {
         icon="plus-filled"
         .onclick=${parameters.onTriggerClick}
       ></z-button>
+    </div>`,
+} satisfies Story;
+
+export const TooltipWithNestedContainer = {
+  args: {
+    "position": PopoverPosition.TOP,
+    "--z-popover-padding": "var(--space-unit)",
+  },
+  render: (args, {parameters}) =>
+    html` <div class="popover-container popover-container-tooltip">
+      <div class="popover-internal-container">
+        <div class="popover-internal-container-2">
+          <z-popover
+            style=${styleMap({
+              "--z-popover-theme--surface": args["--z-popover-theme--surface"],
+              "--z-popover-theme--text": args["--z-popover-theme--text"],
+              "--z-popover-padding": args["--z-popover-padding"],
+            })}
+            .position=${args.position}
+            center="true"
+            show-arrow="true"
+            bind-to="#trigger"
+          >
+            <div class="popover-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </div>
+          </z-popover>
+          <z-button
+            id="trigger"
+            icon="plus-filled"
+            .onclick=${parameters.onTriggerClick}
+          ></z-button>
+        </div>
+      </div>
     </div>`,
 } satisfies Story;
