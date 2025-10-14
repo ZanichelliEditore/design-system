@@ -1,8 +1,4 @@
-/* The width of the card must be set by its container,
-respecting the grid indications of the design. */
-
 :host {
-  /* Override this var to change the cover's aspect ratio */
   --aspect-ratio: 1.62;
   --z-card--border-color: var(--gray200);
   --z-card--color-cover-background: var(--color-surface01);
@@ -82,7 +78,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
 ::slotted([slot="metadata"]),
 ::slotted([slot="title"]),
 ::slotted([slot="text"]) {
-  display: -webkit-inline-box;
+  display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
 }
@@ -102,11 +98,15 @@ Unfortunately the `aspect-ratio` property is still experimental */
   content: "";
 }
 
-::slotted([slot="metadata"]:not(:last-child)) {
-  margin: 0 0 calc(var(--space-unit) * 0.25);
+::slotted([slot="metadata"]) {
+  width: 100%;
   -webkit-line-clamp: 1;
   line-clamp: 1;
   text-transform: uppercase;
+}
+
+::slotted([slot="metadata"]:not(:last-child)) {
+  margin: 0 0 calc(var(--space-unit) * 0.25);
 }
 
 ::slotted([slot="title"]) {
@@ -124,35 +124,39 @@ Unfortunately the `aspect-ratio` property is still experimental */
 }
 
 ::slotted([slot="text"]) {
+  width: 100%;
   margin: 0;
   -webkit-line-clamp: 3;
   line-clamp: 3;
 }
 
 .actions {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+::slotted([slot="action"]) {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 
 ::slotted([slot="action"]:not(:last-child)) {
   margin-right: calc(var(--space-unit) * 2);
 }
 
-::slotted([slot="action"]:focus) {
+::slotted([slot="action"]:focus:focus-visible) {
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
-}
-
-:host([clickable]) ::slotted([slot="title"]:focus:focus-visible)::before {
-  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([clickable]) ::slotted([slot="title"]:focus:focus-visible) {
   box-shadow: none !important;
   outline: none !important;
+}
+
+:host([clickable]) ::slotted([slot="title"]:focus:focus-visible)::before {
+  box-shadow: var(--shadow-focus-primary);
 }
 
 :host([variant="text"]) {
@@ -174,11 +178,6 @@ Unfortunately the `aspect-ratio` property is still experimental */
 
 :host([variant="text"]) > .content {
   padding: var(--z-card--text-padding);
-}
-
-:host([variant="border"]) .actions,
-:host([variant="shadow"]) .actions {
-  margin-top: auto;
 }
 
 /* Border */

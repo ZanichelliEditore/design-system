@@ -520,6 +520,7 @@ export namespace Components {
     }
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -530,7 +531,7 @@ export namespace Components {
      */
     interface ZCard {
         /**
-          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
          */
         "clickable": boolean;
         /**
@@ -2690,6 +2691,7 @@ declare global {
     };
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -4263,6 +4265,7 @@ declare namespace LocalJSX {
     }
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -4273,7 +4276,7 @@ declare namespace LocalJSX {
      */
     interface ZCard {
         /**
-          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
          */
         "clickable"?: boolean;
         /**
@@ -6365,6 +6368,7 @@ declare module "@stencil/core" {
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             /**
              * ZCard component.
+             * The width of the card must be set by its container, following the grid indications of the design.
              * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
              * @cssprop --z-card--border-color - Default: `var(--gray200)`
              * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
