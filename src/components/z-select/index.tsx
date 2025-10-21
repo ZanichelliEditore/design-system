@@ -490,6 +490,7 @@ export class ZSelect {
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
+        autocomplete="off"
         aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
         aria-controls={`${this.htmlid}_list`}
