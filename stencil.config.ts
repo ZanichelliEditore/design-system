@@ -1,9 +1,11 @@
+import image from "@rollup/plugin-image";
 import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
+  plugins: [image()],
   outputTargets: [
     {
       type: "dist",
@@ -36,6 +38,9 @@ export const config: Config = {
     experimentalSlotFixes: true,
   },
   testing: {
+    moduleNameMapper: {
+      "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/src/__mocks__/fileMock.ts",
+    },
     testPathIgnorePatterns: ["./storybook/*", "./dist/*"],
   },
 } satisfies Config;
