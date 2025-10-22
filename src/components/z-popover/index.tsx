@@ -150,6 +150,18 @@ export class ZPopover {
     cancelAnimationFrame(this.animationFrameRequestId);
     this.openChange.emit({open: this.open});
     if (!this.open) {
+      Object.assign(this.host.style, {
+        // Reset all positioning properties
+        top: "auto",
+        right: "auto",
+        bottom: "auto",
+        left: "auto",
+        maxWidth: "",
+        maxHeight: "",
+        // Set initial visibility to hidden while calculating position...
+        visibility: "hidden",
+      });
+      this.currentPosition = undefined;
       return;
     }
 
@@ -352,7 +364,6 @@ export class ZPopover {
       }
     }
 
-    // If no position fits, find the best fallback based on available space
     return this.findBestFallbackPosition(availableSpace);
   }
 
@@ -547,8 +558,10 @@ export class ZPopover {
 
     if (getDevice() !== Device.MOBILE) {
       // Only force max sizes on non-mobile viewports
-      hostStyle.maxWidth = maxWidth ? `${maxWidth}px` : "";
-      hostStyle.maxHeight = maxHeight ? `${maxHeight}px` : "";
+      Object.assign(hostStyle, {
+        maxWidth: maxWidth ? `${maxWidth}px` : "",
+        maxHeight: maxHeight ? `${maxHeight}px` : "",
+      });
     }
   }
 

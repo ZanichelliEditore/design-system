@@ -15,14 +15,10 @@
   fill: currentcolor;
   filter: var(--z-popover-shadow-filter, drop-shadow(0 1px 2px var(--shadow-color-base)));
   text-align: center;
+  visibility: hidden; /* hidden by default. the positioning algorithm will set it to 'visible' when needed */
 }
 
-:host([open]:not([current-position])) {
-  visibility: hidden;
-}
-
-:host([open][current-position]),
-:host([open="true"][current-position]) {
+:host([open]:not([open="false"])[current-position]) {
   display: block;
 }
 
