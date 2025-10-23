@@ -41,8 +41,10 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
+      - name: Update npm to latest
+        run: npm install -g npm@latest
       - name: Publish to npm
-        run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
+        run: yarn npm publish --tag ${{ inputs.rc_version_tag }}
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
