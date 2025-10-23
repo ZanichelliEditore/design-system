@@ -1774,6 +1774,10 @@ export namespace Components {
          */
         "cover"?: string;
         /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
         "hasMultipleCovers": boolean;
@@ -5654,6 +5658,10 @@ declare namespace LocalJSX {
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
         "cover"?: string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
         /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
