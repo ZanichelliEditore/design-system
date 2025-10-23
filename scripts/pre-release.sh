@@ -9,3 +9,6 @@ yarn cache clean
 yarn
 yarn build
 yarn test
+
+# Ensure npm 11.5.1 or later is installed for OIDC 
+npm install -g npm@latest
