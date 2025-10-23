@@ -44,7 +44,9 @@ jobs:
       - name: Update npm to latest
         run: npm install -g npm@latest
       - name: Publish to npm
-        run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
+        run: |
+          yarn version prerelease
+          yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
