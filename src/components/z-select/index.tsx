@@ -822,14 +822,9 @@ export class ZSelect {
   private renderNoSearchResults(): HTMLZListElementElement {
     return (
       <z-list-element
-        color="color-primary01"
         class="no-results"
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
       >
-        <z-icon
-          name="multiply-circle"
-          fill="color-primary01-icon"
-        />
         {this.noresultslabel}
       </z-list-element>
     );
