@@ -19,6 +19,10 @@ on:
           - patch
           - minor
           - major
+permissions:
+  id-token: write # Required for OIDC
+  contents: write
+
 jobs:
   rc:
     if: ${{ github.ref_name != 'master' }}
