@@ -40,7 +40,7 @@ jobs:
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
       - name: Publish to npm
-        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
+        run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
           yarn release --release-as ${{ inputs.version_type }}
           git push --follow-tags origin master
       - name: Publish to npm
-        run: yarn publish
+        run: yarn npm publish
       - name: Create release with notes
         run: bash ./scripts/release-notes.sh
         env:
