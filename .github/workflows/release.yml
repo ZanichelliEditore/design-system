@@ -41,8 +41,6 @@ jobs:
           bash ./scripts/pre-release.sh
       - name: Publish to npm
         run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
@@ -62,8 +60,6 @@ jobs:
           git push --follow-tags origin master
       - name: Publish to npm
         run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create release with notes
         run: bash ./scripts/release-notes.sh
         env:
