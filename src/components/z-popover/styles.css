@@ -4,21 +4,16 @@
   --z-popover-padding: ;
   --z-popover-shadow-filter: ;
 
-  position: absolute;
+  position: fixed;
   display: none;
-  min-width: calc(var(--space-unit) * 8);
-  max-width: 100%;
-  min-height: calc(var(--space-unit) * 4);
-  max-height: 100%;
-  align-items: center;
-  justify-content: center;
+  max-width: calc(100% - var(--grid-margin) * 2);
+  max-height: calc(100% - var(--grid-margin) * 2);
   padding: var(--z-popover-padding, 0);
   background: var(--z-popover-theme--surface, var(--color-surface01));
   border-radius: var(--border-radius-small);
   color: var(--z-popover-theme--text, var(--color-default-text));
   fill: currentcolor;
   filter: var(--z-popover-shadow-filter, drop-shadow(0 1px 2px var(--shadow-color-base)));
-  font-family: var(--font-family-sans);
   text-align: center;
 }
 
@@ -28,7 +23,7 @@
 
 :host([open][current-position]),
 :host([open="true"][current-position]) {
-  display: flex;
+  display: block;
 }
 
 :host([center][current-position="top"]),
@@ -145,9 +140,4 @@
 :host([center][current-position="left"])::before {
   top: var(--arrow-center-x-offset);
   bottom: auto;
-}
-
-::slotted(*) {
-  overflow: auto;
-  flex: 1 auto;
 }

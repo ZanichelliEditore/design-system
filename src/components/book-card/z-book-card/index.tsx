@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
@@ -93,32 +94,37 @@ export class ZBookCard {
   }
 
   private renderCover(): HTMLDivElement {
-    const cover = (
-      <div class="cover">
-        <img
-          src={this.cover}
-          onError={() => {
-            if (this.fallbackCover) {
-              this.cover = this.fallbackCover;
-            }
-          }}
-          aria-hidden="true"
-        />
-        <slot name="coverOverlay"></slot>
-      </div>
+    const coverImg: HTMLImageElement = (
+      <img
+        src={this.cover}
+        onError={() => {
+          if (this.fallbackCover) {
+            this.cover = this.fallbackCover;
+          } else {
+            this.cover = defaultFallbackCover;
+          }
+        }}
+        aria-hidden="true"
+      />
     );
 
-    return this.ebookUrl ? (
-      <a
-        class="cover-link"
-        href={this.ebookUrl}
-        onClick={() => this.emitCoverClick()}
-        target="_blank"
-      >
-        {cover}
-      </a>
-    ) : (
-      cover
+    return (
+      <div class="cover">
+        {this.ebookUrl ? (
+          <a
+            tabIndex={0}
+            class={"cover-link"}
+            href={this.ebookUrl}
+            onClick={() => this.emitCoverClick()}
+            target="_blank"
+          >
+            {coverImg}
+          </a>
+        ) : (
+          coverImg
+        )}
+        <slot name="coverOverlay"></slot>
+      </div>
     );
   }
 

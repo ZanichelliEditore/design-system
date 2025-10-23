@@ -58,10 +58,8 @@
 
 :host([expandable]:focus:focus-visible) > .container,
 :host([clickable]:focus:focus-visible) > .container {
-  box-shadow: var(--shadow-focus-primary);
-}
-
-:host([clickable]:not([expandable])) > .container.clicked {
+  position: relative;
+  z-index: 1;
   box-shadow: var(--shadow-focus-primary);
 }
 

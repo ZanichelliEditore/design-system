@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, getClickedElement, getElementTree, handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {boolean, getClickedElement, getElementTree, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -494,6 +494,7 @@ export class ZSelect {
         placeholder={this.placeholder}
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
+        autocomplete="off"
         aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
         aria-controls={`${this.htmlid}_list`}
@@ -512,10 +513,8 @@ export class ZSelect {
           this.handleInputClick(e);
         }}
         onKeyUp={(e: KeyboardEvent) => {
-          if (e.key !== KeyboardCode.ENTER) {
-            e.preventDefault();
-          }
-          handleKeyboardSubmit(e, this.toggleSelectUl);
+          e.preventDefault();
+          this.toggleSelectUl();
         }}
         onKeyDown={(e: KeyboardEvent) => {
           const current = this.selectedItem

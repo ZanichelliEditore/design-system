@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/albe-web-components",
-  "version": "18.6.2",
+  "version": "18.7.0",
   "description": "The Web Components implementation of Albe, the Zanichelli's design system.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -46,6 +46,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
+    "@rollup/plugin-image": "^3.0.3",
     "@stencil-community/eslint-plugin": "^0.8.0",
     "@stencil/core": "~4.20.0",
     "@stencil/react-output-target": "^0.5.3",

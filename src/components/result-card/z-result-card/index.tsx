@@ -1,4 +1,5 @@
 import {Component, Element, Host, Prop, h} from "@stencil/core";
+import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 
 @Component({
   tag: "z-result-card",
@@ -32,6 +33,10 @@ export class ZResultCard {
    */
   @Prop()
   cover?: string;
+
+  /** [optional] Fallback cover URL */
+  @Prop()
+  fallbackCover?: string;
 
   /**
    * Indicates whether the card has multiple covers.
@@ -117,6 +122,13 @@ export class ZResultCard {
               src={this.cover}
               alt="Book Cover"
               class="z-cover-img"
+              onError={() => {
+                if (this.fallbackCover) {
+                  this.cover = this.fallbackCover;
+                } else {
+                  this.cover = defaultFallbackCover;
+                }
+              }}
             />
           </div>
         </div>

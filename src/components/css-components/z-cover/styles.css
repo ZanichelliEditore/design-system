@@ -41,7 +41,7 @@
 }
 
 .z-shadow-1 {
-  z-index: 1;
+  z-index: 0;
   top: var(--space-unit);
   right: 6px;
   border: var(--border-size-small) solid black;
@@ -56,7 +56,7 @@
 
 .z-cover-img {
   position: absolute;
-  z-index: 2;
+  z-index: 0;
   top: 0;
   right: 0;
   border: var(--border-size-small) solid black;

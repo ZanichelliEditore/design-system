@@ -30,12 +30,11 @@ To be sure the algorithm finds the right container, when calculating the positio
 ## Overview
 
 Popover component.
-This component displays a popover that can be bound to an element.
-It supports various positions and can automatically adjust its position based on available space.
+This component displays a popover bound to an element.
+It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
 
 Notes:
-- To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-- Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+- If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
 
 ## Properties
 
@@ -51,10 +50,10 @@ Notes:
 
 ## Events
 
-| Event            | Description            | Type               |
-| ---------------- | ---------------------- | ------------------ |
-| `openChange`     | Open change event.     | `CustomEvent<any>` |
-| `positionChange` | Position change event. | `CustomEvent<any>` |
+| Event            | Description                      | Type               |
+| ---------------- | -------------------------------- | ------------------ |
+| `openChange`     | Open change event.               | `CustomEvent<any>` |
+| `positionChange` | Fired when the position changes. | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -3,12 +3,19 @@
   display: flex;
   width: 100%;
   min-height: 400px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   background: var(--gray200);
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .popover-content {
+  width: 200px;
+  max-width: 100%;
   text-align: left;
 }
 
@@ -17,4 +24,31 @@
   --z-icon-height: 32px;
 
   cursor: pointer;
+}
+
+.popover-container-tooltip {
+  height: 1000px;
+
+  .popover-internal-container {
+    overflow: auto;
+    width: 100%;
+    height: 400px;
+    background-color: aqua;
+
+    .popover-internal-container-2 {
+      display: flex;
+      overflow: auto;
+      width: 100%;
+      height: 1000px;
+      align-items: center;
+      justify-content: center;
+      background-color: tomato;
+    }
+  }
+}
+
+@media (width < 768px) {
+  .popover-container {
+    min-width: unset;
+  }
 }

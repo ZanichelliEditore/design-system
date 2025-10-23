@@ -3,6 +3,8 @@ import {CardVariant} from "../../beans";
 
 /**
  * ZCard component.
+ * The width of the card must be set by its container, following the grid indications of the design.
+ *
  * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
  * @cssprop --z-card--border-color - Default: `var(--gray200)`
  * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -12,9 +14,9 @@ import {CardVariant} from "../../beans";
  * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
  * @slot cover - Image cover
  * @slot metadata - Metadata
- * @slot title - Title
- * @slot text - Text content
- * @slot action - Actions
+ * @slot title - Using an `<a>` tag here will make the whole card clickable as if the link was wrapping it.
+ * @slot text
+ * @slot action - Interactive elements to place at the bottom of the card. To put non-interactive elements here when using an `<a>` tag in the `title` slot, and use this as a sort of "footer", set `z-index: 0` on each of those elements.
  */
 @Component({
   tag: "z-card",
@@ -38,7 +40,10 @@ export class ZCard {
   @Prop({reflect: true})
   showShadow = false;
 
-  /** Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. */
+  /**
+   * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
+   * Always set this to `true` when putting an `<a>` tag in the `title` slot.
+   */
   @Prop({reflect: true})
   clickable = false;
 

@@ -520,6 +520,7 @@ export namespace Components {
     }
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -530,7 +531,7 @@ export namespace Components {
      */
     interface ZCard {
         /**
-          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
          */
         "clickable": boolean;
         /**
@@ -1678,11 +1679,10 @@ export namespace Components {
     }
     /**
      * Popover component.
-     * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -1773,6 +1773,10 @@ export namespace Components {
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
         "cover"?: string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
         /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
@@ -2691,6 +2695,7 @@ declare global {
     };
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -3303,11 +3308,10 @@ declare global {
     }
     /**
      * Popover component.
-     * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -4265,6 +4269,7 @@ declare namespace LocalJSX {
     }
     /**
      * ZCard component.
+     * The width of the card must be set by its container, following the grid indications of the design.
      * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
      * @cssprop --z-card--border-color - Default: `var(--gray200)`
      * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -4275,7 +4280,7 @@ declare namespace LocalJSX {
      */
     interface ZCard {
         /**
-          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc.
+          * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
          */
         "clickable"?: boolean;
         /**
@@ -5547,11 +5552,10 @@ declare namespace LocalJSX {
     }
     /**
      * Popover component.
-     * This component displays a popover that can be bound to an element.
-     * It supports various positions and can automatically adjust its position based on available space.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
-     * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-     * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
      * @cssprop --z-popover-theme--surface - background color of the popover.
      * @cssprop --z-popover-theme--text - foreground color of the popover.
      * @cssprop --z-popover-padding - padding of the popover.
@@ -5575,7 +5579,7 @@ declare namespace LocalJSX {
          */
         "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
-          * Position change event.
+          * Fired when the position changes.
          */
         "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
@@ -5654,6 +5658,10 @@ declare namespace LocalJSX {
           * The URL of the cover image. This is used to display the cover image of the opera.
          */
         "cover"?: string;
+        /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
         /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
@@ -6368,6 +6376,7 @@ declare module "@stencil/core" {
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             /**
              * ZCard component.
+             * The width of the card must be set by its container, following the grid indications of the design.
              * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
              * @cssprop --z-card--border-color - Default: `var(--gray200)`
              * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
@@ -6476,11 +6485,10 @@ declare module "@stencil/core" {
             "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             /**
              * Popover component.
-             * This component displays a popover that can be bound to an element.
-             * It supports various positions and can automatically adjust its position based on available space.
+             * This component displays a popover bound to an element.
+             * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
              * Notes:
-             * - To ensure the positioning algorithm finds the right container when calculating the position, set its container's `position` to `relative`.
-             * - Consider manually adjusting the size of the slotted element (using `max-width`, `max-height`, etc...) when its content is "fluid" (like a big text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think that the popover doesn't fit in the available space).
+             * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
              * @cssprop --z-popover-theme--surface - background color of the popover.
              * @cssprop --z-popover-theme--text - foreground color of the popover.
              * @cssprop --z-popover-padding - padding of the popover.
