@@ -31,4 +31,10 @@
   .z-scrollbar {
     scrollbar-color: var(--color-primary01) transparent;
   }
+
+  :host([theme="dark"]) .z-scrollbar,
+  .z-scrollbar--dark {
+    scrollbar-color: var(--z-scrollbar-thumb-color, var(--color-primary03))
+      var(--z-scrollbar-track-color, var(--gray600));
+  }
 }
