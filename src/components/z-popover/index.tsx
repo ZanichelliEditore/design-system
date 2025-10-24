@@ -162,6 +162,7 @@ export class ZPopover {
         visibility: "hidden",
       });
       this.currentPosition = undefined;
+
       return;
     }
 
