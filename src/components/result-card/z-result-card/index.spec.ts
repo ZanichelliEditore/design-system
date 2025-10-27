@@ -18,12 +18,14 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="Book Cover" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera title single cover</span>
+                        <div class="card-title">Opera title single cover</div>
                         <span class="card-subtitle">Opera subtitle single cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -58,12 +60,14 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-2"></div>
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="Book Cover" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera title multiple cover</span>
+                        <div class="card-title">Opera title multiple cover</div>
                         <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -97,11 +101,13 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-2"></div>
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="Book Cover" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="card-title">Opera title multiple cover</span>
+                        <div class="card-title">Opera title multiple cover</div>
                         <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -133,12 +139,14 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="Book Cover" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera with tags</span>
+                        <div class="card-title">Opera with tags</div>
                         <span class="card-subtitle">Subtitle with tags</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -171,12 +179,14 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="Book Cover" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera with volumes</span>
+                        <div class="card-title">Opera with volumes</div>
                         <span class="card-subtitle">Subtitle with volumes</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
