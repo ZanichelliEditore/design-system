@@ -53,6 +53,10 @@
   word-break: break-word;
 }
 
+.card-title > * {
+  all: unset;
+}
+
 .card-subtitle {
   overflow: hidden;
   color: var(--color-default-text);

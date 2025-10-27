@@ -1785,6 +1785,10 @@ export namespace Components {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard": boolean;
+        /**
+          * [optional] Use for insert heading when needed.
+         */
+        "titleHtmlTag"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -5670,6 +5674,10 @@ declare namespace LocalJSX {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard"?: boolean;
+        /**
+          * [optional] Use for insert heading when needed.
+         */
+        "titleHtmlTag"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)

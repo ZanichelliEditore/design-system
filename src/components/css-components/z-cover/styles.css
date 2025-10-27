@@ -16,22 +16,14 @@
 .z-cover-shadow,
 .z-cover-img {
   width: 117px;
-  min-width: 117px;
-  max-width: 117px;
   height: 156px;
-  min-height: 156px;
-  max-height: 156px;
 }
 
 /* Scaled sizes for multiple covers */
 .z-cover-container.has-multiple .z-cover-shadow,
 .z-cover-container.has-multiple .z-cover-img {
   width: 105px;
-  min-width: 105px;
-  max-width: 105px;
   height: 140px;
-  min-height: 140px;
-  max-height: 140px;
 }
 
 .z-cover-shadow {
@@ -59,9 +51,18 @@
   z-index: 0;
   top: 0;
   right: 0;
+  display: flex;
+  align-items: start;
+  justify-content: center;
   border: var(--border-size-small) solid black;
+  background-color: var(--color-white);
   object-fit: cover;
   object-position: left;
+}
+
+.z-cover-img > img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .z-cover-container.has-multiple .z-cover-img {

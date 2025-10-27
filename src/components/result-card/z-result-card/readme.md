@@ -16,6 +16,7 @@
 | `fallbackCover`     | `fallback-cover`      | [optional] Fallback cover URL                                                                                         | `string`  | `undefined` |
 | `hasMultipleCovers` | `has-multiple-covers` | Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers. | `boolean` | `false`     |
 | `isInfoCard`        | `is-info-card`        | Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.    | `boolean` | `false`     |
+| `titleHtmlTag`      | `title-html-tag`      | [optional] Use for insert heading when needed.                                                                        | `string`  | `undefined` |
 
 
 ## Dependencies
