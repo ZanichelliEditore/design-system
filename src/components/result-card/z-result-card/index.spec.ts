@@ -39,6 +39,44 @@ describe("Suite test ZResultCard", () => {
         `);
   });
 
+  it("Test render ZResultCard with heading", async () => {
+    const page = await newSpecPage({
+      components: [ZResultCard],
+      html: `<z-result-card 
+                  authors="Test author"
+                  card-title="Opera title single cover" 
+                  card-subtitle="Opera subtitle single cover"
+                  cover="test-cover.jpg"
+                  title-html-tag="h2"
+              ></z-result-card>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+            <z-result-card authors="Test author" card-title="Opera title single cover" card-subtitle="Opera subtitle single cover" cover="test-cover.jpg" tabindex="0" title-html-tag="h2">
+                <mock:shadow-root>
+                    <div class="z-cover-container">
+                        <div class="z-cover-stack">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <span class="authors-label">Test author</span>
+                        <div class="card-title"><h2>Opera title single cover</h2></div>
+                        <span class="card-subtitle">Opera subtitle single cover</span>
+                        <div class="tags-container">
+                            <slot name="tags"></slot>
+                        </div>
+                        <div class="volumes-label">
+                            <slot name="volumes"></slot>
+                        </div>
+                    </div>
+                </mock:shadow-root>
+            </z-result-card>
+        `);
+  });
+
   it("Test render ZResultCard with multiple covers", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
