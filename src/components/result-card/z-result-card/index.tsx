@@ -3,7 +3,7 @@ import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.p
 
 @Component({
   tag: "z-result-card",
-  styleUrls: ["styles.css", "../../css-components/z-cover/styles.css"],
+  styleUrls: ["styles.css"],
   shadow: true,
 })
 export class ZResultCard {
@@ -130,7 +130,7 @@ export class ZResultCard {
             <div class="z-cover-img">
               <img
                 src={this.cover}
-                alt="Book Cover"
+                alt=""
                 onError={() => {
                   if (this.fallbackCover) {
                     this.cover = this.fallbackCover;

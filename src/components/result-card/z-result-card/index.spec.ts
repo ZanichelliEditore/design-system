@@ -19,7 +19,7 @@ describe("Suite test ZResultCard", () => {
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
                             <div class="z-cover-img">
-                                <img alt="Book Cover" src="test-cover.jpg">
+                                <img alt="" src="test-cover.jpg">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
                             <div class="z-cover-img">
-                                <img alt="Book Cover" src="test-cover.jpg">
+                                <img alt="" src="test-cover.jpg">
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
                             <div class="z-cover-img">
-                                <img alt="Book Cover" src="test-cover.jpg">
+                                <img alt="" src="test-cover.jpg">
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@ describe("Suite test ZResultCard", () => {
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
                             <div class="z-cover-img">
-                                <img alt="Book Cover" src="test-cover.jpg">
+                                <img alt="" src="test-cover.jpg">
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ describe("Suite test ZResultCard", () => {
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
                             <div class="z-cover-img">
-                                <img alt="Book Cover" src="test-cover.jpg">
+                                <img alt="" src="test-cover.jpg">
                             </div>
                         </div>
                     </div>
