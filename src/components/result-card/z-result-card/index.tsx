@@ -129,7 +129,7 @@ export class ZResultCard {
             )}
             <div class="z-cover-img">
               <img
-                src={this.cover}
+                src={this.cover || this.fallbackCover || defaultFallbackCover}
                 alt=""
                 onError={() => {
                   if (this.fallbackCover) {
