@@ -18,12 +18,52 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera title single cover</span>
+                        <div class="card-title">Opera title single cover</div>
+                        <span class="card-subtitle">Opera subtitle single cover</span>
+                        <div class="tags-container">
+                            <slot name="tags"></slot>
+                        </div>
+                        <div class="volumes-label">
+                            <slot name="volumes"></slot>
+                        </div>
+                    </div>
+                </mock:shadow-root>
+            </z-result-card>
+        `);
+  });
+
+  it("Test render ZResultCard with heading", async () => {
+    const page = await newSpecPage({
+      components: [ZResultCard],
+      html: `<z-result-card 
+                  authors="Test author"
+                  card-title="Opera title single cover" 
+                  card-subtitle="Opera subtitle single cover"
+                  cover="test-cover.jpg"
+                  title-html-tag="h2"
+              ></z-result-card>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+            <z-result-card authors="Test author" card-title="Opera title single cover" card-subtitle="Opera subtitle single cover" cover="test-cover.jpg" tabindex="0" title-html-tag="h2">
+                <mock:shadow-root>
+                    <div class="z-cover-container">
+                        <div class="z-cover-stack">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <span class="authors-label">Test author</span>
+                        <div class="card-title"><h2>Opera title single cover</h2></div>
                         <span class="card-subtitle">Opera subtitle single cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -58,12 +98,14 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-2"></div>
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera title multiple cover</span>
+                        <div class="card-title">Opera title multiple cover</div>
                         <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -97,11 +139,13 @@ describe("Suite test ZResultCard", () => {
                                 <div class="z-cover-shadow z-shadow-2"></div>
                                 <div class="z-cover-shadow z-shadow-1"></div>
                             </div>
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="card-title">Opera title multiple cover</span>
+                        <div class="card-title">Opera title multiple cover</div>
                         <span class="card-subtitle">Opera subtitle multiple cover</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -133,12 +177,14 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera with tags</span>
+                        <div class="card-title">Opera with tags</div>
                         <span class="card-subtitle">Subtitle with tags</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
@@ -171,12 +217,14 @@ describe("Suite test ZResultCard", () => {
                 <mock:shadow-root>
                     <div class="z-cover-container">
                         <div class="z-cover-stack">
-                            <img alt="Book Cover" class="z-cover-img" src="test-cover.jpg">
+                            <div class="z-cover-img">
+                                <img alt="" src="test-cover.jpg">
+                            </div>
                         </div>
                     </div>
                     <div class="info-container">
                         <span class="authors-label">Test author</span>
-                        <span class="card-title">Opera with volumes</span>
+                        <div class="card-title">Opera with volumes</div>
                         <span class="card-subtitle">Subtitle with volumes</span>
                         <div class="tags-container">
                             <slot name="tags"></slot>
