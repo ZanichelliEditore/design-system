@@ -50,10 +50,12 @@ jobs:
           bash ./scripts/pre-release.sh
       - name: Update npm to latest
         run: npm install -g npm@latest
-      - name: Publish to npm
-        run: |
-          yarn version ${{ inputs.rc_type }}
-          yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
+      - name: Find package version
+        run: node -p "require('./package.json').version"
+      # - name: Publish to npm
+      #   run: |
+      #     yarn version ${{ inputs.rc_type }}
+      #     yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
