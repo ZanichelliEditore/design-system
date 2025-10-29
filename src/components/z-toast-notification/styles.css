@@ -212,8 +212,8 @@
   fill: var(--color-primary01-icon);
 }
 
-:host > #external-container.light #text,
-:host > #external-container.warning #text {
+:host > #external-container.light #inner-container #text,
+:host > #external-container.warning #inner-container #text {
   color: var(--color-default-text);
 }
 
