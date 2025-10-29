@@ -34,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
       - name: Enable Corepack
         run: corepack enable
       - uses: actions/setup-node@v4
