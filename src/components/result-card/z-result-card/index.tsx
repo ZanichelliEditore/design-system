@@ -3,7 +3,7 @@ import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.p
 
 @Component({
   tag: "z-result-card",
-  styleUrls: ["styles.css", "../../css-components/z-cover/styles.css"],
+  styleUrls: ["styles.css"],
   shadow: true,
 })
 export class ZResultCard {
