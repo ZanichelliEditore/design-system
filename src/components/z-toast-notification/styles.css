@@ -212,11 +212,6 @@
   fill: var(--color-primary01-icon);
 }
 
-/* :host .light #text,
-:host .warning #text {
-  color: var(--color-default-text) !important;
-} */
-
 :host > #external-container.light #inner-container #text,
 :host > #external-container.warning #inner-container #text {
   color: var(--color-default-text);
