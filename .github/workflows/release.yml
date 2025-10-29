@@ -6,10 +6,15 @@ on:
         description: "For a release candidate, provide a name that will be used as version tag"
         required: false
         type: string
-      rc_version_name:
-        description: "For a release candidate, provide a name that will be used as version name"
+      rc_type:
+        description: "For a release candidate, select the type of release candidate you need"
         required: false
-        type: string
+        type: choice
+        default: "prepatch"
+        options:
+          - prepatch
+          - preminor
+          - premajor
       version_type:
         description: "For a latest release, select the version type"
         required: false
@@ -45,7 +50,7 @@ jobs:
         run: npm install -g npm@latest
       - name: Publish to npm
         run: |
-          yarn version prerelease
+          yarn version ${{ inputs.rc_type }}
           yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
