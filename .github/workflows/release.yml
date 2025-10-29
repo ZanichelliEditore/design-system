@@ -52,7 +52,7 @@ jobs:
         run: npm install -g npm@latest
       - name: Publish to npm
         run: |
-          yarn version ${{ inputs.rc_type }}
+          yarn version 18.7.1-RC4
           yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
