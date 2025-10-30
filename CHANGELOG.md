@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 18.7.4 (2025-10-30)
+
+
+### Bug Fixes
+
+* margin top of the actions in the overlay variant of zcard ([3e2021b](https://github.com/ZanichelliEditore/design-system/commit/3e2021b1ba0ff135d3a0ab51dd2ad1aa962e1612))
+
 ## 18.7.3 (2025-10-29)
 
 ## 18.7.2 (2025-10-29)
