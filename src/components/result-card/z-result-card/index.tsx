@@ -1,8 +1,9 @@
 import {Component, Element, Host, Prop, h} from "@stencil/core";
+import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 
 @Component({
   tag: "z-result-card",
-  styleUrls: ["styles.css", "../../css-components/z-cover/styles.css"],
+  styleUrls: ["styles.css"],
   shadow: true,
 })
 export class ZResultCard {
@@ -33,6 +34,10 @@ export class ZResultCard {
   @Prop()
   cover?: string;
 
+  /** [optional] Fallback cover URL */
+  @Prop()
+  fallbackCover?: string;
+
   /**
    * Indicates whether the card has multiple covers.
    * This is used to apply specific styles when there are multiple covers.
@@ -46,6 +51,13 @@ export class ZResultCard {
    */
   @Prop()
   isInfoCard = false;
+
+  /**
+   * [optional]
+   * Use for insert heading when needed.
+   */
+  @Prop()
+  titleHtmlTag?: string;
 
   private authorsRef: HTMLElement;
 
@@ -103,6 +115,8 @@ export class ZResultCard {
   }
 
   private renderOperaCard = (): HTMLZResultCardElement => {
+    const title = this.titleHtmlTag ? `<${this.titleHtmlTag}>${this.cardTitle}</${this.titleHtmlTag}>` : this.cardTitle;
+
     return (
       <Host tabIndex={0}>
         <div class={`z-cover-container ${this.hasMultipleCovers ? "has-multiple" : ""}`}>
@@ -113,11 +127,19 @@ export class ZResultCard {
                 <div class="z-cover-shadow z-shadow-1" />
               </div>
             )}
-            <img
-              src={this.cover}
-              alt="Book Cover"
-              class="z-cover-img"
-            />
+            <div class="z-cover-img">
+              <img
+                src={this.cover || this.fallbackCover || defaultFallbackCover}
+                alt=""
+                onError={() => {
+                  if (this.fallbackCover) {
+                    this.cover = this.fallbackCover;
+                  } else {
+                    this.cover = defaultFallbackCover;
+                  }
+                }}
+              />
+            </div>
           </div>
         </div>
         <div class="info-container">
@@ -129,12 +151,11 @@ export class ZResultCard {
               {this.authors}
             </span>
           )}
-          <span
+          <div
             class="card-title"
             ref={(el) => (this.titleRef = el as HTMLElement)}
-          >
-            {this.cardTitle}
-          </span>
+            innerHTML={title}
+          ></div>
           <span
             class="card-subtitle"
             ref={(el) => (this.subtitleRef = el as HTMLElement)}

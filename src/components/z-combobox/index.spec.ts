@@ -281,7 +281,6 @@ describe("Suite test ZCombobox", () => {
               <div aria-multiselectable="" role="listbox" aria-label="combo" id="combobox_list" aria-owns="">
                 <div class="search">
                   <div class="no-results">
-                    <z-icon name="multiply-circle"></z-icon>
                     <span>non ci sono risultati</span>
                   </div>
                   <div class="close-search">

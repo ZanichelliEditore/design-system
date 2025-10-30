@@ -133,6 +133,9 @@ Unfortunately the `aspect-ratio` property is still experimental */
 .actions {
   display: flex;
   align-items: center;
+}
+
+:host(:not([variant="overlay"])) .actions {
   margin-top: auto;
 }
 

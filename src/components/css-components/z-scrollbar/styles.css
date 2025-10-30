@@ -12,9 +12,29 @@
   background-color: var(--color-hover-primary);
 }
 
+:host([theme="dark"]) .z-scrollbar,
+.z-scrollbar--dark {
+  --z-scrollbar-track-gradient: linear-gradient(
+    to right,
+    transparent 0 1px,
+    var(--gray600) 1px 5px,
+    transparent 5px 6px
+  );
+  --z-scrollbar-track-color: var(--gray600);
+  --z-scrollbar-thumb-color: var(--color-primary03);
+  --z-scrollbar-thumb-hover-color: var(--color-hover-primary);
+  --z-scrollbar-corner-color: transparent;
+}
+
 /* Firefox scrollbar */
 @supports not selector(.z-scrollbar::-webkit-scrollbar-track) {
   .z-scrollbar {
     scrollbar-color: var(--color-primary01) transparent;
+  }
+
+  :host([theme="dark"]) .z-scrollbar,
+  .z-scrollbar--dark {
+    scrollbar-color: var(--z-scrollbar-thumb-color, var(--color-primary03))
+      var(--z-scrollbar-track-color, var(--gray600));
   }
 }

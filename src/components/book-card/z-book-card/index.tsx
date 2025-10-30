@@ -1,4 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
@@ -99,6 +100,8 @@ export class ZBookCard {
         onError={() => {
           if (this.fallbackCover) {
             this.cover = this.fallbackCover;
+          } else {
+            this.cover = defaultFallbackCover;
           }
         }}
         aria-hidden="true"

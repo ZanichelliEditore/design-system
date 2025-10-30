@@ -10,6 +10,7 @@ const StoryMeta: Meta = {
     cardSubtitle: {control: "text"},
     authors: {control: "text"},
     cover: {control: "text"},
+    fallbackCover: {control: "text"},
     hasMultipleCovers: {control: "boolean"},
     isInfoCard: {control: "boolean"},
   },
@@ -24,8 +25,10 @@ const args = {
   cardSubtitle: "Subtitle",
   authors: "John Doe",
   cover: "https://place.abh.ai/s3fs-public/placeholder/DSC_0199_400x400.JPG",
+  fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
   hasMultipleCovers: false,
   isInfoCard: false,
+  titleHtmlTag: "h2",
 };
 
 export const SingleCover: Story = {
@@ -39,8 +42,32 @@ export const SingleCover: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
+    >
+      <span slot="tags">Example tag</span>
+      <span slot="volumes">2 volumes</span>
+    </z-result-card>
+  `,
+};
+
+export const SingleCoverLateralSpaces: Story = {
+  args: {
+    ...args,
+  },
+
+  render: (args) => html`
+    <z-result-card
+      .cardTitle=${args.cardTitle}
+      .cardSubtitle=${args.cardSubtitle}
+      .authors=${args.authors}
+      cover="https://statictestmy.zanichelli.it/catalogo/assets/small/m40003.9788808075475.jpg"
+      fallback-cover=${args.fallbackCover}
+      .hasMultipleCovers=${args.hasMultipleCovers}
+      .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
     >
       <span slot="tags">Example tag</span>
       <span slot="volumes">2 volumes</span>
@@ -59,8 +86,33 @@ export const MultipleCovers: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
+    >
+      <span slot="tags">Example tag</span>
+      <span slot="tags">Example tag</span>
+      <span slot="volumes">2 volumes</span>
+    </z-result-card>
+  `,
+};
+
+export const MultipleCoversLateralSpaces: Story = {
+  args: {
+    ...args,
+    hasMultipleCovers: true,
+  },
+  render: (args) => html`
+    <z-result-card
+      .cardTitle=${args.cardTitle}
+      .cardSubtitle=${args.cardSubtitle}
+      .authors=${args.authors}
+      cover=https://statictestmy.zanichelli.it/catalogo/assets/small/m40003.9788808075475.jpg
+      fallback-cover=${args.fallbackCover}
+      .hasMultipleCovers=${args.hasMultipleCovers}
+      .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
     >
       <span slot="tags">Example tag</span>
       <span slot="tags">Example tag</span>
@@ -84,8 +136,10 @@ export const LongTitleAndSubtitle: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
     >
       <span slot="tags">Example tag</span>
       <span slot="volumes">2 volumes</span>
@@ -104,8 +158,10 @@ export const OnlyTitleAndSubtitle: Story = {
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
       .cover=${args.cover}
+      fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
     />
   `,
 };
@@ -124,8 +180,10 @@ export const InfoCard: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
+      .titleHtmlTag=${args.titleHtmlTag}
     />
   `,
 };

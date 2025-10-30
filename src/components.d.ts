@@ -1774,6 +1774,10 @@ export namespace Components {
          */
         "cover"?: string;
         /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
         "hasMultipleCovers": boolean;
@@ -1781,6 +1785,10 @@ export namespace Components {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard": boolean;
+        /**
+          * [optional] Use for insert heading when needed.
+         */
+        "titleHtmlTag"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -5655,6 +5663,10 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
+          * [optional] Fallback cover URL
+         */
+        "fallbackCover"?: string;
+        /**
           * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
          */
         "hasMultipleCovers"?: boolean;
@@ -5662,6 +5674,10 @@ declare namespace LocalJSX {
           * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
          */
         "isInfoCard"?: boolean;
+        /**
+          * [optional] Use for insert heading when needed.
+         */
+        "titleHtmlTag"?: string;
     }
     /**
      * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)

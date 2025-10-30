@@ -437,7 +437,6 @@ export class ZCombobox {
   private renderNoSearchResults(): HTMLUListElement {
     return (
       <div class="no-results">
-        <z-icon name="multiply-circle" />
         <span>{this.noresultslabel}</span>
       </div>
     );

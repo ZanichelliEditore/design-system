@@ -119,6 +119,8 @@
   overflow: auto;
   max-height: 235px;
   padding: 0;
+  padding-left: var(--space-unit); /* padding left and negative margin in order to enable focus */
+  margin-left: calc(var(--space-unit) * -1); /* padding left and negative margin in order to enable focus */
 }
 
 :host > div.open > div.open-combo-data > z-input {
@@ -128,7 +130,7 @@
 
 :host > div.open > div.open-combo-data > div > div > ul {
   max-height: 235px;
-  padding: 0 3px; /* needed for checkbox focus shadow */
+  padding: 0 calc(var(--space-unit) * 0.5); /* needed for checkbox focus shadow */
   margin: 0;
 }
 
@@ -207,9 +209,12 @@
 }
 
 :host > div.open > div.open-combo-data > div > div.check-all-wrapper {
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5);
+  /* padding left and negative margin in order to enable focus */
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 2)
+    calc(var(--space-unit) * 1.5);
   border-bottom: var(--border-size-small) solid var(--gray800);
   margin-bottom: var(--space-unit);
+  margin-left: calc(var(--space-unit) * -1);
   text-align: left;
 }
 
