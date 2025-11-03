@@ -6,15 +6,10 @@ on:
         description: "For a release candidate, provide a name that will be used as version tag"
         required: false
         type: string
-      rc_type:
-        description: "For a release candidate, select the type of release candidate you need"
+      rc_version_name:
+        description: "For a release candidate, provide a name that will be used as version name"
         required: false
-        type: choice
-        default: "prepatch"
-        options:
-          - prepatch
-          - preminor
-          - premajor
+        type: string
       version_type:
         description: "For a latest release, select the version type"
         required: false
@@ -48,16 +43,16 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - name: Version bump
-        run: yarn version ${{ inputs.rc_type }}
       - if: ${{ inputs.rc_version_tag == '' }}
-        name: Use package version as tag and publish to npm
+        name: Version tag required for release candidates
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          yarn npm publish --tag ${VERSION} --access=public
+          echo "A release candidate version tag is missing."
+          exit 1
       - if: ${{ inputs.rc_version_tag != '' }}
         name: Publish to npm
-        run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
+        run: |
+          yarn version ${{ inputs.rc_version_name }}
+          yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
