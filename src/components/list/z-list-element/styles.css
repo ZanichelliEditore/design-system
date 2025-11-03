@@ -104,3 +104,8 @@
   z-index: 100;
   left: 0;
 }
+
+:host([disabled]) > .container {
+  color: var(--color-form-disabled03);
+  cursor: default;
+}

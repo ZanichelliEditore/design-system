@@ -173,6 +173,10 @@ export class ZListElement {
    * @returns void
    */
   private handleClick(): void {
+    if (this.disabled) {
+      return;
+    }
+
     this.clickItem.emit(this.listElementId);
     if (!this.expandable) {
       return;
@@ -287,7 +291,7 @@ export class ZListElement {
       >
         <div
           class={this.hasTreeItems ? "tree-element-container" : "container"}
-          style={{color: `var(--${this.color})`}}
+          style={!this.disabled && {color: `var(--${this.color})`}}
           tabindex="-1"
           id={`z-list-element-id-${this.listElementId}`}
           part="list-item-container"
