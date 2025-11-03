@@ -54,17 +54,19 @@ jobs:
         name: Use package version as tag and publish to npm
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          echo ${VERSION}
-        # yarn npm publish --tag ${VERSION} --access=public
+          yarn npm publish --tag ${VERSION} --access=public
       - if: ${{ inputs.rc_version_tag != '' }}
         name: Publish to npm
         run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
-      # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsif
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
