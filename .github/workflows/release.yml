@@ -48,8 +48,7 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - if: ${{ inputs.rc_version_tag != '' }}
-        name: Publish to npm
+      - name: Publish to npm
         run: |
           yarn version ${{ inputs.rc_version_name }}
           yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
