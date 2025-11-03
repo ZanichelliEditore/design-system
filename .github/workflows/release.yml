@@ -28,6 +28,11 @@ jobs:
     if: ${{ github.ref_name != 'master' }}
     runs-on: ubuntu-latest
     steps:
+      - if: ${{ inputs.rc_version_tag == '' }}
+        name: Version tag required for release candidates
+        run: |
+          echo "A release candidate version tag is missing."
+          exit 1
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
@@ -43,11 +48,6 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - if: ${{ inputs.rc_version_tag == '' }}
-        name: Version tag required for release candidates
-        run: |
-          echo "A release candidate version tag is missing."
-          exit 1
       - if: ${{ inputs.rc_version_tag != '' }}
         name: Publish to npm
         run: |
