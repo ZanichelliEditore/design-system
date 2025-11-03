@@ -48,14 +48,18 @@ jobs:
         run: |
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
-      - name: Update npm to latest
-        run: npm install -g npm@latest
-      - name: Find package version
-        run: node -p "require('./package.json').version"
-      # - name: Publish to npm
-      #   run: |
-      #     yarn version ${{ inputs.rc_type }}
-      #     yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
+      - name: Version bump
+        run: yarn version ${{ inputs.rc_type }}
+      - if: ${{ inputs.rc_version_tag == '' }}
+        name: Use package version as tag and publish to npm
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo ${VERSION}
+        # yarn npm publish --tag ${VERSION} --access=public
+      - if: ${{ inputs.rc_version_tag != '' }}
+        name: Publish to npm
+        run: yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
+      # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsif
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
@@ -74,7 +78,7 @@ jobs:
           yarn release --release-as ${{ inputs.version_type }}
           git push --follow-tags origin master
       - name: Publish to npm
-        run: yarn npm publish
+        run: yarn npm publish --access=public
       - name: Create release with notes
         run: bash ./scripts/release-notes.sh
         env:
