@@ -2,10 +2,11 @@
   display: flex;
   overflow: hidden;
   min-width: 0;
-  height: calc(174px - var(--space-unit) * 2);
-  max-height: calc(174px - var(--space-unit) * 2);
+  height: calc(10.88rem - var(--space-unit) * 2);
+  max-height: calc(10.88rem - var(--space-unit) * 2);
   padding: var(--space-unit);
   border: var(--border-size-medium) solid var(--color-surface02);
+  background-color: var(--color-white);
   border-radius: var(--border-size-large);
   cursor: pointer;
   font-family: var(--font-family-sans);
@@ -163,18 +164,16 @@
   font-size: var(--font-size-1);
 }
 
+/* variant info-card */
 :host(.info-card) {
   display: flex;
-  height: calc(76px - var(--space-unit) * 2);
-  max-height: calc(76px - var(--space-unit) * 2);
+  height: calc(4.75rem - var(--space-unit) * 2);
+  max-height: calc(4.75rem - var(--space-unit) * 2);
+  gap: calc(var(--space-unit) * 1.5);
 }
 
-.info-icon-column {
-  display: flex;
-  width: 50px;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+:host(.info-card) .info-container {
+  padding-left: 0;
 }
 
 .info-icon-container {
