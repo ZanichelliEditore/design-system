@@ -19,12 +19,25 @@ on:
           - patch
           - minor
           - major
+permissions:
+  id-token: write # Required for OIDC
+  contents: write
+
 jobs:
   rc:
     if: ${{ github.ref_name != 'master' }}
     runs-on: ubuntu-latest
     steps:
+      - if: ${{ inputs.rc_version_tag == '' }}
+        name: Version tag required for release candidates
+        run: |
+          echo "A release candidate version tag is missing."
+          exit 1
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
@@ -36,14 +49,18 @@ jobs:
           git checkout ${{ github.ref_name }}
           bash ./scripts/pre-release.sh
       - name: Publish to npm
-        run: yarn publish --tag ${{ inputs.rc_version_tag }} --new-version ${{ inputs.rc_version_name }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn version ${{ inputs.rc_version_name }}
+          yarn npm publish --tag ${{ inputs.rc_version_tag }} --access=public
   latest:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
@@ -57,9 +74,7 @@ jobs:
           yarn release --release-as ${{ inputs.version_type }}
           git push --follow-tags origin master
       - name: Publish to npm
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn npm publish --access=public
       - name: Create release with notes
         run: bash ./scripts/release-notes.sh
         env:

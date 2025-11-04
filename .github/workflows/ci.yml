@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -23,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: yarn install --frozen-lockfile
       - name: Run prettier
         run: |
           ls -al .prettierignore .prettierrc.json
@@ -35,6 +37,8 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -46,7 +50,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: yarn install --frozen-lockfile
       - name: Run eslint
         run: yarn eslint src/
   stylelint:
@@ -55,6 +59,8 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -66,6 +72,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: yarn install --frozen-lockfile
       - name: Run stylelint
         run: yarn stylelint 'src/**/*.css'
