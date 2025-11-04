@@ -174,6 +174,8 @@ export class ZResultCard {
   };
 
   private renderInfoCard = (): HTMLZResultCardElement => {
+    const title = this.titleHtmlTag ? `<${this.titleHtmlTag}>${this.cardTitle}</${this.titleHtmlTag}>` : this.cardTitle;
+
     return (
       <Host
         tabIndex={0}
@@ -193,9 +195,8 @@ export class ZResultCard {
           <span
             class="card-title info-title"
             ref={(el) => (this.titleRef = el as HTMLElement)}
-          >
-            {this.cardTitle}
-          </span>
+            innerHTML={title}
+          ></span>
           <span
             class="card-subtitle info-subtitle"
             ref={(el) => (this.subtitleRef = el as HTMLElement)}
