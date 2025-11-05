@@ -5,9 +5,9 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard with single cover", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
+      html: `<z-result-card
                   authors="Test author"
-                  card-title="Opera title single cover" 
+                  card-title="Opera title single cover"
                   card-subtitle="Opera subtitle single cover"
                   cover="test-cover.jpg"
               ></z-result-card>`,
@@ -42,9 +42,9 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard with heading", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
+      html: `<z-result-card
                   authors="Test author"
-                  card-title="Opera title single cover" 
+                  card-title="Opera title single cover"
                   card-subtitle="Opera subtitle single cover"
                   cover="test-cover.jpg"
                   title-html-tag="h2"
@@ -80,9 +80,9 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard with multiple covers", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
+      html: `<z-result-card
                 authors="Test author"
-                card-title="Opera title multiple cover" 
+                card-title="Opera title multiple cover"
                 card-subtitle="Opera subtitle multiple cover"
                 cover="test-cover.jpg"
                 has-multiple-covers="true"
@@ -122,8 +122,8 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard without authors", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
-                card-title="Opera title multiple cover" 
+      html: `<z-result-card
+                card-title="Opera title multiple cover"
                 card-subtitle="Opera subtitle multiple cover"
                 cover="test-cover.jpg"
                 has-multiple-covers="true"
@@ -162,9 +162,9 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard with tags", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
+      html: `<z-result-card
                 authors="Test author"
-                card-title="Opera with tags" 
+                card-title="Opera with tags"
                 card-subtitle="Subtitle with tags"
                 cover="test-cover.jpg">
                 <div slot="tags">Tag 1</div>
@@ -203,9 +203,9 @@ describe("Suite test ZResultCard", () => {
   it("Test render ZResultCard with volumes", async () => {
     const page = await newSpecPage({
       components: [ZResultCard],
-      html: `<z-result-card 
+      html: `<z-result-card
                 authors="Test author"
-                card-title="Opera with volumes" 
+                card-title="Opera with volumes"
                 card-subtitle="Subtitle with volumes"
                 cover="test-cover.jpg">
                 <span slot="volumes">Volume 1</span>
@@ -258,8 +258,8 @@ describe("Suite test ZResultCard", () => {
                         </div>
                     </div>
                     <div class="info-container">
-                        <span class="card-title info-title">Info Title</span>
-                        <span class="card-subtitle info-subtitle">Info Subtitle</span>
+                        <div class="card-title info-card-title">Info Title</div>
+                        <span class="card-subtitle info-card-subtitle">Info Subtitle</span>
                     </div>
                 </mock:shadow-root>
             </z-result-card>
