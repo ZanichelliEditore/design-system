@@ -19,6 +19,14 @@
 | `titleHtmlTag`      | `title-html-tag`      | [optional] Use for insert heading when needed.                                                                        | `string`  | `undefined` |
 
 
+## Slots
+
+| Slot        | Description                                                           |
+| ----------- | --------------------------------------------------------------------- |
+| `"tags"`    | slot containing the descriptors for the opera variant                 |
+| `"volumes"` | slot containing the volume count to be displayed in the opera variant |
+
+
 ## Dependencies
 
 ### Depends on
