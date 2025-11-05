@@ -2,20 +2,13 @@
   display: flex;
   overflow: hidden;
   min-width: 0;
-  height: calc(10.88rem - var(--space-unit) * 2);
-  max-height: calc(10.88rem - var(--space-unit) * 2);
+  height: 9.875rem;
   padding: var(--space-unit);
   border: var(--border-size-medium) solid var(--color-surface02);
   background-color: var(--color-white);
   border-radius: var(--border-size-large);
   cursor: pointer;
   font-family: var(--font-family-sans);
-}
-
-:host(:focus:focus-visible) {
-  z-index: 1;
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
 }
 
 .z-cover-container {
@@ -89,12 +82,6 @@
   left: 12px;
 }
 
-:host(.info-card:focus:focus-visible) {
-  z-index: 1;
-  box-shadow: var(--shadow-focus-primary);
-  outline: none;
-}
-
 .info-container {
   display: flex;
   overflow: hidden;
@@ -157,18 +144,16 @@
 
 .volumes-label {
   display: flex;
-  height: auto;
-  flex-direction: column;
-  margin-top: auto;
+  flex-grow: 1;
+  align-items: end;
   color: var(--color-default-text);
   font-size: var(--font-size-1);
 }
 
-/* variant info-card */
+/* info-card */
 :host(.info-card) {
   display: flex;
-  height: calc(4.75rem - var(--space-unit) * 2);
-  max-height: calc(4.75rem - var(--space-unit) * 2);
+  height: 3.75rem;
   gap: calc(var(--space-unit) * 1.5);
 }
 
@@ -177,11 +162,7 @@
 }
 
 .info-icon-container {
-  display: flex;
-  width: 34px;
-  height: 34px;
-  align-items: center;
-  justify-content: center;
+  padding: var(--space-unit);
   margin-bottom: calc(var(--space-unit) * 3);
   background-color: var(--gray50);
   border-radius: var(--border-size-large);
@@ -208,6 +189,13 @@
   width: 18px;
   height: 18px;
   color: var(--color-default-text);
+}
+
+/* Focus */
+:host(:focus:focus-visible) {
+  z-index: 1;
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
 }
 
 @media (max-width: 768px) {
