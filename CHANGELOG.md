@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.7.6](https://github.com/ZanichelliEditore/design-system/compare/v18.7.5...v18.7.6) (2025-11-06)
+
+
+### Features
+
+* styles disabled state on z-list-element ([1c9b18f](https://github.com/ZanichelliEditore/design-system/commit/1c9b18f1ca0cb5da900ec83c021e4a6d2744bbcb))
+
+
+### Bug Fixes
+
+* add `enable corepack` to `rc` job ([56db95d](https://github.com/ZanichelliEditore/design-system/commit/56db95dc89de1167228d33b65f96eb5d50a503d0))
+* add `fetch-depth` ([cad34fc](https://github.com/ZanichelliEditore/design-system/commit/cad34fc1ed87cb87a6bf269a1e06c7a69198c8d1))
+* add `yarn version prerelease` ([eb135d8](https://github.com/ZanichelliEditore/design-system/commit/eb135d8a91dd0d1b38931b9af07555bbe4c81684))
+* add OIDC permissions ([56532ed](https://github.com/ZanichelliEditore/design-system/commit/56532ed58f0616d08e56bbdec36da3a85c2c28bb))
+* enable `corepack` for yarn v4 ([fe08fd4](https://github.com/ZanichelliEditore/design-system/commit/fe08fd43478438559446daacecd4fedba0b3eb0a))
+* exit earlier when version tag is missing ([212be30](https://github.com/ZanichelliEditore/design-system/commit/212be3017a6fe80fb849749a31069681b5ff1863))
+* fail on missing version tag ([f4b3734](https://github.com/ZanichelliEditore/design-system/commit/f4b37346730517e78dae5856e754734d630166f7))
+* find package version ([984b1ff](https://github.com/ZanichelliEditore/design-system/commit/984b1ff9b348d4636d9917df1f8886af39bf5997))
+* fix from PR ([d4d4f51](https://github.com/ZanichelliEditore/design-system/commit/d4d4f512558a73f5765cee43c4d1f0755ccefee0))
+* fix tests ([fa7f60d](https://github.com/ZanichelliEditore/design-system/commit/fa7f60dce7cd24647796a415bc4e5a97643c5920))
+* handle empty rc version number ([0aa0943](https://github.com/ZanichelliEditore/design-system/commit/0aa09434ebfedf9e1c8c0fc3113baa657b699de7))
+* height and max-height, fix info card variant in styles, and background ([4b2cf91](https://github.com/ZanichelliEditore/design-system/commit/4b2cf91ada8926d5e45c8d4126bbf7a78899c304))
+* install latest npm version ([22eb2ac](https://github.com/ZanichelliEditore/design-system/commit/22eb2acd0918f2e091c0cbac06d859a5d5c25fb3))
+* install latest version of npm for OIDC compatibility ([30d34b6](https://github.com/ZanichelliEditore/design-system/commit/30d34b679e36ed3c8e0516fb3d01237d0aa8278d))
+* migrate yarn to version 4 ([632e4f1](https://github.com/ZanichelliEditore/design-system/commit/632e4f1ad5bfe3d52254b0b4a86dbf752d3d4163))
+* remove `git pull` ([a7c6fa5](https://github.com/ZanichelliEditore/design-system/commit/a7c6fa53a408957fa24b79ef80483908d8e4e197))
+* remove `if` ([7ffd407](https://github.com/ZanichelliEditore/design-system/commit/7ffd407addded0de18531a72b12f8d280c990d76))
+* remove npm token ([b03ffb9](https://github.com/ZanichelliEditore/design-system/commit/b03ffb9088a9166b0f3f89d78c26738bd7272e5d))
+* remove option `--ignore-scripts` ([967545e](https://github.com/ZanichelliEditore/design-system/commit/967545e689d48d0bd11bb243c8d5d933304b2191))
+* remove tests for faster debug ([0b5439f](https://github.com/ZanichelliEditore/design-system/commit/0b5439f266bba73954c1d7c01debc122c5310617))
+* removed unnecessary rules ([66e3a58](https://github.com/ZanichelliEditore/design-system/commit/66e3a586ae12300b19fe1c115cea37ee413d2e88))
+* restore package version ([7d3dae7](https://github.com/ZanichelliEditore/design-system/commit/7d3dae7a87b2398bb27fd15f6c3f55288fd91956))
+* set access public ([d739bf3](https://github.com/ZanichelliEditore/design-system/commit/d739bf389fff17a86fe41e286f0f26f159016200))
+* test handwritten rc ([55c2a8d](https://github.com/ZanichelliEditore/design-system/commit/55c2a8d182718319b76ebcd41e736a94ca2fb0a4))
+* update  info card variant to support custom HTML tags ([aa13fb4](https://github.com/ZanichelliEditore/design-system/commit/aa13fb48e70545119ad5968b1b04adc8c097f696))
+* update `latest` job ([0ee5221](https://github.com/ZanichelliEditore/design-system/commit/0ee52212b7bf805147c8a3bffd1d3fea533282e6))
+* update `yarn publish` command ([5373432](https://github.com/ZanichelliEditore/design-system/commit/5373432df120a2f4425158371718a38b80f693b6))
+* use yarn command to specify rc versions ([006113c](https://github.com/ZanichelliEditore/design-system/commit/006113c1495418369c2de0e43ee26395fb8ffc4e))
+* uses Lit syntax on z-list-element storybook ([253bfc4](https://github.com/ZanichelliEditore/design-system/commit/253bfc4143af3d2ae6387abadc9200d43d38a0a4))
+
 ## 18.7.5 (2025-10-31)
 
 ## 18.7.4 (2025-10-30)
