@@ -21,7 +21,7 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: yarn install --frozen-lockfile
       - name: Build Storybook
         run: yarn build-storybook
       - name: Deploy
