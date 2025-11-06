@@ -1,6 +1,10 @@
 import {Component, Element, Host, Prop, h} from "@stencil/core";
 import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 
+/**
+ * @slot tags - slot containing the descriptors for the opera variant
+ * @slot volumes - slot containing the volume count to be displayed in the opera variant
+ */
 @Component({
   tag: "z-result-card",
   styleUrls: ["styles.css"],
@@ -114,9 +118,30 @@ export class ZResultCard {
     window.removeEventListener("resize", this.resizeHandler);
   }
 
-  private renderOperaCard = (): HTMLZResultCardElement => {
+  private renderTitle = (): HTMLDivElement => {
     const title = this.titleHtmlTag ? `<${this.titleHtmlTag}>${this.cardTitle}</${this.titleHtmlTag}>` : this.cardTitle;
 
+    return (
+      <div
+        class={{"card-title": true, "info-card-title": this.isInfoCard}}
+        ref={(el) => (this.titleRef = el as HTMLElement)}
+        innerHTML={title}
+      />
+    );
+  };
+
+  private renderSubtitle = (): HTMLSpanElement => {
+    return (
+      <span
+        class={{"card-subtitle": true, "info-card-subtitle": this.isInfoCard}}
+        ref={(el) => (this.subtitleRef = el as HTMLElement)}
+      >
+        {this.cardSubtitle}
+      </span>
+    );
+  };
+
+  private renderOperaCard = (): HTMLZResultCardElement => {
     return (
       <Host tabIndex={0}>
         <div class={`z-cover-container ${this.hasMultipleCovers ? "has-multiple" : ""}`}>
@@ -151,17 +176,8 @@ export class ZResultCard {
               {this.authors}
             </span>
           )}
-          <div
-            class="card-title"
-            ref={(el) => (this.titleRef = el as HTMLElement)}
-            innerHTML={title}
-          ></div>
-          <span
-            class="card-subtitle"
-            ref={(el) => (this.subtitleRef = el as HTMLElement)}
-          >
-            {this.cardSubtitle}
-          </span>
+          {this.renderTitle()}
+          {this.renderSubtitle()}
           <div class="tags-container">
             <slot name="tags"></slot>
           </div>
@@ -190,18 +206,8 @@ export class ZResultCard {
           </div>
         </div>
         <div class="info-container">
-          <span
-            class="card-title info-title"
-            ref={(el) => (this.titleRef = el as HTMLElement)}
-          >
-            {this.cardTitle}
-          </span>
-          <span
-            class="card-subtitle info-subtitle"
-            ref={(el) => (this.subtitleRef = el as HTMLElement)}
-          >
-            {this.cardSubtitle}
-          </span>
+          {this.renderTitle()}
+          {this.renderSubtitle()}
         </div>
       </Host>
     );
