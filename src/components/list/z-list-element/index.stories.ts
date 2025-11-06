@@ -90,48 +90,48 @@ export const Default = {
     html`<z-list>
       <z-list-element
         align-button=${args.alignButton}
-        clickable=${args.clickable}
+        .clickable=${args.clickable}
         divider-color=${args.dividerColor}
         divider-type=${args.dividerType}
         divider-size=${args.dividerSize}
-        expandable=${args.expandable}
+        .expandable=${args.expandable}
         expandable-style=${args.expandableStyle}
         list-element-id=${args.listElementId}
         size=${args.size}
         color=${args.color}
-        disabled=${args.disabled}
+        .disabled=${args.disabled}
         list-element-position=${args.listElementPosition}
         list-type=${args.listType}
         ><span>Elemento 1</span><span slot="inner-content">Inner content</span></z-list-element
       >
       <z-list-element
         align-button=${args.alignButton}
-        clickable=${args.clickable}
+        .clickable=${args.clickable}
         divider-color=${args.dividerColor}
         divider-type=${args.dividerType}
         divider-size=${args.dividerSize}
-        expandable=${args.expandable}
+        .expandable=${args.expandable}
         expandable-style=${args.expandableStyle}
         list-element-id=${args.listElementId}
         size=${args.size}
         color=${args.color}
-        disabled=${args.disabled}
+        .disabled=${args.disabled}
         list-element-position=${args.listElementPosition}
         list-type=${args.listType}
         >Elemento 2</z-list-element
       >
       <z-list-element
         align-button=${args.alignButton}
-        clickable=${args.clickable}
+        .clickable=${args.clickable}
         divider-color=${args.dividerColor}
         divider-type=${args.dividerType}
         divider-size=${args.dividerSize}
-        expandable=${args.expandable}
+        .expandable=${args.expandable}
         expandable-style=${args.expandableStyle}
         list-element-id=${args.listElementId}
         size=${args.size}
         color=${args.color}
-        disabled=${args.disabled}
+        .disabled=${args.disabled}
         list-element-position=${args.listElementPosition}
         list-type=${args.listType}
         >Elemento 3</z-list-element
