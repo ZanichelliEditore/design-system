@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn cache clean
-          yarn install --frozen-lockfile
+          yarn install --immutable
       - name: Build Storybook
         run: yarn build-storybook
       - name: Deploy

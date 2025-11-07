@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run prettier
         run: |
           ls -al .prettierignore .prettierrc.json
@@ -50,7 +50,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run eslint
         run: yarn eslint src/
   stylelint:
@@ -72,6 +72,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run stylelint
         run: yarn stylelint 'src/**/*.css'
