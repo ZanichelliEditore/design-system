@@ -18,8 +18,12 @@ jobs:
         with:
           node-version: 20
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: |
+          yarn cache clean
+          yarn install --immutable
       - name: Build Storybook
         run: yarn build-storybook
       - name: Deploy
