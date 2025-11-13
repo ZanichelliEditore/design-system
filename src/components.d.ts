@@ -280,13 +280,17 @@ export namespace Components {
          */
         "cover": string;
         /**
-          * [optional] Show link to the ebook resource. Set title and cover as clickable, opening a new tab to the ebook resource
+          * [optional] Link to the ebook resource. Creates a link also around the cover and title.
          */
         "ebookUrl"?: string;
         /**
-          * [optional] Fallback cover URL
+          * [optional] Fallback cover URL.
          */
         "fallbackCover"?: string;
+        /**
+          * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
+         */
+        "hasMultipleCovers": boolean;
         /**
           * [optional] Main ISBN
          */
@@ -296,11 +300,15 @@ export namespace Components {
          */
         "isbnLabel": string;
         /**
+          * [optional] Value for the `target` attribute of the links created by `ebookUrl` prop.
+         */
+        "linkTarget": string;
+        /**
           * Opera title (card title)
          */
         "operaTitle": string;
         /**
-          * [optional] Set a specific h level as html tag for opera title
+          * [optional] Set a specific heading level as html tag for the title.
          */
         "titleHtmlTag"?: string;
         /**
@@ -402,6 +410,37 @@ export namespace Components {
           * [optional] Card subtitle
          */
         "volumeTitle"?: string;
+    }
+    /**
+     * This component displays a book cover image,
+     * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
+     * The aspect ratio of the cover image is preserved.
+     * Alignment of the image inside the container can be customized via CSS properties.
+     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
+     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
+     * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
+     * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
+     */
+    interface ZBookCover {
+        /**
+          * Whether to apply a border around the cover image (always applied when `multiple` is enabled).
+         */
+        "bordered": boolean;
+        /**
+          * URL of the cover image.
+         */
+        "cover": string;
+        /**
+          * URL of the fallback cover image.
+         */
+        "fallbackCover": string;
+        /**
+          * Whether to show a stack of covers to represent multiple books.
+         */
+        "multiple": boolean;
     }
     interface ZBreadcrumb {
         /**
@@ -1770,23 +1809,23 @@ export namespace Components {
          */
         "cardTitle": string;
         /**
-          * The URL of the cover image. This is used to display the cover image of the opera.
+          * The URL of the cover image of the opera.
          */
         "cover"?: string;
         /**
-          * [optional] Fallback cover URL
+          * [optional] Fallback cover URL.
          */
         "fallbackCover"?: string;
         /**
-          * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
+          * Whether to show a stack of covers to represent multiple books.
          */
         "hasMultipleCovers": boolean;
         /**
-          * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
+          * Enables the "info" variant of the card.
          */
         "isInfoCard": boolean;
         /**
-          * [optional] Use for insert heading when needed.
+          * [optional] Set a specific heading level as html tag for the title.
          */
         "titleHtmlTag"?: string;
     }
@@ -2656,6 +2695,25 @@ declare global {
     var HTMLZBookCardDeprecatedElement: {
         prototype: HTMLZBookCardDeprecatedElement;
         new (): HTMLZBookCardDeprecatedElement;
+    };
+    /**
+     * This component displays a book cover image,
+     * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
+     * The aspect ratio of the cover image is preserved.
+     * Alignment of the image inside the container can be customized via CSS properties.
+     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
+     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
+     * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
+     * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
+     */
+    interface HTMLZBookCoverElement extends Components.ZBookCover, HTMLStencilElement {
+    }
+    var HTMLZBookCoverElement: {
+        prototype: HTMLZBookCoverElement;
+        new (): HTMLZBookCoverElement;
     };
     interface HTMLZBreadcrumbElementEventMap {
         "clickOnNode": BreadcrumbPath["path"];
@@ -3652,6 +3710,7 @@ declare global {
         "z-book-card": HTMLZBookCardElement;
         "z-book-card-app": HTMLZBookCardAppElement;
         "z-book-card-deprecated": HTMLZBookCardDeprecatedElement;
+        "z-book-cover": HTMLZBookCoverElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
         "z-button-sort": HTMLZButtonSortElement;
@@ -4005,13 +4064,17 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
-          * [optional] Show link to the ebook resource. Set title and cover as clickable, opening a new tab to the ebook resource
+          * [optional] Link to the ebook resource. Creates a link also around the cover and title.
          */
         "ebookUrl"?: string;
         /**
-          * [optional] Fallback cover URL
+          * [optional] Fallback cover URL.
          */
         "fallbackCover"?: string;
+        /**
+          * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
+         */
+        "hasMultipleCovers"?: boolean;
         /**
           * [optional] Main ISBN
          */
@@ -4020,6 +4083,10 @@ declare namespace LocalJSX {
           * [optional] ISBN label
          */
         "isbnLabel"?: string;
+        /**
+          * [optional] Value for the `target` attribute of the links created by `ebookUrl` prop.
+         */
+        "linkTarget"?: string;
         /**
           * click on cover link
          */
@@ -4037,7 +4104,7 @@ declare namespace LocalJSX {
          */
         "operaTitle"?: string;
         /**
-          * [optional] Set a specific h level as html tag for opera title
+          * [optional] Set a specific heading level as html tag for the title.
          */
         "titleHtmlTag"?: string;
         /**
@@ -4147,6 +4214,37 @@ declare namespace LocalJSX {
           * [optional] Card subtitle
          */
         "volumeTitle"?: string;
+    }
+    /**
+     * This component displays a book cover image,
+     * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
+     * The aspect ratio of the cover image is preserved.
+     * Alignment of the image inside the container can be customized via CSS properties.
+     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
+     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
+     * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
+     * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
+     */
+    interface ZBookCover {
+        /**
+          * Whether to apply a border around the cover image (always applied when `multiple` is enabled).
+         */
+        "bordered"?: boolean;
+        /**
+          * URL of the cover image.
+         */
+        "cover"?: string;
+        /**
+          * URL of the fallback cover image.
+         */
+        "fallbackCover"?: string;
+        /**
+          * Whether to show a stack of covers to represent multiple books.
+         */
+        "multiple"?: boolean;
     }
     interface ZBreadcrumb {
         /**
@@ -5659,23 +5757,23 @@ declare namespace LocalJSX {
          */
         "cardTitle"?: string;
         /**
-          * The URL of the cover image. This is used to display the cover image of the opera.
+          * The URL of the cover image of the opera.
          */
         "cover"?: string;
         /**
-          * [optional] Fallback cover URL
+          * [optional] Fallback cover URL.
          */
         "fallbackCover"?: string;
         /**
-          * Indicates whether the card has multiple covers. This is used to apply specific styles when there are multiple covers.
+          * Whether to show a stack of covers to represent multiple books.
          */
         "hasMultipleCovers"?: boolean;
         /**
-          * Indicates whether the card is an info page. This can be used to apply specific styles or behaviors for info pages.
+          * Enables the "info" variant of the card.
          */
         "isInfoCard"?: boolean;
         /**
-          * [optional] Use for insert heading when needed.
+          * [optional] Set a specific heading level as html tag for the title.
          */
         "titleHtmlTag"?: string;
     }
@@ -6182,6 +6280,7 @@ declare namespace LocalJSX {
         "z-book-card": ZBookCard;
         "z-book-card-app": ZBookCardApp;
         "z-book-card-deprecated": ZBookCardDeprecated;
+        "z-book-cover": ZBookCover;
         "z-breadcrumb": ZBreadcrumb;
         "z-button": ZButton;
         "z-button-sort": ZButtonSort;
@@ -6379,6 +6478,20 @@ declare module "@stencil/core" {
              * @cssprop --z-book-card-compact-height - compact card custom height
              */
             "z-book-card-deprecated": LocalJSX.ZBookCardDeprecated & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
+            /**
+             * This component displays a book cover image,
+             * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
+             * The aspect ratio of the cover image is preserved.
+             * Alignment of the image inside the container can be customized via CSS properties.
+             * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+             * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
+             * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
+             * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
+             * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
+             * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+             * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
+             */
+            "z-book-cover": LocalJSX.ZBookCover & JSXBase.HTMLAttributes<HTMLZBookCoverElement>;
             "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
