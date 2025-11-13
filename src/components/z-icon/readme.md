@@ -63,7 +63,7 @@
  - [z-notification](../z-notification)
  - [z-pagination](../z-pagination)
  - [z-panel-elem](../z-panel-elem)
- - [z-result-card](../result-card/z-result-card)
+ - [z-result-card](../z-result-card)
  - [z-searchbar](../z-searchbar)
  - [z-select](../z-select)
  - [z-slideshow](../../snowflakes/myz/z-slideshow)

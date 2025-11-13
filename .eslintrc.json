@@ -62,10 +62,6 @@
     "@typescript-eslint/naming-convention": [
       "error",
       {
-        "selector": "default",
-        "format": ["camelCase"]
-      },
-      {
         "selector": "parameter",
         "modifiers": ["unused"],
         "format": ["camelCase"],
@@ -87,6 +83,16 @@
         "leadingUnderscore": "allow"
       },
       {
+        "selector": "classMethod",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "classMethod",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
         "selector": "typeLike",
         "format": ["PascalCase"]
       },
@@ -97,6 +103,10 @@
       {
         "selector": "import",
         "format": null
+      },
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase"]
       }
     ],
     "react/jsx-no-bind": "off",

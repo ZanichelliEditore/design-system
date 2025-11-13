@@ -29,6 +29,7 @@ const getFilteredArgTypes = () => {
         argType.table.category = "Story controls";
       }
 
+      // @ts-ignore-next-line - the type for Controls is not well defined
       if (argType.table?.category === "css custom properties" && argType.control?.["type"] === "object") {
         // fix control type for css custom properties. set text instead of the `object` automatically inferred by storybook
         argType.control = Object.assign(argType.control ?? {}, {type: "text"});
