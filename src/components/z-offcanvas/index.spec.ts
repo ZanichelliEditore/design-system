@@ -36,7 +36,7 @@ describe("Suite test ZOffcanvas", () => {
 						<div slot="canvasContent"></div>
 					</div>
         </div>
-        <div class="canvas-background"></div>
+        <div class="backdrop"></div>
       </z-offcanvas>
     `);
   });
@@ -56,7 +56,7 @@ describe("Suite test ZOffcanvas", () => {
 						<div slot="canvasContent"></div>
 					</div>
         </div>
-        <div class="canvas-background"></div>
+        <div class="backdrop"></div>
       </z-offcanvas>
     `);
   });

@@ -9,7 +9,7 @@ describe("ZOffcanvas", () => {
     });
 
     const offcanvas = await page.find("z-offcanvas");
-    const overlay = await offcanvas.find(".canvas-background");
+    const overlay = await offcanvas.find(".backdrop");
     await overlay.click();
     await page.waitForChanges();
     expect(offcanvas).not.toHaveAttribute("open");
