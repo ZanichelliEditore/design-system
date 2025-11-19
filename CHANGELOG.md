@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.7.7](https://github.com/ZanichelliEditore/design-system/compare/v18.7.6...v18.7.7) (2025-11-19)
+
+
+### Features
+
+* add backdrop offcanvas and menu button slot to app header ([7a24dc4](https://github.com/ZanichelliEditore/design-system/commit/7a24dc4f343f746d9144fed01d3fcd2253c85a72))
+
+
+### Bug Fixes
+
+* add `yarn cache clean` ([f50aa4f](https://github.com/ZanichelliEditore/design-system/commit/f50aa4fbe689cf0161ba7d6a547142b68482bb26))
+* enable `corepack` to use latest yarn version ([f51ca9d](https://github.com/ZanichelliEditore/design-system/commit/f51ca9d319c1e607583d06c32c6f112a3041f0b5))
+* remove `--ignore-scripts` option from `yarn install` ([46954f1](https://github.com/ZanichelliEditore/design-system/commit/46954f1ba04c584ac91d7d489e3e0c6d1fd6570e))
+* replace deprecated `--frozen-lockfile` ([f61e0ea](https://github.com/ZanichelliEditore/design-system/commit/f61e0ea38908025850acf5fe682944265671001e))
+* test adding menu-button slot to app header ([48a7d67](https://github.com/ZanichelliEditore/design-system/commit/48a7d67ffcaa3ad7e2af57d975dac5dc87d478ba))
+* update Storybook to align version with that required by `addon-themes` ([f288bde](https://github.com/ZanichelliEditore/design-system/commit/f288bdeeff9aa8dc43fdee83192e1639c71d95fc))
+
 ## [18.7.6](https://github.com/ZanichelliEditore/design-system/compare/v18.7.5...v18.7.6) (2025-11-06)
 
 
