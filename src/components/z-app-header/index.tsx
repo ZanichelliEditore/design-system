@@ -494,8 +494,7 @@ export class ZAppHeader {
               </div>
             )}
             <div class="heading-title">
-              <slot name="menu-button" />
-              {this.renderMenuButton()}
+              <slot name="menu-button">{this.renderMenuButton()}</slot>
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
