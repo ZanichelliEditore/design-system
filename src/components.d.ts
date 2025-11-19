@@ -1569,6 +1569,10 @@ export namespace Components {
          */
         "open": boolean;
         /**
+          * Whether to show the backdrop when the offcanvas is open. Default: true
+         */
+        "showBackdrop": boolean;
+        /**
           * Skip the opening transition when the offcanvas is already open at the first render.
           * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
          */
@@ -5437,6 +5441,10 @@ declare namespace LocalJSX {
           * Whether the offcanvas is open. Default: false
          */
         "open"?: boolean;
+        /**
+          * Whether to show the backdrop when the offcanvas is open. Default: true
+         */
+        "showBackdrop"?: boolean;
         /**
           * Skip the opening transition when the offcanvas is already open at the first render.
           * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.

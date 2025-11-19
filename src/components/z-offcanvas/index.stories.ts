@@ -34,9 +34,18 @@ const StoryMeta = {
       },
       options: Object.values(TransitionDirection),
     },
+    showBackdrop: {
+      control: {
+        if: {
+          arg: "variant",
+          eq: OffCanvasVariant.OVERLAY,
+        },
+      },
+    },
   },
   args: {
     "open": true,
+    "showBackdrop": true,
     "--z-offcanvas--top-space": "0px",
     "--z-offcanvas--container-width": "375px",
   },
@@ -55,6 +64,7 @@ export const OverlayTransitionDirectionRight = {
         .variant=${OffCanvasVariant.OVERLAY}
         .open=${args.open}
         .transitiondirection=${TransitionDirection.RIGHT}
+        .showBackdrop=${args.showBackdrop}
         style="--z-offcanvas--top-space: ${args["--z-offcanvas--top-space"]}; --z-offcanvas--container-width: ${args[
           "--z-offcanvas--container-width"
         ]}"
@@ -81,6 +91,7 @@ export const OverlayTransitionDirectionLeft = {
         .variant=${OffCanvasVariant.OVERLAY}
         .open=${args.open}
         .transitiondirection=${TransitionDirection.LEFT}
+        .showBackdrop=${args.showBackdrop}
         style="--z-offcanvas--top-space: ${args["--z-offcanvas--top-space"]}; --z-offcanvas--container-width: ${args[
           "--z-offcanvas--container-width"
         ]}"
@@ -112,6 +123,7 @@ export const TransitionDirectionUp = {
         .open=${args.open}
         .variant=${OffCanvasVariant.OVERLAY}
         .transitiondirection=${TransitionDirection.UP}
+        .showBackdrop=${args.showBackdrop}
         style="--z-offcanvas--container-height: ${args["--z-offcanvas--container-height"]}"
       >
         <div slot="canvasContent">
