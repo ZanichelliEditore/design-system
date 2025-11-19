@@ -416,12 +416,12 @@ export namespace Components {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-width - width of the book cover (default: `288px`)
      * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
      * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
      * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
      * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
-     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `end`)
      * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
      */
     interface ZBookCover {
@@ -2701,12 +2701,12 @@ declare global {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-width - width of the book cover (default: `288px`)
      * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
      * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
      * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
      * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
-     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `end`)
      * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
      */
     interface HTMLZBookCoverElement extends Components.ZBookCover, HTMLStencilElement {
@@ -4220,12 +4220,12 @@ declare namespace LocalJSX {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+     * @cssprop --z-book-cover-width - width of the book cover (default: `288px`)
      * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
      * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
      * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
      * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
-     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+     * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `end`)
      * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
      */
     interface ZBookCover {
@@ -6483,12 +6483,12 @@ declare module "@stencil/core" {
              * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
              * The aspect ratio of the cover image is preserved.
              * Alignment of the image inside the container can be customized via CSS properties.
-             * @cssprop --z-book-cover-width - width of the book cover (default: `100%`)
+             * @cssprop --z-book-cover-width - width of the book cover (default: `288px`)
              * @cssprop --z-book-cover-height - height of the book cover (default: `378px`)
              * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
              * @cssprop --z-book-cover-stack-offset-x - horizontal offset for stacked covers when `multiple` is `true` (default: `8px`)
              * @cssprop --z-book-cover-stack-offset-y - vertical offset for stacked covers when `multiple` is `true` (default: `12px`)
-             * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `start`)
+             * @cssprop --z-book-cover-vertical-alignment - vertical alignment of the cover image within the container. Provide any valid value for `align-items` CSS property (default: `end`)
              * @cssprop --z-book-cover-horizontal-alignment - horizontal alignment of the cover image within the container. Provide any valid value for `justify-content` CSS property (default: `start`)
              */
             "z-book-cover": LocalJSX.ZBookCover & JSXBase.HTMLAttributes<HTMLZBookCoverElement>;

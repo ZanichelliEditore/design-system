@@ -4,12 +4,12 @@
 }
 
 :host {
-  --z-book-cover-width: 100%;
+  --z-book-cover-width: 288px;
   --z-book-cover-height: 378px;
   --z-book-cover-border-radius: var(--border-radius);
   --z-book-cover-stack-offset-x: 8px;
   --z-book-cover-stack-offset-y: 12px;
-  --z-book-cover-vertical-alignment: start;
+  --z-book-cover-vertical-alignment: end;
   --z-book-cover-horizontal-alignment: start;
 
   position: relative;
