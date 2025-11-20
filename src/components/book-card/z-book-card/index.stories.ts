@@ -25,19 +25,12 @@ const StoryMeta = {
   title: "ZBookCard/ZBookCard",
   component: "z-book-card",
   argTypes: {
-    "variant": {
+    variant: {
       control: {
         type: "inline-radio",
       },
       options: Object.values(BookCardVariant),
     },
-    "--z-book-card-portrait-cover-height": {control: {type: "text"}},
-    "--z-book-card-title-lines": {control: {type: "text"}},
-    "--z-book-card-title-word-break": {control: {type: "text"}},
-    "--z-book-card-subtitle-lines": {control: {type: "text"}},
-    "--z-book-card-subtitle-word-break": {control: {type: "text"}},
-    "--z-book-card-authors-lines": {control: {type: "text"}},
-    "--z-book-card-authors-word-break": {control: {type: "text"}},
   },
   args: {
     "variant": BookCardVariant.LANDSCAPE,
@@ -50,7 +43,9 @@ const StoryMeta = {
     "year": "2025",
     "ebookUrl": "https://www.zanichelli.it/ricerca",
     "fallbackCover": "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
-    "titleHtmlTag": null,
+    "titleHtmlTag": undefined,
+    "hasMultipleCovers": false,
+    "linkTarget": "_blank",
     "--z-book-card-portrait-cover-height": "378px",
     "--z-book-card-title-lines": "2",
     "--z-book-card-title-word-break": "initial",
@@ -68,7 +63,7 @@ type Story = StoryObj<ZBookCardStoriesArgs>;
 export const Card = {
   render: (args) =>
     html`<z-book-card
-      variant=${args.variant}
+      .variant=${args.variant}
       cover=${args.cover}
       authors=${args.authors}
       opera-title=${args.operaTitle}
@@ -79,6 +74,8 @@ export const Card = {
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
       title-html-tag=${args.titleHtmlTag}
+      .hasMultipleCovers=${args.hasMultipleCovers}
+      link-target=${args.linkTarget}
       style=${styleMap({
         "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
         "--z-book-card-title-lines": args["--z-book-card-title-lines"],
@@ -95,7 +92,7 @@ export const WithSlottedContent = {
   render: (args) =>
     html`<z-book-card
       variant=${args.variant}
-      cover=${args.cover}
+      .cover=${args.cover}
       authors=${args.authors}
       opera-title=${args.operaTitle}
       volume-title=${args.volumeTitle}
@@ -105,6 +102,8 @@ export const WithSlottedContent = {
       ebook-url=${args.ebookUrl}
       fallback-cover=${args.fallbackCover}
       title-html-tag=${args.titleHtmlTag}
+      .hasMultipleCovers=${args.hasMultipleCovers}
+      link-target=${args.linkTarget}
       style=${styleMap({
         "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
         "--z-book-card-title-lines": args["--z-book-card-title-lines"],
