@@ -168,6 +168,14 @@
   color: var(--color-form-active-primary);
 }
 
+:host > div > div.open-combo-data {
+  display: none;
+}
+
+:host > div.open > div.open-combo-data {
+  display: block;
+}
+
 :host > div.open > div.open-combo-data > div > div.search {
   overflow: hidden;
   max-height: none;

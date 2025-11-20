@@ -288,10 +288,10 @@ export class ZCombobox {
   private getComboboxA11yAttributes(): Record<string, string> {
     return {
       "role": "combobox",
-      "aria-label": this.label,
-      "aria-expanded": this.isopen ? "true" : "false",
-      "aria-activedescendant": this.isopen ? this.focusedItemId : "",
-      "aria-controls": `${this.inputid}_list`,
+      // "aria-label": this.label,
+      "html-aria-expanded": this.isopen ? "true" : "false",
+      "html-aria-activedescendant": this.isopen ? this.focusedItemId : "",
+      "html-aria-controls": `${this.inputid}_list`,
     };
   }
 
@@ -306,6 +306,7 @@ export class ZCombobox {
         onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
         tabindex={0}
+        aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
       >
         <p class="body-3">
@@ -321,12 +322,11 @@ export class ZCombobox {
   }
 
   private renderContent(): HTMLDivElement {
-    if (!this.isopen) {
-      return;
-    }
-
     return (
-      <div class="open-combo-data">
+      <div
+        id="open-combo-data"
+        class="open-combo-data"
+      >
         {this.hassearch && this.renderSearchInput()}
         {!this.hassearch ? <span {...this.getComboboxA11yAttributes()} /> : null}
         <div
@@ -334,7 +334,10 @@ export class ZCombobox {
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={`${this.checkboxes.map((item) => item.id).join(" ")}`}
+          // aria-owns={`${this.checkboxes.map((item) => item.id).join(" ")}`}
+          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
+            .map((item) => item.id)
+            .join(" ")}
         >
           {this.hascheckall && this.renderCheckAll()}
           {this.renderItems()}
@@ -357,13 +360,15 @@ export class ZCombobox {
   }
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
+    const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
     return (
       <z-list-element
-        id={item.id}
+        id={`option-${item.id}`}
         htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
-        role="presentation"
+        role={isDisabled ? "presentation" : "option"}
+        aria-selected={item.checked ? "true" : "false"}
       >
         <z-input
           type={InputType.CHECKBOX}
@@ -371,9 +376,8 @@ export class ZCombobox {
           htmlid={this.getItemId(item)}
           label={item.name}
           class={this.getCheckboxClass()}
-          disabled={!item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems}
+          disabled={isDisabled}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          role="option"
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, this.getItemId(item))}
           onInputCheck={(e: CustomEvent) => {
             this.itemsList = this.itemsList.map((i: ComboItem) => {
@@ -475,7 +479,7 @@ export class ZCombobox {
         value={this.searchValue}
         message={false}
         size={this.size}
-        aria-autocomplete="list"
+        html-aria-autocomplete="list"
         {...this.getComboboxA11yAttributes()}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.key === KeyboardCode.ESC) {
@@ -501,7 +505,8 @@ export class ZCombobox {
     return (
       <div
         class="check-all-wrapper"
-        role="presentation"
+        id="option-check-all"
+        role="option"
       >
         <z-input
           type={InputType.CHECKBOX}
@@ -511,7 +516,6 @@ export class ZCombobox {
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          role="option"
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
           onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
           onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}

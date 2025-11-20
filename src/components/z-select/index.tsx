@@ -495,11 +495,11 @@ export class ZSelect {
         value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
         label={this.label}
         autocomplete="off"
-        aria-expanded={this.isOpen ? "true" : "false"}
         aria-label={this.ariaLabel}
-        aria-controls={`${this.htmlid}_list`}
-        aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
-        aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
+        html-aria-expanded={this.isOpen ? "true" : "false"}
+        html-aria-controls={`${this.htmlid}_list`}
+        html-aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
+        html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={false}
         message={false}
