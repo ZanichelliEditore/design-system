@@ -18,12 +18,10 @@
 }
 
 z-book-cover {
-  --z-book-cover-stack-offset-x: 6px;
-  --z-book-cover-stack-offset-y: 8px;
-  --z-book-cover-width: 119px;
+  --z-book-cover-stack-shift-x: 6px;
+  --z-book-cover-stack-shift-y: 8px;
   --z-book-cover-height: 158px;
   --z-book-cover-border-radius: 0;
-  --z-book-cover-horizontal-alignment: center;
 }
 
 .info-container {

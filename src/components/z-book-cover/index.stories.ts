@@ -7,13 +7,10 @@ import "./index";
 
 type ZBookCoverStoriesArgs = ZBookCover &
   CSSVarsArguments<
-    | "--z-book-cover-width"
     | "--z-book-cover-height"
     | "--z-book-cover-border-radius"
-    | "--z-book-cover-stack-offset-x"
-    | "--z-book-cover-stack-offset-y"
-    | "--z-book-cover-vertical-alignment"
-    | "--z-book-cover-horizontal-alignment"
+    | "--z-book-cover-stack-shift-x"
+    | "--z-book-cover-stack-shift-y"
   >;
 
 const StoryMeta = {
@@ -23,13 +20,10 @@ const StoryMeta = {
     "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
     "bordered": false,
     "multiple": false,
-    "--z-book-cover-width": "288px",
     "--z-book-cover-height": "378px",
     "--z-book-cover-border-radius": "var(--border-radius)",
-    "--z-book-cover-stack-offset-x": "8px",
-    "--z-book-cover-stack-offset-y": "12px",
-    "--z-book-cover-vertical-alignment": "start",
-    "--z-book-cover-horizontal-alignment": "start",
+    "--z-book-cover-stack-shift-x": "8px",
+    "--z-book-cover-stack-shift-y": "12px",
   },
 } satisfies Meta<ZBookCoverStoriesArgs>;
 
@@ -44,13 +38,10 @@ export const Default = {
       .bordered=${args.bordered}
       .multiple=${args.multiple}
       style=${styleMap({
-        "--z-book-cover-width": args["--z-book-cover-width"],
         "--z-book-cover-height": args["--z-book-cover-height"],
         "--z-book-cover-border-radius": args["--z-book-cover-border-radius"],
-        "--z-book-cover-stack-offset-x": args["--z-book-cover-stack-offset-x"],
-        "--z-book-cover-stack-offset-y": args["--z-book-cover-stack-offset-y"],
-        "--z-book-cover-vertical-alignment": args["--z-book-cover-vertical-alignment"],
-        "--z-book-cover-horizontal-alignment": args["--z-book-cover-horizontal-alignment"],
+        "--z-book-cover-stack-shift-x": args["--z-book-cover-stack-shift-x"],
+        "--z-book-cover-stack-shift-y": args["--z-book-cover-stack-shift-y"],
       })}
     ></z-book-cover>`,
 } satisfies Story;

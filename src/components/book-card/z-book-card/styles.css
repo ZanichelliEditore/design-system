@@ -182,7 +182,6 @@
 }
 
 :host([variant="landscape"]) .main-content .cover z-book-cover {
-  --z-book-cover-width: 222px;
   --z-book-cover-height: 300px;
 }
 
