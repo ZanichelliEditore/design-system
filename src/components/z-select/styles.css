@@ -63,6 +63,7 @@
   max-height: 240px;
   padding: var(--space-unit) calc(var(--space-unit) * 1.5);
   margin: calc(var(--space-unit) * -1) 0;
+  margin: 0;
   outline: none;
 }
 
