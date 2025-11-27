@@ -17,7 +17,7 @@ const StoryMeta = {
   title: "ZBookCover",
   component: "z-book-cover",
   args: {
-    "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
+    "cover": "https://staticmy.zanichelli.it/copertine/dashboard/m40002.9788808999825.jpg",
     "bordered": false,
     "multiple": false,
     "--z-book-cover-height": "378px",

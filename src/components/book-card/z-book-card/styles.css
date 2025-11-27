@@ -48,22 +48,6 @@
   outline: none;
 }
 
-::slotted([slot="coverOverlay"]) {
-  position: absolute;
-  bottom: 0;
-  overflow: hidden;
-  width: 100%;
-  box-sizing: border-box;
-  padding: var(--space-unit);
-  background-color: var(--avatar-C19);
-  color: var(--color-white);
-}
-
-.main-content .cover ::slotted([slot="coverOverlay"]) {
-  min-height: 80px;
-  max-height: 336px;
-}
-
 .main-content .card-info {
   display: flex;
   flex: 1;
@@ -183,11 +167,6 @@
 
 :host([variant="landscape"]) .main-content .cover z-book-cover {
   --z-book-cover-height: 300px;
-}
-
-:host([variant="landscape"]) .main-content .cover ::slotted([slot="coverOverlay"]) {
-  min-height: 80px;
-  max-height: 256px;
 }
 
 :host([variant="landscape"]) .main-content .card-info,

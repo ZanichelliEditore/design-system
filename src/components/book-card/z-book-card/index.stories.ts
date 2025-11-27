@@ -34,7 +34,7 @@ const StoryMeta = {
   },
   args: {
     "variant": BookCardVariant.LANDSCAPE,
-    "cover": "https://staticmy.zanichelli.it/catalogo/assets/m40001.9788808490056.jpg",
+    "cover": "https://staticmy.zanichelli.it/copertine/dashboard/m40002.9788808999825.jpg",
     "operaTitle": "Matematica.azzurro",
     "volumeTitle": "Volume 3 con Tutor",
     "authors": "Massimo Bergamini, Anna Trifone, Graziella Barozzi",
@@ -176,7 +176,6 @@ export const WithSlottedContent = {
       <div
         slot="coverOverlay"
         class="body-4-sb"
-        style="text-align: center; padding: 16px 0;"
       >
         ANTEPRIMA DEL LIBRO SENZA RISORSE MULTIMEDIALI
       </div>

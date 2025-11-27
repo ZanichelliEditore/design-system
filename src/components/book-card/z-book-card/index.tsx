@@ -2,19 +2,19 @@ import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/c
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
- * @slot cta - top right cta (e.g. bookmark icon)
- * @slot ebook - as default, it shows laZ ebook link
- * @slot tags - tags section, default empty
- * @slot data - external link and pill, default empty
- * @slot apps - list of card-related apps, default empty
- * @slot coverOverlay - purple layer on top of book cover
- * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
- * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
- * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
- * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
- * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
- * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
- * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+ * @slot cta - Top right cta (e.g. bookmark icon)
+ * @slot ebook - As default, it shows laZ ebook link
+ * @slot tags - Tags section, default empty
+ * @slot data - External link and pill, default empty
+ * @slot apps - List of card-related apps, default empty
+ * @slot coverOverlay - Content to be displayed in the `z-book-cover` component slot
+ * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
+ * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
+ * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
+ * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
+ * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
+ * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
+ * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
  */
 @Component({
   tag: "z-book-card",
@@ -101,14 +101,6 @@ export class ZBookCard {
   }
 
   private renderCover(): HTMLDivElement {
-    const coverTemplate = (
-      <z-book-cover
-        cover={this.cover}
-        fallbackCover={this.fallbackCover}
-        multiple={this.hasMultipleCovers && this.variant === BookCardVariant.PORTRAIT}
-      ></z-book-cover>
-    );
-
     const CoverTag = this.ebookUrl ? "a" : "div";
     const coverAttrs = this.ebookUrl
       ? {
@@ -123,8 +115,16 @@ export class ZBookCard {
         class="cover"
         {...coverAttrs}
       >
-        {coverTemplate}
-        <slot name="coverOverlay"></slot>
+        <z-book-cover
+          cover={this.cover}
+          fallbackCover={this.fallbackCover}
+          multiple={this.hasMultipleCovers && this.variant === BookCardVariant.PORTRAIT}
+        >
+          <slot
+            name="coverOverlay"
+            slot="coverOverlay"
+          ></slot>
+        </z-book-cover>
       </CoverTag>
     );
   }

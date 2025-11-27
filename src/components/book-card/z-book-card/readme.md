@@ -35,14 +35,14 @@
 
 ## Slots
 
-| Slot             | Description                              |
-| ---------------- | ---------------------------------------- |
-| `"apps"`         | list of card-related apps, default empty |
-| `"coverOverlay"` | purple layer on top of book cover        |
-| `"cta"`          | top right cta (e.g. bookmark icon)       |
-| `"data"`         | external link and pill, default empty    |
-| `"ebook"`        | as default, it shows laZ ebook link      |
-| `"tags"`         | tags section, default empty              |
+| Slot             | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| `"apps"`         | List of card-related apps, default empty                     |
+| `"coverOverlay"` | Content to be displayed in the `z-book-cover` component slot |
+| `"cta"`          | Top right cta (e.g. bookmark icon)                           |
+| `"data"`         | External link and pill, default empty                        |
+| `"ebook"`        | As default, it shows laZ ebook link                          |
+| `"tags"`         | Tags section, default empty                                  |
 
 
 ## Dependencies

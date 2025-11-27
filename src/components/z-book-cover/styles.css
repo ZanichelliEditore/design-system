@@ -1,5 +1,6 @@
 :host,
-* {
+*,
+::slotted(*) {
   box-sizing: border-box;
 }
 
@@ -31,6 +32,7 @@
 }
 
 .cover-container {
+  position: relative;
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -57,17 +59,37 @@ img {
   border: var(--border-size-small) solid var(--color-surface05);
 }
 
-.stack-shadow {
+.shifted-stack-cover {
   position: absolute;
-  top: calc(var(--z-book-cover-stack-shift-y) * 2);
-  left: calc(var(--z-book-cover-stack-shift-x) * -2);
   width: 100%;
   height: 100%;
   border: var(--border-size-small) solid var(--color-surface05);
   border-radius: var(--z-book-cover-border-radius);
 }
 
-.stack-shadow:nth-child(2) {
+.shifted-stack-cover.stack-cover-1 {
   top: var(--z-book-cover-stack-shift-y);
   left: calc(-1 * var(--z-book-cover-stack-shift-x));
+}
+
+.shifted-stack-cover.stack-cover-2 {
+  top: calc(var(--z-book-cover-stack-shift-y) * 2);
+  left: calc(var(--z-book-cover-stack-shift-x) * -2);
+}
+
+::slotted([slot="coverOverlay"]) {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  min-height: 80px;
+  max-height: 85%;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-unit);
+  background-color: var(--avatar-C19);
+  color: var(--color-white);
+  overflow-wrap: anywhere;
+  text-align: center;
 }
