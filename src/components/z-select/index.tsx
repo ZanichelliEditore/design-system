@@ -793,21 +793,21 @@ export class ZSelect {
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement[] {
-    const newData = this.itemsList.reduce(
-      (group, item, index, array) => {
-        const {category} = item;
-        const lastItem = array.length === index + 1;
-        const zListItem = this.renderItem(item, lastItem);
+    const newData = Object.entries(
+      this.itemsList.reduce(
+        (group, item) => {
+          const {category} = item;
+          group[category] = group[category] ?? [];
+          group[category].push(item);
 
-        group[category] = group[category] ?? [];
-        group[category].push(zListItem);
-
-        return group;
-      },
-      {} as Record<string, HTMLZListElementElement[]>
+          return group;
+        },
+        {} as Record<string, SelectItem[]>
+      )
     );
 
-    return Object.entries(newData).map(([key, value]) => {
+    return newData.map(([key, items], index) => {
+      const isLastGroup = newData.length === index + 1;
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
@@ -816,7 +816,10 @@ export class ZSelect {
           >
             {key}
           </span>
-          {value.map((item) => item)}
+          {items.map((item, subindex) => {
+            const isLastItem = items.length === subindex + 1;
+            return this.renderItem(item, isLastGroup && isLastItem);
+          })}
         </z-list-group>
       );
     });
