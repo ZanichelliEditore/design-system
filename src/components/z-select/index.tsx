@@ -102,6 +102,9 @@ export class ZSelect {
   @State()
   private flattenedList: {item: SelectItem; key: number}[] = [];
 
+  @State()
+  private orderedItems: any[] = [];
+
   private itemsList: SelectItem[] = [];
 
   private itemIdKeyMap: Record<string, number> = {};
@@ -225,7 +228,7 @@ export class ZSelect {
   }
 
   private updateFlattenedList(): void {
-    this.flattenedList = this.flattenTreeItems(this.itemsList);
+    this.flattenedList = this.flattenTreeItems(this.orderedItems);
     this.itemIdKeyMap = {};
     this.flattenedList.forEach(({item, key}) => {
       this.itemIdKeyMap[item.id] = key;
@@ -658,6 +661,8 @@ export class ZSelect {
       return this.renderSelectGroupItems();
     } else if (this.hasGroupItems && this.hasTreeItems) {
       return this.renderGroupedTree();
+    } else {
+      this.orderedItems = this.itemsList;
     }
 
     return this.itemsList.map((item: SelectItem, index, array) => {
@@ -746,18 +751,21 @@ export class ZSelect {
   }
 
   private renderGroupedTree(): HTMLZListGroupElement[] {
-    const grouped = this.itemsList.reduce(
-      (acc, item) => {
-        const category = item.category || "Altra categoria";
-        acc[category] = acc[category] || [];
-        acc[category].push(item);
+    const grouped = Object.entries(
+      this.itemsList.reduce(
+        (acc, item) => {
+          const category = item.category || "Altra categoria";
+          acc[category] = acc[category] || [];
+          acc[category].push(item);
 
-        return acc;
-      },
-      {} as Record<string, SelectItem[]>
+          return acc;
+        },
+        {} as Record<string, SelectItem[]>
+      )
     );
+    this.orderedItems = grouped.map((item) => item[1]).flat();
 
-    return Object.entries(grouped).map(([category, items], index, entries) => {
+    return grouped.map(([category, items], index, entries) => {
       const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
       // const parentHasSiblings = items.length > 1;
 
@@ -802,6 +810,7 @@ export class ZSelect {
         {} as Record<string, SelectItem[]>
       )
     );
+    this.orderedItems = newData.map((item) => item[1]).flat();
 
     return newData.map(([key, items], index) => {
       const isLastGroup = newData.length === index + 1;
