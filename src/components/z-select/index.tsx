@@ -118,12 +118,6 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
-
-    this.flattenedList = this.flattenTreeItems(this.itemsList);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
   }
 
   @Listen("ariaDescendantFocus")
@@ -187,6 +181,7 @@ export class ZSelect {
 
   componentWillRender(): void {
     this.filterItems(this.searchString);
+    this.updateFlattenedList();
   }
 
   private getInitialItemsArray(): SelectItem[] {
@@ -227,7 +222,9 @@ export class ZSelect {
           return item;
         });
     }
+  }
 
+  private updateFlattenedList(): void {
     this.flattenedList = this.flattenTreeItems(this.itemsList);
     this.itemIdKeyMap = {};
     this.flattenedList.forEach(({item, key}) => {
