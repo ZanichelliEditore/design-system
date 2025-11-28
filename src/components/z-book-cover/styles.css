@@ -1,0 +1,95 @@
+:host,
+*,
+::slotted(*) {
+  box-sizing: border-box;
+}
+
+:host {
+  --z-book-cover-height: 378px;
+  --z-book-cover-border-radius: var(--border-radius);
+  --z-book-cover-stack-shift-x: 8px;
+  --z-book-cover-stack-shift-y: 12px;
+  --private_book-cover-width: round(nearest, var(--z-book-cover-height) / 1.33, 1px);
+
+  position: relative;
+  display: flex;
+  width: var(--private_book-cover-width);
+  max-width: 100%;
+  height: var(--z-book-cover-height);
+  max-height: 100%;
+}
+
+@supports not (width: round(1px, 1px)) {
+  /* If the `round()` function isn't supported, fallback to the float value */
+  :host {
+    --private_book-cover-width: calc(var(--z-book-cover-height) / 1.33);
+  }
+}
+
+:host > * {
+  z-index: 0;
+  background: var(--color-surface01);
+}
+
+.cover-container {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  align-items: start;
+  justify-content: center;
+  border-radius: var(--z-book-cover-border-radius);
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+:host([multiple]) {
+  width: calc(var(--private_book-cover-width) - (var(--z-book-cover-stack-shift-x) * 2));
+  height: calc(var(--z-book-cover-height) - (var(--z-book-cover-stack-shift-y) * 2));
+  margin-bottom: calc(var(--z-book-cover-stack-shift-y) * 2);
+  margin-left: calc(var(--z-book-cover-stack-shift-x) * 2);
+}
+
+:host([bordered]) .cover-container,
+:host([multiple]) .cover-container {
+  border: var(--border-size-small) solid var(--color-surface05);
+}
+
+.shifted-stack-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: var(--border-size-small) solid var(--color-surface05);
+  border-radius: var(--z-book-cover-border-radius);
+}
+
+.shifted-stack-cover.stack-cover-1 {
+  top: var(--z-book-cover-stack-shift-y);
+  left: calc(-1 * var(--z-book-cover-stack-shift-x));
+}
+
+.shifted-stack-cover.stack-cover-2 {
+  top: calc(var(--z-book-cover-stack-shift-y) * 2);
+  left: calc(var(--z-book-cover-stack-shift-x) * -2);
+}
+
+::slotted([slot="coverOverlay"]) {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  min-height: 80px;
+  max-height: 85%;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-unit);
+  background-color: var(--avatar-C19);
+  color: var(--color-white);
+  overflow-wrap: anywhere;
+  text-align: center;
+}

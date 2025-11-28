@@ -14,8 +14,8 @@ export default (() => {
       <Meta of={moduleExports || {}} />
       <Title />
       <Description of={moduleExports || {}} />
-      <Stories />
       <ArgTypes of={component || ""} />
+      <Stories />
     </>
   );
 }) as React.FC;
