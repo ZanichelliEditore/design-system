@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.8.0](https://github.com/ZanichelliEditore/design-system/compare/v18.7.7...v18.8.0) (2025-11-28)
+
+
+### Features
+
+* add slot to put content over the cover image; safer shifted covers implementation ([28542ca](https://github.com/ZanichelliEditore/design-system/commit/28542ca573f1a77dd48c943db2710837c99afe98))
+* z-book-cover component ([50eacc3](https://github.com/ZanichelliEditore/design-system/commit/50eacc36d0e3b628894fba2aae0b7c53751958e8))
+
+
+### Bug Fixes
+
+* default width and vertical alignment for z-book-cover ([1c5bba7](https://github.com/ZanichelliEditore/design-system/commit/1c5bba7397d48fe949519d02665d41113f17f577))
+
 ## [18.7.7](https://github.com/ZanichelliEditore/design-system/compare/v18.7.6...v18.7.7) (2025-11-19)
 
 
