@@ -205,6 +205,29 @@ export class ZSelect {
     return this.selectedItem?.id;
   }
 
+  private getGroupedItems(): [string, SelectItem[]][] {
+    return Object.entries(
+      this.itemsList.reduce(
+        (group, item) => {
+          const category = item.category || "Altra categoria";
+          group[category] = group[category] || [];
+          group[category].push(item);
+
+          return group;
+        },
+        {} as Record<string, SelectItem[]>
+      )
+    );
+  }
+
+  private updateFlattenedList(): void {
+    this.flattenedList = this.flattenTreeItems(this.orderedItems);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
+  }
+
   private filterItems(searchString: string): void {
     const prevList = this.mapSelectedItemToItemsArray();
 
@@ -225,14 +248,6 @@ export class ZSelect {
           return item;
         });
     }
-  }
-
-  private updateFlattenedList(): void {
-    this.flattenedList = this.flattenTreeItems(this.orderedItems);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
   }
 
   private filterTree(items: SelectItem[], searchString: string, matchingParent: boolean): SelectItem[] {
@@ -651,16 +666,20 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  //eslint-disable-next-line
   private renderSelectUlItems(): any {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
 
-    if (this.hasGroupItems && !this.hasTreeItems) {
-      return this.renderSelectGroupItems();
-    } else if (this.hasGroupItems && this.hasTreeItems) {
-      return this.renderGroupedTree();
+    if (this.hasGroupItems) {
+      const groupedItems = this.getGroupedItems();
+      this.orderedItems = groupedItems.map((item) => item[1]).flat();
+
+      if (this.hasTreeItems) {
+        return this.renderGroupedTree(groupedItems);
+      }
+
+      return this.renderSelectGroupItems(groupedItems);
     } else {
       this.orderedItems = this.itemsList;
     }
@@ -750,23 +769,9 @@ export class ZSelect {
     );
   }
 
-  private renderGroupedTree(): HTMLZListGroupElement[] {
-    const grouped = Object.entries(
-      this.itemsList.reduce(
-        (acc, item) => {
-          const category = item.category || "Altra categoria";
-          acc[category] = acc[category] || [];
-          acc[category].push(item);
-
-          return acc;
-        },
-        {} as Record<string, SelectItem[]>
-      )
-    );
-    this.orderedItems = grouped.map((item) => item[1]).flat();
-
-    return grouped.map(([category, items], index, entries) => {
-      const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
+  private renderGroupedTree(groupedItems: [string, SelectItem[]][]): HTMLZListGroupElement[] {
+    return groupedItems.map(([category, items], index, entries) => {
+      const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
       // const parentHasSiblings = items.length > 1;
 
       return (
@@ -797,23 +802,9 @@ export class ZSelect {
     });
   }
 
-  private renderSelectGroupItems(): HTMLZListElementElement[] {
-    const newData = Object.entries(
-      this.itemsList.reduce(
-        (group, item) => {
-          const {category} = item;
-          group[category] = group[category] ?? [];
-          group[category].push(item);
-
-          return group;
-        },
-        {} as Record<string, SelectItem[]>
-      )
-    );
-    this.orderedItems = newData.map((item) => item[1]).flat();
-
-    return newData.map(([key, items], index) => {
-      const isLastGroup = newData.length === index + 1;
+  private renderSelectGroupItems(groupedItems: [string, SelectItem[]][]): HTMLZListElementElement[] {
+    return groupedItems.map(([key, items], index) => {
+      const isLastGroup = groupedItems.length === index + 1;
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
