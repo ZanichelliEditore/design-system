@@ -164,7 +164,7 @@ z-list z-list-element::before {
   position: absolute;
   z-index: 100;
   top: 3px;
-  left: -15px;
+  left: -8px;
   width: 8px;
   height: 1em;
   border-bottom: 1px solid var(--color-form-disabled01-icon);
@@ -177,7 +177,7 @@ z-list z-list-element::after {
   position: absolute;
   z-index: 100;
   top: 5px;
-  left: -15px;
+  left: -8px;
   width: 8px;
   height: 100%;
   border-left: 1px solid var(--color-form-disabled01-icon);
@@ -200,15 +200,10 @@ z-list > div.children-node {
   padding-left: calc(var(--space-unit) * 2);
 }
 
-z-list-element.grouped-tree-parent-node {
-  padding-top: 0;
-  padding-left: calc(var(--space-unit) * 2);
-}
-
 z-list-element > .list-element {
   display: flex;
   justify-content: space-between;
-  padding: calc(var(--space-unit) * 1.25) 0;
+  padding: calc(var(--space-unit) * 1.5) var(--space-unit);
   cursor: pointer;
 }
 
@@ -305,12 +300,12 @@ z-list-element > .list-element:hover::after {
 
 .children-node z-list-element::before,
 .children-node z-list-element::after {
-  left: -15px;
+  left: -8px;
 }
 
 .children-node .children-node z-list-element::before,
 .children-node .children-node z-list-element::after {
-  left: -15px;
+  left: -8px;
 }
 
 .children-node > z-list-element {
