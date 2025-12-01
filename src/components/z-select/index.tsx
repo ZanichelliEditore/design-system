@@ -102,9 +102,6 @@ export class ZSelect {
   @State()
   private flattenedList: {item: SelectItem; key: number}[] = [];
 
-  @State()
-  private orderedItems: any[] = [];
-
   private itemsList: SelectItem[] = [];
 
   private itemIdKeyMap: Record<string, number> = {};
@@ -221,7 +218,14 @@ export class ZSelect {
   }
 
   private updateFlattenedList(): void {
-    this.flattenedList = this.flattenTreeItems(this.orderedItems);
+    let orderedItems = this.itemsList;
+    if (this.hasGroupItems) {
+      orderedItems = this.getGroupedItems()
+        .map((item) => item[1])
+        .flat();
+    }
+
+    this.flattenedList = this.flattenTreeItems(orderedItems);
     this.itemIdKeyMap = {};
     this.flattenedList.forEach(({item, key}) => {
       this.itemIdKeyMap[item.id] = key;
@@ -672,16 +676,10 @@ export class ZSelect {
     }
 
     if (this.hasGroupItems) {
-      const groupedItems = this.getGroupedItems();
-      this.orderedItems = groupedItems.map((item) => item[1]).flat();
-
       if (this.hasTreeItems) {
-        return this.renderGroupedTree(groupedItems);
+        return this.renderGroupedTree();
       }
-
-      return this.renderSelectGroupItems(groupedItems);
-    } else {
-      this.orderedItems = this.itemsList;
+      return this.renderSelectGroupItems();
     }
 
     return this.itemsList.map((item: SelectItem, index, array) => {
@@ -769,7 +767,8 @@ export class ZSelect {
     );
   }
 
-  private renderGroupedTree(groupedItems: [string, SelectItem[]][]): HTMLZListGroupElement[] {
+  private renderGroupedTree(): HTMLZListGroupElement[] {
+    const groupedItems = this.getGroupedItems();
     return groupedItems.map(([category, items], index, entries) => {
       const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
       // const parentHasSiblings = items.length > 1;
@@ -802,7 +801,8 @@ export class ZSelect {
     });
   }
 
-  private renderSelectGroupItems(groupedItems: [string, SelectItem[]][]): HTMLZListElementElement[] {
+  private renderSelectGroupItems(): HTMLZListElementElement[] {
+    const groupedItems = this.getGroupedItems();
     return groupedItems.map(([key, items], index) => {
       const isLastGroup = groupedItems.length === index + 1;
       return (
