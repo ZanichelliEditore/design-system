@@ -728,7 +728,7 @@ export class ZSelect {
           id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
-          tabIndex={0}
+          tabIndex={!this.isOpen ? -1 : 0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
             this.arrowsSelectNav(e, thisItemKey);
