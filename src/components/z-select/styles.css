@@ -212,8 +212,8 @@ z-list-element > .list-element:focus:focus-visible {
   outline: none;
 }
 
-z-list-element > .list-element:hover,
-z-list-element > .list-element:hover::after {
+z-list-element:not([disabled]) > .list-element:hover,
+z-list-element:not([disabled]) > .list-element:hover::after {
   background-color: var(--background-hover-color-list-element, var(--color-background));
 }
 
@@ -255,13 +255,6 @@ z-list-element.grouped-tree-parent-node .list-element::after {
   content: "";
   transform: translateX(-100%);
 }
-
-/* z-list-element:not([disabled]) > .list-element:hover,
-z-list-element:not([disabled]) > .list-element:hover::after {
-  z-index: -1;
-  background-color: var(--color-form-surface03);
-  cursor: pointer;
-} */
 
 .item-label.selected {
   font-weight: bold;

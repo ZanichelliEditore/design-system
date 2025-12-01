@@ -360,11 +360,12 @@ export class ZSelect {
     const flatItems: {item: SelectItem; key: number}[] = [];
     let index = 0;
 
-    const flatten = (subItems: SelectItem[]): void => {
+    const flatten = (subItems: SelectItem[], disabledAncestor?: boolean): void => {
       subItems.forEach((itm) => {
-        flatItems.push({item: itm, key: index++});
+        const isDisabled = itm.disabled || disabledAncestor;
+        flatItems.push({item: {...itm, disabled: isDisabled}, key: index++});
         if (itm.children && itm.children.length > 0) {
-          flatten(itm.children);
+          flatten(itm.children, isDisabled);
         }
       });
     };
@@ -394,6 +395,10 @@ export class ZSelect {
         item: {id: "__RESET_ITEM__"} as SelectItem,
         key: this.resetKey,
       });
+    }
+
+    if (!flatItems.length) {
+      return;
     }
 
     let currentIndex: number;
@@ -692,7 +697,7 @@ export class ZSelect {
       const parentHasSiblings = array.length > 1;
 
       if (this.hasTreeItems) {
-        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true);
+        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true, item.disabled);
       }
 
       return this.renderItem(item, isLastItem);
@@ -703,9 +708,11 @@ export class ZSelect {
     item: SelectItem,
     isLastChild: boolean,
     parentHasSiblings: boolean,
-    isTopLevel?: boolean
+    isTopLevel?: boolean,
+    disabledAncestor?: boolean
   ): HTMLZListElementElement[] {
     const thisItemKey = this.itemIdKeyMap[item.id];
+    const isDisabled = item.disabled || disabledAncestor;
 
     const hasDivider = this.hasGroupItems
       ? undefined
@@ -720,7 +727,7 @@ export class ZSelect {
     return (
       <z-list-element
         clickable={!item.disabled}
-        disabled={item.disabled}
+        disabled={isDisabled}
         class={{
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
           "tree-search-item": this.hasGroupItems && isTopLevel && !item.children?.length && !!this.searchString,
@@ -733,7 +740,7 @@ export class ZSelect {
           id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
-          tabIndex={!this.isOpen ? -1 : 0}
+          tabIndex={!this.isOpen || isDisabled ? -1 : 0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
             this.arrowsSelectNav(e, thisItemKey);
@@ -762,7 +769,8 @@ export class ZSelect {
                   child,
                   index === arr.length - 1,
                   arr.length > 1,
-                  false // isTopLevel = false for children
+                  false, // isTopLevel = false for children
+                  isDisabled
                 )
               )}
             </div>
@@ -792,7 +800,7 @@ export class ZSelect {
           </span>
           <z-list>
             {items.map((item, i, arr) => [
-              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true),
+              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true, item.disabled),
               i < arr.length - 1 ? (
                 <z-divider
                   key={`divider-${i}`}
