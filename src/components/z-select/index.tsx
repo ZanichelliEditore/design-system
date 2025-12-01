@@ -672,7 +672,10 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  private renderSelectUlItems(): any {
+  private renderSelectUlItems():
+    | HTMLZListElementElement
+    | (HTMLZListElementElement | HTMLZListElementElement[])[]
+    | HTMLZListGroupElement[] {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
@@ -681,6 +684,7 @@ export class ZSelect {
       if (this.hasTreeItems) {
         return this.renderGroupedTree();
       }
+
       return this.renderSelectGroupItems();
     }
 
@@ -771,6 +775,7 @@ export class ZSelect {
 
   private renderGroupedTree(): HTMLZListGroupElement[] {
     const groupedItems = this.getGroupedItems();
+
     return groupedItems.map(([category, items], index, entries) => {
       const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
       // const parentHasSiblings = items.length > 1;
@@ -805,8 +810,10 @@ export class ZSelect {
 
   private renderSelectGroupItems(): HTMLZListElementElement[] {
     const groupedItems = this.getGroupedItems();
+
     return groupedItems.map(([key, items], index) => {
       const isLastGroup = groupedItems.length === index + 1;
+
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
@@ -817,6 +824,7 @@ export class ZSelect {
           </span>
           {items.map((item, subindex) => {
             const isLastItem = items.length === subindex + 1;
+
             return this.renderItem(item, isLastGroup && isLastItem);
           })}
         </z-list-group>

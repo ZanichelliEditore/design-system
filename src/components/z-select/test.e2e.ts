@@ -146,13 +146,12 @@ describe("z-select test end2end", () => {
     expect(await select.callMethod("getValue")).toBe("item_2");
 
     await (await page.find("body")).press("Tab");
-    await select.press("Enter");
     await page.waitForChanges();
-
-    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
 
     await select.press("Enter");
     await page.waitForChanges();
@@ -160,13 +159,10 @@ describe("z-select test end2end", () => {
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
     expect(await select.callMethod("getValue")).toBe("item_3");
 
-    await select.press("Enter");
+    await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-
-    await select.press("ArrowDown");
-    await page.waitForChanges();
 
     await select.press("Enter");
     await page.waitForChanges();
@@ -174,13 +170,10 @@ describe("z-select test end2end", () => {
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
     expect(await select.callMethod("getValue")).toBe("item_1");
 
-    await select.press("Enter");
+    await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-
-    await select.press("ArrowUp");
-    await page.waitForChanges();
 
     await select.press("Enter");
     await page.waitForChanges();

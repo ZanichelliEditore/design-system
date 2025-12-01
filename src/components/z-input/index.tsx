@@ -314,6 +314,7 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+
     return {
       ...expanded,
       ...controls,
