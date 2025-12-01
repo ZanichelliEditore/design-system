@@ -1,5 +1,4 @@
 import {Component, Element, Host, Prop, h} from "@stencil/core";
-import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 
 /**
  * @slot tags - slot containing the descriptors for the opera variant
@@ -13,53 +12,35 @@ import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.p
 export class ZResultCard {
   @Element() hostElement: HTMLZResultCardElement;
 
-  /**
-   * The title of the card.
-   */
+  /** The title of the card. */
   @Prop()
   cardTitle: string;
 
-  /**
-   * The subtitle of the card.
-   */
+  /** The subtitle of the card. */
   @Prop()
   cardSubtitle: string;
 
-  /**
-   * The authors of the opera.
-   */
+  /** The authors of the opera. */
   @Prop()
   authors?: string;
 
-  /**
-   * The URL of the cover image.
-   * This is used to display the cover image of the opera.
-   */
+  /** The URL of the cover image of the opera. */
   @Prop()
   cover?: string;
 
-  /** [optional] Fallback cover URL */
+  /** [optional] Fallback cover URL. */
   @Prop()
   fallbackCover?: string;
 
-  /**
-   * Indicates whether the card has multiple covers.
-   * This is used to apply specific styles when there are multiple covers.
-   */
+  /** Whether to show a stack of covers to represent multiple books. */
   @Prop()
   hasMultipleCovers = false;
 
-  /**
-   * Indicates whether the card is an info page.
-   * This can be used to apply specific styles or behaviors for info pages.
-   */
+  /** Enables the "info" variant of the card. */
   @Prop()
   isInfoCard = false;
 
-  /**
-   * [optional]
-   * Use for insert heading when needed.
-   */
+  /** [optional] Set a specific heading level as html tag for the title. */
   @Prop()
   titleHtmlTag?: string;
 
@@ -118,22 +99,23 @@ export class ZResultCard {
     window.removeEventListener("resize", this.resizeHandler);
   }
 
-  private renderTitle = (): HTMLDivElement => {
-    const title = this.titleHtmlTag ? `<${this.titleHtmlTag}>${this.cardTitle}</${this.titleHtmlTag}>` : this.cardTitle;
+  private renderTitle = (): HTMLElement => {
+    const TitleTag = this.titleHtmlTag || "div";
 
     return (
-      <div
-        class={{"card-title": true, "info-card-title": this.isInfoCard}}
+      <TitleTag
+        class="card-title"
         ref={(el) => (this.titleRef = el as HTMLElement)}
-        innerHTML={title}
-      />
+      >
+        {this.cardTitle}
+      </TitleTag>
     );
   };
 
   private renderSubtitle = (): HTMLSpanElement => {
     return (
       <span
-        class={{"card-subtitle": true, "info-card-subtitle": this.isInfoCard}}
+        class="card-subtitle"
         ref={(el) => (this.subtitleRef = el as HTMLElement)}
       >
         {this.cardSubtitle}
@@ -143,30 +125,13 @@ export class ZResultCard {
 
   private renderOperaCard = (): HTMLZResultCardElement => {
     return (
-      <Host tabIndex={0}>
-        <div class={`z-cover-container ${this.hasMultipleCovers ? "has-multiple" : ""}`}>
-          <div class="z-cover-stack">
-            {this.hasMultipleCovers && (
-              <div>
-                <div class="z-cover-shadow z-shadow-2" />
-                <div class="z-cover-shadow z-shadow-1" />
-              </div>
-            )}
-            <div class="z-cover-img">
-              <img
-                src={this.cover || this.fallbackCover || defaultFallbackCover}
-                alt=""
-                onError={() => {
-                  if (this.fallbackCover) {
-                    this.cover = this.fallbackCover;
-                  } else {
-                    this.cover = defaultFallbackCover;
-                  }
-                }}
-              />
-            </div>
-          </div>
-        </div>
+      <Host>
+        <z-book-cover
+          cover={this.cover}
+          fallbackCover={this.fallbackCover}
+          multiple={this.hasMultipleCovers}
+          bordered={true}
+        ></z-book-cover>
         <div class="info-container">
           {this.authors && (
             <span
@@ -191,19 +156,12 @@ export class ZResultCard {
 
   private renderInfoCard = (): HTMLZResultCardElement => {
     return (
-      <Host
-        tabIndex={0}
-        class="info-card"
-      >
-        <div class="info-icon-column">
-          <div class="info-icon-container">
-            <z-icon
-              class="info-icon"
-              name="link"
-              width={18}
-              height={18}
-            />
-          </div>
+      <Host class="info-card">
+        <div class="info-icon-container">
+          <z-icon
+            class="info-icon"
+            name="link"
+          />
         </div>
         <div class="info-container">
           {this.renderTitle()}
