@@ -495,7 +495,9 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
-    const foundItem = this.itemsList.findIndex((item: SelectItem) => item.name.charAt(0) === letter);
+    const foundItem = this.itemsList.findIndex(
+      (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
+    );
     if (foundItem > -1) {
       this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
@@ -554,7 +556,7 @@ export class ZSelect {
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.hasAutocomplete()) {
             e.preventDefault();
-            this.scrollToLetter(String.fromCharCode(e.keyCode));
+            this.scrollToLetter(e.key);
           }
         }}
       />
