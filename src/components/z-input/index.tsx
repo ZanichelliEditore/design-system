@@ -34,19 +34,19 @@ export class ZInput {
 
   /** the input aria-expaded: available for text, password, number, email */
   @Prop()
-  ariaExpanded = "";
+  htmlAriaExpanded = "";
 
   /** the input aria-controls (optional): available for text, password, number, email */
   @Prop()
-  ariaControls?: string;
+  htmlAriaControls?: string;
 
   /** the input aria-autocomplete (optional): available for text, password, number, email */
   @Prop()
-  ariaAutocomplete?: string;
+  htmlAriaAutocomplete?: string;
 
   /** the input aria-activedescendant (optional): available for text, password, number, email */
   @Prop()
-  ariaActivedescendant?: string;
+  htmlAriaActivedescendant?: string;
 
   /** the input value */
   @Prop({mutable: true})
@@ -308,11 +308,12 @@ export class ZInput {
   }
 
   private getAriaAttrubutes(): Record<string, unknown> {
-    const expanded = this.ariaExpanded ? {"aria-expanded": this.ariaExpanded} : {};
-    const controls = this.ariaControls ? {"aria-controls": this.ariaControls} : {};
-    const autocomplete = this.ariaAutocomplete ? {"aria-autocomplete": this.ariaAutocomplete} : {};
-    const activedescendant = this.ariaActivedescendant ? {"aria-activedescendant": this.ariaActivedescendant} : {};
-
+    const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
+    const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
+    const autocomplete = this.htmlAriaAutocomplete ? {"aria-autocomplete": this.htmlAriaAutocomplete} : {};
+    const activedescendant = this.htmlAriaActivedescendant
+      ? {"aria-activedescendant": this.htmlAriaActivedescendant}
+      : {};
     return {
       ...expanded,
       ...controls,
