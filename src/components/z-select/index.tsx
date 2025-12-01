@@ -99,7 +99,6 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
-  @State()
   private flattenedList: {item: SelectItem; key: number}[] = [];
 
   private itemsList: SelectItem[] = [];
