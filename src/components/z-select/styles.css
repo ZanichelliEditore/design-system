@@ -53,8 +53,8 @@
 
 .select-wrapper z-list {
   --background-color-list-element: var(--color-form-background);
-  --background-hover-color-list-element: var(--color-form-surface03);
-  --background-active-color-list-element: var(--color-form-surface03);
+  --background-hover-color-list-element: var(--color-surface02);
+  --background-active-color-list-element: var(--color-surface02);
 }
 
 .select-wrapper .ul-scroll-wrapper > z-list {
@@ -63,6 +63,7 @@
   max-height: 240px;
   padding: var(--space-unit) calc(var(--space-unit) * 1.5);
   margin: calc(var(--space-unit) * -1) 0;
+  margin: 0;
   outline: none;
 }
 
@@ -163,7 +164,7 @@ z-list z-list-element::before {
   position: absolute;
   z-index: 100;
   top: 3px;
-  left: -15px;
+  left: -8px;
   width: 8px;
   height: 1em;
   border-bottom: 1px solid var(--color-form-disabled01-icon);
@@ -176,7 +177,7 @@ z-list z-list-element::after {
   position: absolute;
   z-index: 100;
   top: 5px;
-  left: -15px;
+  left: -8px;
   width: 8px;
   height: 100%;
   border-left: 1px solid var(--color-form-disabled01-icon);
@@ -199,21 +200,21 @@ z-list > div.children-node {
   padding-left: calc(var(--space-unit) * 2);
 }
 
-z-list-element.grouped-tree-parent-node {
-  padding-top: 0;
-  padding-left: calc(var(--space-unit) * 2);
-}
-
 z-list-element > .list-element {
   display: flex;
   justify-content: space-between;
-  padding: calc(var(--space-unit) * 1.25) 0;
+  padding: calc(var(--space-unit) * 1.5) var(--space-unit);
   cursor: pointer;
 }
 
 z-list-element > .list-element:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
+}
+
+z-list-element:not([disabled]) > .list-element:hover,
+z-list-element:not([disabled]) > .list-element:hover::after {
+  background-color: var(--background-hover-color-list-element, var(--color-background));
 }
 
 z-list-element > .list-element .item.ellipsis {
@@ -226,7 +227,7 @@ z-list-element .list-element::after {
   right: -1px;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 45px;
   content: "";
   transform: translateX(-100%);
 }
@@ -237,31 +238,22 @@ z-list-element.tree-search-item {
 
 z-list-element.tree-search-item .list-element::after {
   position: absolute;
-  top: 8px;
   right: -25px;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 45px;
   content: "";
   transform: translateX(-100%);
 }
 
 z-list-element.grouped-tree-parent-node .list-element::after {
   position: absolute;
-  top: 8px;
   right: -25px;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 45px;
   content: "";
   transform: translateX(-100%);
-}
-
-z-list-element:not([disabled]) > .list-element:hover,
-z-list-element:not([disabled]) > .list-element:hover::after {
-  z-index: -1;
-  background-color: var(--color-form-surface03);
-  cursor: pointer;
 }
 
 .item-label.selected {
@@ -281,11 +273,10 @@ z-list-element.tree-search-item .list-element:hover::after,
 z-list > z-list-group > z-list-element.grouped-tree-parent-node > .list-element:hover::after {
   position: absolute;
   z-index: -1;
-  top: 8px;
   right: -18px;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 45px;
   content: "";
   transform: translateX(-100%);
 }
@@ -297,19 +288,19 @@ z-list-element > .list-element:hover::after {
   right: 0;
   display: block;
   width: 100%;
-  height: 40px;
+  height: 45px;
   content: "";
   transform: translateX(-100%);
 }
 
 .children-node z-list-element::before,
 .children-node z-list-element::after {
-  left: -15px;
+  left: -8px;
 }
 
 .children-node .children-node z-list-element::before,
 .children-node .children-node z-list-element::after {
-  left: -15px;
+  left: -8px;
 }
 
 .children-node > z-list-element {

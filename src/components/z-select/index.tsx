@@ -99,7 +99,6 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
-  @State()
   private flattenedList: {item: SelectItem; key: number}[] = [];
 
   private itemsList: SelectItem[] = [];
@@ -118,12 +117,6 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
-
-    this.flattenedList = this.flattenTreeItems(this.itemsList);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
   }
 
   @Listen("ariaDescendantFocus")
@@ -187,6 +180,7 @@ export class ZSelect {
 
   componentWillRender(): void {
     this.filterItems(this.searchString);
+    this.updateFlattenedList();
   }
 
   private getInitialItemsArray(): SelectItem[] {
@@ -205,6 +199,36 @@ export class ZSelect {
 
   private getSelectedValue(): string {
     return this.selectedItem?.id;
+  }
+
+  private getGroupedItems(): [string, SelectItem[]][] {
+    return Object.entries(
+      this.itemsList.reduce(
+        (group, item) => {
+          const category = item.category || "Altra categoria";
+          group[category] = group[category] || [];
+          group[category].push(item);
+
+          return group;
+        },
+        {} as Record<string, SelectItem[]>
+      )
+    );
+  }
+
+  private updateFlattenedList(): void {
+    let orderedItems = this.itemsList;
+    if (this.hasGroupItems) {
+      orderedItems = this.getGroupedItems()
+        .map((item) => item[1])
+        .flat();
+    }
+
+    this.flattenedList = this.flattenTreeItems(orderedItems);
+    this.itemIdKeyMap = {};
+    this.flattenedList.forEach(({item, key}) => {
+      this.itemIdKeyMap[item.id] = key;
+    });
   }
 
   private filterItems(searchString: string): void {
@@ -227,12 +251,6 @@ export class ZSelect {
           return item;
         });
     }
-
-    this.flattenedList = this.flattenTreeItems(this.itemsList);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
   }
 
   private filterTree(items: SelectItem[], searchString: string, matchingParent: boolean): SelectItem[] {
@@ -342,11 +360,12 @@ export class ZSelect {
     const flatItems: {item: SelectItem; key: number}[] = [];
     let index = 0;
 
-    const flatten = (subItems: SelectItem[]): void => {
+    const flatten = (subItems: SelectItem[], disabledAncestor?: boolean): void => {
       subItems.forEach((itm) => {
-        flatItems.push({item: itm, key: index++});
+        const isDisabled = itm.disabled || disabledAncestor;
+        flatItems.push({item: {...itm, disabled: isDisabled}, key: index++});
         if (itm.children && itm.children.length > 0) {
-          flatten(itm.children);
+          flatten(itm.children, isDisabled);
         }
       });
     };
@@ -376,6 +395,10 @@ export class ZSelect {
         item: {id: "__RESET_ITEM__"} as SelectItem,
         key: this.resetKey,
       });
+    }
+
+    if (!flatItems.length) {
+      return;
     }
 
     let currentIndex: number;
@@ -476,7 +499,9 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
-    const foundItem = this.itemsList.findIndex((item: SelectItem) => item.name.charAt(0) === letter);
+    const foundItem = this.itemsList.findIndex(
+      (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
+    );
     if (foundItem > -1) {
       this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
@@ -535,7 +560,7 @@ export class ZSelect {
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.hasAutocomplete()) {
             e.preventDefault();
-            this.scrollToLetter(String.fromCharCode(e.keyCode));
+            this.scrollToLetter(e.key);
           }
         }}
       />
@@ -651,16 +676,20 @@ export class ZSelect {
     return ListSize.MEDIUM;
   }
 
-  //eslint-disable-next-line
-  private renderSelectUlItems(): any {
+  private renderSelectUlItems():
+    | HTMLZListElementElement
+    | (HTMLZListElementElement | HTMLZListElementElement[])[]
+    | HTMLZListGroupElement[] {
     if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
 
-    if (this.hasGroupItems && !this.hasTreeItems) {
+    if (this.hasGroupItems) {
+      if (this.hasTreeItems) {
+        return this.renderGroupedTree();
+      }
+
       return this.renderSelectGroupItems();
-    } else if (this.hasGroupItems && this.hasTreeItems) {
-      return this.renderGroupedTree();
     }
 
     return this.itemsList.map((item: SelectItem, index, array) => {
@@ -668,7 +697,7 @@ export class ZSelect {
       const parentHasSiblings = array.length > 1;
 
       if (this.hasTreeItems) {
-        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true);
+        return this.renderTreeItems(item, isLastItem, parentHasSiblings, true, item.disabled);
       }
 
       return this.renderItem(item, isLastItem);
@@ -679,9 +708,11 @@ export class ZSelect {
     item: SelectItem,
     isLastChild: boolean,
     parentHasSiblings: boolean,
-    isTopLevel?: boolean
+    isTopLevel?: boolean,
+    disabledAncestor?: boolean
   ): HTMLZListElementElement[] {
     const thisItemKey = this.itemIdKeyMap[item.id];
+    const isDisabled = item.disabled || disabledAncestor;
 
     const hasDivider = this.hasGroupItems
       ? undefined
@@ -696,7 +727,7 @@ export class ZSelect {
     return (
       <z-list-element
         clickable={!item.disabled}
-        disabled={item.disabled}
+        disabled={isDisabled}
         class={{
           "grouped-tree-parent-node": this.hasGroupItems && !!item.children?.length,
           "tree-search-item": this.hasGroupItems && isTopLevel && !item.children?.length && !!this.searchString,
@@ -709,7 +740,7 @@ export class ZSelect {
           id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
-          tabIndex={0}
+          tabIndex={!this.isOpen || isDisabled ? -1 : 0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
             this.arrowsSelectNav(e, thisItemKey);
@@ -738,7 +769,8 @@ export class ZSelect {
                   child,
                   index === arr.length - 1,
                   arr.length > 1,
-                  false // isTopLevel = false for children
+                  false, // isTopLevel = false for children
+                  isDisabled
                 )
               )}
             </div>
@@ -749,19 +781,10 @@ export class ZSelect {
   }
 
   private renderGroupedTree(): HTMLZListGroupElement[] {
-    const grouped = this.itemsList.reduce(
-      (acc, item) => {
-        const category = item.category || "Altra categoria";
-        acc[category] = acc[category] || [];
-        acc[category].push(item);
+    const groupedItems = this.getGroupedItems();
 
-        return acc;
-      },
-      {} as Record<string, SelectItem[]>
-    );
-
-    return Object.entries(grouped).map(([category, items], index, entries) => {
-      const parentHasSiblings = Object.values(grouped).some((groupItems) => groupItems.length > 1);
+    return groupedItems.map(([category, items], index, entries) => {
+      const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
       // const parentHasSiblings = items.length > 1;
 
       return (
@@ -777,7 +800,7 @@ export class ZSelect {
           </span>
           <z-list>
             {items.map((item, i, arr) => [
-              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true),
+              this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true, item.disabled),
               i < arr.length - 1 ? (
                 <z-divider
                   key={`divider-${i}`}
@@ -793,21 +816,11 @@ export class ZSelect {
   }
 
   private renderSelectGroupItems(): HTMLZListElementElement[] {
-    const newData = this.itemsList.reduce(
-      (group, item, index, array) => {
-        const {category} = item;
-        const lastItem = array.length === index + 1;
-        const zListItem = this.renderItem(item, lastItem);
+    const groupedItems = this.getGroupedItems();
 
-        group[category] = group[category] ?? [];
-        group[category].push(zListItem);
+    return groupedItems.map(([key, items], index) => {
+      const isLastGroup = groupedItems.length === index + 1;
 
-        return group;
-      },
-      {} as Record<string, HTMLZListElementElement[]>
-    );
-
-    return Object.entries(newData).map(([key, value]) => {
       return (
         <z-list-group divider-type={ListDividerType.ELEMENT}>
           <span
@@ -816,7 +829,11 @@ export class ZSelect {
           >
             {key}
           </span>
-          {value.map((item) => item)}
+          {items.map((item, subindex) => {
+            const isLastItem = items.length === subindex + 1;
+
+            return this.renderItem(item, isLastGroup && isLastItem);
+          })}
         </z-list-group>
       );
     });

@@ -30,7 +30,7 @@
 }
 
 :host([size="medium"]) > .tree-element-container {
-  padding-top: var(--space-unit);
+  padding-top: 0;
   padding-bottom: 0;
 }
 
