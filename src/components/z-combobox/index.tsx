@@ -308,10 +308,10 @@ export class ZCombobox {
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
       >
-        <p class="body-3">
+        <span class="body-3">
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
-        </p>
+        </span>
         <z-icon
           name="caret-down"
           class={this.size}

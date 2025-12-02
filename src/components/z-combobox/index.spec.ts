@@ -12,7 +12,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="false" class="header" role="button" tabindex="0">
-            <p class="body-3"><span></span></p>
+            <span class="body-3"><span></span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -39,7 +39,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="disabled" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="false" class="header" role="button" tabindex="0">
-            <p class="body-3"><span></span></p>
+            <span class="body-3"><span></span></span>
               <z-icon class="big" name="caret-down" />
             </div>
           </div>
@@ -58,10 +58,10 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="fixed" id="combobox" data-action="combo-combobox">
             <div aria-controls="open-combo-data" aria-expanded="false" class="header" role="button" tabindex="0">
-              <p class="body-3">
+              <span class="body-3">
                 label
                 <span></span>
-              </p>
+              </span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -88,10 +88,10 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="false" class="header" role="button" tabindex="0">
-              <p class="body-3">
+              <span class="body-3">
                 label
                 <span>(1)</span>
-              </p>
+              </span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -127,7 +127,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-           <p class="body-3"><span></span></p>
+           <span class="body-3"><span></span></span>
               <z-icon class="big" name="caret-down" ></z-icon>
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -156,7 +156,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-            <p class="body-3">combo<span>(1)</span></p>
+            <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
              <div class="open-combo-data" id="open-combo-data">
@@ -192,7 +192,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-            <p class="body-3">combo<span>(1)</span></p>
+            <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -229,7 +229,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-            <p class="body-3">combo<span>(1)</span></p>
+            <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -263,7 +263,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-            <p class="body-3">combo<span>(1)</span></p>
+            <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -297,7 +297,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-              <p class="body-3">combo<span>(1)</span></p>
+              <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -328,7 +328,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-              <p class="body-3">combo<span>(1)</span></p>
+              <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -367,7 +367,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-              <p class="body-3">combo<span>(2)</span></p>
+              <span class="body-3">combo<span>(2)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -406,7 +406,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-             <p class="body-3">combo<span>(1)</span></p>
+             <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -442,7 +442,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-              <p class="body-3">combo<span>(1)</span></p>
+              <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
@@ -481,7 +481,7 @@ describe("Suite test ZCombobox", () => {
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
-              <p class="body-3">combo<span>(1)</span></p>
+              <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
 
