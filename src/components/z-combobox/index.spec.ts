@@ -219,13 +219,13 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox - open with search input and results", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "primo";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
@@ -287,13 +287,13 @@ describe("Suite test ZCombobox", () => {
   it("Test render ZCombobox - open with search input, with empty result", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],
-      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`,
+      html: `<z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'></z-combobox>`,
     });
     page.rootInstance.isopen = true;
     page.rootInstance.searchValue = "prova";
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
-      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" closesearchtext="CHIUDI" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
+      <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
             <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">

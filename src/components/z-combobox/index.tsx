@@ -55,10 +55,6 @@ export class ZCombobox {
   @Prop()
   isfixed = false;
 
-  /** close combobox list text */
-  @Prop()
-  closesearchtext?: string = "Chiudi";
-
   /** show "check all" checkbox (optional) */
   @Prop()
   hascheckall?: boolean = false;
@@ -352,7 +348,6 @@ export class ZCombobox {
         role="presentation"
       >
         {this.renderList(this.renderItemsList)}
-        {/* {this.searchValue && this.renderCloseButton()} */}
       </div>
     );
   }
@@ -451,21 +446,6 @@ export class ZCombobox {
       </div>
     );
   }
-
-  // private renderCloseButton(): HTMLDivElement {
-  //   return (
-  //     <div class="close-search">
-  //       <a
-  //         onClick={() => this.closeFilterItems()}
-  //         onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, this.closeFilterItems)}
-  //         role="button"
-  //         tabindex={0}
-  //       >
-  //         {this.closesearchtext}
-  //       </a>
-  //     </div>
-  //   );
-  // }
 
   private renderSearchInput(): ZInput {
     return (
