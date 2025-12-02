@@ -162,6 +162,24 @@ export const TopTitle = {
     </z-app-header>`,
 } satisfies Story;
 
+export const CustomMenuButton = {
+  parameters: {
+    controls: {
+      exclude: ["enableOffcanvas"],
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${args.enableZLogo}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <button slot="menu-button"><z-icon name="gear" /></button>
+      <a href="zanichelli.it" slot="title">Applicazione</h1>
+    </z-app-header>`,
+} satisfies Story;
+
 export const MenuWithTopTitle = {
   parameters: {
     controls: {

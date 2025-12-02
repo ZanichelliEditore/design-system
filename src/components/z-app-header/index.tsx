@@ -6,6 +6,7 @@ import {containsElement} from "../../utils/utils";
 const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined";
 
 /**
+ * @slot menu-button - Slot for a custom menu button. It will replace the default burger icon.
  * @slot title - Slot for the main title
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
@@ -493,7 +494,7 @@ export class ZAppHeader {
               </div>
             )}
             <div class="heading-title">
-              {this.renderMenuButton()}
+              <slot name="menu-button">{this.renderMenuButton()}</slot>
               {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}

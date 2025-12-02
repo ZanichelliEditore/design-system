@@ -24,6 +24,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+                <slot name="menu-button"></slot>
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
@@ -62,6 +63,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+              <slot name="menu-button"></slot>
               <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
@@ -104,6 +106,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+                <slot name="menu-button"></slot>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -152,6 +155,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+                <slot name="menu-button"></slot>
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <span class="product-logo">
                   <slot name="product-logo"></slot>
@@ -202,6 +206,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+                <slot name="menu-button"></slot>
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <span class="product-logo">
                   <slot name="product-logo"></slot>
@@ -452,6 +457,7 @@ describe("Suite test ZAppHeader", () => {
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
+                <slot name="menu-button"></slot>
                 <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <span class="product-logo">
                   <slot name="product-logo"></slot>

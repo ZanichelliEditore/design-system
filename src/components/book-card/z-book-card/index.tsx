@@ -1,21 +1,20 @@
 import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
-import defaultFallbackCover from "../../../assets/images/png/placeholder-cover.png";
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
- * @slot cta - top right cta (e.g. bookmark icon)
- * @slot ebook - as default, it shows laZ ebook link
- * @slot tags - tags section, default empty
- * @slot data - external link and pill, default empty
- * @slot apps - list of card-related apps, default empty
- * @slot coverOverlay - purple layer on top of book cover
- * @cssprop --z-book-card-portrait-cover-height - set custom cover height for portrait variant - default 378px
- * @cssprop --z-book-card-title-lines - set title avilable lines - default 2
- * @cssprop --z-book-card-title-word-break - set title word-break rule - default initial
- * @cssprop --z-book-card-subtitle-lines - set subtitle available lines - default 1
- * @cssprop --z-book-card-subtitle-word-break - set subtitle word-break rule - default break-all
- * @cssprop --z-book-card-authors-lines - set authors available lines - default 1
- * @cssprop --z-book-card-authors-word-break - set authors word-break rule - default break-all
+ * @slot cta - Top right cta (e.g. bookmark icon)
+ * @slot ebook - As default, it shows laZ ebook link
+ * @slot tags - Tags section, default empty
+ * @slot data - External link and pill, default empty
+ * @slot apps - List of card-related apps, default empty
+ * @slot coverOverlay - Content to be displayed in the `z-book-cover` component slot
+ * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
+ * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
+ * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
+ * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
+ * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
+ * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
+ * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
  */
 @Component({
   tag: "z-book-card",
@@ -57,15 +56,23 @@ export class ZBookCard {
   @Prop()
   year?: string;
 
-  /** [optional] Show link to the ebook resource. Set title and cover as clickable, opening a new tab to the ebook resource */
+  /** [optional] Link to the ebook resource. Creates a link also around the cover and title. */
   @Prop()
   ebookUrl?: string;
 
-  /** [optional] Fallback cover URL */
+  /** [optional] Value for the `target` attribute of the links created by `ebookUrl` prop. */
+  @Prop()
+  linkTarget = "_blank";
+
+  /** [optional] Fallback cover URL. */
   @Prop()
   fallbackCover?: string;
 
-  /** [optional] Set a specific h level as html tag for opera title */
+  /** Whether to show a stack of covers to represent multiple books (only for `portrait` variant). */
+  @Prop()
+  hasMultipleCovers = false;
+
+  /** [optional] Set a specific heading level as html tag for the title. */
   @Prop()
   titleHtmlTag?: string;
 
@@ -94,37 +101,31 @@ export class ZBookCard {
   }
 
   private renderCover(): HTMLDivElement {
-    const coverImg: HTMLImageElement = (
-      <img
-        src={this.cover}
-        onError={() => {
-          if (this.fallbackCover) {
-            this.cover = this.fallbackCover;
-          } else {
-            this.cover = defaultFallbackCover;
-          }
-        }}
-        aria-hidden="true"
-      />
-    );
+    const CoverTag = this.ebookUrl ? "a" : "div";
+    const coverAttrs = this.ebookUrl
+      ? {
+          href: this.ebookUrl,
+          onClick: () => this.emitCoverClick(),
+          target: this.linkTarget,
+        }
+      : {};
 
     return (
-      <div class="cover">
-        {this.ebookUrl ? (
-          <a
-            tabIndex={0}
-            class={"cover-link"}
-            href={this.ebookUrl}
-            onClick={() => this.emitCoverClick()}
-            target="_blank"
-          >
-            {coverImg}
-          </a>
-        ) : (
-          coverImg
-        )}
-        <slot name="coverOverlay"></slot>
-      </div>
+      <CoverTag
+        class="cover"
+        {...coverAttrs}
+      >
+        <z-book-cover
+          cover={this.cover}
+          fallbackCover={this.fallbackCover}
+          multiple={this.hasMultipleCovers && this.variant === BookCardVariant.PORTRAIT}
+        >
+          <slot
+            name="coverOverlay"
+            slot="coverOverlay"
+          ></slot>
+        </z-book-cover>
+      </CoverTag>
     );
   }
 
@@ -180,7 +181,7 @@ export class ZBookCard {
             class="z-link"
             href={this.ebookUrl}
             onClick={() => this.emitTitleClick()}
-            target="_blank"
+            target={this.linkTarget}
           >
             {operaTitle}
           </a>
@@ -218,19 +219,17 @@ export class ZBookCard {
   private renderEbook(): HTMLDivElement {
     return (
       <div class="ebook">
-        <div>
-          <div class="app-name">
-            <img
-              class="ebook-logo"
-              aria-hidden="true"
-            />
-            <div class="body-4-sb">laZ Ebook</div>
-          </div>
+        <div class="app-name">
+          <img
+            class="ebook-logo"
+            aria-hidden="true"
+          />
+          <div class="body-4-sb">laZ Ebook</div>
         </div>
         <z-button
           size={ControlSize.X_SMALL}
           href={this.ebookUrl}
-          target="_blank"
+          target={this.linkTarget}
           onClick={() => this.emitEbookClick()}
           htmlrole="link"
           aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}

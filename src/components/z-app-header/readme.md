@@ -28,6 +28,7 @@
 
 | Slot              | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
+| `"menu-button"`   | Slot for a custom menu button. It will replace the default burger icon.        |
 | `"product-logo"`  | To insert the product logo, it should be used with an img tag.                 |
 | `"stucked-title"` | Title for the stuck header. By default it uses the text from the `title` slot. |
 | `"title"`         | Slot for the main title                                                        |

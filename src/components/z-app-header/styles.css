@@ -243,7 +243,8 @@ z-searchbar {
   white-space: nowrap;
 }
 
-.drawer-trigger {
+.drawer-trigger,
+::slotted([slot="menu-button"]) {
   display: flex;
   height: calc(var(--title-font-size) * var(--title-line-height));
   align-items: center;
