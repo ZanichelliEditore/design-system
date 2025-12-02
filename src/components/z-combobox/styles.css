@@ -100,9 +100,14 @@
   transition: all 200ms linear;
 }
 
+:host > div > div.open-combo-data {
+  display: none;
+}
+
 :host > div.open > div.open-combo-data {
   position: relative;
   z-index: 12;
+  display: block;
   padding: var(--space-unit) calc(var(--space-unit) * 2);
   border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: 0;
@@ -166,14 +171,6 @@
   width: 238px;
   margin: 0 calc(var(--space-unit) * 2);
   color: var(--color-form-active-primary);
-}
-
-:host > div > div.open-combo-data {
-  display: none;
-}
-
-:host > div.open > div.open-combo-data {
-  display: block;
 }
 
 :host > div.open > div.open-combo-data > div > div.search {

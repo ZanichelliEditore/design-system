@@ -288,7 +288,6 @@ export class ZCombobox {
   private getComboboxA11yAttributes(): Record<string, string> {
     return {
       "role": "combobox",
-      // "aria-label": this.label,
       "html-aria-expanded": this.isopen ? "true" : "false",
       "html-aria-activedescendant": this.isopen ? this.focusedItemId : "",
       "html-aria-controls": `${this.inputid}_list`,
@@ -334,7 +333,6 @@ export class ZCombobox {
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          // aria-owns={`${this.checkboxes.map((item) => item.id).join(" ")}`}
           aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
             .map((item) => item.id)
             .join(" ")}
@@ -361,6 +359,7 @@ export class ZCombobox {
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
     const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
+
     return (
       <z-list-element
         id={`option-${item.id}`}
