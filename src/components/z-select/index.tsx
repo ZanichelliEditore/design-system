@@ -450,7 +450,7 @@ export class ZSelect {
       document.removeEventListener("click", this.handleSelectFocus);
       document.removeEventListener("keyup", this.handleSelectFocus);
       if (selfFocusOnClose) {
-        (this.host.querySelector(`#${this.htmlid}_input`) as HTMLInputElement)?.focus();
+        (this.host.querySelector(`#${this.htmlid}_select_input`) as HTMLInputElement)?.focus();
       }
 
       if (this.selectedItem && this.searchString) {
@@ -494,7 +494,7 @@ export class ZSelect {
         (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
       )
     ) {
-      this.toggleSelectUl(e instanceof MouseEvent);
+      this.toggleSelectUl(true);
     }
   }
 
@@ -610,7 +610,7 @@ export class ZSelect {
         disabled={false}
         dividerType={ListDividerType.ELEMENT}
         role="option"
-        tabindex="0"
+        html-tabindex={0}
         aria-selected="false"
         id={`${this.htmlid}_key_${this.resetKey}`}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
@@ -643,7 +643,7 @@ export class ZSelect {
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role="option"
-        tabindex={item.disabled || !this.isOpen ? -1 : 0}
+        html-tabindex={item.disabled || !this.isOpen ? -1 : 0}
         aria-selected={item.selected ? "true" : "false"}
         id={`${this.htmlid}_key_${thisItemKey}`}
         size={this.listSizeType()}
@@ -735,6 +735,7 @@ export class ZSelect {
         size={this.listSizeType()}
         dividerType={hasDivider}
         hasTreeItems={this.hasTreeItems}
+        html-tabindex={null}
       >
         <div
           id={`${this.htmlid}_key_${thisItemKey}`}
@@ -844,6 +845,7 @@ export class ZSelect {
       <z-list-element
         class="no-results"
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
+        html-tabindex={null}
       >
         {this.noresultslabel}
       </z-list-element>
