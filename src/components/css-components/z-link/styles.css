@@ -35,15 +35,15 @@ button.z-link.z-link-underline {
 
 a.z-link:hover,
 button.z-link:hover,
-a.z-link:focus,
-button.z-link:focus,
+a.z-link:focus-visible,
+button.z-link:focus-visible,
 a.z-link:active,
 button.z-link:active {
   text-decoration: underline;
 }
 
-a.z-link:focus,
-button.z-link:focus {
+a.z-link:focus-visible,
+button.z-link:focus-visible {
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -67,10 +67,10 @@ a.z-link:hover,
 button.z-link:hover,
 a.z-link.z-link-active:hover,
 button.z-link.z-link-active:hover,
-a.z-link:focus,
-button.z-link:focus,
-a.z-link.z-link-active:focus,
-button.z-link.z-link-active:focus,
+a.z-link:focus-visible,
+button.z-link:focus-visible,
+a.z-link.z-link-active:focus-visible,
+button.z-link.z-link-active:focus-visible,
 a.z-link:active,
 button.z-link:active,
 a.z-link.z-link-active:active,
@@ -127,24 +127,24 @@ button.z-link.z-link-inverse:hover {
 
 a.z-link.z-link-blue:active,
 button.z-link.z-link-blue:active,
-a.z-link.z-link-blue:focus,
-button.z-link.z-link-blue:focus {
+a.z-link.z-link-blue:focus-visible,
+button.z-link.z-link-blue:focus-visible {
   color: var(--color-text-link-blue-active);
   fill: var(--color-text-link-blue-active);
 }
 
 a.z-link.z-link-red:active,
 button.z-link.z-link-red:active,
-a.z-link.z-link-red:focus,
-button.z-link.z-link-red:focus {
+a.z-link.z-link-red:focus-visible,
+button.z-link.z-link-red:focus-visible {
   color: var(--color-text-link-red-active);
   fill: var(--color-text-link-red-active);
 }
 
 a.z-link.z-link-inverse:active,
 button.z-link.z-link-inverse:active,
-a.z-link.z-link-inverse:focus,
-button.z-link.z-link-inverse:focus {
+a.z-link.z-link-inverse:focus-visible,
+button.z-link.z-link-inverse:focus-visible {
   color: var(--color-text-link-inverse);
   fill: var(--color-text-link-inverse);
 }
