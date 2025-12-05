@@ -281,12 +281,26 @@ export class ZCombobox {
     this.isopen = !this.isopen;
   }
 
-  private getComboboxA11yAttributes(): Record<string, string> {
+  private getComboboxA11yAttributes(isZInput: boolean): Record<string, string> {
+    const role = "combobox";
+    const ariaExpanded = this.isopen ? "true" : "false";
+    const ariaActivedescendant = this.isopen ? this.focusedItemId : "";
+    const ariaControls = `${this.inputid}_list`;
+
+    if (isZInput) {
+      return {
+        "role": role,
+        "html-aria-expanded": ariaExpanded,
+        "html-aria-activedescendant": ariaActivedescendant,
+        "html-aria-controls": ariaControls,
+      };
+    }
+
     return {
-      "role": "combobox",
-      "html-aria-expanded": this.isopen ? "true" : "false",
-      "html-aria-activedescendant": this.isopen ? this.focusedItemId : "",
-      "html-aria-controls": `${this.inputid}_list`,
+      "role": role,
+      "aria-expanded": ariaExpanded,
+      "aria-activedescendant": ariaActivedescendant,
+      "aria-controls": ariaControls,
     };
   }
 
@@ -323,7 +337,7 @@ export class ZCombobox {
         class="open-combo-data"
       >
         {this.hassearch && this.renderSearchInput()}
-        {!this.hassearch ? <span {...this.getComboboxA11yAttributes()} /> : null}
+        {!this.hassearch ? <span {...this.getComboboxA11yAttributes(false)} /> : null}
         <div
           role="listbox"
           aria-label={this.label}
@@ -459,7 +473,7 @@ export class ZCombobox {
         message={false}
         size={this.size}
         html-aria-autocomplete="list"
-        {...this.getComboboxA11yAttributes()}
+        {...this.getComboboxA11yAttributes(true)}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.key === KeyboardCode.ESC) {
             this.closeFilterItems();

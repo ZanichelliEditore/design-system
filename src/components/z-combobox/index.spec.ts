@@ -16,7 +16,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span html-aria-activedescendant="" html-aria-controls="combobox_list" html-aria-expanded="false" role="combobox"></span>
+              <span aria-activedescendant="" aria-controls="combobox_list" aria-expanded="false" role="combobox"></span>
               <div aria-multiselectable="true" aria-owns="" id="combobox_list" role="listbox">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation"></ul>
@@ -65,7 +65,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span html-aria-activedescendant="" html-aria-controls="combobox_list" html-aria-expanded="false" role="combobox"></span>
+              <span aria-activedescendant="" aria-controls="combobox_list" aria-expanded="false" role="combobox"></span>
               <div aria-label="label" aria-multiselectable="true" aria-owns="" id="combobox_list" role="listbox">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation"></ul>
@@ -95,7 +95,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span html-aria-activedescendant="" html-aria-controls="combobox_list" html-aria-expanded="false" role="combobox"></span>
+              <span aria-activedescendant="" aria-controls="combobox_list" aria-expanded="false" role="combobox"></span>
               <div aria-label="label" aria-multiselectable="true" aria-owns="" id="combobox_list" role="listbox">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation">
@@ -131,7 +131,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" ></z-icon>
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" id="combobox_list" aria-owns="">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation"></ul>
@@ -160,7 +160,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
              <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-item_1 option-item_2">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation">
@@ -332,7 +332,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-check-all option-item_1 option-item_2">
                 <div class="check-all-wrapper" id="option-check-all" role="option">
                   <z-input type="checkbox" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" disabled="0" />
@@ -371,7 +371,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-check-all option-item_1 option-item_2">
                 <div class="check-all-wrapper" id="option-check-all" role="option">
                   <z-input type="checkbox" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="UNCHECK" checked disabled="0" />
@@ -410,7 +410,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-item_2">
                 <div role="presentation" tabindex="-1">
                   <ul role="presentation">
@@ -446,7 +446,7 @@ describe("Suite test ZCombobox", () => {
               <z-icon class="big" name="caret-down" />
             </div>
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-check-all option-item_1 option-item_2">
                 <div class="check-all-wrapper" id="option-check-all" role="option">
                   <z-input type="checkbox" size="big" htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" />
@@ -486,7 +486,7 @@ describe("Suite test ZCombobox", () => {
             </div>
 
             <div class="open-combo-data" id="open-combo-data">
-              <span role="combobox" html-aria-controls="combobox_list" html-aria-expanded="true"></span>
+              <span role="combobox" aria-controls="combobox_list" aria-expanded="true"></span>
               <div aria-multiselectable="true" role="listbox" aria-label="combo" id="combobox_list" aria-owns="option-check-all option-item_1">
                 <div class="check-all-wrapper" id="option-check-all" role="option">
                   <z-input type="checkbox" size="big" disabled htmlid="combo-checkbox-combobox-check-all" class="combo-item-checkbox-input-combobox" label="CHECK" />
