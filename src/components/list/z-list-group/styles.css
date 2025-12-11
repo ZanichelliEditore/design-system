@@ -12,7 +12,7 @@
 }
 
 :host > .z-list-group-header-container.has-header {
-  padding-top: var(--space-unit);
+  padding-top: calc(var(--space-unit) * 1.5);
   padding-bottom: var(--space-unit);
 }
 
@@ -21,6 +21,6 @@
 }
 
 :host > .grouped-tree-list-header {
-  padding-top: var(--space-unit);
-  padding-bottom: 0;
+  padding-top: calc(var(--space-unit) * 1.5);
+  padding-bottom: var(--space-unit);
 }

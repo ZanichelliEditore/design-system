@@ -8,6 +8,11 @@ const StoryMeta = {
   title: "ZSelect",
   component: "z-select",
   argTypes: {
+    items: {
+      control: {
+        type: "object",
+      },
+    },
     status: {
       control: {
         type: "select",
@@ -280,7 +285,7 @@ export const ZSelectWithTreeItems = {
 export const ZSelectWithGroupsAndTreeItems = {
   args: {
     hasTreeItems: true,
-    hasGroupItems: false,
+    hasGroupItems: true,
     showChildrenOfMatchingParent: false,
     items: [
       {
