@@ -28,7 +28,6 @@ const StoryMeta = {
       {id: "it_e_m_5", name: "Last item", checked: false, category: "Gruppo 3"},
     ] satisfies ComboItem[],
     checkalltext: "Select all",
-    closesearchtext: "Close",
     disabled: false,
     hascheckall: true,
     hassearch: true,
@@ -48,7 +47,6 @@ const StoryMeta = {
   render: (args) =>
     html`<z-combobox
       checkalltext=${args.checkalltext}
-      closesearchtext=${args.closesearchtext}
       disabled=${args.disabled}
       hascheckall=${args.hascheckall}
       hassearch=${args.hassearch}

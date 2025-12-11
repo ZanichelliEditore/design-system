@@ -33,13 +33,13 @@ it("Tests z-combobox search", async () => {
   const input = await page.find("z-combobox >>> z-input input");
   const listbox = await page.find("z-combobox >>> #combo_1_list");
   const listElements = await listbox.findAll("z-list-element");
-  expect(listElements.map(({id}) => id)).toEqual(items.map(({id}) => id));
+  expect(listElements.map(({id}) => id)).toEqual(items.map(({id}) => `option-${id}`));
 
   await input.type(items[0].name);
   await page.waitForChanges();
   const filteredListElems = await listbox.findAll("z-list-element");
 
-  expect(filteredListElems.map(({id}) => id)).toEqual([items[0].id]);
+  expect(filteredListElems.map(({id}) => id)).toEqual([`option-${items[0].id}`]);
 
   const clickEvent = await page.spyOnEvent("comboboxChange");
 

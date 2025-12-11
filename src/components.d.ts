@@ -650,10 +650,6 @@ export namespace Components {
          */
         "checkalltext"?: string;
         /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
-        /**
           * the combobox is disabled
          */
         "disabled"?: boolean;
@@ -4467,10 +4463,6 @@ declare namespace LocalJSX {
           * check all label (optional)
          */
         "checkalltext"?: string;
-        /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
         /**
           * the combobox is disabled
          */
