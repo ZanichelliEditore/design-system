@@ -13,7 +13,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
   - [Rimosso colore di background per il tema dark](#rimozione-background-dal-tema-dark)
   - [`z-combobox`](#zcombobox-rimossa-prop-closesearchtext)
-  - [`z-select`](#zselect-rinominate-prop-accessibilita)
+  - [`z-input`](#zinput-rinominate-prop-accessibilita)
 
 - [v18.0.0](#v1800)
 
@@ -134,7 +134,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 È stata rimossa la prop `closesearchtext`, perché la funzionalità era duplicata e già svolta dalla "x" all'interno dell'input che filtra le opzioni disponibili.
 
-### ZSelect: rinominate prop accessibilità
+### ZInput: rinominate prop accessibilità
 
 Le seguenti prop sono state rinominate per agevolare l'uso del componente con gli strumenti assistivi di accessibilità:
 
