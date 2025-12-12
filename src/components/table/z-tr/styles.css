@@ -58,7 +58,7 @@
 
 :host(:hover) ::slotted(z-td),
 :host(:hover) ::slotted(z-th) {
-  box-shadow: 0 -6px 4px -4px var(--shadow-color-base, rgb(0 0 0 / 20%)) inset;
+  background-color: var(--color-surface02);
 }
 
 :host(:focus) {
