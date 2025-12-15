@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.0.1](https://github.com/ZanichelliEditore/design-system/compare/v19.0.0...v19.0.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* remove z-index, use box shadow inset on ztd ([da3f795](https://github.com/ZanichelliEditore/design-system/commit/da3f7953b77e9208024982f9036687a50b279412))
+
 ## [19.0.0](https://github.com/ZanichelliEditore/design-system/compare/v18.8.1...v19.0.0) (2025-12-11)
 
 
