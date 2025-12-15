@@ -14,7 +14,11 @@ describe("Suite test ZToastNotification", () => {
           <div id="external-container" tabindex="0">
             <div id="inner-container">
               <div id="text">
-              <span class="message"></span>
+              <span class="message">
+                <slot name="message">
+                  <span></span>
+                </slot>
+              </span>
               </div>
               <div id="button">
                 <slot name="button"></slot>
@@ -52,7 +56,11 @@ describe("Suite test ZToastNotification", () => {
                 Titolo
               </span>
               <span class="message">
-                descrizione della notifica
+                <slot name="message">
+                  <span>
+                    descrizione della notifica
+                  </span>
+                </slot>
               </span>
             </div>
             <div id="button">
@@ -93,7 +101,11 @@ describe("Suite test ZToastNotification", () => {
                 Titolo
               </span>
               <span class="message">
-                descrizione della notifica
+                <slot name="message">
+                  <span>
+                    descrizione della notifica
+                  </span>
+                </slot>
               </span>
             </div>
             <div id="button">

@@ -9,24 +9,38 @@ import "./index.stories.css";
 
 const template = (
   args,
-  notificationTransition: ToastNotificationTransition = ToastNotificationTransition.SLIDE_IN_DOWN
+  notificationTransition: ToastNotificationTransition = ToastNotificationTransition.SLIDE_IN_DOWN,
+  slottedMessage?: TemplateResult
 ): TemplateResult =>
   html`<div class="z-toast-notification-container">
     <z-toast-notification-list
       position="${args.position}"
       newestontop="${args.newestontop}"
     >
-      <z-toast-notification
-        slot="toasts"
-        type="dark"
-        heading="Notification"
-        message="Autoclose 18s."
-        .transition=${notificationTransition}
-        draggablepercentage="50"
-        autoclose="18000"
-        closebutton
-      >
-      </z-toast-notification>
+      ${slottedMessage
+        ? html`<z-toast-notification
+            slot="toasts"
+            type="dark"
+            heading="Notification"
+            .transition=${notificationTransition}
+            draggablepercentage="50"
+            autoclose="18000"
+            closebutton
+          >
+            ${slottedMessage}
+          </z-toast-notification>`
+        : html`<z-toast-notification
+            slot="toasts"
+            type="dark"
+            heading="Notification"
+            message="Autoclose 18s."
+            .transition=${notificationTransition}
+            draggablepercentage="50"
+            autoclose="18000"
+            closebutton
+          >
+          </z-toast-notification>`}
+
       <z-toast-notification
         slot="toasts"
         type="dark"
@@ -141,4 +155,21 @@ export const BottomLeftSlideInRight = {
     position: ToastNotificationPosition.BOTTOM_LEFT,
   },
   render: (args) => template(args, ToastNotificationTransition.SLIDE_IN_RIGHT),
+} satisfies Story;
+
+export const TopLeftWithSlottedMessage = {
+  args: {position: ToastNotificationPosition.TOP_LEFT},
+  render: (args) =>
+    template(
+      args,
+      ToastNotificationTransition.SLIDE_IN_DOWN,
+      html`<span slot="message"
+        >Autoclose 18s con
+        <a
+          href="#"
+          class="z-link z-link-blue"
+          >link</a
+        ></span
+      >`
+    ),
 } satisfies Story;
