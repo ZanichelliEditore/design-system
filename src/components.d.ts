@@ -650,10 +650,6 @@ export namespace Components {
          */
         "checkalltext"?: string;
         /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
-        /**
           * the combobox is disabled
          */
         "disabled"?: boolean;
@@ -938,22 +934,6 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input aria-activedescendant (optional): available for text, password, number, email
-         */
-        "ariaActivedescendant"?: string;
-        /**
-          * the input aria-autocomplete (optional): available for text, password, number, email
-         */
-        "ariaAutocomplete"?: string;
-        /**
-          * the input aria-controls (optional): available for text, password, number, email
-         */
-        "ariaControls"?: string;
-        /**
-          * the input aria-expaded: available for text, password, number, email
-         */
-        "ariaExpanded": string;
-        /**
           * the input aria-label
          */
         "ariaLabel": string;
@@ -973,6 +953,22 @@ export namespace Components {
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
+        /**
+          * the input aria-activedescendant (optional): available for text, password, number, email
+         */
+        "htmlAriaActivedescendant"?: string;
+        /**
+          * the input aria-autocomplete (optional): available for text, password, number, email
+         */
+        "htmlAriaAutocomplete"?: string;
+        /**
+          * the input aria-controls (optional): available for text, password, number, email
+         */
+        "htmlAriaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
+         */
+        "htmlAriaExpanded": string;
         /**
           * the id of the input element
          */
@@ -4468,10 +4464,6 @@ declare namespace LocalJSX {
          */
         "checkalltext"?: string;
         /**
-          * close combobox list text
-         */
-        "closesearchtext"?: string;
-        /**
           * the combobox is disabled
          */
         "disabled"?: boolean;
@@ -4776,22 +4768,6 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input aria-activedescendant (optional): available for text, password, number, email
-         */
-        "ariaActivedescendant"?: string;
-        /**
-          * the input aria-autocomplete (optional): available for text, password, number, email
-         */
-        "ariaAutocomplete"?: string;
-        /**
-          * the input aria-controls (optional): available for text, password, number, email
-         */
-        "ariaControls"?: string;
-        /**
-          * the input aria-expaded: available for text, password, number, email
-         */
-        "ariaExpanded"?: string;
-        /**
           * the input aria-label
          */
         "ariaLabel"?: string;
@@ -4811,6 +4787,22 @@ declare namespace LocalJSX {
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
+        /**
+          * the input aria-activedescendant (optional): available for text, password, number, email
+         */
+        "htmlAriaActivedescendant"?: string;
+        /**
+          * the input aria-autocomplete (optional): available for text, password, number, email
+         */
+        "htmlAriaAutocomplete"?: string;
+        /**
+          * the input aria-controls (optional): available for text, password, number, email
+         */
+        "htmlAriaControls"?: string;
+        /**
+          * the input aria-expaded: available for text, password, number, email
+         */
+        "htmlAriaExpanded"?: string;
         /**
           * the id of the input element
          */

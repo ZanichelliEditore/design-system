@@ -55,10 +55,6 @@ export class ZCombobox {
   @Prop()
   isfixed = false;
 
-  /** close combobox list text */
-  @Prop()
-  closesearchtext?: string = "Chiudi";
-
   /** show "check all" checkbox (optional) */
   @Prop()
   hascheckall?: boolean = false;
@@ -172,7 +168,7 @@ export class ZCombobox {
     }
   }
 
-  private handleSelectArrowsNavigation(e: KeyboardEvent, currId: string): void {
+  private handleSelectArrowsNavigation(e: KeyboardEvent, currId?: string): void {
     if (![KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP].includes(e.key as KeyboardCode) || !this.isopen) {
       return;
     }
@@ -181,24 +177,27 @@ export class ZCombobox {
     e.stopPropagation();
 
     const currElem = this.element.shadowRoot.querySelector(`#${currId}`) as HTMLInputElement;
-    if (!currElem) {
-      return;
-    }
 
     const checkboxes = this.checkboxes;
     if (!checkboxes.length) {
       return;
     }
 
-    const currElemIndex = checkboxes.indexOf(currElem);
+    const currElemIndex = currElem ? checkboxes.indexOf(currElem) : null;
     const firstElemIndex = 0;
     const lastElemIndex = checkboxes.length - 1;
 
     let nextElem = null;
     if (e.key === KeyboardCode.ARROW_DOWN) {
-      nextElem = currElemIndex === lastElemIndex ? checkboxes[firstElemIndex] : checkboxes[currElemIndex + 1];
+      nextElem =
+        currElemIndex === null || currElemIndex === lastElemIndex
+          ? checkboxes[firstElemIndex]
+          : checkboxes[currElemIndex + 1];
     } else if (e.key === KeyboardCode.ARROW_UP) {
-      nextElem = currElemIndex === firstElemIndex ? checkboxes[lastElemIndex] : checkboxes[currElemIndex - 1];
+      nextElem =
+        currElemIndex === null || currElemIndex === firstElemIndex
+          ? checkboxes[lastElemIndex]
+          : checkboxes[currElemIndex - 1];
     }
 
     this.focusComboboxItem(nextElem);
@@ -282,13 +281,26 @@ export class ZCombobox {
     this.isopen = !this.isopen;
   }
 
-  private getComboboxA11yAttributes(): Record<string, string> {
+  private getComboboxA11yAttributes(isZInput: boolean): Record<string, string> {
+    const role = "combobox";
+    const ariaExpanded = this.isopen ? "true" : "false";
+    const ariaActivedescendant = this.isopen ? this.focusedItemId : "";
+    const ariaControls = `${this.inputid}_list`;
+
+    if (isZInput) {
+      return {
+        "role": role,
+        "html-aria-expanded": ariaExpanded,
+        "html-aria-activedescendant": ariaActivedescendant,
+        "html-aria-controls": ariaControls,
+      };
+    }
+
     return {
-      "role": "combobox",
-      "aria-label": this.label,
-      "aria-expanded": this.isopen ? "true" : "false",
-      "aria-activedescendant": this.isopen ? this.focusedItemId : "",
-      "aria-controls": `${this.inputid}_list`,
+      "role": role,
+      "aria-expanded": ariaExpanded,
+      "aria-activedescendant": ariaActivedescendant,
+      "aria-controls": ariaControls,
     };
   }
 
@@ -303,12 +315,13 @@ export class ZCombobox {
         onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
         role="button"
         tabindex={0}
+        aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
       >
-        <p class="body-3">
+        <span class="body-3">
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
-        </p>
+        </span>
         <z-icon
           name="caret-down"
           class={this.size}
@@ -318,20 +331,21 @@ export class ZCombobox {
   }
 
   private renderContent(): HTMLDivElement {
-    if (!this.isopen) {
-      return;
-    }
-
     return (
-      <div class="open-combo-data">
+      <div
+        id="open-combo-data"
+        class="open-combo-data"
+      >
         {this.hassearch && this.renderSearchInput()}
-        {!this.hassearch ? <span {...this.getComboboxA11yAttributes()} /> : null}
+        {!this.hassearch ? <span {...this.getComboboxA11yAttributes(false)} /> : null}
         <div
           role="listbox"
           aria-label={this.label}
-          aria-multiselectable={true}
+          aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={`${this.checkboxes.map((item) => item.id).join(" ")}`}
+          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
+            .map((item) => item.id)
+            .join(" ")}
         >
           {this.hascheckall && this.renderCheckAll()}
           {this.renderItems()}
@@ -342,20 +356,27 @@ export class ZCombobox {
 
   private renderItems(): HTMLDivElement {
     return (
-      <div class={this.searchValue && "search"}>
+      <div
+        class={this.searchValue && "search"}
+        tabIndex={-1}
+        role="presentation"
+      >
         {this.renderList(this.renderItemsList)}
-        {this.searchValue && this.renderCloseButton()}
       </div>
     );
   }
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
+    const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
+
     return (
       <z-list-element
-        id={item.id}
+        id={`option-${item.id}`}
         htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
+        role={isDisabled ? "presentation" : "option"}
+        aria-selected={item.checked ? "true" : "false"}
       >
         <z-input
           type={InputType.CHECKBOX}
@@ -363,10 +384,8 @@ export class ZCombobox {
           htmlid={this.getItemId(item)}
           label={item.name}
           class={this.getCheckboxClass()}
-          disabled={!item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems}
+          disabled={isDisabled}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          role="option"
-          aria-selected={item.checked ? "true" : "false"}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, this.getItemId(item))}
           onInputCheck={(e: CustomEvent) => {
             this.itemsList = this.itemsList.map((i: ComboItem) => {
@@ -398,7 +417,7 @@ export class ZCombobox {
     }
 
     return (
-      <ul role="none">
+      <ul role="presentation">
         {items.map((item, i) => {
           return this.renderItem(item, i, items.length);
         })}
@@ -431,28 +450,13 @@ export class ZCombobox {
       );
     });
 
-    return <ul role="none">{listGroups}</ul>;
+    return <ul role="presentation">{listGroups}</ul>;
   }
 
   private renderNoSearchResults(): HTMLUListElement {
     return (
       <div class="no-results">
         <span>{this.noresultslabel}</span>
-      </div>
-    );
-  }
-
-  private renderCloseButton(): HTMLDivElement {
-    return (
-      <div class="close-search">
-        <a
-          onClick={() => this.closeFilterItems()}
-          onKeyUp={(e: KeyboardEvent) => handleKeyboardSubmit(e, this.closeFilterItems)}
-          role="button"
-          tabindex={0}
-        >
-          {this.closesearchtext}
-        </a>
       </div>
     );
   }
@@ -468,12 +472,13 @@ export class ZCombobox {
         value={this.searchValue}
         message={false}
         size={this.size}
-        aria-autocomplete="list"
-        {...this.getComboboxA11yAttributes()}
+        html-aria-autocomplete="list"
+        {...this.getComboboxA11yAttributes(true)}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.key === KeyboardCode.ESC) {
             this.closeFilterItems();
           }
+          this.handleSelectArrowsNavigation(e);
         }}
         onInputChange={(e: CustomEvent) => {
           this.searchValue = e.detail.value;
@@ -491,7 +496,11 @@ export class ZCombobox {
     const allChecked = this.selectedCounter === this.itemsList.length;
 
     return (
-      <div class="check-all-wrapper">
+      <div
+        class="check-all-wrapper"
+        id="option-check-all"
+        role="option"
+      >
         <z-input
           type={InputType.CHECKBOX}
           checked={allChecked}
@@ -500,8 +509,6 @@ export class ZCombobox {
           label={allChecked ? this.uncheckalltext : this.checkalltext}
           disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
           size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          role="option"
-          aria-selected={allChecked ? "true" : "false"}
           onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
           onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
           onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
