@@ -58,9 +58,9 @@
 
 :host(:hover) ::slotted(z-td),
 :host(:hover) ::slotted(z-th) {
-  background-color: var(--color-surface02);
-  border-bottom: var(--border-size-small) solid var(--color-surface04);
   border-top: var(--border-size-small) solid var(--color-surface04);
+  border-bottom: var(--border-size-small) solid var(--color-surface04);
+  background-color: var(--color-surface02);
 }
 
 :host(:focus) {
