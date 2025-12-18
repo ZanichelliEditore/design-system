@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+ZToastNotification component.
+
 ## Properties
 
 | Property              | Attribute             | Description                                                                                  | Type                                                                                                                                                                                                                                                                                                                                                                     | Default     |
@@ -23,6 +27,14 @@
 | Event        | Description              | Type               |
 | ------------ | ------------------------ | ------------------ |
 | `toastClose` | notification close event | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description         |
+| ----------- | ------------------- |
+| `"button"`  | Custom button       |
+| `"message"` | Custom HTML message |
 
 
 ## Dependencies
