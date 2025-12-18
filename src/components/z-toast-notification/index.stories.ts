@@ -141,3 +141,56 @@ export const SlottedButtonLongText = {
       </z-toast-notification>
     </div>`,
 } satisfies Story;
+
+export const SlottedMessage = {
+  args: {transition: ToastNotificationTransition.SLIDE_IN_DOWN},
+  render: (args) =>
+    html`<div class="toast-container">
+      <z-toast-notification
+        heading="${args.heading}"
+        closebutton="${args.closebutton}"
+        autoclose="${args.autoclose}"
+        pauseonfocusloss="${args.pauseonfocusloss}"
+        type="${args.type}"
+        isdraggable="${args.isdraggable}"
+        draggablepercentage="${args.draggablepercentage}"
+        transition="${args.transition}"
+      >
+        <span slot="message"
+          >Messaggio con
+          <a
+            href="#"
+            class="z-link z-link-blue"
+            >link</a
+          >
+          e <b>grassetto</b></span
+        >
+      </z-toast-notification>
+    </div>`,
+} satisfies Story;
+
+export const SlottedMessageLongText = {
+  args: {transition: ToastNotificationTransition.SLIDE_IN_DOWN},
+  render: (args) =>
+    html`<div class="toast-container">
+      <z-toast-notification
+        heading="Titolo abbastanza lungo"
+        closebutton="${args.closebutton}"
+        autoclose="${args.autoclose}"
+        pauseonfocusloss="${args.pauseonfocusloss}"
+        type="${args.type}"
+        isdraggable="${args.isdraggable}"
+        draggablepercentage="${args.draggablepercentage}"
+        transition="${args.transition}"
+      >
+        <span slot="message"
+          >${longText}
+          <a
+            href="#"
+            class="z-link z-link-blue"
+            >link</a
+          ></span
+        >
+      </z-toast-notification>
+    </div>`,
+} satisfies Story;

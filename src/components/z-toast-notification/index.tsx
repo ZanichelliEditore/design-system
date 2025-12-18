@@ -4,6 +4,11 @@ import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../.
 import DOMPurify from "dompurify";
 import Hammer from "hammerjs";
 
+/**
+ * ZToastNotification component.
+ * @slot message - Custom HTML message
+ * @slot button - Custom button
+ */
 @Component({
   tag: "z-toast-notification",
   styleUrl: "styles.css",
@@ -223,10 +228,11 @@ export class ZToastNotification {
         <div id="inner-container">
           <div id="text">
             {this.heading && <span class="title">{this.heading}</span>}
-            <span
-              class="message"
-              innerHTML={DOMPurify.sanitize(this.message || " ")}
-            />
+            <span class="message">
+              <slot name="message">
+                <span innerHTML={DOMPurify.sanitize(this.message || " ")} />
+              </slot>
+            </span>
           </div>
           <div id="button">
             <slot name="button" />

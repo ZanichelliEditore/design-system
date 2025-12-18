@@ -2138,6 +2138,9 @@ export namespace Components {
          */
         "sticky": boolean;
     }
+    /**
+     * ZToastNotification component.
+     */
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -3581,6 +3584,9 @@ declare global {
     interface HTMLZToastNotificationElementEventMap {
         "toastClose": any;
     }
+    /**
+     * ZToastNotification component.
+     */
     interface HTMLZToastNotificationElement extends Components.ZToastNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZToastNotificationElementEventMap>(type: K, listener: (this: HTMLZToastNotificationElement, ev: ZToastNotificationCustomEvent<HTMLZToastNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6096,6 +6102,9 @@ declare namespace LocalJSX {
          */
         "sticky"?: boolean;
     }
+    /**
+     * ZToastNotification component.
+     */
     interface ZToastNotification {
         /**
           * toast notification closing timeout (ms)
@@ -6657,6 +6666,9 @@ declare module "@stencil/core" {
              * ZThead component.
              */
             "z-thead": LocalJSX.ZThead & JSXBase.HTMLAttributes<HTMLZTheadElement>;
+            /**
+             * ZToastNotification component.
+             */
             "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
