@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.1.0](https://github.com/ZanichelliEditore/design-system/compare/v19.0.1...v19.1.0) (2025-12-18)
+
+
+### Features
+
+* add an optional slot as a message in the z-toast-notification component ([b840b98](https://github.com/ZanichelliEditore/design-system/commit/b840b98f5f7b509d29db2e787653092216117bf6))
+
 ## [19.0.1](https://github.com/ZanichelliEditore/design-system/compare/v19.0.0...v19.0.1) (2025-12-15)
 
 
