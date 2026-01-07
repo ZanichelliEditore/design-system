@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, Element, Host, Prop, h} from "@stencil/core";
 
 /**
  * Ztag component.
@@ -13,6 +13,8 @@ import {Component, Host, Prop, h} from "@stencil/core";
   scoped: true,
 })
 export class ZTag {
+  @Element() host: HTMLZTagElement;
+
   /** [optional] Tag icon */
   @Prop()
   icon?: string;

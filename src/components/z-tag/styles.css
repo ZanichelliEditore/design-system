@@ -25,8 +25,8 @@
   transition: margin-right 0.3s ease-out;
 }
 
-:host(:not(.expandable)) > z-icon,
-:host(.expandable:hover) > z-icon {
+:host(:not(.expandable)) > z-icon:has(+ div),
+:host(.expandable:hover) > z-icon:has(+ div) {
   margin-right: var(--space-unit);
   transition: margin-right 0.3s ease-out 0s;
 }
