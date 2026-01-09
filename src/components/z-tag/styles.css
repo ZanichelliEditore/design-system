@@ -21,18 +21,17 @@
   text-transform: uppercase;
 }
 
-:host(.expandable) > z-icon {
+:host > z-icon {
+  margin-right: 0;
   transition: margin-right 0.3s ease-out;
 }
 
-:host(:not(.expandable)) > z-icon,
-:host(.expandable:hover) > z-icon {
+:host(.has-text):not(.expandable) > z-icon {
   margin-right: var(--space-unit);
-  transition: margin-right 0.3s ease-out 0s;
 }
 
-:host > z-icon:has(+ div:empty) {
-  margin-right: 0;
+:host(.has-text).expandable:hover > z-icon {
+  margin-right: var(--space-unit);
 }
 
 :host(.expandable) > div {

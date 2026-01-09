@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, Element, Host, Prop, h} from "@stencil/core";
 
 /**
  * Ztag component.
@@ -13,6 +13,8 @@ import {Component, Host, Prop, h} from "@stencil/core";
   scoped: true,
 })
 export class ZTag {
+  @Element() host: HTMLZTagElement;
+
   /** [optional] Tag icon */
   @Prop()
   icon?: string;
@@ -22,10 +24,13 @@ export class ZTag {
   expandable?: boolean;
 
   render(): HTMLZTagElement {
+    const hasText = this.host.textContent?.trim().length > 0;
+
     return (
       <Host
         class={{
-          expandable: this.expandable && !!this.icon,
+          "expandable": this.expandable && !!this.icon,
+          "has-text": hasText,
         }}
       >
         {this.icon && <z-icon name={this.icon} />}

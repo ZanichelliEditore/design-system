@@ -32,7 +32,7 @@ describe("Suite test ZTag", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-tag>
+      <z-tag class="has-text">
       <div>my custom element</div>
       </z-tag>
     `);
@@ -45,7 +45,7 @@ describe("Suite test ZTag", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-tag icon="gear" >
+      <z-tag class="has-text" icon="gear" >
         <z-icon name="gear"></z-icon>
         <div>my custom element</div>
       </z-tag>
@@ -59,7 +59,7 @@ describe("Suite test ZTag", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-tag icon="gear" style="--z-tag-text-color: var(--color-white); --z-tag-bg: var(--avatar-C19);">
+      <z-tag class="has-text" icon="gear" style="--z-tag-text-color: var(--color-white); --z-tag-bg: var(--avatar-C19);">
         <z-icon name="gear"></z-icon>
         <div>my custom element</div>
       </z-tag>
