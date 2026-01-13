@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.1.1](https://github.com/ZanichelliEditore/design-system/compare/v19.1.0...v19.1.1) (2026-01-13)
+
+
+### Bug Fixes
+
+* **DS-953:** fix margin right without text ([78d3559](https://github.com/ZanichelliEditore/design-system/commit/78d355968cc82b011816e45e14622892dfbe65bc))
+
 ## [19.1.0](https://github.com/ZanichelliEditore/design-system/compare/v19.0.1...v19.1.0) (2025-12-18)
 
 
