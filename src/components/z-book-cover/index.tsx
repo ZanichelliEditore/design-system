@@ -35,6 +35,10 @@ export class ZBookCover {
   @Prop({reflect: true})
   bordered = false;
 
+  /** Alt text for the cover image. If not provided, the image will be treated as decorative. */
+  @Prop()
+  alt?: string;
+
   render(): HTMLZBookCoverElement {
     return (
       <Host>
@@ -47,8 +51,8 @@ export class ZBookCover {
         <div class="cover-container">
           <img
             src={this.cover ?? defaultFallbackCover}
-            aria-hidden="true"
-            alt=""
+            aria-hidden={this.alt ? undefined : "true"}
+            alt={this.alt || ""}
             onError={() => (this.cover = this.fallbackCover || defaultFallbackCover)}
           />
           <slot name="coverOverlay"></slot>

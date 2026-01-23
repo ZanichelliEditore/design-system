@@ -44,6 +44,10 @@ export class ZResultCard {
   @Prop()
   titleHtmlTag?: string;
 
+  /** [optional] Alt text for the cover image. */
+  @Prop()
+  coverAlt?: string;
+
   private authorsRef: HTMLElement;
 
   private titleRef: HTMLElement;
@@ -131,6 +135,7 @@ export class ZResultCard {
           fallbackCover={this.fallbackCover}
           multiple={this.hasMultipleCovers}
           bordered={true}
+          alt={this.coverAlt}
         ></z-book-cover>
         <div class="info-container">
           {this.authors && (
