@@ -482,8 +482,7 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
-    const clickedElement = getClickedElement();
-    if (clickedElement?.hasAttribute("disabled")) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB) {
       return;
     }
 
@@ -493,7 +492,8 @@ export class ZSelect {
       return this.toggleSelectUl(true);
     }
 
-    if (e instanceof KeyboardEvent && (e.key === KeyboardCode.ENTER || e.key !== KeyboardCode.TAB)) {
+    const clickedElement = getClickedElement();
+    if (clickedElement?.hasAttribute("disabled")) {
       return;
     }
 
@@ -651,7 +651,9 @@ export class ZSelect {
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role="option"
-        html-tabindex={item.disabled || !this.isOpen ? -1 : 0}
+        html-tabindex={
+          item.disabled || !this.isOpen || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0
+        }
         aria-selected={item.selected ? "true" : "false"}
         id={`${this.htmlid}_key_${thisItemKey}`}
         size={this.listSizeType()}
@@ -749,7 +751,7 @@ export class ZSelect {
           id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
-          tabIndex={!this.isOpen || isDisabled ? -1 : 0}
+          tabIndex={!this.isOpen || isDisabled || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
             this.arrowsSelectNav(e, thisItemKey);
