@@ -417,6 +417,7 @@ export class ZInput {
         type="button"
         class={{"reset-icon": true, "input-icon": true, hidden}}
         aria-label="cancella il contenuto dell'input"
+        tabindex="-1"
         onClick={() => {
           this.inputRef.value = "";
           this.emitInputChange("");
@@ -437,6 +438,7 @@ export class ZInput {
         class="input-icon toggle-password-icon"
         disabled={this.disabled}
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
+        tabindex="-1"
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
         <z-icon
