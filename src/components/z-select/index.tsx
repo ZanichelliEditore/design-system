@@ -423,11 +423,19 @@ export class ZSelect {
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
       do {
-        newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
+        if (newIndex === lastIndex) {
+          return;
+        }
+
+        newIndex = newIndex + 1;
       } while (flatItems[newIndex].item.disabled);
     } else {
       do {
-        newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
+        if (newIndex <= 0) {
+          return;
+        }
+
+        newIndex = newIndex - 1;
       } while (flatItems[newIndex].item.disabled);
     }
 
