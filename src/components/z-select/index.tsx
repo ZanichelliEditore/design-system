@@ -556,14 +556,6 @@ export class ZSelect {
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
-        onKeyUp={(e: KeyboardEvent) => {
-          e.preventDefault();
-          if (this.hasAutocomplete()) {
-            if (!this.isOpen) {
-              this.toggleSelectUl();
-            }
-          }
-        }}
         onKeyDown={(e: KeyboardEvent) => {
           const current = this.selectedItem
             ? this.itemIdKeyMap[this.selectedItem.id]

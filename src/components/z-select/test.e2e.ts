@@ -145,10 +145,10 @@ describe("z-select test end2end", () => {
 
     const select = await page.find("z-select");
 
-    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
-
     await (await page.find("body")).press("Tab");
     await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
