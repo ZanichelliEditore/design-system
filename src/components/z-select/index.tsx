@@ -412,8 +412,10 @@ export class ZSelect {
     if (!this.isOpen) {
       this.toggleSelectUl();
 
-      if (currentIndex === -1) {
-        currentIndex = -1;
+      if (currentIndex > -1) {
+        this.focusSelectItem(flatItems[currentIndex].key);
+
+        return;
       }
     }
 
@@ -443,7 +445,12 @@ export class ZSelect {
   }
 
   private focusSelectItem(key: number): void {
-    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_key_${key}`)?.focus();
+    const elemId = `#${this.htmlid}_key_${key}`;
+    const elem = this.host.querySelector<HTMLDivElement>(elemId);
+    if (elem) {
+      this.focusedItemId = elemId;
+      elem.focus();
+    }
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -502,7 +509,8 @@ export class ZSelect {
         (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
       )
     ) {
-      this.toggleSelectUl(true);
+      const zSelect = getElementTree(clickedElement).find((e) => e.nodeName === "Z-SELECT");
+      this.toggleSelectUl(zSelect === this.host);
     }
   }
 
@@ -511,6 +519,9 @@ export class ZSelect {
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
     if (foundItem > -1) {
+      if (!this.isOpen) {
+        this.toggleSelectUl();
+      }
       this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
   }
